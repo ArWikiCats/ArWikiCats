@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot import get_Films_key_CAO
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import get_Films_key_CAO
 
 fast_data_drama_cao = {
     "3d films": "أفلام ثلاثية الأبعاد",

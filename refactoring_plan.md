@@ -303,7 +303,6 @@ from ArWikiCats.config import app_settings, print_settings
 │  ├── format_bots/                      │  ├── country_bot.py                │
 │  ├── date_bots/                        │  ├── country2_bot.py               │
 │  ├── jobs_bots/                        │  └── ye_ts_bot.py                  │
-│  ├── media_bots/                       │                                     │
 │  ├── sports_bots/                      │  ma_bots2/                          │
 │  └── matables_bots/                    │  └── ...                            │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -587,12 +586,12 @@ from typing import Dict, Optional, List
 
 class TranslationRepository(ABC):
     """Abstract base class for translation data access."""
-    
+
     @abstractmethod
     def get_translation(self, key: str) -> Optional[str]:
         """Get translation for a given key."""
         pass
-    
+
     @abstractmethod
     def has_translation(self, key: str) -> bool:
         """Check if translation exists."""
@@ -601,27 +600,27 @@ class TranslationRepository(ABC):
 
 class DictionaryTranslationRepository(TranslationRepository):
     """Dictionary-based translation repository."""
-    
+
     def __init__(self, data: Dict[str, str]):
         self._data = data
-    
+
     def get_translation(self, key: str) -> Optional[str]:
         return self._data.get(key)
-    
+
     def has_translation(self, key: str) -> bool:
         return key in self._data
 
 
 class NationalityRepository(TranslationRepository):
     """Repository for nationality translations."""
-    
+
     def __init__(self):
         self._load_data()
-    
+
     def _load_data(self):
         # Load from ArWikiCats/jsons/nationalities/
         pass
-    
+
     def get_nationality(self, english: str) -> Optional[dict]:
         """Get full nationality data including masculine, feminine, plural."""
         pass
@@ -629,17 +628,17 @@ class NationalityRepository(TranslationRepository):
 
 class GeographyRepository(TranslationRepository):
     """Repository for geography translations."""
-    
+
     def __init__(self):
         self._load_data()
-    
+
     def _load_data(self):
         # Load from ArWikiCats/jsons/geography/
         pass
-    
+
     def get_country(self, english: str) -> Optional[str]:
         pass
-    
+
     def get_city(self, english: str) -> Optional[str]:
         pass
 ```
@@ -659,7 +658,7 @@ from typing import Protocol
 
 class ResolverProtocol(Protocol):
     """Protocol for category resolvers."""
-    
+
     def resolve(self, category: str) -> str:
         """Resolve a category to Arabic translation."""
         ...
@@ -667,13 +666,13 @@ class ResolverProtocol(Protocol):
 
 class CacheProtocol(Protocol):
     """Protocol for caching implementations."""
-    
+
     def get(self, key: str) -> Optional[str]:
         ...
-    
+
     def set(self, key: str, value: str) -> None:
         ...
-    
+
     def clear(self) -> None:
         ...
 
@@ -681,22 +680,22 @@ class CacheProtocol(Protocol):
 @dataclass
 class Container:
     """Dependency injection container."""
-    
+
     # Repositories
     nationality_repo: NationalityRepository
     geography_repo: GeographyRepository
     jobs_repo: JobsRepository
-    
+
     # Resolvers
     time_resolver: TimeResolver
     pattern_resolver: PatternResolver
-    
+
     # Cache
     cache: CacheProtocol
-    
+
     # Configuration
     config: Config
-    
+
     @classmethod
     def create_default(cls) -> 'Container':
         """Create container with default implementations."""
@@ -709,7 +708,7 @@ class Container:
             cache=LRUCache(),
             config=settings,
         )
-    
+
     @classmethod
     def create_for_testing(cls, **overrides) -> 'Container':
         """Create container with test implementations."""
@@ -726,7 +725,7 @@ class Container:
 class CategoryResolver:
     def __init__(self, container: Container = None):
         self.container = container or Container.create_default()
-    
+
     def resolve(self, category: str) -> CategoryResult:
         # Use self.container.nationality_repo instead of direct imports
         pass
@@ -746,7 +745,7 @@ class ArWikiCatsError(Exception):
 
 class TranslationError(ArWikiCatsError):
     """Error during translation process."""
-    
+
     def __init__(self, category: str, message: str, cause: Exception = None):
         self.category = category
         self.cause = cause
@@ -755,7 +754,7 @@ class TranslationError(ArWikiCatsError):
 
 class PatternMatchError(ArWikiCatsError):
     """Error during pattern matching."""
-    
+
     def __init__(self, pattern: str, input_text: str, message: str):
         self.pattern = pattern
         self.input_text = input_text
@@ -764,7 +763,7 @@ class PatternMatchError(ArWikiCatsError):
 
 class DataLoadError(ArWikiCatsError):
     """Error loading translation data."""
-    
+
     def __init__(self, data_source: str, message: str):
         self.data_source = data_source
         super().__init__(f"Failed to load data from '{data_source}': {message}")
@@ -772,7 +771,7 @@ class DataLoadError(ArWikiCatsError):
 
 class ConfigurationError(ArWikiCatsError):
     """Error in configuration."""
-    
+
     def __init__(self, config_key: str, message: str):
         self.config_key = config_key
         super().__init__(f"Configuration error for '{config_key}': {message}")
@@ -800,10 +799,10 @@ T = TypeVar('T')
 
 class ErrorHandler:
     """Centralized error handling for ArWikiCats."""
-    
+
     def __init__(self, logger_instance=None):
         self.logger = logger_instance or logger
-    
+
     def handle_translation_error(
         self,
         error: Exception,
@@ -816,7 +815,7 @@ class ErrorHandler:
         else:
             self.logger.error(f"Unexpected error translating '{category}': {error}")
         return default
-    
+
     def safe_resolve(
         self,
         func: Callable[..., T],
@@ -893,7 +892,7 @@ class CacheStats:
     hits: int = 0
     misses: int = 0
     size: int = 0
-    
+
     @property
     def hit_rate(self) -> float:
         total = self.hits + self.misses
@@ -902,19 +901,19 @@ class CacheStats:
 
 class CacheBackend(ABC, Generic[T]):
     """Abstract cache backend."""
-    
+
     @abstractmethod
     def get(self, key: str) -> Optional[T]:
         pass
-    
+
     @abstractmethod
     def set(self, key: str, value: T) -> None:
         pass
-    
+
     @abstractmethod
     def clear(self) -> None:
         pass
-    
+
     @abstractmethod
     def stats(self) -> CacheStats:
         pass
@@ -922,13 +921,13 @@ class CacheBackend(ABC, Generic[T]):
 
 class LRUCacheBackend(CacheBackend[T]):
     """Thread-safe LRU cache with statistics."""
-    
+
     def __init__(self, maxsize: int = 10000):
         self.maxsize = maxsize
         self._cache: Dict[str, T] = {}
         self._stats = CacheStats()
         self._lock = threading.RLock()
-    
+
     def get(self, key: str) -> Optional[T]:
         with self._lock:
             if key in self._cache:
@@ -936,7 +935,7 @@ class LRUCacheBackend(CacheBackend[T]):
                 return self._cache[key]
             self._stats.misses += 1
             return None
-    
+
     def set(self, key: str, value: T) -> None:
         with self._lock:
             if len(self._cache) >= self.maxsize:
@@ -945,12 +944,12 @@ class LRUCacheBackend(CacheBackend[T]):
                 del self._cache[oldest_key]
             self._cache[key] = value
             self._stats.size = len(self._cache)
-    
+
     def clear(self) -> None:
         with self._lock:
             self._cache.clear()
             self._stats = CacheStats()
-    
+
     def stats(self) -> CacheStats:
         with self._lock:
             return CacheStats(
@@ -962,16 +961,16 @@ class LRUCacheBackend(CacheBackend[T]):
 
 class NoOpCacheBackend(CacheBackend[T]):
     """No-operation cache for testing."""
-    
+
     def get(self, key: str) -> Optional[T]:
         return None
-    
+
     def set(self, key: str, value: T) -> None:
         pass
-    
+
     def clear(self) -> None:
         pass
-    
+
     def stats(self) -> CacheStats:
         return CacheStats()
 
@@ -985,19 +984,19 @@ def cached_translation(func):
     @functools.wraps(func)
     def wrapper(category: str, *args, **kwargs):
         cache_key = f"{category}:{args}:{kwargs}"
-        
+
         # Try cache first
         cached = _translation_cache.get(cache_key)
         if cached is not None:
             return cached
-        
+
         # Execute function
         result = func(category, *args, **kwargs)
-        
+
         # Store in cache
         _translation_cache.set(cache_key, result)
         return result
-    
+
     return wrapper
 
 
@@ -1063,7 +1062,7 @@ class Config:
     cache: CacheConfig = field(default_factory=CacheConfig)
     resolver: ResolverConfig = field(default_factory=ResolverConfig)
     app: AppConfig = field(default_factory=AppConfig)
-    
+
     @classmethod
     def from_environment(cls) -> 'Config':
         """Create configuration from environment variables."""
@@ -1085,7 +1084,7 @@ class Config:
                 save_data_path=os.getenv("SAVE_DATA_PATH", ""),
             ),
         )
-    
+
     @classmethod
     def for_testing(cls) -> 'Config':
         """Create configuration for testing."""
@@ -1149,40 +1148,40 @@ Notes:
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     """
     Resolve an English category name to its Arabic translation.
-    
+
     This is the core resolution function that orchestrates multiple resolvers
     to find the appropriate Arabic translation for a given category.
-    
+
     Args:
         category: The English category name (without "Category:" prefix).
                   Example: "2015 in Yemen"
         fix_label: Whether to apply post-processing fixes to the label.
                    Default is True.
-    
+
     Returns:
         CategoryResult: A dataclass containing:
             - en: Original English category
             - ar: Arabic translation (empty string if not found)
             - from_match: Boolean indicating if resolved via pattern matching
-    
+
     Raises:
         None: This function doesn't raise exceptions; failures return
               CategoryResult with empty ar field.
-    
+
     Examples:
         >>> result = resolve_label("2015 in Yemen")
         >>> print(result.ar)
         '2015 في اليمن'
-        
+
         >>> result = resolve_label("Belgian cyclists")
         >>> print(result.from_match)
         True
-    
+
     Notes:
         - Results are cached using LRU cache
         - Resolution follows a priority chain (see resolver documentation)
         - Invalid categories return empty translations
-    
+
     See Also:
         - resolve_label_ar: Convenience function returning only Arabic string
         - resolve_arabic_category_label: Full resolution with prefix
@@ -1206,11 +1205,11 @@ import itertools
 
 class BatchProcessor:
     """Optimized batch processing for categories."""
-    
+
     def __init__(self, chunk_size: int = 1000, max_workers: int = 4):
         self.chunk_size = chunk_size
         self.max_workers = max_workers
-    
+
     def process_batch(
         self,
         categories: List[str],
@@ -1218,27 +1217,27 @@ class BatchProcessor:
     ) -> Iterator[Tuple[str, str]]:
         """
         Process categories in optimized batches.
-        
+
         Args:
             categories: List of category strings
             processor_func: Function to process each category
-        
+
         Yields:
             Tuples of (original_category, translated_label)
         """
         # Split into chunks for parallel processing
         chunks = list(self._chunk_list(categories, self.chunk_size))
-        
+
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             futures = {
                 executor.submit(self._process_chunk, chunk, processor_func): i
                 for i, chunk in enumerate(chunks)
             }
-            
+
             for future in as_completed(futures):
                 chunk_results = future.result()
                 yield from chunk_results
-    
+
     def _process_chunk(
         self,
         chunk: List[str],
@@ -1253,7 +1252,7 @@ class BatchProcessor:
             except Exception as e:
                 results.append((category, ""))
         return results
-    
+
     @staticmethod
     def _chunk_list(lst: List, chunk_size: int) -> Iterator[List]:
         """Split list into chunks."""
@@ -1273,10 +1272,10 @@ from concurrent.futures import ProcessPoolExecutor
 
 class AsyncCategoryProcessor:
     """Async category processing for high-throughput scenarios."""
-    
+
     def __init__(self, max_concurrent: int = 100):
         self.semaphore = asyncio.Semaphore(max_concurrent)
-    
+
     async def process_category(self, category: str) -> str:
         """Process a single category asynchronously."""
         async with self.semaphore:
@@ -1288,7 +1287,7 @@ class AsyncCategoryProcessor:
                 category
             )
             return result.ar
-    
+
     async def process_batch(self, categories: List[str]) -> Dict[str, str]:
         """Process multiple categories concurrently."""
         tasks = [
@@ -1296,7 +1295,7 @@ class AsyncCategoryProcessor:
             for cat in categories
         ]
         results = await asyncio.gather(*tasks, return_exceptions=True)
-        
+
         return {
             cat: (res if isinstance(res, str) else "")
             for cat, res in zip(categories, results)
@@ -1328,17 +1327,17 @@ import gc
 
 class LazyLoader:
     """Lazy loading for translation dictionaries."""
-    
+
     def __init__(self, load_func):
         self._load_func = load_func
         self._data = None
-    
+
     @property
     def data(self):
         if self._data is None:
             self._data = self._load_func()
         return self._data
-    
+
     def unload(self):
         """Unload data to free memory."""
         self._data = None
@@ -1347,7 +1346,7 @@ class LazyLoader:
 
 class MemoryManager:
     """Memory management utilities."""
-    
+
     @staticmethod
     def get_object_size(obj: Any) -> int:
         """Get approximate memory size of an object."""
@@ -1360,7 +1359,7 @@ class MemoryManager:
         elif isinstance(obj, (list, tuple)):
             size += sum(sys.getsizeof(item) for item in obj)
         return size
-    
+
     @staticmethod
     def optimize_dict(d: Dict[str, str]) -> Dict[str, str]:
         """Optimize dictionary memory usage using string interning."""
@@ -1408,7 +1407,7 @@ class CategoryResultDict(TypedDict):
 # Protocols for dependency injection
 class ResolverProtocol(Protocol):
     """Protocol for resolver implementations."""
-    
+
     def resolve(self, category: CategoryName) -> ArabicLabel:
         """Resolve category to Arabic label."""
         ...
@@ -1416,10 +1415,10 @@ class ResolverProtocol(Protocol):
 
 class CacheProtocol(Protocol):
     """Protocol for cache implementations."""
-    
+
     def get(self, key: str) -> Optional[str]:
         ...
-    
+
     def set(self, key: str, value: str) -> None:
         ...
 
@@ -1513,10 +1512,10 @@ ArWikiCats Code Style Guide
    - Example:
      def function(arg: str) -> str:
          '''Brief description.
-         
+
          Args:
              arg: Description of argument.
-         
+
          Returns:
              Description of return value.
          '''
@@ -1527,13 +1526,13 @@ ArWikiCats Code Style Guide
    - Use absolute imports from ArWikiCats
    - Example:
      from __future__ import annotations
-     
+
      import os
      import sys
      from typing import Dict, List
-     
+
      import pytest
-     
+
      from ArWikiCats.config import settings
      from ArWikiCats.main_processers import main_resolve
 

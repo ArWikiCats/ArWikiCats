@@ -5,9 +5,9 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.media_bots.resolve_films import get_films_key_tyty_new
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
-fast_data1 = {
+fast_data_with_nats = {
     "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
     "american drama television series": "مسلسلات تلفزيونية درامية أمريكية",
     # nats
@@ -21,6 +21,12 @@ fast_data1 = {
     "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
     "Yemeni upcoming films": "أفلام قادمة يمنية",
 
+    "heist japanese horror films": "أفلام سرقة رعب يابانية",
+    "Yemeni action thriller adult animated supernatural films": "أفلام إثارة حركة رسوم متحركة خارقة للطبيعة للكبار يمنية",
+
+}
+
+fast_data_no_nats = {
     # films keys
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
@@ -32,7 +38,6 @@ fast_data1 = {
     "heist independent films": "أفلام سرقة مستقلة",
     "heist interactive films": "أفلام سرقة تفاعلية",
     "heist internet films": "أفلام سرقة إنترنت",
-    "heist japanese horror films": "أفلام سرقة رعب يابانية",
     "heist joker films": "أفلام سرقة جوكر",
     "heist kaiju films": "أفلام سرقة كايجو",
     "heist kung fu films": "أفلام سرقة كونغ فو",
@@ -68,15 +73,23 @@ fast_data1 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data1.items(), ids=fast_data1.keys())
+@pytest.mark.parametrize("category, expected", fast_data_no_nats.items(), ids=fast_data_no_nats.keys())
 @pytest.mark.fast
 def test_get_films_key_tyty(category: str, expected: str) -> None:
     label2 = get_films_key_tyty_new(category)
     assert label2 == expected
 
 
+@pytest.mark.parametrize("category, expected", fast_data_with_nats.items(), ids=fast_data_with_nats.keys())
+@pytest.mark.fast
+def test_fast_data_with_nats(category: str, expected: str) -> None:
+    label2 = get_films_key_tyty_new(category)
+    assert label2 == expected
+
+
 to_test = [
-    ("test_get_films_key_tyty", fast_data1, get_films_key_tyty_new),
+    ("test_get_films_key_tyty", fast_data_no_nats, get_films_key_tyty_new),
+    ("test_fast_data_with_nats", fast_data_with_nats, get_films_key_tyty_new),
 ]
 
 

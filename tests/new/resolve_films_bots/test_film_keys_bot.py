@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.media_bots.film_keys_bot import Films, films_with_nat
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films, films_with_nat
 
 fast_data = [
     {"category": "algerian television series debuts", "country_start": "algerian", "country_code": "television series debuts", "output": "مسلسلات تلفزيونية جزائرية بدأ عرضها في"},
@@ -207,5 +207,5 @@ fast_data_Films = [
 @pytest.mark.parametrize("data", fast_data_Films, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_Films(data) -> None:
-    label = Films(data["category"], "", "")
+    label = Films(data["category"])
     assert label == data["output"]

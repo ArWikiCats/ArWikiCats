@@ -20,7 +20,7 @@ from ..translations import (
 )
 from ..time_resolvers import with_years_bot
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make_bots.media_bots.films_bot import te_films
+from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots.sports_bots import team_work
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic

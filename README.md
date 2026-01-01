@@ -156,6 +156,10 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 3.2 التثبيت
 
 ```bash
+pip install ArWikiCats --pre
+```
+or
+```bash
 git clone https://github.com/MrIbrahem/ArWikiCats.git
 cd ArWikiCats
 pip install -r requirements.in
