@@ -428,7 +428,52 @@ Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
 # Films_key_For_nat_extended, films_mslslat_tab = _build_series_and_nat_keys(film_keys_for_female)
 
 Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
+
+Films_key_For_nat_extended.update({
+    "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
+
+    "web series endings": "مسلسلات ويب {} انتهت في",
+    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة {} انتهت في",
+    "comics endings": "قصص مصورة {} انتهت في",
+    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+
+    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "comics debuts": "قصص مصورة {} بدأ عرضها في",
+    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة {} بدأ عرضها في",
+    "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
+    "anime television series debuts": "مسلسلات تلفزيونية أنمي {} بدأ عرضها في",
+
+    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
+    "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
+    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
+})
+
 films_mslslat_tab = open_json_file("films_mslslat_tab_found.json")
+films_mslslat_tab.update({
+
+    "comics endings": "قصص مصورة انتهت في",
+    "television series endings": "مسلسلات تلفزيونية انتهت في",
+    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة انتهت في",
+    "web series endings": "مسلسلات ويب انتهت في",
+    "web series debuts": "مسلسلات ويب بدأ عرضها في",
+    "anime television series debuts": "مسلسلات تلفزيونية أنمي بدأ عرضها في",
+    "comics debuts": "قصص مصورة بدأ عرضها في",
+    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة بدأ عرضها في",
+    "television series debuts": "مسلسلات تلفزيونية بدأ عرضها في",
+
+    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة",
+    "supernatural comics": "قصص مصورة خارقة للطبيعة",
+    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار",
+    "superhero television characters": "شخصيات تلفزيونية خارقة",
+    "superhero television series": "مسلسلات تلفزيونية خارقة",
+    "superhero film series": "سلاسل أفلام خارقة",
+    "superhero television episodes": "حلقات تلفزيونية خارقة",
+    "superhero video games": "ألعاب فيديو خارقة",
+    "superhero web series": "مسلسلات ويب خارقة",
+    "superhero comics": "قصص مصورة خارقة",
+    "superhero television films": "أفلام تلفزيونية خارقة",
+
+})
 
 films_mslslat_tab.update({
     x.replace(" endings", "-endings"): y
@@ -436,6 +481,17 @@ films_mslslat_tab.update({
     if " endings" in x
 })
 Films_key_For_nat.update(Films_key_For_nat_extended)
+
+Films_key_For_nat.update({
+    "superhero film series": "سلاسل أفلام خارقة {}",
+    "superhero television episodes": "حلقات تلفزيونية خارقة {}",
+    "superhero video games": "ألعاب فيديو خارقة {}",
+    "superhero web series": "مسلسلات ويب خارقة {}",
+    "superhero television films": "أفلام تلفزيونية خارقة {}",
+    "superhero comics": "قصص مصورة خارقة {}",
+    "superhero television characters": "شخصيات تلفزيونية خارقة {}",
+    "superhero television series": "مسلسلات تلفزيونية خارقة {}",
+})
 
 # Build television CAO mappings
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
