@@ -3,15 +3,15 @@
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Beta-orange)]()
-[![Tests](https://img.shields.io/badge/tests-20000+-success)]()
+[![Tests](https://img.shields.io/badge/tests-28500+-success)]()
 
 ---
 
 # جدول المحتويات
 
-- [لماذا ArWikiCats](#لماذا-ArWikiCats)
+- [لماذا ArWikiCats](#لماذا-arwikicats)
 - [1. المزايا الرئيسية](#1-المزايا-الرئيسية)
-- [2. داخل محرك ArWikiCats](#2-داخل-محرك-ArWikiCats)
+- [2. داخل محرك ArWikiCats](#2-داخل-محرك-arwikicats)
 - [3. المتطلبات والتثبيت](#3-المتطلبات-والتثبيت)
 - [4. الاستخدام السريع](#4-الاستخدام-السريع)
 - [5. إعدادات النظام](#5-إعدادات-النظام)
@@ -35,6 +35,7 @@
 * معالجة التصنيفات بدقة عالية.
 * تنفيذ أنماط زمنية وجغرافية ووظيفية ورياضية معقدة.
 * دعم عمل البوتات ومهام الإنتاج التحريري.
+* معالجة الفئات المركبة التي تتضمن جنسيات ورياضات ووظائف معًا.
 
 ---
 
@@ -42,17 +43,18 @@
 
 * **سرعة عالية للغاية** بعد التحسينات الأخيرة.
 * **قواعد ترجمة واسعة** تغطي آلاف الأنماط (سنوات – بلدان – وظائف – رياضة – إعلام).
-* **تخزين مؤقت داخلي** لتسريع الأداء في كل خطوة.
+* **تخزين مؤقت داخلي** لتسريع الأداء في كل خطوة باستخدام `functools.lru_cache`.
 * **نظام وحدات (Bots)** قابل للتوسعة بسهولة.
 * **نتائج دقيقة وموحّدة** متوافقة مع أسلوب ويكيبيديا العربية.
 * **قدرة على معالجة دفعات ضخمة** تشمل آلاف أو مئات آلاف التصنيفات.
+* **محللات متعددة المستويات** لحل الفئات المعقدة (وظائف، جنسيات، رياضات، أسماء بلدان).
 
 ---
 
 # 2. داخل محرك ArWikiCats
 
 المعالجة الكاملة تمر عبر المراحل التالية:
-* التصنيف الخام → التطبيع → اكتشاف الأنماط الزمنية → مطابقة القواعد والترجمات → وحدة الحل الرئيسية → تنسيق العربية → التسمية النهائية (تصنيف:)
+* التصنيف الخام → التطبيع → اكتشاف الأنماط الزمنية → المحللات المتخصصة (وظائف/رياضات/جنسيات/بلدان) → مطابقة القواعد والترجمات → وحدة الحل الرئيسية → تنسيق العربية → التسمية النهائية (تصنيف:)
 
 
 ---
@@ -93,15 +95,15 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 * **[الجغرافيا](ArWikiCats/jsons/geography) و[المدن](ArWikiCats/jsons/cities)**:
 	- المدن والدول والمناطق والأقاليم والمحافظات والبلديات والمقاطعات والتقسيمات الإدارية الأخرى.
 * **[الوظائف والمهن](ArWikiCats/jsons/jobs)**:
-	- مختلف مسميات الوظائف والمهن والأعمال. وتصنيفها حسب الجنس (للرجال/للسيدات) يشمل ذلك الوظائف الرياضية والوظائف السينمائية والمهن العلمية.
+	- مختلف مسميات الوظائف والمهن والأعمال. وتصنيفها حسب الجنس (للرجال/للسيدات) يشمل ذلك الوظائف الرياضية والوظائف السينمائية والمهن العلمية والدينية.
 * **[الرياضات](ArWikiCats/jsons/sports)**:
-    - التسميات والفرق والوظائف والألعاب الأولمبية، والتنسيقات الرياضية، وأسماء الفرق، ومراكز اللاعبين، ومصطلحات مختلف الرياضات.
+    - التسميات والفرق والوظائف والألعاب الأولمبية، والتنسيقات الرياضية، وأسماء الفرق، ومراكز اللاعبين، ومصطلحات مختلف الرياضات، والرياضات النسائية والشبابية.
 * **[الأفلام والتلفزيون](ArWikiCats/jsons/media)**:
 	- الأفلام وأنواعها ومهن صناعة السينما، مثل صناع الأفلام والمخرجين والممثلين، وأنواع وتنسيقات التلفزيون وكافة المصطلحات المتعلقة بالأفلام والتلفزيون.
 * **الجوائز والأحداث**:
 	- جوائز الأفلام والمسابقات الرياضية والجوائز الموسيقية، والأحداث والمناسبات حسب الشهر والسنة.
 * **[المفاهيم](ArWikiCats/jsons/keys)**:
-	- الأيديولوجيات السياسية، والفترات التاريخية، والمجالات العلمية، والمفاهيم الاقتصادية.
+	- الأيديولوجيات السياسية، والفترات التاريخية، والمجالات العلمية، والمفاهيم الاقتصادية، واللغات.
 * **[الكيانات والأشياء](ArWikiCats/jsons/population)**:
 	- المباني والبنية التحتية والمركبات والأسلحة والكتب والألبومات.
 * **[الأنواع](ArWikiCats/jsons/taxonomy)**:
@@ -118,9 +120,11 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 
 وظيفته:
 
-* تجربة القواعد حسب الأولوية.
+* تجربة المحللات المتخصصة حسب الأولوية (وظائف ← رياضات ← جنسيات ← بلدان).
+* معالجة الأنماط الزمنية (سنوات، عقود، قرون).
 * التوقف عند أول تطابق صحيح.
 * ضمان الاتساق بين التصنيفات.
+* استخدام التخزين المؤقت لتحسين الأداء.
 
 ---
 
@@ -136,9 +140,9 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 
 ## 2.6 إضافة بادئة "تصنيف:"
 
-عبر:
+عبر دالة:
 
-`EventProcessor._prefix_label`
+`EventProcessor._prefix_label()`
 
 ---
 
@@ -180,32 +184,77 @@ categories = [
     "Category:2015 American television",
     "Category:1999 establishments in Europe",
     "Category:Belgian cyclists",
+    "Category:American basketball coaches",
 ]
 
 result = batch_resolve_labels(categories)
 
-print(result.labels)
-print(result.no_labels)
+print(f"تم ترجمة: {len(result.labels)} تصنيف")
+print(f"لم يُترجم: {len(result.no_labels)} تصنيف")
+print(f"أنماط مكتشفة: {result.category_patterns}")
+
+# عرض النتائج
+for en, ar in result.labels.items():
+    print(f"  {en} → {ar}")
 ```
 
-## 4.3 تشغيل الأمثلة
+## 4.3 استخدام دالة الترجمة المباشرة
+
+```python
+from ArWikiCats import resolve_label_ar
+
+# بدون بادئة "تصنيف:"
+label = resolve_label_ar("American basketball players")
+print(label)
+# لاعبو كرة سلة أمريكيون
+```
+
+## 4.4 معالجة تصنيف مع تفاصيل كاملة
+
+```python
+from ArWikiCats import EventProcessor
+
+processor = EventProcessor()
+result = processor.process_single("Category:British footballers")
+
+print(f"الأصلي: {result.original}")
+print(f"المُعيّر: {result.normalized}")
+print(f"التسمية الخام: {result.raw_label}")
+print(f"التسمية النهائية: {result.final_label}")
+print(f"تم إيجاد تسمية: {result.has_label}")
+```
+
+## 4.5 تشغيل الأمثلة
 
 ```bash
-python examples/run.py
-python examples/1k.py
-python examples/5k.py
+python examples/run.py           # مثال بسيط
+python examples/1k.py            # معالجة 1000 تصنيف
+python examples/5k.py            # معالجة 5000 تصنيف
 ```
 
 ---
 
 # 5. إعدادات النظام
 
-يمكن تخصيص سلوك النظام باستخدام:
+يمكن تخصيص سلوك النظام باستخدام متغيرات البيئة أو معاملات سطر الأوامر:
 
-* `TGC_RESOLVER_FIRST`
-* `STUBS` أو `-STUBS`
-* `MAKEERR`
-* `NOPRINT`
+| الإعداد | الوصف |
+|---------|-------|
+| `TGC_RESOLVER_FIRST` | تفعيل المحلل العام أولاً |
+| `-STUBS` | البحث عن تصنيفات البذور |
+| `MAKEERR` | تفعيل وضع تتبع الأخطاء |
+| `NOPRINT` | إيقاف طباعة الرسائل |
+| `SAVE_DATA_PATH` | مسار حفظ البيانات المؤقتة |
+
+مثال على الاستخدام:
+
+```bash
+# عبر متغيرات البيئة
+NOPRINT=true python examples/run.py
+
+# عبر سطر الأوامر
+python examples/run.py -stubs
+```
 
 تفاصيل كل متغير موجودة في:
 
@@ -224,17 +273,34 @@ python examples/5k.py
 مثال:
 
 ```python
+# في ArWikiCats/translations/jobs/Jobs.py
 jobs_mens_data = {
     "footballers": "لاعبو كرة قدم",
     "painters": "رسامون",
 }
+
+jobs_womens_data = {
+    "footballers": "لاعبات كرة قدم",
+    "painters": "رسامات",
+}
 ```
 
-## 6.2 إضافة قواعد جديدة
+## 6.2 إضافة محلل جديد
+
+أضف محللك في `ArWikiCats/new_resolvers/` واربطه في `reslove_all.py`:
 
 ```python
-if not resolved_label:
-    resolved_label = new_bot.translate(cate)
+# في ArWikiCats/new_resolvers/reslove_all.py
+from .your_resolver import resolve_your_category
+
+def new_resolvers_all(category: str) -> str:
+    category_lab = (
+        resolve_jobs_main(category) or
+        resolve_your_category(category) or  # المحلل الجديد
+        resolve_sports_main(category) or
+        ""
+    )
+    return category_lab
 ```
 
 ## 6.3 إضافة بوت جديد
@@ -247,7 +313,31 @@ ArWikiCats/make_bots/yourdomain_bot.py
 
 1. دوال المعالجة
 2. ربط البوت في resolver
-3. إضافة اختبارات
+3. إضافة اختبارات في `tests/`
+
+## 6.4 استخدام تنسيقات البيانات
+
+```python
+from ArWikiCats.translations_formats import FormatData, format_multi_data
+
+# تنسيق بسيط بعنصر واحد
+formatter = FormatData(
+    formatted_data={"{sport} players": "لاعبو {sport_ar}"},
+    data_list={"football": "كرة القدم"},
+    key_placeholder="{sport}",
+    value_placeholder="{sport_ar}",
+)
+result = formatter.search("football players")
+
+# تنسيق مركب بعنصرين
+multi_formatter = format_multi_data(
+    formatted_data={"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"},
+    data_list={"british": "بريطانيون"},
+    data_list2={"football": "كرة القدم"},
+    key_placeholder="{nat}",
+    value_placeholder="{nat_ar}",
+)
+```
 
 ---
 
@@ -256,35 +346,99 @@ ArWikiCats/make_bots/yourdomain_bot.py
 ```
 ArWikiCats/
 │
-├── main.py
-├── event_processing.py
+├── __init__.py              # نقطة الدخول الرئيسية والتصدير العام
+├── config.py                # إعدادات النظام والمتغيرات
+├── event_processing.py      # معالجة دفعات التصنيفات
 │
-├── fix/
-│   ├──
-├── main_processers/
-│   ├── main_resolve.py
-│   ├── event2bot.py
-│   └── event_lab_bot.py
+├── fix/                     # أدوات تصحيح وتنسيق النصوص العربية
+│   ├── fixlists.py
+│   ├── fixtitle.py
+│   └── specific_normalizations.py
 │
-├── make_bots/
-│   ├── date_bots/
-│   ├── jobs_bots/
-│   ├── resolve_films_bots/
-│   └── format_bots/
+├── main_processers/         # المحرك المركزي لحل التسميات
+│   ├── main_resolve.py      # نقطة الدخول الرئيسية للترجمة
+│   ├── event2bot.py         # معالجة الأحداث والتصنيفات الزمنية
+│   └── event_lab_bot.py     # محلل التسميات المتقدم
 │
-├── translations/
-│   ├── geo/
-│   ├── sports/
+├── new_resolvers/           # المحللات الجديدة المتخصصة
+│   ├── reslove_all.py       # نقطة الدخول للمحللات الجديدة
+│   ├── jobs_resolvers/      # محللات الوظائف والمهن
+│   ├── sports_resolvers/    # محللات الرياضات والفرق
+│   ├── nationalities_resolvers/  # محللات الجنسيات
+│   ├── countries_names_resolvers/ # محللات أسماء البلدان
+│   └── translations_resolvers_v3i/ # محللات الترجمة المتقدمة
+│
+├── patterns_resolvers/      # محللات الأنماط المركبة
+│   ├── country_time_pattern.py
+│   └── nat_men_pattern.py
+│
+├── genders_resolvers/       # محللات الجنس (مذكر/مؤنث)
+│
+├── time_resolvers/          # معالجة الأنماط الزمنية
+│   ├── labs_years.py        # استخراج السنوات من التصنيفات
+│   ├── time_to_arabic.py    # تحويل التواريخ للعربية
+│   └── with_years_bot.py    # معالجة التصنيفات مع السنوات
+│
+├── make_bots/               # البوتات المتخصصة
+│   ├── date_bots/           # بوتات التواريخ
+│   ├── jobs_bots/           # بوتات الوظائف
+│   ├── media_bots/          # بوتات الأفلام والتلفزيون
+│   ├── sports_bots/         # بوتات الرياضة
+│   ├── format_bots/         # بوتات التنسيق
+│   ├── o_bots/              # بوتات متنوعة (جامعات وغيرها)
+│   ├── languages_bot/       # بوتات اللغات
+│   ├── lazy_data_bots/      # بوتات التحميل الكسول
+│   └── matables_bots/       # بوتات الجداول
+│
+├── ma_bots/                 # بوتات المعالجة الأساسية
+│   ├── country_bot.py
+│   ├── country2_bot.py
+│   └── ye_ts_bot.py
+│
+├── ma_bots2/                # بوتات المعالجة المتقدمة
+│   ├── ar_lab/
+│   ├── country2_bots/
+│   └── year_or_typeo/
+│
+├── translations/            # قواميس الترجمة
+│   ├── geo/                 # الجغرافيا والمدن
+│   ├── sports/              # الرياضات والفرق
+│   ├── jobs/                # الوظائف والمهن
+│   ├── nats/                # الجنسيات
+│   ├── tv/                  # الأفلام والتلفزيون
+│   ├── medical/             # المصطلحات الطبية
+│   ├── politics/            # السياسة والحكومات
+│   ├── entertainments/      # الترفيه
+│   └── mixed/               # بيانات مختلطة
+│
+├── translations_formats/    # تنسيق قوالب الترجمة
+│   ├── DataModel/           # نماذج البيانات الأساسية
+│   ├── data_with_time.py    # تنسيق البيانات مع الوقت
+│   └── multi_data.py        # تنسيق البيانات المتعددة
+│
+├── jsons/                   # ملفات JSON للبيانات
+│   ├── nationalities/
+│   ├── geography/
+│   ├── cities/
 │   ├── jobs/
-│   └── medical/
+│   ├── sports/
+│   ├── media/
+│   ├── keys/
+│   ├── people/
+│   ├── population/
+│   └── taxonomy/
 │
-├── translations_formats/
-│   ├──
-├── countries_names_resolvers/
-│   ├──
-├── helps/
-├── utils/
-tests/
+├── helps/                   # أدوات مساعدة
+│   ├── log.py               # نظام التسجيل
+│   ├── memory.py            # مراقبة الذاكرة
+│   └── jsonl_dump.py        # تصدير JSONL
+│
+└── utils/                   # أدوات عامة
+    ├── fixing.py
+    └── match_relation_word.py
+
+tests/                       # اختبارات الوحدات (+28,500 اختبار)
+examples/                    # أمثلة الاستخدام
 ```
 
 ---
@@ -297,15 +451,18 @@ tests/
 pytest
 ```
 
-يغطي المشروع أكثر من **13,900 اختبار** تشمل:
+يغطي المشروع أكثر من **28,500 اختبار** تشمل:
 
 * الوظائف الأساسية
-* الأنماط الزمنية
+* الأنماط الزمنية (سنوات، عقود، قرون، ألفيات، قبل الميلاد)
 * البلدان والجنسيات ومختلف حالات التصنيفات
-* الأنماط المعقدة
+* الأنماط المعقدة (جنسية + رياضة + وظيفة)
 * الحالات النادرة
 * أداء النظام
 * مطابقة القواميس
+* الفرق الرياضية والمسابقات
+* الأفلام والتلفزيون
+* محللات الوظائف المتقدمة
 
 ## 8.1 تشغيل جزء معين
 
@@ -339,8 +496,18 @@ python -m scalene run.py
 # 10. ملاحظات للمساهمين
 
 * أي إضافة يجب أن تشمل قاعدة + قاموس + اختبار.
-* الالتزام بـ Black وIsort.
+* الالتزام بـ Black (طول السطر: 120) وIsort (نمط black) وRuff للفحص.
 * منع إضافة قواعد بلا اختبارات.
+* استخدام f-strings للتسجيل: `logger.debug(f"part1={a} part2={b}")`
+* الحفاظ على ترميز UTF-8 للنصوص العربية.
+
+تشغيل أدوات التنسيق:
+
+```bash
+black ArWikiCats/
+isort ArWikiCats/
+ruff check ArWikiCats/
+```
 
 ---
 
@@ -353,8 +520,11 @@ python -m scalene run.py
 ---
 
 # 12. خارطة الطريق
-* تحسين وحدة الرياضة (Sport Formatter v3).
+
+* تحسين وحدة الرياضة (Sport Formatter v3). ✅
 * توسيع تغطية التصنيفات الإعلامية والموسيقية.
+* تحسين دعم التصنيفات متعددة العناصر.
+* إضافة دعم للمزيد من اللغات والترجمات.
 
 ---
 
@@ -364,8 +534,29 @@ python -m scalene run.py
 يعتمد على:
 
 * قواعد ترجمة متخصصة
+* محللات متعددة المستويات (وظائف، رياضات، جنسيات، بلدان)
 * تخزين مؤقت متقدم
-* اختبارات صارمة
+* اختبارات صارمة (+28,500 اختبار)
 * تصميم قابل للتطوير
+* تنسيقات بيانات مرنة (FormatData, MultiDataFormatter)
 
 ويعد مناسبًا للبوتات، الأعمال التحريرية، والمشاريع الضخمة في ويكيبيديا العربية.
+
+---
+
+## الواجهة البرمجية (API)
+
+الوظائف والفئات المُصدّرة الرئيسية:
+
+```python
+from ArWikiCats import (
+    resolve_arabic_category_label,  # ترجمة تصنيف واحد مع البادئة
+    resolve_label_ar,               # ترجمة تصنيف واحد بدون البادئة
+    batch_resolve_labels,           # ترجمة قائمة تصنيفات
+    EventProcessor,                 # معالج الأحداث المفصل
+    logger,                         # نظام التسجيل
+    print_memory,                   # طباعة استهلاك الذاكرة
+    dump_all_len,                   # طباعة أطوال البيانات
+    config_all_params,              # قائمة المعاملات المتاحة
+)
+```

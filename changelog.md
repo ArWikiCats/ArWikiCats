@@ -1,4 +1,17 @@
 
+## [Update README documentation to reflect current codebase] - 2026-01-01
+
+* **Documentation**
+  * Updated test count badge from 20,000+ to 28,500+ to reflect actual test coverage.
+  * Rewrote project structure section with accurate directory descriptions.
+  * Added new API reference section with exported functions and classes.
+  * Enhanced usage examples with new methods (resolve_label_ar, EventProcessor).
+  * Updated configuration options with table format and environment variable examples.
+  * Added FormatData usage examples to system extension section.
+  * Updated contributor guidelines with linting tools (Black, isort, Ruff).
+  * Updated roadmap with completed items (Sport Formatter v3).
+  * Fixed table of contents anchor links for better navigation.
+
 ## [#285](https://github.com/MrIbrahem/ArWikiCats/pull/285) - 2025-12-31
 
 * **Bug Fixes**

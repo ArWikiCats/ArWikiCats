@@ -51,7 +51,7 @@ This project uses multiple tools to maintain code quality:
 
 ## Changelog Updates
 
-Generate an updated changelog section for `CHANGELOG.md` based on the modifications in this pull request.
+Generate an updated changelog section for `changelog.md` based on the modifications in this pull request.
 
 **Include:**
 - **Added:** new features
