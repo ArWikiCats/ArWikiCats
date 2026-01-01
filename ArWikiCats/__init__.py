@@ -10,6 +10,8 @@ from .helps.len_print import dump_all_len
 from .helps.log import LoggerWrap, logger
 from .helps.memory import print_memory
 
+__version__ = "0.1.0b1"
+
 __all__ = [
     "logger",
     "LoggerWrap",
