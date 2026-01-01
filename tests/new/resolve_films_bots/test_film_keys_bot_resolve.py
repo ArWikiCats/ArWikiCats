@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.films_bot import resolve_films
+from ArWikiCats.make_bots.films_and_others_bot import resolve_films
 
 fast_data = {
     "action films": "أفلام حركة",

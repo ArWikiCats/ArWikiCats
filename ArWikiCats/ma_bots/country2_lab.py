@@ -6,7 +6,7 @@ import functools
 from ..helps.log import logger
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
-from ..make_bots.films_bot import te_films
+from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.reslove_relations.rele import resolve_relations_label
