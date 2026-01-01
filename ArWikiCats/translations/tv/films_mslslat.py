@@ -425,31 +425,21 @@ Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
 
 
 # Build series and nationality keys
-# Films_key_For_nat_extended, films_mslslat_tab = _build_series_and_nat_keys(film_keys_for_female)
+# Films_key_For_nat_extended, films_mslslat_tab_base = _build_series_and_nat_keys(film_keys_for_female)
 
-Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
+films_mslslat_tab_base = open_json_file("films_mslslat_tab_found.json")
 
-Films_key_For_nat_extended.update({
-    "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
+# Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
+# NOTE: "Films_key_For_nat_extended_found.json" and "films_mslslat_tab_found.json" looks the same exept Films_key_For_nat_extended_found has placeholder {} in values
 
-    "web series endings": "مسلسلات ويب {} انتهت في",
-    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة {} انتهت في",
-    "comics endings": "قصص مصورة {} انتهت في",
-    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+Films_key_For_nat_extended = {
+    x: f"{v} {{}}" for x, v in films_mslslat_tab_base.items()
+}
 
-    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
-    "comics debuts": "قصص مصورة {} بدأ عرضها في",
-    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة {} بدأ عرضها في",
-    "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
-    "anime television series debuts": "مسلسلات تلفزيونية أنمي {} بدأ عرضها في",
+films_mslslat_tab = dict(films_mslslat_tab_base)
 
-    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
-    "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
-    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
-})
-
-films_mslslat_tab = open_json_file("films_mslslat_tab_found.json")
 films_mslslat_tab.update({
+    "television series revived after cancellation": "مسلسلات تلفزيونية أعيدت بعد إلغائها",
 
     "comics endings": "قصص مصورة انتهت في",
     "television series endings": "مسلسلات تلفزيونية انتهت في",
@@ -480,9 +470,27 @@ films_mslslat_tab.update({
     for x, y in films_mslslat_tab.items()
     if " endings" in x
 })
+
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
 Films_key_For_nat.update({
+    "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
+
+    "web series endings": "مسلسلات ويب {} انتهت في",
+    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة {} انتهت في",
+    "comics endings": "قصص مصورة {} انتهت في",
+    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+
+    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "comics debuts": "قصص مصورة {} بدأ عرضها في",
+    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة {} بدأ عرضها في",
+    "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
+    "anime television series debuts": "مسلسلات تلفزيونية أنمي {} بدأ عرضها في",
+
+    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
+    "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
+    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
+
     "superhero film series": "سلاسل أفلام خارقة {}",
     "superhero television episodes": "حلقات تلفزيونية خارقة {}",
     "superhero video games": "ألعاب فيديو خارقة {}",
