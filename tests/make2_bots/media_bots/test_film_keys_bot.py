@@ -207,5 +207,5 @@ fast_data_Films = [
 @pytest.mark.parametrize("data", fast_data_Films, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_Films(data) -> None:
-    label = Films(data["category"], "", "")
+    label = Films(data["category"])
     assert label == data["output"]

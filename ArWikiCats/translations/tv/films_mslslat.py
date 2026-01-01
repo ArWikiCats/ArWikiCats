@@ -439,6 +439,8 @@ Films_key_For_nat_extended = {
 films_mslslat_tab = dict(films_mslslat_tab_base)
 
 films_mslslat_tab.update({
+    "science fiction film series-endings": "سلاسل أفلام خيال علمي انتهت في",
+    "science fiction film series debuts": "سلاسل أفلام خيال علمي بدأ عرضها في",
     "television series revived after cancellation": "مسلسلات تلفزيونية أعيدت بعد إلغائها",
 
     "comics endings": "قصص مصورة انتهت في",
@@ -474,6 +476,8 @@ films_mslslat_tab.update({
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
 Films_key_For_nat.update({
+    "science fiction film series endings": "سلاسل أفلام خيال علمي {} انتهت في",
+    "science fiction film series debuts": "سلاسل أفلام خيال علمي {} بدأ عرضها في",
     "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
 
     "web series endings": "مسلسلات ويب {} انتهت في",
