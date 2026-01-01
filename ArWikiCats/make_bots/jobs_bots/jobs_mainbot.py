@@ -420,7 +420,7 @@ def jobs_with_nat_prefix(
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+# @dump_data(1)
 def jobs_with_nat_prefix_label(cate: str) -> str:
     """
     TODO: use FormatData method

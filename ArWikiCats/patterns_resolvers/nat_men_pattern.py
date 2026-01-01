@@ -63,7 +63,7 @@ def _bot_new() -> FormatDataV2:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
+# @dump_data(1)
 def resolve_nat_men_pattern_new(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nat_men_pattern_new: {category=}")
 
