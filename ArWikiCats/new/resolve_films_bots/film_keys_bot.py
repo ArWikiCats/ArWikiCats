@@ -20,7 +20,7 @@ from ...translations import (
     en_is_nat_ar_is_women,
     television_keys,
 )
-from .resolve_films import get_films_key_tyty_new
+from .resolve_films_labels import get_films_key_tyty_new
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 
 

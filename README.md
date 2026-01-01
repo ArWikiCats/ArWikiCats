@@ -269,7 +269,7 @@ ArWikiCats/
 ├── make_bots/
 │   ├── date_bots/
 │   ├── jobs_bots/
-│   ├── media_bots/
+│   ├── resolve_films_bots/
 │   └── format_bots/
 │
 ├── translations/

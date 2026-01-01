@@ -22,8 +22,8 @@ from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .languages_bot.languages_resolvers import te_language
 from .lazy_data_bots.bot_2018 import get_pop_All_18
 
-from ..new.media_bots.film_keys_bot import get_Films_key_CAO, resolve_films
-from ..new.media_bots.resolve_films import get_films_key_tyty_new
+from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, resolve_films
+from ..new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 
 @functools.lru_cache(maxsize=None)
