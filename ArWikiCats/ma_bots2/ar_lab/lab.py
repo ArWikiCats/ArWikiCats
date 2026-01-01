@@ -22,7 +22,7 @@ from ...make_bots.format_bots import (
     for_table,
 )
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.media_bots.films_bot import te_films
+from ...make_bots.films_bot import te_films
 from ...make_bots.o_bots import bys
 from ...make_bots.o_bots.peoples_resolver import make_people_lab
 from ...make_bots.sports_bots import team_work

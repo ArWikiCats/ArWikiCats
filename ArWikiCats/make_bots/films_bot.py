@@ -6,25 +6,24 @@ import re
 
 
 # from ...helps.jsonl_dump import dump_data
-from ...helps.log import logger
-from ..countries_formats import resolved_countries_formats_labels
-from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ..jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
-from ..matables_bots.bot import add_to_Films_O_TT, add_to_new_players
+from ..helps.log import logger
+from .countries_formats import resolved_countries_formats_labels
+from .countries_formats.t4_2018_jobs import te4_2018_Jobs
+from .jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
+from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
-from ...new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
-from ...new_resolvers.nationalities_resolvers import resolve_nationalities_main
-from ...new_resolvers.sports_resolvers import resolve_sports_main
+from ..new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
+from ..new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ..new_resolvers.sports_resolvers import resolve_sports_main
 
-from ...new_resolvers.countries_names_resolvers import resolve_countries_names_main
-from ...new_resolvers.jobs_resolvers import resolve_jobs_main
-from ...new_resolvers.translations_resolvers_v3i import resolve_v3i_main
-from .film_keys_bot import resolve_films
+from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
+from ..new_resolvers.jobs_resolvers import resolve_jobs_main
+from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
+from .languages_bot.languages_resolvers import te_language
+from .lazy_data_bots.bot_2018 import get_pop_All_18
 
-from ..media_bots.film_keys_bot import get_Films_key_CAO
-from .resolve_films import get_films_key_tyty_new
-from ...make_bots.languages_bot.languages_resolvers import te_language
-from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..new.media_bots.film_keys_bot import get_Films_key_CAO, resolve_films
+from ..new.media_bots.resolve_films import get_films_key_tyty_new
 
 
 @functools.lru_cache(maxsize=None)

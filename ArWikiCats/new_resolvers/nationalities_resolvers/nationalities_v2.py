@@ -279,6 +279,8 @@ female_data = {
     "{en} surnames": "ألقاب {female}",
     "{en} swamps": "مستنقعات {female}",
     "{en} telenovelas": "تيلينوفيلا {female}",
+
+    "{en} film series": "سلاسل أفلام {female}",
     "{en} television commercials": "إعلانات تجارية تلفزيونية {female}",
     "{en} television films": "أفلام تلفزيونية {female}",
     "{en} television miniseries": "مسلسلات قصيرة {female}",
@@ -290,11 +292,11 @@ female_data = {
     "{en} television series": "مسلسلات تلفزيونية {female}",
     "non {en} television series": "مسلسلات تلفزيونية غير {female}",
     "non-{en} television series": "مسلسلات تلفزيونية غير {female}",
-    "{en} film series": "سلاسل أفلام {female}",
     "{en} television series-debuts": "مسلسلات تلفزيونية {female} بدأ عرضها في",
     "{en} television series-endings": "مسلسلات تلفزيونية {female} انتهت في",
     "{en} television stations": "محطات تلفزيونية {female}",
     "{en} television-seasons": "مواسم تلفزيونية {female}",
+
     "{en} temples": "معابد {female}",
     "{en} tennis": "كرة مضرب {female}",
     "{en} terminology": "مصطلحات {female}",

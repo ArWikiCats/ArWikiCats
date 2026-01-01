@@ -13,7 +13,7 @@ from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import New_Lan
-from ..make_bots.media_bots.films_bot import te_films
+from ..make_bots.films_bot import te_films
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work

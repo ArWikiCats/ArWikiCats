@@ -20,6 +20,8 @@ from ...translations_formats import (
 def _bot_new() -> MultiDataFormatterBaseYearV2:
 
     formatted_data = {
+        # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
+        "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
         "{year1} {en_nat} films": "أفلام {female} في {year1}",
         "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
         "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",

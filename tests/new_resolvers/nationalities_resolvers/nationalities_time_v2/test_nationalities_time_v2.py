@@ -8,6 +8,7 @@ from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_time_v2 impo
 
 test_data = {
     # standard
+    "2060 American coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في 2060",
     "Category:2000 American films": "تصنيف:أفلام أمريكية في 2000",
     "Category:2020s American films": "تصنيف:أفلام أمريكية في عقد 2020",
     "Category:2020s the American films": "تصنيف:أفلام أمريكية في عقد 2020",
