@@ -6,6 +6,7 @@ Country Label Bot Module
 import functools
 import re
 
+from ..fix import fixtitle
 from ..config import app_settings
 from ..helps.log import logger
 from ..make_bots.films_and_others_bot import te_films
@@ -16,6 +17,7 @@ from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
@@ -26,11 +28,39 @@ from ..translations import (
 from . import country2_bot, country2_lab, ye_ts_bot
 
 
+@functools.lru_cache(maxsize=None)
+def Get_country2(country: str) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve information related to a specified country.
+    """
+
+    normalized_country = country.lower().strip()
+    logger.info(f'>> Get_country2 "{normalized_country}":')
+
+    resolved_label = (
+        country_2_title_work(country, with_years=True)
+        or country2_lab.get_lab_for_country2(country)
+        or ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or get_pop_All_18(normalized_country.lower(), "")
+        or ""
+    )
+
+    if resolved_label:
+        resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
+
+    resolved_label = " ".join(resolved_label.strip().split())
+
+    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
+
+    return resolved_label
+
+
 @functools.lru_cache(maxsize=10000)
 def _resolve_remainder(remainder: str) -> str:
     """Helper to resolve the label for the remainder of a string."""
     label = (
-        country2_bot.Get_country2(remainder)
+        Get_country2(remainder)
         or country2_lab.get_lab_for_country2(remainder)
         or ye_ts_bot.translate_general_category(remainder, fix_title=False)
         or ""
@@ -102,7 +132,7 @@ class CountryLabelRetriever:
         resolved_label = self._check_basic_lookups(country)
 
         if resolved_label == "" and start_get_country2:
-            resolved_label = country2_bot.Get_country2(country)
+            resolved_label = Get_country2(country)
 
         if not resolved_label:
             resolved_label = (
