@@ -8,7 +8,6 @@ data0 = {
     "Category:Eastern European Hockey League": "تصنيف:الدوري الأوروبي الشرقي للهوكي",
     "Category:Eastern European Hockey League seasons": "تصنيف:مواسم الدوري الأوروبي الشرقي للهوكي",
     "Category:Eastern European Hockey League teams": "تصنيف:فرق الدوري الأوروبي الشرقي للهوكي",
-
     "category:people from santa fe province": "تصنيف:أشخاص من محافظة سانتا في",
     "Category:Italy political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إيطاليون",
     "Category:Bosnia and Herzegovina political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون بوسنيون",

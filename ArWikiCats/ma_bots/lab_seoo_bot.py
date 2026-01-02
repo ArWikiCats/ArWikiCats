@@ -73,11 +73,9 @@ def event_label_work(target_category: str) -> str:
         get_from_new_p17_final(normalized_target_category, "")
         or Ambassadors_tab.get(normalized_target_category, "")
         or team_work.Get_team_work_Club(normalized_target_category)
-
         or univer.te_universities(normalized_target_category)
         or event2_d2(normalized_target_category)
         or with_years_bot.Try_With_Years(normalized_target_category)
-
         or bot_lab.label_for_startwith_year_or_typeo(normalized_target_category)
         or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
