@@ -26,6 +26,8 @@ from ...make_bots.matables_bots.bot import (
 )
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
+from ...make_bots.o_bots import univer
+from ...time_resolvers import with_years_bot
 from ...translations import pop_of_without_in
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .lab import (
@@ -227,7 +229,9 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
     result = (
-        event2bot.event2_new2(category)
+        univer.te_universities(category)
+        or event2bot.event2_new2(category)
+        or with_years_bot.Try_With_Years(category)
         or label_for_startwith_year_or_typeo(category)
         or event2_stubs.stubs_label(category)
         or ""

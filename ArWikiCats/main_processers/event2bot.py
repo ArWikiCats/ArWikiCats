@@ -7,9 +7,6 @@ import functools
 import re
 
 from ..helps.log import logger
-from ..make_bots.o_bots import univer
-
-from ..time_resolvers import with_years_bot
 from ..ma_bots.country_bot import get_country
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -32,10 +29,6 @@ def event2_d2(category_r) -> str:
     category_lab = ""
     if re.sub(r"^\d", "", cat3) == cat3:
         category_lab = get_country(cat3)
-    else:
-        category_lab = with_years_bot.Try_With_Years(cat3)
-        if category_lab:
-            category_lab = f"تصنيف:{category_lab}"
 
     return category_lab
 
@@ -63,11 +56,8 @@ def event2_new2(category_r: str) -> str:
     logger.info(f'<<lightyellow>>>>>> event2_new2 :"{category_r}"')
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
 
-    ar_label = (
-        univer.te_universities(category_r)
-        or event2_d2(category_r)
-        or ""
-    )
+    ar_label = event2_d2(category_r)
+
     if ar_label.startswith("تصنيف:"):
         ar_label = ar_label[len("تصنيف:") :]
 
