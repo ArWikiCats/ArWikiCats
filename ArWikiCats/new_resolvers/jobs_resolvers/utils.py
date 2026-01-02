@@ -1,5 +1,3 @@
-
-
 import functools
 import re
 
@@ -88,7 +86,6 @@ def nat_and_gender_keys(nat_job_key, key, gender_key, gender_label) -> dict[str,
 
 
 def filter_and_replace_gender_terms(formatted_data) -> dict:
-
     formatted_data_final = {x: v for x, v in formatted_data.items() if "{women}" not in x}
 
     # handle womens keys

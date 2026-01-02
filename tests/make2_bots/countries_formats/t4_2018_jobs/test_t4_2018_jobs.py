@@ -28,9 +28,7 @@ te4_2018_Jobs_data = {
     "caribbean": "",
     "european sports coaches": "مدربو رياضة أوروبيون",
     "albanian sports coaches": "مدربو رياضة ألبان",
-
     # "macedonian expatriate female footballers": "لاعبات كرة قدم مقدونيات مغتربات",
-
     "afghan competitors": "منافسون أفغان",
     "african people by nationality": "أفارقة حسب الجنسية",
     "african tennis players": "لاعبو كرة مضرب أفارقة",
@@ -707,7 +705,6 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, new_resolvers_all)
     dump_diff(diff_result, name)
 

@@ -237,25 +237,19 @@ class MultiDataFormatterBaseHelpers:
 
     def search_all(self, category: str) -> str:
         result = (
-            self.create_label(category) or
-            self.country_bot.search(category) or
-            self.other_bot.search(category) or
-            ""
+            self.create_label(category) or self.country_bot.search(category) or self.other_bot.search(category) or ""
         )
         return result
 
     def search_all_other_first(self, category: str) -> str:
         result = (
-            self.other_bot.search(category) or
-            self.country_bot.search(category) or
-            self.create_label(category) or
-            ""
+            self.other_bot.search(category) or self.country_bot.search(category) or self.create_label(category) or ""
         )
 
         return self.check_placeholders(category, result)
 
     def search_all_category(self, category: str) -> str:
-        logger.debug("--"*5)
+        logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
 
         normalized_category = category.lower().replace("category:", "")

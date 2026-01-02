@@ -4,7 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-
     "Category:Irish association football managers": "تصنيف:مدربو كرة قدم أيرلنديون",
     "Category:Lists of association football players by national team": "تصنيف:قوائم لاعبو كرة قدم حسب المنتخب الوطني",
     "Category:Male long-distance runners": "تصنيف:عداؤو مسافات طويلة ذكور",
@@ -37,13 +36,11 @@ data1 = {
 
 data2 = {
     "Category:Female association football managers": "تصنيف:مدربات كرة قدم",
-
     # "Category:Coaches of the West Indies national cricket team": "",
     # "Category:Nauru international soccer players": "",
     "Category:South Africa international soccer players": "تصنيف:لاعبو منتخب جنوب إفريقيا لكرة القدم",
     "Category:Australia international soccer players": "تصنيف:لاعبو منتخب أستراليا لكرة القدم",
     "Category:Canada men's international soccer players": "تصنيف:لاعبو كرة قدم دوليون من كندا",
-
     "Category:Afghanistan women's national football team coaches": "تصنيف:مدربو منتخب أفغانستان لكرة القدم للسيدات",
     "Category:Coaches of Yemen national cricket team": "تصنيف:مدربو منتخب اليمن للكريكت",
     "Category:Cuba women's national basketball team": "تصنيف:منتخب كوبا لكرة السلة للسيدات",
@@ -136,7 +133,6 @@ def test_sports_3(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_sports(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

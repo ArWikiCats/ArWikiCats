@@ -10,7 +10,6 @@ test_1 = {
     "Category:New Zealand non-fiction writers": "تصنيف:كتاب غير روائيين نيوزيلنديون",
     "Category:New Zealand non-fiction writers by century": "تصنيف:كتاب غير روائيين نيوزيلنديون حسب القرن",
     "Category:New Zealand non-fiction books": "تصنيف:كتب نيوزيلندية غير خيالية",
-
 }
 
 data_empty_result = {
@@ -742,7 +741,6 @@ def test_non_fiction_empty(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
 def test_non_dump(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

@@ -9,30 +9,23 @@ from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels, n
 test_data2 = {
     # Category:Turkish expatriate sports-people
     "Category:Turkish expatriate sports-people": "تصنيف:رياضيون أتراك مغتربون",
-
     # nat
     "welsh people": "ويلزيون",
     "yemeni people": "يمنيون",
     "abkhazian-american": "أبخازيون أمريكيون",
     # "abkhazian-american people": "أبخازيون أمريكيون",
-
     # jobs
     "eugenicists": "علماء متخصصون في تحسين النسل",
     "politicians who committed suicide": "سياسيون أقدموا على الانتحار",
-
     "writers people": "أعلام كتاب",
     "archers": "نبالون",
     "male archers": "نبالون ذكور",
     "football managers": "مدربو كرة قدم",
-
     # jobs + expatriate
     "expatriate football managers": "مدربو كرة قدم مغتربون",
-
     "expatriate male actors": "ممثلون ذكور مغتربون",
-
     "expatriate actors": "ممثلون مغتربون",
     "male actors": "ممثلون ذكور",
-
     # nat + jobs
     "yemeni eugenicists": "علماء يمنيون متخصصون في تحسين النسل",
     "yemeni politicians who committed suicide": "سياسيون يمنيون أقدموا على الانتحار",
@@ -41,10 +34,8 @@ test_data2 = {
     "yemeni male writers": "كتاب ذكور يمنيون",
     "greek male writers": "كتاب ذكور يونانيون",
     # "abkhazian-american archers": "نبالون أمريكيون أبخازيون",
-
     "greek writers blind": "كتاب يونانيون مكفوفون",
     "writers greek blind": "كتاب يونانيون مكفوفون",
-
 }
 
 test_data_2 = {
@@ -88,5 +79,5 @@ def test_nat_and_gender_keys():
     assert data == {
         "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور",
         "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور",
-        "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور"
+        "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور",
     }, print(data)

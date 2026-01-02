@@ -24,7 +24,6 @@ data1 = {
     "Category:women's sports teams": "تصنيف:فرق رياضية نسائية",
     "Category:national women's sports teams": "تصنيف:منتخبات رياضية وطنية نسائية",
     "Category:college women's sports teams in united states": "تصنيف:فرق رياضات الكليات للسيدات في الولايات المتحدة",
-
     "Category:mexican women's sports": "تصنيف:رياضات نسائية مكسيكية",
     "Category:canadian women's sports": "تصنيف:رياضات نسائية كندية",
     "Category:american women's sports": "تصنيف:رياضات نسائية أمريكية",
@@ -48,10 +47,8 @@ data2 = {
     "Category:Summer Olympics sports sidebar templates": "تصنيف:قوالب أشرطة جانبية رياضات الألعاب الأولمبية الصيفية",
     "Category:Winter Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الشتوية",
     "Category:Summer Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الصيفية",
-
     "Category:Winter Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الشتوية",
     "Category:Summer Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
-
     "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الصيفية",
     "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
     "Category:Summer Olympics sidebar templates": "تصنيف:قوالب أشرطة جانبية الألعاب الأولمبية الصيفية",

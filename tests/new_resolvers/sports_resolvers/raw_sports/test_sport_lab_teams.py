@@ -6,8 +6,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import find_teams_bot, wrap_team_xo_normal_2025_with_ends
 
-test_find_teams_bot_data_0 = {
-}
+test_find_teams_bot_data_0 = {}
 
 test_find_teams_bot_data = {
     "acrobatic gymnastics junior world championships": "بطولة العالم للجمباز الاكروباتيكي للناشئين",
@@ -101,7 +100,9 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.parametrize("category, expected", test_find_teams_bot_data_0.items(), ids=test_find_teams_bot_data_0.keys())
+@pytest.mark.parametrize(
+    "category, expected", test_find_teams_bot_data_0.items(), ids=test_find_teams_bot_data_0.keys()
+)
 @pytest.mark.fast
 def test_test_find_teams_bot_data_0(category: str, expected: str) -> None:
     label1 = wrap_callback(category)

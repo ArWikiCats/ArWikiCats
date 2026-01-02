@@ -54,7 +54,7 @@ def _load_regex() -> re.Pattern:
     )
     alternation = "|".join(map(re.escape, [n.lower() for n in data_List_sorted]))
 
-    new_pattern = fr"(?<!\w)({alternation})(?!\w)"
+    new_pattern = rf"(?<!\w)({alternation})(?!\w)"
 
     RE_KEYS_NEW = re.compile(new_pattern, re.I)
 

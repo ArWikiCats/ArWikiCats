@@ -72,6 +72,7 @@ def add_definite_article(word: str) -> str:
         if token.startswith("ال"):
             return token
         return "ال" + token
+
     return " ".join(add_al(t) for t in tokens)
 
 

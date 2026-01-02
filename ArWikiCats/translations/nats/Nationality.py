@@ -45,6 +45,7 @@ def build_nationality_structure(val):
         "the_male": val.get("the_male", ""),
     }
 
+
 # =====================================================================
 # Section 1: Load and prepare JSON sources
 # =====================================================================
@@ -59,7 +60,7 @@ raw_sub_nat_additional_to_check = {
         "en": "",
         "ar": "الإسلام",
         "the_female": "المسلمة",
-        "the_male": "المسلم"
+        "the_male": "المسلم",
     },
     "muslim": {
         "male": "مسلم",
@@ -69,7 +70,7 @@ raw_sub_nat_additional_to_check = {
         "en": "muslims",
         "ar": "الإسلام",
         "the_female": "المسلمة",
-        "the_male": "المسلم"
+        "the_male": "المسلم",
     },
 }
 
@@ -92,7 +93,7 @@ raw_sub_nat_additional = {
         "en": "",
         "ar": "الصوفية",
         "the_female": "الصوفية",
-        "the_male": "الصوفي"
+        "the_male": "الصوفي",
     },
     "christian": {
         "male": "مسيحي",
@@ -102,7 +103,7 @@ raw_sub_nat_additional = {
         "en": "",
         "ar": "المسيحية",
         "the_female": "المسيحية",
-        "the_male": "المسيحي"
+        "the_male": "المسيحي",
     },
 }
 
@@ -160,6 +161,7 @@ def build_en_nat_entries(raw_data: Dict[str, Any]) -> Dict[str, Any]:
 
     return data
 
+
 # =====================================================================
 # Section 2: Normalize aliases
 # =====================================================================
@@ -173,7 +175,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
 
     alias_map: Dict[str, str] = {
         "luxembourg": "luxembourgish",
-
         "ancient romans": "ancient-romans",
         "ancient-roman": "ancient-romans",
         "arabian": "arab",
@@ -235,7 +236,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
         "the_female": "الغينية",
-        "the_male": "الغيني"
+        "the_male": "الغيني",
     }
 
     # Handle Georgia (country)
@@ -252,7 +253,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "en": "southwest asia",
         "ar": "جنوب غرب آسيا",
         "the_female": "الجنوب غربي الآسيوية",
-        "the_male": "الجنوب غربي الآسيوي"
+        "the_male": "الجنوب غربي الآسيوي",
     }
 
     return all_nat_o
@@ -317,8 +318,8 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     Nat_women: LookupTable = {}
     Nat_Womens: LookupTable = {}
 
-    Nat_the_female : LookupTable = {}
-    Nat_the_male : LookupTable = {}
+    Nat_the_female: LookupTable = {}
+    Nat_the_male: LookupTable = {}
 
     ar_Nat_men: LookupTable = {}
     countries_from_nat: LookupTable = {}
@@ -374,10 +375,12 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     if "iranian" in all_nat:
         countries_nat_en_key["islamic republic of iran"] = all_nat["iranian"]
 
-    countries_from_nat.update({
-        "serbia and montenegro": "صربيا والجبل الأسود",
-        "serbia-and-montenegro": "صربيا والجبل الأسود",
-    })
+    countries_from_nat.update(
+        {
+            "serbia and montenegro": "صربيا والجبل الأسود",
+            "serbia-and-montenegro": "صربيا والجبل الأسود",
+        }
+    )
 
     return {
         "Nat_men": Nat_men,
@@ -416,8 +419,8 @@ Nat_mens: LookupTable = result_tables["Nat_mens"]
 Nat_women: LookupTable = result_tables["Nat_women"]
 Nat_Womens: LookupTable = result_tables["Nat_Womens"]
 
-Nat_the_male : LookupTable = result_tables["Nat_the_male"]
-Nat_the_female : LookupTable = result_tables["Nat_the_female"]
+Nat_the_male: LookupTable = result_tables["Nat_the_male"]
+Nat_the_female: LookupTable = result_tables["Nat_the_female"]
 
 ar_Nat_men: LookupTable = result_tables["ar_Nat_men"]
 countries_from_nat: LookupTable = result_tables["countries_from_nat"]
@@ -435,20 +438,16 @@ len_result = {
     "raw_nats_as_en_key": 17,
     "ar_Nat_men": 711,
     "Nat_men": 841,
-
     "Nat_mens": 843,
     "Nat_women": 843,
     "Nat_Womens": 843,
     "All_Nat": 843,
     "Nat_the_male": 843,
     "Nat_the_female": 843,
-
     "all_country_ar": 285,
     "countries_from_nat": 287,
-
     "all_country_with_nat_ar": 342,
     "en_nats_to_ar_label": 342,
-
     "all_country_with_nat": 336,
     "American_nat": 422,
     "countries_nat_en_key": 286,

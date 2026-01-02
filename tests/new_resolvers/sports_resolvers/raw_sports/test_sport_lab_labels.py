@@ -19,7 +19,7 @@ test_find_labels_bot_data_0 = {
     "professional wrestling clubs": "أندية مصارعة المحترفين",
     "professional wrestling coaches": "مدربو مصارعة المحترفين",
     "wrestling clubs": "أندية المصارعة",
-    "wrestling coaches": "مدربو المصارعة"
+    "wrestling coaches": "مدربو المصارعة",
 }
 
 test_find_labels_bot_data = {
@@ -28,10 +28,8 @@ test_find_labels_bot_data = {
     "rugby finals": "نهائيات الرجبي",
     "rugby league finals": "نهائيات دوري الرجبي",
     "baseball finals": "نهائيات كرة القاعدة",
-
     "olympic gold medalists in baseball": "فائزون بميداليات ذهبية أولمبية في كرة القاعدة",
     "olympic bronze medalists in baseball": "فائزون بميداليات برونزية أولمبية في كرة القاعدة",
-
     "baseball champions": "أبطال كرة القاعدة",
     "baseball league": "دوري كرة القاعدة",
     "football league": "دوري كرة القدم",
@@ -65,7 +63,9 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.parametrize("category, expected", test_find_labels_bot_data_0.items(), ids=test_find_labels_bot_data_0.keys())
+@pytest.mark.parametrize(
+    "category, expected", test_find_labels_bot_data_0.items(), ids=test_find_labels_bot_data_0.keys()
+)
 @pytest.mark.fast
 def test_test_find_labels_bot_data_0(category: str, expected: str) -> None:
     label1 = wrap_callback(category)

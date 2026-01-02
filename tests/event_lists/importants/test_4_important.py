@@ -32,7 +32,6 @@ data0 = {
     "Academic staff of World Islamic Sciences and Education University": "تصنيف:أعضاء هيئة تدريس جامعة العلوم الإسلامية العالمية",
     "World Islamic Sciences and Education University alumni": "تصنيف:خريجو جامعة العلوم الإسلامية العالمية",
     "World Islamic Sciences and Education University": "تصنيف:جامعة العلوم الإسلامية العالمية",
-
     "Mine warfare vessels of Islamic Republic of Iran Navy": "تصنيف:سفن حرب ألغام في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
     "Missile boats of Islamic Republic of Iran Navy": "تصنيف:قوارب صواريخ في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
     "Amphibious warfare vessels of Islamic Republic of Iran Navy": "تصنيف:سفن حربية برمائية في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
@@ -48,7 +47,6 @@ data1 = {
     "Category:19th-century women from Ottoman Arabia": "تصنيف:نساء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
     "Category:19th-century poets from Ottoman Arabia": "تصنيف:شعراء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
     "Category:19th-century people from Ottoman Arabia": "تصنيف:أشخاص من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
-
     "2002 commonwealth games": "تصنيف:ألعاب الكومنولث 2002",
     "2006 commonwealth games": "تصنيف:ألعاب الكومنولث 2006",
     "2014 commonwealth games": "تصنيف:ألعاب الكومنولث 2014",
@@ -185,10 +183,8 @@ data_3 = {
     "Category:Afghanistan Football Federation": "تصنيف:الاتحاد الأفغاني لكرة القدم",
     "Category:Aruba Football Federation": "تصنيف:الاتحاد الأروبي لكرة القدم",
     "Category:Bhutan Football Federation": "تصنيف:الاتحاد البوتاني لكرة القدم",
-
     "Category:Bodies of water of Germany by state": "تصنيف:مسطحات مائية في ألمانيا حسب الولاية",
     "Category:Bodies of water of Carmarthenshire": "تصنيف:مسطحات مائية في كرمرثنشير",
-
     "Category:2023 in dependent territories of United Kingdom": "تصنيف:أقاليم ما وراء البحار البريطانية في 2023",
     "Category:Battles involving al-Qaeda in Arabian Peninsula": "تصنيف:معارك تشمل تنظيم القاعدة في جزيرة العرب",
     "Category:Film set at Metropolitan Museum of Art": "تصنيف:أفلام تقع أحداثها في متحف المتروبوليتان للفنون",

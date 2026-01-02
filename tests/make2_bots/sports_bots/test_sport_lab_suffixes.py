@@ -17,11 +17,9 @@ get_teams_new_data = {
     "international women's football competitions": "منافسات كرة قدم دولية للسيدات",
     "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
     "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
-
     "soccer cup competitions": "منافسات كؤوس كرة قدم",
     "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
     "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
-
     "australian rules football awards": "جوائز كرة قدم أسترالية",
     "badminton world cup": "كأس العالم لتنس الريشة",
     "baseball commissioners": "مفوضو كرة قاعدة",

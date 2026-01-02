@@ -39,7 +39,7 @@ def add_the_in(
     typeo: str,
     year_labe: str,
     country_label: str,
-    cat_test: str
+    cat_test: str,
 ) -> tuple[bool, str, str]:
     """
     Insert location prepositions into labels when table rules require them.
@@ -79,7 +79,9 @@ def add_the_in(
     return Add_In_Done, arlabel, cat_test
 
 
-def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_label: str, Add_In: bool, arlabel2: str) -> tuple[str, bool, bool]:
+def added_in_new(
+    country: str, arlabel: str, suf: str, year_labe: str, country_label: str, Add_In: bool, arlabel2: str
+) -> tuple[str, bool, bool]:
     """Handle cases where a year prefix needs a linking preposition."""
     logger.info("a<<lightblue>>>>>> Add year before")
 
@@ -98,7 +100,7 @@ def added_in_new(country: str, arlabel: str, suf: str, year_labe: str, country_l
         suf = " في "
         logger.info("a<<lightblue>>>>>> Add في to suf")
 
-    logger.info(f'a<<lightblue>>>>>> {country_label=}, {suf=}:, {arlabel2=}')
+    logger.info(f"a<<lightblue>>>>>> {country_label=}, {suf=}:, {arlabel2=}")
 
     Add_In_Done = False
 
@@ -198,8 +200,8 @@ def new_func_mk2(
     arlabel = " ".join(arlabel.strip().split())
 
     logger.info("------- ")
-    logger.info(f'a<<lightblue>>>>>> p:{country_label}, {year_labe=}, {category=}')
-    logger.info(f'a<<lightblue>>>>>> {arlabel=}')
+    logger.info(f"a<<lightblue>>>>>> p:{country_label}, {year_labe=}, {category=}")
+    logger.info(f"a<<lightblue>>>>>> {arlabel=}")
 
     logger.info("------- end > new_func_mk2() < --------")
     return cat_test, arlabel

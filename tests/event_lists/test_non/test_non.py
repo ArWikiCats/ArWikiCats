@@ -8,10 +8,8 @@ data1 = {
     "Category:Jewish American non-fiction writers": "تصنيف:كتاب غير روائيين أمريكيون يهود",
     "Category:Non-fiction books about the United States Army": "تصنيف:كتب غير خيالية عن القوات المسلحة الأمريكية",
     "Category:Non-fiction works about the United States Army": "تصنيف:أعمال غير خيالية عن القوات المسلحة الأمريكية",
-
     "category:non-fiction writers from northern ireland": "تصنيف:كتاب غير روائيين من أيرلندا الشمالية",
     "category:non-fiction writers from russian empire": "تصنيف:كتاب غير روائيين من الإمبراطورية الروسية",
-
     "category:1550 non-fiction books": "تصنيف:كتب غير خيالية 1550",
     "category:1550s non-fiction books": "تصنيف:كتب غير خيالية عقد 1550",
     "category:20th-century american non-fiction writers": "تصنيف:كتاب غير روائيين أمريكيون في القرن 20",
@@ -923,7 +921,6 @@ def test_data_series(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

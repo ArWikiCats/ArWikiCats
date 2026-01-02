@@ -9,7 +9,6 @@ from ArWikiCats.translations_formats import MultiDataFormatterDataDouble, format
 
 @pytest.fixture
 def yc_bot() -> MultiDataFormatterDataDouble:
-
     # Template data with both nationality and sport placeholders
     formatted_data = {
         "{nat_en} films": "أفلام {nat_ar}",
@@ -66,7 +65,6 @@ test_data_standard = {
     "Yemeni upcoming horror films": "أفلام رعب قادمة يمنية",
     "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
     "Yemeni upcoming films": "أفلام قادمة يمنية",
-
     # films keys
     "3d low-budget films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",
     "low-budget 3d films": "أفلام ثلاثية الأبعاد منخفضة التكلفة",

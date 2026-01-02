@@ -103,7 +103,7 @@ TELEVISION_KEYS = {
     "web series": "مسلسلات ويب",
     "webcomic": "ويب كومكس",
     "webcomics": "ويب كومكس",
-    "works": "أعمال"
+    "works": "أعمال",
 }
 
 # LGBTQ-related films format
@@ -116,12 +116,10 @@ Films_key_CAO_new_format = {
 # Helper Functions
 # =============================================================================
 
+
 def _build_gender_key_maps(
     films_key_o_multi: Dict[str, Dict[str, str]]
-) -> Tuple[
-    Dict[str, Dict[str, str]],  # films_key_both
-    Dict[str, str],              # films_key_man
-]:
+) -> Tuple[Dict[str, Dict[str, str]], Dict[str, str],]:  # films_key_both  # films_key_man
     """
     Build gender-aware film key mappings from JSON sources.
 
@@ -331,11 +329,7 @@ def _build_female_combo_keys(
     result = {}
 
     # Extract female labels
-    base_female = {
-        x: v["female"]
-        for x, v in filmskeys_male_female.items()
-        if v.get("female", "").strip()
-    }
+    base_female = {x: v["female"] for x, v in filmskeys_male_female.items() if v.get("female", "").strip()}
 
     # Generate combinations
     for en, tab in filmskeys_male_female.items():
@@ -369,9 +363,7 @@ def build_gender_specific_film_maps(
     # Build gender-specific maps
 
     film_keys_for_female: Dict[str, str] = {
-        x: v.get("female", "").strip()
-        for x, v in films_key_both.items()
-        if v.get("female", "").strip()
+        x: v.get("female", "").strip() for x, v in films_key_both.items() if v.get("female", "").strip()
     }
 
     female_extended_labels = _extend_females_labels(Films_keys_male_female)
@@ -400,9 +392,7 @@ Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضي�
 
 # Filter to only entries with both male and female
 Films_key_O_multi = {
-    x: v
-    for x, v in _Films_key_O_multi.items()
-    if v.get("male", "").strip() and v.get("female", "").strip()
+    x: v for x, v in _Films_key_O_multi.items() if v.get("male", "").strip() and v.get("female", "").strip()
 }
 
 # Build gender-aware mappings
@@ -412,15 +402,11 @@ Films_key_O_multi = {
 ) = _build_gender_key_maps(Films_key_O_multi)
 
 film_keys_for_male: Dict[str, str] = {
-    x: v.get("male", "").strip()
-    for x, v in Films_key_both.items()
-    if v.get("male", "").strip()
+    x: v.get("male", "").strip() for x, v in Films_key_both.items() if v.get("male", "").strip()
 }
 
 Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
-    Films_keys_male_female,
-    Films_key_O_multi,
-    Films_key_both
+    Films_keys_male_female, Films_key_O_multi, Films_key_both
 )
 
 
@@ -432,78 +418,71 @@ films_mslslat_tab_base = open_json_file("films_mslslat_tab_found.json")
 # Films_key_For_nat_extended = open_json_file("Films_key_For_nat_extended_found.json")
 # NOTE: "Films_key_For_nat_extended_found.json" and "films_mslslat_tab_found.json" looks the same exept Films_key_For_nat_extended_found has placeholder {} in values
 
-Films_key_For_nat_extended = {
-    x: f"{v} {{}}" for x, v in films_mslslat_tab_base.items()
-}
+Films_key_For_nat_extended = {x: f"{v} {{}}" for x, v in films_mslslat_tab_base.items()}
 
 films_mslslat_tab = dict(films_mslslat_tab_base)
 
-films_mslslat_tab.update({
-    "science fiction film series-endings": "سلاسل أفلام خيال علمي انتهت في",
-    "science fiction film series debuts": "سلاسل أفلام خيال علمي بدأ عرضها في",
-    "television series revived after cancellation": "مسلسلات تلفزيونية أعيدت بعد إلغائها",
+films_mslslat_tab.update(
+    {
+        "science fiction film series-endings": "سلاسل أفلام خيال علمي انتهت في",
+        "science fiction film series debuts": "سلاسل أفلام خيال علمي بدأ عرضها في",
+        "television series revived after cancellation": "مسلسلات تلفزيونية أعيدت بعد إلغائها",
+        "comics endings": "قصص مصورة انتهت في",
+        "television series endings": "مسلسلات تلفزيونية انتهت في",
+        "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة انتهت في",
+        "web series endings": "مسلسلات ويب انتهت في",
+        "web series debuts": "مسلسلات ويب بدأ عرضها في",
+        "anime television series debuts": "مسلسلات تلفزيونية أنمي بدأ عرضها في",
+        "comics debuts": "قصص مصورة بدأ عرضها في",
+        "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة بدأ عرضها في",
+        "television series debuts": "مسلسلات تلفزيونية بدأ عرضها في",
+        "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة",
+        "supernatural comics": "قصص مصورة خارقة للطبيعة",
+        "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار",
+        "superhero television characters": "شخصيات تلفزيونية خارقة",
+        "superhero television series": "مسلسلات تلفزيونية خارقة",
+        "superhero film series": "سلاسل أفلام خارقة",
+        "superhero television episodes": "حلقات تلفزيونية خارقة",
+        "superhero video games": "ألعاب فيديو خارقة",
+        "superhero web series": "مسلسلات ويب خارقة",
+        "superhero comics": "قصص مصورة خارقة",
+        "superhero television films": "أفلام تلفزيونية خارقة",
+    }
+)
 
-    "comics endings": "قصص مصورة انتهت في",
-    "television series endings": "مسلسلات تلفزيونية انتهت في",
-    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة انتهت في",
-    "web series endings": "مسلسلات ويب انتهت في",
-    "web series debuts": "مسلسلات ويب بدأ عرضها في",
-    "anime television series debuts": "مسلسلات تلفزيونية أنمي بدأ عرضها في",
-    "comics debuts": "قصص مصورة بدأ عرضها في",
-    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة بدأ عرضها في",
-    "television series debuts": "مسلسلات تلفزيونية بدأ عرضها في",
-
-    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة",
-    "supernatural comics": "قصص مصورة خارقة للطبيعة",
-    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار",
-    "superhero television characters": "شخصيات تلفزيونية خارقة",
-    "superhero television series": "مسلسلات تلفزيونية خارقة",
-    "superhero film series": "سلاسل أفلام خارقة",
-    "superhero television episodes": "حلقات تلفزيونية خارقة",
-    "superhero video games": "ألعاب فيديو خارقة",
-    "superhero web series": "مسلسلات ويب خارقة",
-    "superhero comics": "قصص مصورة خارقة",
-    "superhero television films": "أفلام تلفزيونية خارقة",
-
-})
-
-films_mslslat_tab.update({
-    x.replace(" endings", "-endings"): y
-    for x, y in films_mslslat_tab.items()
-    if " endings" in x
-})
+films_mslslat_tab.update(
+    {x.replace(" endings", "-endings"): y for x, y in films_mslslat_tab.items() if " endings" in x}
+)
 
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
-Films_key_For_nat.update({
-    "science fiction film series endings": "سلاسل أفلام خيال علمي {} انتهت في",
-    "science fiction film series debuts": "سلاسل أفلام خيال علمي {} بدأ عرضها في",
-    "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
-
-    "web series endings": "مسلسلات ويب {} انتهت في",
-    "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة {} انتهت في",
-    "comics endings": "قصص مصورة {} انتهت في",
-    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
-
-    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
-    "comics debuts": "قصص مصورة {} بدأ عرضها في",
-    "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة {} بدأ عرضها في",
-    "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
-    "anime television series debuts": "مسلسلات تلفزيونية أنمي {} بدأ عرضها في",
-
-    "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
-    "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
-    "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
-
-    "superhero film series": "سلاسل أفلام خارقة {}",
-    "superhero television episodes": "حلقات تلفزيونية خارقة {}",
-    "superhero video games": "ألعاب فيديو خارقة {}",
-    "superhero web series": "مسلسلات ويب خارقة {}",
-    "superhero television films": "أفلام تلفزيونية خارقة {}",
-    "superhero comics": "قصص مصورة خارقة {}",
-    "superhero television characters": "شخصيات تلفزيونية خارقة {}",
-    "superhero television series": "مسلسلات تلفزيونية خارقة {}",
-})
+Films_key_For_nat.update(
+    {
+        "science fiction film series endings": "سلاسل أفلام خيال علمي {} انتهت في",
+        "science fiction film series debuts": "سلاسل أفلام خيال علمي {} بدأ عرضها في",
+        "television series revived after cancellation": "مسلسلات تلفزيونية {} أعيدت بعد إلغائها",
+        "web series endings": "مسلسلات ويب {} انتهت في",
+        "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة {} انتهت في",
+        "comics endings": "قصص مصورة {} انتهت في",
+        "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+        "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+        "comics debuts": "قصص مصورة {} بدأ عرضها في",
+        "animated television series debuts": "مسلسلات تلفزيونية رسوم متحركة {} بدأ عرضها في",
+        "web series debuts": "مسلسلات ويب {} بدأ عرضها في",
+        "anime television series debuts": "مسلسلات تلفزيونية أنمي {} بدأ عرضها في",
+        "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
+        "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
+        "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
+        "superhero film series": "سلاسل أفلام خارقة {}",
+        "superhero television episodes": "حلقات تلفزيونية خارقة {}",
+        "superhero video games": "ألعاب فيديو خارقة {}",
+        "superhero web series": "مسلسلات ويب خارقة {}",
+        "superhero television films": "أفلام تلفزيونية خارقة {}",
+        "superhero comics": "قصص مصورة خارقة {}",
+        "superhero television characters": "شخصيات تلفزيونية خارقة {}",
+        "superhero television series": "مسلسلات تلفزيونية خارقة {}",
+    }
+)
 
 # Build television CAO mappings
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)

@@ -72,25 +72,19 @@ def _load_base_records() -> dict[str, SportKeyRecord]:
             "label": "رياضية متعددة",
             "team": "",
             "jobs": "رياضية متعددة",
-            "olympic": "رياضية متعددة أولمبية"
+            "olympic": "رياضية متعددة أولمبية",
         },
         "sports": {
             "label": "ألعاب رياضية",
             "team": "للرياضة",
             "jobs_old": "رياضية",
             "jobs": "",
-            "olympic": "رياضية أولمبية"
-        }
+            "olympic": "رياضية أولمبية",
+        },
     }
     # data.update(multi_sport_key)
     sports_key = {
-        "sports": {
-            "label": "رياضات",
-            "team": "للرياضات",
-            "jobs_old": "",
-            "jobs": "رياضية",
-            "olympic": "رياضات أولمبية"
-        }
+        "sports": {"label": "رياضات", "team": "للرياضات", "jobs_old": "", "jobs": "رياضية", "olympic": "رياضات أولمبية"}
     }
     # data.update(sports_key)
 

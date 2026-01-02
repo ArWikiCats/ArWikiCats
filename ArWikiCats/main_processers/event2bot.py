@@ -79,7 +79,7 @@ def stubs_label(category_r: str) -> str:
 
         if sub_ar_label and list_of_cat:
             ar_label = list_of_cat.format(sub_ar_label)
-            logger.info(f'<<lightblue>> event2 add list_of_cat, {ar_label=}, {category=} ')
+            logger.info(f"<<lightblue>> event2 add list_of_cat, {ar_label=}, {category=} ")
 
     return ar_label
 
@@ -157,14 +157,14 @@ def event2_new(category_r: str) -> str:
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
 
     ar_label = (
-        univer.te_universities(category_r) or
-        event2_d2(category_r) or
-        label_for_startwith_year_or_typeo(category_r) or
-        stubs_label(category_r) or
-        ""
+        univer.te_universities(category_r)
+        or event2_d2(category_r)
+        or label_for_startwith_year_or_typeo(category_r)
+        or stubs_label(category_r)
+        or ""
     )
     if ar_label.startswith("تصنيف:"):
-        ar_label = ar_label[len("تصنيف:"):]
+        ar_label = ar_label[len("تصنيف:") :]
 
     logger.info("<<lightblue>>>> ^^^^^^^^^ event2_new end 3 ^^^^^^^^^ ")
 

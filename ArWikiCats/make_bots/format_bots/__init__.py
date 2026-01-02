@@ -288,7 +288,7 @@ for i, i_lab in fix_o.items():
     pp_ends_with[f" {i}"] = i_lab + " {}"
 
 replaces = {
-    "election, " : "election ",
+    "election, ": "election ",
     "national women's youth": "national youth women's",
     "national youth women's": "national youth women's",
     "women's youth national": "national youth women's",
@@ -316,10 +316,9 @@ replaces = {
 
 
 def get_tabl_with_in(cone_1: str, separator: str) -> str:
-
     con_1_in = f"{cone_1.strip()} {separator.strip()}"
     part_1_label = Tabl_with_in.get(con_1_in, "")
-    logger.debug(f'<<<< {con_1_in=}, {part_1_label=}')
+    logger.debug(f"<<<< {con_1_in=}, {part_1_label=}")
 
     return part_1_label
 

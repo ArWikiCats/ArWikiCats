@@ -64,10 +64,8 @@ data_list_bad = {
     # "Category:20th century disasters in afghanistan": "تصنيف:كوارث القرن 20 في أفغانستان",
     # "Category:20th century churches in ethiopia": "تصنيف:كنائس في إثيوبيا القرن 20",
     # "Category:20th century churches in nigeria": "تصنيف:كنائس في نيجيريا القرن 20",
-
     "Paralympic competitors for Cape Verde": "تصنيف:منافسون بارالمبيون من الرأس الأخضر",
     "20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
-
     "Category:20th century people from al-andalus": "تصنيف:أشخاص من الأندلس في القرن 20",
     "Category:september 1550 sports-events in germany": "تصنيف:أحداث سبتمبر 1550 الرياضية في ألمانيا",
     "Category:1550s disestablishments in yugoslavia": "تصنيف:انحلالات عقد 1550 في يوغسلافيا",
@@ -137,7 +135,6 @@ def test_2_new_bug_check(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

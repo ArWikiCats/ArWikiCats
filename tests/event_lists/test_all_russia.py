@@ -420,7 +420,7 @@ empty_data = {
     "Category:World War I submarines of Russia": "",
     "Category:World War I tanks of Russia": "",
     "Category:World War I torpedo boats of Russia": "",
-    "Category:World War I weapons of Russia": ""
+    "Category:World War I weapons of Russia": "",
 }
 
 data1 = {
@@ -447,7 +447,6 @@ data1 = {
     "Category:Ambassadors of Sweden to the Tsardom of Russia": "تصنيف:سفراء السويد لدى روسيا القيصرية",
     "Category:Ambassadors of the Tsardom of Russia": "تصنيف:سفراء روسيا القيصرية",
     "Category:Ambassadors to the Tsardom of Russia": "تصنيف:سفراء لدى روسيا القيصرية",
-
     "Category:15th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 15",
     "Category:16th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 16",
     "Category:17th-century military history of Russia": "تصنيف:تاريخ روسيا العسكري في القرن 17",
@@ -697,8 +696,6 @@ data1 = {
     "Category:Waterfalls of Russia": "تصنيف:شلالات روسيا",
     "Category:Wetlands of Russia": "تصنيف:مناطق رطبة في روسيا",
     "Category:Women government ministers of Russia": "تصنيف:وزيرات روسيات",
-
-
     "Category:National youth sports teams of Russia": "تصنيف:منتخبات رياضية وطنية شبابية روسيا",
     "Category:National sports teams of Russia": "تصنيف:منتخبات رياضية وطنية من روسيا",
     "Category:Members of learned societies of Russia": "تصنيف:أعضاء جمعيات علمية في روسيا",
@@ -709,7 +706,6 @@ data1 = {
     "Category:History books about the Tsardom of Russia": "تصنيف:كتب تاريخ عن روسيا القيصرية",
     "Category:Films about the French invasion of Russia": "تصنيف:أفلام عن الغزو الفرنسي في روسيا",
     "Category:Books about presidents of Russia": "تصنيف:كتب عن رؤساء روسيا",
-
     "Category:Yiddish-language singers of Russia": "تصنيف:مغنون باللغة اليديشية في روسيا",
     "Category:Tajik-language singers of Russia": "تصنيف:مغنون باللغة الطاجيكية في روسيا",
     "Category:Persian-language singers of Russia": "تصنيف:مغنون باللغة الفارسية في روسيا",
@@ -789,7 +785,7 @@ companies_data = {
     "Category:Travel and holiday companies of Russia": "تصنيف:شركات السفر والعطلات في روسيا",
     "Category:Vehicle manufacturing companies of Russia": "تصنيف:شركات تصنيع مركبات في روسيا",
     "Category:Video game companies of Russia": "تصنيف:شركات ألعاب فيديو في روسيا",
-    "Category:Water companies of Russia": "تصنيف:شركات مياه في روسيا"
+    "Category:Water companies of Russia": "تصنيف:شركات مياه في روسيا",
 }
 
 to_test = [

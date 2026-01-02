@@ -5,7 +5,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_empty = {
-    "lists of 20th millennium women's olympic table tennis players films by city" : "قوائم أفلام لاعبات كرة طاولة أولمبيات الألفية 20 حسب المدينة",
+    "lists of 20th millennium women's olympic table tennis players films by city": "قوائم أفلام لاعبات كرة طاولة أولمبيات الألفية 20 حسب المدينة",
     "category:2020 women's wheelchair tennis players by city": "تصنيف:لاعبات كرة مضرب على كراسي متحركة نسائية في 2020 حسب المدينة",
     "Category:2020 wheelchair tennis by city": "تصنيف:كرة المضرب على الكراسي المتحركة في 2020 حسب المدينة",
     "Category:Political positions of the 2000 United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية 2000",
@@ -47,7 +47,7 @@ data_empty = {
     "Category:Burial sites of Navarrese royal houses": "",
     "Category:Burial sites of Neapolitan royal houses": "",
     "Category:Burial sites of noble families": "",
-    "Category:Burial sites of Norman families": ""
+    "Category:Burial sites of Norman families": "",
 }
 
 data0 = {
@@ -68,13 +68,13 @@ data0 = {
     "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
     "Category:German people convicted of torture": "تصنيف:ألمان أدينوا بتعذيب",
     "Category:Romania football manager history navigational boxes": "تصنيف:صناديق تصفح تاريخ مدربو كرة قدم رومانيا",
-
     "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",
     "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
-    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية", }
+    "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",
+}
 
 data1 = {
     "Category:Lists of American reality television series episodes": "تصنيف:قوائم حلقات مسلسلات تلفزيونية واقعية أمريكية",
@@ -84,7 +84,6 @@ data1 = {
     "european second tier basketball leagues": "تصنيف:دوريات كرة سلة أوروبية من الدرجة الثانية",
     "european second tier ice hockey leagues": "تصنيف:دوريات هوكي جليد أوروبية من الدرجة الثانية",
     "israeli basketball premier league": "تصنيف:الدوري الإسرائيلي الممتاز لكرة السلة",
-
     "Category:Burial sites of ancient Irish dynasties": "تصنيف:مواقع دفن أسر أيرلندية قديمة",
     "Category:Burial sites of Arab dynasties": "تصنيف:مواقع دفن أسر عربية",
     "Category:Burial sites of Asian royal families": "تصنيف:مواقع دفن عائلات ملكية آسيوية",
@@ -124,8 +123,7 @@ data1 = {
     "Category:Burial sites of imperial Chinese families": "تصنيف:مواقع دفن أسر إمبراطورية صينية",
 }
 
-data_2 = {
-}
+data_2 = {}
 
 data_3 = {
     "1550 in asian women's football": "تصنيف:كرة قدم آسيوية للسيدات في 1550",

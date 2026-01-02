@@ -45,7 +45,6 @@ SINGERS_AFTER_ROLES: Mapping[str, GenderedLabel] = {
     "authors": {"males": "مؤلفو", "females": "مؤلفات"},
     "journalists": {"males": "صحفيو", "females": "صحفيات"},
     "composers": {"males": "ملحنو", "females": "ملحنات"},
-
     "record producers": {"males": "منتجو تسجيلات", "females": "منتجات تسجيلات"},
     "singer-songwriters": {"males": "مغنون وكتاب أغاني", "females": "مغنيات وكاتبات أغاني"},
     "songwriters": {"males": "كتاب أغان", "females": "كاتبات أغان"},

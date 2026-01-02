@@ -11,7 +11,6 @@ data = {
     "Category:Subfields by academic discipline": "تصنيف:حقول فرعية حسب التخصص الأكاديمي",
     "Category:Women's organizations based in Cuba": "تصنيف:منظمات نسائية مقرها في كوبا",
     "Category:Women's universities and colleges in India": "تصنيف:جامعات نسائية وكليات في الهند",
-
 }
 
 
@@ -47,7 +46,7 @@ data_2 = {
     "Category:Women singers from the Kingdom of Prussia": "تصنيف:مغنيات من مملكة بروسيا",
     "Category:Norwegian women singers by century": "تصنيف:مغنيات نرويجيات حسب القرن",
     "Category:Austrian women singers by century": "تصنيف:مغنيات نمساويات حسب القرن",
-    "Category:Jewish women singers": "تصنيف:مغنيات يهوديات"
+    "Category:Jewish women singers": "تصنيف:مغنيات يهوديات",
 }
 
 

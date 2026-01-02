@@ -17,7 +17,7 @@ political_data = {
     "morocco political leader": "قادة سياسيون مغاربة",
     "rwanda political leader": "قادة سياسيون روانديون",
     "syria political leader": "قادة سياسيون سوريون",
-    "west india political leader": "قادة سياسيون هنود غربيون"
+    "west india political leader": "قادة سياسيون هنود غربيون",
 }
 
 main_data = {
@@ -55,7 +55,6 @@ main_data = {
     "spain war": "حرب إسبانيا",
     "israel war": "حرب إسرائيل",
     "democratic-republic-of-congo war": "حرب جمهورية الكونغو الديمقراطية",
-
     # squad patterns
     "yemen afc women's asian cup squad": "تشكيلات اليمن في كأس آسيا للسيدات",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
@@ -66,11 +65,9 @@ main_data = {
     "democratic-republic-of-congo summer olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الصيفية",
     "democratic-republic-of-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
     "west india olympics squad": "تشكيلات الهند الغربية في الألعاب الأولمبية",
-
     # olympics patterns
     "west india summer olympics": "الهند الغربية في الألعاب الأولمبية الصيفية",
     "democratic-republic-of-congo winter olympics": "جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
-
     # the_female patterns
     "yemen royal air force": "القوات الجوية الملكية اليمنية",
     "tunisia civil war": "الحرب الأهلية التونسية",
@@ -80,10 +77,8 @@ main_data = {
     "morocco royal navy": "البحرية الملكية المغربية",
     "syria naval force": "البحرية السورية",
     "egypt naval forces": "البحرية المصرية",
-
     # males patterns
     "yemen government officials": "مسؤولون حكوميون يمنيون",
-
     # the_male patterns
     "yemen premier division": "الدوري اليمني الممتاز",
     "yemen coast guard": "خفر السواحل اليمني",

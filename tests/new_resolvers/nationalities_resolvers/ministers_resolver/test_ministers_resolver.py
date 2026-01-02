@@ -8,7 +8,7 @@ from ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import 
 
 fast_data = {
     # US specific pattern
-    "United States secretaries of state": "وزراء خارجية أمريكيون",    # Secretaries of state patterns - all countries from _all_country_with_nat
+    "United States secretaries of state": "وزراء خارجية أمريكيون",  # Secretaries of state patterns - all countries from _all_country_with_nat
     "secretaries of state of eastern asia": "وزراء خارجية آسيويين شرقيون",
     "secretaries of state of eastern europe": "وزراء خارجية أوروبيون شرقيون",
     "secretaries of state of ecuador": "وزراء خارجية إكوادوريون",
@@ -16,11 +16,10 @@ fast_data = {
     "secretaries of state of united arab emirates": "وزراء خارجية إماراتيون",
     "secretaries of state of england": "وزراء خارجية إنجليز",
     "secretaries of state of equatorial guinea": "وزراء خارجية غينيون استوائيون",
-
     "secretaries of state for egypt": "وزراء خارجية مصريون",
     "secretaries of state for united arab emirates": "وزراء خارجية إماراتيون",
     "secretaries of state for england": "وزراء خارجية إنجليز",
-    "secretaries of state for ecuador": "وزراء خارجية إكوادوريون",    # Assistant secretaries patterns - multiple countries
+    "secretaries of state for ecuador": "وزراء خارجية إكوادوريون",  # Assistant secretaries patterns - multiple countries
     "assistant secretaries of defense of egypt": "مساعدو وزير الدفاع المصري",
     "assistant secretaries of interior of united arab emirates": "مساعدو وزير الداخلية الإماراتي",
     "assistant secretaries of health of england": "مساعدو وزير الصحة الإنجليزي",
@@ -28,7 +27,6 @@ fast_data = {
     "assistant secretaries of finance of eastern asia": "مساعدو وزير المالية الآسيوي الشرقي",
     "assistant secretaries of defense of eastern europe": "مساعدو وزير الدفاع الأوروبي الشرقي",
     "assistant secretaries of agriculture of equatorial guinea": "مساعدو وزير الزراعة الغيني الاستوائي",
-
     # Deputy secretaries patterns - multiple countries
     "deputy secretaries of defense of egypt": "نواب وزير الدفاع المصري",
     "deputy secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي",
@@ -36,14 +34,12 @@ fast_data = {
     "deputy secretaries of finance of ecuador": "نواب وزير المالية الإكوادوري",
     "deputy secretaries of economy of eastern asia": "نواب وزير الاقتصاد الآسيوي الشرقي",
     "deputy secretaries of culture of eastern europe": "نواب وزير الثقافة الأوروبي الشرقي",
-
     # Under secretaries patterns - multiple countries
     "under secretaries of defense of egypt": "نواب وزير الدفاع المصري للشؤون المتخصصة",
     "under secretaries of interior of united arab emirates": "نواب وزير الداخلية الإماراتي للشؤون المتخصصة",
     "under secretaries of education of england": "نواب وزير التعليم الإنجليزي للشؤون المتخصصة",
     "under secretaries of agriculture of ecuador": "نواب وزير الزراعة الإكوادوري للشؤون المتخصصة",
     "under secretaries of transport of eastern asia": "نواب وزير النقل الآسيوي الشرقي للشؤون المتخصصة",
-
     # Country secretaries of ministry patterns - Egyptian
     "secretaries of defense of egypt": "وزراء دفاع مصريون",
     "secretaries of interior of egypt": "وزراء داخلية مصريون",
@@ -53,40 +49,34 @@ fast_data = {
     "secretaries of finance of egypt": "وزراء مالية مصريون",
     "secretaries of culture of egypt": "وزراء ثقافة مصريون",
     "secretaries of tourism of egypt": "وزراء سياحة مصريون",
-
     # Country secretaries of ministry patterns - Emirati
     "secretaries of defense of united arab emirates": "وزراء دفاع إماراتيون",
     "secretaries of interior of united arab emirates": "وزراء داخلية إماراتيون",
     "secretaries of foreign affairs of united arab emirates": "وزراء شؤون خارجية إماراتيون",
     "secretaries of energy of united arab emirates": "وزراء طاقة إماراتيون",
     "secretaries of economy of united arab emirates": "وزراء اقتصاد إماراتيون",
-
     # Country secretaries of ministry patterns - English
     "secretaries of defense of england": "وزراء دفاع إنجليز",
     "secretaries of health of england": "وزراء صحة إنجليز",
     "secretaries of education of england": "وزراء تعليم إنجليز",
     "secretaries of foreign affairs of england": "وزراء شؤون خارجية إنجليز",
     "secretaries of justice of england": "وزراء عدل إنجليز",
-
     # Country secretaries of ministry patterns - Ecuadorian
     "secretaries of agriculture of ecuador": "وزراء زراعة إكوادوريون",
     "secretaries of finance of ecuador": "وزراء مالية إكوادوريون",
     "secretaries of defense of ecuador": "وزراء دفاع إكوادوريون",
-    "secretaries of environment of ecuador": "وزراء بيئة إكوادوريون",    # Country secretaries of ministry patterns - Eastern Asian
+    "secretaries of environment of ecuador": "وزراء بيئة إكوادوريون",  # Country secretaries of ministry patterns - Eastern Asian
     "secretaries of finance of eastern asia": "وزراء مالية آسيويين شرقيون",
     "secretaries of defense of eastern asia": "وزراء دفاع آسيويين شرقيون",
     "secretaries of economy of eastern asia": "وزراء اقتصاد آسيويين شرقيون",
-
     # Country secretaries of ministry patterns - Eastern European
     "secretaries of defense of eastern europe": "وزراء دفاع أوروبيون شرقيون",
     "secretaries of interior of eastern europe": "وزراء داخلية أوروبيون شرقيون",
     "secretaries of culture of eastern europe": "وزراء ثقافة أوروبيون شرقيون",
-
     # Country secretaries of ministry patterns - Equatorial Guinean
     "secretaries of defense of equatorial guinea": "وزراء دفاع غينيون استوائيون",
     "secretaries of agriculture of equatorial guinea": "وزراء زراعة غينيون استوائيون",
     "secretaries of health of equatorial guinea": "وزراء صحة غينيون استوائيون",
-
     # Secretaries of ministry (no country) - all ministries
     "secretaries of defense": "وزراء دفاع",
     "secretaries of interior": "وزراء داخلية",
@@ -166,21 +156,18 @@ fast_data = {
     "secretaries of public service": "وزراء خدمة عامة",
     "secretaries of human services": "وزراء خدمات إنسانية",
     "secretaries of peace and reconciliation": "وزراء سلام ومصالحة",
-
     # State-level positions - multiple countries
     "state lieutenant governors of egypt": "نواب حكام الولايات في مصر",
     "state lieutenant governors of united arab emirates": "نواب حكام الولايات في الإمارات العربية المتحدة",
     "state lieutenant governors of ecuador": "نواب حكام الولايات في الإكوادور",
     "state lieutenant governors of england": "نواب حكام الولايات في إنجلترا",
-
     "state secretaries of state of egypt": "وزراء خارجية الولايات في مصر",
     "state secretaries of state of united arab emirates": "وزراء خارجية الولايات في الإمارات العربية المتحدة",
     "state secretaries of state of ecuador": "وزراء خارجية الولايات في الإكوادور",
-
     "state cabinet secretaries of egypt": "أعضاء مجلس وزراء مصر",
     "state cabinet secretaries of united arab emirates": "أعضاء مجلس وزراء الإمارات العربية المتحدة",
     "state cabinet secretaries of ecuador": "أعضاء مجلس وزراء الإكوادور",
-    "state cabinet secretaries of england": "أعضاء مجلس وزراء إنجلترا",    # Hyphenated patterns - multiple countries and ministries
+    "state cabinet secretaries of england": "أعضاء مجلس وزراء إنجلترا",  # Hyphenated patterns - multiple countries and ministries
     "United States secretaries-of war": "وزراء حرب أمريكيون",
     "secretaries-of defense of egypt": "وزراء دفاع مصريون",
     "secretaries-of interior of united arab emirates": "وزراء داخلية إماراتيون",
@@ -191,52 +178,44 @@ fast_data = {
     "secretaries of communications and transportation": "وزراء اتصالات ونقل",
     "secretaries of environment and natural resources": "وزراء بيئة وموارد طبيعية",
     "secretaries of war and navy": "وزراء حرب وبحرية",
-
     # Combined ministries with countries - Egypt
     "secretaries of health and human services of egypt": "وزراء صحة وخدمات إنسانية مصريون",
     "secretaries of communications and transportation of egypt": "وزراء اتصالات ونقل مصريون",
     "secretaries of environment and natural resources of egypt": "وزراء بيئة وموارد طبيعية مصريون",
     "secretaries of war and navy of egypt": "وزراء حرب وبحرية مصريون",
-
     # Combined ministries with countries - United Arab Emirates
     "secretaries of health and human services of united arab emirates": "وزراء صحة وخدمات إنسانية إماراتيون",
     "secretaries of communications and transportation of united arab emirates": "وزراء اتصالات ونقل إماراتيون",
     "secretaries of environment and natural resources of united arab emirates": "وزراء بيئة وموارد طبيعية إماراتيون",
     "secretaries of war and navy of united arab emirates": "وزراء حرب وبحرية إماراتيون",
-
     # Combined ministries with countries - England
     "secretaries of health and human services of england": "وزراء صحة وخدمات إنسانية إنجليز",
     "secretaries of communications and transportation of england": "وزراء اتصالات ونقل إنجليز",
     "secretaries of environment and natural resources of england": "وزراء بيئة وموارد طبيعية إنجليز",
     "secretaries of war and navy of england": "وزراء حرب وبحرية إنجليز",
-
     # Combined ministries with countries - Ecuador
     "secretaries of health and human services of ecuador": "وزراء صحة وخدمات إنسانية إكوادوريون",
     "secretaries of communications and transportation of ecuador": "وزراء اتصالات ونقل إكوادوريون",
     "secretaries of environment and natural resources of ecuador": "وزراء بيئة وموارد طبيعية إكوادوريون",
     "secretaries of war and navy of ecuador": "وزراء حرب وبحرية إكوادوريون",
-
     # Combined ministries with countries - Eastern Asia
     "secretaries of health and human services of eastern asia": "وزراء صحة وخدمات إنسانية آسيويين شرقيون",
     "secretaries of communications and transportation of eastern asia": "وزراء اتصالات ونقل آسيويين شرقيون",
     "secretaries of environment and natural resources of eastern asia": "وزراء بيئة وموارد طبيعية آسيويين شرقيون",
     "secretaries of war and navy of eastern asia": "وزراء حرب وبحرية آسيويين شرقيون",
-
     # Combined ministries with countries - Eastern European
     "secretaries of health and human services of eastern europe": "وزراء صحة وخدمات إنسانية أوروبيون شرقيون",
     "secretaries of communications and transportation of eastern europe": "وزراء اتصالات ونقل أوروبيون شرقيون",
     "secretaries of environment and natural resources of eastern europe": "وزراء بيئة وموارد طبيعية أوروبيون شرقيون",
     "secretaries of war and navy of eastern europe": "وزراء حرب وبحرية أوروبيون شرقيون",
-
     # Combined ministries with countries - Equatorial Guinea
     "secretaries of health and human services of equatorial guinea": "وزراء صحة وخدمات إنسانية غينيون استوائيون",
     "secretaries of communications and transportation of equatorial guinea": "وزراء اتصالات ونقل غينيون استوائيون",
     "secretaries of environment and natural resources of equatorial guinea": "وزراء بيئة وموارد طبيعية غينيون استوائيون",
-    "secretaries of war and navy of equatorial guinea": "وزراء حرب وبحرية غينيون استوائيون",    # Case sensitivity tests
+    "secretaries of war and navy of equatorial guinea": "وزراء حرب وبحرية غينيون استوائيون",  # Case sensitivity tests
     "SECRETARIES OF DEFENSE OF EGYPT": "وزراء دفاع مصريون",
     "Secretaries Of Defense Of Egypt": "وزراء دفاع مصريون",
     "sEcReTaRiEs Of InTeRiOr Of UnItEd ArAb EmIrAtEs": "وزراء داخلية إماراتيون",
-
     # Testing with "the" prefix removal
     "secretaries of state of the egypt": "وزراء خارجية مصريون",
     "secretaries of state of the united arab emirates": "وزراء خارجية إماراتيون",

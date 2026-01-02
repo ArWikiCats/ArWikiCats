@@ -443,7 +443,7 @@ test_data = {
     "united kingdom–vanuatu relations": "علاقات المملكة المتحدة وفانواتو",
     "united states–vanuatu relations": "علاقات الولايات المتحدة وفانواتو",
     "uruguay–vanuatu relations": "علاقات أوروغواي وفانواتو",
-    "vanuatu–vietnam relations": "علاقات فانواتو وفيتنام"
+    "vanuatu–vietnam relations": "علاقات فانواتو وفيتنام",
 }
 
 

@@ -21,7 +21,6 @@ def multi_bot() -> MultiDataFormatterBase:
         "{en} {under_en} amateur international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
         "{en} men's {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للرجال",
         "national {under_en} football team": "منتخب كرة القدم {under_ar}",
-
         "{en} national football team managers": "مدربو منتخب {ar} لكرة القدم",
         "{en} sports templates": "قوالب {ar} الرياضية",
         "{en} amateur international soccer players": "لاعبو منتخب {ar} لكرة القدم للهواة",
@@ -61,7 +60,6 @@ data_compare = {
 
 @pytest.mark.fast
 def test_data_compare_one(multi_bot: MultiDataFormatterBase) -> None:
-
     category = "national under-15 football team"
     expected = "منتخب كرة القدم تحت 15 سنة"
 
@@ -76,6 +74,7 @@ def test_data_compare_multi(multi_bot: MultiDataFormatterBase, category: str, ex
     label2 = multi_bot.search_all(category)
 
     assert label2 == expected
+
 
 # =========================================================
 #           DUMP

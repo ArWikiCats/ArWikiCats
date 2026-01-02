@@ -80,6 +80,7 @@ def test_data_with_nats(category: str, expected: str) -> None:
     label2 = resolve_sport_under_labels(category)
     assert label2 == expected
 
+
 # =========================================================
 #           DUMP
 # =========================================================

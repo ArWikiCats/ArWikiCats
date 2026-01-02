@@ -61,12 +61,12 @@ def _handle_year_at_start(category_text: str) -> str:
 
     if not remainder_label:
         remainder_label = (
-            new_resolvers_all(remainder) or
-            get_from_pf_keys2(remainder) or
-            get_KAKO(remainder) or
-            translate_general_category(remainder, fix_title=False) or
-            country2_lab.get_lab_for_country2(remainder) or
-            ""
+            new_resolvers_all(remainder)
+            or get_from_pf_keys2(remainder)
+            or get_KAKO(remainder)
+            or translate_general_category(remainder, fix_title=False)
+            or country2_lab.get_lab_for_country2(remainder)
+            or ""
         )
 
     if not remainder_label:
@@ -113,10 +113,10 @@ def _handle_year_at_end(
     remainder = category_text[: -len(year_at_end_label)]
 
     remainder_label = (
-        new_resolvers_all(remainder) or
-        translate_general_category(remainder, fix_title=False) or
-        country2_lab.get_lab_for_country2(remainder) or
-        ""
+        new_resolvers_all(remainder)
+        or translate_general_category(remainder, fix_title=False)
+        or country2_lab.get_lab_for_country2(remainder)
+        or ""
     )
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")

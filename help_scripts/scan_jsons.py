@@ -1,12 +1,12 @@
-
 import json
 import ahocorasick
 import re
 from pathlib import Path
 from tqdm import tqdm
 from collections import defaultdict
+
 base_dir = Path(__file__).parent.parent
-jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
+jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"
 
 
 def fix_keys(text) -> str:
@@ -60,23 +60,14 @@ def main() -> None:
     for file in files:
         print(f"Processing file: {file}")
         data = json.loads(file.read_text(encoding="utf-8"))
-        fixed = {
-            fix_keys(k): k
-            for k in data.keys()
-        }
-        data = {
-            fix_keys(k): v
-            for k, v in data.items()
-        }
+        fixed = {fix_keys(k): k for k in data.keys()}
+        data = {fix_keys(k): v for k, v in data.items()}
 
         keys_found = check_data_new(data)
-        keys_found = {
-            fixed.get(x, x): v for x, v in keys_found.items()
-        }
+        keys_found = {fixed.get(x, x): v for x, v in keys_found.items()}
         status[file] = keys_found
     # ---
     for fname, keys_found in status.items():
-
         data = json.loads(fname.read_text(encoding="utf-8"))
 
         print(f"{fname} => ")

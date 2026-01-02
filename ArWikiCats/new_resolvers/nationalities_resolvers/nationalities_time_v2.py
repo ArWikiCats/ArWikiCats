@@ -13,12 +13,12 @@ from ...translations_formats import (
     format_year_country_data_v2,
     MultiDataFormatterBaseYearV2,
 )
+
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
-
     formatted_data = {
         # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
         "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
@@ -27,11 +27,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
         "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
     }
 
-    nats_data = {
-        x: v
-        for x, v in all_country_with_nat_ar.items()
-        if v.get("ar")
-    }
+    nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
 
     return format_year_country_data_v2(
         formatted_data=formatted_data,

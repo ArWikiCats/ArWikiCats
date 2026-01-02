@@ -44,7 +44,6 @@ def test_match_key(bot) -> None:
 
 
 def test_search(bot) -> None:
-
     result1 = bot.search("georgia (u.s. state) independents")
     result2 = bot.search("georgia independents")
 

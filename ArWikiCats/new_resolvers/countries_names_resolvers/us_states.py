@@ -10,23 +10,17 @@ from ...translations import US_STATES
 _STATE_SUFFIX_TEMPLATES_BASE = {
     # "georgia (u.s. state)": "ولاية جورجيا",
     "{en} (u.s. state)": "ولاية {ar}",
-
     # "new york (state)": "ولاية نيويورك",
     "{en} (state)": "ولاية {ar}",
-
     # Category:Defunct department stores based in Washington State
     "{en} state": "ولاية {ar}",
-
     "secretaries of state of {en}": "وزراء خارجية {ar}",
     "secretaries of state for {en}": "وزراء خارجية {ar}",
-
     # "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
     # "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
-
     "state lieutenant governors of {en}": "نواب حكام ولاية {ar}",
     "state secretaries of state of {en}": "وزراء خارجية ولاية {ar}",
-    "state cabinet secretaries of {en}" : "أعضاء مجلس وزراء {ar}",
-
+    "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
     "{en} appellate court judges": "قضاة محكمة استئناف {ar}",
     "{en} attorneys general": "مدعي {ar} العام",
     "{en} ballot measures": "إجراءات اقتراع {ar}",
@@ -77,11 +71,13 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
 }
 
 
-_STATE_SUFFIX_TEMPLATES_BASE.update({
-    x.replace("secretaries of", "secretaries-of"): y
-    for x, y in _STATE_SUFFIX_TEMPLATES_BASE.items()
-    if "secretaries of" in x
-})
+_STATE_SUFFIX_TEMPLATES_BASE.update(
+    {
+        x.replace("secretaries of", "secretaries-of"): y
+        for x, y in _STATE_SUFFIX_TEMPLATES_BASE.items()
+        if "secretaries of" in x
+    }
+)
 
 
 _USA_PARTY_LABELS = {

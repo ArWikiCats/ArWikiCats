@@ -4,7 +4,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-covid_pandemic_data ={
+covid_pandemic_data = {
     "Category:Deaths from the COVID-19 pandemic by country subdivision": "تصنيف:وفيات من جائحة فيروس كورونا حسب تقسيم البلد",
     "Category:Deaths from the COVID-19 pandemic in Afghanistan": "تصنيف:وفيات من جائحة فيروس كورونا في أفغانستان",
     "Category:Deaths from the COVID-19 pandemic in Alabama": "تصنيف:وفيات من جائحة فيروس كورونا في ألاباما",
@@ -182,7 +182,7 @@ covid_pandemic_data ={
     "Category:Deaths from the COVID-19 pandemic": "تصنيف:وفيات بسبب جائحة فيروس كورونا",
 }
 
-airstrikes_data ={
+airstrikes_data = {
     "Category:Deaths by German airstrikes during The Blitz": "تصنيف:وفيات بضربات جوية ألمانية خلال قصف لندن",
     "Category:Deaths by German airstrikes during World War II": "تصنيف:وفيات بضربات جوية ألمانية خلال الحرب العالمية الثانية",
     "Category:Deaths by Greek airstrikes during World War II": "تصنيف:وفيات بضربات جوية يونانية خلال الحرب العالمية الثانية",
@@ -203,7 +203,6 @@ airstrikes_data ={
     "Category:Deaths by Sudanese airstrikes": "تصنيف:وفيات بضربات جوية سودانية",
     "Category:Deaths by Turkish airstrikes": "تصنيف:وفيات بضربات جوية تركية",
     "Category:Deaths by New Zealand airstrikes": "تصنيف:وفيات بضربات جوية نيوزيلندية",
-
 }
 
 data_test_1 = {
@@ -223,7 +222,6 @@ data_test_1 = {
     "Category:Deaths by firearm in Turkey": "تصنيف:أشخاص قتلوا بإطلاق النار في تركيا",
     "Category:Deaths by firearm in Venezuela": "تصنيف:أشخاص قتلوا بإطلاق النار في فنزويلا",
     "Category:Deaths by firearm in Yemen": "تصنيف:أشخاص قتلوا بإطلاق النار في اليمن",
-
     "Category:Deaths by firearm in Balochistan, Pakistan": "تصنيف:وفيات بإطلاق النار في بلوشستان",
     "Category:Deaths by firearm in Florida": "تصنيف:وفيات إطلاق نار في فلوريدا",
     "Category:Deaths by firearm in Grenada": "تصنيف:وفيات بسلاح ناري في غرينادا",
@@ -242,7 +240,6 @@ data_test_1 = {
     "Category:Deaths by firearm in Uruguay": "تصنيف:وفيات بإطلاق النار في أوروغواي",
     "Category:Deaths by firearm in Wyoming": "تصنيف:وفيات بسلاح ناري في وايومنغ",
     "Category:Deaths by firearm": "تصنيف:وفيات بسبب الأسلحة النارية",
-
     "Category:Deaths by blade weapons": "تصنيف:وفيات بالأسلحة البيضاء",
     "Category:Deaths by country": "تصنيف:وفيات حسب البلد",
     "Category:Deaths by decapitation": "تصنيف:وفيات بقطع الرأس",
@@ -416,7 +413,7 @@ data_test_1 = {
     "Category:Deaths from skin disease": "تصنيف:وفيات بسبب مرض جلدي",
     "Category:Deaths from tuberculosis by century": "تصنيف:وفيات بسبب السل حسب القرن",
     "Category:Deaths from tuberculosis": "تصنيف:وفيات بسبب السل",
-    "Category:Deaths from urologic disease": "تصنيف:وفيات من أمراض الجهاز البولي"
+    "Category:Deaths from urologic disease": "تصنيف:وفيات من أمراض الجهاز البولي",
 }
 
 data_test_2 = {
@@ -621,7 +618,7 @@ data_test_2 = {
     "Category:Deaths from varicella zoster infection": "تصنيف:وفيات بعدوى فيروس جدري الماء النطاقي",
     "Category:Deaths from vasculitis": "تصنيف:وفيات بسبب التهاب الوعائي",
     "Category:Deaths from whooping cough": "تصنيف:وفيات بسبب السعال الديكي",
-    "Category:Deaths from yellow fever": "تصنيف:وفيات بسبب الحمى الصفراء"
+    "Category:Deaths from yellow fever": "تصنيف:وفيات بسبب الحمى الصفراء",
 }
 
 to_test = [

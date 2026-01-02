@@ -11,7 +11,6 @@ test_data = {
     # standard
     # "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     # "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",
-
     "Category:July 2003 in Russia": "تصنيف:يوليو 2003 في روسيا",
     "Category:May 1939 in Canada": "تصنيف:مايو 1939 في كندا",
     "Category:2010s establishments in egypt": "تصنيف:تأسيسات عقد 2010 في مصر",
@@ -54,10 +53,8 @@ def test_country_time_pattern(category: str, expected: str) -> None:
 
 
 class TestLoadBot:
-
     test_data2 = {
         "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
-
         # with text_before
         "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
         "Category:2025 in Yemen": "تصنيف:اليمن في 2025",

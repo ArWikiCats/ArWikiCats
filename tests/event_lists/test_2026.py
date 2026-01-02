@@ -47,7 +47,7 @@ data1 = {
     "Category:2016–17 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2016–17",
     "Category:2017–18 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2017–18",
     "Category:2018–19 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2018–19",
-    "Category:2019–20 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2019–20"
+    "Category:2019–20 in Antigua and Barbuda football": "تصنيف:كرة القدم الأنتيغوية والبربودية في 2019–20",
 }
 
 data2 = {
@@ -59,7 +59,7 @@ data2 = {
     "Category:20th century croatian people by occupation": "تصنيف:كروات في القرن 20 حسب المهنة",
     "Category:21st century yemeni people by occupation": "تصنيف:يمنيون في القرن 21 حسب المهنة",
     "Category:3rd century asian people by nationality": "تصنيف:آسيويين في القرن 3 حسب الجنسية",
-    "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة"
+    "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
 }
 
 data3 = {

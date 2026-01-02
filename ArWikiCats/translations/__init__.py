@@ -9,7 +9,12 @@ from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIAN
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
 from .jobs.jobs_womens import Female_Jobs, short_womens_jobs, FEMALE_JOBS_BASE
-from .languages import LANGUAGE_TOPIC_FORMATS, language_key_translations, PRIMARY_LANGUAGE_TRANSLATIONS, COMPLEX_LANGUAGE_TRANSLATIONS
+from .languages import (
+    LANGUAGE_TOPIC_FORMATS,
+    language_key_translations,
+    PRIMARY_LANGUAGE_TRANSLATIONS,
+    COMPLEX_LANGUAGE_TRANSLATIONS,
+)
 from .mixed.all_keys2 import (
     People_key,
     WORD_AFTER_YEARS,

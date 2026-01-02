@@ -1,4 +1,3 @@
-
 import pytest
 
 from ArWikiCats.make_bots.reslove_relations.rele import (
@@ -123,6 +122,7 @@ def test_relations_congo(category: str, expected: str) -> None:
 # Basic tests
 # ======================
 
+
 def test_unsupported_relation_type() -> None:
     """اختبار نوع علاقة غير مدعومة"""
     result = resolve_relations_label("mars–venus space relations")
@@ -144,6 +144,7 @@ def test_numeric_country_codes() -> None:
 # ======================
 # اختبارات العلاقات النسائية
 # ======================
+
 
 def test_female_relations_basic(monkeypatch: pytest.MonkeyPatch) -> None:
     """Basic female relations with countries in dictionary"""
@@ -217,6 +218,7 @@ def test_female_relations_unknown_country(monkeypatch: pytest.MonkeyPatch) -> No
 # اختبارات العلاقات الذكورية
 # ======================
 
+
 def test_male_relations_basic(monkeypatch: pytest.MonkeyPatch) -> None:
     """Basic male relations"""
     monkeypatch.setattr(
@@ -257,6 +259,7 @@ def test_male_relations_with_minus_sign(monkeypatch: pytest.MonkeyPatch) -> None
 # اختبارات البادئات (P17_PREFIXES)
 # ======================
 
+
 def test_p17_prefixes_basic(monkeypatch: pytest.MonkeyPatch) -> None:
     """Basic P17 prefix handling"""
     monkeypatch.setattr(
@@ -284,6 +287,7 @@ def test_p17_prefixes_unknown_country(monkeypatch: pytest.MonkeyPatch) -> None:
 # ======================
 # حالات خاصة
 # ======================
+
 
 def test_special_nato_case_male(monkeypatch: pytest.MonkeyPatch) -> None:
     """Male NATO relation handling"""
@@ -317,6 +321,7 @@ def test_missing_separator(monkeypatch: pytest.MonkeyPatch) -> None:
 # ======================
 # Edge cases
 # ======================
+
 
 def test_trailing_whitespace(monkeypatch: pytest.MonkeyPatch) -> None:
     """Trailing whitespace"""

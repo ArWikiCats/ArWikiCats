@@ -2538,7 +2538,7 @@ data_0 = {
     "zombie television programs": "برامج تلفزيونية زومبي",
     "zombie television series": "مسلسلات تلفزيونية زومبي",
     "zombie video games": "ألعاب فيديو زومبي",
-    "zombie web series": "مسلسلات ويب زومبي"
+    "zombie web series": "مسلسلات ويب زومبي",
 }
 
 

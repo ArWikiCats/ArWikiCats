@@ -125,22 +125,24 @@ def build_keys2_py_mapping() -> dict[str, str]:
         "commentators": "معلقو",
         "commissioners": "مفوضو",
     }
-    data.update({
-        "candidates for": "مرشحو",
-        "trainers of": "مدربو",
-        "journalists of": "صحفيو",
-        "explorers of": "مستكشفو",
-        "political people of": "سياسيو",
-        "players of": "لاعبو",
-        "managers of": "مدربو",
-        "historians of": "مؤرخو",
-        "founders of": "مؤسسو",
-        "employees of": "موظفو",
-        "coaches of": "مدربو",
-        "investors of": "مسيرو",
-        "alumni of": "خريجو",
-        "chairmen and investors of": "رؤساء ومسيرو",
-    })
+    data.update(
+        {
+            "candidates for": "مرشحو",
+            "trainers of": "مدربو",
+            "journalists of": "صحفيو",
+            "explorers of": "مستكشفو",
+            "political people of": "سياسيو",
+            "players of": "لاعبو",
+            "managers of": "مدربو",
+            "historians of": "مؤرخو",
+            "founders of": "مؤسسو",
+            "employees of": "موظفو",
+            "coaches of": "مدربو",
+            "investors of": "مسيرو",
+            "alumni of": "خريجو",
+            "chairmen and investors of": "رؤساء ومسيرو",
+        }
+    )
     data.update(medical_keys)
 
     return data

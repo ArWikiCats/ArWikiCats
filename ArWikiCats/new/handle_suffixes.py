@@ -26,7 +26,7 @@ def normalize_text(text: str) -> str:
 def combine_value_and_label(
     value: str,
     new_label: str,
-    format_key: str="",
+    format_key: str = "",
 ) -> str:
     """
     Combine value and new_label based on format_key.
@@ -120,7 +120,9 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}", result)
+    logger.info_if_or_debug(
+        f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}", result
+    )
     return result
 
 

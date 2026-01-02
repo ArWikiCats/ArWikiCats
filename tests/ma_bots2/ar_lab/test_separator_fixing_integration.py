@@ -20,9 +20,7 @@ class TestSeparatorListsFixingIntegration:
     def test_military_installations_in(self) -> None:
         """Test real-world example: military installations in."""
         result = separator_lists_fixing(
-            type_label="منشآت عسكرية",
-            separator_stripped="in",
-            type_lower="military installations in"
+            type_label="منشآت عسكرية", separator_stripped="in", type_lower="military installations in"
         )
         assert result == "منشآت عسكرية في"
         assert " في" in result
@@ -31,20 +29,14 @@ class TestSeparatorListsFixingIntegration:
     @pytest.mark.fast
     def test_sport_at_location(self) -> None:
         """Test real-world example: sport at location."""
-        result = separator_lists_fixing(
-            type_label="رياضة",
-            separator_stripped="at",
-            type_lower="sport at"
-        )
+        result = separator_lists_fixing(type_label="رياضة", separator_stripped="at", type_lower="sport at")
         assert result == "رياضة في"
 
     @pytest.mark.fast
     def test_complex_label_with_in(self) -> None:
         """Test complex Arabic label with 'in' separator."""
         result = separator_lists_fixing(
-            type_label="أحداث رياضية",
-            separator_stripped="in",
-            type_lower="sports events in"
+            type_label="أحداث رياضية", separator_stripped="in", type_lower="sports events in"
         )
         assert result == "أحداث رياضية في"
 
@@ -52,9 +44,7 @@ class TestSeparatorListsFixingIntegration:
     def test_preserves_existing_في(self) -> None:
         """Test that existing 'في' is preserved."""
         result = separator_lists_fixing(
-            type_label="أحداث رياضية في",
-            separator_stripped="in",
-            type_lower="sports events in"
+            type_label="أحداث رياضية في", separator_stripped="in", type_lower="sports events in"
         )
         # Should not add duplicate في
         assert result.count(" في") == 1
@@ -63,9 +53,7 @@ class TestSeparatorListsFixingIntegration:
     def test_multiple_word_labels(self) -> None:
         """Test with multi-word Arabic labels."""
         result = separator_lists_fixing(
-            type_label="المنشآت الرياضية الكبرى",
-            separator_stripped="in",
-            type_lower="major sports facilities in"
+            type_label="المنشآت الرياضية الكبرى", separator_stripped="in", type_lower="major sports facilities in"
         )
         assert result == "المنشآت الرياضية الكبرى في"
 
@@ -76,11 +64,7 @@ class TestAddInTabIntegration:
     @pytest.mark.fast
     def test_athletes_from_country(self) -> None:
         """Test real-world example: athletes from country."""
-        result = add_in_tab(
-            type_label="رياضيون",
-            type_lower="athletes",
-            separator_stripped="from"
-        )
+        result = add_in_tab(type_label="رياضيون", type_lower="athletes", separator_stripped="from")
         assert result == "رياضيون من "
         assert " من " in result
         assert result.endswith("من ")
@@ -88,11 +72,7 @@ class TestAddInTabIntegration:
     @pytest.mark.fast
     def test_preserves_existing_من(self) -> None:
         """Test that existing 'من' is preserved."""
-        result = add_in_tab(
-            type_label="رياضيون من",
-            type_lower="athletes",
-            separator_stripped="from"
-        )
+        result = add_in_tab(type_label="رياضيون من", type_lower="athletes", separator_stripped="from")
         # Should not add duplicate من
         assert result.count(" من") == 1
 
@@ -101,11 +81,7 @@ class TestAddInTabIntegration:
     def test_footballers_of_team(self) -> None:
         """Test real-world example: footballers of team."""
         # This test requires actual data dependencies
-        result = add_in_tab(
-            type_label="لاعبو كرة قدم",
-            type_lower="footballers of",
-            separator_stripped="in"
-        )
+        result = add_in_tab(type_label="لاعبو كرة قدم", type_lower="footballers of", separator_stripped="in")
         # Result depends on get_pop_All_18 and check_key_new_players
         assert isinstance(result, str)
         # Should either add 'من' or return unchanged

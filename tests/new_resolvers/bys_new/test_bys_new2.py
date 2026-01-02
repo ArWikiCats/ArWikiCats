@@ -507,7 +507,6 @@ _by_or_fields = {
     "by prison or publication": "حسب السجن أو المؤسسة",
     "by prison or quality": "حسب السجن أو الجودة",
     "by prison or rank": "حسب السجن أو الرتبة",
-
 }
 _by_by_fields = {
     "by bank by behavior": "حسب البنك حسب السلوك",
@@ -1280,7 +1279,7 @@ _by_music_labels = {
     "by genre and manufacturer": "حسب النوع الفني والصانع",
     "by genre and manufacturer nationality": "حسب النوع الفني وجنسية الصانع",
     "by manufacturer": "حسب الصانع",
-    "by manufacturer nationality": "حسب جنسية الصانع"
+    "by manufacturer nationality": "حسب جنسية الصانع",
 }
 _by_music_table_base = {
     "by city": "حسب المدينة",

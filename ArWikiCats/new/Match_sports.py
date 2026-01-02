@@ -35,10 +35,8 @@ TEMPLATES_TEAMS: Dict[str, str] = {
     "wheelchair {en_sport}": "{sport_ar} على كراسي متحركة",
     "{en_sport} racing": "سباقات {sport_ar}",
     "men's national {en_sport} team": "منتخب {sport_ar} الوطني للرجال",
-
     "national women's {en_sport} team": "منتخب {sport_ar} الوطني للسيدات",
     "women's national {en_sport} team": "منتخب {sport_ar} الوطني للسيدات",
-
     "national {en_sport} team": "المنتخب الوطني في {sport_ar}",
 }
 # ---------- teamv_job.py ----------
@@ -90,7 +88,9 @@ def _expand_templates(templates: Dict[str, str]) -> Dict[str, str]:
         expanded.setdefault(relaxed_key, value)
 
         # tokens = ["{en_sport}" if token == "{en_sport}" else (token[:-1] if token.endswith("s") else token) for token in key.split(" ")]
-        tokens = [token[:-1] if token == "championships" else token for token in key.split(" ") if token != "{en_sport}"]
+        tokens = [
+            token[:-1] if token == "championships" else token for token in key.split(" ") if token != "{en_sport}"
+        ]
         alt_key = " ".join(tokens)
         expanded.setdefault(alt_key, value)
 

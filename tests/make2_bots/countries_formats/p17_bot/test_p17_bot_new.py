@@ -6,7 +6,6 @@ pop_format_test_data = {
     # ---------------------------------------------------------
     # pop_format  (category end with "of X")
     # ---------------------------------------------------------
-
     "china university of": "جامعة الصين",
     "yemen prehistory of": "اليمن ما قبل التاريخ",
     "yemen politics of": "سياسة اليمن",
@@ -20,27 +19,21 @@ pop_format_test_data = {
     "yemen foreign relations of": "علاقات اليمن الخارجية",
     "yemen national symbols of": "رموز اليمن الوطنية",
     "yemen grand prix": "جائزة اليمن الكبرى",
-
     # ---------------------------------------------------------
     # university of / history of / relations / etc.
     # ---------------------------------------------------------
-
     "yemen university of": "جامعة اليمن",
     "yemen university of arts": "جامعة اليمن للفنون",
     "yemen early-modern history of": "تاريخ اليمن الحديث المبكر",
     "yemen modern history of": "تاريخ اليمن الحديث",
     "yemen contemporary history of": "تاريخ اليمن المعاصر",
-
     # ---------------------------------------------------------
     # cases for different countries (not only yemen)
     # ---------------------------------------------------------
-
     "venezuela politics of": "سياسة فنزويلا",
     "venezuela military history of": "تاريخ فنزويلا العسكري",
-
     "zambia politics of": "سياسة زامبيا",
     "zambia military history of": "تاريخ زامبيا العسكري",
-
     "zimbabwe politics of": "سياسة زيمبابوي",
     "zimbabwe military history of": "تاريخ زيمبابوي العسكري",
 }
@@ -50,11 +43,8 @@ pop_format_test_data = {
 # test with parametrized
 # =====================================================================
 
-@pytest.mark.parametrize(
-    "category, expected",
-    pop_format_test_data.items(),
-    ids=list(pop_format_test_data.keys())
-)
+
+@pytest.mark.parametrize("category, expected", pop_format_test_data.items(), ids=list(pop_format_test_data.keys()))
 @pytest.mark.fast
 def test_get_p17_new(category: str, expected: str) -> None:
     result = get_p17_main(category)

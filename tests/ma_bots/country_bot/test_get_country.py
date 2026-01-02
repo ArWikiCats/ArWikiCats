@@ -17,8 +17,7 @@ data_1 = {
 }
 
 
-data_2 = {
-}
+data_2 = {}
 
 
 def test_get_country() -> None:

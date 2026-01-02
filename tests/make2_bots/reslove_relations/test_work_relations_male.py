@@ -12,8 +12,7 @@ def _norm(text: str) -> str:
     return " ".join(text.split())
 
 
-males_data = {
-}
+males_data = {}
 
 
 @pytest.mark.parametrize("category, expected", males_data.items(), ids=males_data.keys())

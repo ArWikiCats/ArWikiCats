@@ -20,10 +20,12 @@ def match_suffix_template(name: str, suffixes: Mapping[str, str]) -> Optional[Tu
 
     stripped = name.strip()
     # sorted by len of " " in key
-    sorted_suffixes = dict(sorted(
-        suffixes.items(),
-        key=lambda k: (-k[0].count(" "), -len(k[0])),
-    ))
+    sorted_suffixes = dict(
+        sorted(
+            suffixes.items(),
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
+        )
+    )
 
     for suffix, template in sorted_suffixes.items():
         candidates = [suffix]

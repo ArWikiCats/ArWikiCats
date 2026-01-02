@@ -218,7 +218,7 @@ fast_data_empty = {
     "Category:Telugu remakes of Punjabi films": "x",
     "Category:Telugu remakes of Tamil films": "x",
     "Category:Thai remakes of foreign films": "x",
-    "Category:Thai remakes of Taiwanese films": ""
+    "Category:Thai remakes of Taiwanese films": "",
 }
 
 

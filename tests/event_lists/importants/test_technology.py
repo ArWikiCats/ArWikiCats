@@ -55,7 +55,7 @@ data_0 = {
     "Category:Travel technology": "",
     "Category:Waste treatment technology": "",
     "Category:Water technology": "",
-    "Category:Web technology": ""
+    "Category:Web technology": "",
 }
 
 data_fast = {
@@ -156,7 +156,7 @@ data_fast = {
     "Category:Stealth technology": "تصنيف:تقانة التخفي",
     "Category:Video games about nuclear technology": "تصنيف:ألعاب فيديو عن تقانة نووية",
     "Category:Women technology writers": "تصنيف:كاتبات تقانة",
-    "Category:Works about technology": "تصنيف:أعمال عن التقانة"
+    "Category:Works about technology": "تصنيف:أعمال عن التقانة",
 }
 
 data_slow = {
@@ -296,4 +296,6 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     dump_diff(diff_result, name)
     # dump_diff_text(expected, diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, just_dump=True)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}, len no_labels: {len(no_labels):,}"
+    assert (
+        diff_result == expected
+    ), f"Differences found: {len(diff_result):,}, len all :{len(data):,}, len no_labels: {len(no_labels):,}"

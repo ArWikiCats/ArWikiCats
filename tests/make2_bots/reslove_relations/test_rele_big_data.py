@@ -568,7 +568,7 @@ big_data_empty = {
     "the gambia–guinea-bissau relations": "",
     "the gambia–ivory coast relations": "",
     "the gambia–netherlands relations": "",
-    "united nations security council resolutions concerning the eritrean–ethiopian border conflict": ""
+    "united nations security council resolutions concerning the eritrean–ethiopian border conflict": "",
 }
 
 TEMPORAL_CASES = [

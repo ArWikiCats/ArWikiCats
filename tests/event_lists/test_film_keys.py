@@ -30,7 +30,7 @@ data0 = {
     "Category:Ethiopian film people": "تصنيف:أعلام أفلام إثيوبيون",
     "Category:Canadian film people": "تصنيف:أعلام أفلام كنديون",
     "Category:Bulgarian film people": "تصنيف:أعلام أفلام بلغاريون",
-    "Category:Bissau-Guinean film people": "تصنيف:أعلام أفلام غينيون بيساويون"
+    "Category:Bissau-Guinean film people": "تصنيف:أعلام أفلام غينيون بيساويون",
 }
 
 data_1 = {
@@ -102,7 +102,7 @@ data_1 = {
     "Category:Film people from Kaunas": "تصنيف:أعلام أفلام من كاوناس",
     "Category:Film people from Kerala": "تصنيف:أعلام أفلام من كيرلا",
     "Category:Film people from Kharkiv": "تصنيف:أعلام أفلام من خاركيف",
-    "Category:Film people from Kraków": "تصنيف:أعلام أفلام من كراكوف"
+    "Category:Film people from Kraków": "تصنيف:أعلام أفلام من كراكوف",
 }
 
 data_2 = {

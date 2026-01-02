@@ -66,6 +66,7 @@ def test_resolve_by_countries_names_1(category: str, expected: str) -> None:
     label1 = resolve_by_countries_names(category)
     assert label1 == expected
 
+
 # =========================================================
 #           DUMP
 # =========================================================

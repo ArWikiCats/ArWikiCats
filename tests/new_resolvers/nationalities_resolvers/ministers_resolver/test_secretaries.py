@@ -20,7 +20,6 @@ secretaries_test_2 = {
     "Category:United States Department of Education agencies": "تصنيف:وكالات وزارة التعليم الأمريكية",
     "Category:United States Department of Education officials": "تصنيف:مسؤولو وزارة التعليم الأمريكية",
     "Category:United States Department of Energy National Laboratories personnel": "تصنيف:موظفو مختبرات وزارة الطاقة الأمريكية",
-
     "Category:Ministries of education": "تصنيف:وزارات تعليم",
     "Category:Ministries of finance": "تصنيف:وزارات مالية",
     "Category:Ministries of health": "تصنيف:وزارات صحة",
@@ -48,17 +47,14 @@ secretaries_test_0 = {
     "Category:Ministry of Defense (Japan)": "تصنيف:وزارة الدفاع اليابانية",
     "Category:Ministry of Defense (Saudi Arabia)": "تصنيف:وزارة الدفاع السعودية",
     "Category:Ministry of Defense (Yemen)": "تصنيف:وزارة الدفاع اليمنية",
-
     "Category:Ministry of Agriculture and Cooperatives (Thailand)": "تصنيف:وزارة الزراعة والتعاونيات التايلندية",
     "Category:Ministry of Culture and Tourism (Turkey)": "تصنيف:وزارة الثقافة والسياحة التركية",
-
     "Category:Former Colombian Executive Council positions": "تصنيف:مناصب سابقة في المجلس التنفيذي الكولومبي",
     "Category:Colombian Executive Council": "تصنيف:المجلس التنفيذي الكولومبي",
     "Category:Colombian Executive Council positions": "تصنيف:مناصب في المجلس التنفيذي الكولومبي",
     "Category:United States under secretaries of agriculture": "تصنيف:نواب وزير الزراعة الأمريكي للشؤون المتخصصة",
     "Category:United States under secretaries of commerce": "تصنيف:نواب وزير التجارة الأمريكي للشؤون المتخصصة",
     "Category:United States under secretaries of defense": "تصنيف:نواب وزير الدفاع الأمريكي للشؤون المتخصصة",
-
     "Category:Secretaries of the state of Connecticut": "تصنيف:وزراء خارجية كونيتيكت",
     "Category:Secretaries of state of Alabama": "تصنيف:وزراء خارجية ألاباما",
     "Category:Secretaries of state of Arizona": "تصنيف:وزراء خارجية أريزونا",
@@ -101,11 +97,9 @@ secretaries_test_0 = {
     "Category:Secretaries of state of Wisconsin": "تصنيف:وزراء خارجية ويسكونسن",
     "Category:Secretaries of state of Wyoming": "تصنيف:وزراء خارجية وايومنغ",
     "Category:State secretaries of state of the United States by state": "تصنيف:وزراء خارجية الولايات في الولايات المتحدة حسب الولاية",
-
     "Category:Secretaries of state of Kentucky": "تصنيف:وزراء خارجية كنتاكي",
     "Category:Secretaries of state of Louisiana": "تصنيف:وزراء خارجية لويزيانا",
     "Category:Secretaries of state of North Dakota": "تصنيف:وزراء خارجية داكوتا الشمالية",
-
     "Category:State cabinet secretaries of Alabama": "تصنيف:أعضاء مجلس وزراء ألاباما",
     "Category:State cabinet secretaries of Alaska": "تصنيف:أعضاء مجلس وزراء ألاسكا",
     "Category:State cabinet secretaries of Arizona": "تصنيف:أعضاء مجلس وزراء أريزونا",
@@ -164,7 +158,6 @@ secretaries_test_1 = {
     "Category:United States deputy secretaries of housing and urban development": "تصنيف:نواب وزير الإسكان والتنمية الحضرية الأمريكي",
     "Category:United States secretaries of housing and urban development": "تصنيف:وزراء إسكان وتنمية حضرية أمريكيون",
     "Category:United States assistant secretaries of housing and urban development": "تصنيف:مساعدو وزير الإسكان والتنمية الحضرية الأمريكي",
-
     "Category:State secretaries of state of the United States": "تصنيف:وزراء خارجية الولايات في الولايات المتحدة",
     "Category:Secretaries of agriculture of the Philippines": "تصنيف:وزراء زراعة فلبينيون",
     "Category:Secretaries of education of the Philippines": "تصنيف:وزراء تعليم فلبينيون",
@@ -187,7 +180,6 @@ secretaries_test_1 = {
     "Category:United States secretaries of commerce": "تصنيف:وزراء تجارة أمريكيون",
     "Category:United States secretaries of state": "تصنيف:وزراء خارجية أمريكيون",
     "Category:United States secretaries of the interior": "تصنيف:وزراء داخلية أمريكيون",
-
     "Category:Secretaries of agriculture of Mexico": "تصنيف:وزراء زراعة مكسيكيون",
     "Category:Secretaries of agriculture of the United States": "تصنيف:وزراء زراعة أمريكيون",
     "Category:Secretaries of defense of Mexico": "تصنيف:وزراء دفاع مكسيكيون",

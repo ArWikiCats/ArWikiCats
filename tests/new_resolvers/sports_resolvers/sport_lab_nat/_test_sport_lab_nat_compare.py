@@ -5,7 +5,6 @@ from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_na
 
 data_0 = {
     "ancient-greek sports": "رياضية يونانية قديمة",
-
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
     "american defunct football teams": "فرق كرة قدم أمريكية سابقة",
     "central american national football teams": "منتخبات كرة قدم وطنية أمريكية أوسطية",
@@ -21,7 +20,6 @@ data_1 = {
     "central american under-13 football": "كرة قدم أمريكية أوسطية تحت 13 سنة",
     "central american football": "كرة قدم أمريكية أوسطية",
     "central american national football": "كرة قدم وطنية أمريكية أوسطية",
-
     "african national under-23 football teams": "منتخبات كرة قدم وطنية إفريقية تحت 23 سنة",
     "south american national under-15 football teams": "منتخبات كرة قدم وطنية أمريكية جنوبية تحت 15 سنة",
     "republic-of ireland national youth football teams": "منتخبات كرة قدم وطنية أيرلندية للشباب",
@@ -31,7 +29,6 @@ data_1 = {
     "asian national youth football teams": "منتخبات كرة قدم وطنية آسيوية للشباب",
     "european national women's volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
     "european national women's under-21 football teams": "منتخبات كرة قدم وطنية أوروبية تحت 21 سنة للسيدات",
-
     "afghan cricket": "كريكت أفغانية",
     "african archery": "نبالة إفريقية",
     "african basketball leagues": "دوريات كرة سلة إفريقية",
@@ -279,7 +276,6 @@ data_1 = {
 data_womens = {
     "european national womens volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
     "european national womens volleyball teams players": "لاعبات منتخبات كرة طائرة وطنية أوروبية للسيدات",
-
     "african women's football": "كرة قدم إفريقية نسائية",
     "algerian women's football": "كرة قدم جزائرية نسائية",
     "american women's basketball": "كرة سلة أمريكية نسائية",

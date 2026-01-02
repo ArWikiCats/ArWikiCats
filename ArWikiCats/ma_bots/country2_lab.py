@@ -64,11 +64,11 @@ def get_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        resolve_relations_label(country2) or
-        get_from_pf_keys2(country2) or
-        resolve_all(country2) or
-        convert_time_to_arabic(country2) or
-        ""
+        resolve_relations_label(country2)
+        or get_from_pf_keys2(country2)
+        or resolve_all(country2)
+        or convert_time_to_arabic(country2)
+        or ""
     )
     if not resolved_label and country2.startswith("the "):
         resolved_label = get_pop_All_18(country2[len("the ") :], "")

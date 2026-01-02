@@ -10,7 +10,6 @@ from ArWikiCats.translations_formats import FormatDataDouble
 
 @pytest.fixture
 def bot() -> FormatDataDouble:
-
     # Template data with both nationality and sport placeholders
     formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
@@ -55,7 +54,6 @@ test_data = {
     "horror upcoming films": "أفلام رعب قادمة",
     "psychological horror films": "أفلام رعب نفسي",
     "psychological horror black-and-white films": "أفلام رعب نفسي أبيض وأسود",
-
     "horror horror films": "أفلام رعب رعب",
 }
 

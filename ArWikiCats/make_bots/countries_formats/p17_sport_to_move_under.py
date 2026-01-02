@@ -13,7 +13,6 @@ from ...translations import countries_from_nat, SPORTS_KEYS_FOR_JOBS
 # TODO: This all wrong arabic values need to be fixed later
 under_data_to_check = {
     "{en} {en_sport} teams": "فرق {sport_jobs} {female}",
-
     "{en} {en_sport} national teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national amateur teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national junior mens teams": "فرق {sport_jobs} {female}",
@@ -22,7 +21,6 @@ under_data_to_check = {
     "{en} {en_sport} national youth teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national youth womens teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national junior womens teams": "فرق {sport_jobs} {female}",
-
     "{en} {under_en} teams": "فرق {female} {under_ar}",
     "{en} {en_sport} {under_en} teams": "فرق {sport_jobs} {female} {under_ar}",
     "{en} {en_sport} national amateur {under_en} teams": "فرق {sport_jobs} {female}",
@@ -31,9 +29,7 @@ under_data_to_check = {
     "{en} {en_sport} national mens {under_en} teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national {under_en} teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national womens {under_en} teams": "فرق {sport_jobs} {female}",
-
     "{en} {en_sport} national youth {under_en} teams": "فرق {sport_jobs} {female}",
-
     "{en} {en_sport} youth womens {under_en} teams": "فرق {sport_jobs} {female} {under_ar} للشابات",
     # ["softball national youth womens under-24 teams"] = "منتخبات كرة لينة تحت 24 سنة للشابات"
     "{en} {en_sport} national youth womens {under_en} teams": "منتخبات {sport_jobs} {under_ar} للشابات",
@@ -59,10 +55,8 @@ sports_data_under = {
     "{en_sport} national youth womens {under_en} teams": "منتخبات {sport_jobs} {under_ar} للشابات",
     "national mens {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للرجال",
     "mens {under_en} national {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للرجال",
-
     # [multi-national womens under-19 football teams] = "منتخبات كرة قدم تحت 19 سنة متعددة الجنسيات للسيدات"
     "multi-national womens {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} متعددة الجنسيات للسيدات",
-
     "national amateur {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للهواة",
     "national junior mens {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للناشئين",
     "national junior womens {under_en} {en_sport} teams": "منتخبات {sport_jobs} {under_ar} للناشئات",
@@ -75,7 +69,6 @@ sports_data_under = {
 main_data_under = {
     "{en} {under_en} international players": "لاعبون {under_ar} دوليون من {ar}",
     "{en} {under_en} international playerss": "لاعبون {under_ar} دوليون من {ar}",
-
     "{en} amateur {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
     "{en} amateur {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
     "{en} amateur {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم للهواة",
@@ -103,13 +96,12 @@ main_data_under = {
     "{en} {under_en} international footballers": "لاعبو منتخب {ar} {under_ar} لكرة القدم",
     "{en} {under_en} international managers": "مدربون {under_ar} دوليون من {ar}",
     "{en} {under_en} international soccer players": "لاعبو منتخب {ar} {under_ar} لكرة القدم",
-    "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم "
+    "{en} {under_en} international soccer playerss": "لاعبو منتخب {ar} {under_ar} لكرة القدم ",
 }
 
 
 @functools.lru_cache(maxsize=1)
 def _load_bot_with_sports_keys() -> MultiDataFormatterBase:
-
     return format_multi_data(
         formatted_data=sports_data_under,
         data_list=under_data,
@@ -123,7 +115,6 @@ def _load_bot_with_sports_keys() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_under_bot() -> MultiDataFormatterBase:
-
     return format_multi_data(
         formatted_data=main_data_under,
         data_list=under_data,
@@ -139,8 +130,7 @@ def _load_under_bot() -> MultiDataFormatterBase:
 def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower().replace("category:", "")
 
-    replacements = {
-    }
+    replacements = {}
 
     for old, new in replacements.items():
         category = category.replace(old, new)
@@ -152,11 +142,7 @@ def fix_keys(category: str) -> str:
 def resolve_sport_under_labels(category: str) -> str:
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start resolve_sport_under_labels: {category=}")
-    result = (
-        _load_under_bot().search(category) or
-        _load_bot_with_sports_keys().search(category) or
-        ""
-    )
+    result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
     logger.info_if_or_debug(f"<<yellow>> end resolve_sport_under_labels: {category=}, {result=}", result)
     return result
 

@@ -33,7 +33,6 @@ def from_category_relation_mapping(suffix) -> str:
 
 
 def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
-
     suffix_label = ""
 
     key = suffix.strip()

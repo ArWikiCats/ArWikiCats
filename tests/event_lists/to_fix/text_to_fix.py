@@ -2900,7 +2900,6 @@ to_test = [
 @pytest.mark.skip2
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     diff_result2 = {x: v for x, v in diff_result.items() if v}

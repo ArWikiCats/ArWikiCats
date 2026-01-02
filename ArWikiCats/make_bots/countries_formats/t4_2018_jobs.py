@@ -57,10 +57,12 @@ Main_prefix: dict[str, str] = {
 }
 
 # sorted by len of " " in key
-Main_prefix = dict(sorted(
-    Main_prefix.items(),
-    key=lambda k: (-k[0].count(" "), -len(k[0])),
-))
+Main_prefix = dict(
+    sorted(
+        Main_prefix.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str, str, str]:
@@ -93,9 +95,7 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
         if main_lab in change_male_to_female:
             main_lab = change_male_to_female[main_lab]
 
-    logger.debug(
-        f'<<lightblue>> te4_2018_Jobs Main_prefix cate.startswith( {me2=}) cate:"{category}", {main_lab=}. '
-    )
+    logger.debug(f'<<lightblue>> te4_2018_Jobs Main_prefix cate.startswith( {me2=}) cate:"{category}", {main_lab=}. ')
 
     # Fictional Check
     if main_ss.strip() == "fictional" and category.strip().startswith("female"):
@@ -138,12 +138,11 @@ def _handle_nationality_logic(
     category_suffix, country_prefix = get_suffix_with_keys(category, All_Nat, "nat")
 
     if category_suffix and (main_ss in prefix_lab_for_2018) and not country_lab:
-
         # en_is_nat_ar_is_women
         job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
         if job_example_lab:
             country_lab = job_example_lab.format(Nat_women[country_prefix])
-            logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
+            logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
             updated_main_lab = prefix_lab_for_2018[main_ss]["female"]
 
         # en_is_nat_ar_is_man
@@ -151,7 +150,7 @@ def _handle_nationality_logic(
             job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
             if job_example_lab:
                 country_lab = job_example_lab.format(Nat_men[country_prefix])
-                logger.debug(f'<<lightblue>> bot_te_4, new {country_lab=} ')
+                logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
                 updated_main_lab = prefix_lab_for_2018[main_ss]["male"]
 
     return country_lab, job_example_lab, updated_main_lab
@@ -183,10 +182,10 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_lower_original = cate.lower()
 
     country_lab = (
-        resolve_jobs_main(cate_lower_original) or
-        new_religions_jobs_with_suffix(cate_lower_original) or
-        jobs_with_nat_prefix_label(cate_lower_original) or
-        ""
+        resolve_jobs_main(cate_lower_original)
+        or new_religions_jobs_with_suffix(cate_lower_original)
+        or jobs_with_nat_prefix_label(cate_lower_original)
+        or ""
     )
     if country_lab:
         return country_lab
@@ -195,7 +194,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate, main_ss, main_lab = handle_main_prefix(cate, cate_original)
 
     if cate.lower() != cate_lower_original:
-        logger.debug(f'<<lightblue>> te4_2018_Jobs {cate=}, {cate_lower_original=}, {main_ss=}. ')
+        logger.debug(f"<<lightblue>> te4_2018_Jobs {cate=}, {cate_lower_original=}, {main_ss=}. ")
 
     cate_lower = cate.lower()
 

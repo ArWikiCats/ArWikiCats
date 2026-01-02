@@ -12,7 +12,6 @@ bot = multi_bot_v4()
 
 
 class TestCountriesPart:
-
     test_data_standard = {
         "writers from Crown of Aragon": "كتاب من تاج أرغون",
         "writers from yemen": "كتاب من اليمن",
@@ -28,7 +27,6 @@ class TestCountriesPart:
 
 
 class TestYearPart:
-
     test_data_standard = {
         "100s": "عقد 100",
     }
@@ -78,7 +76,6 @@ class TestAllParts:
     data_2 = {
         # "21st-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
         # "20th-century musicians by instrument from Northern Ireland": "موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
-
         "9th-century people from East Francia": "أشخاص من مملكة الفرنجة الشرقيين في القرن 9",
         "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9",
         "21st-century women educators from Northern Ireland": "معلمات من أيرلندا الشمالية في القرن 21",

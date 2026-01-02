@@ -78,7 +78,8 @@ def _get_from_alias(key: str) -> str:
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
     result = (
-        first_data.get(key.lower(), "") or
+        first_data.get(key.lower(), "")
+        or
         # olympic_event_translations.get(key, "") or
         # olympic_event_translations.get(key.lower(), "") or
         ""

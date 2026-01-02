@@ -10,6 +10,7 @@ from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_v2 impor
 # Tests for full resolve_by_countries_names_v2
 # --------------------------------------------
 
+
 @pytest.mark.unit
 def test_resolve_by_countries_names_v2_mens_full() -> None:
     category = "zambia government officials"

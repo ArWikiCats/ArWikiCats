@@ -1,4 +1,3 @@
-
 Mens_suffix: dict[str, str] = {
     "male deaf": "{} صم ذكور",
     "blind": "{} مكفوفون",
@@ -16,7 +15,7 @@ womens_prefixes: dict[str, str] = {
     "expatriate women's": "{} مغتربات",
     "female": "{}",
     "women": "{}",
-    "women's": "{}"
+    "women's": "{}",
 }
 
 Mens_prefix: dict[str, str] = {
@@ -73,7 +72,7 @@ under_data = {
     "under–20": "{} تحت 20 سنة",
     "under–21": "{} تحت 21 سنة",
     "under–23": "{} تحت 23 سنة",
-    "under–24": "{} تحت 24 سنة"
+    "under–24": "{} تحت 24 سنة",
 }
 __all__ = [
     "Mens_prefix",

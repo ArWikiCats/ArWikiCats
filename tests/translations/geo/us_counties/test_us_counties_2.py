@@ -28,19 +28,14 @@ data_1 = {}
 all_test_data = {}
 
 for en, ar in US_STATES.items():
-    test_one = {
-        x.format(en=en): normalize_state(v.format(ar=ar))
-        for x, v in test_data.items()
-    }
+    test_one = {x.format(en=en): normalize_state(v.format(ar=ar)) for x, v in test_data.items()}
     data_1.setdefault(en, test_one)
     all_test_data.update(test_one)
 
 data_1["washington, d.c."] = washington_data
 all_test_data.update(washington_data)
 
-to_test = [
-    (f"test_us_counties_{x}", v) for x, v in data_1.items()
-]
+to_test = [(f"test_us_counties_{x}", v) for x, v in data_1.items()]
 
 to_test.append(("test_all_test_data", all_test_data))
 
@@ -48,7 +43,6 @@ to_test.append(("test_all_test_data", all_test_data))
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     if diff_result:
         dump_diff(diff_result, name)

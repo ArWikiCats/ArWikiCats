@@ -26,6 +26,4 @@ def testFilms_key_For_nat_patterns(suffix: str, template: str) -> None:
     # Films_key_For_nat templates contain "{}" -> should become "ب<lang>"
     expected = template.format(f"ب{BASE_LANG_OUTPUT}")
 
-    assert result == expected, (
-        f"Films_key_For_nat mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
+    assert result == expected, f"Films_key_For_nat mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"

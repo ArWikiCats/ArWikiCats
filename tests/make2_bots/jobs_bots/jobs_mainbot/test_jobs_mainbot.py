@@ -225,6 +225,7 @@ def test_new_womens_nationality_argentine_female_sailors() -> None:
     result = jobs_with_nat_prefix("", "argentine", "female sailors")
     assert result == "بحارات أرجنتينيات"
 
+
 # --- New Women's Short Jobs Data Tests ---
 
 

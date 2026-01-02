@@ -32,7 +32,6 @@ test_data = {
     "zanzibar government officials": "مسؤولون حكوميون زنجباريون",
     "zimbabwe government officials": "مسؤولون حكوميون زيمبابويون",
     "zulu people government officials": "مسؤولون حكوميون زولو",
-
     # -------------------------
     # air force (women + article)
     # -------------------------
@@ -61,7 +60,6 @@ test_data = {
     "zanzibar air force": "القوات الجوية الزنجبارية",
     "zimbabwe air force": "القوات الجوية الزيمبابوية",
     "zulu people air force": "القوات الجوية الزولية",
-
     # -------------------------
     # naval force / naval forces / navy / royal navy
     # كلها من قوالب النساء → تحتاج مؤنث + ال
@@ -89,7 +87,6 @@ test_data = {
     "western sahara navy": "البحرية الصحراوية",
     "yugoslavia naval force": "البحرية اليوغسلافية",
     "zimbabwe naval forces": "البحرية الزيمبابوية",
-
     # -------------------------
     # civil war (women + إضافة “ال”)
     # -------------------------

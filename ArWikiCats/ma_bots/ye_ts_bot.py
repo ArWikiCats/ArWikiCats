@@ -89,7 +89,7 @@ def work_separator_names(
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
         arlabel = ""
 
-    logger.info(f'>>>> <<lightyellow>> {arlabel=}')
+    logger.info(f">>>> <<lightyellow>> {arlabel=}")
 
     return arlabel
 
@@ -131,7 +131,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
     logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
-    logger.debug(f'<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}')
+    logger.debug(f"<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}")
 
     arlabel = _translate_general_category(category_r, category, start_get_country2)
 

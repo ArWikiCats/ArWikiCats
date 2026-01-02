@@ -141,7 +141,7 @@ def _should_add_min_for_from_separator(type_label: str) -> bool:
     return not type_label.strip().endswith(" من")
 
 
-def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str, type_lower_prefix: str="") -> bool:
+def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str, type_lower_prefix: str = "") -> bool:
     """Check if 'من' should be added for ' of' suffix.
 
     Args:
@@ -395,7 +395,9 @@ class LabelPipeline(Fixing):
             self.cate_test = self.cate_test.replace(self.type_lower, "")
 
         # Resolve country
-        self.country_label = CountryResolver.resolve_labels(self.separator_stripped, self.country, self.start_get_country2)
+        self.country_label = CountryResolver.resolve_labels(
+            self.separator_stripped, self.country, self.start_get_country2
+        )
 
         if self.country_label:
             self.cate_test = self.cate_test.replace(self.country_lower, "")
@@ -403,7 +405,7 @@ class LabelPipeline(Fixing):
         # Validation
         cao = True
         if not self.type_label:
-            logger.info(f'>>>> no label for {self.type_lower=}')
+            logger.info(f">>>> no label for {self.type_lower=}")
             cao = False
 
         if not self.country_label:
@@ -456,17 +458,15 @@ class LabelPipeline(Fixing):
         t_to = f"{self.type_lower} {self.separator_stripped}"
 
         if self.type_lower in Keep_it_last:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last')
+            logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
-            logger.info(
-                f'>>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist'
-            )
+            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist')
+            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist")
             keep_type_first = True
 
         # Determine order
@@ -484,13 +484,11 @@ class LabelPipeline(Fixing):
                 arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
-            logger.info(f'>>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last')
+            logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
             arlabel = self.country_label + ar_separator + self.type_label
 
         elif keep_type_first:
-            logger.info(
-                f'>>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist'
-            )
+            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
             arlabel = self.type_label + ar_separator + self.country_label
 
         if self.separator_stripped == "about" or (self.separator_stripped not in separators_lists_raw):
@@ -506,7 +504,7 @@ class LabelPipeline(Fixing):
         vr = re.sub(re.escape(self.country_lower), "{}", self.category.lower())
         if vr in pop_format2:
             logger.info(f'<<lightblue>>>>>> vr in pop_format2 "{pop_format2[vr]}":')
-            logger.info(f'<<lightblue>>>>>>> {vr=}:')
+            logger.info(f"<<lightblue>>>>>>> {vr=}:")
             arlabel = pop_format2[vr].format(self.country_label)
         elif self.type_lower in pop_format:
             if not self.country_label.startswith("حسب"):

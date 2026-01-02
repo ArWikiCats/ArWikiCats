@@ -4,8 +4,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_an
 
 from ArWikiCats import resolve_arabic_category_label
 
-data1 = {
-}
+data1 = {}
 
 data2 = {
     "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
@@ -15,7 +14,6 @@ data2 = {
     "Category:american women's sports": "تصنيف:رياضات نسائية أمريكية",
     "Category:canadian women's sports": "تصنيف:رياضات نسائية كندية",
     "Category:mexican women's sports": "تصنيف:رياضات نسائية مكسيكية",
-
     "Category:1550 in sports": "تصنيف:ألعاب رياضية في 1550",
     "Category:december 1550 in sports": "تصنيف:ألعاب رياضية في ديسمبر 1550",
     "Category:june 1550 in sports": "تصنيف:ألعاب رياضية في يونيو 1550",
@@ -120,7 +118,7 @@ data2 = {
     "Category:1974 in Mexican women's sports": "تصنيف:رياضات نسائية مكسيكية في 1974",
     "Category:2010 in Mexican women's sports": "تصنيف:رياضات نسائية مكسيكية في 2010",
     "Category:1970s in Mexican women's sports": "تصنيف:رياضات نسائية مكسيكية في عقد 1970",
-    "Category:2010s in Mexican women's sports": "تصنيف:رياضات نسائية مكسيكية في عقد 2010"
+    "Category:2010s in Mexican women's sports": "تصنيف:رياضات نسائية مكسيكية في عقد 2010",
 }
 
 data3 = {

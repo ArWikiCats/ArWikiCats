@@ -1,13 +1,10 @@
-
 country_names_and_nats_data = {
-
     # en_is_P17_ar_is_al_women
     # the_female - en_is_nat_ar_is_al_women
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
     "{en} civil war": "الحرب الأهلية {the_female}",
     "{en} air force": "القوات الجوية {the_female}",
     "{en} air force generals": "جنرالات القوات الجوية {the_female}",
-
     "{en} royal defence force": "قوات الدفاع الملكية {the_female}",
     "{en} navy": "البحرية {the_female}",
     "{en} royal navy": "البحرية الملكية {the_female}",
@@ -48,10 +45,8 @@ country_names_and_nats_data = {
     "{en} state lower house": "المجالس الدنيا للولايات {the_female}",
     "{en} state upper house": "المجالس العليا للولايات {the_female}",
     "{en} supreme court": "المحكمة العليا {the_female}",
-
     # the_male
     "{en} premier division": "الدوري {the_male} الممتاز",
-
     # the_male
     # military_format_men
     "{en} congressional delegation": "وفود الكونغرس {the_male}",
@@ -84,47 +79,35 @@ sports_formatted_data_for_jobs = {
     # Category:American players of Canadian football
     "{en} players of {en_sport}": "لاعبو {sport_jobs} {males}",
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
-
     # american coaches of basketball
     "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
     "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
-
     # coaches of basketball
     "coaches of {en_sport}": "مدربو {sport_jobs}",
     "players of {en_sport}": "لاعبو {sport_jobs}",
-
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
     "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
     "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
-
     # expatriate basketball people
     "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
     "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
-
     "{en} women's {en_sport} players": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} players": "لاعبات {sport_jobs}",
-
     "{en} women's {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "women's {en_sport} playerss": "لاعبات {sport_jobs}",
-
-    "{en} women's national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
-
-    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
-
+    "{en} women's national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
     "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
     "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
     "{en} women's international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
-
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
-
 }
 
 for_jobs = {
     # american coaches of basketball
     # "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
     # "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
-
     # coaches of basketball
     "coaches of {en_sport}": "مدربو {sport_jobs}",
     "players of {en_sport}": "لاعبو {sport_jobs}",

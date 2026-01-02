@@ -10,7 +10,7 @@ data_empty_value = {
     "Category:Disabled multi-sport events": "تصنيف:أحداث رياضية متعددة معاقون",
     "Category:Timor-Leste at multi-sport events": "تصنيف:أحداث رياضية متعددة في تيمور الشرقية",
     "Category:Wikipedia categories named after multi-sport events": "تصنيف:تصنيفات سميت بأسماء أحداث رياضية متعددة",
-    "Category:Youth multi-sport events": "تصنيف:أحداث رياضية متعددة شبابية"
+    "Category:Youth multi-sport events": "تصنيف:أحداث رياضية متعددة شبابية",
 }
 
 data_0 = {

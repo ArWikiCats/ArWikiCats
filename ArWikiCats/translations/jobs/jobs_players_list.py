@@ -332,79 +332,44 @@ WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 # SPORT_JOB_VARIANTS = _build_sports_job_variants(SPORTS_KEYS_FOR_JOBS, FOOTBALL_KEYS_PLAYERS)
 SPORT_JOB_VARIANTS = open_json_file("SPORT_JOB_VARIANTS_found.json") or {}
 
-SPORT_JOB_VARIANTS.update({
-    "sports executives": {"males": "مسيرو رياضية", "females": "مسيرات رياضية"},
-    "sports coaches": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
-    "sports journalists": {"males": "صحفيو رياضية", "females": "صحفيات رياضية"},
-    "sports biography": {"males": "أعلام رياضة", "females": ""},
-    "sports players": {"males": "لاعبو رياضية", "females": "لاعبات رياضية"},
-    "sports managers": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
-    "sports announcers": {"males": "مذيعو رياضية", "females": "مذيعات رياضية"},
-    "sports referees": {"males": "حكام رياضية", "females": "حكمات رياضية"},
-    "sports scouts": {"males": "كشافة رياضية", "females": "كشافة رياضية"},
-})
+SPORT_JOB_VARIANTS.update(
+    {
+        "sports executives": {"males": "مسيرو رياضية", "females": "مسيرات رياضية"},
+        "sports coaches": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
+        "sports journalists": {"males": "صحفيو رياضية", "females": "صحفيات رياضية"},
+        "sports biography": {"males": "أعلام رياضة", "females": ""},
+        "sports players": {"males": "لاعبو رياضية", "females": "لاعبات رياضية"},
+        "sports managers": {"males": "مدربو رياضية", "females": "مدربات رياضية"},
+        "sports announcers": {"males": "مذيعو رياضية", "females": "مذيعات رياضية"},
+        "sports referees": {"males": "حكام رياضية", "females": "حكمات رياضية"},
+        "sports scouts": {"males": "كشافة رياضية", "females": "كشافة رياضية"},
+    }
+)
 
 SPORT_JOB_VARIANTS_additional = {
-
-    "canadian football players": {
-        "males": "لاعبو كرة قدم كندية",
-        "females": "لاعبات كرة قدم كندية"
-    },
-    "canadian football biography": {
-        "males": "أعلام كرة قدم كندية",
-        "females": ""
-    },
-    "canadian football centres": {
-        "males": "لاعبو وسط كرة قدم كندية",
-        "females": "لاعبات وسط كرة قدم كندية"
-    },
+    "canadian football players": {"males": "لاعبو كرة قدم كندية", "females": "لاعبات كرة قدم كندية"},
+    "canadian football biography": {"males": "أعلام كرة قدم كندية", "females": ""},
+    "canadian football centres": {"males": "لاعبو وسط كرة قدم كندية", "females": "لاعبات وسط كرة قدم كندية"},
     "canadian football defensive backs": {
         "males": "مدافعون خلفيون كرة قدم كندية",
-        "females": "مدافعات خلفيات كرة قدم كندية"
+        "females": "مدافعات خلفيات كرة قدم كندية",
     },
-    "canadian football defensive linemen": {
-        "males": "مدافعو خط كرة قدم كندية",
-        "females": "مدافعات خط كرة قدم كندية"
-    },
-    "canadian football fullbacks": {
-        "males": "مدافعو كرة قدم كندية",
-        "females": "مدافعات كرة قدم كندية"
-    },
-    "canadian football guards": {
-        "males": "حراس كرة قدم كندية",
-        "females": "حراس كرة قدم كندية"
-    },
-    "canadian football linebackers": {
-        "males": "أظهرة كرة قدم كندية",
-        "females": "ظهيرات كرة قدم كندية"
-    },
-    "canadian football offensive linemen": {
-        "males": "مهاجمو خط كرة قدم كندية",
-        "females": "مهاجمات خط كرة قدم كندية"
-    },
-    "canadian football placekickers": {
-        "males": "مسددو كرة قدم كندية",
-        "females": "مسددات كرة قدم كندية"
-    },
+    "canadian football defensive linemen": {"males": "مدافعو خط كرة قدم كندية", "females": "مدافعات خط كرة قدم كندية"},
+    "canadian football fullbacks": {"males": "مدافعو كرة قدم كندية", "females": "مدافعات كرة قدم كندية"},
+    "canadian football guards": {"males": "حراس كرة قدم كندية", "females": "حراس كرة قدم كندية"},
+    "canadian football linebackers": {"males": "أظهرة كرة قدم كندية", "females": "ظهيرات كرة قدم كندية"},
+    "canadian football offensive linemen": {"males": "مهاجمو خط كرة قدم كندية", "females": "مهاجمات خط كرة قدم كندية"},
+    "canadian football placekickers": {"males": "مسددو كرة قدم كندية", "females": "مسددات كرة قدم كندية"},
     "canadian football quarterbacks": {
         "males": "أظهرة رباعيون كرة قدم كندية",
-        "females": "ظهيرات رباعيات كرة قدم كندية"
+        "females": "ظهيرات رباعيات كرة قدم كندية",
     },
-    "canadian football running backs": {
-        "males": "راكضون للخلف كرة قدم كندية",
-        "females": "راكضات للخلف كرة قدم كندية"
-    },
-    "canadian football scouts": {
-        "males": "كشافة كرة قدم كندية",
-        "females": "كشافة كرة قدم كندية"
-    },
-    "canadian football tackles": {
-        "males": "مصطدمو كرة قدم كندية",
-        "females": "مصطدمات كرة قدم كندية"
-    },
+    "canadian football running backs": {"males": "راكضون للخلف كرة قدم كندية", "females": "راكضات للخلف كرة قدم كندية"},
+    "canadian football scouts": {"males": "كشافة كرة قدم كندية", "females": "كشافة كرة قدم كندية"},
+    "canadian football tackles": {"males": "مصطدمو كرة قدم كندية", "females": "مصطدمات كرة قدم كندية"},
     "canadian football wide receivers": {
         "males": "مستقبلون واسعون كرة قدم كندية",
-        "females": "مستقبلات واسعات كرة قدم كندية"
+        "females": "مستقبلات واسعات كرة قدم كندية",
     },
 }
 
@@ -431,9 +396,9 @@ __all__ = [
 len_print.data_len(
     "jobs_players_list.py",
     {
-        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,   # 1,345
-        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,                   # 61,919
-        "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,   # 435
+        "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,  # 1,345
+        "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,  # 61,919
+        "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,  # 435
         "WORLD_CHAMPION_LABELS": WORLD_CHAMPION_LABELS,  # 431
         "CHAMPION_LABELS": CHAMPION_LABELS,  # 434
         "GENERAL_SCOPE_LABELS": GENERAL_SCOPE_LABELS,  # 9

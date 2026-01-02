@@ -687,14 +687,14 @@ test_data_more = {
     "9th-century people from East Francia": "أشخاص من مملكة الفرنجة الشرقيين في القرن 9",
     "9th-century people from the Abbasid Caliphate": "أشخاص من الدولة العباسية في القرن 9",
     "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9",
-    "9th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 9"
+    "9th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 9",
 }
 
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.slow
 def test_resolve_v3i_new_1(category: str, expected: str) -> None:
-    """    Test resolve year job from countries function for test_data_standard. """
+    """Test resolve year job from countries function for test_data_standard."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
 

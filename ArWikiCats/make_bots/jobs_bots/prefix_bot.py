@@ -27,7 +27,7 @@ from ...translations import (
     womens_prefixes,
     FILM_PRODUCTION_COMPANY,
     People_key,
-    SPORTS_KEYS_FOR_LABEL
+    SPORTS_KEYS_FOR_LABEL,
 )
 
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
@@ -44,8 +44,7 @@ replace_labels_2022: dict[str, str] = {
 
 @functools.lru_cache(maxsize=10000)
 def get_sport_label(key: str) -> str:
-    """
-    """
+    """ """
     if not key.endswith(" team"):
         return ""
     normalized_sport_key = key[:-5].strip()  # Remove " team" suffix
@@ -61,11 +60,7 @@ def by_table_extended_get(text) -> str:
     if not text.lower().startswith("by "):
         return ""
     key = text.lower()[3:]
-    by_result = (
-        FILM_PRODUCTION_COMPANY.get(key, "") or
-        People_key.get(key, "") or
-        ""
-    )
+    by_result = FILM_PRODUCTION_COMPANY.get(key, "") or People_key.get(key, "") or ""
     if by_result:
         return f"بواسطة {by_result}"
 
@@ -89,7 +84,7 @@ def _strip_people_suffix(text: str) -> str:
     if not text.endswith(_PEOPLE_SUFFIX):
         return text
 
-    nationality_part = text[:-len(_PEOPLE_SUFFIX)]
+    nationality_part = text[: -len(_PEOPLE_SUFFIX)]
 
     # Check if this is a known nationality
     if nationality_part in Nat_mens:
@@ -167,12 +162,14 @@ def work_mens_prefix(category: str) -> str:
             continue
 
         # Extract the job part after the prefix
-        job_part = category[len(prefix_with_space):]
+        job_part = category[len(prefix_with_space) :]
 
         # Try to resolve nationality from "X people" format
         job_key = _strip_people_suffix(job_part).strip()
 
-        logger.debug(f'<<lightblue>> Processing prefix "{prefix_with_space}": job_part="{job_part}", job_key="{job_key}"')
+        logger.debug(
+            f'<<lightblue>> Processing prefix "{prefix_with_space}": job_part="{job_part}", job_key="{job_key}"'
+        )
 
         # Get job label
         job_label = _get_job_label(job_key)
@@ -186,7 +183,7 @@ def work_mens_prefix(category: str) -> str:
         label = final_prefix_label.format(job_label)
         label = _apply_label_replacement(label)
 
-        logger.debug(f'<<lightblue>> work_mens_prefix: Processing {prefix=}: {job_key=}, {job_label=}, {label=}')
+        logger.debug(f"<<lightblue>> work_mens_prefix: Processing {prefix=}: {job_key=}, {job_label=}, {label=}")
 
         if label.strip():
             logger.debug(f'<<lightblue>> Found label via prefix: "{label}" for category "{category}"')
@@ -216,7 +213,7 @@ def work_mens_suffix(category: str) -> str:
             continue
 
         # Extract the part before the suffix
-        job_part = category[:-len(suffix_with_space)]
+        job_part = category[: -len(suffix_with_space)]
 
         # Try to resolve nationality from "X people" format
         job_key = _strip_people_suffix(job_part).strip()
@@ -224,14 +221,9 @@ def work_mens_suffix(category: str) -> str:
         logger.debug(f'<<lightblue>> Processing suffix "{suffix_with_space}": job_key="{job_key}"')
 
         # Try multiple sources for the label
-        job_label = (
-            Nat_mens.get(job_key) or
-            get_pop_All_18(job_key) or
-            get_pop_All_18(job_part) or
-            ""
-        )
+        job_label = Nat_mens.get(job_key) or get_pop_All_18(job_key) or get_pop_All_18(job_part) or ""
 
-        logger.debug(f'<<lightblue>> work_mens_suffix: Processing {suffix=}: {job_key=}, {job_label=}')
+        logger.debug(f"<<lightblue>> work_mens_suffix: Processing {suffix=}: {job_key=}, {job_label=}")
         if job_label:
             label = suffix_label.format(job_label)
 
@@ -321,7 +313,7 @@ def womens_prefixes_work(category: str) -> str:
     # Strip " women" suffix if present
     processed_category = category
     if category.endswith(_WOMEN_SUFFIX):
-        processed_category = category[:-len(_WOMEN_SUFFIX)]
+        processed_category = category[: -len(_WOMEN_SUFFIX)]
 
     # Try prefix matching
     for prefix, prefix_label in womens_prefixes.items():
@@ -335,17 +327,17 @@ def womens_prefixes_work(category: str) -> str:
                 continue
 
             # Extract job key after prefix
-            job_key = processed_category[len(prefix_variant):]
+            job_key = processed_category[len(prefix_variant) :]
 
             # Look up job label from women's data or player mappings
             job_label = (
-                jobs_womens_data.get(job_key) or
-                PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "") or
-                SPORT_JOB_VARIANTS.get(job_key, {}).get("females", "") or
-                ""
+                jobs_womens_data.get(job_key)
+                or PLAYERS_TO_MEN_WOMENS_JOBS.get(job_key, {}).get("females", "")
+                or SPORT_JOB_VARIANTS.get(job_key, {}).get("females", "")
+                or ""
             )
 
-            logger.debug(f'<<lightblue>> womens_prefixes_work: Processing {prefix_variant=}: {job_key=}, {job_label=}')
+            logger.debug(f"<<lightblue>> womens_prefixes_work: Processing {prefix_variant=}: {job_key=}, {job_label=}")
 
             if job_label:
                 label = prefix_label.format(job_label)

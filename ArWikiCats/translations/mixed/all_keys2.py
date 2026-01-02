@@ -478,10 +478,7 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
     data.update(pop_of_with_in)
     pop_of_without_in = dict(pop_of_without_in)
 
-    pop_of_without_in_del = {
-        "explorers": "مستكشفون",
-        "historians": "مؤرخون"
-    }
+    pop_of_without_in_del = {"explorers": "مستكشفون", "historians": "مؤرخون"}
     for key in pop_of_without_in_del:
         pop_of_without_in.pop(key, None)
 
@@ -555,7 +552,6 @@ def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
     """Handle 'the ' prefix in country labels."""
     new_keys = {}
     for key, value in list(label_index.items()):
-
         if not key.lower().startswith("the ") or not value:
             continue
 

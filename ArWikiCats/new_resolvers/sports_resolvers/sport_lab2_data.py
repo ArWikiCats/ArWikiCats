@@ -8,37 +8,28 @@ jobs_formatted_data_shared = {
     "professional {en_sport}": "{sport_jobs} للمحترفين",
     "indoor {en_sport}": "{sport_jobs} داخل الصالات",
     "defunct indoor {en_sport}": "{sport_jobs} داخل الصالات سابقة",
-
     "{en_sport} cup": "كؤوس {sport_jobs}",
     "{en_sport} cups": "كؤوس {sport_jobs}",
-
     "defunct outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق سابقة",
     "defunct {en_sport} cup": "كؤوس {sport_jobs} سابقة",
     "defunct {en_sport} cups": "كؤوس {sport_jobs} سابقة",
     "domestic womens {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
     "domestic {en_sport} cup": "كؤوس {sport_jobs} محلية",
     "domestic {en_sport} cups": "كؤوس {sport_jobs} محلية",
-
 }
 
 jobs_formatted_data = {
     # "{en_sport}": "{sport_jobs}",
-
     "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
     "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
     "domestic {en_sport} leagues": "دوريات {sport_jobs} محلية",
-
     "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
     "indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات",
     "indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات",
     "defunct indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات سابقة",
-
     "outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق",
-
     "professional {en_sport} cups": "كؤوس {sport_jobs} للمحترفين",
     "professional {en_sport} leagues": "دوريات {sport_jobs} للمحترفين",
-
-
     "under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
     "under-15 {en_sport}": "{sport_jobs} تحت 15 سنة",
@@ -169,7 +160,6 @@ jobs_formatted_data = {
     "{en_sport} super leagues": "دوريات سوبر {sport_jobs}",
     "youth international {en_sport}": "{sport_jobs} دولية شبابية",
     "youth {en_sport}": "{sport_jobs} شبابية",
-
     # Category:Multi-national women's basketball leagues in Europe
     "multi-national womens {en_sport} leagues": "دوريات {sport_jobs} نسائية متعددة الجنسيات",
     # Category:National junior women's goalball teams
@@ -199,7 +189,6 @@ teams_formatted_data = {
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
-
     "international {en_sport} council": "المجلس الدولي {sport_team}",
     "mens {en_sport} championship": "بطولة {sport_team} للرجال",
     "mens {en_sport} world championship": "بطولة العالم {sport_team} للرجال",

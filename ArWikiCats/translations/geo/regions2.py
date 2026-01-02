@@ -22,7 +22,6 @@ def _load_india_region_translations() -> dict[str, str]:
 
 
 def _load_secondary_region_translations(data: dict[str, str]) -> dict[str, str]:
-
     CENTRAL_AFRICAN_PREFECTURE = data.get("CENTRAL_AFRICAN_PREFECTURE", {})
     DJIBOUTI_REGION = data.get("DJIBOUTI_REGION", {})
     EGYPT_GOVERNORATE = data.get("EGYPT_GOVERNORATE", {})

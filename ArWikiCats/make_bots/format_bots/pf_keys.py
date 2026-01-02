@@ -20,29 +20,22 @@ _change_key3_compiled = {}
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # TODO: find why this used in the code
     "players in": "playerss in",
-
     "diplomatic missions of": "diplomatic-missions-of",
     "fiba world championship for women": "fiba women's world championship",
     "central american and caribbean games": "central-american-and-caribbean-games",
     "elections,": "elections",
-
     "based on": "basedon",
     "basedon non-": "basedon non ",
     "based on non-": "basedon non ",
-
     "comedy-": "comedy ",
-
     "convicted of murder by": "convicted-of-murder-by",
     "convicted-of-murder by": "convicted-of-murder-by",
-
     "labor": "labour",
     "war of": "war-of",
-
     "- men's tournament": "mens tournament",
     "- women's tournament": "womens tournament",
     "– men's tournament": "mens tournament",
     "– women's tournament": "womens tournament",
-
     "(tennis)": "tennis",
     "accidents and incidents": "accidents-and-incidents",
     "adaptations of works": "adaptations-of-works",
@@ -56,13 +49,13 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "architecture schools": "architecture-schools",
     "association football afc": "association-football afc",
     "athletes (track and field)": "track and field athletes",
-    "bodies of water" : "bodies-of-water",
+    "bodies of water": "bodies-of-water",
     "british hong kong": "british-hong-kong",
     "built by": "built-by",
     "built in": "built-in",
     "by car bomb": "by-car-bomb",
     "by firearm in": "by-firearm-in",
-    "canadian football" : "canadian-football",
+    "canadian football": "canadian-football",
     "canton of": "canton-of",
     "caribbean people": "caribbeans people",
     "child soldiers": "child-soldiers",
@@ -171,7 +164,6 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     "for blind": "for-blind",
     "for deaf": "for-deaf",
     "remade in": "remade-in",
-
     "charter airlines": "charter-airlines",
     "country of residence": "country-of-residence",
     "declarations of independence": "declarations-of-independence",
@@ -185,7 +177,6 @@ CHANGE_KEY_SECONDARY: Dict[str, str] = {
     "serbia and montenegro": "serbia-and-montenegro",
     "term of Iranian Majlis": "Iranian Majlis",
     "united states declaration of independence": "united-states-declaration-of-independence",
-
 }
 
 CHANGE_KEY_SECONDARY_REGEX = {
@@ -194,7 +185,6 @@ CHANGE_KEY_SECONDARY_REGEX = {
     r"^women's footballers": "female footballers",
     r"men's events": "mens-events",
     r"mens events": "mens-events",
-
     r" women's footballers$": " female footballers",
     r" executed people$": " executed-people",
 }
@@ -227,7 +217,6 @@ def change_key_secondary_replacements(category):
 
     # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
     for chk2, chk2_lab in CHANGE_KEY_SECONDARY.items():
-
         if chk2 not in _change_key2_compiled:
             chk2_escape = re.escape(chk2)
             # _change_key2_compiled[chk2] = re.compile(rf"(?<!\w){chk2_escape}(?!\w)", flags=re.IGNORECASE)

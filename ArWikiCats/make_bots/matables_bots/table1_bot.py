@@ -21,13 +21,13 @@ from .bot import All_P17, Films_O_TT, players_new_keys
 from ...new_resolvers.bys_new import resolve_by_labels
 
 KAKO: Dict[str, Dict[str, str]] = {
-    "pop_All_2018": pop_All_2018,          # 161
-    "Films_key_man": Films_key_man,        # 74
-    "All_P17": All_P17,                    # 0
-    "Films_O_TT": Films_O_TT,              # 0
+    "pop_All_2018": pop_All_2018,  # 161
+    "Films_key_man": Films_key_man,  # 74
+    "All_P17": All_P17,  # 0
+    "Films_O_TT": Films_O_TT,  # 0
     "players_new_keys": players_new_keys,  # 1,719
-    "jobs_mens_data": jobs_mens_data,      # 96,552
-    "Jobs_new": Jobs_new,                  # 1,304
+    "jobs_mens_data": jobs_mens_data,  # 96,552
+    "Jobs_new": Jobs_new,  # 1,304
 }
 
 

@@ -65,7 +65,6 @@ def fix_keys(label: str) -> str:
 
 
 def _load_formatted_data() -> dict[str, str]:
-
     formatted_data = {
         "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
         "by {en} by city-of {en2}": "حسب {ar} حسب مدينة {ar2}",
@@ -75,10 +74,8 @@ def _load_formatted_data() -> dict[str, str]:
         "by {en}": "حسب {ar}",
         "by {en2}": "حسب {ar2}",
         "by {en} or {en2}": "حسب {ar} أو {ar2}",
-
         "by {en} and {en2}": "حسب {ar} و{ar2}",
         "by {en} and {en}": "حسب {ar} و{ar}",
-
         "by {en2} and {en}": "حسب {ar2} و{ar}",
         "by {en} by {en2}": "حسب {ar} حسب {ar2}",
     }
@@ -112,7 +109,6 @@ def _load_formatted_data() -> dict[str, str]:
 
 
 def _load_data_to_find() -> dict[str, str]:
-
     by_keys_under = {
         "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
         "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
@@ -134,7 +130,7 @@ def _load_data_to_find() -> dict[str, str]:
         "by women's under-19 national team": "حسب المنتخب الوطني للسيدات تحت 19 سنة",
         "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
         "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
-        "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
+        "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة",
     }
 
     data_to_find = {
@@ -144,7 +140,6 @@ def _load_data_to_find() -> dict[str, str]:
         "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
         "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
         "by women's under-17 national team": "حسب المنتخب الوطني للسيدات تحت 17 سنة",
-
         "by national amateur team": "حسب المنتخب الوطني للهواة",
         "by national men's amateur team": "حسب المنتخب الوطني للهواة للرجال",
         "by national men's team": "حسب منتخب الرجال الوطني",
@@ -158,7 +153,6 @@ def _load_data_to_find() -> dict[str, str]:
         "by national women's amateur team": "حسب المنتخب الوطني للهواة للسيدات",
         "by national women's team": "حسب منتخب السيدات الوطني",
         "by national youth team": "حسب المنتخب الوطني للشباب",
-
         "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
         "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
         "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
@@ -187,7 +181,7 @@ def _load_data_to_find() -> dict[str, str]:
         "by decapitation": "بقطع الرأس",
         "by covid-19 pandemic": "بجائحة فيروس كورونا",
         "by burning": "بالحرق",
-        "by blade weapons": "بالأسلحة البيضاء"
+        "by blade weapons": "بالأسلحة البيضاء",
     }
     data_to_find.update(by_table_not_hasab)
 
@@ -215,18 +209,13 @@ def _load_by_data_new() -> dict[str, str]:
         "arrest": "الاعتقال",
         "university": "الجامعة",
         "college": "الكلية",
-
         "dependency": "التبعية",
-
         "state": "الولاية",
         "division": "المقاطعة",
-
         "union territory": "الإقليم الاتحادي",
-
         "province": "المقاطعة",
         "county": "المقاطعة",
         "territory": "الإقليم",
-
         "academic discipline": "التخصص الأكاديمي",
         "administrative subdivisions": "التقسيم الإداري",
         "administrative unit": "الوحدة الإدارية",
@@ -470,8 +459,8 @@ def _load_by_data_new() -> dict[str, str]:
         "suicide bomber": "بتفجير انتحاري",
         "taxon": "الأصنوفة",
         "team": "الفريق",
-        "technique": "التقنية",     # not تقانة
-        "technology": "التقانة", # التكنولوجيا
+        "technique": "التقنية",  # not تقانة
+        "technology": "التقانة",  # التكنولوجيا
         "term": "الفترة",
         "theatre": "المسرح",
         "time": "الوقت",
@@ -497,7 +486,7 @@ def _load_by_data_new() -> dict[str, str]:
         "writer": "الكاتب",
         "year": "السنة",
         "youth national team": "المنتخب الوطني للشباب",
-        "zoo name": "اسم الحديقة"
+        "zoo name": "اسم الحديقة",
     }
 
     # by_data_new.update({x: v for x, v in CONTEXT_FIELD_LABELS.items() if x not in by_data_new})
@@ -509,7 +498,6 @@ def _load_by_data_new() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
-
     formatted_data = _load_formatted_data()
     by_data_new = _load_by_data_new()
 

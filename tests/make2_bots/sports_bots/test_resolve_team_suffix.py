@@ -36,7 +36,9 @@ resolve_team_suffix_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", resolve_team_suffix_data.items(), ids=resolve_team_suffix_data.keys())
+@pytest.mark.parametrize(
+    "category, expected_key", resolve_team_suffix_data.items(), ids=resolve_team_suffix_data.keys()
+)
 @pytest.mark.fast
 def test_resolve_team_suffix_data(category: str, expected_key: str) -> None:
     label = resolve_team_suffix(category)

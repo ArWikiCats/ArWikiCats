@@ -54,7 +54,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     else:
         arlabel = f"{year_labe} {cat4_lab}"
 
-    logger.info(f'<<lightgreen>>>>>> 2019: New {arlabel=} ')
+    logger.info(f"<<lightgreen>>>>>> 2019: New {arlabel=} ")
     logger.info("<<lightyellow>>>> ^^^^^^^^^ end work_2019 ^^^^^^^^^ ")
 
     return arlabel

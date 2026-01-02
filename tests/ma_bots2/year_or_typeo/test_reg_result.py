@@ -46,7 +46,9 @@ def test_get_reg_result() -> None:
 
 def test_typies() -> None:
     # Test that TypiesResult class can be instantiated
-    typies_instance = TypiesResult(year_at_first="2020", year_at_first_strip="2020", typeo="test", In="in", country="us", cat_test="test")
+    typies_instance = TypiesResult(
+        year_at_first="2020", year_at_first_strip="2020", typeo="test", In="in", country="us", cat_test="test"
+    )
     assert typies_instance.year_at_first_strip == "2020"
     assert typies_instance.typeo == "test"
     assert typies_instance.In == "in"
@@ -108,6 +110,7 @@ class TestYearExtraction:
 # -----------------------------------------------------------
 # 2) Tests for extracting TYPE (typeo)
 # -----------------------------------------------------------
+
 
 class TestTypeExtraction:
     @pytest.mark.parametrize(
@@ -210,6 +213,7 @@ class TestCombinedPatterns:
     A test class for testing combined pattern matching in category names.
     Uses pytest parametrize decorator to run multiple test cases with different inputs.
     """
+
     @pytest.mark.parametrize(
         "category,year,typeo,In,country",
         [

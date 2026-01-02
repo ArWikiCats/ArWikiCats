@@ -10,7 +10,9 @@ def add_definite_article(label: str) -> str:
     return new_label
 
 
-def resolve_p17_2_label(category: str, templates: dict, nat_key: str, country_data: dict, add_article: bool = False) -> str:
+def resolve_p17_2_label(
+    category: str, templates: dict, nat_key: str, country_data: dict, add_article: bool = False
+) -> str:
     """Resolve gendered nationality templates for P17-style categories."""
     category = category.strip()
     if not category:

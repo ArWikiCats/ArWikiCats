@@ -21,12 +21,10 @@ data_0 = {
     "new zealand men's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للرجال",
     "new zealand women's kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ للسيدات",
     "new zealand kick boxing cup": "كأس نيوزيلندا للكيك بوكسينغ",
-
 }
 
 data_1 = {
     "angola basketball cup": "كأس أنغولا لكرة السلة",
-
     "paraguay national women's football team navigational boxes": "صناديق تصفح منتخب باراغواي لكرة القدم للسيدات",
     "peru national football team navigational boxes": "صناديق تصفح منتخب بيرو لكرة القدم",
     "philippines national women's football team navigational boxes": "صناديق تصفح منتخب الفلبين لكرة القدم للسيدات",
@@ -52,7 +50,6 @@ data_1 = {
     "ivory coast national football team navigational boxes": "صناديق تصفح منتخب ساحل العاج لكرة القدم",
     "jamaica national women's football team navigational boxes": "صناديق تصفح منتخب جامايكا لكرة القدم للسيدات",
     "mexico national women's football team navigational boxes": "صناديق تصفح منتخب المكسيك لكرة القدم للسيدات",
-
     "africa football league": "دوري إفريقيا لكرة القدم",
     "angola national football team lists": "قوائم منتخب أنغولا لكرة القدم",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
@@ -140,6 +137,7 @@ data_1 = {
 def test_get_p17_with_sport_2(category: str, expected: str) -> None:
     label2 = resolve_countries_names_sport_with_ends(category)
     assert label2 == expected
+
 
 # =========================================================
 #                   DUMP

@@ -29,8 +29,6 @@ data_0 = {
     "Category:History sidebar templates by country": "تصنيف:قوالب الشريط الجانبي للتاريخ حسب البلد",
     "Category:History sidebar templates by region": "تصنيف:قوالب تاريخ جانبية حسب المنطقة",
     "Category:LGBTQ sidebar templates": "تصنيف:قوالب أشرطة جانبية مثليون",
-
-
 }
 data_1 = {
     "Category:Arts and culture sidebar templates": "تصنيف:قوالب أشرطة جانبية الفنون وثقافة",

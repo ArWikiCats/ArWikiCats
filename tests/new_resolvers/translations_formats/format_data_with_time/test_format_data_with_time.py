@@ -63,13 +63,10 @@ def yc_bot() -> MultiDataFormatterBaseYear:
 test_data = [
     # standard
     ("2010s in united states", "الولايات المتحدة في عقد 2010"),
-
     # with text_before
     ("2010s in the united states", "الولايات المتحدة في عقد 2010"),
-
     # with text_after
     ("2010s in the united states !", "الولايات المتحدة في عقد 2010"),
-
     ("2025 in Yemen", "اليمن في 2025"),
     ("2020s in Yemen", "اليمن في عقد 2020"),
     ("2010s establishments in egypt", "تأسيسات عقد 2010 في مصر"),
@@ -111,11 +108,7 @@ test_data = [
 ]
 
 
-@pytest.mark.parametrize(
-    "category,expected",
-    test_data,
-    ids=[x[0] for x in test_data]
-)
+@pytest.mark.parametrize("category,expected", test_data, ids=[x[0] for x in test_data])
 def test_year_country_combinations(yc_bot: MultiDataFormatterBaseYear, category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = yc_bot.create_label(category)

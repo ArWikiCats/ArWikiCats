@@ -6,8 +6,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import get_job_label
 
-test_0 = {
-}
+test_0 = {}
 
 test_data_standard = {
     "sports-people": "رياضيون",
@@ -111,7 +110,7 @@ test_data_standard = {
     "women writers": "كاتبات",
     "women": "نساء",
     "writers": "كتاب",
-    "zoologists": "علماء حيوانات"
+    "zoologists": "علماء حيوانات",
 }
 
 

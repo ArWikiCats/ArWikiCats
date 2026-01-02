@@ -118,7 +118,11 @@ data = [
     {"separator_stripped": "named after", "country": "canadian awards", "output": "جوائز كندية"},
     {"separator_stripped": "named after", "country": "indian politicians", "output": "سياسيون هنود"},
     {"separator_stripped": "named after", "country": "populated places in latvia", "output": "أماكن مأهولة في لاتفيا"},
-    {"separator_stripped": "named after", "country": "populated places in portugal", "output": "أماكن مأهولة في البرتغال"},
+    {
+        "separator_stripped": "named after",
+        "country": "populated places in portugal",
+        "output": "أماكن مأهولة في البرتغال",
+    },
     {"separator_stripped": "named after", "country": "religious organizations", "output": "منظمات دينية"},
     {"separator_stripped": "named after", "country": "slovak musicians", "output": "موسيقيون سلوفاكيون"},
     {"separator_stripped": "of", "country": "1420 films", "output": "أفلام 1420"},

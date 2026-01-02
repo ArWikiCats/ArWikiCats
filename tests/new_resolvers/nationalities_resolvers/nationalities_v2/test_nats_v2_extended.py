@@ -84,11 +84,13 @@ data_series_empty = {
     "Category:New Zealand television series based on non-New Zealand television series": "x",
     "Category:Non-New Zealand television series based on New Zealand television series": "x",
     "Category:Non-Tamil-language television series based on Tamil-language television series": "x",
-    "Category:Tamil-language television series based on non-Tamil-language television series": "x"
+    "Category:Tamil-language television series based on non-Tamil-language television series": "x",
 }
 
 
-@pytest.mark.parametrize("category, expected_key", all_test_data_integrated.items(), ids=all_test_data_integrated.keys())
+@pytest.mark.parametrize(
+    "category, expected_key", all_test_data_integrated.items(), ids=all_test_data_integrated.keys()
+)
 @pytest.mark.slow
 def test_with_resolve_arabic_category_label(category: str, expected_key: str) -> None:
     label2 = resolve_arabic_category_label(category)
@@ -104,7 +106,6 @@ to_test = [
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str], callback) -> None:
-
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

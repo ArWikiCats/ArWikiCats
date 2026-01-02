@@ -186,7 +186,7 @@ class LabelForStartWithYearOrTypeo:
         )
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
-            logger.info(f'Add في to arlabel:in, at: {self.arlabel}')
+            logger.info(f"Add في to arlabel:in, at: {self.arlabel}")
 
             self.arlabel += " في "
             self.cat_test = self.replace_cat_test(self.cat_test, self.In)
@@ -255,7 +255,7 @@ class LabelForStartWithYearOrTypeo:
                 )
                 return
 
-            logger.info(f'a<<lightblue>>>>>> Cant id {self.country_lower=} ')
+            logger.info(f"a<<lightblue>>>>>> Cant id {self.country_lower=} ")
             self.NoLab = True
             return
 
@@ -290,7 +290,7 @@ class LabelForStartWithYearOrTypeo:
 
         elif self.cat_test == self.country_lower or self.cat_test == ("in " + self.country_lower):
             logger.debug("<<lightgreen>>>>>> cat_test False.. ")
-            logger.debug(f'<<lightblue>>>>>> cat_test = {self.country_lower=} ')
+            logger.debug(f"<<lightblue>>>>>> cat_test = {self.country_lower=} ")
             self.NoLab = True
 
         elif self.cat_test.lower() == category2.lower():
@@ -298,7 +298,7 @@ class LabelForStartWithYearOrTypeo:
 
         else:
             logger.debug("<<lightgreen>>>> >> cat_test False result.. ")
-            logger.debug(f' {self.cat_test=} ')
+            logger.debug(f" {self.cat_test=} ")
             logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
             self.NoLab = True
 

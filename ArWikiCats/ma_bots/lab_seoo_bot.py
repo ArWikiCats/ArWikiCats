@@ -67,22 +67,22 @@ def event_label_work(target_category: str) -> str:
     logger.info(f"<<lightyellow>>>>>> {normalized_target_category=}")
 
     resolved_category_label = (
-        get_from_new_p17_final(normalized_target_category, "") or
-        Ambassadors_tab.get(normalized_target_category, "") or
-        team_work.Get_team_work_Club(normalized_target_category) or
-        event2bot.event2_new(normalized_target_category) or
-        get_pop_All_18(normalized_target_category, "") or
-        convert_time_to_arabic(normalized_target_category) or
-        te4_2018_Jobs(normalized_target_category) or
-        Jobs_in_Multi_Sports(normalized_target_category) or
-        univer.te_universities(normalized_target_category) or
-        te_films(normalized_target_category) or
-        sport_lab_nat_load_new(normalized_target_category) or
-        ye_ts_bot.translate_general_category(normalized_target_category) or
-        resolve_us_states(normalized_target_category) or
-        work_peoples(normalized_target_category) or
-        te_bot_3(normalized_target_category) or
-        ""
+        get_from_new_p17_final(normalized_target_category, "")
+        or Ambassadors_tab.get(normalized_target_category, "")
+        or team_work.Get_team_work_Club(normalized_target_category)
+        or event2bot.event2_new(normalized_target_category)
+        or get_pop_All_18(normalized_target_category, "")
+        or convert_time_to_arabic(normalized_target_category)
+        or te4_2018_Jobs(normalized_target_category)
+        or Jobs_in_Multi_Sports(normalized_target_category)
+        or univer.te_universities(normalized_target_category)
+        or te_films(normalized_target_category)
+        or sport_lab_nat_load_new(normalized_target_category)
+        or ye_ts_bot.translate_general_category(normalized_target_category)
+        or resolve_us_states(normalized_target_category)
+        or work_peoples(normalized_target_category)
+        or te_bot_3(normalized_target_category)
+        or ""
     )
 
     return resolved_category_label

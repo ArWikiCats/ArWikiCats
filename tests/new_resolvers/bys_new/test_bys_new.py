@@ -163,7 +163,7 @@ _by_of_fields = {
     "by year of reestablishment": "حسب سنة إعادة التأسيس",
     "by year of setting": "حسب سنة الأحداث",
     "by year of setting location": "حسب سنة موقع الأحداث",
-    "by year of shooting location": "حسب سنة موقع التصوير"
+    "by year of shooting location": "حسب سنة موقع التصوير",
 }
 
 _by_table_year = {
@@ -206,7 +206,7 @@ _by_table_year = {
     "by year - womens qualification": "حسب السنة - تصفيات سيدات",
     "by year - womens singles": "حسب السنة - فردي سيدات",
     "by year - womens team": "حسب السنة - فريق سيدات",
-    "by year - womens tournament": "حسب السنة - مسابقة سيدات"
+    "by year - womens tournament": "حسب السنة - مسابقة سيدات",
 }
 
 data1 = {
@@ -293,7 +293,7 @@ by_keys_under = {
     "by women's under-19 national team": "حسب المنتخب الوطني للسيدات تحت 19 سنة",
     "by women's under-20 national team": "حسب المنتخب الوطني للسيدات تحت 20 سنة",
     "by women's under-21 national team": "حسب المنتخب الوطني للسيدات تحت 21 سنة",
-    "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة"
+    "by women's under-23 national team": "حسب المنتخب الوطني للسيدات تحت 23 سنة",
 }
 
 by_table_all = {
@@ -321,7 +321,6 @@ by_table_all = {
     "by orientation by political orientation": "حسب التوجه حسب التوجه السياسي",
     "by religion by former religion": "حسب الدين حسب الدين السابق",
     "by subdivision by country subdivision": "حسب التقسيم حسب تقسيم البلد",
-
     "by city of shooting location": "حسب مدينة موقع التصوير",
     "by continent of shooting location": "حسب قارة موقع التصوير",
     "by country of shooting location": "حسب بلد موقع التصوير",

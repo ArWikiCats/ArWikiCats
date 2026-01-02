@@ -37,7 +37,7 @@ def work_peoples_old(name: str) -> str:
         logger.info(f'>>>><<lightblue>> cant find personlab for:"{person}"')
 
     if person and personlab:
-        logger.info(f'>>>><<lightblue>> {person=}, {personlab=}')
+        logger.info(f">>>><<lightblue>> {person=}, {personlab=}")
         PpP_lab = Pp_Priffix[pri].format(personlab)
         logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
     return PpP_lab

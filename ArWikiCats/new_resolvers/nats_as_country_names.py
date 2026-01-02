@@ -22,7 +22,7 @@ nats_keys_as_country_names = {
         "en": "ireland",
         "ar": "أيرلندا",
         "the_female": "الأيرلندية",
-        "the_male": "الأيرلندي"
+        "the_male": "الأيرلندي",
     },
     "georgia (country)": {
         "en_nat": "georgians",
@@ -34,7 +34,7 @@ nats_keys_as_country_names = {
         "en": "georgia",
         "ar": "جورجيا",
         "the_female": "الجورجية",
-        "the_male": "الجورجي"
+        "the_male": "الجورجي",
     },
     "new zealand": {
         "en_nat": "new zealanders",
@@ -45,7 +45,7 @@ nats_keys_as_country_names = {
         "en": "new zealand",
         "ar": "نيوزيلندا",
         "the_female": "النيوزيلندية",
-        "the_male": "النيوزيلندي"
+        "the_male": "النيوزيلندي",
     },
     "northern ireland": {
         "male": "أيرلندي شمالي",
@@ -55,7 +55,7 @@ nats_keys_as_country_names = {
         "en": "northern ireland",
         "ar": "أيرلندا الشمالية",
         "the_female": "الأيرلندية الشمالية",
-        "the_male": "الأيرلندي الشمالي"
+        "the_male": "الأيرلندي الشمالي",
     },
     "antigua and barbuda": {
         "en_nat": "antiguan and barbudan",
@@ -66,7 +66,7 @@ nats_keys_as_country_names = {
         "female": "أنتيغوية وبربودية",
         "females": "أنتيغويات وبربوديات",
         "the_female": "الأنتيغوية والبربودية",
-        "the_male": "الأنتيغوي والبربودي"
+        "the_male": "الأنتيغوي والبربودي",
     },
     "trinidad and tobago": {
         "en_nat": "trinidadian",
@@ -77,7 +77,7 @@ nats_keys_as_country_names = {
         "en": "trinidad and tobago",
         "ar": "ترينيداد وتوباغو",
         "the_female": "الترنيدادية",
-        "the_male": "الترنيدادي"
+        "the_male": "الترنيدادي",
     },
 }
 

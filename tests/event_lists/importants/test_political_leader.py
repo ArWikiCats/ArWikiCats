@@ -144,7 +144,6 @@ data_slow = {
     "Category:Africa political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أفارقة",
     "Category:Afghanistan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أفغان",
     "Category:Russia political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون روس",
-
 }
 
 to_test = [

@@ -7,7 +7,6 @@ import pytest
 from ArWikiCats.main_processers.event2bot import event2_d2, event2_new, stubs_label
 
 fast_data = {
-
     "1650s films": "أفلام إنتاج عقد 1650",
     "20th century canadian violinists": "عازفو كمان كنديون في القرن 20",
     "20th century chinese dramatists": "دراميون صينيون في القرن 20",

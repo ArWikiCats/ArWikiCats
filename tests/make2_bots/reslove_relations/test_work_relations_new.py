@@ -178,7 +178,7 @@ ireland_test_data = {
     "ireland–yugoslavia relations": "العلاقات الأيرلندية اليوغسلافية",
     "ireland–zambia relations": "العلاقات الأيرلندية الزامبية",
     "ireland–zimbabwe relations": "العلاقات الأيرلندية الزيمبابوية",
-    "ireland–zimbabwe sports relations": "العلاقات الأيرلندية الزيمبابوية الرياضية"
+    "ireland–zimbabwe sports relations": "العلاقات الأيرلندية الزيمبابوية الرياضية",
 }
 
 test_data = {
@@ -320,7 +320,6 @@ test_data = {
     "Azerbaijan–NATO relations": "علاقات أذربيجان والناتو",
     "Austria–NATO relations": "علاقات الناتو والنمسا",
     "Armenia–NATO relations": "علاقات أرمينيا والناتو",
-
     "afghanistan–european union relations": "علاقات أفغانستان والاتحاد الأوروبي",
     "albania–european union relations": "علاقات ألبانيا والاتحاد الأوروبي",
     "andorra–european union relations": "علاقات أندورا والاتحاد الأوروبي",
@@ -439,10 +438,7 @@ def test_work_relations_new(category: str, expected: str) -> None:
     assert label == expected
 
 
-TEMPORAL_CASES = [
-    ("test_work_relations_new", test_data),
-    ("test_work_relations_ireland", ireland_test_data)
-]
+TEMPORAL_CASES = [("test_work_relations_new", test_data), ("test_work_relations_ireland", ireland_test_data)]
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)

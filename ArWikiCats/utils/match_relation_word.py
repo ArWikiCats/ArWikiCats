@@ -1,5 +1,6 @@
 #
 
+
 def get_relation_word_new(category: str, data: dict[str, str]) -> tuple[str, str]:
     """Find the first relation token present in ``category`` using comprehension."""
     # Find the first matching separator key in the category

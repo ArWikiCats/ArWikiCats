@@ -14,10 +14,10 @@ def test_add_to_new_players() -> None:
     # Test with valid inputs
     test_key = "test_player_key"
     test_value = "قيمة الاختبار"
-    
+
     # Add a test entry
     add_to_new_players(test_key, test_value)
-    
+
     # Verify it was added
     assert test_key in players_new_keys
     assert players_new_keys[test_key] == test_value
@@ -26,7 +26,7 @@ def test_add_to_new_players() -> None:
     initial_count = len(players_new_keys)
     add_to_new_players("", "arabic")
     assert len(players_new_keys) == initial_count
-    
+
     add_to_new_players("english", "")
     assert len(players_new_keys) == initial_count
 
@@ -39,18 +39,18 @@ def test_add_to_new_players() -> None:
 def test_add_to_new_players_invalid_types() -> None:
     """Test add_to_new_players with invalid types."""
     initial_count = len(players_new_keys)
-    
+
     # Test with None values (should not add)
     add_to_new_players(None, "arabic")
     assert len(players_new_keys) == initial_count
-    
+
     add_to_new_players("english", None)
     assert len(players_new_keys) == initial_count
-    
+
     # Test with non-string types
     add_to_new_players(123, "arabic")
     assert len(players_new_keys) == initial_count
-    
+
     add_to_new_players("english", 456)
     assert len(players_new_keys) == initial_count
 
@@ -61,10 +61,10 @@ def test_add_to_Films_O_TT() -> None:
     # Test with valid inputs
     test_key = "test_film_key"
     test_value = "قيمة فيلم الاختبار"
-    
+
     # Add a test entry
     add_to_Films_O_TT(test_key, test_value)
-    
+
     # Verify it was added
     assert test_key in Films_O_TT
     assert Films_O_TT[test_key] == test_value
@@ -73,7 +73,7 @@ def test_add_to_Films_O_TT() -> None:
     initial_count = len(Films_O_TT)
     add_to_Films_O_TT("", "arabic")
     assert len(Films_O_TT) == initial_count
-    
+
     add_to_Films_O_TT("english", "")
     assert len(Films_O_TT) == initial_count
 
@@ -86,18 +86,18 @@ def test_add_to_Films_O_TT() -> None:
 def test_add_to_Films_O_TT_invalid_types() -> None:
     """Test add_to_Films_O_TT with invalid types."""
     initial_count = len(Films_O_TT)
-    
+
     # Test with None values (should not add)
     add_to_Films_O_TT(None, "arabic")
     assert len(Films_O_TT) == initial_count
-    
+
     add_to_Films_O_TT("english", None)
     assert len(Films_O_TT) == initial_count
-    
+
     # Test with non-string types
     add_to_Films_O_TT(123, "arabic")
     assert len(Films_O_TT) == initial_count
-    
+
     add_to_Films_O_TT("english", 456)
     assert len(Films_O_TT) == initial_count
 
@@ -108,11 +108,11 @@ def test_add_to_new_players_overwrite() -> None:
     test_key = "overwrite_test_key"
     first_value = "قيمة أولى"
     second_value = "قيمة ثانية"
-    
+
     # Add initial value
     add_to_new_players(test_key, first_value)
     assert players_new_keys[test_key] == first_value
-    
+
     # Overwrite with new value
     add_to_new_players(test_key, second_value)
     assert players_new_keys[test_key] == second_value
@@ -124,11 +124,11 @@ def test_add_to_Films_O_TT_overwrite() -> None:
     test_key = "overwrite_film_key"
     first_value = "قيمة فيلم أولى"
     second_value = "قيمة فيلم ثانية"
-    
+
     # Add initial value
     add_to_Films_O_TT(test_key, first_value)
     assert Films_O_TT[test_key] == first_value
-    
+
     # Overwrite with new value
     add_to_Films_O_TT(test_key, second_value)
     assert Films_O_TT[test_key] == second_value

@@ -61,10 +61,12 @@ RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) +
 
 def _load_all_country_labels() -> dict[str, str]:
     all_country_labels = dict(all_country_ar)
-    all_country_labels.update({
-        "nato": "الناتو",
-        "european union": "الاتحاد الأوروبي",
-    })
+    all_country_labels.update(
+        {
+            "nato": "الناتو",
+            "european union": "الاتحاد الأوروبي",
+        }
+    )
 
     all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
     return all_country_labels
@@ -73,18 +75,20 @@ def _load_all_country_labels() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def _load_countries_data() -> dict[str, NationalityEntry]:
     data = dict(countries_nat_en_key)
-    data.update({
-        "ireland": {
-            "male": "أيرلندي",
-            "males": "أيرلنديون",
-            "female": "أيرلندية",
-            "females": "أيرلنديات",
-            "en": "ireland",
-            "ar": "أيرلندا",
-            "the_female": "الأيرلندية",
-            "the_male": "الأيرلندي"
+    data.update(
+        {
+            "ireland": {
+                "male": "أيرلندي",
+                "males": "أيرلنديون",
+                "female": "أيرلندية",
+                "females": "أيرلنديات",
+                "en": "ireland",
+                "ar": "أيرلندا",
+                "the_female": "الأيرلندية",
+                "the_male": "الأيرلندي",
+            }
         }
-    })
+    )
     return data
 
 
@@ -198,8 +202,7 @@ def fix_key(category: str) -> str:
     category = category.replace("'", "")
     # category = category.replace(" the ", "")
 
-    replacements = {
-    }
+    replacements = {}
 
     for old, new in replacements.items():
         category = category.replace(old, new)

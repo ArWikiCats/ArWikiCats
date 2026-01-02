@@ -615,7 +615,7 @@ summer_winter_tabs = {
     "youth olympics games events": "أحداث الألعاب الأولمبية الشبابية",
     "youth olympics games festival": "مهرجانات الألعاب الأولمبية الشبابية",
     "youth olympics games templates": "قوالب الألعاب الأولمبية الشبابية",
-    "youth olympics templates": "قوالب الألعاب الأولمبية الشبابية"
+    "youth olympics templates": "قوالب الألعاب الأولمبية الشبابية",
 }
 
 summer_winter_games = {

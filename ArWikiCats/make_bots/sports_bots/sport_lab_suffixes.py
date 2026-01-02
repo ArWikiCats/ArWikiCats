@@ -50,13 +50,13 @@ def get_teams_new(team_name: str) -> str:
     # _ = resolve_team_suffix(normalized_team)  # TODO: remove after tests
 
     team_label = (
-        wrap_team_xo_normal_2025_with_ends(normalized_team) or
-        resolve_nats_sport_multi_v2(normalized_team) or
-        resolve_team_suffix(normalized_team) or
-        ""
+        wrap_team_xo_normal_2025_with_ends(normalized_team)
+        or resolve_nats_sport_multi_v2(normalized_team)
+        or resolve_team_suffix(normalized_team)
+        or ""
     )
 
-    logger.info(f'get_teams_new: {team_label=} for normalized_team: ({normalized_team})')
+    logger.info(f"get_teams_new: {team_label=} for normalized_team: ({normalized_team})")
 
     return team_label
 

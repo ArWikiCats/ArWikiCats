@@ -18,7 +18,7 @@ examples = {
     "Category:Ministers for Foreign Affairs of Singapore": "تصنيف:وزراء شؤون خارجية في سنغافورة",
     "Category:Ministers for Foreign Affairs of Luxembourg": "تصنيف:وزراء شؤون خارجية في لوكسمبورغ",
     "Category:Ministers for Internal Affairs of Abkhazia": "تصنيف:وزراء شؤون داخلية في أبخازيا",
-    "Category:Ministers of Labour and Social Security of Turkey": "تصنيف:وزراء عمل وضمان اجتماعي تركيا"
+    "Category:Ministers of Labour and Social Security of Turkey": "تصنيف:وزراء عمل وضمان اجتماعي تركيا",
 }
 
 TEMPORAL_CASES = [

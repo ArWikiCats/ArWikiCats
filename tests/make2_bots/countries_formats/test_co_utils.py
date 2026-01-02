@@ -53,6 +53,7 @@ def test_add_definite_article(category: str, expected: str) -> None:
     label = add_definite_article(category)
     assert label == expected
 
+
 # --------------------------------------------
 # Tests for add_definite_article
 # --------------------------------------------

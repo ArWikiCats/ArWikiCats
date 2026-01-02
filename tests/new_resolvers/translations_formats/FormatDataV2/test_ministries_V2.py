@@ -9,12 +9,8 @@ from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
 @pytest.fixture
 def multi_bot() -> MultiDataFormatterBaseV2:
     countries_data = {
-        "Guam": {
-            "ar": "غوام"
-        },
-        "yemen": {
-            "ar": "اليمن"
-        },
+        "Guam": {"ar": "غوام"},
+        "yemen": {"ar": "اليمن"},
     }
 
     formatted_data = {

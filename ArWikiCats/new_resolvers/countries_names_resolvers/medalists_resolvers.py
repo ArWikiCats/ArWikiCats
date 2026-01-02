@@ -71,11 +71,9 @@ def _build_formatted_data() -> Dict[str, str]:
 
     base_formatted_data = {
         "{en} at {game_en}": "{ar} في {game_ar}",
-
         "{game_en}": "{game_ar}",
         "{game_en} competitors": "منافسون في {game_ar}",
         "{game_en} competitors for {en}": "منافسون في {game_ar} من {ar}",
-
         "{game_en} competitions": "منافسات {game_ar}",
         "{game_en} events": "أحداث {game_ar}",
         "{game_en} festival": "مهرجانات {game_ar}",
@@ -85,7 +83,6 @@ def _build_formatted_data() -> Dict[str, str]:
         "{game_en} bronze medalists": "فائزون بميداليات برونزية في {game_ar}",
         "{game_en} gold medalists": "فائزون بميداليات ذهبية في {game_ar}",
         "{game_en} silver medalists": "فائزون بميداليات فضية في {game_ar}",
-
         "{game_en} medalists for {en}": "فائزون بميداليات {game_ar} من {ar}",
         "{game_en} bronze medalists for {en}": "فائزون بميداليات برونزية في {game_ar} من {ar}",
         "{game_en} gold medalists for {en}": "فائزون بميداليات ذهبية في {game_ar} من {ar}",
@@ -105,40 +102,34 @@ def _build_formatted_data() -> Dict[str, str]:
         "winter olympic": "أولمبية شتوية",
         "summer olympic": "أولمبية صيفية",
         "paralympic": "بارالمبية",
-
     }
-    formatted_data.update({
-        "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
-
-        # medalists
-        "olympic medalists": "فائزون بميداليات أولمبية",
-        "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
-        "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
-        "olympic bronze medalists": "فائزون بميداليات برونزية أولمبية",
-
-        "winter olympic medalists": "فائزون بميداليات أولمبية شتوية",
-        "summer olympic medalists": "فائزون بميداليات أولمبية صيفية",
-
-        # medalists + countries
-        "olympic medalists for {en}": "فائزون بميداليات أولمبية من {ar}",
-        "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
-        "olympic silver medalists for {en}": "فائزون بميداليات فضية أولمبية من {ar}",
-        "olympic bronze medalists for {en}": "فائزون بميداليات برونزية أولمبية من {ar}",
-
-        # competitors
-        "paralympic competitors": "منافسون بارالمبيون",
-        "olympic competitors": "منافسون أولمبيون",
-
-        "winter olympic competitors": "منافسون أولمبيون شتويون",
-        "summer olympic competitors": "منافسون أولمبيون صيفيون",
-
-        # competitors + countries
-        "paralympic competitors for {en}": "منافسون بارالمبيون من {ar}",
-        "olympic competitors for {en}": "منافسون أولمبيون من {ar}",
-
-        "winter olympic competitors for {en}": "منافسون أولمبيون شتويون من {ar}",
-        "summer olympic competitors for {en}": "منافسون أولمبيون صيفيون من {ar}",
-    })
+    formatted_data.update(
+        {
+            "olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+            # medalists
+            "olympic medalists": "فائزون بميداليات أولمبية",
+            "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
+            "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
+            "olympic bronze medalists": "فائزون بميداليات برونزية أولمبية",
+            "winter olympic medalists": "فائزون بميداليات أولمبية شتوية",
+            "summer olympic medalists": "فائزون بميداليات أولمبية صيفية",
+            # medalists + countries
+            "olympic medalists for {en}": "فائزون بميداليات أولمبية من {ar}",
+            "olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
+            "olympic silver medalists for {en}": "فائزون بميداليات فضية أولمبية من {ar}",
+            "olympic bronze medalists for {en}": "فائزون بميداليات برونزية أولمبية من {ar}",
+            # competitors
+            "paralympic competitors": "منافسون بارالمبيون",
+            "olympic competitors": "منافسون أولمبيون",
+            "winter olympic competitors": "منافسون أولمبيون شتويون",
+            "summer olympic competitors": "منافسون أولمبيون صيفيون",
+            # competitors + countries
+            "paralympic competitors for {en}": "منافسون بارالمبيون من {ar}",
+            "olympic competitors for {en}": "منافسون أولمبيون من {ar}",
+            "winter olympic competitors for {en}": "منافسون أولمبيون شتويون من {ar}",
+            "summer olympic competitors for {en}": "منافسون أولمبيون صيفيون من {ar}",
+        }
+    )
 
     return formatted_data
 
@@ -146,10 +137,7 @@ def _build_formatted_data() -> Dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
     countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
-    countries_data = {
-        x: {"ar": v}
-        for x, v in countries_from_nat_data.items()
-    }
+    countries_data = {x: {"ar": v} for x, v in countries_from_nat_data.items()}
     sports_data = {
         x: {
             "game_ar": v,
@@ -207,7 +195,9 @@ def resolve_countries_names_medalists(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(normalized_category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}", result)
+    logger.info_if_or_debug(
+        f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}", result
+    )
     return result
 
 

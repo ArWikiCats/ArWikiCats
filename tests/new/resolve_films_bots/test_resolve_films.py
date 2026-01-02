@@ -20,10 +20,8 @@ fast_data_with_nats = {
     "Yemeni upcoming horror films": "أفلام رعب قادمة يمنية",
     "Yemeni horror upcoming films": "أفلام رعب قادمة يمنية",
     "Yemeni upcoming films": "أفلام قادمة يمنية",
-
     "heist japanese horror films": "أفلام سرقة رعب يابانية",
     "Yemeni action thriller adult animated supernatural films": "أفلام إثارة حركة رسوم متحركة خارقة للطبيعة للكبار يمنية",
-
 }
 
 fast_data_no_nats = {
@@ -96,7 +94,6 @@ to_test = [
 @pytest.mark.parametrize("name,data, callback", to_test)
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str], callback) -> None:
-
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

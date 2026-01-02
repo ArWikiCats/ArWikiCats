@@ -11,10 +11,12 @@ dict_temps: Dict[str, str] = {
     "squad templates": "قوالب تشكيلات {}",
 }
 
-sorted_data = dict(sorted(
-    dict_temps.items(),
-    key=lambda k: (-k[0].count(" "), -len(k[0])),
-))
+sorted_data = dict(
+    sorted(
+        dict_temps.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 def get_templates_fo(category3: str) -> Tuple[str, str]:

@@ -42,21 +42,16 @@ def bot() -> FormatDataV2:
         "{nat_en} poets": "شعراء {males}",
         "{nat_en} people": "أعلام {males}",
         "{nat_en} heroes": "أبطال {males}",
-
         # Uses {male}
         "{nat_en} descent": "أصل {male}",
-
         # Uses {females}
         "{nat_en} women activists": "ناشطات {females}",
         "{nat_en} women politicians": "سياسيات {females}",
         "{nat_en} female singers": "مغنيات {females}",
-
         # Uses {female}
         "{nat_en} gods": "آلهة {female}",
-
         # Mixed placeholders in the same template
         "{nat_en} males and women": "رجال {males} ونساء {females}",
-
         # For get_template_ar tests (with/without Category: prefix)
         "{nat_en} philosophers": "فلاسفة {males}",
     }
@@ -78,18 +73,14 @@ basic_cases = {
     "Algerian writers": "كتاب جزائريون",
     "Yemeni writers": "كتاب يمنيون",
     "Yemeni poets": "شعراء يمنيون",
-
     # {male}
     "Moroccan descent": "أصل مغربي",
-
     # {females}
     "Algerian women activists": "ناشطات جزائريات",
     "yemeni women politicians": "سياسيات يمنيات",
     "egyptian female singers": "مغنيات مصريات",
-
     # {female}
     "egyptian gods": "آلهة مصرية",
-
     # Extra spaces and mixed case
     "  Moroccan   writers  ": "كتاب مغاربة",
 }
@@ -107,6 +98,7 @@ def test_search_nationality_basic(bot: FormatDataV2, category: str, expected: st
 # Mixed placeholders
 # -----------------------------
 
+
 @pytest.mark.fast
 def test_search_nationality_mixed_placeholders(bot: FormatDataV2) -> None:
     """Template that uses both {males} and {females} in the same label."""
@@ -118,6 +110,7 @@ def test_search_nationality_mixed_placeholders(bot: FormatDataV2) -> None:
 # -----------------------------
 # Negative / edge cases
 # -----------------------------
+
 
 @pytest.mark.fast
 def test_search_unknown_nationality_returns_empty(bot: FormatDataV2) -> None:

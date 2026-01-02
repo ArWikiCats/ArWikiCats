@@ -118,14 +118,11 @@ def _try_match_prefix(
     if not category_text.startswith(prefix):
         return None
 
-    suffix = category_original[len(prefix):].strip()
+    suffix = category_original[len(prefix) :].strip()
     if not suffix:
         return None
 
-    logger.debug(
-        f"<<lightyellow>>>>>> get_suffix {prefix=}, "
-        f"category_suffix={suffix}, country_prefix={key}"
-    )
+    logger.debug(f"<<lightyellow>>>>>> get_suffix {prefix=}, " f"category_suffix={suffix}, country_prefix={key}")
 
     return PrefixMatch(country_prefix=key, category_suffix=suffix)
 
@@ -175,9 +172,7 @@ def get_suffix_with_keys(
 
             # Try matching with 'the ' prefix stripped (if enabled)
             if check_the:
-                match = _try_match_prefix(
-                    category_lower_no_the, category_no_the, prefix, key
-                )
+                match = _try_match_prefix(category_lower_no_the, category_no_the, prefix, key)
                 if match:
                     _log_final_match(match, category_type)
                     return match.category_suffix, match.country_prefix

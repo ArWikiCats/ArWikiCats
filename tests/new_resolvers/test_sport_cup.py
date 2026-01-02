@@ -18,7 +18,6 @@ sport_lab2_test_data = {
     "defunct indoor boxing cups": "كؤوس بوكسينغ داخل الصالات سابقة",
     "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
     "defunct football cups": "كؤوس كرة قدم سابقة",
-
     "professional football cups": "كؤوس كرة قدم للمحترفين",
     "domestic football cup": "كؤوس كرة قدم محلية",
     "domestic football cups": "كؤوس كرة قدم محلية",
@@ -26,7 +25,6 @@ sport_lab2_test_data = {
     "football cups": "كؤوس كرة قدم",
     "basketball cup competitions": "منافسات كؤوس كرة سلة",
     "field hockey cup competitions": "منافسات كؤوس هوكي ميدان",
-
     "baseball world cup": "كأس العالم لكرة القاعدة",
     "biathlon world cup": "كأس العالم للبياثلون",
     "cricket world cup": "كأس العالم للكريكت",
@@ -49,7 +47,7 @@ sport_lab2_test_data = {
     "women's rugby league world cup": "كأس العالم لدوري الرجبي للسيدات",
     "women's rugby world cup": "كأس العالم للرجبي للسيدات",
     "women's softball world cup": "كأس العالم للكرة اللينة للسيدات",
-    "wrestling world cup": "كأس العالم للمصارعة"
+    "wrestling world cup": "كأس العالم للمصارعة",
 }
 
 nats_sport_multi_v2_data = {
@@ -61,18 +59,15 @@ nats_sport_multi_v2_data = {
     "chinese boxing cup": "كأس الصين للبوكسينغ",
     "chinese boxing cup competitions": "منافسات كأس الصين للبوكسينغ",
     "chinese defunct boxing cup competitions": "منافسات كؤوس بوكسينغ صينية سابقة",
-
     "chinese defunct indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات سابقة",
     "chinese defunct boxing cups": "كؤوس بوكسينغ صينية سابقة",
     "chinese defunct outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق سابقة",
     "chinese professional boxing cups": "كؤوس بوكسينغ صينية للمحترفين",
-
     "chinese indoor boxing cups": "كؤوس بوكسينغ صينية داخل الصالات",
     "chinese outdoor boxing cups": "كؤوس بوكسينغ صينية في الهواء الطلق",
     "chinese domestic boxing cups": "كؤوس بوكسينغ صينية محلية",
     "chinese domestic women's boxing cups": "كؤوس بوكسينغ صينية محلية للسيدات",
     "chinese boxing cups": "كؤوس بوكسينغ صينية",
-
 }
 
 sport_lab_nat_load_new_data = {
@@ -93,7 +88,6 @@ sport_lab_nat_load_new_data = {
     "spanish football cups": "كؤوس كرة قدم إسبانية",
     "thai football cups": "كؤوس كرة قدم تايلندية",
     "welsh football cups": "كؤوس كرة قدم ويلزية",
-
 }
 
 rcn_sport_with_ends_data = {
@@ -138,7 +132,9 @@ def test_sport_lab2_data(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.parametrize("category, expected", sport_lab_nat_load_new_data.items(), ids=sport_lab_nat_load_new_data.keys())
+@pytest.mark.parametrize(
+    "category, expected", sport_lab_nat_load_new_data.items(), ids=sport_lab_nat_load_new_data.keys()
+)
 @pytest.mark.skip2
 def test_sport_lab_nat_load_new(category: str, expected: str) -> None:
     label1 = sport_lab_nat_load_new(category)

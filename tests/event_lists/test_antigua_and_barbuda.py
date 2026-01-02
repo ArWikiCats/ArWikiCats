@@ -24,7 +24,6 @@ data_0 = {
     "Category:Antigua and Barbuda men sprinters": "تصنيف:عداؤون سريعون رجال أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda men triple jumpers": "تصنيف:لاعبو وثب ثلاثي رجال أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda men's basketball players": "تصنيف:لاعبو كرة سلة أنتيغويون وبربوديون",
-
     "Category:Antigua and Barbuda male actors": "تصنيف:ممثلون ذكور أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda male boxers": "تصنيف:ملاكمون ذكور أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda male canoeists": "تصنيف:متسابقو قوارب الكانوي ذكور أنتيغويون وبربوديون",
@@ -33,10 +32,8 @@ data_0 = {
     "Category:Antigua and Barbuda male sailors (sport)": "تصنيف:بحارة رياضيون ذكور أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda male swimmers": "تصنيف:سباحون ذكور أنتيغويون وبربوديون",
     "Category:Antigua and Barbuda male tennis players": "تصنيف:لاعبو كرة مضرب ذكور أنتيغويون وبربوديون",
-
     "Category:Antigua and Barbuda men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون",
     "Category:Men's footballers in Antigua and Barbuda by club": "تصنيف:لاعبو كرة قدم رجالية في أنتيغوا وباربودا حسب النادي",
-
     "Category:Antigua and Barbuda expatriate footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
     "Category:Antigua and Barbuda expatriate men's footballers": "تصنيف:لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
 }
@@ -45,9 +42,7 @@ data_1 = {
     "Category:21st-century Antigua and Barbuda politicians": "تصنيف:سياسيون أنتيغويون وبربوديون في القرن 21",
     "Category:21st-century Antigua and Barbuda people": "تصنيف:أنتيغويون وبربوديون في القرن 21",
     "Category:New Zealand emigrants to Antigua and Barbuda": "تصنيف:نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
-
     "Category:Paralympic competitors for Antigua and Barbuda": "تصنيف:منافسون بارالمبيون من أنتيغوا وباربودا",
-
     "Category:Antigua and Barbuda people of New Zealand descent": "تصنيف:أنتيغويون وبربوديون من أصل نيوزيلندي",
     "Category:Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون",
     "Category:21st-century Antigua and Barbuda sportsmen": "تصنيف:رياضيون رجال أنتيغويون وبربوديون في القرن 21",
@@ -562,7 +557,6 @@ data_1 = {
     "Category:Jamaican emigrants to Antigua and Barbuda": "تصنيف:جامايكيون مهاجرون إلى أنتيغوا وباربودا",
     "Category:Jamaican people of Antigua and Barbuda descent": "تصنيف:جامايكيون من أصل أنتيغوي وبربودي",
     "Category:Judiciary of Antigua and Barbuda": "تصنيف:النظام القضائي أنتيغوا وباربودا",
-
     "Category:Labour relations in Antigua and Barbuda": "تصنيف:علاقات عمالية في أنتيغوا وباربودا",
     "Category:Landmarks in Antigua and Barbuda": "تصنيف:معالم في أنتيغوا وباربودا",
     "Category:Law enforcement in Antigua and Barbuda": "تصنيف:تطبيق القانون في أنتيغوا وباربودا",
@@ -802,7 +796,7 @@ data_2 = {
     "Category:Speakers of the House of Representatives (Antigua and Barbuda)": "x",
     "Category:United States Virgin Islands people of Antigua and Barbuda descent": "x",
     "Category:Women ambassadors of Antigua and Barbuda": "x",
-    "Category:World Athletics Championships athletes for Antigua and Barbuda": "x"
+    "Category:World Athletics Championships athletes for Antigua and Barbuda": "x",
 }
 
 to_test = [

@@ -56,7 +56,9 @@ class EventLabResolver:
 
         else:
             # Process with the main category processing function
-            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(category3, find_stubs=app_settings.find_stubs)
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
+                category3, find_stubs=app_settings.find_stubs
+            )
 
         return list_of_cat, category3
 
@@ -159,9 +161,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_of_cat_func(
-                cate_r, category_lab, list_of_cat, self.foot_ballers
-            )
+            category_lab, list_of_cat = list_of_cat_func(cate_r, category_lab, list_of_cat, self.foot_ballers)
 
         return category_lab
 

@@ -11,14 +11,11 @@ data_1 = {
     "senate of spain": "مجلس شيوخ إسبانيا",
     "parliament of egypt": "برلمان مصر",
     "parliament of romania": "برلمان رومانيا",
-
     "senate (france)": "مجلس الشيوخ (فرنسا)",
     "senate (netherlands)": "مجلس الشيوخ (هولندا)",
-
     "parliament of greenland": "برلمان جرينلاند",
     "parliament of india": "برلمان الهند",
     "parliament of united kingdom": "برلمان المملكة المتحدة",
-
     "supreme court of israel": "المحكمة العليا الإسرائيلية",
     "supreme court of sri lanka": "المحكمة العليا السريلانكية",
     "supreme court of united states": "المحكمة العليا الأمريكية",
@@ -29,7 +26,6 @@ data_1 = {
     "maryland general assembly": "جمعية ماريلند العامة",
     "politics of emilia-romagna": "سياسة إميليا-رومانيا",
     "malaysian nationality law": "قانون الجنسية الماليزي",
-
     "united states presidential election 1860": "انتخابات الرئاسة الأمريكية 1860",
     "united states presidential election 1880": "انتخابات الرئاسة الأمريكية 1880",
     "united states presidential election 2008": "انتخابات الرئاسة الأمريكية 2008",

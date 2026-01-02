@@ -98,7 +98,7 @@ def test_multiple_relations() -> None:
         "Unclassified biological samples",
     ],
 )
-def test_no_relation(category:str) -> None:
+def test_no_relation(category: str) -> None:
     key, value = get_relation_word(category, category_relation_mapping)
     assert key == ""
     assert value == ""

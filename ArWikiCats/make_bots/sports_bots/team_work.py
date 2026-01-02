@@ -24,7 +24,6 @@ Teams_new_end_keys = {
     "footballers": "لاعبو {}",
     "playerss": "لاعبو {}",
     "players": "لاعبو {}",
-
     "fan clubs": "أندية معجبي {}",
     "owners and executives": "رؤساء تنفيذيون وملاك {}",
     "personnel": "أفراد {}",
@@ -78,10 +77,12 @@ Teams_new_end_keys = {
 }
 
 # sorted by len of " " in key
-Teams_new_end_keys = dict(sorted(
-    Teams_new_end_keys.items(),
-    key=lambda k: (-k[0].count(" "), -len(k[0])),
-))
+Teams_new_end_keys = dict(
+    sorted(
+        Teams_new_end_keys.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 def _resolve_club_label(club_key: str) -> str:
@@ -94,13 +95,13 @@ def _resolve_club_label(club_key: str) -> str:
         Resolved club label or empty string
     """
     club_lab = (
-        Clubs_key_2.get(club_key) or
-        Clubs_key_2.get(club_key.lower()) or
-        pop_of_football_lower.get(club_key) or
-        INTER_FEDS_LOWER.get(club_key) or
-        bot_te_4.te_2018_with_nat(club_key) or
-        resolve_films(club_key) or
-        ""
+        Clubs_key_2.get(club_key)
+        or Clubs_key_2.get(club_key.lower())
+        or pop_of_football_lower.get(club_key)
+        or INTER_FEDS_LOWER.get(club_key)
+        or bot_te_4.te_2018_with_nat(club_key)
+        or resolve_films(club_key)
+        or ""
     )
     return club_lab
 
@@ -117,12 +118,12 @@ def Get_team_work_Club(category: str) -> str:
     """
 
     normalized = category.strip()
-    logger.debug(f'get_parties_lab {category=}')
+    logger.debug(f"get_parties_lab {category=}")
 
     category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
     if category_label:
-        logger.info(f'get_parties_lab {category=}, {category_label=}')
+        logger.info(f"get_parties_lab {category=}, {category_label=}")
 
     return category_label
 

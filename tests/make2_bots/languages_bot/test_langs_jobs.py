@@ -26,9 +26,7 @@ def testjobs_mens_data_patterns(suffix: str, expected_label: str) -> None:
 
     expected = f"{expected_label} ب{BASE_LANG_OUTPUT}"
 
-    assert result == expected, (
-        f"jobs_mens_data mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
+    assert result == expected, f"jobs_mens_data mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
 
 
 def test_sample_jobs_mens_data() -> None:

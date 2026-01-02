@@ -31,7 +31,6 @@ countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
-
     return FormatData(
         formatted_data_updated,
         countries_from_nat_data,

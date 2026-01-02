@@ -17,8 +17,9 @@ import re
 from pathlib import Path
 from typing import Dict, Tuple
 from collections import defaultdict
+
 base_dir = Path(__file__).parent.parent
-jsons_dir = base_dir / 'ArWikiCats' / 'translations' / 'jsons'
+jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"
 
 
 # -------------------------------------------------------------
@@ -30,114 +31,231 @@ CHECK_AR_ALSO = {
 }
 
 NON_GEO_KEYWORDS_EN = {
-    "education": [
-        "university", "college", "school", "academy", "institute", "faculty",
-        "journal"
-    ],
+    "education": ["university", "college", "school", "academy", "institute", "faculty", "journal"],
     "medical": ["hospital", "clinic", "medical center"],
     "business": [
-        "company", "corporation", "ltd", "inc", "limited", "enterprise",
-        "brand", "product", "bank", "airlines", "airways",
-        "restaurant", "hotel"
+        "company",
+        "corporation",
+        "ltd",
+        "inc",
+        "limited",
+        "enterprise",
+        "brand",
+        "product",
+        "bank",
+        "airlines",
+        "airways",
+        "restaurant",
+        "hotel",
     ],
     "Infrastructure": [
-        "bridge", "tunnel", "airport", "station", "highway", "road",
-        "railway", "canal", "pipeline", "dam", "dike", "circuit",
-        "center", "centre", "park", "garden", "zoo"
+        "bridge",
+        "tunnel",
+        "airport",
+        "station",
+        "highway",
+        "road",
+        "railway",
+        "canal",
+        "pipeline",
+        "dam",
+        "dike",
+        "circuit",
+        "center",
+        "centre",
+        "park",
+        "garden",
+        "zoo",
     ],
-    "religious_cultural_buildings": [
-        "church", "cathedral", "mosque", "temple", "synagogue",
-        "abbey", "monastery"
-    ],
+    "religious_cultural_buildings": ["church", "cathedral", "mosque", "temple", "synagogue", "abbey", "monastery"],
     "organizations": [
-        "association", "organisation", "organization", "foundation",
-        "society", "agency", "council", "union", "movement",
+        "association",
+        "organisation",
+        "organization",
+        "foundation",
+        "society",
+        "agency",
+        "council",
+        "union",
+        "movement",
     ],
     "military": [
-        "army", "navy", "air force", "battalion", "regiment", "squadron",
+        "army",
+        "navy",
+        "air force",
+        "battalion",
+        "regiment",
+        "squadron",
     ],
-    "Tv": [
-        "film", "tv series", "tv show", "television", "channel", "episode", "series", "movie"
-    ],
+    "Tv": ["film", "tv series", "tv show", "television", "channel", "episode", "series", "movie"],
     "culture_media": [
-        "museum", "library", "gallery", "opera", "novel", "book",
-        "movie", "season", "soundtrack",
-        "theater", "theatre", "poem", "play", "album", "song",
-        "single", "ballet", "musical",
-        "magazine", "newspaper", "script", "studios", "music",
-        "festival", "band"
+        "museum",
+        "library",
+        "gallery",
+        "opera",
+        "novel",
+        "book",
+        "movie",
+        "season",
+        "soundtrack",
+        "theater",
+        "theatre",
+        "poem",
+        "play",
+        "album",
+        "song",
+        "single",
+        "ballet",
+        "musical",
+        "magazine",
+        "newspaper",
+        "script",
+        "studios",
+        "music",
+        "festival",
+        "band",
     ],
     "sports": [
-        "club", "team", "fc", "sc", "league", "tournament", "stadium",
-        "arena", "championship", "cup", "race", "grand prix",
-        "clubs", "f.c.",
+        "club",
+        "team",
+        "fc",
+        "sc",
+        "league",
+        "tournament",
+        "stadium",
+        "arena",
+        "championship",
+        "cup",
+        "race",
+        "grand prix",
+        "clubs",
+        "f.c.",
         "نادي",
     ],
     "politics_law": [
-        "government", "ministry", "court", "constitution", "policy",
-        "election", "presidential", "parliament", "senate", "law",
-        "legal", "case", "presidential election",
-        "politics", "assembly", "treaty", "party"
+        "government",
+        "ministry",
+        "court",
+        "constitution",
+        "policy",
+        "election",
+        "presidential",
+        "parliament",
+        "senate",
+        "law",
+        "legal",
+        "case",
+        "presidential election",
+        "politics",
+        "assembly",
+        "treaty",
+        "party",
     ],
     "media_technology": [
-        "software", "protocol", "video game", "algorithm",
-        "programming language", "operating system", "board game"
+        "software",
+        "protocol",
+        "video game",
+        "algorithm",
+        "programming language",
+        "operating system",
+        "board game",
     ],
     "biology_scientific": [
-        "virus", "bacteria", "species", "genus", "family", "order",
-        "mammal", "bird", "fish", "fungus", "plant", "animal", "insect"
+        "virus",
+        "bacteria",
+        "species",
+        "genus",
+        "family",
+        "order",
+        "mammal",
+        "bird",
+        "fish",
+        "fungus",
+        "plant",
+        "animal",
+        "insect",
     ],
     "roles_people": [
-        "king", "queen", "prince", "emperor", "president", "minister",
-        "lord", "sir", "judge", "politician",
-        "artist", "actor", "actress", "singer", "writer", "author",
-        "poet", "philosopher", "scientist", "musician",
-        "composer", "director", "producer", "footballer",
-        "basketball player", "baseball player", "coach",
-        "businessman", "businesswoman",
-        "people"
+        "king",
+        "queen",
+        "prince",
+        "emperor",
+        "president",
+        "minister",
+        "lord",
+        "sir",
+        "judge",
+        "politician",
+        "artist",
+        "actor",
+        "actress",
+        "singer",
+        "writer",
+        "author",
+        "poet",
+        "philosopher",
+        "scientist",
+        "musician",
+        "composer",
+        "director",
+        "producer",
+        "footballer",
+        "basketball player",
+        "baseball player",
+        "coach",
+        "businessman",
+        "businesswoman",
+        "people",
     ],
-    "mythology_religion": [
-        "mythology", "goddess", "god", "mythical", "religion",
-        "sect", "liturgy"
-    ],
+    "mythology_religion": ["mythology", "goddess", "god", "mythical", "religion", "sect", "liturgy"],
     "historical_societal": [
         # "clan", "empire", "kingdom",
         "tribe",
         "war",
         "battle",
-        "front"
+        "front",
     ],
     # "dynasty": [ "dynasty" ],
-    "languages": [
-        "language"
-    ],
-    "awards": [
-        "award", "medal", "prize", "trophy"
-    ],
-    "institutions_other": [
-        "department", "dialect", "police", "prison"
-    ],
+    "languages": ["language"],
+    "awards": ["award", "medal", "prize", "trophy"],
+    "institutions_other": ["department", "dialect", "police", "prison"],
     "others": [
-        "history of", "culture of", "economy of", "demographics of",
-        "transport in", "infrastructure of", "tourism in",
-    ]
+        "history of",
+        "culture of",
+        "economy of",
+        "demographics of",
+        "transport in",
+        "infrastructure of",
+        "tourism in",
+    ],
 }
 
 # -------------------------------------------------------------
 # 2) Arabic pattern detection
 # -------------------------------------------------------------
 
-NON_GEO_KEYWORDS_AR=[
-    "جامعة", "كلية", "معهد", "نادي", "شركة", "مستشفى", "متحف",
-    "جمعية", "فندق", "ملعب", "جسر", "قناة", "محطة", "مطار"
+NON_GEO_KEYWORDS_AR = [
+    "جامعة",
+    "كلية",
+    "معهد",
+    "نادي",
+    "شركة",
+    "مستشفى",
+    "متحف",
+    "جمعية",
+    "فندق",
+    "ملعب",
+    "جسر",
+    "قناة",
+    "محطة",
+    "مطار",
 ]
 
 # -------------------------------------------------------------
 # 3) Biological suffixes
 # -------------------------------------------------------------
 
-TAXON_SUFFIXES=(
+TAXON_SUFFIXES = (
     "aceae",
     "ales",
     "ineae",
@@ -159,9 +277,10 @@ TAXON_SUFFIXES=(
 # Detection Helpers
 # -------------------------------------------------------------
 
+
 def detect_english_keywords(label: str, value: str) -> bool:
     """Return True if English keyword matches exactly or by token."""
-    lowered=label.lower()
+    lowered = label.lower()
     for name, keywords in NON_GEO_KEYWORDS_EN.items():
         for keyword in keywords:
             # ----
@@ -197,20 +316,24 @@ def detect_arabic_keywords(value: str) -> bool:
 
 def detect_taxon(label: str) -> bool:
     """Detect biological taxon names by suffix."""
-    lowered=label.lower()
+    lowered = label.lower()
     return any(lowered.endswith(suffix) for suffix in TAXON_SUFFIXES)
 
 
 def detect_person_like(label: str) -> bool:
     """Detect if label refers to persons/titles."""
-    lowered=label.lower()
+    lowered = label.lower()
     # Heuristic: titles containing commas that denote roles (e.g., "king of", "queen of")
-    roles=("king", "queen", "president", "chancellor", "minister", "lord", "sir", "prince")
-    return any(re.search(
-        # rf"\b{role}\b",
-        rf"(?<!\w){role}(?!\w)",
-        lowered
-    ) for role in roles)
+    roles = ("king", "queen", "president", "chancellor", "minister", "lord", "sir", "prince")
+    return any(
+        re.search(
+            # rf"\b{role}\b",
+            rf"(?<!\w){role}(?!\w)",
+            lowered,
+        )
+        for role in roles
+    )
+
 
 # -------------------------------------------------------------
 # Filtering Logic
@@ -223,7 +346,6 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
     non_geo = {}
     typies = defaultdict(lambda: defaultdict(int))
     for key, value in entries.items():
-
         # Layer 1: English keyword detection
         isa, name = detect_english_keywords(key, value)
         if isa:
@@ -256,15 +378,15 @@ def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str,
 
 def filter_file(input_path: Path, geo_out: Path, non_geo_out: Path) -> str:
     """Read → classify → write outputs."""
-    data=json.loads(input_path.read_text(encoding="utf-8"))
-    geo, non_geo=classify_entries(data)
+    data = json.loads(input_path.read_text(encoding="utf-8"))
+    geo, non_geo = classify_entries(data)
     non = len(data) - len(geo)
     if non:
         # Write output files
-        with open(geo_out, 'w', encoding='utf-8') as f:
+        with open(geo_out, "w", encoding="utf-8") as f:
             json.dump(geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
-        with open(non_geo_out, 'w', encoding='utf-8') as f:
+        with open(non_geo_out, "w", encoding="utf-8") as f:
             json.dump(non_geo, f, ensure_ascii=False, indent=4, sort_keys=True)
 
     return f"Total: {len(data):,} | Geographic: {len(geo):,} | Non-Geographic: {non:,}"
@@ -276,7 +398,8 @@ def main() -> None:
         # jsons_dir / "cities/cities_full.json",
         # jsons_dir / "cities/yy2.json",
         # jsons_dir / "geography/popopo.json",
-        jsons_dir / "geography/P17_PP.json",
+        jsons_dir
+        / "geography/P17_PP.json",
     ]
     status = {}
     for file in files:

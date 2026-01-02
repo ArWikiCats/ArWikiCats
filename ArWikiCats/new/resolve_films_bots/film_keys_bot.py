@@ -30,7 +30,7 @@ def get_Films_key_CAO(country_identifier: str) -> str:
     Resolve labels for composite television keys used in film lookups.
     """
 
-    logger.debug(f'<<lightblue>> get_Films_key_CAO : {country_identifier=} ')
+    logger.debug(f"<<lightblue>> get_Films_key_CAO : {country_identifier=} ")
     normalized_identifier = country_identifier.lower().strip()
 
     resolved_label = ""
@@ -47,15 +47,17 @@ def get_Films_key_CAO(country_identifier: str) -> str:
         if not prefix_label:
             continue
 
-        logger.debug(f'<<lightblue>> get_Films_key_CAO : {prefix=} ')
+        logger.debug(f"<<lightblue>> get_Films_key_CAO : {prefix=} ")
 
         resolved_label = f"{suffix_translation} {prefix_label}"
 
         if resolved_label:
-            logger.info(f'<<lightblue>> get_Films_key_CAO: new {resolved_label=} ')
+            logger.info(f"<<lightblue>> get_Films_key_CAO: new {resolved_label=} ")
             break
 
-    logger.info_if_or_debug(f"<<yellow>> end get_Films_key_CAO:{country_identifier=}, {resolved_label=}", resolved_label)
+    logger.info_if_or_debug(
+        f"<<yellow>> end get_Films_key_CAO:{country_identifier=}, {resolved_label=}", resolved_label
+    )
     return resolved_label
 
 
@@ -73,28 +75,30 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
     result = ""
     if country_label:
         result = country_label.format(country_name)
-        logger.debug(f'<<lightblue>> bot_te_4:Films: new {result=} ')
+        logger.debug(f"<<lightblue>> bot_te_4:Films: new {result=} ")
 
     if not result:
         country_label = (
-            Films_key_CAO.get(category_without_nat) or
-            get_Films_key_CAO(category_without_nat) or
-            get_films_key_tyty_new(category_without_nat) or
-            ""
+            Films_key_CAO.get(category_without_nat)
+            or get_Films_key_CAO(category_without_nat)
+            or get_films_key_tyty_new(category_without_nat)
+            or ""
         )
         if country_label:
             result = f"{country_label} {country_name}"
             if category_without_nat in Films_key_CAO_new_format:
                 result = Films_key_CAO_new_format[category_without_nat].format(country_name)
-            logger.debug(f'<<lightblue>> bot_te_4:Films: new {result=} , {category_without_nat=} ')
+            logger.debug(f"<<lightblue>> bot_te_4:Films: new {result=} , {category_without_nat=} ")
 
     if not result:
         country_label = Films_key_For_nat.get(category_without_nat, "")
         if country_label and "{}" in country_label:
             result = country_label.format(country_name)
-            logger.debug(f'<<lightblue>> Films_key_For_nat:Films: new {result=} ')
+            logger.debug(f"<<lightblue>> Films_key_For_nat:Films: new {result=} ")
 
-    logger.info_if_or_debug(f"<<yellow>> end films_with_nat:{country_start=}, {category_without_nat=}, {result=}", result)
+    logger.info_if_or_debug(
+        f"<<yellow>> end films_with_nat:{country_start=}, {category_without_nat=}, {result=}", result
+    )
     return result
 
 
@@ -102,12 +106,7 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
 def Films(category: str) -> str:
     """Resolve the Arabic label for a given film category."""
 
-    result = (
-        Films_key_CAO.get(category, "") or
-        get_Films_key_CAO(category) or
-        get_films_key_tyty_new(category) or
-        ""
-    )
+    result = Films_key_CAO.get(category, "") or get_Films_key_CAO(category) or get_films_key_tyty_new(category) or ""
 
     logger.info_if_or_debug(f"<<yellow>> end Films: {category=}, {result=}", result)
     return result

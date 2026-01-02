@@ -33,7 +33,7 @@ test_data_error = {
 }
 
 test_data = {
-    "Afghan Christians" : "أفغان مسيحيون",
+    "Afghan Christians": "أفغان مسيحيون",
     "American Episcopalians": "أمريكيون أسقفيون",
     "American Hindus": "أمريكيون هندوس",
     "American saints": "أمريكيون قديسون",
@@ -130,7 +130,7 @@ test_data = {
     "Zimbabwean Anglicans": "زيمبابويون أنجليكيون",
     "Zimbabwean Christians": "زيمبابويون مسيحيون",
     "Zimbabwean Hindus": "زيمبابويون هندوس",
-    "Zimbabwean Sunni Muslims": "زيمبابويون مسلمون سنة"
+    "Zimbabwean Sunni Muslims": "زيمبابويون مسلمون سنة",
 }
 
 test_religions_data = {
@@ -165,7 +165,6 @@ def test_data_without_nats(input_text: str, expected: str) -> None:
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
-
     result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 

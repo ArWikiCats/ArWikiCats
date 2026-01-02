@@ -15,26 +15,22 @@ olympics = {
     "olympics medalists": "فائزون بميداليات أولمبية",
     "olympics medallists": "فائزون بميداليات أولمبية",
     "olympics silver medalists": "فائزون بميداليات فضية أولمبية",
-
     "summer olympics medallists": "فائزون بميداليات أولمبية صيفية",
     "winter olympics medallists": "فائزون بميداليات أولمبية شتوية",
     "universiade competitors": "منافسون في الألعاب الجامعية",
     "universiade medalists": "فائزون بميداليات الألعاب الجامعية",
     "paralympic competitors": "منافسون بارالمبيون",
     "commonwealth games gold medalists": "فائزون بميداليات ذهبية في ألعاب الكومنولث",
-
     "olympic medalists": "فائزون بميداليات أولمبية",
     "olympic competitors": "منافسون أولمبيون",
     "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
     "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
     "olympic bronze medalists": "فائزون بميداليات برونزية أولمبية",
-
     "winter olympics medalists": "فائزون بميداليات أولمبية شتوية",
     "summer olympics medalists": "فائزون بميداليات أولمبية صيفية",
     "winter olympics competitors": "منافسون أولمبيون شتويون",
     "summer olympics competitors": "منافسون أولمبيون صيفيون",
     "olympics competitors": "منافسون أولمبيون",
-
     "african games bronze medalists": "فائزون بميداليات برونزية في الألعاب الإفريقية",
     "african games competitors": "منافسون في الألعاب الإفريقية",
     "african games gold medalists": "فائزون بميداليات ذهبية في الألعاب الإفريقية",
@@ -318,7 +314,7 @@ olympics = {
     "youth olympics gold medalists": "فائزون بميداليات ذهبية في الألعاب الأولمبية الشبابية",
     "youth olympics medalists": "فائزون بميداليات الألعاب الأولمبية الشبابية",
     "youth olympics medallists": "فائزون بميداليات الألعاب الأولمبية الشبابية",
-    "youth olympics silver medalists": "فائزون بميداليات فضية في الألعاب الأولمبية الشبابية"
+    "youth olympics silver medalists": "فائزون بميداليات فضية في الألعاب الأولمبية الشبابية",
 }
 
 for_countries = {

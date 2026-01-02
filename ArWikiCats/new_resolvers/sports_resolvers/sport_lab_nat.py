@@ -27,37 +27,28 @@ new_for_nat_female_xo_team_2 = {
     # "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
     # "yemeni national football": "كرة قدم وطنية يمنية",
     "{en} national {en_sport}": "{sport_jobs} وطنية {female}",
-
     "{en} womens {en_sport}": "{sport_jobs} {female} نسائية",
-
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
-
     "{en} amateur {en_sport} cup": "كأس {female} {sport_jobs} للهواة",
     "{en} youth {en_sport} cup": "كأس {female} {sport_jobs} للشباب",
     "{en} mens {en_sport} cup": "كأس {female} {sport_jobs} للرجال",
     "{en} womens {en_sport} cup": "كأس {female} {sport_jobs} للسيدات",
-
     "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
     "{en} {en_sport} cup": "كؤوس {sport_jobs} {female}",
     "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
-
     "{en} {en_sport} teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national teams": "منتخبات {sport_jobs} {female}",
-
     # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
     "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
     "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
-
     "{en} {en_sport} championships": "بطولات {sport_jobs} {female}",
     "{en} national {en_sport} championships": "بطولات {sport_jobs} وطنية {female}",
-
     # "{en} national {en_sport} champions": "أبطال بطولات {sport_jobs} وطنية {female}",
     "{en} national {en_sport} champions": "أبطال {sport_jobs} وطنية {female}",
-
     "{en} {en_sport} super leagues": "دوريات سوبر {sport_jobs} {female}",
     "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
     # ---
@@ -66,17 +57,14 @@ new_for_nat_female_xo_team_2 = {
     "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
     "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
     "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
-
     "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
     "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
-
     # [european national womens volleyball teams] = "منتخبات كرة طائرة وطنية أوروبية للسيدات"
     "{en} national womens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
     "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
     "{en} national a {en_sport} teams": "منتخبات {sport_jobs} محليين {female}",
     "{en} national b {en_sport} teams": "منتخبات {sport_jobs} رديفة {female}",
     "{en} national reserve {en_sport} teams": "منتخبات {sport_jobs} وطنية احتياطية {female}",
-
     "{en} national {en_sport} teams premier": "منتخبات {sport_jobs} وطنية {female} من الدرجة الممتازة",
     "{en} {en_sport} teams premier": "فرق {sport_jobs} {female} من الدرجة الممتازة",
 }
@@ -177,7 +165,6 @@ new_for_nat_female_xo_team_additional = {
     "{en} national youth womens under-24 {en_sport}": "{sport_jobs} وطنية {female} تحت 24 سنة للشابات",
     "{en} national youth womens {en_sport}": "{sport_jobs} وطنية {female} للشابات",
     "{en} national youth {en_sport}": "{sport_jobs} وطنية {female} للشباب",
-
     "{en} under-13 {en_sport}": "{sport_jobs} {female} تحت 13 سنة",
     "{en} under-14 {en_sport}": "{sport_jobs} {female} تحت 14 سنة",
     "{en} under-15 {en_sport}": "{sport_jobs} {female} تحت 15 سنة",
@@ -188,7 +175,7 @@ new_for_nat_female_xo_team_additional = {
     "{en} under-20 {en_sport}": "{sport_jobs} {female} تحت 20 سنة",
     "{en} under-21 {en_sport}": "{sport_jobs} {female} تحت 21 سنة",
     "{en} under-23 {en_sport}": "{sport_jobs} {female} تحت 23 سنة",
-    "{en} under-24 {en_sport}": "{sport_jobs} {female} تحت 24 سنة"
+    "{en} under-24 {en_sport}": "{sport_jobs} {female} تحت 24 سنة",
 }
 
 new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
@@ -196,21 +183,14 @@ new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
-    nats_data = {
-        x: {"female": v}
-        for x, v in Nat_women.items()
-    }
+    nats_data = {x: {"female": v} for x, v in Nat_women.items()}
     sport_key_records = dict(SPORT_KEY_RECORDS)
-    sport_key_records.get("sports", {}).update({
-        "jobs": "رياضية",
-    })
-    nats_data.update({
-        x: {
-            "female": v.get("female")
+    sport_key_records.get("sports", {}).update(
+        {
+            "jobs": "رياضية",
         }
-        for x, v in nats_keys_as_country_names.items()
-        if v.get("female")
-    })
+    )
+    nats_data.update({x: {"female": v.get("female")} for x, v in nats_keys_as_country_names.items() if v.get("female")})
 
     sports_data = {
         x: {
@@ -239,7 +219,6 @@ def _load_bot() -> MultiDataFormatterBase:
 def _load_end_key_mappings() -> dict[str, str]:
     keys_ending = {
         "teams": "فرق {lab}",
-
         "premier": "{lab} من الدرجة الممتازة",
         "first tier": "{lab} من الدرجة الأولى",
         "top tier": "{lab} من الدرجة الأولى",
@@ -283,13 +262,15 @@ def _load_end_key_mappings() -> dict[str, str]:
         "tournaments": "بطولات {lab}",
         "trainers": "مدربو {lab}",
         "umpires": "حكام {lab}",
-        "venues": "ملاعب {lab}"
+        "venues": "ملاعب {lab}",
     }
 
-    keys_ending = dict(sorted(
-        keys_ending.items(),
-        key=lambda k: (-k[0].count(" "), -len(k[0])),
-    ))
+    keys_ending = dict(
+        sorted(
+            keys_ending.items(),
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
+        )
+    )
     return keys_ending
 
 
@@ -317,7 +298,6 @@ def fix_keys(category: str) -> str:
 
 
 def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
-
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
 
