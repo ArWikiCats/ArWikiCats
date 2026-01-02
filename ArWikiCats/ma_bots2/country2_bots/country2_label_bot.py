@@ -8,14 +8,14 @@ import re
 from typing import Tuple
 
 from ...helps.log import logger
-from ...ma_bots import country2_lab, country_bot
+from ...ma_bots import country_bot
 from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import category_relation_mapping, get_tabl_with_in, pop_format, pop_format2
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO
-from ...make_bots.o_bots import bys, parties_bot
+from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -23,6 +23,9 @@ from ...time_resolvers import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2, typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...make_bots.o_bots.peoples_resolver import work_peoples
+from ...make_bots.reslove_relations.rele import resolve_relations_label
+from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from .utils import split_text_by_separator
 
 pp_start_with2 = {
@@ -31,13 +34,44 @@ pp_start_with2 = {
 }
 
 
+@functools.lru_cache(maxsize=10000)
+def wrap_lab_for_country2(country: str) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve laboratory information for a specified country.
+    """
+
+    country2 = country.lower().strip()
+
+    resolved_label = (
+        resolve_relations_label(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or te_films(country2)
+        or sport_lab_nat_load_new(country2)
+        or sport_lab_suffixes.get_teams_new(country2)
+        or parties_bot.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or univer.te_universities(country2)
+        or resolve_us_states(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or ""
+    )
+    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
+
+    return resolved_label
+
+
 def work_with_pp_start_with2(cone_1: str, separator: str, with_years: bool = False) -> str:
     part_1_label = ""
     for pri_ss, pri_lab in pp_start_with2.items():
         if cone_1.startswith(pri_ss):
             U_c = cone_1[len(pri_ss) :]
             logger.debug(f" pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ")
-            U_lab = country2_lab.get_lab_for_country2(U_c)
+            U_lab = wrap_lab_for_country2(U_c)
 
             if U_lab == "" and with_years:
                 U_lab = with_years_bot.Try_With_Years(U_c)
