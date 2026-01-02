@@ -25,7 +25,45 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from . import country2_lab, ye_ts_bot
+from . import ye_ts_bot
+
+from ..make_bots.matables_bots.table1_bot import get_KAKO
+from ..make_bots.o_bots import parties_bot, univer
+from ..make_bots.o_bots.peoples_resolver import work_peoples
+from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..translations import get_from_pf_keys2
+from ..make_bots.sports_bots import sport_lab_suffixes
+
+
+@functools.lru_cache(maxsize=10000)
+def get_lab_for_country2(country: str) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve laboratory information for a specified country.
+    """
+
+    country2 = country.lower().strip()
+
+    resolved_label = (
+        resolve_relations_label(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or te_films(country2)
+        or sport_lab_suffixes.get_teams_new(country2)
+        or parties_bot.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or univer.te_universities(country2)
+        or resolve_us_states(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or ""
+    )
+    logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
+
+    return resolved_label
 
 
 @functools.lru_cache(maxsize=None)
@@ -40,7 +78,7 @@ def Get_country2(country: str) -> str:
 
     resolved_label = (
         country_2_title_work(country, with_years=True)
-        or country2_lab.get_lab_for_country2(country)
+        or get_lab_for_country2(country)
         or ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
@@ -61,7 +99,7 @@ def _resolve_remainder(remainder: str) -> str:
     """Helper to resolve the label for the remainder of a string."""
     label = (
         Get_country2(remainder)
-        or country2_lab.get_lab_for_country2(remainder)
+        or get_lab_for_country2(remainder)
         or ye_ts_bot.translate_general_category(remainder, fix_title=False)
         or ""
     )
