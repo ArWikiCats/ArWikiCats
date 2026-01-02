@@ -50,7 +50,7 @@ def test_country_2_title_work(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", data_new.items(), ids=data_new.keys())
 @pytest.mark.skip2
 def test_Get_country2_slow(category: str, expected: str) -> None:
-    label = Get_country2(category, fix_title=True)
+    label = Get_country2(category)
     assert label == expected
 
 

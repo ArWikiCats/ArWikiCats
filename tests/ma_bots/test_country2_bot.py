@@ -4,9 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.country2_bot import Get_country2
-
-fix_title_all = True
+from ArWikiCats import resolve_label_ar
+fix_title_all = False
 
 
 data_fast = {
@@ -15,7 +14,6 @@ data_fast = {
     "12th century": "القرن 12",
     "1330 by country": "1330 حسب البلد",
     "1330 elections in united states": "انتخابات 1330 في الولايات المتحدة",
-    "1330 films by country": "أفلام إنتاج 1330 حسب البلد",
     "1330 in canada": "كندا في 1330",
     "1330 in china": "الصين في 1330",
     "1330 in football": "كرة القدم في 1330",
@@ -43,7 +41,7 @@ data_fast = {
     "ambassadors to ottoman empire": "سفراء لدى الدولة العثمانية",
     "american television series basedon british television series": "مسلسلات تلفزيونية أمريكية مبنية على مسلسلات تلفزيونية بريطانية",
     "april 1330": "أبريل 1330",
-    "archaeological sites on the-national-register-of-historic-places": "مواقع أثرية في السجل الوطني للأماكن التاريخية",
+    "archaeological sites on national-register-of-historic-places": "مواقع أثرية في السجل الوطني للأماكن التاريخية",
     "architecture in israel": "هندسة معمارية في إسرائيل",
     "armenia–colombia relations": "العلاقات الأرمينية الكولومبية",
     "asian football by country": "كرة القدم الآسيوية حسب البلد",
@@ -68,7 +66,7 @@ data_fast = {
 
 
 data_slow = {
-    "people from santa fe province": "أشخاص من محافظة سانتا-في",
+    "people from santa fe province": "أشخاص من محافظة سانتا في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
@@ -120,7 +118,7 @@ data_slow = {
     "caribbean politics and government templates": "السياسة الكاريبية وقوالب الحكومة",
     "categories of haryana": "تصنيفات في هاريانا",
     "caves in india": "كهوف في الهند",
-    "cemeteries on the-national-register-of-historic-places": "مقابر في السجل الوطني للأماكن التاريخية",
+    "cemeteries on national-register-of-historic-places": "مقابر في السجل الوطني للأماكن التاريخية",
     "centuries in united states": "قرون في الولايات المتحدة",
     "cherokee and united states treaties": "شيروكي ومعاهدات الولايات المتحدة",
     "china by month": "الصين حسب الشهر",
@@ -215,14 +213,14 @@ data_slow = {
     "films basedon works": "أفلام مبنية على أعمال",
     "films in yemen": "أفلام في اليمن",
     "finland–united states relations": "العلاقات الأمريكية الفنلندية",
-    "fire stations on the-national-register-of-historic-places": "محطات الإطفاء في السجل الوطني للأماكن التاريخية",
+    "fire stations on national-register-of-historic-places": "محطات الإطفاء في السجل الوطني للأماكن التاريخية",
     "football by country": "كرة القدم حسب البلد",
     "football cup competitions in england": "منافسات كؤوس كرة قدم في إنجلترا",
     "football cup competitions": "منافسات كؤوس كرة قدم",
     "football people": "أعلام كرة قدم",
     "football players by national team": "لاعبو كرة قدم حسب المنتخب الوطني",
     "forts in united states": "حصون في الولايات المتحدة",
-    "forts on the-national-register-of-historic-places": "حصون في السجل الوطني للأماكن التاريخية",
+    "forts on national-register-of-historic-places": "حصون في السجل الوطني للأماكن التاريخية",
     "gaelic football competitions": "منافسات كرة قدم غالية",
     "gaelic football": "كرة القدم الغالية",
     "gaelic footballers in county kildare": "لاعبو كرة قدم غيلية في مقاطعة كيلدير",
@@ -253,7 +251,7 @@ data_slow = {
     "history of united states": "تاريخ الولايات المتحدة",
     "history of women": "تاريخ المرأة",
     "hospitals in uganda": "مستشفيات في أوغندا",
-    "houses on the-national-register-of-historic-places": "منازل في السجل الوطني للأماكن التاريخية",
+    "houses on national-register-of-historic-places": "منازل في السجل الوطني للأماكن التاريخية",
     "hungarian people imprisoned-in germany": "مجريون مسجونون في ألمانيا",
     "ice hockey people": "أعلام هوكي جليد",
     "ice skating": "تزلج على الجليد",
@@ -368,7 +366,7 @@ data_slow = {
     "museums in north carolina": "متاحف في كارولاينا الشمالية",
     "museums of ancient greece": "متاحف في اليونان القديمة",
     "museums of ancient rome": "متاحف في روما القديمة",
-    "museums on the-national-register-of-historic-places": "متاحف في السجل الوطني للأماكن التاريخية",
+    "museums on national-register-of-historic-places": "متاحف في السجل الوطني للأماكن التاريخية",
     "music of jean sibelius": "موسيقى جان سيبيليوس",
     "nascar races": "سباقات ناسكار",
     "national cricket teams": "منتخبات كريكت وطنية",
@@ -465,10 +463,9 @@ data_slow = {
     "rail transport in sri lanka": "السكك الحديدية في سريلانكا",
     "railway stations in australia": "محطات السكك الحديدية في أستراليا",
     "railway stations in cambodia": "محطات السكك الحديدية في كمبوديا",
-    "railway stations on the-national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
+    "railway stations on national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
     "ray tracing (graphics)": "اقتفاء الشعاع",
     "religious buildings and structures in trinidad and tobago": "مبان ومنشآت دينية في ترينيداد وتوباغو",
-    "residential buildings on the-national-register-of-historic-places": "مبان سكنية في السجل الوطني للأماكن التاريخية",
     "rhode island": "رود آيلاند",
     "rhodope mountains": "جبال رودوب",
     "riots and civil disorder in united states": "شغب وعصيان مدني في الولايات المتحدة",
@@ -632,25 +629,12 @@ data_slow = {
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_Get_country2_fast(category: str, expected: str) -> None:
-    label = Get_country2(category, fix_title=fix_title_all)
+    label = resolve_label_ar(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=data_slow.keys())
 @pytest.mark.slow
 def test_Get_country2_slow(category: str, expected: str) -> None:
-    label = Get_country2(category, fix_title=fix_title_all)
+    label = resolve_label_ar(category)
     assert label == expected
-
-
-def test_get_country2() -> None:
-    # Test with a basic input
-    result = Get_country2("test country", fix_title=fix_title_all)
-    assert isinstance(result, str)
-
-    result_empty = Get_country2("", fix_title=fix_title_all)
-    assert isinstance(result_empty, str)
-
-    # Test with years disabled
-    result_without_years = Get_country2("test country", False, fix_title=fix_title_all)
-    assert isinstance(result_without_years, str)

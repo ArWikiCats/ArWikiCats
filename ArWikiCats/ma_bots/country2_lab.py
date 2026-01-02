@@ -20,7 +20,10 @@ from ..translations import get_from_pf_keys2
 
 @functools.lru_cache(maxsize=10000)
 def get_lab_for_country2(country: str) -> str:
-    """Retrieve laboratory information for a specified country."""
+    """
+    TODO: should be moved to functions directory.
+    Retrieve laboratory information for a specified country.
+    """
 
     country2 = country.lower().strip()
 
