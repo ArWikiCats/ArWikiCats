@@ -4,7 +4,7 @@
 
 import pytest
 
-from ArWikiCats.main_processers.event2bot import event2_d2, event2_new, stubs_label
+from ArWikiCats.main_processers.event2bot import event2_d2, event2_new
 
 fast_data = {
     "1650s films": "أفلام إنتاج عقد 1650",
@@ -83,20 +83,6 @@ def test_event2_d2() -> None:
 
     # Test with empty string
     result_empty = event2_d2("")
-    assert isinstance(result_empty, str)
-
-
-def test_stubs_label() -> None:
-    # Test with a basic input
-    result = stubs_label("test category")
-    assert isinstance(result, str)
-
-    # Test with stubs format
-    result_stubs = stubs_label("test stubs")
-    assert isinstance(result_stubs, str)
-
-    # Test with empty string
-    result_empty = stubs_label("")
     assert isinstance(result_empty, str)
 
 
