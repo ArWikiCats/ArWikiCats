@@ -6,9 +6,10 @@
 import functools
 import re
 
+
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..main_processers import event2bot
+from ..main_processers import event2bot, event2_stubs
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
@@ -71,6 +72,7 @@ def event_label_work(target_category: str) -> str:
         or Ambassadors_tab.get(normalized_target_category, "")
         or team_work.Get_team_work_Club(normalized_target_category)
         or event2bot.event2_new(normalized_target_category)
+        or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or te4_2018_Jobs(normalized_target_category)

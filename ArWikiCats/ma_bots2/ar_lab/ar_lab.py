@@ -8,8 +8,9 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
+
 from ...helps.log import logger
-from ...main_processers import event2bot
+from ...main_processers import event2bot, event2_stubs
 from ...make_bots.format_bots import (
     Dont_Add_min,
     category_relation_mapping,
@@ -225,7 +226,8 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
-    return event2bot.event2_new(category)
+    result = event2bot.event2_new(category) or event2_stubs.stubs_label(category)
+    return result
 
 
 @dataclass

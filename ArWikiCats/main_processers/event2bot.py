@@ -44,46 +44,6 @@ def event2_d2(category_r) -> str:
     return category_lab
 
 
-def stubs_label(category_r: str) -> str:
-    """Generate an Arabic label for a given category.
-
-    This function processes a category string to generate an Arabic label,
-    particularly for categories that indicate they are stubs. It checks the
-    input category for specific patterns and modifies it to ensure it is in
-    the correct format. If the category ends with "stubs", the function
-    attempts to find a corresponding label using helper functions. If no
-    label is found, it falls back to a default template.
-
-    Args:
-        category_r (str): The input category string to be processed.
-
-    Returns:
-        str: The generated Arabic label for the category, or an empty string if no
-            label is generated.
-    """
-
-    ar_label = ""
-    sub_ar_label = ""
-    list_of_cat = ""
-
-    category = category_r.lower()
-
-    if category.endswith(" stubs") and app_settings.find_stubs:
-        list_of_cat = "بذرة {}"
-        category = category[: -len(" stubs")]
-
-        sub_ar_label = event_label_work(category)
-
-        if not sub_ar_label:
-            sub_ar_label = tmp_bot.Work_Templates(category)
-
-        if sub_ar_label and list_of_cat:
-            ar_label = list_of_cat.format(sub_ar_label)
-            logger.info(f"<<lightblue>> event2 add list_of_cat, {ar_label=}, {category=} ")
-
-    return ar_label
-
-
 @functools.lru_cache(maxsize=None)
 def event2(category_r: str) -> str:
     """Process a category string and return a corresponding label.
@@ -125,9 +85,6 @@ def event2(category_r: str) -> str:
 
     ar_label = label_for_startwith_year_or_typeo(category_r)
 
-    if not ar_label:
-        ar_label = stubs_label(category_r)
-
     logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
     return ar_label
@@ -160,7 +117,6 @@ def event2_new(category_r: str) -> str:
         univer.te_universities(category_r)
         or event2_d2(category_r)
         or label_for_startwith_year_or_typeo(category_r)
-        or stubs_label(category_r)
         or ""
     )
     if ar_label.startswith("تصنيف:"):

@@ -10,7 +10,7 @@ import re
 
 from ..patterns_resolvers import nat_men_pattern
 
-from . import event2bot, event_lab_bot
+from . import event2bot, event_lab_bot, event2_stubs
 
 # from ..genders_resolvers import resolve_nat_genders_pattern_v2
 from ..time_resolvers.labs_years import LabsYears
@@ -103,7 +103,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2_new(changed_cat)
+            category_lab = event2bot.event2_new(changed_cat) or event2_stubs.stubs_label
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
