@@ -7,12 +7,21 @@ on suffixes and prefixes.
 """
 
 import functools
-from typing import Optional
-
 from ..helps.log import logger
-from ..ma_bots import country2_lab, ye_ts_bot
+from ..ma_bots import ye_ts_bot
 from ..time_resolvers import with_years_bot
 from .format_bots import pp_ends_with, pp_ends_with_pase, pp_start_with
+from ..make_bots.films_and_others_bot import te_films
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.matables_bots.table1_bot import get_KAKO
+from ..make_bots.o_bots import parties_bot, univer
+from ..make_bots.o_bots.peoples_resolver import work_peoples
+from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..make_bots.sports_bots import sport_lab_suffixes, team_work
+from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..translations import get_from_pf_keys2
 
 
 def _resolve_label(label: str) -> str:
@@ -25,7 +34,20 @@ def _resolve_label(label: str) -> str:
         Resolved Arabic label or empty string
     """
     resolved_label = (
-        country2_lab.get_lab_for_country2(label)
+        resolve_relations_label(label)
+        or get_from_pf_keys2(label)
+        or get_pop_All_18(label)
+        or te_films(label)
+        or sport_lab_nat_load_new(label)
+        or sport_lab_suffixes.get_teams_new(label)
+        or parties_bot.get_parties_lab(label)
+        or team_work.Get_team_work_Club(label)
+        or univer.te_universities(label)
+        or resolve_us_states(label)
+        or work_peoples(label)
+        or get_KAKO(label)
+        or convert_time_to_arabic(label)
+        or get_pop_All_18(label)
         or with_years_bot.Try_With_Years(label)
         or ye_ts_bot.translate_general_category(label, fix_title=False)
         or ""
