@@ -13,18 +13,20 @@ from . import country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=None)
-def Get_country2(country: str, with_years: bool = True, fix_title=True) -> str:
-    """Retrieve information related to a specified country."""
+def Get_country2_old(country: str, with_years: bool = True, fix_title=True) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve information related to a specified country.
+    """
 
     normalized_country = country.lower().strip()
     logger.info(f'>> Get_country2 "{normalized_country}":')
 
-    resolved_label = country2_lab.get_lab_for_country2(country)
-
-    if not resolved_label:
-        resolved_label = ye_ts_bot.translate_general_category(
-            normalized_country, start_get_country2=False, fix_title=False
-        )
+    resolved_label = (
+        country2_lab.get_lab_for_country2(country)
+        or ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or ""
+    )
 
     _label = country_2_title_work(country, with_years=with_years)
     # if not resolved_label and _label:
@@ -37,8 +39,36 @@ def Get_country2(country: str, with_years: bool = True, fix_title=True) -> str:
     if resolved_label and fix_title:
         resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
 
-    logger.info(f'>> Get_ scountry2 "{normalized_country}": cnt_la: {resolved_label}')
+    resolved_label = " ".join(resolved_label.strip().split())
+
+    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
+
+    return resolved_label
+
+
+@functools.lru_cache(maxsize=None)
+def Get_country2(country: str, with_years: bool = True, fix_title=True) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve information related to a specified country.
+    """
+
+    normalized_country = country.lower().strip()
+    logger.info(f'>> Get_country2 "{normalized_country}":')
+
+    resolved_label = (
+        country_2_title_work(country, with_years=with_years)
+        or country2_lab.get_lab_for_country2(country)
+        or ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or get_pop_All_18(normalized_country.lower(), "")
+        or ""
+    )
+
+    if resolved_label and fix_title:
+        resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
 
     resolved_label = " ".join(resolved_label.strip().split())
+
+    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
 
     return resolved_label

@@ -9,14 +9,13 @@ from dataclasses import dataclass
 import re
 
 from ..patterns_resolvers import nat_men_pattern
-
-from . import event2bot, event_lab_bot, event2_stubs
-
-# from ..genders_resolvers import resolve_nat_genders_pattern_v2
+from ..time_resolvers import with_years_bot
+from ..make_bots.o_bots import univer
+from ..ma_bots.country_bot import event2_d2
+from . import event_lab_bot, event2_stubs
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
-
-# from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
+from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en
 from ..make_bots.format_bots import change_cat
@@ -103,7 +102,14 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2_new(changed_cat) or event2_stubs.stubs_label(changed_cat)
+            category_lab = (
+                univer.te_universities(changed_cat)
+                or event2_d2(changed_cat)
+                or with_years_bot.Try_With_Years2(changed_cat)
+                or label_for_startwith_year_or_typeo(changed_cat)
+                or event2_stubs.stubs_label(changed_cat)
+                or ""
+            )
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)

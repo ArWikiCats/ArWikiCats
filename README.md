@@ -396,7 +396,6 @@ ArWikiCats/
 │
 ├── ma_bots/                 # بوتات المعالجة الأساسية
 │   ├── country_bot.py
-│   ├── country2_bot.py
 │   └── ye_ts_bot.py
 │
 ├── ma_bots2/                # بوتات المعالجة المتقدمة

@@ -64,7 +64,7 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 5. cash_2022.get()                           # Dictionary lookup
         ↓ (if no match)
-6. event2_new()                              # Event2 bot
+6. event2_new2()                              # Event2 bot
         ↓ (if no match)
 7. event_Lab()                               # Event Lab bot
         ↓ (if no match)
@@ -301,7 +301,7 @@ from ArWikiCats.config import app_settings, print_settings
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  make_bots/                            │  ma_bots/                           │
 │  ├── format_bots/                      │  ├── country_bot.py                │
-│  ├── date_bots/                        │  ├── country2_bot.py               │
+│  ├── date_bots/                        │  ├──                               │
 │  ├── jobs_bots/                        │  └── ye_ts_bot.py                  │
 │  ├── sports_bots/                      │  ma_bots2/                          │
 │  └── matables_bots/                    │  └── ...                            │

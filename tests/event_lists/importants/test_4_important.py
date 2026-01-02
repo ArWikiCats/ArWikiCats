@@ -5,6 +5,9 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data0 = {
+    "Category:Eastern European Hockey League": "تصنيف:الدوري الأوروبي الشرقي للهوكي",
+    "Category:Eastern European Hockey League seasons": "تصنيف:مواسم الدوري الأوروبي الشرقي للهوكي",
+    "Category:Eastern European Hockey League teams": "تصنيف:فرق الدوري الأوروبي الشرقي للهوكي",
     "category:people from santa fe province": "تصنيف:أشخاص من محافظة سانتا في",
     "Category:Italy political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إيطاليون",
     "Category:Bosnia and Herzegovina political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون بوسنيون",
@@ -22,9 +25,6 @@ data0 = {
     "Category:1683 meteorology": "تصنيف:الأرصاد الجوية في 1683",
     "1650s soviet": "تصنيف:سوفيت في عقد 1650",
     "14th century people by nationality and occupation": "تصنيف:أشخاص في القرن 14 حسب الجنسية والمهنة",
-    "Category:Eastern European Hockey League": "تصنيف:الدوري الأوروبي الشرقي للهوكي",
-    "Category:Eastern European Hockey League seasons": "تصنيف:مواسم الدوري الأوروبي الشرقي للهوكي",
-    "Category:Eastern European Hockey League teams": "تصنيف:فرق الدوري الأوروبي الشرقي للهوكي",
     "Taekwondo at 2021 Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي 2021",
     "Taekwondo at Islamic Solidarity Games": "تصنيف:التايكوندو في ألعاب التضامن الإسلامي",
     "Works about Islamic State of Iraq and Levant": "تصنيف:أعمال عن تنظيم الدولة الإسلامية (داعش)",

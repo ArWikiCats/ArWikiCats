@@ -8,7 +8,9 @@ import re
 
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..main_processers import event2_stubs, event2bot
+from ..ma_bots2.year_or_typeo import bot_lab
+from ..ma_bots.country_bot import event2_d2
+from ..main_processers import event2_stubs
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
@@ -21,6 +23,7 @@ from ..make_bots.sports_bots import team_work
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import ye_ts_bot
@@ -70,7 +73,10 @@ def event_label_work(target_category: str) -> str:
         get_from_new_p17_final(normalized_target_category, "")
         or Ambassadors_tab.get(normalized_target_category, "")
         or team_work.Get_team_work_Club(normalized_target_category)
-        or event2bot.event2_new(normalized_target_category)
+        or univer.te_universities(normalized_target_category)
+        or event2_d2(normalized_target_category)
+        or with_years_bot.Try_With_Years2(normalized_target_category)
+        or bot_lab.label_for_startwith_year_or_typeo(normalized_target_category)
         or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
@@ -87,8 +93,3 @@ def event_label_work(target_category: str) -> str:
     )
 
     return resolved_category_label
-
-
-@functools.lru_cache(maxsize=None)
-def event_Lab_seoo(reference_category: str, target_category: str) -> str:
-    return event_label_work(target_category)

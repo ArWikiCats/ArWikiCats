@@ -36,13 +36,7 @@ formatted_data = {
 @functools.lru_cache(maxsize=10000)
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
-    result = (
-        jobs_part_labels.get(text)
-        or resolve_jobs_main(text)
-        or
-        # get_lab_for_country2(text) or
-        ""
-    )
+    result = jobs_part_labels.get(text) or resolve_jobs_main(text) or ""
 
     return result
 

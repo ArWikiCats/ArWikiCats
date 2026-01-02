@@ -74,7 +74,7 @@ def test_political_terms_non_matching_returns_empty() -> None:
 )
 @pytest.mark.fast
 def test_year_at_start_known_word_after_years(text: str, expected: str) -> None:
-    # Uses WORD_AFTER_YEARS directly without get_KAKO/translate/country2_lab
+    # Uses WORD_AFTER_YEARS directly without get_KAKO/translate
     result = Try_With_Years(text)
     assert result == expected
 
