@@ -1,6 +1,6 @@
 import pytest
-from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 
+from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 
 fast_data = {
     "1650s controversies": "خلافات عقد 1650",
