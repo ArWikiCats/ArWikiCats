@@ -108,24 +108,19 @@ class CountryLabelRetriever:
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country) or
-                self._check_prefixes(country) or
-                check_historical_prefixes(country) or
-                ""
-            )
-
-        if resolved_label:
-            if "سنوات في القرن" in resolved_label:
-                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
-
-        if not resolved_label:
-            resolved_label = (
-                new_resolvers_all(country)
+                _resolve_remainder(country)
+                or self._check_prefixes(country)
+                or check_historical_prefixes(country)
+                or new_resolvers_all(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
                 or SPORTS_KEYS_FOR_LABEL.get(country, "")
                 or ""
             )
+
+        if resolved_label:
+            if "سنوات في القرن" in resolved_label:
+                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
         logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
