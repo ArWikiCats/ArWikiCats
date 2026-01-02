@@ -93,8 +93,3 @@ def event_label_work(target_category: str) -> str:
     )
 
     return resolved_category_label
-
-
-@functools.lru_cache(maxsize=None)
-def event_Lab_seoo(reference_category: str, target_category: str) -> str:
-    return event_label_work(target_category)

@@ -5,6 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
+
 fix_title_all = False
 
 

@@ -45,7 +45,6 @@ Centralizes all type-related logic, including:
 
 Resolves geographic entities via:
 
-* country2_lab
 * bys
 * team_work
 * nats
