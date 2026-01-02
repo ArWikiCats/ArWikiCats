@@ -5,13 +5,14 @@ bot to handle the translation logic.
 
 """
 
-import re
 import functools
-from .categories_patterns.NAT_males import NAT_DATA_MALES
-from ..helps import logger, dump_data
+import re
+
+from ..helps import dump_data, logger
+from ..new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
 from ..translations import All_Nat, all_country_with_nat
 from ..translations_formats import FormatDataV2
-from ..new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
+from .categories_patterns.NAT_males import NAT_DATA_MALES
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -33,17 +34,15 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> FormatDataV2:
-
     formatted_data = dict(NAT_DATA_MALES)
-    formatted_data = {
-        fix_keys(k): v
-        for k, v in formatted_data.items()
-    }
-    formatted_data.update({
-        "{en_nat} diaspora": "شتات {male}",
-    })
+    formatted_data = {fix_keys(k): v for k, v in formatted_data.items()}
+    formatted_data.update(
+        {
+            "{en_nat} diaspora": "شتات {male}",
+        }
+    )
 
-    nats_data={
+    nats_data = {
         x: {
             "males": v["males"],
             "male": v["male"],
@@ -67,23 +66,23 @@ def _bot_new() -> FormatDataV2:
 def resolve_nat_men_pattern_new(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nat_men_pattern_new: {category=}")
 
-    normalized_category=fix_keys(category)
+    normalized_category = fix_keys(category)
 
     if normalized_category in nats_keys_as_country_names_bad_keys or normalized_category in countries_en_keys:
         logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
         return ""
 
-    yc_bot=_bot_new()
-    result=yc_bot.create_label(normalized_category)
+    yc_bot = _bot_new()
+    result = yc_bot.create_label(normalized_category)
 
     if result and category.lower().startswith("category:"):
-        result="تصنيف:" + result
+        result = "تصنيف:" + result
 
     logger.info_if_or_debug(f"<<yellow>> end resolve_nat_men_pattern_new: {category=}, {result=}", result)
 
     return result or ""
 
 
-__all__=[
+__all__ = [
     "resolve_nat_men_pattern_new",
 ]

@@ -51,10 +51,8 @@ def test_separator_arabic_resolve() -> None:
 
 
 title_work_tests_data = {
-
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     # "mass media in morocco": "وسائل إعلام في المغرب",
-
     " kingdom-of italy": "مملكة إيطاليا",
     "1520 by country": "1520 حسب البلد",
     "1520 crimes in africa": "جرائم 1520 في إفريقيا",

@@ -4,6 +4,7 @@ This module provides functions for processing and generating labels for country 
 """
 
 from typing import Tuple
+
 from ...helps import logger
 
 

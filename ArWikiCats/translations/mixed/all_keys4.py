@@ -7,7 +7,6 @@ from ..sports.cycling import CYCLING_TEMPLATES
 from ..utils.json_dir import open_json_file
 from .keys2 import new_2019
 
-
 CAMBRIDGE_COLLEGES: dict[str, str] = {
     "christ's": "كريست",
     "churchill": "تشرشل",
@@ -145,10 +144,7 @@ def build_new2019() -> dict[str, str]:
 
 new2019: dict[str, str] = build_new2019()
 
-__all__ = [
-    "new2019",
-    "INTER_FEDS_LOWER"
-]
+__all__ = ["new2019", "INTER_FEDS_LOWER"]
 
 len_print.data_len(
     "all_keys4.py",

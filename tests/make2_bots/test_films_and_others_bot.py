@@ -12,7 +12,6 @@ fast_data_drama = {
     "english-language war drama films": "أفلام حربية درامية باللغة الإنجليزية",
     "hindi-language drama films": "أفلام درامية باللغة الهندية",
     "norwegian-language romantic drama films": "أفلام رومانسية درامية باللغة النرويجية",
-
     "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
     "portuguese-language biographical drama films": "أفلام سير ذاتية درامية باللغة البرتغالية",
     "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
@@ -98,7 +97,6 @@ to_test = [
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str], callback) -> None:
-
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

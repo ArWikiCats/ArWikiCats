@@ -9,12 +9,13 @@ TODO:
 
 import functools
 from typing import Dict
+
 from ...helps.log import logger
-from ...translations_formats import format_films_country_data, MultiDataFormatterBase
 from ...translations import (
     Nat_women,
     film_keys_for_female,
 )
+from ...translations_formats import MultiDataFormatterBase, format_films_country_data
 
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
@@ -36,13 +37,17 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         ("posters", "ملصقات"),
         ("images", "صور"),
     ]:
-        data_no_nats.update({
-            f"{{film_key}} {suffix}": f"{arabic_suffix} {{film_ar}}",
-        })
-        data.update({
-            f"{{nat_en}} {suffix}": f"{arabic_suffix} {{nat_ar}}",
-            f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_suffix} {{film_ar}} {{nat_ar}}",
-        })
+        data_no_nats.update(
+            {
+                f"{{film_key}} {suffix}": f"{arabic_suffix} {{film_ar}}",
+            }
+        )
+        data.update(
+            {
+                f"{{nat_en}} {suffix}": f"{arabic_suffix} {{nat_ar}}",
+                f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_suffix} {{film_ar}} {{nat_ar}}",
+            }
+        )
 
     # Genre-based categories
     genre_categories = [
@@ -66,13 +71,17 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     # Standard categories
     for suffix, arabic_base in genre_categories:
-        data_no_nats.update({
-            f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
-        })
-        data.update({
-            f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
-            f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
-        })
+        data_no_nats.update(
+            {
+                f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
+            }
+        )
+        data.update(
+            {
+                f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
+                f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
+            }
+        )
 
     return data, data_no_nats
 
@@ -83,22 +92,16 @@ def _make_bot() -> MultiDataFormatterBase:
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
-
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
-
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
         "{nat_en} television seasons": "مواسم تلفزيونية {nat_ar}",
-
         "{nat_en} {film_key} television-seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television series": "مسلسلات تلفزيونية {film_ar} {nat_ar}",
-
         "{nat_en} {film_key} filmszz": "أفلام {film_ar} {nat_ar}",
-
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
-
         # TODO: move this to jobs bot?
         # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
     }

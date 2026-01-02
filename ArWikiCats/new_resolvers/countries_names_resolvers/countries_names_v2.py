@@ -7,11 +7,12 @@ countries_names_v2.py use countries names with nationalities
 
 """
 import functools
+
 from ...helps import logger
-from ...translations_formats import FormatDataV2
 from ...translations import countries_nat_en_key
-from .countries_names_data import formatted_data_en_ar_only
+from ...translations_formats import FormatDataV2
 from ..nationalities_resolvers.data import country_names_and_nats_data
+from .countries_names_data import formatted_data_en_ar_only
 
 countries_nat_en_key_example = {
     "yemen": {
@@ -34,32 +35,24 @@ new_data: dict[str, str] = {
 
 all_data: dict[str, str] = {
     # the_female
-
     "{en} cup-of-nations": "كأس الأمم {the_female}",
     "{en} cup of nations": "كأس الأمم {the_female}",
     "women's {en} cup of nations": "كأس الأمم {the_female} للسيدات",
     "women's {en} cup-of-nations": "كأس الأمم {the_female} للسيدات",
-
     "{en} cup-of-nations players": "لاعبو كأس الأمم {the_female}",
     "{en} cup of nations players": "لاعبو كأس الأمم {the_female}",
     "women's {en} cup of nations players": "لاعبات كأس الأمم {the_female} للسيدات",
     "women's {en} cup-of-nations players": "لاعبات كأس الأمم {the_female} للسيدات",
-
-
     # males - en_is_P17_ar_is_mens
     "{en} political leaders": "قادة سياسيون {males}",
     "{en} political leader": "قادة سياسيون {males}",
-
     "{en} government officials": "مسؤولون حكوميون {males}",
-
     # female - military_format_women_without_al_from_end
     # Category:Unmanned_aerial_vehicles_of_Jordan > طائرات بدون طيار أردنية
     "unmanned military aircraft-of {en}": "طائرات عسكرية بدون طيار {female}",
     "unmanned military aircraft of {en}": "طائرات عسكرية بدون طيار {female}",
-
     "unmanned aerial vehicles-of {en}": "طائرات بدون طيار {female}",
     "unmanned aerial vehicles of {en}": "طائرات بدون طيار {female}",
-
 }
 
 all_data.update(country_names_and_nats_data)
@@ -67,11 +60,7 @@ all_data.update(country_names_and_nats_data)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    nats_data = {
-        x: v
-        for x, v in countries_nat_en_key.items()
-        if v.get("ar")
-    }
+    nats_data = {x: v for x, v in countries_nat_en_key.items() if v.get("ar")}
     formatted_data = all_data | new_data | formatted_data_en_ar_only
 
     return FormatDataV2(

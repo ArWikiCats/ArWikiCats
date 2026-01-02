@@ -27,13 +27,12 @@ test_0 = {
     "12th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 12",
     "13th-century people from the crown of aragon": "أشخاص من تاج أرغون في القرن 13",
     "14th-century people from the Crown of Aragon": "أشخاص من تاج أرغون في القرن 14",
-
     "20th-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "20th-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "20th-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 20",
     "21st-century people from insular areas of the United States": "أشخاص من المناطق المعزولة في الولايات المتحدة في القرن 21",
     "21st-century politicians from insular areas of the United States": "سياسيون من المناطق المعزولة في الولايات المتحدة في القرن 21",
-    "21st-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 21"
+    "21st-century women politicians from insular areas of the United States": "سياسيات من المناطق المعزولة في الولايات المتحدة في القرن 21",
 }
 
 test_data_standard = {
@@ -47,7 +46,6 @@ test_data_standard = {
     "12th-century women from Kievan Rus'": "نساء من كييف روس في القرن 12",
     "11th-century women from Kievan Rus'": "نساء من كييف روس في القرن 11",
     "11th-century women from the Abbasid Caliphate": "نساء من الدولة العباسية في القرن 11",
-
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
     "10th-century nobility from the Holy Roman Empire": "نبلاء من الإمبراطورية الرومانية المقدسة في القرن 10",
     "10th-century people from Georgia (country)": "أشخاص من جورجيا في القرن 10",
@@ -455,7 +453,7 @@ test_data_standard = {
     "9th-century Jews from the Abbasid Caliphate": "يهود من الدولة العباسية في القرن 9",
     "9th-century people from East Francia": "أشخاص من مملكة الفرنجة الشرقيين في القرن 9",
     "9th-century people from the Abbasid Caliphate": "أشخاص من الدولة العباسية في القرن 9",
-    "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9"
+    "9th-century people from West Francia": "أشخاص من مملكة الفرنجة الغربيين في القرن 9",
 }
 
 test_women_from_data = {
@@ -502,7 +500,6 @@ test_data_2 = {
     "16th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "17th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century artists from the Holy Roman Empire": "فنانون من الإمبراطورية الرومانية المقدسة في القرن 18",
-
     "18th-century actors from Bohemia": "ممثلون من بوهيميا في القرن 18",
     "20th-century actors from Georgia (country)": "ممثلون من جورجيا في القرن 20",
     "19th-century actors from the Ottoman Empire": "ممثلون من الدولة العثمانية في القرن 19",
@@ -510,13 +507,11 @@ test_data_2 = {
     "18th-century actresses from the Holy Roman Empire": "ممثلات من الإمبراطورية الرومانية المقدسة في القرن 18",
     "19th-century actresses from the Ottoman Empire": "ممثلات من الدولة العثمانية في القرن 19",
     "19th-century actresses from the Russian Empire": "ممثلات من الإمبراطورية الروسية في القرن 19",
-
     "16th-century architects from the Holy Roman Empire": "معماريون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "17th-century architects from the Holy Roman Empire": "معماريون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century architects from the Holy Roman Empire": "معماريون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century architects from the Russian Empire": "معماريون من الإمبراطورية الروسية في القرن 18",
     "19th-century architects from the Russian Empire": "معماريون من الإمبراطورية الروسية في القرن 19",
-
     "20th-century artists from Georgia (country)": "فنانون من جورجيا في القرن 20",
     "21st-century artists from Georgia (country)": "فنانون من جورجيا في القرن 21",
     "15th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية في القرن 15",
@@ -527,7 +522,6 @@ test_data_2 = {
     "20th-century artists from the Ottoman Empire": "فنانون من الدولة العثمانية في القرن 20",
     "18th-century artists from the Russian Empire": "فنانون من الإمبراطورية الروسية في القرن 18",
     "19th-century artists from the Russian Empire": "فنانون من الإمبراطورية الروسية في القرن 19",
-
     "16th-century astronomers from the Ottoman Empire": "فلكيون من الدولة العثمانية في القرن 16",
     "17th-century astronomers from the Ottoman Empire": "فلكيون من الدولة العثمانية في القرن 17",
     "19th-century astronomers from the Russian Empire": "فلكيون من الإمبراطورية الروسية في القرن 19",
@@ -539,19 +533,16 @@ test_data_2 = {
     "18th-century botanists from the Holy Roman Empire": "علماء نباتات من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century botanists from the Russian Empire": "علماء نباتات من الإمبراطورية الروسية في القرن 18",
     "19th-century botanists from the Russian Empire": "علماء نباتات من الإمبراطورية الروسية في القرن 19",
-
     "19th-century businesspeople from the Ottoman Empire": "شخصيات أعمال من الدولة العثمانية في القرن 19",
     "16th-century businesspeople from the Ottoman Empire": "شخصيات أعمال من الدولة العثمانية في القرن 16",
     "17th-century businesspeople from the Ottoman Empire": "شخصيات أعمال من الدولة العثمانية في القرن 17",
     "18th-century businesspeople from the Russian Empire": "شخصيات أعمال من الإمبراطورية الروسية في القرن 18",
     "19th-century businesspeople from the Russian Empire": "شخصيات أعمال من الإمبراطورية الروسية في القرن 19",
-
     "18th-century businesswomen from the Russian Empire": "سيدات أعمال من الإمبراطورية الروسية في القرن 18",
     "18th-century chemists from the Holy Roman Empire": "كيميائيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "19th-century chess players from the Russian Empire": "لاعبو شطرنج من الإمبراطورية الروسية في القرن 19",
     "17th-century civil servants from the Ottoman Empire": "موظفو خدمة مدنية من الدولة العثمانية في القرن 17",
     "20th-century civil servants from the Ottoman Empire": "موظفو خدمة مدنية من الدولة العثمانية في القرن 20",
-
     "18th-century classical composers from Bohemia": "ملحنون كلاسيكيون من بوهيميا في القرن 18",
     "20th-century classical composers from Northern Ireland": "ملحنون كلاسيكيون من أيرلندا الشمالية في القرن 20",
     "21st-century classical composers from Northern Ireland": "ملحنون كلاسيكيون من أيرلندا الشمالية في القرن 21",
@@ -560,7 +551,6 @@ test_data_2 = {
     "20th-century classical musicians from Northern Ireland": "موسيقيون كلاسيكيون من أيرلندا الشمالية في القرن 20",
     "21st-century classical musicians from Northern Ireland": "موسيقيون كلاسيكيون من أيرلندا الشمالية في القرن 21",
     "19th-century classical pianists from the Russian Empire": "عازفو بيانو كلاسيكيون من الإمبراطورية الروسية في القرن 19",
-
     "18th-century clergy from Bohemia": "رجال دين من بوهيميا في القرن 18",
     "19th-century clergy from Ottoman Iraq": "رجال دين من العراق العثماني في القرن 19",
     "17th-century composers from the Holy Roman Empire": "ملحنون من الإمبراطورية الرومانية المقدسة في القرن 17",
@@ -569,13 +559,11 @@ test_data_2 = {
     "20th-century dramatists and playwrights from Georgia (country)": "كتاب دراما ومسرح من جورجيا في القرن 20",
     "21st-century dramatists and playwrights from Georgia (country)": "كتاب دراما ومسرح من جورجيا في القرن 21",
     "19th-century dramatists and playwrights from the Russian Empire": "كتاب دراما ومسرح من الإمبراطورية الروسية في القرن 19",
-
     "19th-century educators from the Ottoman Empire": "معلمون من الدولة العثمانية في القرن 19",
     "19th-century educators from the Russian Empire": "معلمون من الإمبراطورية الروسية في القرن 19",
     "19th-century engineers from the Russian Empire": "مهندسون من الإمبراطورية الروسية في القرن 19",
     "17th-century engravers from the Holy Roman Empire": "نقاشون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century engravers from the Holy Roman Empire": "نقاشون من الإمبراطورية الرومانية المقدسة في القرن 18",
-
     "10th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 10",
     "11th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 11",
     "12th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 12",
@@ -590,7 +578,6 @@ test_data_2 = {
     "8th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 8",
     "9th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 9",
     "11th-century people from the Kingdom of Aragon": "أشخاص من مملكة أرغون في القرن 11",
-
     "15th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 15",
     "16th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "17th-century astronomers from the Holy Roman Empire": "فلكيون من الإمبراطورية الرومانية المقدسة في القرن 17",
@@ -610,7 +597,7 @@ test_data_2 = {
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.fast
 def test_resolve_v3i_more_1(category: str, expected: str) -> None:
-    """    Test resolve year job from countries function for test_data_standard. """
+    """Test resolve year job from countries function for test_data_standard."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
 
@@ -621,7 +608,7 @@ def test_resolve_v3i_more_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
 @pytest.mark.fast
 def test_resolve_v3i_more_2(category: str, expected: str) -> None:
-    """    Test resolve year job from countries function for test_data_2. """
+    """Test resolve year job from countries function for test_data_2."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
 
@@ -632,7 +619,7 @@ def test_resolve_v3i_more_2(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category,expected", test_women_from_data.items(), ids=test_women_from_data.keys())
 @pytest.mark.fast
 def test_resolve_v3i_more_women(category: str, expected: str) -> None:
-    """    Test resolve year job from countries function for test_women_from_data. """
+    """Test resolve year job from countries function for test_women_from_data."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
 

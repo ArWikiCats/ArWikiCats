@@ -64,7 +64,9 @@ def test_match_key(category: str, expected: str, sample_data: tuple[dict[str, st
     ],
     ids=[k for k in range(3)],
 )
-def test_apply_pattern_replacement(template_label: str, sport_label: str, expected: str, sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
+def test_apply_pattern_replacement(
+    template_label: str, sport_label: str, expected: str, sample_data: tuple[dict[str, str], dict[str, str]]
+) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list, value_placeholder="xoxo")
     assert bot.apply_pattern_replacement(template_label, sport_label) == expected
@@ -78,7 +80,9 @@ def test_apply_pattern_replacement(template_label: str, sport_label: str, expect
         ("women's basketball championship", "basketball", "women's xoxo championship"),
     ],
 )
-def test_normalize_category(category: str, sport_key: str, expected: str, sample_data: tuple[dict[str, str], dict[str, str]]) -> None:
+def test_normalize_category(
+    category: str, sport_key: str, expected: str, sample_data: tuple[dict[str, str], dict[str, str]]
+) -> None:
     formatted_data, data_list = sample_data
     bot = FormatData(formatted_data, data_list)
     result = bot.normalize_category(category, sport_key)

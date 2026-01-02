@@ -14,15 +14,12 @@ test_data_ar = {
     "yemeni men's softball players": "لاعبو كرة لينة يمنيون",
     "yemeni male softball players": "لاعبو كرة لينة يمنيون",
     "yemeni women's softball players": "لاعبات كرة لينة يمنيات",
-
     "Serbian men's footballers": "لاعبو كرة قدم صرب",
     "Russian men's futsal players": "لاعبو كرة صالات روس",
     "Scottish male badminton players": "لاعبو تنس ريشة إسكتلنديون",
-
     "irish actors": "ممثلون وممثلات أيرلنديون",
     "irish male actors": "ممثلون أيرلنديون",
     "irish actresses": "ممثلات أيرلنديات",
-
     "Albanian women's volleyball players": "لاعبات كرة طائرة ألبانيات",
     "yemeni women's footballers": "لاعبات كرة قدم يمنيات",
     "yemeni female footballers": "لاعبات كرة قدم يمنيات",
@@ -30,10 +27,8 @@ test_data_ar = {
     "Andorran female tennis players": "لاعبات كرة مضرب أندوريات",
     "Welsh players of Australian rules football": "لاعبو ولاعبات كرة قدم أسترالية ويلزيون",
     "Irish female players of Australian rules football": "لاعبات كرة قدم أسترالية أيرلنديات",
-
     "Welsh players of american-football": "لاعبو ولاعبات كرة قدم أمريكية ويلزيون",
     "Irish female players of american-football": "لاعبات كرة قدم أمريكية أيرلنديات",
-
     "Irish female players of american football": "لاعبات كرة قدم أمريكية أيرلنديات",
 }
 

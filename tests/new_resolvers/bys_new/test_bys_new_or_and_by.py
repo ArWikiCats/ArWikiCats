@@ -20,7 +20,6 @@ BY_TABLE_BASED = {
     "by country and city": "حسب البلد والمدينة",
     "by country and occupation": "حسب البلد والمهنة",
     "by country and war": "حسب البلد والحرب",
-
     # all keys with " or "
     "by university or college": "حسب الجامعة أو الكلية",
     "by territory or dependency": "حسب الإقليم أو التبعية",
@@ -33,7 +32,6 @@ BY_TABLE_BASED = {
     "by city or town": "حسب المدينة أو البلدة",
     "by division or state": "حسب المقاطعة أو الولاية",
     "by state or division": "حسب الولاية أو المقاطعة",
-
     # all keys with " of "
     "by year of completion": "حسب سنة الانتهاء",
     "by year of conclusion": "حسب سنة الإبرام",
@@ -67,7 +65,6 @@ BY_TABLE_BASED = {
     "by continent of shooting location": "حسب قارة موقع التصوير",
     "by country of setting location": "حسب بلد موقع الأحداث",
     "by country of shooting location": "حسب بلد موقع التصوير",
-
     "by national amateur team": "حسب المنتخب الوطني للهواة",
     "by national men's amateur team": "حسب المنتخب الوطني للهواة للرجال",
     "by national men's team": "حسب منتخب الرجال الوطني",
@@ -81,10 +78,8 @@ BY_TABLE_BASED = {
     "by national women's amateur team": "حسب المنتخب الوطني للهواة للسيدات",
     "by national women's team": "حسب منتخب السيدات الوطني",
     "by national youth team": "حسب المنتخب الوطني للشباب",
-
     "by home video label": "حسب علامة الفيديو المنزلي",
     "by color process": "حسب عملية التلوين",
-
     "by shooting location": "حسب موقع التصوير",
     "by production location": "حسب موقع الإنتاج",
     "by commune": "حسب البلدية",
@@ -259,7 +254,7 @@ BY_TABLE_BASED = {
     "by subject": "حسب الموضوع",
     "by taxon": "حسب الأصنوفة",
     "by team": "حسب الفريق",
-    "by technique": "حسب التقنية",       # not تقانة
+    "by technique": "حسب التقنية",  # not تقانة
     "by technology": "حسب التقانة",
     "by term": "حسب الفترة",
     "by theatre": "حسب المسرح",
@@ -286,7 +281,7 @@ BY_TABLE_BASED = {
     "by year": "حسب السنة",
     "by zoo name": "حسب اسم الحديقة",
     "by opening decade": "حسب عقد الافتتاح",
-    "by opening year": "حسب سنة الافتتاح"
+    "by opening year": "حسب سنة الافتتاح",
 }
 
 test_data = {
@@ -301,29 +296,24 @@ test_data = {
     "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
     "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
     "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
-
     "by country of origin or college": "حسب البلد الأصل أو الكلية",
     "by university or college": "حسب الجامعة أو الكلية",
     "by territory or dependency": "حسب الإقليم أو التبعية",
     "by state or division": "حسب الولاية أو المقاطعة",
     "by state or union territory": "حسب الولاية أو الإقليم الاتحادي",
-
     "by province": "حسب المقاطعة",
     "by territory": "حسب الإقليم",
     "by province or territory": "حسب المقاطعة أو الإقليم",
-
     "by faith or belief": "حسب الإيمان أو العقيدة",
     "by division or state": "حسب المقاطعة أو الولاية",
     "by ethnic or national origin": "حسب الأصل العرقي أو الوطني",
     "by country or language": "حسب البلد أو اللغة",
     "by city or town": "حسب المدينة أو البلدة",
-
     "by ethnic or national origin and occupation": "حسب الأصل العرقي أو الوطني والمهنة",
     "by state and year": "حسب الولاية والسنة",
     "by nation and year": "حسب الموطن والسنة",
     "by nationality and instrument ": "حسب الجنسية والآلة",
     "by occupation and continent": "حسب المهنة والقارة",
-
     "by populated place and occupation": "حسب المكان المأهول والمهنة",
     "by instrument and genre": "حسب الآلة والنوع الفني",
     "by instrument and nationality": "حسب الآلة والجنسية",
@@ -333,7 +323,6 @@ test_data = {
     "by country and war": "حسب البلد والحرب",
     "by continent and occupation": "حسب القارة والمهنة",
     "by century and instrument": "حسب القرن والآلة",
-
     "by year of closing": "حسب سنة الاغلاق",
     "by year of completion": "حسب سنة الانتهاء",
     "by year of conclusion": "حسب سنة الإبرام",
@@ -355,8 +344,7 @@ test_data = {
     "by city of location": "حسب مدينة الموقع",
     "by city of setting": "حسب مدينة الأحداث",
     "by city of shooting location": "حسب مدينة موقع التصوير",
-
-    "by club or team": "حسب النادي أو الفريق"
+    "by club or team": "حسب النادي أو الفريق",
 }
 
 

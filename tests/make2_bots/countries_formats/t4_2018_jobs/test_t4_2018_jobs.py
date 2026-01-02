@@ -5,12 +5,11 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
-from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
-from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
+from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
 
 te4_2018_Jobs_data_old = {
     "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
@@ -28,9 +27,7 @@ te4_2018_Jobs_data = {
     "caribbean": "",
     "european sports coaches": "مدربو رياضة أوروبيون",
     "albanian sports coaches": "مدربو رياضة ألبان",
-
     # "macedonian expatriate female footballers": "لاعبات كرة قدم مقدونيات مغتربات",
-
     "afghan competitors": "منافسون أفغان",
     "african people by nationality": "أفارقة حسب الجنسية",
     "african tennis players": "لاعبو كرة مضرب أفارقة",
@@ -707,7 +704,6 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, new_resolvers_all)
     dump_diff(diff_result, name)
 

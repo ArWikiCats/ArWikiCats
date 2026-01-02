@@ -4,14 +4,14 @@ TODO: merge with countries_names_sport_multi_v2.py
 
 """
 import functools
-from ...helps import dump_data, logger
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ...translations import (
-    countries_from_nat,
-    SPORTS_KEYS_FOR_TEAM,
-)
 
+from ...helps import dump_data, logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ...translations import (
+    SPORTS_KEYS_FOR_TEAM,
+    countries_from_nat,
+)
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..teams_mappings_ends import teams_label_mappings_ends
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
@@ -69,16 +69,13 @@ SPORT_FORMATS_ENAR_P17_TEAM = {
     "{en} national youth women's under-20 {en_sport} team": "منتخب {ar} {sport_team} تحت 20 سنة للشابات",
     "{en} national youth women's under-21 {en_sport} team": "منتخب {ar} {sport_team} تحت 21 سنة للشابات",
     "{en} national youth women's under-23 {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للشابات",
-    "{en} national youth women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للشابات"
+    "{en} national youth women's under-24 {en_sport} team": "منتخب {ar} {sport_team} تحت 24 سنة للشابات",
 }
 
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
-    nats_data = {
-        x: {"ar": v}
-        for x, v in countries_from_nat.items()
-    }
+    nats_data = {x: {"ar": v} for x, v in countries_from_nat.items()}
 
     sports_data = {
         x: {
@@ -120,8 +117,7 @@ def fix_keys(category: str) -> str:
     category = category.lower().replace("category:", "")
     # category = category.replace("'", "")
 
-    replacements = {
-    }
+    replacements = {}
 
     for old, new in replacements.items():
         category = category.replace(old, new)
@@ -130,7 +126,6 @@ def fix_keys(category: str) -> str:
 
 
 def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
-
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
 

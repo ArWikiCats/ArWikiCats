@@ -11,14 +11,14 @@ import re
 from typing import Optional
 
 from ..fix import fixtitle
-from ..helps import logger, dump_data
-from ..translations import Jobs_new, jobs_mens_data
-from ..utils import get_relation_word, get_value_from_any_table
-from ..time_resolvers import time_to_arabic
+from ..helps import dump_data, logger
+from ..ma_bots2.ar_lab.ar_lab_bot import find_ar_label
 from ..make_bots.format_bots import category_relation_mapping
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import Films_O_TT, players_new_keys
-from ..ma_bots2.ar_lab import find_ar_label
+from ..time_resolvers import time_to_arabic
+from ..translations import Jobs_new, jobs_mens_data
+from ..utils import get_relation_word, get_value_from_any_table
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -89,7 +89,7 @@ def work_separator_names(
     if re.sub(en_literes, "", arlabel, flags=re.IGNORECASE) != arlabel:
         arlabel = ""
 
-    logger.info(f'>>>> <<lightyellow>> {arlabel=}')
+    logger.info(f">>>> <<lightyellow>> {arlabel=}")
 
     return arlabel
 
@@ -131,7 +131,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
     logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
-    logger.debug(f'<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}')
+    logger.debug(f"<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}")
 
     arlabel = _translate_general_category(category_r, category, start_get_country2)
 

@@ -14,35 +14,29 @@ class TestChangeKeyMappingsReplacements:
         "category:bulgarian television series based on non-bulgarian television series": "category:bulgarian television series basedon non-bulgarian television series",
         "comedy- test": "comedy  test",
         "something comedy- something": "something comedy  something",
-
         # Test cases for each key in CHANGE_KEY_MAPPINGS
         " labor test": " labour test",
         "labor test": "labour test",
         "something labor something": "something labour something",
         "labor": "labour",
         " labor ": " labour ",
-
         "convicted of murder by  test": "convicted-of-murder-by  test",
         "something convicted of murder by  something": "something convicted-of-murder-by  something",
         "convicted-of-murder by  test": "convicted-of-murder-by  test",
         "something convicted-of-murder by  something": "something convicted-of-murder-by  something",
-
         "convicted of murder by ": "convicted-of-murder-by ",
         "convicted of murder test": "convicted-of-murder test",
         "something convicted of murder something": "something convicted-of-murder something",
         "convicted of murder": "convicted-of-murder",
         "convicted-of-murder by ": "convicted-of-murder-by ",
-
         "war of test": "war-of test",
         "something war of something": "something war-of something",
         "war of yemen": "war-of yemen",
-
         "category:players in test": "category:playerss in test",
         "players in test": "playerss in test",
         "something players in something": "something playerss in something",
         "something players in": "something playerss in",
         "players in": "playerss in",
-
         "tennis test": "tennis test",
         "something tennis something": "something tennis something",
         "tennis": "tennis",
@@ -76,11 +70,9 @@ class TestChangeKeyMappingsReplacements:
         "association football afc test": "association-football afc test",
         "something association football afc something": "something association-football afc something",
         "association football afc": "association-football afc",
-
         "athletes (track and field) test": "track and field athletes test",
         "something athletes (track and field) something": "something track and field athletes something",
         "athletes (track and field)": "track and field athletes",
-
         "bodies of water test": "bodies-of-water test",
         "something bodies of water something": "something bodies-of-water something",
         "bodies of water": "bodies-of-water",
@@ -154,26 +146,21 @@ class TestChangeKeyMappingsReplacements:
         "executions by test": "executions in test",
         "something executions by something": "something executions in something",
         "executions by": "executions in",
-
         "football (soccer) test": "football test",
         "something football (soccer) something": "something football something",
         "football (soccer)": "football",
-
         "for member of parliament test": "for member-of-parliament test",
         "something for member of parliament something": "something for member-of-parliament something",
         "for member of parliament": "for member-of-parliament",
-
         "future elections test": "future-elections test",
         "something future elections something": "something future-elections something",
         "future elections": "future-elections",
         "general elections test": "general-elections test",
         "something general elections something": "something general-elections something",
         "general elections": "general-elections",
-
         "elections, ": "elections ",
         "elections,  test": "elections  test",
         "something elections,  something": "something elections  something",
-
         "governance of policing test": "governance policing test",
         "something governance of policing something": "something governance policing something",
         "governance of policing": "governance policing",
@@ -366,7 +353,6 @@ class TestChangeKeyMappingsReplacements:
         "defunct privately held companies test": "defunct-privately held-companies test",
         "something defunct privately held companies something": "something defunct-privately held-companies something",
         "defunct privately held companies": "defunct-privately held-companies",
-
         " - men's tournament test": " mens tournament test",
         " - men's tournament": " mens tournament",
         " - women's tournament test": " womens tournament test",
@@ -375,7 +361,6 @@ class TestChangeKeyMappingsReplacements:
         " – men's tournament": " mens tournament",
         " – women's tournament test": " womens tournament test",
         " – women's tournament": " womens tournament",
-
         "category: - men's tournament test": "category: mens tournament test",
         "category: - women's tournament test": "category: womens tournament test",
         "something - men's tournament something": "something mens tournament something",
@@ -393,7 +378,6 @@ class TestChangeKeyMappingsReplacements:
 
 
 class TestChangeKeySecondaryReplacements:
-
     tests_data_secondary = {
         "category:schools for deaf in new york (state)": "category:schools for-deaf in new york (state)",
         "category:royal national college for blind": "category:royal national college for-blind",

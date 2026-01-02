@@ -5,4 +5,4 @@ TODO: add tests for the new suffixes added related to sports cups in: ArWikiCats
 
 import pytest
 
-from ArWikiCats.new.handle_suffixes import resolve_sport_category_suffix_with_mapping, combine_value_and_label
+from ArWikiCats.new.handle_suffixes import combine_value_and_label, resolve_sport_category_suffix_with_mapping

@@ -72,7 +72,7 @@ def test_new_before_key() -> None:
         data_list={"yemeni": "يمنيون"},
         key_placeholder="{nat_en}",
         value_placeholder="{nat_ar}",
-        text_before="the ",     # dosn't matter here because "the {nat_en} actors" is in formatted_data
+        text_before="the ",  # dosn't matter here because "the {nat_en} actors" is in formatted_data
         text_after=" people",
     )
 

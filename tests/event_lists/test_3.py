@@ -111,7 +111,6 @@ data1 = {
     "populated places in the cook islands": "تصنيف:أماكن مأهولة في جزر كوك",
     "populated places in norfolk island": "تصنيف:أماكن مأهولة في جزيرة نورفولك",
     "cities and towns in moscow oblast": "تصنيف:مدن وبلدات في محافظة موسكو",
-
     "wheelchair basketball world championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة",
     "water polo at the world aquatics championships": "تصنيف:كرة الماء في بطولة العالم للرياضات المائية",
     "portugal national rugby league team": "تصنيف:منتخب البرتغال لدوري الرجبي",
@@ -155,12 +154,9 @@ data1 = {
     "vietnam national basketball team": "تصنيف:منتخب فيتنام لكرة السلة",
     "uruguay national football team": "تصنيف:منتخب أوروغواي لكرة القدم",
     "bolivia national soccer team": "تصنيف:منتخب بوليفيا لكرة القدم",
-
 }
 
-data_2 = {
-
-}
+data_2 = {}
 
 to_test = [
     ("test_1", data1),
@@ -178,7 +174,6 @@ def test_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

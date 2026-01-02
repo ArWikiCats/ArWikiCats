@@ -26,10 +26,7 @@ test_data = {
 all_test_data = {}
 
 for en, ar in US_STATES.items():  # ~150 per state
-    test_one = {
-        x.format(en=en).lower(): normalize_state(v.format(ar=ar))
-        for x, v in us_states_new_keys.items()
-    }
+    test_one = {x.format(en=en).lower(): normalize_state(v.format(ar=ar)) for x, v in us_states_new_keys.items()}
     all_test_data.update(test_one)
     if len(all_test_data) > 360:
         break
@@ -42,7 +39,6 @@ to_test = [
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
-
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

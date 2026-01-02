@@ -5,9 +5,9 @@ TODO: use this instead of for_me.py and nats_women.py
 import functools
 
 from ...helps import logger
-from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ...translations import all_country_with_nat, all_country_with_nat_ar
 from ...translations_formats import FormatDataV2
-from ...translations import all_country_with_nat_ar, all_country_with_nat
+from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -40,7 +40,6 @@ ar_data = {
     "{en} national university": "جامعة {ar} الوطنية",
     "{en} national university alumni": "خريجو جامعة {ar} الوطنية",
     "{en} national womens motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
-
 }
 
 the_male_data = {
@@ -48,7 +47,6 @@ the_male_data = {
     "{en} executive council": "المجلس التنفيذي {the_male}",
     "{en} executive council positions": "مناصب في المجلس التنفيذي {the_male}",
     "former {en} executive council positions": "مناصب سابقة في المجلس التنفيذي {the_male}",
-
     # the_male - en_is_nat_ar_is_al_mens
     "{en} president cup": "كأس الرئيس {the_male}",
     "{en} federation cup": "كأس الاتحاد {the_male}",
@@ -60,10 +58,8 @@ the_male_data = {
     "{en} involvement": "التدخل {the_male}",
     "{en} census": "التعداد {the_male}",
     "{en} professional football league": "دوري كرة القدم {the_male} للمحترفين",
-
     "{en} football premier league": "الدوري {the_male} الممتاز لكرة القدم",
     "{en} premier football league": "الدوري {the_male} الممتاز لكرة القدم",
-
     "{en} national super league": "دوري السوبر {the_male}",
     "{en} super league": "دوري السوبر {the_male}",
     "{en} premier league": "الدوري {the_male} الممتاز",
@@ -87,7 +83,6 @@ the_male_data = {
 male_data = {
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
-
     "{en} diaspora": "شتات {male}",
     "{en} descent": "أصل {male}",
     "{en} military occupations": "احتلال عسكري {male}",
@@ -117,7 +112,6 @@ female_data = {
     "{en} womens sports": "رياضات نسائية {female}",
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
-
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
     "{en} non-fiction comic strips": "شرائط مصورة {female} غير خيالية",
     "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
@@ -125,7 +119,6 @@ female_data = {
     "{en} non-fiction crime": "جريمة {female} غير خيالية",
     "{en} non-fiction graphic novels": "روايات مصورة {female} غير خيالية",
     "{en} non-fiction novels": "روايات {female} غير خيالية",
-
     # female - en_is_nat_ar_is_women
     "{en} non-fiction books": "كتب {female} غير خيالية",
     "{en} non fiction books": "كتب {female} غير خيالية",
@@ -279,7 +272,6 @@ female_data = {
     "{en} surnames": "ألقاب {female}",
     "{en} swamps": "مستنقعات {female}",
     "{en} telenovelas": "تيلينوفيلا {female}",
-
     "{en} film series": "سلاسل أفلام {female}",
     "{en} television commercials": "إعلانات تجارية تلفزيونية {female}",
     "{en} television films": "أفلام تلفزيونية {female}",
@@ -296,7 +288,6 @@ female_data = {
     "{en} television series-endings": "مسلسلات تلفزيونية {female} انتهت في",
     "{en} television stations": "محطات تلفزيونية {female}",
     "{en} television-seasons": "مواسم تلفزيونية {female}",
-
     "{en} temples": "معابد {female}",
     "{en} tennis": "كرة مضرب {female}",
     "{en} terminology": "مصطلحات {female}",
@@ -333,17 +324,13 @@ burial_sites = {
 }
 female_data.update(burial_sites)
 
-female_data.update({
-    f"burial sites of {k}": f"مواقع دفن {v}"
-    for k, v in burial_sites.items()
-})
+female_data.update({f"burial sites of {k}": f"مواقع دفن {v}" for k, v in burial_sites.items()})
 
 the_female_data = {
     "{en} film awards": "جوائز الأفلام {the_female}",
     "{en} film award": "جوائز الأفلام {the_female}",
     "{en} film award winners": "فائزون بجائزة الأفلام {the_female}",
     "{en} short film awards": "جوائز الأفلام القصيرة {the_female}",
-
     "{en} airways accidents and incidents": "حوادث الخطوط الجوية {the_female}",
     "{en} airways accidents-and-incidents": "حوادث الخطوط الجوية {the_female}",
     "{en} airways": "الخطوط الجوية {the_female}",
@@ -365,7 +352,6 @@ the_female_data = {
     "{en} parliamentary election": "الانتخابات البرلمانية {the_female}",
     "{en} regional election": "انتخابات الإقليمية {the_female}",
     "{en} vice-presidential election": "انتخابات نائب الرئاسة {the_female}",
-
     # baston_women: dict[str, str] = {
     "{en} movement": "الحركة {the_female}",
     "{en} unity cup": "كأس الوحدة {the_female}",
@@ -381,7 +367,6 @@ the_female_data = {
     "{en} soccer": "كرة القدم {the_female}",
     "{en} cinema": "السينما {the_female}",
     "{en} politics": "السياسة {the_female}",
-
     # female - military_format_women_without_al
     "{en} federal legislation": "تشريعات فيدرالية {female}",
     "{en} courts": "محاكم {female}",
@@ -389,21 +374,15 @@ the_female_data = {
     "{en} political party": "أحزاب سياسية {female}",
 }
 
-all_formatted_data = males_data | ar_data | the_male_data | male_data | the_female_data | country_names_and_nats_data | female_data
+all_formatted_data = (
+    males_data | ar_data | the_male_data | male_data | the_female_data | country_names_and_nats_data | female_data
+)
 
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    nats_data = {
-        x: v
-        for x, v in all_country_with_nat_ar.items()
-        if v.get("ar")
-    }
-    nats_data.update({
-        x: v
-        for x, v in nats_keys_as_country_names.items()
-        if v.get("ar")
-    })
+    nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
+    nats_data.update({x: v for x, v in nats_keys_as_country_names.items() if v.get("ar")})
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,

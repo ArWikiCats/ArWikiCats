@@ -11,18 +11,15 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "modern history of {en}": "تاريخ {ar} الحديث",
     "history of {en}": "تاريخ {ar}",
     "academic staff of university of {en}": "أعضاء هيئة تدريس جامعة {ar}",
-
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
     "secretaries of {en}": "وزراء {ar}",
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
-
     "{en}": "{ar}",
     "{en} women's international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
     "{en} women's youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
-
     "police of {en}": "شرطة {ar}",
     "army of {en}": "جيش {ar}",
     "national congress ({en})": "المؤتمر الوطني ({ar})",
@@ -32,7 +29,6 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "women members of national assembly ({en})": "عضوات الجمعية الوطنية ({ar})",
     "members of parliament of {en}": "أعضاء برلمان {ar}",
     "women members of parliament of {en}": "عضوات برلمان {ar}",
-
     "senate ({en})": "مجلس الشيوخ ({ar})",
     "{en} general assembly": "جمعية {ar} العامة",
     "parliament of {en}": "برلمان {ar}",
@@ -91,7 +87,6 @@ pop_of_without_in_data = {
     "biota of {en}": "حيويات {ar}",
     "birds of {en}": "طيور {ar}",
     "borders of {en}": "حدود {ar}",
-
     "cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
     "cabinet of {en}": "مجلس وزراء {ar}",
     "campaigns of {en}": "حملات {ar}",
@@ -511,11 +506,13 @@ main_data = {
 
 formatted_data_en_ar_only.update(main_data)
 
-formatted_data_en_ar_only.update({
-    x.replace("secretaries of", "secretaries-of"): y
-    for x, y in formatted_data_en_ar_only.items()
-    if "secretaries of" in x
-})
+formatted_data_en_ar_only.update(
+    {
+        x.replace("secretaries of", "secretaries-of"): y
+        for x, y in formatted_data_en_ar_only.items()
+        if "secretaries of" in x
+    }
+)
 
 __all__ = [
     "formatted_data_en_ar_only",

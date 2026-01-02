@@ -4,25 +4,24 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 from typing import Tuple
 
-from .main_utils import list_of_cat_func
-
 from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..make_bots import tmp_bot
-from ..time_resolvers import time_to_arabic
-from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..ma_bots import ye_ts_bot
 from ..ma_bots.country2_bot import Get_country2
 from ..ma_bots.lab_seoo_bot import event_label_work
+from ..make_bots import tmp_bot
+from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.o_bots import univer
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
-from ..translations import get_from_new_p17_final
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+from ..time_resolvers import time_to_arabic
+from ..translations import get_from_new_p17_final
+from .main_utils import list_of_cat_func
 
 
 class EventLabResolver:
@@ -56,7 +55,9 @@ class EventLabResolver:
 
         else:
             # Process with the main category processing function
-            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(category3, find_stubs=app_settings.find_stubs)
+            list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
+                category3, find_stubs=app_settings.find_stubs
+            )
 
         return list_of_cat, category3
 
@@ -159,9 +160,7 @@ class EventLabResolver:
             str: Updated category label
         """
         if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_of_cat_func(
-                cate_r, category_lab, list_of_cat, self.foot_ballers
-            )
+            category_lab, list_of_cat = list_of_cat_func(cate_r, category_lab, list_of_cat, self.foot_ballers)
 
         return category_lab
 

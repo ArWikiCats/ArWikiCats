@@ -7,22 +7,22 @@ TODO: need refactoring
 
 from __future__ import annotations
 
-import re
 import functools
-from ...helps import logger, dump_data
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
-from ..films_and_others_bot import te_films
-from ...translations import get_from_new_p17_final, People_key
+import re
 
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
+from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...translations import People_key, get_from_new_p17_final
+from ..films_and_others_bot import te_films
+from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
 AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
 
 
-#@dump_data(1)
+# @dump_data(1)
 def find_dual_by_keys(normalized: str) -> str:
     resolved = ""
     match = DUAL_BY_PATTERN.match(normalized)
@@ -64,7 +64,7 @@ def by_people_bot(key: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-#@dump_data(1)
+# @dump_data(1)
 def make_new_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
 
@@ -102,15 +102,11 @@ def make_new_by_label(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def make_by_label(category: str) -> str:
-    return (
-        by_people_bot(category) or
-        make_new_by_label(category) or
-        ""
-    )
+    return by_people_bot(category) or make_new_by_label(category) or ""
 
 
 @functools.lru_cache(maxsize=10000)
-#@dump_data(1)
+# @dump_data(1)
 def get_by_label(category: str) -> str:
     """Return the label for a category in the form ``<entity> by <suffix>``.
 
@@ -137,11 +133,7 @@ def get_by_label(category: str) -> str:
     if first_part_cleaned.startswith("the "):
         first_part_cleaned = first_part_cleaned[4:]
 
-    first_label = (
-        get_from_new_p17_final(first_part_cleaned) or
-        get_pop_All_18(first_part_cleaned, "") or
-        ""
-    )
+    first_label = get_from_new_p17_final(first_part_cleaned) or get_pop_All_18(first_part_cleaned, "") or ""
     by_label = resolve_by_labels(by_section)
 
     logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
@@ -154,7 +146,7 @@ def get_by_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-#@dump_data(1)
+# @dump_data(1)
 def get_and_label(category: str) -> str:
     """Return the label for ``<entity> and <entity>`` categories.
 
@@ -182,17 +174,9 @@ def get_and_label(category: str) -> str:
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
 
-    first_label = (
-        get_from_new_p17_final(first_part, None) or
-        get_pop_All_18(first_part) or
-        ""
-    )
+    first_label = get_from_new_p17_final(first_part, None) or get_pop_All_18(first_part) or ""
 
-    last_label = (
-        get_from_new_p17_final(last_part, None) or
-        get_pop_All_18(last_part) or
-        ""
-    )
+    last_label = get_from_new_p17_final(last_part, None) or get_pop_All_18(last_part) or ""
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
 

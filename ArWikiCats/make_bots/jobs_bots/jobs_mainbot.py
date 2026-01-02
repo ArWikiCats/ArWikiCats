@@ -10,17 +10,17 @@ gender-specific templates, and Arabic language formatting conventions.
 import functools
 from typing import Optional
 
-from ...helps import logger, dump_data
+from ...helps import dump_data, logger
 from ...translations import (
-    All_Nat,
     NAT_BEFORE_OCC,
+    All_Nat,
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,
     short_womens_jobs,
 )
-from .prefix_bot import mens_prefixes_work, womens_prefixes_work
 from ..jobs_bots.get_helps import get_suffix_with_keys
+from .prefix_bot import mens_prefixes_work, womens_prefixes_work
 
 # ============================================================================
 # Constants
@@ -132,10 +132,7 @@ def _construct_country_nationality_label(
         Properly formatted combined label
     """
     # Check if nationality should come before occupation
-    should_reverse = (
-        country_label.startswith(ARABIC_PREFIX_BY)
-        or category_suffix in NAT_BEFORE_OCC
-    )
+    should_reverse = country_label.startswith(ARABIC_PREFIX_BY) or category_suffix in NAT_BEFORE_OCC
 
     if should_reverse:
         return f"{nationality_label} {country_label}"
@@ -167,8 +164,7 @@ def _apply_gender_nationality_template(
     if template and NATO_PLACEHOLDER in template:
         formatted_label = template.format(nato=nationality_label)
         logger.debug(
-            f"<<lightblue>> Applied template for [{gender_key}]: "
-            f"has {NATO_PLACEHOLDER} -> {formatted_label}"
+            f"<<lightblue>> Applied template for [{gender_key}]: " f"has {NATO_PLACEHOLDER} -> {formatted_label}"
         )
         return formatted_label
 
@@ -199,9 +195,7 @@ def _build_gender_occupation_label(
         Complete formatted label, or empty string if not possible
     """
     # Try to use a special template first
-    template_label = _apply_gender_nationality_template(
-        gender_key, category_suffix, nationality_label
-    )
+    template_label = _apply_gender_nationality_template(gender_key, category_suffix, nationality_label)
     if template_label:
         return template_label
 
@@ -210,14 +204,10 @@ def _build_gender_occupation_label(
         return ""
 
     # Construct the label from components
-    constructed_label = _construct_country_nationality_label(
-        country_label, nationality_label, category_suffix
-    )
+    constructed_label = _construct_country_nationality_label(country_label, nationality_label, category_suffix)
 
     # Apply expatriate normalization
-    final_label = _normalize_expatriate_label(
-        country_label, nationality_label, constructed_label
-    )
+    final_label = _normalize_expatriate_label(country_label, nationality_label, constructed_label)
 
     logger.info_if_or_debug(f"<<yellow>> end _build_gender_occupation_label: {final_label=}", final_label)
 
@@ -265,7 +255,7 @@ def _normalize_category_suffix(category_suffix: str) -> str:
 
     # Remove "people " prefix if present
     if normalized.startswith(PEOPLE_PREFIX):
-        normalized = normalized[len(PEOPLE_PREFIX):]
+        normalized = normalized[len(PEOPLE_PREFIX) :]
 
     return normalized
 
@@ -294,27 +284,18 @@ def _get_occupation_label_for_gender(
         "ممثلات نساء"
     """
     if is_male:
-        return (
-            jobs_mens_data.get(category_suffix, "")
-            or mens_prefixes_work(category_suffix)
-            or ""
-        )
+        return jobs_mens_data.get(category_suffix, "") or mens_prefixes_work(category_suffix) or ""
     else:
-        return (
-            short_womens_jobs.get(category_suffix, "")
-            or womens_prefixes_work(category_suffix)
-            or ""
-        )
+        return short_womens_jobs.get(category_suffix, "") or womens_prefixes_work(category_suffix) or ""
 
 
 # ============================================================================
 # Main Public Function
 # ============================================================================
 
+
 def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> str:
-    male_nationality = _get_nationality_label(
-        country_prefix, males, Nat_mens, find_nats
-    )
+    male_nationality = _get_nationality_label(country_prefix, males, Nat_mens, find_nats)
 
     if not male_nationality:
         return ""
@@ -333,10 +314,7 @@ def _handle_male_label(country_prefix, males, normalized_suffix, find_nats) -> s
 
 
 def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) -> str:
-
-    female_nationality = _get_nationality_label(
-        country_prefix, females, Nat_Womens, find_nats
-    )
+    female_nationality = _get_nationality_label(country_prefix, females, Nat_Womens, find_nats)
 
     if not female_nationality:
         return ""
@@ -350,7 +328,9 @@ def _handle_female_label(country_prefix, females, normalized_suffix, find_nats) 
     female_occupation = _get_occupation_label_for_gender(normalized_suffix, is_male=False)
     logger.debug(f"{female_occupation=}, {normalized_suffix=}")
 
-    female_label = _build_gender_occupation_label(GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation)
+    female_label = _build_gender_occupation_label(
+        GENDER_FEMALE, normalized_suffix, female_nationality, female_occupation
+    )
 
     return female_label
 

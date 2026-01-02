@@ -16,7 +16,7 @@ def dump_one(data: dict, file_name: str) -> None:
         print(f"Error writing diff data: {e}")
 
 
-def dump_diff(data: dict, file_name: str, _sort: bool=True) -> None:
+def dump_diff(data: dict, file_name: str, _sort: bool = True) -> None:
     if not data:
         return
 
@@ -52,7 +52,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
     file_path = diff_data_path / f"{file_name}_wiki.json"
 
     text = "\n".join(save3)
-    text = text.replace('تصنيف:', '')
+    text = text.replace("تصنيف:", "")
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(text)
@@ -100,7 +100,7 @@ def one_dump_test_no_labels(dataset: dict, callback: Callable[[str], str], do_st
     return org, diff, no_labels
 
 
-def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool=False) -> None:
+def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool = False) -> None:
     """
     Dump same data as JSON file for easy copy-paste to wiki.
 

@@ -3,7 +3,7 @@
 Comprehensive sport template dictionaries used throughout the project.
 """
 
-from typing import Final, Dict
+from typing import Dict, Final
 
 from ...helps import len_print
 from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
@@ -44,14 +44,12 @@ def _build_male_nat() -> Dict[str, str]:
 
         # tab[Category:American Indoor Soccer League coaches] = "تصنيف:مدربو الدوري الأمريكي لكرة القدم داخل الصالات"
         label_index[f"indoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
-        label_index[f"outdoor {team2.lower()} league"] = (
-            f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
-        )
+        label_index[f"outdoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
 
         # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
-        label_index[f"major indoor {team2.lower()} league"] = (
-            f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
-        )
+        label_index[
+            f"major indoor {team2.lower()} league"
+        ] = f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
 
     return label_index
 

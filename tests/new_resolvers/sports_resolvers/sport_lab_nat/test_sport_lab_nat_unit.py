@@ -4,31 +4,24 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
 new_for_nat_female_xo_team_2_data = {
-
     "yemeni": "",
-
     "trinidad and tobago amateur basketball cup": "كأس ترنيدادية كرة سلة للهواة",
     "trinidad and tobago youth basketball cup": "كأس ترنيدادية كرة سلة للشباب",
     "trinidad and tobago mens basketball cup": "كأس ترنيدادية كرة سلة للرجال",
     "trinidad and tobago womens basketball cup": "كأس ترنيدادية كرة سلة للسيدات",
-
     "trinidad and tobago defunct basketball cup": "كؤوس كرة سلة ترنيدادية سابقة",
     "trinidad and tobago basketball cup": "كؤوس كرة سلة ترنيدادية",
     "trinidad and tobago domestic basketball cup": "كؤوس كرة سلة ترنيدادية محلية",
-
     # "yemeni football": "كرة قدم يمنية",
     # "new zealand basketball": "كرة سلة نيوزيلندية",  # Category:American_basketball
     "yemeni national football": "كرة قدم وطنية يمنية",
     "new zealand national basketball": "كرة سلة وطنية نيوزيلندية",
-
     "new zealand basketball teams": "فرق كرة سلة نيوزيلندية",
     "new zealand basketball national teams": "منتخبات كرة سلة نيوزيلندية",
     "new zealand domestic basketball": "كرة سلة نيوزيلندية محلية",
-
     "new zealand basketball championships": "بطولات كرة سلة نيوزيلندية",
     "new zealand national basketball championships": "بطولات كرة سلة وطنية نيوزيلندية",
     "new zealand national basketball champions": "أبطال كرة سلة وطنية نيوزيلندية",
-
     "trinidad and tobago basketball super leagues": "دوريات سوبر كرة سلة ترنيدادية",
     "trinidad and tobago womens basketball": "كرة سلة ترنيدادية نسائية",
     "trinidad and tobago current basketball seasons": "مواسم كرة سلة ترنيدادية حالية",
@@ -39,10 +32,8 @@ new_for_nat_female_xo_team_2_data = {
     "trinidad and tobago outdoor basketball": "كرة سلة ترنيدادية في الهواء الطلق",
     "trinidad and tobago defunct indoor basketball": "كرة سلة ترنيدادية داخل الصالات سابقة",
     "trinidad and tobago defunct outdoor basketball": "كرة سلة ترنيدادية في الهواء الطلق سابقة",
-
     "trinidad and tobago reserve basketball": "كرة سلة ترنيدادية احتياطية",
     "trinidad and tobago defunct basketball": "كرة سلة ترنيدادية سابقة",
-
     # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"
     # [european national womens volleyball teams] = "منتخبات كرة طائرة وطنية أوروبية للسيدات"
     "trinidad and tobago national womens basketball teams": "منتخبات كرة سلة وطنية ترنيدادية للسيدات",
@@ -56,7 +47,6 @@ end_key_mappings_data = {
     # "yemeni football finals": "نهائيات كرة قدم يمنية",
     # "yemeni football": "كرة قدم يمنية",
     "yemeni national football": "كرة قدم وطنية يمنية",
-
     "yemeni national football home stadiums": "ملاعب كرة قدم وطنية يمنية",
     "yemeni national football teams fifth tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الخامسة",
     "yemeni national football teams first tier": "منتخبات كرة قدم وطنية يمنية من الدرجة الأولى",
@@ -75,7 +65,7 @@ end_key_mappings_data = {
     "yemeni football teams seventh tier": "فرق كرة قدم يمنية من الدرجة السابعة",
     "yemeni football teams sixth tier": "فرق كرة قدم يمنية من الدرجة السادسة",
     "yemeni football teams third tier": "فرق كرة قدم يمنية من الدرجة الثالثة",
-    "yemeni football teams top tier": "فرق كرة قدم يمنية من الدرجة الأولى"
+    "yemeni football teams top tier": "فرق كرة قدم يمنية من الدرجة الأولى",
 }
 
 additional_keys_data = {
@@ -174,7 +164,6 @@ additional_keys_data = {
     "yemeni national youth womens under-24 basketball teams": "منتخبات كرة سلة وطنية يمنية تحت 24 سنة للشابات",
     "yemeni national youth womens basketball teams": "منتخبات كرة سلة وطنية يمنية للشابات",
     "yemeni national youth basketball teams": "منتخبات كرة سلة وطنية يمنية للشباب",
-
     "yemeni under-13 basketball": "كرة سلة يمنية تحت 13 سنة",
     "yemeni under-14 basketball": "كرة سلة يمنية تحت 14 سنة",
     "yemeni under-15 basketball": "كرة سلة يمنية تحت 15 سنة",
@@ -185,11 +174,13 @@ additional_keys_data = {
     "yemeni under-20 basketball": "كرة سلة يمنية تحت 20 سنة",
     "yemeni under-21 basketball": "كرة سلة يمنية تحت 21 سنة",
     "yemeni under-23 basketball": "كرة سلة يمنية تحت 23 سنة",
-    "yemeni under-24 basketball": "كرة سلة يمنية تحت 24 سنة"
+    "yemeni under-24 basketball": "كرة سلة يمنية تحت 24 سنة",
 }
 
 
-@pytest.mark.parametrize("key,expected", new_for_nat_female_xo_team_2_data.items(), ids=new_for_nat_female_xo_team_2_data.keys())
+@pytest.mark.parametrize(
+    "key,expected", new_for_nat_female_xo_team_2_data.items(), ids=new_for_nat_female_xo_team_2_data.keys()
+)
 @pytest.mark.unit
 def test_new_for_nat_female_xo_team_2_data(key: str, expected: str) -> None:
     result2 = sport_lab_nat_load_new(key)

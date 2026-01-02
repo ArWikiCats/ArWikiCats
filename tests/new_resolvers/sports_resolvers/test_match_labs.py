@@ -639,7 +639,7 @@ teams_2025_data = {
     "football venues": "ملاعب كرة قدم",
     "football wide receivers": "مستقبلون واسعون كرة قدم",
     "football wing halves": "أنصاف أجنحة كرة قدم",
-    "football wingers": "أجنحة كرة قدم"
+    "football wingers": "أجنحة كرة قدم",
 }
 
 

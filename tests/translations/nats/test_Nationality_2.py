@@ -95,6 +95,7 @@ def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
     assert data["hindustan"]["en"] == "hindustani"
     assert data["hindustan"]["ar"] == "هندوستاني"
 
+
 # -------------------------------------------------------------------
 # Tests for normalize_aliases
 # -------------------------------------------------------------------
@@ -135,6 +136,7 @@ def test_normalize_aliases_georgia_country_copy() -> None:
     assert g["en"] == "georgia (country)"
     assert g["ar"] == "جورجي"
     assert g["male"] == "جورجي"
+
 
 # -------------------------------------------------------------------
 # Tests for build_american_forms

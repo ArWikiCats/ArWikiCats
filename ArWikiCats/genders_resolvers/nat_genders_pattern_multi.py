@@ -3,10 +3,11 @@ Module to resolve nationality gender patterns in Arabic categories.
 
 """
 
-import re
 import functools
+import re
+
 from ..helps import logger
-from ..translations import All_Nat, SPORT_KEY_RECORDS_BASE
+from ..translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ..translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
@@ -18,15 +19,12 @@ def _job_bot() -> MultiDataFormatterBaseV2:
     formatted_data = {
         "actresses": "ممثلات",
         "{en_nat} actresses": "ممثلات {females}",
-
         # _build_jobs_data
         "{job_en}": "{job_males} و{job_females}",
         "male {job_en}": "{job_males}",
-
         # _build_jobs_data
         "{en_nat} {job_en}": "{job_males} و{job_females} {males}",
         "{en_nat} male {job_en}": "{job_males} {males}",
-
         # _build_jobs_data
         "female {job_en}": "{job_females}",
         "{en_nat} female {job_en}": "{job_females} {females}",
@@ -67,22 +65,17 @@ def _make_sport_formatted_data() -> dict[str, str]:
         "male footballers": "لاعبو كرة قدم",
         "female footballers": "لاعبات كرة قدم",
         "footballers": "لاعبو ولاعبات كرة قدم",
-
         # _build_players_data - footballers with nats
         "{en_nat} male footballers": "لاعبو كرة قدم {males}",
         "{en_nat} female footballers": "لاعبات كرة قدم {females}",
         "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {males}",
-
         # _build_players_data - sports without nats
         "female {en_sport} players": "لاعبات {sport_ar}",
-
         # _build_players_data - sports with nats
         "{en_nat} female {en_sport} players": "لاعبات {sport_ar} {females}",
-
         # _build_players_data - sports without nats
         "male {en_sport} players": "لاعبو {sport_ar}",
         "{en_sport} players": "لاعبو ولاعبات {sport_ar}",
-
         # _build_players_data - sports with nats
         "{en_nat} male {en_sport} players": "لاعبو {sport_ar} {males}",
         "{en_nat} {en_sport} players": "لاعبو ولاعبات {sport_ar} {males}",
@@ -93,37 +86,38 @@ def _make_sport_formatted_data() -> dict[str, str]:
         "american-football": "كرة قدم أمريكية",
     }
     for sport, ar in players_of_data.items():
-        formatted_data_new.update({
-            f"female players of {sport}": f"لاعبات {ar}",
-            f"{{en_nat}} female players of {sport}": f"لاعبات {ar} {{females}}",
-
-            f"male players of {sport}": f"لاعبو {ar}",
-            f"{{en_nat}} male players of {sport}": f"لاعبو {ar} {{males}}",
-
-            f"players of {sport}": f"لاعبو ولاعبات {ar}",
-            f"{{en_nat}} players of {sport}": f"لاعبو ولاعبات {ar} {{males}}",
-        })
+        formatted_data_new.update(
+            {
+                f"female players of {sport}": f"لاعبات {ar}",
+                f"{{en_nat}} female players of {sport}": f"لاعبات {ar} {{females}}",
+                f"male players of {sport}": f"لاعبو {ar}",
+                f"{{en_nat}} male players of {sport}": f"لاعبو {ar} {{males}}",
+                f"players of {sport}": f"لاعبو ولاعبات {ar}",
+                f"{{en_nat}} players of {sport}": f"لاعبو ولاعبات {ar} {{males}}",
+            }
+        )
 
     return formatted_data_new
 
 
 @functools.lru_cache(maxsize=1)
 def _sport_bot() -> MultiDataFormatterBaseV2:
-
     sports_data_new = {
         sport: {"sport_ar": record.get("jobs", "")}
         for sport, record in SPORT_KEY_RECORDS_BASE.items()
         if record.get("jobs", "")
     }
 
-    sports_data_new.update({
-        "softball": {"sport_ar": "كرة لينة"},
-        "futsal": {"sport_ar": "كرة صالات"},
-        "badminton": {"sport_ar": "تنس ريشة"},
-        "australian rules football": {"sport_ar": "كرة قدم أسترالية"},
-        "american-football": {"sport_ar": "كرة قدم أمريكية"},
-        "canadian-football": {"sport_ar": "كرة قدم كندية"},
-    })
+    sports_data_new.update(
+        {
+            "softball": {"sport_ar": "كرة لينة"},
+            "futsal": {"sport_ar": "كرة صالات"},
+            "badminton": {"sport_ar": "تنس ريشة"},
+            "australian rules football": {"sport_ar": "كرة قدم أسترالية"},
+            "american-football": {"sport_ar": "كرة قدم أمريكية"},
+            "canadian-football": {"sport_ar": "كرة قدم كندية"},
+        }
+    )
 
     nats_data = {
         x: {
@@ -203,16 +197,12 @@ def sports_resolver(category: str) -> str:
 def resolve_nat_genders_pattern_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nat_genders_pattern_v2: {category=}")
 
-    result = (
-        sports_resolver(category) or
-        jobs_resolver(category) or
-        ""
-    )
+    result = sports_resolver(category) or jobs_resolver(category) or ""
     logger.info_if_or_debug(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}", result)
 
     return result
 
 
-__all__=[
+__all__ = [
     "resolve_nat_genders_pattern_v2",
 ]

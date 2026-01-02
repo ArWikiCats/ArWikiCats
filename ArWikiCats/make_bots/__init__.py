@@ -1,4 +1,3 @@
-
 from .format_bots import change_cat
 
 __all__ = [

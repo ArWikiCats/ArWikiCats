@@ -1,9 +1,7 @@
 """
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/NAT.json"""
 
-NAT_PARAMS =[
-    "{males}"
-]
+NAT_PARAMS = ["{males}"]
 
 NAT_DATA_to_check = {
     "{en_nat} singers": "مغنون ومغنيات {males}",  # 84
@@ -22,7 +20,6 @@ NAT_DATA_to_check = {
     "{en_nat} christians": "مسيحيون {males}",  # 134
     "{en_nat} muslims": "مسلمون {males}",  # 132
     "{en_nat} sports coaches": "مدربون رياضيون {males}",  # 110
-
     # "{en_nat} diaspora in united states": "أمريكيون {males}",  # 126
     "{en_nat} diaspora in united states": "شتات {males} في الولايات المتحدة",  # 126
 }
@@ -31,10 +28,8 @@ NAT_DATA_MALES = {
     "{en_nat} men's basketball players": "لاعبو كرة سلة {males}",  # 64
     "{en_nat} men's footballers": "لاعبو كرة قدم {males}",  # 167
     "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {males} مغتربون",  # 163
-
     # "{en_nat} general election": "الانتخابات التشريعية {males}",
     # "{en_nat} presidential election": "الانتخابات الرئاسية {males}",
-
     # "{en_nat} sports coaches": "مدربو رياضة {males}",  # 110
     "{en_nat}": "{males}",  # 187
     # "{en_nat} people": "أعلام {males}",  # 187
@@ -124,13 +119,10 @@ NAT_DATA_MALES = {
     "{en_nat} middle-distance runners": "عداؤو مسافات متوسطة {males}",  # 65
     "{en_nat} civil servants": "موظفو خدمة مدنية {males}",  # 100
     "{en_nat} nationalists": "قوميون {males}",  # 99
-
     # males with ذكور
     "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
     "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
     "{en_nat} male sprinters": "عداؤون سريعون ذكور {males}",  # 71
-
-
     # males without ذكور
     "{en_nat} male martial artists": "ممارسو فنون قتالية ذكور {males}",  # 137
     "{en_nat} male boxers": "ملاكمون ذكور {males}",  # 136

@@ -183,9 +183,7 @@ def te_2018_with_nat(category: str) -> str:
     suffix, nationality_key = get_suffix_with_keys(normalized_category, All_Nat, "nat")
 
     if suffix:
-        nationality_result = _try_nationality_based_strategies(
-            normalized_category, nationality_key, suffix
-        )
+        nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)
         if nationality_result:
             return nationality_result
 
@@ -207,10 +205,9 @@ def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
     for sport_prefix, sport_label in Multi_sport_for_Jobs.items():
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):
-            job_suffix = category_lower[len(prefix_pattern):]
+            job_suffix = category_lower[len(prefix_pattern) :]
             logger.debug(
-                f'Jobs_in_Multi_Sports match: prefix="{prefix_pattern}", '
-                f'label="{sport_label}", job="{job_suffix}"'
+                f'Jobs_in_Multi_Sports match: prefix="{prefix_pattern}", ' f'label="{sport_label}", job="{job_suffix}"'
             )
             return job_suffix, sport_label
     return "", ""
@@ -244,12 +241,10 @@ def jobs_in_multi_sports(category: str) -> str:
         "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
         "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
         "olympic bronze medalists": "فائزون بميداليات برونزية أولمبية",
-
         "winter olympic medalists": "فائزون بميداليات أولمبية شتوية",
         "summer olympic medalists": "فائزون بميداليات أولمبية صيفية",
         # competitors
         "olympic competitors": "منافسون أولمبيون",
-
         "winter olympic competitors": "منافسون أولمبيون شتويون",
         "summer olympic competitors": "منافسون أولمبيون صيفيون",
     }

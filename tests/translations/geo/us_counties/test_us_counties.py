@@ -40,9 +40,9 @@ test_data_keys.update(_STATE_SUFFIX_TEMPLATES_BASE)
 if "{en} republicans" in test_data_keys:
     del test_data_keys["{en} republicans"]
 
-all_test_data={}
+all_test_data = {}
 
-data_1={
+data_1 = {
     "iowa": {},
     "montana": {},
     "georgia (u.s. state)": {},
@@ -54,16 +54,16 @@ data_1={
 
 for en in data_1.keys():
     if US_STATES.get(en):
-        ar=US_STATES.get(en)
-        test_one={
+        ar = US_STATES.get(en)
+        test_one = {
             f"Category:{x.format(en=en)}": f"تصنيف:{normalize_state(v.format(ar=ar))}"
             for x, v in test_data_keys.items()
         }
-        data_1[en]=test_one
+        data_1[en] = test_one
         all_test_data.update(test_one)
 
 
-to_test=[
+to_test = [
     # (f"test_us_counties_{x}", v) for x, v in data_1.items()
     ("test_us_counties_iowa", data_1["iowa"])
 ]
@@ -74,8 +74,7 @@ to_test.append(("test_all_test_data", all_test_data))
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-
-    expected, diff_result=one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
@@ -84,11 +83,11 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
 @pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
 def test_all_data(input_text: str, expected: str) -> None:
-    result=resolve_arabic_category_label(input_text)
+    result = resolve_arabic_category_label(input_text)
     assert result == expected
 
 
-empty_data={
+empty_data = {
     "Category:Georgia (U.S. state) National Republicans": "تصنيف:أعضاء الحزب الجمهوري الوطني في ولاية جورجيا",
     "Category:Georgia (U.S. state) Attorney General elections": "",
     "Category:Georgia (U.S. state) case law": "",
@@ -148,7 +147,7 @@ empty_data={
 
 @pytest.mark.dump
 def test_us_counties_empty() -> None:
-    expected, diff_result=one_dump_test(empty_data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(empty_data, resolve_arabic_category_label)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(empty_data):,}"

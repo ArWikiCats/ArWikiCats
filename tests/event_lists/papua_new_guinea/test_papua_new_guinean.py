@@ -4,8 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-data_0 = {
-}
+data_0 = {}
 
 data_1 = {
     "Category:1960s in Papua New Guinean sport": "x",
@@ -412,7 +411,6 @@ data_1 = {
     "Category:Seasons in Papua New Guinean sport": "x",
     "Category:Surnames of Papua New Guinean origin": "x",
     "Category:Works by Papua New Guinean people": "x",
-
 }
 to_test = [
     ("test_papua_new_guinean_0", data_0),
@@ -430,7 +428,6 @@ def test_papua_new_guinean_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

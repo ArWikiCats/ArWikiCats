@@ -15,7 +15,6 @@ languages_key_subset = {k: language_key_translations[k] for k in list(language_k
 data = {
     "abkhazian languages grammar": "قواعد اللغات الأبخازية",
     "abkhazian-language grammar": "قواعد اللغة الأبخازية",
-
     "arabic-language grammar": "قواعد اللغة العربية",
     "arabic languages grammar": "قواعد اللغات العربية",
     "pali-language grammar": "قواعد اللغة البالية",
@@ -26,7 +25,6 @@ data = {
     "afrikaans languages grammar": "قواعد اللغات الإفريقية",
     "afar-language grammar": "قواعد اللغة العفارية",
     "afar languages grammar": "قواعد اللغات العفارية",
-
     "abkhazian films": "أفلام باللغة الأبخازية",
     "abkhazian language": "لغة أبخازية",
     "abkhazian languages dialects": "لهجات اللغات الأبخازية",

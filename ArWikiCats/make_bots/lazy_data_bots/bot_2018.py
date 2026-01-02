@@ -10,19 +10,18 @@ from ...helps import len_print, logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.match_labs import find_teams_2025
 from ...translations import (
-    open_json_file,
-    Clubs_key_2,
-    pop_final_5,
-    Jobs_new,
-    jobs_mens_data,
-    get_from_new_p17_final,
-    pf_keys2,
-    sub_teams_new,
     SPORTS_KEYS_FOR_LABEL,
+    Clubs_key_2,
+    Jobs_new,
     films_mslslat_tab,
+    get_from_new_p17_final,
+    jobs_mens_data,
     olympic_event_translations,
+    open_json_file,
+    pf_keys2,
+    pop_final_5,
+    sub_teams_new,
 )
-
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 
@@ -78,7 +77,8 @@ def _get_from_alias(key: str) -> str:
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
     result = (
-        first_data.get(key.lower(), "") or
+        first_data.get(key.lower(), "")
+        or
         # olympic_event_translations.get(key, "") or
         # olympic_event_translations.get(key.lower(), "") or
         ""

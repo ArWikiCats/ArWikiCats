@@ -88,7 +88,6 @@ JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
     "non-fiction writers": {"males": "كتاب غير روائيين", "females": "كاتبات غير روائيات"},
     "critics": {"males": "نقاد", "females": "ناقدات"},
     "personalities": {"males": "شخصيات", "females": "شخصيات"},
-
     "journalists": {"males": "صحفيو", "females": "صحفيات"},
     "producers": {"males": "منتجو", "females": "منتجات"},
     "authors": {"males": "مؤلفو", "females": "مؤلفات"},
@@ -173,11 +172,13 @@ def _merge_jobs_sources() -> GenderedLabelMap:
     """Combine JSON sources and static configuration into a single map."""
 
     jobs_pp = open_json_file("jobs/jobs_Men_Womens_PP.json")
-    jobs_pp.update({
-        "candidates": {"males": "مرشحون", "females": "مرشحات"},
-        "presidential candidates": {"males": "مرشحون رئاسيون", "females": "مرشحات رئاسيات"},
-        "political candidates": {"males": "مرشحون سياسيون", "females": "مرشحات سياسيات"},
-    })
+    jobs_pp.update(
+        {
+            "candidates": {"males": "مرشحون", "females": "مرشحات"},
+            "presidential candidates": {"males": "مرشحون رئاسيون", "females": "مرشحات رئاسيات"},
+            "political candidates": {"males": "مرشحون سياسيون", "females": "مرشحات سياسيات"},
+        }
+    )
 
     jobs_pp["coaches"] = {"males": "مدربون", "females": "مدربات"}
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}
@@ -324,130 +325,37 @@ def _add_film_variants() -> dict[str, GenderedLabel]:
     """
 
     data = {
-        "film directors": {
-            "males": "مخرجو أفلام",
-            "females": "مخرجات أفلام"
-        },
-        "filmmakers": {
-            "males": "صانعو أفلام",
-            "females": "صانعات أفلام"
-        },
-        "film producers": {
-            "males": "منتجو أفلام",
-            "females": "منتجات أفلام"
-        },
-        "film critics": {
-            "males": "نقاد أفلام",
-            "females": "ناقدات أفلام"
-        },
-        "film editors": {
-            "males": "محررو أفلام",
-            "females": "محررات أفلام"
-        },
-        "documentary filmmakers": {
-            "males": "صانعو أفلام وثائقية",
-            "females": "صانعات أفلام وثائقية"
-        },
-        "documentary film directors": {
-            "males": "مخرجو أفلام وثائقية",
-            "females": "مخرجات أفلام وثائقية"
-        },
-        "animated film directors": {
-            "males": "مخرجو أفلام رسوم متحركة",
-            "females": "مخرجات أفلام رسوم متحركة"
-        },
-        "experimental filmmakers": {
-            "males": "صانعو أفلام تجريبية",
-            "females": "صانعات أفلام تجريبية"
-        },
-        "animated film producers": {
-            "males": "منتجو أفلام رسوم متحركة",
-            "females": "منتجات أفلام رسوم متحركة"
-        },
-        "pornographic film directors": {
-            "males": "مخرجو أفلام إباحية",
-            "females": "مخرجات أفلام إباحية"
-        },
-        "lgbtq film directors": {
-            "males": "مخرجو أفلام إل جي بي تي كيو",
-            "females": "مخرجات أفلام إل جي بي تي كيو"
-        },
-        "comedy film directors": {
-            "males": "مخرجو أفلام كوميدية",
-            "females": "مخرجات أفلام كوميدية"
-        },
-        "science fiction film directors": {
-            "males": "مخرجو أفلام خيال علمي",
-            "females": "مخرجات أفلام خيال علمي"
-        },
-        "fiction film directors": {
-            "males": "مخرجو أفلام خيالية",
-            "females": "مخرجات أفلام خيالية"
-        },
-        "pornographic film producers": {
-            "males": "منتجو أفلام إباحية",
-            "females": "منتجات أفلام إباحية"
-        },
-        "documentary film producers": {
-            "males": "منتجو أفلام وثائقية",
-            "females": "منتجات أفلام وثائقية"
-        },
-        "horror film directors": {
-            "males": "مخرجو أفلام رعب",
-            "females": "مخرجات أفلام رعب"
-        },
-        "film historians": {
-            "males": "مؤرخو أفلام",
-            "females": "مؤرخات أفلام"
-        },
-        "silent film directors": {
-            "males": "مخرجو أفلام صامتة",
-            "females": "مخرجات أفلام صامتة"
-        },
-        "action film directors": {
-            "males": "مخرجو أفلام حركة",
-            "females": "مخرجات أفلام حركة"
-        },
-        "cinema editors": {
-            "males": "محررون سينمائون",
-            "females": "محررات سينمائيات"
-        },
-        "silent film producers": {
-            "males": "منتجو أفلام صامتة",
-            "females": "منتجات أفلام صامتة"
-        },
-        "propaganda film directors": {
-            "males": "مخرجو أفلام دعائية",
-            "females": "مخرجات أفلام دعائية"
-        },
-        "war filmmakers": {
-            "males": "صانعو أفلام حربية",
-            "females": "صانعات أفلام حربية"
-        },
-        "fantasy film directors": {
-            "males": "مخرجو أفلام فانتازيا",
-            "females": "مخرجات أفلام فانتازيا"
-        },
-        "feminist filmmakers": {
-            "males": "صانعو أفلام نسوية",
-            "females": "صانعات أفلام نسوية"
-        },
-        "horror film producers": {
-            "males": "منتجو أفلام رعب",
-            "females": "منتجات أفلام رعب"
-        },
-        "japanese horror film directors": {
-            "males": "مخرجو أفلام رعب يابانية",
-            "females": "مخرجات أفلام رعب يابانية"
-        },
-        "lgbtq film producers": {
-            "males": "منتجو أفلام إل جي بي تي كيو",
-            "females": "منتجات أفلام إل جي بي تي كيو"
-        },
-        "parody film directors": {
-            "males": "مخرجو أفلام ساخرة",
-            "females": "مخرجات أفلام ساخرة"
-        }
+        "film directors": {"males": "مخرجو أفلام", "females": "مخرجات أفلام"},
+        "filmmakers": {"males": "صانعو أفلام", "females": "صانعات أفلام"},
+        "film producers": {"males": "منتجو أفلام", "females": "منتجات أفلام"},
+        "film critics": {"males": "نقاد أفلام", "females": "ناقدات أفلام"},
+        "film editors": {"males": "محررو أفلام", "females": "محررات أفلام"},
+        "documentary filmmakers": {"males": "صانعو أفلام وثائقية", "females": "صانعات أفلام وثائقية"},
+        "documentary film directors": {"males": "مخرجو أفلام وثائقية", "females": "مخرجات أفلام وثائقية"},
+        "animated film directors": {"males": "مخرجو أفلام رسوم متحركة", "females": "مخرجات أفلام رسوم متحركة"},
+        "experimental filmmakers": {"males": "صانعو أفلام تجريبية", "females": "صانعات أفلام تجريبية"},
+        "animated film producers": {"males": "منتجو أفلام رسوم متحركة", "females": "منتجات أفلام رسوم متحركة"},
+        "pornographic film directors": {"males": "مخرجو أفلام إباحية", "females": "مخرجات أفلام إباحية"},
+        "lgbtq film directors": {"males": "مخرجو أفلام إل جي بي تي كيو", "females": "مخرجات أفلام إل جي بي تي كيو"},
+        "comedy film directors": {"males": "مخرجو أفلام كوميدية", "females": "مخرجات أفلام كوميدية"},
+        "science fiction film directors": {"males": "مخرجو أفلام خيال علمي", "females": "مخرجات أفلام خيال علمي"},
+        "fiction film directors": {"males": "مخرجو أفلام خيالية", "females": "مخرجات أفلام خيالية"},
+        "pornographic film producers": {"males": "منتجو أفلام إباحية", "females": "منتجات أفلام إباحية"},
+        "documentary film producers": {"males": "منتجو أفلام وثائقية", "females": "منتجات أفلام وثائقية"},
+        "horror film directors": {"males": "مخرجو أفلام رعب", "females": "مخرجات أفلام رعب"},
+        "film historians": {"males": "مؤرخو أفلام", "females": "مؤرخات أفلام"},
+        "silent film directors": {"males": "مخرجو أفلام صامتة", "females": "مخرجات أفلام صامتة"},
+        "action film directors": {"males": "مخرجو أفلام حركة", "females": "مخرجات أفلام حركة"},
+        "cinema editors": {"males": "محررون سينمائون", "females": "محررات سينمائيات"},
+        "silent film producers": {"males": "منتجو أفلام صامتة", "females": "منتجات أفلام صامتة"},
+        "propaganda film directors": {"males": "مخرجو أفلام دعائية", "females": "مخرجات أفلام دعائية"},
+        "war filmmakers": {"males": "صانعو أفلام حربية", "females": "صانعات أفلام حربية"},
+        "fantasy film directors": {"males": "مخرجو أفلام فانتازيا", "females": "مخرجات أفلام فانتازيا"},
+        "feminist filmmakers": {"males": "صانعو أفلام نسوية", "females": "صانعات أفلام نسوية"},
+        "horror film producers": {"males": "منتجو أفلام رعب", "females": "منتجات أفلام رعب"},
+        "japanese horror film directors": {"males": "مخرجو أفلام رعب يابانية", "females": "مخرجات أفلام رعب يابانية"},
+        "lgbtq film producers": {"males": "منتجو أفلام إل جي بي تي كيو", "females": "منتجات أفلام إل جي بي تي كيو"},
+        "parody film directors": {"males": "مخرجو أفلام ساخرة", "females": "مخرجات أفلام ساخرة"},
     }
 
     return data
@@ -457,70 +365,22 @@ def _add_singer_variants() -> dict[str, GenderedLabel]:
     """Add singer categories and stylistic combinations."""
 
     data: dict[str, GenderedLabel] = {
-        "classical composers": {
-            "males": "ملحنون كلاسيكيون",
-            "females": "ملحنات كلاسيكيات"
-        },
-        "classical musicians": {
-            "males": "موسيقيون كلاسيكيون",
-            "females": "موسيقيات كلاسيكيات"
-        },
-        "classical pianists": {
-            "males": "عازفو بيانو كلاسيكيون",
-            "females": "عازفات بيانو كلاسيكيات"
-        },
-        "classical violinists": {
-            "males": "عازفو كمان كلاسيكيون",
-            "females": "عازفات كمان كلاسيكيات"
-        },
-        "classical cellists": {
-            "males": "عازفو تشيلو كلاسيكيون",
-            "females": "عازفات تشيلو كلاسيكيات"
-        },
-        "classical guitarists": {
-            "males": "عازفو قيثارة كلاسيكيون",
-            "females": "عازفات قيثارة كلاسيكيات"
-        },
-        "historical novelists": {
-            "males": "روائيون تاريخيون",
-            "females": "روائيات تاريخيات"
-        },
-        "classical singers": {
-            "males": "مغنون كلاسيكيون",
-            "females": "مغنيات كلاسيكيات"
-        },
-        "classical mandolinists": {
-            "males": "عازفو مندولين كلاسيكيون",
-            "females": "عازفات مندولين كلاسيكيات"
-        },
-        "classical saxophonists": {
-            "males": "عازفو سكسفون كلاسيكيون",
-            "females": "عازفات سكسفون كلاسيكيات"
-        },
-        "classical percussionists": {
-            "males": "فنانون إيقاعيون كلاسيكيون",
-            "females": "فنانات إيقاعيات كلاسيكيات"
-        },
-        "classical music critics": {
-            "males": "نقاد موسيقى كلاسيكيون",
-            "females": "ناقدات موسيقى كلاسيكيات"
-        },
-        "classical painters": {
-            "males": "رسامون كلاسيكيون",
-            "females": "رسامات كلاسيكيات"
-        },
-        "classical writers": {
-            "males": "كتاب كلاسيكيون",
-            "females": "كاتبات كلاسيكيات"
-        },
-        "classical choreographers": {
-            "males": "مصممو رقص كلاسيكيون",
-            "females": "مصممات رقص كلاسيكيات"
-        },
-        "classical dancers": {
-            "males": "راقصون كلاسيكيون",
-            "females": "راقصات كلاسيكيات"
-        }
+        "classical composers": {"males": "ملحنون كلاسيكيون", "females": "ملحنات كلاسيكيات"},
+        "classical musicians": {"males": "موسيقيون كلاسيكيون", "females": "موسيقيات كلاسيكيات"},
+        "classical pianists": {"males": "عازفو بيانو كلاسيكيون", "females": "عازفات بيانو كلاسيكيات"},
+        "classical violinists": {"males": "عازفو كمان كلاسيكيون", "females": "عازفات كمان كلاسيكيات"},
+        "classical cellists": {"males": "عازفو تشيلو كلاسيكيون", "females": "عازفات تشيلو كلاسيكيات"},
+        "classical guitarists": {"males": "عازفو قيثارة كلاسيكيون", "females": "عازفات قيثارة كلاسيكيات"},
+        "historical novelists": {"males": "روائيون تاريخيون", "females": "روائيات تاريخيات"},
+        "classical singers": {"males": "مغنون كلاسيكيون", "females": "مغنيات كلاسيكيات"},
+        "classical mandolinists": {"males": "عازفو مندولين كلاسيكيون", "females": "عازفات مندولين كلاسيكيات"},
+        "classical saxophonists": {"males": "عازفو سكسفون كلاسيكيون", "females": "عازفات سكسفون كلاسيكيات"},
+        "classical percussionists": {"males": "فنانون إيقاعيون كلاسيكيون", "females": "فنانات إيقاعيات كلاسيكيات"},
+        "classical music critics": {"males": "نقاد موسيقى كلاسيكيون", "females": "ناقدات موسيقى كلاسيكيات"},
+        "classical painters": {"males": "رسامون كلاسيكيون", "females": "رسامات كلاسيكيات"},
+        "classical writers": {"males": "كتاب كلاسيكيون", "females": "كاتبات كلاسيكيات"},
+        "classical choreographers": {"males": "مصممو رقص كلاسيكيون", "females": "مصممات رقص كلاسيكيات"},
+        "classical dancers": {"males": "راقصون كلاسيكيون", "females": "راقصات كلاسيكيات"},
     }
 
     return data
@@ -555,22 +415,22 @@ def _finalise_jobs_dataset() -> JobsDataset:
     females_jobs: Dict[str, str] = {}
 
     jobs_sources = _merge_jobs_sources()
-    jobs_pp = _add_jobs_from_jobs2(jobs_sources)                    # 1,369
+    jobs_pp = _add_jobs_from_jobs2(jobs_sources)  # 1,369
 
     # sport_variants = _add_sport_variants(jobs_pp)                 # 4,107
-    sport_variants = open_json_file("sport_variants_found.json")    # 35
+    sport_variants = open_json_file("sport_variants_found.json")  # 35
 
     # people_variants = _add_jobs_people_variants()                 # 2,096
     people_variants = open_json_file("people_variants_found.json")  # 94
 
-    merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)                # 534
-    _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC)                   # 95
-    cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)        # 27
-    film_variants = _add_film_variants()                            # 1,881
-    singer_variants = _add_singer_variants()                        # 16
+    merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)  # 534
+    _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC)  # 95
+    cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC)  # 27
+    film_variants = _add_film_variants()  # 1,881
+    singer_variants = _add_singer_variants()  # 16
 
-    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)                       # 65
-    m_w_jobs.update(MEN_WOMENS_SINGERS)                             # 7,181 > to > 433
+    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)  # 65
+    m_w_jobs.update(MEN_WOMENS_SINGERS)  # 7,181 > to > 433
     m_w_jobs.update(jobs_pp)
     m_w_jobs.update(sport_variants)
     m_w_jobs.update(cycling_variants)
@@ -579,12 +439,9 @@ def _finalise_jobs_dataset() -> JobsDataset:
     m_w_jobs.update(singer_variants)
 
     merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # 1,345
-    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)            # 61,486
+    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)  # 61,486
 
-    m_w_jobs["sports coaches"] = {
-        "males": "مدربو رياضة",
-        "females": "مدربات رياضة"
-    }
+    m_w_jobs["sports coaches"] = {"males": "مدربو رياضة", "females": "مدربات رياضة"}
 
     for job_key, labels in m_w_jobs.items():
         males_jobs[job_key] = labels["males"]

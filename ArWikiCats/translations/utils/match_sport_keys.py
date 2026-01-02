@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ """
 
-import re
 import functools
+import re
+
 from ...helps import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 
@@ -54,7 +55,7 @@ def _load_regex() -> re.Pattern:
     )
     alternation = "|".join(map(re.escape, [n.lower() for n in data_List_sorted]))
 
-    new_pattern = fr"(?<!\w)({alternation})(?!\w)"
+    new_pattern = rf"(?<!\w)({alternation})(?!\w)"
 
     RE_KEYS_NEW = re.compile(new_pattern, re.I)
 

@@ -9,19 +9,14 @@ from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBase
 @pytest.fixture
 def multi_bot() -> MultiDataFormatterBaseV2:
     nationality_data = {
-        "United States": {
-            "ar": "الولايات المتحدة"
-        },
-        "yemen": {
-            "ar": "اليمن"
-        },
+        "United States": {"ar": "الولايات المتحدة"},
+        "yemen": {"ar": "اليمن"},
     }
 
     formatted_data = {
         "{en}": "{ar}",
         "Olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}",
-        "Olympic gold medalists for {en} in alpine skiing":
-        "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
+        "Olympic gold medalists for {en} in alpine skiing": "فائزون بميداليات ذهبية أولمبية من {ar} في التزلج على المنحدرات الثلجية",
         "Olympic gold medalists for {en} in {en_sport}": "فائزون بميداليات ذهبية أولمبية من {ar} في {sport_ar}",
     }
 

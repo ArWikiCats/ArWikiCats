@@ -12,12 +12,10 @@ list_data_0 = {
 
 list_data = {
     # "1880 european competition for women's football squad templates": "قوالب تشكيلات منافسات أوروبية في كرة القدم للسيدات 1880",
-
     "1904 Summer Olympics football squad navigational boxes": "صناديق تصفح تشكيلات كرة القدم في الألعاب الأولمبية الصيفية 1904",
     "1984 AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1984",
     "1952 Summer Olympics field hockey squad navigational boxes": "صناديق تصفح تشكيلات هوكي الميدان في الألعاب الأولمبية الصيفية 1952",
     "2022 European Women's Handball Championship squad templates": "قوالب تشكيلات بطولة أوروبا لكرة اليد للسيدات 2022",
-
     "1880 fifa women's world cup squad navigational boxes": "صناديق تصفح تشكيلات كأس العالم لكرة القدم للسيدات 1880",
     "1880 afc asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس آسيا 1880",
     "1880 afc women's asian cup squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الآسيوية لكرة القدم للسيدات 1880",

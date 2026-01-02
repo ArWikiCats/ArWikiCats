@@ -9,7 +9,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import jobs_resolver, sports_resolver
 
-test_sport_bot_data= {
+test_sport_bot_data = {
     "footballers": "لاعبو ولاعبات كرة قدم",
     "mens footballers": "لاعبو كرة قدم",
     "softball players": "لاعبو ولاعبات كرة لينة",
@@ -34,7 +34,7 @@ def test_sport_bot(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_job_bot_data= {
+test_job_bot_data = {
     "actors": "ممثلون وممثلات",
     "actresses": "ممثلات",
     "boxers": "ملاكمون وملاكمات",
@@ -46,7 +46,6 @@ test_job_bot_data= {
     "singers": "مغنون ومغنيات",
     "women boxers": "ملاكمات",
     "women singers": "مغنيات",
-
     "yemeni actresses": "ممثلات يمنيات",
     "yemeni actors": "ممثلون وممثلات يمنيون",
     "yemeni boxers": "ملاكمون وملاكمات يمنيون",

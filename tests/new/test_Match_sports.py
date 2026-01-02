@@ -34,10 +34,7 @@ BASIC_EXAMPLES = [
 # Expanded: Cases for all sports (simple "X league" form)
 # Ensures every sport resolves properly in at least one template.
 # ----------------------------------------------------------------------
-SPORT_SIMPLE_CASES = [
-    (f"{en_sport} league", f"الدوري في {sport_ar}")
-    for en_sport, sport_ar in SPORTS_EN_TO_AR.items()
-]
+SPORT_SIMPLE_CASES = [(f"{en_sport} league", f"الدوري في {sport_ar}") for en_sport, sport_ar in SPORTS_EN_TO_AR.items()]
 
 
 # ----------------------------------------------------------------------
@@ -45,11 +42,13 @@ SPORT_SIMPLE_CASES = [
 # ----------------------------------------------------------------------
 SPORT_GENDER_CASES = []
 for en_sport, sport_ar in SPORTS_EN_TO_AR.items():
-    SPORT_GENDER_CASES.extend([
-        (f"men's {en_sport} world cup", f"كأس العالم للرجال في {sport_ar}"),
-        (f"women's {en_sport} world cup", f"كأس العالم للسيدات في {sport_ar}"),
-        (f"{en_sport} world cup", f"كأس العالم في {sport_ar}"),
-    ])
+    SPORT_GENDER_CASES.extend(
+        [
+            (f"men's {en_sport} world cup", f"كأس العالم للرجال في {sport_ar}"),
+            (f"women's {en_sport} world cup", f"كأس العالم للسيدات في {sport_ar}"),
+            (f"{en_sport} world cup", f"كأس العالم في {sport_ar}"),
+        ]
+    )
 
 
 # ----------------------------------------------------------------------
@@ -82,13 +81,7 @@ NEGATIVE_CASES = [
 # ----------------------------------------------------------------------
 # Combine All Tests
 # ----------------------------------------------------------------------
-ALL_CASES = (
-    BASIC_EXAMPLES
-    + SPORT_SIMPLE_CASES
-    + SPORT_GENDER_CASES
-    + FORMATTING_CASES
-    + NEGATIVE_CASES
-)
+ALL_CASES = BASIC_EXAMPLES + SPORT_SIMPLE_CASES + SPORT_GENDER_CASES + FORMATTING_CASES + NEGATIVE_CASES
 
 
 @pytest.mark.parametrize(

@@ -95,10 +95,12 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         self.data_to_find = data_to_find
         self.other_key_first = other_key_first
 
-        self.category_relation_mapping = dict(sorted(
-            category_relation_mapping.items(),
-            key=lambda k: (-k[0].count(" "), -len(k[0])),
-        ))
+        self.category_relation_mapping = dict(
+            sorted(
+                category_relation_mapping.items(),
+                key=lambda k: (-k[0].count(" "), -len(k[0])),
+            )
+        )
 
     def get_relation_word(self, category: str) -> tuple[str, str]:
         """

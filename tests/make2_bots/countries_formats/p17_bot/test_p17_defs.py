@@ -26,9 +26,7 @@ test_data_with_pop_format = {
     "university of": "جامعة {}",
 }
 
-test_data_relation_mapping = {
-
-}
+test_data_relation_mapping = {}
 
 
 @pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=test_data_with_pop_format.keys())
@@ -38,7 +36,9 @@ def test_with_pop_format(category: str, expected: str) -> None:
     assert result == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_relation_mapping.items(), ids=test_data_relation_mapping.keys())
+@pytest.mark.parametrize(
+    "category, expected", test_data_relation_mapping.items(), ids=test_data_relation_mapping.keys()
+)
 @pytest.mark.fast
 def test_from_category_relation_mapping(category: str, expected: str) -> None:
     result = from_category_relation_mapping(category)

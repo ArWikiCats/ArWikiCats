@@ -10,8 +10,8 @@ from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import r
 
 data_1 = {
     "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
-    "yemeni men basketball players" : "لاعبو كرة سلة يمنيون",
-    "yemeni men's basketball players" : "لاعبو كرة سلة يمنيون",
+    "yemeni men basketball players": "لاعبو كرة سلة يمنيون",
+    "yemeni men's basketball players": "لاعبو كرة سلة يمنيون",
     "chinese outdoor boxing clubs": "أندية بوكسينغ صينية في الهواء الطلق",
     "chinese outdoor boxing": "بوكسينغ صينية في الهواء الطلق",
     "chinese women's boxing": "بوكسينغ صينية للسيدات",

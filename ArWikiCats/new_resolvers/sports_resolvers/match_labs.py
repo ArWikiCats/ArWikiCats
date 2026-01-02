@@ -4,10 +4,11 @@ TODO: merge with sports_resolvers/raw_sports.py
 """
 
 import functools
-from ...helps import logger, dump_data
+
+from ...helps import dump_data, logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations_formats import FormatDataV2
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import FormatDataV2
 
 teams_2025_sample = {
     "{sport} people": "أعلام {sport_jobs}",
@@ -52,7 +53,6 @@ mappings_data: dict[str, str] = {
     "records": "سجلات",
     "records and statistics": "سجلات وإحصائيات",
     "manager history": "تاريخ مدربو",
-
     "trainers": "مدربو",
     "coaches": "مدربو",
     "managers": "مدربو",
@@ -84,7 +84,6 @@ FOOTBALL_KEYS_PLAYERS = {
     "defencemen": {"males": "مدافعو", "females": "مدافعات"},
     "receivers": {"males": "مستقبلو", "females": "مستقبلات"},
     "tackles": {"males": "مصطدمو", "females": "مصطدمات"},
-
     "sports-people": {"males": "رياضيو", "females": "رياضيات"},
     "utility players": {"males": "لاعبو مراكز متعددة", "females": "لاعبات مراكز متعددة"},
     "wide receivers": {"males": "مستقبلون واسعون", "females": "مستقبلات واسعات"},
@@ -184,7 +183,6 @@ def _find_teams_2025(category: str, default: str = "") -> str:
 
 @functools.lru_cache(maxsize=10000)
 def fix_keys(category: str) -> str:
-
     category = category.lower().replace("category:", "")
     category = category.replace("'", "")
     category = category.replace("playerss", "players")

@@ -48,6 +48,4 @@ def get_death_label(text: str) -> str:
     return result
 
 
-len_print.data_len("deaths.py", {
-    "medical_keys": medical_keys
-})
+len_print.data_len("deaths.py", {"medical_keys": medical_keys})

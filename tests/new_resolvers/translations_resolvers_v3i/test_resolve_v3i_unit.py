@@ -11,10 +11,10 @@ from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYe
 
 def get_label(text: str) -> str:
     data = {
-        "writers from Hong Kong" : "كتاب من هونغ كونغ",
-        "writers from yemen" : "كتاب من اليمن",
-        "writers from Crown of Aragon" : "كتاب من تاج أرغون",
-        "writers gg yemen" : "كتاب من اليمن",
+        "writers from Hong Kong": "كتاب من هونغ كونغ",
+        "writers from yemen": "كتاب من اليمن",
+        "writers from Crown of Aragon": "كتاب من تاج أرغون",
+        "writers gg yemen": "كتاب من اليمن",
     }
     print(f"search: {text=}")
     return data.get(text, "")
@@ -22,7 +22,6 @@ def get_label(text: str) -> str:
 
 @pytest.fixture
 def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
-
     formatted_data = {
         "{year1} {country1}": "{country1} في {year1}",
     }
@@ -52,7 +51,6 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 
 @pytest.mark.unit
 class TestYearPart:
-
     test_data_standard = {
         "100s": "عقد 100",
     }
@@ -75,7 +73,9 @@ class TestMatchKeys:
     }
 
     @pytest.mark.parametrize("category,expected", test_keys.items(), ids=test_keys.keys())
-    def test_match_key_other_bot(self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: tuple[str, str]) -> None:
+    def test_match_key_other_bot(
+        self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: tuple[str, str]
+    ) -> None:
         """
         Test
         """
@@ -85,7 +85,9 @@ class TestMatchKeys:
         assert result == year_key
 
     @pytest.mark.parametrize("category,expected", test_keys.items(), ids=test_keys.keys())
-    def test_match_key_country_bot(self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: tuple[str, str]) -> None:
+    def test_match_key_country_bot(
+        self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: tuple[str, str]
+    ) -> None:
         """
         Test
         """
@@ -103,7 +105,9 @@ class TestCountriesPart:
     }
 
     @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
-    def test_country_combinations(self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: str) -> None:
+    def test_country_combinations(
+        self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: str
+    ) -> None:
         """
         Test
         """
@@ -120,7 +124,9 @@ class TestPart3:
     }
 
     @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
-    def test_year_country_combinations(self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: str) -> None:
+    def test_year_country_combinations(
+        self, multi_bot_v4: MultiDataFormatterYearAndFrom, category: str, expected: str
+    ) -> None:
         """
         Test
         """

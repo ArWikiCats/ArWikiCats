@@ -891,8 +891,7 @@ data_1 = {
     "Category:Deaths from pneumonia in Zimbabwe": "تصنيف:وفيات الالتهاب الرئوي في زيمبابوي",
 }
 
-data_2 = {
-}
+data_2 = {}
 
 to_test = [
     ("test_deaths_data_1", data_1),

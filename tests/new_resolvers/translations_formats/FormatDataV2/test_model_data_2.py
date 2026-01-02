@@ -8,7 +8,6 @@ from ArWikiCats.translations_formats import FormatDataV2
 
 @pytest.fixture
 def bot() -> FormatDataV2:
-
     nationality_data = {
         "egyptian": {
             "male": "مصري",
@@ -37,10 +36,10 @@ def bot() -> FormatDataV2:
     }
 
     formatted_data = {
-        "{nat_en} writers": "كتاب {males}",                    # كتاب يمنيون
-        "{nat_en} descent": "أصل {male}",                     # أصل يمني
-        "{nat_en} women activists": "ناشطات {females}",       # ناشطات يمنيات
-        "{nat_en} gods": "آلهة {female}",                     # أصل يمني
+        "{nat_en} writers": "كتاب {males}",  # كتاب يمنيون
+        "{nat_en} descent": "أصل {male}",  # أصل يمني
+        "{nat_en} women activists": "ناشطات {females}",  # ناشطات يمنيات
+        "{nat_en} gods": "آلهة {female}",  # أصل يمني
     }
 
     # nationality_data_men = {x: v["males"] for x, v in nationality_data.items()}
@@ -80,6 +79,7 @@ test_no_match_data = {
 def test_no_matches(bot: FormatDataV2, category: str, expected: str) -> None:
     result = bot.search(category)
     assert result == expected
+
 
 # Test for text_before and text_after
 
@@ -143,7 +143,9 @@ test_overlapping_keys_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_overlapping_keys_data.items(), ids=test_overlapping_keys_data.keys())
+@pytest.mark.parametrize(
+    "category, expected", test_overlapping_keys_data.items(), ids=test_overlapping_keys_data.keys()
+)
 @pytest.mark.fast
 def test_overlapping_keys(bot_with_overlapping_keys: FormatDataV2, category: str, expected: str) -> None:
     result = bot_with_overlapping_keys.search(category)

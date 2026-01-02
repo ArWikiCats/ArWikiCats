@@ -6,11 +6,16 @@ Country Label Bot Module
 import functools
 import re
 
-from . import country2_bot, country2_lab
-from . import ye_ts_bot
-
 from ..config import app_settings
 from ..helps.log import logger
+from ..make_bots.films_and_others_bot import te_films
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
+from ..make_bots.sports_bots import team_work
+from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers import with_years_bot
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
@@ -18,24 +23,17 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from ..time_resolvers import with_years_bot
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make_bots.films_and_others_bot import te_films
-from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
-from ..make_bots.sports_bots import team_work
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ..new_resolvers.reslove_all import new_resolvers_all
+from . import country2_bot, country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=10000)
 def _resolve_remainder(remainder: str) -> str:
     """Helper to resolve the label for the remainder of a string."""
     label = (
-        country2_bot.Get_country2(remainder) or
-        country2_lab.get_lab_for_country2(remainder) or
-        ye_ts_bot.translate_general_category(remainder, fix_title=False) or
-        ""
+        country2_bot.Get_country2(remainder)
+        or country2_lab.get_lab_for_country2(remainder)
+        or ye_ts_bot.translate_general_category(remainder, fix_title=False)
+        or ""
     )
     return label
 
@@ -108,25 +106,19 @@ class CountryLabelRetriever:
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country) or
-                self._check_prefixes(country) or
-                ""
+                _resolve_remainder(country)
+                or self._check_prefixes(country)
+                or check_historical_prefixes(country)
+                or new_resolvers_all(country)
+                or self._check_regex_years(country)
+                or self._check_members(country)
+                or SPORTS_KEYS_FOR_LABEL.get(country, "")
+                or ""
             )
-        if not resolved_label:
-            resolved_label = check_historical_prefixes(country)
 
         if resolved_label:
             if "سنوات في القرن" in resolved_label:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
-
-        if not resolved_label:
-            resolved_label = (
-                new_resolvers_all(country) or
-                self._check_regex_years(country) or
-                self._check_members(country) or
-                SPORTS_KEYS_FOR_LABEL.get(country, "") or
-                ""
-            )
 
         logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
@@ -185,7 +177,9 @@ class CountryLabelRetriever:
                 return resolved_label
         return ""
 
-    def get_term_label(self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+    def get_term_label(
+        self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+    ) -> str:
         """Retrieve the corresponding label for a given term."""
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
@@ -222,7 +216,7 @@ class CountryLabelRetriever:
             term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
 
         if term_label:
-            logger.info(f'get_term_label {term_label=} ')
+            logger.info(f"get_term_label {term_label=} ")
         elif separator.strip() == "for" and term_lower.startswith("for "):
             return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
@@ -240,7 +234,7 @@ class CountryLabelRetriever:
             base_term = term_lower[: -len(suffix)]
             translated_base = jobs_mens_data.get(base_term, "")
 
-            logger.info(f' {base_term=}, {translated_base=}, {term_lower=} ')
+            logger.info(f" {base_term=}, {translated_base=}, {term_lower=} ")
 
             if term_label == "" and translated_base:
                 term_label = f"{translated_base} من "

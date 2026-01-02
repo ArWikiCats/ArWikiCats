@@ -299,11 +299,10 @@ data_0 = {
     "Category:World Athletics Championships athletes for Papua New Guinea": "",
     "Category:World War I sites in Papua New Guinea": "",
     "Category:World War II airfields in Papua New Guinea": "",
-    "Category:World War II sites in Papua New Guinea": ""
+    "Category:World War II sites in Papua New Guinea": "",
 }
 
 data_1 = {
-
     "Category:Chief justices of Papua New Guinea": "تصنيف:رؤساء قضاء بابوا غينيا الجديدة",
     "Category:Coaches of the Papua New Guinea national cricket team": "تصنيف:مدربو منتخب بابوا غينيا الجديدة للكريكت",
     "Category:Foreign relations of Papua New Guinea": "تصنيف:علاقات بابوا غينيا الجديدة الخارجية",
@@ -1036,7 +1035,6 @@ def test_papua_new_guinea_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

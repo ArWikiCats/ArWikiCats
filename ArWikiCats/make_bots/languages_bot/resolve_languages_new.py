@@ -5,19 +5,18 @@ TODO: use it instead of langs_w.py after adding
     Films_key_For_nat,
 
 """
-import re
 import functools
-from ...helps import logger
-from ...translations_formats import FormatDataV2, format_films_country_data, MultiDataFormatterBase
-from ...translations import PRIMARY_LANGUAGE_TRANSLATIONS, COMPLEX_LANGUAGE_TRANSLATIONS
+import re
 
-from ...translations import (
-    film_keys_for_female,
+from ...helps import logger
+from ...translations import (  # Films_key_333,; Films_key_For_nat,; Films_keys_both_new_female,
+    COMPLEX_LANGUAGE_TRANSLATIONS,
+    PRIMARY_LANGUAGE_TRANSLATIONS,
     Films_key_CAO,
-    # Films_key_333,
-    # Films_key_For_nat,
-    # Films_keys_both_new_female,
+    film_keys_for_female,
 )
+from ...translations_formats import FormatDataV2, MultiDataFormatterBase, format_films_country_data
+
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
@@ -39,12 +38,10 @@ formatted_data = {
     "{en} language writing system": "نظام كتابة اللغة {al_ar}",
     "{en} newspapers": "صحف باللغة {al_ar}",
     "{en} language newspapers": "صحف باللغة {al_ar}",
-
     "{en} phonology": "نطقيات {ar}",
     "{en} mythology": "أساطير {ar}",
     "{en} texts": "نصوص {ar}",
     "{en} prose texts": "نصوص نثرية {ar}",
-
     "{en} language": "لغة {ar}",
     "{en}-language": "اللغة {al_ar}",
     "{en} languages": "اللغات {al_ar}",
@@ -54,7 +51,6 @@ formatted_data = {
     "{en} languages given names": "أسماء شخصية باللغات {al_ar}",
     "{en} languages grammar": "قواعد اللغات {al_ar}",
     "{en} languages surnames": "ألقاب باللغات {al_ar}",
-
     "{en} language academic journals": "دوريات أكاديمية باللغة {al_ar}",
     "{en} language albums": "ألبومات باللغة {al_ar}",
     "{en} language animation albums": "ألبومات رسوم متحركة باللغة {al_ar}",
@@ -131,7 +127,6 @@ def add_definite_article(label: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def _make_bot() -> MultiDataFormatterBase:
-
     formatted_data = {
         "{lang_en} language {film_en} films": "أفلام {film_ar} باللغة {lang_al}",
     }
@@ -142,10 +137,7 @@ def _make_bot() -> MultiDataFormatterBase:
         "upcoming",
     }
 
-    data = {
-        x: add_definite_article(v)
-        for x, v in new_data.items()
-    }
+    data = {x: add_definite_article(v) for x, v in new_data.items()}
     bot = format_films_country_data(
         formatted_data=formatted_data,
         data_list=data,
@@ -167,7 +159,6 @@ def _make_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-
     data = {
         x: {
             "ar": v,
@@ -197,11 +188,7 @@ def resolve_languages_labels(category: str) -> str:
 
     category = fix_keys(category)
 
-    result = (
-        _load_bot().search_all_category(category) or
-        _make_bot().search_all_category(category) or
-        ""
-    )
+    result = _load_bot().search_all_category(category) or _make_bot().search_all_category(category) or ""
 
     logger.info_if_or_debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}", result)
     return result

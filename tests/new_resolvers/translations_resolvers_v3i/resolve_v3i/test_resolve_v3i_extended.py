@@ -14,7 +14,6 @@ test_0 = {
     "17th-century people from Safavid Iran": "أشخاص من إيران الصفوية في القرن 17",
     "16th-century writers from Safavid Iran": "كتاب من إيران الصفوية في القرن 16",
     "16th-century people from Safavid Iran": "أشخاص من إيران الصفوية في القرن 16",
-
     "10th-century people from Ifriqiya": "تونسيون في القرن 10",
     "11th-century people from Ifriqiya": "تونسيون في القرن 11",
     "12th-century people from Ifriqiya": "تونسيون في القرن 12",
@@ -32,11 +31,8 @@ test_0 = {
     "19th-century people from Georgia (country) by occupation": "أشخاص من جورجيا في القرن 19 حسب المهنة",
     "18th-century people from the Polish–Lithuanian Commonwealth by occupation": "أشخاص بولنديون في القرن 18 حسب المهنة",
     "18th-century people from the Russian Empire by occupation": "روس في القرن 18 حسب المهنة",
-
     "17th-century politicians from the Province of New York": "سياسيو ولاية نيويورك القرن 17",
-
     "14th-century deaths from plague (disease)": "وفيات القرن 14 بسبب الطاعون",
-
     "11th-century people from the Savoyard State": "أشخاص من منطقة سافوا في القرن 11",
     "16th-century people from the Colony of Santo Domingo": "دومينيكانيون في القرن 16",
     "17th-century people from the Colony of Santo Domingo": "دومينيكانيون في القرن 17",
@@ -45,7 +41,6 @@ test_0 = {
 }
 
 test_data_1 = {
-
     "17th-century philosophers from the Holy Roman Empire": "فلاسفة من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century philosophers from the Holy Roman Empire": "فلاسفة من الإمبراطورية الرومانية المقدسة في القرن 18",
     "15th-century physicians from the Holy Roman Empire": "أطباء من الإمبراطورية الرومانية المقدسة في القرن 15",
@@ -339,7 +334,7 @@ test_data_2 = {
     "19th-century writers from the Ottoman Empire": "كتاب من الدولة العثمانية في القرن 19",
     "14th-century writers from the Ottoman Empire": "كتاب من الدولة العثمانية في القرن 14",
     "18th-century writers from the Republic of Geneva": "كتاب من جمهورية جنيف في القرن 18",
-    "19th-century zoologists from the Russian Empire": "علماء حيوانات من الإمبراطورية الروسية في القرن 19"
+    "19th-century zoologists from the Russian Empire": "علماء حيوانات من الإمبراطورية الروسية في القرن 19",
 }
 
 

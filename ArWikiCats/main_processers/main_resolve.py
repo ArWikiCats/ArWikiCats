@@ -10,10 +10,12 @@ import re
 
 from ..patterns_resolvers import nat_men_pattern
 
-from . import event2bot, event_lab_bot
+from . import event2bot, event_lab_bot, event2_stubs
+
 # from ..genders_resolvers import resolve_nat_genders_pattern_v2
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
+
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en
@@ -40,7 +42,7 @@ def build_labs_years_object() -> LabsYears:
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
+def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     """Resolve the label using multi-step logic."""
     changed_cat = change_cat(category)
 
@@ -73,8 +75,8 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
         category_lab = (
             # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
             # resolve_nat_genders_pattern_v2(changed_cat) or
-            new_resolvers_all(changed_cat) or
-            ""
+            new_resolvers_all(changed_cat)
+            or ""
         )
 
     start_ylab = ""
@@ -101,7 +103,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2_new(changed_cat)
+            category_lab = event2bot.event2_new(changed_cat) or event2_stubs.stubs_label(changed_cat)
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
@@ -118,7 +120,7 @@ def resolve_label(category: str, fix_label: bool=True) -> CategoryResult:
     # [Category:1930s Japanese novels] : "تصنيف:روايات يابانية في عقد 1930",
 
     # if not from_year and cat_year:
-        # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
+    # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
 
     category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
 

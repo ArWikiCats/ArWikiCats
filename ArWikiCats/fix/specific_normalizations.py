@@ -111,7 +111,7 @@ def duplicate_cleanup(ar_label: str) -> str:
     }
     for pattern, replacement in patterns.items():
         # ar_label = re.sub(rf"\b{pattern}\b", replacement, ar_label)
-        ar_label = re.sub(fr"(?<![\w-])({pattern})(?![\w-])", replacement, ar_label)
+        ar_label = re.sub(rf"(?<![\w-])({pattern})(?![\w-])", replacement, ar_label)
 
     return ar_label
 

@@ -27,10 +27,10 @@ def _resolve_label(label: str) -> str:
         Resolved Arabic label or empty string
     """
     resolved_label = (
-        country2_lab.get_lab_for_country2(label) or
-        with_years_bot.Try_With_Years(label) or
-        ye_ts_bot.translate_general_category(label, fix_title=False) or
-        ""
+        country2_lab.get_lab_for_country2(label)
+        or with_years_bot.Try_With_Years(label)
+        or ye_ts_bot.translate_general_category(label, fix_title=False)
+        or ""
     )
     return resolved_label
 
@@ -70,11 +70,9 @@ def Work_Templates(input_label: str) -> str:
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {base_label=}')
 
             if resolved_label:
-                logger.info(
-                    f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {resolved_label=}'
-                )
+                logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
-                logger.info(f'>>>> {template_label=}')
+                logger.info(f">>>> {template_label=}")
                 break
 
     if template_label:
@@ -89,11 +87,9 @@ def Work_Templates(input_label: str) -> str:
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
 
             if resolved_label:
-                logger.info(
-                    f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}'
-                )
+                logger.info(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
-                logger.info(f'>>>> {template_label=}')
+                logger.info(f">>>> {template_label=}")
                 break
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")

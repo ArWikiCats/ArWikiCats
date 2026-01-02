@@ -10,19 +10,16 @@ More examples:
     - https://quarry.wmcloud.org/query/100099
 
 """
-import re
 import functools
+import re
 
-from ...translations.mixed.keys2 import medical_keys
-
-from ...translations import get_from_new_p17_final, get_from_pf_keys2
-
-from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...helps import logger
+from ...make_bots.matables_bots.table1_bot import get_KAKO
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ...translations import get_from_new_p17_final, get_from_pf_keys2
+from ...translations.mixed.keys2 import medical_keys
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import resolve_jobs_main
-
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
@@ -53,8 +50,9 @@ formatted_data = {
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
     result = (
-        jobs_part_labels.get(text) or
-        resolve_jobs_main(text) or
+        jobs_part_labels.get(text)
+        or resolve_jobs_main(text)
+        or
         # get_lab_for_country2(text) or
         ""
     )
@@ -65,12 +63,12 @@ def get_job_label(text: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def get_from_label(from_part):
     from_label = (
-        medical_keys.get(from_part) or
-        label_new_keys.get(from_part) or
-        get_KAKO(from_part) or
-        get_from_pf_keys2(from_part) or
-        get_from_new_p17_final(from_part) or
-        ""
+        medical_keys.get(from_part)
+        or label_new_keys.get(from_part)
+        or get_KAKO(from_part)
+        or get_from_pf_keys2(from_part)
+        or get_from_new_p17_final(from_part)
+        or ""
     )
 
     return from_label
@@ -124,7 +122,9 @@ def match_key_callback(text: str) -> str:
     # replace all formatted_data keys from text
     # text = text.replace("{year1} deaths from", "").replace("{year1}", "")
 
-    keys_to_replace = [x.replace("{country1}", "").strip() for x in formatted_data.keys() if x.replace("{country1}", "").strip()]
+    keys_to_replace = [
+        x.replace("{country1}", "").strip() for x in formatted_data.keys() if x.replace("{country1}", "").strip()
+    ]
     # sort by len
     keys_to_replace = sorted(
         keys_to_replace,
@@ -138,7 +138,6 @@ def match_key_callback(text: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
-
     country_bot = FormatDataFrom(
         formatted_data=formatted_data,
         key_placeholder="{country1}",

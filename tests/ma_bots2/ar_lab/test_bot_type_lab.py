@@ -9,7 +9,6 @@ from ArWikiCats.ma_bots2.ar_lab import get_type_lab
 data = [
     # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
     # (" by ", "mass media in morocco", "وسائل إعلام في المغرب"),
-
     ("in", "arizona territory", "إقليم أريزونا"),
     (" of ", " university of", "جامعة"),
     (" by ", "basketball playerss in lebanon", "لاعبو كرة سلة في لبنان"),

@@ -5,13 +5,11 @@ This module is responsible for retrieving localized information for a specified 
 
 import functools
 
-from . import country2_lab
-
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from . import ye_ts_bot
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from . import country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=None)

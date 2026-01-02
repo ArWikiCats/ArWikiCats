@@ -36,7 +36,6 @@ main_data = {
     "tunisia government": "حكومة تونس",
     "tunisia territorial judges": "قضاة أقاليم تونس",
     "tunisia territorial officials": "مسؤولو أقاليم تونس",
-
     "yemen board members": "أعضاء مجلس اليمن",
     "yemen government": "حكومة اليمن",
     "yemen elections": "انتخابات اليمن",
@@ -46,19 +45,15 @@ main_data = {
     "yemen presidents": "رؤساء اليمن",
     "yemen conflict": "نزاع اليمن",
     "yemen cup": "كأس اليمن",
-
     "victoria-australia elections": "انتخابات فيكتوريا (أستراليا)",
     "victoria-australia executive cabinet": "مجلس وزراء فيكتوريا (أستراليا) التنفيذي",
     "victoria-australia government": "حكومة فيكتوريا (أستراليا)",
-
     "west india government personnel": "موظفي حكومة الهند الغربية",
     "west india presidents": "رؤساء الهند الغربية",
     "west india responses": "استجابات الهند الغربية",
-
     "democratic-republic-of-congo territorial judges": "قضاة أقاليم جمهورية الكونغو الديمقراطية",
     "democratic-republic-of-congo territorial officials": "مسؤولو أقاليم جمهورية الكونغو الديمقراطية",
     "democratic-republic-of-congo war": "حرب جمهورية الكونغو الديمقراطية",
-
     "united states elections": "انتخابات الولايات المتحدة",
     "england war and conflict": "حروب ونزاعات إنجلترا",
     "england war": "حرب إنجلترا",

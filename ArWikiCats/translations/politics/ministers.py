@@ -147,7 +147,7 @@ add_keys = [
     ("agriculture", "cooperatives"),
     ("peace", "reconciliation"),
     ("electricity", "water"),
-    ("environment", "climate change")
+    ("environment", "climate change"),
 ]
 # ---
 for key1, key2 in add_keys:
@@ -173,6 +173,9 @@ for key1, key2 in add_keys:
     }
 
 
-len_print.data_len("ministers.py", {
-    "ministers_keys": ministers_keys,
-})
+len_print.data_len(
+    "ministers.py",
+    {
+        "ministers_keys": ministers_keys,
+    },
+)

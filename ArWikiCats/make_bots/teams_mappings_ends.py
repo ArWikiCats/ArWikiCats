@@ -38,10 +38,12 @@ teams_label_mappings_ends = {
     "tournaments": "بطولات",
     "trainers": "مدربو",
     "umpires": "حكام",
-    "venues": "ملاعب"
+    "venues": "ملاعب",
 }
 
-teams_label_mappings_ends = dict(sorted(
-    teams_label_mappings_ends.items(),
-    key=lambda k: (-k[0].count(" "), -len(k[0])),
-))
+teams_label_mappings_ends = dict(
+    sorted(
+        teams_label_mappings_ends.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)

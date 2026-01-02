@@ -10,11 +10,11 @@
 """
 
 import ast
-import os
-from pathlib import Path
-from collections import defaultdict
-from typing import Dict, List, Tuple, Set
 import json
+import os
+from collections import defaultdict
+from pathlib import Path
+from typing import Dict, List, Set, Tuple
 
 
 class DuplicateTestAnalyzer:
@@ -65,7 +65,7 @@ class DuplicateTestAnalyzer:
             file_path: مسار الملف
         """
         try:
-            with open(file_path, 'r', encoding='utf-8') as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
                 lines = content.splitlines()
 
@@ -101,10 +101,7 @@ class DuplicateTestAnalyzer:
         python_files = list(self.base_path.rglob("*.py"))
 
         # استبعاد ملفات __pycache__ و __init__.py
-        python_files = [
-            f for f in python_files
-            if "__pycache__" not in str(f) and f.name != "__init__.py"
-        ]
+        python_files = [f for f in python_files if "__pycache__" not in str(f) and f.name != "__init__.py"]
 
         print(f"📁 تم العثور على {len(python_files)} ملف Python")
 
@@ -118,11 +115,7 @@ class DuplicateTestAnalyzer:
         Returns:
             قاموس بالأزواج المكررة ومواقعها
         """
-        return {
-            pair: locations
-            for pair, locations in self.test_pairs.items()
-            if len(locations) > 1
-        }
+        return {pair: locations for pair, locations in self.test_pairs.items() if len(locations) > 1}
 
     def print_statistics(self) -> None:
         """طباعة إحصائيات التحليل"""
@@ -133,15 +126,15 @@ class DuplicateTestAnalyzer:
         # حساب إجمالي التكرارات
         total_occurrences = sum(len(locations) for locations in duplicates.values())
 
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("📊 إحصائيات التحليل")
-        print("="*80)
+        print("=" * 80)
         print(f"إجمالي الأزواج الفريدة: {total_pairs:,}")
         print(f"عدد الأزواج المكررة: {duplicate_pairs:,}")
         print(f"إجمالي التكرارات: {total_occurrences:,}")
         if total_pairs > 0:
             print(f"نسبة التكرار: {(duplicate_pairs/total_pairs*100):.2f}%")
-        print("="*80 + "\n")
+        print("=" * 80 + "\n")
 
     def print_duplicates(self, limit: int = 20) -> None:
         """
@@ -157,11 +150,7 @@ class DuplicateTestAnalyzer:
             return
 
         # ترتيب حسب عدد التكرارات (الأكثر تكراراً أولاً)
-        sorted_duplicates = sorted(
-            duplicates.items(),
-            key=lambda x: len(x[1]),
-            reverse=True
-        )
+        sorted_duplicates = sorted(duplicates.items(), key=lambda x: len(x[1]), reverse=True)
 
         print(f"\n🔍 عرض أول {min(limit, len(sorted_duplicates))} زوج مكرر:\n")
 
@@ -191,31 +180,25 @@ class DuplicateTestAnalyzer:
             "summary": {
                 "total_unique_pairs": len(self.test_pairs),
                 "duplicate_pairs": len(duplicates),
-                "total_occurrences": sum(len(locs) for locs in duplicates.values())
+                "total_occurrences": sum(len(locs) for locs in duplicates.values()),
             },
-            "duplicates": []
+            "duplicates": [],
         }
 
-        for (key, value), locations in sorted(
-            duplicates.items(),
-            key=lambda x: len(x[1]),
-            reverse=True
-        ):
-            report["duplicates"].append({
-                "key": key,
-                "value": value,
-                "count": len(locations),
-                "locations": [
-                    {
-                        "file": str(Path(fp).relative_to(self.base_path.parent)),
-                        "dict_name": dn,
-                        "line": ln
-                    }
-                    for fp, dn, ln in locations
-                ]
-            })
+        for (key, value), locations in sorted(duplicates.items(), key=lambda x: len(x[1]), reverse=True):
+            report["duplicates"].append(
+                {
+                    "key": key,
+                    "value": value,
+                    "count": len(locations),
+                    "locations": [
+                        {"file": str(Path(fp).relative_to(self.base_path.parent)), "dict_name": dn, "line": ln}
+                        for fp, dn, ln in locations
+                    ],
+                }
+            )
 
-        with open(output_file, 'w', encoding='utf-8') as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
 
         print(f"\n💾 تم حفظ التقرير في: {output_file}")
@@ -228,14 +211,14 @@ class DuplicateTestAnalyzer:
             print("✅ لا توجد اختبارات مكررة للإزالة!")
             return
 
-        print("\n" + "="*80)
+        print("\n" + "=" * 80)
         print("🗑️  وضع إزالة المكررات")
-        print("="*80)
+        print("=" * 80)
         print("سيتم الاحتفاظ بأول ظهور لكل زوج وإزالة التكرارات الأخرى")
 
         response = input("\nهل تريد المتابعة؟ (نعم/لا): ").strip().lower()
 
-        if response not in ['نعم', 'yes', 'y', 'ن']:
+        if response not in ["نعم", "yes", "y", "ن"]:
             print("❌ تم الإلغاء")
             return
 
@@ -264,10 +247,10 @@ class DuplicateTestAnalyzer:
                         lines_removed += 1
 
                 # كتابة الملف المحدث
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write('\n'.join(new_lines))
-                    if new_lines and not new_lines[-1].endswith('\n'):
-                        f.write('\n')
+                with open(file_path, "w", encoding="utf-8") as f:
+                    f.write("\n".join(new_lines))
+                    if new_lines and not new_lines[-1].endswith("\n"):
+                        f.write("\n")
 
                 files_modified += 1
                 rel_path = Path(file_path).relative_to(self.base_path.parent)
@@ -306,10 +289,10 @@ def main():
     analyzer.save_report()
 
     # سؤال المستخدم عن إزالة المكررات
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
     response = input("هل تريد إزالة الاختبارات المكررة؟ (نعم/لا): ").strip().lower()
 
-    if response in ['نعم', 'yes', 'y', 'ن']:
+    if response in ["نعم", "yes", "y", "ن"]:
         analyzer.remove_duplicates_interactive()
     else:
         print("✅ تم الاحتفاظ بالملفات كما هي")

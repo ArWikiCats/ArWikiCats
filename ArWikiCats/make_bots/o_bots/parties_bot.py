@@ -28,7 +28,7 @@ def get_parties_lab(party: str) -> str:
     """
 
     normalized_party = party.strip()
-    logger.debug(f'get_parties_lab {party=}')
+    logger.debug(f"get_parties_lab {party=}")
 
     def _lookup(prefix: str) -> str:
         """Retrieve a party label by suffix prefix key."""
@@ -37,7 +37,7 @@ def get_parties_lab(party: str) -> str:
     party_label = resolve_suffix_template(normalized_party, PARTY_ROLE_SUFFIXES, _lookup)
 
     if party_label:
-        logger.info(f'get_parties_lab {party=}, {party_label=}')
+        logger.info(f"get_parties_lab {party=}, {party_label=}")
 
     return party_label
 

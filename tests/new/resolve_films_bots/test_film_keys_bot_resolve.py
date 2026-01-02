@@ -45,7 +45,6 @@ fast_data = {
     "superhero films": "أفلام خارقة",
     "thriller films": "أفلام إثارة",
     "war films": "أفلام حربية",
-
     "belgian drama films": "أفلام درامية بلجيكية",
     "canadian docudrama films": "أفلام درامية وثائقية كندية",
     "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
@@ -103,7 +102,6 @@ fast_data = {
 
 fast_data_2 = {
     # "chinese sports executives": "مدربو رياضية صينية",
-
     "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
     "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
     "dutch television-seasons": "مواسم تلفزيونية هولندية",
@@ -152,7 +150,6 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_resolve_films_all(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_films)
 
     dump_diff(diff_result, name)

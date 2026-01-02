@@ -7,25 +7,17 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
 )
 
 test_data_1 = {
-
     "olympic gold medalists for the united states": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
     "olympic gold medalists for finland": "فائزون بميداليات ذهبية أولمبية من فنلندا",
-
     "olympic gold medalists for the united states in baseball": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القاعدة",
     "olympic gold medalists for finland in baseball": "فائزون بميداليات ذهبية أولمبية من فنلندا في كرة القاعدة",
-
     "Category:Afghanistan Football Federation": "الاتحاد الأفغاني لكرة القدم",
     "Category:Aruba Football Federation": "الاتحاد الأروبي لكرة القدم",
     "Category:Bhutan Football Federation": "الاتحاد البوتاني لكرة القدم",
-
     "Olympic gold medalists for United States": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
-    "Olympic gold medalists for United States in alpine skiing":
-        "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
-    "Category:Olympic gold medalists for United States in alpine skiing":
-        "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
-    "Category:Olympic gold medalists for the United States in football":
-        "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
-
+    "Olympic gold medalists for United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
+    "Category:Olympic gold medalists for United States in alpine skiing": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في التزلج على المنحدرات الثلجية",
+    "Category:Olympic gold medalists for the United States in football": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة في كرة القدم",
     # "yemen international soccer players": "لاعبو كرة قدم دوليون من اليمن",
     "yemen international soccer players": "لاعبو منتخب اليمن لكرة القدم",
     "fiji women's international rugby union players": "لاعبات اتحاد رجبي دوليات من فيجي",

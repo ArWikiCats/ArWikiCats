@@ -67,6 +67,7 @@ data = {
 
 data_0 = {}
 
+
 @pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.skip2
 def test_empty(category: str, expected: str) -> None:

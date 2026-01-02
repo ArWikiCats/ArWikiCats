@@ -315,7 +315,7 @@ test_data_2 = {
     "Protestant theologians": "لاهوتيون بروتستانتيون",
     "Protestant writers": "كتاب بروتستانتيون",
     "Venerated Catholics": "كاثوليك مبجلون",
-    "Venerated popes": "بابوات مبجلون"
+    "Venerated popes": "بابوات مبجلون",
 }
 
 

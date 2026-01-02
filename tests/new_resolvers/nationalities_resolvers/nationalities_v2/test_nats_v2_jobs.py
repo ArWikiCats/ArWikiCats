@@ -14,8 +14,7 @@ test_data_males = {
     "Yemeni emigrants": "يمنيون مهاجرون",
 }
 
-test_data_ar = {
-}
+test_data_ar = {}
 
 
 @pytest.mark.parametrize("category, expected", test_data_males.items(), ids=test_data_males.keys())

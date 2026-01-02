@@ -9,12 +9,13 @@ NOTE: compare it with ArWikiCats/new_resolvers/sports_formats_teams/sport_lab_na
 
 """
 import functools
+
 from ...helps import logger
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
-from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from .utils import fix_keys
 
 
@@ -61,10 +62,12 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "cups": "كؤوس",
     }
 
-    mappings_data = dict(sorted(
-        mappings_data.items(),
-        key=lambda k: (-k[0].count(" "), -len(k[0])),
-    ))
+    mappings_data = dict(
+        sorted(
+            mappings_data.items(),
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
+        )
+    )
     return mappings_data
 
 
@@ -74,62 +77,48 @@ sports_formatted_data = {
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
-
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
     "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
     "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
-
     "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
     "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
     "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
     "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
     "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
-
     "first league of {en}": "دوري {ar} الممتاز",
-
     "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
-
     # "yemeni men's basketball players" : "لاعبو كرة سلة رجالية يمنيون",
     "{en} mens {en_sport} players": "لاعبو {sport_jobs} {males}",
     # american coaches of basketball
     "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
     "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
-
     # coaches of basketball
     "coaches of {en_sport}": "مدربو {sport_jobs}",
     "players of {en_sport}": "لاعبو {sport_jobs}",
-
     # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
     "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
     "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
-
     # expatriate basketball people
     "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
     "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
-
     # _build_new_kkk() -> dict[str, str]:
     # Category:National junior womens goalball teams
     "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
     "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
     "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
-
     # SPORT_FORMATS_FEMALE_NAT
     # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
     "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
-
     # [Category:American Indoor Soccer] : "تصنيف:كرة قدم أمريكية داخل الصالات",
     "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
-
     # data
     # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
     # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
     "{en} sports federation": "الاتحاد {the_male} للرياضة",
     "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
-
     "{en} wheelchair racers": "متسابقو كراسي متحركة {males}",
     "{en} mens wheelchair racers": "متسابقو كراسي متحركة {males}",
-
     "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
     "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
@@ -137,49 +126,35 @@ sports_formatted_data = {
     "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
     "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
     "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
-
     # Category:yemeni Women's Football League
     "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
     "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
     "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
     "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
-
     "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
-
     "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
-
     "{en} womens {en_sport} players": "لاعبات {sport_jobs} {females}",
     "womens {en_sport} players": "لاعبات {sport_jobs}",
-
     "{en} womens {en_sport} playerss": "لاعبات {sport_jobs} {females}",
     "womens {en_sport} playerss": "لاعبات {sport_jobs}",
-
-    "{en} womens national {en_sport} team" : "منتخب {ar} {sport_team} للسيدات",
-    "{en} womens national {en_sport} team players" : "لاعبات منتخب {ar} {sport_team} للسيدات",
-
-    "{en} national {en_sport} team" : "منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team players" : "لاعبو منتخب {ar} {sport_team}",
-
+    "{en} womens national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+    "{en} womens national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
+    "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
+    "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
     "{en} womens international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
     "{en} womens youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
     "{en} womens international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
-
     "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
     "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
-
     "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
-
     "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
     # Category:African women's national association football teams
     "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
     "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
     "{en} womens {en_sport}": "{sport_jobs} {female} للسيدات",
-
     # northern ireland national men's football teams
     "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للرجال",
     "{en} national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للرجال",
-
-
     # NAT_P17_OIOI data
     "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
     "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
@@ -219,32 +194,25 @@ sports_formatted_data = {
     "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
     "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
     "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-
     "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
     "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
     "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-
     # NAT_P17_OIOI_TO_CHECK data
     # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
     "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
     "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
-
     # "yemeni domestic basketball": "كرة سلة يمنية محلية",
     "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
     "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
-
     # "yemeni football": "كرة قدم يمنية",
     # "{en} {en_sport}": "{sport_jobs} {female}",
     "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
     "{en} rugby union": "اتحاد الرجبي {the_male}",  # Category:American_basketball
     "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
-
     "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
-
     "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
     "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
     "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
-
     "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
 }
 
@@ -254,7 +222,6 @@ def _levels_data() -> dict[str, str]:
         "{en} league of {en_sport}": "الدوري {the_male} {sport_team}",
         "{en} {en_sport} premier league": "الدوري {the_male} الممتاز {sport_team}",
         "{en} premier {en_sport} league": "الدوري {the_male} الممتاز {sport_team}",
-
         # "bangladesh football premier leagues": "تصنيف:دوريات كرة قدم بنغلاديشية من الدرجة الممتازة",
         "{en} {en_sport} premier": "{sport_jobs} {female} من الدرجة الممتازة",
         "{en_sport} premier": "{sport_jobs} من الدرجة الممتازة",
@@ -280,14 +247,15 @@ def _levels_data() -> dict[str, str]:
         "seventh tier": "الدرجة السابعة",
     }
     for level, lvl_lab in LEVELS.items():
-        data.update({
-            f"{{en}} {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
-            f"{{en}} {level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
-
-            f"national {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} وطنية من {lvl_lab}",
-            f"{{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
-            f"{level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
-        })
+        data.update(
+            {
+                f"{{en}} {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+                f"{{en}} {level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} {{female}} من {lvl_lab}",
+                f"national {{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} وطنية من {lvl_lab}",
+                f"{{en_sport}} {level} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+                f"{level} {{en_sport}} leagues": f"دوريات {{sport_jobs}} من {lvl_lab}",
+            }
+        )
 
     return data
 
@@ -306,11 +274,7 @@ sports_formatted_data.update(WOMENS_NATIONAL_DATA)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
-    nats_data = {
-        x: v
-        for x, v in all_country_with_nat_ar.items()
-        if v.get("ar")  # and v.get("en")
-    }
+    nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}  # and v.get("en")
 
     sports_data = {
         x: {
@@ -349,7 +313,6 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
 
 
 def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
-
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
 

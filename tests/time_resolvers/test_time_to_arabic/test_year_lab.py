@@ -174,11 +174,9 @@ class TestMakeMonthLabBasic:
             ("january", "يناير"),
             ("January", "يناير"),
             ("march", "مارس"),
-
             # Decade-like expressions are not handled here
             ("10s", "عقد 10"),
             ("10s bc", "عقد 10 ق م"),
-
             ("january 1990 bc", "يناير 1990 ق م"),
             ("march 10 bce", "مارس 10 ق م"),
         ],
@@ -197,7 +195,6 @@ class TestMakeMonthLabRangesAndSpecial:
             ("1990-1999", "1990-1999"),
             ("1990–1999", "1990–1999"),
             ("1990−1999", "1990−1999"),
-
         ],
     )
     def test_month_lab_ranges_and_allowed_suffixes(self, year: str, expected: str) -> None:

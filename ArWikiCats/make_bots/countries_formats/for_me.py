@@ -9,10 +9,10 @@ import re
 from ...helps.log import logger
 from ...translations import (
     Nat_men,
-    Nat_women,
     Nat_the_female,
-    New_female_keys,
     Nat_the_male,
+    Nat_women,
+    New_female_keys,
     New_male_keys,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
@@ -55,8 +55,8 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
         return ""
 
     country_lab = suffix_label.format(men_nat_lab)
-    logger.info(f'Work_for_New_2018_men_Keys_with_all: {suffix=}, {suffix_label=} ')
-    logger.info(f'Work_for_New_2018_men_Keys_with_all: {nat=}, {men_nat_lab=}, {country_lab=} ')
+    logger.info(f"Work_for_New_2018_men_Keys_with_all: {suffix=}, {suffix_label=} ")
+    logger.info(f"Work_for_New_2018_men_Keys_with_all: {nat=}, {men_nat_lab=}, {country_lab=} ")
 
     return country_lab
 
@@ -72,9 +72,9 @@ def _get_p17_label(nat: str, suffix: str) -> str | None:
         cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
 
     if cco_lab:
-        logger.debug(f'<<lightblue>> Work_for_me: {con_3_lab=} ')
+        logger.debug(f"<<lightblue>> Work_for_me: {con_3_lab=} ")
         country_lab = con_3_lab.format(cco_lab)
-        logger.debug(f'<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ')
+        logger.debug(f"<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ")
         return country_lab
 
     return ""
@@ -92,7 +92,7 @@ def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
         return None
 
     country_lab = con_3_lab.format(women_nat_lab)
-    logger.debug(f'<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ')
+    logger.debug(f"<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ")
     return country_lab
 
 
@@ -106,7 +106,7 @@ def _get_female_def_label(suffix: str, the_female_nat_lab: str) -> str | None:
         country_lab = con_3_lab.format(nat=the_female_nat_lab)
     else:
         country_lab = con_3_lab.format(the_female_nat_lab)
-    logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ')
+    logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ")
     return country_lab
 
 
@@ -122,7 +122,7 @@ def _get_male_no_def_label(suffix: str, men_nat_lab: str) -> str | None:
         return None
 
     country_lab = con_3_lab.format(men_nat_lab)
-    logger.debug(f'<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ')
+    logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ")
     return country_lab
 
 
@@ -136,7 +136,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     the_female_nat_lab = Nat_the_female.get(nat, "")
     men_nat_lab = Nat_men.get(nat, "")
 
-    logger.debug(f'<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, nat_lab={women_nat_lab}')
+    logger.debug(f"<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, nat_lab={women_nat_lab}")
 
     # 1. الإنجليزي جنسية والعربي اسم البلد
     res = _get_p17_label(nat, suffix)

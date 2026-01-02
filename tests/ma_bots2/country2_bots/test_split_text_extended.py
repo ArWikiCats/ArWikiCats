@@ -41,7 +41,10 @@ data_of = {
     "economy of united states": ("economy of", "united states"),
     "environment of united states": ("environment of", "united states"),
     "fauna of vermont": ("fauna of", "vermont"),
-    "federalist party members of united states house-of-representatives": ("federalist party members of", "united states house-of-representatives"),
+    "federalist party members of united states house-of-representatives": (
+        "federalist party members of",
+        "united states house-of-representatives",
+    ),
     "fishes of europe": ("fishes of", "europe"),
     "former colleges of university of london": ("former colleges of", "university of london"),
     "french invasion of egypt and syria": ("french invasion of", "egypt and syria"),
@@ -60,7 +63,10 @@ data_of = {
     "indigenous peoples of americas": ("indigenous peoples of", "americas"),
     "installations of united states air force": ("installations of", "united states air force"),
     "insular areas of united states": ("insular areas of", "united states"),
-    "know-nothing members of united states house-of-representatives": ("know-nothing members of", "united states house-of-representatives"),
+    "know-nothing members of united states house-of-representatives": (
+        "know-nothing members of",
+        "united states house-of-representatives",
+    ),
     "legal history of united states": ("legal history of", "united states"),
     "lists of 1789 films": ("lists of", "1789 films"),
     "lists of ambassadors": ("lists of", "ambassadors"),
@@ -98,7 +104,10 @@ data_of = {
     "parliament of northern ireland 1789–1789": ("parliament of", "northern ireland 1789–1789"),
     "parliament of united kingdom": ("parliament of", "united kingdom"),
     "people accused of lèse majesté": ("people accused of", "lèse majesté"),
-    "people associated with former colleges of university of london": ("people associated with former colleges of", "university of london"),
+    "people associated with former colleges of university of london": (
+        "people associated with former colleges of",
+        "university of london",
+    ),
     "people of dutch empire": ("people of", "dutch empire"),
     "permanent representatives of bahrain": ("permanent representatives of", "bahrain"),
     "permanent representatives of jamaica": ("permanent representatives of", "jamaica"),
@@ -119,14 +128,20 @@ data_of = {
     "the parliament of united kingdom": ("the parliament of", "united kingdom"),
     "university of galway": ("university of", "galway"),
     "university of sheffield": ("university of", "sheffield"),
-    "verkhovna rada of ukrainian soviet socialist republic": ("verkhovna rada of", "ukrainian soviet socialist republic"),
+    "verkhovna rada of ukrainian soviet socialist republic": (
+        "verkhovna rada of",
+        "ukrainian soviet socialist republic",
+    ),
     "victims of aviation accidents or incidents": ("victims of", "aviation accidents or incidents"),
     "water of coquimbo region": ("water of", "coquimbo region"),
     "water of hambantota district": ("water of", "hambantota district"),
     "water of matale district": ("water of", "matale district"),
     "water of novosibirsk oblast": ("water of", "novosibirsk oblast"),
     "water of wilkes land": ("water of", "wilkes land"),
-    "whig party members of united states house-of-representatives": ("whig party members of", "united states house-of-representatives"),
+    "whig party members of united states house-of-representatives": (
+        "whig party members of",
+        "united states house-of-representatives",
+    ),
     "years of 17th century": ("years of", "17th century"),
     "years of 18th century": ("years of", "18th century"),
     "years of 19th century": ("years of", "19th century"),
@@ -138,7 +153,10 @@ data_of = {
 data_about = {
     "books about automobiles": ("books", "automobiles"),
     "books about politics": ("books", "politics"),
-    "documentary films about the 2011 tōhoku earthquake and tsunami": ("documentary films", "the 2011 tōhoku earthquake and tsunami"),
+    "documentary films about the 2011 tōhoku earthquake and tsunami": (
+        "documentary films",
+        "the 2011 tōhoku earthquake and tsunami",
+    ),
     "films about automobiles": ("films", "automobiles"),
     "films about olympic boxing": ("films", "olympic boxing"),
     "films about olympic figure skating": ("films", "olympic figure skating"),
@@ -177,9 +195,15 @@ data_by = {
     "monarchs by country": ("monarchs", "by country"),
     "non-fiction writers by nationality": ("non-fiction writers", "by nationality"),
     "people by religion": ("people", "by religion"),
-    "people from westchester county, new york by place holder": ("people from westchester county, new york", "by place holder"),
+    "people from westchester county, new york by place holder": (
+        "people from westchester county, new york",
+        "by place holder",
+    ),
     "television characters by series": ("television characters", "by series"),
-    "television plays directed by william sterling (director)": ("television plays directed", "by william sterling (director)"),
+    "television plays directed by william sterling (director)": (
+        "television plays directed",
+        "by william sterling (director)",
+    ),
     "the united states by state": ("the united states", "by state"),
     "united states by state": ("united states", "by state"),
     "wheelchair sports competitors by nationality": ("wheelchair sports competitors", "by nationality"),
@@ -207,14 +231,20 @@ data_from = {
     "people from westchester county, new york": ("people", "westchester county, new york"),
     "rugby union players from west yorkshire": ("rugby union players", "west yorkshire"),
     "united kingdom from aden": ("united kingdom", "aden"),
-    "united states house-of-representatives from missouri territory": ("united states house-of-representatives", "missouri territory"),
+    "united states house-of-representatives from missouri territory": (
+        "united states house-of-representatives",
+        "missouri territory",
+    ),
     "wheelchair users from georgia (country)": ("wheelchair users", "georgia (country)"),
 }
 
 
 data_in = {
     "100 metres in the african championships in athletics": ("100 metres", "the african championships in athletics"),
-    "100 metres in the iaaf world youth championships in athletics": ("100 metres", "the iaaf world youth championships in athletics"),
+    "100 metres in the iaaf world youth championships in athletics": (
+        "100 metres",
+        "the iaaf world youth championships in athletics",
+    ),
     "100 metres in the world para athletics championships": ("100 metres", "the world para athletics championships"),
     "1550 in antigua and barbuda": ("1550", "antigua and barbuda"),
     "1550 in mexico": ("1550", "mexico"),
@@ -261,8 +291,14 @@ data_in = {
     "by university or college in beijing": ("by university or college", "beijing"),
     "centuries in the united states": ("centuries", "the united states"),
     "christianity in the united states": ("christianity", "the united states"),
-    "college men's wheelchair basketball teams in the united states": ("college men's wheelchair basketball teams", "the united states"),
-    "college women's wheelchair basketball teams in the united states": ("college women's wheelchair basketball teams", "the united states"),
+    "college men's wheelchair basketball teams in the united states": (
+        "college men's wheelchair basketball teams",
+        "the united states",
+    ),
+    "college women's wheelchair basketball teams in the united states": (
+        "college women's wheelchair basketball teams",
+        "the united states",
+    ),
     "communications in the united states": ("communications", "the united states"),
     "crimes in peru": ("crimes", "peru"),
     "crimes in the united states": ("crimes", "the united states"),
@@ -291,10 +327,16 @@ data_in = {
     "mass media in morocco": ("mass media", "morocco"),
     "men's footballers in togo": ("men's footballers", "togo"),
     "metres in the african championships in athletics": ("metres", "the african championships in athletics"),
-    "metres in the iaaf world youth championships in athletics": ("metres", "the iaaf world youth championships in athletics"),
+    "metres in the iaaf world youth championships in athletics": (
+        "metres",
+        "the iaaf world youth championships in athletics",
+    ),
     "metres in the world para athletics championships": ("metres", "the world para athletics championships"),
     "military operations of war in afghanistan (1789–1789)": ("military operations of war", "afghanistan (1789–1789)"),
-    "national-register-of-historic-places in north carolina": ("national-register-of-historic-places", "north carolina"),
+    "national-register-of-historic-places in north carolina": (
+        "national-register-of-historic-places",
+        "north carolina",
+    ),
     "nations in the summer olympics": ("nations", "the summer olympics"),
     "nature reserves in the united states": ("nature reserves", "the united states"),
     "netball in north america": ("netball", "north america"),
@@ -328,7 +370,10 @@ data_in = {
     "tourist attractions in the united states": ("tourist attractions", "the united states"),
     "trade unions in the caribbean": ("trade unions", "the caribbean"),
     "transport infrastructure in south america": ("transport infrastructure", "south america"),
-    "transportation buildings and structures in new hampshire": ("transportation buildings and structures", "new hampshire"),
+    "transportation buildings and structures in new hampshire": (
+        "transportation buildings and structures",
+        "new hampshire",
+    ),
     "transportation in the united states": ("transportation", "the united states"),
     "unincorporated communities in alaska": ("unincorporated communities", "alaska"),
     "united nations in geneva": ("united nations", "geneva"),
@@ -351,17 +396,41 @@ data_in = {
 }
 
 data_on = {
-    "agricultural buildings and structures on the-national-register-of-historic-places": ("agricultural buildings and structures", "the-national-register-of-historic-places"),
+    "agricultural buildings and structures on the-national-register-of-historic-places": (
+        "agricultural buildings and structures",
+        "the-national-register-of-historic-places",
+    ),
     "attacks on buildings and structures": ("attacks", "buildings and structures"),
     "attacks on diplomatic missions": ("attacks", "diplomatic missions"),
     "attacks on military installations": ("attacks", "military installations"),
-    "bank buildings on the-national-register-of-historic-places": ("bank buildings", "the-national-register-of-historic-places"),
-    "buildings and structures on the-national-register-of-historic-places": ("buildings and structures", "the-national-register-of-historic-places"),
-    "clubhouses on the-national-register-of-historic-places": ("clubhouses", "the-national-register-of-historic-places"),
-    "courthouses on the-national-register-of-historic-places": ("courthouses", "the-national-register-of-historic-places"),
-    "military facilities on the-national-register-of-historic-places": ("military facilities", "the-national-register-of-historic-places"),
-    "opera houses on the-national-register-of-historic-places": ("opera houses", "the-national-register-of-historic-places"),
-    "railway stations on the-national-register-of-historic-places": ("railway stations", "the-national-register-of-historic-places"),
+    "bank buildings on the-national-register-of-historic-places": (
+        "bank buildings",
+        "the-national-register-of-historic-places",
+    ),
+    "buildings and structures on the-national-register-of-historic-places": (
+        "buildings and structures",
+        "the-national-register-of-historic-places",
+    ),
+    "clubhouses on the-national-register-of-historic-places": (
+        "clubhouses",
+        "the-national-register-of-historic-places",
+    ),
+    "courthouses on the-national-register-of-historic-places": (
+        "courthouses",
+        "the-national-register-of-historic-places",
+    ),
+    "military facilities on the-national-register-of-historic-places": (
+        "military facilities",
+        "the-national-register-of-historic-places",
+    ),
+    "opera houses on the-national-register-of-historic-places": (
+        "opera houses",
+        "the-national-register-of-historic-places",
+    ),
+    "railway stations on the-national-register-of-historic-places": (
+        "railway stations",
+        "the-national-register-of-historic-places",
+    ),
 }
 
 

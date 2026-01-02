@@ -11,7 +11,6 @@ from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import r
 data_1 = {
     "yemeni domestic basketball": "كرة سلة يمنية محلية",
     "yemeni domestic womens basketball": "كرة سلة يمنية محلية للسيدات",
-
     "chinese indoor boxing clubs": "أندية بوكسينغ صينية داخل الصالات",
     "chinese indoor boxing coaches": "مدربو بوكسينغ صينية داخل الصالات",
     "chinese indoor boxing competitions": "منافسات بوكسينغ صينية داخل الصالات",
@@ -39,7 +38,6 @@ nat_p17_oioi_to_check_data = {
     "chinese professional boxing coaches": "مدربو بوكسينغ صينية للمحترفين",
     "chinese professional boxing competitions": "منافسات بوكسينغ صينية للمحترفين",
     "chinese professional boxing leagues": "دوريات بوكسينغ صينية للمحترفين",
-
     "chinese boxing chairmen and investors": "رؤساء ومسيرو البوكسينغ الصينية",
     "chinese boxing leagues": "دوريات البوكسينغ الصينية",
     "chinese boxing clubs": "أندية البوكسينغ الصينية",
@@ -54,11 +52,9 @@ nat_p17_oioi_to_check_data = {
     "chinese domestic boxing coaches": "مدربو بوكسينغ صينية محلية",
     "chinese domestic boxing competitions": "منافسات بوكسينغ صينية محلية",
     "chinese domestic boxing leagues": "دوريات بوكسينغ صينية محلية",
-
 }
 
-data_3 = {
-}
+data_3 = {}
 
 to_test = [
     ("test_need_improvements_1", data_1, resolve_nats_sport_multi_v2),
@@ -74,7 +70,9 @@ def test_need_improvements_1(category: str, expected: str) -> None:
     assert label2 == expected
 
 
-@pytest.mark.parametrize("category, expected", nat_p17_oioi_to_check_data.items(), ids=nat_p17_oioi_to_check_data.keys())
+@pytest.mark.parametrize(
+    "category, expected", nat_p17_oioi_to_check_data.items(), ids=nat_p17_oioi_to_check_data.keys()
+)
 @pytest.mark.fast
 def test_need_improvements_2(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)

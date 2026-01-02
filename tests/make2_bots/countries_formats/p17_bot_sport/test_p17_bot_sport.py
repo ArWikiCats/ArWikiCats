@@ -29,6 +29,7 @@ def test_get_p17_with_sport_1(category: str, expected: str) -> None:
     label1 = get_p17_with_sport_new(category)
     assert label1 == expected
 
+
 # =========================================================
 #                   DUMP
 # =========================================================

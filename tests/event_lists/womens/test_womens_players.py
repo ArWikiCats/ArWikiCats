@@ -82,10 +82,8 @@ data_2 = {
     "Category:Women's National Basketball League": "تصنيف:الدوري الوطني لكرة السلة للسيدات",
     "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبات كرة قدم نسائية في أستراليا حسب المنافسة",
 }
-data_3 = {
-}
-data_4 = {
-}
+data_3 = {}
+data_4 = {}
 
 to_test = [
     ("test_womens_players_1", data_1),
@@ -105,7 +103,6 @@ def test_womens_players_2(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 

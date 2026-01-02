@@ -11,6 +11,7 @@ from typing import Dict, Mapping, Optional
 
 from ...helps.log import logger
 from ...translations import (
+    LANGUAGE_TOPIC_FORMATS,
     All_Nat,
     Films_key_333,
     Films_key_CAO,
@@ -18,7 +19,6 @@ from ...translations import (
     Films_keys_both_new_female,
     film_keys_for_female,
     jobs_mens_data,
-    LANGUAGE_TOPIC_FORMATS,
     language_key_translations,
 )
 
@@ -82,7 +82,7 @@ class FilmCategoryLabelResolver:
 
         if film_label:
             result = f"أفلام {film_label} ب{language_label}"
-            logger.debug(f"<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern " f' {result=}')
+            logger.debug(f"<<lightblue>> FilmCategoryLabelResolver._try_films_suffix_pattern " f" {result=}")
             return result
         return ""
 
@@ -99,8 +99,7 @@ class FilmCategoryLabelResolver:
             if label:
                 result = f"{label} ب{language_label}"
                 logger.debug(
-                    f"<<lightblue>> FilmCategoryLabelResolver._lookup_in_film_dictionaries "
-                    f'{dict_name}. {result=}'
+                    f"<<lightblue>> FilmCategoryLabelResolver._lookup_in_film_dictionaries " f"{dict_name}. {result=}"
                 )
                 return result
         return ""
@@ -122,7 +121,7 @@ class FilmCategoryLabelResolver:
             result = template.format(f"ب{language_label}")
             logger.debug(
                 f"<<lightblue>> FilmCategoryLabelResolver.resolve_with_suffix "
-                f'Films_key_For_nat({suffix}). {result=}'
+                f"Films_key_For_nat({suffix}). {result=}"
             )
             return result
 
@@ -187,10 +186,7 @@ class LanguageLabelResolver:
         # 1) Skip if language is in nationality dictionary
         if self._nationalities.get(lang_key, False):
             nat_label = self._nationalities[lang_key]["males"]
-            logger.debug(
-                f'<<lightred>> skip lang:"{lang_key}" in All_Nat, '
-                f' {lang_label=}, {nat_label=} '
-            )
+            logger.debug(f'<<lightred>> skip lang:"{lang_key}" in All_Nat, ' f" {lang_label=}, {nat_label=} ")
             return ""
 
         # 2) Ensure language label exists
@@ -207,14 +203,14 @@ class LanguageLabelResolver:
         job_label = self._jobs_mens.get(suffix, "")
         if job_label:
             result = f"{job_label} ب{lang_label}"
-            logger.debug(f'<<lightblue>> jobs_mens_data({suffix}): {result=}')
+            logger.debug(f"<<lightblue>> jobs_mens_data({suffix}): {result=}")
             return result
 
         # 4) LANGUAGE_TOPIC_FORMATS lookup with formatting
         template = self._lang_key_m.get(suffix, "")
         if template:
             result = template.format(lang_label)
-            logger.debug(f'<<lightblue>> LANGUAGE_TOPIC_FORMATS({suffix}), {template=}, {result=}')
+            logger.debug(f"<<lightblue>> LANGUAGE_TOPIC_FORMATS({suffix}), {template=}, {result=}")
             return result
 
         logger.debug(f"no match for suffix: ({suffix}), language_label={lang_label}")

@@ -11,7 +11,6 @@ fast_data = {
     # "egyptian second division seasons": "مواسم الدوري المصري الدرجة الثانية",
     # "rugby world cup referees": "حكام كأس العالم للرجبي",
     # "taekwondo competitions": "منافسات تايكوندو",
-
     "ad alcorcón seasons": "مواسم نادي ألكوركون",
     "aj auxerre matches": "مباريات نادي أوكسير",
     "aj auxerre seasons": "مواسم نادي أوكسير",

@@ -24,9 +24,7 @@ class LoggerWrap:
             self._logger.setLevel(level)
 
             handler = logging.StreamHandler()
-            formatter = logging.Formatter(
-                "%(levelname)s - %(message)s"
-            )
+            formatter = logging.Formatter("%(levelname)s - %(message)s")
             handler.setFormatter(formatter)
 
             self._logger.addHandler(handler)

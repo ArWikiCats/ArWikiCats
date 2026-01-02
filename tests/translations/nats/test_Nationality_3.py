@@ -1,4 +1,3 @@
-
 import pytest
 
 from ArWikiCats.translations.nats.Nationality import (
@@ -24,7 +23,7 @@ def test_build_en_nat_entries() -> None:
             "en": "trinidad and tobago",
             "ar": "ترينيداد وتوباغو",
             "the_female": "الترنيدادية",
-            "the_male": "الترنيدادي"
+            "the_male": "الترنيدادي",
         }
     }
 

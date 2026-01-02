@@ -108,10 +108,12 @@ type_table_labels.update(type_Table_oo)
 
 typeTable = {x: {"ar": v} for x, v in type_table_labels.items()}
 
-typeTable.update({
-    "sports events": {"ar": "أحداث", "s": "الرياضية"},
-    "sports-events": {"ar": "أحداث", "s": "الرياضية"},
-})
+typeTable.update(
+    {
+        "sports events": {"ar": "أحداث", "s": "الرياضية"},
+        "sports-events": {"ar": "أحداث", "s": "الرياضية"},
+    }
+)
 
 __all__ = [
     "typeTable",

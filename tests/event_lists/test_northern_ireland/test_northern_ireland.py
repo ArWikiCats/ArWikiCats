@@ -4,8 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
-data0 = {
-}
+data0 = {}
 
 data_1 = {
     "Category:Film people from Northern Ireland": "تصنيف:أعلام أفلام من أيرلندا الشمالية",
@@ -254,7 +253,6 @@ def test_northern_ireland_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

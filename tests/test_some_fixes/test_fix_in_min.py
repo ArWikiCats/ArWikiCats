@@ -4,8 +4,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label, resolve_label_ar
 
-data0 = {
-}
+data0 = {}
 
 data_1 = {
     # FINE
@@ -13,16 +12,12 @@ data_1 = {
     "14th-century football players from Yemen": "لاعبو كرة قدم من اليمن في القرن 14",
     "wheelchair basketball players from Yemen": "لاعبو كرة سلة على كراسي متحركة من اليمن",
     "1400s BC wheelchair basketball players from Yemen": "لاعبو كرة سلة على كراسي متحركة من اليمن في عقد 1400 ق م",
-
 }
 
 data_2 = {
     # NEED FIXING
-
     "2020 international footballers from Yemen": "لاعبو كرة قدم دوليون من اليمن في 2020",
-
     "14th-century writers from the democratic republic of the Congo": "كتاب من جمهورية الكونغو الديمقراطية في القرن 14",
-
     "14th-century writers from Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
     "14th-century writers from the Crown of Aragon": "كتاب من تاج أرغون في القرن 14",
 }

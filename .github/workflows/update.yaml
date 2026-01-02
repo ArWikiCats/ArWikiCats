@@ -32,7 +32,7 @@ jobs:
           script_stop: true
           key: ${{ secrets.KEY }}
           script: |
-            become ${{ secrets.TOOL }} bash -lc "
+            become ${{ secrets.TOOL1 }} bash -lc "
               rm -rf ~/ArWikiCats &&
               cp -r /mnt/nfs/labstore-secondary-tools-home/${{ secrets.USERNAME }}/arwikicats_temp ~/ArWikiCats &&
               chmod -R 770 ~/ArWikiCats &&

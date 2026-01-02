@@ -6,14 +6,14 @@ from .year_or_typeo.dodo_2019 import work_2019
 
 """
 
-import re
 import functools
+import re
 
 from ...helps.log import logger
-from ...time_resolvers.time_to_arabic import match_en_return_ar
+from ...ma_bots.country_bot import get_country
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.check_bot import check_key_new_players
-from ...ma_bots.country_bot import get_country
+from ...time_resolvers.time_to_arabic import match_en_return_ar
 
 
 def work_2019(category3: str, year: str, year_labe: str) -> str:
@@ -54,7 +54,7 @@ def work_2019(category3: str, year: str, year_labe: str) -> str:
     else:
         arlabel = f"{year_labe} {cat4_lab}"
 
-    logger.info(f'<<lightgreen>>>>>> 2019: New {arlabel=} ')
+    logger.info(f"<<lightgreen>>>>>> 2019: New {arlabel=} ")
     logger.info("<<lightyellow>>>> ^^^^^^^^^ end work_2019 ^^^^^^^^^ ")
 
     return arlabel

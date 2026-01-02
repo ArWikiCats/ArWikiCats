@@ -3,34 +3,34 @@
 Arabic Label Builder Module
 """
 
-import re
 import functools
+import re
 from typing import Tuple
 
 from ...helps.log import logger
-from ...translations import (
-    RELIGIOUS_KEYS_PP,
-    New_female_keys,
-    get_from_pf_keys2,
-    get_from_new_p17_final,
-)
+from ...ma_bots import country2_lab
+from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ...time_resolvers import time_to_arabic
+from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import (
     Tabl_with_in,
     for_table,
 )
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.o_bots import bys
 from ...make_bots.o_bots.peoples_resolver import make_people_lab
 from ...make_bots.sports_bots import team_work
-from ...ma_bots import country2_lab
-from ...ma_bots.country_bot import Get_c_t_lab, get_country
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-
 from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...time_resolvers import time_to_arabic
+from ...translations import (
+    RELIGIOUS_KEYS_PP,
+    New_female_keys,
+    get_from_new_p17_final,
+    get_from_pf_keys2,
+)
+
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 
 
@@ -72,11 +72,7 @@ def _fix_typos_in_type(category_type: str, separator_stripped: str) -> str:
     return category_type
 
 
-def _adjust_separator_position(
-    text: str,
-    separator_stripped: str,
-    is_type: bool
-) -> str:
+def _adjust_separator_position(text: str, separator_stripped: str, is_type: bool) -> str:
     """Adjust separator position for type or country based on separator value.
 
     Args:
@@ -106,12 +102,7 @@ def _adjust_separator_position(
     return text
 
 
-def _apply_regex_extraction(
-    category: str,
-    separator: str,
-    category_type: str,
-    country: str
-) -> Tuple[str, str, bool]:
+def _apply_regex_extraction(category: str, separator: str, category_type: str, country: str) -> Tuple[str, str, bool]:
     """Apply regex-based extraction when simple split is insufficient.
 
     Args:
@@ -180,25 +171,17 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     category_type = _adjust_separator_position(category_type, separator_stripped, is_type=True)
     country = _adjust_separator_position(country, separator_stripped, is_type=False)
 
-    logger.info(
-        f'>xx>>> category_type: "{category_type.strip()}", '
-        f'country: "{country.strip()}", {separator=}'
-    )
+    logger.info(f'>xx>>> category_type: "{category_type.strip()}", ' f'country: "{country.strip()}", {separator=}')
 
     # Step 4: Check if regex extraction is needed
-    type_regex, country_regex, should_use_regex = _apply_regex_extraction(
-        category, separator, category_type, country
-    )
+    type_regex, country_regex, should_use_regex = _apply_regex_extraction(category, separator, category_type, country)
 
     if not should_use_regex:
-        logger.info('>>>> Using simple split results')
+        logger.info(">>>> Using simple split results")
         return category_type, country
 
     # Step 5: Use regex results with separator adjustments
-    logger.info(
-        f'>>>> Using regex extraction: {type_regex=}, '
-        f'{separator=}, {country_regex=}'
-    )
+    logger.info(f">>>> Using regex extraction: {type_regex=}, " f"{separator=}, {country_regex=}")
 
     # Apply typo fixes to regex results as well
     type_regex = _fix_typos_in_type(type_regex, separator_stripped)
@@ -206,16 +189,12 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
     country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
 
-    logger.info(f'>>>> get_type_country: {type_regex=}, {country_regex=}')
+    logger.info(f">>>> get_type_country: {type_regex=}, {country_regex=}")
 
     return type_regex, country_regex
 
 
-def _lookup_label_from_sources(
-    lookup_functions: dict[str, callable],
-    text: str,
-    log_context: str = ""
-) -> str:
+def _lookup_label_from_sources(lookup_functions: dict[str, callable], text: str, log_context: str = "") -> str:
     """Apply a series of lookup functions until a label is found.
 
     Args:
@@ -233,16 +212,11 @@ def _lookup_label_from_sources(
                 logger.debug(f"{log_context}: Found label '{label}' via {name}")
                 return label
         except Exception as e:
-            logger.warning(
-                f"{log_context}: Exception in {name}: {e}"
-            )
+            logger.warning(f"{log_context}: Exception in {name}: {e}")
     return ""
 
 
-def _handle_special_type_cases(
-    type_lower: str,
-    normalized_preposition: str
-) -> Tuple[str, bool]:
+def _handle_special_type_cases(type_lower: str, normalized_preposition: str) -> Tuple[str, bool]:
     """Handle special cases for type labels.
 
     Args:
@@ -269,7 +243,7 @@ def _handle_special_type_cases(
 
     label = Tabl_with_in.get(type_with_prep, "")
     if label:
-        logger.info(f'<<<< {type_with_prep=}, {label=}')
+        logger.info(f"<<<< {type_with_prep=}, {label=}")
         return label, False
 
     return "", True
@@ -278,10 +252,10 @@ def _handle_special_type_cases(
 def _lookup_type_without_article(type_lower: str) -> str:
     """Try to find label for type after removing 'the ' prefix."""
     if type_lower.startswith("the "):
-        type_no_article = type_lower[len("the "):]
+        type_no_article = type_lower[len("the ") :]
         label = get_from_new_p17_final(type_no_article)
         if label:
-            logger.debug(f'Found label without article: {type_no_article=}, {label=}')
+            logger.debug(f"Found label without article: {type_no_article=}, {label=}")
             return label
     return ""
 
@@ -298,9 +272,7 @@ def _lookup_religious_males(type_lower: str) -> str:
     return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
-def _create_type_lookup_chain(
-    normalized_preposition: str
-) -> dict[str, callable]:
+def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable]:
     """Create the lookup chain for type labels.
 
     Args:
@@ -315,10 +287,9 @@ def _create_type_lookup_chain(
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
-        "data_get" : lambda t: data.get(t),
-        "get_from_new_p17_final" : lambda t: get_from_new_p17_final(t),
-        "new_resolvers_all" : lambda t: new_resolvers_all(t),
-
+        "data_get": lambda t: data.get(t),
+        "get_from_new_p17_final": lambda t: get_from_new_p17_final(t),
+        "new_resolvers_all": lambda t: new_resolvers_all(t),
         "_lookup_type_without_article": _lookup_type_without_article,
         "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
@@ -368,7 +339,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     if not country_lower.strip().startswith("in "):
         return ""
 
-    inner_country = country_lower.strip()[len("in "):].strip()
+    inner_country = country_lower.strip()[len("in ") :].strip()
     country_label = get_country(inner_country)
 
     if not country_label:
@@ -380,11 +351,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     return ""
 
 
-def _create_country_lookup_chain(
-    separator: str,
-    start_get_country2: bool,
-    country_no_dash: str
-) -> dict[str, callable]:
+def _create_country_lookup_chain(separator: str, start_get_country2: bool, country_no_dash: str) -> dict[str, callable]:
     """Create the lookup chain for country labels.
 
     Args:
@@ -398,8 +365,7 @@ def _create_country_lookup_chain(
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
-        "new_resolvers_all" : lambda t: new_resolvers_all(t),
-
+        "new_resolvers_all": lambda t: new_resolvers_all(t),
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
@@ -437,18 +403,12 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     type_lower = type_value.lower()
 
     # Handle special cases first
-    label, should_append_in_label = _handle_special_type_cases(
-        type_lower, normalized_preposition
-    )
+    label, should_append_in_label = _handle_special_type_cases(type_lower, normalized_preposition)
 
     # If no special case matched, proceed with lookup chain
     if not label:
         lookup_chain = _create_type_lookup_chain(normalized_preposition)
-        label = _lookup_label_from_sources(
-            lookup_chain,
-            type_lower,
-            log_context=f"get_type_lab({type_lower})"
-        )
+        label = _lookup_label_from_sources(lookup_chain, type_lower, log_context=f"get_type_lab({type_lower})")
 
     # Normalize whitespace in the label
     label = " ".join(label.strip().split())
@@ -475,17 +435,9 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     country_no_dash = country_lower.replace("-", " ")
 
     # Create and apply the lookup chain
-    lookup_chain = _create_country_lookup_chain(
-        separator,
-        start_get_country2,
-        country_no_dash
-    )
+    lookup_chain = _create_country_lookup_chain(separator, start_get_country2, country_no_dash)
 
-    label = _lookup_label_from_sources(
-        lookup_chain,
-        country_lower,
-        log_context=f"get_con_lab({country_lower})"
-    )
+    label = _lookup_label_from_sources(lookup_chain, country_lower, log_context=f"get_con_lab({country_lower})")
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
 

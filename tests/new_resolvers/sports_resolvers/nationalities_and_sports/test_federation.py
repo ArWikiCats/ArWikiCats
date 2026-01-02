@@ -17,7 +17,6 @@ the_male_sport_team_data = {
     "republic of congo synchronised swimming racing federation": "الاتحاد الكونغوي لسباق السباحة المتزامنة",
     "republic of congo sepak takraw racing federation": "الاتحاد الكونغوي لسباق سيباك تاكرو",
     "republic-of-congo shooting federation": "الاتحاد الكونغوي للرماية",
-
     "polish sailing (sport) racing federation": "الاتحاد البولندي لسباق رياضة الإبحار",
     "abkhaz acrobatic gymnastics federation": "الاتحاد الأبخازي للجمباز الاكروباتيكي",
     "abkhaz windsurfing racing federation": "الاتحاد الأبخازي لسباق ركوب القوارب الشراعية",
@@ -347,7 +346,9 @@ the_male_sport_team_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", the_male_sport_team_data.items(), ids=the_male_sport_team_data.keys())
+@pytest.mark.parametrize(
+    "category, expected_key", the_male_sport_team_data.items(), ids=the_male_sport_team_data.keys()
+)
 @pytest.mark.fast
 def test_the_male_sport_team_data(category: str, expected_key: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)

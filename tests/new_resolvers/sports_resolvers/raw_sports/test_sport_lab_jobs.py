@@ -50,7 +50,6 @@ test_find_jobs_bot_data_0 = {
 }
 
 test_find_jobs_bot_data = {
-
     "amateur wrestling": "مصارعة للهواة",
     "international women's wrestling competitions": "منافسات مصارعة دولية للسيدات",
     "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
@@ -72,7 +71,6 @@ test_find_jobs_bot_data = {
     "domestic women's wrestling competitions": "منافسات مصارعة محلية للسيدات",
     "domestic women's wrestling leagues": "دوريات مصارعة محلية للسيدات",
     "domestic women's wrestling cups": "كؤوس مصارعة محلية للسيدات",
-
     "national women's field hockey teams": "منتخبات هوكي ميدان وطنية نسائية",
     "national women's floorball teams": "منتخبات كرة أرض وطنية نسائية",
     "national women's rugby sevens teams": "منتخبات سباعيات رجبي وطنية نسائية",
@@ -81,7 +79,6 @@ test_find_jobs_bot_data = {
     "women's wrestling": "مصارعة نسائية",
     "women's wrestling teams": "فرق مصارعة نسائية",
     "national women's wrestling teams": "منتخبات مصارعة وطنية نسائية",
-
     "under-13 wrestling manager history": "تاريخ مدربو مصارعة تحت 13 سنة",
     "under-14 wrestling manager history": "تاريخ مدربو مصارعة تحت 14 سنة",
     "under-15 wrestling manager history": "تاريخ مدربو مصارعة تحت 15 سنة",
@@ -95,12 +92,10 @@ test_find_jobs_bot_data = {
     "under-24 wrestling manager history": "تاريخ مدربو مصارعة تحت 24 سنة",
     "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
     "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
-
     "grand slam (wrestling) tournaments": "بطولات مصارعة كبرى",
     "professional wrestling cups": "كؤوس مصارعة محترفين",
     "professional wrestling competitions": "منافسات مصارعة محترفين",
     "professional wrestling leagues": "دوريات مصارعة محترفين",
-
     "defunct indoor wrestling cups": "كؤوس مصارعة داخل الصالات سابقة",
     "defunct outdoor wrestling cups": "كؤوس مصارعة في الهواء الطلق سابقة",
     "defunct wrestling cup competitions": "منافسات كؤوس مصارعة سابقة",
@@ -111,7 +106,6 @@ test_find_jobs_bot_data = {
     "wrestling cups": "كؤوس مصارعة",
     "outdoor wrestling cups": "كؤوس مصارعة في الهواء الطلق",
     "indoor wrestling cups": "كؤوس مصارعة داخل الصالات",
-
     "amateur wrestling championships": "بطولات مصارعة للهواة",
     "current wrestling seasons": "مواسم مصارعة حالية",
     "defunct indoor wrestling clubs": "أندية مصارعة داخل الصالات سابقة",
@@ -386,7 +380,7 @@ test_find_jobs_bot_data = {
     "under-20 basketball": "كرة سلة تحت 20 سنة",
     "wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
     "wheelchair rugby league competitions": "منافسات دوري رجبي على كراسي متحركة",
-    "youth international football": "كرة قدم دولية شبابية"
+    "youth international football": "كرة قدم دولية شبابية",
 }
 
 

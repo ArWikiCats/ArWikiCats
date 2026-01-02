@@ -1,13 +1,12 @@
 """Regional translation tables used across the geo modules."""
 
 from __future__ import annotations
-from ...helps import len_print
 
+from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 
 def load_regions_data(data: dict[str, str]) -> dict[str, str]:
-
     ALGERIA_PROVINCE = data.get("ALGERIA_PROVINCE", {})
     ECUADOR_PROVINCE = data.get("ECUADOR_PROVINCE", {})
     LEGACY_UK_COUNTY = data.get("LEGACY_UK_COUNTY", {})

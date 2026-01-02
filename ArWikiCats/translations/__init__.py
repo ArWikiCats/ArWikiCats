@@ -1,20 +1,23 @@
 """ """
 
-from .utils.json_dir import open_json_file
-from .sports.sub_teams_keys import sub_teams_new
 from .companies import New_Company
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import get_from_new_p17_final, US_STATES, COUNTRY_LABEL_OVERRIDES
-from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
+from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new_p17_final
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP, NAT_BEFORE_OCC_BASE
-from .jobs.jobs_womens import Female_Jobs, short_womens_jobs, FEMALE_JOBS_BASE
-from .languages import LANGUAGE_TOPIC_FORMATS, language_key_translations, PRIMARY_LANGUAGE_TRANSLATIONS, COMPLEX_LANGUAGE_TRANSLATIONS
+from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
+from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
+from .jobs.jobs_womens import FEMALE_JOBS_BASE, Female_Jobs, short_womens_jobs
+from .languages import (
+    COMPLEX_LANGUAGE_TRANSLATIONS,
+    LANGUAGE_TOPIC_FORMATS,
+    PRIMARY_LANGUAGE_TRANSLATIONS,
+    language_key_translations,
+)
 from .mixed.all_keys2 import (
-    People_key,
     WORD_AFTER_YEARS,
-    pf_keys2,
+    People_key,
     get_from_pf_keys2,
+    pf_keys2,
     pop_of_football_lower,
     pop_of_without_in,
 )
@@ -44,35 +47,36 @@ from .mixed.jenders_prefix_suffix import (
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
-    NationalityEntry,
-    raw_nats_as_en_key,
     All_Nat,
     Nat_men,
     Nat_mens,
-    Nat_the_male,
     Nat_the_female,
+    Nat_the_male,
     Nat_women,
     Nat_Womens,
+    NationalityEntry,
     all_country_ar,
     all_country_with_nat,
     all_country_with_nat_ar,
-    countries_nat_en_key,
     ar_Nat_men,
     countries_from_nat,
+    countries_nat_en_key,
     en_nats_to_ar_label,
     nats_to_add,
+    raw_nats_as_en_key,
 )
 from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.olympics_data import olympic_event_translations
 from .sports.Sport_key import (
+    SPORT_KEY_RECORDS,
+    SPORT_KEY_RECORDS_BASE,
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
-    SPORT_KEY_RECORDS_BASE,
-    SPORT_KEY_RECORDS,
 )
+from .sports.sub_teams_keys import sub_teams_new
 from .tv.films_mslslat import (
     Films_key_333,
     Films_key_CAO,
@@ -86,9 +90,9 @@ from .tv.films_mslslat import (
     television_keys,
 )
 from .type_tables import typeTable
-from .utils.match_sport_keys import match_sport_key
-
 from .utils import apply_pattern_replacements
+from .utils.json_dir import open_json_file
+from .utils.match_sport_keys import match_sport_key
 
 __all__ = [
     "open_json_file",

@@ -5,9 +5,10 @@
 
 import functools
 import re
+
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 
@@ -43,13 +44,10 @@ def _load_womens_bot() -> MultiDataFormatterBase:
         "female {job_en}": "{job_ar}",
         "people female {rele_en}": "{rele_ar}",
         "female {rele_en}": "{rele_ar}",
-
         "female {rele_en} {job_en}": "{job_ar} {rele_ar}",
         "female {job_en} {rele_en}": "{job_ar} {rele_ar}",
-
         "{rele_en} female {job_en}": "{job_ar} {rele_ar}",
         "{job_en} female {rele_en}": "{job_ar} {rele_ar}",
-
         "{rele_en} female saints": "قديسات {rele_ar}",
         "{rele_en} female eugenicists": "عالمات {rele_ar} متخصصات في تحسين النسل",
         "{rele_en} female politicians who committed suicide": "سياسيات {rele_ar} أقدمن على الانتحار",
@@ -79,27 +77,21 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "people {rele_en}": "{rele_ar}",
         "{rele_en}": "{rele_ar}",
         "{rele_en} expatriate": "{rele_ar} مغتربون",
-
         # "{rele_en} {job_en}": "{job_ar} {rele_ar}",
         # "{job_en} {rele_en}": "{job_ar} {rele_ar}",
         "{rele_en} {job_en}": "{job_ar} {rele_ar}",
         "{job_en} {rele_en}": "{job_ar} {rele_ar}",
-
         "male {job_en}": "{job_ar} ذكور",
         "male {rele_en}": "{rele_ar} ذكور",
-
         "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
         "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
-
         "fictional {rele_en} religious workers": "عمال دينيون {rele_ar} خياليون",
         "{rele_en} religious workers": "عمال دينيون {rele_ar}",
         "{rele_en} emigrants": "{rele_ar} مهاجرون",
-
         "{rele_en} saints": "قديسون {rele_ar}",
         "{rele_en} eugenicists": "علماء {rele_ar} متخصصون في تحسين النسل",
         "{rele_en} politicians who committed suicide": "سياسيون {rele_ar} أقدموا على الانتحار",
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",
-
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
         "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
@@ -118,14 +110,13 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         data_list2=jobs_mens_data,
         key2_placeholder="{job_en}",
         value2_placeholder="{job_ar}",
-        search_first_part=True
+        search_first_part=True,
     )
 
 
 @functools.lru_cache(maxsize=None)
 def womens_result(category: str) -> str:
-    """
-    """
+    """ """
     logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
@@ -134,8 +125,7 @@ def womens_result(category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def mens_result(category: str) -> str:
-    """
-    """
+    """ """
     logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_mens_bot()

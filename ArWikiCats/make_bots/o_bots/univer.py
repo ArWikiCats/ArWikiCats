@@ -108,7 +108,7 @@ def _resolve(normalized_category: str) -> str:
     city_label = CITY_TRANSLATIONS_LOWER.get(city_key, "") if city_key else ""
     if city_label and university_template:
         university_label = university_template.format(city_label)
-        logger.info(f'<<lightblue>>>>>> te_universities: new {university_label=} ')
+        logger.info(f"<<lightblue>>>>>> te_universities: new {university_label=} ")
         logger.info("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
         return university_label
 

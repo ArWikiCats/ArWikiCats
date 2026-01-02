@@ -1,8 +1,10 @@
 #
 import json
-import pytest
 from pathlib import Path
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+
+import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+
 from ArWikiCats import resolve_label_ar
 
 

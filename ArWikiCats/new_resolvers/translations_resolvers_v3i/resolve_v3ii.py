@@ -12,10 +12,11 @@ More examples:
 
 """
 import functools
+
 from ...helps import logger
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import resolve_jobs_main
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 jobs_part_labels = {
     "lgbtq people": "أعلام إل جي بي تي كيو",
@@ -36,8 +37,9 @@ formatted_data = {
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
     result = (
-        jobs_part_labels.get(text) or
-        resolve_jobs_main(text) or
+        jobs_part_labels.get(text)
+        or resolve_jobs_main(text)
+        or
         # get_lab_for_country2(text) or
         ""
     )
@@ -61,7 +63,9 @@ def match_key_callback(text: str) -> str:
     # replace all formatted_data keys from text
     # text = text.replace("{year1} deaths from", "").replace("{year1}", "")
 
-    keys_to_replace = [x.replace("{country1}", "").strip() for x in formatted_data.keys() if x.replace("{country1}", "").strip()]
+    keys_to_replace = [
+        x.replace("{country1}", "").strip() for x in formatted_data.keys() if x.replace("{country1}", "").strip()
+    ]
     # sort by len
     keys_to_replace = sorted(
         keys_to_replace,
@@ -75,7 +79,6 @@ def match_key_callback(text: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
-
     country_bot = FormatDataFrom(
         formatted_data=formatted_data,
         key_placeholder="{country1}",

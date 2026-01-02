@@ -9,18 +9,16 @@ import re
 
 from ...fix import fixtitle
 from ...helps.log import logger
-from ...translations import Nat_mens, typeTable
-from ...utils import check_key_in_tables
-from ...time_resolvers import time_to_arabic
+from ...ma_bots.country_bot import get_country
 from ...make_bots.format_bots import category_relation_mapping
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
 from ...make_bots.matables_bots.check_bot import check_key_new_players
-
-from ...ma_bots.country_bot import get_country
+from ...time_resolvers import time_to_arabic
+from ...translations import Nat_mens, typeTable
+from ...utils import check_key_in_tables
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
-
 from .reg_result import get_cats, get_reg_result
 
 type_after_country = ["non-combat"]
@@ -186,7 +184,7 @@ class LabelForStartWithYearOrTypeo:
         )
 
         if (self.In.strip() in ("in", "at")) and not self.suf.strip():
-            logger.info(f'Add في to arlabel:in, at: {self.arlabel}')
+            logger.info(f"Add في to arlabel:in, at: {self.arlabel}")
 
             self.arlabel += " في "
             self.cat_test = self.replace_cat_test(self.cat_test, self.In)
@@ -255,7 +253,7 @@ class LabelForStartWithYearOrTypeo:
                 )
                 return
 
-            logger.info(f'a<<lightblue>>>>>> Cant id {self.country_lower=} ')
+            logger.info(f"a<<lightblue>>>>>> Cant id {self.country_lower=} ")
             self.NoLab = True
             return
 
@@ -290,7 +288,7 @@ class LabelForStartWithYearOrTypeo:
 
         elif self.cat_test == self.country_lower or self.cat_test == ("in " + self.country_lower):
             logger.debug("<<lightgreen>>>>>> cat_test False.. ")
-            logger.debug(f'<<lightblue>>>>>> cat_test = {self.country_lower=} ')
+            logger.debug(f"<<lightblue>>>>>> cat_test = {self.country_lower=} ")
             self.NoLab = True
 
         elif self.cat_test.lower() == category2.lower():
@@ -298,7 +296,7 @@ class LabelForStartWithYearOrTypeo:
 
         else:
             logger.debug("<<lightgreen>>>> >> cat_test False result.. ")
-            logger.debug(f' {self.cat_test=} ')
+            logger.debug(f" {self.cat_test=} ")
             logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
             self.NoLab = True
 

@@ -11,6 +11,7 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping, MutableMapping
 from string import Formatter
 from typing import Any
+
 from ...helps import logger
 
 # The list of age categories that appear throughout the sports templates.

@@ -176,7 +176,6 @@ data_1 = {
     "Category:Presidents of the National Council (Austria)": "تصنيف:رؤساء المجلس الوطني (النمسا)",
     "Category:Speakers of the National Assembly (Kuwait)": "تصنيف:رؤساء الجمعية الوطنية (الكويت)",
     "Category:Women members of the National Assembly (Ecuador)": "تصنيف:عضوات الجمعية الوطنية (الإكوادور)",
-
 }
 
 to_test = [
@@ -195,7 +194,6 @@ def test_national_assembly_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
 
