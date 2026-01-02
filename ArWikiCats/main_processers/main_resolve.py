@@ -11,7 +11,7 @@ import re
 from ..patterns_resolvers import nat_men_pattern
 from ..time_resolvers import with_years_bot
 from ..make_bots.o_bots import univer
-from ..ma_bots.country_bot import get_country
+from ..ma_bots.country_bot import event2_d2
 from . import event_lab_bot, event2_stubs
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
@@ -104,7 +104,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         if not category_lab:
             category_lab = (
                 univer.te_universities(changed_cat)
-                or get_country(changed_cat)
+                or event2_d2(changed_cat)
                 or with_years_bot.Try_With_Years(changed_cat)
                 or label_for_startwith_year_or_typeo(changed_cat)
                 or event2_stubs.stubs_label(changed_cat)
