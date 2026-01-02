@@ -3,34 +3,33 @@
 Arabic Label Builder Module
 """
 
-import re
 import functools
+import re
 from typing import Tuple
 
 from ...helps.log import logger
-from ...translations import (
-    RELIGIOUS_KEYS_PP,
-    New_female_keys,
-    get_from_pf_keys2,
-    get_from_new_p17_final,
-)
+from ...ma_bots import country2_lab
+from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ...time_resolvers import time_to_arabic
+from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import (
     Tabl_with_in,
     for_table,
 )
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.o_bots import bys
 from ...make_bots.o_bots.peoples_resolver import make_people_lab
 from ...make_bots.sports_bots import team_work
-from ...ma_bots import country2_lab
-from ...ma_bots.country_bot import Get_c_t_lab, get_country
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-
 from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...time_resolvers import time_to_arabic
+from ...translations import (
+    RELIGIOUS_KEYS_PP,
+    New_female_keys,
+    get_from_new_p17_final,
+    get_from_pf_keys2,
+)
 
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 

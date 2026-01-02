@@ -5,13 +5,14 @@ bot to handle the translation logic.
 
 """
 
-import re
 import functools
-from .categories_patterns.NAT_males import NAT_DATA_MALES
-from ..helps import logger, dump_data
+import re
+
+from ..helps import dump_data, logger
+from ..new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
 from ..translations import All_Nat, all_country_with_nat
 from ..translations_formats import FormatDataV2
-from ..new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
+from .categories_patterns.NAT_males import NAT_DATA_MALES
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

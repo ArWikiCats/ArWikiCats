@@ -6,24 +6,24 @@ This module provides functions for processing and generating labels for country 
 import functools
 import re
 from typing import Tuple
-from ...helps.log import logger
-from .utils import split_text_by_separator
 
+from ...helps.log import logger
 from ...ma_bots import country2_lab, country_bot
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...time_resolvers import with_years_bot
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
-from ...translations import get_from_pf_keys2, typeTable
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import category_relation_mapping, get_tabl_with_in, pop_format, pop_format2
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO
-from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.o_bots import bys, parties_bot
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
+from ...new_resolvers.bys_new import resolve_by_labels
+from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...time_resolvers import with_years_bot
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+from ...translations import get_from_pf_keys2, typeTable
+from ...utils import check_key_in_tables_return_tuple, fix_minor
+from .utils import split_text_by_separator
 
 pp_start_with2 = {
     "defunct": "{} سابقة",

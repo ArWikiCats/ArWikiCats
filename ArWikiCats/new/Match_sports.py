@@ -9,6 +9,7 @@ TODO: Use it in the code or remove it!
 import functools
 import re
 from typing import Dict
+
 from ..helps import logger
 from ..translations_formats import FormatData
 

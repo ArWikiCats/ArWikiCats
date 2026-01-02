@@ -8,14 +8,14 @@ import re
 from typing import Pattern
 
 from ..helps.log import logger
-from ..translations import WORD_AFTER_YEARS, change_numb_to_word, get_from_pf_keys2
-from ..make_bots.format_bots import ar_lab_before_year_to_add_in
 from ..ma_bots import country2_lab
 from ..ma_bots.ye_ts_bot import translate_general_category
+from ..make_bots.format_bots import ar_lab_before_year_to_add_in
 from ..make_bots.matables_bots.data import Add_in_table
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 from ..new_resolvers.reslove_all import new_resolvers_all
+from ..translations import WORD_AFTER_YEARS, change_numb_to_word, get_from_pf_keys2
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

@@ -11,14 +11,14 @@ import re
 from typing import Optional
 
 from ..fix import fixtitle
-from ..helps import logger, dump_data
-from ..translations import Jobs_new, jobs_mens_data
-from ..utils import get_relation_word, get_value_from_any_table
-from ..time_resolvers import time_to_arabic
+from ..helps import dump_data, logger
+from ..ma_bots2.ar_lab import find_ar_label
 from ..make_bots.format_bots import category_relation_mapping
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import Films_O_TT, players_new_keys
-from ..ma_bots2.ar_lab import find_ar_label
+from ..time_resolvers import time_to_arabic
+from ..translations import Jobs_new, jobs_mens_data
+from ..utils import get_relation_word, get_value_from_any_table
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 

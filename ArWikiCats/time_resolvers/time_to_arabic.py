@@ -8,8 +8,8 @@ It includes regular expressions for matching time expressions in both English
 and Arabic, and a conversion function to translate English expressions.
 """
 
-import re
 import functools
+import re
 
 century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"

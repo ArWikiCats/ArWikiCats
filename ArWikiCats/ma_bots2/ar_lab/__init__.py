@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .ar_lab import find_ar_label, add_in_tab, separator_lists_fixing
+from .ar_lab import add_in_tab, find_ar_label, separator_lists_fixing
 from .lab import (
     get_con_lab,
     get_type_country,

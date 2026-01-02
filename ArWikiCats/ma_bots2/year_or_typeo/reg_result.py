@@ -1,8 +1,8 @@
 import re
 from dataclasses import dataclass
 
-from ...translations.type_tables import basedtypeTable
 from ...make_bots.format_bots import category_relation_mapping
+from ...translations.type_tables import basedtypeTable
 
 
 def _load_pattern() -> re.Pattern:

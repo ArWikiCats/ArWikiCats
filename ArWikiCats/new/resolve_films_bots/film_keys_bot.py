@@ -9,6 +9,7 @@ TODO: replaced by resolve_films
 import functools
 
 from ...helps.log import logger
+from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ...translations import (
     All_Nat,
     Films_key_333,
@@ -21,7 +22,6 @@ from ...translations import (
     television_keys,
 )
 from .resolve_films_labels import get_films_key_tyty_new
-from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 
 
 @functools.lru_cache(maxsize=None)

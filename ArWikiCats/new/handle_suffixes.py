@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
 """
-from ..helps import logger
+from typing import Dict, TypedDict
 
-from typing import TypedDict, Dict
+from ..helps import logger
 
 
 class GenderedLabel(TypedDict):

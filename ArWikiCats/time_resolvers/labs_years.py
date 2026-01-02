@@ -5,12 +5,12 @@ Labs Years processing module.
 import re
 
 from ..helps.log import logger
+from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
 from .time_to_arabic import (
     convert_time_to_arabic,
     match_time_ar_first,
     match_time_en_first,
 )
-from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
 from .utils_time import fixing
 
 YEAR_PARAM = "{year1}"

@@ -2,7 +2,6 @@
 
 from typing import Dict, Tuple
 
-
 dict_temps: Dict[str, str] = {
     "templates": "قوالب {}",
     "sidebar templates": "قوالب أشرطة جانبية {}",

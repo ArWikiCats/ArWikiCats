@@ -6,11 +6,16 @@ Country Label Bot Module
 import functools
 import re
 
-from . import country2_bot, country2_lab
-from . import ye_ts_bot
-
 from ..config import app_settings
 from ..helps.log import logger
+from ..make_bots.films_and_others_bot import te_films
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
+from ..make_bots.sports_bots import team_work
+from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers import with_years_bot
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
@@ -18,14 +23,7 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from ..time_resolvers import with_years_bot
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make_bots.films_and_others_bot import te_films
-from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
-from ..make_bots.sports_bots import team_work
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ..new_resolvers.reslove_all import new_resolvers_all
+from . import country2_bot, country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=10000)

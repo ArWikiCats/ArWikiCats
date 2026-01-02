@@ -10,19 +10,19 @@ from ..fix import fixtitle
 from ..helps.log import logger
 from ..main_processers import event2bot
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import New_Lan
-from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
