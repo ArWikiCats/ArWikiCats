@@ -1,14 +1,14 @@
 """
 EventLab Bot - A class-based implementation to handle category labeling
 """
-
+import functools
 from typing import Tuple
 
 from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..ma_bots import ye_ts_bot
-from ..ma_bots.country2_bot import Get_country2
+from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..ma_bots.lab_seoo_bot import event_label_work
 from ..make_bots import tmp_bot
 from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
@@ -22,6 +22,48 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_resolvers import time_to_arabic
 from ..translations import get_from_new_p17_final
 from .main_utils import list_of_cat_func
+
+from ..make_bots.films_and_others_bot import te_films
+from ..make_bots.matables_bots.table1_bot import get_KAKO
+from ..make_bots.o_bots import parties_bot
+from ..make_bots.o_bots.peoples_resolver import work_peoples
+from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..make_bots.sports_bots import sport_lab_suffixes, team_work
+from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..translations import get_from_pf_keys2
+
+
+@functools.lru_cache(maxsize=10000)
+def wrap_lab_for_country2(country: str) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve laboratory information for a specified country.
+    """
+
+    country2 = country.lower().strip()
+
+    resolved_label = (
+        resolve_relations_label(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or te_films(country2)
+        or sport_lab_nat_load_new(country2)
+        or sport_lab_suffixes.get_teams_new(country2)
+        or parties_bot.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or univer.te_universities(country2)
+        or resolve_us_states(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or ""
+    )
+    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
+
+    return resolved_label
 
 
 class EventLabResolver:
@@ -76,7 +118,13 @@ class EventLabResolver:
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
         if list_of_cat == "لاعبو {}":
-            category_lab = Get_country2(original_category3)
+            category_lab = (
+                country_2_title_work(original_category3)
+                or wrap_lab_for_country2(original_category3)
+                or ye_ts_bot.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
+                or get_pop_All_18(original_category3.lower(), "")
+                or ""
+            )
             if category_lab:
                 list_of_cat = ""
 
@@ -116,7 +164,13 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = Get_country2(category3)
+        category_lab = (
+            country_2_title_work(category3)
+            or wrap_lab_for_country2(category3)
+            or ye_ts_bot.translate_general_category(category3, start_get_country2=False, fix_title=False)
+            or get_pop_All_18(category3.lower(), "")
+            or ""
+        )
         if category_lab:
             return category_lab
 
