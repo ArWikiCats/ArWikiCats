@@ -7,7 +7,6 @@ from ..sports.cycling import CYCLING_TEMPLATES
 from ..utils.json_dir import open_json_file
 from .keys2 import new_2019
 
-
 CAMBRIDGE_COLLEGES: dict[str, str] = {
     "christ's": "كريست",
     "churchill": "تشرشل",

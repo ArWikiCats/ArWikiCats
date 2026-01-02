@@ -8,6 +8,7 @@ from ...helps import len_print, logger
 from ..companies import New_Company as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
+from ..nats.Nationality import all_country_ar
 from ..tax_table import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping
 from .Cities import CITY_TRANSLATIONS_LOWER
@@ -15,7 +16,6 @@ from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 from .us_counties import US_COUNTY_TRANSLATIONS
-from ..nats.Nationality import all_country_ar
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",

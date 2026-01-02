@@ -5,9 +5,9 @@ TODO: use this instead of for_me.py and nats_women.py
 import functools
 
 from ...helps import logger
-from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ...translations import all_country_with_nat, all_country_with_nat_ar
 from ...translations_formats import FormatDataV2
-from ...translations import all_country_with_nat_ar, all_country_with_nat
+from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
 from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]

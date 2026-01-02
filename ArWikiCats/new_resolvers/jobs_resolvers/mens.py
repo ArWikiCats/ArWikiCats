@@ -5,10 +5,10 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import all_country_with_nat_ar, jobs_mens_data, RELIGIOUS_KEYS_PP, all_country_with_nat
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
-from .utils import fix_keys, one_Keys_more_2, nat_and_gender_keys
+from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

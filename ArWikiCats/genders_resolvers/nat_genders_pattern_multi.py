@@ -3,10 +3,11 @@ Module to resolve nationality gender patterns in Arabic categories.
 
 """
 
-import re
 import functools
+import re
+
 from ..helps import logger
-from ..translations import All_Nat, SPORT_KEY_RECORDS_BASE
+from ..translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ..translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)

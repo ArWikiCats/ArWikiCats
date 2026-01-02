@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from .ArWikiCats import (
-    print_memory,
     EventProcessor,
-    batch_resolve_labels,
-    resolve_arabic_category_label,
-    dump_all_len,
     LoggerWrap,
-    logger,
+    batch_resolve_labels,
     config_all_params,
+    dump_all_len,
+    logger,
+    print_memory,
+    resolve_arabic_category_label,
 )
 
 __all__ = [

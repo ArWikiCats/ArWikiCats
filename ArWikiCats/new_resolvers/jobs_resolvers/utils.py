@@ -1,7 +1,6 @@
 import functools
 import re
 
-
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 

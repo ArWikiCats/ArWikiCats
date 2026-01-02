@@ -14,9 +14,9 @@ This script merges:
 
 import json
 import re
+from collections import defaultdict
 from pathlib import Path
 from typing import Dict, Tuple
-from collections import defaultdict
 
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"

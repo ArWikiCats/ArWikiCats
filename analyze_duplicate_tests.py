@@ -10,11 +10,11 @@
 """
 
 import ast
-import os
-from pathlib import Path
-from collections import defaultdict
-from typing import Dict, List, Tuple, Set
 import json
+import os
+from collections import defaultdict
+from pathlib import Path
+from typing import Dict, List, Set, Tuple
 
 
 class DuplicateTestAnalyzer:

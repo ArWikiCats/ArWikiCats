@@ -7,9 +7,9 @@ handling gender-specific translations and nationality-based categories.
 """
 
 from typing import Dict, Tuple
+
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
-
 
 # =============================================================================
 # Constants

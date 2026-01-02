@@ -1,9 +1,10 @@
 import json
-import ahocorasick
 import re
-from pathlib import Path
-from tqdm import tqdm
 from collections import defaultdict
+from pathlib import Path
+
+import ahocorasick
+from tqdm import tqdm
 
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"

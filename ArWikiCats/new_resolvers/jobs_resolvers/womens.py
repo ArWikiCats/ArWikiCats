@@ -3,17 +3,18 @@ This module provides functionality to translate category titles
 compare with womens_prefixes_work
 """
 import functools
+
 from ...helps import len_print, logger
 from ...translations import (
+    FEMALE_JOBS_BASE,
+    RELIGIOUS_KEYS_PP,
+    all_country_with_nat,
     all_country_with_nat_ar,
     jobs_womens_data,
-    RELIGIOUS_KEYS_PP,
-    FEMALE_JOBS_BASE,
-    all_country_with_nat,
 )
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
-from .utils import fix_keys, one_Keys_more_2, nat_and_gender_keys, filter_and_replace_gender_terms
+from .utils import filter_and_replace_gender_terms, fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

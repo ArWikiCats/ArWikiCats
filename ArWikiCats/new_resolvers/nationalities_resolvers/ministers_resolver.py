@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import functools
-from ...helps import logger
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ...translations import all_country_with_nat_ar, ministers_keys
-from ..nats_as_country_names import nats_keys_as_country_names
 
+from ...helps import logger
+from ...translations import all_country_with_nat_ar, ministers_keys
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ..nats_as_country_names import nats_keys_as_country_names
 
 nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence

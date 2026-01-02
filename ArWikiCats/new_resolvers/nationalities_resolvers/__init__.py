@@ -1,10 +1,10 @@
 import functools
-from ...helps import logger
 
+from ...helps import logger
 from . import (
-    nationalities_v2,
-    nationalities_time_v2,
     ministers_resolver,
+    nationalities_time_v2,
+    nationalities_v2,
 )
 
 

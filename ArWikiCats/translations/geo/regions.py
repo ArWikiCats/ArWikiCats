@@ -1,8 +1,8 @@
 """Regional translation tables used across the geo modules."""
 
 from __future__ import annotations
-from ...helps import len_print
 
+from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
 

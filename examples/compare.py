@@ -1,17 +1,18 @@
 """
 
 """
-import sys
 import json
+import sys
 import time
-from tqdm import tqdm
 from pathlib import Path
+
+from tqdm import tqdm
 
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(Path(__file__).parent))
     sys.path.append(str(_Dir))
 
-from ArWikiCats import print_memory, batch_resolve_labels
+from ArWikiCats import batch_resolve_labels, print_memory
 
 
 def compare_and_export_labels(data, name, remove_ar_prefix=False):

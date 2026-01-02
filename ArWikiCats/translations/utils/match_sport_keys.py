@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """ """
 
-import re
 import functools
+import re
+
 from ...helps import logger
 from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
 

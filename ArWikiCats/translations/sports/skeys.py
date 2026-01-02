@@ -3,7 +3,7 @@
 Comprehensive sport template dictionaries used throughout the project.
 """
 
-from typing import Final, Dict
+from typing import Dict, Final
 
 from ...helps import len_print
 from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM

@@ -7,11 +7,12 @@ bot (`yc_bot`) to handle the translation logic.
 """
 
 import functools
+
 from ...helps import logger
 from ...translations import all_country_with_nat_ar
 from ...translations_formats import (
-    format_year_country_data_v2,
     MultiDataFormatterBaseYearV2,
+    format_year_country_data_v2,
 )
 
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA

@@ -3,8 +3,8 @@ import functools
 from ...helps import logger
 from . import (
     countries_names_and_sports,
-    nationalities_and_sports,
     match_labs,
+    nationalities_and_sports,
     raw_sports,
     sport_lab_nat,
 )

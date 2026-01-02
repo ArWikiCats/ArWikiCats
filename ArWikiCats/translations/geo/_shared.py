@@ -8,11 +8,12 @@ book-keeping logic.
 """
 
 from __future__ import annotations
+
 from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
-from ..utils.json_dir import open_json_file
 from ...helps import logger
+from ..utils.json_dir import open_json_file
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:

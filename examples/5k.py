@@ -1,5 +1,5 @@
-import sys
 import json
+import sys
 from pathlib import Path
 
 if _Dir := Path(__file__).parent:
