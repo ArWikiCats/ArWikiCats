@@ -5,11 +5,12 @@
 
 import functools
 import re
+
 from ..helps.log import logger
+from ..make_bots.o_bots import univer
 
 from ..time_resolvers import with_years_bot
 from ..ma_bots.country_bot import get_country
-from ..make_bots.o_bots import univer
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
