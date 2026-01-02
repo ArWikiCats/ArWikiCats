@@ -8,14 +8,14 @@ from typing import Mapping, Tuple
 
 from ...helps.log import logger
 from ...translations import (
-    NationalityEntry,
-    Nat_the_male,
-    Nat_the_female,
+    COUNTRY_LABEL_OVERRIDES,
     Nat_men,
+    Nat_the_female,
+    Nat_the_male,
     Nat_women,
+    NationalityEntry,
     all_country_ar,
     countries_nat_en_key,
-    COUNTRY_LABEL_OVERRIDES,
     get_from_new_p17_final,
 )
 from ..o_bots.utils import apply_arabic_article

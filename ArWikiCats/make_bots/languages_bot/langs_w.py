@@ -11,6 +11,7 @@ from typing import Dict, Mapping, Optional
 
 from ...helps.log import logger
 from ...translations import (
+    LANGUAGE_TOPIC_FORMATS,
     All_Nat,
     Films_key_333,
     Films_key_CAO,
@@ -18,7 +19,6 @@ from ...translations import (
     Films_keys_both_new_female,
     film_keys_for_female,
     jobs_mens_data,
-    LANGUAGE_TOPIC_FORMATS,
     language_key_translations,
 )
 

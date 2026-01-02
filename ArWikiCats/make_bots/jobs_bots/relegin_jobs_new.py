@@ -5,9 +5,10 @@
 
 import functools
 import re
+
 from ...helps.log import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
+from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 

@@ -10,7 +10,7 @@ import functools
 from dataclasses import dataclass
 from typing import Iterable, Optional, Union
 
-from ...helps import logger, dump_data
+from ...helps import dump_data, logger
 from ...translations import RELIGIOUS_KEYS_PP, All_Nat, Nat_women, countries_from_nat
 
 # Type alias for keys data - can be dict or list

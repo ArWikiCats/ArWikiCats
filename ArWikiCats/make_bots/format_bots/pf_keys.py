@@ -5,6 +5,7 @@
 import functools
 import re
 from typing import Dict
+
 from ...translations import New_Company
 
 # Cache for compiled regex patterns

@@ -14,24 +14,22 @@ from ...helps.jsonl_dump import dump_data
 from ...helps.log import logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import (
-    change_male_to_female,
-    Female_Jobs,
-    jobs_mens_data,
-    jobs_womens_data,
+    FILM_PRODUCTION_COMPANY,
     PLAYERS_TO_MEN_WOMENS_JOBS,
     SPORT_JOB_VARIANTS,
+    SPORTS_KEYS_FOR_LABEL,
+    Female_Jobs,
     Mens_prefix,
     Mens_suffix,
     Nat_mens,
+    People_key,
+    change_male_to_female,
+    jobs_mens_data,
+    jobs_womens_data,
     short_womens_jobs,
     womens_prefixes,
-    FILM_PRODUCTION_COMPANY,
-    People_key,
-    SPORTS_KEYS_FOR_LABEL,
 )
-
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
-
 
 # Constants
 _PEOPLE_SUFFIX = " people"

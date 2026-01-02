@@ -4,14 +4,14 @@ TODO: merge with countries_names_sport_multi_v2.py
 
 """
 import functools
-from ...helps import dump_data, logger
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBaseV2
-from ...translations import (
-    countries_from_nat,
-    SPORTS_KEYS_FOR_TEAM,
-)
 
+from ...helps import dump_data, logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ...translations import (
+    SPORTS_KEYS_FOR_TEAM,
+    countries_from_nat,
+)
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..teams_mappings_ends import teams_label_mappings_ends
 
 SPORT_FORMATS_ENAR_P17_TEAM = {

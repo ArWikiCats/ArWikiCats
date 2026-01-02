@@ -9,10 +9,10 @@ import re
 from ...helps.log import logger
 from ...translations import (
     Nat_men,
-    Nat_women,
     Nat_the_female,
-    New_female_keys,
     Nat_the_male,
+    Nat_women,
+    New_female_keys,
     New_male_keys,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,

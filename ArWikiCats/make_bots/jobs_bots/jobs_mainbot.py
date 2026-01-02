@@ -10,17 +10,17 @@ gender-specific templates, and Arabic language formatting conventions.
 import functools
 from typing import Optional
 
-from ...helps import logger, dump_data
+from ...helps import dump_data, logger
 from ...translations import (
-    All_Nat,
     NAT_BEFORE_OCC,
+    All_Nat,
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,
     short_womens_jobs,
 )
-from .prefix_bot import mens_prefixes_work, womens_prefixes_work
 from ..jobs_bots.get_helps import get_suffix_with_keys
+from .prefix_bot import mens_prefixes_work, womens_prefixes_work
 
 # ============================================================================
 # Constants

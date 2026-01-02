@@ -6,9 +6,8 @@ English country-name → Arabic country-name.
 import functools
 
 from ...helps import logger
-from ...translations_formats import format_multi_data, MultiDataFormatterBase
-from ...translations import countries_from_nat, SPORTS_KEYS_FOR_JOBS
-
+from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
+from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
 # TODO: This all wrong arabic values need to be fixed later
 under_data_to_check = {

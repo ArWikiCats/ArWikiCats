@@ -1,6 +1,6 @@
 """"""
 
-from typing import Dict, Any
+from typing import Any, Dict
 
 
 def sort_by_empty_space(data: Dict[str, Any]) -> dict:

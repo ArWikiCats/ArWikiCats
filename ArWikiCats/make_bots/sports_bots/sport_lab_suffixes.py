@@ -8,11 +8,11 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import logger, dump_data
-from ...translations import SPORTS_KEYS_FOR_JOBS
-from ..o_bots.utils import resolve_suffix_template
+from ...helps import dump_data, logger
 from ...new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from ...new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+from ...translations import SPORTS_KEYS_FOR_JOBS
+from ..o_bots.utils import resolve_suffix_template
 from . import team_work
 
 
