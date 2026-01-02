@@ -181,3 +181,23 @@ def Try_With_Years(category_text: str) -> str:
         logger.debug(f'>>>>>> Try With Years lab2 "{label}" ')
 
     return label
+
+
+def Try_With_Years2(category_r) -> str:
+    """
+    """
+    cat3 = category_r.lower().replace("category:", "").strip()
+
+    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
+
+    # TODO: THIS NEED REVIEW
+    # Reject strings that contain common English prepositions
+    blocked = ("in", "of", "from", "by", "at")
+    if any(f" {word} " in cat3.lower() for word in blocked):
+        return ""
+
+    category_lab = ""
+    if re.sub(r"^\d", "", cat3) != cat3:
+        category_lab = Try_With_Years(cat3)
+
+    return category_lab

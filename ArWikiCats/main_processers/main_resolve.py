@@ -105,7 +105,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             category_lab = (
                 univer.te_universities(changed_cat)
                 or event2_d2(changed_cat)
-                or with_years_bot.Try_With_Years(changed_cat)
+                or with_years_bot.Try_With_Years2(changed_cat)
                 or label_for_startwith_year_or_typeo(changed_cat)
                 or event2_stubs.stubs_label(changed_cat)
                 or ""
