@@ -9,7 +9,8 @@ import re
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..ma_bots2.year_or_typeo import bot_lab
-from ..main_processers import event2_stubs, event2bot
+from ..ma_bots.country_bot import get_country
+from ..main_processers import event2_stubs
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
@@ -74,7 +75,7 @@ def event_label_work(target_category: str) -> str:
         or team_work.Get_team_work_Club(normalized_target_category)
 
         or univer.te_universities(normalized_target_category)
-        or event2bot.event2_new2(normalized_target_category)
+        or get_country(normalized_target_category)
         or with_years_bot.Try_With_Years(normalized_target_category)
 
         or bot_lab.label_for_startwith_year_or_typeo(normalized_target_category)
