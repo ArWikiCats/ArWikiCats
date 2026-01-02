@@ -6,11 +6,12 @@ countries_names.py use only countries names without nationalities
 countries_names_v2.py use countries names with nationalities
 
 """
-from typing import Dict
 import functools
+from typing import Dict
+
 from ...helps import logger
+from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
-from ...translations import countries_from_nat, COUNTRY_LABEL_OVERRIDES
 from .countries_names_data import formatted_data_en_ar_only
 
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly

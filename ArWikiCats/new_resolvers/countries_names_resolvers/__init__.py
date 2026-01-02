@@ -1,10 +1,10 @@
+from ...helps import logger
 from . import (
-    countries_names_v2,
     countries_names,
+    countries_names_v2,
     medalists_resolvers,
     us_states,
 )
-from ...helps import logger
 
 
 def resolve_countries_names_main(normalized_category) -> str:

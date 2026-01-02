@@ -3,10 +3,11 @@
 TODO: use it to replace get_and_label, get_by_label functions in bys.py
 
 """
-import re
 import functools
-from ..helps import logger, len_print
-from ..translations_formats import format_multi_data, MultiDataFormatterBase
+import re
+
+from ..helps import len_print, logger
+from ..translations_formats import MultiDataFormatterBase, format_multi_data
 
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",

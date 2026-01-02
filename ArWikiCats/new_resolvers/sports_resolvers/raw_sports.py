@@ -4,16 +4,16 @@
 
 import functools
 
-from ...helps import logger, len_print
+from ...helps import len_print, logger
 
 # from ...helps.jsonl_dump import dump_data
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations_formats import FormatData
 from ...translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )
+from ...translations_formats import FormatData
 from .sport_lab2_data import jobs_formatted_data, labels_formatted_data, teams_formatted_data
 
 labels_bot = FormatData(

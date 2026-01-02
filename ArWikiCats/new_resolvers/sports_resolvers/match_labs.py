@@ -4,10 +4,11 @@ TODO: merge with sports_resolvers/raw_sports.py
 """
 
 import functools
-from ...helps import logger, dump_data
+
+from ...helps import dump_data, logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
-from ...translations_formats import FormatDataV2
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import FormatDataV2
 
 teams_2025_sample = {
     "{sport} people": "أعلام {sport_jobs}",

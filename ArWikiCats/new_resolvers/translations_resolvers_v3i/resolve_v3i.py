@@ -10,19 +10,16 @@ More examples:
     - https://quarry.wmcloud.org/query/100099
 
 """
-import re
 import functools
+import re
 
-from ...translations.mixed.keys2 import medical_keys
-
-from ...translations import get_from_new_p17_final, get_from_pf_keys2
-
-from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...helps import logger
+from ...make_bots.matables_bots.table1_bot import get_KAKO
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ...translations import get_from_new_p17_final, get_from_pf_keys2
+from ...translations.mixed.keys2 import medical_keys
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import resolve_jobs_main
-
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 

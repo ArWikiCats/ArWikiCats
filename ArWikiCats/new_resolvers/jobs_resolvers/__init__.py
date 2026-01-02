@@ -1,5 +1,5 @@
 from ...helps import logger
-from . import womens, mens
+from . import mens, womens
 
 
 def resolve_jobs_main(normalized_category) -> str:
