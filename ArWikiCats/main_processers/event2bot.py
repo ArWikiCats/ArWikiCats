@@ -5,13 +5,13 @@
 
 import functools
 import re
-
-from ..fix import fixtitle
 from ..helps.log import logger
+
 from ..time_resolvers import with_years_bot
-from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..ma_bots.country_bot import get_country
-from ..make_bots.o_bots import univer  # univer.te_universities(cate)
+
+from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from ..make_bots.o_bots import univer
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -39,52 +39,6 @@ def event2_d2(category_r) -> str:
             category_lab = f"تصنيف:{category_lab}"
 
     return category_lab
-
-
-@functools.lru_cache(maxsize=None)
-def event2(category_r: str) -> str:
-    """Process a category string and return a corresponding label.
-
-    This function takes a category string as input, processes it to extract
-    relevant information, and attempts to generate a label based on
-    predefined patterns and rules. It utilizes regular expressions to
-    identify various time periods, such as centuries and millennia, and
-    uses @functools.lru_cache for performance optimization. If no label can be generated,
-    it defaults to a fallback mechanism.
-
-    Args:
-        category_r (str): The category string to be processed.
-
-    Returns:
-        str: The generated label corresponding to the input category string, or an
-            empty string if no label could be determined.
-    """
-
-    if not category_r:
-        return ""
-
-    logger.info("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
-    logger.info(f'<<lightyellow>>>>>> event2 :"{category_r}"')
-    category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
-
-    ar_label = univer.te_universities(category_r)
-    if ar_label:
-        return ar_label
-
-    category_lab = event2_d2(category_r)
-
-    if category_lab:
-        if re.sub(en_literes, "", category_lab, flags=re.IGNORECASE) == category_lab:
-            category_lab = fixtitle.fixlabel(category_lab, en=category_r)
-            logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", {category_lab=}')
-            logger.info("<<lightblue>>>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-            return category_lab
-
-    ar_label = label_for_startwith_year_or_typeo(category_r)
-
-    logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
-
-    return ar_label
 
 
 @functools.lru_cache(maxsize=None)
