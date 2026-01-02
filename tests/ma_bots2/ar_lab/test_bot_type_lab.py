@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots2.ar_lab import get_type_lab
+from ArWikiCats.ma_bots2.ar_lab.lab import get_type_lab
 
 data = [
     # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
