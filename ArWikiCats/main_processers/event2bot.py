@@ -6,13 +6,10 @@
 import functools
 import re
 
-from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
-from ..make_bots import tmp_bot
 from ..time_resolvers import with_years_bot
 from ..ma_bots.country_bot import get_country
-from ..ma_bots.lab_seoo_bot import event_label_work
 from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..make_bots.o_bots import univer  # univer.te_universities(cate)
 

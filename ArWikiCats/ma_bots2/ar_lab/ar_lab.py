@@ -8,9 +8,8 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-
 from ...helps.log import logger
-from ...main_processers import event2bot, event2_stubs
+from ...main_processers import event2_stubs, event2bot
 from ...make_bots.format_bots import (
     Dont_Add_min,
     category_relation_mapping,
