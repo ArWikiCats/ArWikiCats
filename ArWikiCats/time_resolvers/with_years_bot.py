@@ -184,8 +184,7 @@ def Try_With_Years(category_text: str) -> str:
 
 
 def Try_With_Years2(category_r) -> str:
-    """
-    """
+    """ """
     cat3 = category_r.lower().replace("category:", "").strip()
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')

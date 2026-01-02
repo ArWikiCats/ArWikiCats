@@ -87,6 +87,9 @@ def get_pop_All_18(key: str, default: str = "") -> str:
     if result:
         return result
 
+    if key.startswith("the "):
+        key = key[len("the ") :]
+
     call_ables = {
         "_get_pop_All_18": _get_pop_All_18,
         "_get_from_alias": _get_from_alias,

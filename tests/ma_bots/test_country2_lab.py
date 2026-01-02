@@ -51,8 +51,6 @@ data = {
     "ski jumping": "القفز التزلجي",
     "table tennis clubs": "أندية كرة طاولة",
     "figure skating people": "أعلام تزلج فني",
-    "the summer universiade": "الألعاب الجامعية الصيفية",
-    "the universiade": "الألعاب الجامعية",
     "television series-endings": "مسلسلات تلفزيونية انتهت في",
     "wheelchair basketball": "كرة السلة على الكراسي المتحركة",
     "wheelchair fencing": "مبارزة سيف الشيش على الكراسي المتحركة",
@@ -68,7 +66,6 @@ data = {
     "new zealand": "نيوزيلندا",
     "sri lanka": "سريلانكا",
     "parapan american games medalists": "فائزون بميداليات ألعاب بارابان الأمريكية",
-    "the summer paralympics": "الألعاب البارالمبية الصيفية",
     "wheelchair basketball competitions": "منافسات كرة سلة على كراسي متحركة",
     "wheelchair basketball leagues": "دوريات كرة سلة على كراسي متحركة",
     "wheelchair basketball teams": "فرق كرة سلة على كراسي متحركة",
@@ -104,6 +101,18 @@ data = {
     "pan-african parliament": "البرلمان الإفريقي",
     "pan-african democratic party politicians": "سياسيو الحزب الديمقراطي الوحدوي الإفريقي",
 }
+
+data_hendel_the = {
+    "the summer universiade": "الألعاب الجامعية الصيفية",
+    "the universiade": "الألعاب الجامعية",
+    "the summer paralympics": "الألعاب البارالمبية الصيفية",
+}
+
+
+@pytest.mark.parametrize("category, expected", data_hendel_the.items(), ids=lambda x: x[0])
+def test_data_hendel_the(category: str, expected: str) -> None:
+    result = get_lab_for_country2(category)
+    assert result == expected
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=lambda x: x[0])
