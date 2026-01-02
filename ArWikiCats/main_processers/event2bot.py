@@ -9,8 +9,6 @@ from ..helps.log import logger
 
 from ..time_resolvers import with_years_bot
 from ..ma_bots.country_bot import get_country
-
-from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..make_bots.o_bots import univer
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -42,7 +40,7 @@ def event2_d2(category_r) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def event2_new(category_r: str) -> str:
+def event2_new2(category_r: str) -> str:
     """Process a category string and return a corresponding label.
 
     This function takes a category string as input, processes it to extract
@@ -61,18 +59,17 @@ def event2_new(category_r: str) -> str:
     """
 
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event2 start vvvvvvvvvvvv ")
-    logger.info(f'<<lightyellow>>>>>> event2_new :"{category_r}"')
+    logger.info(f'<<lightyellow>>>>>> event2_new2 :"{category_r}"')
     category_r = re.sub(r"category:", "", category_r, flags=re.IGNORECASE)
 
     ar_label = (
         univer.te_universities(category_r)
         or event2_d2(category_r)
-        or label_for_startwith_year_or_typeo(category_r)
         or ""
     )
     if ar_label.startswith("تصنيف:"):
         ar_label = ar_label[len("تصنيف:") :]
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ event2_new end 3 ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ event2_new2 end 3 ^^^^^^^^^ ")
 
     return ar_label

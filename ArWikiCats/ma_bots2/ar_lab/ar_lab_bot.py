@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...helps.log import logger
+from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...main_processers import event2_stubs, event2bot
 from ...make_bots.format_bots import (
     Dont_Add_min,
@@ -225,7 +226,12 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
-    result = event2bot.event2_new(category) or event2_stubs.stubs_label(category)
+    result = (
+        event2bot.event2_new2(category)
+        or label_for_startwith_year_or_typeo(category)
+        or event2_stubs.stubs_label(category)
+        or ""
+    )
     return result
 
 

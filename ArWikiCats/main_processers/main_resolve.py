@@ -16,6 +16,7 @@ from . import event2bot, event_lab_bot, event2_stubs
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 
+from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 # from ..translations_resolvers_v2.nats_time_v2 import resolve_nats_time_v2
 from ..config import app_settings
 from ..make_bots.co_bots import filter_en
@@ -103,7 +104,12 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             category_lab = start_ylab
 
         if not category_lab:
-            category_lab = event2bot.event2_new(changed_cat) or event2_stubs.stubs_label(changed_cat)
+            category_lab = (
+                event2bot.event2_new2(changed_cat)
+                or label_for_startwith_year_or_typeo(changed_cat)
+                or event2_stubs.stubs_label(changed_cat)
+                or ""
+            )
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)

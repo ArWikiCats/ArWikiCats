@@ -66,7 +66,7 @@ This document outlines a comprehensive testing strategy for the ArWikiCats Arabi
 def simple_category():
     return "Category:2015 in Yemen"
 
-@pytest.fixture  
+@pytest.fixture
 def complex_category():
     return "Category:1550s establishments in Namibia"
 
@@ -154,7 +154,7 @@ def mock_settings(mocker):
 # 3. Mock resolver chain for unit tests
 @pytest.fixture
 def mock_resolver_chain(mocker):
-    mocker.patch('ArWikiCats.main_processers.event2bot.event2_new', return_value="")
+    mocker.patch('ArWikiCats.main_processers.event2bot.event2_new2', return_value="")
     mocker.patch('ArWikiCats.main_processers.event_lab_bot.event_Lab', return_value="")
 ```
 
@@ -393,7 +393,7 @@ def test_resolve_label_with_year_and_country():
     """
     Test that resolve_label correctly translates a category
     with both year and country components.
-    
+
     Input: "2015 in Yemen"
     Expected: "2015 في اليمن"
     """
@@ -482,7 +482,7 @@ class TestEventProcessor:
     def test_process_single_valid_category(self, processor):
         """Test processing a single valid category."""
         result = processor.process_single("2015 in Yemen")
-        
+
         assert isinstance(result, ProcessedCategory)
         assert result.original == "2015 in Yemen"
         assert result.normalized == "2015 in Yemen"
@@ -493,7 +493,7 @@ class TestEventProcessor:
         """Test that batch processing returns EventProcessingResult."""
         categories = ["Category:Test1", "Category:Test2"]
         result = processor.process(categories)
-        
+
         assert isinstance(result, EventProcessingResult)
         assert isinstance(result.processed, list)
         assert isinstance(result.labels, dict)
@@ -504,7 +504,7 @@ class TestEventProcessor:
         """Test that empty categories are skipped."""
         categories = ["Valid Category", "", "Another Valid"]
         result = processor.process(categories)
-        
+
         assert len(result.processed) == 2
 ```
 
@@ -527,7 +527,7 @@ class TestResolverChainIntegration:
     def test_year_country_pattern_resolution(self):
         """
         Test end-to-end resolution of year + country pattern.
-        
+
         This tests the integration of:
         - EventProcessor
         - main_resolve
@@ -541,7 +541,7 @@ class TestResolverChainIntegration:
     def test_decade_country_pattern_resolution(self):
         """
         Test resolution of decade + country establishment pattern.
-        
+
         Expected flow:
         1. EventProcessor normalizes input
         2. LabsYears extracts decade (1550s)
@@ -562,7 +562,7 @@ class TestResolverChainIntegration:
     def test_batch_processing_integration(self):
         """
         Test batch processing with multiple pattern types.
-        
+
         Validates:
         - Multiple categories processed together
         - Different resolver paths work in same batch
@@ -573,12 +573,12 @@ class TestResolverChainIntegration:
             "1999 establishments in Europe",
             "Belgian cyclists",
         ]
-        
+
         result = batch_resolve_labels(categories)
-        
+
         # Verify structure
         assert len(result.processed) == 3
-        
+
         # Verify at least some translations succeeded
         assert len(result.labels) > 0 or len(result.no_labels) > 0
 
@@ -586,7 +586,7 @@ class TestResolverChainIntegration:
     def test_resolver_fallback_behavior(self):
         """
         Test that resolvers fall back correctly when patterns don't match.
-        
+
         The resolver chain should:
         1. Try labs_years
         2. Try new_resolvers_all
@@ -598,7 +598,7 @@ class TestResolverChainIntegration:
         """
         # A category that should trigger fallback
         result = resolve_arabic_category_label("Unknown Category Type")
-        
+
         # Even unknown categories should return a ProcessedCategory
         # (may be empty translation)
         assert isinstance(result, str)
@@ -696,10 +696,10 @@ python_classes = Test*
 python_functions = test*
 
 # Enhanced options
-addopts = 
-    -v 
-    --tb=short 
-    --strict-markers 
+addopts =
+    -v
+    --tb=short
+    --strict-markers
     -m "not skip2 and not dump and not dumpbig and not examples"
     --durations=10
     --maxfail=25
@@ -765,7 +765,7 @@ omit =
     */__pycache__/*
     */site-packages/*
     ArWikiCats/helps/log.py
-    
+
 [report]
 exclude_lines =
     pragma: no cover
@@ -773,7 +773,7 @@ exclude_lines =
     raise AssertionError
     raise NotImplementedError
     if __name__ == .__main__.:
-    
+
 show_missing = True
 precision = 2
 

@@ -64,7 +64,7 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 5. cash_2022.get()                           # Dictionary lookup
         ↓ (if no match)
-6. event2_new()                              # Event2 bot
+6. event2_new2()                              # Event2 bot
         ↓ (if no match)
 7. event_Lab()                               # Event Lab bot
         ↓ (if no match)
