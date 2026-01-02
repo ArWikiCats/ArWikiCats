@@ -5,12 +5,11 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
-from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
-from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
+from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
 
 te4_2018_Jobs_data_old = {
     "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
