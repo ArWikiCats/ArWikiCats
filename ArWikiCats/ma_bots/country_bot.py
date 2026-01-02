@@ -8,6 +8,7 @@ import re
 
 from ..config import app_settings
 from ..helps.log import logger
+from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
@@ -23,7 +24,6 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from . import country2_lab, ye_ts_bot
 
 

@@ -4,7 +4,6 @@ Tests
 
 import pytest
 
-
 from ArWikiCats import resolve_label_ar
 
 data_fast = {
