@@ -6,9 +6,9 @@
 import functools
 import re
 
-from ..ma_bots2.year_or_typeo import bot_lab
 from ..fix import fixtitle
 from ..helps.log import logger
+from ..ma_bots2.year_or_typeo import bot_lab
 from ..main_processers import event2_stubs, event2bot
 from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
