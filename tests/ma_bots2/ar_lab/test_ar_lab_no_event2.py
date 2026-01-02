@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff
 
-from ArWikiCats.ma_bots2.ar_lab import find_ar_label
+from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import find_ar_label
 from ArWikiCats.ma_bots.ye_ts_bot import translate_general_category
 
 data_list = [
