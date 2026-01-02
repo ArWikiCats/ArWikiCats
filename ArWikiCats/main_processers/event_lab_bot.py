@@ -8,7 +8,6 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps.log import logger
 from ..ma_bots import ye_ts_bot
-from ..ma_bots.country2_bot import Get_country2
 from ..ma_bots.lab_seoo_bot import event_label_work
 from ..make_bots import tmp_bot
 from ..make_bots.format_bots import change_cat, pp_ends_with, pp_ends_with_pase
@@ -22,6 +21,9 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_resolvers import time_to_arabic
 from ..translations import get_from_new_p17_final
 from .main_utils import list_of_cat_func
+
+from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
+from ..ma_bots import country2_lab
 
 
 class EventLabResolver:
@@ -76,7 +78,13 @@ class EventLabResolver:
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
         if list_of_cat == "لاعبو {}":
-            category_lab = Get_country2(original_category3)
+            category_lab = (
+                country_2_title_work(original_category3)
+                or country2_lab.get_lab_for_country2(original_category3)
+                or ye_ts_bot.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
+                or get_pop_All_18(original_category3.lower(), "")
+                or ""
+            )
             if category_lab:
                 list_of_cat = ""
 
@@ -116,7 +124,13 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = Get_country2(category3)
+        category_lab = (
+            country_2_title_work(category3)
+            or country2_lab.get_lab_for_country2(category3)
+            or ye_ts_bot.translate_general_category(category3, start_get_country2=False, fix_title=False)
+            or get_pop_All_18(category3.lower(), "")
+            or ""
+        )
         if category_lab:
             return category_lab
 

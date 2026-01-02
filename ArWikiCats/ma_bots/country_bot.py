@@ -23,14 +23,18 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from . import country2_bot, country2_lab, ye_ts_bot
+from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
+from . import country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=10000)
 def _resolve_remainder(remainder: str) -> str:
     """Helper to resolve the label for the remainder of a string."""
     label = (
-        country2_bot.Get_country2(remainder)
+        country_2_title_work(remainder)
+        or country2_lab.get_lab_for_country2(remainder)
+        or ye_ts_bot.translate_general_category(remainder, start_get_country2=False, fix_title=False)
+        or get_pop_All_18(remainder.lower(), "")
         or country2_lab.get_lab_for_country2(remainder)
         or ye_ts_bot.translate_general_category(remainder, fix_title=False)
         or ""
@@ -102,7 +106,13 @@ class CountryLabelRetriever:
         resolved_label = self._check_basic_lookups(country)
 
         if resolved_label == "" and start_get_country2:
-            resolved_label = country2_bot.Get_country2(country)
+            resolved_label = (
+                country_2_title_work(country)
+                or country2_lab.get_lab_for_country2(country)
+                or ye_ts_bot.translate_general_category(country, start_get_country2=False, fix_title=False)
+                or get_pop_All_18(country.lower(), "")
+                or ""
+            )
 
         if not resolved_label:
             resolved_label = (

@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.country2_bot import Get_country2
+
+from ArWikiCats import resolve_label_ar
 
 data_fast = {
     "4th senate of spain": "مجلس شيوخ إسبانيا",
@@ -17,5 +18,5 @@ data_fast = {
 @pytest.mark.parametrize("category, not_expected", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_get_country2_one(category: str, not_expected: str) -> None:
-    label = Get_country2(category)
+    label = resolve_label_ar(category)
     assert label != not_expected
