@@ -25,7 +25,7 @@ from ..translations import (
     jobs_mens_data,
     pop_of_without_in,
 )
-from . import country2_bot, country2_lab, ye_ts_bot
+from . import country2_lab, ye_ts_bot
 
 
 @functools.lru_cache(maxsize=None)
