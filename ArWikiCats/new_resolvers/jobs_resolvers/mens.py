@@ -115,7 +115,6 @@ def _load_formatted_data() -> dict:
             "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
             "{en_nat} contemporary artists": "فنانون {males} معاصرون",
             "{en_nat} scholars of islam": "{males} باحثون عن الإسلام",
-            "{en_nat} convicted-of-murder": "{males} أدينوا بالقتل",
             "{en_nat} womens rights activists": "{males} ناشطون في حقوق المرأة",
             "{en_nat} businesspeople": "شخصيات أعمال {female}",
         }

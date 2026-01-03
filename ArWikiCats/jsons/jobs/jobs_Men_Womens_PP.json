@@ -41,7 +41,7 @@
     "nobility": {"males":"نبلاء", "females":"نبيلات"},
     "survivors": {"males":"ناجون", "females":"ناجيات"},
     "shooting survivors": {"males":"ناجون من إطلاق نار", "females":"ناجيات من إطلاق نار"},
-    "convicted-of-murder": {"males":"أدينوا بالقتل", "females":""},
+
     "suicide bombers": {"males":"انتحاريون", "females":"انتحاريات"},
     "trade unionists": {"males":"نقابيون", "females":"نقابيات"},
     "national heroes": {"males":"أبطال وطنيون", "females":"بطلات وطنيات"},

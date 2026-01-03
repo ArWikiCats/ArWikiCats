@@ -13,7 +13,6 @@ RELIGIOUS_KEYS_10 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.key
 jobs_mens_data = {
     "scholars of islam": "باحثون عن الإسلام",
     "women's rights activists": "ناشطون في حقوق المرأة",
-    "convicted-of-murder": "أدينوا بالقتل",
     "objectivists": "موضوعيون",
     "expatriates": "مغتربون",
 }

@@ -284,7 +284,6 @@ data_1 = {
     "Category:Papua New Guinean people by province": "x",
     "Category:Papua New Guinean people by region": "x",
     "Category:Papua New Guinean people by religion": "x",
-    "Category:Papua New Guinean people convicted of murder": "x",
     "Category:Papua New Guinean people in sports": "x",
     "Category:Papua New Guinean people of Asian descent": "x",
     "Category:Papua New Guinean people of Australian descent": "x",

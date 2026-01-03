@@ -82,7 +82,6 @@ country_before_year = [
 # ---
 Tabl_with_in = {
     "sport in": "الرياضة في",
-    # "conversion to" : "التحول إلى",
 }
 # --- Tour de
 pp_start_with = {

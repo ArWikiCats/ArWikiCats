@@ -37,7 +37,6 @@ data = {
     "Category:Pahlavi architecture": "z",
     "Category:Pan-Africanist political parties in Africa": "z",
     "Category:Parliamentary elections in Somalia": "z",
-    "Category:People convicted of murder by Slovakia": "z",
     "Category:People from Gopalganj District, Bangladesh": "z",
     "Category:People with sexual sadism disorder": "z",
     "Category:Ports and marine ministers of Somalia": "z",
