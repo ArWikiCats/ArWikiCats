@@ -937,7 +937,6 @@ data_virginia = {
     "Category:West Virginia independents": "تصنيف:مستقلون من ولاية فرجينيا الغربية",
     "Category:West Virginia politicians by century": "تصنيف:سياسيو فرجينيا الغربية حسب القرن",
     "Category:West Virginia politicians by party": "تصنيف:سياسيو فرجينيا الغربية حسب الحزب",
-    "Category:West Virginia politicians convicted of crimes": "تصنيف:سياسيو فرجينيا الغربية أدينوا بجرائم",
     "Category:West Virginia politics-related lists": "تصنيف:قوائم متعلقة بسياسة فرجينيا الغربية",
     "Category:West Virginia Republicans": "تصنيف:جمهوريون من ولاية فرجينيا الغربية",
     "Category:West Virginia Senate": "تصنيف:مجلس شيوخ ولاية فرجينيا الغربية",

@@ -71,7 +71,6 @@ class TestGetRelationWord:
         ("Films directed by Spielberg", "directed by", "أخرجها"),
         ("Ships launched in 1910", "launched in", "أطلقت في"),
         ("Cities established in 1750", "established in", "أسست في"),
-        ("People convicted of espionage in Iran", "convicted of espionage in", "أدينوا بالتجسس في"),
         ("Books written by Dickens", "written by", "كتبها"),
         ("Items manufactured in China", "manufactured in", "صنعت في"),
         ("Treaties concluded in Vienna", "concluded in", "أبرمت في"),

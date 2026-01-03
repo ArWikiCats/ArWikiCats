@@ -667,7 +667,6 @@ non_fiction_empty = {
     "Category:Non-fiction books about musical theatre": "x",
     "Category:Non-fiction books about Native Americans": "x",
     "Category:Non-fiction books about outlaws of the American Old West": "x",
-    "Category:Non-fiction books about people convicted on terrorism charges": "x",
     "Category:Non-fiction books about piracy": "x",
     "Category:Non-fiction books about prostitution": "x",
     "Category:Non-fiction books about public relations": "x",

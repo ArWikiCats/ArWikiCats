@@ -66,7 +66,6 @@ data0 = {
     "yemeni national youth women's football teams players": "تصنيف:لاعبات منتخبات كرة قدم وطنية يمنية للشابات",
     "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
     "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
-    "Category:German people convicted of torture": "تصنيف:ألمان أدينوا بتعذيب",
     "Category:Romania football manager history navigational boxes": "تصنيف:صناديق تصفح تاريخ مدربو كرة قدم رومانيا",
     "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",

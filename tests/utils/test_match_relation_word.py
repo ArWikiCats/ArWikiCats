@@ -13,11 +13,6 @@ data_test2 = [
     ("Television plays directed by William Sterling (director)", "directed by", "أخرجها"),
     ("Television plays filmed in Brisbane", "filmed in", "صورت في"),
     ("Television personalities from Yorkshire", "from", "من"),
-    ("People convicted of drug offenses by nationality", "convicted of", "أدينوا ب"),
-    ("People convicted of embezzlement", "convicted of", "أدينوا ب"),
-    ("People convicted of espionage in Indonesia", "convicted of espionage in", "أدينوا بالتجسس في"),
-    ("People convicted of espionage in Iran", "convicted of espionage in", "أدينوا بالتجسس في"),
-    ("People convicted of espionage in Pakistan", "convicted of espionage in", "أدينوا بالتجسس في"),
     # --- Additional logical examples ---
     ("Works published by Oxford University Press", "published by", "نشرتها"),
     ("Bridges built in 1885", "built in", "بنيت في"),

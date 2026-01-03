@@ -159,7 +159,6 @@ RELIGIOUS_KEYS_PP: GenderedLabelMap = {
 }
 
 NAT_BEFORE_OCC_BASE: List[str] = [
-    "convicted-of-murder",
     "murdered abroad",
     "contemporary",
     "tour de france stage winners",

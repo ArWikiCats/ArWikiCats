@@ -53,7 +53,6 @@ data = [
     {"separator_stripped": "completed in", "country": "1420s", "output": "عقد 1420"},
     {"separator_stripped": "completed in", "country": "2nd century", "output": "القرن 2"},
     {"separator_stripped": "concerning", "country": "eritrea", "output": "إرتريا"},
-    {"separator_stripped": "convicted of", "country": "crimes", "output": "جرائم"},
     {"separator_stripped": "created in", "country": "1420", "output": "1420"},
     {"separator_stripped": "demolished in", "country": "1420", "output": "1420"},
     {"separator_stripped": "described in", "country": "1420", "output": "1420"},

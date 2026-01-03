@@ -27,7 +27,6 @@ test_data_keys = {
     "{en} politicians by century": "سياسيو {ar} حسب القرن",
     "{en} politicians by party": "سياسيو {ar} حسب الحزب",
     "{en} politicians by populated place": "سياسيو {ar} حسب المكان المأهول",
-    "{en} politicians convicted of crimes": "سياسيو {ar} أدينوا بجرائم",
     "{en} politics-related lists": "قوائم متعلقة بسياسة {ar}",
     "{en} socialists": "أعضاء الحزب الاشتراكي في {ar}",
     "{en} templates": "قوالب {ar}",

@@ -1,4 +1,16 @@
 
+## [#299](https://github.com/MrIbrahem/ArWikiCats/pull/299) - 2026-04-04
+
+* **Chores**
+  * Removed numerous translation entries and public category mappings related to conviction/crime classifications across datasets and examples.
+  * Updated CI workflow action versions.
+
+* **Refactor**
+  * Replaced dynamic JSON loading for a large mapping with an embedded in-code definition, removing the runtime file dependency.
+
+* **Tests**
+  * Pruned multiple test data cases that referenced the removed translation/category entries.
+
 ## [#298](https://github.com/MrIbrahem/ArWikiCats/pull/298) - 2025-12-31
 
 * **Refactor**

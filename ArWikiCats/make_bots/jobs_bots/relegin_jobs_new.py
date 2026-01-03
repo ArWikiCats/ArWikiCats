@@ -13,7 +13,6 @@ from ...translations_formats import MultiDataFormatterBase, format_multi_data
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 
 NAT_BEFORE_OCC_BASE = [
-    "convicted-of-murder",
     "murdered abroad",
     "contemporary",
     "tour de france stage winners",
@@ -94,7 +93,6 @@ def _load_mens_bot() -> MultiDataFormatterBase:
         "{rele_en} contemporary artists": "فنانون {rele_ar} معاصرون",
         # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
         "{rele_en} scholars of islam": "{rele_ar} باحثون عن الإسلام",
-        "{rele_en} convicted-of-murder": "{rele_ar} أدينوا بالقتل",
         "{rele_en} female rights activists": "{rele_ar} ناشطون في حقوق المرأة",
     }
 
