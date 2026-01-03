@@ -1,0 +1,212 @@
+"""
+Tests
+"""
+
+import pytest
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
+
+from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
+from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
+
+wheelchair_data = {
+
+    "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
+    "american men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أمريكيون",
+    "american wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أمريكيون",
+    "american wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة أمريكيون",
+    "american wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة أمريكيون",
+    "american wheelchair discus throwers": "رماة قرص على الكراسي المتحركة أمريكيون",
+    "american wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
+    "american wheelchair rugby players": "لاعبو رجبي على كراسي متحركة أمريكيون",
+    "american wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة أمريكيون",
+    "american women wheelchair racers": "متسابقات كراسي متحركة أمريكيات",
+    "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أمريكيات",
+    "australian men wheelchair racers": "متسابقو كراسي متحركة أستراليون",
+    "australian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أستراليون",
+    "australian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أستراليون",
+    "australian wheelchair racers": "متسابقو كراسي متحركة أستراليون",
+    "australian wheelchair rugby players": "لاعبو رجبي على كراسي متحركة أستراليون",
+    "australian wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة أستراليون",
+    "australian women wheelchair racers": "متسابقات كراسي متحركة أستراليات",
+    "australian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أستراليات",
+    "austrian men wheelchair racers": "متسابقو كراسي متحركة نمساويون",
+    "austrian wheelchair racers": "متسابقو كراسي متحركة نمساويون",
+    "belgian men wheelchair racers": "متسابقو كراسي متحركة بلجيكيون",
+    "belgian wheelchair racers": "متسابقو كراسي متحركة بلجيكيون",
+    "belgian women wheelchair racers": "متسابقات كراسي متحركة بلجيكيات",
+    "brazilian men wheelchair racers": "متسابقو كراسي متحركة برازيليون",
+    "brazilian wheelchair racers": "متسابقو كراسي متحركة برازيليون",
+    "brazilian women wheelchair racers": "متسابقات كراسي متحركة برازيليات",
+    "british men wheelchair racers": "متسابقو كراسي متحركة بريطانيون",
+    "british men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة بريطانيون",
+    "british wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة بريطانيون",
+    "british wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة بريطانيون",
+    "british wheelchair racers": "متسابقو كراسي متحركة بريطانيون",
+    "british wheelchair rugby players": "لاعبو رجبي على كراسي متحركة بريطانيون",
+    "british wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة بريطانيون",
+    "british women wheelchair racers": "متسابقات كراسي متحركة بريطانيات",
+    "british women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة بريطانيات",
+    "cameroonian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كاميرونيون",
+    "cameroonian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كاميرونيون",
+    "canadian male wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون",
+    "canadian men wheelchair racers": "متسابقو كراسي متحركة كنديون",
+    "canadian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كنديون",
+    "canadian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كنديون",
+    "canadian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة كنديون",
+    "canadian wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة كنديون",
+    "canadian wheelchair racers": "متسابقو كراسي متحركة كنديون",
+    "canadian wheelchair rugby players": "لاعبو رجبي على كراسي متحركة كنديون",
+    "canadian women wheelchair racers": "متسابقات كراسي متحركة كنديات",
+    "canadian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة كنديات",
+    "chinese men wheelchair racers": "متسابقو كراسي متحركة صينيون",
+    "chinese wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة صينيون",
+    "chinese wheelchair racers": "متسابقو كراسي متحركة صينيون",
+    "chinese women wheelchair racers": "متسابقات كراسي متحركة صينيات",
+    "czech wheelchair racers": "متسابقو كراسي متحركة تشيكيون",
+    "danish wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة دنماركيون",
+    "danish wheelchair racers": "متسابقو كراسي متحركة دنماركيون",
+    "dutch men wheelchair racers": "متسابقو كراسي متحركة هولنديون",
+    "dutch men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة هولنديون",
+    "dutch wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة هولنديون",
+    "dutch wheelchair racers": "متسابقو كراسي متحركة هولنديون",
+    "dutch wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة هولنديون",
+    "dutch women wheelchair racers": "متسابقات كراسي متحركة هولنديات",
+    "dutch women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة هولنديات",
+    "emirati wheelchair racers": "متسابقو كراسي متحركة إماراتيون",
+    "english men wheelchair racers": "متسابقو كراسي متحركة إنجليز",
+    "english wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة إنجليز",
+    "english wheelchair racers": "متسابقو كراسي متحركة إنجليز",
+    "english women wheelchair racers": "متسابقات كراسي متحركة إنجليزيات",
+    "finnish men wheelchair racers": "متسابقو كراسي متحركة فنلنديون",
+    "finnish wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة فنلنديون",
+    "finnish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة فنلنديون",
+    "finnish wheelchair racers": "متسابقو كراسي متحركة فنلنديون",
+    "finnish women wheelchair racers": "متسابقات كراسي متحركة فنلنديات",
+    "french men wheelchair racers": "متسابقو كراسي متحركة فرنسيون",
+    "french men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة فرنسيون",
+    "french wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة فرنسيون",
+    "french wheelchair racers": "متسابقو كراسي متحركة فرنسيون",
+    "french wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة فرنسيون",
+    "french women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة فرنسيات",
+    "gabonese men wheelchair racers": "متسابقو كراسي متحركة غابونيون",
+    "gabonese wheelchair racers": "متسابقو كراسي متحركة غابونيون",
+    "german men wheelchair racers": "متسابقو كراسي متحركة ألمان",
+    "german men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ألمان",
+    "german wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ألمان",
+    "german wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة ألمان",
+    "german wheelchair racers": "متسابقو كراسي متحركة ألمان",
+    "german wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة ألمان",
+    "german women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة ألمانيات",
+    "irish men wheelchair racers": "متسابقو كراسي متحركة أيرلنديون",
+    "irish wheelchair racers": "متسابقو كراسي متحركة أيرلنديون",
+    "irish women wheelchair racers": "متسابقات كراسي متحركة أيرلنديات",
+    "israeli men wheelchair racers": "متسابقو كراسي متحركة إسرائيليون",
+    "israeli men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسرائيليون",
+    "israeli wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسرائيليون",
+    "israeli wheelchair racers": "متسابقو كراسي متحركة إسرائيليون",
+    "israeli wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة إسرائيليون",
+    "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
+    "italian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة إيطاليون",
+    "italian wheelchair racers": "متسابقو كراسي متحركة إيطاليون",
+    "japanese men wheelchair racers": "متسابقو كراسي متحركة يابانيون",
+    "japanese men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة يابانيون",
+    "japanese wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة يابانيون",
+    "japanese wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة يابانيون",
+    "japanese wheelchair racers": "متسابقو كراسي متحركة يابانيون",
+    "japanese wheelchair rugby players": "لاعبو رجبي على كراسي متحركة يابانيون",
+    "japanese wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة يابانيون",
+    "japanese women wheelchair racers": "متسابقات كراسي متحركة يابانيات",
+    "kuwaiti men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كويتيون",
+    "kuwaiti wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كويتيون",
+    "kuwaiti wheelchair racers": "متسابقو كراسي متحركة كويتيون",
+    "latvian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة لاتفيون",
+    "lithuanian wheelchair racers": "متسابقو كراسي متحركة ليتوانيون",
+    "macedonian wheelchair racers": "متسابقو كراسي متحركة مقدونيون",
+    "mexican men wheelchair racers": "متسابقو كراسي متحركة مكسيكيون",
+    "mexican wheelchair racers": "متسابقو كراسي متحركة مكسيكيون",
+    "mexican women wheelchair racers": "متسابقات كراسي متحركة مكسيكيات",
+    "norwegian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة نرويجيون",
+    "norwegian wheelchair racers": "متسابقو كراسي متحركة نرويجيون",
+    "polish wheelchair racers": "متسابقو كراسي متحركة بولنديون",
+    "russian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة روس",
+    "russian wheelchair racers": "متسابقو كراسي متحركة روس",
+    "sammarinese wheelchair racers": "متسابقو كراسي متحركة سان مارينيون",
+    "scottish wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة إسكتلنديون",
+    "scottish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة إسكتلنديون",
+    "scottish wheelchair racers": "متسابقو كراسي متحركة إسكتلنديون",
+    "scottish women wheelchair racers": "متسابقات كراسي متحركة إسكتلنديات",
+    "slovak wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة سلوفاكيون",
+    "south african men wheelchair racers": "متسابقو كراسي متحركة جنوب إفريقيون",
+    "south african wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة جنوب إفريقيون",
+    "south african wheelchair racers": "متسابقو كراسي متحركة جنوب إفريقيون",
+    "south korean wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة كوريون جنوبيون",
+    "south korean wheelchair racers": "متسابقو كراسي متحركة كوريون جنوبيون",
+    "spanish men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسبان",
+    "spanish wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسبان",
+    "spanish wheelchair fencers": "مبارزون على الكراسي المتحركة إسبان",
+    "spanish wheelchair racers": "متسابقو كراسي متحركة إسبان",
+    "spanish wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة إسبان",
+    "swedish wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة سويديون",
+    "swedish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة سويديون",
+    "swedish wheelchair racers": "متسابقو كراسي متحركة سويديون",
+    "swedish wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة سويديون",
+    "swiss men wheelchair racers": "متسابقو كراسي متحركة سويسريون",
+    "swiss men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة سويسريون",
+    "swiss wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة سويسريون",
+    "swiss wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة سويسريون",
+    "swiss wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة سويسريون",
+    "swiss wheelchair racers": "متسابقو كراسي متحركة سويسريون",
+    "swiss wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة سويسريون",
+    "swiss women wheelchair racers": "متسابقات كراسي متحركة سويسريات",
+    "thai wheelchair racers": "متسابقو كراسي متحركة تايلنديون",
+    "thai wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة تايلنديون",
+    "tunisian wheelchair racers": "متسابقو كراسي متحركة تونسيون",
+    "turkish men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أتراك",
+    "turkish wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أتراك",
+    "turkish wheelchair racers": "متسابقو كراسي متحركة أتراك",
+    "turkish wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة أتراك",
+    "turkish women wheelchair racers": "متسابقات كراسي متحركة تركيات",
+    "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة تركيات",
+    "welsh men wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
+    "welsh wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة ويلزيون",
+    "welsh wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
+    "welsh women wheelchair racers": "متسابقات كراسي متحركة ويلزيات",
+    "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
+    "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
+    "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
+    "wheelchair fencers": "مبارزون على الكراسي المتحركة",
+    "wheelchair racers": "متسابقو كراسي متحركة",
+    "wheelchair rugby coaches": "مدربو رجبي على كراسي متحركة",
+    "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
+    "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
+    "zambian wheelchair racers": "متسابقو كراسي متحركة زامبيون",
+
+}
+
+
+@pytest.mark.parametrize("category, expected_key", wheelchair_data.items(), ids=wheelchair_data.keys())
+@pytest.mark.slow
+def test_wheelchair_data(category: str, expected_key: str) -> None:
+    label1 = te4_2018_Jobs(category)
+    assert label1 == expected_key
+
+    # label2 = new_resolvers_all(category)
+    # assert label2 == expected_key
+
+
+to_test = [
+    ("test_wheelchair_data", wheelchair_data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, new_resolvers_all)
+    dump_diff(diff_result, name)
+
+    # dump_diff_text(expected, diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
