@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -700,7 +700,7 @@ data_virginia = {
     "Category:People from Williamson, West Virginia": "تصنيف:أشخاص من ويليامسون (فرجينيا الغربية)",
     "Category:People from Winchester, Virginia": "تصنيف:أشخاص من وينشستر (فرجينيا)",
     "Category:People from Wirt County, West Virginia": "تصنيف:أشخاص من مقاطعة ويرت (فرجينيا الغربية)",
-    "Category:People from Wyoming County, West Virginia": "تصنيف:أشخاص من مقاطعة وايومينغ (فرجينيا الغربية)",
+    "Category:People from Wyoming County, West Virginia": "تصنيف:أشخاص من مقاطعة وايومنغ (فرجينيا الغربية)",
     "Category:People from Wythe County, Virginia": "تصنيف:أشخاص من مقاطعة وايذ (فرجينيا)",
     "Category:Philosophers from West Virginia": "تصنيف:فلاسفة من فرجينيا الغربية",
     "Category:Physicians from Parkersburg, West Virginia": "تصنيف:أطباء من باركرسبورغ (فرجينيا الغربية)",
@@ -993,7 +993,7 @@ data_virginia = {
     "Category:Writers from Wheeling, West Virginia": "تصنيف:كتاب من ويلينغ (فرجينيا الغربية)",
     "Category:Writers from Wirt County, West Virginia": "تصنيف:كتاب من مقاطعة ويرت (فرجينيا الغربية)",
     "Category:Writers from Wood County, West Virginia": "تصنيف:كتاب من مقاطعة وود (فرجينيا الغربية)",
-    "Category:Wyoming County, West Virginia": "تصنيف:مقاطعة وايومينغ (فرجينيا الغربية)",
+    "Category:Wyoming County, West Virginia": "تصنيف:مقاطعة وايومنغ (فرجينيا الغربية)",
     "Category:Wythe County, Virginia": "تصنيف:مقاطعة وايذ (فرجينيا)",
     "Category:Years of the 19th century in West Virginia": "تصنيف:سنوات القرن 19 في فرجينيا الغربية",
     "Category:York County, Virginia": "تصنيف:مقاطعة يورك (فرجينيا)",
@@ -1018,5 +1018,6 @@ def test_virginia_1(category: str, expected: str) -> None:
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
-    dump_diff(diff_result, name)
+    # dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
