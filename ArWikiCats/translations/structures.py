@@ -175,6 +175,7 @@ buildings_keys = {
     "islamic universities and colleges": "جامعات وكليات إسلامية",
     "national universities and colleges": "جامعات وكليات وطنية",
     "public universities and colleges": "جامعات وكليات حكومية",
+    "private universities and colleges": "جامعات وكليات خاصة",
 }
 
 sub_buildings_keys = {
