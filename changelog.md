@@ -1,4 +1,13 @@
 
+## [#298](https://github.com/MrIbrahem/ArWikiCats/pull/298) - 2025-12-31
+
+* **Refactor**
+  * Consolidated country label resolution logic across modules with expanded data sources for improved accuracy.
+  * Reorganized internal label retrieval mechanisms to streamline country-based lookups.
+
+* **Chores**
+  * Updated test configuration to reduce output verbosity.
+
 ## [Update README documentation to reflect current codebase] - 2026-01-01
 
 * **Documentation**
