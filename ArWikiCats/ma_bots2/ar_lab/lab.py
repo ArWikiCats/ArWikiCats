@@ -8,7 +8,6 @@ import re
 from typing import Tuple
 
 from ...helps.log import logger
-from ...ma_bots import country2_lab
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
@@ -20,7 +19,7 @@ from ...make_bots.format_bots import (
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.o_bots import bys
 from ...make_bots.o_bots.peoples_resolver import make_people_lab
-from ...make_bots.sports_bots import team_work
+from ...make_bots.sports_bots import team_work, sport_lab_suffixes
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ...time_resolvers import time_to_arabic
@@ -30,6 +29,43 @@ from ...translations import (
     get_from_new_p17_final,
     get_from_pf_keys2,
 )
+from ...make_bots.matables_bots.table1_bot import get_KAKO
+from ...make_bots.o_bots import parties_bot, univer
+from ...make_bots.o_bots.peoples_resolver import work_peoples
+from ...make_bots.reslove_relations.rele import resolve_relations_label
+from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+
+
+@functools.lru_cache(maxsize=10000)
+def wrap_lab_for_country2(country: str) -> str:
+    """
+    TODO: should be moved to functions directory.
+    Retrieve laboratory information for a specified country.
+    """
+
+    country2 = country.lower().strip()
+
+    resolved_label = (
+        resolve_relations_label(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or te_films(country2)
+        or sport_lab_nat_load_new(country2)
+        or sport_lab_suffixes.get_teams_new(country2)
+        or parties_bot.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or univer.te_universities(country2)
+        or resolve_us_states(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or ""
+    )
+    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
+
+    return resolved_label
 
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 
@@ -300,7 +336,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
         "te4_2018_Jobs": te4_2018_Jobs,
-        "country2_lab.get_lab_for_country2": country2_lab.get_lab_for_country2,
+        "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 
 
@@ -343,7 +379,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     country_label = get_country(inner_country)
 
     if not country_label:
-        country_label = country2_lab.get_lab_for_country2(inner_country)
+        country_label = wrap_lab_for_country2(inner_country)
 
     if country_label:
         return f"في {country_label}"
@@ -379,7 +415,7 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
         "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-        "country2_lab.get_lab_for_country2": country2_lab.get_lab_for_country2,
+        "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 
 
