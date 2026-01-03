@@ -41,7 +41,7 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs = {
         # jobs
         # NOTE: "{en_job}": "{ar_job}", Should be used in males bot: [yemeni singers] : "تصنيف:مغنون يمنيون"
-        # NOTE: "{en_job}": "{ar_job}", Should used here to handel womens jobs like: [yemeni actresses] : "تصنيف:ممثلات يمنيات"
+        # NOTE: "{en_job}": "{ar_job}", Should used here to handle womens jobs like: [yemeni actresses] : "تصنيف:ممثلات يمنيات"
         # base keys
         "{en_job}": "{ar_job}",
         "female {en_job}": "{ar_job}",

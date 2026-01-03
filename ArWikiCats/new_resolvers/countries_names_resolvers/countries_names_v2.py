@@ -32,6 +32,7 @@ new_data: dict[str, str] = {
 }
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
+# NOTE: patterns with only en-ar-time should be in COUNTRY_YEAR_DATA to handle countries-time without gender details
 
 all_data: dict[str, str] = {
     # the_female
