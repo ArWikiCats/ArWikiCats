@@ -50,27 +50,40 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         )
 
     # Genre-based categories
-    genre_categories = [
-        ("anime and manga", "أنمي ومانغا"),
-        ("compilation albums", "ألبومات تجميعية"),
-        ("folk albums", "ألبومات فلكلورية"),
-        ("classical albums", "ألبومات كلاسيكية"),
-        ("comedy albums", "ألبومات كوميدية"),
-        ("mixtape albums", "ألبومات ميكستايب"),
-        ("soundtracks", "موسيقى تصويرية"),
-        ("terminology", "مصطلحات"),
-        ("television series", "مسلسلات تلفزيونية"),
-        ("television episodes", "حلقات تلفزيونية"),
-        ("television programs", "برامج تلفزيونية"),
-        ("television programmes", "برامج تلفزيونية"),
-        ("groups", "مجموعات"),
-        ("novellas", "روايات قصيرة"),
-        ("novels", "روايات"),
-        ("films", "أفلام"),
-    ]
+    genre_categories = {
+        "webcomics": "ويب كومكس",
+        "anime and manga": "أنمي ومانغا",
+        "compilation albums": "ألبومات تجميعية",
+        "folk albums": "ألبومات فلكلورية",
+        "classical albums": "ألبومات كلاسيكية",
+        "comedy albums": "ألبومات كوميدية",
+        "mixtape albums": "ألبومات ميكستايب",
+        "soundtracks": "موسيقى تصويرية",
+        "terminology": "مصطلحات",
+        "television series": "مسلسلات تلفزيونية",
+        "television episodes": "حلقات تلفزيونية",
+        "television programs": "برامج تلفزيونية",
+        "television programmes": "برامج تلفزيونية",
+        "groups": "مجموعات",
+        "novellas": "روايات قصيرة",
+        "novels": "روايات",
+        "films": "أفلام",
+        "comic strips": "شرائط كومكس",
+        "comics": "كومكس",
+        "fiction": "خيال",
+        "film characters": "شخصيات أفلام",
+        "games": "ألعاب",
+        "television shows": "عروض تلفزيونية",
+        "television films": "أفلام تلفزيونية",
+        "teams": "فرق",
+        "television characters": "شخصيات تلفزيونية",
+        "video games": "ألعاب فيديو",
+        "web series": "سلاسل ويب",
+
+    }
 
     # Standard categories
-    for suffix, arabic_base in genre_categories:
+    for suffix, arabic_base in genre_categories.items():
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",

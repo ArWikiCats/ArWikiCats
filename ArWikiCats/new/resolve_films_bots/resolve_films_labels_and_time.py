@@ -58,9 +58,23 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
     )
 
 
+def fix_keys(category: str) -> str:
+    """Fix known issues in category keys."""
+    fixes = {
+        "saudi arabian": "saudiarabian",
+    }
+    category = category.lower().strip()
+
+    for old, new in fixes.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 @functools.lru_cache(maxsize=10000)
 def get_films_key_tyty_new_and_time(category: str) -> str:
     logger.debug(f"<<yellow>> start get_films_key_tyty_new_and_time: {category=}")
+    category = fix_keys(category)
     yc_bot = multi_bot_v4()
 
     result = yc_bot.search_all_category(category)
