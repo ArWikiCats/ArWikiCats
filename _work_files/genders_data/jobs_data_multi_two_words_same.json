@@ -1,0 +1,4052 @@
+{
+    "a cappella musicians": {
+        "job_males": "موسيقيو أكابيلا",
+        "job_females": "موسيقيات أكابيلا",
+        "both_jobs": "موسيقيو وموسيقيات أكابيلا"
+    },
+    "abolitionists": {
+        "job_males": "مناهضون للعبودية",
+        "job_females": "مناهضات للعبودية",
+        "both_jobs": "مناهضون ومناهضات للعبودية"
+    },
+    "academic founders": {
+        "job_males": "مؤسسو أكاديمية",
+        "job_females": "مؤسسات أكاديمية",
+        "both_jobs": "مؤسسو ومؤسسات أكاديمية"
+    },
+    "academic owners": {
+        "job_males": "ملاك أكاديمية",
+        "job_females": "مالكات أكاديمية",
+        "both_jobs": "ملاك ومالكات أكاديمية"
+    },
+    "adventure writers": {
+        "job_males": "كتاب مغامرة",
+        "job_females": "كاتبات مغامرة",
+        "both_jobs": "كتاب وكاتبات مغامرة"
+    },
+    "advertising executives": {
+        "job_males": "مدراء إعلانات",
+        "job_females": "مديرات إعلانات",
+        "both_jobs": "مدراء ومديرات إعلانات"
+    },
+    "aerospace engineers": {
+        "job_males": "مهندسو فضاء",
+        "job_females": "مهندسات فضاء",
+        "both_jobs": "مهندسو ومهندسات فضاء"
+    },
+    "afrobeat musicians": {
+        "job_males": "موسيقيون أفروبِيت",
+        "job_females": "موسيقِيات أفروبِيت",
+        "both_jobs": "موسيقيون وموسيقِيات أفروبِيت"
+    },
+    "agricultural engineers": {
+        "job_males": "مهندسون زراعيون",
+        "job_females": "مهندسون زراعيون",
+        "both_jobs": "مهندسون ومهندسون زراعيون"
+    },
+    "agriculture founders": {
+        "job_males": "مؤسسو زراعة",
+        "job_females": "مؤسسات زراعة",
+        "both_jobs": "مؤسسو ومؤسسات زراعة"
+    },
+    "agriculture owners": {
+        "job_males": "ملاك زراعة",
+        "job_females": "مالكات زراعة",
+        "both_jobs": "ملاك ومالكات زراعة"
+    },
+    "aikidoka": {
+        "job_males": "لاعبو آيكيدو",
+        "job_females": "لاعبات آيكيدو",
+        "both_jobs": "لاعبو ولاعبات آيكيدو"
+    },
+    "airliner founders": {
+        "job_males": "مؤسسو طائرات",
+        "job_females": "مؤسسات طائرات",
+        "both_jobs": "مؤسسو ومؤسسات طائرات"
+    },
+    "airliner owners": {
+        "job_males": "ملاك طائرات",
+        "job_females": "مالكات طائرات",
+        "both_jobs": "ملاك ومالكات طائرات"
+    },
+    "airlines founders": {
+        "job_males": "مؤسسو طيران",
+        "job_females": "مؤسسات طيران",
+        "both_jobs": "مؤسسو ومؤسسات طيران"
+    },
+    "airlines owners": {
+        "job_males": "ملاك طيران",
+        "job_females": "مالكات طيران",
+        "both_jobs": "ملاك ومالكات طيران"
+    },
+    "alcohol founders": {
+        "job_males": "مؤسسو كحول",
+        "job_females": "مؤسسات كحول",
+        "both_jobs": "مؤسسو ومؤسسات كحول"
+    },
+    "alcohol owners": {
+        "job_males": "ملاك كحول",
+        "job_females": "مالكات كحول",
+        "both_jobs": "ملاك ومالكات كحول"
+    },
+    "aluminium founders": {
+        "job_males": "مؤسسو ألومنيوم",
+        "job_females": "مؤسسات ألومنيوم",
+        "both_jobs": "مؤسسو ومؤسسات ألومنيوم"
+    },
+    "aluminium owners": {
+        "job_males": "ملاك ألومنيوم",
+        "job_females": "مالكات ألومنيوم",
+        "both_jobs": "ملاك ومالكات ألومنيوم"
+    },
+    "ambient composers": {
+        "job_males": "ملحنو أمبينت",
+        "job_females": "ملحنات أمبينت",
+        "both_jobs": "ملحنو وملحنات أمبينت"
+    },
+    "ambient musicians": {
+        "job_males": "موسيقيو أمبينت",
+        "job_females": "موسيقيات أمبينت",
+        "both_jobs": "موسيقيو وموسيقيات أمبينت"
+    },
+    "anatomists": {
+        "job_males": "علماء تشريح",
+        "job_females": "عالمات تشريح",
+        "both_jobs": "علماء وعالمات تشريح"
+    },
+    "anesthesiologists": {
+        "job_males": "أطباء تخدير",
+        "job_females": "طبيبات تخدير",
+        "both_jobs": "أطباء وطبيبات تخدير"
+    },
+    "animal artists": {
+        "job_males": "فنانو حيوانات",
+        "job_females": "فنانات حيوانات",
+        "both_jobs": "فنانو وفنانات حيوانات"
+    },
+    "animal painters": {
+        "job_males": "رسامو حيوانات",
+        "job_females": "رسامات حيوانات",
+        "both_jobs": "رسامو ورسامات حيوانات"
+    },
+    "anime composers": {
+        "job_males": "ملحنو أنمي",
+        "job_females": "ملحنات أنمي",
+        "both_jobs": "ملحنو وملحنات أنمي"
+    },
+    "anthropologists": {
+        "job_males": "علماء أنثروبولوجيا",
+        "job_females": "عالمات أنثروبولوجيا",
+        "both_jobs": "علماء وعالمات أنثروبولوجيا"
+    },
+    "anti-communists": {
+        "job_males": "مناهضون للشيوعية",
+        "job_females": "مناهضات للشيوعية",
+        "both_jobs": "مناهضون ومناهضات للشيوعية"
+    },
+    "antiques experts": {
+        "job_males": "خبراء تحف",
+        "job_females": "خبيرات تحف",
+        "both_jobs": "خبراء وخبيرات تحف"
+    },
+    "arachnologists": {
+        "job_males": "علماء عنكبوتيات",
+        "job_females": "عالمات عنكبوتيات",
+        "both_jobs": "علماء وعالمات عنكبوتيات"
+    },
+    "archaeologists": {
+        "job_males": "علماء آثار",
+        "job_females": "عالمات آثار",
+        "both_jobs": "علماء وعالمات آثار"
+    },
+    "archery coaches": {
+        "job_males": "مدربو نبالة",
+        "job_females": "مدربات نبالة",
+        "both_jobs": "مدربو ومدربات نبالة"
+    },
+    "architectural designers": {
+        "job_males": "مصممو عمارة",
+        "job_females": "مصممات عمارة",
+        "both_jobs": "مصممو ومصممات عمارة"
+    },
+    "architecture writers": {
+        "job_males": "كتاب عمارة",
+        "job_females": "كاتبات عمارة",
+        "both_jobs": "كتاب وكاتبات عمارة"
+    },
+    "art collectors": {
+        "job_males": "جامعو فنون",
+        "job_females": "جامعات فنون",
+        "both_jobs": "جامعو وجامعات فنون"
+    },
+    "art historian": {
+        "job_males": "مؤرخو فن",
+        "job_females": "مؤرخات فن",
+        "both_jobs": "مؤرخو ومؤرخات فن"
+    },
+    "art historians": {
+        "job_males": "مؤرخو الفن",
+        "job_females": "مؤرخات الفن",
+        "both_jobs": "مؤرخو ومؤرخات الفن"
+    },
+    "art teachers": {
+        "job_males": "معلمو فن",
+        "job_females": "معلمات فن",
+        "both_jobs": "معلمو ومعلمات فن"
+    },
+    "art writers": {
+        "job_males": "كتاب فن",
+        "job_females": "كاتبات فن",
+        "both_jobs": "كتاب وكاتبات فن"
+    },
+    "arts journalists": {
+        "job_males": "صحفيو فنون",
+        "job_females": "صحفيات فنون",
+        "both_jobs": "صحفيو وصحفيات فنون"
+    },
+    "arts writers": {
+        "job_males": "كتاب فنون",
+        "job_females": "كاتبات فنون",
+        "both_jobs": "كتاب وكاتبات فنون"
+    },
+    "assassins": {
+        "job_males": "منفذو اغتيالات",
+        "job_females": "منفذات اغتيالات",
+        "both_jobs": "منفذو ومنفذات اغتيالات"
+    },
+    "assyriologists": {
+        "job_males": "علماء آشوريات",
+        "job_females": "عالمات آشوريات",
+        "both_jobs": "علماء وعالمات آشوريات"
+    },
+    "astronauts": {
+        "job_males": "رواد فضاء",
+        "job_females": "رائدات فضاء",
+        "both_jobs": "رواد ورائدات فضاء"
+    },
+    "athletes": {
+        "job_males": "لاعبو قوى",
+        "job_females": "لاعبات قوى",
+        "both_jobs": "لاعبو ولاعبات قوى"
+    },
+    "audio engineers": {
+        "job_males": "مهندسو صوت",
+        "job_females": "مهندسات صوت",
+        "both_jobs": "مهندسو ومهندسات صوت"
+    },
+    "automobile designers": {
+        "job_males": "مصممو سيارات",
+        "job_females": "مصممات سيارات",
+        "both_jobs": "مصممو ومصممات سيارات"
+    },
+    "automotive engineers": {
+        "job_males": "مهندسو سيارات",
+        "job_females": "مهندسات سيارات",
+        "both_jobs": "مهندسو ومهندسات سيارات"
+    },
+    "automotive founders": {
+        "job_males": "مؤسسو سيارات",
+        "job_females": "مؤسسات سيارات",
+        "both_jobs": "مؤسسو ومؤسسات سيارات"
+    },
+    "automotive owners": {
+        "job_males": "ملاك سيارات",
+        "job_females": "مالكات سيارات",
+        "both_jobs": "ملاك ومالكات سيارات"
+    },
+    "aviation founders": {
+        "job_males": "مؤسسو طيران",
+        "job_females": "مؤسسات طيران",
+        "both_jobs": "مؤسسو ومؤسسات طيران"
+    },
+    "aviation owners": {
+        "job_males": "ملاك طيران",
+        "job_females": "مالكات طيران",
+        "both_jobs": "ملاك ومالكات طيران"
+    },
+    "award winners": {
+        "job_males": "حائزو جوائز",
+        "job_females": "حائزات جوائز",
+        "both_jobs": "حائزو وحائزات جوائز"
+    },
+    "bachata musicians": {
+        "job_males": "موسيقيو باجاتا",
+        "job_females": "موسيقيات باجاتا",
+        "both_jobs": "موسيقيو وموسيقيات باجاتا"
+    },
+    "bachata singers": {
+        "job_males": "مغنو باجاتا",
+        "job_females": "مغنيات باجاتا",
+        "both_jobs": "مغنو ومغنيات باجاتا"
+    },
+    "bahá'í founders": {
+        "job_males": "مؤسسو بهائية",
+        "job_females": "مؤسسات بهائية",
+        "both_jobs": "مؤسسو ومؤسسات بهائية"
+    },
+    "banda musicians": {
+        "job_males": "موسيقيو البانداذ",
+        "job_females": "موسيقيات البانداذ",
+        "both_jobs": "موسيقيو وموسيقيات البانداذ"
+    },
+    "bandleaders": {
+        "job_males": "قادة فرق",
+        "job_females": "قائدات فرق",
+        "both_jobs": "قادة وقائدات فرق"
+    },
+    "bandy executives": {
+        "job_males": "مسيرو باندي",
+        "job_females": "مسيرات باندي",
+        "both_jobs": "مسيرو ومسيرات باندي"
+    },
+    "bandy managers": {
+        "job_males": "مدربو باندي",
+        "job_females": "مدربات باندي",
+        "both_jobs": "مدربو ومدربات باندي"
+    },
+    "bandy players": {
+        "job_males": "لاعبو باندي",
+        "job_females": "لاعبات باندي",
+        "both_jobs": "لاعبو ولاعبات باندي"
+    },
+    "banks founders": {
+        "job_males": "مؤسسو بنوك",
+        "job_females": "مؤسسات بنوك",
+        "both_jobs": "مؤسسو ومؤسسات بنوك"
+    },
+    "banks owners": {
+        "job_males": "ملاك بنوك",
+        "job_females": "مالكات بنوك",
+        "both_jobs": "ملاك ومالكات بنوك"
+    },
+    "baroque composers": {
+        "job_males": "ملحنو باروك",
+        "job_females": "ملحنات باروك",
+        "both_jobs": "ملحنو وملحنات باروك"
+    },
+    "baroque musicians": {
+        "job_males": "موسيقيو باروك",
+        "job_females": "موسيقيات باروك",
+        "both_jobs": "موسيقيو وموسيقيات باروك"
+    },
+    "baroque writers": {
+        "job_males": "كتاب باروك",
+        "job_females": "كاتبات باروك",
+        "both_jobs": "كتاب وكاتبات باروك"
+    },
+    "bartenders": {
+        "job_males": "سقاة حانة",
+        "job_females": "ساقيات حانة",
+        "both_jobs": "سقاة وساقيات حانة"
+    },
+    "bassoonists": {
+        "job_males": "عازفو باسون",
+        "job_females": "عازفات باسون",
+        "both_jobs": "عازفو وعازفات باسون"
+    },
+    "bebop composers": {
+        "job_males": "ملحنو بيبوب",
+        "job_females": "ملحنات بيبوب",
+        "both_jobs": "ملحنو وملحنات بيبوب"
+    },
+    "bebop drummers": {
+        "job_males": "طبالو بيبوب",
+        "job_females": "طبالات بيبوب",
+        "both_jobs": "طبالو وطبالات بيبوب"
+    },
+    "bebop musicians": {
+        "job_males": "موسيقيو بيبوب",
+        "job_females": "موسيقيات بيبوب",
+        "both_jobs": "موسيقيو وموسيقيات بيبوب"
+    },
+    "bebop singers": {
+        "job_males": "مغنو بيبوب",
+        "job_females": "مغنيات بيبوب",
+        "both_jobs": "مغنو ومغنيات بيبوب"
+    },
+    "bhangra (music) musicians": {
+        "job_males": "موسيقيو بانغرا",
+        "job_females": "موسيقيات بانغرا",
+        "both_jobs": "موسيقيو وموسيقيات بانغرا"
+    },
+    "biathletes": {
+        "job_males": "لاعبو بياثلون",
+        "job_females": "لاعبات بياثلون",
+        "both_jobs": "لاعبو ولاعبات بياثلون"
+    },
+    "biathlon coaches": {
+        "job_males": "مدربو بياثلون",
+        "job_females": "مدربات بياثلون",
+        "both_jobs": "مدربو ومدربات بياثلون"
+    },
+    "bibliophiles": {
+        "job_males": "محبو كتب",
+        "job_females": "محبات كتب",
+        "both_jobs": "محبو ومحبات كتب"
+    },
+    "biographers": {
+        "job_males": "كتاب سيرة",
+        "job_females": "كاتبات سيرة",
+        "both_jobs": "كتاب وكاتبات سيرة"
+    },
+    "biologists": {
+        "job_males": "علماء أحياء",
+        "job_females": "عالمات أحياء",
+        "both_jobs": "علماء وعالمات أحياء"
+    },
+    "bluegrass musicians": {
+        "job_males": "موسيقيو بلوغراس",
+        "job_females": "موسيقيات بلوغراس",
+        "both_jobs": "موسيقيو وموسيقيات بلوغراس"
+    },
+    "blues drummers": {
+        "job_males": "طبالو بلوز",
+        "job_females": "طبالات بلوز",
+        "both_jobs": "طبالو وطبالات بلوز"
+    },
+    "blues historians": {
+        "job_males": "مؤرخو بلوز",
+        "job_females": "مؤرخات بلوز",
+        "both_jobs": "مؤرخو ومؤرخات بلوز"
+    },
+    "blues musicians": {
+        "job_males": "موسيقيو بلوز",
+        "job_females": "موسيقيات بلوز",
+        "both_jobs": "موسيقيو وموسيقيات بلوز"
+    },
+    "blues singers": {
+        "job_males": "مغنو بلوز",
+        "job_females": "مغنيات بلوز",
+        "both_jobs": "مغنو ومغنيات بلوز"
+    },
+    "boat racers": {
+        "job_males": "متسابقو زوارق",
+        "job_females": "متسابقات زوارق",
+        "both_jobs": "متسابقو ومتسابقات زوارق"
+    },
+    "boccia players": {
+        "job_males": "لاعبو بوتشيا",
+        "job_females": "لاعبات بوتشيا",
+        "both_jobs": "لاعبو ولاعبات بوتشيا"
+    },
+    "book publishers (people)": {
+        "job_males": "ناشرو كتب",
+        "job_females": "ناشرات كتب",
+        "both_jobs": "ناشرو وناشرات كتب"
+    },
+    "book publisherspeople": {
+        "job_males": "ناشرو كتب",
+        "job_females": "ناشرات كتب",
+        "both_jobs": "ناشرو وناشرات كتب"
+    },
+    "botanists": {
+        "job_males": "علماء نباتات",
+        "job_females": "عالمات نباتات",
+        "both_jobs": "علماء وعالمات نباتات"
+    },
+    "boules players": {
+        "job_males": "لاعبو بوتشي",
+        "job_females": "لاعبات بوتشي",
+        "both_jobs": "لاعبو ولاعبات بوتشي"
+    },
+    "bowlers": {
+        "job_males": "لاعبو بولينج",
+        "job_females": "لاعبات بولينج",
+        "both_jobs": "لاعبو ولاعبات بولينج"
+    },
+    "bowling players": {
+        "job_males": "لاعبو بولينج",
+        "job_females": "لاعبات بولينج",
+        "both_jobs": "لاعبو ولاعبات بولينج"
+    },
+    "bowls players": {
+        "job_males": "لاعبو بولينج",
+        "job_females": "لاعبات بولينج",
+        "both_jobs": "لاعبو ولاعبات بولينج"
+    },
+    "boxing coaches": {
+        "job_males": "مدربو بوكسينغ",
+        "job_females": "مدربات بوكسينغ",
+        "both_jobs": "مدربو ومدربات بوكسينغ"
+    },
+    "boxing managers": {
+        "job_males": "مدربو بوكسينغ",
+        "job_females": "مدربات بوكسينغ",
+        "both_jobs": "مدربو ومدربات بوكسينغ"
+    },
+    "boxing referees": {
+        "job_males": "حكام بوكسينغ",
+        "job_females": "حكمات بوكسينغ",
+        "both_jobs": "حكام وحكمات بوكسينغ"
+    },
+    "boxing trainers": {
+        "job_males": "مدربو بوكسينغ",
+        "job_females": "مدربات بوكسينغ",
+        "both_jobs": "مدربو ومدربات بوكسينغ"
+    },
+    "bridge engineers": {
+        "job_males": "مهندسو جسور",
+        "job_females": "مهندسات جسور",
+        "both_jobs": "مهندسو ومهندسات جسور"
+    },
+    "bridge players": {
+        "job_males": "لاعبو بريدج",
+        "job_females": "لاعبات بريدج",
+        "both_jobs": "لاعبو ولاعبات بريدج"
+    },
+    "buddhist founders": {
+        "job_males": "مؤسسو بوذية",
+        "job_females": "مؤسسات بوذية",
+        "both_jobs": "مؤسسو ومؤسسات بوذية"
+    },
+    "bullfighters": {
+        "job_males": "مصارعو ثيران",
+        "job_females": "مصارعات ثيران",
+        "both_jobs": "مصارعو ومصارعات ثيران"
+    },
+    "business executives": {
+        "job_males": "مسيرو أعمال",
+        "job_females": "مسيرات أعمال",
+        "both_jobs": "مسيرو ومسيرات أعمال"
+    },
+    "business writers": {
+        "job_males": "كتاب أعمال",
+        "job_females": "كاتبات أعمال",
+        "both_jobs": "كتاب وكاتبات أعمال"
+    },
+    "businesspeople": {
+        "job_males": "شخصيات أعمال",
+        "job_females": "سيدات أعمال",
+        "both_jobs": "شخصيات وسيدات أعمال"
+    },
+    "campaign managers": {
+        "job_males": "مدراء حملات",
+        "job_females": "مديرات حملات",
+        "both_jobs": "مدراء ومديرات حملات"
+    },
+    "cannabis activists": {
+        "job_males": "ناشطو القنب",
+        "job_females": "ناشطات القنب",
+        "both_jobs": "ناشطو وناشطات القنب"
+    },
+    "cantopop singers": {
+        "job_males": "مغنو كانتوبوب",
+        "job_females": "مغنيات كانتوبوب",
+        "both_jobs": "مغنو ومغنيات كانتوبوب"
+    },
+    "cardiac surgeons": {
+        "job_males": "جراحو قلب",
+        "job_females": "جراحات قلب",
+        "both_jobs": "جراحو وجراحات قلب"
+    },
+    "cardiologists": {
+        "job_males": "أطباء قلب",
+        "job_females": "طبيبات قلب",
+        "both_jobs": "أطباء وطبيبات قلب"
+    },
+    "caricaturists": {
+        "job_males": "رسامو كاريكاتير",
+        "job_females": "رسامات كاريكاتير",
+        "both_jobs": "رسامو ورسامات كاريكاتير"
+    },
+    "cartoonists": {
+        "job_males": "رسامو كارتون",
+        "job_females": "رسامات كارتون",
+        "both_jobs": "رسامو ورسامات كارتون"
+    },
+    "cellists": {
+        "job_males": "عازفو تشيلو",
+        "job_females": "عازفات تشيلو",
+        "both_jobs": "عازفو وعازفات تشيلو"
+    },
+    "cement founders": {
+        "job_males": "مؤسسو أسمنت",
+        "job_females": "مؤسسات أسمنت",
+        "both_jobs": "مؤسسو ومؤسسات أسمنت"
+    },
+    "cement owners": {
+        "job_males": "ملاك أسمنت",
+        "job_females": "مالكات أسمنت",
+        "both_jobs": "ملاك ومالكات أسمنت"
+    },
+    "centers": {
+        "job_males": "لاعبو وسط",
+        "job_females": "لاعبات وسط",
+        "both_jobs": "لاعبو ولاعبات وسط"
+    },
+    "centres": {
+        "job_males": "لاعبو وسط",
+        "job_females": "لاعبات وسط",
+        "both_jobs": "لاعبو ولاعبات وسط"
+    },
+    "chanson composers": {
+        "job_males": "ملحنو شانسون",
+        "job_females": "ملحنات شانسون",
+        "both_jobs": "ملحنو وملحنات شانسون"
+    },
+    "cheerleaders": {
+        "job_males": "قادة تشجيع",
+        "job_females": "قائدات تشجيع",
+        "both_jobs": "قادة وقائدات تشجيع"
+    },
+    "chemical founders": {
+        "job_males": "مؤسسو كيميائية",
+        "job_females": "مؤسسات كيميائية",
+        "both_jobs": "مؤسسو ومؤسسات كيميائية"
+    },
+    "chemical owners": {
+        "job_males": "ملاك كيميائية",
+        "job_females": "مالكات كيميائية",
+        "both_jobs": "ملاك ومالكات كيميائية"
+    },
+    "chess arbiters": {
+        "job_males": "حكام شطرنج",
+        "job_females": "حكمات شطرنج",
+        "both_jobs": "حكام وحكمات شطرنج"
+    },
+    "chess coaches": {
+        "job_males": "مدربو شطرنج",
+        "job_females": "مدربات شطرنج",
+        "both_jobs": "مدربو ومدربات شطرنج"
+    },
+    "chess players": {
+        "job_males": "لاعبو شطرنج",
+        "job_females": "لاعبات شطرنج",
+        "both_jobs": "لاعبو ولاعبات شطرنج"
+    },
+    "chess theoreticians": {
+        "job_males": "منظرو الشطرنج",
+        "job_females": "منظرات الشطرنج",
+        "both_jobs": "منظرو ومنظرات الشطرنج"
+    },
+    "chief justices": {
+        "job_males": "رؤساء قضاء",
+        "job_females": "رئيسات قضاء",
+        "both_jobs": "رؤساء ورئيسات قضاء"
+    },
+    "chief magistrates ": {
+        "job_males": "رؤساء قضاء",
+        "job_females": "رئيسات قضاء",
+        "both_jobs": "رؤساء ورئيسات قضاء"
+    },
+    "child actresses": {
+        "job_males": "ممثلات طفلات",
+        "job_females": "ممثلات طفلات",
+        "both_jobs": "ممثلات وممثلات طفلات"
+    },
+    "children's musicians": {
+        "job_males": "موسيقيو أطفال",
+        "job_females": "موسيقيات أطفال",
+        "both_jobs": "موسيقيو وموسيقيات أطفال"
+    },
+    "children's writers": {
+        "job_males": "كتاب أطفال",
+        "job_females": "كاتبات أطفال",
+        "both_jobs": "كتاب وكاتبات أطفال"
+    },
+    "choreographers": {
+        "job_males": "مصممو رقص",
+        "job_females": "مصممات رقص",
+        "both_jobs": "مصممو ومصممات رقص"
+    },
+    "christian founders": {
+        "job_males": "مؤسسو مسيحية",
+        "job_females": "مؤسسات مسيحية",
+        "both_jobs": "مؤسسو ومؤسسات مسيحية"
+    },
+    "circus performers": {
+        "job_males": "عارضو سيرك",
+        "job_females": "عارضات سيرك",
+        "both_jobs": "عارضو وعارضات سيرك"
+    },
+    "clergy": {
+        "job_males": "رجال دين",
+        "job_females": "سيدات دين",
+        "both_jobs": "رجال وسيدات دين"
+    },
+    "clockmakers": {
+        "job_males": "صانعو ساعات",
+        "job_females": "صانعات ساعات",
+        "both_jobs": "صانعو وصانعات ساعات"
+    },
+    "clothing founders": {
+        "job_males": "مؤسسو ملابس",
+        "job_females": "مؤسسات ملابس",
+        "both_jobs": "مؤسسو ومؤسسات ملابس"
+    },
+    "clothing owners": {
+        "job_males": "ملاك ملابس",
+        "job_females": "مالكات ملابس",
+        "both_jobs": "ملاك ومالكات ملابس"
+    },
+    "coal founders": {
+        "job_males": "مؤسسو فحم",
+        "job_females": "مؤسسات فحم",
+        "both_jobs": "مؤسسو ومؤسسات فحم"
+    },
+    "coal owners": {
+        "job_males": "ملاك فحم",
+        "job_females": "مالكات فحم",
+        "both_jobs": "ملاك ومالكات فحم"
+    },
+    "collectors": {
+        "job_males": "جامعو مقتنيات",
+        "job_females": "جامعات مقتنيات",
+        "both_jobs": "جامعو وجامعات مقتنيات"
+    },
+    "college coaches": {
+        "job_males": "مدربو كليات",
+        "job_females": "مدربات كليات",
+        "both_jobs": "مدربو ومدربات كليات"
+    },
+    "college managers": {
+        "job_males": "مدربو كليات",
+        "job_females": "مدربات كليات",
+        "both_jobs": "مدربو ومدربات كليات"
+    },
+    "college players": {
+        "job_males": "لاعبو كليات",
+        "job_females": "لاعبات كليات",
+        "both_jobs": "لاعبو ولاعبات كليات"
+    },
+    "college sports-people": {
+        "job_males": "رياضيو كليات",
+        "job_females": "رياضيات كليات",
+        "both_jobs": "رياضيو ورياضيات كليات"
+    },
+    "columnists": {
+        "job_males": "كتاب عمود",
+        "job_females": "كاتبات عمود",
+        "both_jobs": "كتاب وكاتبات عمود"
+    },
+    "comedy musicians": {
+        "job_males": "موسيقيو كوميديا",
+        "job_females": "موسيقيات كوميديا",
+        "both_jobs": "موسيقيو وموسيقيات كوميديا"
+    },
+    "comedy writers": {
+        "job_males": "كتاب كوميديا",
+        "job_females": "كاتبات كوميديا",
+        "both_jobs": "كتاب وكاتبات كوميديا"
+    },
+    "commodities traders": {
+        "job_males": "تجار سلع",
+        "job_females": "تاجرات سلع",
+        "both_jobs": "تجار وتاجرات سلع"
+    },
+    "community activists": {
+        "job_males": "ناشطو مجتمع",
+        "job_females": "ناشطات مجتمع",
+        "both_jobs": "ناشطو وناشطات مجتمع"
+    },
+    "company founders": {
+        "job_males": "مؤسسو شركات",
+        "job_females": "مؤسسات شركات",
+        "both_jobs": "مؤسسو ومؤسسات شركات"
+    },
+    "computer founders": {
+        "job_males": "مؤسسو حوسبة",
+        "job_females": "مؤسسات حوسبة",
+        "both_jobs": "مؤسسو ومؤسسات حوسبة"
+    },
+    "computer owners": {
+        "job_males": "ملاك حوسبة",
+        "job_females": "مالكات حوسبة",
+        "both_jobs": "ملاك ومالكات حوسبة"
+    },
+    "computer scientists": {
+        "job_males": "علماء حاسوب",
+        "job_females": "عالمات حاسوب",
+        "both_jobs": "علماء وعالمات حاسوب"
+    },
+    "computer specialists": {
+        "job_males": "متخصصو كمبيوتر",
+        "job_females": "متخصصات كمبيوتر",
+        "both_jobs": "متخصصو ومتخصصات كمبيوتر"
+    },
+    "condiment founders": {
+        "job_males": "مؤسسو توابل",
+        "job_females": "مؤسسات توابل",
+        "both_jobs": "مؤسسو ومؤسسات توابل"
+    },
+    "condiment owners": {
+        "job_males": "ملاك توابل",
+        "job_females": "مالكات توابل",
+        "both_jobs": "ملاك ومالكات توابل"
+    },
+    "conspiracy theorists": {
+        "job_males": "منظرو المؤامرة",
+        "job_females": "منظرات المؤامرة",
+        "both_jobs": "منظرو ومنظرات المؤامرة"
+    },
+    "constructed language creators": {
+        "job_males": "مبتكرو اللغات",
+        "job_females": "مبتكرات اللغات",
+        "both_jobs": "مبتكرو ومبتكرات اللغات"
+    },
+    "construction founders": {
+        "job_males": "مؤسسو بناء",
+        "job_females": "مؤسسات بناء",
+        "both_jobs": "مؤسسو ومؤسسات بناء"
+    },
+    "construction owners": {
+        "job_males": "ملاك بناء",
+        "job_females": "مالكات بناء",
+        "both_jobs": "ملاك ومالكات بناء"
+    },
+    "contemporary historians": {
+        "job_males": "مؤرخو معاصرة",
+        "job_females": "مؤرخات معاصرة",
+        "both_jobs": "مؤرخو ومؤرخات معاصرة"
+    },
+    "copy editors": {
+        "job_males": "محررو نسخ",
+        "job_females": "محررات نسخ",
+        "both_jobs": "محررو ومحررات نسخ"
+    },
+    "corporate directors": {
+        "job_males": "مدراء شركات",
+        "job_females": "مديرات شركات",
+        "both_jobs": "مدراء ومديرات شركات"
+    },
+    "cosmologists": {
+        "job_males": "علماء كون",
+        "job_females": "عالمات كون",
+        "both_jobs": "علماء وعالمات كون"
+    },
+    "country drummers": {
+        "job_males": "طبالو كانتري",
+        "job_females": "طبالات كانتري",
+        "both_jobs": "طبالو وطبالات كانتري"
+    },
+    "country music composers": {
+        "job_males": "ملحنو كانتري",
+        "job_females": "ملحنات كانتري",
+        "both_jobs": "ملحنو وملحنات كانتري"
+    },
+    "country music historians": {
+        "job_males": "مؤرخو كانتري",
+        "job_females": "مؤرخات كانتري",
+        "both_jobs": "مؤرخو ومؤرخات كانتري"
+    },
+    "country musicians": {
+        "job_males": "موسيقيو كانتري",
+        "job_females": "موسيقيات كانتري",
+        "both_jobs": "موسيقيو وموسيقيات كانتري"
+    },
+    "country singers": {
+        "job_males": "مغنو كانتري",
+        "job_females": "مغنيات كانتري",
+        "both_jobs": "مغنو ومغنيات كانتري"
+    },
+    "county sheriffs": {
+        "job_males": "مأمورو مقاطعات",
+        "job_females": "مأمورات مقاطعات",
+        "both_jobs": "مأمورو ومأمورات مقاطعات"
+    },
+    "cowboys": {
+        "job_males": "رعاة بقر",
+        "job_females": "راعيات بقر",
+        "both_jobs": "رعاة وراعيات بقر"
+    },
+    "cricket captains": {
+        "job_males": "قادة كريكت",
+        "job_females": "قائدات كريكت",
+        "both_jobs": "قادة وقائدات كريكت"
+    },
+    "cricket coaches": {
+        "job_males": "مدربو كريكت",
+        "job_females": "مدربات كريكت",
+        "both_jobs": "مدربو ومدربات كريكت"
+    },
+    "cricket managers": {
+        "job_males": "مدربو كريكت",
+        "job_females": "مدربات كريكت",
+        "both_jobs": "مدربو ومدربات كريكت"
+    },
+    "cricket players": {
+        "job_males": "لاعبو كريكت",
+        "job_females": "لاعبات كريكت",
+        "both_jobs": "لاعبو ولاعبات كريكت"
+    },
+    "cricket umpires": {
+        "job_males": "حكام كريكت",
+        "job_females": "حكمات كريكت",
+        "both_jobs": "حكام وحكمات كريكت"
+    },
+    "cricketers": {
+        "job_males": "لاعبو كريكت",
+        "job_females": "لاعبات كريكت",
+        "both_jobs": "لاعبو ولاعبات كريكت"
+    },
+    "crime journalists": {
+        "job_males": "صحفيو جريمة",
+        "job_females": "صحفيات جريمة",
+        "both_jobs": "صحفيو وصحفيات جريمة"
+    },
+    "crime victims": {
+        "job_males": "ضحايا جرائم",
+        "job_females": "ضحيات جرائم",
+        "both_jobs": "ضحايا وضحيات جرائم"
+    },
+    "crime writers": {
+        "job_males": "كتاب جريمة",
+        "job_females": "كاتبات جريمة",
+        "both_jobs": "كتاب وكاتبات جريمة"
+    },
+    "criminologists": {
+        "job_males": "علماء جريمة",
+        "job_females": "عالمات جريمة",
+        "both_jobs": "علماء وعالمات جريمة"
+    },
+    "croquet players": {
+        "job_males": "لاعبو كروكيت",
+        "job_females": "لاعبات كروكيت",
+        "both_jobs": "لاعبو ولاعبات كروكيت"
+    },
+    "cryptographers": {
+        "job_males": "علماء تعمية",
+        "job_females": "عالمات تعمية",
+        "both_jobs": "علماء وعالمات تعمية"
+    },
+    "crystallographers": {
+        "job_males": "علماء بلورات",
+        "job_females": "عالمات بلورات",
+        "both_jobs": "علماء وعالمات بلورات"
+    },
+    "cue sports executives": {
+        "job_males": "مسيرو بلياردو",
+        "job_females": "مسيرات بلياردو",
+        "both_jobs": "مسيرو ومسيرات بلياردو"
+    },
+    "cue sports players": {
+        "job_males": "لاعبو بلياردو",
+        "job_females": "لاعبات بلياردو",
+        "both_jobs": "لاعبو ولاعبات بلياردو"
+    },
+    "cue sports referees": {
+        "job_males": "حكام بلياردو",
+        "job_females": "حكمات بلياردو",
+        "both_jobs": "حكام وحكمات بلياردو"
+    },
+    "curlers": {
+        "job_males": "لاعبو كيرلنغ",
+        "job_females": "لاعبات كيرلنغ",
+        "both_jobs": "لاعبو ولاعبات كيرلنغ"
+    },
+    "curling coaches": {
+        "job_males": "مدربو كيرلنغ",
+        "job_females": "مدربات كيرلنغ",
+        "both_jobs": "مدربو ومدربات كيرلنغ"
+    },
+    "cyberpunk writers": {
+        "job_males": "كتاب سايبربانك",
+        "job_females": "كاتبات سايبربانك",
+        "both_jobs": "كتاب وكاتبات سايبربانك"
+    },
+    "dance critics": {
+        "job_males": "نقاد رقص",
+        "job_females": "ناقدات رقص",
+        "both_jobs": "نقاد وناقدات رقص"
+    },
+    "dance directors": {
+        "job_males": "مخرجو رقص",
+        "job_females": "مخرجات رقص",
+        "both_jobs": "مخرجو ومخرجات رقص"
+    },
+    "dance historians": {
+        "job_males": "مؤرخو رقص",
+        "job_females": "مؤرخات رقص",
+        "both_jobs": "مؤرخو ومؤرخات رقص"
+    },
+    "dance musicians": {
+        "job_males": "موسيقيو رقص",
+        "job_females": "موسيقيات رقص",
+        "both_jobs": "موسيقيو وموسيقيات رقص"
+    },
+    "dance singers": {
+        "job_males": "مغنو رقص",
+        "job_females": "مغنيات رقص",
+        "both_jobs": "مغنو ومغنيات رقص"
+    },
+    "dance writers": {
+        "job_males": "كتاب رقص",
+        "job_females": "كاتبات رقص",
+        "both_jobs": "كتاب وكاتبات رقص"
+    },
+    "dancehall musicians": {
+        "job_males": "موسيقيو دانسهول",
+        "job_females": "موسيقيات دانسهول",
+        "both_jobs": "موسيقيو وموسيقيات دانسهول"
+    },
+    "dancehall singers": {
+        "job_males": "مغنو دانسهول",
+        "job_females": "مغنيات دانسهول",
+        "both_jobs": "مغنو ومغنيات دانسهول"
+    },
+    "dartchers": {
+        "job_males": "رماة سهام",
+        "job_females": "راميات سهام",
+        "both_jobs": "رماة وراميات سهام"
+    },
+    "decathletes": {
+        "job_males": "متسابقو عشاري",
+        "job_females": "متسابقات عشاري",
+        "both_jobs": "متسابقو ومتسابقات عشاري"
+    },
+    "defence founders": {
+        "job_males": "مؤسسو دفاعية",
+        "job_females": "مؤسسات دفاعية",
+        "both_jobs": "مؤسسو ومؤسسات دفاعية"
+    },
+    "defence owners": {
+        "job_males": "ملاك دفاعية",
+        "job_females": "مالكات دفاعية",
+        "both_jobs": "ملاك ومالكات دفاعية"
+    },
+    "defensive linemen": {
+        "job_males": "مدافعو خط",
+        "job_females": "مدافعات خط",
+        "both_jobs": "مدافعو ومدافعات خط"
+    },
+    "democracy activists": {
+        "job_males": "ناشطو ديمقراطية",
+        "job_females": "ناشطات ديمقراطية",
+        "both_jobs": "ناشطو وناشطات ديمقراطية"
+    },
+    "demographers": {
+        "job_males": "علماء سكان",
+        "job_females": "عالمات سكان",
+        "both_jobs": "علماء وعالمات سكان"
+    },
+    "demographersx": {
+        "job_males": "علماء سكان",
+        "job_females": "عالمات سكان",
+        "both_jobs": "علماء وعالمات سكان"
+    },
+    "dentists": {
+        "job_males": "أطباء أسنان",
+        "job_females": "طبيبات أسنان",
+        "both_jobs": "أطباء وطبيبات أسنان"
+    },
+    "design founders": {
+        "job_males": "مؤسسو تصميم",
+        "job_females": "مؤسسات تصميم",
+        "both_jobs": "مؤسسو ومؤسسات تصميم"
+    },
+    "design owners": {
+        "job_males": "ملاك تصميم",
+        "job_females": "مالكات تصميم",
+        "both_jobs": "ملاك ومالكات تصميم"
+    },
+    "diabetologists": {
+        "job_males": "أخصائيو السكري",
+        "job_females": "أخصائيات السكري",
+        "both_jobs": "أخصائيو وأخصائيات السكري"
+    },
+    "dialectologists": {
+        "job_males": "علماء لهجات",
+        "job_females": "عالمات لهجات",
+        "both_jobs": "علماء وعالمات لهجات"
+    },
+    "diarists": {
+        "job_males": "كتاب يوميات",
+        "job_females": "كاتبات يوميات",
+        "both_jobs": "كتاب وكاتبات يوميات"
+    },
+    "disco musicians": {
+        "job_males": "موسيقيو ديسكو",
+        "job_females": "موسيقيات ديسكو",
+        "both_jobs": "موسيقيو وموسيقيات ديسكو"
+    },
+    "disco singers": {
+        "job_males": "مغنو ديسكو",
+        "job_females": "مغنيات ديسكو",
+        "both_jobs": "مغنو ومغنيات ديسكو"
+    },
+    "discus throwers": {
+        "job_males": "رماة قرص",
+        "job_females": "راميات قرص",
+        "both_jobs": "رماة وراميات قرص"
+    },
+    "distribution founders": {
+        "job_males": "مؤسسو توزيع",
+        "job_females": "مؤسسات توزيع",
+        "both_jobs": "مؤسسو ومؤسسات توزيع"
+    },
+    "distribution owners": {
+        "job_males": "ملاك توزيع",
+        "job_females": "مالكات توزيع",
+        "both_jobs": "ملاك ومالكات توزيع"
+    },
+    "diving coaches": {
+        "job_males": "مدربو غطس",
+        "job_females": "مدربات غطس",
+        "both_jobs": "مدربو ومدربات غطس"
+    },
+    "draughts players": {
+        "job_males": "لاعبو ضامة",
+        "job_females": "لاعبات ضامة",
+        "both_jobs": "لاعبو ولاعبات ضامة"
+    },
+    "drink founders": {
+        "job_males": "مؤسسو مشروبات",
+        "job_females": "مؤسسات مشروبات",
+        "both_jobs": "مؤسسو ومؤسسات مشروبات"
+    },
+    "drink owners": {
+        "job_males": "ملاك مشروبات",
+        "job_females": "مالكات مشروبات",
+        "both_jobs": "ملاك ومالكات مشروبات"
+    },
+    "drivers": {
+        "job_males": "سائقو سيارات",
+        "job_females": "سائقات سيارات",
+        "both_jobs": "سائقو وسائقات سيارات"
+    },
+    "drop kickers": {
+        "job_males": "مسددو ركلات",
+        "job_females": "مسددات ركلات",
+        "both_jobs": "مسددو ومسددات ركلات"
+    },
+    "drug traffickers": {
+        "job_males": "تجار مخدرات",
+        "job_females": "تاجرات مخدرات",
+        "both_jobs": "تجار وتاجرات مخدرات"
+    },
+    "dubstep musicians": {
+        "job_males": "موسيقيو دبستيب",
+        "job_females": "موسيقيات دبستيب",
+        "both_jobs": "موسيقيو وموسيقيات دبستيب"
+    },
+    "earth scientists": {
+        "job_males": "علماء الأرض",
+        "job_females": "عالمات الأرض",
+        "both_jobs": "علماء وعالمات الأرض"
+    },
+    "ecologists": {
+        "job_males": "علماء بيئة",
+        "job_females": "عالمات بيئة",
+        "both_jobs": "علماء وعالمات بيئة"
+    },
+    "economics writers": {
+        "job_males": "كتاب إقتصاد",
+        "job_females": "كاتبات إقتصاد",
+        "both_jobs": "كتاب وكاتبات إقتصاد"
+    },
+    "education founders": {
+        "job_males": "مؤسسو تعليم",
+        "job_females": "مؤسسات تعليم",
+        "both_jobs": "مؤسسو ومؤسسات تعليم"
+    },
+    "education owners": {
+        "job_males": "ملاك تعليم",
+        "job_females": "مالكات تعليم",
+        "both_jobs": "ملاك ومالكات تعليم"
+    },
+    "educational personnel": {
+        "job_males": "مشتغلون بالتعليم",
+        "job_females": "مشتغلات بالتعليم",
+        "both_jobs": "مشتغلون ومشتغلات بالتعليم"
+    },
+    "egyptologists": {
+        "job_males": "علماء مصريات",
+        "job_females": "عالمات مصريات",
+        "both_jobs": "علماء وعالمات مصريات"
+    },
+    "electro house musicians": {
+        "job_males": "موسيقيو إلكتروهاوس",
+        "job_females": "موسيقيات إلكتروهاوس",
+        "both_jobs": "موسيقيو وموسيقيات إلكتروهاوس"
+    },
+    "electroacoustic music composers": {
+        "job_males": "ملحنو إليكتروكوستيك",
+        "job_females": "ملحنات إليكتروكوستيك",
+        "both_jobs": "ملحنو وملحنات إليكتروكوستيك"
+    },
+    "electronic composers": {
+        "job_males": "ملحنو إليكترونيك",
+        "job_females": "ملحنات إليكترونيك",
+        "both_jobs": "ملحنو وملحنات إليكترونيك"
+    },
+    "electronic singers": {
+        "job_males": "مغنو إليكترونيك",
+        "job_females": "مغنيات إليكترونيك",
+        "both_jobs": "مغنو ومغنيات إليكترونيك"
+    },
+    "electronica musicians": {
+        "job_males": "موسيقيو إلكترونيكا",
+        "job_females": "موسيقيات إلكترونيكا",
+        "both_jobs": "موسيقيو وموسيقيات إلكترونيكا"
+    },
+    "electronics founders": {
+        "job_males": "مؤسسو إلكترونيات",
+        "job_females": "مؤسسات إلكترونيات",
+        "both_jobs": "مؤسسو ومؤسسات إلكترونيات"
+    },
+    "electronics owners": {
+        "job_males": "ملاك إلكترونيات",
+        "job_females": "مالكات إلكترونيات",
+        "both_jobs": "ملاك ومالكات إلكترونيات"
+    },
+    "emo musicians": {
+        "job_males": "موسيقيو إيمو",
+        "job_females": "موسيقيات إيمو",
+        "both_jobs": "موسيقيو وموسيقيات إيمو"
+    },
+    "energy founders": {
+        "job_males": "مؤسسو طاقة",
+        "job_females": "مؤسسات طاقة",
+        "both_jobs": "مؤسسو ومؤسسات طاقة"
+    },
+    "energy owners": {
+        "job_males": "ملاك طاقة",
+        "job_females": "مالكات طاقة",
+        "both_jobs": "ملاك ومالكات طاقة"
+    },
+    "engineering founders": {
+        "job_males": "مؤسسو هندسية",
+        "job_females": "مؤسسات هندسية",
+        "both_jobs": "مؤسسو ومؤسسات هندسية"
+    },
+    "engineering owners": {
+        "job_males": "ملاك هندسية",
+        "job_females": "مالكات هندسية",
+        "both_jobs": "ملاك ومالكات هندسية"
+    },
+    "entertainment founders": {
+        "job_males": "مؤسسو ترفيه",
+        "job_females": "مؤسسات ترفيه",
+        "both_jobs": "مؤسسو ومؤسسات ترفيه"
+    },
+    "entertainment owners": {
+        "job_males": "ملاك ترفيه",
+        "job_females": "مالكات ترفيه",
+        "both_jobs": "ملاك ومالكات ترفيه"
+    },
+    "entomologists": {
+        "job_males": "علماء حشرات",
+        "job_females": "عالمات حشرات",
+        "both_jobs": "علماء وعالمات حشرات"
+    },
+    "environmental artists": {
+        "job_males": "فنانو بيئة",
+        "job_females": "فنانات بيئة",
+        "both_jobs": "فنانو وفنانات بيئة"
+    },
+    "environmental bloggers": {
+        "job_males": "مدونو بيئة",
+        "job_females": "مدونات بيئة",
+        "both_jobs": "مدونو ومدونات بيئة"
+    },
+    "environmental journalists": {
+        "job_males": "صحفيو بيئة",
+        "job_females": "صحفيات بيئة",
+        "both_jobs": "صحفيو وصحفيات بيئة"
+    },
+    "environmental writers": {
+        "job_males": "كتاب بيئة",
+        "job_females": "كاتبات بيئة",
+        "both_jobs": "كتاب وكاتبات بيئة"
+    },
+    "epidemiologists": {
+        "job_males": "علماء وبائيات",
+        "job_females": "عالمات وبائيات",
+        "both_jobs": "علماء وعالمات وبائيات"
+    },
+    "epigraphers": {
+        "job_males": "علماء نقائش",
+        "job_females": "عالمات نقائش",
+        "both_jobs": "علماء وعالمات نقائش"
+    },
+    "equestrians": {
+        "job_males": "فرسان خيول",
+        "job_females": "فارسات خيول",
+        "both_jobs": "فرسان وفارسات خيول"
+    },
+    "essayists": {
+        "job_males": "كتاب مقالات",
+        "job_females": "كاتبات مقالات",
+        "both_jobs": "كتاب وكاتبات مقالات"
+    },
+    "ethnologists": {
+        "job_males": "علماء أثنولوجيا",
+        "job_females": "عالمات أثنولوجيا",
+        "both_jobs": "علماء وعالمات أثنولوجيا"
+    },
+    "eurodance musicians": {
+        "job_males": "موسيقيو يورودانس",
+        "job_females": "موسيقيات يورودانس",
+        "both_jobs": "موسيقيو وموسيقيات يورودانس"
+    },
+    "eurodisco musicians": {
+        "job_males": "موسيقيو يوروديسكو",
+        "job_females": "موسيقيات يوروديسكو",
+        "both_jobs": "موسيقيو وموسيقيات يوروديسكو"
+    },
+    "experimental composers": {
+        "job_males": "ملحنو تجريبية",
+        "job_females": "ملحنات تجريبية",
+        "both_jobs": "ملحنو وملحنات تجريبية"
+    },
+    "experimental musicians": {
+        "job_males": "موسيقيو تجريبية",
+        "job_females": "موسيقيات تجريبية",
+        "both_jobs": "موسيقيو وموسيقيات تجريبية"
+    },
+    "eyewear founders": {
+        "job_males": "مؤسسو نظارات",
+        "job_females": "مؤسسات نظارات",
+        "both_jobs": "مؤسسو ومؤسسات نظارات"
+    },
+    "eyewear owners": {
+        "job_males": "ملاك نظارات",
+        "job_females": "مالكات نظارات",
+        "both_jobs": "ملاك ومالكات نظارات"
+    },
+    "fado singers": {
+        "job_males": "مغنو فادو",
+        "job_females": "مغنيات فادو",
+        "both_jobs": "مغنو ومغنيات فادو"
+    },
+    "fantasy artists": {
+        "job_males": "فنانو فنتازيا",
+        "job_females": "فنانات فنتازيا",
+        "both_jobs": "فنانو وفنانات فنتازيا"
+    },
+    "fantasy writers": {
+        "job_males": "كتاب فنتازيا",
+        "job_females": "كاتبات فنتازيا",
+        "both_jobs": "كتاب وكاتبات فنتازيا"
+    },
+    "fashion designers": {
+        "job_males": "مصممو أزياء",
+        "job_females": "مصممات أزياء",
+        "both_jobs": "مصممو ومصممات أزياء"
+    },
+    "fashion journalists": {
+        "job_males": "صحفيو موضة",
+        "job_females": "صحفيات موضة",
+        "both_jobs": "صحفيو وصحفيات موضة"
+    },
+    "fiddlers": {
+        "job_males": "عازفو كمان",
+        "job_females": "عازفات كمان",
+        "both_jobs": "عازفو وعازفات كمان"
+    },
+    "film critics": {
+        "job_males": "نقاد أفلام",
+        "job_females": "ناقدات أفلام",
+        "both_jobs": "نقاد وناقدات أفلام"
+    },
+    "film directors": {
+        "job_males": "مخرجو أفلام",
+        "job_females": "مخرجات أفلام",
+        "both_jobs": "مخرجو ومخرجات أفلام"
+    },
+    "film editors": {
+        "job_males": "محررو أفلام",
+        "job_females": "محررات أفلام",
+        "both_jobs": "محررو ومحررات أفلام"
+    },
+    "film historians": {
+        "job_males": "مؤرخو أفلام",
+        "job_females": "مؤرخات أفلام",
+        "both_jobs": "مؤرخو ومؤرخات أفلام"
+    },
+    "film producers": {
+        "job_males": "منتجو أفلام",
+        "job_females": "منتجات أفلام",
+        "both_jobs": "منتجو ومنتجات أفلام"
+    },
+    "filmmakers": {
+        "job_males": "صانعو أفلام",
+        "job_females": "صانعات أفلام",
+        "both_jobs": "صانعو وصانعات أفلام"
+    },
+    "finance editors": {
+        "job_males": "محررو تمويل",
+        "job_females": "محررات تمويل",
+        "both_jobs": "محررو ومحررات تمويل"
+    },
+    "financial founders": {
+        "job_males": "مؤسسو مالية",
+        "job_females": "مؤسسات مالية",
+        "both_jobs": "مؤسسو ومؤسسات مالية"
+    },
+    "financial journalists": {
+        "job_males": "صحفيو مالية",
+        "job_females": "صحفيات مالية",
+        "both_jobs": "صحفيو وصحفيات مالية"
+    },
+    "financial owners": {
+        "job_males": "ملاك مالية",
+        "job_females": "مالكات مالية",
+        "both_jobs": "ملاك ومالكات مالية"
+    },
+    "financial writers": {
+        "job_males": "كتاب مالية",
+        "job_females": "كاتبات مالية",
+        "both_jobs": "كتاب وكاتبات مالية"
+    },
+    "fishers": {
+        "job_males": "صيادو سمك",
+        "job_females": "صيادات سمك",
+        "both_jobs": "صيادو وصيادات سمك"
+    },
+    "flamenco musicians": {
+        "job_males": "موسيقيو فلامنكو",
+        "job_females": "موسيقيات فلامنكو",
+        "both_jobs": "موسيقيو وموسيقيات فلامنكو"
+    },
+    "flamenco singers": {
+        "job_males": "مغنو فلامنكو",
+        "job_females": "مغنيات فلامنكو",
+        "both_jobs": "مغنو ومغنيات فلامنكو"
+    },
+    "flautists": {
+        "job_males": "عازفو فولت",
+        "job_females": "عازفات فولت",
+        "both_jobs": "عازفو وعازفات فولت"
+    },
+    "flight attendants": {
+        "job_males": "مضيفو طيران",
+        "job_females": "مضيفات طيران",
+        "both_jobs": "مضيفو ومضيفات طيران"
+    },
+    "florists": {
+        "job_males": "بائعو زهور",
+        "job_females": "بائعات زهور",
+        "both_jobs": "بائعو وبائعات زهور"
+    },
+    "folk composers": {
+        "job_males": "ملحنو فولك",
+        "job_females": "ملحنات فولك",
+        "both_jobs": "ملحنو وملحنات فولك"
+    },
+    "folk drummers": {
+        "job_males": "طبالو فولك",
+        "job_females": "طبالات فولك",
+        "both_jobs": "طبالو وطبالات فولك"
+    },
+    "folk musicians": {
+        "job_males": "موسيقيو فولك",
+        "job_females": "موسيقيات فولك",
+        "both_jobs": "موسيقيو وموسيقيات فولك"
+    },
+    "folk singers": {
+        "job_males": "مغنو فولك",
+        "job_females": "مغنيات فولك",
+        "both_jobs": "مغنو ومغنيات فولك"
+    },
+    "food founders": {
+        "job_males": "مؤسسو أطعمة",
+        "job_females": "مؤسسات أطعمة",
+        "both_jobs": "مؤسسو ومؤسسات أطعمة"
+    },
+    "food owners": {
+        "job_males": "ملاك أطعمة",
+        "job_females": "مالكات أطعمة",
+        "both_jobs": "ملاك ومالكات أطعمة"
+    },
+    "food writers": {
+        "job_males": "كتاب طعام",
+        "job_females": "كاتبات طعام",
+        "both_jobs": "كتاب وكاتبات طعام"
+    },
+    "funeral directors": {
+        "job_males": "مديري جنازة",
+        "job_females": "مديرات جنازة",
+        "both_jobs": "مديري ومديرات جنازة"
+    },
+    "funk drummers": {
+        "job_males": "طبالو فانك",
+        "job_females": "طبالات فانك",
+        "both_jobs": "طبالو وطبالات فانك"
+    },
+    "funk musicians": {
+        "job_males": "موسيقيو فانك",
+        "job_females": "موسيقيات فانك",
+        "both_jobs": "موسيقيو وموسيقيات فانك"
+    },
+    "funk singers": {
+        "job_males": "مغنو فانك",
+        "job_females": "مغنيات فانك",
+        "both_jobs": "مغنو ومغنيات فانك"
+    },
+    "fur traders": {
+        "job_males": "تجار فراء",
+        "job_females": "تاجرات فراء",
+        "both_jobs": "تجار وتاجرات فراء"
+    },
+    "furniture designers": {
+        "job_males": "مصممو أثاث",
+        "job_females": "مصممات أثاث",
+        "both_jobs": "مصممو ومصممات أثاث"
+    },
+    "fusion drummers": {
+        "job_males": "طبالو فيوشن",
+        "job_females": "طبالات فيوشن",
+        "both_jobs": "طبالو وطبالات فيوشن"
+    },
+    "fusion musicians": {
+        "job_males": "موسيقيو فيوشن",
+        "job_females": "موسيقيات فيوشن",
+        "both_jobs": "موسيقيو وموسيقيات فيوشن"
+    },
+    "gambling founders": {
+        "job_males": "مؤسسو مقامرة",
+        "job_females": "مؤسسات مقامرة",
+        "both_jobs": "مؤسسو ومؤسسات مقامرة"
+    },
+    "gambling owners": {
+        "job_males": "ملاك مقامرة",
+        "job_females": "مالكات مقامرة",
+        "both_jobs": "ملاك ومالكات مقامرة"
+    },
+    "game designers": {
+        "job_males": "مصممو ألعاب",
+        "job_females": "مصممات ألعاب",
+        "both_jobs": "مصممو ومصممات ألعاب"
+    },
+    "gardeners": {
+        "job_males": "مزارعو حدائق",
+        "job_females": "مزارعات حدائق",
+        "both_jobs": "مزارعو ومزارعات حدائق"
+    },
+    "gas founders": {
+        "job_males": "مؤسسو غاز",
+        "job_females": "مؤسسات غاز",
+        "both_jobs": "مؤسسو ومؤسسات غاز"
+    },
+    "gas owners": {
+        "job_males": "ملاك غاز",
+        "job_females": "مالكات غاز",
+        "both_jobs": "ملاك ومالكات غاز"
+    },
+    "geneticists": {
+        "job_males": "علماء وراثة",
+        "job_females": "عالمات وراثة",
+        "both_jobs": "علماء وعالمات وراثة"
+    },
+    "genre artists": {
+        "job_males": "فنانو نوع",
+        "job_females": "فنانات نوع",
+        "both_jobs": "فنانو وفنانات نوع"
+    },
+    "genre painters": {
+        "job_males": "رسامو نوع",
+        "job_females": "رسامات نوع",
+        "both_jobs": "رسامو ورسامات نوع"
+    },
+    "glassmaking founders": {
+        "job_males": "مؤسسو الزجاج",
+        "job_females": "مؤسسات الزجاج",
+        "both_jobs": "مؤسسو ومؤسسات الزجاج"
+    },
+    "glassmaking owners": {
+        "job_males": "ملاك الزجاج",
+        "job_females": "مالكات الزجاج",
+        "both_jobs": "ملاك ومالكات الزجاج"
+    },
+    "go coaches": {
+        "job_males": "مدربو غو",
+        "job_females": "مدربات غو",
+        "both_jobs": "مدربو ومدربات غو"
+    },
+    "go players": {
+        "job_males": "لاعبو غو",
+        "job_females": "لاعبات غو",
+        "both_jobs": "لاعبو ولاعبات غو"
+    },
+    "goalkeepers": {
+        "job_males": "حراس مرمى",
+        "job_females": "حارسات مرمى",
+        "both_jobs": "حراس وحارسات مرمى"
+    },
+    "goaltenders": {
+        "job_males": "حراس مرمى",
+        "job_females": "حارسات مرمى",
+        "both_jobs": "حراس وحارسات مرمى"
+    },
+    "golf coaches": {
+        "job_males": "مدربو غولف",
+        "job_females": "مدربات غولف",
+        "both_jobs": "مدربو ومدربات غولف"
+    },
+    "golf players": {
+        "job_males": "لاعبو غولف",
+        "job_females": "لاعبات غولف",
+        "both_jobs": "لاعبو ولاعبات غولف"
+    },
+    "golfers": {
+        "job_males": "لاعبو غولف",
+        "job_females": "لاعبات غولف",
+        "both_jobs": "لاعبو ولاعبات غولف"
+    },
+    "gospel music composers": {
+        "job_males": "ملحنو غوسبل",
+        "job_females": "ملحنات غوسبل",
+        "both_jobs": "ملحنو وملحنات غوسبل"
+    },
+    "gospel musicians": {
+        "job_males": "موسيقيو غوسبل",
+        "job_females": "موسيقيات غوسبل",
+        "both_jobs": "موسيقيو وموسيقيات غوسبل"
+    },
+    "gospel singers": {
+        "job_males": "مغنو غوسبل",
+        "job_females": "مغنيات غوسبل",
+        "both_jobs": "مغنو ومغنيات غوسبل"
+    },
+    "graphic designers": {
+        "job_males": "مصممو جرافيك",
+        "job_females": "مصممات جرافيك",
+        "both_jobs": "مصممو ومصممات جرافيك"
+    },
+    "graphologists": {
+        "job_males": "محللو خطوط",
+        "job_females": "محللات خطوط",
+        "both_jobs": "محللو ومحللات خطوط"
+    },
+    "grindcore musicians": {
+        "job_males": "موسيقيو قريندكور",
+        "job_females": "موسيقيات قريندكور",
+        "both_jobs": "موسيقيو وموسيقيات قريندكور"
+    },
+    "grunge musicians": {
+        "job_males": "موسيقيو غرنج",
+        "job_females": "موسيقيات غرنج",
+        "both_jobs": "موسيقيو وموسيقيات غرنج"
+    },
+    "guitarists": {
+        "job_males": "عازفو قيثارة",
+        "job_females": "عازفات قيثارة",
+        "both_jobs": "عازفو وعازفات قيثارة"
+    },
+    "gymnastics coaches": {
+        "job_males": "مدربو جمباز",
+        "job_females": "مدربات جمباز",
+        "both_jobs": "مدربو ومدربات جمباز"
+    },
+    "gymnasts": {
+        "job_males": "لاعبو جمباز",
+        "job_females": "لاعبات جمباز",
+        "both_jobs": "لاعبو ولاعبات جمباز"
+    },
+    "hairdressers": {
+        "job_males": "مصففو شعر",
+        "job_females": "مصففات شعر",
+        "both_jobs": "مصففو ومصففات شعر"
+    },
+    "hammer throwers": {
+        "job_males": "رماة مطرقة",
+        "job_females": "راميات مطرقة",
+        "both_jobs": "رماة وراميات مطرقة"
+    },
+    "harmonica players": {
+        "job_males": "لاعبو هارمونيكا",
+        "job_females": "لاعبات هارمونيكا",
+        "both_jobs": "لاعبو ولاعبات هارمونيكا"
+    },
+    "health activists": {
+        "job_males": "ناشطو صحة",
+        "job_females": "ناشطات صحة",
+        "both_jobs": "ناشطو وناشطات صحة"
+    },
+    "hematologists": {
+        "job_males": "أخصائيو دم",
+        "job_females": "أخصائيات دم",
+        "both_jobs": "أخصائيو وأخصائيات دم"
+    },
+    "heptathletes": {
+        "job_males": "متسابقو سباعي",
+        "job_females": "متسابقات سباعي",
+        "both_jobs": "متسابقو ومتسابقات سباعي"
+    },
+    "hindu founders": {
+        "job_males": "مؤسسو هندوسية",
+        "job_females": "مؤسسات هندوسية",
+        "both_jobs": "مؤسسو ومؤسسات هندوسية"
+    },
+    "historians-of-philosophy": {
+        "job_males": "مؤرخو فلسفة",
+        "job_females": "مؤرخات فلسفة",
+        "both_jobs": "مؤرخو ومؤرخات فلسفة"
+    },
+    "hobbyists": {
+        "job_males": "محبو هوايات",
+        "job_females": "محبات هوايات",
+        "both_jobs": "محبو ومحبات هوايات"
+    },
+    "hockey announcers": {
+        "job_males": "مذيعو هوكي",
+        "job_females": "مذيعات هوكي",
+        "both_jobs": "مذيعو ومذيعات هوكي"
+    },
+    "hockey coaches": {
+        "job_males": "مدربو هوكي",
+        "job_females": "مدربات هوكي",
+        "both_jobs": "مدربو ومدربات هوكي"
+    },
+    "hockey defencemen": {
+        "job_males": "مدافعو هوكي",
+        "job_females": "مدافعات هوكي",
+        "both_jobs": "مدافعو ومدافعات هوكي"
+    },
+    "hockey defenders": {
+        "job_males": "مدافعو هوكي",
+        "job_females": "مدافعات هوكي",
+        "both_jobs": "مدافعو ومدافعات هوكي"
+    },
+    "hockey executives": {
+        "job_males": "مسيرو هوكي",
+        "job_females": "مسيرات هوكي",
+        "both_jobs": "مسيرو ومسيرات هوكي"
+    },
+    "hockey forwards": {
+        "job_males": "مهاجمو هوكي",
+        "job_females": "مهاجمات هوكي",
+        "both_jobs": "مهاجمو ومهاجمات هوكي"
+    },
+    "hockey journalists": {
+        "job_males": "صحفيو هوكي",
+        "job_females": "صحفيات هوكي",
+        "both_jobs": "صحفيو وصحفيات هوكي"
+    },
+    "hockey players": {
+        "job_males": "لاعبو هوكي",
+        "job_females": "لاعبات هوكي",
+        "both_jobs": "لاعبو ولاعبات هوكي"
+    },
+    "hockey umpires": {
+        "job_males": "حكام هوكي",
+        "job_females": "حكمات هوكي",
+        "both_jobs": "حكام وحكمات هوكي"
+    },
+    "hockey wingers": {
+        "job_males": "أجنحة هوكي",
+        "job_females": "جناحات هوكي",
+        "both_jobs": "أجنحة وجناحات هوكي"
+    },
+    "holding founders": {
+        "job_males": "مؤسسو قابضة",
+        "job_females": "مؤسسات قابضة",
+        "both_jobs": "مؤسسو ومؤسسات قابضة"
+    },
+    "holding owners": {
+        "job_males": "ملاك قابضة",
+        "job_females": "مالكات قابضة",
+        "both_jobs": "ملاك ومالكات قابضة"
+    },
+    "holocaust deniers": {
+        "job_males": "منكرو الهولوكوست",
+        "job_females": "منكرات الهولوكوست",
+        "both_jobs": "منكرو ومنكرات الهولوكوست"
+    },
+    "horror artists": {
+        "job_males": "فنانو رعب",
+        "job_females": "فنانات رعب",
+        "both_jobs": "فنانو وفنانات رعب"
+    },
+    "horror writers": {
+        "job_males": "كتاب رعب",
+        "job_females": "كاتبات رعب",
+        "both_jobs": "كتاب وكاتبات رعب"
+    },
+    "horse trainers": {
+        "job_males": "مدربو خيول",
+        "job_females": "مدربات خيول",
+        "both_jobs": "مدربو ومدربات خيول"
+    },
+    "horticultural founders": {
+        "job_males": "مؤسسو بستنة",
+        "job_females": "مؤسسات بستنة",
+        "both_jobs": "مؤسسو ومؤسسات بستنة"
+    },
+    "horticultural owners": {
+        "job_males": "ملاك بستنة",
+        "job_females": "مالكات بستنة",
+        "both_jobs": "ملاك ومالكات بستنة"
+    },
+    "hospitality founders": {
+        "job_males": "مؤسسو ضيافة",
+        "job_females": "مؤسسات ضيافة",
+        "both_jobs": "مؤسسو ومؤسسات ضيافة"
+    },
+    "hospitality owners": {
+        "job_males": "ملاك ضيافة",
+        "job_females": "مالكات ضيافة",
+        "both_jobs": "ملاك ومالكات ضيافة"
+    },
+    "hoteliers": {
+        "job_males": "أصحاب فنادق",
+        "job_females": "صاحبات فنادق",
+        "both_jobs": "أصحاب وصاحبات فنادق"
+    },
+    "hotels founders": {
+        "job_males": "مؤسسو فنادق",
+        "job_females": "مؤسسات فنادق",
+        "both_jobs": "مؤسسو ومؤسسات فنادق"
+    },
+    "hotels owners": {
+        "job_males": "ملاك فنادق",
+        "job_females": "مالكات فنادق",
+        "both_jobs": "ملاك ومالكات فنادق"
+    },
+    "house musicians": {
+        "job_males": "موسيقيو الهاوس",
+        "job_females": "موسيقيات الهاوس",
+        "both_jobs": "موسيقيو وموسيقيات الهاوس"
+    },
+    "hurling coaches": {
+        "job_males": "مدربو قذف",
+        "job_females": "مدربات قذف",
+        "both_jobs": "مدربو ومدربات قذف"
+    },
+    "hurling forwards": {
+        "job_males": "مهاجمو قذف",
+        "job_females": "مهاجمات قذف",
+        "both_jobs": "مهاجمو ومهاجمات قذف"
+    },
+    "hurling managers": {
+        "job_males": "مدربو قذف",
+        "job_females": "مدربات قذف",
+        "both_jobs": "مدربو ومدربات قذف"
+    },
+    "hurling players": {
+        "job_males": "لاعبو قذف",
+        "job_females": "لاعبات قذف",
+        "both_jobs": "لاعبو ولاعبات قذف"
+    },
+    "hurling referees": {
+        "job_males": "حكام قذف",
+        "job_females": "حكمات قذف",
+        "both_jobs": "حكام وحكمات قذف"
+    },
+    "hurling umpires": {
+        "job_males": "حكام قذف",
+        "job_females": "حكمات قذف",
+        "both_jobs": "حكام وحكمات قذف"
+    },
+    "hydroelectric founders": {
+        "job_males": "مؤسسو كهرمائية",
+        "job_females": "مؤسسات كهرمائية",
+        "both_jobs": "مؤسسو ومؤسسات كهرمائية"
+    },
+    "hydroelectric owners": {
+        "job_males": "ملاك كهرمائية",
+        "job_females": "مالكات كهرمائية",
+        "both_jobs": "ملاك ومالكات كهرمائية"
+    },
+    "hygienists": {
+        "job_males": "علماء صحة",
+        "job_females": "عالمات صحة",
+        "both_jobs": "علماء وعالمات صحة"
+    },
+    "ice dancers": {
+        "job_males": "راقصو جليد",
+        "job_females": "راقصات جليد",
+        "both_jobs": "راقصو وراقصات جليد"
+    },
+    "ichthyologists": {
+        "job_males": "علماء أسماك",
+        "job_females": "عالمات أسماك",
+        "both_jobs": "علماء وعالمات أسماك"
+    },
+    "immunologists": {
+        "job_males": "علماء مناعة",
+        "job_females": "عالمات مناعة",
+        "both_jobs": "علماء وعالمات مناعة"
+    },
+    "industrial musicians": {
+        "job_males": "موسيقيو صناعية",
+        "job_females": "موسيقيات صناعية",
+        "both_jobs": "موسيقيو وموسيقيات صناعية"
+    },
+    "insurance founders": {
+        "job_males": "مؤسسو تأمين",
+        "job_females": "مؤسسات تأمين",
+        "both_jobs": "مؤسسو ومؤسسات تأمين"
+    },
+    "insurance owners": {
+        "job_males": "ملاك تأمين",
+        "job_females": "مالكات تأمين",
+        "both_jobs": "ملاك ومالكات تأمين"
+    },
+    "intelligence personnel": {
+        "job_males": "أفراد مخابرات",
+        "job_females": "أفراد مخابرات",
+        "both_jobs": "أفراد وأفراد مخابرات"
+    },
+    "interior designers": {
+        "job_males": "مصممو ديكور",
+        "job_females": "مصممات ديكور",
+        "both_jobs": "مصممو ومصممات ديكور"
+    },
+    "internet activists": {
+        "job_males": "ناشطو إنترنت",
+        "job_females": "ناشطات إنترنت",
+        "both_jobs": "ناشطو وناشطات إنترنت"
+    },
+    "internet founders": {
+        "job_males": "مؤسسو إنترنت",
+        "job_females": "مؤسسات إنترنت",
+        "both_jobs": "مؤسسو ومؤسسات إنترنت"
+    },
+    "internet owners": {
+        "job_males": "ملاك إنترنت",
+        "job_females": "مالكات إنترنت",
+        "both_jobs": "ملاك ومالكات إنترنت"
+    },
+    "investment founders": {
+        "job_males": "مؤسسو استثمارية",
+        "job_females": "مؤسسات استثمارية",
+        "both_jobs": "مؤسسو ومؤسسات استثمارية"
+    },
+    "investment owners": {
+        "job_males": "ملاك استثمارية",
+        "job_females": "مالكات استثمارية",
+        "both_jobs": "ملاك ومالكات استثمارية"
+    },
+    "investment writers": {
+        "job_males": "كتاب استثمار",
+        "job_females": "كاتبات استثمار",
+        "both_jobs": "كتاب وكاتبات استثمار"
+    },
+    "iranologists": {
+        "job_males": "علماء إيرانيات",
+        "job_females": "عالمات إيرانيات",
+        "both_jobs": "علماء وعالمات إيرانيات"
+    },
+    "islamic founders": {
+        "job_males": "مؤسسو إسلامية",
+        "job_females": "مؤسسات إسلامية",
+        "both_jobs": "مؤسسو ومؤسسات إسلامية"
+    },
+    "jain founders": {
+        "job_males": "مؤسسو جاينية",
+        "job_females": "مؤسسات جاينية",
+        "both_jobs": "مؤسسو ومؤسسات جاينية"
+    },
+    "jazz composers": {
+        "job_males": "ملحنو جاز",
+        "job_females": "ملحنات جاز",
+        "both_jobs": "ملحنو وملحنات جاز"
+    },
+    "jazz drummers": {
+        "job_males": "طبالو جاز",
+        "job_females": "طبالات جاز",
+        "both_jobs": "طبالو وطبالات جاز"
+    },
+    "jazz educators": {
+        "job_males": "معلمو جاز",
+        "job_females": "معلمات جاز",
+        "both_jobs": "معلمو ومعلمات جاز"
+    },
+    "jazz musicians": {
+        "job_males": "موسيقيو جاز",
+        "job_females": "موسيقيات جاز",
+        "both_jobs": "موسيقيو وموسيقيات جاز"
+    },
+    "jazz singers": {
+        "job_males": "مغنو جاز",
+        "job_females": "مغنيات جاز",
+        "both_jobs": "مغنو ومغنيات جاز"
+    },
+    "jazz writers": {
+        "job_males": "كتاب جاز",
+        "job_females": "كاتبات جاز",
+        "both_jobs": "كتاب وكاتبات جاز"
+    },
+    "jewellery designers": {
+        "job_males": "مصممو مجوهرات",
+        "job_females": "مصممات مجوهرات",
+        "both_jobs": "مصممو ومصممات مجوهرات"
+    },
+    "jewellery founders": {
+        "job_males": "مؤسسو مجوهرات",
+        "job_females": "مؤسسات مجوهرات",
+        "both_jobs": "مؤسسو ومؤسسات مجوهرات"
+    },
+    "jewellery owners": {
+        "job_males": "ملاك مجوهرات",
+        "job_females": "مالكات مجوهرات",
+        "both_jobs": "ملاك ومالكات مجوهرات"
+    },
+    "jewelry designers": {
+        "job_males": "مصممو مجوهرات",
+        "job_females": "مصممات مجوهرات",
+        "both_jobs": "مصممو ومصممات مجوهرات"
+    },
+    "jewish founders": {
+        "job_males": "مؤسسو يهودية",
+        "job_females": "مؤسسات يهودية",
+        "both_jobs": "مؤسسو ومؤسسات يهودية"
+    },
+    "ju-jitsu practitioners": {
+        "job_males": "ممارسو جوجوتسو",
+        "job_females": "ممارسات جوجوتسو",
+        "both_jobs": "ممارسو وممارسات جوجوتسو"
+    },
+    "judaic scholars": {
+        "job_males": "دارسو اليهودية",
+        "job_females": "دارسات اليهودية",
+        "both_jobs": "دارسو ودارسات اليهودية"
+    },
+    "judo referees": {
+        "job_males": "حكام جودو",
+        "job_females": "حكمات جودو",
+        "both_jobs": "حكام وحكمات جودو"
+    },
+    "judoka": {
+        "job_males": "لاعبو جودو",
+        "job_females": "لاعبات جودو",
+        "both_jobs": "لاعبو ولاعبات جودو"
+    },
+    "kabaddi players": {
+        "job_males": "لاعبو كابادي",
+        "job_females": "لاعبات كابادي",
+        "both_jobs": "لاعبو ولاعبات كابادي"
+    },
+    "karate coaches": {
+        "job_males": "مدربو كاراتيه",
+        "job_females": "مدربات كاراتيه",
+        "both_jobs": "مدربو ومدربات كاراتيه"
+    },
+    "karateka": {
+        "job_males": "ممارسو كاراتيه",
+        "job_females": "ممارسات كاراتيه",
+        "both_jobs": "ممارسو وممارسات كاراتيه"
+    },
+    "kizomba singers": {
+        "job_males": "مغنو kizomba",
+        "job_females": "مغنيات kizomba",
+        "both_jobs": "مغنو ومغنيات kizomba"
+    },
+    "klezmer musicians": {
+        "job_males": "موسيقيو كليزمر",
+        "job_females": "موسيقيات كليزمر",
+        "both_jobs": "موسيقيو وموسيقيات كليزمر"
+    },
+    "kurash practitioners": {
+        "job_males": "ممارسو كوراش",
+        "job_females": "ممارسات كوراش",
+        "both_jobs": "ممارسو وممارسات كوراش"
+    },
+    "lacrosse announcers": {
+        "job_males": "مذيعو لاكروس",
+        "job_females": "مذيعات لاكروس",
+        "both_jobs": "مذيعو ومذيعات لاكروس"
+    },
+    "lacrosse coaches": {
+        "job_males": "مدربو لاكروس",
+        "job_females": "مدربات لاكروس",
+        "both_jobs": "مدربو ومدربات لاكروس"
+    },
+    "lacrosse defenders": {
+        "job_males": "مدافعو لاكروس",
+        "job_females": "مدافعات لاكروس",
+        "both_jobs": "مدافعو ومدافعات لاكروس"
+    },
+    "lacrosse forwards": {
+        "job_males": "مهاجمو لاكروس",
+        "job_females": "مهاجمات لاكروس",
+        "both_jobs": "مهاجمو ومهاجمات لاكروس"
+    },
+    "lacrosse players": {
+        "job_males": "لاعبو لاكروس",
+        "job_females": "لاعبات لاكروس",
+        "both_jobs": "لاعبو ولاعبات لاكروس"
+    },
+    "land owners": {
+        "job_males": "حائزو أراضي",
+        "job_females": "حائزات أراضي",
+        "both_jobs": "حائزو وحائزات أراضي"
+    },
+    "landowners": {
+        "job_males": "حائزو أراضي",
+        "job_females": "حائزات أراضي",
+        "both_jobs": "حائزو وحائزات أراضي"
+    },
+    "language teachers": {
+        "job_males": "معلمو لغات",
+        "job_females": "معلمات لغات",
+        "both_jobs": "معلمو ومعلمات لغات"
+    },
+    "leaders of organizations": {
+        "job_males": "رؤساء منظمات",
+        "job_females": "رئيسات منظمات",
+        "both_jobs": "رؤساء ورئيسات منظمات"
+    },
+    "left wingers": {
+        "job_males": "أجنحة يسار",
+        "job_females": "جناحات يسار",
+        "both_jobs": "أجنحة وجناحات يسار"
+    },
+    "legal scholars": {
+        "job_males": "أساتذة قانون",
+        "job_females": "أستاذات قانون",
+        "both_jobs": "أساتذة وأستاذات قانون"
+    },
+    "legal writers": {
+        "job_males": "كتاب قانون",
+        "job_females": "كاتبات قانون",
+        "both_jobs": "كتاب وكاتبات قانون"
+    },
+    "leprologists": {
+        "job_males": "أخصائيو الجذام",
+        "job_females": "أخصائيات الجذام",
+        "both_jobs": "أخصائيو وأخصائيات الجذام"
+    },
+    "librarians": {
+        "job_males": "أمناء مكتبات",
+        "job_females": "أمينات مكتبات",
+        "both_jobs": "أمناء وأمينات مكتبات"
+    },
+    "life coaches": {
+        "job_males": "مدربو حياة",
+        "job_females": "مدربات حياة",
+        "both_jobs": "مدربو ومدربات حياة"
+    },
+    "logistics founders": {
+        "job_males": "مؤسسو لوجستية",
+        "job_females": "مؤسسات لوجستية",
+        "both_jobs": "مؤسسو ومؤسسات لوجستية"
+    },
+    "logistics owners": {
+        "job_males": "ملاك لوجستية",
+        "job_females": "مالكات لوجستية",
+        "both_jobs": "ملاك ومالكات لوجستية"
+    },
+    "magazine editors": {
+        "job_males": "محررو مجلات",
+        "job_females": "محررات مجلات",
+        "both_jobs": "محررو ومحررات مجلات"
+    },
+    "magazine founders": {
+        "job_males": "مؤسسو مجلات",
+        "job_females": "مؤسسات مجلات",
+        "both_jobs": "مؤسسو ومؤسسات مجلات"
+    },
+    "magazine journalists": {
+        "job_males": "صحفيو مجلات",
+        "job_females": "صحفيات مجلات",
+        "both_jobs": "صحفيو وصحفيات مجلات"
+    },
+    "magazine owners": {
+        "job_males": "ملاك مجلات",
+        "job_females": "مالكات مجلات",
+        "both_jobs": "ملاك ومالكات مجلات"
+    },
+    "magazine publishers (people)": {
+        "job_males": "ناشرو مجلات",
+        "job_females": "ناشرات مجلات",
+        "both_jobs": "ناشرو وناشرات مجلات"
+    },
+    "magazine writers": {
+        "job_males": "كتاب مجلات",
+        "job_females": "كاتبات مجلات",
+        "both_jobs": "كتاب وكاتبات مجلات"
+    },
+    "make-up artists": {
+        "job_males": "فنانو مكياج",
+        "job_females": "فنانات مكياج",
+        "both_jobs": "فنانو وفنانات مكياج"
+    },
+    "make-up painters": {
+        "job_males": "رسامو مكياج",
+        "job_females": "رسامات مكياج",
+        "both_jobs": "رسامو ورسامات مكياج"
+    },
+    "malacologists": {
+        "job_males": "علماء رخويات",
+        "job_females": "عالمات رخويات",
+        "both_jobs": "علماء وعالمات رخويات"
+    },
+    "malariologists": {
+        "job_males": "علماء ملاريا",
+        "job_females": "عالمات ملاريا",
+        "both_jobs": "علماء وعالمات ملاريا"
+    },
+    "mambo musicians": {
+        "job_males": "موسيقيو المامبو",
+        "job_females": "موسيقيات المامبو",
+        "both_jobs": "موسيقيو وموسيقيات المامبو"
+    },
+    "mammalogists": {
+        "job_males": "علماء ثدييات",
+        "job_females": "عالمات ثدييات",
+        "both_jobs": "علماء وعالمات ثدييات"
+    },
+    "mandolinists": {
+        "job_males": "عازفو مندولين",
+        "job_females": "عازفات مندولين",
+        "both_jobs": "عازفو وعازفات مندولين"
+    },
+    "mandopop musicians": {
+        "job_males": "موسيقيو ماندوبوب",
+        "job_females": "موسيقيات ماندوبوب",
+        "both_jobs": "موسيقيو وموسيقيات ماندوبوب"
+    },
+    "mandopop singers": {
+        "job_males": "مغنو ماندوبوب",
+        "job_females": "مغنيات ماندوبوب",
+        "both_jobs": "مغنو ومغنيات ماندوبوب"
+    },
+    "manga artists": {
+        "job_males": "فنانو مانغا",
+        "job_females": "فنانات مانغا",
+        "both_jobs": "فنانو وفنانات مانغا"
+    },
+    "manga critics": {
+        "job_males": "نقاد مانغا",
+        "job_females": "ناقدات مانغا",
+        "both_jobs": "نقاد وناقدات مانغا"
+    },
+    "manga founders": {
+        "job_males": "مؤسسو مانغا",
+        "job_females": "مؤسسات مانغا",
+        "both_jobs": "مؤسسو ومؤسسات مانغا"
+    },
+    "manga owners": {
+        "job_males": "ملاك مانغا",
+        "job_females": "مالكات مانغا",
+        "both_jobs": "ملاك ومالكات مانغا"
+    },
+    "manga painters": {
+        "job_males": "رسامو مانغا",
+        "job_females": "رسامات مانغا",
+        "both_jobs": "رسامو ورسامات مانغا"
+    },
+    "manga writers": {
+        "job_males": "كتاب مانغا",
+        "job_females": "كاتبات مانغا",
+        "both_jobs": "كتاب وكاتبات مانغا"
+    },
+    "manufacturing founders": {
+        "job_males": "مؤسسو تصنيع",
+        "job_females": "مؤسسات تصنيع",
+        "both_jobs": "مؤسسو ومؤسسات تصنيع"
+    },
+    "manufacturing owners": {
+        "job_males": "ملاك تصنيع",
+        "job_females": "مالكات تصنيع",
+        "both_jobs": "ملاك ومالكات تصنيع"
+    },
+    "map founders": {
+        "job_males": "مؤسسو خرائط",
+        "job_females": "مؤسسات خرائط",
+        "both_jobs": "مؤسسو ومؤسسات خرائط"
+    },
+    "map owners": {
+        "job_males": "ملاك خرائط",
+        "job_females": "مالكات خرائط",
+        "both_jobs": "ملاك ومالكات خرائط"
+    },
+    "marathon runners": {
+        "job_males": "عداؤو ماراثون",
+        "job_females": "عداءات ماراثون",
+        "both_jobs": "عداؤو وعداءات ماراثون"
+    },
+    "mariachi musicians": {
+        "job_males": "موسيقيو مرياتي",
+        "job_females": "موسيقيات مرياتي",
+        "both_jobs": "موسيقيو وموسيقيات مرياتي"
+    },
+    "marketing founders": {
+        "job_males": "مؤسسو تسويق",
+        "job_females": "مؤسسات تسويق",
+        "both_jobs": "مؤسسو ومؤسسات تسويق"
+    },
+    "marketing owners": {
+        "job_males": "ملاك تسويق",
+        "job_females": "مالكات تسويق",
+        "both_jobs": "ملاك ومالكات تسويق"
+    },
+    "masonic founders": {
+        "job_males": "مؤسسو ماسونية",
+        "job_females": "مؤسسات ماسونية",
+        "both_jobs": "مؤسسو ومؤسسات ماسونية"
+    },
+    "mayors of places": {
+        "job_males": "رؤساء بلديات",
+        "job_females": "رئيسات بلديات",
+        "both_jobs": "رؤساء ورئيسات بلديات"
+    },
+    "mechanical engineers": {
+        "job_males": "مهندسو ميكانيك",
+        "job_females": "مهندسات ميكانيك",
+        "both_jobs": "مهندسو ومهندسات ميكانيك"
+    },
+    "media founders": {
+        "job_males": "مؤسسو إعلامية",
+        "job_females": "مؤسسات إعلامية",
+        "both_jobs": "مؤسسو ومؤسسات إعلامية"
+    },
+    "media owners": {
+        "job_males": "ملاك إعلامية",
+        "job_females": "مالكات إعلامية",
+        "both_jobs": "ملاك ومالكات إعلامية"
+    },
+    "medical journalists": {
+        "job_males": "صحفيو طب",
+        "job_females": "صحفيات طب",
+        "both_jobs": "صحفيو وصحفيات طب"
+    },
+    "medical writers": {
+        "job_males": "كتاب طب",
+        "job_females": "كاتبات طب",
+        "both_jobs": "كتاب وكاتبات طب"
+    },
+    "memoirists": {
+        "job_males": "كتاب مذكرات",
+        "job_females": "كاتبات مذكرات",
+        "both_jobs": "كتاب وكاتبات مذكرات"
+    },
+    "merengue musicians": {
+        "job_males": "موسيقيو ميرينغي",
+        "job_females": "موسيقيات ميرينغي",
+        "both_jobs": "موسيقيو وموسيقيات ميرينغي"
+    },
+    "metal drummers": {
+        "job_males": "طبالو ميتال",
+        "job_females": "طبالات ميتال",
+        "both_jobs": "طبالو وطبالات ميتال"
+    },
+    "metal founders": {
+        "job_males": "مؤسسو معادن",
+        "job_females": "مؤسسات معادن",
+        "both_jobs": "مؤسسو ومؤسسات معادن"
+    },
+    "metal musicians": {
+        "job_males": "موسيقيو ميتال",
+        "job_females": "موسيقيات ميتال",
+        "both_jobs": "موسيقيو وموسيقيات ميتال"
+    },
+    "metal owners": {
+        "job_males": "ملاك معادن",
+        "job_females": "مالكات معادن",
+        "both_jobs": "ملاك ومالكات معادن"
+    },
+    "metal singers": {
+        "job_males": "مغنو ميتال",
+        "job_females": "مغنيات ميتال",
+        "both_jobs": "مغنو ومغنيات ميتال"
+    },
+    "metalsmiths": {
+        "job_males": "صانعو معادن",
+        "job_females": "صانعات معادن",
+        "both_jobs": "صانعو وصانعات معادن"
+    },
+    "midfielders": {
+        "job_males": "لاعبو وسط",
+        "job_females": "لاعبات وسط",
+        "both_jobs": "لاعبو ولاعبات وسط"
+    },
+    "mineralogists": {
+        "job_males": "علماء معادن",
+        "job_females": "عالمات معادن",
+        "both_jobs": "علماء وعالمات معادن"
+    },
+    "miners": {
+        "job_males": "عمال مناجم",
+        "job_females": "عاملات مناجم",
+        "both_jobs": "عمال وعاملات مناجم"
+    },
+    "mining engineers": {
+        "job_males": "مهندسو معادن",
+        "job_females": "مهندسات معادن",
+        "both_jobs": "مهندسو ومهندسات معادن"
+    },
+    "mining founders": {
+        "job_males": "مؤسسو تعدين",
+        "job_females": "مؤسسات تعدين",
+        "both_jobs": "مؤسسو ومؤسسات تعدين"
+    },
+    "mining owners": {
+        "job_males": "ملاك تعدين",
+        "job_females": "مالكات تعدين",
+        "both_jobs": "ملاك ومالكات تعدين"
+    },
+    "mnemonists": {
+        "job_males": "حافظو ذاكرة",
+        "job_females": "حافظات ذاكرة",
+        "both_jobs": "حافظو وحافظات ذاكرة"
+    },
+    "models": {
+        "job_males": "عارضو أزياء",
+        "job_females": "عارضات أزياء",
+        "both_jobs": "عارضو وعارضات أزياء"
+    },
+    "models (profession)": {
+        "job_males": "عارضو أزياء",
+        "job_females": "عارضات أزياء",
+        "both_jobs": "عارضو وعارضات أزياء"
+    },
+    "money managers": {
+        "job_males": "مديري أموال",
+        "job_females": "مديرات أموال",
+        "both_jobs": "مديري ومديرات أموال"
+    },
+    "mongolists": {
+        "job_males": "علماء منغوليات",
+        "job_females": "عالمات منغوليات",
+        "both_jobs": "علماء وعالمات منغوليات"
+    },
+    "mountain climbers": {
+        "job_males": "متسلقو جبال",
+        "job_females": "متسلقات جبال",
+        "both_jobs": "متسلقو ومتسلقات جبال"
+    },
+    "muralists": {
+        "job_males": "رسامو جداريات",
+        "job_females": "رسامات جداريات",
+        "both_jobs": "رسامو ورسامات جداريات"
+    },
+    "murder victims": {
+        "job_males": "ضحايا قتل",
+        "job_females": "ضحيات قتل",
+        "both_jobs": "ضحايا وضحيات قتل"
+    },
+    "murderersofchildren": {
+        "job_males": "قتلة أطفال",
+        "job_females": "قاتلات أطفال",
+        "both_jobs": "قتلة وقاتلات أطفال"
+    },
+    "music composers": {
+        "job_males": "ملحنو موسيقى",
+        "job_females": "ملحنات موسيقى",
+        "both_jobs": "ملحنو وملحنات موسيقى"
+    },
+    "music critics": {
+        "job_males": "نقاد موسيقى",
+        "job_females": "ناقدات موسيقى",
+        "both_jobs": "نقاد وناقدات موسيقى"
+    },
+    "music educators": {
+        "job_males": "معلمو موسيقى",
+        "job_females": "معلمات موسيقى",
+        "both_jobs": "معلمو ومعلمات موسيقى"
+    },
+    "music founders": {
+        "job_males": "مؤسسو الموسيقى",
+        "job_females": "مؤسسات الموسيقى",
+        "both_jobs": "مؤسسو ومؤسسات الموسيقى"
+    },
+    "music historians": {
+        "job_males": "مؤرخو موسيقى",
+        "job_females": "مؤرخات موسيقى",
+        "both_jobs": "مؤرخو ومؤرخات موسيقى"
+    },
+    "music musicians": {
+        "job_males": "موسيقيو موسيقى",
+        "job_females": "موسيقيات موسيقى",
+        "both_jobs": "موسيقيو وموسيقيات موسيقى"
+    },
+    "music owners": {
+        "job_males": "ملاك الموسيقى",
+        "job_females": "مالكات الموسيقى",
+        "both_jobs": "ملاك ومالكات الموسيقى"
+    },
+    "music publishers (people)": {
+        "job_males": "ناشرو موسيقى",
+        "job_females": "ناشرات موسيقى",
+        "both_jobs": "ناشرو وناشرات موسيقى"
+    },
+    "music singers": {
+        "job_males": "مغنو موسيقى",
+        "job_females": "مغنيات موسيقى",
+        "both_jobs": "مغنو ومغنيات موسيقى"
+    },
+    "music theorists": {
+        "job_males": "منظرو الموسيقى",
+        "job_females": "منظرات الموسيقى",
+        "both_jobs": "منظرو ومنظرات الموسيقى"
+    },
+    "musicologists": {
+        "job_males": "علماء موسيقى",
+        "job_females": "عالمات موسيقى",
+        "both_jobs": "علماء وعالمات موسيقى"
+    },
+    "mystery writers": {
+        "job_males": "كتاب غموض",
+        "job_females": "كاتبات غموض",
+        "both_jobs": "كتاب وكاتبات غموض"
+    },
+    "natural philosophers": {
+        "job_males": "فلاسفة الطبيعة",
+        "job_females": "فلسفيات الطبيعة",
+        "both_jobs": "فلاسفة وفلسفيات الطبيعة"
+    },
+    "naturalists": {
+        "job_males": "علماء طبيعة",
+        "job_females": "عالمات طبيعة",
+        "both_jobs": "علماء وعالمات طبيعة"
+    },
+    "nature writers": {
+        "job_males": "كتاب طبيعة",
+        "job_females": "كاتبات طبيعة",
+        "both_jobs": "كتاب وكاتبات طبيعة"
+    },
+    "navy officers": {
+        "job_males": "ضباط بحرية",
+        "job_females": "ضابطات بحرية",
+        "both_jobs": "ضباط وضابطات بحرية"
+    },
+    "nephrologists": {
+        "job_males": "أطباء كلى",
+        "job_females": "طبيبات كلى",
+        "both_jobs": "أطباء وطبيبات كلى"
+    },
+    "neurologists": {
+        "job_males": "أطباء أعصاب",
+        "job_females": "طبيبات أعصاب",
+        "both_jobs": "أطباء وطبيبات أعصاب"
+    },
+    "neuroscientists": {
+        "job_males": "علماء أعصاب",
+        "job_females": "عالمات أعصاب",
+        "both_jobs": "علماء وعالمات أعصاب"
+    },
+    "neurosurgeons": {
+        "job_males": "جراحو أعصاب",
+        "job_females": "جراحات أعصاب",
+        "both_jobs": "جراحو وجراحات أعصاب"
+    },
+    "newspaper editors": {
+        "job_males": "محررو صحف",
+        "job_females": "محررات صحف",
+        "both_jobs": "محررو ومحررات صحف"
+    },
+    "newspaper executives": {
+        "job_males": "مدراء جرائد",
+        "job_females": "مديرات جرائد",
+        "both_jobs": "مدراء ومديرات جرائد"
+    },
+    "newspaper founders": {
+        "job_males": "مؤسسو صحف",
+        "job_females": "مؤسسات صحف",
+        "both_jobs": "مؤسسو ومؤسسات صحف"
+    },
+    "newspaper journalists": {
+        "job_males": "صحفيو صحف",
+        "job_females": "صحفيات صحف",
+        "both_jobs": "صحفيو وصحفيات صحف"
+    },
+    "newspaper people": {
+        "job_males": "شخصيات صحف",
+        "job_females": "شخصيات صحف",
+        "both_jobs": "شخصيات وشخصيات صحف"
+    },
+    "newspaper publishers (people)": {
+        "job_males": "ناشرو صحف",
+        "job_females": "ناشرات صحف",
+        "both_jobs": "ناشرو وناشرات صحف"
+    },
+    "newspaper writers": {
+        "job_males": "كتاب صحف",
+        "job_females": "كاتبات صحف",
+        "both_jobs": "كتاب وكاتبات صحف"
+    },
+    "noise musicians": {
+        "job_males": "موسيقيو ضوضائية",
+        "job_females": "موسيقيات ضوضائية",
+        "both_jobs": "موسيقيو وموسيقيات ضوضائية"
+    },
+    "nuclear founders": {
+        "job_males": "مؤسسو نووية",
+        "job_females": "مؤسسات نووية",
+        "both_jobs": "مؤسسو ومؤسسات نووية"
+    },
+    "nuclear owners": {
+        "job_males": "ملاك نووية",
+        "job_females": "مالكات نووية",
+        "both_jobs": "ملاك ومالكات نووية"
+    },
+    "nuclear physicists": {
+        "job_males": "علماء ذرة",
+        "job_females": "عالمات ذرة",
+        "both_jobs": "علماء وعالمات ذرة"
+    },
+    "nutritionists": {
+        "job_males": "أخصائيو تغذية",
+        "job_females": "أخصائيات تغذية",
+        "both_jobs": "أخصائيو وأخصائيات تغذية"
+    },
+    "obstetricians": {
+        "job_males": "أطباء توليد",
+        "job_females": "طبيبات توليد",
+        "both_jobs": "أطباء وطبيبات توليد"
+    },
+    "oceanographers": {
+        "job_males": "علماء محيطات",
+        "job_females": "عالمات محيطات",
+        "both_jobs": "علماء وعالمات محيطات"
+    },
+    "offensive linemen": {
+        "job_males": "مهاجمو خط",
+        "job_females": "مهاجمات خط",
+        "both_jobs": "مهاجمو ومهاجمات خط"
+    },
+    "office-holders": {
+        "job_males": "أصحاب مناصب",
+        "job_females": "صاحبات مناصب",
+        "both_jobs": "أصحاب وصاحبات مناصب"
+    },
+    "oncologists": {
+        "job_males": "أطباء أورام",
+        "job_females": "طبيبات أورام",
+        "both_jobs": "أطباء وطبيبات أورام"
+    },
+    "online journalists": {
+        "job_males": "صحفيو إنترنت",
+        "job_females": "صحفيات إنترنت",
+        "both_jobs": "صحفيو وصحفيات إنترنت"
+    },
+    "opera composers": {
+        "job_males": "ملحنو أوبرا",
+        "job_females": "ملحنات أوبرا",
+        "both_jobs": "ملحنو وملحنات أوبرا"
+    },
+    "opera critics": {
+        "job_males": "نقاد أوبرا",
+        "job_females": "ناقدات أوبرا",
+        "both_jobs": "نقاد وناقدات أوبرا"
+    },
+    "opera singers": {
+        "job_males": "مغنو أوبرا",
+        "job_females": "مغنيات أوبرا",
+        "both_jobs": "مغنو ومغنيات أوبرا"
+    },
+    "opera writers": {
+        "job_males": "كتاب أوبرا",
+        "job_females": "كاتبات أوبرا",
+        "both_jobs": "كتاب وكاتبات أوبرا"
+    },
+    "operations researchers": {
+        "job_males": "باحثو عمليات",
+        "job_females": "باحثات عمليات",
+        "both_jobs": "باحثو وباحثات عمليات"
+    },
+    "ophthalmologists": {
+        "job_males": "أطباء عيون",
+        "job_females": "طبيبات عيون",
+        "both_jobs": "أطباء وطبيبات عيون"
+    },
+    "oratorio composers": {
+        "job_males": "ملحنو أوراتوريو",
+        "job_females": "ملحنات أوراتوريو",
+        "both_jobs": "ملحنو وملحنات أوراتوريو"
+    },
+    "organists": {
+        "job_males": "عازفو أورغن",
+        "job_females": "عازفات أورغن",
+        "both_jobs": "عازفو وعازفات أورغن"
+    },
+    "ornithologists": {
+        "job_males": "علماء طيور",
+        "job_females": "عالمات طيور",
+        "both_jobs": "علماء وعالمات طيور"
+    },
+    "orthopedic surgeons": {
+        "job_males": "جراحو عظام",
+        "job_females": "جراحات عظام",
+        "both_jobs": "جراحو وجراحات عظام"
+    },
+    "pacifists": {
+        "job_males": "دعاة سلام",
+        "job_females": "داعيات سلام",
+        "both_jobs": "دعاة وداعيات سلام"
+    },
+    "paleontologists": {
+        "job_males": "علماء حفريات",
+        "job_females": "عالمات حفريات",
+        "both_jobs": "علماء وعالمات حفريات"
+    },
+    "parasitologists": {
+        "job_males": "علماء طفيليات",
+        "job_females": "عالمات طفيليات",
+        "both_jobs": "علماء وعالمات طفيليات"
+    },
+    "pediatricians": {
+        "job_males": "أطباء أطفال",
+        "job_females": "طبيبات أطفال",
+        "both_jobs": "أطباء وطبيبات أطفال"
+    },
+    "pencillers": {
+        "job_males": "رسامو أقلام",
+        "job_females": "رسامات أقلام",
+        "both_jobs": "رسامو ورسامات أقلام"
+    },
+    "pentathlon coaches": {
+        "job_males": "مدربو خماسي",
+        "job_females": "مدربات خماسي",
+        "both_jobs": "مدربو ومدربات خماسي"
+    },
+    "pesäpallo players": {
+        "job_males": "لاعبو بيسبالو",
+        "job_females": "لاعبات بيسبالو",
+        "both_jobs": "لاعبو ولاعبات بيسبالو"
+    },
+    "petroleum engineers": {
+        "job_males": "مهندسو نفط",
+        "job_females": "مهندسات نفط",
+        "both_jobs": "مهندسو ومهندسات نفط"
+    },
+    "pharmaceutical founders": {
+        "job_males": "مؤسسو أدوية",
+        "job_females": "مؤسسات أدوية",
+        "both_jobs": "مؤسسو ومؤسسات أدوية"
+    },
+    "pharmaceutical owners": {
+        "job_males": "ملاك أدوية",
+        "job_females": "مالكات أدوية",
+        "both_jobs": "ملاك ومالكات أدوية"
+    },
+    "pharmacologists": {
+        "job_males": "علماء صيدلة",
+        "job_females": "عالمات صيدلة",
+        "both_jobs": "علماء وعالمات صيدلة"
+    },
+    "philanthropists": {
+        "job_males": "فاعلو خير",
+        "job_females": "فاعلات خير",
+        "both_jobs": "فاعلو وفاعلات خير"
+    },
+    "philologists": {
+        "job_males": "علماء لغة",
+        "job_females": "عالمات لغة",
+        "both_jobs": "علماء وعالمات لغة"
+    },
+    "philosophers of language": {
+        "job_males": "فلاسفة لغات",
+        "job_females": "فيلسوفات لغات",
+        "both_jobs": "فلاسفة وفيلسوفات لغات"
+    },
+    "photojournalists": {
+        "job_males": "مصورو أخبار",
+        "job_females": "مصورات أخبار",
+        "both_jobs": "مصورو ومصورات أخبار"
+    },
+    "phycologists": {
+        "job_males": "علماء طحالب",
+        "job_females": "عالمات طحالب",
+        "both_jobs": "علماء وعالمات طحالب"
+    },
+    "pianists": {
+        "job_males": "عازفو بيانو",
+        "job_females": "عازفات بيانو",
+        "both_jobs": "عازفو وعازفات بيانو"
+    },
+    "planetary scientists": {
+        "job_males": "علماء كواكب",
+        "job_females": "عالمات كواكب",
+        "both_jobs": "علماء وعالمات كواكب"
+    },
+    "playback singers": {
+        "job_males": "مغنو أفلام",
+        "job_females": "مغنيات أفلام",
+        "both_jobs": "مغنو ومغنيات أفلام"
+    },
+    "poker players": {
+        "job_males": "لاعبو بوكر",
+        "job_females": "لاعبات بوكر",
+        "both_jobs": "لاعبو ولاعبات بوكر"
+    },
+    "pole vaulters": {
+        "job_males": "قافزون بالزانة",
+        "job_females": "قافزات بالزانة",
+        "both_jobs": "قافزون وقافزات بالزانة"
+    },
+    "police officers": {
+        "job_males": "ضباط شرطة",
+        "job_females": "ضابطات شرطة",
+        "both_jobs": "ضباط وضابطات شرطة"
+    },
+    "political journalists": {
+        "job_males": "صحفيو سياسة",
+        "job_females": "صحفيات سياسة",
+        "both_jobs": "صحفيو وصحفيات سياسة"
+    },
+    "political professionals": {
+        "job_males": "محترفو سياسة",
+        "job_females": "محترفات سياسة",
+        "both_jobs": "محترفو ومحترفات سياسة"
+    },
+    "political scientists": {
+        "job_males": "علماء سياسة",
+        "job_females": "عالمات سياسة",
+        "both_jobs": "علماء وعالمات سياسة"
+    },
+    "political writers": {
+        "job_males": "كتاب سياسة",
+        "job_females": "كاتبات سياسة",
+        "both_jobs": "كتاب وكاتبات سياسة"
+    },
+    "polka musicians": {
+        "job_males": "موسيقيو بولكا",
+        "job_females": "موسيقيات بولكا",
+        "both_jobs": "موسيقيو وموسيقيات بولكا"
+    },
+    "polo coaches": {
+        "job_males": "مدربو بولو",
+        "job_females": "مدربات بولو",
+        "both_jobs": "مدربو ومدربات بولو"
+    },
+    "polo players": {
+        "job_males": "لاعبو بولو",
+        "job_females": "لاعبات بولو",
+        "both_jobs": "لاعبو ولاعبات بولو"
+    },
+    "pop composers": {
+        "job_males": "ملحنو بوب",
+        "job_females": "ملحنات بوب",
+        "both_jobs": "ملحنو وملحنات بوب"
+    },
+    "pop drummers": {
+        "job_males": "طبالو بوب",
+        "job_females": "طبالات بوب",
+        "both_jobs": "طبالو وطبالات بوب"
+    },
+    "pop musicians": {
+        "job_males": "موسيقيو بوب",
+        "job_females": "موسيقيات بوب",
+        "both_jobs": "موسيقيو وموسيقيات بوب"
+    },
+    "pop singers": {
+        "job_males": "مغنو بوب",
+        "job_females": "مغنيات بوب",
+        "both_jobs": "مغنو ومغنيات بوب"
+    },
+    "portrait artists": {
+        "job_males": "فنانو بورتريه",
+        "job_females": "فنانات بورتريه",
+        "both_jobs": "فنانو وفنانات بورتريه"
+    },
+    "portrait painters": {
+        "job_males": "رسامو بورتريه",
+        "job_females": "رسامات بورتريه",
+        "both_jobs": "رسامو ورسامات بورتريه"
+    },
+    "portrait photographers": {
+        "job_males": "مصورو بورتريه",
+        "job_females": "مصورات بورتريه",
+        "both_jobs": "مصورو ومصورات بورتريه"
+    },
+    "post-grunge musicians": {
+        "job_males": "موسيقيو بوست-غرنج",
+        "job_females": "موسيقيات بوست-غرنج",
+        "both_jobs": "موسيقيو وموسيقيات بوست-غرنج"
+    },
+    "post-grunge singers": {
+        "job_males": "مغنو بوست-غرنج",
+        "job_females": "مغنيات بوست-غرنج",
+        "both_jobs": "مغنو ومغنيات بوست-غرنج"
+    },
+    "postal founders": {
+        "job_males": "مؤسسو بريد",
+        "job_females": "مؤسسات بريد",
+        "both_jobs": "مؤسسو ومؤسسات بريد"
+    },
+    "postal owners": {
+        "job_males": "ملاك بريد",
+        "job_females": "مالكات بريد",
+        "both_jobs": "ملاك ومالكات بريد"
+    },
+    "primatologists": {
+        "job_males": "علماء رئيسيات",
+        "job_females": "عالمات رئيسيات",
+        "both_jobs": "علماء وعالمات رئيسيات"
+    },
+    "printing founders": {
+        "job_males": "مؤسسو طباعة",
+        "job_females": "مؤسسات طباعة",
+        "both_jobs": "مؤسسو ومؤسسات طباعة"
+    },
+    "printing owners": {
+        "job_males": "ملاك طباعة",
+        "job_females": "مالكات طباعة",
+        "both_jobs": "ملاك ومالكات طباعة"
+    },
+    "printmakers": {
+        "job_males": "صناع طباعة",
+        "job_females": "صانعات طباعة",
+        "both_jobs": "صناع وصانعات طباعة"
+    },
+    "prison officials": {
+        "job_males": "مسؤولو سجون",
+        "job_females": "مسؤولات سجون",
+        "both_jobs": "مسؤولو ومسؤولات سجون"
+    },
+    "privately held founders": {
+        "job_males": "مؤسسو خاصة",
+        "job_females": "مؤسسات خاصة",
+        "both_jobs": "مؤسسو ومؤسسات خاصة"
+    },
+    "privately held owners": {
+        "job_males": "ملاك خاصة",
+        "job_females": "مالكات خاصة",
+        "both_jobs": "ملاك ومالكات خاصة"
+    },
+    "production designers": {
+        "job_males": "مصممو إنتاج",
+        "job_females": "مصممات إنتاج",
+        "both_jobs": "مصممو ومصممات إنتاج"
+    },
+    "property founders": {
+        "job_males": "مؤسسو ممتلكات",
+        "job_females": "مؤسسات ممتلكات",
+        "both_jobs": "مؤسسو ومؤسسات ممتلكات"
+    },
+    "property owners": {
+        "job_males": "ملاك ممتلكات",
+        "job_females": "مالكات ممتلكات",
+        "both_jobs": "ملاك ومالكات ممتلكات"
+    },
+    "protestant founders": {
+        "job_males": "مؤسسو بروتستانتية",
+        "job_females": "مؤسسات بروتستانتية",
+        "both_jobs": "مؤسسو ومؤسسات بروتستانتية"
+    },
+    "pteridologists": {
+        "job_males": "علماء سرخسيات",
+        "job_females": "عالمات سرخسيات",
+        "both_jobs": "علماء وعالمات سرخسيات"
+    },
+    "publications directors": {
+        "job_males": "مخرجو منشورات",
+        "job_females": "مخرجات منشورات",
+        "both_jobs": "مخرجو ومخرجات منشورات"
+    },
+    "publishing founders": {
+        "job_males": "مؤسسو نشر",
+        "job_females": "مؤسسات نشر",
+        "both_jobs": "مؤسسو ومؤسسات نشر"
+    },
+    "publishing owners": {
+        "job_males": "ملاك نشر",
+        "job_females": "مالكات نشر",
+        "both_jobs": "ملاك ومالكات نشر"
+    },
+    "puppeteers": {
+        "job_males": "محركو دمى",
+        "job_females": "محركات دمى",
+        "both_jobs": "محركو ومحركات دمى"
+    },
+    "qawwali singers": {
+        "job_males": "مغنو قوالي",
+        "job_females": "مغنيات قوالي",
+        "both_jobs": "مغنو ومغنيات قوالي"
+    },
+    "quran reciters": {
+        "job_males": "قراء القرآن",
+        "job_females": "قارئات القرآن",
+        "both_jobs": "قراء وقارئات القرآن"
+    },
+    "racewalkers": {
+        "job_males": "متسابقو مشي",
+        "job_females": "متسابقات مشي",
+        "both_jobs": "متسابقو ومتسابقات مشي"
+    },
+    "radio artists": {
+        "job_males": "فنانو راديو",
+        "job_females": "فنانات راديو",
+        "both_jobs": "فنانو وفنانات راديو"
+    },
+    "radio critics": {
+        "job_males": "نقاد راديو",
+        "job_females": "ناقدات راديو",
+        "both_jobs": "نقاد وناقدات راديو"
+    },
+    "radio directors": {
+        "job_males": "مخرجو راديو",
+        "job_females": "مخرجات راديو",
+        "both_jobs": "مخرجو ومخرجات راديو"
+    },
+    "radio editors": {
+        "job_males": "محررو راديو",
+        "job_females": "محررات راديو",
+        "both_jobs": "محررو ومحررات راديو"
+    },
+    "radio executives": {
+        "job_males": "مدراء مذياع",
+        "job_females": "مديرات مذياع",
+        "both_jobs": "مدراء ومديرات مذياع"
+    },
+    "radio journalists": {
+        "job_males": "صحفيو راديو",
+        "job_females": "صحفيات راديو",
+        "both_jobs": "صحفيو وصحفيات راديو"
+    },
+    "radio personalities": {
+        "job_males": "شخصيات راديو",
+        "job_females": "شخصيات راديو",
+        "both_jobs": "شخصيات وشخصيات راديو"
+    },
+    "radio presenters": {
+        "job_males": "مذيعو راديو",
+        "job_females": "مذيعات راديو",
+        "both_jobs": "مذيعو ومذيعات راديو"
+    },
+    "radio producers": {
+        "job_males": "منتجو راديو",
+        "job_females": "منتجات راديو",
+        "both_jobs": "منتجو ومنتجات راديو"
+    },
+    "radio writers": {
+        "job_males": "كتاب راديو",
+        "job_females": "كاتبات راديو",
+        "both_jobs": "كتاب وكاتبات راديو"
+    },
+    "radiologists": {
+        "job_males": "أخصائيو أشعة",
+        "job_females": "أخصائيات أشعة",
+        "both_jobs": "أخصائيو وأخصائيات أشعة"
+    },
+    "ragtime composers": {
+        "job_males": "ملحنو راجتايم",
+        "job_females": "ملحنات راجتايم",
+        "both_jobs": "ملحنو وملحنات راجتايم"
+    },
+    "ragtime musicians": {
+        "job_males": "موسيقيو راجتايم",
+        "job_females": "موسيقيات راجتايم",
+        "both_jobs": "موسيقيو وموسيقيات راجتايم"
+    },
+    "rally drivers": {
+        "job_males": "سائقو رالي",
+        "job_females": "سائقات رالي",
+        "both_jobs": "سائقو وسائقات رالي"
+    },
+    "ranchera singers": {
+        "job_males": "مغنو رانشيرا",
+        "job_females": "مغنيات رانشيرا",
+        "both_jobs": "مغنو ومغنيات رانشيرا"
+    },
+    "rappers": {
+        "job_males": "مغنو راب",
+        "job_females": "مغنيات راب",
+        "both_jobs": "مغنو ومغنيات راب"
+    },
+    "raï musicians": {
+        "job_males": "موسيقيو راي",
+        "job_females": "موسيقيات راي",
+        "both_jobs": "موسيقيو وموسيقيات راي"
+    },
+    "real estate founders": {
+        "job_males": "مؤسسو عقارية",
+        "job_females": "مؤسسات عقارية",
+        "both_jobs": "مؤسسو ومؤسسات عقارية"
+    },
+    "real estate owners": {
+        "job_males": "ملاك عقارية",
+        "job_females": "مالكات عقارية",
+        "both_jobs": "ملاك ومالكات عقارية"
+    },
+    "record producers": {
+        "job_males": "منتجو تسجيلات",
+        "job_females": "منتتجات تسجيلات",
+        "both_jobs": "منتجو ومنتتجات تسجيلات"
+    },
+    "referees and umpires": {
+        "job_males": "حكام رياضات",
+        "job_females": "حكمات رياضات",
+        "both_jobs": "حكام وحكمات رياضات"
+    },
+    "reggae journalists": {
+        "job_males": "صحفيو ريغيه",
+        "job_females": "صحفيات ريغيه",
+        "both_jobs": "صحفيو وصحفيات ريغيه"
+    },
+    "reggae musicians": {
+        "job_males": "موسيقيو ريغيه",
+        "job_females": "موسيقيات ريغيه",
+        "both_jobs": "موسيقيو وموسيقيات ريغيه"
+    },
+    "reggae singers": {
+        "job_males": "مغنو ريغيه",
+        "job_females": "مغنيات ريغيه",
+        "both_jobs": "مغنو ومغنيات ريغيه"
+    },
+    "religious founders": {
+        "job_males": "مؤسسو دينية",
+        "job_females": "مؤسسات دينية",
+        "both_jobs": "مؤسسو ومؤسسات دينية"
+    },
+    "resistance members": {
+        "job_males": "أعضاء مقاومة",
+        "job_females": "عضوات مقاومة",
+        "both_jobs": "أعضاء وعضوات مقاومة"
+    },
+    "rhetoricians": {
+        "job_males": "مدرسو بلاغة",
+        "job_females": "مدرسات بلاغة",
+        "both_jobs": "مدرسو ومدرسات بلاغة"
+    },
+    "rheumatologists": {
+        "job_males": "أخصائيو روماتيزم",
+        "job_females": "أخصائيات روماتيزم",
+        "both_jobs": "أخصائيو وأخصائيات روماتيزم"
+    },
+    "rhythm singers": {
+        "job_males": "مغنو إيقاع",
+        "job_females": "مغنيات إيقاع",
+        "both_jobs": "مغنو ومغنيات إيقاع"
+    },
+    "rifle shooters": {
+        "job_males": "رماة بندقية",
+        "job_females": "راميات بندقية",
+        "both_jobs": "رماة وراميات بندقية"
+    },
+    "right wingers": {
+        "job_males": "أجنحة يمين",
+        "job_females": "جناحات يمين",
+        "both_jobs": "أجنحة وجناحات يمين"
+    },
+    "road racing cyclists": {
+        "job_males": "دراجو طريق",
+        "job_females": "دراجات طريق",
+        "both_jobs": "دراجو ودراجات طريق"
+    },
+    "rock climbers": {
+        "job_males": "متسلقو صخور",
+        "job_females": "متسلقات صخور",
+        "both_jobs": "متسلقو ومتسلقات صخور"
+    },
+    "rock critics": {
+        "job_males": "نقاد روك",
+        "job_females": "ناقدات روك",
+        "both_jobs": "نقاد وناقدات روك"
+    },
+    "rock drummers": {
+        "job_males": "طبالو روك",
+        "job_females": "طبالات روك",
+        "both_jobs": "طبالو وطبالات روك"
+    },
+    "rock musicians": {
+        "job_males": "موسيقيو روك",
+        "job_females": "موسيقيات روك",
+        "both_jobs": "موسيقيو وموسيقيات روك"
+    },
+    "rock singers": {
+        "job_males": "مغنو روك",
+        "job_females": "مغنيات روك",
+        "both_jobs": "مغنو ومغنيات روك"
+    },
+    "rockabilly musicians": {
+        "job_males": "موسيقيو روكابيلي",
+        "job_females": "موسيقيات روكابيلي",
+        "both_jobs": "موسيقيو وموسيقيات روكابيلي"
+    },
+    "roller skaters": {
+        "job_males": "متزلجون بالعجلات",
+        "job_females": "متزلجات بالعجلات",
+        "both_jobs": "متزلجون ومتزلجات بالعجلات"
+    },
+    "roller skiers": {
+        "job_males": "متزحلقو بالعجلات",
+        "job_females": "متزحلقات بالعجلات",
+        "both_jobs": "متزحلقو ومتزحلقات بالعجلات"
+    },
+    "romani musicians": {
+        "job_males": "موسيقيو غجرية",
+        "job_females": "موسيقيات غجرية",
+        "both_jobs": "موسيقيو وموسيقيات غجرية"
+    },
+    "romani singers": {
+        "job_males": "مغنو غجرية",
+        "job_females": "مغنيات غجرية",
+        "both_jobs": "مغنو ومغنيات غجرية"
+    },
+    "romani writers": {
+        "job_males": "كتاب غجرية",
+        "job_females": "كاتبات غجرية",
+        "both_jobs": "كتاب وكاتبات غجرية"
+    },
+    "rowing coaches": {
+        "job_males": "مدربو تجديف",
+        "job_females": "مدربات تجديف",
+        "both_jobs": "مدربو ومدربات تجديف"
+    },
+    "rugby coaches": {
+        "job_males": "مدربو رجبي",
+        "job_females": "مدربات رجبي",
+        "both_jobs": "مدربو ومدربات رجبي"
+    },
+    "rugby players": {
+        "job_males": "لاعبو رجبي",
+        "job_females": "لاعبات رجبي",
+        "both_jobs": "لاعبو ولاعبات رجبي"
+    },
+    "rugby referees": {
+        "job_males": "حكام رجبي",
+        "job_females": "حكمات رجبي",
+        "both_jobs": "حكام وحكمات رجبي"
+    },
+    "running backs": {
+        "job_males": "راكضون للخلف",
+        "job_females": "راكضات للخلف",
+        "both_jobs": "راكضون وراكضات للخلف"
+    },
+    "sailing coaches": {
+        "job_males": "مدربو إبحار",
+        "job_females": "مدربات إبحار",
+        "both_jobs": "مدربو ومدربات إبحار"
+    },
+    "sailing executives": {
+        "job_males": "مسيرو إبحار",
+        "job_females": "مسيرات إبحار",
+        "both_jobs": "مسيرو ومسيرات إبحار"
+    },
+    "samba musicians": {
+        "job_males": "موسيقيو سامبا",
+        "job_females": "موسيقيات سامبا",
+        "both_jobs": "موسيقيو وموسيقيات سامبا"
+    },
+    "sambo practitioners": {
+        "job_males": "ممارسو سامبو",
+        "job_females": "ممارسات سامبو",
+        "both_jobs": "ممارسو وممارسات سامبو"
+    },
+    "sanshou practitioners": {
+        "job_males": "ممارسو سانشو",
+        "job_females": "ممارسات سانشو",
+        "both_jobs": "ممارسو وممارسات سانشو"
+    },
+    "saxophonists": {
+        "job_males": "عازفو سكسفون",
+        "job_females": "عازفات سكسفون",
+        "both_jobs": "عازفو وعازفات سكسفون"
+    },
+    "schoolteachers": {
+        "job_males": "معلمو مدارس",
+        "job_females": "معلمات مدارس",
+        "both_jobs": "معلمو ومعلمات مدارس"
+    },
+    "science bloggers": {
+        "job_males": "مدونو علم",
+        "job_females": "مدونات علم",
+        "both_jobs": "مدونو ومدونات علم"
+    },
+    "science historian": {
+        "job_males": "مؤرخو علم",
+        "job_females": "مؤرخات علم",
+        "both_jobs": "مؤرخو ومؤرخات علم"
+    },
+    "science journalists": {
+        "job_males": "صحفيو علم",
+        "job_females": "صحفيات علم",
+        "both_jobs": "صحفيو وصحفيات علم"
+    },
+    "science writers": {
+        "job_males": "كتاب علم",
+        "job_females": "كاتبات علم",
+        "both_jobs": "كتاب وكاتبات علم"
+    },
+    "scientology founders": {
+        "job_males": "مؤسسو سينتولوجيا",
+        "job_females": "مؤسسات سينتولوجيا",
+        "both_jobs": "مؤسسو ومؤسسات سينتولوجيا"
+    },
+    "screenwriters": {
+        "job_males": "كتاب سيناريو",
+        "job_females": "كاتبات سيناريو",
+        "both_jobs": "كتاب وكاتبات سيناريو"
+    },
+    "security founders": {
+        "job_males": "مؤسسو أمن",
+        "job_females": "مؤسسات أمن",
+        "both_jobs": "مؤسسو ومؤسسات أمن"
+    },
+    "security guards": {
+        "job_males": "حراس أمن",
+        "job_females": "حارسات أمن",
+        "both_jobs": "حراس وحارسات أمن"
+    },
+    "security owners": {
+        "job_males": "ملاك أمن",
+        "job_females": "مالكات أمن",
+        "both_jobs": "ملاك ومالكات أمن"
+    },
+    "seismologists": {
+        "job_males": "علماء زلازل",
+        "job_females": "عالمات زلازل",
+        "both_jobs": "علماء وعالمات زلازل"
+    },
+    "service founders": {
+        "job_males": "مؤسسو خدمات",
+        "job_females": "مؤسسات خدمات",
+        "both_jobs": "مؤسسو ومؤسسات خدمات"
+    },
+    "service owners": {
+        "job_males": "ملاك خدمات",
+        "job_females": "مالكات خدمات",
+        "both_jobs": "ملاك ومالكات خدمات"
+    },
+    "session musicians": {
+        "job_males": "موسيقيو جلسات",
+        "job_females": "موسيقيات جلسات",
+        "both_jobs": "موسيقيو وموسيقيات جلسات"
+    },
+    "sexologists": {
+        "job_males": "علماء جنس",
+        "job_females": "عالمات جنس",
+        "both_jobs": "علماء وعالمات جنس"
+    },
+    "shibuya-kei musicians": {
+        "job_males": "موسيقيو شيبوياكي",
+        "job_females": "موسيقيات شيبوياكي",
+        "both_jobs": "موسيقيو وموسيقيات شيبوياكي"
+    },
+    "shipbuilding founders": {
+        "job_males": "مؤسسو سفن",
+        "job_females": "مؤسسات سفن",
+        "both_jobs": "مؤسسو ومؤسسات سفن"
+    },
+    "shipbuilding owners": {
+        "job_males": "ملاك سفن",
+        "job_females": "مالكات سفن",
+        "both_jobs": "ملاك ومالكات سفن"
+    },
+    "shipwrights": {
+        "job_males": "نجارو سفن",
+        "job_females": "نجارات سفن",
+        "both_jobs": "نجارو ونجارات سفن"
+    },
+    "shooting coaches": {
+        "job_males": "مدربو رماية",
+        "job_females": "مدربات رماية",
+        "both_jobs": "مدربو ومدربات رماية"
+    },
+    "shooting guards": {
+        "job_males": "حراس رماية",
+        "job_females": "حراس رماية",
+        "both_jobs": "حراس وحراس رماية"
+    },
+    "sideshow performers": {
+        "job_males": "مؤدو عروض",
+        "job_females": "مؤديات عروض",
+        "both_jobs": "مؤدو ومؤديات عروض"
+    },
+    "sikh founders": {
+        "job_males": "مؤسسو سيخية",
+        "job_females": "مؤسسات سيخية",
+        "both_jobs": "مؤسسو ومؤسسات سيخية"
+    },
+    "silat practitioners": {
+        "job_males": "ممارسو سيلات",
+        "job_females": "ممارسات سيلات",
+        "both_jobs": "ممارسو وممارسات سيلات"
+    },
+    "sinologists": {
+        "job_males": "علماء صينيات",
+        "job_females": "عالمات صينيات",
+        "both_jobs": "علماء وعالمات صينيات"
+    },
+    "ska musicians": {
+        "job_males": "موسيقيو سكا",
+        "job_females": "موسيقيات سكا",
+        "both_jobs": "موسيقيو وموسيقيات سكا"
+    },
+    "ska singers": {
+        "job_males": "مغنو سكا",
+        "job_females": "مغنيات سكا",
+        "both_jobs": "مغنو ومغنيات سكا"
+    },
+    "skateboarders": {
+        "job_males": "متزلجو ألواح",
+        "job_females": "متزلجات ألواح",
+        "both_jobs": "متزلجو ومتزلجات ألواح"
+    },
+    "skating coaches": {
+        "job_males": "مدربو تزلج",
+        "job_females": "مدربات تزلج",
+        "both_jobs": "مدربو ومدربات تزلج"
+    },
+    "ski jumpers": {
+        "job_males": "متزلجو قفز",
+        "job_females": "متزلجات قفز",
+        "both_jobs": "متزلجو ومتزلجات قفز"
+    },
+    "skiing announcers": {
+        "job_males": "مذيعو تزلج",
+        "job_females": "مذيعات تزلج",
+        "both_jobs": "مذيعو ومذيعات تزلج"
+    },
+    "skiing coaches": {
+        "job_males": "مدربو تزلج",
+        "job_females": "مدربات تزلج",
+        "both_jobs": "مدربو ومدربات تزلج"
+    },
+    "skiing executives": {
+        "job_males": "مسيرو تزلج",
+        "job_females": "مسيرات تزلج",
+        "both_jobs": "مسيرو ومسيرات تزلج"
+    },
+    "skydivers": {
+        "job_males": "قافزون بالمظلات",
+        "job_females": "قافزات بالمظلات",
+        "both_jobs": "قافزون وقافزات بالمظلات"
+    },
+    "snooker players": {
+        "job_males": "لاعبو سنوكر",
+        "job_females": "لاعبات سنوكر",
+        "both_jobs": "لاعبو ولاعبات سنوكر"
+    },
+    "snooker referees": {
+        "job_males": "حكام سنوكر",
+        "job_females": "حكمات سنوكر",
+        "both_jobs": "حكام وحكمات سنوكر"
+    },
+    "sociologists": {
+        "job_males": "علماء اجتماع",
+        "job_females": "عالمات اجتماع",
+        "both_jobs": "علماء وعالمات اجتماع"
+    },
+    "software engineers": {
+        "job_males": "مهندسو برمجيات",
+        "job_females": "مهندسات برمجيات",
+        "both_jobs": "مهندسو ومهندسات برمجيات"
+    },
+    "software founders": {
+        "job_males": "مؤسسو برمجيات",
+        "job_females": "مؤسسات برمجيات",
+        "both_jobs": "مؤسسو ومؤسسات برمجيات"
+    },
+    "software owners": {
+        "job_males": "ملاك برمجيات",
+        "job_females": "مالكات برمجيات",
+        "both_jobs": "ملاك ومالكات برمجيات"
+    },
+    "solicitors": {
+        "job_males": "كتاب عدل",
+        "job_females": "كاتبات عدل",
+        "both_jobs": "كتاب وكاتبات عدل"
+    },
+    "song historians": {
+        "job_males": "مؤرخو أغاني",
+        "job_females": "مؤرخات أغاني",
+        "both_jobs": "مؤرخو ومؤرخات أغاني"
+    },
+    "song writers": {
+        "job_males": "كتاب أغاني",
+        "job_females": "كاتبات أغاني",
+        "both_jobs": "كتاب وكاتبات أغاني"
+    },
+    "songwriters": {
+        "job_males": "كتاب أغان",
+        "job_females": "كاتبات أغان",
+        "both_jobs": "كتاب وكاتبات أغان"
+    },
+    "soul drummers": {
+        "job_males": "طبالو السول",
+        "job_females": "طبالات السول",
+        "both_jobs": "طبالو وطبالات السول"
+    },
+    "soul musicians": {
+        "job_males": "موسيقيو السول",
+        "job_females": "موسيقيات السول",
+        "both_jobs": "موسيقيو وموسيقيات السول"
+    },
+    "soul singers": {
+        "job_males": "مغنو السول",
+        "job_females": "مغنيات السول",
+        "both_jobs": "مغنو ومغنيات السول"
+    },
+    "speechwriters": {
+        "job_males": "كاتبو خطابات",
+        "job_females": "كاتبات خطابات",
+        "both_jobs": "كاتبو وكاتبات خطابات"
+    },
+    "speed skaters": {
+        "job_males": "متزلجو سرعة",
+        "job_females": "متزلجات سرعة",
+        "both_jobs": "متزلجو ومتزلجات سرعة"
+    },
+    "speed skiers": {
+        "job_males": "متزحلقو سرعة",
+        "job_females": "متزحلقات سرعة",
+        "both_jobs": "متزحلقو ومتزحلقات سرعة"
+    },
+    "spiritual writers": {
+        "job_males": "كتاب روحانية",
+        "job_females": "كاتبات روحانية",
+        "both_jobs": "كتاب وكاتبات روحانية"
+    },
+    "spiritualist founders": {
+        "job_males": "مؤسسو روحانية",
+        "job_females": "مؤسسات روحانية",
+        "both_jobs": "مؤسسو ومؤسسات روحانية"
+    },
+    "sport shooters": {
+        "job_males": "لاعبو رماية",
+        "job_females": "لاعبات رماية",
+        "both_jobs": "لاعبو ولاعبات رماية"
+    },
+    "sports agents": {
+        "job_males": "وكلاء رياضات",
+        "job_females": "وكيلات رياضات",
+        "both_jobs": "وكلاء ووكيلات رياضات"
+    },
+    "sports announcers": {
+        "job_males": "مذيعو رياضية",
+        "job_females": "مذيعات رياضية",
+        "both_jobs": "مذيعو ومذيعات رياضية"
+    },
+    "sports artists": {
+        "job_males": "فنانو رياضة",
+        "job_females": "فنانات رياضة",
+        "both_jobs": "فنانو وفنانات رياضة"
+    },
+    "sports coaches": {
+        "job_males": "مدربو رياضة",
+        "job_females": "مدربات رياضة",
+        "both_jobs": "مدربو ومدربات رياضة"
+    },
+    "sports executives": {
+        "job_males": "مسيرو رياضية",
+        "job_females": "مسيرات رياضية",
+        "both_jobs": "مسيرو ومسيرات رياضية"
+    },
+    "sports journalists": {
+        "job_males": "صحفيو رياضية",
+        "job_females": "صحفيات رياضية",
+        "both_jobs": "صحفيو وصحفيات رياضية"
+    },
+    "sports managers": {
+        "job_males": "مدربو رياضية",
+        "job_females": "مدربات رياضية",
+        "both_jobs": "مدربو ومدربات رياضية"
+    },
+    "sports players": {
+        "job_males": "لاعبو رياضية",
+        "job_females": "لاعبات رياضية",
+        "both_jobs": "لاعبو ولاعبات رياضية"
+    },
+    "sports presenters": {
+        "job_males": "مذيعو رياضة",
+        "job_females": "مذيعات رياضة",
+        "both_jobs": "مذيعو ومذيعات رياضة"
+    },
+    "sports referees": {
+        "job_males": "حكام رياضية",
+        "job_females": "حكمات رياضية",
+        "both_jobs": "حكام وحكمات رياضية"
+    },
+    "sports scouts": {
+        "job_males": "كشافة رياضية",
+        "job_females": "كشافة رياضية",
+        "both_jobs": "كشافة وكشافة رياضية"
+    },
+    "sports writers": {
+        "job_males": "كتاب رياضة",
+        "job_females": "كاتبات رياضة",
+        "both_jobs": "كتاب وكاتبات رياضة"
+    },
+    "squash coaches": {
+        "job_males": "مدربو اسكواش",
+        "job_females": "مدربات اسكواش",
+        "both_jobs": "مدربو ومدربات اسكواش"
+    },
+    "squash players": {
+        "job_males": "لاعبو اسكواش",
+        "job_females": "لاعبات اسكواش",
+        "both_jobs": "لاعبو ولاعبات اسكواش"
+    },
+    "stamp designers": {
+        "job_males": "مصممو طوابع",
+        "job_females": "مصممات طوابع",
+        "both_jobs": "مصممو ومصممات طوابع"
+    },
+    "state governors": {
+        "job_males": "حكام ولايات",
+        "job_females": "حاكمات ولايات",
+        "both_jobs": "حكام وحاكمات ولايات"
+    },
+    "state legislators": {
+        "job_males": "مشرعو الولايات",
+        "job_females": "مشرعات الولايات",
+        "both_jobs": "مشرعو ومشرعات الولايات"
+    },
+    "steeplechase runners": {
+        "job_males": "عداؤو موانع",
+        "job_females": "عداءات موانع",
+        "both_jobs": "عداؤو وعداءات موانع"
+    },
+    "stock traders": {
+        "job_males": "تجار أسهم",
+        "job_females": "تاجرات أسهم",
+        "both_jobs": "تجار وتاجرات أسهم"
+    },
+    "storage founders": {
+        "job_males": "مؤسسو تخزين",
+        "job_females": "مؤسسات تخزين",
+        "both_jobs": "مؤسسو ومؤسسات تخزين"
+    },
+    "storage owners": {
+        "job_males": "ملاك تخزين",
+        "job_females": "مالكات تخزين",
+        "both_jobs": "ملاك ومالكات تخزين"
+    },
+    "structural engineers": {
+        "job_males": "مهندسو إنشاءات",
+        "job_females": "مهندسات إنشاءات",
+        "both_jobs": "مهندسو ومهندسات إنشاءات"
+    },
+    "submarine founders": {
+        "job_males": "مؤسسو غواصات",
+        "job_females": "مؤسسات غواصات",
+        "both_jobs": "مؤسسو ومؤسسات غواصات"
+    },
+    "submarine owners": {
+        "job_males": "ملاك غواصات",
+        "job_females": "مالكات غواصات",
+        "both_jobs": "ملاك ومالكات غواصات"
+    },
+    "sugar founders": {
+        "job_males": "مؤسسو السكر",
+        "job_females": "مؤسسات السكر",
+        "both_jobs": "مؤسسو ومؤسسات السكر"
+    },
+    "sugar owners": {
+        "job_males": "ملاك السكر",
+        "job_females": "مالكات السكر",
+        "both_jobs": "ملاك ومالكات السكر"
+    },
+    "sumo announcers": {
+        "job_males": "مذيعو سومو",
+        "job_females": "مذيعات سومو",
+        "both_jobs": "مذيعو ومذيعات سومو"
+    },
+    "sumo wrestlers": {
+        "job_males": "مصارعو سومو",
+        "job_females": "مصارعات سومو",
+        "both_jobs": "مصارعو ومصارعات سومو"
+    },
+    "swimming coaches": {
+        "job_males": "مدربو سباحة",
+        "job_females": "مدربات سباحة",
+        "both_jobs": "مدربو ومدربات سباحة"
+    },
+    "swing composers": {
+        "job_males": "ملحنو سوينغ",
+        "job_females": "ملحنات سوينغ",
+        "both_jobs": "ملحنو وملحنات سوينغ"
+    },
+    "swing drummers": {
+        "job_males": "طبالو سوينغ",
+        "job_females": "طبالات سوينغ",
+        "both_jobs": "طبالو وطبالات سوينغ"
+    },
+    "swing musicians": {
+        "job_males": "موسيقيو سوينغ",
+        "job_females": "موسيقيات سوينغ",
+        "both_jobs": "موسيقيو وموسيقيات سوينغ"
+    },
+    "swing singers": {
+        "job_males": "مغنو سوينغ",
+        "job_females": "مغنيات سوينغ",
+        "both_jobs": "مغنو ومغنيات سوينغ"
+    },
+    "synth-pop musicians": {
+        "job_males": "موسيقيو سينثبوب",
+        "job_females": "موسيقيات سينثبوب",
+        "both_jobs": "موسيقيو وموسيقيات سينثبوب"
+    },
+    "synth-pop singers": {
+        "job_males": "مغنو سينثبوب",
+        "job_females": "مغنيات سينثبوب",
+        "both_jobs": "مغنو ومغنيات سينثبوب"
+    },
+    "taekwondo coaches": {
+        "job_males": "مدربو تايكوندو",
+        "job_females": "مدربات تايكوندو",
+        "both_jobs": "مدربو ومدربات تايكوندو"
+    },
+    "taekwondo practitioners": {
+        "job_males": "لاعبو تايكوندو",
+        "job_females": "لاعبات تايكوندو",
+        "both_jobs": "لاعبو ولاعبات تايكوندو"
+    },
+    "taoist founders": {
+        "job_males": "مؤسسو طاوية",
+        "job_females": "مؤسسات طاوية",
+        "both_jobs": "مؤسسو ومؤسسات طاوية"
+    },
+    "tattoo artists": {
+        "job_males": "فنانو وشوم",
+        "job_females": "فنانات وشوم",
+        "both_jobs": "فنانو وفنانات وشوم"
+    },
+    "taxonomists": {
+        "job_males": "علماء تصنيف",
+        "job_females": "عالمات تصنيف",
+        "both_jobs": "علماء وعالمات تصنيف"
+    },
+    "techno musicians": {
+        "job_males": "موسيقيو تكنو",
+        "job_females": "موسيقيات تكنو",
+        "both_jobs": "موسيقيو وموسيقيات تكنو"
+    },
+    "technology founders": {
+        "job_males": "مؤسسو تقانة",
+        "job_females": "مؤسسات تقانة",
+        "both_jobs": "مؤسسو ومؤسسات تقانة"
+    },
+    "technology journalists": {
+        "job_males": "صحفيو تقانة",
+        "job_females": "صحفيات تقانة",
+        "both_jobs": "صحفيو وصحفيات تقانة"
+    },
+    "technology owners": {
+        "job_males": "ملاك تقانة",
+        "job_females": "مالكات تقانة",
+        "both_jobs": "ملاك ومالكات تقانة"
+    },
+    "technology writers": {
+        "job_males": "كتاب تقانة",
+        "job_females": "كاتبات تقانة",
+        "both_jobs": "كتاب وكاتبات تقانة"
+    },
+    "tejano musicians": {
+        "job_males": "موسيقيو تيخانو",
+        "job_females": "موسيقيات تيخانو",
+        "both_jobs": "موسيقيو وموسيقيات تيخانو"
+    },
+    "tejano writers": {
+        "job_males": "كتاب تيخانو",
+        "job_females": "كاتبات تيخانو",
+        "both_jobs": "كتاب وكاتبات تيخانو"
+    },
+    "television artists": {
+        "job_males": "فنانو تلفزيون",
+        "job_females": "فنانات تلفزيون",
+        "both_jobs": "فنانو وفنانات تلفزيون"
+    },
+    "television chefs": {
+        "job_males": "طباخو تلفاز",
+        "job_females": "طباخات تلفاز",
+        "both_jobs": "طباخو وطباخات تلفاز"
+    },
+    "television critics": {
+        "job_males": "نقاد تلفزيون",
+        "job_females": "ناقدات تلفزيون",
+        "both_jobs": "نقاد وناقدات تلفزيون"
+    },
+    "television directors": {
+        "job_males": "مخرجو تلفزيون",
+        "job_females": "مخرجات تلفزيون",
+        "both_jobs": "مخرجو ومخرجات تلفزيون"
+    },
+    "television editors": {
+        "job_males": "محررو تلفزيون",
+        "job_females": "محررات تلفزيون",
+        "both_jobs": "محررو ومحررات تلفزيون"
+    },
+    "television executives": {
+        "job_males": "مدراء تلفاز",
+        "job_females": "مديرات تلفاز",
+        "both_jobs": "مدراء ومديرات تلفاز"
+    },
+    "television films actors": {
+        "job_males": "ممثلو أفلام",
+        "job_females": "ممثلات أفلام",
+        "both_jobs": "ممثلو وممثلات أفلام"
+    },
+    "television founders": {
+        "job_males": "مؤسسو تلفاز",
+        "job_females": "مؤسسات تلفاز",
+        "both_jobs": "مؤسسو ومؤسسات تلفاز"
+    },
+    "television journalists": {
+        "job_males": "صحفيو تلفزيون",
+        "job_females": "صحفيات تلفزيون",
+        "both_jobs": "صحفيو وصحفيات تلفزيون"
+    },
+    "television owners": {
+        "job_males": "ملاك تلفاز",
+        "job_females": "مالكات تلفاز",
+        "both_jobs": "ملاك ومالكات تلفاز"
+    },
+    "television personalities": {
+        "job_males": "شخصيات تلفزيون",
+        "job_females": "شخصيات تلفزيون",
+        "both_jobs": "شخصيات وشخصيات تلفزيون"
+    },
+    "television presenters": {
+        "job_males": "مذيعو تلفزيون",
+        "job_females": "مذيعات تلفزيون",
+        "both_jobs": "مذيعو ومذيعات تلفزيون"
+    },
+    "television producers": {
+        "job_males": "منتجو تلفزيون",
+        "job_females": "منتجات تلفزيون",
+        "both_jobs": "منتجو ومنتجات تلفزيون"
+    },
+    "television writers": {
+        "job_males": "كتاب تلفزيون",
+        "job_females": "كاتبات تلفزيون",
+        "both_jobs": "كتاب وكاتبات تلفزيون"
+    },
+    "test pilots": {
+        "job_males": "طيارو اختبار",
+        "job_females": "طيارات اختبار",
+        "both_jobs": "طيارو وطيارات اختبار"
+    },
+    "theatre directors": {
+        "job_males": "مخرجو مسرح",
+        "job_females": "مخرجات مسرح",
+        "both_jobs": "مخرجو ومخرجات مسرح"
+    },
+    "thriller writers": {
+        "job_males": "كتاب إثارة",
+        "job_females": "كاتبات إثارة",
+        "both_jobs": "كتاب وكاتبات إثارة"
+    },
+    "tobacco founders": {
+        "job_males": "مؤسسو التبغ",
+        "job_females": "مؤسسات التبغ",
+        "both_jobs": "مؤسسو ومؤسسات التبغ"
+    },
+    "tobacco owners": {
+        "job_males": "ملاك التبغ",
+        "job_females": "مالكات التبغ",
+        "both_jobs": "ملاك ومالكات التبغ"
+    },
+    "toxicologists": {
+        "job_males": "علماء سموم",
+        "job_females": "عالمات سموم",
+        "both_jobs": "علماء وعالمات سموم"
+    },
+    "track cyclists": {
+        "job_males": "دراجو مضمار",
+        "job_females": "دراجات مضمار",
+        "both_jobs": "دراجو ودراجات مضمار"
+    },
+    "traditional musicians": {
+        "job_males": "موسيقيو تقليدية",
+        "job_females": "موسيقيات تقليدية",
+        "both_jobs": "موسيقيو وموسيقيات تقليدية"
+    },
+    "trance musicians": {
+        "job_males": "موسيقيو ترانس",
+        "job_females": "موسيقيات ترانس",
+        "both_jobs": "موسيقيو وموسيقيات ترانس"
+    },
+    "trance singers": {
+        "job_males": "مغنو ترانس",
+        "job_females": "مغنيات ترانس",
+        "both_jobs": "مغنو ومغنيات ترانس"
+    },
+    "transport founders": {
+        "job_males": "مؤسسو نقل",
+        "job_females": "مؤسسات نقل",
+        "both_jobs": "مؤسسو ومؤسسات نقل"
+    },
+    "transport owners": {
+        "job_males": "ملاك نقل",
+        "job_females": "مالكات نقل",
+        "both_jobs": "ملاك ومالكات نقل"
+    },
+    "trap musicians": {
+        "job_males": "موسيقيو تراب",
+        "job_females": "موسيقيات تراب",
+        "both_jobs": "موسيقيو وموسيقيات تراب"
+    },
+    "travel founders": {
+        "job_males": "مؤسسو سفر",
+        "job_females": "مؤسسات سفر",
+        "both_jobs": "مؤسسو ومؤسسات سفر"
+    },
+    "travel owners": {
+        "job_males": "ملاك سفر",
+        "job_females": "مالكات سفر",
+        "both_jobs": "ملاك ومالكات سفر"
+    },
+    "travel writers": {
+        "job_males": "كتاب سفر",
+        "job_females": "كاتبات سفر",
+        "both_jobs": "كتاب وكاتبات سفر"
+    },
+    "triathletes": {
+        "job_males": "لاعبو ترياثلون",
+        "job_females": "لاعبات ترياثلون",
+        "both_jobs": "لاعبو ولاعبات ترياثلون"
+    },
+    "trombonists": {
+        "job_males": "عازفو ترومبون",
+        "job_females": "عازفات ترومبون",
+        "both_jobs": "عازفو وعازفات ترومبون"
+    },
+    "truck drivers": {
+        "job_males": "سائقو شاحنات",
+        "job_females": "سائقات شاحنات",
+        "both_jobs": "سائقو وسائقات شاحنات"
+    },
+    "trumpeters": {
+        "job_males": "عازفو بوق",
+        "job_females": "عازفات بوق",
+        "both_jobs": "عازفو وعازفات بوق"
+    },
+    "turkologists": {
+        "job_males": "علماء تركيات",
+        "job_females": "عالمات تركيات",
+        "both_jobs": "علماء وعالمات تركيات"
+    },
+    "typographers": {
+        "job_males": "طابعو حروف",
+        "job_females": "طابعات حروف",
+        "both_jobs": "طابعو وطابعات حروف"
+    },
+    "university professors": {
+        "job_males": "أساتذة جامعات",
+        "job_females": "أساتذة جامعات",
+        "both_jobs": "أساتذة وأساتذة جامعات"
+    },
+    "veterinary founders": {
+        "job_males": "مؤسسو بيطرة",
+        "job_females": "مؤسسات بيطرة",
+        "both_jobs": "مؤسسو ومؤسسات بيطرة"
+    },
+    "veterinary owners": {
+        "job_males": "ملاك بيطرة",
+        "job_females": "مالكات بيطرة",
+        "both_jobs": "ملاك ومالكات بيطرة"
+    },
+    "victims of crime": {
+        "job_males": "ضحايا جرائم",
+        "job_females": "ضحيات جرائم",
+        "both_jobs": "ضحايا وضحيات جرائم"
+    },
+    "video artists": {
+        "job_males": "فنانو فيديو",
+        "job_females": "فنانات فيديو",
+        "both_jobs": "فنانو وفنانات فيديو"
+    },
+    "violinists": {
+        "job_males": "عازفو كمان",
+        "job_females": "عازفات كمان",
+        "both_jobs": "عازفو وعازفات كمان"
+    },
+    "virologists": {
+        "job_males": "علماء فيروسات",
+        "job_females": "عالمات فيروسات",
+        "both_jobs": "علماء وعالمات فيروسات"
+    },
+    "war artists": {
+        "job_males": "فنانو حرب",
+        "job_females": "فنانات حرب",
+        "both_jobs": "فنانو وفنانات حرب"
+    },
+    "war writers": {
+        "job_males": "كتاب حرب",
+        "job_females": "كاتبات حرب",
+        "both_jobs": "كتاب وكاتبات حرب"
+    },
+    "warlords": {
+        "job_males": "أمراء حرب",
+        "job_females": "أميرات حرب",
+        "both_jobs": "أمراء وأميرات حرب"
+    },
+    "water founders": {
+        "job_males": "مؤسسو مياه",
+        "job_females": "مؤسسات مياه",
+        "both_jobs": "مؤسسو ومؤسسات مياه"
+    },
+    "water owners": {
+        "job_males": "ملاك مياه",
+        "job_females": "مالكات مياه",
+        "both_jobs": "ملاك ومالكات مياه"
+    },
+    "whalers": {
+        "job_males": "صائدو حيتان",
+        "job_females": "صائدات حيتان",
+        "both_jobs": "صائدو وصائدات حيتان"
+    },
+    "windsurfers": {
+        "job_males": "راكبو أمواج",
+        "job_females": "راكبات أمواج",
+        "both_jobs": "راكبو وراكبات أمواج"
+    },
+    "wine founders": {
+        "job_males": "مؤسسو نبيذ",
+        "job_females": "مؤسسات نبيذ",
+        "both_jobs": "مؤسسو ومؤسسات نبيذ"
+    },
+    "wine owners": {
+        "job_males": "ملاك نبيذ",
+        "job_females": "مالكات نبيذ",
+        "both_jobs": "ملاك ومالكات نبيذ"
+    },
+    "winemakers": {
+        "job_males": "صانعو نبيذ",
+        "job_females": "صانعات نبيذ",
+        "both_jobs": "صانعو وصانعات نبيذ"
+    },
+    "woodcarvers": {
+        "job_males": "نقاشو خشب",
+        "job_females": "نقاشات خشب",
+        "both_jobs": "نقاشو ونقاشات خشب"
+    },
+    "woodworkers": {
+        "job_males": "عمال أخشاب",
+        "job_females": "عاملات أخشاب",
+        "both_jobs": "عمال وعاملات أخشاب"
+    },
+    "wrestling announcers": {
+        "job_males": "مذيعو مصارعة",
+        "job_females": "مذيعات مصارعة",
+        "both_jobs": "مذيعو ومذيعات مصارعة"
+    },
+    "wrestling coaches": {
+        "job_males": "مدربو مصارعة",
+        "job_females": "مدربات مصارعة",
+        "both_jobs": "مدربو ومدربات مصارعة"
+    },
+    "wrestling executives": {
+        "job_males": "مسيرو مصارعة",
+        "job_females": "مسيرات مصارعة",
+        "both_jobs": "مسيرو ومسيرات مصارعة"
+    },
+    "wrestling journalists": {
+        "job_males": "صحفيو مصارعة",
+        "job_females": "صحفيات مصارعة",
+        "both_jobs": "صحفيو وصحفيات مصارعة"
+    },
+    "wrestling managers": {
+        "job_males": "مدربو مصارعة",
+        "job_females": "مدربات مصارعة",
+        "both_jobs": "مدربو ومدربات مصارعة"
+    },
+    "wrestling referees": {
+        "job_males": "حكام مصارعة",
+        "job_females": "حكمات مصارعة",
+        "both_jobs": "حكام وحكمات مصارعة"
+    },
+    "wrestling trainers": {
+        "job_males": "مدربو مصارعة",
+        "job_females": "مدربات مصارعة",
+        "both_jobs": "مدربو ومدربات مصارعة"
+    },
+    "wushu practitioners": {
+        "job_males": "ممارسو ووشو",
+        "job_females": "ممارسات ووشو",
+        "both_jobs": "ممارسو وممارسات ووشو"
+    },
+    "yacht designers": {
+        "job_males": "مصممو يخوت",
+        "job_females": "مصممات يخوت",
+        "both_jobs": "مصممو ومصممات يخوت"
+    },
+    "zoologists": {
+        "job_males": "علماء حيوانات",
+        "job_females": "عالمات حيوانات",
+        "both_jobs": "علماء وعالمات حيوانات"
+    },
+    "zoroastrian founders": {
+        "job_males": "مؤسسو زرادشتية",
+        "job_females": "مؤسسات زرادشتية",
+        "both_jobs": "مؤسسو ومؤسسات زرادشتية"
+    }
+}

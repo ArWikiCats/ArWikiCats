@@ -1,0 +1,2897 @@
+{
+    "accordionists": {
+        "job_males": "عازفو أكورديون",
+        "job_females": "عازفات أكورديات",
+        "both_jobs": "عازفو وعازفات أكورديون"
+    },
+    "actor-politicians": {
+        "job_males": "ممثلون وسياسيون",
+        "job_females": "ممثلات وسياسيات",
+        "both_jobs": "ممثلون وممثلات وسياسيون"
+    },
+    "adult models": {
+        "job_males": "عارضون بالغون",
+        "job_females": "عارضات بالغات",
+        "both_jobs": "عارضون وعارضات بالغون"
+    },
+    "agrarianists": {
+        "job_males": "زراعيون نظريون",
+        "job_females": "زراعيات نظريات",
+        "both_jobs": "زراعيون وزراعيات نظريون"
+    },
+    "agricultural writers": {
+        "job_males": "كتاب زراعيون",
+        "job_females": "كاتبات زراعيات",
+        "both_jobs": "كتاب وكاتبات زراعيون"
+    },
+    "agronomists": {
+        "job_males": "مهندسون زراعيون",
+        "job_females": "مهندسات زراعيات",
+        "both_jobs": "مهندسون ومهندسات زراعيون"
+    },
+    "analytic philosophers": {
+        "job_males": "فلاسفة تحليليون",
+        "job_females": "فيلسوفات تحليليات",
+        "both_jobs": "فلاسفة وفيلسوفات تحليليون"
+    },
+    "anglican activists": {
+        "job_males": "ناشطون أنجليكيون",
+        "job_females": "ناشطات أنجليكيات",
+        "both_jobs": "ناشطون وناشطات أنجليكيون"
+    },
+    "anglican actors": {
+        "job_males": "ممثلون أنجليكيون",
+        "job_females": "ممثلات أنجليكيات",
+        "both_jobs": "ممثلون وممثلات أنجليكيون"
+    },
+    "anglican astrologers": {
+        "job_males": "منجمون أنجليكيون",
+        "job_females": "منجمات أنجليكيات",
+        "both_jobs": "منجمون ومنجمات أنجليكيون"
+    },
+    "anglican christians": {
+        "job_males": "مسيحيون أنجليكيون",
+        "job_females": "مسيحيات أنجليكيات",
+        "both_jobs": "مسيحيون ومسيحيات أنجليكيون"
+    },
+    "anglican evangelical": {
+        "job_males": "إنجيليون أنجليكيون",
+        "job_females": "إنجيليات أنجليكيات",
+        "both_jobs": "إنجيليون وإنجيليات أنجليكيون"
+    },
+    "anglican leaders": {
+        "job_males": "قادة أنجليكيون",
+        "job_females": "قائدات أنجليكيات",
+        "both_jobs": "قادة وقائدات أنجليكيون"
+    },
+    "anglican missionaries": {
+        "job_males": "مبشرون أنجليكيون",
+        "job_females": "مبشرات أنجليكيات",
+        "both_jobs": "مبشرون ومبشرات أنجليكيون"
+    },
+    "anglican monks": {
+        "job_males": "رهبان أنجليكيون",
+        "job_females": "راهبات أنجليكيات",
+        "both_jobs": "رهبان وراهبات أنجليكيون"
+    },
+    "anglican nuns": {
+        "job_males": " أنجليكيون",
+        "job_females": "راهبات أنجليكيات",
+        "both_jobs": " وراهبات أنجليكيون"
+    },
+    "anglican saints": {
+        "job_males": "قديسون أنجليكيون",
+        "job_females": "قديسات أنجليكيات",
+        "both_jobs": "قديسون وقديسات أنجليكيون"
+    },
+    "anglican theologians": {
+        "job_males": "لاهوتيون أنجليكيون",
+        "job_females": "لاهوتيات أنجليكيات",
+        "both_jobs": "لاهوتيون ولاهوتيات أنجليكيون"
+    },
+    "anglican venerated": {
+        "job_males": "مبجلون أنجليكيون",
+        "job_females": "مبجلات أنجليكيات",
+        "both_jobs": "مبجلون ومبجلات أنجليكيون"
+    },
+    "anglicans activists": {
+        "job_males": "ناشطون أنجليكيون",
+        "job_females": "ناشطات أنجليكيات",
+        "both_jobs": "ناشطون وناشطات أنجليكيون"
+    },
+    "anglicans actors": {
+        "job_males": "ممثلون أنجليكيون",
+        "job_females": "ممثلات أنجليكيات",
+        "both_jobs": "ممثلون وممثلات أنجليكيون"
+    },
+    "anglicans astrologers": {
+        "job_males": "منجمون أنجليكيون",
+        "job_females": "منجمات أنجليكيات",
+        "both_jobs": "منجمون ومنجمات أنجليكيون"
+    },
+    "anglicans christians": {
+        "job_males": "مسيحيون أنجليكيون",
+        "job_females": "مسيحيات أنجليكيات",
+        "both_jobs": "مسيحيون ومسيحيات أنجليكيون"
+    },
+    "anglicans evangelical": {
+        "job_males": "إنجيليون أنجليكيون",
+        "job_females": "إنجيليات أنجليكيات",
+        "both_jobs": "إنجيليون وإنجيليات أنجليكيون"
+    },
+    "anglicans leaders": {
+        "job_males": "قادة أنجليكيون",
+        "job_females": "قائدات أنجليكيات",
+        "both_jobs": "قادة وقائدات أنجليكيون"
+    },
+    "anglicans missionaries": {
+        "job_males": "مبشرون أنجليكيون",
+        "job_females": "مبشرات أنجليكيات",
+        "both_jobs": "مبشرون ومبشرات أنجليكيون"
+    },
+    "anglicans monks": {
+        "job_males": "رهبان أنجليكيون",
+        "job_females": "راهبات أنجليكيات",
+        "both_jobs": "رهبان وراهبات أنجليكيون"
+    },
+    "anglicans nuns": {
+        "job_males": " أنجليكيون",
+        "job_females": "راهبات أنجليكيات",
+        "both_jobs": " وراهبات أنجليكيون"
+    },
+    "anglicans saints": {
+        "job_males": "قديسون أنجليكيون",
+        "job_females": "قديسات أنجليكيات",
+        "both_jobs": "قديسون وقديسات أنجليكيون"
+    },
+    "anglicans theologians": {
+        "job_males": "لاهوتيون أنجليكيون",
+        "job_females": "لاهوتيات أنجليكيات",
+        "both_jobs": "لاهوتيون ولاهوتيات أنجليكيون"
+    },
+    "anglicans venerated": {
+        "job_males": "مبجلون أنجليكيون",
+        "job_females": "مبجلات أنجليكيات",
+        "both_jobs": "مبجلون ومبجلات أنجليكيون"
+    },
+    "architectural historians": {
+        "job_males": "مؤرخون معماريون",
+        "job_females": "مؤرخات معماريات",
+        "both_jobs": "مؤرخون ومؤرخات معماريون"
+    },
+    "architectural theoreticians": {
+        "job_males": "منظرون معماريون",
+        "job_females": "منظرات معماريات",
+        "both_jobs": "منظرون ومنظرات معماريون"
+    },
+    "arrangers": {
+        "job_males": "موزعون موسيقيون",
+        "job_females": "موزعات موسيقيات",
+        "both_jobs": "موزعون وموزعات موسيقيون"
+    },
+    "art critics": {
+        "job_males": "نقاد فنيون",
+        "job_females": "ناقدات فنيات",
+        "both_jobs": "نقاد وناقدات فنيون"
+    },
+    "art directors": {
+        "job_males": "مدراء فنيون",
+        "job_females": "مديرات فنيات",
+        "both_jobs": "مدراء ومديرات فنيون"
+    },
+    "artistic swimmers": {
+        "job_males": "سباحون فنيون",
+        "job_females": "سباحات فنيات",
+        "both_jobs": "سباحون وسباحات فنيون"
+    },
+    "artists' models": {
+        "job_males": "عارضون فنيون",
+        "job_females": "عارضات فنيات",
+        "both_jobs": "عارضون وعارضات فنيون"
+    },
+    "astrophysicists": {
+        "job_males": "فيزيائيون فلكيون",
+        "job_females": "فيزيائيات فلكيات",
+        "both_jobs": "فيزيائيون وفيزيائيات فلكيون"
+    },
+    "attorneys general": {
+        "job_males": "مدعون عامون",
+        "job_females": "مدعيات عامات",
+        "both_jobs": "مدعون ومدعيات عامون"
+    },
+    "bahá'ís activists": {
+        "job_males": "ناشطون بهائيون",
+        "job_females": "ناشطات بهائيات",
+        "both_jobs": "ناشطون وناشطات بهائيون"
+    },
+    "bahá'ís actors": {
+        "job_males": "ممثلون بهائيون",
+        "job_females": "ممثلات بهائيات",
+        "both_jobs": "ممثلون وممثلات بهائيون"
+    },
+    "bahá'ís astrologers": {
+        "job_males": "منجمون بهائيون",
+        "job_females": "منجمات بهائيات",
+        "both_jobs": "منجمون ومنجمات بهائيون"
+    },
+    "bahá'ís christians": {
+        "job_males": "مسيحيون بهائيون",
+        "job_females": "مسيحيات بهائيات",
+        "both_jobs": "مسيحيون ومسيحيات بهائيون"
+    },
+    "bahá'ís evangelical": {
+        "job_males": "إنجيليون بهائيون",
+        "job_females": "إنجيليات بهائيات",
+        "both_jobs": "إنجيليون وإنجيليات بهائيون"
+    },
+    "bahá'ís leaders": {
+        "job_males": "قادة بهائيون",
+        "job_females": "قائدات بهائيات",
+        "both_jobs": "قادة وقائدات بهائيون"
+    },
+    "bahá'ís missionaries": {
+        "job_males": "مبشرون بهائيون",
+        "job_females": "مبشرات بهائيات",
+        "both_jobs": "مبشرون ومبشرات بهائيون"
+    },
+    "bahá'ís monks": {
+        "job_males": "رهبان بهائيون",
+        "job_females": "راهبات بهائيات",
+        "both_jobs": "رهبان وراهبات بهائيون"
+    },
+    "bahá'ís nuns": {
+        "job_males": " بهائيون",
+        "job_females": "راهبات بهائيات",
+        "both_jobs": " وراهبات بهائيون"
+    },
+    "bahá'ís saints": {
+        "job_males": "قديسون بهائيون",
+        "job_females": "قديسات بهائيات",
+        "both_jobs": "قديسون وقديسات بهائيون"
+    },
+    "bahá'ís theologians": {
+        "job_males": "لاهوتيون بهائيون",
+        "job_females": "لاهوتيات بهائيات",
+        "both_jobs": "لاهوتيون ولاهوتيات بهائيون"
+    },
+    "bahá'ís venerated": {
+        "job_males": "مبجلون بهائيون",
+        "job_females": "مبجلات بهائيات",
+        "both_jobs": "مبجلون ومبجلات بهائيون"
+    },
+    "baháís activists": {
+        "job_males": "ناشطون بهائيون",
+        "job_females": "ناشطات بهائيات",
+        "both_jobs": "ناشطون وناشطات بهائيون"
+    },
+    "baháís actors": {
+        "job_males": "ممثلون بهائيون",
+        "job_females": "ممثلات بهائيات",
+        "both_jobs": "ممثلون وممثلات بهائيون"
+    },
+    "baháís astrologers": {
+        "job_males": "منجمون بهائيون",
+        "job_females": "منجمات بهائيات",
+        "both_jobs": "منجمون ومنجمات بهائيون"
+    },
+    "baháís christians": {
+        "job_males": "مسيحيون بهائيون",
+        "job_females": "مسيحيات بهائيات",
+        "both_jobs": "مسيحيون ومسيحيات بهائيون"
+    },
+    "baháís evangelical": {
+        "job_males": "إنجيليون بهائيون",
+        "job_females": "إنجيليات بهائيات",
+        "both_jobs": "إنجيليون وإنجيليات بهائيون"
+    },
+    "baháís leaders": {
+        "job_males": "قادة بهائيون",
+        "job_females": "قائدات بهائيات",
+        "both_jobs": "قادة وقائدات بهائيون"
+    },
+    "baháís missionaries": {
+        "job_males": "مبشرون بهائيون",
+        "job_females": "مبشرات بهائيات",
+        "both_jobs": "مبشرون ومبشرات بهائيون"
+    },
+    "baháís monks": {
+        "job_males": "رهبان بهائيون",
+        "job_females": "راهبات بهائيات",
+        "both_jobs": "رهبان وراهبات بهائيون"
+    },
+    "baháís nuns": {
+        "job_males": " بهائيون",
+        "job_females": "راهبات بهائيات",
+        "both_jobs": " وراهبات بهائيون"
+    },
+    "baháís saints": {
+        "job_males": "قديسون بهائيون",
+        "job_females": "قديسات بهائيات",
+        "both_jobs": "قديسون وقديسات بهائيون"
+    },
+    "baháís theologians": {
+        "job_males": "لاهوتيون بهائيون",
+        "job_females": "لاهوتيات بهائيات",
+        "both_jobs": "لاهوتيون ولاهوتيات بهائيون"
+    },
+    "baháís venerated": {
+        "job_males": "مبجلون بهائيون",
+        "job_females": "مبجلات بهائيات",
+        "both_jobs": "مبجلون ومبجلات بهائيون"
+    },
+    "ballet dancers": {
+        "job_males": "راقصو باليه",
+        "job_females": "راقصات باله",
+        "both_jobs": "راقصو وراقصات باليه"
+    },
+    "biochemists": {
+        "job_males": "كيميائيون حيويون",
+        "job_females": "كيميائيات حيويات",
+        "both_jobs": "كيميائيون وكيميائيات حيويون"
+    },
+    "biophysicists": {
+        "job_males": "فيزيائيون حيويون",
+        "job_females": "فيزيائيات حيويات",
+        "both_jobs": "فيزيائيون وفيزيائيات حيويون"
+    },
+    "bobsledders": {
+        "job_males": "متزلجون جماعيون",
+        "job_females": "متزلجات جماعيات",
+        "both_jobs": "متزلجون ومتزلجات جماعيون"
+    },
+    "bodyguards": {
+        "job_males": "حراس الشخصيات",
+        "job_females": "حارسات شخصيات",
+        "both_jobs": "حراس وحارسات الشخصيات"
+    },
+    "buddhist activists": {
+        "job_males": "ناشطون بوذيون",
+        "job_females": "ناشطات بوذيات",
+        "both_jobs": "ناشطون وناشطات بوذيون"
+    },
+    "buddhist actors": {
+        "job_males": "ممثلون بوذيون",
+        "job_females": "ممثلات بوذيات",
+        "both_jobs": "ممثلون وممثلات بوذيون"
+    },
+    "buddhist astrologers": {
+        "job_males": "منجمون بوذيون",
+        "job_females": "منجمات بوذيات",
+        "both_jobs": "منجمون ومنجمات بوذيون"
+    },
+    "buddhist christians": {
+        "job_males": "مسيحيون بوذيون",
+        "job_females": "مسيحيات بوذيات",
+        "both_jobs": "مسيحيون ومسيحيات بوذيون"
+    },
+    "buddhist evangelical": {
+        "job_males": "إنجيليون بوذيون",
+        "job_females": "إنجيليات بوذيات",
+        "both_jobs": "إنجيليون وإنجيليات بوذيون"
+    },
+    "buddhist leaders": {
+        "job_males": "قادة بوذيون",
+        "job_females": "قائدات بوذيات",
+        "both_jobs": "قادة وقائدات بوذيون"
+    },
+    "buddhist missionaries": {
+        "job_males": "مبشرون بوذيون",
+        "job_females": "مبشرات بوذيات",
+        "both_jobs": "مبشرون ومبشرات بوذيون"
+    },
+    "buddhist monks": {
+        "job_males": "رهبان بوذيون",
+        "job_females": "راهبات بوذيات",
+        "both_jobs": "رهبان وراهبات بوذيون"
+    },
+    "buddhist nuns": {
+        "job_males": " بوذيون",
+        "job_females": "راهبات بوذيات",
+        "both_jobs": " وراهبات بوذيون"
+    },
+    "buddhist saints": {
+        "job_males": "قديسون بوذيون",
+        "job_females": "قديسات بوذيات",
+        "both_jobs": "قديسون وقديسات بوذيون"
+    },
+    "buddhist theologians": {
+        "job_males": "لاهوتيون بوذيون",
+        "job_females": "لاهوتيات بوذيات",
+        "both_jobs": "لاهوتيون ولاهوتيات بوذيون"
+    },
+    "buddhist venerated": {
+        "job_males": "مبجلون بوذيون",
+        "job_females": "مبجلات بوذيات",
+        "both_jobs": "مبجلون ومبجلات بوذيون"
+    },
+    "central defenders": {
+        "job_males": "قلوب دفاع",
+        "job_females": "مدافعات مركزيات",
+        "both_jobs": "قلوب ومدافعات دفاع"
+    },
+    "chancellors and presidents": {
+        "job_males": "رؤساء ومستشارون",
+        "job_females": "رئيسات ومستشارات",
+        "both_jobs": "رؤساء ورئيسات ومستشارون"
+    },
+    "chemical engineers": {
+        "job_males": "مهندسون كيميائيون",
+        "job_females": "مهندسات كيميائيات",
+        "both_jobs": "مهندسون ومهندسات كيميائيون"
+    },
+    "chief executives": {
+        "job_males": "رؤساء تنفيذيون",
+        "job_females": "رئيسات تنفيذيات",
+        "both_jobs": "رؤساء ورئيسات تنفيذيون"
+    },
+    "christian activists": {
+        "job_males": "ناشطون مسيحيون",
+        "job_females": "ناشطات مسيحيات",
+        "both_jobs": "ناشطون وناشطات مسيحيون"
+    },
+    "christian actors": {
+        "job_males": "ممثلون مسيحيون",
+        "job_females": "ممثلات مسيحيات",
+        "both_jobs": "ممثلون وممثلات مسيحيون"
+    },
+    "christian astrologers": {
+        "job_males": "منجمون مسيحيون",
+        "job_females": "منجمات مسيحيات",
+        "both_jobs": "منجمون ومنجمات مسيحيون"
+    },
+    "christian christians": {
+        "job_males": "مسيحيون مسيحيون",
+        "job_females": "مسيحيات مسيحيات",
+        "both_jobs": "مسيحيون ومسيحيات مسيحيون"
+    },
+    "christian evangelical": {
+        "job_males": "إنجيليون مسيحيون",
+        "job_females": "إنجيليات مسيحيات",
+        "both_jobs": "إنجيليون وإنجيليات مسيحيون"
+    },
+    "christian leaders": {
+        "job_males": "قادة مسيحيون",
+        "job_females": "قائدات مسيحيات",
+        "both_jobs": "قادة وقائدات مسيحيون"
+    },
+    "christian missionaries": {
+        "job_males": "مبشرون مسيحيون",
+        "job_females": "مبشرات مسيحيات",
+        "both_jobs": "مبشرون ومبشرات مسيحيون"
+    },
+    "christian monks": {
+        "job_males": "رهبان مسيحيون",
+        "job_females": "راهبات مسيحيات",
+        "both_jobs": "رهبان وراهبات مسيحيون"
+    },
+    "christian nuns": {
+        "job_males": " مسيحيون",
+        "job_females": "راهبات مسيحيات",
+        "both_jobs": " وراهبات مسيحيون"
+    },
+    "christian theologians": {
+        "job_males": "لاهوتيون مسيحيون",
+        "job_females": "لاهوتيات مسيحيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسيحيون"
+    },
+    "christian venerated": {
+        "job_males": "مبجلون مسيحيون",
+        "job_females": "مبجلات مسيحيات",
+        "both_jobs": "مبجلون ومبجلات مسيحيون"
+    },
+    "christians activists": {
+        "job_males": "ناشطون مسيحيون",
+        "job_females": "ناشطات مسيحيات",
+        "both_jobs": "ناشطون وناشطات مسيحيون"
+    },
+    "christians actors": {
+        "job_males": "ممثلون مسيحيون",
+        "job_females": "ممثلات مسيحيات",
+        "both_jobs": "ممثلون وممثلات مسيحيون"
+    },
+    "christians astrologers": {
+        "job_males": "منجمون مسيحيون",
+        "job_females": "منجمات مسيحيات",
+        "both_jobs": "منجمون ومنجمات مسيحيون"
+    },
+    "christians christians": {
+        "job_males": "مسيحيون مسيحيون",
+        "job_females": "مسيحيات مسيحيات",
+        "both_jobs": "مسيحيون ومسيحيات مسيحيون"
+    },
+    "christians evangelical": {
+        "job_males": "إنجيليون مسيحيون",
+        "job_females": "إنجيليات مسيحيات",
+        "both_jobs": "إنجيليون وإنجيليات مسيحيون"
+    },
+    "christians leaders": {
+        "job_males": "قادة مسيحيون",
+        "job_females": "قائدات مسيحيات",
+        "both_jobs": "قادة وقائدات مسيحيون"
+    },
+    "christians missionaries": {
+        "job_males": "مبشرون مسيحيون",
+        "job_females": "مبشرات مسيحيات",
+        "both_jobs": "مبشرون ومبشرات مسيحيون"
+    },
+    "christians monks": {
+        "job_males": "رهبان مسيحيون",
+        "job_females": "راهبات مسيحيات",
+        "both_jobs": "رهبان وراهبات مسيحيون"
+    },
+    "christians nuns": {
+        "job_males": " مسيحيون",
+        "job_females": "راهبات مسيحيات",
+        "both_jobs": " وراهبات مسيحيون"
+    },
+    "christians saints": {
+        "job_males": "قديسون مسيحيون",
+        "job_females": "قديسات مسيحيات",
+        "both_jobs": "قديسون وقديسات مسيحيون"
+    },
+    "christians theologians": {
+        "job_males": "لاهوتيون مسيحيون",
+        "job_females": "لاهوتيات مسيحيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسيحيون"
+    },
+    "christians venerated": {
+        "job_males": "مبجلون مسيحيون",
+        "job_females": "مبجلات مسيحيات",
+        "both_jobs": "مبجلون ومبجلات مسيحيون"
+    },
+    "cinema editors": {
+        "job_males": "محررون سينمائون",
+        "job_females": "محررات سينمائيات",
+        "both_jobs": "محررون ومحررات سينمائون"
+    },
+    "cinematographers": {
+        "job_males": "مصورون سينمائيون",
+        "job_females": "مصورات سينمائيات",
+        "both_jobs": "مصورون ومصورات سينمائيون"
+    },
+    "civil engineers": {
+        "job_males": "مهندسون مدنيون",
+        "job_females": "مهندسات مدنيات",
+        "both_jobs": "مهندسون ومهندسات مدنيون"
+    },
+    "classical composers": {
+        "job_males": "ملحنون كلاسيكيون",
+        "job_females": "ملحنات كلاسيكيات",
+        "both_jobs": "ملحنون وملحنات كلاسيكيون"
+    },
+    "classical dancers": {
+        "job_males": "راقصون كلاسيكيون",
+        "job_females": "راقصات كلاسيكيات",
+        "both_jobs": "راقصون وراقصات كلاسيكيون"
+    },
+    "classical musicians": {
+        "job_males": "موسيقيون كلاسيكيون",
+        "job_females": "موسيقيات كلاسيكيات",
+        "both_jobs": "موسيقيون وموسيقيات كلاسيكيون"
+    },
+    "classical painters": {
+        "job_males": "رسامون كلاسيكيون",
+        "job_females": "رسامات كلاسيكيات",
+        "both_jobs": "رسامون ورسامات كلاسيكيون"
+    },
+    "classical scholars": {
+        "job_males": "باحثون كلاسيكيون",
+        "job_females": "باحثات كلاسيكيات",
+        "both_jobs": "باحثون وباحثات كلاسيكيون"
+    },
+    "classical singers": {
+        "job_males": "مغنون كلاسيكيون",
+        "job_females": "مغنيات كلاسيكيات",
+        "both_jobs": "مغنون ومغنيات كلاسيكيون"
+    },
+    "classical writers": {
+        "job_males": "كتاب كلاسيكيون",
+        "job_females": "كاتبات كلاسيكيات",
+        "both_jobs": "كتاب وكاتبات كلاسيكيون"
+    },
+    "comedy actors": {
+        "job_males": "ممثلون كوميديون",
+        "job_females": "ممثلات كوميديات",
+        "both_jobs": "ممثلون وممثلات كوميديون"
+    },
+    "conceptual artists": {
+        "job_males": "فنانون تصويريون",
+        "job_females": "فنانات تصويريات",
+        "both_jobs": "فنانون وفنانات تصويريون"
+    },
+    "confidence tricksters": {
+        "job_males": "محتالون كبار",
+        "job_females": "محتالات كبيرات",
+        "both_jobs": "محتالون ومحتالات كبار"
+    },
+    "conscientious objectors": {
+        "job_males": "معترضون ضميريون",
+        "job_females": "معترضات ضميريات",
+        "both_jobs": "معترضون ومعترضات ضميريون"
+    },
+    "coptic activists": {
+        "job_males": "ناشطون أقباط",
+        "job_females": "ناشطات قبطيات",
+        "both_jobs": "ناشطون وناشطات أقباط"
+    },
+    "coptic actors": {
+        "job_males": "ممثلون أقباط",
+        "job_females": "ممثلات قبطيات",
+        "both_jobs": "ممثلون وممثلات أقباط"
+    },
+    "coptic astrologers": {
+        "job_males": "منجمون أقباط",
+        "job_females": "منجمات قبطيات",
+        "both_jobs": "منجمون ومنجمات أقباط"
+    },
+    "coptic christians": {
+        "job_males": "مسيحيون أقباط",
+        "job_females": "مسيحيات قبطيات",
+        "both_jobs": "مسيحيون ومسيحيات أقباط"
+    },
+    "coptic evangelical": {
+        "job_males": "إنجيليون أقباط",
+        "job_females": "إنجيليات قبطيات",
+        "both_jobs": "إنجيليون وإنجيليات أقباط"
+    },
+    "coptic leaders": {
+        "job_males": "قادة أقباط",
+        "job_females": "قائدات قبطيات",
+        "both_jobs": "قادة وقائدات أقباط"
+    },
+    "coptic missionaries": {
+        "job_males": "مبشرون أقباط",
+        "job_females": "مبشرات قبطيات",
+        "both_jobs": "مبشرون ومبشرات أقباط"
+    },
+    "coptic monks": {
+        "job_males": "رهبان أقباط",
+        "job_females": "راهبات قبطيات",
+        "both_jobs": "رهبان وراهبات أقباط"
+    },
+    "coptic nuns": {
+        "job_males": " أقباط",
+        "job_females": "راهبات قبطيات",
+        "both_jobs": " وراهبات أقباط"
+    },
+    "coptic saints": {
+        "job_males": "قديسون أقباط",
+        "job_females": "قديسات قبطيات",
+        "both_jobs": "قديسون وقديسات أقباط"
+    },
+    "coptic theologians": {
+        "job_males": "لاهوتيون أقباط",
+        "job_females": "لاهوتيات قبطيات",
+        "both_jobs": "لاهوتيون ولاهوتيات أقباط"
+    },
+    "coptic venerated": {
+        "job_males": "مبجلون أقباط",
+        "job_females": "مبجلات قبطيات",
+        "both_jobs": "مبجلون ومبجلات أقباط"
+    },
+    "copywriters": {
+        "job_males": "كاتبون إعلانيون",
+        "job_females": "كاتبات إعلانيات",
+        "both_jobs": "كاتبون وكاتبات إعلانيون"
+    },
+    "coroners": {
+        "job_males": "أطباء شرعيون",
+        "job_females": "طبيبات شرعيات",
+        "both_jobs": "أطباء وطبيبات شرعيون"
+    },
+    "cross-country skaters": {
+        "job_males": "متزلجون ريفيون",
+        "job_females": "متزلجات ريفيات",
+        "both_jobs": "متزلجون ومتزلجات ريفيون"
+    },
+    "cross-country skiers": {
+        "job_males": "متزحلقون ريفيون",
+        "job_females": "متزحلقات ريفيات",
+        "both_jobs": "متزحلقون ومتزحلقات ريفيون"
+    },
+    "deafblind": {
+        "job_males": "صم ومكفوفون",
+        "job_females": "صم ومكفوفات",
+        "both_jobs": "صم وصم ومكفوفون"
+    },
+    "defensive backs": {
+        "job_males": "مدافعون خلفيون",
+        "job_females": "مدافعات خلفيات",
+        "both_jobs": "مدافعون ومدافعات خلفيون"
+    },
+    "democratic socialists": {
+        "job_males": "اشتراكيون ديمقراطيون",
+        "job_females": "اشتراكيات ديمقراطيات",
+        "both_jobs": "اشتراكيون واشتراكيات ديمقراطيون"
+    },
+    "domestic workers": {
+        "job_males": "عمال منزليون",
+        "job_females": "عمال منزليات",
+        "both_jobs": "عمال وعمال منزليون"
+    },
+    "double agents": {
+        "job_males": "عملاء مزدوجون",
+        "job_females": "عميلات مزدوجات",
+        "both_jobs": "عملاء وعميلات مزدوجون"
+    },
+    "editorial cartoonists": {
+        "job_males": "محررون كارتونيون",
+        "job_females": "محررات كارتونيات",
+        "both_jobs": "محررون ومحررات كارتونيون"
+    },
+    "educational theorists": {
+        "job_males": "منظرون تربويون",
+        "job_females": "منظرات تربويات",
+        "both_jobs": "منظرون ومنظرات تربويون"
+    },
+    "electrical engineers": {
+        "job_males": "مهندسون كهربائيون",
+        "job_females": "مهندسات كهربائيات",
+        "both_jobs": "مهندسون ومهندسات كهربائيون"
+    },
+    "entertainers": {
+        "job_males": "فنانون ترفيهيون",
+        "job_females": "فنانات ترفيهيات",
+        "both_jobs": "فنانون وفنانات ترفيهيون"
+    },
+    "episcopalians activists": {
+        "job_males": "ناشطون أسقفيون",
+        "job_females": "ناشطات أسقفيات",
+        "both_jobs": "ناشطون وناشطات أسقفيون"
+    },
+    "episcopalians actors": {
+        "job_males": "ممثلون أسقفيون",
+        "job_females": "ممثلات أسقفيات",
+        "both_jobs": "ممثلون وممثلات أسقفيون"
+    },
+    "episcopalians astrologers": {
+        "job_males": "منجمون أسقفيون",
+        "job_females": "منجمات أسقفيات",
+        "both_jobs": "منجمون ومنجمات أسقفيون"
+    },
+    "episcopalians christians": {
+        "job_males": "مسيحيون أسقفيون",
+        "job_females": "مسيحيات أسقفيات",
+        "both_jobs": "مسيحيون ومسيحيات أسقفيون"
+    },
+    "episcopalians evangelical": {
+        "job_males": "إنجيليون أسقفيون",
+        "job_females": "إنجيليات أسقفيات",
+        "both_jobs": "إنجيليون وإنجيليات أسقفيون"
+    },
+    "episcopalians leaders": {
+        "job_males": "قادة أسقفيون",
+        "job_females": "قائدات أسقفيات",
+        "both_jobs": "قادة وقائدات أسقفيون"
+    },
+    "episcopalians missionaries": {
+        "job_males": "مبشرون أسقفيون",
+        "job_females": "مبشرات أسقفيات",
+        "both_jobs": "مبشرون ومبشرات أسقفيون"
+    },
+    "episcopalians monks": {
+        "job_males": "رهبان أسقفيون",
+        "job_females": "راهبات أسقفيات",
+        "both_jobs": "رهبان وراهبات أسقفيون"
+    },
+    "episcopalians nuns": {
+        "job_males": " أسقفيون",
+        "job_females": "راهبات أسقفيات",
+        "both_jobs": " وراهبات أسقفيون"
+    },
+    "episcopalians saints": {
+        "job_males": "قديسون أسقفيون",
+        "job_females": "قديسات أسقفيات",
+        "both_jobs": "قديسون وقديسات أسقفيون"
+    },
+    "episcopalians theologians": {
+        "job_males": "لاهوتيون أسقفيون",
+        "job_females": "لاهوتيات أسقفيات",
+        "both_jobs": "لاهوتيون ولاهوتيات أسقفيون"
+    },
+    "episcopalians venerated": {
+        "job_males": "مبجلون أسقفيون",
+        "job_females": "مبجلات أسقفيات",
+        "both_jobs": "مبجلون ومبجلات أسقفيون"
+    },
+    "erotic artists": {
+        "job_males": "فنانون إيروتيكيون",
+        "job_females": "فنانات إيروتيكيات",
+        "both_jobs": "فنانون وفنانات إيروتيكيون"
+    },
+    "evangelical activists": {
+        "job_males": "ناشطون إنجيليون",
+        "job_females": "ناشطات إنجيليات",
+        "both_jobs": "ناشطون وناشطات إنجيليون"
+    },
+    "evangelical actors": {
+        "job_males": "ممثلون إنجيليون",
+        "job_females": "ممثلات إنجيليات",
+        "both_jobs": "ممثلون وممثلات إنجيليون"
+    },
+    "evangelical astrologers": {
+        "job_males": "منجمون إنجيليون",
+        "job_females": "منجمات إنجيليات",
+        "both_jobs": "منجمون ومنجمات إنجيليون"
+    },
+    "evangelical christians": {
+        "job_males": "مسيحيون إنجيليون",
+        "job_females": "مسيحيات إنجيليات",
+        "both_jobs": "مسيحيون ومسيحيات إنجيليون"
+    },
+    "evangelical evangelical": {
+        "job_males": "إنجيليون إنجيليون",
+        "job_females": "إنجيليات إنجيليات",
+        "both_jobs": "إنجيليون وإنجيليات إنجيليون"
+    },
+    "evangelical leaders": {
+        "job_males": "قادة إنجيليون",
+        "job_females": "قائدات إنجيليات",
+        "both_jobs": "قادة وقائدات إنجيليون"
+    },
+    "evangelical missionaries": {
+        "job_males": "مبشرون إنجيليون",
+        "job_females": "مبشرات إنجيليات",
+        "both_jobs": "مبشرون ومبشرات إنجيليون"
+    },
+    "evangelical monks": {
+        "job_males": "رهبان إنجيليون",
+        "job_females": "راهبات إنجيليات",
+        "both_jobs": "رهبان وراهبات إنجيليون"
+    },
+    "evangelical nuns": {
+        "job_males": " إنجيليون",
+        "job_females": "راهبات إنجيليات",
+        "both_jobs": " وراهبات إنجيليون"
+    },
+    "evangelical saints": {
+        "job_males": "قديسون إنجيليون",
+        "job_females": "قديسات إنجيليات",
+        "both_jobs": "قديسون وقديسات إنجيليون"
+    },
+    "evangelical theologians": {
+        "job_males": "لاهوتيون إنجيليون",
+        "job_females": "لاهوتيات إنجيليات",
+        "both_jobs": "لاهوتيون ولاهوتيات إنجيليون"
+    },
+    "evangelical venerated": {
+        "job_males": "مبجلون إنجيليون",
+        "job_females": "مبجلات إنجيليات",
+        "both_jobs": "مبجلون ومبجلات إنجيليون"
+    },
+    "evangelists": {
+        "job_males": "دعاة إنجيليون",
+        "job_females": "داعيات إنجيليات",
+        "both_jobs": "دعاة وداعيات إنجيليون"
+    },
+    "expatriate sports-people": {
+        "job_males": "رياضيون مغتربون",
+        "job_females": "رياضيات مغتربات",
+        "both_jobs": "رياضيون ورياضيات مغتربون"
+    },
+    "fabulists": {
+        "job_males": "كتاب رمزيون",
+        "job_females": "كاتبات رمزيات",
+        "both_jobs": "كتاب وكاتبات رمزيون"
+    },
+    "fiction writers": {
+        "job_males": "كتاب روائيون",
+        "job_females": "كاتبات روائيات",
+        "both_jobs": "كتاب وكاتبات روائيون"
+    },
+    "figure skaters": {
+        "job_males": "متزلجون فنيون",
+        "job_females": "متزلجات فنيات",
+        "both_jobs": "متزلجون ومتزلجات فنيون"
+    },
+    "film theorists": {
+        "job_males": "منظرون سينمائيون",
+        "job_females": "منظرات سينمائيات",
+        "both_jobs": "منظرون ومنظرات سينمائيون"
+    },
+    "financiers": {
+        "job_males": "خبراء ماليون",
+        "job_females": "خبيرات ماليات",
+        "both_jobs": "خبراء وخبيرات ماليون"
+    },
+    "firefighters": {
+        "job_males": "رجال إطفاء",
+        "job_females": "سيدات أطفاء",
+        "both_jobs": "رجال وسيدات إطفاء"
+    },
+    "flying aces": {
+        "job_males": "طيارون عسكريون",
+        "job_females": "طيارات عسكريات",
+        "both_jobs": "طيارون وطيارات عسكريون"
+    },
+    "forensic pathologists": {
+        "job_males": "أطباء شرعيين",
+        "job_females": "طبيبات شرعيات",
+        "both_jobs": "أطباء وطبيبات شرعيين"
+    },
+    "government officials": {
+        "job_males": "مسؤولون حكوميون",
+        "job_females": "مسؤولات حكوميات",
+        "both_jobs": "مسؤولون ومسؤولات حكوميون"
+    },
+    "halfbacks": {
+        "job_males": "أظهرة مساعدون",
+        "job_females": "ظهيرات مساعدات",
+        "both_jobs": "أظهرة وظهيرات مساعدون"
+    },
+    "health workers": {
+        "job_males": "عاملين صحيين",
+        "job_females": "عاملات صحيات",
+        "both_jobs": "عاملين وعاملات صحيين"
+    },
+    "highwaymen": {
+        "job_males": "قطاع طرق",
+        "job_females": "قاطعات طريق",
+        "both_jobs": "قطاع وقاطعات طرق"
+    },
+    "hindu activists": {
+        "job_males": "ناشطون هندوس",
+        "job_females": "ناشطات هندوسيات",
+        "both_jobs": "ناشطون وناشطات هندوس"
+    },
+    "hindu actors": {
+        "job_males": "ممثلون هندوس",
+        "job_females": "ممثلات هندوسيات",
+        "both_jobs": "ممثلون وممثلات هندوس"
+    },
+    "hindu astrologers": {
+        "job_males": "منجمون هندوس",
+        "job_females": "منجمات هندوسيات",
+        "both_jobs": "منجمون ومنجمات هندوس"
+    },
+    "hindu christians": {
+        "job_males": "مسيحيون هندوس",
+        "job_females": "مسيحيات هندوسيات",
+        "both_jobs": "مسيحيون ومسيحيات هندوس"
+    },
+    "hindu evangelical": {
+        "job_males": "إنجيليون هندوس",
+        "job_females": "إنجيليات هندوسيات",
+        "both_jobs": "إنجيليون وإنجيليات هندوس"
+    },
+    "hindu leaders": {
+        "job_males": "قادة هندوس",
+        "job_females": "قائدات هندوسيات",
+        "both_jobs": "قادة وقائدات هندوس"
+    },
+    "hindu missionaries": {
+        "job_males": "مبشرون هندوس",
+        "job_females": "مبشرات هندوسيات",
+        "both_jobs": "مبشرون ومبشرات هندوس"
+    },
+    "hindu monks": {
+        "job_males": "رهبان هندوس",
+        "job_females": "راهبات هندوسيات",
+        "both_jobs": "رهبان وراهبات هندوس"
+    },
+    "hindu nuns": {
+        "job_males": " هندوس",
+        "job_females": "راهبات هندوسيات",
+        "both_jobs": " وراهبات هندوس"
+    },
+    "hindu saints": {
+        "job_males": "قديسون هندوس",
+        "job_females": "قديسات هندوسيات",
+        "both_jobs": "قديسون وقديسات هندوس"
+    },
+    "hindu theologians": {
+        "job_males": "لاهوتيون هندوس",
+        "job_females": "لاهوتيات هندوسيات",
+        "both_jobs": "لاهوتيون ولاهوتيات هندوس"
+    },
+    "hindu venerated": {
+        "job_males": "مبجلون هندوس",
+        "job_females": "مبجلات هندوسيات",
+        "both_jobs": "مبجلون ومبجلات هندوس"
+    },
+    "hindus activists": {
+        "job_males": "ناشطون هندوس",
+        "job_females": "ناشطات هندوسيات",
+        "both_jobs": "ناشطون وناشطات هندوس"
+    },
+    "hindus actors": {
+        "job_males": "ممثلون هندوس",
+        "job_females": "ممثلات هندوسيات",
+        "both_jobs": "ممثلون وممثلات هندوس"
+    },
+    "hindus astrologers": {
+        "job_males": "منجمون هندوس",
+        "job_females": "منجمات هندوسيات",
+        "both_jobs": "منجمون ومنجمات هندوس"
+    },
+    "hindus christians": {
+        "job_males": "مسيحيون هندوس",
+        "job_females": "مسيحيات هندوسيات",
+        "both_jobs": "مسيحيون ومسيحيات هندوس"
+    },
+    "hindus evangelical": {
+        "job_males": "إنجيليون هندوس",
+        "job_females": "إنجيليات هندوسيات",
+        "both_jobs": "إنجيليون وإنجيليات هندوس"
+    },
+    "hindus leaders": {
+        "job_males": "قادة هندوس",
+        "job_females": "قائدات هندوسيات",
+        "both_jobs": "قادة وقائدات هندوس"
+    },
+    "hindus missionaries": {
+        "job_males": "مبشرون هندوس",
+        "job_females": "مبشرات هندوسيات",
+        "both_jobs": "مبشرون ومبشرات هندوس"
+    },
+    "hindus monks": {
+        "job_males": "رهبان هندوس",
+        "job_females": "راهبات هندوسيات",
+        "both_jobs": "رهبان وراهبات هندوس"
+    },
+    "hindus nuns": {
+        "job_males": " هندوس",
+        "job_females": "راهبات هندوسيات",
+        "both_jobs": " وراهبات هندوس"
+    },
+    "hindus saints": {
+        "job_males": "قديسون هندوس",
+        "job_females": "قديسات هندوسيات",
+        "both_jobs": "قديسون وقديسات هندوس"
+    },
+    "hindus theologians": {
+        "job_males": "لاهوتيون هندوس",
+        "job_females": "لاهوتيات هندوسيات",
+        "both_jobs": "لاهوتيون ولاهوتيات هندوس"
+    },
+    "hindus venerated": {
+        "job_males": "مبجلون هندوس",
+        "job_females": "مبجلات هندوسيات",
+        "both_jobs": "مبجلون ومبجلات هندوس"
+    },
+    "historical novelists": {
+        "job_males": "روائيون تاريخيون",
+        "job_females": "روائيات تاريخيات",
+        "both_jobs": "روائيون وروائيات تاريخيون"
+    },
+    "history artists": {
+        "job_males": "فنانون تاريخيون",
+        "job_females": "فنانات تاريخيات",
+        "both_jobs": "فنانون وفنانات تاريخيون"
+    },
+    "history painters": {
+        "job_males": "رسامون تاريخيون",
+        "job_females": "رسامات تاريخيات",
+        "both_jobs": "رسامون ورسامات تاريخيون"
+    },
+    "holocaust perpetrators": {
+        "job_males": "مرتكبو الهولوكوست",
+        "job_females": "مرتكبات هولوكوست",
+        "both_jobs": "مرتكبو ومرتكبات الهولوكوست"
+    },
+    "illustrators": {
+        "job_males": "رسامون توضيحيون",
+        "job_females": "رسامات توضيحيات",
+        "both_jobs": "رسامون ورسامات توضيحيون"
+    },
+    "industrial designers": {
+        "job_males": "مصممون صناعيون",
+        "job_females": "مصممات صناعيات",
+        "both_jobs": "مصممون ومصممات صناعيون"
+    },
+    "industrial engineers": {
+        "job_males": "مهندسون صناعيون",
+        "job_females": "مهندسات صناعيات",
+        "both_jobs": "مهندسون ومهندسات صناعيون"
+    },
+    "inside forwards": {
+        "job_males": "مهاجمون داخليون",
+        "job_females": "مهاجمات داخليات",
+        "both_jobs": "مهاجمون ومهاجمات داخليون"
+    },
+    "installation artists": {
+        "job_males": "فنانون تنصيبيون",
+        "job_females": "فنانات تنصيبيات",
+        "both_jobs": "فنانون وفنانات تنصيبيون"
+    },
+    "intelligence analysts": {
+        "job_males": "محللون استخباراتيون",
+        "job_females": "محللات استخباراتيات",
+        "both_jobs": "محللون ومحللات استخباراتيون"
+    },
+    "international archers": {
+        "job_males": "نبالون دوليون",
+        "job_females": "نبالات دوليات",
+        "both_jobs": "نبالون ونبالات دوليون"
+    },
+    "international aviators": {
+        "job_males": "طيارون دوليون",
+        "job_females": "طيارات دوليات",
+        "both_jobs": "طيارون وطيارات دوليون"
+    },
+    "international boxers": {
+        "job_males": "ملاكمون دوليون",
+        "job_females": "ملاكمات دوليات",
+        "both_jobs": "ملاكمون وملاكمات دوليون"
+    },
+    "international climbers": {
+        "job_males": "متسلقون دوليون",
+        "job_females": "متسلقات دوليات",
+        "both_jobs": "متسلقون ومتسلقات دوليون"
+    },
+    "international cyclists": {
+        "job_males": "دراجون دوليون",
+        "job_females": "دراجات دوليات",
+        "both_jobs": "دراجون ودراجات دوليون"
+    },
+    "international divers": {
+        "job_males": "غواصون دوليون",
+        "job_females": "غواصات دوليات",
+        "both_jobs": "غواصون وغواصات دوليون"
+    },
+    "international esperantists": {
+        "job_males": "إسبرانتوين دوليون",
+        "job_females": "إسبرانتيات دوليات",
+        "both_jobs": "إسبرانتوين وإسبرانتيات دوليون"
+    },
+    "international fencers": {
+        "job_males": "مبارزون دوليون",
+        "job_females": "مبارزات دوليات",
+        "both_jobs": "مبارزون ومبارزات دوليون"
+    },
+    "international hermits": {
+        "job_males": "متنسكون دوليون",
+        "job_females": "متنسكات دوليات",
+        "both_jobs": "متنسكون ومتنسكات دوليون"
+    },
+    "international hunters": {
+        "job_males": "صيادون دوليون",
+        "job_females": "صيادات دوليات",
+        "both_jobs": "صيادون وصيادات دوليون"
+    },
+    "international jockeys": {
+        "job_males": "فرسان دوليون",
+        "job_females": "فارسات دوليات",
+        "both_jobs": "فرسان وفارسات دوليون"
+    },
+    "international printers": {
+        "job_males": "طباعون دوليون",
+        "job_females": "طباعات دوليات",
+        "both_jobs": "طباعون وطباعات دوليون"
+    },
+    "international rowers": {
+        "job_males": "مجدفون دوليون",
+        "job_females": "مجدفات دوليات",
+        "both_jobs": "مجدفون ومجدفات دوليون"
+    },
+    "international runners": {
+        "job_males": "عداؤون دوليون",
+        "job_females": "عداءات دوليات",
+        "both_jobs": "عداؤون وعداءات دوليون"
+    },
+    "international shooters": {
+        "job_males": "رماة دوليون",
+        "job_females": "راميات دوليات",
+        "both_jobs": "رماة وراميات دوليون"
+    },
+    "international skiers": {
+        "job_males": "متزحلقون دوليون",
+        "job_females": "متزحلقات دوليات",
+        "both_jobs": "متزحلقون ومتزحلقات دوليون"
+    },
+    "international sport climbers": {
+        "job_males": "متسلقون دوليون",
+        "job_females": "متسلقات دوليات",
+        "both_jobs": "متسلقون ومتسلقات دوليون"
+    },
+    "international swimmers": {
+        "job_males": "سباحون دوليون",
+        "job_females": "سباحات دوليات",
+        "both_jobs": "سباحون وسباحات دوليون"
+    },
+    "international weightlifters": {
+        "job_males": "رباعون دوليون",
+        "job_females": "رباعات دوليات",
+        "both_jobs": "رباعون ورباعات دوليون"
+    },
+    "international whistleblowers": {
+        "job_males": "مخبرون دوليون",
+        "job_females": "مخبرات دوليات",
+        "both_jobs": "مخبرون ومخبرات دوليون"
+    },
+    "international wrestlers": {
+        "job_males": "مصارعون دوليون",
+        "job_females": "مصارعات دوليات",
+        "both_jobs": "مصارعون ومصارعات دوليون"
+    },
+    "internists": {
+        "job_males": "أطباء باطنيون",
+        "job_females": "طبيبات باطنيات",
+        "both_jobs": "أطباء وطبيبات باطنيون"
+    },
+    "islamic activists": {
+        "job_males": "ناشطون إسلاميون",
+        "job_females": "ناشطات إسلاميات",
+        "both_jobs": "ناشطون وناشطات إسلاميون"
+    },
+    "islamic actors": {
+        "job_males": "ممثلون إسلاميون",
+        "job_females": "ممثلات إسلاميات",
+        "both_jobs": "ممثلون وممثلات إسلاميون"
+    },
+    "islamic astrologers": {
+        "job_males": "منجمون إسلاميون",
+        "job_females": "منجمات إسلاميات",
+        "both_jobs": "منجمون ومنجمات إسلاميون"
+    },
+    "islamic christians": {
+        "job_males": "مسيحيون إسلاميون",
+        "job_females": "مسيحيات إسلاميات",
+        "both_jobs": "مسيحيون ومسيحيات إسلاميون"
+    },
+    "islamic evangelical": {
+        "job_males": "إنجيليون إسلاميون",
+        "job_females": "إنجيليات إسلاميات",
+        "both_jobs": "إنجيليون وإنجيليات إسلاميون"
+    },
+    "islamic leaders": {
+        "job_males": "قادة إسلاميون",
+        "job_females": "قائدات إسلاميات",
+        "both_jobs": "قادة وقائدات إسلاميون"
+    },
+    "islamic missionaries": {
+        "job_males": "مبشرون إسلاميون",
+        "job_females": "مبشرات إسلاميات",
+        "both_jobs": "مبشرون ومبشرات إسلاميون"
+    },
+    "islamic monks": {
+        "job_males": "رهبان إسلاميون",
+        "job_females": "راهبات إسلاميات",
+        "both_jobs": "رهبان وراهبات إسلاميون"
+    },
+    "islamic nuns": {
+        "job_males": " إسلاميون",
+        "job_females": "راهبات إسلاميات",
+        "both_jobs": " وراهبات إسلاميون"
+    },
+    "islamic saints": {
+        "job_males": "قديسون إسلاميون",
+        "job_females": "قديسات إسلاميات",
+        "both_jobs": "قديسون وقديسات إسلاميون"
+    },
+    "islamic theologians": {
+        "job_males": "لاهوتيون إسلاميون",
+        "job_females": "لاهوتيات إسلاميات",
+        "both_jobs": "لاهوتيون ولاهوتيات إسلاميون"
+    },
+    "islamic venerated": {
+        "job_males": "مبجلون إسلاميون",
+        "job_females": "مبجلات إسلاميات",
+        "both_jobs": "مبجلون ومبجلات إسلاميون"
+    },
+    "jewish activists": {
+        "job_males": "ناشطون يهود",
+        "job_females": "ناشطات يهوديات",
+        "both_jobs": "ناشطون وناشطات يهود"
+    },
+    "jewish actors": {
+        "job_males": "ممثلون يهود",
+        "job_females": "ممثلات يهوديات",
+        "both_jobs": "ممثلون وممثلات يهود"
+    },
+    "jewish astrologers": {
+        "job_males": "منجمون يهود",
+        "job_females": "منجمات يهوديات",
+        "both_jobs": "منجمون ومنجمات يهود"
+    },
+    "jewish christians": {
+        "job_males": "مسيحيون يهود",
+        "job_females": "مسيحيات يهوديات",
+        "both_jobs": "مسيحيون ومسيحيات يهود"
+    },
+    "jewish evangelical": {
+        "job_males": "إنجيليون يهود",
+        "job_females": "إنجيليات يهوديات",
+        "both_jobs": "إنجيليون وإنجيليات يهود"
+    },
+    "jewish leaders": {
+        "job_males": "قادة يهود",
+        "job_females": "قائدات يهوديات",
+        "both_jobs": "قادة وقائدات يهود"
+    },
+    "jewish missionaries": {
+        "job_males": "مبشرون يهود",
+        "job_females": "مبشرات يهوديات",
+        "both_jobs": "مبشرون ومبشرات يهود"
+    },
+    "jewish monks": {
+        "job_males": "رهبان يهود",
+        "job_females": "راهبات يهوديات",
+        "both_jobs": "رهبان وراهبات يهود"
+    },
+    "jewish nuns": {
+        "job_males": " يهود",
+        "job_females": "راهبات يهوديات",
+        "both_jobs": " وراهبات يهود"
+    },
+    "jewish saints": {
+        "job_males": "قديسون يهود",
+        "job_females": "قديسات يهوديات",
+        "both_jobs": "قديسون وقديسات يهود"
+    },
+    "jewish theologians": {
+        "job_males": "لاهوتيون يهود",
+        "job_females": "لاهوتيات يهوديات",
+        "both_jobs": "لاهوتيون ولاهوتيات يهود"
+    },
+    "jewish venerated": {
+        "job_males": "مبجلون يهود",
+        "job_females": "مبجلات يهوديات",
+        "both_jobs": "مبجلون ومبجلات يهود"
+    },
+    "jews activists": {
+        "job_males": "ناشطون يهود",
+        "job_females": "ناشطات يهوديات",
+        "both_jobs": "ناشطون وناشطات يهود"
+    },
+    "jews actors": {
+        "job_males": "ممثلون يهود",
+        "job_females": "ممثلات يهوديات",
+        "both_jobs": "ممثلون وممثلات يهود"
+    },
+    "jews astrologers": {
+        "job_males": "منجمون يهود",
+        "job_females": "منجمات يهوديات",
+        "both_jobs": "منجمون ومنجمات يهود"
+    },
+    "jews christians": {
+        "job_males": "مسيحيون يهود",
+        "job_females": "مسيحيات يهوديات",
+        "both_jobs": "مسيحيون ومسيحيات يهود"
+    },
+    "jews evangelical": {
+        "job_males": "إنجيليون يهود",
+        "job_females": "إنجيليات يهوديات",
+        "both_jobs": "إنجيليون وإنجيليات يهود"
+    },
+    "jews leaders": {
+        "job_males": "قادة يهود",
+        "job_females": "قائدات يهوديات",
+        "both_jobs": "قادة وقائدات يهود"
+    },
+    "jews missionaries": {
+        "job_males": "مبشرون يهود",
+        "job_females": "مبشرات يهوديات",
+        "both_jobs": "مبشرون ومبشرات يهود"
+    },
+    "jews monks": {
+        "job_males": "رهبان يهود",
+        "job_females": "راهبات يهوديات",
+        "both_jobs": "رهبان وراهبات يهود"
+    },
+    "jews nuns": {
+        "job_males": " يهود",
+        "job_females": "راهبات يهوديات",
+        "both_jobs": " وراهبات يهود"
+    },
+    "jews saints": {
+        "job_males": "قديسون يهود",
+        "job_females": "قديسات يهوديات",
+        "both_jobs": "قديسون وقديسات يهود"
+    },
+    "jews theologians": {
+        "job_males": "لاهوتيون يهود",
+        "job_females": "لاهوتيات يهوديات",
+        "both_jobs": "لاهوتيون ولاهوتيات يهود"
+    },
+    "jews venerated": {
+        "job_males": "مبجلون يهود",
+        "job_females": "مبجلات يهوديات",
+        "both_jobs": "مبجلون ومبجلات يهود"
+    },
+    "literary critics": {
+        "job_males": "نقاد أدبيون",
+        "job_females": "ناقدات أدبيات",
+        "both_jobs": "نقاد وناقدات أدبيون"
+    },
+    "literary engineers": {
+        "job_males": "مهندسون أدبيون",
+        "job_females": "مهندسات أدبيات",
+        "both_jobs": "مهندسون ومهندسات أدبيون"
+    },
+    "literary historians": {
+        "job_males": "مؤرخون أدبيون",
+        "job_females": "مؤرخات أدبيات",
+        "both_jobs": "مؤرخون ومؤرخات أدبيون"
+    },
+    "literary leaders": {
+        "job_males": "قادة أدبيون",
+        "job_females": "قائدات أدبيات",
+        "both_jobs": "قادة وقائدات أدبيون"
+    },
+    "literary musicians": {
+        "job_males": "موسيقيون أدبيون",
+        "job_females": "موسيقيات أدبيات",
+        "both_jobs": "موسيقيون وموسيقيات أدبيون"
+    },
+    "literary nurses": {
+        "job_males": "ممرضون أدبيون",
+        "job_females": "ممرضات أدبيات",
+        "both_jobs": "ممرضون وممرضات أدبيون"
+    },
+    "literary officers": {
+        "job_males": "ضباط أدبيون",
+        "job_females": "ضابطات أدبيات",
+        "both_jobs": "ضباط وضابطات أدبيون"
+    },
+    "literary strategists": {
+        "job_males": "استراتيجيون أدبيون",
+        "job_females": "استراتيجيات أدبيات",
+        "both_jobs": "استراتيجيون واستراتيجيات أدبيون"
+    },
+    "literary theorists": {
+        "job_males": "منظرون أدبيون",
+        "job_females": "منظرات أدبيات",
+        "both_jobs": "منظرون ومنظرات أدبيون"
+    },
+    "lithographers": {
+        "job_males": "طباعون حجريون",
+        "job_females": "طباعات حجريات",
+        "both_jobs": "طباعون وطباعات حجريون"
+    },
+    "local politicians": {
+        "job_males": "سياسيون محليون",
+        "job_females": "سياسيات محليات",
+        "both_jobs": "سياسيون وسياسيات محليون"
+    },
+    "lugers": {
+        "job_males": "زاحفون ثلجيون",
+        "job_females": "زاحفات ثلجيات",
+        "both_jobs": "زاحفون وزاحفات ثلجيون"
+    },
+    "lyricists": {
+        "job_males": "شعراء غنائيون",
+        "job_females": "شاعرات غنائيات",
+        "both_jobs": "شعراء وشاعرات غنائيون"
+    },
+    "maritime historians": {
+        "job_males": "مؤرخون بحريون",
+        "job_females": "مؤرخات بحريات",
+        "both_jobs": "مؤرخون ومؤرخات بحريون"
+    },
+    "maritime writers": {
+        "job_males": "كتاب بحريون",
+        "job_females": "كاتبات بحريات",
+        "both_jobs": "كتاب وكاتبات بحريون"
+    },
+    "marxist historians": {
+        "job_males": "مؤرخون ماركسيون",
+        "job_females": "مؤرخات ماركسيات",
+        "both_jobs": "مؤرخون ومؤرخات ماركسيون"
+    },
+    "mass murderers": {
+        "job_males": "قتلة جماعيون",
+        "job_females": "قاتلات جماعيات",
+        "both_jobs": "قتلة وقاتلات جماعيون"
+    },
+    "medical historians": {
+        "job_males": "مؤرخون طبيون",
+        "job_females": "مؤرخات طبيات",
+        "both_jobs": "مؤرخون ومؤرخات طبيون"
+    },
+    "medical researchers": {
+        "job_males": "باحثون طبيون",
+        "job_females": "باحثات طبيات",
+        "both_jobs": "باحثون وباحثات طبيون"
+    },
+    "methodist": {
+        "job_males": "ميثوديون لاهوتيون",
+        "job_females": "ميثوديات لاهوتيات",
+        "both_jobs": "ميثوديون وميثوديات لاهوتيون"
+    },
+    "methodist theologians": {
+        "job_males": "ميثوديون لاهوتيون",
+        "job_females": "ميثوديات لاهوتيات",
+        "both_jobs": "ميثوديون وميثوديات لاهوتيون"
+    },
+    "military engineers": {
+        "job_males": "مهندسون عسكريون",
+        "job_females": "مهندسات عسكريات",
+        "both_jobs": "مهندسون ومهندسات عسكريون"
+    },
+    "military historians": {
+        "job_males": "مؤرخون عسكريون",
+        "job_females": "مؤرخات عسكريات",
+        "both_jobs": "مؤرخون ومؤرخات عسكريون"
+    },
+    "military leaders": {
+        "job_males": "قادة عسكريون",
+        "job_females": "قائدات عسكريات",
+        "both_jobs": "قادة وقائدات عسكريون"
+    },
+    "military musicians": {
+        "job_males": "موسيقيون عسكريون",
+        "job_females": "موسيقيات عسكريات",
+        "both_jobs": "موسيقيون وموسيقيات عسكريون"
+    },
+    "military nurses": {
+        "job_males": "ممرضون عسكريون",
+        "job_females": "ممرضات عسكريات",
+        "both_jobs": "ممرضون وممرضات عسكريون"
+    },
+    "military officers": {
+        "job_males": "ضباط عسكريون",
+        "job_females": "ضابطات عسكريات",
+        "both_jobs": "ضباط وضابطات عسكريون"
+    },
+    "military personnel": {
+        "job_males": "أفراد عسكريون",
+        "job_females": "أفراد عسكريات",
+        "both_jobs": "أفراد وأفراد عسكريون"
+    },
+    "military strategists": {
+        "job_males": "استراتيجيون عسكريون",
+        "job_females": "استراتيجيات عسكريات",
+        "both_jobs": "استراتيجيون واستراتيجيات عسكريون"
+    },
+    "military theorists": {
+        "job_males": "منظرون عسكريون",
+        "job_females": "منظرات عسكريات",
+        "both_jobs": "منظرون ومنظرات عسكريون"
+    },
+    "military writers": {
+        "job_males": "كتاب عسكريون",
+        "job_females": "كاتبات عسكريات",
+        "both_jobs": "كتاب وكاتبات عسكريون"
+    },
+    "mimes": {
+        "job_males": "ممثلون صامتون",
+        "job_females": "ممثلات صامتات",
+        "both_jobs": "ممثلون وممثلات صامتون"
+    },
+    "motivational writers": {
+        "job_males": "كتاب محفزون",
+        "job_females": "كاتبات محفزات",
+        "both_jobs": "كتاب وكاتبات محفزون"
+    },
+    "music arrangers": {
+        "job_males": "موزعون موسيقيون",
+        "job_females": "موزعات موسيقيات",
+        "both_jobs": "موزعون وموزعات موسيقيون"
+    },
+    "music journalists": {
+        "job_males": "صحفيون موسيقيون",
+        "job_females": "صحفيات موسيقيات",
+        "both_jobs": "صحفيون وصحفيات موسيقيون"
+    },
+    "muslim activists": {
+        "job_males": "ناشطون مسلمون",
+        "job_females": "ناشطات مسلمات",
+        "both_jobs": "ناشطون وناشطات مسلمون"
+    },
+    "muslim actors": {
+        "job_males": "ممثلون مسلمون",
+        "job_females": "ممثلات مسلمات",
+        "both_jobs": "ممثلون وممثلات مسلمون"
+    },
+    "muslim astrologers": {
+        "job_males": "منجمون مسلمون",
+        "job_females": "منجمات مسلمات",
+        "both_jobs": "منجمون ومنجمات مسلمون"
+    },
+    "muslim christians": {
+        "job_males": "مسيحيون مسلمون",
+        "job_females": "مسيحيات مسلمات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون"
+    },
+    "muslim evangelical": {
+        "job_males": "إنجيليون مسلمون",
+        "job_females": "إنجيليات مسلمات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون"
+    },
+    "muslim leaders": {
+        "job_males": "قادة مسلمون",
+        "job_females": "قائدات مسلمات",
+        "both_jobs": "قادة وقائدات مسلمون"
+    },
+    "muslim missionaries": {
+        "job_males": "مبشرون مسلمون",
+        "job_females": "مبشرات مسلمات",
+        "both_jobs": "مبشرون ومبشرات مسلمون"
+    },
+    "muslim monks": {
+        "job_males": "رهبان مسلمون",
+        "job_females": "راهبات مسلمات",
+        "both_jobs": "رهبان وراهبات مسلمون"
+    },
+    "muslim nuns": {
+        "job_males": " مسلمون",
+        "job_females": "راهبات مسلمات",
+        "both_jobs": " وراهبات مسلمون"
+    },
+    "muslim saints": {
+        "job_males": "قديسون مسلمون",
+        "job_females": "قديسات مسلمات",
+        "both_jobs": "قديسون وقديسات مسلمون"
+    },
+    "muslim theologians": {
+        "job_males": "لاهوتيون مسلمون",
+        "job_females": "لاهوتيات مسلمات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون"
+    },
+    "muslim venerated": {
+        "job_males": "مبجلون مسلمون",
+        "job_females": "مبجلات مسلمات",
+        "both_jobs": "مبجلون ومبجلات مسلمون"
+    },
+    "muslims activists": {
+        "job_males": "ناشطون مسلمون",
+        "job_females": "ناشطات مسلمات",
+        "both_jobs": "ناشطون وناشطات مسلمون"
+    },
+    "muslims actors": {
+        "job_males": "ممثلون مسلمون",
+        "job_females": "ممثلات مسلمات",
+        "both_jobs": "ممثلون وممثلات مسلمون"
+    },
+    "muslims astrologers": {
+        "job_males": "منجمون مسلمون",
+        "job_females": "منجمات مسلمات",
+        "both_jobs": "منجمون ومنجمات مسلمون"
+    },
+    "muslims christians": {
+        "job_males": "مسيحيون مسلمون",
+        "job_females": "مسيحيات مسلمات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون"
+    },
+    "muslims evangelical": {
+        "job_males": "إنجيليون مسلمون",
+        "job_females": "إنجيليات مسلمات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون"
+    },
+    "muslims leaders": {
+        "job_males": "قادة مسلمون",
+        "job_females": "قائدات مسلمات",
+        "both_jobs": "قادة وقائدات مسلمون"
+    },
+    "muslims missionaries": {
+        "job_males": "مبشرون مسلمون",
+        "job_females": "مبشرات مسلمات",
+        "both_jobs": "مبشرون ومبشرات مسلمون"
+    },
+    "muslims monks": {
+        "job_males": "رهبان مسلمون",
+        "job_females": "راهبات مسلمات",
+        "both_jobs": "رهبان وراهبات مسلمون"
+    },
+    "muslims nuns": {
+        "job_males": " مسلمون",
+        "job_females": "راهبات مسلمات",
+        "both_jobs": " وراهبات مسلمون"
+    },
+    "muslims saints": {
+        "job_males": "قديسون مسلمون",
+        "job_females": "قديسات مسلمات",
+        "both_jobs": "قديسون وقديسات مسلمون"
+    },
+    "muslims theologians": {
+        "job_males": "لاهوتيون مسلمون",
+        "job_females": "لاهوتيات مسلمات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون"
+    },
+    "muslims venerated": {
+        "job_males": "مبجلون مسلمون",
+        "job_females": "مبجلات مسلمات",
+        "both_jobs": "مبجلون ومبجلات مسلمون"
+    },
+    "national heroes": {
+        "job_males": "أبطال وطنيون",
+        "job_females": "بطلات وطنيات",
+        "both_jobs": "أبطال وبطلات وطنيون"
+    },
+    "nazi activists": {
+        "job_males": "ناشطون نازيون",
+        "job_females": "ناشطات نازيات",
+        "both_jobs": "ناشطون وناشطات نازيون"
+    },
+    "nazi actors": {
+        "job_males": "ممثلون نازيون",
+        "job_females": "ممثلات نازيات",
+        "both_jobs": "ممثلون وممثلات نازيون"
+    },
+    "nazi astrologers": {
+        "job_males": "منجمون نازيون",
+        "job_females": "منجمات نازيات",
+        "both_jobs": "منجمون ومنجمات نازيون"
+    },
+    "nazi christians": {
+        "job_males": "مسيحيون نازيون",
+        "job_females": "مسيحيات نازيات",
+        "both_jobs": "مسيحيون ومسيحيات نازيون"
+    },
+    "nazi engineers": {
+        "job_males": "مهندسون نازيون",
+        "job_females": "مهندسات نازيات",
+        "both_jobs": "مهندسون ومهندسات نازيون"
+    },
+    "nazi evangelical": {
+        "job_males": "إنجيليون نازيون",
+        "job_females": "إنجيليات نازيات",
+        "both_jobs": "إنجيليون وإنجيليات نازيون"
+    },
+    "nazi historians": {
+        "job_males": "مؤرخون نازيون",
+        "job_females": "مؤرخات نازيات",
+        "both_jobs": "مؤرخون ومؤرخات نازيون"
+    },
+    "nazi leaders": {
+        "job_males": "قادة نازيون",
+        "job_females": "قائدات نازيات",
+        "both_jobs": "قادة وقائدات نازيون"
+    },
+    "nazi missionaries": {
+        "job_males": "مبشرون نازيون",
+        "job_females": "مبشرات نازيات",
+        "both_jobs": "مبشرون ومبشرات نازيون"
+    },
+    "nazi monks": {
+        "job_males": "رهبان نازيون",
+        "job_females": "راهبات نازيات",
+        "both_jobs": "رهبان وراهبات نازيون"
+    },
+    "nazi musicians": {
+        "job_males": "موسيقيون نازيون",
+        "job_females": "موسيقيات نازيات",
+        "both_jobs": "موسيقيون وموسيقيات نازيون"
+    },
+    "nazi nuns": {
+        "job_males": " نازيون",
+        "job_females": "راهبات نازيات",
+        "both_jobs": " وراهبات نازيون"
+    },
+    "nazi nurses": {
+        "job_males": "ممرضون نازيون",
+        "job_females": "ممرضات نازيات",
+        "both_jobs": "ممرضون وممرضات نازيون"
+    },
+    "nazi officers": {
+        "job_males": "ضباط نازيون",
+        "job_females": "ضابطات نازيات",
+        "both_jobs": "ضباط وضابطات نازيون"
+    },
+    "nazi saints": {
+        "job_males": "قديسون نازيون",
+        "job_females": "قديسات نازيات",
+        "both_jobs": "قديسون وقديسات نازيون"
+    },
+    "nazi strategists": {
+        "job_males": "استراتيجيون نازيون",
+        "job_females": "استراتيجيات نازيات",
+        "both_jobs": "استراتيجيون واستراتيجيات نازيون"
+    },
+    "nazi theologians": {
+        "job_males": "لاهوتيون نازيون",
+        "job_females": "لاهوتيات نازيات",
+        "both_jobs": "لاهوتيون ولاهوتيات نازيون"
+    },
+    "nazi theorists": {
+        "job_males": "منظرون نازيون",
+        "job_females": "منظرات نازيات",
+        "both_jobs": "منظرون ومنظرات نازيون"
+    },
+    "nazi venerated": {
+        "job_males": "مبجلون نازيون",
+        "job_females": "مبجلات نازيات",
+        "both_jobs": "مبجلون ومبجلات نازيون"
+    },
+    "neoclassical": {
+        "job_males": "كلاسيكيون حديثون",
+        "job_females": "كلاسيكيات حديثات",
+        "both_jobs": "كلاسيكيون وكلاسيكيات حديثون"
+    },
+    "nuclear engineers": {
+        "job_males": "مهندسون نوويون",
+        "job_females": "مهندسات نوويات",
+        "both_jobs": "مهندسون ومهندسات نوويون"
+    },
+    "olympic archers": {
+        "job_males": "نبالون أولمبيون",
+        "job_females": "نبالات أولمبيات",
+        "both_jobs": "نبالون ونبالات أولمبيون"
+    },
+    "olympic aviators": {
+        "job_males": "طيارون أولمبيون",
+        "job_females": "طيارات أولمبيات",
+        "both_jobs": "طيارون وطيارات أولمبيون"
+    },
+    "olympic boxers": {
+        "job_males": "ملاكمون أولمبيون",
+        "job_females": "ملاكمات أولمبيات",
+        "both_jobs": "ملاكمون وملاكمات أولمبيون"
+    },
+    "olympic climbers": {
+        "job_males": "متسلقون أولمبيون",
+        "job_females": "متسلقات أولمبيات",
+        "both_jobs": "متسلقون ومتسلقات أولمبيون"
+    },
+    "olympic cyclists": {
+        "job_males": "دراجون أولمبيون",
+        "job_females": "دراجات أولمبيات",
+        "both_jobs": "دراجون ودراجات أولمبيون"
+    },
+    "olympic divers": {
+        "job_males": "غواصون أولمبيون",
+        "job_females": "غواصات أولمبيات",
+        "both_jobs": "غواصون وغواصات أولمبيون"
+    },
+    "olympic esperantists": {
+        "job_males": "إسبرانتوين أولمبيون",
+        "job_females": "إسبرانتيات أولمبيات",
+        "both_jobs": "إسبرانتوين وإسبرانتيات أولمبيون"
+    },
+    "olympic fencers": {
+        "job_males": "مبارزون أولمبيون",
+        "job_females": "مبارزات أولمبيات",
+        "both_jobs": "مبارزون ومبارزات أولمبيون"
+    },
+    "olympic hermits": {
+        "job_males": "متنسكون أولمبيون",
+        "job_females": "متنسكات أولمبيات",
+        "both_jobs": "متنسكون ومتنسكات أولمبيون"
+    },
+    "olympic hunters": {
+        "job_males": "صيادون أولمبيون",
+        "job_females": "صيادات أولمبيات",
+        "both_jobs": "صيادون وصيادات أولمبيون"
+    },
+    "olympic jockeys": {
+        "job_males": "فرسان أولمبيون",
+        "job_females": "فارسات أولمبيات",
+        "both_jobs": "فرسان وفارسات أولمبيون"
+    },
+    "olympic printers": {
+        "job_males": "طباعون أولمبيون",
+        "job_females": "طباعات أولمبيات",
+        "both_jobs": "طباعون وطباعات أولمبيون"
+    },
+    "olympic rowers": {
+        "job_males": "مجدفون أولمبيون",
+        "job_females": "مجدفات أولمبيات",
+        "both_jobs": "مجدفون ومجدفات أولمبيون"
+    },
+    "olympic runners": {
+        "job_males": "عداؤون أولمبيون",
+        "job_females": "عداءات أولمبيات",
+        "both_jobs": "عداؤون وعداءات أولمبيون"
+    },
+    "olympic shooters": {
+        "job_males": "رماة أولمبيون",
+        "job_females": "راميات أولمبيات",
+        "both_jobs": "رماة وراميات أولمبيون"
+    },
+    "olympic skiers": {
+        "job_males": "متزحلقون أولمبيون",
+        "job_females": "متزحلقات أولمبيات",
+        "both_jobs": "متزحلقون ومتزحلقات أولمبيون"
+    },
+    "olympic sport climbers": {
+        "job_males": "متسلقون أولمبيون",
+        "job_females": "متسلقات أولمبيات",
+        "both_jobs": "متسلقون ومتسلقات أولمبيون"
+    },
+    "olympic swimmers": {
+        "job_males": "سباحون أولمبيون",
+        "job_females": "سباحات أولمبيات",
+        "both_jobs": "سباحون وسباحات أولمبيون"
+    },
+    "olympic weightlifters": {
+        "job_males": "رباعون أولمبيون",
+        "job_females": "رباعات أولمبيات",
+        "both_jobs": "رباعون ورباعات أولمبيون"
+    },
+    "olympic whistleblowers": {
+        "job_males": "مخبرون أولمبيون",
+        "job_females": "مخبرات أولمبيات",
+        "both_jobs": "مخبرون ومخبرات أولمبيون"
+    },
+    "olympic wrestlers": {
+        "job_males": "مصارعون أولمبيون",
+        "job_females": "مصارعات أولمبيات",
+        "both_jobs": "مصارعون ومصارعات أولمبيون"
+    },
+    "olympics coaches": {
+        "job_males": "مدربون أولمبيون",
+        "job_females": "مدربات أولمبيات",
+        "both_jobs": "مدربون ومدربات أولمبيون"
+    },
+    "olympics competitors": {
+        "job_males": "منافسون أولمبيون",
+        "job_females": "منافسات أولمبيات",
+        "both_jobs": "منافسون ومنافسات أولمبيون"
+    },
+    "olympics managers": {
+        "job_males": "مدربون أولمبيون",
+        "job_females": "مدربات أولمبيات",
+        "both_jobs": "مدربون ومدربات أولمبيون"
+    },
+    "organizational engineers": {
+        "job_males": "مهندسون تنظيميون",
+        "job_females": "مهندسات تنظيميات",
+        "both_jobs": "مهندسون ومهندسات تنظيميون"
+    },
+    "organizational historians": {
+        "job_males": "مؤرخون تنظيميون",
+        "job_females": "مؤرخات تنظيميات",
+        "both_jobs": "مؤرخون ومؤرخات تنظيميون"
+    },
+    "organizational leaders": {
+        "job_males": "قادة تنظيميون",
+        "job_females": "قائدات تنظيميات",
+        "both_jobs": "قادة وقائدات تنظيميون"
+    },
+    "organizational musicians": {
+        "job_males": "موسيقيون تنظيميون",
+        "job_females": "موسيقيات تنظيميات",
+        "both_jobs": "موسيقيون وموسيقيات تنظيميون"
+    },
+    "organizational nurses": {
+        "job_males": "ممرضون تنظيميون",
+        "job_females": "ممرضات تنظيميات",
+        "both_jobs": "ممرضون وممرضات تنظيميون"
+    },
+    "organizational officers": {
+        "job_males": "ضباط تنظيميون",
+        "job_females": "ضابطات تنظيميات",
+        "both_jobs": "ضباط وضابطات تنظيميون"
+    },
+    "organizational strategists": {
+        "job_males": "استراتيجيون تنظيميون",
+        "job_females": "استراتيجيات تنظيميات",
+        "both_jobs": "استراتيجيون واستراتيجيات تنظيميون"
+    },
+    "organizational theorists": {
+        "job_males": "منظرون تنظيميون",
+        "job_females": "منظرات تنظيميات",
+        "both_jobs": "منظرون ومنظرات تنظيميون"
+    },
+    "outside forwards": {
+        "job_males": "مهاجمون خارجيون",
+        "job_females": "مهاجمات خارجيات",
+        "both_jobs": "مهاجمون ومهاجمات خارجيون"
+    },
+    "pan-africanists": {
+        "job_males": "وحدويون أفارقة",
+        "job_females": "وحدويات إفريقيات",
+        "both_jobs": "وحدويون ووحدويات أفارقة"
+    },
+    "paralympic coaches": {
+        "job_males": "مدربون بارالمبيون",
+        "job_females": "مدربات بارالمبيات",
+        "both_jobs": "مدربون ومدربات بارالمبيون"
+    },
+    "paralympic competitors": {
+        "job_males": "منافسون بارالمبيون",
+        "job_females": "منافسات بارالمبيات",
+        "both_jobs": "منافسون ومنافسات بارالمبيون"
+    },
+    "paralympic managers": {
+        "job_males": "مدربون بارالمبيون",
+        "job_females": "مدربات بارالمبيات",
+        "both_jobs": "مدربون ومدربات بارالمبيون"
+    },
+    "percussionists": {
+        "job_males": "فنانون إيقاعيون",
+        "job_females": "فنانات إيقاعيات",
+        "both_jobs": "فنانون وفنانات إيقاعيون"
+    },
+    "performance artists": {
+        "job_males": "فنانون أدائيون",
+        "job_females": "فنانات أدائيات",
+        "both_jobs": "فنانون وفنانات أدائيون"
+    },
+    "plastic surgeons": {
+        "job_males": "جراحون تجميليون",
+        "job_females": "جراحات تجميليات",
+        "both_jobs": "جراحون وجراحات تجميليون"
+    },
+    "playwrights": {
+        "job_males": "كتاب مسرحيون",
+        "job_females": "كاتبات مسرحيات",
+        "both_jobs": "كتاب وكاتبات مسرحيون"
+    },
+    "political candidates": {
+        "job_males": "مرشحون سياسيون",
+        "job_females": "مرشحات سياسيات",
+        "both_jobs": "مرشحون ومرشحات سياسيون"
+    },
+    "political hostesses": {
+        "job_males": "مضيفون سياسيون",
+        "job_females": "مضيفات سياسيات",
+        "both_jobs": "مضيفون ومضيفات سياسيون"
+    },
+    "political philosophers": {
+        "job_males": "فلاسفة سياسيون",
+        "job_females": "فلسفيات سياسيات",
+        "both_jobs": "فلاسفة وفلسفيات سياسيون"
+    },
+    "politicians engineers": {
+        "job_males": "مهندسون سياسيون",
+        "job_females": "مهندسات سياسيات",
+        "both_jobs": "مهندسون ومهندسات سياسيون"
+    },
+    "politicians historians": {
+        "job_males": "مؤرخون سياسيون",
+        "job_females": "مؤرخات سياسيات",
+        "both_jobs": "مؤرخون ومؤرخات سياسيون"
+    },
+    "politicians leaders": {
+        "job_males": "قادة سياسيون",
+        "job_females": "قائدات سياسيات",
+        "both_jobs": "قادة وقائدات سياسيون"
+    },
+    "politicians musicians": {
+        "job_males": "موسيقيون سياسيون",
+        "job_females": "موسيقيات سياسيات",
+        "both_jobs": "موسيقيون وموسيقيات سياسيون"
+    },
+    "politicians nurses": {
+        "job_males": "ممرضون سياسيون",
+        "job_females": "ممرضات سياسيات",
+        "both_jobs": "ممرضون وممرضات سياسيون"
+    },
+    "politicians officers": {
+        "job_males": "ضباط سياسيون",
+        "job_females": "ضابطات سياسيات",
+        "both_jobs": "ضباط وضابطات سياسيون"
+    },
+    "politicians strategists": {
+        "job_males": "استراتيجيون سياسيون",
+        "job_females": "استراتيجيات سياسيات",
+        "both_jobs": "استراتيجيون واستراتيجيات سياسيون"
+    },
+    "politicians theorists": {
+        "job_males": "منظرون سياسيون",
+        "job_females": "منظرات سياسيات",
+        "both_jobs": "منظرون ومنظرات سياسيون"
+    },
+    "presidential candidates": {
+        "job_males": "مرشحون رئاسيون",
+        "job_females": "مرشحات رئاسيات",
+        "both_jobs": "مرشحون ومرشحات رئاسيون"
+    },
+    "prisoners and detainees": {
+        "job_males": "سجناء ومعتقلون",
+        "job_females": "سجينات ومعتقلات",
+        "both_jobs": "سجناء وسجينات ومعتقلون"
+    },
+    "professional employees": {
+        "job_males": "موظفون محترفون",
+        "job_females": "موظفات محترفات",
+        "both_jobs": "موظفون وموظفات محترفون"
+    },
+    "professional gamers": {
+        "job_males": "لاعبون محترفون",
+        "job_females": "لاعبات محترفات",
+        "both_jobs": "لاعبون ولاعبات محترفون"
+    },
+    "professional journalists": {
+        "job_males": "صحفيون محترفون",
+        "job_females": "صحفيات محترفات",
+        "both_jobs": "صحفيون وصحفيات محترفون"
+    },
+    "professional magicians": {
+        "job_males": "سحرة محترفون",
+        "job_females": "ساحرات محترفات",
+        "both_jobs": "سحرة وساحرات محترفون"
+    },
+    "professional wrestlers": {
+        "job_males": "مصارعون محترفون",
+        "job_females": "مصارعات محترفات",
+        "both_jobs": "مصارعون ومصارعات محترفون"
+    },
+    "propagandists": {
+        "job_males": "مروّجون دعائيون",
+        "job_females": "مروّجات دعائيات",
+        "both_jobs": "مروّجون ومروّجات دعائيون"
+    },
+    "protestant activists": {
+        "job_males": "ناشطون بروتستانتيون",
+        "job_females": "ناشطات بروتستانتيات",
+        "both_jobs": "ناشطون وناشطات بروتستانتيون"
+    },
+    "protestant actors": {
+        "job_males": "ممثلون بروتستانتيون",
+        "job_females": "ممثلات بروتستانتيات",
+        "both_jobs": "ممثلون وممثلات بروتستانتيون"
+    },
+    "protestant astrologers": {
+        "job_males": "منجمون بروتستانتيون",
+        "job_females": "منجمات بروتستانتيات",
+        "both_jobs": "منجمون ومنجمات بروتستانتيون"
+    },
+    "protestant christians": {
+        "job_males": "مسيحيون بروتستانتيون",
+        "job_females": "مسيحيات بروتستانتيات",
+        "both_jobs": "مسيحيون ومسيحيات بروتستانتيون"
+    },
+    "protestant evangelical": {
+        "job_males": "إنجيليون بروتستانتيون",
+        "job_females": "إنجيليات بروتستانتيات",
+        "both_jobs": "إنجيليون وإنجيليات بروتستانتيون"
+    },
+    "protestant leaders": {
+        "job_males": "قادة بروتستانتيون",
+        "job_females": "قائدات بروتستانتيات",
+        "both_jobs": "قادة وقائدات بروتستانتيون"
+    },
+    "protestant missionaries": {
+        "job_males": "مبشرون بروتستانتيون",
+        "job_females": "مبشرات بروتستانتيات",
+        "both_jobs": "مبشرون ومبشرات بروتستانتيون"
+    },
+    "protestant monks": {
+        "job_males": "رهبان بروتستانتيون",
+        "job_females": "راهبات بروتستانتيات",
+        "both_jobs": "رهبان وراهبات بروتستانتيون"
+    },
+    "protestant nuns": {
+        "job_males": " بروتستانتيون",
+        "job_females": "راهبات بروتستانتيات",
+        "both_jobs": " وراهبات بروتستانتيون"
+    },
+    "protestant saints": {
+        "job_males": "قديسون بروتستانتيون",
+        "job_females": "قديسات بروتستانتيات",
+        "both_jobs": "قديسون وقديسات بروتستانتيون"
+    },
+    "protestant theologians": {
+        "job_males": "لاهوتيون بروتستانتيون",
+        "job_females": "لاهوتيات بروتستانتيات",
+        "both_jobs": "لاهوتيون ولاهوتيات بروتستانتيون"
+    },
+    "protestant venerated": {
+        "job_males": "مبجلون بروتستانتيون",
+        "job_females": "مبجلات بروتستانتيات",
+        "both_jobs": "مبجلون ومبجلات بروتستانتيون"
+    },
+    "psychiatrists": {
+        "job_males": "أطباء نفسيون",
+        "job_females": "طبيبات نفسيات",
+        "both_jobs": "أطباء وطبيبات نفسيون"
+    },
+    "psychoanalysts": {
+        "job_males": "معالجون نفسيون",
+        "job_females": "معالجات نفسيات",
+        "both_jobs": "معالجون ومعالجات نفسيون"
+    },
+    "psychotherapists": {
+        "job_males": "معالجون نفسيون",
+        "job_females": "معالجات نفسيات",
+        "both_jobs": "معالجون ومعالجات نفسيون"
+    },
+    "quarterbacks": {
+        "job_males": "أظهرة رباعيون",
+        "job_females": "ظهيرات رباعيات",
+        "both_jobs": "أظهرة وظهيرات رباعيون"
+    },
+    "religion academics": {
+        "job_males": "أكاديميون دينيون",
+        "job_females": "أكاديميات دينيات",
+        "both_jobs": "أكاديميون وأكاديميات دينيون"
+    },
+    "religious activists": {
+        "job_males": "ناشطون دينيون",
+        "job_females": "ناشطات دينيات",
+        "both_jobs": "ناشطون وناشطات دينيون"
+    },
+    "religious actors": {
+        "job_males": "ممثلون دينيون",
+        "job_females": "ممثلات دينيات",
+        "both_jobs": "ممثلون وممثلات دينيون"
+    },
+    "religious artists": {
+        "job_males": "فنانون دينيون",
+        "job_females": "فنانات دينيات",
+        "both_jobs": "فنانون وفنانات دينيون"
+    },
+    "religious astrologers": {
+        "job_males": "منجمون دينيون",
+        "job_females": "منجمات دينيات",
+        "both_jobs": "منجمون ومنجمات دينيون"
+    },
+    "religious christians": {
+        "job_males": "مسيحيون دينيون",
+        "job_females": "مسيحيات دينيات",
+        "both_jobs": "مسيحيون ومسيحيات دينيون"
+    },
+    "religious evangelical": {
+        "job_males": "إنجيليون دينيون",
+        "job_females": "إنجيليات دينيات",
+        "both_jobs": "إنجيليون وإنجيليات دينيون"
+    },
+    "religious leaders": {
+        "job_males": "قادة دينيون",
+        "job_females": "قائدات دينيات",
+        "both_jobs": "قادة وقائدات دينيون"
+    },
+    "religious missionaries": {
+        "job_males": "مبشرون دينيون",
+        "job_females": "مبشرات دينيات",
+        "both_jobs": "مبشرون ومبشرات دينيون"
+    },
+    "religious monks": {
+        "job_males": "رهبان دينيون",
+        "job_females": "راهبات دينيات",
+        "both_jobs": "رهبان وراهبات دينيون"
+    },
+    "religious nuns": {
+        "job_males": " دينيون",
+        "job_females": "راهبات دينيات",
+        "both_jobs": " وراهبات دينيون"
+    },
+    "religious painters": {
+        "job_males": "رسامون دينيون",
+        "job_females": "رسامات دينيات",
+        "both_jobs": "رسامون ورسامات دينيون"
+    },
+    "religious saints": {
+        "job_males": "قديسون دينيون",
+        "job_females": "قديسات دينيات",
+        "both_jobs": "قديسون وقديسات دينيون"
+    },
+    "religious theologians": {
+        "job_males": "لاهوتيون دينيون",
+        "job_females": "لاهوتيات دينيات",
+        "both_jobs": "لاهوتيون ولاهوتيات دينيون"
+    },
+    "religious venerated": {
+        "job_males": "مبجلون دينيون",
+        "job_females": "مبجلات دينيات",
+        "both_jobs": "مبجلون ومبجلات دينيون"
+    },
+    "romantic artists": {
+        "job_males": "فنانون رومانسيون",
+        "job_females": "فنانات رومانسيات",
+        "both_jobs": "فنانون وفنانات رومانسيون"
+    },
+    "romantic painters": {
+        "job_males": "رسامون رومانسيون",
+        "job_females": "رسامات رومانسيات",
+        "both_jobs": "رسامون ورسامات رومانسيون"
+    },
+    "royal consorts": {
+        "job_males": "أقران ملكيون",
+        "job_females": "قرينات ملكيات",
+        "both_jobs": "أقران وقرينات ملكيون"
+    },
+    "sailors (sport)": {
+        "job_males": "بحارة رياضيون",
+        "job_females": "بحارات رياضيات",
+        "both_jobs": "بحارة وبحارات رياضيون"
+    },
+    "saints activists": {
+        "job_males": "ناشطون قديسون",
+        "job_females": "ناشطات قديسات",
+        "both_jobs": "ناشطون وناشطات قديسون"
+    },
+    "saints actors": {
+        "job_males": "ممثلون قديسون",
+        "job_females": "ممثلات قديسات",
+        "both_jobs": "ممثلون وممثلات قديسون"
+    },
+    "saints astrologers": {
+        "job_males": "منجمون قديسون",
+        "job_females": "منجمات قديسات",
+        "both_jobs": "منجمون ومنجمات قديسون"
+    },
+    "saints christians": {
+        "job_males": "مسيحيون قديسون",
+        "job_females": "مسيحيات قديسات",
+        "both_jobs": "مسيحيون ومسيحيات قديسون"
+    },
+    "saints evangelical": {
+        "job_males": "إنجيليون قديسون",
+        "job_females": "إنجيليات قديسات",
+        "both_jobs": "إنجيليون وإنجيليات قديسون"
+    },
+    "saints leaders": {
+        "job_males": "قادة قديسون",
+        "job_females": "قائدات قديسات",
+        "both_jobs": "قادة وقائدات قديسون"
+    },
+    "saints missionaries": {
+        "job_males": "مبشرون قديسون",
+        "job_females": "مبشرات قديسات",
+        "both_jobs": "مبشرون ومبشرات قديسون"
+    },
+    "saints monks": {
+        "job_males": "رهبان قديسون",
+        "job_females": "راهبات قديسات",
+        "both_jobs": "رهبان وراهبات قديسون"
+    },
+    "saints nuns": {
+        "job_males": " قديسون",
+        "job_females": "راهبات قديسات",
+        "both_jobs": " وراهبات قديسون"
+    },
+    "saints saints": {
+        "job_males": "قديسون قديسون",
+        "job_females": "قديسات قديسات",
+        "both_jobs": "قديسون وقديسات قديسون"
+    },
+    "saints theologians": {
+        "job_males": "لاهوتيون قديسون",
+        "job_females": "لاهوتيات قديسات",
+        "both_jobs": "لاهوتيون ولاهوتيات قديسون"
+    },
+    "saints venerated": {
+        "job_males": "مبجلون قديسون",
+        "job_females": "مبجلات قديسات",
+        "both_jobs": "مبجلون ومبجلات قديسون"
+    },
+    "satirists": {
+        "job_males": "كتاب هجائيون",
+        "job_females": "كاتبات هجائيات",
+        "both_jobs": "كتاب وكاتبات هجائيون"
+    },
+    "scholars and academics": {
+        "job_males": "دارسون وأكاديميون",
+        "job_females": "دارسات وأكاديميات",
+        "both_jobs": "دارسون ودارسات وأكاديميون"
+    },
+    "secret agents": {
+        "job_males": "عملاء سريون",
+        "job_females": "عميلات سريات",
+        "both_jobs": "عملاء وعميلات سريون"
+    },
+    "serial killers": {
+        "job_males": "قتلة متسلسلون",
+        "job_females": "قاتلات متسلسلات",
+        "both_jobs": "قتلة وقاتلات متسلسلون"
+    },
+    "sharia judges": {
+        "job_males": "قضاة شرعيون",
+        "job_females": "قاضيات شرعيات",
+        "both_jobs": "قضاة وقاضيات شرعيون"
+    },
+    "shi'a muslim": {
+        "job_males": "مسلمون شيعة",
+        "job_females": "مسلمات شيعيات",
+        "both_jobs": "مسلمون ومسلمات شيعة"
+    },
+    "shi'a muslims": {
+        "job_males": "مسلمون شيعة",
+        "job_females": "مسلمات شيعيات",
+        "both_jobs": "مسلمون ومسلمات شيعة"
+    },
+    "shia muslim": {
+        "job_males": "مسلمون شيعة",
+        "job_females": "مسلمات شيعيات",
+        "both_jobs": "مسلمون ومسلمات شيعة"
+    },
+    "shia muslims": {
+        "job_males": "مسلمون شيعة",
+        "job_females": "مسلمات شيعيات",
+        "both_jobs": "مسلمون ومسلمات شيعة"
+    },
+    "single skaters": {
+        "job_males": "متزلجون فرديون",
+        "job_females": "متزلجات فرديات",
+        "both_jobs": "متزلجون ومتزلجات فرديون"
+    },
+    "skeleton racers": {
+        "job_males": "متزلجون صدريون",
+        "job_females": "متزلجات صدريات",
+        "both_jobs": "متزلجون ومتزلجات صدريون"
+    },
+    "social historians": {
+        "job_males": "مؤرخون إجتماعيون",
+        "job_females": "مؤرخات إجتماعيات",
+        "both_jobs": "مؤرخون ومؤرخات إجتماعيون"
+    },
+    "social workers": {
+        "job_males": "أخصائيون اجتماعيون",
+        "job_females": "أخصائيات اجتماعيات",
+        "both_jobs": "أخصائيون وأخصائيات اجتماعيون"
+    },
+    "sociolinguists": {
+        "job_males": "لغويون اجتماعيون",
+        "job_females": "لغويات اجتماعيات",
+        "both_jobs": "لغويون ولغويات اجتماعيون"
+    },
+    "spokespersons": {
+        "job_males": "متحدثون رسميون",
+        "job_females": "متحدثات رسميات",
+        "both_jobs": "متحدثون ومتحدثات رسميون"
+    },
+    "sport wrestlers": {
+        "job_males": "مصارعون رياضيون",
+        "job_females": "مصارعات رياضيات",
+        "both_jobs": "مصارعون ومصارعات رياضيون"
+    },
+    "sports broadcasters": {
+        "job_males": "مذيعون رياضيون",
+        "job_females": "مذيعات رياضيات",
+        "both_jobs": "مذيعون ومذيعات رياضيون"
+    },
+    "sports commentators": {
+        "job_males": "معلقون رياضيون",
+        "job_females": "معلقات رياضيات",
+        "both_jobs": "معلقون ومعلقات رياضيون"
+    },
+    "sports commissioners": {
+        "job_males": "مفوضين رياضيون",
+        "job_females": "مفوضات رياضيات",
+        "both_jobs": "مفوضين ومفوضات رياضيون"
+    },
+    "sports competitors": {
+        "job_males": "منافسون رياضيون",
+        "job_females": "منافسات رياضيات",
+        "both_jobs": "منافسون ومنافسات رياضيون"
+    },
+    "sports executives and administrators": {
+        "job_males": "مسيرون رياضيون",
+        "job_females": "مسيرات رياضيات",
+        "both_jobs": "مسيرون ومسيرات رياضيون"
+    },
+    "sports historians": {
+        "job_males": "مؤرخون رياضيون",
+        "job_females": "مؤرخات رياضيات",
+        "both_jobs": "مؤرخون ومؤرخات رياضيون"
+    },
+    "sports inventors": {
+        "job_males": "مخترعون رياضيون",
+        "job_females": "مخترعات رياضيات",
+        "both_jobs": "مخترعون ومخترعات رياضيون"
+    },
+    "sports officials": {
+        "job_males": "مسؤولون رياضيون",
+        "job_females": "مسؤولات رياضيات",
+        "both_jobs": "مسؤولون ومسؤولات رياضيون"
+    },
+    "sports photographers": {
+        "job_males": "مصورون رياضيون",
+        "job_females": "مصورات رياضيات",
+        "both_jobs": "مصورون ومصورات رياضيون"
+    },
+    "sports physicians": {
+        "job_males": "أطباء رياضيون",
+        "job_females": "طبيبات رياضيات",
+        "both_jobs": "أطباء وطبيبات رياضيون"
+    },
+    "sports scientists": {
+        "job_males": "علماء رياضيون",
+        "job_females": "عالمات رياضيات",
+        "both_jobs": "علماء وعالمات رياضيون"
+    },
+    "sports sculptors": {
+        "job_males": "نحاتون رياضيون",
+        "job_females": "نحاتات رياضيات",
+        "both_jobs": "نحاتون ونحاتات رياضيون"
+    },
+    "sports statisticians": {
+        "job_males": "إحصائيون رياضيون",
+        "job_females": "إحصائيات رياضيات",
+        "both_jobs": "إحصائيون وإحصائيات رياضيون"
+    },
+    "sports strategists": {
+        "job_males": "استراتيجيون رياضيون",
+        "job_females": "استراتيجيات رياضيات",
+        "both_jobs": "استراتيجيون واستراتيجيات رياضيون"
+    },
+    "sports workers": {
+        "job_males": "عمال رياضيون",
+        "job_females": "عاملات رياضيات",
+        "both_jobs": "عمال وعاملات رياضيون"
+    },
+    "sportsperson-politicians": {
+        "job_males": "رياضيون سياسيون",
+        "job_females": "رياضيات سياسيات",
+        "both_jobs": "رياضيون ورياضيات سياسيون"
+    },
+    "sportswriters": {
+        "job_males": "كتاب رياضيون",
+        "job_females": "كاتبات رياضيات",
+        "both_jobs": "كتاب وكاتبات رياضيون"
+    },
+    "sprinters": {
+        "job_males": "عداؤون سريعون",
+        "job_females": "عداءات سريعات",
+        "both_jobs": "عداؤون وعداءات سريعون"
+    },
+    "sufis activists": {
+        "job_males": "ناشطون صوفيون",
+        "job_females": "ناشطات صوفيات",
+        "both_jobs": "ناشطون وناشطات صوفيون"
+    },
+    "sufis actors": {
+        "job_males": "ممثلون صوفيون",
+        "job_females": "ممثلات صوفيات",
+        "both_jobs": "ممثلون وممثلات صوفيون"
+    },
+    "sufis astrologers": {
+        "job_males": "منجمون صوفيون",
+        "job_females": "منجمات صوفيات",
+        "both_jobs": "منجمون ومنجمات صوفيون"
+    },
+    "sufis christians": {
+        "job_males": "مسيحيون صوفيون",
+        "job_females": "مسيحيات صوفيات",
+        "both_jobs": "مسيحيون ومسيحيات صوفيون"
+    },
+    "sufis evangelical": {
+        "job_males": "إنجيليون صوفيون",
+        "job_females": "إنجيليات صوفيات",
+        "both_jobs": "إنجيليون وإنجيليات صوفيون"
+    },
+    "sufis leaders": {
+        "job_males": "قادة صوفيون",
+        "job_females": "قائدات صوفيات",
+        "both_jobs": "قادة وقائدات صوفيون"
+    },
+    "sufis missionaries": {
+        "job_males": "مبشرون صوفيون",
+        "job_females": "مبشرات صوفيات",
+        "both_jobs": "مبشرون ومبشرات صوفيون"
+    },
+    "sufis monks": {
+        "job_males": "رهبان صوفيون",
+        "job_females": "راهبات صوفيات",
+        "both_jobs": "رهبان وراهبات صوفيون"
+    },
+    "sufis nuns": {
+        "job_males": " صوفيون",
+        "job_females": "راهبات صوفيات",
+        "both_jobs": " وراهبات صوفيون"
+    },
+    "sufis saints": {
+        "job_males": "قديسون صوفيون",
+        "job_females": "قديسات صوفيات",
+        "both_jobs": "قديسون وقديسات صوفيون"
+    },
+    "sufis theologians": {
+        "job_males": "لاهوتيون صوفيون",
+        "job_females": "لاهوتيات صوفيات",
+        "both_jobs": "لاهوتيون ولاهوتيات صوفيون"
+    },
+    "sufis venerated": {
+        "job_males": "مبجلون صوفيون",
+        "job_females": "مبجلات صوفيات",
+        "both_jobs": "مبجلون ومبجلات صوفيون"
+    },
+    "sunni muslim": {
+        "job_males": "مسلمون سنة",
+        "job_females": "مسلمات سنيات",
+        "both_jobs": "مسلمون ومسلمات سنة"
+    },
+    "sunni muslims": {
+        "job_males": "مسلمون سنة",
+        "job_females": "مسلمات سنيات",
+        "both_jobs": "مسلمون ومسلمات سنة"
+    },
+    "supercentenarians": {
+        "job_males": "معمرون فائقون",
+        "job_females": "معمرات فائقات",
+        "both_jobs": "معمرون ومعمرات فائقون"
+    },
+    "surrealist artists": {
+        "job_males": "فنانون سرياليون",
+        "job_females": "فنانات سرياليات",
+        "both_jobs": "فنانون وفنانات سرياليون"
+    },
+    "symbolist artists": {
+        "job_males": "فنانون رمزيون",
+        "job_females": "فنانات رمزيات",
+        "both_jobs": "فنانون وفنانات رمزيون"
+    },
+    "symbolist painters": {
+        "job_males": "رسامون رمزيون",
+        "job_females": "رسامات رمزيات",
+        "both_jobs": "رسامون ورسامات رمزيون"
+    },
+    "synchronised swimmers": {
+        "job_males": "سباحون متزامنون",
+        "job_females": "سباحات متزامنات",
+        "both_jobs": "سباحون وسباحات متزامنون"
+    },
+    "synchronized swimmers": {
+        "job_males": "سباحون إيقاعيون",
+        "job_females": "سباحات إيقاعيات",
+        "both_jobs": "سباحون وسباحات إيقاعيون"
+    },
+    "theoretical physicists": {
+        "job_males": "فيزيائيون نظريون",
+        "job_females": "فيزيائيات نظريات",
+        "both_jobs": "فيزيائيون وفيزيائيات نظريون"
+    },
+    "urban designers": {
+        "job_males": "مصممون حضريون",
+        "job_females": "مصممات حضريات",
+        "both_jobs": "مصممون ومصممات حضريون"
+    },
+    "urban planners": {
+        "job_males": "مخططون حضريون",
+        "job_females": "مخططات حضريات",
+        "both_jobs": "مخططون ومخططات حضريون"
+    },
+    "venerated activists": {
+        "job_males": "ناشطون مبجلون",
+        "job_females": "ناشطات مبجلات",
+        "both_jobs": "ناشطون وناشطات مبجلون"
+    },
+    "venerated actors": {
+        "job_males": "ممثلون مبجلون",
+        "job_females": "ممثلات مبجلات",
+        "both_jobs": "ممثلون وممثلات مبجلون"
+    },
+    "venerated astrologers": {
+        "job_males": "منجمون مبجلون",
+        "job_females": "منجمات مبجلات",
+        "both_jobs": "منجمون ومنجمات مبجلون"
+    },
+    "venerated christians": {
+        "job_males": "مسيحيون مبجلون",
+        "job_females": "مسيحيات مبجلات",
+        "both_jobs": "مسيحيون ومسيحيات مبجلون"
+    },
+    "venerated evangelical": {
+        "job_males": "إنجيليون مبجلون",
+        "job_females": "إنجيليات مبجلات",
+        "both_jobs": "إنجيليون وإنجيليات مبجلون"
+    },
+    "venerated leaders": {
+        "job_males": "قادة مبجلون",
+        "job_females": "قائدات مبجلات",
+        "both_jobs": "قادة وقائدات مبجلون"
+    },
+    "venerated missionaries": {
+        "job_males": "مبشرون مبجلون",
+        "job_females": "مبشرات مبجلات",
+        "both_jobs": "مبشرون ومبشرات مبجلون"
+    },
+    "venerated monks": {
+        "job_males": "رهبان مبجلون",
+        "job_females": "راهبات مبجلات",
+        "both_jobs": "رهبان وراهبات مبجلون"
+    },
+    "venerated nuns": {
+        "job_males": " مبجلون",
+        "job_females": "راهبات مبجلات",
+        "both_jobs": " وراهبات مبجلون"
+    },
+    "venerated saints": {
+        "job_males": "قديسون مبجلون",
+        "job_females": "قديسات مبجلات",
+        "both_jobs": "قديسون وقديسات مبجلون"
+    },
+    "venerated theologians": {
+        "job_males": "لاهوتيون مبجلون",
+        "job_females": "لاهوتيات مبجلات",
+        "both_jobs": "لاهوتيون ولاهوتيات مبجلون"
+    },
+    "venerated venerated": {
+        "job_males": "مبجلون مبجلون",
+        "job_females": "مبجلات مبجلات",
+        "both_jobs": "مبجلون ومبجلات مبجلون"
+    },
+    "veterinarians": {
+        "job_males": "أطباء بيطريون",
+        "job_females": "طبيبات بيطريات",
+        "both_jobs": "أطباء وطبيبات بيطريون"
+    },
+    "visual artists": {
+        "job_males": "فنانون بصريون",
+        "job_females": "فنانات بصريات",
+        "both_jobs": "فنانون وفنانات بصريون"
+    },
+    "war correspondents": {
+        "job_males": "مراسلون حربيون",
+        "job_females": "مراسلات حربيات",
+        "both_jobs": "مراسلون ومراسلات حربيون"
+    },
+    "watercolorists": {
+        "job_males": "رسامون مائيون",
+        "job_females": "رسامات مائيات",
+        "both_jobs": "رسامون ورسامات مائيون"
+    },
+    "watercolourists": {
+        "job_males": "رسامون مائيون",
+        "job_females": "رسامات مائيات",
+        "both_jobs": "رسامون ورسامات مائيون"
+    },
+    "white supremacists": {
+        "job_males": "عنصريون بيض",
+        "job_females": "عنصريات بيضوات",
+        "both_jobs": "عنصريون وعنصريات بيض"
+    },
+    "wide receivers": {
+        "job_males": "مستقبلون واسعون",
+        "job_females": "مستقبلات واسعات",
+        "both_jobs": "مستقبلون ومستقبلات واسعون"
+    },
+    "wing halves": {
+        "job_males": "أنصاف أجنحة",
+        "job_females": "جناحات نصفيات",
+        "both_jobs": "أنصاف وجناحات أجنحة"
+    },
+    "yazidis activists": {
+        "job_males": "ناشطون يزيديون",
+        "job_females": "ناشطات يزيديات",
+        "both_jobs": "ناشطون وناشطات يزيديون"
+    },
+    "yazidis actors": {
+        "job_males": "ممثلون يزيديون",
+        "job_females": "ممثلات يزيديات",
+        "both_jobs": "ممثلون وممثلات يزيديون"
+    },
+    "yazidis astrologers": {
+        "job_males": "منجمون يزيديون",
+        "job_females": "منجمات يزيديات",
+        "both_jobs": "منجمون ومنجمات يزيديون"
+    },
+    "yazidis christians": {
+        "job_males": "مسيحيون يزيديون",
+        "job_females": "مسيحيات يزيديات",
+        "both_jobs": "مسيحيون ومسيحيات يزيديون"
+    },
+    "yazidis evangelical": {
+        "job_males": "إنجيليون يزيديون",
+        "job_females": "إنجيليات يزيديات",
+        "both_jobs": "إنجيليون وإنجيليات يزيديون"
+    },
+    "yazidis leaders": {
+        "job_males": "قادة يزيديون",
+        "job_females": "قائدات يزيديات",
+        "both_jobs": "قادة وقائدات يزيديون"
+    },
+    "yazidis missionaries": {
+        "job_males": "مبشرون يزيديون",
+        "job_females": "مبشرات يزيديات",
+        "both_jobs": "مبشرون ومبشرات يزيديون"
+    },
+    "yazidis monks": {
+        "job_males": "رهبان يزيديون",
+        "job_females": "راهبات يزيديات",
+        "both_jobs": "رهبان وراهبات يزيديون"
+    },
+    "yazidis nuns": {
+        "job_males": " يزيديون",
+        "job_females": "راهبات يزيديات",
+        "both_jobs": " وراهبات يزيديون"
+    },
+    "yazidis saints": {
+        "job_males": "قديسون يزيديون",
+        "job_females": "قديسات يزيديات",
+        "both_jobs": "قديسون وقديسات يزيديون"
+    },
+    "yazidis theologians": {
+        "job_males": "لاهوتيون يزيديون",
+        "job_females": "لاهوتيات يزيديات",
+        "both_jobs": "لاهوتيون ولاهوتيات يزيديون"
+    },
+    "yazidis venerated": {
+        "job_males": "مبجلون يزيديون",
+        "job_females": "مبجلات يزيديات",
+        "both_jobs": "مبجلون ومبجلات يزيديون"
+    },
+    "zaydi activists": {
+        "job_males": "ناشطون زيود",
+        "job_females": "ناشطات زيديات",
+        "both_jobs": "ناشطون وناشطات زيود"
+    },
+    "zaydi actors": {
+        "job_males": "ممثلون زيود",
+        "job_females": "ممثلات زيديات",
+        "both_jobs": "ممثلون وممثلات زيود"
+    },
+    "zaydi astrologers": {
+        "job_males": "منجمون زيود",
+        "job_females": "منجمات زيديات",
+        "both_jobs": "منجمون ومنجمات زيود"
+    },
+    "zaydi christians": {
+        "job_males": "مسيحيون زيود",
+        "job_females": "مسيحيات زيديات",
+        "both_jobs": "مسيحيون ومسيحيات زيود"
+    },
+    "zaydi evangelical": {
+        "job_males": "إنجيليون زيود",
+        "job_females": "إنجيليات زيديات",
+        "both_jobs": "إنجيليون وإنجيليات زيود"
+    },
+    "zaydi leaders": {
+        "job_males": "قادة زيود",
+        "job_females": "قائدات زيديات",
+        "both_jobs": "قادة وقائدات زيود"
+    },
+    "zaydi missionaries": {
+        "job_males": "مبشرون زيود",
+        "job_females": "مبشرات زيديات",
+        "both_jobs": "مبشرون ومبشرات زيود"
+    },
+    "zaydi monks": {
+        "job_males": "رهبان زيود",
+        "job_females": "راهبات زيديات",
+        "both_jobs": "رهبان وراهبات زيود"
+    },
+    "zaydi nuns": {
+        "job_males": " زيود",
+        "job_females": "راهبات زيديات",
+        "both_jobs": " وراهبات زيود"
+    },
+    "zaydi saints": {
+        "job_males": "قديسون زيود",
+        "job_females": "قديسات زيديات",
+        "both_jobs": "قديسون وقديسات زيود"
+    },
+    "zaydi theologians": {
+        "job_males": "لاهوتيون زيود",
+        "job_females": "لاهوتيات زيديات",
+        "both_jobs": "لاهوتيون ولاهوتيات زيود"
+    },
+    "zaydi venerated": {
+        "job_males": "مبجلون زيود",
+        "job_females": "مبجلات زيديات",
+        "both_jobs": "مبجلون ومبجلات زيود"
+    },
+    "zaydis activists": {
+        "job_males": "ناشطون زيود",
+        "job_females": "ناشطات زيديات",
+        "both_jobs": "ناشطون وناشطات زيود"
+    },
+    "zaydis actors": {
+        "job_males": "ممثلون زيود",
+        "job_females": "ممثلات زيديات",
+        "both_jobs": "ممثلون وممثلات زيود"
+    },
+    "zaydis astrologers": {
+        "job_males": "منجمون زيود",
+        "job_females": "منجمات زيديات",
+        "both_jobs": "منجمون ومنجمات زيود"
+    },
+    "zaydis christians": {
+        "job_males": "مسيحيون زيود",
+        "job_females": "مسيحيات زيديات",
+        "both_jobs": "مسيحيون ومسيحيات زيود"
+    },
+    "zaydis evangelical": {
+        "job_males": "إنجيليون زيود",
+        "job_females": "إنجيليات زيديات",
+        "both_jobs": "إنجيليون وإنجيليات زيود"
+    },
+    "zaydis leaders": {
+        "job_males": "قادة زيود",
+        "job_females": "قائدات زيديات",
+        "both_jobs": "قادة وقائدات زيود"
+    },
+    "zaydis missionaries": {
+        "job_males": "مبشرون زيود",
+        "job_females": "مبشرات زيديات",
+        "both_jobs": "مبشرون ومبشرات زيود"
+    },
+    "zaydis monks": {
+        "job_males": "رهبان زيود",
+        "job_females": "راهبات زيديات",
+        "both_jobs": "رهبان وراهبات زيود"
+    },
+    "zaydis nuns": {
+        "job_males": " زيود",
+        "job_females": "راهبات زيديات",
+        "both_jobs": " وراهبات زيود"
+    },
+    "zaydis saints": {
+        "job_males": "قديسون زيود",
+        "job_females": "قديسات زيديات",
+        "both_jobs": "قديسون وقديسات زيود"
+    },
+    "zaydis theologians": {
+        "job_males": "لاهوتيون زيود",
+        "job_females": "لاهوتيات زيديات",
+        "both_jobs": "لاهوتيون ولاهوتيات زيود"
+    },
+    "zaydis venerated": {
+        "job_males": "مبجلون زيود",
+        "job_females": "مبجلات زيديات",
+        "both_jobs": "مبجلون ومبجلات زيود"
+    }
+}

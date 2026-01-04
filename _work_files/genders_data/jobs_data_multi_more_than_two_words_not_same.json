@@ -1,0 +1,2537 @@
+{
+    "abolitionists activists": {
+        "job_males": "ناشطون مناهضون للعبودية",
+        "job_females": "ناشطات مناهضات للعبودية",
+        "both_jobs": "ناشطون وناشطات مناهضون للعبودية"
+    },
+    "american football defensive backs": {
+        "job_males": "مدافعون خلفيون كرة قدم أمريكية",
+        "job_females": "مدافعات خلفيات كرة قدم أمريكية",
+        "both_jobs": "مدافعون ومدافعات خلفيون كرة قدم أمريكية"
+    },
+    "american football halfbacks": {
+        "job_males": "أظهرة مساعدون كرة قدم أمريكية",
+        "job_females": "ظهيرات مساعدات كرة قدم أمريكية",
+        "both_jobs": "أظهرة وظهيرات مساعدون كرة قدم أمريكية"
+    },
+    "american football quarterbacks": {
+        "job_males": "أظهرة رباعيون كرة قدم أمريكية",
+        "job_females": "ظهيرات رباعيات كرة قدم أمريكية",
+        "both_jobs": "أظهرة وظهيرات رباعيون كرة قدم أمريكية"
+    },
+    "american football wide receivers": {
+        "job_males": "مستقبلون واسعون كرة قدم أمريكية",
+        "job_females": "مستقبلات واسعات كرة قدم أمريكية",
+        "both_jobs": "مستقبلون ومستقبلات واسعون كرة قدم أمريكية"
+    },
+    "anglican clergy": {
+        "job_males": "رجال دين أنجليكيون",
+        "job_females": "سيدات دين أنجليكيات",
+        "both_jobs": "رجال وسيدات دين أنجليكيون"
+    },
+    "anglican religious leaders": {
+        "job_males": "قادة دينيون أنجليكيون",
+        "job_females": "قائدات دينيات أنجليكيات",
+        "both_jobs": "قادة وقائدات دينيون أنجليكيون"
+    },
+    "anglicans clergy": {
+        "job_males": "رجال دين أنجليكيون",
+        "job_females": "سيدات دين أنجليكيات",
+        "both_jobs": "رجال وسيدات دين أنجليكيون"
+    },
+    "anglicans religious leaders": {
+        "job_males": "قادة دينيون أنجليكيون",
+        "job_females": "قائدات دينيات أنجليكيات",
+        "both_jobs": "قادة وقائدات دينيون أنجليكيون"
+    },
+    "anti-abortion activists": {
+        "job_males": "ناشطون مناهضون للإجهاض",
+        "job_females": "ناشطات مناهضات للإجهاض",
+        "both_jobs": "ناشطون وناشطات مناهضون للإجهاض"
+    },
+    "anti-liquor activists": {
+        "job_males": "ناشطون مناهضون للخمور",
+        "job_females": "ناشطات مناهضات للخمور",
+        "both_jobs": "ناشطون وناشطات مناهضون للخمور"
+    },
+    "anti-obesity activists": {
+        "job_males": "ناشطون مناهضون للسمنة",
+        "job_females": "ناشطات مناهضات للسمنة",
+        "both_jobs": "ناشطون وناشطات مناهضون للسمنة"
+    },
+    "anti-poverty activists": {
+        "job_males": "ناشطون مناهضون للفقر",
+        "job_females": "ناشطات مناهضات للفقر",
+        "both_jobs": "ناشطون وناشطات مناهضون للفقر"
+    },
+    "anti-racism activists": {
+        "job_males": "ناشطون مناهضون للعنصرية",
+        "job_females": "ناشطات مناهضات للعنصرية",
+        "both_jobs": "ناشطون وناشطات مناهضون للعنصرية"
+    },
+    "anti-smoking activists": {
+        "job_males": "ناشطون مناهضون للتدخين",
+        "job_females": "ناشطات مناهضات للتدخين",
+        "both_jobs": "ناشطون وناشطات مناهضون للتدخين"
+    },
+    "anti-vaccination activists": {
+        "job_males": "ناشطون مناهضون للتطعيم",
+        "job_females": "ناشطات مناهضات للتطعيم",
+        "both_jobs": "ناشطون وناشطات مناهضون للتطعيم"
+    },
+    "association football central defenders": {
+        "job_males": "قلوب دفاع كرة قدم",
+        "job_females": "مدافعات مركزيات كرة قدم",
+        "both_jobs": "قلوب ومدافعات دفاع كرة قدم"
+    },
+    "association football inside forwards": {
+        "job_males": "مهاجمون داخليون كرة قدم",
+        "job_females": "مهاجمات داخليات كرة قدم",
+        "both_jobs": "مهاجمون ومهاجمات داخليون كرة قدم"
+    },
+    "association football outside forwards": {
+        "job_males": "مهاجمون خارجيون كرة قدم",
+        "job_females": "مهاجمات خارجيات كرة قدم",
+        "both_jobs": "مهاجمون ومهاجمات خارجيون كرة قدم"
+    },
+    "association football wing halves": {
+        "job_males": "أنصاف أجنحة كرة قدم",
+        "job_females": "جناحات نصفيات كرة قدم",
+        "both_jobs": "أنصاف وجناحات أجنحة كرة قدم"
+    },
+    "astronaut-politicians": {
+        "job_males": "رواد فضاء سياسيون",
+        "job_females": "رائدات فضاء سياسيات",
+        "both_jobs": "رواد ورائدات فضاء سياسيون"
+    },
+    "athletes-politicians": {
+        "job_males": "لاعبو قوى سياسيون",
+        "job_females": "لاعبات قوى سياسيات",
+        "both_jobs": "لاعبو ولاعبات قوى سياسيون"
+    },
+    "bahá'ís clergy": {
+        "job_males": "رجال دين بهائيون",
+        "job_females": "سيدات دين بهائيات",
+        "both_jobs": "رجال وسيدات دين بهائيون"
+    },
+    "bahá'ís religious leaders": {
+        "job_males": "قادة دينيون بهائيون",
+        "job_females": "قائدات دينيات بهائيات",
+        "both_jobs": "قادة وقائدات دينيون بهائيون"
+    },
+    "baháís clergy": {
+        "job_males": "رجال دين بهائيون",
+        "job_females": "سيدات دين بهائيات",
+        "both_jobs": "رجال وسيدات دين بهائيون"
+    },
+    "baháís religious leaders": {
+        "job_males": "قادة دينيون بهائيون",
+        "job_females": "قائدات دينيات بهائيات",
+        "both_jobs": "قادة وقائدات دينيون بهائيون"
+    },
+    "blues singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني بلوز",
+        "job_females": "مغنيات وكاتبات أغاني بلوز",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني بلوز"
+    },
+    "buddhist clergy": {
+        "job_males": "رجال دين بوذيون",
+        "job_females": "سيدات دين بوذيات",
+        "both_jobs": "رجال وسيدات دين بوذيون"
+    },
+    "buddhist religious leaders": {
+        "job_males": "قادة دينيون بوذيون",
+        "job_females": "قائدات دينيات بوذيات",
+        "both_jobs": "قادة وقائدات دينيون بوذيون"
+    },
+    "canadian football defensive backs": {
+        "job_males": "مدافعون خلفيون كرة قدم كندية",
+        "job_females": "مدافعات خلفيات كرة قدم كندية",
+        "both_jobs": "مدافعون ومدافعات خلفيون كرة قدم كندية"
+    },
+    "canadian football quarterbacks": {
+        "job_males": "أظهرة رباعيون كرة قدم كندية",
+        "job_females": "ظهيرات رباعيات كرة قدم كندية",
+        "both_jobs": "أظهرة وظهيرات رباعيون كرة قدم كندية"
+    },
+    "canadian football wide receivers": {
+        "job_males": "مستقبلون واسعون كرة قدم كندية",
+        "job_females": "مستقبلات واسعات كرة قدم كندية",
+        "both_jobs": "مستقبلون ومستقبلات واسعون كرة قدم كندية"
+    },
+    "cantopop singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني كانتوبوب",
+        "job_females": "مغنيات وكاتبات أغاني كانتوبوب",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني كانتوبوب"
+    },
+    "christian clergy": {
+        "job_males": "رجال دين مسيحيون",
+        "job_females": "سيدات دين مسيحيات",
+        "both_jobs": "رجال وسيدات دين مسيحيون"
+    },
+    "christian religious leaders": {
+        "job_males": "قادة دينيون مسيحيون",
+        "job_females": "قائدات دينيات مسيحيات",
+        "both_jobs": "قادة وقائدات دينيون مسيحيون"
+    },
+    "christians clergy": {
+        "job_males": "رجال دين مسيحيون",
+        "job_females": "سيدات دين مسيحيات",
+        "both_jobs": "رجال وسيدات دين مسيحيون"
+    },
+    "christians religious leaders": {
+        "job_males": "قادة دينيون مسيحيون",
+        "job_females": "قائدات دينيات مسيحيات",
+        "both_jobs": "قادة وقائدات دينيون مسيحيون"
+    },
+    "circumnavigators of globe": {
+        "job_males": "بحارة طافوا حول الأرض",
+        "job_females": "بحارات طفن حول الأرض",
+        "both_jobs": "بحارة وبحارات طافوا حول الأرض"
+    },
+    "classical cellists": {
+        "job_males": "عازفو تشيلو كلاسيكيون",
+        "job_females": "عازفات تشيلو كلاسيكيات",
+        "both_jobs": "عازفو وعازفات تشيلو كلاسيكيون"
+    },
+    "classical choreographers": {
+        "job_males": "مصممو رقص كلاسيكيون",
+        "job_females": "مصممات رقص كلاسيكيات",
+        "both_jobs": "مصممو ومصممات رقص كلاسيكيون"
+    },
+    "classical guitarists": {
+        "job_males": "عازفو قيثارة كلاسيكيون",
+        "job_females": "عازفات قيثارة كلاسيكيات",
+        "both_jobs": "عازفو وعازفات قيثارة كلاسيكيون"
+    },
+    "classical mandolinists": {
+        "job_males": "عازفو مندولين كلاسيكيون",
+        "job_females": "عازفات مندولين كلاسيكيات",
+        "both_jobs": "عازفو وعازفات مندولين كلاسيكيون"
+    },
+    "classical music critics": {
+        "job_males": "نقاد موسيقى كلاسيكيون",
+        "job_females": "ناقدات موسيقى كلاسيكيات",
+        "both_jobs": "نقاد وناقدات موسيقى كلاسيكيون"
+    },
+    "classical percussionists": {
+        "job_males": "فنانون إيقاعيون كلاسيكيون",
+        "job_females": "فنانات إيقاعيات كلاسيكيات",
+        "both_jobs": "فنانون وفنانات إيقاعيون كلاسيكيون"
+    },
+    "classical philologists": {
+        "job_males": "فقهاء لغويون كلاسيكيون",
+        "job_females": "فقيهات لغويات كلاسيكيات",
+        "both_jobs": "فقهاء وفقيهات لغويون كلاسيكيون"
+    },
+    "classical pianists": {
+        "job_males": "عازفو بيانو كلاسيكيون",
+        "job_females": "عازفات بيانو كلاسيكيات",
+        "both_jobs": "عازفو وعازفات بيانو كلاسيكيون"
+    },
+    "classical saxophonists": {
+        "job_males": "عازفو سكسفون كلاسيكيون",
+        "job_females": "عازفات سكسفون كلاسيكيات",
+        "both_jobs": "عازفو وعازفات سكسفون كلاسيكيون"
+    },
+    "classical violinists": {
+        "job_males": "عازفو كمان كلاسيكيون",
+        "job_females": "عازفات كمان كلاسيكيات",
+        "both_jobs": "عازفو وعازفات كمان كلاسيكيون"
+    },
+    "coptic clergy": {
+        "job_males": "رجال دين أقباط",
+        "job_females": "سيدات دين قبطيات",
+        "both_jobs": "رجال وسيدات دين أقباط"
+    },
+    "coptic religious leaders": {
+        "job_males": "قادة دينيون أقباط",
+        "job_females": "قائدات دينيات قبطيات",
+        "both_jobs": "قادة وقائدات دينيون أقباط"
+    },
+    "country singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني كانتري",
+        "job_females": "مغنيات وكاتبات أغاني كانتري",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني كانتري"
+    },
+    "episcopalians clergy": {
+        "job_males": "رجال دين أسقفيون",
+        "job_females": "سيدات دين أسقفيات",
+        "both_jobs": "رجال وسيدات دين أسقفيون"
+    },
+    "episcopalians religious leaders": {
+        "job_males": "قادة دينيون أسقفيون",
+        "job_females": "قائدات دينيات أسقفيات",
+        "both_jobs": "قادة وقائدات دينيون أسقفيون"
+    },
+    "eugenicists": {
+        "job_males": "علماء متخصصون في تحسين النسل",
+        "job_females": "عالمات متخصصات في تحسين النسل",
+        "both_jobs": "علماء وعالمات متخصصون في تحسين النسل"
+    },
+    "evangelical clergy": {
+        "job_males": "رجال دين إنجيليون",
+        "job_females": "سيدات دين إنجيليات",
+        "both_jobs": "رجال وسيدات دين إنجيليون"
+    },
+    "evangelical religious leaders": {
+        "job_males": "قادة دينيون إنجيليون",
+        "job_females": "قائدات دينيات إنجيليات",
+        "both_jobs": "قادة وقائدات دينيون إنجيليون"
+    },
+    "folk singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني فولك",
+        "job_females": "مغنيات وكاتبات أغاني فولك",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني فولك"
+    },
+    "football central defenders": {
+        "job_males": "قلوب دفاع كرة قدم",
+        "job_females": "مدافعات مركزيات كرة قدم",
+        "both_jobs": "قلوب ومدافعات دفاع كرة قدم"
+    },
+    "football defensive backs": {
+        "job_males": "مدافعون خلفيون كرة قدم",
+        "job_females": "مدافعات خلفيات كرة قدم",
+        "both_jobs": "مدافعون ومدافعات خلفيون كرة قدم"
+    },
+    "football halfbacks": {
+        "job_males": "أظهرة مساعدون كرة قدم",
+        "job_females": "ظهيرات مساعدات كرة قدم",
+        "both_jobs": "أظهرة وظهيرات مساعدون كرة قدم"
+    },
+    "football inside forwards": {
+        "job_males": "مهاجمون داخليون كرة قدم",
+        "job_females": "مهاجمات داخليات كرة قدم",
+        "both_jobs": "مهاجمون ومهاجمات داخليون كرة قدم"
+    },
+    "football outside forwards": {
+        "job_males": "مهاجمون خارجيون كرة قدم",
+        "job_females": "مهاجمات خارجيات كرة قدم",
+        "both_jobs": "مهاجمون ومهاجمات خارجيون كرة قدم"
+    },
+    "football quarterbacks": {
+        "job_males": "أظهرة رباعيون كرة قدم",
+        "job_females": "ظهيرات رباعيات كرة قدم",
+        "both_jobs": "أظهرة وظهيرات رباعيون كرة قدم"
+    },
+    "football wide receivers": {
+        "job_males": "مستقبلون واسعون كرة قدم",
+        "job_females": "مستقبلات واسعات كرة قدم",
+        "both_jobs": "مستقبلون ومستقبلات واسعون كرة قدم"
+    },
+    "football wing halves": {
+        "job_males": "أنصاف أجنحة كرة قدم",
+        "job_females": "جناحات نصفيات كرة قدم",
+        "both_jobs": "أنصاف وجناحات أجنحة كرة قدم"
+    },
+    "gridiron football defensive backs": {
+        "job_males": "مدافعون خلفيون كرة قدم أمريكية شمالية",
+        "job_females": "مدافعات خلفيات كرة قدم أمريكية شمالية",
+        "both_jobs": "مدافعون ومدافعات خلفيون كرة قدم أمريكية شمالية"
+    },
+    "gridiron football quarterbacks": {
+        "job_males": "أظهرة رباعيون كرة قدم أمريكية شمالية",
+        "job_females": "ظهيرات رباعيات كرة قدم أمريكية شمالية",
+        "both_jobs": "أظهرة وظهيرات رباعيون كرة قدم أمريكية شمالية"
+    },
+    "healthcare chief executives": {
+        "job_males": "رؤساء تنفيذيون للرعاية الصحية",
+        "job_females": "رئيسات تنفيذيات للرعاية الصحية",
+        "both_jobs": "رؤساء ورئيسات تنفيذيون للرعاية الصحية"
+    },
+    "hindu clergy": {
+        "job_males": "رجال دين هندوس",
+        "job_females": "سيدات دين هندوسيات",
+        "both_jobs": "رجال وسيدات دين هندوس"
+    },
+    "hindu religious leaders": {
+        "job_males": "قادة دينيون هندوس",
+        "job_females": "قائدات دينيات هندوسيات",
+        "both_jobs": "قادة وقائدات دينيون هندوس"
+    },
+    "hindus clergy": {
+        "job_males": "رجال دين هندوس",
+        "job_females": "سيدات دين هندوسيات",
+        "both_jobs": "رجال وسيدات دين هندوس"
+    },
+    "hindus religious leaders": {
+        "job_males": "قادة دينيون هندوس",
+        "job_females": "قائدات دينيات هندوسيات",
+        "both_jobs": "قادة وقائدات دينيون هندوس"
+    },
+    "horticulturists and gardeners": {
+        "job_males": "بستانيون ومزارعو حدائق",
+        "job_females": "بستانيات ومزارعات حدائق",
+        "both_jobs": "بستانيون وبستانيات ومزارعو حدائق"
+    },
+    "international aikidoka": {
+        "job_males": "لاعبو آيكيدو دوليون",
+        "job_females": "لاعبات آيكيدو دوليات",
+        "both_jobs": "لاعبو ولاعبات آيكيدو دوليون"
+    },
+    "international alpine skiers": {
+        "job_males": "متزحلقو منحدرات ثلجية دوليون",
+        "job_females": "متزحلقات منحدرات ثلجية دوليات",
+        "both_jobs": "متزحلقو ومتزحلقات منحدرات ثلجية دوليون"
+    },
+    "international artistic gymnasts": {
+        "job_males": "لاعبو جمباز فني دوليون",
+        "job_females": "لاعبات جمباز فني دوليات",
+        "both_jobs": "لاعبو ولاعبات جمباز فني دوليون"
+    },
+    "international association footballers": {
+        "job_males": "لاعبو كرة قدم دوليون",
+        "job_females": "لاعبات كرة قدم دوليات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم دوليون"
+    },
+    "international athletes": {
+        "job_males": "لاعبو قوى دوليون",
+        "job_females": "لاعبات قوى دوليات",
+        "both_jobs": "لاعبو ولاعبات قوى دوليون"
+    },
+    "international athletes track and field": {
+        "job_males": "رياضيو المسار والميدان دوليون",
+        "job_females": "رياضيات المسار والميدان دوليات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان دوليون"
+    },
+    "international atomweight boxers": {
+        "job_males": "ملاكمو وزن الذرة دوليون",
+        "job_females": "ملاكمات وزن الذرة دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذرة دوليون"
+    },
+    "international bantamweight boxers": {
+        "job_males": "ملاكمو وزن بانتام دوليون",
+        "job_females": "ملاكمات وزن بانتام دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن بانتام دوليون"
+    },
+    "international biathletes": {
+        "job_males": "لاعبو بياثلون دوليون",
+        "job_females": "لاعبات بياثلون دوليات",
+        "both_jobs": "لاعبو ولاعبات بياثلون دوليون"
+    },
+    "international bibliophiles": {
+        "job_males": "محبو كتب دوليون",
+        "job_females": "محبات كتب دوليات",
+        "both_jobs": "محبو ومحبات كتب دوليون"
+    },
+    "international boat racers": {
+        "job_males": "متسابقو زوارق دوليون",
+        "job_females": "متسابقات زوارق دوليات",
+        "both_jobs": "متسابقو ومتسابقات زوارق دوليون"
+    },
+    "international cannibals": {
+        "job_males": "آكلو لحوم بشر دوليون",
+        "job_females": "آكلات لحوم بشر دوليات",
+        "both_jobs": "آكلو وآكلات لحوم بشر دوليون"
+    },
+    "international canoeists": {
+        "job_males": "متسابقو قوارب الكانوي دوليون",
+        "job_females": "متسابقات قوارب الكانوي دوليات",
+        "both_jobs": "متسابقو ومتسابقات قوارب الكانوي دوليون"
+    },
+    "international chess arbiters": {
+        "job_males": "حكام شطرنج دوليون",
+        "job_females": "حكمات شطرنج دوليات",
+        "both_jobs": "حكام وحكمات شطرنج دوليون"
+    },
+    "international cricketers": {
+        "job_males": "لاعبو كريكت دوليون",
+        "job_females": "لاعبات كريكت دوليات",
+        "both_jobs": "لاعبو ولاعبات كريكت دوليون"
+    },
+    "international cross-country skaters": {
+        "job_males": "متزلجون ريفيون دوليون",
+        "job_females": "متزلجات ريفيات دوليات",
+        "both_jobs": "متزلجون ومتزلجات ريفيون دوليون"
+    },
+    "international cross-country skiers": {
+        "job_males": "متزحلقون ريفيون دوليون",
+        "job_females": "متزحلقات ريفيات دوليات",
+        "both_jobs": "متزحلقون ومتزحلقات ريفيون دوليون"
+    },
+    "international cruiserweight boxers": {
+        "job_males": "ملاكمو وزن الطراد دوليون",
+        "job_females": "ملاكمات وزن الطراد دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الطراد دوليون"
+    },
+    "international curlers": {
+        "job_males": "لاعبو كيرلنغ دوليون",
+        "job_females": "لاعبات كيرلنغ دوليات",
+        "both_jobs": "لاعبو ولاعبات كيرلنغ دوليون"
+    },
+    "international decathletes": {
+        "job_males": "متسابقو عشاري دوليون",
+        "job_females": "متسابقات عشاري دوليات",
+        "both_jobs": "متسابقو ومتسابقات عشاري دوليون"
+    },
+    "international discus throwers": {
+        "job_males": "رماة قرص دوليون",
+        "job_females": "راميات قرص دوليات",
+        "both_jobs": "رماة وراميات قرص دوليون"
+    },
+    "international drivers": {
+        "job_males": "سائقو سيارات دوليون",
+        "job_females": "سائقات سيارات دوليات",
+        "both_jobs": "سائقو وسائقات سيارات دوليون"
+    },
+    "international equestrians": {
+        "job_males": "فرسان خيول دوليون",
+        "job_females": "فارسات خيول دوليات",
+        "both_jobs": "فرسان وفارسات خيول دوليون"
+    },
+    "international featherweight boxers": {
+        "job_males": "ملاكمو وزن الريشة دوليون",
+        "job_females": "ملاكمات وزن الريشة دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الريشة دوليون"
+    },
+    "international figure skaters": {
+        "job_males": "متزلجون فنيون دوليون",
+        "job_females": "متزلجات فنيات دوليات",
+        "both_jobs": "متزلجون ومتزلجات فنيون دوليون"
+    },
+    "international flyweight boxers": {
+        "job_males": "ملاكمو وزن الذبابة دوليون",
+        "job_females": "ملاكمات وزن الذبابة دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذبابة دوليون"
+    },
+    "international footballers": {
+        "job_males": "لاعبو كرة قدم دوليون",
+        "job_females": "لاعبات كرة قدم دوليات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم دوليون"
+    },
+    "international freestyle skiers": {
+        "job_males": "ممارسو تزلج حر دوليون",
+        "job_females": "ممارسات تزلج حر دوليات",
+        "both_jobs": "ممارسو وممارسات تزلج حر دوليون"
+    },
+    "international freestyle swimmers": {
+        "job_males": "سباحو تزلج حر دوليون",
+        "job_females": "سباحات تزلج حر دوليات",
+        "both_jobs": "سباحو وسباحات تزلج حر دوليون"
+    },
+    "international golfers": {
+        "job_males": "لاعبو غولف دوليون",
+        "job_females": "لاعبات غولف دوليات",
+        "both_jobs": "لاعبو ولاعبات غولف دوليون"
+    },
+    "international gymnasts": {
+        "job_males": "لاعبو جمباز دوليون",
+        "job_females": "لاعبات جمباز دوليات",
+        "both_jobs": "لاعبو ولاعبات جمباز دوليون"
+    },
+    "international hapkido practitioners": {
+        "job_males": "لاعبو هاب كيدو دوليون",
+        "job_females": "لاعبات هاب كيدو دوليات",
+        "both_jobs": "لاعبو ولاعبات هاب كيدو دوليون"
+    },
+    "international heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل دوليون",
+        "job_females": "ملاكمات وزن ثقيل دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل دوليون"
+    },
+    "international heptathletes": {
+        "job_males": "متسابقو سباعي دوليون",
+        "job_females": "متسابقات سباعي دوليات",
+        "both_jobs": "متسابقو ومتسابقات سباعي دوليون"
+    },
+    "international high jumpers": {
+        "job_males": "متسابقو قفز عالي دوليون",
+        "job_females": "متسابقات قفز عالي دوليات",
+        "both_jobs": "متسابقو ومتسابقات قفز عالي دوليون"
+    },
+    "international hurdlers": {
+        "job_males": "لاعبو قفز الحواجز دوليون",
+        "job_females": "لاعبات قفز الحواجز دوليات",
+        "both_jobs": "لاعبو ولاعبات قفز الحواجز دوليون"
+    },
+    "international ice dancers": {
+        "job_males": "راقصو جليد دوليون",
+        "job_females": "راقصات جليد دوليات",
+        "both_jobs": "راقصو وراقصات جليد دوليون"
+    },
+    "international judoka": {
+        "job_males": "لاعبو جودو دوليون",
+        "job_females": "لاعبات جودو دوليات",
+        "both_jobs": "لاعبو ولاعبات جودو دوليون"
+    },
+    "international kickboxers": {
+        "job_males": "مقاتلو كيك بوكسنغ دوليون",
+        "job_females": "مقاتلات كيك بوكسنغ دوليات",
+        "both_jobs": "مقاتلو ومقاتلات كيك بوكسنغ دوليون"
+    },
+    "international librarians": {
+        "job_males": "أمناء مكتبات دوليون",
+        "job_females": "أمينات مكتبات دوليات",
+        "both_jobs": "أمناء وأمينات مكتبات دوليون"
+    },
+    "international light flyweight boxers": {
+        "job_males": "ملاكمو وزن ذبابة خفيف دوليون",
+        "job_females": "ملاكمات وزن ذبابة خفيف دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن ذبابة خفيف دوليون"
+    },
+    "international light heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل خفيف دوليون",
+        "job_females": "ملاكمات وزن ثقيل خفيف دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل خفيف دوليون"
+    },
+    "international light middleweight boxers": {
+        "job_males": "ملاكمو وزن خفيف متوسط دوليون",
+        "job_females": "ملاكمات وزن خفيف متوسط دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن خفيف متوسط دوليون"
+    },
+    "international light welterweight boxers": {
+        "job_males": "ملاكمو وزن والتر خفيف دوليون",
+        "job_females": "ملاكمات وزن والتر خفيف دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن والتر خفيف دوليون"
+    },
+    "international light-heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل خفيف دوليون",
+        "job_females": "ملاكمات وزن ثقيل خفيف دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل خفيف دوليون"
+    },
+    "international lightweight boxers": {
+        "job_males": "ملاكمو وزن خفيف دوليون",
+        "job_females": "ملاكمات وزن خفيف دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن خفيف دوليون"
+    },
+    "international long jumpers": {
+        "job_males": "لاعبو قفز طويل دوليون",
+        "job_females": "لاعبات قفز طويل دوليات",
+        "both_jobs": "لاعبو ولاعبات قفز طويل دوليون"
+    },
+    "international long-distance runners": {
+        "job_males": "عداؤو مسافات طويلة دوليون",
+        "job_females": "عداءات مسافات طويلة دوليات",
+        "both_jobs": "عداؤو وعداءات مسافات طويلة دوليون"
+    },
+    "international lugers": {
+        "job_males": "زاحفون ثلجيون دوليون",
+        "job_females": "زاحفات ثلجيات دوليات",
+        "both_jobs": "زاحفون وزاحفات ثلجيون دوليون"
+    },
+    "international middle-distance runners": {
+        "job_males": "عداؤو مسافات متوسطة دوليون",
+        "job_females": "عداءات مسافات متوسطة دوليات",
+        "both_jobs": "عداؤو وعداءات مسافات متوسطة دوليون"
+    },
+    "international middleweight boxers": {
+        "job_males": "ملاكمو وزن متوسط دوليون",
+        "job_females": "ملاكمات وزن متوسط دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن متوسط دوليون"
+    },
+    "international modern pentathletes": {
+        "job_males": "متسابقو خماسي حديث دوليون",
+        "job_females": "متسابقات خماسي حديث دوليات",
+        "both_jobs": "متسابقو ومتسابقات خماسي حديث دوليون"
+    },
+    "international motorboat racers": {
+        "job_males": "متسابقو زوارق نارية دوليون",
+        "job_females": "متسابقات زوارق نارية دوليات",
+        "both_jobs": "متسابقو ومتسابقات زوارق نارية دوليون"
+    },
+    "international motorcycle racers": {
+        "job_males": "متسابقو دراجات نارية دوليون",
+        "job_females": "متسابقات دراجات نارية دوليات",
+        "both_jobs": "متسابقو ومتسابقات دراجات نارية دوليون"
+    },
+    "international muay thai practitioners": {
+        "job_males": "ممارسو موياي تاي دوليون",
+        "job_females": "ممارسات موياي تاي دوليات",
+        "both_jobs": "ممارسو وممارسات موياي تاي دوليون"
+    },
+    "international nordic combined skaters": {
+        "job_males": "منافسو تزلج نوردي مزدوج دوليون",
+        "job_females": "منافسات تزلج نوردي مزدوج دوليات",
+        "both_jobs": "منافسو ومنافسات تزلج نوردي مزدوج دوليون"
+    },
+    "international nordic combined skiers": {
+        "job_males": "متزحلقو تزلج نوردي مزدوج دوليون",
+        "job_females": "متزحلقات تزلج نوردي مزدوج دوليات",
+        "both_jobs": "متزحلقو ومتزحلقات تزلج نوردي مزدوج دوليون"
+    },
+    "international pair skaters": {
+        "job_males": "متزلجون فنيون على الجليد دوليون",
+        "job_females": "متزلجات فنيات على الجليد دوليات",
+        "both_jobs": "متزلجون ومتزلجات فنيون على الجليد دوليون"
+    },
+    "international pinweight boxers": {
+        "job_males": "ملاكمو وزن الذرة دوليون",
+        "job_females": "ملاكمات وزن الذرة دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذرة دوليون"
+    },
+    "international players of american football": {
+        "job_males": "لاعبو كرة قدم أمريكية دوليون",
+        "job_females": "لاعبات كرة قدم أمريكية دوليات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم أمريكية دوليون"
+    },
+    "international players of canadian-football": {
+        "job_males": "لاعبو كرة قدم كندية دوليون",
+        "job_females": "لاعبات كرة قدم كندية دوليات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم كندية دوليون"
+    },
+    "international professional wrestlers": {
+        "job_males": "مصارعون محترفون دوليون",
+        "job_females": "مصارعات محترفات دوليات",
+        "both_jobs": "مصارعون ومصارعات محترفون دوليون"
+    },
+    "international racewalkers": {
+        "job_males": "متسابقو مشي دوليون",
+        "job_females": "متسابقات مشي دوليات",
+        "both_jobs": "متسابقو ومتسابقات مشي دوليون"
+    },
+    "international racing drivers": {
+        "job_males": "سائقو سيارات سباق دوليون",
+        "job_females": "سائقات سيارات سباق دوليات",
+        "both_jobs": "سائقو وسائقات سيارات سباق دوليون"
+    },
+    "international rally drivers": {
+        "job_males": "سائقو رالي دوليون",
+        "job_females": "سائقات رالي دوليات",
+        "both_jobs": "سائقو وسائقات رالي دوليون"
+    },
+    "international referees and umpires": {
+        "job_males": "حكام رياضات دوليون",
+        "job_females": "حكمات رياضات دوليات",
+        "both_jobs": "حكام وحكمات رياضات دوليون"
+    },
+    "international rhythmic gymnasts": {
+        "job_males": "لاعبو جمباز إيقاعي دوليون",
+        "job_females": "لاعبات جمباز إيقاعي دوليات",
+        "both_jobs": "لاعبو ولاعبات جمباز إيقاعي دوليون"
+    },
+    "international roller skaters": {
+        "job_males": "متزلجون بالعجلات دوليون",
+        "job_females": "متزلجات بالعجلات دوليات",
+        "both_jobs": "متزلجون ومتزلجات بالعجلات دوليون"
+    },
+    "international sanshou practitioners": {
+        "job_males": "ممارسو سانشو دوليون",
+        "job_females": "ممارسات سانشو دوليات",
+        "both_jobs": "ممارسو وممارسات سانشو دوليون"
+    },
+    "international short track speed skaters": {
+        "job_males": "متزلجون على مسار قصير دوليون",
+        "job_females": "متزلجات على مسار قصير دوليات",
+        "both_jobs": "متزلجون ومتزلجات على مسار قصير دوليون"
+    },
+    "international shot putters": {
+        "job_males": "لاعبو دفع ثقل دوليون",
+        "job_females": "لاعبات دفع ثقل دوليات",
+        "both_jobs": "لاعبو ولاعبات دفع ثقل دوليون"
+    },
+    "international single skaters": {
+        "job_males": "متزلجون فرديون دوليون",
+        "job_females": "متزلجات فرديات دوليات",
+        "both_jobs": "متزلجون ومتزلجات فرديون دوليون"
+    },
+    "international skateboarders": {
+        "job_males": "متزلجو ألواح دوليون",
+        "job_females": "متزلجات ألواح دوليات",
+        "both_jobs": "متزلجو ومتزلجات ألواح دوليون"
+    },
+    "international skaters": {
+        "job_males": "متزلجون على اللوح دوليون",
+        "job_females": "متزلجات على اللوح دوليات",
+        "both_jobs": "متزلجون ومتزلجات على اللوح دوليون"
+    },
+    "international skeleton racers": {
+        "job_males": "متزلجون صدريون دوليون",
+        "job_females": "متزلجات صدريات دوليات",
+        "both_jobs": "متزلجون ومتزلجات صدريون دوليون"
+    },
+    "international ski jumpers": {
+        "job_males": "متزلجو قفز دوليون",
+        "job_females": "متزلجات قفز دوليات",
+        "both_jobs": "متزلجو ومتزلجات قفز دوليون"
+    },
+    "international skydivers": {
+        "job_males": "قافزون بالمظلات دوليون",
+        "job_females": "قافزات بالمظلات دوليات",
+        "both_jobs": "قافزون وقافزات بالمظلات دوليون"
+    },
+    "international snowboarders": {
+        "job_males": "متزلجون على الثلج دوليون",
+        "job_females": "متزلجات على الثلج دوليات",
+        "both_jobs": "متزلجون ومتزلجات على الثلج دوليون"
+    },
+    "international speed skaters": {
+        "job_males": "متزلجو سرعة دوليون",
+        "job_females": "متزلجات سرعة دوليات",
+        "both_jobs": "متزلجو ومتزلجات سرعة دوليون"
+    },
+    "international sport shooters": {
+        "job_males": "لاعبو رماية دوليون",
+        "job_females": "لاعبات رماية دوليات",
+        "both_jobs": "لاعبو ولاعبات رماية دوليون"
+    },
+    "international sport wrestlers": {
+        "job_males": "مصارعون رياضيون دوليون",
+        "job_females": "مصارعات رياضيات دوليات",
+        "both_jobs": "مصارعون ومصارعات رياضيون دوليون"
+    },
+    "international sprinters": {
+        "job_males": "عداؤون سريعون دوليون",
+        "job_females": "عداءات سريعات دوليات",
+        "both_jobs": "عداؤون وعداءات سريعون دوليون"
+    },
+    "international squash players": {
+        "job_males": "لاعبو اسكواش دوليون",
+        "job_females": "لاعبات اسكواش دوليات",
+        "both_jobs": "لاعبو ولاعبات اسكواش دوليون"
+    },
+    "international steeplechase runners": {
+        "job_males": "عداؤو موانع دوليون",
+        "job_females": "عداءات موانع دوليات",
+        "both_jobs": "عداؤو وعداءات موانع دوليون"
+    },
+    "international sumo wrestlers": {
+        "job_males": "مصارعو سومو دوليون",
+        "job_females": "مصارعات سومو دوليات",
+        "both_jobs": "مصارعو ومصارعات سومو دوليون"
+    },
+    "international super bantamweight boxers": {
+        "job_males": "ملاكمو وزن البانتام سوبر دوليون",
+        "job_females": "ملاكمات وزن البانتام سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن البانتام سوبر دوليون"
+    },
+    "international super cruiserweight boxers": {
+        "job_males": "ملاكمو وزن الطراد سوبر دوليون",
+        "job_females": "ملاكمات وزن الطراد سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الطراد سوبر دوليون"
+    },
+    "international super featherweight boxers": {
+        "job_males": "ملاكمو وزن الريشة سوبر دوليون",
+        "job_females": "ملاكمات وزن الريشة سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الريشة سوبر دوليون"
+    },
+    "international super flyweight boxers": {
+        "job_males": "ملاكمو وزن الذبابة سوبر دوليون",
+        "job_females": "ملاكمات وزن الذبابة سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذبابة سوبر دوليون"
+    },
+    "international super heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل سوبر دوليون",
+        "job_females": "ملاكمات وزن ثقيل سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل سوبر دوليون"
+    },
+    "international super middleweight boxers": {
+        "job_males": "ملاكمو وزن متوسط سوبر دوليون",
+        "job_females": "ملاكمات وزن متوسط سوبر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن متوسط سوبر دوليون"
+    },
+    "international taekwondo practitioners": {
+        "job_males": "لاعبو تايكوندو دوليون",
+        "job_females": "لاعبات تايكوندو دوليات",
+        "both_jobs": "لاعبو ولاعبات تايكوندو دوليون"
+    },
+    "international track and field athletes": {
+        "job_males": "رياضيو المسار والميدان دوليون",
+        "job_females": "رياضيات المسار والميدان دوليات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان دوليون"
+    },
+    "international track and field coaches": {
+        "job_males": "مدربو المسار والميدان دوليون",
+        "job_females": "مدربات المسار والميدان دوليات",
+        "both_jobs": "مدربو ومدربات المسار والميدان دوليون"
+    },
+    "international track-and-field athletes": {
+        "job_males": "رياضيو المسار والميدان دوليون",
+        "job_females": "رياضيات المسار والميدان دوليات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان دوليون"
+    },
+    "international triathletes": {
+        "job_males": "لاعبو ترياثلون دوليون",
+        "job_females": "لاعبات ترياثلون دوليات",
+        "both_jobs": "لاعبو ولاعبات ترياثلون دوليون"
+    },
+    "international triple jumpers": {
+        "job_males": "لاعبو وثب ثلاثي دوليون",
+        "job_females": "لاعبات وثب ثلاثي دوليات",
+        "both_jobs": "لاعبو ولاعبات وثب ثلاثي دوليون"
+    },
+    "international underwater divers": {
+        "job_males": "غطاسون تحت الماء دوليون",
+        "job_females": "غطاسات تحت الماء دوليات",
+        "both_jobs": "غطاسون وغطاسات تحت الماء دوليون"
+    },
+    "international water skiers": {
+        "job_males": "متزلجون على الماء دوليون",
+        "job_females": "متزلجات على الماء دوليات",
+        "both_jobs": "متزلجون ومتزلجات على الماء دوليون"
+    },
+    "international welterweight boxers": {
+        "job_males": "ملاكمو وزن الويلتر دوليون",
+        "job_females": "ملاكمات وزن الويلتر دوليات",
+        "both_jobs": "ملاكمو وملاكمات وزن الويلتر دوليون"
+    },
+    "international wheelchair racers": {
+        "job_males": "متسابقو كراسي متحركة دوليون",
+        "job_females": "متسابقات كراسي متحركة دوليات",
+        "both_jobs": "متسابقو ومتسابقات كراسي متحركة دوليون"
+    },
+    "international world atomweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذرة دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذرة دوليون"
+    },
+    "international world bantamweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن بانتام دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن بانتام دوليون"
+    },
+    "international world cruiserweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الطراد دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الطراد دوليون"
+    },
+    "international world featherweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الريشة دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الريشة دوليون"
+    },
+    "international world flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذبابة دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذبابة دوليون"
+    },
+    "international world heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل دوليون"
+    },
+    "international world light flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ذبابة خفيف دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ذبابة خفيف دوليون"
+    },
+    "international world light heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل خفيف دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل خفيف دوليون"
+    },
+    "international world light middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن خفيف متوسط دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن خفيف متوسط دوليون"
+    },
+    "international world light welterweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن والتر خفيف دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن والتر خفيف دوليون"
+    },
+    "international world light-heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل خفيف دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل خفيف دوليون"
+    },
+    "international world lightweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن خفيف دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن خفيف دوليون"
+    },
+    "international world middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن متوسط دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن متوسط دوليون"
+    },
+    "international world pinweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذرة دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذرة دوليون"
+    },
+    "international world super bantamweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن البانتام سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن البانتام سوبر دوليون"
+    },
+    "international world super cruiserweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الطراد سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الطراد سوبر دوليون"
+    },
+    "international world super featherweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الريشة سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الريشة سوبر دوليون"
+    },
+    "international world super flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذبابة سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذبابة سوبر دوليون"
+    },
+    "international world super heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل سوبر دوليون"
+    },
+    "international world super middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن متوسط سوبر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن متوسط سوبر دوليون"
+    },
+    "international world welterweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الويلتر دوليون",
+        "job_females": " دوليات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الويلتر دوليون"
+    },
+    "international wushu practitioners": {
+        "job_males": "ممارسو ووشو دوليون",
+        "job_females": "ممارسات ووشو دوليات",
+        "both_jobs": "ممارسو وممارسات ووشو دوليون"
+    },
+    "islamic clergy": {
+        "job_males": "رجال دين إسلاميون",
+        "job_females": "سيدات دين إسلاميات",
+        "both_jobs": "رجال وسيدات دين إسلاميون"
+    },
+    "islamic religious leaders": {
+        "job_males": "قادة دينيون إسلاميون",
+        "job_females": "قائدات دينيات إسلاميات",
+        "both_jobs": "قادة وقائدات دينيون إسلاميون"
+    },
+    "jewish clergy": {
+        "job_males": "رجال دين يهود",
+        "job_females": "سيدات دين يهوديات",
+        "both_jobs": "رجال وسيدات دين يهود"
+    },
+    "jewish religious leaders": {
+        "job_males": "قادة دينيون يهود",
+        "job_females": "قائدات دينيات يهوديات",
+        "both_jobs": "قادة وقائدات دينيون يهود"
+    },
+    "jews clergy": {
+        "job_males": "رجال دين يهود",
+        "job_females": "سيدات دين يهوديات",
+        "both_jobs": "رجال وسيدات دين يهود"
+    },
+    "jews religious leaders": {
+        "job_males": "قادة دينيون يهود",
+        "job_females": "قائدات دينيات يهوديات",
+        "both_jobs": "قادة وقائدات دينيون يهود"
+    },
+    "landscape and garden designers": {
+        "job_males": "مصممو مناظر طبيعية وحدائق",
+        "job_females": "مصممات  مناظر طبيعية وحدائق",
+        "both_jobs": "مصممو ومصممات مناظر طبيعية وحدائق"
+    },
+    "landscape or garden designers": {
+        "job_males": "مصممو مناظر طبيعية أو حدائق",
+        "job_females": "مصممات  مناظر طبيعية أو حدائق",
+        "both_jobs": "مصممو ومصممات مناظر طبيعية أو حدائق"
+    },
+    "mandopop singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني ماندوبوب",
+        "job_females": "مغنيات وكاتبات أغاني ماندوبوب",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني ماندوبوب"
+    },
+    "methodist activists": {
+        "job_males": "ناشطون ميثوديون لاهوتيون",
+        "job_females": "ناشطات ميثوديات لاهوتيات",
+        "both_jobs": "ناشطون وناشطات ميثوديون لاهوتيون"
+    },
+    "methodist actors": {
+        "job_males": "ممثلون ميثوديون لاهوتيون",
+        "job_females": "ممثلات ميثوديات لاهوتيات",
+        "both_jobs": "ممثلون وممثلات ميثوديون لاهوتيون"
+    },
+    "methodist astrologers": {
+        "job_males": "منجمون ميثوديون لاهوتيون",
+        "job_females": "منجمات ميثوديات لاهوتيات",
+        "both_jobs": "منجمون ومنجمات ميثوديون لاهوتيون"
+    },
+    "methodist christians": {
+        "job_males": "مسيحيون ميثوديون لاهوتيون",
+        "job_females": "مسيحيات ميثوديات لاهوتيات",
+        "both_jobs": "مسيحيون ومسيحيات ميثوديون لاهوتيون"
+    },
+    "methodist clergy": {
+        "job_males": "رجال دين ميثوديون لاهوتيون",
+        "job_females": "سيدات دين ميثوديات لاهوتيات",
+        "both_jobs": "رجال وسيدات دين ميثوديون لاهوتيون"
+    },
+    "methodist evangelical": {
+        "job_males": "إنجيليون ميثوديون لاهوتيون",
+        "job_females": "إنجيليات ميثوديات لاهوتيات",
+        "both_jobs": "إنجيليون وإنجيليات ميثوديون لاهوتيون"
+    },
+    "methodist leaders": {
+        "job_males": "قادة ميثوديون لاهوتيون",
+        "job_females": "قائدات ميثوديات لاهوتيات",
+        "both_jobs": "قادة وقائدات ميثوديون لاهوتيون"
+    },
+    "methodist missionaries": {
+        "job_males": "مبشرون ميثوديون لاهوتيون",
+        "job_females": "مبشرات ميثوديات لاهوتيات",
+        "both_jobs": "مبشرون ومبشرات ميثوديون لاهوتيون"
+    },
+    "methodist monks": {
+        "job_males": "رهبان ميثوديون لاهوتيون",
+        "job_females": "راهبات ميثوديات لاهوتيات",
+        "both_jobs": "رهبان وراهبات ميثوديون لاهوتيون"
+    },
+    "methodist nuns": {
+        "job_males": " ميثوديون لاهوتيون",
+        "job_females": "راهبات ميثوديات لاهوتيات",
+        "both_jobs": " وراهبات ميثوديون لاهوتيون"
+    },
+    "methodist religious leaders": {
+        "job_males": "قادة دينيون ميثوديون لاهوتيون",
+        "job_females": "قائدات دينيات ميثوديات لاهوتيات",
+        "both_jobs": "قادة وقائدات دينيون ميثوديون لاهوتيون"
+    },
+    "methodist saints": {
+        "job_males": "قديسون ميثوديون لاهوتيون",
+        "job_females": "قديسات ميثوديات لاهوتيات",
+        "both_jobs": "قديسون وقديسات ميثوديون لاهوتيون"
+    },
+    "methodist venerated": {
+        "job_males": "مبجلون ميثوديون لاهوتيون",
+        "job_females": "مبجلات ميثوديات لاهوتيات",
+        "both_jobs": "مبجلون ومبجلات ميثوديون لاهوتيون"
+    },
+    "microbiologists": {
+        "job_males": "علماء أحياء مجهريون",
+        "job_females": "عالمات أحياء مجهريات",
+        "both_jobs": "علماء وعالمات أحياء مجهريون"
+    },
+    "muslim clergy": {
+        "job_males": "رجال دين مسلمون",
+        "job_females": "سيدات دين مسلمات",
+        "both_jobs": "رجال وسيدات دين مسلمون"
+    },
+    "muslim religious leaders": {
+        "job_males": "قادة دينيون مسلمون",
+        "job_females": "قائدات دينيات مسلمات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون"
+    },
+    "muslims clergy": {
+        "job_males": "رجال دين مسلمون",
+        "job_females": "سيدات دين مسلمات",
+        "both_jobs": "رجال وسيدات دين مسلمون"
+    },
+    "muslims religious leaders": {
+        "job_males": "قادة دينيون مسلمون",
+        "job_females": "قائدات دينيات مسلمات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون"
+    },
+    "naval historians": {
+        "job_males": "مؤرخون بحريون عسكريون",
+        "job_females": "مؤرخات بحريات عسكريات",
+        "both_jobs": "مؤرخون ومؤرخات بحريون عسكريون"
+    },
+    "nazi clergy": {
+        "job_males": "رجال دين نازيون",
+        "job_females": "سيدات دين نازيات",
+        "both_jobs": "رجال وسيدات دين نازيون"
+    },
+    "nazi religious leaders": {
+        "job_males": "قادة دينيون نازيون",
+        "job_females": "قائدات دينيات نازيات",
+        "both_jobs": "قادة وقائدات دينيون نازيون"
+    },
+    "nazis who committed suicide": {
+        "job_males": "نازيون أقدموا على الانتحار",
+        "job_females": "نازيات أقدمن على الانتحار",
+        "both_jobs": "نازيون ونازيات أقدموا على الانتحار"
+    },
+    "neoclassical artists": {
+        "job_males": "فنانون كلاسيكيون حديثون",
+        "job_females": "فنانات كلاسيكيات حديثات",
+        "both_jobs": "فنانون وفنانات كلاسيكيون حديثون"
+    },
+    "neoclassical painters": {
+        "job_males": "رسامون كلاسيكيون حديثون",
+        "job_females": "رسامات كلاسيكيات حديثات",
+        "both_jobs": "رسامون ورسامات كلاسيكيون حديثون"
+    },
+    "non-fiction crime writers": {
+        "job_males": "كتاب جريمة غير روائيين",
+        "job_females": "كاتبات جريمة غير روائيات",
+        "both_jobs": "كتاب وكاتبات جريمة غير روائيين"
+    },
+    "non-fiction environmental writers": {
+        "job_males": "كتاب بيئة غير روائيين",
+        "job_females": "كاتبات بيئة غير روائيات",
+        "both_jobs": "كتاب وكاتبات بيئة غير روائيين"
+    },
+    "non-fiction writers": {
+        "job_males": "كتاب غير روائيين",
+        "job_females": "كاتبات غير روائيات",
+        "both_jobs": "كتاب وكاتبات غير روائيين"
+    },
+    "obstetricians and gynaecologists": {
+        "job_males": "أطباء توليد وأخصائيو أمراض نسائية",
+        "job_females": "طبيبات توليد وأخصائيات أمراض نسائية",
+        "both_jobs": "أطباء وطبيبات توليد وأخصائيو أمراض نسائية"
+    },
+    "olympic aikidoka": {
+        "job_males": "لاعبو آيكيدو أولمبيون",
+        "job_females": "لاعبات آيكيدو أولمبيات",
+        "both_jobs": "لاعبو ولاعبات آيكيدو أولمبيون"
+    },
+    "olympic alpine skiers": {
+        "job_males": "متزحلقو منحدرات ثلجية أولمبيون",
+        "job_females": "متزحلقات منحدرات ثلجية أولمبيات",
+        "both_jobs": "متزحلقو ومتزحلقات منحدرات ثلجية أولمبيون"
+    },
+    "olympic artistic gymnasts": {
+        "job_males": "لاعبو جمباز فني أولمبيون",
+        "job_females": "لاعبات جمباز فني أولمبيات",
+        "both_jobs": "لاعبو ولاعبات جمباز فني أولمبيون"
+    },
+    "olympic association footballers": {
+        "job_males": "لاعبو كرة قدم أولمبيون",
+        "job_females": "لاعبات كرة قدم أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم أولمبيون"
+    },
+    "olympic athletes": {
+        "job_males": "لاعبو قوى أولمبيون",
+        "job_females": "لاعبات قوى أولمبيات",
+        "both_jobs": "لاعبو ولاعبات قوى أولمبيون"
+    },
+    "olympic athletes track and field": {
+        "job_males": "رياضيو المسار والميدان أولمبيون",
+        "job_females": "رياضيات المسار والميدان أولمبيات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان أولمبيون"
+    },
+    "olympic atomweight boxers": {
+        "job_males": "ملاكمو وزن الذرة أولمبيون",
+        "job_females": "ملاكمات وزن الذرة أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذرة أولمبيون"
+    },
+    "olympic badminton players": {
+        "job_males": "لاعبو تنس ريشة أولمبيون",
+        "job_females": "لاعبات تنس ريشة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات تنس ريشة أولمبيون"
+    },
+    "olympic bantamweight boxers": {
+        "job_males": "ملاكمو وزن بانتام أولمبيون",
+        "job_females": "ملاكمات وزن بانتام أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن بانتام أولمبيون"
+    },
+    "olympic baseball managers": {
+        "job_males": "مدربو كرة قاعدة أولمبيون",
+        "job_females": "مدربات كرة قاعدة أولمبيات",
+        "both_jobs": "مدربو ومدربات كرة قاعدة أولمبيون"
+    },
+    "olympic baseball players": {
+        "job_males": "لاعبو كرة قاعدة أولمبيون",
+        "job_females": "لاعبات كرة قاعدة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قاعدة أولمبيون"
+    },
+    "olympic basketball players": {
+        "job_males": "لاعبو كرة سلة أولمبيون",
+        "job_females": "لاعبات كرة سلة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة سلة أولمبيون"
+    },
+    "olympic beach volleyball players": {
+        "job_males": "لاعبو كرة طائرة شاطئية أولمبيون",
+        "job_females": "لاعبات كرة طائرة شاطئية أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة طائرة شاطئية أولمبيون"
+    },
+    "olympic biathletes": {
+        "job_males": "لاعبو بياثلون أولمبيون",
+        "job_females": "لاعبات بياثلون أولمبيات",
+        "both_jobs": "لاعبو ولاعبات بياثلون أولمبيون"
+    },
+    "olympic bibliophiles": {
+        "job_males": "محبو كتب أولمبيون",
+        "job_females": "محبات كتب أولمبيات",
+        "both_jobs": "محبو ومحبات كتب أولمبيون"
+    },
+    "olympic boat racers": {
+        "job_males": "متسابقو زوارق أولمبيون",
+        "job_females": "متسابقات زوارق أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات زوارق أولمبيون"
+    },
+    "olympic cannibals": {
+        "job_males": "آكلو لحوم بشر أولمبيون",
+        "job_females": "آكلات لحوم بشر أولمبيات",
+        "both_jobs": "آكلو وآكلات لحوم بشر أولمبيون"
+    },
+    "olympic canoeists": {
+        "job_males": "متسابقو قوارب الكانوي أولمبيون",
+        "job_females": "متسابقات قوارب الكانوي أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات قوارب الكانوي أولمبيون"
+    },
+    "olympic chess arbiters": {
+        "job_males": "حكام شطرنج أولمبيون",
+        "job_females": "حكمات شطرنج أولمبيات",
+        "both_jobs": "حكام وحكمات شطرنج أولمبيون"
+    },
+    "olympic cricketers": {
+        "job_males": "لاعبو كريكت أولمبيون",
+        "job_females": "لاعبات كريكت أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كريكت أولمبيون"
+    },
+    "olympic croquet players": {
+        "job_males": "لاعبو كروكيت أولمبيون",
+        "job_females": "لاعبات كروكيت أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كروكيت أولمبيون"
+    },
+    "olympic cross-country skaters": {
+        "job_males": "متزلجون ريفيون أولمبيون",
+        "job_females": "متزلجات ريفيات أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات ريفيون أولمبيون"
+    },
+    "olympic cross-country skiers": {
+        "job_males": "متزحلقون ريفيون أولمبيون",
+        "job_females": "متزحلقات ريفيات أولمبيات",
+        "both_jobs": "متزحلقون ومتزحلقات ريفيون أولمبيون"
+    },
+    "olympic cruiserweight boxers": {
+        "job_males": "ملاكمو وزن الطراد أولمبيون",
+        "job_females": "ملاكمات وزن الطراد أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الطراد أولمبيون"
+    },
+    "olympic curlers": {
+        "job_males": "لاعبو كيرلنغ أولمبيون",
+        "job_females": "لاعبات كيرلنغ أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كيرلنغ أولمبيون"
+    },
+    "olympic decathletes": {
+        "job_males": "متسابقو عشاري أولمبيون",
+        "job_females": "متسابقات عشاري أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات عشاري أولمبيون"
+    },
+    "olympic discus throwers": {
+        "job_males": "رماة قرص أولمبيون",
+        "job_females": "راميات قرص أولمبيات",
+        "both_jobs": "رماة وراميات قرص أولمبيون"
+    },
+    "olympic drivers": {
+        "job_males": "سائقو سيارات أولمبيون",
+        "job_females": "سائقات سيارات أولمبيات",
+        "both_jobs": "سائقو وسائقات سيارات أولمبيون"
+    },
+    "olympic equestrians": {
+        "job_males": "فرسان خيول أولمبيون",
+        "job_females": "فارسات خيول أولمبيات",
+        "both_jobs": "فرسان وفارسات خيول أولمبيون"
+    },
+    "olympic featherweight boxers": {
+        "job_males": "ملاكمو وزن الريشة أولمبيون",
+        "job_females": "ملاكمات وزن الريشة أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الريشة أولمبيون"
+    },
+    "olympic field hockey players": {
+        "job_males": "لاعبو هوكي ميدان أولمبيون",
+        "job_females": "لاعبات هوكي ميدان أولمبيات",
+        "both_jobs": "لاعبو ولاعبات هوكي ميدان أولمبيون"
+    },
+    "olympic figure skaters": {
+        "job_males": "متزلجون فنيون أولمبيون",
+        "job_females": "متزلجات فنيات أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات فنيون أولمبيون"
+    },
+    "olympic flyweight boxers": {
+        "job_males": "ملاكمو وزن الذبابة أولمبيون",
+        "job_females": "ملاكمات وزن الذبابة أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذبابة أولمبيون"
+    },
+    "olympic football managers": {
+        "job_males": "مدربو كرة قدم أولمبيون",
+        "job_females": "مدربات كرة قدم أولمبيات",
+        "both_jobs": "مدربو ومدربات كرة قدم أولمبيون"
+    },
+    "olympic football referees": {
+        "job_males": "حكام كرة قدم أولمبيون",
+        "job_females": "حكمات كرة قدم أولمبيات",
+        "both_jobs": "حكام وحكمات كرة قدم أولمبيون"
+    },
+    "olympic footballers": {
+        "job_males": "لاعبو كرة قدم أولمبيون",
+        "job_females": "لاعبات كرة قدم أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم أولمبيون"
+    },
+    "olympic freestyle skiers": {
+        "job_males": "ممارسو تزلج حر أولمبيون",
+        "job_females": "ممارسات تزلج حر أولمبيات",
+        "both_jobs": "ممارسو وممارسات تزلج حر أولمبيون"
+    },
+    "olympic freestyle swimmers": {
+        "job_males": "سباحو تزلج حر أولمبيون",
+        "job_females": "سباحات تزلج حر أولمبيات",
+        "both_jobs": "سباحو وسباحات تزلج حر أولمبيون"
+    },
+    "olympic golfers": {
+        "job_males": "لاعبو غولف أولمبيون",
+        "job_females": "لاعبات غولف أولمبيات",
+        "both_jobs": "لاعبو ولاعبات غولف أولمبيون"
+    },
+    "olympic gymnasts": {
+        "job_males": "لاعبو جمباز أولمبيون",
+        "job_females": "لاعبات جمباز أولمبيات",
+        "both_jobs": "لاعبو ولاعبات جمباز أولمبيون"
+    },
+    "olympic handball players": {
+        "job_males": "لاعبو كرة يد أولمبيون",
+        "job_females": "لاعبات كرة يد أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة يد أولمبيون"
+    },
+    "olympic hapkido practitioners": {
+        "job_males": "لاعبو هاب كيدو أولمبيون",
+        "job_females": "لاعبات هاب كيدو أولمبيات",
+        "both_jobs": "لاعبو ولاعبات هاب كيدو أولمبيون"
+    },
+    "olympic heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل أولمبيون",
+        "job_females": "ملاكمات وزن ثقيل أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل أولمبيون"
+    },
+    "olympic heptathletes": {
+        "job_males": "متسابقو سباعي أولمبيون",
+        "job_females": "متسابقات سباعي أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات سباعي أولمبيون"
+    },
+    "olympic high jumpers": {
+        "job_males": "متسابقو قفز عالي أولمبيون",
+        "job_females": "متسابقات قفز عالي أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات قفز عالي أولمبيون"
+    },
+    "olympic hurdlers": {
+        "job_males": "لاعبو قفز الحواجز أولمبيون",
+        "job_females": "لاعبات قفز الحواجز أولمبيات",
+        "both_jobs": "لاعبو ولاعبات قفز الحواجز أولمبيون"
+    },
+    "olympic ice dancers": {
+        "job_males": "راقصو جليد أولمبيون",
+        "job_females": "راقصات جليد أولمبيات",
+        "both_jobs": "راقصو وراقصات جليد أولمبيون"
+    },
+    "olympic ice hockey coaches": {
+        "job_males": "مدربو هوكي جليد أولمبيون",
+        "job_females": "مدربات هوكي جليد أولمبيات",
+        "both_jobs": "مدربو ومدربات هوكي جليد أولمبيون"
+    },
+    "olympic ice hockey players": {
+        "job_males": "لاعبو هوكي جليد أولمبيون",
+        "job_females": "لاعبات هوكي جليد أولمبيات",
+        "both_jobs": "لاعبو ولاعبات هوكي جليد أولمبيون"
+    },
+    "olympic judoka": {
+        "job_males": "لاعبو جودو أولمبيون",
+        "job_females": "لاعبات جودو أولمبيات",
+        "both_jobs": "لاعبو ولاعبات جودو أولمبيون"
+    },
+    "olympic kickboxers": {
+        "job_males": "مقاتلو كيك بوكسنغ أولمبيون",
+        "job_females": "مقاتلات كيك بوكسنغ أولمبيات",
+        "both_jobs": "مقاتلو ومقاتلات كيك بوكسنغ أولمبيون"
+    },
+    "olympic lacrosse players": {
+        "job_males": "لاعبو لاكروس أولمبيون",
+        "job_females": "لاعبات لاكروس أولمبيات",
+        "both_jobs": "لاعبو ولاعبات لاكروس أولمبيون"
+    },
+    "olympic librarians": {
+        "job_males": "أمناء مكتبات أولمبيون",
+        "job_females": "أمينات مكتبات أولمبيات",
+        "both_jobs": "أمناء وأمينات مكتبات أولمبيون"
+    },
+    "olympic light flyweight boxers": {
+        "job_males": "ملاكمو وزن ذبابة خفيف أولمبيون",
+        "job_females": "ملاكمات وزن ذبابة خفيف أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن ذبابة خفيف أولمبيون"
+    },
+    "olympic light heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل خفيف أولمبيون",
+        "job_females": "ملاكمات وزن ثقيل خفيف أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل خفيف أولمبيون"
+    },
+    "olympic light middleweight boxers": {
+        "job_males": "ملاكمو وزن خفيف متوسط أولمبيون",
+        "job_females": "ملاكمات وزن خفيف متوسط أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن خفيف متوسط أولمبيون"
+    },
+    "olympic light welterweight boxers": {
+        "job_males": "ملاكمو وزن والتر خفيف أولمبيون",
+        "job_females": "ملاكمات وزن والتر خفيف أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن والتر خفيف أولمبيون"
+    },
+    "olympic light-heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل خفيف أولمبيون",
+        "job_females": "ملاكمات وزن ثقيل خفيف أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل خفيف أولمبيون"
+    },
+    "olympic lightweight boxers": {
+        "job_males": "ملاكمو وزن خفيف أولمبيون",
+        "job_females": "ملاكمات وزن خفيف أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن خفيف أولمبيون"
+    },
+    "olympic long jumpers": {
+        "job_males": "لاعبو قفز طويل أولمبيون",
+        "job_females": "لاعبات قفز طويل أولمبيات",
+        "both_jobs": "لاعبو ولاعبات قفز طويل أولمبيون"
+    },
+    "olympic long-distance runners": {
+        "job_males": "عداؤو مسافات طويلة أولمبيون",
+        "job_females": "عداءات مسافات طويلة أولمبيات",
+        "both_jobs": "عداؤو وعداءات مسافات طويلة أولمبيون"
+    },
+    "olympic lugers": {
+        "job_males": "زاحفون ثلجيون أولمبيون",
+        "job_females": "زاحفات ثلجيات أولمبيات",
+        "both_jobs": "زاحفون وزاحفات ثلجيون أولمبيون"
+    },
+    "olympic middle-distance runners": {
+        "job_males": "عداؤو مسافات متوسطة أولمبيون",
+        "job_females": "عداءات مسافات متوسطة أولمبيات",
+        "both_jobs": "عداؤو وعداءات مسافات متوسطة أولمبيون"
+    },
+    "olympic middleweight boxers": {
+        "job_males": "ملاكمو وزن متوسط أولمبيون",
+        "job_females": "ملاكمات وزن متوسط أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن متوسط أولمبيون"
+    },
+    "olympic modern pentathletes": {
+        "job_males": "متسابقو خماسي حديث أولمبيون",
+        "job_females": "متسابقات خماسي حديث أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات خماسي حديث أولمبيون"
+    },
+    "olympic motorboat racers": {
+        "job_males": "متسابقو زوارق نارية أولمبيون",
+        "job_females": "متسابقات زوارق نارية أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات زوارق نارية أولمبيون"
+    },
+    "olympic motorcycle racers": {
+        "job_males": "متسابقو دراجات نارية أولمبيون",
+        "job_females": "متسابقات دراجات نارية أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات دراجات نارية أولمبيون"
+    },
+    "olympic muay thai practitioners": {
+        "job_males": "ممارسو موياي تاي أولمبيون",
+        "job_females": "ممارسات موياي تاي أولمبيات",
+        "both_jobs": "ممارسو وممارسات موياي تاي أولمبيون"
+    },
+    "olympic nordic combined skaters": {
+        "job_males": "منافسو تزلج نوردي مزدوج أولمبيون",
+        "job_females": "منافسات تزلج نوردي مزدوج أولمبيات",
+        "both_jobs": "منافسو ومنافسات تزلج نوردي مزدوج أولمبيون"
+    },
+    "olympic nordic combined skiers": {
+        "job_males": "متزحلقو تزلج نوردي مزدوج أولمبيون",
+        "job_females": "متزحلقات تزلج نوردي مزدوج أولمبيات",
+        "both_jobs": "متزحلقو ومتزحلقات تزلج نوردي مزدوج أولمبيون"
+    },
+    "olympic pair skaters": {
+        "job_males": "متزلجون فنيون على الجليد أولمبيون",
+        "job_females": "متزلجات فنيات على الجليد أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات فنيون على الجليد أولمبيون"
+    },
+    "olympic pinweight boxers": {
+        "job_males": "ملاكمو وزن الذرة أولمبيون",
+        "job_females": "ملاكمات وزن الذرة أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذرة أولمبيون"
+    },
+    "olympic players of american football": {
+        "job_males": "لاعبو كرة قدم أمريكية أولمبيون",
+        "job_females": "لاعبات كرة قدم أمريكية أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم أمريكية أولمبيون"
+    },
+    "olympic players of canadian-football": {
+        "job_males": "لاعبو كرة قدم كندية أولمبيون",
+        "job_females": "لاعبات كرة قدم كندية أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم كندية أولمبيون"
+    },
+    "olympic polo players": {
+        "job_males": "لاعبو بولو أولمبيون",
+        "job_females": "لاعبات بولو أولمبيات",
+        "both_jobs": "لاعبو ولاعبات بولو أولمبيون"
+    },
+    "olympic professional wrestlers": {
+        "job_males": "مصارعون محترفون أولمبيون",
+        "job_females": "مصارعات محترفات أولمبيات",
+        "both_jobs": "مصارعون ومصارعات محترفون أولمبيون"
+    },
+    "olympic racewalkers": {
+        "job_males": "متسابقو مشي أولمبيون",
+        "job_females": "متسابقات مشي أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات مشي أولمبيون"
+    },
+    "olympic racing drivers": {
+        "job_males": "سائقو سيارات سباق أولمبيون",
+        "job_females": "سائقات سيارات سباق أولمبيات",
+        "both_jobs": "سائقو وسائقات سيارات سباق أولمبيون"
+    },
+    "olympic racquets players": {
+        "job_males": "لاعبو لعبة الراح أولمبيون",
+        "job_females": "لاعبات لعبة الراح أولمبيات",
+        "both_jobs": "لاعبو ولاعبات لعبة الراح أولمبيون"
+    },
+    "olympic rally drivers": {
+        "job_males": "سائقو رالي أولمبيون",
+        "job_females": "سائقات رالي أولمبيات",
+        "both_jobs": "سائقو وسائقات رالي أولمبيون"
+    },
+    "olympic referees and umpires": {
+        "job_males": "حكام رياضات أولمبيون",
+        "job_females": "حكمات رياضات أولمبيات",
+        "both_jobs": "حكام وحكمات رياضات أولمبيون"
+    },
+    "olympic rhythmic gymnasts": {
+        "job_males": "لاعبو جمباز إيقاعي أولمبيون",
+        "job_females": "لاعبات جمباز إيقاعي أولمبيات",
+        "both_jobs": "لاعبو ولاعبات جمباز إيقاعي أولمبيون"
+    },
+    "olympic roller skaters": {
+        "job_males": "متزلجون بالعجلات أولمبيون",
+        "job_females": "متزلجات بالعجلات أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات بالعجلات أولمبيون"
+    },
+    "olympic rugby players": {
+        "job_males": "لاعبو رجبي أولمبيون",
+        "job_females": "لاعبات رجبي أولمبيات",
+        "both_jobs": "لاعبو ولاعبات رجبي أولمبيون"
+    },
+    "olympic rugby sevens players": {
+        "job_males": "لاعبو سباعيات رجبي أولمبيون",
+        "job_females": "لاعبات سباعيات رجبي أولمبيات",
+        "both_jobs": "لاعبو ولاعبات سباعيات رجبي أولمبيون"
+    },
+    "olympic rugby union players": {
+        "job_males": "لاعبو اتحاد رجبي أولمبيون",
+        "job_females": "لاعبات اتحاد رجبي أولمبيات",
+        "both_jobs": "لاعبو ولاعبات اتحاد رجبي أولمبيون"
+    },
+    "olympic sanshou practitioners": {
+        "job_males": "ممارسو سانشو أولمبيون",
+        "job_females": "ممارسات سانشو أولمبيات",
+        "both_jobs": "ممارسو وممارسات سانشو أولمبيون"
+    },
+    "olympic short track speed skaters": {
+        "job_males": "متزلجون على مسار قصير أولمبيون",
+        "job_females": "متزلجات على مسار قصير أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات على مسار قصير أولمبيون"
+    },
+    "olympic shot putters": {
+        "job_males": "لاعبو دفع ثقل أولمبيون",
+        "job_females": "لاعبات دفع ثقل أولمبيات",
+        "both_jobs": "لاعبو ولاعبات دفع ثقل أولمبيون"
+    },
+    "olympic single skaters": {
+        "job_males": "متزلجون فرديون أولمبيون",
+        "job_females": "متزلجات فرديات أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات فرديون أولمبيون"
+    },
+    "olympic skateboarders": {
+        "job_males": "متزلجو ألواح أولمبيون",
+        "job_females": "متزلجات ألواح أولمبيات",
+        "both_jobs": "متزلجو ومتزلجات ألواح أولمبيون"
+    },
+    "olympic skaters": {
+        "job_males": "متزلجون على اللوح أولمبيون",
+        "job_females": "متزلجات على اللوح أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات على اللوح أولمبيون"
+    },
+    "olympic skeleton racers": {
+        "job_males": "متزلجون صدريون أولمبيون",
+        "job_females": "متزلجات صدريات أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات صدريون أولمبيون"
+    },
+    "olympic ski jumpers": {
+        "job_males": "متزلجو قفز أولمبيون",
+        "job_females": "متزلجات قفز أولمبيات",
+        "both_jobs": "متزلجو ومتزلجات قفز أولمبيون"
+    },
+    "olympic skydivers": {
+        "job_males": "قافزون بالمظلات أولمبيون",
+        "job_females": "قافزات بالمظلات أولمبيات",
+        "both_jobs": "قافزون وقافزات بالمظلات أولمبيون"
+    },
+    "olympic snowboarders": {
+        "job_males": "متزلجون على الثلج أولمبيون",
+        "job_females": "متزلجات على الثلج أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات على الثلج أولمبيون"
+    },
+    "olympic soccer players": {
+        "job_males": "لاعبو كرة قدم أولمبيون",
+        "job_females": "لاعبات كرة قدم أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة قدم أولمبيون"
+    },
+    "olympic softball players": {
+        "job_males": "لاعبو كرة لينة أولمبيون",
+        "job_females": "لاعبات كرة لينة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة لينة أولمبيون"
+    },
+    "olympic speed skaters": {
+        "job_males": "متزلجو سرعة أولمبيون",
+        "job_females": "متزلجات سرعة أولمبيات",
+        "both_jobs": "متزلجو ومتزلجات سرعة أولمبيون"
+    },
+    "olympic sport shooters": {
+        "job_males": "لاعبو رماية أولمبيون",
+        "job_females": "لاعبات رماية أولمبيات",
+        "both_jobs": "لاعبو ولاعبات رماية أولمبيون"
+    },
+    "olympic sport wrestlers": {
+        "job_males": "مصارعون رياضيون أولمبيون",
+        "job_females": "مصارعات رياضيات أولمبيات",
+        "both_jobs": "مصارعون ومصارعات رياضيون أولمبيون"
+    },
+    "olympic sprinters": {
+        "job_males": "عداؤون سريعون أولمبيون",
+        "job_females": "عداءات سريعات أولمبيات",
+        "both_jobs": "عداؤون وعداءات سريعون أولمبيون"
+    },
+    "olympic squash players": {
+        "job_males": "لاعبو اسكواش أولمبيون",
+        "job_females": "لاعبات اسكواش أولمبيات",
+        "both_jobs": "لاعبو ولاعبات اسكواش أولمبيون"
+    },
+    "olympic steeplechase runners": {
+        "job_males": "عداؤو موانع أولمبيون",
+        "job_females": "عداءات موانع أولمبيات",
+        "both_jobs": "عداؤو وعداءات موانع أولمبيون"
+    },
+    "olympic sumo wrestlers": {
+        "job_males": "مصارعو سومو أولمبيون",
+        "job_females": "مصارعات سومو أولمبيات",
+        "both_jobs": "مصارعو ومصارعات سومو أولمبيون"
+    },
+    "olympic super bantamweight boxers": {
+        "job_males": "ملاكمو وزن البانتام سوبر أولمبيون",
+        "job_females": "ملاكمات وزن البانتام سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن البانتام سوبر أولمبيون"
+    },
+    "olympic super cruiserweight boxers": {
+        "job_males": "ملاكمو وزن الطراد سوبر أولمبيون",
+        "job_females": "ملاكمات وزن الطراد سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الطراد سوبر أولمبيون"
+    },
+    "olympic super featherweight boxers": {
+        "job_males": "ملاكمو وزن الريشة سوبر أولمبيون",
+        "job_females": "ملاكمات وزن الريشة سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الريشة سوبر أولمبيون"
+    },
+    "olympic super flyweight boxers": {
+        "job_males": "ملاكمو وزن الذبابة سوبر أولمبيون",
+        "job_females": "ملاكمات وزن الذبابة سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الذبابة سوبر أولمبيون"
+    },
+    "olympic super heavyweight boxers": {
+        "job_males": "ملاكمو وزن ثقيل سوبر أولمبيون",
+        "job_females": "ملاكمات وزن ثقيل سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن ثقيل سوبر أولمبيون"
+    },
+    "olympic super middleweight boxers": {
+        "job_males": "ملاكمو وزن متوسط سوبر أولمبيون",
+        "job_females": "ملاكمات وزن متوسط سوبر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن متوسط سوبر أولمبيون"
+    },
+    "olympic table tennis players": {
+        "job_males": "لاعبو كرة طاولة أولمبيون",
+        "job_females": "لاعبات كرة طاولة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة طاولة أولمبيون"
+    },
+    "olympic taekwondo practitioners": {
+        "job_males": "لاعبو تايكوندو أولمبيون",
+        "job_females": "لاعبات تايكوندو أولمبيات",
+        "both_jobs": "لاعبو ولاعبات تايكوندو أولمبيون"
+    },
+    "olympic tennis players": {
+        "job_males": "لاعبو كرة مضرب أولمبيون",
+        "job_females": "لاعبات كرة مضرب أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة مضرب أولمبيون"
+    },
+    "olympic track and field athletes": {
+        "job_males": "رياضيو المسار والميدان أولمبيون",
+        "job_females": "رياضيات المسار والميدان أولمبيات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان أولمبيون"
+    },
+    "olympic track and field coaches": {
+        "job_males": "مدربو المسار والميدان أولمبيون",
+        "job_females": "مدربات المسار والميدان أولمبيات",
+        "both_jobs": "مدربو ومدربات المسار والميدان أولمبيون"
+    },
+    "olympic track-and-field athletes": {
+        "job_males": "رياضيو المسار والميدان أولمبيون",
+        "job_females": "رياضيات المسار والميدان أولمبيات",
+        "both_jobs": "رياضيو ورياضيات المسار والميدان أولمبيون"
+    },
+    "olympic triathletes": {
+        "job_males": "لاعبو ترياثلون أولمبيون",
+        "job_females": "لاعبات ترياثلون أولمبيات",
+        "both_jobs": "لاعبو ولاعبات ترياثلون أولمبيون"
+    },
+    "olympic triple jumpers": {
+        "job_males": "لاعبو وثب ثلاثي أولمبيون",
+        "job_females": "لاعبات وثب ثلاثي أولمبيات",
+        "both_jobs": "لاعبو ولاعبات وثب ثلاثي أولمبيون"
+    },
+    "olympic underwater divers": {
+        "job_males": "غطاسون تحت الماء أولمبيون",
+        "job_females": "غطاسات تحت الماء أولمبيات",
+        "both_jobs": "غطاسون وغطاسات تحت الماء أولمبيون"
+    },
+    "olympic volleyball coaches": {
+        "job_males": "مدربو كرة طائرة أولمبيون",
+        "job_females": "مدربات كرة طائرة أولمبيات",
+        "both_jobs": "مدربو ومدربات كرة طائرة أولمبيون"
+    },
+    "olympic volleyball players": {
+        "job_males": "لاعبو كرة طائرة أولمبيون",
+        "job_females": "لاعبات كرة طائرة أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة طائرة أولمبيون"
+    },
+    "olympic water polo coaches": {
+        "job_males": "مدربو كرة ماء أولمبيون",
+        "job_females": "مدربات كرة ماء أولمبيات",
+        "both_jobs": "مدربو ومدربات كرة ماء أولمبيون"
+    },
+    "olympic water polo players": {
+        "job_males": "لاعبو كرة ماء أولمبيون",
+        "job_females": "لاعبات كرة ماء أولمبيات",
+        "both_jobs": "لاعبو ولاعبات كرة ماء أولمبيون"
+    },
+    "olympic water skiers": {
+        "job_males": "متزلجون على الماء أولمبيون",
+        "job_females": "متزلجات على الماء أولمبيات",
+        "both_jobs": "متزلجون ومتزلجات على الماء أولمبيون"
+    },
+    "olympic welterweight boxers": {
+        "job_males": "ملاكمو وزن الويلتر أولمبيون",
+        "job_females": "ملاكمات وزن الويلتر أولمبيات",
+        "both_jobs": "ملاكمو وملاكمات وزن الويلتر أولمبيون"
+    },
+    "olympic wheelchair racers": {
+        "job_males": "متسابقو كراسي متحركة أولمبيون",
+        "job_females": "متسابقات كراسي متحركة أولمبيات",
+        "both_jobs": "متسابقو ومتسابقات كراسي متحركة أولمبيون"
+    },
+    "olympic world atomweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذرة أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذرة أولمبيون"
+    },
+    "olympic world bantamweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن بانتام أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن بانتام أولمبيون"
+    },
+    "olympic world cruiserweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الطراد أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الطراد أولمبيون"
+    },
+    "olympic world featherweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الريشة أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الريشة أولمبيون"
+    },
+    "olympic world flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذبابة أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذبابة أولمبيون"
+    },
+    "olympic world heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل أولمبيون"
+    },
+    "olympic world light flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ذبابة خفيف أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ذبابة خفيف أولمبيون"
+    },
+    "olympic world light heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل خفيف أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل خفيف أولمبيون"
+    },
+    "olympic world light middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن خفيف متوسط أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن خفيف متوسط أولمبيون"
+    },
+    "olympic world light welterweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن والتر خفيف أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن والتر خفيف أولمبيون"
+    },
+    "olympic world light-heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل خفيف أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل خفيف أولمبيون"
+    },
+    "olympic world lightweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن خفيف أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن خفيف أولمبيون"
+    },
+    "olympic world middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن متوسط أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن متوسط أولمبيون"
+    },
+    "olympic world pinweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذرة أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذرة أولمبيون"
+    },
+    "olympic world super bantamweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن البانتام سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن البانتام سوبر أولمبيون"
+    },
+    "olympic world super cruiserweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الطراد سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الطراد سوبر أولمبيون"
+    },
+    "olympic world super featherweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الريشة سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الريشة سوبر أولمبيون"
+    },
+    "olympic world super flyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الذبابة سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الذبابة سوبر أولمبيون"
+    },
+    "olympic world super heavyweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن ثقيل سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن ثقيل سوبر أولمبيون"
+    },
+    "olympic world super middleweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن متوسط سوبر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن متوسط سوبر أولمبيون"
+    },
+    "olympic world welterweight boxing champions": {
+        "job_males": "أبطال العالم للملاكمة فئة وزن الويلتر أولمبيون",
+        "job_females": " أولمبيات",
+        "both_jobs": "أبطال و العالم للملاكمة فئة وزن الويلتر أولمبيون"
+    },
+    "olympic wushu practitioners": {
+        "job_males": "ممارسو ووشو أولمبيون",
+        "job_females": "ممارسات ووشو أولمبيات",
+        "both_jobs": "ممارسو وممارسات ووشو أولمبيون"
+    },
+    "opinion journalists": {
+        "job_males": "صحفيون ذوو رأي",
+        "job_females": "صحفيات ذوات رأي",
+        "both_jobs": "صحفيون وصحفيات ذوو رأي"
+    },
+    "pair skaters": {
+        "job_males": "متزلجون فنيون على الجليد",
+        "job_females": "متزلجات فنيات على الجليد",
+        "both_jobs": "متزلجون ومتزلجات فنيون على الجليد"
+    },
+    "politicians who committed suicide": {
+        "job_males": "سياسيون أقدموا على الانتحار",
+        "job_females": "سياسيات أقدمن على الانتحار",
+        "both_jobs": "سياسيون وسياسيات أقدموا على الانتحار"
+    },
+    "postmasters general": {
+        "job_males": "مدراء مكاتب بريد عامة",
+        "job_females": "مديرات مكاتب بريد عام",
+        "both_jobs": "مدراء ومديرات مكاتب بريد عامة"
+    },
+    "postmasters-general": {
+        "job_males": "مدراء مكاتب بريد عامة",
+        "job_females": "مديرات مكاتب بريد عام",
+        "both_jobs": "مدراء ومديرات مكاتب بريد عامة"
+    },
+    "power forwards": {
+        "job_males": "مهاجمون أقوياء الجسم",
+        "job_females": "مهاجمات قويات الجسم",
+        "both_jobs": "مهاجمون ومهاجمات أقوياء الجسم"
+    },
+    "pro-choice activists": {
+        "job_males": "ناشطون مؤيدون للإجهاض",
+        "job_females": "ناشطات مؤيدات للإجهاض",
+        "both_jobs": "ناشطون وناشطات مؤيدون للإجهاض"
+    },
+    "professional bodybuilders": {
+        "job_males": "لاعبو كمال أجسام محترفون",
+        "job_females": "لاعبات كمال أجسام محترفات",
+        "both_jobs": "لاعبو ولاعبات كمال أجسام محترفون"
+    },
+    "professional bowlers": {
+        "job_males": "لاعبو بولينج محترفون",
+        "job_females": "لاعبات بولينج محترفات",
+        "both_jobs": "لاعبو ولاعبات بولينج محترفون"
+    },
+    "professional soccer coaches": {
+        "job_males": "مدربو كرة قدم محترفون",
+        "job_females": "مدربات كرة قدم محترفات",
+        "both_jobs": "مدربو ومدربات كرة قدم محترفون"
+    },
+    "protestant clergy": {
+        "job_males": "رجال دين بروتستانتيون",
+        "job_females": "سيدات دين بروتستانتيات",
+        "both_jobs": "رجال وسيدات دين بروتستانتيون"
+    },
+    "protestant religious leaders": {
+        "job_males": "قادة دينيون بروتستانتيون",
+        "job_females": "قائدات دينيات بروتستانتيات",
+        "both_jobs": "قادة وقائدات دينيون بروتستانتيون"
+    },
+    "religious clergy": {
+        "job_males": "رجال دين دينيون",
+        "job_females": "سيدات دين دينيات",
+        "both_jobs": "رجال وسيدات دين دينيون"
+    },
+    "religious religious leaders": {
+        "job_males": "قادة دينيون دينيون",
+        "job_females": "قائدات دينيات دينيات",
+        "both_jobs": "قادة وقائدات دينيون دينيون"
+    },
+    "rhythm and blues singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني ريذم أند بلوز",
+        "job_females": "مغنيات وكاتبات أغاني ريذم أند بلوز",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني ريذم أند بلوز"
+    },
+    "rugby league halfbacks": {
+        "job_males": "أظهرة مساعدون دوري رجبي",
+        "job_females": "ظهيرات مساعدات دوري رجبي",
+        "both_jobs": "أظهرة وظهيرات مساعدون دوري رجبي"
+    },
+    "rugby union halfbacks": {
+        "job_males": "أظهرة مساعدون اتحاد رجبي",
+        "job_females": "ظهيرات مساعدات اتحاد رجبي",
+        "both_jobs": "أظهرة وظهيرات مساعدون اتحاد رجبي"
+    },
+    "saints clergy": {
+        "job_males": "رجال دين قديسون",
+        "job_females": "سيدات دين قديسات",
+        "both_jobs": "رجال وسيدات دين قديسون"
+    },
+    "saints religious leaders": {
+        "job_males": "قادة دينيون قديسون",
+        "job_females": "قائدات دينيات قديسات",
+        "both_jobs": "قادة وقائدات دينيون قديسون"
+    },
+    "secret agents and spies": {
+        "job_males": "عملاء سريون وجواسيس",
+        "job_females": "عميلات سريات وجاسوسات",
+        "both_jobs": "عملاء وعميلات سريون وجواسيس"
+    },
+    "shi'a muslim activists": {
+        "job_males": "ناشطون مسلمون شيعة",
+        "job_females": "ناشطات مسلمات شيعيات",
+        "both_jobs": "ناشطون وناشطات مسلمون شيعة"
+    },
+    "shi'a muslim actors": {
+        "job_males": "ممثلون مسلمون شيعة",
+        "job_females": "ممثلات مسلمات شيعيات",
+        "both_jobs": "ممثلون وممثلات مسلمون شيعة"
+    },
+    "shi'a muslim astrologers": {
+        "job_males": "منجمون مسلمون شيعة",
+        "job_females": "منجمات مسلمات شيعيات",
+        "both_jobs": "منجمون ومنجمات مسلمون شيعة"
+    },
+    "shi'a muslim christians": {
+        "job_males": "مسيحيون مسلمون شيعة",
+        "job_females": "مسيحيات مسلمات شيعيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون شيعة"
+    },
+    "shi'a muslim clergy": {
+        "job_males": "رجال دين مسلمون شيعة",
+        "job_females": "سيدات دين مسلمات شيعيات",
+        "both_jobs": "رجال وسيدات دين مسلمون شيعة"
+    },
+    "shi'a muslim evangelical": {
+        "job_males": "إنجيليون مسلمون شيعة",
+        "job_females": "إنجيليات مسلمات شيعيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون شيعة"
+    },
+    "shi'a muslim leaders": {
+        "job_males": "قادة مسلمون شيعة",
+        "job_females": "قائدات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات مسلمون شيعة"
+    },
+    "shi'a muslim missionaries": {
+        "job_males": "مبشرون مسلمون شيعة",
+        "job_females": "مبشرات مسلمات شيعيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون شيعة"
+    },
+    "shi'a muslim monks": {
+        "job_males": "رهبان مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": "رهبان وراهبات مسلمون شيعة"
+    },
+    "shi'a muslim nuns": {
+        "job_males": " مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": " وراهبات مسلمون شيعة"
+    },
+    "shi'a muslim religious leaders": {
+        "job_males": "قادة دينيون مسلمون شيعة",
+        "job_females": "قائدات دينيات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون شيعة"
+    },
+    "shi'a muslim saints": {
+        "job_males": "قديسون مسلمون شيعة",
+        "job_females": "قديسات مسلمات شيعيات",
+        "both_jobs": "قديسون وقديسات مسلمون شيعة"
+    },
+    "shi'a muslim theologians": {
+        "job_males": "لاهوتيون مسلمون شيعة",
+        "job_females": "لاهوتيات مسلمات شيعيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون شيعة"
+    },
+    "shi'a muslim venerated": {
+        "job_males": "مبجلون مسلمون شيعة",
+        "job_females": "مبجلات مسلمات شيعيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون شيعة"
+    },
+    "shi'a muslims activists": {
+        "job_males": "ناشطون مسلمون شيعة",
+        "job_females": "ناشطات مسلمات شيعيات",
+        "both_jobs": "ناشطون وناشطات مسلمون شيعة"
+    },
+    "shi'a muslims actors": {
+        "job_males": "ممثلون مسلمون شيعة",
+        "job_females": "ممثلات مسلمات شيعيات",
+        "both_jobs": "ممثلون وممثلات مسلمون شيعة"
+    },
+    "shi'a muslims astrologers": {
+        "job_males": "منجمون مسلمون شيعة",
+        "job_females": "منجمات مسلمات شيعيات",
+        "both_jobs": "منجمون ومنجمات مسلمون شيعة"
+    },
+    "shi'a muslims christians": {
+        "job_males": "مسيحيون مسلمون شيعة",
+        "job_females": "مسيحيات مسلمات شيعيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون شيعة"
+    },
+    "shi'a muslims clergy": {
+        "job_males": "رجال دين مسلمون شيعة",
+        "job_females": "سيدات دين مسلمات شيعيات",
+        "both_jobs": "رجال وسيدات دين مسلمون شيعة"
+    },
+    "shi'a muslims evangelical": {
+        "job_males": "إنجيليون مسلمون شيعة",
+        "job_females": "إنجيليات مسلمات شيعيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون شيعة"
+    },
+    "shi'a muslims leaders": {
+        "job_males": "قادة مسلمون شيعة",
+        "job_females": "قائدات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات مسلمون شيعة"
+    },
+    "shi'a muslims missionaries": {
+        "job_males": "مبشرون مسلمون شيعة",
+        "job_females": "مبشرات مسلمات شيعيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون شيعة"
+    },
+    "shi'a muslims monks": {
+        "job_males": "رهبان مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": "رهبان وراهبات مسلمون شيعة"
+    },
+    "shi'a muslims nuns": {
+        "job_males": " مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": " وراهبات مسلمون شيعة"
+    },
+    "shi'a muslims religious leaders": {
+        "job_males": "قادة دينيون مسلمون شيعة",
+        "job_females": "قائدات دينيات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون شيعة"
+    },
+    "shi'a muslims saints": {
+        "job_males": "قديسون مسلمون شيعة",
+        "job_females": "قديسات مسلمات شيعيات",
+        "both_jobs": "قديسون وقديسات مسلمون شيعة"
+    },
+    "shi'a muslims theologians": {
+        "job_males": "لاهوتيون مسلمون شيعة",
+        "job_females": "لاهوتيات مسلمات شيعيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون شيعة"
+    },
+    "shi'a muslims venerated": {
+        "job_males": "مبجلون مسلمون شيعة",
+        "job_females": "مبجلات مسلمات شيعيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون شيعة"
+    },
+    "shia muslim activists": {
+        "job_males": "ناشطون مسلمون شيعة",
+        "job_females": "ناشطات مسلمات شيعيات",
+        "both_jobs": "ناشطون وناشطات مسلمون شيعة"
+    },
+    "shia muslim actors": {
+        "job_males": "ممثلون مسلمون شيعة",
+        "job_females": "ممثلات مسلمات شيعيات",
+        "both_jobs": "ممثلون وممثلات مسلمون شيعة"
+    },
+    "shia muslim astrologers": {
+        "job_males": "منجمون مسلمون شيعة",
+        "job_females": "منجمات مسلمات شيعيات",
+        "both_jobs": "منجمون ومنجمات مسلمون شيعة"
+    },
+    "shia muslim christians": {
+        "job_males": "مسيحيون مسلمون شيعة",
+        "job_females": "مسيحيات مسلمات شيعيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون شيعة"
+    },
+    "shia muslim clergy": {
+        "job_males": "رجال دين مسلمون شيعة",
+        "job_females": "سيدات دين مسلمات شيعيات",
+        "both_jobs": "رجال وسيدات دين مسلمون شيعة"
+    },
+    "shia muslim evangelical": {
+        "job_males": "إنجيليون مسلمون شيعة",
+        "job_females": "إنجيليات مسلمات شيعيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون شيعة"
+    },
+    "shia muslim leaders": {
+        "job_males": "قادة مسلمون شيعة",
+        "job_females": "قائدات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات مسلمون شيعة"
+    },
+    "shia muslim missionaries": {
+        "job_males": "مبشرون مسلمون شيعة",
+        "job_females": "مبشرات مسلمات شيعيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون شيعة"
+    },
+    "shia muslim monks": {
+        "job_males": "رهبان مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": "رهبان وراهبات مسلمون شيعة"
+    },
+    "shia muslim nuns": {
+        "job_males": " مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": " وراهبات مسلمون شيعة"
+    },
+    "shia muslim religious leaders": {
+        "job_males": "قادة دينيون مسلمون شيعة",
+        "job_females": "قائدات دينيات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون شيعة"
+    },
+    "shia muslim saints": {
+        "job_males": "قديسون مسلمون شيعة",
+        "job_females": "قديسات مسلمات شيعيات",
+        "both_jobs": "قديسون وقديسات مسلمون شيعة"
+    },
+    "shia muslim theologians": {
+        "job_males": "لاهوتيون مسلمون شيعة",
+        "job_females": "لاهوتيات مسلمات شيعيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون شيعة"
+    },
+    "shia muslim venerated": {
+        "job_males": "مبجلون مسلمون شيعة",
+        "job_females": "مبجلات مسلمات شيعيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون شيعة"
+    },
+    "shia muslims activists": {
+        "job_males": "ناشطون مسلمون شيعة",
+        "job_females": "ناشطات مسلمات شيعيات",
+        "both_jobs": "ناشطون وناشطات مسلمون شيعة"
+    },
+    "shia muslims actors": {
+        "job_males": "ممثلون مسلمون شيعة",
+        "job_females": "ممثلات مسلمات شيعيات",
+        "both_jobs": "ممثلون وممثلات مسلمون شيعة"
+    },
+    "shia muslims astrologers": {
+        "job_males": "منجمون مسلمون شيعة",
+        "job_females": "منجمات مسلمات شيعيات",
+        "both_jobs": "منجمون ومنجمات مسلمون شيعة"
+    },
+    "shia muslims christians": {
+        "job_males": "مسيحيون مسلمون شيعة",
+        "job_females": "مسيحيات مسلمات شيعيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون شيعة"
+    },
+    "shia muslims clergy": {
+        "job_males": "رجال دين مسلمون شيعة",
+        "job_females": "سيدات دين مسلمات شيعيات",
+        "both_jobs": "رجال وسيدات دين مسلمون شيعة"
+    },
+    "shia muslims evangelical": {
+        "job_males": "إنجيليون مسلمون شيعة",
+        "job_females": "إنجيليات مسلمات شيعيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون شيعة"
+    },
+    "shia muslims leaders": {
+        "job_males": "قادة مسلمون شيعة",
+        "job_females": "قائدات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات مسلمون شيعة"
+    },
+    "shia muslims missionaries": {
+        "job_males": "مبشرون مسلمون شيعة",
+        "job_females": "مبشرات مسلمات شيعيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون شيعة"
+    },
+    "shia muslims monks": {
+        "job_males": "رهبان مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": "رهبان وراهبات مسلمون شيعة"
+    },
+    "shia muslims nuns": {
+        "job_males": " مسلمون شيعة",
+        "job_females": "راهبات مسلمات شيعيات",
+        "both_jobs": " وراهبات مسلمون شيعة"
+    },
+    "shia muslims religious leaders": {
+        "job_males": "قادة دينيون مسلمون شيعة",
+        "job_females": "قائدات دينيات مسلمات شيعيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون شيعة"
+    },
+    "shia muslims saints": {
+        "job_males": "قديسون مسلمون شيعة",
+        "job_females": "قديسات مسلمات شيعيات",
+        "both_jobs": "قديسون وقديسات مسلمون شيعة"
+    },
+    "shia muslims theologians": {
+        "job_males": "لاهوتيون مسلمون شيعة",
+        "job_females": "لاهوتيات مسلمات شيعيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون شيعة"
+    },
+    "shia muslims venerated": {
+        "job_males": "مبجلون مسلمون شيعة",
+        "job_females": "مبجلات مسلمات شيعيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون شيعة"
+    },
+    "singer-songwriters": {
+        "job_males": "مغنون وكتاب أغاني",
+        "job_females": "مغنيات وكاتبات أغاني",
+        "both_jobs": "مغنون ومغنيات وكتاب أغاني"
+    },
+    "small forwards": {
+        "job_males": "مهاجمون صغيرو الجسم",
+        "job_females": "مهاجمات صغيرات الجسم",
+        "both_jobs": "مهاجمون ومهاجمات صغيرو الجسم"
+    },
+    "sports award winners": {
+        "job_males": "حائزو جوائز رياضيون",
+        "job_females": "حائزات جوائز رياضيات",
+        "both_jobs": "حائزو وحائزات جوائز رياضيون"
+    },
+    "sports businesspeople": {
+        "job_males": "شخصيات أعمال رياضيون",
+        "job_females": "سيدات أعمال رياضيات",
+        "both_jobs": "شخصيات وسيدات أعمال رياضيون"
+    },
+    "sports cartoonists": {
+        "job_males": "رسامو كارتون رياضيون",
+        "job_females": "رسامات كارتون رياضيات",
+        "both_jobs": "رسامو ورسامات كارتون رياضيون"
+    },
+    "sports comics artists": {
+        "job_males": "فنانو قصص مصورة رياضيون",
+        "job_females": "فنانات قصص مصورة رياضيات",
+        "both_jobs": "فنانو وفنانات قصص مصورة رياضيون"
+    },
+    "sports labor leaders": {
+        "job_males": "قيادات عمالية رياضيون",
+        "job_females": " رياضيات",
+        "both_jobs": "قيادات و عمالية رياضيون"
+    },
+    "sports physiotherapists": {
+        "job_males": "أخصائيو علاج طبيعي رياضيون",
+        "job_females": "أخصائيات علاج طبيعي رياضيات",
+        "both_jobs": "أخصائيو وأخصائيات علاج طبيعي رياضيون"
+    },
+    "sports youtubers": {
+        "job_males": "مشاهير يوتيوب رياضيون",
+        "job_females": " رياضيات",
+        "both_jobs": "مشاهير و يوتيوب رياضيون"
+    },
+    "sufis clergy": {
+        "job_males": "رجال دين صوفيون",
+        "job_females": "سيدات دين صوفيات",
+        "both_jobs": "رجال وسيدات دين صوفيون"
+    },
+    "sufis religious leaders": {
+        "job_males": "قادة دينيون صوفيون",
+        "job_females": "قائدات دينيات صوفيات",
+        "both_jobs": "قادة وقائدات دينيون صوفيون"
+    },
+    "sunni muslim activists": {
+        "job_males": "ناشطون مسلمون سنة",
+        "job_females": "ناشطات مسلمات سنيات",
+        "both_jobs": "ناشطون وناشطات مسلمون سنة"
+    },
+    "sunni muslim actors": {
+        "job_males": "ممثلون مسلمون سنة",
+        "job_females": "ممثلات مسلمات سنيات",
+        "both_jobs": "ممثلون وممثلات مسلمون سنة"
+    },
+    "sunni muslim astrologers": {
+        "job_males": "منجمون مسلمون سنة",
+        "job_females": "منجمات مسلمات سنيات",
+        "both_jobs": "منجمون ومنجمات مسلمون سنة"
+    },
+    "sunni muslim christians": {
+        "job_males": "مسيحيون مسلمون سنة",
+        "job_females": "مسيحيات مسلمات سنيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون سنة"
+    },
+    "sunni muslim clergy": {
+        "job_males": "رجال دين مسلمون سنة",
+        "job_females": "سيدات دين مسلمات سنيات",
+        "both_jobs": "رجال وسيدات دين مسلمون سنة"
+    },
+    "sunni muslim evangelical": {
+        "job_males": "إنجيليون مسلمون سنة",
+        "job_females": "إنجيليات مسلمات سنيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون سنة"
+    },
+    "sunni muslim leaders": {
+        "job_males": "قادة مسلمون سنة",
+        "job_females": "قائدات مسلمات سنيات",
+        "both_jobs": "قادة وقائدات مسلمون سنة"
+    },
+    "sunni muslim missionaries": {
+        "job_males": "مبشرون مسلمون سنة",
+        "job_females": "مبشرات مسلمات سنيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون سنة"
+    },
+    "sunni muslim monks": {
+        "job_males": "رهبان مسلمون سنة",
+        "job_females": "راهبات مسلمات سنيات",
+        "both_jobs": "رهبان وراهبات مسلمون سنة"
+    },
+    "sunni muslim nuns": {
+        "job_males": " مسلمون سنة",
+        "job_females": "راهبات مسلمات سنيات",
+        "both_jobs": " وراهبات مسلمون سنة"
+    },
+    "sunni muslim religious leaders": {
+        "job_males": "قادة دينيون مسلمون سنة",
+        "job_females": "قائدات دينيات مسلمات سنيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون سنة"
+    },
+    "sunni muslim saints": {
+        "job_males": "قديسون مسلمون سنة",
+        "job_females": "قديسات مسلمات سنيات",
+        "both_jobs": "قديسون وقديسات مسلمون سنة"
+    },
+    "sunni muslim theologians": {
+        "job_males": "لاهوتيون مسلمون سنة",
+        "job_females": "لاهوتيات مسلمات سنيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون سنة"
+    },
+    "sunni muslim venerated": {
+        "job_males": "مبجلون مسلمون سنة",
+        "job_females": "مبجلات مسلمات سنيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون سنة"
+    },
+    "sunni muslims activists": {
+        "job_males": "ناشطون مسلمون سنة",
+        "job_females": "ناشطات مسلمات سنيات",
+        "both_jobs": "ناشطون وناشطات مسلمون سنة"
+    },
+    "sunni muslims actors": {
+        "job_males": "ممثلون مسلمون سنة",
+        "job_females": "ممثلات مسلمات سنيات",
+        "both_jobs": "ممثلون وممثلات مسلمون سنة"
+    },
+    "sunni muslims astrologers": {
+        "job_males": "منجمون مسلمون سنة",
+        "job_females": "منجمات مسلمات سنيات",
+        "both_jobs": "منجمون ومنجمات مسلمون سنة"
+    },
+    "sunni muslims christians": {
+        "job_males": "مسيحيون مسلمون سنة",
+        "job_females": "مسيحيات مسلمات سنيات",
+        "both_jobs": "مسيحيون ومسيحيات مسلمون سنة"
+    },
+    "sunni muslims clergy": {
+        "job_males": "رجال دين مسلمون سنة",
+        "job_females": "سيدات دين مسلمات سنيات",
+        "both_jobs": "رجال وسيدات دين مسلمون سنة"
+    },
+    "sunni muslims evangelical": {
+        "job_males": "إنجيليون مسلمون سنة",
+        "job_females": "إنجيليات مسلمات سنيات",
+        "both_jobs": "إنجيليون وإنجيليات مسلمون سنة"
+    },
+    "sunni muslims leaders": {
+        "job_males": "قادة مسلمون سنة",
+        "job_females": "قائدات مسلمات سنيات",
+        "both_jobs": "قادة وقائدات مسلمون سنة"
+    },
+    "sunni muslims missionaries": {
+        "job_males": "مبشرون مسلمون سنة",
+        "job_females": "مبشرات مسلمات سنيات",
+        "both_jobs": "مبشرون ومبشرات مسلمون سنة"
+    },
+    "sunni muslims monks": {
+        "job_males": "رهبان مسلمون سنة",
+        "job_females": "راهبات مسلمات سنيات",
+        "both_jobs": "رهبان وراهبات مسلمون سنة"
+    },
+    "sunni muslims nuns": {
+        "job_males": " مسلمون سنة",
+        "job_females": "راهبات مسلمات سنيات",
+        "both_jobs": " وراهبات مسلمون سنة"
+    },
+    "sunni muslims religious leaders": {
+        "job_males": "قادة دينيون مسلمون سنة",
+        "job_females": "قائدات دينيات مسلمات سنيات",
+        "both_jobs": "قادة وقائدات دينيون مسلمون سنة"
+    },
+    "sunni muslims saints": {
+        "job_males": "قديسون مسلمون سنة",
+        "job_females": "قديسات مسلمات سنيات",
+        "both_jobs": "قديسون وقديسات مسلمون سنة"
+    },
+    "sunni muslims theologians": {
+        "job_males": "لاهوتيون مسلمون سنة",
+        "job_females": "لاهوتيات مسلمات سنيات",
+        "both_jobs": "لاهوتيون ولاهوتيات مسلمون سنة"
+    },
+    "sunni muslims venerated": {
+        "job_males": "مبجلون مسلمون سنة",
+        "job_females": "مبجلات مسلمات سنيات",
+        "both_jobs": "مبجلون ومبجلات مسلمون سنة"
+    },
+    "technology chief executives": {
+        "job_males": "رؤساء تنفيذيون تقنيون",
+        "job_females": "رئيسات تنفيذيات تقنيات",
+        "both_jobs": "رؤساء ورئيسات تنفيذيون تقنيون"
+    },
+    "venerated clergy": {
+        "job_males": "رجال دين مبجلون",
+        "job_females": "سيدات دين مبجلات",
+        "both_jobs": "رجال وسيدات دين مبجلون"
+    },
+    "venerated religious leaders": {
+        "job_males": "قادة دينيون مبجلون",
+        "job_females": "قائدات دينيات مبجلات",
+        "both_jobs": "قادة وقائدات دينيون مبجلون"
+    },
+    "white-collar criminals": {
+        "job_males": "مجرمون ذوي ياقات بيضاء",
+        "job_females": "مجرمات ذوات ياقات بيضاء",
+        "both_jobs": "مجرمون ومجرمات ذوي ياقات بيضاء"
+    },
+    "yazidis clergy": {
+        "job_males": "رجال دين يزيديون",
+        "job_females": "سيدات دين يزيديات",
+        "both_jobs": "رجال وسيدات دين يزيديون"
+    },
+    "yazidis religious leaders": {
+        "job_males": "قادة دينيون يزيديون",
+        "job_females": "قائدات دينيات يزيديات",
+        "both_jobs": "قادة وقائدات دينيون يزيديون"
+    },
+    "zaydi clergy": {
+        "job_males": "رجال دين زيود",
+        "job_females": "سيدات دين زيديات",
+        "both_jobs": "رجال وسيدات دين زيود"
+    },
+    "zaydi religious leaders": {
+        "job_males": "قادة دينيون زيود",
+        "job_females": "قائدات دينيات زيديات",
+        "both_jobs": "قادة وقائدات دينيون زيود"
+    },
+    "zaydis clergy": {
+        "job_males": "رجال دين زيود",
+        "job_females": "سيدات دين زيديات",
+        "both_jobs": "رجال وسيدات دين زيود"
+    },
+    "zaydis religious leaders": {
+        "job_males": "قادة دينيون زيود",
+        "job_females": "قائدات دينيات زيديات",
+        "both_jobs": "قادة وقائدات دينيون زيود"
+    }
+}

@@ -1,4 +1,15 @@
 
+## [#301](https://github.com/MrIbrahem/ArWikiCats/pull/301) - 2026-01-04
+
+* **New Features**
+  * Added comprehensive support for classical composers and musicians categories with improved Arabic translations.
+
+* **Bug Fixes**
+  * Corrected Arabic translations for multiple category labels across sports, jobs, regional classifications, and geophysics.
+
+* **Tests**
+  * Expanded test coverage with new parametrized test suites for validating category translations and label resolution accuracy.
+
 ## [#300](https://github.com/MrIbrahem/ArWikiCats/pull/300) - 2026-01-04
 
 * **New Features**
