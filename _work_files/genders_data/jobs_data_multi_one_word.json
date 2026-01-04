@@ -825,9 +825,9 @@
         "both_jobs": "إسماعيليون وإسماعيليات"
     },
     "jesuits": {
-        "job_males": "مبتكرون",
-        "job_females": "مبتكرات",
-        "both_jobs": "مبتكرون ومبتكرات"
+        "job_males": "يسوعيون",
+        "job_females": "يسوعيات",
+        "both_jobs": "يسوعيون ويسوعيات"
     },
     "jewish": {
         "job_males": "يهود",
