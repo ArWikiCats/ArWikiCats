@@ -1,4 +1,15 @@
 
+## [#304](https://github.com/MrIbrahem/ArWikiCats/pull/304) - 2026-01-05
+
+* **New Features**
+  * Added comprehensive film and novel translation reference files and an enhanced films category lookup.
+
+* **Bug Fixes**
+  * Standardized Arabic transliterations for Oregon across geography, cities, institutions, and category labels.
+
+* **Chores**
+  * Updated test data and example datasets to reflect corrected translations and removed/added example categories.
+
 ## [#301](https://github.com/MrIbrahem/ArWikiCats/pull/301) - 2026-01-04
 
 * **New Features**
