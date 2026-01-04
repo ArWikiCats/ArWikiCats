@@ -675,7 +675,7 @@ data1 = {
     "category:non-profit organizations based in ohio": "تصنيف:منظمات غير ربحية مقرها في أوهايو",
     "category:non-profit organizations based in oklahoma": "تصنيف:منظمات غير ربحية مقرها في أوكلاهوما",
     "category:non-profit organizations based in ontario": "تصنيف:منظمات غير ربحية مقرها في أونتاريو",
-    "category:non-profit organizations based in oregon": "تصنيف:منظمات غير ربحية مقرها في أوريغون",
+    "category:non-profit organizations based in oregon": "تصنيف:منظمات غير ربحية مقرها في أوريغن",
     "category:non-profit organizations based in ottawa": "تصنيف:منظمات غير ربحية مقرها في أوتاوا",
     "category:non-profit organizations based in palestine": "تصنيف:منظمات غير ربحية مقرها في فلسطين",
     "category:non-profit organizations based in panama": "تصنيف:منظمات غير ربحية مقرها في بنما",

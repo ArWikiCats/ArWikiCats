@@ -59,7 +59,7 @@ US_STATES = {
     "north dakota": "داكوتا الشمالية",
     "ohio": "أوهايو",
     "oklahoma": "أوكلاهوما",
-    "oregon": "أوريغون",
+    "oregon": "أوريغن",
     "pennsylvania": "بنسلفانيا",
     "rhode island": "رود آيلاند",
     "south carolina": "كارولاينا الجنوبية",
