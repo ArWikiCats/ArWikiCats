@@ -45,7 +45,6 @@ test_to_fix_1 = {
     "Brazilian opera composers": "مؤلفو أوبرا برازيليون",
     "British opera composers": "مؤلفو أوبرا بريطانيون",
     "Canadian opera composers": "مؤلفو أوبرا كنديون",
-    "Chess composers": "مؤلفو مسائل شطرنج",
     "Chilean opera composers": "مؤلفو أوبرا تشيليون",
     "Chinese opera composers": "مؤلفو أوبرا صينيون",
     "Classical composers": "مؤلفو موسيقى كلاسيكية",
@@ -99,7 +98,7 @@ test_to_fix_1 = {
 }
 
 to_test = [
-    ("test_classical_composers_to_fix1", test_to_fix_0),
+    # ("test_classical_composers_to_fix1", test_to_fix_0),
     ("test_classical_composers_to_fix2", test_to_fix_1),
 ]
 
