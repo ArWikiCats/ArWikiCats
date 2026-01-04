@@ -8,6 +8,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 fast_data_with_nats = {
+    "northern ireland": "",
+    "2020 northern ireland": "",
     "2020 Australian children's animated superhero film characters" : "شخصيات أفلام رسوم متحركة أبطال خارقين أسترالية للأطفال في 2020",
     "20th-century supernatural thriller films" : "أفلام إثارة خارقة للطبيعة في القرن 20",
     "20th-century american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية في القرن 20",

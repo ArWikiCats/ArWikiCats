@@ -8,6 +8,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 fast_data_with_nats = {
+    "northern ireland": "",
     "supernatural thriller films" : "أفلام إثارة خارقة للطبيعة",
     "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
     "american drama television series": "مسلسلات تلفزيونية درامية أمريكية",
@@ -50,7 +51,6 @@ fast_data_no_nats = {
     "action student films": "أفلام حركة طلاب",
     "action submarines films": "أفلام حركة غواصات",
     "action super robot films": "أفلام حركة آلية خارقة",
-    "action superhero films": "أفلام حركة أبطال خارقين",
     "action supernatural films": "أفلام حركة خارقة للطبيعة",
     "action supernatural drama films": "أفلام حركة دراما خارقة للطبيعة",
     "action survival films": "أفلام حركة البقاء على قيد الحياة",
