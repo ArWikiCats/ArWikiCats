@@ -7,7 +7,7 @@ import re
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import jobs_resolver, sports_resolver
+from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import genders_jobs_resolver, genders_sports_resolver
 
 test_sport_bot_data = {
     "footballers": "لاعبو ولاعبات كرة قدم",
@@ -30,7 +30,7 @@ test_sport_bot_data = {
 @pytest.mark.parametrize("category, expected", test_sport_bot_data.items(), ids=test_sport_bot_data.keys())
 @pytest.mark.fast
 def test_sport_bot(category: str, expected: str) -> None:
-    label = sports_resolver(category)
+    label = genders_sports_resolver(category)
     assert label == expected
 
 
@@ -63,5 +63,5 @@ test_job_bot_data = {
 @pytest.mark.parametrize("category, expected", test_job_bot_data.items(), ids=test_job_bot_data.keys())
 @pytest.mark.fast
 def test_job_bot(category: str, expected: str) -> None:
-    label = jobs_resolver(category)
+    label = genders_jobs_resolver(category)
     assert label == expected
