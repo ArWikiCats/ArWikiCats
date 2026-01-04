@@ -141,24 +141,25 @@ data_to_fix2 = {
 }
 
 data_to_fix3 = {
-    "American children's animated superhero films": "أفلام رسوم متحركة أطفال أبطال خارقين أمريكية",
-    "American children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين أمريكية",
-    "Australian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين أسترالية",
-    "British children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين بريطانية",
-    "Canadian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين كندية",
-    "Danish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين دنماركية",
-    "French children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين فرنسية",
-    "Italian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين إيطالية",
-    "Japanese children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين يابانية",
-    "South Korean children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين كورية جنوبية",
-    "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أطفال أبطال خارقين إسبانية",
+    "American children's animated superhero films": "أفلام رسوم متحركة أبطال خارقين أمريكية للأطفال",
+    "American children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين أمريكية للأطفال",
+    "Australian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين أسترالية للأطفال",
+    "British children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين بريطانية للأطفال",
+    "Canadian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين كندية للأطفال",
+    "Danish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين دنماركية للأطفال",
+    "French children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين فرنسية للأطفال",
+    "Italian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إيطالية للأطفال",
+    "Japanese children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين يابانية للأطفال",
+    "South Korean children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين كورية جنوبية للأطفال",
+    "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إسبانية للأطفال"
 }
 
 to_test = [
     # ("test_superhero_data_1", data_2),
     # ("test_superhero_data_3", data_3),
-    ("test_superhero_data_to_fix1", data_0, resolve_label_ar),
+    # ("test_superhero_data_to_fix1", data_0, resolve_label_ar),
     ("test_superhero_data_to_fix2", data_to_fix2, get_films_key_tyty_new_and_time),
+    ("test_superhero_data_to_fix3", data_to_fix3, get_films_key_tyty_new_and_time),
 ]
 
 
