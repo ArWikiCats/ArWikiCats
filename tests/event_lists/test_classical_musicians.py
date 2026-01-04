@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
 
 from ArWikiCats import resolve_label_ar
 
@@ -204,6 +204,7 @@ test_c_musicians_3 = {
     "Welsh classical musicians by instrument": "موسيقيون كلاسيكيون ويلزيون حسب الآلة",
     "Welsh classical musicians": "موسيقيون كلاسيكيون ويلزيون"
 }
+
 test_c_musicians_4 = {
     "18th-century British classical musicians": "موسيقيو كلاسيكية بريطانيون في القرن 18",
     "18th-century Irish classical musicians": "موسيقيو كلاسيكية أيرلنديون في القرن 18",
@@ -303,5 +304,6 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name, True)
+    dump_diff_text(expected, diff_result, name)
+    # dump_same_and_not_same(data, diff_result, name, True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
