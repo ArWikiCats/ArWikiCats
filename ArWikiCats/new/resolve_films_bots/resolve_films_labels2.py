@@ -51,6 +51,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     # Genre-based categories
     genre_categories = {
+        # "fiction": "خيال",
+
         "webcomics": "ويب كومكس",
         "anime and manga": "أنمي ومانغا",
         "compilation albums": "ألبومات تجميعية",
@@ -71,9 +73,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "films": "أفلام",
         "comic strips": "شرائط كومكس",
         "comics": "قصص مصورة",
-        "fiction": "خيال",
-        "film characters": "شخصيات أفلام",
-        "games": "ألعاب",
         "television shows": "عروض تلفزيونية",
         "television films": "أفلام تلفزيونية",
         "teams": "فرق",
@@ -81,6 +80,14 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "video games": "ألعاب فيديو",
         "web series": "مسلسلات ويب",
 
+        "film characters": "شخصيات أفلام",
+        "games": "ألعاب",
+
+    }
+
+    genre_categories_skip_it = {
+        "film characters",
+        "games",
     }
 
     # Standard categories
@@ -94,10 +101,16 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
                 f"animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية",
             }
         )
+
+        # NOTE: we use genre_categories_skip_it because next line makes errors like:
+        # "Category:Golf at 2022 Asian Games": "تصنيف:الغولف في ألعاب آسيوية في 2022",
+        if not genre_categories_skip_it.get(suffix):
+            data[f"{{nat_en}} {suffix}"] = f"{arabic_base} {{nat_ar}}"
+
         data.update(
             {
-                f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
+
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
 
                 f"{{nat_en}} children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية {{nat_ar}} للأطفال",
