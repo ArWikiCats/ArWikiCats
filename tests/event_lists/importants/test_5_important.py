@@ -51,7 +51,7 @@ data_empty = {
 }
 
 data0 = {
-    "chess composers": "مؤلفو مسائل شطرنج",
+    "Category:chess composers": "تصنيف:مؤلفو مسائل شطرنج",
     "Category:cultural depictions of Canadian activists": "تصنيف:تصوير ثقافي عن ناشطون كنديون",
     "Category:Assassinated Canadian activists": "تصنيف:ناشطون كنديون مغتالون",
     "Category:Assassinated Guatemalan diplomats": "تصنيف:دبلوماسيون غواتيماليون مغتالون",

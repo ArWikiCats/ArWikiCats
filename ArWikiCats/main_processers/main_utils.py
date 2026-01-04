@@ -15,7 +15,7 @@ def list_of_cat_func_new(category_r: str, category_lab: str, list_of_cat: str) -
 
     logger.info(f"<<lightblue>> list_of_cat_func_new {category_lab=}, {list_of_cat=}, {list_of_cat_x=}")
 
-    if not category_lab.startswith(list_of_cat_x):
+    if not category_lab.startswith(list_of_cat_x) or list_of_cat_x == "":
         category_lab = list_of_cat.format(category_lab)
 
     logger.info(f"<<lightblue>> list_of_cat_func_new add {category_lab=}, {category_lab_or=}, {category_r=} ")
