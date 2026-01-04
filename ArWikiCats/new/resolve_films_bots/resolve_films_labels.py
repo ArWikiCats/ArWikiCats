@@ -96,7 +96,9 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         )
         data.update(
             {
-                f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
+                # NOTE: next line makes errors like:
+                # "Category:Golf at 2022 Asian Games": "تصنيف:الغولف في ألعاب آسيوية في 2022",
+                # f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
 
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
