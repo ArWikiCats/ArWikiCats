@@ -113,7 +113,7 @@ female_data = {
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
-    "{en} non-fiction comic strips": "شرائط مصورة {female} غير خيالية",
+    "{en} non-fiction comic strips": "شرائط كومكس {female} غير خيالية",
     "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
     "{en} non-fiction comics": "قصص مصورة {female} غير خيالية",
     "{en} non-fiction crime": "جريمة {female} غير خيالية",

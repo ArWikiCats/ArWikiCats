@@ -128,7 +128,7 @@ data_list = [
     ("clubhouses on the-national-register-of-historic-places", " on ", "نوادي في السجل الوطني للأماكن التاريخية"),
     ("clubs and societies of university of sheffield", " of ", "أندية وجمعيات في جامعة شفيلد"),
     ("comedy by medium", " by ", "كوميديا حسب الوسط"),
-    ("comic strips by date", " by ", "شرائط مصورة حسب التاريخ"),
+    ("comic strips by date", " by ", "شرائط كومكس حسب التاريخ"),
     ("comics images from india", " from ", "صور قصص مصورة من الهند"),
     ("communes of saïda province", " of ", "بلديات ولاية سعيدة"),
     ("communists executed by nazi germany", " executed by ", "شيوعيون أعدموا من قبل ألمانيا النازية"),
