@@ -13,11 +13,11 @@ def new_resolvers_all(category: str) -> str:
         # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
         # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
         resolve_jobs_main(category)
-        or get_films_key_tyty_new_and_time(category)
         or resolve_v3i_main(category)
         or resolve_sports_main(category)
         or resolve_nationalities_main(category)
         or resolve_countries_names_main(category)
+        or get_films_key_tyty_new_and_time(category)
         or ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")
