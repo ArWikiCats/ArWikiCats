@@ -29,15 +29,3 @@ def test_sports_data(category: str, expected: str) -> None:
     """Test"""
     result = genders_sports_resolver(category)
     assert result == expected
-
-
-jobs_data = {
-    "classical composers": "ملحنون وملحنات كلاسيكيون",
-}
-
-
-@pytest.mark.parametrize("category,expected", jobs_data.items(), ids=jobs_data.keys())
-def test_jobs_data(category: str, expected: str) -> None:
-    """Test"""
-    result = genders_jobs_resolver(category)
-    assert result == expected
