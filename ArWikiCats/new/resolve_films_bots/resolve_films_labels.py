@@ -87,6 +87,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
+                f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة خارقة للأطفال",
                 # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
                 # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
                 # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
@@ -96,6 +97,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
             {
                 f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
+
+                f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة خارقة {{nat_ar}} للأطفال",
 
                 # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
                 # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
@@ -188,6 +191,21 @@ def _make_bot() -> MultiDataFormatterBase:
     return bot
 
 
+def fix_keys(category: str) -> str:
+    """Fix known issues in category keys."""
+    normalized_text = category.lower().replace("category:", " ").strip()
+    fixes = {
+        "saudi arabian": "saudiarabian",
+        "children's animated superhero": "children's-animated-superhero",
+    }
+    category = category.lower().strip()
+
+    for old, new in fixes.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 @functools.lru_cache(maxsize=None)
 def get_films_key_tyty_new(text: str) -> str:
     """
@@ -197,7 +215,7 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
-    normalized_text = text.lower().replace("category:", " ").strip()
+    normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
 

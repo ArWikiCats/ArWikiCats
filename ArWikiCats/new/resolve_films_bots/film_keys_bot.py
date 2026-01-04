@@ -22,6 +22,7 @@ from ...translations import (
     television_keys,
 )
 from .resolve_films_labels import get_films_key_tyty_new
+from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 
 @functools.lru_cache(maxsize=None)
@@ -81,6 +82,7 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
         country_label = (
             Films_key_CAO.get(category_without_nat)
             or get_Films_key_CAO(category_without_nat)
+            or get_films_key_tyty_new_and_time(category_without_nat)
             or get_films_key_tyty_new(category_without_nat)
             or ""
         )
