@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -17,51 +17,42 @@ data_virginia2_1 = {
 }
 
 data_virginia2_3 = {
-    "Category:19th-century West Virginia state court judges": "تصنيف:قضاة محكمة ولاية فرجينيا الغربية القرن 19",
-    "Category:20th-century West Virginia state court judges": "تصنيف:قضاة محكمة ولاية فرجينيا الغربية القرن 20",
-    "Category:21st century in Virginia": "تصنيف:سنوات القرن 21 في فرجينيا",
-    "Category:Actors from Alexandria, Virginia": "تصنيف:ممثلون وممثلات من الإسكندرية (فرجينيا)",
-    "Category:Adaptations of works by Virginia Woolf": "تصنيف:تكييفات أعمال فرجينيا وولف",
-    "Category:African-American people in West Virginia politics": "تصنيف:أعلام أمريكيون أفارقة في سياسة فرجينيا الغربية",
-    "Category:Alumni by university or college in Virginia": "تصنيف:خريجون حسب الكلية أو الجامعة في فرجينيا",
-    "Category:Architecture in West Virginia": "تصنيف:عمارة في فرجينيا الغربية",
-    "Category:Buildings and structures in Pocahontas County, West Virginia": "تصنيف:مبان ومنشآت في مقاطعة بوكاهونتس، فرجينيا الغربية",
+    "Category:Faculty by university or college in Virginia": "تصنيف:هيئة تدريس حسب الجامعة أو الكلية في فرجينيا",
+    "Category:Faculty by university or college in West Virginia": "تصنيف:هيئة تدريس حسب الجامعة أو الكلية في فرجينيا الغربية",
+    "Category:19th-century West Virginia state court judges": "تصنيف:قضاة محكمة ولاية فرجينيا الغربية في القرن 19",
+    "Category:20th-century West Virginia state court judges": "تصنيف:قضاة محكمة ولاية فرجينيا الغربية في القرن 20",
+    "Category:21st century in Virginia": "تصنيف:فرجينيا في القرن 21",
+    "Category:Adaptations of works by Virginia Woolf": "تصنيف:أعمال مقتبسة عن أعمال فرجينيا وولف",
+    "Category:African-American people in West Virginia politics": "تصنيف:أمريكيون أفارقة في سياسة فرجينيا الغربية",
+    "Category:Alumni by university or college in Virginia": "تصنيف:خريجون حسب الجامعة أو الكلية في فرجينيا",
+    "Category:Architecture in West Virginia": "تصنيف:هندسة معمارية في فرجينيا الغربية",
+    "Category:Coaches of American football from West Virginia": "تصنيف:مدربو كرة قدم أمريكية من فرجينيا الغربية",
+    "Category:Demographics of Virginia": "تصنيف:التركيبة السكانية في فرجينيا",
+    "Category:Education in Williamsburg, Virginia": "تصنيف:التعليم في ويليامزبرغ (فرجينيا)",
+    "Category:Jews from West Virginia": "تصنيف:يهود من فرجينيا الغربية",
+    "Category:Mayors of Williamsburg, Virginia": "تصنيف:عمدات ويليامزبرغ (فرجينيا)",
+    "Category:Motorsport in West Virginia": "تصنيف:رياضة محركات في فرجينيا الغربية",
+    "Category:Musicians from West Virginia by populated place": "تصنيف:موسيقيون من فرجينيا الغربية حسب المكان المأهول",
+    "Category:Singer-songwriters from West Virginia": "تصنيف:مغنون وكتاب أغاني من فرجينيا الغربية",
+    "Category:Towns in Accomack County, Virginia": "تصنيف:بلدات في مقاطعة أكوماك (فرجينيا)",
+    "Category:Towns in Botetourt County, Virginia": "تصنيف:بلدات في مقاطعة بوتيتورت (فرجينيا)",
+    "Category:Towns in Brunswick County, Virginia": "تصنيف:بلدات في مقاطعة برونزويك (فرجينيا)",
+    "Category:Towns in Franklin County, Virginia": "تصنيف:بلدات في مقاطعة فرانكلين (فرجينيا)",
+    "Category:Towns in Grayson County, Virginia": "تصنيف:بلدات في مقاطعة غرايسون (فرجينيا)",
+    "Category:Towns in Halifax County, Virginia": "تصنيف:بلدات في مقاطعة هاليفاكس (فرجينيا)",
+    "Category:Towns in Loudoun County, Virginia": "تصنيف:بلدات في مقاطعة لودون (فرجينيا)",
+    "Category:Towns in Middlesex County, Virginia": "تصنيف:بلدات في مقاطعة ميديلسكس (فرجينيا)",
+    "Category:Towns in Southampton County, Virginia": "تصنيف:بلدات في مقاطعة ساوثهامبتون (فرجينيا)",
+    "Category:Towns in Tazewell County, Virginia": "تصنيف:بلدات في مقاطعة تازويل (فرجينيا)",
+    "Category:Towns in West Virginia": "تصنيف:بلدات في فرجينيا الغربية",
+    "Category:Towns in Wythe County, Virginia": "تصنيف:بلدات في مقاطعة وايذ (فرجينيا)",
+    "Category:West Virginia Republicans": "تصنيف:أعضاء الحزب الجمهوري في فرجينيا الغربية",
     "Category:Census-designated places in Campbell County, Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة كامبل (فرجينيا)",
     "Category:Census-designated places in Henry County, Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة هنري (فرجينيا)",
     "Category:Census-designated places in Tazewell County, Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة تازويل (فرجينيا)",
-    "Category:Census-designated places in Wetzel County, West Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة ويتزل، فرجينيا الغربية",
-    "Category:Coaches of American football from West Virginia": "تصنيف:مدربو كرة القدم الأمريكية من فرجينيا الغربية",
-    "Category:Demographics of Virginia": "تصنيف:سكان فرجينيا",
-    "Category:Education in Williamsburg, Virginia": "تصنيف:تعليم في ويليامزبرغ (فرجينيا)",
-    "Category:Faculty by university or college in Virginia": "تصنيف:أعضاء هيئة التدريس حسب الجامعة أو الكلية في فرجينيا",
-    "Category:Faculty by university or college in West Virginia": "تصنيف:أعضاء هيئات تدريس حسب الجامعة أو الكلية في فرجينيا الغربية",
-    "Category:Films set in Alexandria, Virginia": "تصنيف:أفلام تقع أحداثها في الإسكندرية، فرجينيا",
     "Category:Geography of Charlottesville, Virginia": "تصنيف:جغرافيا شارلوتسفيل (فرجينيا)",
-    "Category:History of Jefferson County, West Virginia": "تصنيف:تاريخ مقاطعة جيفيرسون، فرجينيا الغربية",
-    "Category:Jews from West Virginia": "تصنيف:يهود أمريكيون من فرجينيا الغربية",
-    "Category:Male actors from Alexandria, Virginia": "تصنيف:ممثلون من الإسكندرية (فرجينيا)",
-    "Category:Male actors from Virginia": "تصنيف:ممثلون من ولاية فرجينيا",
-    "Category:Mayors of Williamsburg, Virginia": "تصنيف:عمدات في ويليامزبرغ (فرجينيا)",
-    "Category:Motorsport in West Virginia": "تصنيف:رياضة المحركات في فرجينيا الغربية",
-    "Category:Musicians from West Virginia by populated place": "تصنيف:موسيقيون حسب المكان المأهول في فرجينيا الغربية",
     "Category:Parks in Charlottesville, Virginia": "تصنيف:متنزهات في شارلوتسفيل (فرجينيا)",
-    "Category:Public education in West Virginia": "تصنيف:تعليم حكومي في فرجينيا الغربية",
-    "Category:Singer-songwriters from West Virginia": "تصنيف:مغنون وكتاب أغان من فرجينيا الغربية",
-    "Category:Soccer players from Alexandria, Virginia": "تصنيف:لاعبو كرة قدم من الإسكندرية، فرجينيا",
-    "Category:Towns in Accomack County, Virginia": "تصنيف:بلدات مقاطعة أكوماك (فرجينيا)",
-    "Category:Towns in Botetourt County, Virginia": "تصنيف:بلدات مقاطعة بوتيتورت (فرجينيا)",
-    "Category:Towns in Brunswick County, Virginia": "تصنيف:بلدات مقاطعة برونزويك (فرجينيا)",
-    "Category:Towns in Franklin County, Virginia": "تصنيف:بلدات مقاطعة فرانكلين (فرجينيا)",
-    "Category:Towns in Grayson County, Virginia": "تصنيف:بلدات مقاطعة غرايسون (فرجينيا)",
-    "Category:Towns in Halifax County, Virginia": "تصنيف:بلدات مقاطعة هاليفاكس (فرجينيا)",
-    "Category:Towns in Loudoun County, Virginia": "تصنيف:بلدات مقاطعة لودون (فرجينيا)",
-    "Category:Towns in Middlesex County, Virginia": "تصنيف:بلدات مقاطعة ميديلسكس (فرجينيا)",
-    "Category:Towns in Southampton County, Virginia": "تصنيف:بلدات مقاطعة ساوثهامبتون (فرجينيا)",
-    "Category:Towns in Tazewell County, Virginia": "تصنيف:بلدات مقاطعة تازويل (فرجينيا)",
-    "Category:Towns in West Virginia": "تصنيف:بلدات ولاية فرجينيا الغربية",
-    "Category:Towns in Wythe County, Virginia": "تصنيف:بلدات مقاطعة وايذ (فرجينيا)",
     "Category:Victorian architecture in West Virginia": "تصنيف:عمارة فكتورية في فرجينيا الغربية",
-    "Category:West Virginia Republicans": "تصنيف:جمهوريون من ولاية فرجينيا الغربية",
 }
 
 data_virginia2_4 = {
@@ -97,7 +88,7 @@ def test_virginia2_1(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-
+    # dump_diff_text(expected, diff_result, name)
     dump_diff(diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
