@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
 
 test_c_musicians_1 = {
+    "LGBTQ classical musicians": "موسيقيون كلاسيكيون مثليون",
 }
 
 test_c_musicians_3 = {
@@ -273,7 +274,6 @@ test_c_musicians_4 = {
     "Indian classical musicians": "موسيقيون وموسيقيات كلاسيكيون هنود",
     "Indian male classical musicians": "موسيقيون كلاسيكيون هنود",
     "Irish women classical musicians": "موسيقيات كلاسيكية أيرلنديات",
-    "LGBTQ classical musicians": "موسيقيون كلاسيكيون مثليون",
     "Luxembourgian classical musicians": "موسيقيو كلاسيكية لوكسمبورغيون",
     "Moldovan classical musicians": "موسيقيو كلاسيكية مولدوفيون",
     "Paraguayan classical musicians": "موسيقيون كلاسيكيون باراغوايانيون",
@@ -283,8 +283,8 @@ test_c_musicians_4 = {
     "Women classical musicians by nationality": "موسيقيات كلاسيكية حسب الجنسية",
     "Yugoslav classical musicians": "موسيقيو كلاسيكية يوغسلافيون"
 }
+
 to_test = [
-    ("test_classical_musicians_1", test_c_musicians_1),
     ("test_classical_musicians_3", test_c_musicians_3),
     ("test_classical_musicians_4", test_c_musicians_4),
 ]
