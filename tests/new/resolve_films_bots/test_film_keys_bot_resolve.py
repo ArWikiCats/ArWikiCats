@@ -42,7 +42,7 @@ fast_data = {
     "science fiction thriller films": "أفلام إثارة خيال علمي",
     "soviet films": "أفلام سوفيتية",
     "spanish films": "أفلام إسبانية",
-    "superhero films": "أفلام أبطال خارقين",
+    # "superhero films": "أفلام أبطال خارقين",
     "thriller films": "أفلام إثارة",
     "war films": "أفلام حربية",
     "belgian drama films": "أفلام درامية بلجيكية",

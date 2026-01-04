@@ -92,10 +92,10 @@ data_to_fix2 = {
     "Saudi Arabian superhero films": "أفلام أبطال خارقين سعودية",
     "Superhero comedy television series": "مسلسلات تلفزيونية أبطال خارقين كوميدية",
     "Superhero comic strips": "شرائط كومكس أبطال خارقين",
-    "Superhero comics": "كومكس أبطال خارقين",
+    "Superhero comics": "قصص مصورة أبطال خارقين",
     "Superhero film characters": "شخصيات أفلام أبطال خارقين",
     "Superhero games": "ألعاب أبطال خارقين",
-    "Superhero horror comics": "كومكس أبطال خارقين رعب",
+    "Superhero horror comics": "قصص مصورة أبطال خارقين رعب",
     "Superhero horror films": "أفلام أبطال خارقين رعب",
     "Superhero horror television shows": "عروض تلفزيونية أبطال خارقين رعب",
     "Superhero novels": "روايات أبطال خارقين",
@@ -136,7 +136,7 @@ data_to_fix2 = {
     "Superhero comedy-drama films": "أفلام أبطال خارقين كوميدية درامية",
     "Superhero comedy films": "أفلام أبطال خارقين كوميدية",
     "Superhero drama films": "أفلام أبطال خارقين درامية",
-    "Superhero films": "أفلام أبطال خارقين",
+    # "Superhero films": "أفلام أبطال خارقين",
     "Superhero teams": "فرق أبطال خارقين",
 }
 
