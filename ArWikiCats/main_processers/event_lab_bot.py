@@ -21,7 +21,7 @@ from ..new_resolvers.sports_resolvers.nationalities_and_sports import resolve_na
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_resolvers import time_to_arabic
 from ..translations import get_from_new_p17_final
-from .main_utils import list_of_cat_func
+from .main_utils import list_of_cat_func_new, list_of_cat_func_foot_ballers
 
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.matables_bots.table1_bot import get_KAKO
@@ -213,8 +213,13 @@ class EventLabResolver:
         Returns:
             str: Updated category label
         """
-        if list_of_cat and category_lab:
-            category_lab, list_of_cat = list_of_cat_func(cate_r, category_lab, list_of_cat, self.foot_ballers)
+        if not list_of_cat or not category_lab:
+            return category_lab
+
+        if self.foot_ballers:
+            category_lab = list_of_cat_func_foot_ballers(cate_r, category_lab, list_of_cat)
+        else:
+            category_lab = list_of_cat_func_new(cate_r, category_lab, list_of_cat)
 
         return category_lab
 
@@ -261,7 +266,7 @@ class EventLabResolver:
 
         # Process list categories if both exist
         if list_of_cat and category_lab:
-            # Debug before calling list_of_cat_func
+            # Debug before calling list_of_cat_func_new
             if not isinstance(category_lab, str):
                 logger.error(f"[BUG] category_lab is dict for cate_r={cate_r} value={category_lab}")
                 raise TypeError(f"category_lab must be string, got {type(category_lab)}: {category_lab}")

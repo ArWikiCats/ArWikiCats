@@ -9,11 +9,13 @@ The categories should be like:
 """
 
 import pytest
+from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import (
+    genders_sports_resolver,
+    genders_jobs_resolver,
+    resolve_nat_genders_pattern_v2,
+)
 
-from ArWikiCats import resolve_label_ar
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
-
-test_1 = {
+sports_data = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",  # x
     "yemeni men's softball players": "لاعبو كرة لينة يمنيون",  # x
     "yemeni male softball players": "لاعبو كرة لينة يمنيون",  # x
@@ -21,31 +23,21 @@ test_1 = {
     "women's softball players": "لاعبات كرة لينة",  # ✓
 }
 
-test_2 = {
-    "20th-century actors from Northern Ireland": "ممثلون وممثلات من أيرلندا الشمالية في القرن 20",  # x
-    "20th-century male actors from Northern Ireland": "ممثلون من أيرلندا الشمالية في القرن 20",  # x
-    "20th-century actresses from Northern Ireland": "ممثلات من أيرلندا الشمالية في القرن 20",  # ✓
+
+@pytest.mark.parametrize("category,expected", sports_data.items(), ids=sports_data.keys())
+def test_sports_data(category: str, expected: str) -> None:
+    """Test"""
+    result = genders_sports_resolver(category)
+    assert result == expected
+
+
+jobs_data = {
+    "classical composers": "ملحنون وملحنات كلاسيكيون",
 }
 
 
-@pytest.mark.parametrize("category,expected", test_1.items(), ids=test_1.keys())
-@pytest.mark.skip2
-def test_male_female_1(category: str, expected: str) -> None:
+@pytest.mark.parametrize("category,expected", jobs_data.items(), ids=jobs_data.keys())
+def test_jobs_data(category: str, expected: str) -> None:
     """Test"""
-    result = resolve_label_ar(category)
-    assert result == expected
-
-
-@pytest.mark.parametrize("category,expected", test_2.items(), ids=test_2.keys())
-@pytest.mark.skip2
-def test_male_female_2(category: str, expected: str) -> None:
-    """Test"""
-    result = resolve_label_ar(category)
-    assert result == expected
-
-
-@pytest.mark.parametrize("category,expected", test_1.items(), ids=test_1.keys())
-def test_data_genders_1(category: str, expected: str) -> None:
-    """Test"""
-    result = resolve_nat_genders_pattern_v2(category)
+    result = genders_jobs_resolver(category)
     assert result == expected

@@ -161,26 +161,26 @@ def fix_keys(category: str) -> str:
 
     return category.strip()
 
-
+# classical composers
 @functools.lru_cache(maxsize=10000)
-def jobs_resolver(category: str) -> str:
+def genders_jobs_resolver(category: str) -> str:
     normalized_category = fix_keys(category)
-    logger.debug(f"<<yellow>> start jobs_resolver: {normalized_category=}")
+    logger.debug(f"<<yellow>> start genders_jobs_resolver: {normalized_category=}")
 
     job_bot = _job_bot()
 
     result = job_bot.search_all_other_first(normalized_category)
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
-    logger.info_if_or_debug(f"<<yellow>> end jobs_resolver: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end genders_jobs_resolver: {category=}, {result=}", result)
 
     return result
 
 
 @functools.lru_cache(maxsize=10000)
-def sports_resolver(category: str) -> str:
+def genders_sports_resolver(category: str) -> str:
     normalized_category = fix_keys(category)
-    logger.debug(f"<<yellow>> start sports_resolver: {normalized_category=}")
+    logger.debug(f"<<yellow>> start genders_sports_resolver: {normalized_category=}")
 
     sport_bot = _sport_bot()
 
@@ -188,7 +188,7 @@ def sports_resolver(category: str) -> str:
 
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
-    logger.info_if_or_debug(f"<<yellow>> end sports_resolver: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end genders_sports_resolver: {category=}, {result=}", result)
 
     return result
 
@@ -197,7 +197,7 @@ def sports_resolver(category: str) -> str:
 def resolve_nat_genders_pattern_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nat_genders_pattern_v2: {category=}")
 
-    result = sports_resolver(category) or jobs_resolver(category) or ""
+    result = genders_sports_resolver(category) or genders_jobs_resolver(category) or ""
     logger.info_if_or_debug(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}", result)
 
     return result
