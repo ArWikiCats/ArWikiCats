@@ -74,14 +74,14 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
-                f"superhero {suffix}": f"{arabic_base} عن الأبطال الخارقين",
+                f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
             }
         )
         data.update(
             {
                 f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
-                f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} عن الأبطال الخارقين",
+                f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
             }
         )
 
@@ -95,9 +95,9 @@ def _make_bot() -> MultiDataFormatterBase:
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
 
-        # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية عن الأبطال الخارقين",
-        "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} عن الأبطال الخارقين",
-        "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} عن الأبطال الخارقين",
+        # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
+        "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
+        "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
 
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
@@ -120,9 +120,9 @@ def _make_bot() -> MultiDataFormatterBase:
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
 
-        # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة عن الأبطال الخارقين",
-        "{film_key} superhero films": "أفلام {film_ar} عن الأبطال الخارقين",
-        "superhero {film_key} films": "أفلام {film_ar} عن الأبطال الخارقين",
+        # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
+        "{film_key} superhero films": "أفلام {film_ar} أبطال خارقين",
+        "superhero {film_key} films": "أفلام {film_ar} أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
     }
     other_formatted_data.update(data_no_nats)
