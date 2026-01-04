@@ -730,7 +730,7 @@ data_list_in = {
     "1550s in russia": "عقد 1550 في روسيا",
     "1550s in saudi arabia": "عقد 1550 في السعودية",
     "1550s in science": "عقد 1550 في العلم",
-    "1550s in somaliland": "عقد 1550 في صوماليلاند",
+    "1550s in somaliland": "عقد 1550 في أرض الصومال",
     "1550s in south korean women's sport": "عقد 1550 في رياضة كورية جنوبية نسائية",
     "1550s in technology": "عقد 1550 في التقانة",
     "1550s in track cycling": "عقد 1550 في سباق الدراجات على المضمار",

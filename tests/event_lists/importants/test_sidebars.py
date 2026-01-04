@@ -232,7 +232,7 @@ data_1 = {
     "Category:Slovenia sidebar templates": "تصنيف:قوالب أشرطة جانبية سلوفينيا",
     "Category:Solomon Islands sidebar templates": "تصنيف:قوالب أشرطة جانبية جزر سليمان",
     "Category:Somalia sidebar templates": "تصنيف:قوالب أشرطة جانبية الصومال",
-    "Category:Somaliland sidebar templates": "تصنيف:قوالب أشرطة جانبية صوماليلاند",
+    "Category:Somaliland sidebar templates": "تصنيف:قوالب أشرطة جانبية أرض الصومال",
     "Category:South America sidebar templates": "تصنيف:قوالب أشرطة جانبية أمريكا الجنوبية",
     "Category:South Korea sidebar templates": "تصنيف:قوالب أشرطة جانبية كوريا الجنوبية",
     "Category:South Sudan sidebar templates": "تصنيف:قوالب أشرطة جانبية جنوب السودان",
