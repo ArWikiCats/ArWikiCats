@@ -69,7 +69,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "novels": "روايات",
         "films": "أفلام",
         "comic strips": "شرائط كومكس",
-        "comics": "كومكس",
+        "comics": "قصص مصورة",
         "fiction": "خيال",
         "film characters": "شخصيات أفلام",
         "games": "ألعاب",
