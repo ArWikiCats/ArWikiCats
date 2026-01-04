@@ -165,7 +165,6 @@ data_to_fix1 = {
     "Category:2000s superhero comedy films": "تصنيف:أفلام أبطال خارقين كوميدية في عقد 2000",
     "Category:2000s superhero films": "تصنيف:أفلام أبطال خارقين في عقد 2000",
     "Category:2010s animated superhero films": "تصنيف:أفلام أبطال خارقين رسوم متحركة في عقد 2010",
-    "Category:2010s animated superhero television films": "تصنيف:أفلام أبطال خارقين رسوم متحركة تلفزيونية في عقد 2010",
     "Category:2010s superhero comedy films": "تصنيف:أفلام أبطال خارقين كوميدية في عقد 2010",
     "Category:2010s superhero films": "تصنيف:أفلام أبطال خارقين في عقد 2010",
     "Category:2020s animated superhero films": "تصنيف:أفلام أبطال خارقين رسوم متحركة في عقد 2020",
@@ -187,7 +186,6 @@ data_to_fix1 = {
     "Category:Japanese animated superhero films": "تصنيف:أفلام أبطال خارقين رسوم متحركة يابانية",
     "Category:Japanese superhero films": "تصنيف:أفلام أبطال خارقين يابانية",
     "Category:LGBTQ-related superhero films": "تصنيف:أفلام أبطال خارقين متعلقة بإل جي بي تي",
-    "Category:LGBTQ-related superhero television shows": "تصنيف:عروض أبطال خارقين تلفزيونية متعلقة بإل جي بي تي",
     "Category:Teen superhero films": "تصنيف:أفلام مراهقة عن أبطال خارقين",
 }
 
@@ -209,7 +207,6 @@ data_to_fix2 = {
     "Category:African-American superhero films": "تصنيف:أفلام خارقة أمريكية إفريقية",
     "Category:American adult animated superhero television series": "تصنيف:مسلسلات رسوم متحركة خارقة تلفزيونية أمريكية للكبار",
     "Category:American animated superhero television series": "تصنيف:مسلسلات رسوم متحركة خارقة تلفزيونية أمريكية",
-    "Category:American black superhero television shows": "تصنيف:عروض تلفزيونية سوداء خارقة أمريكية",
     "Category:American children's animated superhero television series": "تصنيف:مسلسلات رسوم متحركة خارقة تلفزيونية أمريكية للأطفال",
     "Category:American superhero comedy television series": "تصنيف:مسلسلات تلفزيونية خارقة كوميدية أمريكية",
     "Category:American superhero comedy television series by decade": "تصنيف:مسلسلات تلفزيونية خارقة كوميدية أمريكية حسب العقد",
