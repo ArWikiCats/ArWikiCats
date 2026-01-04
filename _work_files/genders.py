@@ -8,6 +8,14 @@ D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json
 import json
 from pathlib import Path
 
+
+def save_file(data, file_path):
+    # sort keys
+    data = dict(sorted(data.items()))
+    with open(Path(__file__).parent / f"genders_data/{file_path}.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+
+
 WOMENS_PATH = Path("D:/categories_bot/len_data/jobs.py/jobs_womens_data.json")
 MRNS_PATH = Path("D:/categories_bot/len_data/jobs.py/jobs_mens_data.json")
 
@@ -52,8 +60,8 @@ for key in keys_in_both_one_word:
         "both_jobs": f"{mens_data[key]} و{womens_data[key]}",
     }
 
-with open(Path(__file__).parent / "genders_data/jobs_data_multi_one_word.json", "w", encoding="utf-8") as f:
-    json.dump(new_data, f, ensure_ascii=False, indent=4)
+print(f">>> new_data: {len(new_data)=}")
+save_file(new_data, "jobs_data_multi_one_word")
 
 keys_in_both_2_words = [x for x in keys_in_both if len(mens_data.get(x).split(" ")) == 2]
 print(f"Keys in both mens and womens data (two words): {len(keys_in_both_2_words)}")
@@ -62,7 +70,6 @@ new_data2 = {}
 new_data3 = {}
 
 for key in keys_in_both_2_words:
-    print(key)
     word1_mens, word2_mens = mens_data[key].split(" ")
     word1_womens, word2_womens = womens_data[key].split(" ")
 
@@ -79,8 +86,41 @@ for key in keys_in_both_2_words:
             "both_jobs": f"{word1_mens} و{word1_womens} {word2_mens}",
         }
 
-with open(Path(__file__).parent / "genders_data/jobs_data_multi_two_words.json", "w", encoding="utf-8") as f:
-    json.dump(new_data2, f, ensure_ascii=False, indent=4)
+print(f">>> new_data2: {len(new_data2)=}")
+print(f">>> new_data3: {len(new_data3)=}")
 
-with open(Path(__file__).parent / "genders_data/jobs_data_multi_two_words3.json", "w", encoding="utf-8") as f:
-    json.dump(new_data3, f, ensure_ascii=False, indent=4)
+save_file(new_data2, "jobs_data_multi_two_words_same")
+save_file(new_data3, "jobs_data_multi_two_words_not_same")
+
+keys_in_both_more_2_words = [x for x in keys_in_both if len(mens_data.get(x).split(" ")) > 2]
+print(f"Keys in both mens and womens data (more than two words): {len(keys_in_both_more_2_words)}")
+
+new_data4 = {}
+new_data5 = {}
+
+for key in keys_in_both_more_2_words:
+    word1_mens, word2_mens = mens_data[key].split(" ", maxsplit=1)
+    word1_womens, word2_womens = womens_data[key].split(" ", maxsplit=1)
+
+    if word2_mens == word2_womens:
+        new_data4[key] = {
+            "job_males": mens_data[key],
+            "job_females": womens_data[key],
+            "both_jobs": f"{word1_mens} و{word1_womens} {word2_mens}",
+        }
+    else:
+        new_data5[key] = {
+            "job_males": mens_data[key],
+            "job_females": womens_data[key],
+            "both_jobs": f"{word1_mens} و{word1_womens} {word2_mens}",
+        }
+
+
+print(f">>> new_data4: {len(new_data4)=}")
+print(f">>> new_data5: {len(new_data5)=}")
+
+save_file(new_data4, "jobs_data_multi_more_than_two_words_same")
+save_file(new_data5, "jobs_data_multi_more_than_two_words_not_same")
+
+len_all_dumps = (len(new_data2) + len(new_data3) + len(new_data4) + len(new_data5))
+print(f"Total entries in all dumps: {len_all_dumps}")
