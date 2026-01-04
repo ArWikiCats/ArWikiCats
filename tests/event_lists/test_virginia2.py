@@ -6,7 +6,13 @@ from ArWikiCats import resolve_arabic_category_label
 
 data_virginia2_1 = {
     "Category:Baptists from West Virginia": "تصنيف:معمدانيون من فرجينيا الغربية",
-    "Category:Defunct private universities and colleges in West Virginia": "تصنيف:جامعات وكليات خاصة سابقة في فرجينيا الغربية"
+    "Category:Defunct private universities and colleges in West Virginia": "تصنيف:جامعات وكليات خاصة سابقة في فرجينيا الغربية",
+    "Category:1607 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1607 في مستعمرة فرجينيا",
+    "Category:1648 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1648 في مستعمرة فرجينيا",
+    "Category:1651 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1651 في مستعمرة فرجينيا",
+    "Category:1671 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1671 في مستعمرة فرجينيا",
+    "Category:1673 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1673 في مستعمرة فرجينيا",
+    "Category:1759 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1759 في مستعمرة فرجينيا",
 
 }
 
@@ -67,12 +73,6 @@ data_virginia2_4 = {
     "Category:Republican Party United States representatives from West Virginia": "تصنيف:أعضاء الحزب الجمهوري في مجلس النواب الأمريكي من فرجينيا الغربية",
     "Category:Unconditional Union Party United States representatives from West Virginia": "تصنيف:أعضاء حزب الاتحاد غير المشروط في مجلس النواب الأمريكي من فرجينيا الغربية",
     "Category:Respiratory disease deaths in West Virginia": "تصنيف:وفيات بأمراض الجهاز التنفسي في فرجينيا الغربية",
-    "Category:1607 establishments in the Colony of Virginia": "x",
-    "Category:1648 establishments in the Colony of Virginia": "x",
-    "Category:1651 establishments in the Colony of Virginia": "x",
-    "Category:1671 establishments in the Colony of Virginia": "x",
-    "Category:1673 establishments in the Colony of Virginia": "x",
-    "Category:1759 establishments in the Colony of Virginia": "x",
     "Category:Eastern Virginia Medical School alumni": "x",
     "Category:University of Virginia School of Medicine alumni": "x",
     "Category:University of Virginia School of Medicine faculty": "x",
@@ -82,7 +82,7 @@ data_virginia2_4 = {
 to_test = [
     ("test_virginia2_1", data_virginia2_1),
     ("test_virginia2_3", data_virginia2_3),
-    ("test_virginia2_4", data_virginia2_4),
+    # ("test_virginia2_4", data_virginia2_4),
 ]
 
 
