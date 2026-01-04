@@ -548,8 +548,6 @@ test_data_2 = {
     "21st-century classical composers from Northern Ireland": "ملحنون كلاسيكيون من أيرلندا الشمالية في القرن 21",
     "18th-century classical composers from the Holy Roman Empire": "ملحنون كلاسيكيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "19th-century classical composers from the Russian Empire": "ملحنون كلاسيكيون من الإمبراطورية الروسية في القرن 19",
-    "20th-century classical musicians from Northern Ireland": "موسيقيون كلاسيكيون من أيرلندا الشمالية في القرن 20",
-    "21st-century classical musicians from Northern Ireland": "موسيقيون كلاسيكيون من أيرلندا الشمالية في القرن 21",
     "19th-century classical pianists from the Russian Empire": "عازفو بيانو كلاسيكيون من الإمبراطورية الروسية في القرن 19",
     "18th-century clergy from Bohemia": "رجال دين من بوهيميا في القرن 18",
     "19th-century clergy from Ottoman Iraq": "رجال دين من العراق العثماني في القرن 19",

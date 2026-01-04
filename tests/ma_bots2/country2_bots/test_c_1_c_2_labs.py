@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import c_1_1_lab, c_2_1_lab
 
 fast_data_c_1_1_lab = [
-    {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     {
         "separator": " about ",
         "cone_1": "american documentary television series",

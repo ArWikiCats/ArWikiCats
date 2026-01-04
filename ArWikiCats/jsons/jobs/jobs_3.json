@@ -107,6 +107,10 @@
         "males": "جراحو قلب",
         "females": "جراحات قلب"
     },
+    "baptists": {
+        "males": "معمدانيون",
+        "females": "معمدانيات"
+    },
     "catholic priests": {
         "males": "قساوسة كاثوليك",
         "females": ""

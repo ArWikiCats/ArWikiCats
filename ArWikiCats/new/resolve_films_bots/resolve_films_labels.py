@@ -130,6 +130,7 @@ def _make_bot() -> MultiDataFormatterBase:
 
     put_label_last = {
         "low-budget",
+        "supernatural",
         "christmas",
         "lgbtq-related",
         "upcoming",

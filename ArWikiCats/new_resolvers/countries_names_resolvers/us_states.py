@@ -80,7 +80,6 @@ _STATE_SUFFIX_TEMPLATES_BASE.update(
     }
 )
 
-
 _USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",
     "democratic-republican": "الحزب الديمقراطي الجمهوري",

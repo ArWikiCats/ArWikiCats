@@ -71,152 +71,6 @@ def _get_sorted_teams_labels() -> dict[str, str]:
     return mappings_data
 
 
-sports_formatted_data = {
-    "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
-    "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
-    "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
-    "{en_sport} world cup": "كأس العالم {sport_team}",
-    "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
-    "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
-    "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
-    "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
-    "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
-    "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
-    "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
-    "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
-    "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
-    "first league of {en}": "دوري {ar} الممتاز",
-    "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
-    # "yemeni men's basketball players" : "لاعبو كرة سلة رجالية يمنيون",
-    "{en} mens {en_sport} players": "لاعبو {sport_jobs} {males}",
-    # american coaches of basketball
-    "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
-    "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
-    # coaches of basketball
-    "coaches of {en_sport}": "مدربو {sport_jobs}",
-    "players of {en_sport}": "لاعبو {sport_jobs}",
-    # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
-    "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
-    "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
-    # expatriate basketball people
-    "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
-    "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
-    # _build_new_kkk() -> dict[str, str]:
-    # Category:National junior womens goalball teams
-    "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
-    "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
-    # SPORT_FORMATS_FEMALE_NAT
-    # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
-    "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
-    # [Category:American Indoor Soccer] : "تصنيف:كرة قدم أمريكية داخل الصالات",
-    "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
-    # data
-    # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
-    # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
-    "{en} sports federation": "الاتحاد {the_male} للرياضة",
-    "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
-    "{en} wheelchair racers": "متسابقو كراسي متحركة {males}",
-    "{en} mens wheelchair racers": "متسابقو كراسي متحركة {males}",
-    "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
-    "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
-    "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
-    "womens {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
-    "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
-    "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
-    "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
-    # Category:yemeni Women's Football League
-    "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
-    "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
-    "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
-    "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
-    "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
-    "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
-    "{en} womens {en_sport} players": "لاعبات {sport_jobs} {females}",
-    "womens {en_sport} players": "لاعبات {sport_jobs}",
-    "{en} womens {en_sport} playerss": "لاعبات {sport_jobs} {females}",
-    "womens {en_sport} playerss": "لاعبات {sport_jobs}",
-    "{en} womens national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
-    "{en} womens national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
-    "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
-    "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
-    "{en} womens international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
-    "{en} womens youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
-    "{en} womens international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
-    "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
-    "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
-    "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
-    "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
-    # Category:African women's national association football teams
-    "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
-    "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
-    "{en} womens {en_sport}": "{sport_jobs} {female} للسيدات",
-    # northern ireland national men's football teams
-    "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للرجال",
-    "{en} national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للرجال",
-    # NAT_P17_OIOI data
-    "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
-    "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
-    "{en} championships ({en_sport})": "بطولة {ar} {sport_team}",
-    "{en} championships {en_sport}": "بطولة {ar} {sport_team}",
-    "{en} mens {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
-    "{en} mens {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
-    "{en} {en_sport} championship": "بطولة {ar} {sport_team}",
-    "{en} {en_sport} indoor championship": "بطولة {ar} {sport_team} داخل الصالات",
-    "{en} {en_sport} indoor championships": "بطولة {ar} {sport_team} داخل الصالات",
-    "{en} {en_sport} junior championships": "بطولة {ar} {sport_team} للناشئين",
-    "{en} {en_sport} u-13 championships": "بطولة {ar} {sport_team} تحت 13 سنة",
-    "{en} {en_sport} u-14 championships": "بطولة {ar} {sport_team} تحت 14 سنة",
-    "{en} {en_sport} u-15 championships": "بطولة {ar} {sport_team} تحت 15 سنة",
-    "{en} {en_sport} u-16 championships": "بطولة {ar} {sport_team} تحت 16 سنة",
-    "{en} {en_sport} u-17 championships": "بطولة {ar} {sport_team} تحت 17 سنة",
-    "{en} {en_sport} u-18 championships": "بطولة {ar} {sport_team} تحت 18 سنة",
-    "{en} {en_sport} u-19 championships": "بطولة {ar} {sport_team} تحت 19 سنة",
-    "{en} {en_sport} u-20 championships": "بطولة {ar} {sport_team} تحت 20 سنة",
-    "{en} {en_sport} u-21 championships": "بطولة {ar} {sport_team} تحت 21 سنة",
-    "{en} {en_sport} u-23 championships": "بطولة {ar} {sport_team} تحت 23 سنة",
-    "{en} {en_sport} u-24 championships": "بطولة {ar} {sport_team} تحت 24 سنة",
-    "{en} {en_sport} u13 championships": "بطولة {ar} {sport_team} تحت 13 سنة",
-    "{en} {en_sport} u14 championships": "بطولة {ar} {sport_team} تحت 14 سنة",
-    "{en} {en_sport} u15 championships": "بطولة {ar} {sport_team} تحت 15 سنة",
-    "{en} {en_sport} u16 championships": "بطولة {ar} {sport_team} تحت 16 سنة",
-    "{en} {en_sport} u17 championships": "بطولة {ar} {sport_team} تحت 17 سنة",
-    "{en} {en_sport} u18 championships": "بطولة {ar} {sport_team} تحت 18 سنة",
-    "{en} {en_sport} u19 championships": "بطولة {ar} {sport_team} تحت 19 سنة",
-    "{en} {en_sport} u20 championships": "بطولة {ar} {sport_team} تحت 20 سنة",
-    "{en} {en_sport} u21 championships": "بطولة {ar} {sport_team} تحت 21 سنة",
-    "{en} {en_sport} u23 championships": "بطولة {ar} {sport_team} تحت 23 سنة",
-    "{en} {en_sport} u24 championships": "بطولة {ar} {sport_team} تحت 24 سنة",
-    "{en} outdoor {en_sport} championship": "بطولة {ar} {sport_team} في الهواء الطلق",
-    "{en} outdoor {en_sport} championships": "بطولة {ar} {sport_team} في الهواء الطلق",
-    "{en} womens {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
-    "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
-    "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
-    "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-    "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-    "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
-    "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-    # NAT_P17_OIOI_TO_CHECK data
-    # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
-    "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
-    "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
-    # "yemeni domestic basketball": "كرة سلة يمنية محلية",
-    "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
-    "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
-    # "yemeni football": "كرة قدم يمنية",
-    # "{en} {en_sport}": "{sport_jobs} {female}",
-    "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
-    "{en} rugby union": "اتحاد الرجبي {the_male}",  # Category:American_basketball
-    "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
-    "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
-    "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
-    "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
-    "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
-    "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
-}
-
-
 def _levels_data() -> dict[str, str]:
     data = {
         "{en} league of {en_sport}": "الدوري {the_male} {sport_team}",
@@ -260,16 +114,166 @@ def _levels_data() -> dict[str, str]:
     return data
 
 
-sports_formatted_data.update(_levels_data())
-sports_formatted_data.update(sports_formatted_data_for_jobs)
+@functools.lru_cache(maxsize=1)
+def _load_sports_formatted_data() -> dict[str, str]:
 
-WOMENS_NATIONAL_DATA = {
-    x.replace("womens national", "national womens"): v
-    for x, v in sports_formatted_data.items()
-    if "womens national" in x
-}
+    sports_formatted_data = {
+        "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
+        "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
+        "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
+        "{en_sport} world cup": "كأس العالم {sport_team}",
+        "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
+        "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
+        "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
+        "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
+        "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
+        "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
+        "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
+        "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
+        "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
+        "first league of {en}": "دوري {ar} الممتاز",
+        "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
+        # "yemeni men's basketball players" : "لاعبو كرة سلة رجالية يمنيون",
+        "{en} mens {en_sport} players": "لاعبو {sport_jobs} {males}",
+        # american coaches of basketball
+        "{en} coaches of {en_sport}": "مدربو {sport_jobs} {males}",
+        "{en}-american coaches of {en_sport}": "مدربو {sport_jobs} أمريكيون {males}",
+        # coaches of basketball
+        "coaches of {en_sport}": "مدربو {sport_jobs}",
+        "players of {en_sport}": "لاعبو {sport_jobs}",
+        # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
+        "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
+        "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
+        # expatriate basketball people
+        "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
+        "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+        # _build_new_kkk() -> dict[str, str]:
+        # Category:National junior womens goalball teams
+        "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+        "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
+        "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+        "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+        # SPORT_FORMATS_FEMALE_NAT
+        # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
+        "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
+        # [Category:American Indoor Soccer] : "تصنيف:كرة قدم أمريكية داخل الصالات",
+        "{en} indoor {en_sport}": "{sport_jobs} {female} داخل الصالات",
+        # data
+        # "Category:zaïrean wheelchair sports federation": "تصنيف:الاتحاد الزائيري للرياضة على الكراسي المتحركة",
+        # "Category:surinamese sports federation": "تصنيف:الاتحاد السورينامي للرياضة",
+        "{en} sports federation": "الاتحاد {the_male} للرياضة",
+        "{en} wheelchair sports federation": "الاتحاد {the_male} للرياضة على الكراسي المتحركة",
+        "{en} wheelchair racers": "متسابقو كراسي متحركة {males}",
+        "{en} mens wheelchair racers": "متسابقو كراسي متحركة {males}",
+        "{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}",
+        "ladies {en} {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+        "ladies {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+        "womens {en} {en_sport} tour": "بطولة {ar} {sport_team} للسيدات",
+        "{en} {en_sport} championships": "بطولة {ar} {sport_team}",
+        "{en} {en_sport} championshipszz": "بطولة {ar} {sport_team}",
+        "{en} {en_sport} tour": "بطولة {ar} {sport_team}",
+        # Category:yemeni Women's Football League
+        "womens {en} {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+        "womens {en} {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+        "{en} womens {en_sport} league": "الدوري {the_male} {sport_team} للسيدات",
+        "{en} womens {en_sport} league players": "لاعبات الدوري {the_male} {sport_team} للسيدات",
+        "womens national {en_sport} league": "الدوري الوطني {sport_team} للسيدات",
+        "{en} national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female}",
+        "{en} womens {en_sport} players": "لاعبات {sport_jobs} {females}",
+        "womens {en_sport} players": "لاعبات {sport_jobs}",
+        "{en} womens {en_sport} playerss": "لاعبات {sport_jobs} {females}",
+        "womens {en_sport} playerss": "لاعبات {sport_jobs}",
+        "{en} womens national {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
+        "{en} womens national {en_sport} team players": "لاعبات منتخب {ar} {sport_team} للسيدات",
+        "{en} national {en_sport} team": "منتخب {ar} {sport_team}",
+        "{en} national {en_sport} team players": "لاعبو منتخب {ar} {sport_team}",
+        "{en} womens international footballers": "لاعبات منتخب {ar} لكرة القدم للسيدات",
+        "{en} womens youth international footballers": "لاعبات منتخب {ar} لكرة القدم للشابات",
+        "{en} womens international {en_sport} players": "لاعبات {sport_jobs} دوليات من {ar}",
+        "{en} international footballers": "لاعبو منتخب {ar} لكرة القدم",
+        "{en} international {en_sport} players": "لاعبو {sport_jobs} دوليون من {ar}",
+        "{en} {en_sport} association": "الرابطة {the_female} {sport_team}",
+        "womens {en} {en_sport} association": "الرابطة {the_female} {sport_team} للسيدات",
+        # Category:African women's national association football teams
+        "womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية للسيدات",
+        "{en} womens national {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للسيدات",
+        "{en} womens {en_sport}": "{sport_jobs} {female} للسيدات",
+        # northern ireland national men's football teams
+        "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للرجال",
+        "{en} national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية {female} للرجال",
+        # NAT_P17_OIOI data
+        "{en} amateur {en_sport} championship": "بطولة {ar} {sport_team} للهواة",
+        "{en} amateur {en_sport} championships": "بطولة {ar} {sport_team} للهواة",
+        "{en} championships ({en_sport})": "بطولة {ar} {sport_team}",
+        "{en} championships {en_sport}": "بطولة {ar} {sport_team}",
+        "{en} mens {en_sport} championship": "بطولة {ar} {sport_team} للرجال",
+        "{en} mens {en_sport} championships": "بطولة {ar} {sport_team} للرجال",
+        "{en} {en_sport} championship": "بطولة {ar} {sport_team}",
+        "{en} {en_sport} indoor championship": "بطولة {ar} {sport_team} داخل الصالات",
+        "{en} {en_sport} indoor championships": "بطولة {ar} {sport_team} داخل الصالات",
+        "{en} {en_sport} junior championships": "بطولة {ar} {sport_team} للناشئين",
+        "{en} {en_sport} u-13 championships": "بطولة {ar} {sport_team} تحت 13 سنة",
+        "{en} {en_sport} u-14 championships": "بطولة {ar} {sport_team} تحت 14 سنة",
+        "{en} {en_sport} u-15 championships": "بطولة {ar} {sport_team} تحت 15 سنة",
+        "{en} {en_sport} u-16 championships": "بطولة {ar} {sport_team} تحت 16 سنة",
+        "{en} {en_sport} u-17 championships": "بطولة {ar} {sport_team} تحت 17 سنة",
+        "{en} {en_sport} u-18 championships": "بطولة {ar} {sport_team} تحت 18 سنة",
+        "{en} {en_sport} u-19 championships": "بطولة {ar} {sport_team} تحت 19 سنة",
+        "{en} {en_sport} u-20 championships": "بطولة {ar} {sport_team} تحت 20 سنة",
+        "{en} {en_sport} u-21 championships": "بطولة {ar} {sport_team} تحت 21 سنة",
+        "{en} {en_sport} u-23 championships": "بطولة {ar} {sport_team} تحت 23 سنة",
+        "{en} {en_sport} u-24 championships": "بطولة {ar} {sport_team} تحت 24 سنة",
+        "{en} {en_sport} u13 championships": "بطولة {ar} {sport_team} تحت 13 سنة",
+        "{en} {en_sport} u14 championships": "بطولة {ar} {sport_team} تحت 14 سنة",
+        "{en} {en_sport} u15 championships": "بطولة {ar} {sport_team} تحت 15 سنة",
+        "{en} {en_sport} u16 championships": "بطولة {ar} {sport_team} تحت 16 سنة",
+        "{en} {en_sport} u17 championships": "بطولة {ar} {sport_team} تحت 17 سنة",
+        "{en} {en_sport} u18 championships": "بطولة {ar} {sport_team} تحت 18 سنة",
+        "{en} {en_sport} u19 championships": "بطولة {ar} {sport_team} تحت 19 سنة",
+        "{en} {en_sport} u20 championships": "بطولة {ar} {sport_team} تحت 20 سنة",
+        "{en} {en_sport} u21 championships": "بطولة {ar} {sport_team} تحت 21 سنة",
+        "{en} {en_sport} u23 championships": "بطولة {ar} {sport_team} تحت 23 سنة",
+        "{en} {en_sport} u24 championships": "بطولة {ar} {sport_team} تحت 24 سنة",
+        "{en} outdoor {en_sport} championship": "بطولة {ar} {sport_team} في الهواء الطلق",
+        "{en} outdoor {en_sport} championships": "بطولة {ar} {sport_team} في الهواء الطلق",
+        "{en} womens {en_sport} championship": "بطولة {ar} {sport_team} للسيدات",
+        "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
+        "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
+        "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
+        "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+        "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+        "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+        # NAT_P17_OIOI_TO_CHECK data
+        # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
+        "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
+        "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
+        # "yemeni domestic basketball": "كرة سلة يمنية محلية",
+        "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
+        "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
+        # "yemeni football": "كرة قدم يمنية",
+        # "{en} {en_sport}": "{sport_jobs} {female}",
+        "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
+        "{en} rugby union": "اتحاد الرجبي {the_male}",  # Category:American_basketball
+        "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
+        "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
+        "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
+        "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
+        "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
+        "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
+    }
 
-sports_formatted_data.update(WOMENS_NATIONAL_DATA)
+    sports_formatted_data.update(_levels_data())
+    sports_formatted_data.update(sports_formatted_data_for_jobs)
+
+    WOMENS_NATIONAL_DATA = {
+        x.replace("womens national", "national womens"): v
+        for x, v in sports_formatted_data.items()
+        if "womens national" in x
+    }
+
+    sports_formatted_data.update(WOMENS_NATIONAL_DATA)
+
+    return sports_formatted_data
 
 
 @functools.lru_cache(maxsize=1)
@@ -285,7 +289,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
         for x, v in SPORT_KEY_RECORDS.items()
         if v.get("label")
     }
-
+    sports_formatted_data = _load_sports_formatted_data()
     both_bot = format_multi_data_v2(
         formatted_data=sports_formatted_data,
         data_list=nats_data,
