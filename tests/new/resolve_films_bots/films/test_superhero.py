@@ -13,7 +13,7 @@ data_0 = {
     "Superheroes in anime and manga": "أنمي ومانغا أبطال خارقين",
     "Superheroes by publisher": "أبطال خارقون حسب الناشر",
     "Superheroes by type": "أبطال خارقون حسب النوع",
-    "Animal superheroes": "حيوانات أبطال أبطال خارقين",
+    "Animal superheroes": "حيوانات أبطال خارقين",
     "Child superheroes": "أبطال خارقون أطفال",
     "Comics superheroes": "قصص مصورة حول أبطال خارقون",
     "DC Comics female superheroes": "بطلات دي سي كومكس الخارقات",
