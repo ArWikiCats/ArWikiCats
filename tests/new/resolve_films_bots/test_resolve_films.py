@@ -50,7 +50,7 @@ fast_data_no_nats = {
     "action student films": "أفلام حركة طلاب",
     "action submarines films": "أفلام حركة غواصات",
     "action super robot films": "أفلام حركة آلية خارقة",
-    "action superhero films": "أفلام حركة خارقة",
+    "action superhero films": "أفلام حركة أبطال خارقين",
     "action supernatural films": "أفلام حركة خارقة للطبيعة",
     "action supernatural drama films": "أفلام حركة دراما خارقة للطبيعة",
     "action survival films": "أفلام حركة البقاء على قيد الحياة",

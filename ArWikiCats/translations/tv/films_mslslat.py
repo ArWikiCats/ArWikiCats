@@ -389,7 +389,7 @@ _Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
-# Films_keys_male_female["superhero"] = {"male": "خارق", "female": "خارقة"}
+# Films_keys_male_female["superhero"] = {"male": "خارق", "female": "أبطال خارقين"}
 
 # Filter to only entries with both male and female
 Films_key_O_multi = {
@@ -440,14 +440,15 @@ films_mslslat_tab.update(
         "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة",
         "supernatural comics": "قصص مصورة خارقة للطبيعة",
         "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار",
-        "superhero television characters": "شخصيات تلفزيونية خارقة",
-        "superhero television series": "مسلسلات تلفزيونية خارقة",
-        "superhero film series": "سلاسل أفلام خارقة",
-        "superhero television episodes": "حلقات تلفزيونية خارقة",
-        "superhero video games": "ألعاب فيديو خارقة",
-        "superhero web series": "مسلسلات ويب خارقة",
-        "superhero comics": "قصص مصورة خارقة",
-        "superhero television films": "أفلام تلفزيونية خارقة",
+
+        "superhero television characters": "شخصيات تلفزيونية أبطال خارقين",
+        "superhero television series": "مسلسلات تلفزيونية أبطال خارقين",
+        "superhero film series": "سلاسل أفلام أبطال خارقين",
+        "superhero television episodes": "حلقات تلفزيونية أبطال خارقين",
+        "superhero video games": "ألعاب فيديو أبطال خارقين",
+        "superhero web series": "مسلسلات ويب أبطال خارقين",
+        "superhero comics": "قصص مصورة أبطال خارقين",
+        "superhero television films": "أفلام تلفزيونية أبطال خارقين",
     }
 )
 
@@ -474,14 +475,14 @@ Films_key_For_nat.update(
         "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة {}",
         "supernatural comics": "قصص مصورة خارقة للطبيعة {}",
         "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار {}",
-        "superhero film series": "سلاسل أفلام خارقة {}",
-        "superhero television episodes": "حلقات تلفزيونية خارقة {}",
-        "superhero video games": "ألعاب فيديو خارقة {}",
-        "superhero web series": "مسلسلات ويب خارقة {}",
-        "superhero television films": "أفلام تلفزيونية خارقة {}",
-        "superhero comics": "قصص مصورة خارقة {}",
-        "superhero television characters": "شخصيات تلفزيونية خارقة {}",
-        "superhero television series": "مسلسلات تلفزيونية خارقة {}",
+        "superhero film series": "سلاسل أفلام أبطال خارقين {}",
+        "superhero television episodes": "حلقات تلفزيونية أبطال خارقين {}",
+        "superhero video games": "ألعاب فيديو أبطال خارقين {}",
+        "superhero web series": "مسلسلات ويب أبطال خارقين {}",
+        "superhero television films": "أفلام تلفزيونية أبطال خارقين {}",
+        "superhero comics": "قصص مصورة أبطال خارقين {}",
+        "superhero television characters": "شخصيات تلفزيونية أبطال خارقين {}",
+        "superhero television series": "مسلسلات تلفزيونية أبطال خارقين {}",
     }
 )
 

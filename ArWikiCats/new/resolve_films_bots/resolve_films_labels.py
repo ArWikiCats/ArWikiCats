@@ -87,7 +87,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
-                f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة خارقة للأطفال",
+                f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
                 # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
                 # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
                 # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
@@ -98,7 +98,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
                 f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
 
-                f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة خارقة {{nat_ar}} للأطفال",
+                f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
 
                 # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
                 # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",

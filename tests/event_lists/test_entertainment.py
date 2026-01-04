@@ -106,7 +106,7 @@ entertainment_3 = {
     "Category:Sports films by genre": "تصنيف:أفلام رياضية حسب النوع الفني",
     "Category:Spy anime and manga": "تصنيف:أنمي ومانغا تجسسية",
     "Category:Spy films by genre": "تصنيف:أفلام تجسسية حسب النوع الفني",
-    "Category:Superhero anime and manga": "تصنيف:أنمي ومانغا خارقة",
+    "Category:Superhero anime and manga": "تصنيف:أنمي ومانغا أبطال خارقين",
     "Category:Supernatural anime and manga": "تصنيف:أنمي ومانغا خارقة للطبيعة",
     "Category:Teen films by genre": "تصنيف:أفلام مراهقة حسب النوع الفني",
     "Category:Television characters by series": "تصنيف:شخصيات تلفزيونية حسب السلسلة",

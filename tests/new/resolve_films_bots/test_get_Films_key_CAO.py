@@ -82,7 +82,7 @@ fast_data_drama_cao = {
     "sports films": "أفلام رياضية",
     "sports logos": "شعارات رياضية",
     "sports television series": "مسلسلات تلفزيونية رياضية",
-    "superhero films": "أفلام خارقة",
+    "superhero films": "أفلام أبطال خارقين",
     "teen television series": "مسلسلات تلفزيونية مراهقة",
     "television logos": "شعارات تلفزيونية",
     "thriller films": "أفلام إثارة",
