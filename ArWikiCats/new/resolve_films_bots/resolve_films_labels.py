@@ -51,6 +51,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     # Genre-based categories
     genre_categories = {
+        # "fiction": "خيال",
+
         "webcomics": "ويب كومكس",
         "anime and manga": "أنمي ومانغا",
         "compilation albums": "ألبومات تجميعية",
@@ -70,7 +72,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "films": "أفلام",
         "comic strips": "شرائط كومكس",
         "comics": "قصص مصورة",
-        "fiction": "خيال",
         "film characters": "شخصيات أفلام",
         "games": "ألعاب",
         "television shows": "عروض تلفزيونية",
