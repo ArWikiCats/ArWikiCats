@@ -39,7 +39,7 @@ examples_century = {
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
     "18th-century people of the Dutch Empire": "أشخاص من الإمبراطورية الهولندية القرن 18",
     "20th-century disestablishments in India": "انحلالات القرن 20 في الهند",
-    "21st-century films": "أفلام القرن 21",
+    "21st-century films": "أفلام إنتاج القرن 21",
     "10th-century BC architecture": "عمارة القرن 10 ق م",
     "13th century establishments in the Roman Empire": "تأسيسات القرن 13 في الإمبراطورية الرومانية",
     "14th-century establishments in India": "تأسيسات القرن 14 في الهند",

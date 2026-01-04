@@ -50,36 +50,59 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         )
 
     # Genre-based categories
-    genre_categories = [
-        ("anime and manga", "أنمي ومانغا"),
-        ("compilation albums", "ألبومات تجميعية"),
-        ("folk albums", "ألبومات فلكلورية"),
-        ("classical albums", "ألبومات كلاسيكية"),
-        ("comedy albums", "ألبومات كوميدية"),
-        ("mixtape albums", "ألبومات ميكستايب"),
-        ("soundtracks", "موسيقى تصويرية"),
-        ("terminology", "مصطلحات"),
-        ("television series", "مسلسلات تلفزيونية"),
-        ("television episodes", "حلقات تلفزيونية"),
-        ("television programs", "برامج تلفزيونية"),
-        ("television programmes", "برامج تلفزيونية"),
-        ("groups", "مجموعات"),
-        ("novellas", "روايات قصيرة"),
-        ("novels", "روايات"),
-        ("films", "أفلام"),
-    ]
+    genre_categories = {
+        "webcomics": "ويب كومكس",
+        "anime and manga": "أنمي ومانغا",
+        "compilation albums": "ألبومات تجميعية",
+        "folk albums": "ألبومات فلكلورية",
+        "classical albums": "ألبومات كلاسيكية",
+        "comedy albums": "ألبومات كوميدية",
+        "mixtape albums": "ألبومات ميكستايب",
+        "soundtracks": "موسيقى تصويرية",
+        "terminology": "مصطلحات",
+        "television series": "مسلسلات تلفزيونية",
+        "television episodes": "حلقات تلفزيونية",
+        "television programs": "برامج تلفزيونية",
+        "television programmes": "برامج تلفزيونية",
+        "groups": "مجموعات",
+        "novellas": "روايات قصيرة",
+        "novels": "روايات",
+        "films": "أفلام",
+        "comic strips": "شرائط كومكس",
+        "comics": "قصص مصورة",
+        "fiction": "خيال",
+        "film characters": "شخصيات أفلام",
+        "games": "ألعاب",
+        "television shows": "عروض تلفزيونية",
+        "television films": "أفلام تلفزيونية",
+        "teams": "فرق",
+        "television characters": "شخصيات تلفزيونية",
+        "video games": "ألعاب فيديو",
+        "web series": "مسلسلات ويب",
+
+    }
 
     # Standard categories
-    for suffix, arabic_base in genre_categories:
+    for suffix, arabic_base in genre_categories.items():
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
+                f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
+                # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
+                # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
+                # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
             }
         )
         data.update(
             {
                 f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
+
+                f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
+
+                # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
+                # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
+                # f"{{nat_en}} superhero {{film_key}} {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
             }
         )
 
@@ -92,6 +115,11 @@ def _make_bot() -> MultiDataFormatterBase:
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
+
+        # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
+        # "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
+        # "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
+
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
@@ -112,6 +140,10 @@ def _make_bot() -> MultiDataFormatterBase:
 
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
+
+        # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
+        # "{film_key} superhero films": "أفلام {film_ar} أبطال خارقين",
+        # "superhero {film_key} films": "أفلام {film_ar} أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
     }
     other_formatted_data.update(data_no_nats)
@@ -138,6 +170,9 @@ def _make_bot() -> MultiDataFormatterBase:
     data_list2 = dict(film_keys_for_female)
     data_list2.pop("television", None)
 
+    # data_list2.pop("superhero", None)
+    data_list2["superhero"] = "أبطال خارقين"
+
     bot = format_films_country_data(
         formatted_data=formatted_data,
         data_list=Nat_women,
@@ -156,6 +191,21 @@ def _make_bot() -> MultiDataFormatterBase:
     return bot
 
 
+def fix_keys(category: str) -> str:
+    """Fix known issues in category keys."""
+    normalized_text = category.lower().replace("category:", " ").strip()
+    fixes = {
+        "saudi arabian": "saudiarabian",
+        "children's animated superhero": "children's-animated-superhero",
+    }
+    category = category.lower().strip()
+
+    for old, new in fixes.items():
+        category = category.replace(old, new)
+
+    return category
+
+
 @functools.lru_cache(maxsize=None)
 def get_films_key_tyty_new(text: str) -> str:
     """
@@ -165,7 +215,7 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
-    normalized_text = text.lower().replace("category:", " ").strip()
+    normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
 

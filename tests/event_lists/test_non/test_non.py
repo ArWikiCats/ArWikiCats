@@ -421,7 +421,7 @@ data1 = {
     "category:non-fiction books by writer": "تصنيف:كتب غير خيالية حسب الكاتب",
     "category:non-fiction books by year": "تصنيف:كتب غير خيالية حسب السنة",
     "category:non-fiction books": "تصنيف:كتب غير خيالية",
-    "category:non-fiction comic strips": "تصنيف:شرائط مصورة غير خيالية",
+    "category:non-fiction comic strips": "تصنيف:شرائط كومكس غير خيالية",
     "category:non-fiction comics": "تصنيف:قصص مصورة غير خيالية",
     "category:non-fiction crime writers": "تصنيف:كتاب جريمة غير روائيين",
     "category:non-fiction environmental writers": "تصنيف:كتاب بيئة غير روائيين",

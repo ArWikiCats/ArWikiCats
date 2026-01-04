@@ -57,12 +57,6 @@ fast_data = [
         "output": "مسلسلات تلفزيونية سياسية أمريكية",
     },
     {
-        "category": "american superhero films",
-        "country_start": "american",
-        "country_code": "superhero films",
-        "output": "أفلام خارقة أمريكية",
-    },
-    {
         "category": "american television episodes",
         "country_start": "american",
         "country_code": "television episodes",

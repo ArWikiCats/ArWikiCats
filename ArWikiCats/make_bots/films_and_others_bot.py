@@ -8,6 +8,7 @@ import re
 from ..helps.log import logger
 from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, resolve_films
 from ..new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
+from ..new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..new_resolvers.nationalities_resolvers import resolve_nationalities_main
@@ -42,6 +43,7 @@ def te_films(category: str) -> str:
 
     sources = {
         "get_Films_key_CAO": lambda k: get_Films_key_CAO(k),
+        "get_films_key_tyty_new_and_time": lambda k: get_films_key_tyty_new_and_time(k),
         "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
         "Jobs_in_Multi_Sports": lambda k: Jobs_in_Multi_Sports(k),
         "te_2018_with_nat": lambda k: te_2018_with_nat(k),

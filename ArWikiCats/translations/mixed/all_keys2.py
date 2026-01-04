@@ -205,7 +205,7 @@ BOOK_CATEGORIES: dict[str, str] = {
     "compilation albums": "ألبومات تجميعية",
     "mixtape albums": "ألبومات ميكستايب",
     "comic book": "كتب قصص مصورة",
-    "comic strips": "شرائط مصورة",
+    "comic strips": "شرائط كومكس",
     "comic": "قصص مصورة",
     "comics": "قصص مصورة",
     # "compositions": "تراكيب",

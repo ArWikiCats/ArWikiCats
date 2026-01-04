@@ -7,7 +7,7 @@ from ArWikiCats import resolve_arabic_category_label
 data_0 = {
     "Category:World War II political leaders": "تصنيف:زعماء الحرب العالمية الثانية",
     "Category:Vanuatu political leader navigational boxes": "تصنيف:صناديق تصفح قادة فانواتو السياسيون",
-    "Category:Somaliland political leader navigational boxes": "تصنيف:صناديق تصفح قادة صوماليلاند السياسيون",
+    "Category:Somaliland political leader navigational boxes": "تصنيف:صناديق تصفح قادة أرض الصومال السياسيون",
     "Category:Republic of the Congo political leader navigational boxes": "تصنيف:صناديق تصفح قادة جمهورية الكونغو السياسيين",
     "Category:Northern Mariana Islands political leader navigational boxes": "تصنيف:صناديق تصفح قادة جزر ماريانا الشمالية السياسيون",
     "Category:Ireland political leader navigational boxes": "تصنيف:قوالب تصفح قادة سياسيين أيرلنديين",

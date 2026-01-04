@@ -57,7 +57,7 @@ formatted_data = {
     "{en} language books": "كتب باللغة {al_ar}",
     "{en} language comedy albums": "ألبومات كوميدية باللغة {al_ar}",
     "{en} language comic book": "كتب قصص مصورة باللغة {al_ar}",
-    "{en} language comic strips": "شرائط مصورة باللغة {al_ar}",
+    "{en} language comic strips": "شرائط كومكس باللغة {al_ar}",
     "{en} language comic": "قصص مصورة باللغة {al_ar}",
     "{en} language comics": "قصص مصورة باللغة {al_ar}",
     "{en} language compilation albums": "ألبومات تجميعية باللغة {al_ar}",

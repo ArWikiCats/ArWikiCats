@@ -289,7 +289,7 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     "albums": "ألبومات",
     "books": "كتب",
     "comic book": "كتب قصص مصورة",
-    "comic strips": "شرائط مصورة",
+    "comic strips": "شرائط كومكس",
     "comic": "قصص مصورة",
     "comics": "قصص مصورة",
     "marvel comics": "مارفال كومكس",

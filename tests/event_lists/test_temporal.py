@@ -5,6 +5,13 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 temporal_1 = {
+    "Category:1950s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة في عقد 1950",
+    "Category:1960s black comedy films": "تصنيف:أفلام كوميدية سوداء في عقد 1960",
+    "Category:1960s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة في عقد 1960",
+    "Category:1970s black comedy films": "تصنيف:أفلام كوميدية سوداء في عقد 1970",
+    "Category:1970s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة في عقد 1970",
+    "Category:1980s black comedy films": "تصنيف:أفلام كوميدية سوداء في عقد 1980",
+    "Category:1980s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة في عقد 1980",
     "Category:00s establishments in the Roman Empire": "تصنيف:تأسيسات عقد 00 في الإمبراطورية الرومانية",
     "Category:1000 disestablishments by country": "تصنيف:انحلالات سنة 1000 حسب البلد",
     "Category:1000 disestablishments in Europe": "تصنيف:انحلالات سنة 1000 في أوروبا",
@@ -14,13 +21,6 @@ temporal_1 = {
     "Category:13th century establishments in the Roman Empire": "تصنيف:تأسيسات القرن 13 في الإمبراطورية الرومانية",
     "Category:14th-century establishments in India": "تصنيف:تأسيسات القرن 14 في الهند",
     "Category:1902 films": "تصنيف:أفلام إنتاج 1902",
-    "Category:1950s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1950",
-    "Category:1960s black comedy films": "تصنيف:أفلام كوميدية سوداء عقد 1960",
-    "Category:1960s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1960",
-    "Category:1970s black comedy films": "تصنيف:أفلام كوميدية سوداء عقد 1970",
-    "Category:1970s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1970",
-    "Category:1980s black comedy films": "تصنيف:أفلام كوميدية سوداء عقد 1980",
-    "Category:1980s criminal comedy films": "تصنيف:أفلام كوميديا الجريمة عقد 1980",
     "Category:1990s BC disestablishments in Asia": "تصنيف:انحلالات عقد 1990 ق م في آسيا",
     "Category:1990s disestablishments in Europe": "تصنيف:انحلالات عقد 1990 في أوروبا",
     "Category:1994–95 in European rugby union by country": "تصنيف:اتحاد الرجبي الأوروبي في 1994–95 حسب البلد",

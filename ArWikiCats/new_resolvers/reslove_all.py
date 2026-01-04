@@ -4,7 +4,7 @@ from .jobs_resolvers import resolve_jobs_main
 from .nationalities_resolvers import resolve_nationalities_main
 from .sports_resolvers import resolve_sports_main
 from .translations_resolvers_v3i import resolve_v3i_main
-
+from ..new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 def new_resolvers_all(category: str) -> str:
     logger.debug(f">> new_resolvers_all: {category}")
@@ -17,6 +17,7 @@ def new_resolvers_all(category: str) -> str:
         or resolve_sports_main(category)
         or resolve_nationalities_main(category)
         or resolve_countries_names_main(category)
+        or get_films_key_tyty_new_and_time(category)
         or ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")

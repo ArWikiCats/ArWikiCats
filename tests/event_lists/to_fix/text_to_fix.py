@@ -2230,7 +2230,7 @@ data1 = {
     "Category:Subnational legislators in South America": "تصنيف:المشرعون دون الوطنيين في أمريكا الجنوبية",
     "Category:Sudan men's A' international footballers": "تصنيف:لاعبو منتخب السودان لكرة القدم للرجال للمحليين",
     "Category:Sudanese football biography stubs": "تصنيف:بذرة أعلام كرة قدم سودانيين",
-    "Category:Superhero films about Asian Americans": "تصنيف:أفلام خارقة عن أمريكيون آسيويين",
+    "Category:Superhero films about Asian Americans": "تصنيف:أفلام أبطال خارقين عن أمريكيون آسيويين",
     "Category:Swedish football biography stubs": "تصنيف:بذرة أعلام كرة قدم سويديين",
     "Category:Swiss football biography stubs": "تصنيف:بذرة أعلام كرة قدم سويسريين",
     "Category:Synth-pop albums by Australian artists": "تصنيف:ألبومات سينثبوب لفنانين أستراليين",
