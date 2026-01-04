@@ -588,7 +588,7 @@ data1 = {
     "Category:Crimean Karaites": "تصنيف:قريميين",
     "Category:Crimes of the communist regime in Ukraine against Ukrainians": "تصنيف:جرائم النظام الشيوعي في أوكرانيا ضد الأوكرانيين",
     "Category:Croatian football biography stubs": "تصنيف:بذرة أعلام كرة قدم كرواتيين",
-    "Category:Croatian geophysicists": "تصنيف:جيوفيزيائيين كرواتيون",
+    "Category:Croatian geophysicists": "تصنيف:جيوفيزيائيين كروات",
     "Category:Culture of Camiguin": "تصنيف:ثقافة كاميغويين",
     "Category:Czech football biography stubs": "تصنيف:بذرة أعلام كرة قدم تشيكيين",
     "Category:Dance music albums by American artists": "تصنيف:ألبومات موسيقى الرقص لفنانين أمريكيين",
