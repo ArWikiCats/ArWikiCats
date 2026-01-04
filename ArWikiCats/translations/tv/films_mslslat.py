@@ -389,6 +389,7 @@ _Films_key_O_multi = open_json_file("media/Films_key_O_multi.json") or {}
 
 Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
+# Films_keys_male_female["superhero"] = {"male": "خارق", "female": "خارقة"}
 
 # Filter to only entries with both male and female
 Films_key_O_multi = {

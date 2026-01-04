@@ -271,6 +271,7 @@ def _add_film_entries() -> None:
 
     Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
 
+    # Films_keys_male_female["superhero"] = {"male": "خارق", "female": "خارقة"}
     Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
 
     data = {}
