@@ -104,7 +104,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
         # NOTE: we use genre_categories_skip_it because next line makes errors like:
         # "Category:Golf at 2022 Asian Games": "تصنيف:الغولف في ألعاب آسيوية في 2022",
-        if not genre_categories_skip_it.get(suffix):
+        if suffix not in genre_categories_skip_it:
             data[f"{{nat_en}} {suffix}"] = f"{arabic_base} {{nat_ar}}"
 
         data.update(
