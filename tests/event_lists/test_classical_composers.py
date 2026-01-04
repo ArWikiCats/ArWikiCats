@@ -5,6 +5,12 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump
 from ArWikiCats import resolve_label_ar
 
 test_c_composers_0 = {
+    "LGBTQ classical composers": "ملحنون كلاسيكيون مثليون",
+    "Italian classical composers of church music": "ملحنو كلاسيكية إيطاليون في موسيقى مسيحية",
+    "German classical composers of church music": "ملحنو كلاسيكية ألمان في موسيقى مسيحية",
+    "English classical composers of church music": "ملحنو كلاسيكية إنجليز في موسيقى مسيحية",
+    "Classical composers of church music": "ملحنون كلاسيكيون من موسيقى مسيحية",
+
     "American male classical composers": "ملحنون كلاسيكيون أمريكيون",
     "Australian male classical composers": "ملحنون كلاسيكيون أستراليون",
     "Austrian male classical composers": "ملحنون كلاسيكيون نمساويون",
@@ -264,22 +270,17 @@ test_c_composers_1 = {
     "Classical composers from Bohemia": "ملحنو كلاسيكية من بوهيميا",
     "Classical composers from the Russian Empire": "ملحنو كلاسيكية من الإمبراطورية الروسية",
     "Classical composers of African descent": "ملحنو كلاسيكية من أصل إفريقي",
-    "Classical composers of church music": "ملحنون كلاسيكيون من موسيقى مسيحية",
     "Cuban women classical composers": "ملحنات كلاسيكية كوبيات",
     "Czech women classical composers": "ملحنات كلاسيكية تشيكيات",
     "Danish classical composers": "مؤلفو موسيقى كلاسيكية دنماركيون",
     "Danish women classical composers": "ملحنات كلاسيكية دنماركيات",
     "Egyptian classical composers": "ملحنو كلاسيكية مصريون",
-    "English classical composers of church music": "ملحنو كلاسيكية إنجليز في موسيقى مسيحية",
     "English women classical composers": "ملحنات كلاسيكية إنجليزيات",
     "French contemporary classical composers": "ملحنو كلاسيكية معاصرون فرنسيون",
-    "German classical composers of church music": "ملحنو كلاسيكية ألمان في موسيقى مسيحية",
     "Icelandic classical composers": "ملحنو كلاسيكية آيسلنديون",
     "Icelandic women classical composers": "ملحنات كلاسيكية آيسلنديات",
     "Israeli women classical composers": "ملحنات كلاسيكية إسرائيليات",
-    "Italian classical composers of church music": "ملحنو كلاسيكية إيطاليون في موسيقى مسيحية",
     "Lebanese women classical composers": "ملحنات كلاسيكية لبنانيات",
-    "LGBTQ classical composers": "ملحنون كلاسيكيون مثليون",
     "Luxembourgian classical composers": "ملحنو كلاسيكية لوكسمبورغيون",
     "Male classical composers": "ملحنون كلاسيكيون",
     "Moldovan classical composers": "ملحنو كلاسيكية مولدوفيون",
@@ -296,22 +297,22 @@ test_c_composers_1 = {
 }
 
 test_c_composers_male = {
-    "Romanian male classical composers": "ملحنو كلاسيكية ذكور رومانيون",
-    "Scottish male classical composers": "ملحنو كلاسيكية ذكور إسكتلنديون",
-    "Ukrainian male classical composers": "ملحنو كلاسيكية ذكور أوكرانيون",
-    "Lithuanian male classical composers": "ملحنو كلاسيكية ذكور ليتوانيون",
-    "Male classical composers by nationality": "ملحنو كلاسيكية ذكور حسب الجنسية",
-    "Male classical composers from Bohemia": "ملحنو كلاسيكية ذكور من بوهيميا",
-    "Greek male classical composers": "ملحنو كلاسيكية ذكور يونانيون",
-    "Israeli male classical composers": "ملحنو كلاسيكية ذكور إسرائيليون",
-    "Estonian male classical composers": "ملحنو كلاسيكية ذكور إستونيون",
-    "Egyptian male classical composers": "ملحنو كلاسيكية ذكور مصريون",
-    "Cuban male classical composers": "ملحنو كلاسيكية ذكور كوبيون",
-    "Argentine male classical composers": "ملحنو كلاسيكية ذكور أرجنتينيون",
-    "Armenian male classical composers": "ملحنو كلاسيكية ذكور أرمن",
-    "Brazilian male classical composers": "ملحنو كلاسيكية ذكور برازيليون",
-    "Bulgarian male classical composers": "ملحنو كلاسيكية ذكور بلغاريون",
-    "Chilean male classical composers": "ملحنو كلاسيكية ذكور تشيليون",
+    "Romanian male classical composers": "ملحنون كلاسيكيون ذكور رومان",
+    "Scottish male classical composers": "ملحنون كلاسيكيون ذكور إسكتلنديون",
+    "Ukrainian male classical composers": "ملحنون كلاسيكيون ذكور أوكرانيون",
+    "Lithuanian male classical composers": "ملحنون كلاسيكيون ذكور ليتوانيون",
+    "Male classical composers by nationality": "ملحنون كلاسيكيون ذكور حسب الجنسية",
+    "Male classical composers from Bohemia": "ملحنون كلاسيكيون ذكور من بوهيميا",
+    "Greek male classical composers": "ملحنون كلاسيكيون ذكور يونانيون",
+    "Israeli male classical composers": "ملحنون كلاسيكيون ذكور إسرائيليون",
+    "Estonian male classical composers": "ملحنون كلاسيكيون ذكور إستونيون",
+    "Egyptian male classical composers": "ملحنون كلاسيكيون ذكور مصريون",
+    "Cuban male classical composers": "ملحنون كلاسيكيون ذكور كوبيون",
+    "Argentine male classical composers": "ملحنون كلاسيكيون ذكور أرجنتينيون",
+    "Armenian male classical composers": "ملحنون كلاسيكيون ذكور أرمن",
+    "Brazilian male classical composers": "ملحنون كلاسيكيون ذكور برازيليون",
+    "Bulgarian male classical composers": "ملحنون كلاسيكيون ذكور بلغاريون",
+    "Chilean male classical composers": "ملحنون كلاسيكيون ذكور تشيليون"
 }
 
 to_test = [
@@ -333,7 +334,7 @@ def test_classical_composers_1(category: str, expected: str) -> None:
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
-    # dump_diff(diff_result, name)
+    dump_diff(diff_result, name)
     dump_diff_text(expected, diff_result, name)
-    dump_same_and_not_same(data, diff_result, name, True)
+    # dump_same_and_not_same(data, diff_result, name, True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
