@@ -16,6 +16,8 @@ data_0 = {
 }
 
 data_2 = {
+    "Category:LGBTQ-related animated superhero films": "تصنيف:أفلام رسوم متحركة متعلقة بإل جي بي تي كيو أبطال خارقين",
+    "Category:Animated teen superhero films": "تصنيف:أفلام رسوم متحركة مراهقة أبطال خارقين",
     "Category:1930s superhero films": "تصنيف:أفلام خارقة عقد 1930",
     "Category:1940s animated superhero films": "تصنيف:أفلام رسوم متحركة خارقة عقد 1940",
     "Category:1940s superhero films": "تصنيف:أفلام خارقة عقد 1940",
@@ -137,13 +139,11 @@ data_3 = {
     "Category:Animated superhero comedy films": "",
     "Category:Animated superhero crossover films": "",
     "Category:Animated teen superhero comedy films": "",
-    "Category:Animated teen superhero films": "",
     "Category:DC Comics superhero teams": "",
     "Category:Female superhero teams": "",
     "Category:Fiction about superhero schools": "",
     "Category:Hispanic and Latino American superhero films": "",
     "Category:Image Comics superhero teams": "",
-    "Category:LGBTQ-related animated superhero films": "",
     "Category:LGBTQ-related superhero television shows": "",
     "Category:Marvel Comics superhero teams": "",
     "Category:Teen superhero comedy films": "",
