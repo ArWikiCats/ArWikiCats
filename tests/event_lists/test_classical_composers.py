@@ -162,7 +162,6 @@ test_c_composers_1 = {
     "19th-century Austrian classical composers": "ملحنون كلاسيكيون نمساويون في القرن 19",
     "19th-century Belgian classical composers": "ملحنون كلاسيكيون بلجيكيون في القرن 19",
     "19th-century British classical composers": "ملحنون كلاسيكيون بريطانيون في القرن 19",
-    "19th-century classical composers": "ملحنون كلاسيكيون في القرن 19",
     "19th-century Czech classical composers": "ملحنون كلاسيكيون تشيكيون في القرن 19",
     "19th-century Danish classical composers": "ملحنون كلاسيكيون دنماركيون في القرن 19",
     "19th-century English classical composers": "ملحنون كلاسيكيون إنجليز في القرن 19",
@@ -187,7 +186,6 @@ test_c_composers_1 = {
     "20th-century Canadian classical composers": "ملحنون كلاسيكيون كنديون في القرن 20",
     "20th-century Chilean classical composers": "ملحنون كلاسيكيون تشيليون في القرن 20",
     "20th-century Chinese classical composers": "ملحنون كلاسيكيون صينيون في القرن 20",
-    "20th-century classical composers": "ملحنون كلاسيكيون في القرن 20",
     "20th-century Cuban classical composers": "ملحنون كلاسيكيون كوبيون في القرن 20",
     "20th-century Czech classical composers": "ملحنون كلاسيكيون تشيكيون في القرن 20",
     "20th-century Danish classical composers": "ملحنون كلاسيكيون دنماركيون في القرن 20",
@@ -231,7 +229,6 @@ test_c_composers_1 = {
     "21st-century British classical composers": "ملحنون كلاسيكيون بريطانيون في القرن 21",
     "21st-century Canadian classical composers": "ملحنون كلاسيكيون كنديون في القرن 21",
     "21st-century Chinese classical composers": "ملحنون كلاسيكيون صينيون في القرن 21",
-    "21st-century classical composers": "ملحنون كلاسيكيون في القرن 21",
     "21st-century Czech classical composers": "ملحنون كلاسيكيون تشيكيون في القرن 21",
     "21st-century Danish classical composers": "ملحنون كلاسيكيون دنماركيون في القرن 21",
     "21st-century Dutch classical composers": "ملحنون كلاسيكيون هولنديون في القرن 21",
@@ -264,15 +261,12 @@ test_c_composers_1 = {
     "Bulgarian women classical composers": "ملحنات كلاسيكيات بلغاريات",
     "Canadian women classical composers": "ملحنات كلاسيكيات كنديات",
     "Chilean women classical composers": "ملحنات كلاسيكيات تشيليات",
-    "Classical composers": "ملحنون كلاسيكيون",
     "Classical composers by century": "ملحنون كلاسيكيون حسب القرن",
-    "Classical composers by nationality": "ملحنون كلاسيكيون حسب الجنسية",
     "Classical composers from Bohemia": "ملحنون كلاسيكيون من بوهيميا",
     "Classical composers from the Russian Empire": "ملحنون كلاسيكيون من الإمبراطورية الروسية",
     "Classical composers of African descent": "ملحنون كلاسيكيون من أصل إفريقي",
     "Cuban women classical composers": "ملحنات كلاسيكيات كوبيات",
     "Czech women classical composers": "ملحنات كلاسيكيات تشيكيات",
-    "Danish classical composers": "ملحنون كلاسيكيون دنماركيون",
     "Danish women classical composers": "ملحنات كلاسيكيات دنماركيات",
     "Egyptian classical composers": "ملحنون كلاسيكيون مصريون",
     "English women classical composers": "ملحنات كلاسيكيات إنجليزيات",
@@ -314,6 +308,7 @@ test_c_composers_male = {
     "Bulgarian male classical composers": "ملحنون كلاسيكيون ذكور بلغاريون",
     "Chilean male classical composers": "ملحنون كلاسيكيون ذكور تشيليون"
 }
+
 
 to_test = [
     ("test_classical_composers_1", test_c_composers_1),
