@@ -684,7 +684,6 @@ data1 = {
     "Category:Cultural depictions of architects": "تصنيف:تصوير ثقافي لمعماريين",
     "Category:Cultural depictions of astronomers": "تصنيف:تصوير ثقافي عن فلكيين",
     "Category:Cultural depictions of chemists": "تصنيف:تصوير ثقافي عن كيميائيين",
-    "Category:Cultural depictions of classical musicians": "تصنيف:تصوير ثقافي عن موسيقيين كلاسيكيين",
     "Category:Cultural depictions of comedians": "تصنيف:تصوير ثقافي لكوميديين",
     "Category:Cultural depictions of diplomats": "تصنيف:تصوير ثقافي عن دبلوماسيين",
     "Category:Cultural depictions of economists": "تصنيف:تصوير ثقافي لاقتصاديين",

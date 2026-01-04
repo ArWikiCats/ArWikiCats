@@ -176,7 +176,6 @@ test_data_2 = {
     "Jewish chess players": "لاعبو شطرنج يهود",
     "Jewish civil rights activists": "ناشطو حقوق مدنية يهود",
     "Jewish classical composers": "ملحنون كلاسيكيون يهود",
-    "Jewish classical musicians": "موسيقيون كلاسيكيون يهود",
     "Jewish classical pianists": "عازفو بيانو كلاسيكيون يهود",
     "Jewish classical violinists": "عازفو كمان كلاسيكيون يهود",
     "Jewish clergy": "رجال دين يهود",

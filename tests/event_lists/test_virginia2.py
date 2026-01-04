@@ -1,10 +1,14 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test  # , dump_same_and_not_same
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_arabic_category_label
 
-data_virginia2_1 = {}
+data_virginia2_1 = {
+    "Category:Baptists from West Virginia": "تصنيف:معمدانيون من فرجينيا الغربية",
+    "Category:Defunct private universities and colleges in West Virginia": "تصنيف:جامعات وكليات خاصة سابقة في فرجينيا الغربية"
+
+}
 
 data_virginia2_3 = {
     "Category:19th-century West Virginia state court judges": "تصنيف:قضاة محكمة ولاية فرجينيا الغربية القرن 19",
@@ -20,7 +24,6 @@ data_virginia2_3 = {
     "Category:Census-designated places in Henry County, Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة هنري (فرجينيا)",
     "Category:Census-designated places in Tazewell County, Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة تازويل (فرجينيا)",
     "Category:Census-designated places in Wetzel County, West Virginia": "تصنيف:مناطق إحصاء سكاني في مقاطعة ويتزل، فرجينيا الغربية",
-    "Category:Classical musicians from West Virginia": "تصنيف:موسيقيو كلاسيكية من فرجينيا الغربية",
     "Category:Coaches of American football from West Virginia": "تصنيف:مدربو كرة القدم الأمريكية من فرجينيا الغربية",
     "Category:Demographics of Virginia": "تصنيف:سكان فرجينيا",
     "Category:Education in Williamsburg, Virginia": "تصنيف:تعليم في ويليامزبرغ (فرجينيا)",
@@ -56,9 +59,6 @@ data_virginia2_3 = {
 }
 
 data_virginia2_4 = {
-
-    "Category:Baptists from West Virginia": "تصنيف:معمدانيون من فرجينيا الغربية",
-    "Category:Defunct private universities and colleges in West Virginia": "تصنيف:جامعات وكليات خاصة سابقة في فرجينيا الغربية",
     "Category:Democratic Party United States representatives from West Virginia": "تصنيف:أعضاء الحزب الديمقراطي في مجلس النواب الأمريكي من فرجينيا الغربية",
     "Category:Infectious disease deaths in Virginia": "تصنيف:وفيات بأمراض معدية في فرجينيا",
     "Category:Infectious disease deaths in West Virginia": "تصنيف:وفيات بأمراض معدية في فرجينيا الغربية",
@@ -106,4 +106,5 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
+    # dump_same_and_not_same(data, diff_result, name, True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

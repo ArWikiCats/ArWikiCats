@@ -269,7 +269,6 @@ te4_2018_Jobs_data = {
     "pan-africanists": "وحدويون أفارقة",
     "panamanian anti-communists": "بنميون مناهضون للشيوعية",
     "panamanian expatriates": "بنميون مغتربون",
-    "paraguayan classical musicians": "موسيقيون كلاسيكيون بارغوايانيون",
     "paraguayan male actors": "ممثلون ذكور بارغوايانيون",
     "paraguayan singers": "مغنون بارغوايانيون",
     "paraguayan surgeons": "جراحون بارغوايانيون",

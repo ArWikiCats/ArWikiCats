@@ -345,7 +345,7 @@ data_virginia_2 = {
     "Category:Hanover County, Virginia": "تصنيف:مقاطعة هانوفر (فرجينيا)",
     "Category:Harpers Ferry, West Virginia": "تصنيف:هاربرز فيري (فرجينيا الغربية)",
     "Category:Henrico County, Virginia": "تصنيف:مقاطعة هنريكو (فرجينيا)",
-    "Category:Henry County, Virginia": "تصنيف:مقاطعة هينري (فرجينيا)",
+    "Category:Henry County, Virginia": "تصنيف:مقاطعة هنري (فرجينيا)",
     "Category:Herndon, Virginia": "تصنيف:هيرندون (فرجينيا)",
     "Category:Highland County, Virginia": "تصنيف:مقاطعة هايلاند (فرجينيا)",
     "Category:History of Alexandria, Virginia": "تصنيف:تاريخ الإسكندرية (فرجينيا)",
