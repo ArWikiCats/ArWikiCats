@@ -612,11 +612,11 @@
     "victorian": {
         "male": "فيكتوري",
         "males": "فيكتوريون",
-        "female": "فيكتورية",
+        "female": "فكتورية",
         "females": "فيكتوريات",
         "en": "victoria-australia",
         "ar": "فيكتوريا (أستراليا)",
-        "the_female": "الفيكتورية",
+        "the_female": "الفكتورية",
         "the_male": "الفيكتوري"
     },
     "austrian": {

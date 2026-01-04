@@ -44,7 +44,7 @@ test_data = {
     "vanuata air force": "القوات الجوية الفانواتية",
     "vatican air force": "القوات الجوية الفاتيكانية",
     "venezuela air force": "القوات الجوية الفنزويلية",
-    "victoria-australia air force": "القوات الجوية الفيكتورية",
+    "victoria-australia air force": "القوات الجوية الفكتورية",
     "vietnam air force": "القوات الجوية الفيتنامية",
     "wales air force": "القوات الجوية الويلزية",
     "west germany air force": "القوات الجوية الألمانية الغربية",

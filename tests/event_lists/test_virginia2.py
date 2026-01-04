@@ -54,7 +54,7 @@ data_virginia2_3 = {
     "Category:Towns in Tazewell County, Virginia": "تصنيف:بلدات مقاطعة تازويل (فرجينيا)",
     "Category:Towns in West Virginia": "تصنيف:بلدات ولاية فرجينيا الغربية",
     "Category:Towns in Wythe County, Virginia": "تصنيف:بلدات مقاطعة وايذ (فرجينيا)",
-    "Category:Victorian architecture in West Virginia": "تصنيف:عمارة فيكتورية في فرجينيا الغربية",
+    "Category:Victorian architecture in West Virginia": "تصنيف:عمارة فكتورية في فرجينيا الغربية",
     "Category:West Virginia Republicans": "تصنيف:جمهوريون من ولاية فرجينيا الغربية",
 }
 
@@ -73,17 +73,10 @@ data_virginia2_4 = {
     "Category:1671 establishments in the Colony of Virginia": "x",
     "Category:1673 establishments in the Colony of Virginia": "x",
     "Category:1759 establishments in the Colony of Virginia": "x",
-    "Category:Buildings and structures in Falls Church, Virginia": "x",
     "Category:Eastern Virginia Medical School alumni": "x",
-    "Category:Isle of Wight County, Virginia": "x",
-    "Category:Politicians from Falls Church, Virginia": "x",
-    "Category:Sportspeople from Falls Church, Virginia": "x",
     "Category:University of Virginia School of Medicine alumni": "x",
     "Category:University of Virginia School of Medicine faculty": "x",
-    "Category:Virginia Beach Mariners players": "x",
-    "Category:Virginia Military Institute alumni": "x",
     "Category:Virginia Tech alumni": "x",
-    "Category:West Virginia United players": "x",
 }
 
 to_test = [
