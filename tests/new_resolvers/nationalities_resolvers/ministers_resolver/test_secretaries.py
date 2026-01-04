@@ -84,7 +84,7 @@ secretaries_test_0 = {
     "Category:Secretaries of state of North Carolina": "تصنيف:وزراء خارجية كارولاينا الشمالية",
     "Category:Secretaries of state of Ohio": "تصنيف:وزراء خارجية أوهايو",
     "Category:Secretaries of state of Oklahoma": "تصنيف:وزراء خارجية أوكلاهوما",
-    "Category:Secretaries of state of Oregon": "تصنيف:وزراء خارجية أوريغون",
+    "Category:Secretaries of state of Oregon": "تصنيف:وزراء خارجية أوريغن",
     "Category:Secretaries of state of Rhode Island": "تصنيف:وزراء خارجية رود آيلاند",
     "Category:Secretaries of state of South Carolina": "تصنيف:وزراء خارجية كارولاينا الجنوبية",
     "Category:Secretaries of state of South Dakota": "تصنيف:وزراء خارجية داكوتا الجنوبية",

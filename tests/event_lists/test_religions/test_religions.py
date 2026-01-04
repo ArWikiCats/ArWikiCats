@@ -44,7 +44,7 @@ religions_data = {
     "Muslims from North Dakota": "تصنيف:مسلمون من داكوتا الشمالية",
     "Muslims from Ohio": "تصنيف:مسلمون من أوهايو",
     "Muslims from Oklahoma": "تصنيف:مسلمون من أوكلاهوما",
-    "Muslims from Oregon": "تصنيف:مسلمون من أوريغون",
+    "Muslims from Oregon": "تصنيف:مسلمون من أوريغن",
     "Muslims from Overseas France": "تصنيف:مسلمون من مقاطعات وأقاليم ما وراء البحار الفرنسية",
     "Muslims from Pennsylvania": "تصنيف:مسلمون من بنسلفانيا",
     "Muslims from Rhode Island": "تصنيف:مسلمون من رود آيلاند",

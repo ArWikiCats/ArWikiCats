@@ -8,6 +8,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 fast_data_with_nats = {
+    # "Category:American animated television films": "تصنيف:أفلام رسوم متحركة تلفزيونية أمريكية",
     "northern ireland": "",
     "supernatural thriller films" : "أفلام إثارة خارقة للطبيعة",
     "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",

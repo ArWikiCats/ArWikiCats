@@ -39,7 +39,7 @@ geography_us_2 = {
     "Category:Ohio": "تصنيف:أوهايو",
     "Category:Oklahoma": "تصنيف:أوكلاهوما",
     "Category:Pennsylvania": "تصنيف:بنسلفانيا",
-    "Category:Oregon": "تصنيف:أوريغون",
+    "Category:Oregon": "تصنيف:أوريغن",
     "Category:Utah": "تصنيف:يوتا",
     "Category:Vermont": "تصنيف:فيرمونت",
     "Category:Virginia": "تصنيف:فرجينيا",

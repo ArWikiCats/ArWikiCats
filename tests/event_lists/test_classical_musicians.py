@@ -265,7 +265,7 @@ test_c_musicians_4 = {
     "Classical musicians from Maine": "موسيقيون كلاسيكيون من مين",
     "Classical musicians from Nevada": "موسيقيون كلاسيكيون من نيفادا",
     "Classical musicians from North Dakota": "موسيقيون كلاسيكيون من داكوتا الشمالية",
-    "Classical musicians from Oregon": "موسيقيون كلاسيكيون من أوريغون",
+    "Classical musicians from Oregon": "موسيقيون كلاسيكيون من أوريغن",
     "Classical musicians from Washington (state)": "موسيقيون كلاسيكيون من ولاية واشنطن",
     "Classical musicians from West Virginia": "موسيقيون كلاسيكيون من فرجينيا الغربية",
     "French contemporary classical musicians": "موسيقيون كلاسيكيون معاصرون فرنسيون",

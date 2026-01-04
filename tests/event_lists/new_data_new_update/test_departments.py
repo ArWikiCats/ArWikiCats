@@ -181,7 +181,7 @@ data_3 = {
     "Category:Defunct department stores based in Ohio": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوهايو",
     "Category:Defunct department stores based in Oklahoma": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوكلاهوما",
     "Category:Defunct department stores based in Orange County, California": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في مقاطعة أورانج (كاليفورنيا)",
-    "Category:Defunct department stores based in Oregon": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوريغون",
+    "Category:Defunct department stores based in Oregon": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في أوريغن",
     "Category:Defunct department stores based in Pennsylvania": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في بنسلفانيا",
     "Category:Defunct department stores based in Philadelphia": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في فيلادلفيا",
     "Category:Defunct department stores based in Pittsburgh": "تصنيف:متاجر متعددة الأقسام سابقة مقرها في بيتسبرغ",

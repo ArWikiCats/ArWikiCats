@@ -96,9 +96,9 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
                 f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
-                # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
+
+                f"children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية للأطفال",
+                f"animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية",
             }
         )
 
@@ -113,9 +113,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
 
-                # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
-                # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
-                # f"{{nat_en}} superhero {{film_key}} {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
+                f"{{nat_en}} children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية {{nat_ar}} للأطفال",
+                f"{{nat_en}} animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية {{nat_ar}}",
             }
         )
 
@@ -209,6 +208,8 @@ def fix_keys(category: str) -> str:
     normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
+        "animated television": "animated-television",
+        "children's animated adventure television": "children's-animated-adventure-television",
         "children's animated superhero": "children's-animated-superhero",
     }
     category = category.lower().strip()

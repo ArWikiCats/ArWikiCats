@@ -533,7 +533,7 @@ data3 = {
     "Category:Women's sports clubs and teams in Zimbabwe": "تصنيف:أندية وفرق رياضية نسائية في زيمبابوي",
     "Category:Women's sports in Indianapolis": "تصنيف:رياضات نسائية في إنديانابوليس",
     "Category:Women's sports in Minneapolis": "تصنيف:رياضات نسائية في مينيابوليس",
-    "Category:Women's sports in Oregon": "تصنيف:رياضات نسائية في أوريغون",
+    "Category:Women's sports in Oregon": "تصنيف:رياضات نسائية في أوريغن",
     "Category:Women's sports in Palau": "تصنيف:رياضات نسائية في بالاو",
     "Category:Women's sports in Vienna": "تصنيف:رياضات نسائية في فيينا",
 }

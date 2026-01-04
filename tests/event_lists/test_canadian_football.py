@@ -164,7 +164,7 @@ data1 = {
     "Category:Players of Canadian football from Oklahoma City": "تصنيف:لاعبو كرة قدم كندية من أوكلاهوما سيتي",
     "Category:Players of Canadian football from Oklahoma": "تصنيف:لاعبو كرة قدم كندية من أوكلاهوما",
     "Category:Players of Canadian football from Ontario": "تصنيف:لاعبو كرة قدم كندية من أونتاريو",
-    "Category:Players of Canadian football from Oregon": "تصنيف:لاعبو كرة قدم كندية من أوريغون",
+    "Category:Players of Canadian football from Oregon": "تصنيف:لاعبو كرة قدم كندية من أوريغن",
     "Category:Players of Canadian football from Orlando, Florida": "تصنيف:لاعبو كرة قدم كندية من أورلاندو (فلوريدا)",
     "Category:Players of Canadian football from Pasadena, California": "تصنيف:لاعبو كرة قدم كندية من باسادينا (كاليفورنيا)",
     "Category:Players of Canadian football from Pennsylvania": "تصنيف:لاعبو كرة قدم كندية من بنسلفانيا",

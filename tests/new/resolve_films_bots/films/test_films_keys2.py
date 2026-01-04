@@ -5,6 +5,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data_0 = {
+    "animated television films": "أفلام تلفزيونية رسوم متحركة",
+    "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
     "martial arts comics": "قصص مصورة فنون قتال",
     "martial arts television episodes": "حلقات تلفزيونية فنون قتال",
     "martial arts television films": "أفلام تلفزيونية فنون قتال",
@@ -181,12 +183,10 @@ data_1 = {
     "animated soap opera": "مسلسلات طويلة رسوم متحركة",
     "animated television characters": "شخصيات تلفزيونية رسوم متحركة",
     "animated television episodes": "حلقات تلفزيونية رسوم متحركة",
-    "animated television films": "أفلام تلفزيونية رسوم متحركة",
     "animated television miniseries": "مسلسلات قصيرة رسوم متحركة",
     "animated television news": "أخبار تلفزيونية رسوم متحركة",
     "animated television programmes": "برامج تلفزيونية رسوم متحركة",
     "animated television programs": "برامج تلفزيونية رسوم متحركة",
-    "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
     "animated television series endings": "مسلسلات تلفزيونية رسوم متحركة انتهت",
     "animated television series-endings": "مسلسلات تلفزيونية رسوم متحركة انتهت",
     "animated video games": "ألعاب فيديو رسوم متحركة",
