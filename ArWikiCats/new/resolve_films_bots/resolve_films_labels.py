@@ -78,7 +78,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "teams": "فرق",
         "television characters": "شخصيات تلفزيونية",
         "video games": "ألعاب فيديو",
-        "web series": "سلاسل ويب",
+        "web series": "مسلسلات ويب",
 
     }
 
