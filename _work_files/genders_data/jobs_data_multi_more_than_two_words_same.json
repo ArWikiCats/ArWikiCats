@@ -2984,6 +2984,11 @@
         "job_females": "عداءات مسافات طويلة",
         "both_jobs": "عداؤو وعداءات مسافات طويلة"
     },
+    "lutenists": {
+        "job_males": "عازفو آلات وترية",
+        "job_females": "عازفات آلات وترية",
+        "both_jobs": "عازفو وعازفات آلات وترية"
+    },
     "magazine company founders": {
         "job_males": "مؤسسو شركات مجلات",
         "job_females": "مؤسسات شركات مجلات",

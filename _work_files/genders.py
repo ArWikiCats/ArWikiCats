@@ -70,8 +70,12 @@ new_data2 = {}
 new_data3 = {}
 
 for key in keys_in_both_2_words:
-    word1_mens, word2_mens = mens_data[key].split(" ")
-    word1_womens, word2_womens = womens_data[key].split(" ")
+    try:
+        word1_mens, word2_mens = mens_data[key].split(" ")
+        word1_womens, word2_womens = womens_data[key].split(" ")
+    except ValueError:
+        print(f"ValueError for key: {key} with mens_data: {mens_data[key]} and womens_data: {womens_data[key]}")
+        continue
 
     if word2_mens == word2_womens:
         new_data2[key] = {
