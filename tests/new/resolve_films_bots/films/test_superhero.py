@@ -4,6 +4,17 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_0 = {
+    "Category:Marvel Comics female superheroes": "تصنيف:بطلات مارفل كومكس الخارقات",
+    "Category:Marvel Comics superheroes": "تصنيف:أبطال خارقون في مارفل كومكس",
+    "Category:Muslim superheroes": "تصنيف:أبطال خارقون مسلمون",
+    "Category:Egyptian superheroes": "تصنيف:أبطال خارقون مصريون",
+    "Category:DC Comics female superheroes": "تصنيف:بطلات دي سي كومكس الخارقات",
+    "Category:Child superheroes": "تصنيف:أبطال خارقون أطفال",
+    "Category:Comics superheroes": "تصنيف:قصص مصورة حول أبطال خارقون",
+    "Category:Animal superheroes": "تصنيف:حيوانات أبطال خارقة",
+}
+
 data_2 = {
     "Category:1930s superhero films": "تصنيف:أفلام خارقة عقد 1930",
     "Category:1940s animated superhero films": "تصنيف:أفلام رسوم متحركة خارقة عقد 1940",
@@ -189,7 +200,6 @@ data_to_fix = {
     "Category:American superhero comedy television series by decade": "تصنيف:مسلسلات تلفزيونية خارقة كوميدية أمريكية حسب العقد",
     "Category:American superhero films": "تصنيف:أفلام أبطال خارقين أمريكية",
     "Category:American superhero television series": "تصنيف:مسلسلات تلفزيونية خارقة أمريكية",
-    "Category:Animal superheroes": "تصنيف:حيوانات أبطال خارقة",
     "Category:Animated superhero films": "تصنيف:أفلام أبطال خارقين رسوم متحركة",
     "Category:Animated superhero films by decade": "تصنيف:أفلام أبطال خارقين رسوم متحركة حسب العقد",
     "Category:Animated superhero television series": "تصنيف:مسلسلات رسوم متحركة عن أبطال خارقين",
@@ -202,13 +212,9 @@ data_to_fix = {
     "Category:Canadian superhero comedy television series": "تصنيف:مسلسلات تلفزيونية خارقة كوميدية كندية",
     "Category:Canadian superhero films": "تصنيف:أفلام خارقة كندية",
     "Category:Canadian superhero television series": "تصنيف:مسلسلات تلفزيونية خارقة كندية",
-    "Category:Child superheroes": "تصنيف:أبطال خارقون أطفال",
     "Category:Chinese superhero films": "تصنيف:أفلام خارقة صينية",
-    "Category:Comics superheroes": "تصنيف:قصص مصورة حول أبطال خارقون",
     "Category:Czech superhero films": "تصنيف:أفلام أبطال خارقين تشيكية",
     "Category:Danish children's animated superhero television series": "تصنيف:مسلسلات رسوم متحركة خارقة تلفزيونية دنماركية للأطفال",
-    "Category:DC Comics female superheroes": "تصنيف:بطلات دي سي كومكس الخارقات",
-    "Category:Egyptian superheroes": "تصنيف:أبطال خارقون مصريون",
     "Category:French children's animated superhero television series": "تصنيف:مسلسلات رسوم متحركة خارقة تلفزيونية فرنسية للأطفال",
     "Category:French superhero films": "تصنيف:أفلام خارقة فرنسية",
     "Category:German superhero films": "تصنيف:أفلام خارقة ألمانية",
@@ -226,9 +232,6 @@ data_to_fix = {
     "Category:LGBTQ-related superhero films": "تصنيف:أفلام أبطال خارقين متعلقة بإل جي بي تي",
     "Category:LGBTQ-related superhero television shows": "تصنيف:عروض أبطال خارقين تلفزيونية متعلقة بإل جي بي تي",
     "Category:Lists of superhero films": "تصنيف:قوائم أفلام خارقة",
-    "Category:Marvel Comics female superheroes": "تصنيف:بطلات مارفل كومكس الخارقات",
-    "Category:Marvel Comics superheroes": "تصنيف:أبطال خارقون في مارفل كومكس",
-    "Category:Muslim superheroes": "تصنيف:أبطال خارقون مسلمون",
     "Category:Russian superhero films": "تصنيف:أفلام خارقة روسية",
     "Category:Saudi Arabian superhero films": "تصنيف:أفلام خارقة سعودية",
     "Category:South Korean children's animated superhero television series": "تصنيف:مسلسلات خارقة رسوم متحركة تلفزيونية كورية جنوبية للأطفال",
