@@ -1,5 +1,19 @@
 
-## [#299](https://github.com/MrIbrahem/ArWikiCats/pull/299) - 2026-04-04
+## [#300](https://github.com/MrIbrahem/ArWikiCats/pull/300) - 2026-01-04
+
+* **New Features**
+  * Added Arabic translations for additional geographic locations and administrative regions.
+  * Introduced new entries for jobs (baptists) and educational institution types.
+  * Expanded category label support for films and nationality-based classifications.
+
+* **Bug Fixes**
+  * Corrected Arabic transliterations for multiple city and county names.
+  * Updated nationality and geographic term translations for accuracy.
+
+* **Tests**
+  * Added comprehensive test coverage for category label resolution and mapping validation.
+
+## [#299](https://github.com/MrIbrahem/ArWikiCats/pull/299) - 2026-01-04
 
 * **Chores**
   * Removed numerous translation entries and public category mappings related to conviction/crime classifications across datasets and examples.
