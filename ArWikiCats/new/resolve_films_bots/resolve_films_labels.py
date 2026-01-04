@@ -74,19 +74,19 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
-                f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
+                # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
+                # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
+                # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
             }
         )
         data.update(
             {
                 f"{{nat_en}} {suffix}": f"{arabic_base} {{nat_ar}}",
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
-                f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
 
-                f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
-                f"{{nat_en}} superhero {{film_key}} {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
+                # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
+                # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
+                # f"{{nat_en}} superhero {{film_key}} {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
             }
         )
 
@@ -101,8 +101,8 @@ def _make_bot() -> MultiDataFormatterBase:
         "{nat_en} films": "أفلام {nat_ar}",
 
         # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
-        "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
-        "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
+        # "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
+        # "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
 
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
@@ -126,8 +126,8 @@ def _make_bot() -> MultiDataFormatterBase:
         "{film_key} films": "أفلام {film_ar}",
 
         # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
-        "{film_key} superhero films": "أفلام {film_ar} أبطال خارقين",
-        "superhero {film_key} films": "أفلام {film_ar} أبطال خارقين",
+        # "{film_key} superhero films": "أفلام {film_ar} أبطال خارقين",
+        # "superhero {film_key} films": "أفلام {film_ar} أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
     }
     other_formatted_data.update(data_no_nats)
@@ -153,7 +153,9 @@ def _make_bot() -> MultiDataFormatterBase:
     }
     data_list2 = dict(film_keys_for_female)
     data_list2.pop("television", None)
-    data_list2.pop("superhero", None)
+
+    # data_list2.pop("superhero", None)
+    data_list2["superhero"] = "أبطال خارقين"
 
     bot = format_films_country_data(
         formatted_data=formatted_data,
