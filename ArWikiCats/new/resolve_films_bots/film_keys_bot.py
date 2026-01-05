@@ -23,7 +23,15 @@ from .resolve_films_labels import get_films_key_tyty_new
 @functools.lru_cache(maxsize=None)
 def get_Films_key_CAO(country_identifier: str) -> str:
     """
-    Resolve labels for composite television keys used in film lookups.
+    Resolve an Arabic label for a composite television-style film key.
+    
+    Given a country or category identifier that may be composed of a prefix and a known television suffix, match the suffix, look up the prefix label, and combine them into a localized Arabic label.
+    
+    Parameters:
+        country_identifier (str): The input identifier (e.g., a composite television/category key) to resolve.
+    
+    Returns:
+        str: The resolved Arabic label when a matching suffix and prefix are found, or an empty string if no resolution is possible.
     """
 
     logger.debug(f"<<lightblue>> get_Films_key_CAO : {country_identifier=} ")
@@ -60,7 +68,12 @@ def get_Films_key_CAO(country_identifier: str) -> str:
 @functools.lru_cache(maxsize=None)
 # @dump_data(1)
 def Films(category: str) -> str:
-    """Resolve the Arabic label for a given film category."""
+    """
+    Resolve the Arabic label for a given film category.
+    
+    Returns:
+        str: Arabic label corresponding to the category, or an empty string if no mapping is found.
+    """
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 

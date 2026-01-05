@@ -102,7 +102,12 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
 
 
 def _get_direct_lookup(category: str) -> str:
-    """Try direct dictionary lookups for the category."""
+    """
+    Return a localized Arabic label for the given category when available.
+    
+    Returns:
+        str: Arabic label for the category, or an empty string if no matching label is found.
+    """
     if category == "people":
         return "أشخاص"
 
@@ -117,22 +122,14 @@ def _get_direct_lookup(category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def te4_2018_Jobs(cate: str) -> str:
-    """Retrieve job-related information based on the specified category.
-
-    This function processes the input category to determine the appropriate
-    job-related label and returns it. It utilizes various mappings and
-    conditions to derive the correct label based on prefixes, gender
-    considerations, and other contextual information. The function also
-    caches results for efficiency, avoiding redundant computations for
-    previously queried categories.
-
-    Args:
-        cate (str): The category of jobs to retrieve information for.
-
+    """
+    Determine the localized label for a job- or nationality-related category.
+    
+    Parameters:
+        cate (str): Category name or phrase (underscores are treated as spaces).
+    
     Returns:
-        str: The job-related label corresponding to the input category.
-
-    TODO: use FormatData method
+        str: The localized label corresponding to the category, or an empty string if no label can be resolved.
     """
     cate = cate.replace("_", " ")
     logger.debug(f"<<lightyellow>>>> te4_2018_Jobs >> cate:({cate}) ")

@@ -25,9 +25,16 @@ from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 @functools.lru_cache(maxsize=None)
 def te_films(category: str) -> str:
     """
-    Resolve a media category into an Arabic label using layered fallbacks.
-
-    TODO: many funcs used here
+    Resolve a media category into its Arabic label using multiple layered resolvers.
+    
+    Parameters:
+        category (str): The media category to resolve; input is normalized before lookup. If the category consists only of digits, the trimmed numeric string is returned.
+    
+    Returns:
+        str: The resolved Arabic label when a resolver matches, or an empty string if unresolved.
+    
+    Notes:
+        - When a resolver matches, the function may invoke side-effect hooks to update auxiliary tables (e.g., add_to_new_players or add_to_Films_O_TT) depending on which resolver produced the result.
     """
     normalized_category = category.lower()
 

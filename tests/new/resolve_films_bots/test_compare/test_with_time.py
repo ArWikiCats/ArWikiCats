@@ -1,4 +1,3 @@
-
 """
 Tests
 """
@@ -188,6 +187,17 @@ novels_films_test_data = {
 @pytest.mark.dump
 def test_dump_2nd(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, str], callback) -> None:
 
+    """
+    Run a comparison test of film-label resolution with time by patching its helper and asserting the output matches expected.
+    
+    Parameters:
+        monkeypatch (pytest.MonkeyPatch): pytest fixture used to replace the module's helper with a controlled implementation.
+        name (str): Identifier used for dump files and test output grouping.
+        data (dict[str, str]): Mapping of source film-category keys to expected translations.
+        callback: The function under test that processes `data` to produce comparison results.
+    
+    No return value. The test records differences and same/not-same items, and asserts that the produced diff equals the expected result.
+    """
     monkeypatch.setattr(
         "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
         _get_films_key_tyty_new,

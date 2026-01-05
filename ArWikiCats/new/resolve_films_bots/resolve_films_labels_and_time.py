@@ -20,7 +20,17 @@ formatted_data = {
 
 @functools.lru_cache(maxsize=10000)
 def match_key_callback(text: str) -> str:
-    """Match the country part from 'job from country'."""
+    """
+    Extracts and normalizes the country/key component from a category-like text.
+    
+    Strips the suffixes " debuts", " endings", and "-endings", removes the "{year1} " placeholder, and trims surrounding whitespace.
+    
+    Parameters:
+        text (str): Input category text potentially containing year and suffix tokens.
+    
+    Returns:
+        str: The extracted and trimmed key component (e.g., country or category fragment).
+    """
     # replace all formatted_data keys from text
     # text = text.replace("{year1} deaths from", "").replace("{year1}", "")
     orgtext = text

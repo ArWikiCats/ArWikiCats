@@ -113,15 +113,18 @@ def _try_nationality_based_strategies(
     nationality_key: str,
     suffix: str,
 ) -> Optional[str]:
-    """Try various nationality-based translation strategies.
-
-    Args:
-        normalized_category: The normalized category string.
-        nationality_key: The detected nationality key.
-        suffix: The remaining suffix after nationality extraction.
-
+    """
+    Attempt nationality-aware translation strategies for a normalized category.
+    
+    Tries each configured nationality-based strategy in order and returns the first non-empty translation.
+    
+    Parameters:
+        normalized_category: The normalized category string (lowercased and cleaned).
+        nationality_key: The detected nationality key used by nationality-aware strategies.
+        suffix: The remaining suffix of the category after nationality extraction.
+    
     Returns:
-        The translated label if found, None otherwise.
+        The translated label if a strategy produced one, None otherwise.
     """
     strategies = [
         ("ethnic_bot.ethnic_label", lambda: ethnic_bot.ethnic_label(normalized_category, nationality_key, suffix)),
@@ -151,22 +154,11 @@ def _try_prefix_based_work(normalized_category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
-    """Return a localized job label for 2018 categories with nationality hints.
-
-    This function processes job-related categories that include nationality
-    information and returns the appropriate Arabic translation.
-
-    Args:
-        category: The category string to translate.
-
+    """
+    Generate an Arabic job label for category strings that include nationality hints.
+    
     Returns:
-        The localized job label, or empty string if no match.
-
-    Example:
-        >>> te_2018_with_nat("zimbabwean musical groups")
-        "مجموعات موسيقية زيمبابوية"
-
-    TODO: Consider using FormatData method for consistency.
+        str: The localized Arabic job label formatted for the detected nationality, or an empty string if no translation is found.
     """
     logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
 
