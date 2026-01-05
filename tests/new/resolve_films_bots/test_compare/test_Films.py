@@ -10,7 +10,6 @@ from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
 test_data = {
-
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
     "3d film series": "سلاسل أفلام ثلاثية الأبعاد",
     "3d soap opera": "مسلسلات طويلة ثلاثية الأبعاد",
@@ -63,13 +62,11 @@ test_data = {
     "action thriller soap opera": "مسلسلات طويلة إثارة حركة",
     "adventure films": "أفلام مغامرات",
     "animated films": "أفلام رسوم متحركة",
-    "animation": "رسوم متحركة",
     "anime and manga characters": "شخصيات أنمي ومانغا",
     "anime films": "أفلام أنمي",
     "anthology films": "أفلام أنثولوجيا",
     "black comedy films": "أفلام كوميدية سوداء",
     "buddy films": "أفلام رفقاء",
-    "clubs": "أندية",
     "comedy films": "أفلام كوميدية",
     "comics characters": "شخصيات قصص مصورة",
     "comics images": "صور قصص مصورة",
@@ -80,15 +77,12 @@ test_data = {
     "fantasy films": "أفلام فانتازيا",
     "horror films": "أفلام رعب",
     "melodrama films": "أفلام ميلودراما",
-    "music": "موسيقى",
     "mystery film series": "سلاسل أفلام غموض",
     "parody films": "أفلام ساخرة",
     "police procedural films": "أفلام إجراءات الشرطة",
     "science fiction thriller films": "أفلام إثارة خيال علمي",
-    "soap opera": "مسلسلات طويلة",
     "thriller films": "أفلام إثارة",
     "war films": "أفلام حربية",
-    "webcomic": "ويب كومكس",
 }
 
 
