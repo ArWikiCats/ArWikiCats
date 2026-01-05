@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "middle eastern traditional music": "موسيقى تقليدية شرق أوسطي",
+    "korean traditional music": "موسيقى تقليدية كوري",
     "Christian rock songs": "تصنيف:أغاني روك مسيحي",
     "danish dance songs": "تصنيف:أغاني رقص دنماركي",
     "hong kong rock songs": "تصنيف:أغاني روك هونغ كونغي",
