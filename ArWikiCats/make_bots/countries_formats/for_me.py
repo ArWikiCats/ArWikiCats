@@ -14,7 +14,6 @@ from ...translations import (
     Nat_the_male,
     Nat_women,
     New_female_keys,
-    New_male_keys,
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
@@ -23,36 +22,6 @@ from ...translations import (
 )
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ..o_bots import ethnic_bot
-
-# رجالية بدون ألف ولام التعريف
-# tab[Category:syrian descent] = "تصنيف:أصل سوري"
-
-en_is_nat_ar_is_man: dict[str, str] = {
-    "descent": "أصل {}",
-    "military occupations": "احتلال عسكري {}",
-    "integration": "تكامل {}",
-    "innovation": "ابتكار {}",
-    "design": "تصميم {}",
-    "contemporary art": "فن معاصر {}",
-    "art": "فن {}",
-    "cuisine": "مطبخ {}",
-    "calendar": "تقويم {}",
-    "non fiction literature": "أدب غير خيالي {}",
-    "non-fiction literature": "أدب غير خيالي {}",
-    "literature": "أدب {}",
-    "caste system": "نظام طبقي {}",
-    "law": "قانون {}",
-    "military equipment": "عتاد عسكري {}",
-    "wine": "نبيذ {}",
-    "history": "تاريخ {}",
-    "nuclear history": "تاريخ نووي {}",
-    "military history": "تاريخ عسكري {}",
-    "diaspora": "شتات {}",
-    "traditions": "تراث {}",
-    "folklore": "فلكور {}",
-    # "literary critics" : "نقد أدبي {}",
-    "television": "تلفاز {}",
-}
 
 
 @functools.lru_cache(maxsize=None)
@@ -137,22 +106,6 @@ def _get_female_def_label(suffix: str, the_female_nat_lab: str) -> str | None:
     else:
         country_lab = con_3_lab.format(the_female_nat_lab)
     logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ")
-    return country_lab
-
-
-def _get_male_no_def_label(suffix: str, men_nat_lab: str) -> str | None:
-    """Attempt to get male label without definite article."""
-    con_3_lab = en_is_nat_ar_is_man.get(suffix.strip(), "")
-    if not con_3_lab:
-        con_3_lab = New_male_keys.get(suffix.strip(), "")
-        if con_3_lab:
-            con_3_lab += " {}"
-
-    if not con_3_lab:
-        return None
-
-    country_lab = con_3_lab.format(men_nat_lab)
-    logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ")
     return country_lab
 
 
