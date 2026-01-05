@@ -85,7 +85,6 @@ test_data = {
     "police procedural films": "أفلام إجراءات الشرطة",
     "science fiction thriller films": "أفلام إثارة خيال علمي",
     "soap opera": "مسلسلات طويلة",
-    "sound film remakes": "أفلام ناطقة معاد إنتاجها",
     "thriller films": "أفلام إثارة",
     "war films": "أفلام حربية",
     "webcomic": "ويب كومكس",

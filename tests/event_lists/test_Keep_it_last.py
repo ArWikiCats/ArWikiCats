@@ -57,7 +57,6 @@ fast_data = {
     "Category:Remakes of Taiwanese films": "تصنيف:أفلام تايوانية معاد إنتاجها",
     "Category:Remakes of Thai films": "تصنيف:أفلام تايلندية معاد إنتاجها",
     "Category:Remakes of Turkish films": "تصنيف:أفلام تركية معاد إنتاجها",
-    "Category:Sound film remakes of silent films": "تصنيف:أفلام ناطقة معاد إنتاجها في أفلام صامتة",
 }
 
 

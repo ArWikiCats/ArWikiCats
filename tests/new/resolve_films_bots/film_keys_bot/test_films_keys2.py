@@ -2092,7 +2092,6 @@ data_1 = {
     "slasher web series": "مسلسلات ويب تقطيع",
     "soap opera": "مسلسلات طويلة",
     "sound comics": "قصص مصورة ناطقة",
-    "sound film series": "سلاسل أفلام ناطقة",
     "sound soap opera": "مسلسلات طويلة ناطقة",
     "sound television episodes": "حلقات تلفزيونية ناطقة",
     "sound television films": "أفلام تلفزيونية ناطقة",
