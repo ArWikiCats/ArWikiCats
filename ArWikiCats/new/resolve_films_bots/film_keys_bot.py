@@ -8,13 +8,10 @@ TODO: replaced by resolve_films
 
 import functools
 
-from ...helps import logger, dump_data
-from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
+from ...helps import logger
 from ...translations import (
-    All_Nat,
     Films_key_333,
     Films_key_CAO,
-    Films_key_CAO_new_format,
     Films_key_For_nat,
     Nat_mens,
     Nat_women,
@@ -63,45 +60,6 @@ def get_Films_key_CAO(country_identifier: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def films_with_nat(country_start: str, category_without_nat: str) -> str:
-    """
-    Resolve film labels based on nationality.
-    Example:
-        - country_start='yemeni', category_without_nat='science fiction film series endings'
-        - result='سلاسل أفلام خيال علمي يمنية انتهت في'
-    """
-    country_name = Nat_mens[country_start] if category_without_nat == "people" else Nat_women[country_start]
-    country_label = en_is_nat_ar_is_women.get(category_without_nat.strip(), "")
-
-    result = ""
-    if country_label:
-        result = country_label.format(country_name)
-        logger.debug(f"<<lightblue>> bot_te_4:Films: new {result=} ")
-
-    if not result:
-        country_label = (
-            Films_key_CAO.get(category_without_nat)
-            or get_Films_key_CAO(category_without_nat)
-            or get_films_key_tyty_new_and_time(category_without_nat)
-            or get_films_key_tyty_new(category_without_nat)
-            or ""
-        )
-        if country_label:
-            result = f"{country_label} {country_name}"
-            if category_without_nat in Films_key_CAO_new_format:
-                result = Films_key_CAO_new_format[category_without_nat].format(country_name)
-            logger.debug(f"<<lightblue>> bot_te_4:Films: new {result=} , {category_without_nat=} ")
-
-    if not result:
-        country_label = Films_key_For_nat.get(category_without_nat, "")
-        if country_label and "{}" in country_label:
-            result = country_label.format(country_name)
-            logger.debug(f"<<lightblue>> Films_key_For_nat:Films: new {result=} ")
-
-    return result
-
-
-@functools.lru_cache(maxsize=None)
 # @dump_data(1)
 def Films(category: str) -> str:
     """Resolve the Arabic label for a given film category."""
@@ -122,36 +80,13 @@ def Films(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-# @dump_data(1)
-def resolve_films_with_nat(category: str) -> str:
-    """
-    TODO: use class method
-    """
-    return get_films_key_tyty_new(category)
-    normalized_category = category.lower().replace("_", " ").replace("-", " ")
-
-    logger.debug(f"<<yellow>> start resolve_films_with_nat: {normalized_category=}")
-
-    suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
-
-    country_label = ""
-    if suffix and nat:
-        country_label = films_with_nat(nat, suffix)
-
-    logger.info_if_or_debug(f"<<yellow>> end resolve_films_with_nat:{category=}, {country_label=}", country_label)
-    return country_label or ""
-
-
-@functools.lru_cache(maxsize=None)
 def resolve_films(category: str) -> str:
     """
     TODO: use class method
     """
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    country_label = (
-        resolve_films_with_nat(category) or Films(normalized_category)
-    )
+    country_label = Films(normalized_category)
 
     return country_label or ""
 
@@ -159,5 +94,4 @@ def resolve_films(category: str) -> str:
 __all__ = [
     "Films",
     "resolve_films",
-    "resolve_films_with_nat",
 ]

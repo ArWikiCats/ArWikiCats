@@ -304,6 +304,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     genre_categories_skip_it = {
         "film characters",
+        "series",
         "games",
     }
 

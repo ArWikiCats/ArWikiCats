@@ -7,7 +7,7 @@ import functools
 
 from ...helps import logger
 from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
-from ...new.resolve_films_bots.film_keys_bot import Films, resolve_films_with_nat
+from ...new.resolve_films_bots.film_keys_bot import Films
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
 from ..o_bots.utils import resolve_suffix_template
@@ -103,7 +103,6 @@ def _resolve_club_label(club_key: str) -> str:
         or bot_te_4.te_2018_with_nat(club_key)
         or get_films_key_tyty_new_and_time(club_key)
         or get_films_key_tyty_new(club_key)
-        or resolve_films_with_nat(club_key)
         or Films(club_key)
         or ""
     )

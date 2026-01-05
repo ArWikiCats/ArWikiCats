@@ -32,15 +32,3 @@ def test_examples_data(example_data: tuple[dict[str, str], str]) -> None:
     dump_same_and_not_same(data, diff_result, name)
 
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-@pytest.mark.examples
-@pytest.mark.parametrize("example_data", [DATA_DIR/"novels_films.json"], indirect=True, ids=lambda p: p.name)
-def test_examples_data_one(example_data: tuple[dict[str, str], str]) -> None:
-    data, name = example_data
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
