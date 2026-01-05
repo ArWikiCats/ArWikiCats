@@ -4,6 +4,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 data_0 = {
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
@@ -154,18 +155,31 @@ data_to_fix3 = {
     "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إسبانية للأطفال"
 }
 
+
+def fetch_films_by_category(category):
+    result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
+    return result
+
+
 to_test = [
     # ("test_superhero_data_1", data_2),
     # ("test_superhero_data_3", data_3),
     # ("test_superhero_data_to_fix1", data_0, resolve_label_ar),
-    ("test_superhero_data_to_fix2", data_to_fix2, get_films_key_tyty_new_and_time),
-    ("test_superhero_data_to_fix3", data_to_fix3, get_films_key_tyty_new_and_time),
+    ("test_superhero_data_to_fix2", data_to_fix2, fetch_films_by_category),
+    ("test_superhero_data_to_fix3", data_to_fix3, fetch_films_by_category),
 ]
 
 
 @pytest.mark.parametrize("category, expected", data_to_fix2.items(), ids=data_to_fix2.keys())
+def test_superhero_data_2(category: str, expected: str) -> None:
+    result = fetch_films_by_category(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category, expected", data_to_fix3.items(), ids=data_to_fix3.keys())
 def test_superhero_data_3(category: str, expected: str) -> None:
-    assert resolve_label_ar(category) == expected
+    result = fetch_films_by_category(category)
+    assert result == expected
 
 
 @pytest.mark.parametrize("name,data,callback", to_test)
