@@ -130,6 +130,8 @@ def _make_bot() -> MultiDataFormatterBase:
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
 
+        # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
+
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
@@ -150,6 +152,8 @@ def _make_bot() -> MultiDataFormatterBase:
 
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
+
+        # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
     }
     other_formatted_data.update(data_no_nats)
@@ -223,6 +227,7 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
+    return ""
     normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
