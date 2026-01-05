@@ -127,7 +127,7 @@ def _try_match_prefix(
     return PrefixMatch(country_prefix=key, category_suffix=suffix)
 
 
-@dump_data(1, input_keys=["category", "category_type", "check_the"])
+# @dump_data(1, input_keys=["category", "category_type", "check_the"])
 def get_suffix_with_keys(
     category: str,
     data_keys: KeysDataType,

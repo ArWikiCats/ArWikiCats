@@ -7,7 +7,7 @@ from typing import Tuple
 from ..helps import logger, dump_data
 
 
-@dump_data(1)
+# @dump_data(1)
 def list_of_cat_func_new(category_r: str, category_lab: str, list_of_cat: str) -> str:
     """Format category labels using list templates tweaks."""
     category_lab_or = category_lab
@@ -23,7 +23,7 @@ def list_of_cat_func_new(category_r: str, category_lab: str, list_of_cat: str) -
     return category_lab
 
 
-@dump_data(1)
+# @dump_data(1)
 def list_of_cat_func_foot_ballers(category_r: str, category_lab: str, list_of_cat: str) -> str:
     """
     Format category labels using list templates and football-specific tweaks.
