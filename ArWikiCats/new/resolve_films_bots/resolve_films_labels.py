@@ -126,7 +126,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
                 f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
 
                 f"children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية للأطفال",
-                f"animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية",
             }
         )
 
@@ -142,7 +141,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
 
                 f"{{nat_en}} children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية {{nat_ar}} للأطفال",
-                f"{{nat_en}} animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية {{nat_ar}}",
             }
         )
 
@@ -170,6 +168,9 @@ def _make_bot() -> MultiDataFormatterBase:
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
         # TODO: move this to jobs bot?
         # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
+
+        "{nat_en} animated television films": "أفلام رسوم متحركة تلفزيونية {nat_ar}",
+        "{nat_en} animated television series": "مسلسلات رسوم متحركة تلفزيونية {nat_ar}",
     }
 
     _data, data_no_nats = _build_television_cao()
@@ -181,6 +182,9 @@ def _make_bot() -> MultiDataFormatterBase:
 
         # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
+
+        "animated television films": "أفلام رسوم متحركة تلفزيونية",
+        "animated television series": "مسلسلات رسوم متحركة تلفزيونية",
     }
     other_formatted_data.update(data_no_nats)
 
@@ -232,7 +236,7 @@ def fix_keys(category: str) -> str:
     normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
-        "animated television": "animated-television",
+        # "animated television": "animated-television",
         "children's animated adventure television": "children's-animated-adventure-television",
         "children's animated superhero": "children's-animated-superhero",
     }
