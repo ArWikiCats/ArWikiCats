@@ -108,6 +108,7 @@ PRIMARY_LANGUAGE_TRANSLATIONS = {
     "gujarati": "غوجاراتية",
     "hausa": "هوسية",
     "hebrew": "عبرية",
+    "hindustani": "هندوستانية",
     "hindi": "هندية",
     "hungarian": "مجرية",
     "icelandic": "آيسلندية",

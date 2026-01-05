@@ -24,17 +24,6 @@ def test_sources_are_merged(monkeypatch) -> None:
     assert "x" in data
 
 
-def test_hindustani_normalized(monkeypatch) -> None:
-    monkeypatch.setattr(
-        "ArWikiCats.translations.nats.Nationality.open_json_file",
-        lambda name: {"hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندي"}}
-        if name == "nationalities/uu_nats.json"
-        else {},
-    )
-    data = load_sources()
-    assert "hindustan" in data
-
-
 def test_alias_mapping() -> None:
     ArWikiCats = {"russian": {"male": "a", "males": "", "female": "", "females": "", "en": "russia", "ar": "روسيا"}}
     ArWikiCats["russians"] = {}  # before normalization

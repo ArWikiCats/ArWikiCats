@@ -112,7 +112,7 @@ def load_sources(
     raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
 ) -> Dict[str, NationalityEntry]:
     """
-    Load nationality JSON data and merge All_Nat_o + uu_nats + Sub_Nat.
+    Load nationality JSON data and merge All_Nat_o + sub_nats.
     Ensures all entries follow the NationalityEntry structure (string values only).
     """
 
@@ -122,16 +122,14 @@ def load_sources(
         raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
         raw_all_nat_o.update(raw_nats_as_en_key)
 
-    raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
-    raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
+    raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
+    raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/sub_nats.json") or {}
     continents: Dict[str, Any] = open_json_file("nationalities/Continents.json") or {}
 
     data = {}
 
     # Merge JSONs into All_Nat_o
     data.update(raw_uu_nats)
-    data.update(build_en_nat_entries(raw_uu_nats))
-    # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
 
     data.update(raw_sub_nat)
     data.update(continents)

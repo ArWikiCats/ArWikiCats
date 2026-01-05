@@ -52,7 +52,6 @@ data_n = {
     "peruvian descent": "أصل بيروي",
     "ossetian descent": "أصل أوسيتي",
     "north korean literature": "أدب كوري شمالي",
-    "javanese diaspora": "شتات جاوي",
     "japanese folklore": "فلكور ياباني",
     "iraqi diaspora": "شتات عراقي",
     "hungarian diaspora": "شتات مجري",

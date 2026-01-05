@@ -47,11 +47,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
             return {
                 "yemeni": {"en": "yemen", "ar": "اليمن", "male": "يمني"},
             }
-        if name == "nationalities/uu_nats.json":
-            return {
-                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
-            }
-        if name == "nationalities/Sub_Nat.json":
+        if name == "nationalities/sub_nats.json":
             return {
                 "italian": {"male": "إيطالي", "en": "italy", "ar": "إيطاليا"},
             }
@@ -64,7 +60,6 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     assert isinstance(data, dict)
     assert "yemeni" in data
-    assert "hindustan" in data
     assert "italian" in data
 
     for entry in data.values():
@@ -72,28 +67,6 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
         assert set(entry.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
-
-
-def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
-    """hindustani should produce an additional key hindustan in the resulting dict."""
-
-    def fake_open_json_file(name: str) -> dict | dict[str, dict[str, str]]:
-        if name == "nationalities/All_Nat_o.json":
-            return {}
-        if name == "nationalities/uu_nats.json":
-            return {
-                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
-            }
-        if name == "nationalities/Sub_Nat.json":
-            return {}
-        return {}
-
-    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
-
-    data = load_sources()
-    assert "hindustan" in data
-    assert data["hindustan"]["en"] == "hindustani"
-    assert data["hindustan"]["ar"] == "هندوستاني"
 
 
 # -------------------------------------------------------------------
