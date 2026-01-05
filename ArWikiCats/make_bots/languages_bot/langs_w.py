@@ -9,7 +9,7 @@ TODO: use FormatData/FormatDataV2 methods
 import functools
 from typing import Dict, Mapping, Optional
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import (
     LANGUAGE_TOPIC_FORMATS,
     All_Nat,

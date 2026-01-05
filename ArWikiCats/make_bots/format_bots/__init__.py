@@ -5,7 +5,7 @@
 
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 from .pf_keys import change_key_mappings_replacements
 from .relation_mapping import category_relation_mapping
 

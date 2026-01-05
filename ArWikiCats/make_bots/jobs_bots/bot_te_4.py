@@ -12,7 +12,7 @@ import functools
 import re
 from typing import Optional
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import (
     All_Nat,
     Multi_sport_for_Jobs,

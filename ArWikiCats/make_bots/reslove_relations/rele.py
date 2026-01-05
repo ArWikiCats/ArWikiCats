@@ -6,7 +6,7 @@ import functools
 import re
 from typing import Mapping, Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     Nat_men,

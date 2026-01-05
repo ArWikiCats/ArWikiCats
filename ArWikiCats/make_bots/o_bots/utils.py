@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Callable, Mapping, Optional, Sequence, Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 
 ValueLookup = Callable[[str], str]
 

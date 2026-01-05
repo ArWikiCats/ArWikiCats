@@ -8,7 +8,7 @@ from .bot_lab import label_for_startwith_year_or_typeo
 import re
 
 from ...fix import fixtitle
-from ...helps.log import logger
+from ...helps import logger
 from ...ma_bots.country_bot import get_country
 from ...make_bots.format_bots import category_relation_mapping
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18

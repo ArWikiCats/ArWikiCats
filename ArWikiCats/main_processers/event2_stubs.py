@@ -3,7 +3,7 @@
 
 """
 from ..config import app_settings
-from ..helps.log import logger
+from ..helps import logger
 from ..ma_bots.lab_seoo_bot import event_label_work
 from ..make_bots import tmp_bot
 

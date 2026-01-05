@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Pattern
 
-from ..helps.log import logger
+from ..helps import logger
 from ..ma_bots.ye_ts_bot import translate_general_category
 from ..make_bots.format_bots import ar_lab_before_year_to_add_in
 from ..make_bots.matables_bots.data import Add_in_table

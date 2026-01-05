@@ -11,7 +11,7 @@ It checks the suffix against the following tables:
 import functools
 
 from ...helps.jsonl_dump import dump_data
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import (
     countries_from_nat,
 )

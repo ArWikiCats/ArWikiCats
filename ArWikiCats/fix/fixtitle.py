@@ -11,7 +11,7 @@ from __future__ import annotations
 import re
 from typing import Iterable, Mapping
 
-from ..helps.log import logger
+from ..helps import logger
 from ..make_bots.reg_lines import YEARS_REGEX_AR
 from .fixlists import (
     ENDING_REPLACEMENTS,

@@ -6,7 +6,7 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 from typing import Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from ...new_resolvers.jobs_resolvers import resolve_jobs_main
 from ...translations import (
     All_Nat,

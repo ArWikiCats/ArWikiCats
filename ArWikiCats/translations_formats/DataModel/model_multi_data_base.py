@@ -27,7 +27,7 @@ test at tests.translations_formats.test_format_2_data.py
 import functools
 from dataclasses import dataclass
 
-from ...helps.log import logger
+from ...helps import logger
 
 # -----------------------
 #

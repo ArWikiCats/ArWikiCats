@@ -8,7 +8,7 @@ TODO: replaced by resolve_films
 
 import functools
 
-from ...helps.log import logger, dump_date
+from ...helps import logger, dump_data
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ...translations import (
     All_Nat,
@@ -138,7 +138,7 @@ def resolve_films_with_nat(category: str) -> str:
     logger.info_if_or_debug(f"<<yellow>> end resolve_films_with_nat:{category=}, {country_label=}", country_label)
     return country_label or ""
 
-@dump_date(1)
+@dump_data(1)
 @functools.lru_cache(maxsize=None)
 def resolve_films(category: str) -> str:
     """

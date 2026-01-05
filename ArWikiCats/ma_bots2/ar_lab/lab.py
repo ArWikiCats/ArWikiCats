@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs

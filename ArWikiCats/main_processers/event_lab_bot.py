@@ -6,7 +6,7 @@ from typing import Tuple
 
 from ..config import app_settings
 from ..fix import fixtitle
-from ..helps.log import logger
+from ..helps import logger
 from ..ma_bots import ye_ts_bot
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..ma_bots.lab_seoo_bot import event_label_work

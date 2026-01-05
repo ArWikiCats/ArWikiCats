@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import functools
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import PRIMARY_LANGUAGE_TRANSLATIONS
 
 LANGUAGE_RESOURCE_FORMATS = {

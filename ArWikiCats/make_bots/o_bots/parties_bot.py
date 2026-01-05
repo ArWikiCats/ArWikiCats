@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import PARTIES
 from .utils import resolve_suffix_template
 

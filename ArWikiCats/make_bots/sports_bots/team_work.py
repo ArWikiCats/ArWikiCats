@@ -5,7 +5,7 @@ Sports team and club category processing.
 
 import functools
 
-from ...helps.log import logger
+from ...helps import logger
 from ...new.resolve_films_bots.film_keys_bot import Films, resolve_films_with_nat
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
