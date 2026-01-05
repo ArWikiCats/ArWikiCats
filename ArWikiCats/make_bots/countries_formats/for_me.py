@@ -17,12 +17,40 @@ from ...translations import (
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
-    en_is_nat_ar_is_man,
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
 from ..o_bots import ethnic_bot
-from .utils import add_definite_article
+
+# رجالية بدون ألف ولام التعريف
+# tab[Category:syrian descent] = "تصنيف:أصل سوري"
+
+en_is_nat_ar_is_man: dict[str, str] = {
+    "descent": "أصل {}",
+    "military occupations": "احتلال عسكري {}",
+    "integration": "تكامل {}",
+    "innovation": "ابتكار {}",
+    "design": "تصميم {}",
+    "contemporary art": "فن معاصر {}",
+    "art": "فن {}",
+    "cuisine": "مطبخ {}",
+    "calendar": "تقويم {}",
+    "non fiction literature": "أدب غير خيالي {}",
+    "non-fiction literature": "أدب غير خيالي {}",
+    "literature": "أدب {}",
+    "caste system": "نظام طبقي {}",
+    "law": "قانون {}",
+    "military equipment": "عتاد عسكري {}",
+    "wine": "نبيذ {}",
+    "history": "تاريخ {}",
+    "nuclear history": "تاريخ نووي {}",
+    "military history": "تاريخ عسكري {}",
+    "diaspora": "شتات {}",
+    "traditions": "تراث {}",
+    "folklore": "فلكور {}",
+    # "literary critics" : "نقد أدبي {}",
+    "television": "تلفاز {}",
+}
 
 
 @functools.lru_cache(maxsize=None)

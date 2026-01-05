@@ -5,8 +5,12 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Christian rock songs": "تصنيف:أغاني روك مسيحي",
+    "danish dance songs": "أغاني رقص دنماركي",
+    "hong kong rock songs": "أغاني روك هونغ كونغي",
+    "irish pop songs": "أغاني بوب أيرلندي",
     "taiwanese hip hop": "هيب هوب تايواني",
-    "australian electronic dance music":"",
+    "australian electronic dance music": "",
     "austrian rock": "روك نمساوي",
     "english country music": "كانتري إنجليزي",
     "Category:Bengali folk songs": "تصنيف:أغاني فولك بنغالي",
