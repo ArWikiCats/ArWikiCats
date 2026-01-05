@@ -181,7 +181,7 @@ novels_films_test_data = {
 }
 
 
-@pytest.mark.parametrize("name,data,callback", ("test_with_time_Films", novels_films_test_data, resolve_films_and_time))
+@pytest.mark.parametrize("name,data,callback", [("test_with_time_Films", novels_films_test_data, resolve_films_and_time)])
 @pytest.mark.dump
 def test_dump_1st(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
@@ -191,7 +191,7 @@ def test_dump_1st(name: str, data: dict[str, str], callback) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("name,data,callback", ("test_with_time_tyty", novels_films_test_data, get_films_key_tyty_new_and_time))
+@pytest.mark.parametrize("name,data,callback", [("test_with_time_tyty", novels_films_test_data, get_films_key_tyty_new_and_time)])
 @pytest.mark.dump
 def test_dump_2nd(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
