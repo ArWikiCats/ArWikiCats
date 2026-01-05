@@ -9,16 +9,6 @@
         "the_female": "الكايمانية",
         "the_male": "الكايماني"
     },
-    "herzegovinian": {
-        "male": "هرسكي",
-        "males": "هرسكيون",
-        "female": "هرسكية",
-        "females": "هرسكيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الهرسكية",
-        "the_male": "الهرسكي"
-    },
     "new caledonian": {
         "male": "كاليدوني",
         "males": "كاليدونيون",
@@ -29,7 +19,7 @@
         "the_female": "الكاليدونية",
         "the_male": "الكاليدوني"
     },
-    "bermudan": {
+    "bermudian": {
         "male": "برمودي",
         "males": "برموديون",
         "female": "برمودية",
@@ -48,16 +38,6 @@
         "ar": "",
         "the_female": "الكلتية",
         "the_male": "الكلتي"
-    },
-    "ni-vanuatu": {
-        "male": "فانواتوي",
-        "males": "فانواتويون",
-        "female": "فانواتوية",
-        "females": "فانواتويات",
-        "en": "",
-        "ar": "",
-        "the_female": "الفانواتوية",
-        "the_male": "الفانواتوي"
     },
     "germanic": {
         "male": "جرماني",
@@ -79,7 +59,7 @@
         "the_female": "الغويانية",
         "the_male": "الغوياني"
     },
-    "kirgiz": {
+    "kirghiz": {
         "male": "قيرغيزي",
         "males": "قيرغيزيون",
         "female": "قيرغيزية",
