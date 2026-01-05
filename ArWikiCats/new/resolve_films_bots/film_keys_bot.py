@@ -102,7 +102,7 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+# @dump_data(1)
 def Films(category: str) -> str:
     """Resolve the Arabic label for a given film category."""
 
@@ -122,7 +122,7 @@ def Films(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
+# @dump_data(1)
 def resolve_films_with_nat(category: str) -> str:
     """
     TODO: use class method
