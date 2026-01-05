@@ -27,7 +27,7 @@ def match_key_callback(text: str) -> str:
     text = text.removesuffix(" debuts").removesuffix(" endings").removesuffix("-endings")
     text = text.replace("{year1} ", "")
 
-    logger.debug(f" match_key_callback no match for {orgtext=} {text=}")
+    logger.debug(f" match_key_callback: processed {orgtext=} into {text=}")
     return text.strip()
 
 
