@@ -87,13 +87,14 @@ Teams_new_end_keys = dict(
 
 
 def _resolve_club_label(club_key: str) -> str:
-    """Resolve club label from various lookup tables.
+    """
+    Resolve the Arabic label for a club key by checking configured lookup sources.
 
-    Args:
-        club_key: The club key to look up
+    Parameters:
+        club_key (str): Key identifying the club or entity to resolve.
 
     Returns:
-        Resolved club label or empty string
+        str: The resolved Arabic label for the given club_key, or an empty string if no match is found.
     """
     club_lab = (
         Clubs_key_2.get(club_key)

@@ -44,6 +44,14 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.skip2
 def test_songs_1(category: str, expected: str) -> None:
+    """
+    Run a single assertion that resolving the Arabic category label for `category` matches `expected`.
+
+    Parameters:
+        category (str): English category string to resolve.
+        expected (str): Expected Arabic label for `category`.
+
+    """
     label = resolve_arabic_category_label(category)
     assert label == expected
 
@@ -51,6 +59,16 @@ def test_songs_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
 def test_peoples(name: str, data: dict[str, str]) -> None:
+    """
+    Run a dumped comparison of resolved Arabic labels for a dataset and assert there are no differences.
+
+    Parameters:
+        name (str): Identifier used when writing the diff output.
+        data (dict[str, str]): Mapping from English category strings to expected Arabic label strings.
+
+    Raises:
+        AssertionError: If the computed diff does not match the expected result.
+    """
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)

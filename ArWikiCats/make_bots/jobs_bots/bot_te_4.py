@@ -113,15 +113,18 @@ def _try_nationality_based_strategies(
     nationality_key: str,
     suffix: str,
 ) -> Optional[str]:
-    """Try various nationality-based translation strategies.
+    """
+    Attempt nationality-aware translation strategies for a normalized category.
 
-    Args:
-        normalized_category: The normalized category string.
-        nationality_key: The detected nationality key.
-        suffix: The remaining suffix after nationality extraction.
+    Tries each configured nationality-based strategy in order and returns the first non-empty translation.
+
+    Parameters:
+        normalized_category: The normalized category string (lowercased and cleaned).
+        nationality_key: The detected nationality key used by nationality-aware strategies.
+        suffix: The remaining suffix of the category after nationality extraction.
 
     Returns:
-        The translated label if found, None otherwise.
+        The translated label if a strategy produced one, None otherwise.
     """
     strategies = [
         ("ethnic_bot.ethnic_label", lambda: ethnic_bot.ethnic_label(normalized_category, nationality_key, suffix)),

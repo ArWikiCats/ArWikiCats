@@ -8,6 +8,17 @@ from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 @functools.lru_cache(maxsize=None)
 def resolve_nationalities_main(normalized_category) -> str:
+    """
+    Resolve a film nationalities label from a category string.
+
+    Normalizes the input by trimming whitespace, converting to lowercase, and removing a leading "category:" prefix, then queries a sequence of film-label resolvers and returns the first non-empty result.
+
+    Parameters:
+        normalized_category (str): Category text to resolve; may include a leading "category:" prefix.
+
+    Returns:
+        str: The resolved label if any resolver finds a match, otherwise an empty string.
+    """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)

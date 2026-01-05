@@ -345,6 +345,13 @@ fast_data = {
 @pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
+    """
+    Verify that Work_for_me_main produces the expected Arabic label for a given category string.
+
+    Parameters:
+    	category (str): The input category or phrase to resolve.
+    	expected_key (str): The expected Arabic label string to compare against.
+    """
     label1 = Work_for_me_main(category)
     assert label1 == expected_key
 
@@ -352,6 +359,13 @@ def test_data_fast(category: str, expected_key: str) -> None:
 @pytest.mark.parametrize("category, expected_key", data_n.items(), ids=data_n.keys())
 @pytest.mark.fast
 def test_data_n(category: str, expected_key: str) -> None:
+    """
+    Assert that resolve_label_ar produces the expected Arabic label for a given category.
+
+    Parameters:
+        category (str): English category or phrase to resolve into Arabic.
+        expected_key (str): Expected Arabic label string to compare against.
+    """
     label1 = resolve_label_ar(category)
     assert label1 == expected_key
 
@@ -364,6 +378,16 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
+    """
+    Run a single dump comparison for the given dataset and assert there are no differences.
+
+    Parameters:
+    	name (str): Identifier used when writing diff and summary outputs.
+    	data (dict[str, str]): Mapping of input category strings to expected labels to validate.
+
+    Raises:
+    	AssertionError: If the produced diff results do not match the expected results.
+    """
     expected, diff_result = one_dump_test(data, Work_for_me_main)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
