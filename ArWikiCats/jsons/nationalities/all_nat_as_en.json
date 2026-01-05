@@ -1,4 +1,14 @@
 {
+    "botswana": {
+        "male": "بوتسواني",
+        "males": "بوتسوانيون",
+        "female": "بوتسوانية",
+        "females": "بوتسوانيات",
+        "en": "botswana",
+        "ar": "بوتسوانا",
+        "the_female": "البوتسوانية",
+        "the_male": "البوتسواني"
+    },
     "trinidad and tobago": {
         "en_nat": "trinidadian",
         "male": "ترنيدادي",

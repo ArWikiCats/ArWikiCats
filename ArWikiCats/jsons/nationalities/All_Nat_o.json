@@ -1,31 +1,21 @@
 {
-    "kazakh": {
-        "male": "كازاخي",
-        "males": "كازاخيون",
-        "female": "كازاخية",
-        "females": "كازاخيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكازاخية",
-        "the_male": "الكازاخي"
-    },
-    "beninois": {
-        "male": "بنيني",
-        "males": "بنينيون",
-        "female": "بنينية",
-        "females": "بنينيات",
-        "en": "",
-        "ar": "",
-        "the_female": "البنينية",
-        "the_male": "البنيني"
+    "kazakhstani": {
+        "male": "كازاخستاني",
+        "males": "كازاخستانيون",
+        "female": "كازاخستانية",
+        "females": "كازاخستانيات",
+        "en": "kazakhstan",
+        "ar": "كازاخستان",
+        "the_female": "الكازاخستانية",
+        "the_male": "الكازاخستاني"
     },
     "botswana": {
         "male": "بوتسواني",
         "males": "بوتسوانيون",
         "female": "بوتسوانية",
         "females": "بوتسوانيات",
-        "en": "",
-        "ar": "",
+        "en": "botswana",
+        "ar": "بوتسوانا",
         "the_female": "البوتسوانية",
         "the_male": "البوتسواني"
     },
@@ -1368,16 +1358,6 @@
         "ar": "الأردن",
         "the_female": "الأردنية",
         "the_male": "الأردني"
-    },
-    "kazakhstani": {
-        "male": "كازاخستاني",
-        "males": "كازاخستانيون",
-        "female": "كازاخستانية",
-        "females": "كازاخستانيات",
-        "en": "kazakhstan",
-        "ar": "كازاخستان",
-        "the_female": "الكازاخستانية",
-        "the_male": "الكازاخستاني"
     },
     "kenyan": {
         "male": "كيني",
