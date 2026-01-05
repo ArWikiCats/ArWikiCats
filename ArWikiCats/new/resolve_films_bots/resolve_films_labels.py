@@ -50,8 +50,10 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         )
 
     # Genre-based categories
+    # ArWikiCats/jsons/media/Films_key_For_nat.json
     genre_categories = {
         # "fiction": "خيال",
+        "film series": "سلاسل أفلام",
 
         "webcomics": "ويب كومكس",
         "anime and manga": "أنمي ومانغا",
@@ -96,9 +98,9 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
                 f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
-                # f"superhero {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                # f"{{film_key}} superhero {suffix}": f"{arabic_base} {{film_ar}} أبطال خارقين",
-                # f"superhero {suffix}": f"{arabic_base} أبطال خارقين",
+
+                f"children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية للأطفال",
+                f"animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية",
             }
         )
 
@@ -113,9 +115,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
 
-                # f"{{nat_en}} superhero {suffix}": f"{arabic_base} {{nat_ar}} أبطال خارقين",
-                # f"{{nat_en}} {{film_key}} superhero {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
-                # f"{{nat_en}} superhero {{film_key}} {suffix}": f"{arabic_base} {{nat_ar}} {{film_ar}} أبطال خارقين",
+                f"{{nat_en}} children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية {{nat_ar}} للأطفال",
+                f"{{nat_en}} animated-television {suffix}": f"{arabic_base} رسوم متحركة تلفزيونية {{nat_ar}}",
             }
         )
 
@@ -126,12 +127,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 def _make_bot() -> MultiDataFormatterBase:
     # Template data with both nationality and sport placeholders
     formatted_data = {
-        # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية عقد 2000",
+        # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
-
-        # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
-        # "{nat_en} {film_key} superhero films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
-        # "{nat_en} superhero {film_key} films": "أفلام {film_ar} {nat_ar} أبطال خارقين",
 
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
@@ -153,10 +150,6 @@ def _make_bot() -> MultiDataFormatterBase:
 
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
-
-        # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
-        # "{film_key} superhero films": "أفلام {film_ar} أبطال خارقين",
-        # "superhero {film_key} films": "أفلام {film_ar} أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
     }
     other_formatted_data.update(data_no_nats)
@@ -209,6 +202,8 @@ def fix_keys(category: str) -> str:
     normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
+        "animated television": "animated-television",
+        "children's animated adventure television": "children's-animated-adventure-television",
         "children's animated superhero": "children's-animated-superhero",
     }
     category = category.lower().strip()
@@ -228,6 +223,7 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
+    # return ""
     normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
