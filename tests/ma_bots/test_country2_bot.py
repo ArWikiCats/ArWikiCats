@@ -298,7 +298,7 @@ data_slow = {
     "legal events": "أحداث قانونية",
     "legal history of united states": "تاريخ الولايات المتحدة القانوني",
     "liechtenstein football": "كرة القدم الليختنشتانية",
-    "lists of 1330 films": "قوائم أفلام 1330",
+    "lists of 1330 films": "قوائم أفلام في 1330",
     "lists of british television series characters": "قوائم شخصيات مسلسلات تلفزيونية بريطانية",
     "lists of buildings and structures": "قوائم مبان ومنشآت",
     "lists of caves": "قوائم كهوف",

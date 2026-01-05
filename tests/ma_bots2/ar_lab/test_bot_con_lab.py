@@ -124,7 +124,6 @@ data = [
     },
     {"separator_stripped": "named after", "country": "religious organizations", "output": "منظمات دينية"},
     {"separator_stripped": "named after", "country": "slovak musicians", "output": "موسيقيون سلوفاكيون"},
-    {"separator_stripped": "of", "country": "1420 films", "output": "أفلام 1420"},
     {
         "separator_stripped": "of",
         "country": "british television series characters",
