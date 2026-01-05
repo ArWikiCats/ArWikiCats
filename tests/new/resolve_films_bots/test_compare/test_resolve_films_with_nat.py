@@ -6,7 +6,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
 test_data = {
@@ -156,18 +155,9 @@ test_data2 = {
     "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في"
 }
 
-
-@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
-@pytest.mark.fast
-def test_resolve_films_with_nat(category: str, expected: str) -> None:
-    label = resolve_films_with_nat(category)
-    assert label == expected
-
-
 test_data3 = test_data
 
 to_test = [
-    ("test_resolve_films_with_nat", test_data3, resolve_films_with_nat),
     ("test_resolve_films_with_nat_tyty", test_data3, _get_films_key_tyty_new),
 ]
 
