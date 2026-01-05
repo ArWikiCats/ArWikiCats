@@ -275,7 +275,7 @@ female_data = {
     "{en} film series": "سلاسل أفلام {female}",
     "{en} television commercials": "إعلانات تجارية تلفزيونية {female}",
     "{en} television films": "أفلام تلفزيونية {female}",
-    "{en} television miniseries": "مسلسلات قصيرة {female}",
+    "{en} television miniseries": "مسلسلات قصيرة تلفزيونية {female}",
     "{en} television networks": "شبكات تلفزيونية {female}",
     "{en} television news": "أخبار تلفزيونية {female}",
     "{en} television personalities": "شخصيات تلفزيونية {female}",

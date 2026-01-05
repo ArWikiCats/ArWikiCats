@@ -7,8 +7,7 @@ import re
 # from ...helps.jsonl_dump import dump_data
 from ..helps import logger
 from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, Films, resolve_films_with_nat
-from ..new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
-from ..new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
+from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..new_resolvers.nationalities_resolvers import resolve_nationalities_main

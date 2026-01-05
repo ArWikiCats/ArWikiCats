@@ -6,7 +6,7 @@
 import functools
 
 from ...helps import logger
-from .resolve_films_labels import get_films_key_tyty_new, _get_films_key_tyty_new
+from .film_keys_bot import resolve_films
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 
@@ -41,7 +41,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         formatted_data=formatted_data,
         key_placeholder="{en}",
         value_placeholder="{ar}",
-        search_callback=get_films_key_tyty_new,
+        search_callback=resolve_films,
         match_key_callback=match_key_callback,
     )
     year_bot = FormatDataFrom(
@@ -59,26 +59,21 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_films_key_tyty_new_and_time(category: str) -> str:
+def resolve_films_and_time(category: str) -> str:
     category = category.lower().replace("category:", "")
     # if category dosen't start with number, return ""
     if not category or not category[0].isdigit():
-        logger.debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no digit start", "")
+        logger.debug(f"<<yellow>> end resolve_films_and_time: {category=}, no digit start", "")
         return ""
 
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new_and_time: {category=}")
-    yc_bot = multi_bot_v4()
+    logger.debug(f"<<yellow>> start resolve_films_and_time: {category=}")
 
     if category == match_time_en_first(category):
-        logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match", "")
+        logger.info_if_or_debug(f"<<yellow>> end resolve_films_and_time: {category=}, no time match", "")
         return ""
 
-    result = yc_bot.search_all_category(category)
+    yc_bot = multi_bot_v4()
+    result = yc_bot.search_all_category(category) or resolve_films(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_films_and_time: {category=}, {result=}", result)
     return result or ""
-
-
-def fetch_films_by_category(category):
-    result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
-    return result

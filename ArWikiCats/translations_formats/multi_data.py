@@ -102,6 +102,7 @@ def format_multi_data(
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
+    other_formatted_data: Dict[str, str] = {},
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
     data_to_find: Dict[str, str] | None = None,
@@ -163,7 +164,7 @@ def format_multi_data(
         regex_filter=regex_filter,
     )
 
-    other_formatted_data = (
+    _other_formatted_data = other_formatted_data or (
         get_other_data(
             formatted_data=formatted_data,
             key_placeholder=key_placeholder,
@@ -176,7 +177,7 @@ def format_multi_data(
     )
 
     other_bot = FormatData(
-        formatted_data=other_formatted_data,  # to use from search_all
+        formatted_data=_other_formatted_data,  # to use from search_all
         data_list=data_list2,
         key_placeholder=key2_placeholder,
         value_placeholder=value2_placeholder,

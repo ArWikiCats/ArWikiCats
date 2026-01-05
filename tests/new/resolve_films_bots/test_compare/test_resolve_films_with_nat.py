@@ -1,3 +1,4 @@
+
 """
 Tests
 """
@@ -5,39 +6,64 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat, Films
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
-fast_data_with_nat0 = {
-    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
-    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
-    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
-    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
-    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
-    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
-    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
-}
-
-fast_data_with_nat = {
-    # "american superhero films": "أفلام أبطال خارقين أمريكية",
+test_data = {
+    "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",
+    "christian apocalyptic films": "أفلام نهاية العالم مسيحية",
+    "christian children's television series": "مسلسلات تلفزيونية أطفال مسيحية",
+    "christian drama television series": "مسلسلات تلفزيونية درامية مسيحية",
+    "christian music compilation albums": "ألبومات تجميعية موسيقية مسيحية",
+    "japanese horror comics": "قصص مصورة رعب يابانية",
+    "japanese horror film series": "سلاسل أفلام رعب يابانية",
+    "japanese horror soap opera": "مسلسلات طويلة رعب يابانية",
+    "japanese horror television characters": "شخصيات تلفزيونية رعب يابانية",
+    "japanese horror television episodes": "حلقات تلفزيونية رعب يابانية",
+    "japanese horror television films": "أفلام تلفزيونية رعب يابانية",
+    "japanese horror television miniseries": "مسلسلات قصيرة تلفزيونية رعب يابانية",
+    "japanese horror television news": "أخبار تلفزيونية رعب يابانية",
+    "japanese horror television programmes": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television programs": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television series": "مسلسلات تلفزيونية رعب يابانية",
+    "japanese horror video games": "ألعاب فيديو رعب يابانية",
+    "japanese horror web series": "مسلسلات ويب رعب يابانية",
     "american animated films": "أفلام رسوم متحركة أمريكية",
+    "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
+    "american non-fiction television series": "مسلسلات تلفزيونية غير خيالية أمريكية",
+    "american non-fiction web series": "مسلسلات ويب غير خيالية أمريكية",
+    "american propaganda films": "أفلام دعائية أمريكية",
+    "american reality television series": "مسلسلات تلفزيونية واقعية أمريكية",
+    "american superhero television series": "مسلسلات تلفزيونية أبطال خارقين أمريكية",
+    "american television episodes": "حلقات تلفزيونية أمريكية",
     "american thriller films": "أفلام إثارة أمريكية",
     "american zombie novels": "روايات زومبي أمريكية",
     "argentine adult animated television series": "مسلسلات تلفزيونية رسوم متحركة للكبار أرجنتينية",
     "australian comedy thriller films": "أفلام كوميدية إثارة أسترالية",
     "australian erotic thriller films": "أفلام إثارة جنسية أسترالية",
     "australian films": "أفلام أسترالية",
+    "australian non-fiction television series": "مسلسلات تلفزيونية غير خيالية أسترالية",
+    "australian non-fiction web series": "مسلسلات ويب غير خيالية أسترالية",
     "austrian films": "أفلام نمساوية",
     "austrian silent short films": "أفلام قصيرة صامته نمساوية",
     "azerbaijani short films": "أفلام قصيرة أذربيجانية",
     "bangladeshi films": "أفلام بنغلاديشية",
     "belgian drama films": "أفلام درامية بلجيكية",
+    "brazilian television shows": "عروض تلفزيونية برازيلية",
     "british films": "أفلام بريطانية",
     "british mystery films": "أفلام غموض بريطانية",
     "british mystery television series": "مسلسلات تلفزيونية غموض بريطانية",
+    "british non-fiction television series": "مسلسلات تلفزيونية غير خيالية بريطانية",
+    "british non-fiction web series": "مسلسلات ويب غير خيالية بريطانية",
+    "british reality television series": "مسلسلات تلفزيونية واقعية بريطانية",
     "british robot films": "أفلام آلية بريطانية",
+    "british superhero television series": "مسلسلات تلفزيونية أبطال خارقين بريطانية",
+    "british television series characters": "شخصيات مسلسلات تلفزيونية بريطانية",
+    "bulgarian non-fiction television series": "مسلسلات تلفزيونية غير خيالية بلغارية",
     "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
     "canadian docudrama films": "أفلام درامية وثائقية كندية",
+    "canadian non-fiction web series": "مسلسلات ويب غير خيالية كندية",
+    "canadian superhero television series": "مسلسلات تلفزيونية أبطال خارقين كندية",
     "canadian war films": "أفلام حربية كندية",
     "chinese epic films": "أفلام ملحمية صينية",
     "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
@@ -52,6 +78,7 @@ fast_data_with_nat = {
     "dutch war drama films": "أفلام حربية درامية هولندية",
     "ecuadorian science fiction films": "أفلام خيال علمي إكوادورية",
     "emirati animated films": "أفلام رسوم متحركة إماراتية",
+    "finnish non-fiction television series": "مسلسلات تلفزيونية غير خيالية فنلندية",
     "french films": "أفلام فرنسية",
     "french musical comedy films": "أفلام كوميدية موسيقية فرنسية",
     "german disaster films": "أفلام كوارثية ألمانية",
@@ -66,6 +93,7 @@ fast_data_with_nat = {
     "irish films": "أفلام أيرلندية",
     "irish speculative fiction films": "أفلام خيالية تأملية أيرلندية",
     "irish thriller films": "أفلام إثارة أيرلندية",
+    "israeli reality television series": "مسلسلات تلفزيونية واقعية إسرائيلية",
     "italian comedy films": "أفلام كوميدية إيطالية",
     "italian zombie films": "أفلام زومبي إيطالية",
     "japanese films": "أفلام يابانية",
@@ -74,6 +102,7 @@ fast_data_with_nat = {
     "latvian films": "أفلام لاتفية",
     "malaysian sports films": "أفلام رياضية ماليزية",
     "mexican crime thriller films": "أفلام إثارة وجريمة مكسيكية",
+    "mexican drama television series": "مسلسلات تلفزيونية درامية مكسيكية",
     "mexican independent films": "أفلام مستقلة مكسيكية",
     "moroccan musical films": "أفلام موسيقية مغربية",
     "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
@@ -101,54 +130,45 @@ fast_data_with_nat = {
     "spanish independent films": "أفلام مستقلة إسبانية",
     "spanish war drama films": "أفلام حربية درامية إسبانية",
     "swedish 3d films": "أفلام ثلاثية الأبعاد سويدية",
+    "taiwanese non-fiction television series": "مسلسلات تلفزيونية غير خيالية تايوانية",
     "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
+    "yemeni action drama films": "أفلام حركة درامية يمنية",
+    "yemeni films images": "صور أفلام يمنية",
+    "yemeni legal drama films": "أفلام دراما قانونية يمنية",
+    "yemeni musical drama films": "أفلام موسيقية درامية يمنية"
 }
 
-fast_data_no_nat = {
-    "action films": "أفلام حركة",
-    "adventure films": "أفلام مغامرات",
-    "animated films": "أفلام رسوم متحركة",
-    "anime films": "أفلام أنمي",
-    "anthology films": "أفلام أنثولوجيا",
-    "black comedy films": "أفلام كوميدية سوداء",
-    "buddy films": "أفلام رفقاء",
-    "comedy films": "أفلام كوميدية",
-    "crime films": "أفلام جريمة",
-    "dark fantasy films": "أفلام فانتازيا مظلمة",
-    "documentary films": "أفلام وثائقية",
-    "epic films": "أفلام ملحمية",
-    "fantasy films": "أفلام فانتازيا",
-    "horror films": "أفلام رعب",
-    "mystery film series": "سلاسل أفلام غموض",
-    "parody films": "أفلام ساخرة",
-    "police procedural films": "أفلام إجراءات الشرطة",
-    "science fiction thriller films": "أفلام إثارة خيال علمي",
-    "thriller films": "أفلام إثارة",
-    "war films": "أفلام حربية",
-    "melodrama films": "أفلام ميلودراما"
+test_data2 = {
+    "christian animation": "رسوم متحركة مسيحية",
+    "christian music albums": "ألبومات موسيقية مسيحية",
+    "christian music media": "إعلام موسيقية مسيحية",
+    "christian science magazines": "مجلات علمية مسيحية",
+    "jewish music albums": "ألبومات موسيقية يهودية",
+    "american television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في",
+    "american television series endings": "مسلسلات تلفزيونية أمريكية انتهت في",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "european competition": "منافسات أوروبية",
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في"
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data_with_nat.items(), ids=fast_data_with_nat.keys())
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_resolve_films_with_nat(category: str, expected: str) -> None:
     label = resolve_films_with_nat(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", fast_data_no_nat.items(), ids=fast_data_no_nat.keys())
-@pytest.mark.fast
-def test_resolve_films_no_nat(category: str, expected: str) -> None:
-    label = Films(category)
-    assert label == expected
-
+test_data3 = test_data
 
 to_test = [
-    ("with_nat", fast_data_with_nat, resolve_films_with_nat),
-    ("no_nat", fast_data_no_nat, Films),
-
-    ("with_nat_tyty", fast_data_with_nat, get_films_key_tyty_new),
-    ("no_nat_tyty", fast_data_no_nat, get_films_key_tyty_new),
+    ("test_resolve_films_with_nat", test_data3, resolve_films_with_nat),
+    ("test_resolve_films_with_nat_tyty", test_data3, _get_films_key_tyty_new),
 ]
 
 

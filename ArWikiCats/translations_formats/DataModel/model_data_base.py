@@ -136,14 +136,17 @@ class FormatDataBase:
             return ""
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
-        logger.debug(f">> match_key: {normalized_category=}")
+        logger.debug(f">!> match_key: {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
+            logger.debug(f">>!!>> match_key: found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
 
         match = self.pattern.search(f" {normalized_category} ")
-        return match.group(1).lower() if match else ""
+        result = match.group(1).lower() if match else ""
+        logger.debug(f"==== match_key {result=}")
+        return result
 
     def handle_texts_before_after(self, normalized: str) -> str:
         """Handle text before and after the key placeholder."""

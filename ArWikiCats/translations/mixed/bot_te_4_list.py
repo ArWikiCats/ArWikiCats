@@ -350,7 +350,7 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "telenovelas": "تيلينوفيلا {}",
     "television commercials": "إعلانات تجارية تلفزيونية {}",
     "television films": "أفلام تلفزيونية {}",
-    "television miniseries": "مسلسلات قصيرة {}",
+    "miniseries": "مسلسلات قصيرة {}",
     "television networks": "شبكات تلفزيونية {}",
     "television news": "أخبار تلفزيونية {}",
     "television personalities": "شخصيات تلفزيونية {}",

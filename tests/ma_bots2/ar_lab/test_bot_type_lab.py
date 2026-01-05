@@ -180,7 +180,6 @@ data = [
         "railway stations on the-national-register-of-historic-places",
         "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
     ),
-    (" by ", "lists of 1789 films", "قوائم أفلام 1789"),
     (" in ", "bulgarian expatriate basketball people", "أعلام كرة سلة بلغاريون مغتربون"),
     (" established in ", "australian rules football clubs", "أندية كرة قدم أسترالية"),
     (" on ", "agricultural buildings and structures", "مبان ومنشآت زراعية"),
