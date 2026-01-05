@@ -3,18 +3,19 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat, Films, resolve_films
 
-fast_data = {
-    "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
-    "dutch war drama films": "أفلام حربية درامية هولندية",
-    "indian sports drama films": "أفلام رياضية درامية هندية",
-    "iranian romantic drama films": "أفلام رومانسية درامية إيرانية",
-    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
-    "russian sports drama films": "أفلام رياضية درامية روسية",
-    "spanish war drama films": "أفلام حربية درامية إسبانية",
+fast_data_with_nat = {
+    "burmese romantic drama films": "أفلام درامية رومانسية بورمية",
+    "dutch war drama films": "أفلام درامية حربية هولندية",
+    "indian sports drama films": "أفلام درامية رياضية هندية",
+    "iranian romantic drama films": "أفلام درامية رومانسية إيرانية",
+    "nigerian musical drama films": "أفلام درامية موسيقية نيجيرية",
+    "russian sports drama films": "أفلام درامية رياضية روسية",
+    "spanish war drama films": "أفلام درامية حربية إسبانية",
+
     "american superhero films": "أفلام أبطال خارقين أمريكية",
 
     "action films": "أفلام حركة",
@@ -101,7 +102,7 @@ fast_data = {
     "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
 }
 
-fast_data_2 = {
+fast_data_no_nat = {
     # "chinese sports executives": "مدربو رياضية صينية",
     "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
     "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
@@ -128,30 +129,31 @@ fast_data_2 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
+@pytest.mark.parametrize("category, expected", fast_data_with_nat.items(), ids=fast_data_with_nat.keys())
 @pytest.mark.fast
-def test_resolve_films(category: str, expected: str) -> None:
-    label = resolve_films(category)
+def test_resolve_films_with_nat(category: str, expected: str) -> None:
+    label = resolve_films_with_nat(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=fast_data_2.keys())
+@pytest.mark.parametrize("category, expected", fast_data_no_nat.items(), ids=fast_data_no_nat.keys())
 @pytest.mark.fast
-def test_resolve_films_new(category: str, expected: str) -> None:
-    label = resolve_films(category)
+def test_resolve_films_no_nat(category: str, expected: str) -> None:
+    label = Films(category)
     assert label == expected
 
 
 to_test = [
-    ("test_resolve_films", fast_data),
-    ("test_resolve_films_new", fast_data_2),
+    ("test_resolve_films_with_nat", fast_data_with_nat, resolve_films_with_nat),
+    ("test_resolve_films_no_nat", fast_data_no_nat, Films),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_resolve_films_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_films)
+def test_resolve_films_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

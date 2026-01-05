@@ -98,9 +98,6 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
             result = country_label.format(country_name)
             logger.debug(f"<<lightblue>> Films_key_For_nat:Films: new {result=} ")
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end films_with_nat:{country_start=}, {category_without_nat=}, {result=}", result
-    )
     return result
 
 
@@ -108,9 +105,18 @@ def films_with_nat(country_start: str, category_without_nat: str) -> str:
 def Films(category: str) -> str:
     """Resolve the Arabic label for a given film category."""
 
-    result = Films_key_CAO.get(category, "") or get_Films_key_CAO(category) or get_films_key_tyty_new(category) or ""
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    logger.info_if_or_debug(f"<<yellow>> end Films: {category=}, {result=}", result)
+    logger.debug(f"<<yellow>> start Films: {normalized_category=}")
+
+    result = (
+        Films_key_CAO.get(normalized_category, "") or
+        get_Films_key_CAO(normalized_category) or
+        get_films_key_tyty_new(normalized_category) or
+        ""
+    )
+
+    logger.info_if_or_debug(f"<<yellow>> end Films: {normalized_category=}, {result=}", result)
     return result
 
 
@@ -121,7 +127,7 @@ def resolve_films_with_nat(category: str) -> str:
     """
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    logger.debug(f"<<yellow>> start resolve_films: {normalized_category=}")
+    logger.debug(f"<<yellow>> start resolve_films_with_nat: {normalized_category=}")
 
     suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
 
@@ -129,7 +135,7 @@ def resolve_films_with_nat(category: str) -> str:
     if suffix and nat:
         country_label = films_with_nat(nat, suffix)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_films:{category=}, {country_label=}", country_label)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_films_with_nat:{category=}, {country_label=}", country_label)
     return country_label or ""
 
 
@@ -140,20 +146,15 @@ def resolve_films(category: str) -> str:
     """
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    logger.debug(f"<<yellow>> start resolve_films: {normalized_category=}")
+    country_label = (
+        resolve_films_with_nat(category) or Films(normalized_category)
+    )
 
-    suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
-
-    if suffix and nat:
-        country_label = films_with_nat(nat, suffix)
-    else:
-        country_label = Films(normalized_category)
-
-    logger.info_if_or_debug(f"<<yellow>> end resolve_films:{category=}, {country_label=}", country_label)
     return country_label or ""
 
 
 __all__ = [
     "Films",
     "resolve_films",
+    "resolve_films_with_nat",
 ]

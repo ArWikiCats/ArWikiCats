@@ -6,7 +6,7 @@ Sports team and club category processing.
 import functools
 
 from ...helps.log import logger
-from ...new.resolve_films_bots.film_keys_bot import resolve_films
+from ...new.resolve_films_bots.film_keys_bot import Films, resolve_films_with_nat
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ..jobs_bots import bot_te_4
 from ..o_bots.utils import resolve_suffix_template
@@ -100,7 +100,8 @@ def _resolve_club_label(club_key: str) -> str:
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
         or bot_te_4.te_2018_with_nat(club_key)
-        or resolve_films(club_key)
+        or resolve_films_with_nat(club_key)
+        or Films(club_key)
         or ""
     )
     return club_lab

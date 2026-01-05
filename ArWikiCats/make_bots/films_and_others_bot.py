@@ -6,7 +6,7 @@ import re
 
 # from ...helps.jsonl_dump import dump_data
 from ..helps.log import logger
-from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, resolve_films
+from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, Films, resolve_films_with_nat
 from ..new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 from ..new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
@@ -47,7 +47,8 @@ def te_films(category: str) -> str:
         "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
         "Jobs_in_Multi_Sports": lambda k: Jobs_in_Multi_Sports(k),
         "te_2018_with_nat": lambda k: te_2018_with_nat(k),
-        "resolve_films": lambda k: resolve_films(k),
+        "resolve_films_with_nat": lambda k: resolve_films_with_nat(k),
+        "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
@@ -71,7 +72,8 @@ def te_films(category: str) -> str:
 
     _add_to_films_o_tt_tables = [
         "te_2018_with_nat",
-        "resolve_films",
+        "resolve_films_with_nat",
+        "Films",
     ]
 
     for name, source in sources.items():
