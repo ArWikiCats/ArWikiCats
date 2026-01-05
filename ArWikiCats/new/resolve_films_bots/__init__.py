@@ -1,7 +1,7 @@
 import functools
 
 from ...helps import logger
-from .film_keys_bot import get_Films_key_CAO, resolve_films
+from .film_keys_bot import get_Films_key_CAO, Films, resolve_films_with_nat
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
@@ -17,7 +17,8 @@ def resolve_nationalities_main(normalized_category) -> str:
         get_films_key_tyty_new_and_time(normalized_category)
         or get_Films_key_CAO(normalized_category)
         or get_films_key_tyty_new(normalized_category)
-        or resolve_films(normalized_category)
+        or resolve_films_with_nat(normalized_category)
+        or Films(normalized_category)
         or ""
     )
 
@@ -27,4 +28,6 @@ def resolve_nationalities_main(normalized_category) -> str:
 
 __all__ = [
     "resolve_nationalities_main",
+    "get_films_key_tyty_new",
+    "get_films_key_tyty_new_and_time",
 ]
