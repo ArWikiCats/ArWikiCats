@@ -52,6 +52,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
     # Genre-based categories
     # ArWikiCats/jsons/media/Films_key_For_nat.json
     genre_categories = {
+
         # "fiction": "خيال",
         "film series": "سلاسل أفلام",
 
@@ -85,6 +86,9 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "film characters": "شخصيات أفلام",
         "games": "ألعاب",
 
+        "soap opera": "مسلسلات طويلة",
+        "television news": "أخبار تلفزيونية",
+        "television miniseries": "مسلسلات قصيرة",
     }
 
     genre_categories_skip_it = {
@@ -94,6 +98,28 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     # Standard categories
     for suffix, arabic_base in genre_categories.items():
+
+        # Base TV keys with common suffixes
+        for sub_suffix, arabic_sub_suffix in [
+            ("characters", "شخصيات"),
+            ("title cards", "بطاقات عنوان"),
+            ("video covers", "أغلفة فيديو"),
+            ("posters", "ملصقات"),
+            ("images", "صور"),
+        ]:
+            data_no_nats.update(
+                {
+                    f"{suffix} {sub_suffix}": f"{arabic_sub_suffix} {arabic_base}",
+                    f"{{film_key}} {suffix} {sub_suffix}": f"{arabic_sub_suffix} {arabic_base} {{film_ar}}",
+                }
+            )
+            data.update(
+                {
+                    f"{{nat_en}} {suffix} {sub_suffix}": f"{arabic_sub_suffix} {arabic_base} {{nat_ar}}",
+                    f"{{nat_en}} {{film_key}} {suffix} {sub_suffix}": f"{arabic_sub_suffix} {arabic_base} {{film_ar}} {{nat_ar}}",
+                }
+            )
+
         data_no_nats.update(
             {
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
@@ -219,6 +245,24 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+def _get_films_key_tyty_new(text: str) -> str:
+    """
+    Function to generate a films key based on the country identifier.
+    Args:
+        text (str): The country identifier string to process.
+    Returns:
+        str: The resolved label string, or empty string if no match is found.
+    """
+    normalized_text = fix_keys(text)
+    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
+    bot = _make_bot()
+
+    result = bot.search_all(normalized_text)
+    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
+    return result
+
+
+@functools.lru_cache(maxsize=None)
 def get_films_key_tyty_new(text: str) -> str:
     """
     Function to generate a films key based on the country identifier.
@@ -228,10 +272,4 @@ def get_films_key_tyty_new(text: str) -> str:
         str: The resolved label string, or empty string if no match is found.
     """
     return ""
-    normalized_text = fix_keys(text)
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
-    bot = _make_bot()
-
-    result = bot.search_all(normalized_text)
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
-    return result
+    return _get_films_key_tyty_new(text)
