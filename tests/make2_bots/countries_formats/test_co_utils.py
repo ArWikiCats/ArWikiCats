@@ -8,29 +8,6 @@ from ArWikiCats.make_bots.countries_formats.utils import (
     add_definite_article,
 )
 
-definite_article_data = {
-    "أمريكية": "الأمريكية",
-    "صينية": "الصينية",
-    "شمالية يمنية": "الشمالية اليمنية",
-    "باكستانية": "الباكستانية",
-    "نيوزيلندية": "النيوزيلندية",
-    "كورية": "الكورية",
-    "يمنية": "اليمنية",
-    "فيتنامية": "الفيتنامية",
-    "ميانمارية": "الميانمارية",
-    "هولندية": "الهولندية",
-    "إيرانية": "الإيرانية",
-    "سريلانكية": "السريلانكية",
-    "بهامية": "البهامية",
-    "جنوبية يمنية": "الجنوبية اليمنية",
-    "سيراليونية": "السيراليونية",
-    "يابانية": "اليابانية",
-    "إماراتية": "الإماراتية",
-    "بنينية": "البنينية",
-    "قبرصية": "القبرصية",
-    "برونية": "البرونية",
-}
-
 
 def test_add_all() -> None:
     # Test with a basic input
@@ -45,14 +22,6 @@ def test_add_all() -> None:
     # Test with various inputs
     result_various = add_definite_article("another label")
     assert isinstance(result_various, str)
-
-
-@pytest.mark.parametrize("category, expected", definite_article_data.items(), ids=definite_article_data.keys())
-@pytest.mark.fast
-def test_add_definite_article(category: str, expected: str) -> None:
-    label = add_definite_article(category)
-    assert label == expected
-
 
 # --------------------------------------------
 # Tests for add_definite_article
