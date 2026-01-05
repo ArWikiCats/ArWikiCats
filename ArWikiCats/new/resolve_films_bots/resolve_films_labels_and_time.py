@@ -77,3 +77,8 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
 
     logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}", result)
     return result or ""
+
+
+def fetch_films_by_category(category):
+    result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
+    return result

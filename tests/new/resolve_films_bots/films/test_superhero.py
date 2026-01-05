@@ -3,8 +3,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import fetch_films_by_category
 
 data_0 = {
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
@@ -154,12 +153,6 @@ data_to_fix3 = {
     "South Korean children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين كورية جنوبية للأطفال",
     "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إسبانية للأطفال"
 }
-
-
-def fetch_films_by_category(category):
-    result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
-    return result
-
 
 to_test = [
     # ("test_superhero_data_1", data_2),

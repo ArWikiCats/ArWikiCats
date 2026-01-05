@@ -8,6 +8,16 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat, Films
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
+fast_data_with_nat0 = {
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+}
+
 fast_data_with_nat = {
     # "american superhero films": "أفلام أبطال خارقين أمريكية",
     "american animated films": "أفلام رسوم متحركة أمريكية",
@@ -19,7 +29,6 @@ fast_data_with_nat = {
     "australian films": "أفلام أسترالية",
     "austrian films": "أفلام نمساوية",
     "austrian silent short films": "أفلام قصيرة صامته نمساوية",
-    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
     "azerbaijani short films": "أفلام قصيرة أذربيجانية",
     "bangladeshi films": "أفلام بنغلاديشية",
     "belgian drama films": "أفلام درامية بلجيكية",
@@ -29,9 +38,7 @@ fast_data_with_nat = {
     "british robot films": "أفلام آلية بريطانية",
     "burmese romantic drama films": "أفلام رومانسية درامية بورمية",
     "canadian docudrama films": "أفلام درامية وثائقية كندية",
-    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
     "canadian war films": "أفلام حربية كندية",
-    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
     "chinese epic films": "أفلام ملحمية صينية",
     "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
     "croatian biographical films": "أفلام سير ذاتية كرواتية",
@@ -68,7 +75,6 @@ fast_data_with_nat = {
     "malaysian sports films": "أفلام رياضية ماليزية",
     "mexican crime thriller films": "أفلام إثارة وجريمة مكسيكية",
     "mexican independent films": "أفلام مستقلة مكسيكية",
-    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "moroccan musical films": "أفلام موسيقية مغربية",
     "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
     "north korean drama films": "أفلام درامية كورية شمالية",
@@ -76,12 +82,10 @@ fast_data_with_nat = {
     "philippine kung fu films": "أفلام كونغ فو فلبينية",
     "polish crime thriller films": "أفلام إثارة وجريمة بولندية",
     "polish epic films": "أفلام ملحمية بولندية",
-    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
     "polish television-seasons": "مواسم تلفزيونية بولندية",
     "portuguese adult animated films": "أفلام رسوم متحركة للكبار برتغالية",
     "portuguese fantasy films": "أفلام فانتازيا برتغالية",
     "portuguese musical comedy films": "أفلام كوميدية موسيقية برتغالية",
-    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
     "romanian films": "أفلام رومانية",
     "russian sports drama films": "أفلام رياضية درامية روسية",
     "saudiarabian films": "أفلام سعودية",
@@ -95,7 +99,6 @@ fast_data_with_nat = {
     "spanish documentary films": "أفلام وثائقية إسبانية",
     "spanish films": "أفلام إسبانية",
     "spanish independent films": "أفلام مستقلة إسبانية",
-    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
     "spanish war drama films": "أفلام حربية درامية إسبانية",
     "swedish 3d films": "أفلام ثلاثية الأبعاد سويدية",
     "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
