@@ -11,6 +11,45 @@ from ArWikiCats.make_bots.countries_formats.for_me import (
 )
 
 data_n = {
+    "brazilian design": "تصميم برازيلي",
+    "british descent": "أصل بريطاني",
+    "burkinabe design": "تصميم بوركينابي",
+    "corsican descent": "أصل كورسيكي",
+    "cypriot descent": "أصل قبرصي",
+    "dutch diaspora": "شتات هولندي",
+    "ecuadorian descent": "أصل إكوادوري",
+    "filipino descent": "أصل فلبيني",
+    "french descent": "أصل فرنسي",
+    "greek descent": "أصل يوناني",
+    "guatemalan diaspora": "شتات غواتيمالي",
+    "hong kong descent": "أصل هونغ كونغي",
+    "icelandic descent": "أصل آيسلندي",
+    "indian descent": "أصل هندي",
+    "indian literature": "أدب هندي",
+    "iraqi descent": "أصل عراقي",
+    "irish folklore": "فلكور أيرلندي",
+    "japanese descent": "أصل ياباني",
+    "kazakhstani descent": "أصل كازاخستاني",
+    "kurdish folklore": "فلكور كردي",
+    "lithuanian art": "فن ليتواني",
+    "maldivian descent": "أصل مالديفي",
+    "montserratian descent": "أصل مونتسراتي",
+    "ossetian diaspora": "شتات أوسيتي",
+    "pakistani descent": "أصل باكستاني",
+    "pakistani law": "قانون باكستاني",
+    "russian literature": "أدب روسي",
+    "singaporean art": "فن سنغافوري",
+    "singaporean descent": "أصل سنغافوري",
+    "south american descent": "أصل أمريكي جنوبي",
+    "spanish diaspora": "شتات إسباني",
+    "tamil diaspora": "شتات تاميلي",
+    "thai diaspora": "شتات تايلندي",
+    "ukrainian diaspora": "شتات أوكراني",
+    "welsh descent": "أصل ويلزي",
+    "yemeni descent": "أصل يمني",
+    "yoruba descent": "أصل يوروبي",
+    "yugoslav descent": "أصل يوغسلافي",
+    "zimbabwean descent": "أصل زيمبابوي",
     "zulu history": "تاريخ زولي",
     "ukrainian descent": "أصل أوكراني",
     "samoan diaspora": "شتات ساموي",
@@ -306,16 +345,13 @@ fast_data = {
     "zimbabwean companies": "شركات زيمبابوية",
     "zimbabwean general election": "الانتخابات العامة الزيمبابوية"
 }
-data2 = {
-
-}
 
 
-@pytest.mark.parametrize("data", fast_data.items(), ids=fast_data.keys())
+@pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
-def test_fast_data(data: dict[str, str]) -> None:
-    label1 = Work_for_me_main(data["cate"])
-    assert label1 == data["output"]
+def test_data_fast(category: str, expected_key: str) -> None:
+    label1 = Work_for_me_main(category)
+    assert label1 == expected_key
 
 
 to_test = [
