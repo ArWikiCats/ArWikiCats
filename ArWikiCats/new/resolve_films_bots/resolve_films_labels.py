@@ -227,7 +227,7 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
-    # return ""
+    return ""
     normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
     bot = _make_bot()
