@@ -69,16 +69,6 @@
         "the_female": "اليمنية الجنوبية",
         "the_male": "اليمني الجنوبي"
     },
-    "monacan": {
-        "male": "موناكي",
-        "males": "موناكيون",
-        "female": "موناكية",
-        "females": "موناكيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الموناكية",
-        "the_male": "الموناكي"
-    },
     "monegasque": {
         "male": "موناكي",
         "males": "موناكيون",
@@ -159,26 +149,6 @@
         "the_female": "الكلتية",
         "the_male": "الكلتي"
     },
-    "burkinabé": {
-        "male": "بوركينابي",
-        "males": "بوركينابيون",
-        "female": "بوركينابية",
-        "females": "بوركينابيات",
-        "en": "",
-        "ar": "",
-        "the_female": "البوركينابية",
-        "the_male": "البوركينابي"
-    },
-    "burkinese": {
-        "male": "باركينسي",
-        "males": "باركينسيون",
-        "female": "باركينسية",
-        "females": "باركينسيات",
-        "en": "burkina",
-        "ar": "بوركينا",
-        "the_female": "الباركينسية",
-        "the_male": "الباركينسي"
-    },
     "bruneian": {
         "male": "بروني",
         "males": "برونيون",
@@ -218,16 +188,6 @@
         "ar": "",
         "the_female": "البرمودية",
         "the_male": "البرمودي"
-    },
-    "monégasque": {
-        "male": "موناكي",
-        "males": "موناكيون",
-        "female": "موناكية",
-        "females": "موناكيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الموناكية",
-        "the_male": "الموناكي"
     },
     "new caledonian": {
         "male": "كاليدوني",
