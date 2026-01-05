@@ -9,6 +9,34 @@ from ArWikiCats.make_bots.countries_formats.for_me import (
     Work_for_New_2018_men_Keys_with_all,
 )
 
+data_n = {
+    "zulu history": "تاريخ زولي",
+    "ukrainian descent": "أصل أوكراني",
+    "samoan diaspora": "شتات ساموي",
+    "peruvian descent": "أصل بيروي",
+    "ossetian descent": "أصل أوسيتي",
+    "north korean literature": "أدب كوري شمالي",
+    "javanese diaspora": "شتات جاوي",
+    "japanese folklore": "فلكور ياباني",
+    "iraqi diaspora": "شتات عراقي",
+    "hungarian diaspora": "شتات مجري",
+    "german literature": "أدب ألماني",
+    "finnish descent": "أصل فنلندي",
+    "coptic calendar": "تقويم قبطي",
+    "croatian diaspora": "شتات كرواتي",
+    "chilean law": "قانون تشيلي",
+    "austrian descent": "أصل نمساوي",
+    "Category:Dominican Republic people of Corsican descent": "تصنيف:دومينيكانيون من أصل كورسيكي",
+    "Category:20th-century Ghanaian literature": "تصنيف:أدب غاني في القرن 20",
+    "Category:20th-century Mexican literature": "تصنيف:أدب مكسيكي في القرن 20",
+    "Category:20th-century Taiwanese literature": "تصنيف:أدب تايواني في القرن 20",
+    "Category:20th-century Zimbabwean literature": "تصنيف:أدب زيمبابوي في القرن 20",
+    "Category:21st-century Ghanaian literature": "تصنيف:أدب غاني في القرن 21",
+    "Category:21st-century Moroccan literature": "تصنيف:أدب مغربي في القرن 21",
+    "Category:21st-century Taiwanese literature": "تصنيف:أدب تايواني في القرن 21",
+    "Category:21st-century Zimbabwean literature": "تصنيف:أدب زيمبابوي في القرن 21"
+}
+
 fast_data = [
     {
         "cate": "asian games bronze medalists",

@@ -187,9 +187,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
         return res
 
     # 5. رجالية بدون ألف ولام التعريف
-    res = _get_male_no_def_label(suffix, men_nat_lab)
-    if res is not None:
-        return res
+    # res = _get_male_no_def_label(suffix, men_nat_lab) if res is not None: return res
 
     # 6. رجالية بألف ولام التعريف (Fallback)
     return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
