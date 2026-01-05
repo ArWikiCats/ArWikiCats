@@ -112,12 +112,14 @@ class FormatDataDouble(FormatDataBase):
         if not self.pattern:
             return ""
 
+
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
-        logger.debug(f">> match_key: {normalized_category=}")
+        logger.debug(f">!> match_key: {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
+            logger.debug(f">>!!>> match_key: found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
 
         match = self.pattern_double.search(f" {normalized_category} ")
@@ -125,11 +127,16 @@ class FormatDataDouble(FormatDataBase):
             first_key = match.group(1).lower()
             second_key = match.group(2).lower()
             result = f"{first_key} {second_key}"
+            logger.debug(f">!> match_key: {first_key=}, {second_key=}")
+            logger.debug(f">!> match_key: {result=}")
             self.keys_to_split[result] = [first_key, second_key]
             return result
 
         match2 = self.pattern.search(f" {normalized_category} ")
-        return match2.group(1).lower() if match2 else ""
+        result = match2.group(1).lower() if match2 else ""
+        logger.debug(f"==== match_key {result=}")
+
+        return result
 
     @functools.lru_cache(maxsize=None)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
