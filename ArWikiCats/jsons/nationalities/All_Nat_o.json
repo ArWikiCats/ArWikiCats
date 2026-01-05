@@ -1,4 +1,34 @@
 {
+    "kazakh": {
+        "male": "كازاخي",
+        "males": "كازاخيون",
+        "female": "كازاخية",
+        "females": "كازاخيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الكازاخية",
+        "the_male": "الكازاخي"
+    },
+    "beninois": {
+        "male": "بنيني",
+        "males": "بنينيون",
+        "female": "بنينية",
+        "females": "بنينيات",
+        "en": "",
+        "ar": "",
+        "the_female": "البنينية",
+        "the_male": "البنيني"
+    },
+    "botswana": {
+        "male": "بوتسواني",
+        "males": "بوتسوانيون",
+        "female": "بوتسوانية",
+        "females": "بوتسوانيات",
+        "en": "",
+        "ar": "",
+        "the_female": "البوتسوانية",
+        "the_male": "البوتسواني"
+    },
     "antiguan and barbudan": {
         "en": "antigua and barbuda",
         "ar": "أنتيغوا وباربودا",
@@ -79,76 +109,6 @@
         "the_female": "الموناكية",
         "the_male": "الموناكي"
     },
-    "kirghiz": {
-        "male": "قيرغيزي",
-        "males": "قيرغيزيون",
-        "female": "قيرغيزية",
-        "females": "قيرغيزيات",
-        "en": "",
-        "ar": "",
-        "the_female": "القيرغيزية",
-        "the_male": "القيرغيزي"
-    },
-    "kirgiz": {
-        "male": "قيرغيزي",
-        "males": "قيرغيزيون",
-        "female": "قيرغيزية",
-        "females": "قيرغيزيات",
-        "en": "",
-        "ar": "",
-        "the_female": "القيرغيزية",
-        "the_male": "القيرغيزي"
-    },
-    "kazakh": {
-        "male": "كازاخي",
-        "males": "كازاخيون",
-        "female": "كازاخية",
-        "females": "كازاخيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكازاخية",
-        "the_male": "الكازاخي"
-    },
-    "herzegovinian": {
-        "male": "هرسكي",
-        "males": "هرسكيون",
-        "female": "هرسكية",
-        "females": "هرسكيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الهرسكية",
-        "the_male": "الهرسكي"
-    },
-    "germanic": {
-        "male": "جرماني",
-        "males": "جرمانيون",
-        "female": "جرمانية",
-        "females": "جرمانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الجرمانية",
-        "the_male": "الجرماني"
-    },
-    "caymanian": {
-        "male": "كايماني",
-        "males": "كايمانيون",
-        "female": "كايمانية",
-        "females": "كايمانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكايمانية",
-        "the_male": "الكايماني"
-    },
-    "celtic": {
-        "male": "كلتي",
-        "males": "كلتيون",
-        "female": "كلتية",
-        "females": "كلتيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكلتية",
-        "the_male": "الكلتي"
-    },
     "bruneian": {
         "male": "بروني",
         "males": "برونيون",
@@ -158,66 +118,6 @@
         "ar": "بروناي",
         "the_female": "البرونية",
         "the_male": "البروني"
-    },
-    "beninois": {
-        "male": "بنيني",
-        "males": "بنينيون",
-        "female": "بنينية",
-        "females": "بنينيات",
-        "en": "",
-        "ar": "",
-        "the_female": "البنينية",
-        "the_male": "البنيني"
-    },
-    "bermudan": {
-        "male": "برمودي",
-        "males": "برموديون",
-        "female": "برمودية",
-        "females": "برموديات",
-        "en": "",
-        "ar": "",
-        "the_female": "البرمودية",
-        "the_male": "البرمودي"
-    },
-    "bermudian": {
-        "male": "برمودي",
-        "males": "برموديون",
-        "female": "برمودية",
-        "females": "برموديات",
-        "en": "",
-        "ar": "",
-        "the_female": "البرمودية",
-        "the_male": "البرمودي"
-    },
-    "new caledonian": {
-        "male": "كاليدوني",
-        "males": "كاليدونيون",
-        "female": "كاليدونية",
-        "females": "كاليدونيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الكاليدونية",
-        "the_male": "الكاليدوني"
-    },
-    "ni-vanuatu": {
-        "male": "فانواتوي",
-        "males": "فانواتويون",
-        "female": "فانواتوية",
-        "females": "فانواتويات",
-        "en": "",
-        "ar": "",
-        "the_female": "الفانواتوية",
-        "the_male": "الفانواتوي"
-    },
-    "guianan": {
-        "male": "غوياني",
-        "males": "غويانيون",
-        "female": "غويانية",
-        "females": "غويانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الغويانية",
-        "the_male": "الغوياني"
     },
     "abkhaz": {
         "male": "أبخازي",
@@ -648,16 +548,6 @@
         "ar": "غينيا بيساو",
         "the_female": "الغينية البيساوية",
         "the_male": "الغيني البيساوي"
-    },
-    "botswana": {
-        "male": "بوتسواني",
-        "males": "بوتسوانيون",
-        "female": "بوتسوانية",
-        "females": "بوتسوانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "البوتسوانية",
-        "the_male": "البوتسواني"
     },
     "bolivian": {
         "male": "بوليفي",

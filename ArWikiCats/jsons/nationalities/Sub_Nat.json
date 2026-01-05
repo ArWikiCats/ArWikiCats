@@ -1,4 +1,94 @@
 {
+    "caymanian": {
+        "male": "كايماني",
+        "males": "كايمانيون",
+        "female": "كايمانية",
+        "females": "كايمانيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الكايمانية",
+        "the_male": "الكايماني"
+    },
+    "herzegovinian": {
+        "male": "هرسكي",
+        "males": "هرسكيون",
+        "female": "هرسكية",
+        "females": "هرسكيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الهرسكية",
+        "the_male": "الهرسكي"
+    },
+    "new caledonian": {
+        "male": "كاليدوني",
+        "males": "كاليدونيون",
+        "female": "كاليدونية",
+        "females": "كاليدونيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الكاليدونية",
+        "the_male": "الكاليدوني"
+    },
+    "bermudan": {
+        "male": "برمودي",
+        "males": "برموديون",
+        "female": "برمودية",
+        "females": "برموديات",
+        "en": "",
+        "ar": "",
+        "the_female": "البرمودية",
+        "the_male": "البرمودي"
+    },
+    "celtic": {
+        "male": "كلتي",
+        "males": "كلتيون",
+        "female": "كلتية",
+        "females": "كلتيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الكلتية",
+        "the_male": "الكلتي"
+    },
+    "ni-vanuatu": {
+        "male": "فانواتوي",
+        "males": "فانواتويون",
+        "female": "فانواتوية",
+        "females": "فانواتويات",
+        "en": "",
+        "ar": "",
+        "the_female": "الفانواتوية",
+        "the_male": "الفانواتوي"
+    },
+    "germanic": {
+        "male": "جرماني",
+        "males": "جرمانيون",
+        "female": "جرمانية",
+        "females": "جرمانيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الجرمانية",
+        "the_male": "الجرماني"
+    },
+    "guianan": {
+        "male": "غوياني",
+        "males": "غويانيون",
+        "female": "غويانية",
+        "females": "غويانيات",
+        "en": "",
+        "ar": "",
+        "the_female": "الغويانية",
+        "the_male": "الغوياني"
+    },
+    "kirgiz": {
+        "male": "قيرغيزي",
+        "males": "قيرغيزيون",
+        "female": "قيرغيزية",
+        "females": "قيرغيزيات",
+        "en": "",
+        "ar": "",
+        "the_female": "القيرغيزية",
+        "the_male": "القيرغيزي"
+    },
     "persian": {
         "male": "فارسي",
         "males": "فرس",
