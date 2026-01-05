@@ -27,4 +27,6 @@ def resolve_nationalities_main(normalized_category) -> str:
 
 __all__ = [
     "resolve_nationalities_main",
+    "get_films_key_tyty_new",
+    "get_films_key_tyty_new_and_time",
 ]
