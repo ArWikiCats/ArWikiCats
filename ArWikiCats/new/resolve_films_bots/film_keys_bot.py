@@ -115,6 +115,25 @@ def Films(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+def resolve_films_with_nat(category: str) -> str:
+    """
+    TODO: use class method
+    """
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+
+    logger.debug(f"<<yellow>> start resolve_films: {normalized_category=}")
+
+    suffix, nat = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+
+    country_label = ""
+    if suffix and nat:
+        country_label = films_with_nat(nat, suffix)
+
+    logger.info_if_or_debug(f"<<yellow>> end resolve_films:{category=}, {country_label=}", country_label)
+    return country_label or ""
+
+
+@functools.lru_cache(maxsize=None)
 def resolve_films(category: str) -> str:
     """
     TODO: use class method
