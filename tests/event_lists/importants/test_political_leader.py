@@ -58,7 +58,7 @@ data_slow = {
     "Category:Ottoman Empire political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون عثمانيون",
     "Category:Oman political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون عمانيون",
     "Category:Oceania political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أوقيانوسيون",
-    "Category:North Macedonia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون شمال مقدونيون",
+    "Category:North Macedonia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون مقدونيون شماليون",
     "Category:North America political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون أمريكيون شماليون",
     "Category:North America political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أمريكيون شماليون",
     "Category:Nigeria political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون نيجيريون",
