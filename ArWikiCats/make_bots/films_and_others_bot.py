@@ -5,7 +5,7 @@ import functools
 import re
 
 # from ...helps.jsonl_dump import dump_data
-from ..helps.log import logger
+from ..helps import logger
 from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, resolve_films
 from ..new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 from ..new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time

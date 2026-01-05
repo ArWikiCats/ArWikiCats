@@ -4,7 +4,7 @@ from . import fax2
 
 from typing import Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from .end_start_match import (
     footballers_get_endswith,
     to_get_endswith,

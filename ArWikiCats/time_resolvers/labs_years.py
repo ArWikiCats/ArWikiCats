@@ -4,7 +4,7 @@ Labs Years processing module.
 
 import re
 
-from ..helps.log import logger
+from ..helps import logger
 from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
 from .time_to_arabic import (
     convert_time_to_arabic,

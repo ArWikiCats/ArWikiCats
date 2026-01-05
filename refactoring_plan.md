@@ -792,7 +792,7 @@ import logging
 from typing import TypeVar, Callable, Any
 
 from .exceptions import ArWikiCatsError, TranslationError
-from .helps.log import logger
+from .helps import logger
 
 T = TypeVar('T')
 

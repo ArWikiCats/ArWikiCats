@@ -8,7 +8,7 @@ TODO: replaced by resolve_films
 
 import functools
 
-from ...helps.log import logger
+from ...helps import logger
 from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ...translations import (
     All_Nat,

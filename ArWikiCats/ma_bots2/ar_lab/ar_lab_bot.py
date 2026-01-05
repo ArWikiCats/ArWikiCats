@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...main_processers import event2_stubs

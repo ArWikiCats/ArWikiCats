@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import CITY_TRANSLATIONS_LOWER
 
 MAJORS: Dict[str, str] = {

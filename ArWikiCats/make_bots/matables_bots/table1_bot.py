@@ -9,7 +9,7 @@ import functools
 from typing import Dict
 
 from ...helps.jsonl_dump import dump_data
-from ...helps.log import logger
+from ...helps import logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys

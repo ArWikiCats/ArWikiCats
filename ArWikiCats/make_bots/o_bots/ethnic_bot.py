@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import All_Nat, Nat_men, Nat_mens, Nat_women, en_is_nat_ar_is_women_2
 from ..jobs_bots.get_helps import get_suffix_with_keys
 

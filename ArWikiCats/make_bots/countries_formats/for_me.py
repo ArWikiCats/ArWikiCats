@@ -6,7 +6,7 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import (
     Nat_men,
     Nat_the_female,

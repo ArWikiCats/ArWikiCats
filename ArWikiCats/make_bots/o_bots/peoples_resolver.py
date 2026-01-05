@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import People_key, film_key_women_2, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template

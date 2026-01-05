@@ -7,7 +7,7 @@ import functools
 import re
 
 from ..fix import fixtitle
-from ..helps.log import logger
+from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
 from ..main_processers import event2_stubs

@@ -5,7 +5,7 @@ Usage:
 
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 from ...make_bots.format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ...make_bots.matables_bots.bot import (
     Films_O_TT,

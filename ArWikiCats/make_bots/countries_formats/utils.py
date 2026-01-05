@@ -1,7 +1,7 @@
 #
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 
 
 def add_definite_article(label: str) -> str:

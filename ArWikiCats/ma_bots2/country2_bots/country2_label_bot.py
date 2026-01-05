@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Tuple
 
-from ...helps.log import logger
+from ...helps import logger
 from ...ma_bots import country_bot
 from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import category_relation_mapping, get_tabl_with_in, pop_format, pop_format2

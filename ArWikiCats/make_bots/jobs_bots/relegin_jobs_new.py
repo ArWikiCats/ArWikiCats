@@ -6,7 +6,7 @@
 import functools
 import re
 
-from ...helps.log import logger
+from ...helps import logger
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
