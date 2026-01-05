@@ -24,6 +24,7 @@ basedtypeTable = {
     "television seasons": "مواسم تلفزيونية",
     "television news": "أخبار تلفزيونية",
     "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية",
     "television films": "أفلام تلفزيونية",
     "television commercials": "إعلانات تجارية تلفزيونية",
     "road cycling": "سباق الدراجات على الطريق",

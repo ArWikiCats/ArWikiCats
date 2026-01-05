@@ -2274,6 +2274,7 @@ data_1 = {
     "television film series": "سلاسل أفلام تلفزيونية",
     "television films": "أفلام تلفزيونية",
     "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية",
     "television news": "أخبار تلفزيونية",
     "television programmes": "برامج تلفزيونية",
     "television programs": "برامج تلفزيونية",

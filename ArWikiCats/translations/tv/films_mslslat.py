@@ -46,6 +46,7 @@ TELEVISION_BASE_KEYS = {
     "comics": "قصص مصورة",
     "television films": "أفلام تلفزيونية",
     "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية",
 }
 
 # Extended television keys dictionary
@@ -89,6 +90,7 @@ TELEVISION_KEYS = {
     "television episodes": "حلقات تلفزيونية",
     "television films": "أفلام تلفزيونية",
     "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية",
     "television news": "أخبار تلفزيونية",
     "television programmes": "برامج تلفزيونية",
     "television programming": "برمجة تلفزيونية",

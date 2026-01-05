@@ -40,6 +40,7 @@ test_data3 = {
     "television films": "أفلام تلفزيونية",
     "television miniseries": "مسلسلات قصيرة تلفزيونية",
     "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية",
     "television news": "أخبار تلفزيونية",
     "television programmes": "برامج تلفزيونية",
     "television programs": "برامج تلفزيونية",
