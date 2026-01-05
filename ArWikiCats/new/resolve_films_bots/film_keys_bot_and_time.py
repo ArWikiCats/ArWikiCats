@@ -67,13 +67,13 @@ def resolve_films_and_time(category: str) -> str:
         return ""
 
     logger.debug(f"<<yellow>> start resolve_films_and_time: {category=}")
-    yc_bot = multi_bot_v4()
 
     if category == match_time_en_first(category):
         logger.info_if_or_debug(f"<<yellow>> end resolve_films_and_time: {category=}, no time match", "")
         return ""
 
-    result = yc_bot.search_all_category(category)
+    yc_bot = multi_bot_v4()
+    result = yc_bot.search_all_category(category) or resolve_films(category)
 
     logger.info_if_or_debug(f"<<yellow>> end resolve_films_and_time: {category=}, {result=}", result)
     return result or ""
