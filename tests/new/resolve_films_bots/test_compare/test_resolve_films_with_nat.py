@@ -10,6 +10,24 @@ from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_n
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
 test_data = {
+    "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",
+    "christian apocalyptic films": "أفلام نهاية العالم مسيحية",
+    "christian children's television series": "مسلسلات تلفزيونية أطفال مسيحية",
+    "christian drama television series": "مسلسلات تلفزيونية درامية مسيحية",
+    "christian music compilation albums": "ألبومات تجميعية موسيقية مسيحية",
+    "japanese horror comics": "قصص مصورة رعب يابانية",
+    "japanese horror film series": "سلاسل أفلام رعب يابانية",
+    "japanese horror soap opera": "مسلسلات طويلة رعب يابانية",
+    "japanese horror television characters": "شخصيات تلفزيونية رعب يابانية",
+    "japanese horror television episodes": "حلقات تلفزيونية رعب يابانية",
+    "japanese horror television films": "أفلام تلفزيونية رعب يابانية",
+    "japanese horror television miniseries": "مسلسلات قصيرة تلفزيونية رعب يابانية",
+    "japanese horror television news": "أخبار تلفزيونية رعب يابانية",
+    "japanese horror television programmes": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television programs": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television series": "مسلسلات تلفزيونية رعب يابانية",
+    "japanese horror video games": "ألعاب فيديو رعب يابانية",
+    "japanese horror web series": "مسلسلات ويب رعب يابانية",
     "american animated films": "أفلام رسوم متحركة أمريكية",
     "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
     "american non-fiction television series": "مسلسلات تلفزيونية غير خيالية أمريكية",
@@ -18,8 +36,6 @@ test_data = {
     "american reality television series": "مسلسلات تلفزيونية واقعية أمريكية",
     "american superhero television series": "مسلسلات تلفزيونية أبطال خارقين أمريكية",
     "american television episodes": "حلقات تلفزيونية أمريكية",
-    "american television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في",
-    "american television series endings": "مسلسلات تلفزيونية أمريكية انتهت في",
     "american thriller films": "أفلام إثارة أمريكية",
     "american zombie novels": "روايات زومبي أمريكية",
     "argentine adult animated television series": "مسلسلات تلفزيونية رسوم متحركة للكبار أرجنتينية",
@@ -30,7 +46,6 @@ test_data = {
     "australian non-fiction web series": "مسلسلات ويب غير خيالية أسترالية",
     "austrian films": "أفلام نمساوية",
     "austrian silent short films": "أفلام قصيرة صامته نمساوية",
-    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
     "azerbaijani short films": "أفلام قصيرة أذربيجانية",
     "bangladeshi films": "أفلام بنغلاديشية",
     "belgian drama films": "أفلام درامية بلجيكية",
@@ -49,9 +64,7 @@ test_data = {
     "canadian docudrama films": "أفلام درامية وثائقية كندية",
     "canadian non-fiction web series": "مسلسلات ويب غير خيالية كندية",
     "canadian superhero television series": "مسلسلات تلفزيونية أبطال خارقين كندية",
-    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
     "canadian war films": "أفلام حربية كندية",
-    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
     "chinese epic films": "أفلام ملحمية صينية",
     "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
     "croatian biographical films": "أفلام سير ذاتية كرواتية",
@@ -65,7 +78,6 @@ test_data = {
     "dutch war drama films": "أفلام حربية درامية هولندية",
     "ecuadorian science fiction films": "أفلام خيال علمي إكوادورية",
     "emirati animated films": "أفلام رسوم متحركة إماراتية",
-    "european competition": "منافسات أوروبية",
     "finnish non-fiction television series": "مسلسلات تلفزيونية غير خيالية فنلندية",
     "french films": "أفلام فرنسية",
     "french musical comedy films": "أفلام كوميدية موسيقية فرنسية",
@@ -92,7 +104,6 @@ test_data = {
     "mexican crime thriller films": "أفلام إثارة وجريمة مكسيكية",
     "mexican drama television series": "مسلسلات تلفزيونية درامية مكسيكية",
     "mexican independent films": "أفلام مستقلة مكسيكية",
-    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "moroccan musical films": "أفلام موسيقية مغربية",
     "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
     "north korean drama films": "أفلام درامية كورية شمالية",
@@ -100,12 +111,10 @@ test_data = {
     "philippine kung fu films": "أفلام كونغ فو فلبينية",
     "polish crime thriller films": "أفلام إثارة وجريمة بولندية",
     "polish epic films": "أفلام ملحمية بولندية",
-    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
     "polish television-seasons": "مواسم تلفزيونية بولندية",
     "portuguese adult animated films": "أفلام رسوم متحركة للكبار برتغالية",
     "portuguese fantasy films": "أفلام فانتازيا برتغالية",
     "portuguese musical comedy films": "أفلام كوميدية موسيقية برتغالية",
-    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
     "romanian films": "أفلام رومانية",
     "russian sports drama films": "أفلام رياضية درامية روسية",
     "saudiarabian films": "أفلام سعودية",
@@ -119,7 +128,6 @@ test_data = {
     "spanish documentary films": "أفلام وثائقية إسبانية",
     "spanish films": "أفلام إسبانية",
     "spanish independent films": "أفلام مستقلة إسبانية",
-    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
     "spanish war drama films": "أفلام حربية درامية إسبانية",
     "swedish 3d films": "أفلام ثلاثية الأبعاد سويدية",
     "taiwanese non-fiction television series": "مسلسلات تلفزيونية غير خيالية تايوانية",
@@ -127,33 +135,25 @@ test_data = {
     "yemeni action drama films": "أفلام حركة درامية يمنية",
     "yemeni films images": "صور أفلام يمنية",
     "yemeni legal drama films": "أفلام دراما قانونية يمنية",
-    "yemeni musical drama films": "أفلام موسيقية درامية يمنية",
+    "yemeni musical drama films": "أفلام موسيقية درامية يمنية"
 }
 
 test_data2 = {
-    "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",
     "christian animation": "رسوم متحركة مسيحية",
-    "christian apocalyptic films": "أفلام نهاية العالم مسيحية",
-    "christian children's television series": "مسلسلات تلفزيونية أطفال مسيحية",
-    "christian drama television series": "مسلسلات تلفزيونية درامية مسيحية",
     "christian music albums": "ألبومات موسيقية مسيحية",
-    "christian music compilation albums": "ألبومات تجميعية موسيقية مسيحية",
     "christian music media": "إعلام موسيقية مسيحية",
     "christian science magazines": "مجلات علمية مسيحية",
-    "japanese horror comics": "قصص مصورة رعب يابانية",
-    "japanese horror film series": "سلاسل أفلام رعب يابانية",
-    "japanese horror soap opera": "مسلسلات طويلة رعب يابانية",
-    "japanese horror television characters": "شخصيات تلفزيونية رعب يابانية",
-    "japanese horror television episodes": "حلقات تلفزيونية رعب يابانية",
-    "japanese horror television films": "أفلام تلفزيونية رعب يابانية",
-    "japanese horror television miniseries": "مسلسلات قصيرة تلفزيونية رعب يابانية",
-    "japanese horror television news": "أخبار تلفزيونية رعب يابانية",
-    "japanese horror television programmes": "برامج تلفزيونية رعب يابانية",
-    "japanese horror television programs": "برامج تلفزيونية رعب يابانية",
-    "japanese horror television series": "مسلسلات تلفزيونية رعب يابانية",
-    "japanese horror video games": "ألعاب فيديو رعب يابانية",
-    "japanese horror web series": "مسلسلات ويب رعب يابانية",
     "jewish music albums": "ألبومات موسيقية يهودية",
+    "american television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في",
+    "american television series endings": "مسلسلات تلفزيونية أمريكية انتهت في",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "european competition": "منافسات أوروبية",
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في"
 }
 
 
@@ -164,7 +164,7 @@ def test_resolve_films_with_nat(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_data3 = test_data2 | test_data
+test_data3 = test_data
 
 to_test = [
     ("test_resolve_films_with_nat", test_data3, resolve_films_with_nat),
