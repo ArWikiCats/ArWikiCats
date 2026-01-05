@@ -6,6 +6,7 @@ from ArWikiCats.make_bots.films_and_others_bot import resolve_films
 from ArWikiCats import resolve_label_ar
 
 data_1 = {
+    "yemeni children's-animated-adventure-television films" : "تصنيف:أفلام مغامرات رسوم متحركة تلفزيونية يمنية للأطفال",
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
     "3d film series": "سلاسل أفلام ثلاثية الأبعاد",
     "3d soap opera": "مسلسلات طويلة ثلاثية الأبعاد",
@@ -58,6 +59,16 @@ data_1 = {
     "action thriller soap opera": "مسلسلات طويلة إثارة حركة",
 }
 
+
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.fast
+def test_films_keys2_batch_1(monkeypatch: pytest.MonkeyPatch, category: str, expected: str) -> None:
+    monkeypatch.setattr("ArWikiCats.new.resolve_films_bots.resolve_films_labels.get_films_key_tyty_new", lambda name: "x", raising=False)
+
+    label = resolve_films(category)
+    assert label == expected
+
+
 TEMPORAL_CASES = [
     ("test_films_keys2_batch_1", data_1, resolve_films),
     ("test_films_keys2_batch_2", data_1, resolve_label_ar),
@@ -68,8 +79,7 @@ TEMPORAL_CASES = [
 @pytest.mark.dump
 def test_all_dump(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, str], callback: callable) -> None:
 
-    monkeypatch.setattr("ArWikiCats.new.resolve_films_bots.film_keys_bot.get_films_key_tyty_new_and_time", lambda name: "")
-    monkeypatch.setattr("ArWikiCats.new.resolve_films_bots.resolve_films_labels.get_films_key_tyty_new", lambda name: "")
+    monkeypatch.setattr("ArWikiCats.new.resolve_films_bots.resolve_films_labels.get_films_key_tyty_new", lambda name: "x", raising=False)
 
     expected, diff_result = one_dump_test(data, callback)
 
