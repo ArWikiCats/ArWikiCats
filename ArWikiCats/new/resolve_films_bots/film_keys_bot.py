@@ -127,6 +127,7 @@ def resolve_films_with_nat(category: str) -> str:
     """
     TODO: use class method
     """
+    return get_films_key_tyty_new(category)
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     logger.debug(f"<<yellow>> start resolve_films_with_nat: {normalized_category=}")

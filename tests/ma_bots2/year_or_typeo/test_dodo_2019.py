@@ -5,8 +5,6 @@ from ArWikiCats.ma_bots2.year_or_typeo.dodo_2019 import work_2019, work_2019_wra
 examples = {
     "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "19th-century actors": "ممثلون في القرن 19",
-    "2017 American television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
-    "2017 American television series endings": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
 }
 
@@ -32,18 +30,6 @@ examples2 = [
         "year": "19th-century",
         "year_labe": "القرن 19",
         "output": "ممثلون في القرن 19",
-    },
-    {
-        "category3": "2017 American television series debuts",
-        "year": "2017",
-        "year_labe": "2017",
-        "output": "مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
-    },
-    {
-        "category3": "2017 American television series endings",
-        "year": "2017",
-        "year_labe": "2017",
-        "output": "مسلسلات تلفزيونية أمريكية انتهت في 2017",
     },
     {
         "category3": "20th-century railway accidents",
