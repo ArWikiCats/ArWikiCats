@@ -24,7 +24,7 @@ def populate_film_patterns(formatted_data):
             "value": "مسلسلات رسوم متحركة تلفزيونية",
             "value_nat": "مسلسلات رسوم متحركة تلفزيونية {female}"
         },
-        "childrens animated adventure television series": {
+        "children's animated adventure television series": {
             "value": "مسلسلات مغامرات رسوم متحركة تلفزيونية للأطفال",
             "value_nat": "مسلسلات مغامرات رسوم متحركة تلفزيونية {female} للأطفال"
         },
@@ -56,7 +56,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
         "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
         "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
     }
-    populate_film_patterns(formatted_data)
+    # populate_film_patterns(formatted_data)
 
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
 
