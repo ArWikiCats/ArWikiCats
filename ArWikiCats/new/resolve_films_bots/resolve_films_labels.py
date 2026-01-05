@@ -363,6 +363,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
 @functools.lru_cache(maxsize=1)
 def _make_bot() -> MultiDataFormatterBase:
+    # NOTE: keys with non-patterns should be added to populate_film_patterns()
     # Template data with both nationality and sport placeholders
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",

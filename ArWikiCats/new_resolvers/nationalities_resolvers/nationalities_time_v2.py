@@ -18,6 +18,35 @@ from ...translations_formats import (
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 
+def populate_film_patterns(formatted_data):
+    films_non_patterns_data = {
+        "animated television series": {
+            "value": "مسلسلات رسوم متحركة تلفزيونية",
+            "value_nat": "مسلسلات رسوم متحركة تلفزيونية {female}"
+        },
+        "childrens animated adventure television series": {
+            "value": "مسلسلات مغامرات رسوم متحركة تلفزيونية للأطفال",
+            "value_nat": "مسلسلات مغامرات رسوم متحركة تلفزيونية {female} للأطفال"
+        },
+    }
+    for k, v in films_non_patterns_data.items():
+        value_with_nat = v.get("value_nat")
+        value = v.get("value")
+        formatted_data.update({
+            f"{k}": f"{value}",
+            f"{{year1}} {k}": f"{value} في {{year1}}",
+
+            f"{{en_nat}} {k}": f"{value_with_nat}",
+            f"{{year1}} {{en_nat}} {k}": f"{value_with_nat} في {{year1}}",
+
+            f"{{year1}} {k}-endings": f"{value} انتهت في {{year1}}",
+            f"{{year1}} {k} endings": f"{value} انتهت في {{year1}}",
+
+            f"{{year1}} {{en_nat}} {k}-endings": f"{value_with_nat} انتهت في {{year1}}",
+            f"{{year1}} {{en_nat}} {k} endings": f"{value_with_nat} انتهت في {{year1}}",
+        })
+
+
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
     formatted_data = {
@@ -27,6 +56,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
         "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
         "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
     }
+    populate_film_patterns(formatted_data)
 
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
 
