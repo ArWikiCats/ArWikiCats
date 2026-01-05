@@ -10,7 +10,6 @@ from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_n
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
 test_data = {
-
     "american animated films": "أفلام رسوم متحركة أمريكية",
     "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
     "american non-fiction television series": "مسلسلات تلفزيونية غير خيالية أمريكية",
@@ -131,6 +130,10 @@ test_data = {
     "yemeni musical drama films": "أفلام درامية موسيقية يمنية",
 }
 
+test_data2 = {
+
+}
+
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
@@ -139,9 +142,11 @@ def test_resolve_films_with_nat(category: str, expected: str) -> None:
     assert label == expected
 
 
+test_data3 = test_data2 | test_data
+
 to_test = [
-    ("test_resolve_films_with_nat", test_data, resolve_films_with_nat),
-    ("test_resolve_films_with_nat_tyty", test_data, _get_films_key_tyty_new),
+    ("test_resolve_films_with_nat", test_data3, resolve_films_with_nat),
+    ("test_resolve_films_with_nat_tyty", test_data3, _get_films_key_tyty_new),
 ]
 
 
