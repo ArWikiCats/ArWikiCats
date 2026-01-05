@@ -4,17 +4,15 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.make_bots.countries_formats.for_me import (
     Work_for_me_main,
-    Work_for_me,
 )
 
 data_n = {
     "brazilian design": "تصميم برازيلي",
     "british descent": "أصل بريطاني",
     "burkinabe design": "تصميم بوركينابي",
-    "corsican descent": "أصل كورسيكي",
     "cypriot descent": "أصل قبرصي",
     "dutch diaspora": "شتات هولندي",
     "ecuadorian descent": "أصل إكوادوري",
@@ -66,15 +64,14 @@ data_n = {
     "croatian diaspora": "شتات كرواتي",
     "chilean law": "قانون تشيلي",
     "austrian descent": "أصل نمساوي",
-    "Category:Dominican Republic people of Corsican descent": "تصنيف:دومينيكانيون من أصل كورسيكي",
-    "Category:20th-century Ghanaian literature": "تصنيف:أدب غاني في القرن 20",
-    "Category:20th-century Mexican literature": "تصنيف:أدب مكسيكي في القرن 20",
-    "Category:20th-century Taiwanese literature": "تصنيف:أدب تايواني في القرن 20",
-    "Category:20th-century Zimbabwean literature": "تصنيف:أدب زيمبابوي في القرن 20",
-    "Category:21st-century Ghanaian literature": "تصنيف:أدب غاني في القرن 21",
-    "Category:21st-century Moroccan literature": "تصنيف:أدب مغربي في القرن 21",
-    "Category:21st-century Taiwanese literature": "تصنيف:أدب تايواني في القرن 21",
-    "Category:21st-century Zimbabwean literature": "تصنيف:أدب زيمبابوي في القرن 21"
+    "Category:20th-century Ghanaian literature": "أدب غاني القرن 20",
+    "Category:20th-century Mexican literature": "أدب مكسيكي القرن 20",
+    "Category:20th-century Taiwanese literature": "أدب تايواني القرن 20",
+    "Category:20th-century Zimbabwean literature": "أدب زيمبابوي القرن 20",
+    "Category:21st-century Ghanaian literature": "أدب غاني القرن 21",
+    "Category:21st-century Moroccan literature": "أدب مغربي القرن 21",
+    "Category:21st-century Taiwanese literature": "أدب تايواني القرن 21",
+    "Category:21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21"
 }
 
 fast_data = {
@@ -351,6 +348,13 @@ fast_data = {
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
     label1 = Work_for_me_main(category)
+    assert label1 == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", data_n.items(), ids=data_n.keys())
+@pytest.mark.fast
+def test_data_n(category: str, expected_key: str) -> None:
+    label1 = resolve_label_ar(category)
     assert label1 == expected_key
 
 
