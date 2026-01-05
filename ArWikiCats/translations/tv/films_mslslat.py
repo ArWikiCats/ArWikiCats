@@ -45,7 +45,7 @@ TELEVISION_BASE_KEYS = {
     "television news": "أخبار تلفزيونية",
     "comics": "قصص مصورة",
     "television films": "أفلام تلفزيونية",
-    "television miniseries": "مسلسلات قصيرة",
+    "miniseries": "مسلسلات قصيرة",
 }
 
 # Extended television keys dictionary
@@ -88,7 +88,7 @@ TELEVISION_KEYS = {
     "television commercials": "إعلانات تجارية تلفزيونية",
     "television episodes": "حلقات تلفزيونية",
     "television films": "أفلام تلفزيونية",
-    "television miniseries": "مسلسلات قصيرة",
+    "miniseries": "مسلسلات قصيرة",
     "television news": "أخبار تلفزيونية",
     "television programmes": "برامج تلفزيونية",
     "television programming": "برمجة تلفزيونية",

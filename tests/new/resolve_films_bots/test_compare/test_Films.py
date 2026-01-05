@@ -2334,58 +2334,6 @@ test_data2 = {
     "zombie web series": "مسلسلات ويب زومبي"
 }
 
-test_data3 = {
-    "animated short film comics": "قصص مصورة رسوم متحركة قصيرة",
-    "animated short film film series": "سلاسل أفلام رسوم متحركة قصيرة",
-    "animated short film soap opera": "مسلسلات طويلة رسوم متحركة قصيرة",
-    "animated short film television episodes": "حلقات تلفزيونية رسوم متحركة قصيرة",
-    "animated short film television films": "أفلام تلفزيونية رسوم متحركة قصيرة",
-    "animated short film television miniseries": "مسلسلات قصيرة رسوم متحركة قصيرة",
-    "animated short film television news": "أخبار تلفزيونية رسوم متحركة قصيرة",
-    "animated short film television programmes": "برامج تلفزيونية رسوم متحركة قصيرة",
-    "animated short film television programs": "برامج تلفزيونية رسوم متحركة قصيرة",
-    "animated short film television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة",
-    "animated short film video games": "ألعاب فيديو رسوم متحركة قصيرة",
-    "animated short film web series": "مسلسلات ويب رسوم متحركة قصيرة",
-    "comic science fiction comics": "قصص مصورة خيالية علمية كوميدية",
-    "comic science fiction film series": "سلاسل أفلام خيالية علمية كوميدية",
-    "comic science fiction soap opera": "مسلسلات طويلة خيالية علمية كوميدية",
-    "comic science fiction television episodes": "حلقات تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction television films": "أفلام تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction television miniseries": "مسلسلات قصيرة خيالية علمية كوميدية",
-    "comic science fiction television news": "أخبار تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction television programmes": "برامج تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction television programs": "برامج تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction television series": "مسلسلات تلفزيونية خيالية علمية كوميدية",
-    "comic science fiction video games": "ألعاب فيديو خيالية علمية كوميدية",
-    "comic science fiction web series": "مسلسلات ويب خيالية علمية كوميدية",
-    "comics": "قصص مصورة",
-    "film series": "سلاسل أفلام",
-    "soap opera": "مسلسلات طويلة",
-    "television comics": "قصص مصورة تلفزيونية",
-    "television episodes": "حلقات تلفزيونية",
-    "television film series": "سلاسل أفلام تلفزيونية",
-    "television films": "أفلام تلفزيونية",
-    "television miniseries": "مسلسلات قصيرة",
-    "television news": "أخبار تلفزيونية",
-    "television programmes": "برامج تلفزيونية",
-    "television programs": "برامج تلفزيونية",
-    "television series": "مسلسلات تلفزيونية",
-    "television soap opera": "مسلسلات طويلة تلفزيونية",
-    "television television episodes": "حلقات تلفزيونية تلفزيونية",
-    "television television films": "أفلام تلفزيونية تلفزيونية",
-    "television television miniseries": "مسلسلات قصيرة تلفزيونية",
-    "television television news": "أخبار تلفزيونية تلفزيونية",
-    "television television programmes": "برامج تلفزيونية تلفزيونية",
-    "television television programs": "برامج تلفزيونية تلفزيونية",
-    "television television series": "مسلسلات تلفزيونية تلفزيونية",
-    "television video games": "ألعاب فيديو تلفزيونية",
-    "television web series": "مسلسلات ويب تلفزيونية",
-    "video games": "ألعاب فيديو",
-    "web series": "مسلسلات ويب"
-}
-
-
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_Films(category: str, expected: str) -> None:
@@ -2393,11 +2341,11 @@ def test_Films(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_data3 = test_data2 | test_data
+test_data4 = test_data2 | test_data
 
 to_test = [
-    ("test_Films", test_data2, Films),
-    ("test_Films_tyty", test_data2, _get_films_key_tyty_new),
+    ("test_Films", test_data4, Films),
+    ("test_Films_tyty", test_data4, _get_films_key_tyty_new),
 ]
 
 

@@ -326,7 +326,7 @@ CINEMA_CATEGORIES: dict[str, str] = {
     "film series": "سلاسل أفلام",
     "television characters": "شخصيات تلفزيونية",
     "television series": "مسلسلات تلفزيونية",
-    "television miniseries": "مسلسلات قصيرة",
+    "miniseries": "مسلسلات قصيرة",
     "television news": "أخبار تلفزيونية",
     "television programs": "برامج تلفزيونية",
     "television programmes": "برامج تلفزيونية",

@@ -23,7 +23,7 @@ basedtypeTable = {
     "television series": "مسلسلات تلفزيونية",
     "television seasons": "مواسم تلفزيونية",
     "television news": "أخبار تلفزيونية",
-    "television miniseries": "مسلسلات قصيرة",
+    "miniseries": "مسلسلات قصيرة",
     "television films": "أفلام تلفزيونية",
     "television commercials": "إعلانات تجارية تلفزيونية",
     "road cycling": "سباق الدراجات على الطريق",

@@ -88,7 +88,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
         "soap opera": "مسلسلات طويلة",
         "television news": "أخبار تلفزيونية",
-        "television miniseries": "مسلسلات قصيرة",
+        "miniseries": "مسلسلات قصيرة",
     }
 
     genre_categories_skip_it = {
