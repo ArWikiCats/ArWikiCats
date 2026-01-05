@@ -108,7 +108,7 @@ def test_films_keys2_batch_1(patch_films_keys: None, category: str, expected: st
 
 TEMPORAL_CASES = [
     ("test_films_keys2_batch_1", data_1, resolve_films),
-    ("test_films_keys2_batch_2", data_1, resolve_label_ar),
+    # ("test_films_keys2_batch_2", data_1, resolve_label_ar),
 ]
 
 

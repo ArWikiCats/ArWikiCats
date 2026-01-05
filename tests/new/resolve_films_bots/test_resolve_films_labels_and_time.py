@@ -9,6 +9,8 @@ from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_
 
 fast_data_with_nats = {
     "northern ireland": "",
+    "northern ireland films 2020": "",
+    "2020 northern ireland films": "أفلام أيرلندية شمالية في 2020",
     "2020 northern ireland": "",
     "2020 Australian children's animated superhero film characters" : "شخصيات أفلام رسوم متحركة أبطال خارقين أسترالية للأطفال في 2020",
     "20th-century supernatural thriller films" : "أفلام إثارة خارقة للطبيعة في القرن 20",
