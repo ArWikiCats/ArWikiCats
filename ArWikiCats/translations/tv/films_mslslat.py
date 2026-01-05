@@ -471,7 +471,7 @@ Films_key_For_nat.update({
     "adventure drama films": "أفلام مغامرات درامية {}",
     "animated drama films": "أفلام رسوم متحركة درامية {}",
     "children's drama films": "أفلام أطفال درامية {}",
-    "crime drama films": "أفلام جريمة ودراما {}",
+    "crime drama films": "أفلام جريمة درامية {}",
     "erotic drama films": "أفلام إغرائية درامية {}",
     "fantasy drama films": "أفلام فانتازيا درامية {}",
     "horror drama films": "أفلام رعب درامية {}",
