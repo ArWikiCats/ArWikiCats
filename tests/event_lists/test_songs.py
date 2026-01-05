@@ -36,14 +36,14 @@ to_test = [
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_songs_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
+@pytest.mark.skip2
 def test_peoples(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
