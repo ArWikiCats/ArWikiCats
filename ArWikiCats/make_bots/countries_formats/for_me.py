@@ -9,6 +9,7 @@ import re
 from ...helps import logger
 from ...translations import (
     Nat_men,
+    All_Nat,
     Nat_the_female,
     Nat_the_male,
     Nat_women,
@@ -20,6 +21,7 @@ from ...translations import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
+from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ..o_bots import ethnic_bot
 
 # رجالية بدون ألف ولام التعريف
@@ -191,3 +193,18 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
 
     # 6. رجالية بألف ولام التعريف (Fallback)
     return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
+
+
+@functools.lru_cache(maxsize=None)
+def Work_for_me_main(category: str) -> str:
+    logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({category})")
+
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+    result = ""
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+
+    if suffix:
+        result = Work_for_me(normalized_category, nationality_key, suffix)
+
+    logger.debug(f'<<lightblue>> bot_te_4: Work_for_me_main :: "{result}"')
+    return result
