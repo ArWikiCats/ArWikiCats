@@ -15,7 +15,7 @@ from ...translations import (
     Nat_women,
     # film_keys_for_female,
 )
-from ...translations_formats import MultiDataFormatterBase, format_films_country_data
+from ...translations_formats import MultiDataFormatterBase, format_films_country_data, format_multi_data
 
 film_keys_for_female = {
     "3d": "ثلاثية الأبعاد",
@@ -333,6 +333,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
         data_no_nats.update(
             {
+                f"{suffix}": f"{arabic_base}",
+                f"television {suffix}": f"{arabic_base} تلفزيونية",
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
                 f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
 
@@ -425,7 +427,7 @@ def _make_bot() -> MultiDataFormatterBase:
     # data_list2.pop("superhero", None)
     data_list2["superhero"] = "أبطال خارقين"
 
-    bot = format_films_country_data(
+    double_bot = format_films_country_data(
         formatted_data=formatted_data,
         data_list=Nat_women,
         key_placeholder="{nat_en}",
@@ -438,9 +440,20 @@ def _make_bot() -> MultiDataFormatterBase:
         other_formatted_data=other_formatted_data,
     )
 
-    bot.other_bot.update_put_label_last(put_label_last)
-
-    return bot
+    double_bot.other_bot.update_put_label_last(put_label_last)
+    bot = format_multi_data(
+        formatted_data=formatted_data,
+        data_list=Nat_women,
+        key_placeholder="{nat_en}",
+        value_placeholder="{nat_ar}",
+        data_list2=data_list2,
+        key2_placeholder="{film_key}",
+        value2_placeholder="{film_ar}",
+        text_after="",
+        text_before="",
+        other_formatted_data=other_formatted_data,
+    )
+    return double_bot, bot
 
 
 def fix_keys(category: str) -> str:
@@ -471,9 +484,9 @@ def _get_films_key_tyty_new(text: str) -> str:
     """
     normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
-    bot = _make_bot()
+    double_bot, bot = _make_bot()
 
-    result = bot.search_all(normalized_text)
+    result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
     logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
     return result
 
