@@ -5,7 +5,8 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat, Films, resolve_films
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat, Films
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 fast_data_with_nat = {
     # "american superhero films": "أفلام أبطال خارقين أمريكية",
@@ -140,8 +141,11 @@ def test_resolve_films_no_nat(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_resolve_films_with_nat", fast_data_with_nat, resolve_films_with_nat),
-    ("test_resolve_films_no_nat", fast_data_no_nat, Films),
+    ("with_nat", fast_data_with_nat, resolve_films_with_nat),
+    ("no_nat", fast_data_no_nat, Films),
+
+    ("with_nat_tyty", fast_data_with_nat, get_films_key_tyty_new),
+    ("no_nat_tyty", fast_data_no_nat, get_films_key_tyty_new),
 ]
 
 
