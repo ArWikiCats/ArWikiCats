@@ -131,7 +131,29 @@ test_data = {
 }
 
 test_data2 = {
-
+    "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",
+    "christian animation": "رسوم متحركة مسيحية",
+    "christian apocalyptic films": "أفلام نهاية العالم مسيحية",
+    "christian children's television series": "مسلسلات تلفزيونية أطفال مسيحية",
+    "christian drama television series": "مسلسلات تلفزيونية درامية مسيحية",
+    "christian music albums": "ألبومات موسيقية مسيحية",
+    "christian music compilation albums": "ألبومات تجميعية موسيقية مسيحية",
+    "christian music media": "إعلام موسيقية مسيحية",
+    "christian science magazines": "مجلات علمية مسيحية",
+    "japanese horror comics": "قصص مصورة رعب يابانية",
+    "japanese horror film series": "سلاسل أفلام رعب يابانية",
+    "japanese horror soap opera": "مسلسلات طويلة رعب يابانية",
+    "japanese horror television characters": "شخصيات تلفزيونية رعب يابانية",
+    "japanese horror television episodes": "حلقات تلفزيونية رعب يابانية",
+    "japanese horror television films": "أفلام تلفزيونية رعب يابانية",
+    "japanese horror television miniseries": "مسلسلات قصيرة رعب يابانية",
+    "japanese horror television news": "أخبار تلفزيونية رعب يابانية",
+    "japanese horror television programmes": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television programs": "برامج تلفزيونية رعب يابانية",
+    "japanese horror television series": "مسلسلات تلفزيونية رعب يابانية",
+    "japanese horror video games": "ألعاب فيديو رعب يابانية",
+    "japanese horror web series": "مسلسلات ويب رعب يابانية",
+    "jewish music albums": "ألبومات موسيقية يهودية",
 }
 
 
