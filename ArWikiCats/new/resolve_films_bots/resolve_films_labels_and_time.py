@@ -12,6 +12,9 @@ from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFro
 
 formatted_data = {
     "{year1} {en}": "{ar} في {year1}",
+    "{year1} {en} debuts": "{ar} بدأ عرضها في {year1}",
+    "{year1} {en} endings": "{ar} انتهت في {year1}",
+    "{year1} {en}-endings": "{ar} انتهت في {year1}",
 }
 
 
@@ -20,18 +23,11 @@ def match_key_callback(text: str) -> str:
     """Match the country part from 'job from country'."""
     # replace all formatted_data keys from text
     # text = text.replace("{year1} deaths from", "").replace("{year1}", "")
+    orgtext = text
+    text = text.removesuffix(" debuts").removesuffix(" endings").removesuffix("-endings")
+    text = text.replace("{year1} ", "")
 
-    keys_to_replace = [
-        x.replace("{en}", "").strip() for x in formatted_data.keys() if x.replace("{en}", "").strip()
-    ]
-    # sort by len
-    keys_to_replace = sorted(
-        keys_to_replace,
-        key=lambda k: (-k.count(" "), -len(k)),
-    )
-    for key in keys_to_replace:
-        if key in text:
-            return text.replace(key, "").strip()
+    print(f"zzzzzzzzzzzzzz match_key_callback no match for {orgtext=} {text=}")
     return text.strip()
 
 

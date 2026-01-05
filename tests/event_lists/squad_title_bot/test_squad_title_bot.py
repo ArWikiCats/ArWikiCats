@@ -23,7 +23,6 @@ get_squad_title_data = {
     "1970 copa américa femenina": "كوبا أمريكا فمنينا 1970",
     "1970 copa américa": "كوبا أمريكا 1970",
     "1970 cricket world cup": "كأس العالم للكريكت 1970",
-    "1970 european competition for women's football": "منافسات أوروبية في كرة القدم للسيدات 1970",
     "1970 european men's handball championship": "بطولة أوروبا لكرة اليد للرجال 1970",
     "1970 european women's handball championship": "بطولة أوروبا لكرة اليد للسيدات 1970",
     "1970 fiba asia championship": "بطولة أمم آسيا لكرة السلة 1970",
