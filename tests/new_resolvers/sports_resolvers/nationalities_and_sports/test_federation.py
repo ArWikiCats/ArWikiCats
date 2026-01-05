@@ -235,7 +235,7 @@ the_male_sport_team_data = {
     "nordic road bicycle racing federation": "الاتحاد النوردي لسباق الدراجات على الطريق",
     "north african road cycling federation": "الاتحاد الشمال الإفريقي لسباق الدراجات على الطريق",
     "north american road race federation": "الاتحاد الأمريكي الشمالي لسباق الدراجات على الطريق",
-    "north macedonian roller hockey racing federation": "الاتحاد الشمال المقدوني لسباق هوكي الدحرجة",
+    "north macedonian roller hockey racing federation": "الاتحاد المقدوني الشمالي لسباق هوكي الدحرجة",
     "north yemeni roller hockey federation": "الاتحاد اليمني الشمالي لهوكي الدحرجة",
     "northern cypriot roller hockey racing federation": "الاتحاد القبرصي الشمالي لسباق هوكي الدحرجة",
     "northern ireland roller skating federation": "الاتحاد الأيرلندي الشمالي للتزلج بالعجلات",
