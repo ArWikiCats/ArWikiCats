@@ -124,6 +124,7 @@ def load_sources(
 
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
+    continents: Dict[str, Any] = open_json_file("nationalities/Continents.json") or {}
 
     data = {}
 
@@ -133,6 +134,7 @@ def load_sources(
     # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
 
     data.update(raw_sub_nat)
+    data.update(continents)
     data.update(raw_sub_nat_additional)
     # for key, val in raw_sub_nat.items(): raw_all_nat_o[key] = val
 
@@ -174,6 +176,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
     """
 
     alias_map: Dict[str, str] = {
+        "turkish cypriot": "northern cypriot",
         "luxembourg": "luxembourgish",
         "ancient romans": "ancient-romans",
         "ancient-roman": "ancient-romans",
@@ -216,7 +219,6 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "south ossetian": "ossetian",
         "trinidadian": "trinidad and tobago",
         "trinidadians": "trinidad and tobago",
-        "turkish cypriot": "northern cypriot",
         "vietnamesei": "vietnamese",
         "yemenite": "yemeni",
         "jewish": "jews",

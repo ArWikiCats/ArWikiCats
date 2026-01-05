@@ -1,4 +1,14 @@
 {
+    "persian": {
+        "male": "فارسي",
+        "males": "فرس",
+        "female": "فارسية",
+        "females": "فارسيات",
+        "en": "",
+        "ar": "فارس",
+        "the_female": "الفارسية",
+        "the_male": "الفارسي"
+    },
     "native americans": {
         "male": "أمريكي أصلي",
         "males": "أمريكيون أصليون",
