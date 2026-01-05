@@ -22,12 +22,6 @@ fast_data = [
         "suffix": "black metal musical groups",
         "output": "فرق موسيقى بلاك ميتال أسترالية",
     },
-    {
-        "cate": "australian electronic dance music",
-        "nat": "australian",
-        "suffix": "electronic dance music",
-        "output": "موسيقى الرقص الإلكترونية أسترالي",
-    },
     {"cate": "australian musicals", "nat": "australian", "suffix": "musicals", "output": "مسرحيات غنائية أسترالية"},
     {
         "cate": "australian rugby union",
@@ -42,7 +36,6 @@ fast_data = [
         "suffix": "women's ice hockey league",
         "output": "الدوري الأسترالي لهوكي الجليد للسيدات",
     },
-    {"cate": "austrian rock", "nat": "austrian", "suffix": "rock", "output": "روك نمساوي"},
     {
         "cate": "azerbaijani encyclopedias",
         "nat": "azerbaijani",
@@ -207,7 +200,6 @@ fast_data = [
     {"cate": "ecuadorian descent", "nat": "ecuadorian", "suffix": "descent", "output": "أصل إكوادوري"},
     {"cate": "egyptian league", "nat": "egyptian", "suffix": "league", "output": "الدوري المصري"},
     {"cate": "emirati motorsport", "nat": "emirati", "suffix": "motorsport", "output": "رياضة محركات إماراتية"},
-    {"cate": "english folk", "nat": "english", "suffix": "folk", "output": "فولك إنجليزي"},
     {
         "cate": "english football league",
         "nat": "english",
@@ -268,7 +260,6 @@ fast_data = [
     {"cate": "french rugby union", "nat": "french", "suffix": "rugby union", "output": "اتحاد الرجبي الفرنسي"},
     {"cate": "french sport", "nat": "french", "suffix": "sport", "output": "رياضة فرنسية"},
     {"cate": "french war crimes", "nat": "french", "suffix": "war crimes", "output": "جرائم حرب فرنسية"},
-    {"cate": "german hip hop", "nat": "german", "suffix": "hip hop", "output": "هيب هوب ألماني"},
     {"cate": "german motorsport", "nat": "german", "suffix": "motorsport", "output": "رياضة محركات ألمانية"},
     {"cate": "german music", "nat": "german", "suffix": "music", "output": "موسيقى ألمانية"},
     {"cate": "german romanian descent", "nat": "german", "suffix": "romanian descent", "output": "أصل روماني ألماني"},
@@ -276,7 +267,6 @@ fast_data = [
     {"cate": "gothic architecture", "nat": "gothic", "suffix": "architecture", "output": "عمارة قوطية"},
     {"cate": "greek companies", "nat": "greek", "suffix": "companies", "output": "شركات يونانية"},
     {"cate": "greek descent", "nat": "greek", "suffix": "descent", "output": "أصل يوناني"},
-    {"cate": "greek hip hop groups", "nat": "greek", "suffix": "hip hop groups", "output": "فرق هيب هوب يونانية"},
     {"cate": "greek novels", "nat": "greek", "suffix": "novels", "output": "روايات يونانية"},
     {"cate": "greek organized crime", "nat": "greek", "suffix": "organized crime", "output": "جريمة منظمة يونانية"},
     {"cate": "greek poems", "nat": "greek", "suffix": "poems", "output": "قصائد يونانية"},
@@ -522,7 +512,6 @@ fast_data = [
     },
     {"cate": "singaporean plays", "nat": "singaporean", "suffix": "plays", "output": "مسرحيات سنغافورية"},
     {"cate": "slovak music", "nat": "slovak", "suffix": "music", "output": "موسيقى سلوفاكية"},
-    {"cate": "slovak romani", "nat": "slovak", "suffix": "romani", "output": "غجرية سلوفاكي"},
     {"cate": "slovenian novels", "nat": "slovenian", "suffix": "novels", "output": "روايات سلوفينية"},
     {
         "cate": "slovenian rock music groups",
@@ -566,7 +555,6 @@ fast_data = [
         "output": "فرق موسيقى الروك سورية",
     },
     {"cate": "syrian sport", "nat": "syrian", "suffix": "sport", "output": "رياضة سورية"},
-    {"cate": "taiwanese hip hop", "nat": "taiwanese", "suffix": "hip hop", "output": "هيب هوب تايواني"},
     {
         "cate": "tajikistani rock music groups",
         "nat": "tajikistani",
