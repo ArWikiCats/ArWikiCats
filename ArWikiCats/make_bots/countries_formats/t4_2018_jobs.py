@@ -15,7 +15,6 @@ from ...translations import (
     People_key,
     change_male_to_female,
     en_is_nat_ar_is_man,
-    en_is_nat_ar_is_women,
     jobs_mens_data,
     short_womens_jobs,
 )
@@ -138,20 +137,13 @@ def _handle_nationality_logic(
     category_suffix, country_prefix = get_suffix_with_keys(category, All_Nat, "nat")
 
     if category_suffix and (main_ss in prefix_lab_for_2018) and not country_lab:
-        # en_is_nat_ar_is_women
-        job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
-        if job_example_lab:
-            country_lab = job_example_lab.format(Nat_women[country_prefix])
-            logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
-            updated_main_lab = prefix_lab_for_2018[main_ss]["female"]
 
         # en_is_nat_ar_is_man
-        if not country_lab:
-            job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
-            if job_example_lab:
-                country_lab = job_example_lab.format(Nat_men[country_prefix])
-                logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
-                updated_main_lab = prefix_lab_for_2018[main_ss]["male"]
+        job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
+        if job_example_lab:
+            country_lab = job_example_lab.format(Nat_men[country_prefix])
+            logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
+            updated_main_lab = prefix_lab_for_2018[main_ss]["male"]
 
     return country_lab, job_example_lab, updated_main_lab
 
