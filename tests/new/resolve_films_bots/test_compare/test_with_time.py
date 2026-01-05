@@ -7,6 +7,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.new.resolve_films_bots.film_keys_bot_and_time import resolve_films_and_time
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 novels_films_test_data = {
@@ -181,7 +182,7 @@ novels_films_test_data = {
 }
 
 
-@pytest.mark.parametrize("name,data,callback", [("test_with_time_Films", novels_films_test_data, resolve_films_and_time)])
+@pytest.mark.parametrize("name,data,callback", [("resolve_films_and_time", novels_films_test_data, resolve_films_and_time)])
 @pytest.mark.dump
 def test_dump_1st(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
@@ -191,9 +192,15 @@ def test_dump_1st(name: str, data: dict[str, str], callback) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-@pytest.mark.parametrize("name,data,callback", [("test_with_time_tyty", novels_films_test_data, get_films_key_tyty_new_and_time)])
+@pytest.mark.parametrize("name,data,callback", [("get_films_key_tyty_new_and_time", novels_films_test_data, get_films_key_tyty_new_and_time)])
 @pytest.mark.dump
-def test_dump_2nd(name: str, data: dict[str, str], callback) -> None:
+def test_dump_2nd(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, str], callback) -> None:
+
+    monkeypatch.setattr(
+        "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
+        _get_films_key_tyty_new,
+        raising=True,
+    )
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

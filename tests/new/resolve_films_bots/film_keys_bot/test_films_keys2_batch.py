@@ -13,6 +13,11 @@ def patch_films_keys(monkeypatch: pytest.MonkeyPatch) -> None:
     def fake(name): return ""
 
     monkeypatch.setattr(
+        "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
+        fake,
+        raising=True,
+    )
+    monkeypatch.setattr(
         "ArWikiCats.new.resolve_films_bots.film_keys_bot.get_films_key_tyty_new",
         fake,
         raising=True,
@@ -24,11 +29,6 @@ def patch_films_keys(monkeypatch: pytest.MonkeyPatch) -> None:
     )
     monkeypatch.setattr(
         "ArWikiCats.make_bots.films_and_others_bot.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
         fake,
         raising=True,
     )
