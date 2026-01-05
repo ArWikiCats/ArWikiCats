@@ -3,7 +3,6 @@
 
 Helper utilities for resolving film- and media-related categories.
 
-TODO: replaced by resolve_films
 """
 
 import functools
@@ -78,19 +77,6 @@ def Films(category: str) -> str:
     return result
 
 
-@functools.lru_cache(maxsize=None)
-def resolve_films(category: str) -> str:
-    """
-    TODO: use class method
-    """
-    normalized_category = category.lower().replace("_", " ").replace("-", " ")
-
-    country_label = Films(normalized_category)
-
-    return country_label or ""
-
-
 __all__ = [
     "Films",
-    "resolve_films",
 ]
