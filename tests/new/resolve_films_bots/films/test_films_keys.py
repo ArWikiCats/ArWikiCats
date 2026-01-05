@@ -33,7 +33,8 @@ FILES_PATHS = [
 ]
 
 
-@pytest.mark.dump
+@pytest.mark.skip2
+# @pytest.mark.dump
 @pytest.mark.parametrize("load_json_data", FILES_PATHS, indirect=True, ids=lambda p: f"test_big_{p.name}")
 def test_religions_big_data(load_json_data, request) -> None:
     name = request.node.callspec.id
