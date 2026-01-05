@@ -456,6 +456,26 @@ films_mslslat_tab.update(
     {x.replace(" endings", "-endings"): y for x, y in films_mslslat_tab.items() if " endings" in x}
 )
 
+Films_key_For_nat.update({
+    "drama films": "أفلام درامية {}",
+    "legal drama films": "أفلام درامية قانونية {}",
+    # "yemeni musical drama films" : "تصنيف:أفلام درامية موسيقية يمنية",
+    "musical drama films": "أفلام درامية موسيقية {}",
+    "political drama films": "أفلام درامية سياسية {}",
+    "romantic drama films": "أفلام درامية رومانسية {}",
+    "sports drama films": "أفلام درامية رياضية {}",
+    "comedy drama films": "أفلام درامية كوميدية {}",
+    "war drama films": "أفلام درامية حربية {}",
+
+    "action drama films": "أفلام حركة درامية {}",
+    "adventure drama films": "أفلام مغامرات درامية {}",
+    "animated drama films": "أفلام رسوم متحركة درامية {}",
+    "children's drama films": "أفلام أطفال درامية {}",
+    "crime drama films": "أفلام جريمة ودراما {}",
+    "erotic drama films": "أفلام إغرائية درامية {}",
+    "fantasy drama films": "أفلام فانتازيا درامية {}",
+    "horror drama films": "أفلام رعب درامية {}",
+})
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
 Films_key_For_nat.update(
