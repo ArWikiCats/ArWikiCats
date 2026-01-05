@@ -5,40 +5,6 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films
 from ArWikiCats import resolve_label_ar
 
-
-@pytest.fixture
-def patch_films_keys(monkeypatch: pytest.MonkeyPatch) -> None:
-    # Patch all known import locations where get_films_key_tyty_new is used
-
-    def fake(name): return ""
-
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.film_keys_bot.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.films_and_others_bot.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.resolve_films_labels.get_films_key_tyty_new",
-        fake,
-        raising=True,
-    )
-
-
 data_0 = {
     "animated television films": "أفلام تلفزيونية رسوم متحركة",
     "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
@@ -2581,7 +2547,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(patch_films_keys: None, name: str, data: dict[str, str], callback: callable) -> None:
+def test_all_dump(name: str, data: dict[str, str], callback: callable) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
