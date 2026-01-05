@@ -1,114 +1,4 @@
 {
-    "kazakhstani": {
-        "male": "كازاخستاني",
-        "males": "كازاخستانيون",
-        "female": "كازاخستانية",
-        "females": "كازاخستانيات",
-        "en": "kazakhstan",
-        "ar": "كازاخستان",
-        "the_female": "الكازاخستانية",
-        "the_male": "الكازاخستاني"
-    },
-    "botswana": {
-        "male": "بوتسواني",
-        "males": "بوتسوانيون",
-        "female": "بوتسوانية",
-        "females": "بوتسوانيات",
-        "en": "botswana",
-        "ar": "بوتسوانا",
-        "the_female": "البوتسوانية",
-        "the_male": "البوتسواني"
-    },
-    "antiguan and barbudan": {
-        "en": "antigua and barbuda",
-        "ar": "أنتيغوا وباربودا",
-        "male": "أنتيغوي وبربودي",
-        "males": "أنتيغويون وبربوديون",
-        "female": "أنتيغوية وبربودية",
-        "females": "أنتيغويات وبربوديات",
-        "the_female": "الأنتيغوية والبربودية",
-        "the_male": "الأنتيغوي والبربودي"
-    },
-    "zanzibari": {
-        "male": "زنجباري",
-        "males": "زنجباريون",
-        "female": "زنجبارية",
-        "females": "زنجباريات",
-        "en": "zanzibar",
-        "ar": "زنجبار",
-        "the_female": "الزنجبارية",
-        "the_male": "الزنجباري"
-    },
-    "anguillan": {
-        "male": "أنغويلاني",
-        "males": "أنغويلانيون",
-        "female": "أنغويلانية",
-        "females": "أنغويلانيات",
-        "en": "anguilla",
-        "ar": "أنغويلا",
-        "the_female": "الأنغويلانية",
-        "the_male": "الأنغويلاني"
-    },
-    "afghan": {
-        "male": "أفغاني",
-        "males": "أفغان",
-        "female": "أفغانية",
-        "females": "أفغانيات",
-        "en": "afghanistan",
-        "ar": "أفغانستان",
-        "the_female": "الأفغانية",
-        "the_male": "الأفغاني"
-    },
-    "prussian": {
-        "male": "بروسي",
-        "males": "بروسيون",
-        "female": "بروسية",
-        "females": "بروسيات",
-        "en": "prussia",
-        "ar": "بروسيا",
-        "the_female": "البروسية",
-        "the_male": "البروسي"
-    },
-    "north yemeni": {
-        "male": "يمني شمالي",
-        "males": "يمنيون شماليون",
-        "female": "يمنية شمالية",
-        "females": "يمنيات شماليات",
-        "en": "north yemen",
-        "ar": "اليمن الشمالي",
-        "the_female": "اليمنية الشمالية",
-        "the_male": "اليمني الشمالي"
-    },
-    "south yemeni": {
-        "male": "يمني جنوبي",
-        "males": "يمنيون جنوبيون",
-        "female": "يمنية جنوبية",
-        "females": "يمنيات جنوبيات",
-        "en": "south yemen",
-        "ar": "جمهورية اليمن الديمقراطية الشعبية",
-        "the_female": "اليمنية الجنوبية",
-        "the_male": "اليمني الجنوبي"
-    },
-    "monegasque": {
-        "male": "موناكي",
-        "males": "موناكيون",
-        "female": "موناكية",
-        "females": "موناكيات",
-        "en": "monaco",
-        "ar": "موناكو",
-        "the_female": "الموناكية",
-        "the_male": "الموناكي"
-    },
-    "bruneian": {
-        "male": "بروني",
-        "males": "برونيون",
-        "female": "برونية",
-        "females": "برونيات",
-        "en": "brunei",
-        "ar": "بروناي",
-        "the_female": "البرونية",
-        "the_male": "البروني"
-    },
     "abkhaz": {
         "male": "أبخازي",
         "males": "أبخاز",
@@ -119,106 +9,6 @@
         "the_female": "الأبخازية",
         "the_male": "الأبخازي"
     },
-    "crimean": {
-        "male": "قرمي",
-        "males": "قرم",
-        "female": "قرمية",
-        "females": "قرميات",
-        "en": "crimea",
-        "ar": "القرم",
-        "the_female": "القرمية",
-        "the_male": "القرمي"
-    },
-    "west german": {
-        "male": "ألماني غربي",
-        "males": "ألمانيون غربيون",
-        "female": "ألمانية غربية",
-        "females": "ألمانيات غربيات",
-        "en": "west germany",
-        "ar": "ألمانيا الغربية",
-        "the_female": "الألمانية الغربية",
-        "the_male": "الألماني الغربي"
-    },
-    "east german": {
-        "male": "ألماني شرقي",
-        "males": "ألمانيون شرقيون",
-        "female": "ألمانية شرقية",
-        "females": "ألمانيات شرقيات",
-        "en": "east germany",
-        "ar": "ألمانيا الشرقية",
-        "the_female": "الألمانية الشرقية",
-        "the_male": "الألماني الشرقي"
-    },
-    "bengali": {
-        "male": "بنغالي",
-        "males": "بنغاليون",
-        "female": "بنغالية",
-        "females": "بنغاليات",
-        "en": "bengal",
-        "ar": "البنغال",
-        "the_female": "البنغالية",
-        "the_male": "البنغالي"
-    },
-    "antillean": {
-        "male": "أنتيلي",
-        "males": "أنتيليون",
-        "female": "أنتيلية",
-        "females": "أنتيليات",
-        "en": "antilles",
-        "ar": "جزر الأنتيل",
-        "the_female": "الأنتيلية",
-        "the_male": "الأنتيلي"
-    },
-    "south sudanese": {
-        "male": "جنوب سوداني",
-        "males": "جنوب سودانيون",
-        "female": "سودانية جنوبية",
-        "females": "سودانيات جنوبيات",
-        "en": "south sudan",
-        "ar": "جنوب السودان",
-        "the_female": "السودانية الجنوبية",
-        "the_male": "الجنوب السوداني"
-    },
-    "french guianan": {
-        "male": "غوياني فرنسي",
-        "males": "غويانيون فرنسيون",
-        "female": "غويانية فرنسية",
-        "females": "غويانيات فرنسيات",
-        "en": "french guiana",
-        "ar": "غويانا الفرنسية",
-        "the_female": "الغويانية الفرنسية",
-        "the_male": "الغوياني الفرنسي"
-    },
-    "west india !": {
-        "male": "هندي غربي",
-        "males": "هنود غربيون",
-        "female": "هندية غربية",
-        "females": "هنديات غربيات",
-        "en": "west india",
-        "ar": "الهند الغربية",
-        "the_female": "الهندية الغربية",
-        "the_male": "الهندي الغربي"
-    },
-    "guamanian": {
-        "male": "غوامي",
-        "males": "غواميون",
-        "female": "غوامية",
-        "females": "غواميات",
-        "en": "guam",
-        "ar": "غوام",
-        "the_female": "الغوامية",
-        "the_male": "الغوامي"
-    },
-    "faroese": {
-        "male": "فاروي",
-        "males": "فارويون",
-        "female": "فاروية",
-        "females": "فارويات",
-        "en": "faroe islanders",
-        "ar": "جزر فارو",
-        "the_female": "الفاروية",
-        "the_male": "الفاروي"
-    },
     "abkhazian": {
         "male": "أبخازي",
         "males": "أبخازيون",
@@ -228,6 +18,16 @@
         "ar": "أبخازيا",
         "the_female": "الأبخازية",
         "the_male": "الأبخازي"
+    },
+    "afghan": {
+        "male": "أفغاني",
+        "males": "أفغان",
+        "female": "أفغانية",
+        "females": "أفغانيات",
+        "en": "afghanistan",
+        "ar": "أفغانستان",
+        "the_female": "الأفغانية",
+        "the_male": "الأفغاني"
     },
     "african": {
         "male": "إفريقي",
@@ -269,15 +69,15 @@
         "the_female": "الجزائرية",
         "the_male": "الجزائري"
     },
-    "caribbeans": {
-        "male": "كاريبي",
-        "males": "كاريبيون",
-        "female": "كاريبية",
-        "females": "كاريبيات",
-        "en": "caribbean",
-        "ar": "الكاريبي",
-        "the_female": "الكاريبية",
-        "the_male": "الكاريبي"
+    "american": {
+        "male": "أمريكي",
+        "males": "أمريكيون",
+        "female": "أمريكية",
+        "females": "أمريكيات",
+        "en": "united states",
+        "ar": "الولايات المتحدة",
+        "the_female": "الأمريكية",
+        "the_male": "الأمريكي"
     },
     "americans": {
         "male": "أمريكي",
@@ -289,15 +89,35 @@
         "the_female": "الأمريكية",
         "the_male": "الأمريكي"
     },
-    "american": {
-        "male": "أمريكي",
-        "males": "أمريكيون",
-        "female": "أمريكية",
-        "females": "أمريكيات",
-        "en": "united states",
-        "ar": "الولايات المتحدة",
-        "the_female": "الأمريكية",
-        "the_male": "الأمريكي"
+    "ancient-greek": {
+        "male": "يوناني قديم",
+        "males": "يونانيون قدماء",
+        "female": "يونانية قديمة",
+        "females": "يونانيات قديمات",
+        "en": "ancient greece",
+        "ar": "اليونان القديمة",
+        "the_female": "اليونانية القديمة",
+        "the_male": "اليوناني القديم"
+    },
+    "ancient-macedonian": {
+        "male": "مقدوني قديم",
+        "males": "مقدونيون قدماء",
+        "female": "مقدونية قديمة",
+        "females": "مقدونيات قديمات",
+        "en": "ancient macedonia",
+        "ar": "مقدونيا القديمة",
+        "the_female": "المقدونية القديمة",
+        "the_male": "المقدوني القديم"
+    },
+    "ancient-romans": {
+        "male": "روماني قديم",
+        "males": "رومان قدماء",
+        "female": "رومانية قديمة",
+        "females": "رومانيات قديمات",
+        "en": "ancient romania",
+        "ar": "رومانيا القديمة",
+        "the_female": "الرومانية القديمة",
+        "the_male": "الروماني القديم"
     },
     "andorran": {
         "male": "أندوري",
@@ -319,45 +139,35 @@
         "the_female": "الأنغولية",
         "the_male": "الأنغولي"
     },
-    "sammarinese": {
-        "male": "سان ماريني",
-        "males": "سان مارينيون",
-        "female": "سان مارينية",
-        "females": "سان مارينيات",
-        "en": "san marino",
-        "ar": "سان مارينو",
-        "the_female": "السان المارينية",
-        "the_male": "السان الماريني"
+    "anguillan": {
+        "male": "أنغويلاني",
+        "males": "أنغويلانيون",
+        "female": "أنغويلانية",
+        "females": "أنغويلانيات",
+        "en": "anguilla",
+        "ar": "أنغويلا",
+        "the_female": "الأنغويلانية",
+        "the_male": "الأنغويلاني"
     },
-    "aruban": {
-        "male": "أروبي",
-        "males": "أروبيون",
-        "female": "أروبية",
-        "females": "أروبيات",
-        "en": "aruba",
-        "ar": "أروبا",
-        "the_female": "الأروبية",
-        "the_male": "الأروبي"
+    "antiguan and barbudan": {
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا",
+        "male": "أنتيغوي وبربودي",
+        "males": "أنتيغويون وبربوديون",
+        "female": "أنتيغوية وبربودية",
+        "females": "أنتيغويات وبربوديات",
+        "the_female": "الأنتيغوية والبربودية",
+        "the_male": "الأنتيغوي والبربودي"
     },
-    "martiniquais": {
-        "male": "مارتينيكي",
-        "males": "مارتينيكيون",
-        "female": "مارتينيكية",
-        "females": "مارتينيكيات",
-        "en": "martinique",
-        "ar": "مارتينيك",
-        "the_female": "المارتينيكية",
-        "the_male": "المارتينيكي"
-    },
-    "montserratian": {
-        "male": "مونتسراتي",
-        "males": "مونتسراتيون",
-        "female": "مونتسراتية",
-        "females": "مونتسراتيات",
-        "en": "montserrat",
-        "ar": "مونتسرات",
-        "the_female": "المونتسراتية",
-        "the_male": "المونتسراتي"
+    "antillean": {
+        "male": "أنتيلي",
+        "males": "أنتيليون",
+        "female": "أنتيلية",
+        "females": "أنتيليات",
+        "en": "antilles",
+        "ar": "جزر الأنتيل",
+        "the_female": "الأنتيلية",
+        "the_male": "الأنتيلي"
     },
     "argentine": {
         "male": "أرجنتيني",
@@ -378,6 +188,16 @@
         "ar": "أرمينيا",
         "the_female": "الأرمينية",
         "the_male": "الأرميني"
+    },
+    "aruban": {
+        "male": "أروبي",
+        "males": "أروبيون",
+        "female": "أروبية",
+        "females": "أروبيات",
+        "en": "aruba",
+        "ar": "أروبا",
+        "the_female": "الأروبية",
+        "the_male": "الأروبي"
     },
     "asian": {
         "male": "آسيوي",
@@ -409,16 +229,6 @@
         "the_female": "الأسترالية",
         "the_male": "الأسترالي"
     },
-    "victorian": {
-        "male": "فيكتوري",
-        "males": "فيكتوريون",
-        "female": "فكتورية",
-        "females": "فيكتوريات",
-        "en": "victoria-australia",
-        "ar": "فيكتوريا (أستراليا)",
-        "the_female": "الفكتورية",
-        "the_male": "الفيكتوري"
-    },
     "austrian": {
         "male": "نمساوي",
         "males": "نمساويون",
@@ -428,6 +238,16 @@
         "ar": "النمسا",
         "the_female": "النمساوية",
         "the_male": "النمساوي"
+    },
+    "austrianhungarian": {
+        "male": "نمساوي مجري",
+        "males": "نمساويون مجريون",
+        "female": "نمساوية مجرية",
+        "females": "نمساويات مجريات",
+        "en": "austria hungary",
+        "ar": "الإمبراطورية النمساوية المجرية",
+        "the_female": "النمساوية المجرية",
+        "the_male": "النمساوي المجري"
     },
     "azerbaijani": {
         "male": "أذربيجاني",
@@ -509,6 +329,16 @@
         "the_female": "البليزية",
         "the_male": "البليزي"
     },
+    "bengali": {
+        "male": "بنغالي",
+        "males": "بنغاليون",
+        "female": "بنغالية",
+        "females": "بنغاليات",
+        "en": "bengal",
+        "ar": "البنغال",
+        "the_female": "البنغالية",
+        "the_male": "البنغالي"
+    },
     "beninese": {
         "male": "بنيني",
         "males": "بنينيون",
@@ -539,6 +369,16 @@
         "the_female": "الغينية البيساوية",
         "the_male": "الغيني البيساوي"
     },
+    "bohemian": {
+        "male": "بوهيمي",
+        "males": "بوهيميون",
+        "female": "بوهيمية",
+        "females": "بوهيميات",
+        "en": "bohemia",
+        "ar": "بوهيميا",
+        "the_female": "البوهيمية",
+        "the_male": "البوهيمي"
+    },
     "bolivian": {
         "male": "بوليفي",
         "males": "بوليفيون",
@@ -558,6 +398,16 @@
         "ar": "البوسنة والهرسك",
         "the_female": "البوسنية",
         "the_male": "البوسني"
+    },
+    "botswana": {
+        "male": "بوتسواني",
+        "males": "بوتسوانيون",
+        "female": "بوتسوانية",
+        "females": "بوتسوانيات",
+        "en": "botswana",
+        "ar": "بوتسوانا",
+        "the_female": "البوتسوانية",
+        "the_male": "البوتسواني"
     },
     "botswanan": {
         "male": "بوتسواني",
@@ -579,16 +429,6 @@
         "the_female": "البرازيلية",
         "the_male": "البرازيلي"
     },
-    "gibraltarian": {
-        "male": "جبل طارقي",
-        "males": "جبل طارقيون",
-        "female": "جبل طارقية",
-        "females": "جبل طارقيات",
-        "en": "gibraltar",
-        "ar": "جبل طارق",
-        "the_female": "الجبل الطارقية",
-        "the_male": "الجبل الطارقي"
-    },
     "british": {
         "male": "بريطاني",
         "males": "بريطانيون",
@@ -598,6 +438,16 @@
         "ar": "المملكة المتحدة",
         "the_female": "البريطانية",
         "the_male": "البريطاني"
+    },
+    "bruneian": {
+        "male": "بروني",
+        "males": "برونيون",
+        "female": "برونية",
+        "females": "برونيات",
+        "en": "brunei",
+        "ar": "بروناي",
+        "the_female": "البرونية",
+        "the_male": "البروني"
     },
     "bulgarian": {
         "male": "بلغاري",
@@ -618,16 +468,6 @@
         "ar": "بوركينا فاسو",
         "the_female": "البوركينابية",
         "the_male": "البوركينابي"
-    },
-    "myanmarian": {
-        "male": "ميانماري",
-        "males": "ميانماريون",
-        "female": "ميانمارية",
-        "females": "ميانماريات",
-        "en": "myanmar",
-        "ar": "ميانمار",
-        "the_female": "الميانمارية",
-        "the_male": "الميانماري"
     },
     "burmese": {
         "male": "بورمي",
@@ -679,16 +519,6 @@
         "the_female": "الكندية",
         "the_male": "الكندي"
     },
-    "western canadian": {
-        "male": "كندي غربي",
-        "males": "كنديون غربيون",
-        "female": "كندية غربية",
-        "females": "كنديات غربيات",
-        "en": "western canada",
-        "ar": "غرب كندا",
-        "the_female": "الكندية الغربية",
-        "the_male": "الكندي الغربي"
-    },
     "cape verdean": {
         "male": "رأس أخضري",
         "males": "أخضريون",
@@ -698,6 +528,16 @@
         "ar": "الرأس الأخضر",
         "the_female": "الرأس الأخضرية",
         "the_male": "الرأس الأخضري"
+    },
+    "caribbeans": {
+        "male": "كاريبي",
+        "males": "كاريبيون",
+        "female": "كاريبية",
+        "females": "كاريبيات",
+        "en": "caribbean",
+        "ar": "الكاريبي",
+        "the_female": "الكاريبية",
+        "the_male": "الكاريبي"
     },
     "chadian": {
         "male": "تشادي",
@@ -739,16 +579,6 @@
         "the_female": "الكولومبية",
         "the_male": "الكولومبي"
     },
-    "melanesian": {
-        "male": "ميلانيزي",
-        "males": "ميلانيزيون",
-        "female": "ميلانيزية",
-        "females": "ميلانيزيات",
-        "en": "melanesia",
-        "ar": "ميلانيزيا",
-        "the_female": "الميلانيزية",
-        "the_male": "الميلانيزي"
-    },
     "comorian": {
         "male": "قمري",
         "males": "قمريون",
@@ -759,6 +589,16 @@
         "the_female": "القمرية",
         "the_male": "القمري"
     },
+    "congolese": {
+        "male": "كونغوي",
+        "males": "كونغويون",
+        "female": "كونغوية",
+        "females": "كونغويات",
+        "en": "congo",
+        "ar": "الكونغو",
+        "the_female": "الكونغوية",
+        "the_male": "الكونغوي"
+    },
     "costa rican": {
         "male": "كوستاريكي",
         "males": "كوستاريكيون",
@@ -768,6 +608,16 @@
         "ar": "كوستاريكا",
         "the_female": "الكوستاريكية",
         "the_male": "الكوستاريكي"
+    },
+    "crimean": {
+        "male": "قرمي",
+        "males": "قرم",
+        "female": "قرمية",
+        "females": "قرميات",
+        "en": "crimea",
+        "ar": "القرم",
+        "the_female": "القرمية",
+        "the_male": "القرمي"
     },
     "croatian": {
         "male": "كرواتي",
@@ -799,26 +649,6 @@
         "the_female": "القبرصية",
         "the_male": "القبرصي"
     },
-    "northern cypriot": {
-        "male": "قبرصي شمالي",
-        "males": "قبرصيون شماليون",
-        "female": "قبرصية شمالية",
-        "females": "قبرصيات شماليات",
-        "en": "northern cyprus",
-        "ar": "قبرص الشمالية",
-        "the_female": "القبرصية الشمالية",
-        "the_male": "القبرصي الشمالي"
-    },
-    "north macedonian": {
-        "male": "مقدوني شمالي",
-        "males": "مقدونيون شماليون",
-        "female": "مقدونية شمالية",
-        "females": "مقدونيات شماليات",
-        "en": "north macedonia",
-        "ar": "مقدونيا الشمالية",
-        "the_female": "المقدونية الشمالية",
-        "the_male": "المقدوني الشمالي"
-    },
     "czech": {
         "male": "تشيكي",
         "males": "تشيكيون",
@@ -849,16 +679,6 @@
         "the_female": "الدنماركية",
         "the_male": "الدنماركي"
     },
-    "congolese": {
-        "male": "كونغوي",
-        "males": "كونغويون",
-        "female": "كونغوية",
-        "females": "كونغويات",
-        "en": "congo",
-        "ar": "الكونغو",
-        "the_female": "الكونغوية",
-        "the_male": "الكونغوي"
-    },
     "democratic republic of congo": {
         "male": "كونغوي ديمقراطي",
         "males": "كونغويون ديمقراطيون",
@@ -868,16 +688,6 @@
         "ar": "جمهورية الكونغو الديمقراطية",
         "the_female": "الكونغوية الديمقراطية",
         "the_male": "الكونغوي الديمقراطي"
-    },
-    "republic of congo": {
-        "male": "كونغوي",
-        "males": "كونغويون",
-        "female": "كونغوية",
-        "females": "كونغويات",
-        "en": "the-republic-of-congo",
-        "ar": "جمهورية الكونغو",
-        "the_female": "الكونغوية",
-        "the_male": "الكونغوي"
     },
     "djiboutian": {
         "male": "جيبوتي",
@@ -908,6 +718,26 @@
         "ar": "هولندا",
         "the_female": "الهولندية",
         "the_male": "الهولندي"
+    },
+    "east german": {
+        "male": "ألماني شرقي",
+        "males": "ألمانيون شرقيون",
+        "female": "ألمانية شرقية",
+        "females": "ألمانيات شرقيات",
+        "en": "east germany",
+        "ar": "ألمانيا الشرقية",
+        "the_female": "الألمانية الشرقية",
+        "the_male": "الألماني الشرقي"
+    },
+    "east timorese": {
+        "male": "تيموري شرقي",
+        "males": "تيموريون شرقيون",
+        "female": "تيمورية شرقية",
+        "females": "تيموريات شرقيات",
+        "en": "east timor",
+        "ar": "تيمور الشرقية",
+        "the_female": "التيمورية الشرقية",
+        "the_male": "التيموري الشرقي"
     },
     "ecuadorian": {
         "male": "إكوادوري",
@@ -999,6 +829,16 @@
         "the_female": "الأوروبية",
         "the_male": "الأوروبي"
     },
+    "faroese": {
+        "male": "فاروي",
+        "males": "فارويون",
+        "female": "فاروية",
+        "females": "فارويات",
+        "en": "faroe islanders",
+        "ar": "جزر فارو",
+        "the_female": "الفاروية",
+        "the_male": "الفاروي"
+    },
     "fijian": {
         "male": "فيجي",
         "males": "فيجيون",
@@ -1028,6 +868,16 @@
         "ar": "فنلندا",
         "the_female": "الفنلندية",
         "the_male": "الفنلندي"
+    },
+    "french guianan": {
+        "male": "غوياني فرنسي",
+        "males": "غويانيون فرنسيون",
+        "female": "غويانية فرنسية",
+        "females": "غويانيات فرنسيات",
+        "en": "french guiana",
+        "ar": "غويانا الفرنسية",
+        "the_female": "الغويانية الفرنسية",
+        "the_male": "الغوياني الفرنسي"
     },
     "french": {
         "male": "فرنسي",
@@ -1089,45 +939,15 @@
         "the_female": "الغانية",
         "the_male": "الغاني"
     },
-    "ancient-macedonian": {
-        "male": "مقدوني قديم",
-        "males": "مقدونيون قدماء",
-        "female": "مقدونية قديمة",
-        "females": "مقدونيات قديمات",
-        "en": "ancient macedonia",
-        "ar": "مقدونيا القديمة",
-        "the_female": "المقدونية القديمة",
-        "the_male": "المقدوني القديم"
-    },
-    "macedonian": {
-        "male": "مقدوني",
-        "males": "مقدونيون",
-        "female": "مقدونية",
-        "females": "مقدونيات",
-        "en": "macedonia",
-        "ar": "مقدونيا",
-        "the_female": "المقدونية",
-        "the_male": "المقدوني"
-    },
-    "sasanian": {
-        "male": "ساساني",
-        "males": "ساسانيون",
-        "female": "ساسانية",
-        "females": "ساسانيات",
-        "en": "sasanian empire",
-        "ar": "الإمبراطورية الساسانية",
-        "the_female": "الساسانية",
-        "the_male": "الساساني"
-    },
-    "parthian": {
-        "male": "فرثي",
-        "males": "فرثيون",
-        "female": "فرثية",
-        "females": "فرثيات",
-        "en": "parthian empire",
-        "ar": "الإمبراطورية البارثية",
-        "the_female": "الفرثية",
-        "the_male": "الفرثي"
+    "gibraltarian": {
+        "male": "جبل طارقي",
+        "males": "جبل طارقيون",
+        "female": "جبل طارقية",
+        "females": "جبل طارقيات",
+        "en": "gibraltar",
+        "ar": "جبل طارق",
+        "the_female": "الجبل الطارقية",
+        "the_male": "الجبل الطارقي"
     },
     "greek": {
         "male": "يوناني",
@@ -1138,16 +958,6 @@
         "ar": "اليونان",
         "the_female": "اليونانية",
         "the_male": "اليوناني"
-    },
-    "ancient-greek": {
-        "male": "يوناني قديم",
-        "males": "يونانيون قدماء",
-        "female": "يونانية قديمة",
-        "females": "يونانيات قديمات",
-        "en": "ancient greece",
-        "ar": "اليونان القديمة",
-        "the_female": "اليونانية القديمة",
-        "the_male": "اليوناني القديم"
     },
     "greenlandic": {
         "male": "جرينلاندي",
@@ -1168,6 +978,16 @@
         "ar": "غرينادا",
         "the_female": "الغرينادية",
         "the_male": "الغرينادي"
+    },
+    "guamanian": {
+        "male": "غوامي",
+        "males": "غواميون",
+        "female": "غوامية",
+        "females": "غواميات",
+        "en": "guam",
+        "ar": "غوام",
+        "the_female": "الغوامية",
+        "the_male": "الغوامي"
     },
     "guatemalan": {
         "male": "غواتيمالي",
@@ -1229,15 +1049,15 @@
         "the_female": "المجرية",
         "the_male": "المجري"
     },
-    "austrianhungarian": {
-        "male": "نمساوي مجري",
-        "males": "نمساويون مجريون",
-        "female": "نمساوية مجرية",
-        "females": "نمساويات مجريات",
-        "en": "austria hungary",
-        "ar": "الإمبراطورية النمساوية المجرية",
-        "the_female": "النمساوية المجرية",
-        "the_male": "النمساوي المجري"
+    "icelandic": {
+        "male": "آيسلندي",
+        "males": "آيسلنديون",
+        "female": "آيسلندية",
+        "females": "آيسلنديات",
+        "en": "iceland",
+        "ar": "آيسلندا",
+        "the_female": "الآيسلندية",
+        "the_male": "الآيسلندي"
     },
     "icelandic1": {
         "male": "أيسلندي",
@@ -1248,16 +1068,6 @@
         "ar": "آيسلندا",
         "the_female": "الأيسلندية",
         "the_male": "الأيسلندي"
-    },
-    "icelandic": {
-        "male": "آيسلندي",
-        "males": "آيسلنديون",
-        "female": "آيسلندية",
-        "females": "آيسلنديات",
-        "en": "iceland",
-        "ar": "آيسلندا",
-        "the_female": "الآيسلندية",
-        "the_male": "الآيسلندي"
     },
     "indian": {
         "male": "هندي",
@@ -1298,6 +1108,16 @@
         "ar": "العراق",
         "the_female": "العراقية",
         "the_male": "العراقي"
+    },
+    "irish": {
+        "male": "أيرلندي",
+        "males": "أيرلنديون",
+        "female": "أيرلندية",
+        "females": "أيرلنديات",
+        "en": "republic of ireland",
+        "ar": "جمهورية أيرلندا",
+        "the_female": "الأيرلندية",
+        "the_male": "الأيرلندي"
     },
     "israeli": {
         "male": "إسرائيلي",
@@ -1358,6 +1178,16 @@
         "ar": "الأردن",
         "the_female": "الأردنية",
         "the_male": "الأردني"
+    },
+    "kazakhstani": {
+        "male": "كازاخستاني",
+        "males": "كازاخستانيون",
+        "female": "كازاخستانية",
+        "females": "كازاخستانيات",
+        "en": "kazakhstan",
+        "ar": "كازاخستان",
+        "the_female": "الكازاخستانية",
+        "the_male": "الكازاخستاني"
     },
     "kenyan": {
         "male": "كيني",
@@ -1499,6 +1329,16 @@
         "the_female": "الماكاوية",
         "the_male": "الماكاوي"
     },
+    "macedonian": {
+        "male": "مقدوني",
+        "males": "مقدونيون",
+        "female": "مقدونية",
+        "females": "مقدونيات",
+        "en": "macedonia",
+        "ar": "مقدونيا",
+        "the_female": "المقدونية",
+        "the_male": "المقدوني"
+    },
     "malagasy": {
         "male": "مدغشقري",
         "males": "مدغشقريون",
@@ -1559,6 +1399,16 @@
         "the_female": "المالطية",
         "the_male": "المالطي"
     },
+    "martiniquais": {
+        "male": "مارتينيكي",
+        "males": "مارتينيكيون",
+        "female": "مارتينيكية",
+        "females": "مارتينيكيات",
+        "en": "martinique",
+        "ar": "مارتينيك",
+        "the_female": "المارتينيكية",
+        "the_male": "المارتينيكي"
+    },
     "mauritanian": {
         "male": "موريتاني",
         "males": "موريتانيون",
@@ -1578,6 +1428,16 @@
         "ar": "موريشيوس",
         "the_female": "الموريشيوسية",
         "the_male": "الموريشيوسي"
+    },
+    "melanesian": {
+        "male": "ميلانيزي",
+        "males": "ميلانيزيون",
+        "female": "ميلانيزية",
+        "females": "ميلانيزيات",
+        "en": "melanesia",
+        "ar": "ميلانيزيا",
+        "the_female": "الميلانيزية",
+        "the_male": "الميلانيزي"
     },
     "mexican": {
         "male": "مكسيكي",
@@ -1599,6 +1459,16 @@
         "the_female": "المولدوفية",
         "the_male": "المولدوفي"
     },
+    "monegasque": {
+        "male": "موناكي",
+        "males": "موناكيون",
+        "female": "موناكية",
+        "females": "موناكيات",
+        "en": "monaco",
+        "ar": "موناكو",
+        "the_female": "الموناكية",
+        "the_male": "الموناكي"
+    },
     "mongolian": {
         "male": "منغولي",
         "males": "منغوليون",
@@ -1619,15 +1489,15 @@
         "the_female": "المونتينيغرية",
         "the_male": "المونتينيغري"
     },
-    "bohemian": {
-        "male": "بوهيمي",
-        "males": "بوهيميون",
-        "female": "بوهيمية",
-        "females": "بوهيميات",
-        "en": "bohemia",
-        "ar": "بوهيميا",
-        "the_female": "البوهيمية",
-        "the_male": "البوهيمي"
+    "montserratian": {
+        "male": "مونتسراتي",
+        "males": "مونتسراتيون",
+        "female": "مونتسراتية",
+        "females": "مونتسراتيات",
+        "en": "montserrat",
+        "ar": "مونتسرات",
+        "the_female": "المونتسراتية",
+        "the_male": "المونتسراتي"
     },
     "moravian": {
         "male": "مورافي",
@@ -1659,6 +1529,16 @@
         "the_female": "الموزمبيقية",
         "the_male": "الموزمبيقي"
     },
+    "myanmarian": {
+        "male": "ميانماري",
+        "males": "ميانماريون",
+        "female": "ميانمارية",
+        "females": "ميانماريات",
+        "en": "myanmar",
+        "ar": "ميانمار",
+        "the_female": "الميانمارية",
+        "the_male": "الميانماري"
+    },
     "namibian": {
         "male": "ناميبي",
         "males": "ناميبيون",
@@ -1668,6 +1548,16 @@
         "ar": "ناميبيا",
         "the_female": "الناميبية",
         "the_male": "الناميبي"
+    },
+    "nasovietna": {
+        "male": "سوفييتي",
+        "males": "سوفييت",
+        "female": "سوفييتة",
+        "females": "سوفييتيات",
+        "en": "soviet union",
+        "ar": "الاتحاد السوفيتي",
+        "the_female": "السوفييتة",
+        "the_male": "السوفييتي"
     },
     "nauruan": {
         "male": "ناوروني",
@@ -1750,15 +1640,35 @@
         "the_female": "الكورية الشمالية",
         "the_male": "الكوري الشمالي"
     },
-    "irish": {
-        "male": "أيرلندي",
-        "males": "أيرلنديون",
-        "female": "أيرلندية",
-        "females": "أيرلنديات",
-        "en": "republic of ireland",
-        "ar": "جمهورية أيرلندا",
-        "the_female": "الأيرلندية",
-        "the_male": "الأيرلندي"
+    "north macedonian": {
+        "male": "مقدوني شمالي",
+        "males": "مقدونيون شماليون",
+        "female": "مقدونية شمالية",
+        "females": "مقدونيات شماليات",
+        "en": "north macedonia",
+        "ar": "مقدونيا الشمالية",
+        "the_female": "المقدونية الشمالية",
+        "the_male": "المقدوني الشمالي"
+    },
+    "north yemeni": {
+        "male": "يمني شمالي",
+        "males": "يمنيون شماليون",
+        "female": "يمنية شمالية",
+        "females": "يمنيات شماليات",
+        "en": "north yemen",
+        "ar": "اليمن الشمالي",
+        "the_female": "اليمنية الشمالية",
+        "the_male": "اليمني الشمالي"
+    },
+    "northern cypriot": {
+        "male": "قبرصي شمالي",
+        "males": "قبرصيون شماليون",
+        "female": "قبرصية شمالية",
+        "females": "قبرصيات شماليات",
+        "en": "northern cyprus",
+        "ar": "قبرص الشمالية",
+        "the_female": "القبرصية الشمالية",
+        "the_male": "القبرصي الشمالي"
     },
     "norwegian": {
         "male": "نرويجي",
@@ -1840,6 +1750,16 @@
         "the_female": "البارغوايانية",
         "the_male": "البارغواياني"
     },
+    "parthian": {
+        "male": "فرثي",
+        "males": "فرثيون",
+        "female": "فرثية",
+        "females": "فرثيات",
+        "en": "parthian empire",
+        "ar": "الإمبراطورية البارثية",
+        "the_female": "الفرثية",
+        "the_male": "الفرثي"
+    },
     "people from jerusalem": {
         "male": "مقدسي",
         "males": "مقدسيون",
@@ -1891,6 +1811,16 @@
         "the_female": "البرتغالية",
         "the_male": "البرتغالي"
     },
+    "prussian": {
+        "male": "بروسي",
+        "males": "بروسيون",
+        "female": "بروسية",
+        "females": "بروسيات",
+        "en": "prussia",
+        "ar": "بروسيا",
+        "the_female": "البروسية",
+        "the_male": "البروسي"
+    },
     "puerto rican": {
         "male": "بورتوريكي",
         "males": "بورتوريكيون",
@@ -1911,55 +1841,15 @@
         "the_female": "القطرية",
         "the_male": "القطري"
     },
-    "romanian": {
-        "male": "روماني",
-        "males": "رومان",
-        "female": "رومانية",
-        "females": "رومانيات",
-        "en": "romania",
-        "ar": "رومانيا",
-        "the_female": "الرومانية",
-        "the_male": "الروماني"
-    },
-    "ancient-romans": {
-        "male": "روماني قديم",
-        "males": "رومان قدماء",
-        "female": "رومانية قديمة",
-        "females": "رومانيات قديمات",
-        "en": "ancient romania",
-        "ar": "رومانيا القديمة",
-        "the_female": "الرومانية القديمة",
-        "the_male": "الروماني القديم"
-    },
-    "nasovietna": {
-        "male": "سوفييتي",
-        "males": "سوفييت",
-        "female": "سوفييتة",
-        "females": "سوفييتيات",
-        "en": "soviet union",
-        "ar": "الاتحاد السوفيتي",
-        "the_female": "السوفييتة",
-        "the_male": "السوفييتي"
-    },
-    "soviet": {
-        "male": "سوفيتي",
-        "males": "سوفيت",
-        "female": "سوفيتية",
-        "females": "سوفيتيات",
-        "en": "soviet union",
-        "ar": "الاتحاد السوفيتي",
-        "the_female": "السوفيتية",
-        "the_male": "السوفيتي"
-    },
-    "russian": {
-        "male": "روسي",
-        "males": "روس",
-        "female": "روسية",
-        "females": "روسيات",
-        "en": "russia",
-        "ar": "روسيا",
-        "the_female": "الروسية",
-        "the_male": "الروسي"
+    "republic of congo": {
+        "male": "كونغوي",
+        "males": "كونغويون",
+        "female": "كونغوية",
+        "females": "كونغويات",
+        "en": "the-republic-of-congo",
+        "ar": "جمهورية الكونغو",
+        "the_female": "الكونغوية",
+        "the_male": "الكونغوي"
     },
     "rhodesian": {
         "male": "رودوسي",
@@ -1970,6 +1860,26 @@
         "ar": "رودسيا",
         "the_female": "الرودوسية",
         "the_male": "الرودوسي"
+    },
+    "romanian": {
+        "male": "روماني",
+        "males": "رومان",
+        "female": "رومانية",
+        "females": "رومانيات",
+        "en": "romania",
+        "ar": "رومانيا",
+        "the_female": "الرومانية",
+        "the_male": "الروماني"
+    },
+    "russian": {
+        "male": "روسي",
+        "males": "روس",
+        "female": "روسية",
+        "females": "روسيات",
+        "en": "russia",
+        "ar": "روسيا",
+        "the_female": "الروسية",
+        "the_male": "الروسي"
     },
     "rwandan": {
         "male": "رواندي",
@@ -1991,6 +1901,16 @@
         "the_female": "السلفادورية",
         "the_male": "السلفادوري"
     },
+    "sammarinese": {
+        "male": "سان ماريني",
+        "males": "سان مارينيون",
+        "female": "سان مارينية",
+        "females": "سان مارينيات",
+        "en": "san marino",
+        "ar": "سان مارينو",
+        "the_female": "السان المارينية",
+        "the_male": "السان الماريني"
+    },
     "samoan": {
         "male": "ساموي",
         "males": "سامويون",
@@ -2001,15 +1921,15 @@
         "the_female": "الساموية",
         "the_male": "الساموي"
     },
-    "11saudi arabian": {
-        "male": "سعودي",
-        "males": "سعوديون",
-        "female": "سعودية",
-        "females": "سعوديات",
-        "en": "saudi arabia",
-        "ar": "السعودية",
-        "the_female": "السعودية",
-        "the_male": "السعودي"
+    "sasanian": {
+        "male": "ساساني",
+        "males": "ساسانيون",
+        "female": "ساسانية",
+        "females": "ساسانيات",
+        "en": "sasanian empire",
+        "ar": "الإمبراطورية الساسانية",
+        "the_female": "الساسانية",
+        "the_male": "الساساني"
     },
     "saudiarabian": {
         "male": "سعودي",
@@ -2131,6 +2051,36 @@
         "the_female": "الكورية الجنوبية",
         "the_male": "الكوري الجنوبي"
     },
+    "south sudanese": {
+        "male": "جنوب سوداني",
+        "males": "جنوب سودانيون",
+        "female": "سودانية جنوبية",
+        "females": "سودانيات جنوبيات",
+        "en": "south sudan",
+        "ar": "جنوب السودان",
+        "the_female": "السودانية الجنوبية",
+        "the_male": "الجنوب السوداني"
+    },
+    "south yemeni": {
+        "male": "يمني جنوبي",
+        "males": "يمنيون جنوبيون",
+        "female": "يمنية جنوبية",
+        "females": "يمنيات جنوبيات",
+        "en": "south yemen",
+        "ar": "جمهورية اليمن الديمقراطية الشعبية",
+        "the_female": "اليمنية الجنوبية",
+        "the_male": "اليمني الجنوبي"
+    },
+    "soviet": {
+        "male": "سوفيتي",
+        "males": "سوفيت",
+        "female": "سوفيتية",
+        "females": "سوفيتيات",
+        "en": "soviet union",
+        "ar": "الاتحاد السوفيتي",
+        "the_female": "السوفيتية",
+        "the_male": "السوفيتي"
+    },
     "spanish": {
         "male": "إسباني",
         "males": "إسبان",
@@ -2250,16 +2200,6 @@
         "ar": "تايلاند",
         "the_female": "التايلندية",
         "the_male": "التايلندي"
-    },
-    "east timorese": {
-        "male": "تيموري شرقي",
-        "males": "تيموريون شرقيون",
-        "female": "تيمورية شرقية",
-        "females": "تيموريات شرقيات",
-        "en": "east timor",
-        "ar": "تيمور الشرقية",
-        "the_female": "التيمورية الشرقية",
-        "the_male": "التيموري الشرقي"
     },
     "timorese": {
         "male": "تيموري",
@@ -2392,6 +2332,16 @@
         "the_female": "الفنزويلية",
         "the_male": "الفنزويلي"
     },
+    "victorian": {
+        "male": "فيكتوري",
+        "males": "فيكتوريون",
+        "female": "فكتورية",
+        "females": "فيكتوريات",
+        "en": "victoria-australia",
+        "ar": "فيكتوريا (أستراليا)",
+        "the_female": "الفكتورية",
+        "the_male": "الفيكتوري"
+    },
     "vietnamese": {
         "male": "فيتنامي",
         "males": "فيتناميون",
@@ -2411,6 +2361,36 @@
         "ar": "ويلز",
         "the_female": "الويلزية",
         "the_male": "الويلزي"
+    },
+    "west german": {
+        "male": "ألماني غربي",
+        "males": "ألمانيون غربيون",
+        "female": "ألمانية غربية",
+        "females": "ألمانيات غربيات",
+        "en": "west germany",
+        "ar": "ألمانيا الغربية",
+        "the_female": "الألمانية الغربية",
+        "the_male": "الألماني الغربي"
+    },
+    "west india !": {
+        "male": "هندي غربي",
+        "males": "هنود غربيون",
+        "female": "هندية غربية",
+        "females": "هنديات غربيات",
+        "en": "west india",
+        "ar": "الهند الغربية",
+        "the_female": "الهندية الغربية",
+        "the_male": "الهندي الغربي"
+    },
+    "western canadian": {
+        "male": "كندي غربي",
+        "males": "كنديون غربيون",
+        "female": "كندية غربية",
+        "females": "كنديات غربيات",
+        "en": "western canada",
+        "ar": "غرب كندا",
+        "the_female": "الكندية الغربية",
+        "the_male": "الكندي الغربي"
     },
     "yemeni": {
         "male": "يمني",
@@ -2441,6 +2421,16 @@
         "ar": "زامبيا",
         "the_female": "الزامبية",
         "the_male": "الزامبي"
+    },
+    "zanzibari": {
+        "male": "زنجباري",
+        "males": "زنجباريون",
+        "female": "زنجبارية",
+        "females": "زنجباريات",
+        "en": "zanzibar",
+        "ar": "زنجبار",
+        "the_female": "الزنجبارية",
+        "the_male": "الزنجباري"
     },
     "zaïrean": {
         "male": "زائيري",

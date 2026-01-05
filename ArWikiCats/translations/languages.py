@@ -305,7 +305,6 @@ MEDIA_CATEGORY_TRANSLATIONS = {
     "manga": "مانغا",
     "media": "إعلام",
     "medieval literature": "أدب العصور الوسطى",
-    "magazines": "مجلات",
     "music": "موسيقى",
     "musicians": "موسيقيون",
     "names": "أسماء",
