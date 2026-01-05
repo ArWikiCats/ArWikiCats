@@ -60,7 +60,6 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 
 @functools.lru_cache(maxsize=10000)
 def get_films_key_tyty_new_and_time(category: str) -> str:
-    # return ""
     logger.debug(f"<<yellow>> start get_films_key_tyty_new_and_time: {category=}")
     yc_bot = multi_bot_v4()
 

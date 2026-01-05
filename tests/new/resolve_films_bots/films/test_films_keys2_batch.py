@@ -10,7 +10,7 @@ from ArWikiCats import resolve_label_ar
 def patch_films_keys(monkeypatch: pytest.MonkeyPatch) -> None:
     # Patch all known import locations where get_films_key_tyty_new is used
 
-    def fake(name): return "x"
+    def fake(name): return ""
 
     monkeypatch.setattr(
         "ArWikiCats.new.resolve_films_bots.film_keys_bot.get_films_key_tyty_new",
@@ -40,8 +40,6 @@ def patch_films_keys(monkeypatch: pytest.MonkeyPatch) -> None:
 
 
 data_1 = {
-    "yemeni children's-animated-adventure-television films" : "أفلام مغامرات رسوم متحركة تلفزيونية يمنية للأطفال",
-    "children's-animated-adventure-television films" : "أفلام مغامرات رسوم متحركة تلفزيونية للأطفال",
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
     "3d film series": "سلاسل أفلام ثلاثية الأبعاد",
     "3d soap opera": "مسلسلات طويلة ثلاثية الأبعاد",
@@ -81,7 +79,6 @@ data_1 = {
     "action comics": "قصص مصورة حركة",
     "action film series": "سلاسل أفلام حركة",
     "action soap opera": "مسلسلات طويلة حركة",
-    "action television characters": "شخصيات تلفزيونية حركة",
     "action television episodes": "حلقات تلفزيونية حركة",
     "action television films": "أفلام تلفزيونية حركة",
     "action television miniseries": "مسلسلات قصيرة حركة",
@@ -92,6 +89,12 @@ data_1 = {
     "action thriller comics": "قصص مصورة إثارة حركة",
     "action thriller film series": "سلاسل أفلام إثارة حركة",
     "action thriller soap opera": "مسلسلات طويلة إثارة حركة",
+}
+
+data_2 = {
+    "yemeni children's-animated-adventure-television films": "أفلام مغامرات رسوم متحركة تلفزيونية يمنية للأطفال",
+    "children's-animated-adventure-television films": "أفلام مغامرات رسوم متحركة تلفزيونية للأطفال",
+    "action television characters": "شخصيات تلفزيونية حركة"
 }
 
 
