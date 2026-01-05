@@ -146,7 +146,7 @@ test_data2 = {
     "japanese horror television characters": "شخصيات تلفزيونية رعب يابانية",
     "japanese horror television episodes": "حلقات تلفزيونية رعب يابانية",
     "japanese horror television films": "أفلام تلفزيونية رعب يابانية",
-    "japanese horror television miniseries": "مسلسلات قصيرة رعب يابانية",
+    "japanese horror television miniseries": "مسلسلات قصيرة تلفزيونية رعب يابانية",
     "japanese horror television news": "أخبار تلفزيونية رعب يابانية",
     "japanese horror television programmes": "برامج تلفزيونية رعب يابانية",
     "japanese horror television programs": "برامج تلفزيونية رعب يابانية",
