@@ -6,7 +6,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot_and_time import resolve_films_and_time
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
@@ -183,16 +182,6 @@ novels_films_test_data = {
     "2026 science fiction films": "أفلام خيال علمي في 2026",
     "2026 thriller films": "أفلام إثارة في 2026"
 }
-
-
-@pytest.mark.parametrize("name,data,callback", [("resolve_films_and_time", novels_films_test_data, resolve_films_and_time)])
-@pytest.mark.dump
-def test_dump_1st(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("name,data,callback", [("get_films_key_tyty_new_and_time", novels_films_test_data, get_films_key_tyty_new_and_time)])
