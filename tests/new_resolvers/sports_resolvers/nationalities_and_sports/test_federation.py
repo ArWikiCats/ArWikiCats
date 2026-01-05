@@ -163,7 +163,6 @@ the_male_sport_team_data = {
     "hong kong hockey racing federation": "الاتحاد الهونغ الكونغي لسباق هوكي",
     "hungarian hurling federation": "الاتحاد المجري للقذف",
     "icelandic ice dancing federation": "الاتحاد الآيسلندي للرقص على الجليد",
-    "icelandic1 ice dancing racing federation": "الاتحاد الأيسلندي لسباق الرقص على الجليد",
     "indian ice hockey federation": "الاتحاد الهندي لهوكي الجليد",
     "indonesian ice skating federation": "الاتحاد الإندونيسي للتزلج على الجليد",
     "iranian ice sledge hockey federation": "الاتحاد الإيراني لهوكي المزلجة على الجليد",
