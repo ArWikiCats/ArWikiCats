@@ -40,7 +40,7 @@ te4_2018_Jobs_data = {
     "argentine industrial designers": "مصممون صناعيون أرجنتينيون",
     "armenian cross-country skiers": "متزحلقون ريفيون أرمن",
     "armenian expatriate sports-people": "رياضيون أرمن مغتربون",
-    "asian politicians": "سياسيون آسيويين",
+    "asian politicians": "سياسيون آسيويون",
     "athletes": "لاعبو قوى",
     "australian comedy writers": "كتاب كوميديا أستراليون",
     "australian expatriate sports-people": "رياضيون أستراليون مغتربون",

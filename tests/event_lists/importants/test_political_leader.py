@@ -135,7 +135,7 @@ data_slow = {
     "Category:Bangladesh political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون بنغلاديشيون",
     "Category:Azerbaijan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أذربيجانيون",
     "Category:Austria political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون نمساويون",
-    "Category:Asia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون آسيويين",
+    "Category:Asia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون آسيويون",
     "Category:Armenia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أرمن",
     "Category:Argentina political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أرجنتينيون",
     "Category:Angola political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أنغوليون",

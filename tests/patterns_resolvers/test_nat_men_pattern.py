@@ -94,10 +94,10 @@ test_data_males = {
     "democratic-republic-of-congo people in sports": "كونغويون ديمقراطيون في ألعاب رياضية",
     # {en_nat} people by ethnic or national origin
     "central american people by ethnic or national origin": "أمريكيون أوسطيون حسب الأصل العرقي أو الوطني",
-    "eastern asian people by ethnic or national origin": "آسيويين شرقيون حسب الأصل العرقي أو الوطني",
+    "eastern asian people by ethnic or national origin": "آسيويون شرقيون حسب الأصل العرقي أو الوطني",
     # {en_nat} expatriates
     "eastern european expatriates": "أوروبيون شرقيون مغتربون",
-    "central asian expatriates": "آسيويين أوسطيون مغتربون",
+    "central asian expatriates": "آسيويون أوسطيون مغتربون",
     # {en_nat} men by occupation
     "federated states-of micronesia men by occupation": "رجال ميكرونيزيون حسب المهنة",
     "equatorial guinean men by occupation": "رجال غينيون استوائيون حسب المهنة",
@@ -120,8 +120,8 @@ test_data_males = {
     "central african republic musicians": "موسيقيون أفارقة أوسطيون",
     "equatoguinean musicians": "موسيقيون غينيون استوائيون",
     # {en_nat} people by religion
-    "eastern asian people by religion": "آسيويين شرقيون حسب الدين",
-    "central asian people by religion": "آسيويين أوسطيون حسب الدين",
+    "eastern asian people by religion": "آسيويون شرقيون حسب الدين",
+    "central asian people by religion": "آسيويون أوسطيون حسب الدين",
     # {en_nat} expatriate sports-people by country of residence
     "bissau-guinean expatriate sports-people by country of residence": "رياضيون غينيون بيساويون مغتربون حسب بلد الإقامة",
     "anglo-irish expatriate sports-people by country of residence": "رياضيون أنجلو إيرلنديون مغتربون حسب بلد الإقامة",
@@ -142,7 +142,7 @@ test_data_males = {
     "eastern european people by century": "أوروبيون شرقيون حسب القرن",
     # {en_nat} people by political orientation
     "central american people by political orientation": "أمريكيون أوسطيون حسب التوجه السياسي",
-    "central asian people by political orientation": "آسيويين أوسطيون حسب التوجه السياسي",
+    "central asian people by political orientation": "آسيويون أوسطيون حسب التوجه السياسي",
     # {en_nat} military personnel
     "east timorese military personnel": "عسكريون تيموريون شرقيون",
     "federated states-of micronesia military personnel": "عسكريون ميكرونيزيون",
@@ -159,7 +159,7 @@ test_data_males = {
     "democratic-republic-of-congo football managers": "مدربو كرة قدم كونغويون ديمقراطيون",
     "dominican republic football managers": "مدربو كرة قدم دومينيكانيون",
     # {en_nat} martial artists
-    "eastern asian martial artists": "ممارسو وممارسات فنون قتالية آسيويين شرقيون",
+    "eastern asian martial artists": "ممارسو وممارسات فنون قتالية آسيويون شرقيون",
     "equatoguinean martial artists": "ممارسو وممارسات فنون قتالية غينيون استوائيون",
     # {en_nat} prisoners and detainees
     "central african republic prisoners and detainees": "سجناء ومعتقلون أفارقة أوسطيون",
@@ -169,7 +169,7 @@ test_data_males = {
     "eastern european scientists": "علماء أوروبيون شرقيون",
     # {en_nat} artists
     "central american artists": "فنانون أمريكيون أوسطيون",
-    "central asian artists": "فنانون آسيويين أوسطيون",
+    "central asian artists": "فنانون آسيويون أوسطيون",
     # {en_nat} swimmers
     "east timorese swimmers": "سباحون تيموريون شرقيون",
     "federated states-of micronesia swimmers": "سباحون ميكرونيزيون",
@@ -186,7 +186,7 @@ test_data_males = {
     "democratic-republic-of-congo people by occupation and century": "كونغويون ديمقراطيون حسب المهنة والقرن",
     "dominican republic people by occupation and century": "دومينيكانيون حسب المهنة والقرن",
     # {en_nat} film directors
-    "eastern asian film directors": "مخرجو أفلام آسيويين شرقيون",
+    "eastern asian film directors": "مخرجو أفلام آسيويون شرقيون",
     "equatoguinean film directors": "مخرجو أفلام غينيون استوائيون",
     # {en_nat} educators
     "central african republic educators": "معلمون أفارقة أوسطيون",
@@ -196,7 +196,7 @@ test_data_males = {
     "eastern european competitors by sports event": "منافسون أوروبيون شرقيون حسب الحدث الرياضي",
     # {en_nat} academics
     "central american academics": "أكاديميون أمريكيون أوسطيون",
-    "central asian academics": "أكاديميون آسيويين أوسطيون",
+    "central asian academics": "أكاديميون آسيويون أوسطيون",
     # {en_nat} novelists
     "east timorese novelists": "روائيون تيموريون شرقيون",
     "federated states-of micronesia novelists": "روائيون ميكرونيزيون",
@@ -213,7 +213,7 @@ test_data_males = {
     "democratic-republic-of-congo roman catholics": "رومان كاثوليك كونغويون ديمقراطيون",
     "dominican republic roman catholics": "رومان كاثوليك دومينيكانيون",
     # {en_nat} religious leaders
-    "eastern asian religious leaders": "قادة دينيون آسيويين شرقيون",
+    "eastern asian religious leaders": "قادة دينيون آسيويون شرقيون",
     "equatoguinean religious leaders": "قادة دينيون غينيون استوائيون",
     # {en_nat} socialists
     "central african republic socialists": "اشتراكيون أفارقة أوسطيون",
@@ -223,7 +223,7 @@ test_data_males = {
     "eastern european judges": "قضاة أوروبيون شرقيون",
     # {en_nat} victims of crime
     "central american victims of crime": "ضحايا جرائم أمريكيون أوسطيون",
-    "central asian victims of crime": "ضحايا جرائم آسيويين أوسطيون",
+    "central asian victims of crime": "ضحايا جرائم آسيويون أوسطيون",
     # {en_nat} economists
     "east timorese economists": "اقتصاديون تيموريون شرقيون",
     "federated states-of micronesia economists": "اقتصاديون ميكرونيزيون",
@@ -240,7 +240,7 @@ test_data_males = {
     "democratic-republic-of-congo freestyle swimmers": "سباحو تزلج حر كونغويون ديمقراطيون",
     "dominican republic freestyle swimmers": "سباحو تزلج حر دومينيكانيون",
     # {en_nat} politicians by century
-    "eastern asian politicians by century": "سياسيون آسيويين شرقيون حسب القرن",
+    "eastern asian politicians by century": "سياسيون آسيويون شرقيون حسب القرن",
     "equatoguinean politicians by century": "سياسيون غينيون استوائيون حسب القرن",
     # {en_nat} men's basketball players
     "central african republic men's basketball players": "لاعبو كرة سلة أفارقة أوسطيون",
@@ -250,7 +250,7 @@ test_data_males = {
     "eastern european human rights activists": "أوروبيون شرقيون ناشطون في حقوق الإنسان",
     # {en_nat} composers
     "central american composers": "ملحنون أمريكيون أوسطيون",
-    "central asian composers": "ملحنون آسيويين أوسطيون",
+    "central asian composers": "ملحنون آسيويون أوسطيون",
     # {en_nat} physicians
     "east timorese physicians": "أطباء تيموريون شرقيون",
     "federated states-of micronesia physicians": "أطباء ميكرونيزيون",
@@ -270,7 +270,7 @@ test_data_males = {
     "executed democratic-republic-of-congo people": "كونغويون ديمقراطيون معدومون",
     "executed dominican republic people": "دومينيكانيون معدومون",
     # {en_nat} models
-    "eastern asian models": "عارضو أزياء آسيويين شرقيون",
+    "eastern asian models": "عارضو أزياء آسيويون شرقيون",
     "equatoguinean models": "عارضو أزياء غينيون استوائيون",
     # {en_nat} painters
     "central african republic painters": "رسامون أفارقة أوسطيون",
@@ -280,7 +280,7 @@ test_data_males = {
     "eastern european bankers": "مصرفيون أوروبيون شرقيون",
     # {en_nat} people with disabilities
     "central american people with disabilities": "أمريكيون أوسطيون بإعاقات",
-    "central asian people with disabilities": "آسيويين أوسطيون بإعاقات",
+    "central asian people with disabilities": "آسيويون أوسطيون بإعاقات",
     # assassinated {en_nat} people
     "assassinated east timorese people": "تيموريون شرقيون مغتالون",
     "assassinated federated states-of micronesia people": "ميكرونيزيون مغتالون",
@@ -297,7 +297,7 @@ test_data_males = {
     "democratic-republic-of-congo prisoners sentenced to death": "مسجونون كونغويون ديمقراطيون حكم عليهم بالإعدام",
     "dominican republic prisoners sentenced to death": "مسجونون دومينيكانيون حكم عليهم بالإعدام",
     # {en_nat} designers
-    "eastern asian designers": "مصممون آسيويين شرقيون",
+    "eastern asian designers": "مصممون آسيويون شرقيون",
     "equatoguinean designers": "مصممون غينيون استوائيون",
     # {en_nat} engineers
     "central african republic engineers": "مهندسون أفارقة أوسطيون",
@@ -307,7 +307,7 @@ test_data_males = {
     "eastern european short story writers": "كتاب قصة قصيرة أوروبيون شرقيون",
     # {en_nat} actors by century
     "central american actors by century": "ممثلون أمريكيون أوسطيون حسب القرن",
-    "central asian actors by century": "ممثلون آسيويين أوسطيون حسب القرن",
+    "central asian actors by century": "ممثلون آسيويون أوسطيون حسب القرن",
     # {en_nat} murderers
     "east timorese murderers": "قتلة تيموريون شرقيون",
     "federated states-of micronesia murderers": "قتلة ميكرونيزيون",
@@ -324,7 +324,7 @@ test_data_males = {
     "democratic-republic-of-congo generals": "جنرالات كونغويون ديمقراطيون",
     "dominican republic generals": "جنرالات دومينيكانيون",
     # {en_nat} long-distance runners
-    "eastern asian long-distance runners": "عداؤو مسافات طويلة آسيويين شرقيون",
+    "eastern asian long-distance runners": "عداؤو مسافات طويلة آسيويون شرقيون",
     "equatoguinean long-distance runners": "عداؤو مسافات طويلة غينيون استوائيون",
     # {en_nat} middle-distance runners
     "central african republic middle-distance runners": "عداؤو مسافات متوسطة أفارقة أوسطيون",
@@ -334,7 +334,7 @@ test_data_males = {
     "eastern european civil servants": "موظفو خدمة مدنية أوروبيون شرقيون",
     # {en_nat} nationalists
     "central american nationalists": "قوميون أمريكيون أوسطيون",
-    "central asian nationalists": "قوميون آسيويين أوسطيون",
+    "central asian nationalists": "قوميون آسيويون أوسطيون",
     # males with ذكور - {en_nat} male swimmers
     "east timorese male swimmers": "سباحون ذكور تيموريون شرقيون",
     "federated states-of micronesia male swimmers": "سباحون ذكور ميكرونيزيون",
@@ -351,7 +351,7 @@ test_data_males = {
     "democratic-republic-of-congo male boxers": "ملاكمون ذكور كونغويون ديمقراطيون",
     "dominican republic male boxers": "ملاكمون ذكور دومينيكانيون",
     # {en_nat} male athletes
-    "eastern asian male athletes": "لاعبو قوى ذكور آسيويين شرقيون",
+    "eastern asian male athletes": "لاعبو قوى ذكور آسيويون شرقيون",
     "equatoguinean male athletes": "لاعبو قوى ذكور غينيون استوائيون",
     # {en_nat} male actors
     "central african republic male actors": "ممثلون ذكور أفارقة أوسطيون",
@@ -361,7 +361,7 @@ test_data_males = {
     "eastern european male singers": "مغنون ذكور أوروبيون شرقيون",
     # {en_nat} male writers
     "central american male writers": "كتاب ذكور أمريكيون أوسطيون",
-    "central asian male writers": "كتاب ذكور آسيويين أوسطيون",
+    "central asian male writers": "كتاب ذكور آسيويون أوسطيون",
     # {en_nat} male film actors
     "east timorese male film actors": "ممثلو أفلام ذكور تيموريون شرقيون",
     "federated states-of micronesia male film actors": "ممثلو أفلام ذكور ميكرونيزيون",

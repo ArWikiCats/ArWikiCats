@@ -27,7 +27,7 @@ data_0 = {
 
 data_to_fix1 = {
     "Lists of superhero films": "قوائم أفلام أبطال خارقين",
-    "Superhero films about Asian Americans": "أفلام أبطال خارقين عن أمريكيون آسيويين",
+    "Superhero films about Asian Americans": "أفلام أبطال خارقين عن أمريكيون آسيويون",
     "Superhero television series by country": "مسلسلات تلفزيونية أبطال خارقين حسب البلد",
     "Superhero television series by genre": "مسلسلات تلفزيونية أبطال خارقين حسب النوع الفني",
     "Superhero comedy films by century": "أفلام أبطال خارقين كوميدية حسب القرن",

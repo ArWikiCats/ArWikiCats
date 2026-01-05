@@ -21,7 +21,7 @@ test_data = {
     "wales government officials": "مسؤولون حكوميون ويلزيون",
     "west germany government officials": "مسؤولون حكوميون ألمانيون غربيون",
     "west india government officials": "مسؤولون حكوميون هنود غربيون",
-    "western asia government officials": "مسؤولون حكوميون آسيويين غربيون",
+    "western asia government officials": "مسؤولون حكوميون آسيويون غربيون",
     "western canada government officials": "مسؤولون حكوميون كنديون غربيون",
     "western sahara government officials": "مسؤولون حكوميون صحراويون",
     "yemen government officials": "مسؤولون حكوميون يمنيون",
