@@ -222,6 +222,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "vietnamesei": "vietnamese",
         "yemenite": "yemeni",
         "jewish": "jews",
+        "native american": "native americans",
     }
 
     # Apply simple alias redirection
