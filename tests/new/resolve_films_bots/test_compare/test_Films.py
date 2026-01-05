@@ -10,6 +10,7 @@ from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 
 test_data = {
+
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
     "3d film series": "سلاسل أفلام ثلاثية الأبعاد",
     "3d soap opera": "مسلسلات طويلة ثلاثية الأبعاد",

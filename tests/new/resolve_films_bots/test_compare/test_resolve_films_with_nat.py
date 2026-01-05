@@ -1,0 +1,155 @@
+
+"""
+Tests
+"""
+
+import pytest
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import resolve_films_with_nat
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
+
+test_data = {
+
+    "american animated films": "أفلام رسوم متحركة أمريكية",
+    "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
+    "american non-fiction television series": "مسلسلات تلفزيونية غير خيالية أمريكية",
+    "american non-fiction web series": "مسلسلات ويب غير خيالية أمريكية",
+    "american propaganda films": "أفلام دعائية أمريكية",
+    "american reality television series": "مسلسلات تلفزيونية واقعية أمريكية",
+    "american superhero television series": "مسلسلات تلفزيونية أبطال خارقين أمريكية",
+    "american television episodes": "حلقات تلفزيونية أمريكية",
+    "american television series debuts": "مسلسلات تلفزيونية أمريكية بدأ عرضها في",
+    "american television series endings": "مسلسلات تلفزيونية أمريكية انتهت في",
+    "american thriller films": "أفلام إثارة أمريكية",
+    "american zombie novels": "روايات زومبي أمريكية",
+    "argentine adult animated television series": "مسلسلات تلفزيونية رسوم متحركة للكبار أرجنتينية",
+    "australian comedy thriller films": "أفلام كوميدية إثارة أسترالية",
+    "australian erotic thriller films": "أفلام إثارة جنسية أسترالية",
+    "australian films": "أفلام أسترالية",
+    "australian non-fiction television series": "مسلسلات تلفزيونية غير خيالية أسترالية",
+    "australian non-fiction web series": "مسلسلات ويب غير خيالية أسترالية",
+    "austrian films": "أفلام نمساوية",
+    "austrian silent short films": "أفلام قصيرة صامته نمساوية",
+    "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
+    "azerbaijani short films": "أفلام قصيرة أذربيجانية",
+    "bangladeshi films": "أفلام بنغلاديشية",
+    "belgian drama films": "أفلام درامية بلجيكية",
+    "brazilian television shows": "عروض تلفزيونية برازيلية",
+    "british films": "أفلام بريطانية",
+    "british mystery films": "أفلام غموض بريطانية",
+    "british mystery television series": "مسلسلات تلفزيونية غموض بريطانية",
+    "british non-fiction television series": "مسلسلات تلفزيونية غير خيالية بريطانية",
+    "british non-fiction web series": "مسلسلات ويب غير خيالية بريطانية",
+    "british reality television series": "مسلسلات تلفزيونية واقعية بريطانية",
+    "british robot films": "أفلام آلية بريطانية",
+    "british superhero television series": "مسلسلات تلفزيونية أبطال خارقين بريطانية",
+    "british television series characters": "شخصيات مسلسلات تلفزيونية بريطانية",
+    "bulgarian non-fiction television series": "مسلسلات تلفزيونية غير خيالية بلغارية",
+    "burmese romantic drama films": "أفلام درامية رومانسية بورمية",
+    "canadian docudrama films": "أفلام درامية وثائقية كندية",
+    "canadian non-fiction web series": "مسلسلات ويب غير خيالية كندية",
+    "canadian superhero television series": "مسلسلات تلفزيونية أبطال خارقين كندية",
+    "canadian television series-endings": "مسلسلات تلفزيونية كندية انتهت في",
+    "canadian war films": "أفلام حربية كندية",
+    "chilean television series-endings": "مسلسلات تلفزيونية تشيلية انتهت في",
+    "chinese epic films": "أفلام ملحمية صينية",
+    "colombian children's animated television series": "مسلسلات تلفزيونية رسوم متحركة أطفال كولومبية",
+    "croatian biographical films": "أفلام سير ذاتية كرواتية",
+    "croatian fantasy films": "أفلام فانتازيا كرواتية",
+    "croatian science fiction films": "أفلام خيال علمي كرواتية",
+    "danish adventure television series": "مسلسلات تلفزيونية مغامرات دنماركية",
+    "danish black-and-white films": "أفلام أبيض وأسود دنماركية",
+    "dutch films": "أفلام هولندية",
+    "dutch short films": "أفلام قصيرة هولندية",
+    "dutch television-seasons": "مواسم تلفزيونية هولندية",
+    "dutch war drama films": "أفلام درامية حربية هولندية",
+    "ecuadorian science fiction films": "أفلام خيال علمي إكوادورية",
+    "emirati animated films": "أفلام رسوم متحركة إماراتية",
+    "european competition": "منافسات أوروبية",
+    "finnish non-fiction television series": "مسلسلات تلفزيونية غير خيالية فنلندية",
+    "french films": "أفلام فرنسية",
+    "french musical comedy films": "أفلام كوميدية موسيقية فرنسية",
+    "german disaster films": "أفلام كوارثية ألمانية",
+    "ghanaian films": "أفلام غانية",
+    "indian crime films": "أفلام جريمة هندية",
+    "indian dark fantasy films": "أفلام فانتازيا مظلمة هندية",
+    "indian sports drama films": "أفلام درامية رياضية هندية",
+    "indonesian prequel films": "أفلام بادئة إندونيسية",
+    "indonesian zombie films": "أفلام زومبي إندونيسية",
+    "iranian romantic drama films": "أفلام درامية رومانسية إيرانية",
+    "irish fantasy films": "أفلام فانتازيا أيرلندية",
+    "irish films": "أفلام أيرلندية",
+    "irish speculative fiction films": "أفلام خيالية تأملية أيرلندية",
+    "irish thriller films": "أفلام إثارة أيرلندية",
+    "israeli reality television series": "مسلسلات تلفزيونية واقعية إسرائيلية",
+    "italian comedy films": "أفلام كوميدية إيطالية",
+    "italian zombie films": "أفلام زومبي إيطالية",
+    "japanese films": "أفلام يابانية",
+    "japanese heist films": "أفلام سرقة يابانية",
+    "kuwaiti short films": "أفلام قصيرة كويتية",
+    "latvian films": "أفلام لاتفية",
+    "malaysian sports films": "أفلام رياضية ماليزية",
+    "mexican crime thriller films": "أفلام إثارة وجريمة مكسيكية",
+    "mexican drama television series": "مسلسلات تلفزيونية درامية مكسيكية",
+    "mexican independent films": "أفلام مستقلة مكسيكية",
+    "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
+    "moroccan musical films": "أفلام موسيقية مغربية",
+    "nigerian musical drama films": "أفلام درامية موسيقية نيجيرية",
+    "north korean drama films": "أفلام درامية كورية شمالية",
+    "norwegian comedy-drama films": "أفلام كوميدية درامية نرويجية",
+    "philippine kung fu films": "أفلام كونغ فو فلبينية",
+    "polish crime thriller films": "أفلام إثارة وجريمة بولندية",
+    "polish epic films": "أفلام ملحمية بولندية",
+    "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
+    "polish television-seasons": "مواسم تلفزيونية بولندية",
+    "portuguese adult animated films": "أفلام رسوم متحركة للكبار برتغالية",
+    "portuguese fantasy films": "أفلام فانتازيا برتغالية",
+    "portuguese musical comedy films": "أفلام كوميدية موسيقية برتغالية",
+    "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
+    "romanian films": "أفلام رومانية",
+    "russian sports drama films": "أفلام درامية رياضية روسية",
+    "saudiarabian films": "أفلام سعودية",
+    "serbian crime television series": "مسلسلات تلفزيونية جريمة صربية",
+    "slovenian animated films": "أفلام رسوم متحركة سلوفينية",
+    "south korean sequel films": "أفلام متممة كورية جنوبية",
+    "soviet drama films": "أفلام درامية سوفيتية",
+    "soviet films": "أفلام سوفيتية",
+    "soviet short films": "أفلام قصيرة سوفيتية",
+    "spanish action films": "أفلام حركة إسبانية",
+    "spanish documentary films": "أفلام وثائقية إسبانية",
+    "spanish films": "أفلام إسبانية",
+    "spanish independent films": "أفلام مستقلة إسبانية",
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
+    "spanish war drama films": "أفلام درامية حربية إسبانية",
+    "swedish 3d films": "أفلام ثلاثية الأبعاد سويدية",
+    "taiwanese non-fiction television series": "مسلسلات تلفزيونية غير خيالية تايوانية",
+    "venezuelan silent short films": "أفلام قصيرة صامته فنزويلية",
+    "yemeni action drama films": "أفلام حركة درامية يمنية",
+    "yemeni films images": "صور أفلام يمنية",
+    "yemeni legal drama films": "أفلام دراما قانونية يمنية",
+    "yemeni musical drama films": "أفلام درامية موسيقية يمنية",
+}
+
+
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_resolve_films_with_nat(category: str, expected: str) -> None:
+    label = resolve_films_with_nat(category)
+    assert label == expected
+
+
+to_test = [
+    ("test_resolve_films_with_nat", test_data, resolve_films_with_nat),
+    ("test_resolve_films_with_nat_tyty", test_data, _get_films_key_tyty_new),
+]
+
+
+@pytest.mark.parametrize("name,data,callback", to_test)
+@pytest.mark.dump
+def test_resolve_films_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+
+    dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
