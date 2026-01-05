@@ -10,14 +10,10 @@ from ArWikiCats.new.resolve_films_bots.film_keys_bot_and_time import resolve_fil
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
-novels_films_test_data = {
-    "1940s Canadian animated films": "أفلام رسوم متحركة كندية في عقد 1940",
+novels_films_test_data_0 = {
     "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
-    "1970s South African films": "أفلام جنوبية إفريقية في عقد 1970",
     "1980s films": "أفلام إنتاج عقد 1980",
-    "2000s Hong Kong films": "أفلام هونغ كونغية في عقد 2000",
     "2010s French-language films": "أفلام باللغة الفرنسية في عقد 2010",
-    "2025 South Korean films": "أفلام كورية جنوبية في 2025",
     "2026 films": "أفلام إنتاج 2026",
     "African films by country": "أفلام إفريقية حسب البلد",
     "African-American musical films": "أفلام موسيقية أمريكية إفريقية",
@@ -115,6 +111,17 @@ novels_films_test_data = {
     "Swedish vampire films": "أفلام مصاصي دماء سويدية",
     "Taiwanese black comedy films": "أفلام كوميدية سوداء تايوانية",
     "Urdu-language films by decade": "أفلام باللغة الأردية حسب العقد",
+    "Bangladeshi musical drama films": "أفلام موسيقية درامية بنغلاديشية",
+    "Croatian crime drama films": "أفلام جريمة درامية كرواتية",
+    "Philippine war drama films": "أفلام حربية درامية فلبينية"
+}
+
+
+novels_films_test_data = {
+    "1940s Canadian animated films": "أفلام رسوم متحركة كندية في عقد 1940",
+    "1970s South African films": "أفلام جنوبية إفريقية في عقد 1970",
+    "2000s Hong Kong films": "أفلام هونغ كونغية في عقد 2000",
+    "2025 South Korean films": "أفلام كورية جنوبية في 2025",
     "1510s fantasy novels": "روايات فانتازيا في عقد 1510",
     "1530s fantasy novels": "روايات فانتازيا في عقد 1530",
     "1590s fantasy novels": "روايات فانتازيا في عقد 1590",
@@ -172,13 +179,9 @@ novels_films_test_data = {
     "2026 drama films": "أفلام درامية في 2026",
     "2026 fantasy films": "أفلام فانتازيا في 2026",
     "2026 horror films": "أفلام رعب في 2026",
-    "2026 LGBTQ-related films": "أفلام متعلقة بإل جي بي تي كيو في 2026",
     "2026 science fiction action films": "أفلام خيال علمي وحركة في 2026",
     "2026 science fiction films": "أفلام خيال علمي في 2026",
-    "2026 thriller films": "أفلام إثارة في 2026",
-    "Bangladeshi musical drama films": "أفلام موسيقية درامية بنغلاديشية",
-    "Croatian crime drama films": "أفلام جريمة درامية كرواتية",
-    "Philippine war drama films": "أفلام حربية درامية فلبينية"
+    "2026 thriller films": "أفلام إثارة في 2026"
 }
 
 

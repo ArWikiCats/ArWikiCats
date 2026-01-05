@@ -26,6 +26,7 @@ logger.set_level("DEBUG")
 # print("-----"*20)
 # print(label_for_startwith_year_or_typeo("1960s yemeni comedy films"))
 print(_get_films_key_tyty_new("animated short film films"))
+print(_get_films_key_tyty_new("American war films"))
 # print(_get_films_key_tyty_new("animated short films"))
 
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"

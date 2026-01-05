@@ -500,5 +500,5 @@ def get_films_key_tyty_new(text: str) -> str:
     Returns:
         str: The resolved label string, or empty string if no match is found.
     """
-    return ""
+    # return ""
     return _get_films_key_tyty_new(text)
