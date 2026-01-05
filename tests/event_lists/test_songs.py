@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "austrian rock": "روك نمساوي",
+    "english country music": "كانتري إنجليزي",
     "Category:Bengali folk songs": "تصنيف:أغاني فولك بنغالي",
     "Category:Indian folk songs": "تصنيف:أغاني فولك هندي",
     "Category:American rock music": "تصنيف:موسيقى الروك أمريكي",
@@ -27,13 +29,13 @@ data1 = {
 }
 
 to_test = [
-    ("test_1", data1),
+    ("test_songs_1", data1),
 ]
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.fast
-def test_1(category: str, expected: str) -> None:
+def test_songs_1(category: str, expected: str) -> None:
     label = resolve_arabic_category_label(category)
     assert label == expected
 
