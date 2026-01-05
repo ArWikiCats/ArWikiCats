@@ -20,7 +20,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..countries_formats.for_me import Work_for_me
+from ..countries_formats.for_me import Work_for_me_main
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..o_bots import ethnic_bot
 from .get_helps import get_suffix_with_keys
@@ -113,18 +113,20 @@ def _try_nationality_based_strategies(
     nationality_key: str,
     suffix: str,
 ) -> Optional[str]:
-    """Try various nationality-based translation strategies.
+    """
+    Attempt nationality-aware translation strategies for a normalized category.
 
-    Args:
-        normalized_category: The normalized category string.
-        nationality_key: The detected nationality key.
-        suffix: The remaining suffix after nationality extraction.
+    Tries each configured nationality-based strategy in order and returns the first non-empty translation.
+
+    Parameters:
+        normalized_category: The normalized category string (lowercased and cleaned).
+        nationality_key: The detected nationality key used by nationality-aware strategies.
+        suffix: The remaining suffix of the category after nationality extraction.
 
     Returns:
-        The translated label if found, None otherwise.
+        The translated label if a strategy produced one, None otherwise.
     """
     strategies = [
-        ("Work_for_me", lambda: Work_for_me(normalized_category, nationality_key, suffix)),
         ("ethnic_bot.ethnic_label", lambda: ethnic_bot.ethnic_label(normalized_category, nationality_key, suffix)),
         ("nat_match", lambda: nat_match(normalized_category)),
     ]
@@ -174,7 +176,7 @@ def te_2018_with_nat(category: str) -> str:
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
     # Strategy 1: Direct dictionary lookup
-    direct_result = _try_direct_job_lookup(normalized_category)
+    direct_result = _try_direct_job_lookup(normalized_category) or Work_for_me_main(normalized_category)
     if direct_result:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
         return direct_result

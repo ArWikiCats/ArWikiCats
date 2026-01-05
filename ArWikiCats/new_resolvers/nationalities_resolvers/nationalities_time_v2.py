@@ -18,8 +18,53 @@ from ...translations_formats import (
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
 
+def populate_film_patterns(formatted_data):
+    """
+    Add Arabic translations for specific film-related category patterns into the provided formatted_data mapping.
+
+    Updates formatted_data in-place with entries for base, year-prefixed, nat-prefixed, and "-endings"/" endings" variants for two film-related titles ("animated television series" and "children's animated adventure television series"), using both plain and gendered (`{female}`) value forms and year/placeholders (`{year1}`, `{en_nat}`).
+
+    Parameters:
+        formatted_data (dict): Mapping of pattern keys to translation strings; the function mutates this dict by inserting the generated patterns.
+    """
+    films_non_patterns_data = {
+        "animated television series": {
+            "value": "مسلسلات رسوم متحركة تلفزيونية",
+            "value_nat": "مسلسلات رسوم متحركة تلفزيونية {female}"
+        },
+        "children's animated adventure television series": {
+            "value": "مسلسلات مغامرات رسوم متحركة تلفزيونية للأطفال",
+            "value_nat": "مسلسلات مغامرات رسوم متحركة تلفزيونية {female} للأطفال"
+        },
+    }
+    for k, v in films_non_patterns_data.items():
+        value_with_nat = v.get("value_nat")
+        value = v.get("value")
+        formatted_data.update({
+            f"{k}": f"{value}",
+            f"{{year1}} {k}": f"{value} في {{year1}}",
+
+            f"{{en_nat}} {k}": f"{value_with_nat}",
+            f"{{year1}} {{en_nat}} {k}": f"{value_with_nat} في {{year1}}",
+
+            f"{{year1}} {k}-endings": f"{value} انتهت في {{year1}}",
+            f"{{year1}} {k} endings": f"{value} انتهت في {{year1}}",
+
+            f"{{year1}} {{en_nat}} {k}-endings": f"{value_with_nat} انتهت في {{year1}}",
+            f"{{year1}} {{en_nat}} {k} endings": f"{value_with_nat} انتهت في {{year1}}",
+        })
+
+
 @functools.lru_cache(maxsize=1)
 def _bot_new() -> MultiDataFormatterBaseYearV2:
+    """
+    Constructs and returns a MultiDataFormatterBaseYearV2 configured with nat-year translation patterns.
+
+    Initializes the formatter with predefined pattern mappings and the available Arabic nationality data so it can expand category templates containing the placeholders `{en_nat}` and `{year1}` into Arabic nat-year phrases.
+
+    Returns:
+        MultiDataFormatterBaseYearV2: A formatter set up to format categories that combine nationality and year placeholders into Arabic translations.
+    """
     formatted_data = {
         # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
         "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
@@ -27,6 +72,7 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
         "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
         "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
     }
+    # populate_film_patterns(formatted_data)
 
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
 

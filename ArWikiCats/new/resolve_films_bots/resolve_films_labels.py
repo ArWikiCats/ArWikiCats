@@ -230,11 +230,13 @@ film_keys_for_female = {
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
     """
-    Build CAO (Characters, Albums, Organizations, etc.) mappings.
+    Build translation mappings for CAO-related film and television keys.
+
+    Creates two dictionaries: one containing patterns that include nationality placeholders and film-key placeholders for generating localized Arabic labels, and another containing equivalent mappings that omit nationality placeholders.
 
     Returns:
-        - films_key_cao: translation mapping
-        - data_no_nats: translation mapping without nationalities
+        films_key_cao (dict): Mapping of English pattern keys (may include `{nat_en}` and `{film_key}`) to Arabic translation templates (may include `{nat_ar}` and `{film_ar}`).
+        data_no_nats (dict): Mapping of English pattern keys (without nationality placeholders) to Arabic translation templates (may include `{film_ar}`).
     """
     data = {}
     data_no_nats = {}
@@ -304,6 +306,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     genre_categories_skip_it = {
         "film characters",
+        "series",
         "games",
     }
 
@@ -362,7 +365,21 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
 @functools.lru_cache(maxsize=1)
 def _make_bot() -> MultiDataFormatterBase:
+    # NOTE: keys with non-patterns should be added to populate_film_patterns()
     # Template data with both nationality and sport placeholders
+    """
+    Create and configure formatter bots for film and television category translations.
+
+    Builds and merges formatted pattern data (including television CAO entries and film-key mappings),
+    prepares nationality and film-key lookup lists, and generates two formatter instances:
+    - `double_bot`: a combined formatter populated with country+film patterns and additional adjustments.
+    - `bot`: a multi-data formatter built from the same inputs.
+
+    This function also updates `double_bot.other_bot` to set the `put_label_last` label ordering.
+
+    Returns:
+        tuple: `(double_bot, bot)` where `double_bot` is the combined MultiDataFormatterBase with populated film-country patterns and `bot` is an additional MultiDataFormatterBase built from the same formatted data.
+    """
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",

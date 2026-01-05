@@ -84,36 +84,6 @@ baston_men: dict[str, str] = {
     "army": "الجيش",
 }
 
-# رجالية بدون ألف ولام التعريف
-# tab[Category:syrian descent] = "تصنيف:أصل سوري"
-
-en_is_nat_ar_is_man: dict[str, str] = {
-    "descent": "أصل {}",
-    "military occupations": "احتلال عسكري {}",
-    "integration": "تكامل {}",
-    "innovation": "ابتكار {}",
-    "design": "تصميم {}",
-    "contemporary art": "فن معاصر {}",
-    "art": "فن {}",
-    "cuisine": "مطبخ {}",
-    "calendar": "تقويم {}",
-    "non fiction literature": "أدب غير خيالي {}",
-    "non-fiction literature": "أدب غير خيالي {}",
-    "literature": "أدب {}",
-    "caste system": "نظام طبقي {}",
-    "law": "قانون {}",
-    "military equipment": "عتاد عسكري {}",
-    "wine": "نبيذ {}",
-    "history": "تاريخ {}",
-    "nuclear history": "تاريخ نووي {}",
-    "military history": "تاريخ عسكري {}",
-    "diaspora": "شتات {}",
-    "traditions": "تراث {}",
-    "folklore": "فلكور {}",
-    # "literary critics" : "نقد أدبي {}",
-    "television": "تلفاز {}",
-}
-
 # نسائية بألف ولام التعريف
 # الانجليزية والعربية جنسية
 # tab[Category:Yemeni navy] = "تصنيف:البحرية اليمنية"
@@ -430,7 +400,6 @@ def _extend_singer_and_business_entries() -> None:
     """Populate singer and businessperson derived mappings."""
 
     for key, label in SINGERS_TAB.items():
-        en_is_nat_ar_is_man[key] = f"{label} {{}}"
         en_is_nat_ar_is_women[f"{key} groups"] = f"فرق {label} {{}}"
         en_is_nat_ar_is_women[f"{key} musical groups"] = f"فرق موسيقى {label} {{}}"
 
@@ -517,7 +486,6 @@ __all__ = [
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
-    "en_is_nat_ar_is_man",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "en_is_nat_ar_is_women_2",
@@ -529,7 +497,6 @@ len_print.data_len(
     {
         "en_is_nat_ar_is_P17": en_is_nat_ar_is_P17,
         "en_is_nat_ar_is_al_mens": en_is_nat_ar_is_al_mens,
-        "en_is_nat_ar_is_man": en_is_nat_ar_is_man,
         "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
         "change_male_to_female": change_male_to_female,

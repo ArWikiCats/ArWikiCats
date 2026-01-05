@@ -336,6 +336,63 @@ def build_male_keys() -> dict[str, str]:
 New_female_keys: dict[str, str] = build_female_keys()
 New_male_keys: dict[str, str] = build_male_keys()
 
+
+# رجالية بدون ألف ولام التعريف
+# tab[Category:syrian descent] = "تصنيف:أصل سوري"
+
+en_is_nat_ar_is_man: dict[str, str] = {
+    "descent": "أصل {}",
+    "military occupations": "احتلال عسكري {}",
+    "integration": "تكامل {}",
+    "innovation": "ابتكار {}",
+    "design": "تصميم {}",
+    "contemporary art": "فن معاصر {}",
+    "art": "فن {}",
+    "cuisine": "مطبخ {}",
+    "calendar": "تقويم {}",
+    "non fiction literature": "أدب غير خيالي {}",
+    "non-fiction literature": "أدب غير خيالي {}",
+    "literature": "أدب {}",
+    "caste system": "نظام طبقي {}",
+    "law": "قانون {}",
+    "military equipment": "عتاد عسكري {}",
+    "wine": "نبيذ {}",
+    "history": "تاريخ {}",
+    "nuclear history": "تاريخ نووي {}",
+    "military history": "تاريخ عسكري {}",
+    "diaspora": "شتات {}",
+    "traditions": "تراث {}",
+    "folklore": "فلكور {}",
+    # "literary critics" : "نقد أدبي {}",
+    "television": "تلفاز {}",
+}
+
+
+def _get_male_no_def_label(suffix: str, men_nat_lab: str) -> str | None:
+    """
+    Produce a male nationality label without a definite article by looking up a template for the given suffix and formatting it with the provided country label.
+
+    Parameters:
+        suffix (str): Suffix/key used to select an Arabic label template.
+        men_nat_lab (str): Male nationality or country label to insert into the template.
+
+    Returns:
+        str | None: The formatted Arabic label with the country inserted, or `None` if no template is available for the suffix.
+    """
+    con_3_lab = en_is_nat_ar_is_man.get(suffix.strip(), "")
+    if not con_3_lab:
+        con_3_lab = New_male_keys.get(suffix.strip(), "")
+        if con_3_lab:
+            con_3_lab += " {}"
+
+    if not con_3_lab:
+        return None
+
+    country_lab = con_3_lab.format(men_nat_lab)
+    # logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ")
+    return country_lab
+
+
 __all__ = [
     "New_female_keys",
     "New_male_keys",

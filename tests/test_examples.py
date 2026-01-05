@@ -25,18 +25,14 @@ FILE_PATHS = list(DATA_DIR.glob("*.json"))
 @pytest.mark.examples
 @pytest.mark.parametrize("example_data", FILE_PATHS, indirect=True, ids=lambda p: p.name)
 def test_examples_data(example_data: tuple[dict[str, str], str]) -> None:
-    data, name = example_data
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    """
+    Run the example-data validation for a single example JSON file.
 
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
+    Processes the provided example data with the Arabic category label resolver, emits difference and summary dumps, and asserts that the observed differences match the expected results. On assertion failure the message includes the count of differences and the total number of entries.
 
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-@pytest.mark.examples
-@pytest.mark.parametrize("example_data", [DATA_DIR/"novels_films.json"], indirect=True, ids=lambda p: p.name)
-def test_examples_data_one(example_data: tuple[dict[str, str], str]) -> None:
+    Parameters:
+        example_data (tuple[dict[str, str], str]): A tuple where the first element is the example data mapping (keys to label strings) and the second element is the file stem used to identify output dumps.
+    """
     data, name = example_data
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 

@@ -10,12 +10,8 @@ from ...helps import logger
 from ...new_resolvers.jobs_resolvers import resolve_jobs_main
 from ...translations import (
     All_Nat,
-    Nat_men,
-    Nat_women,
     People_key,
     change_male_to_female,
-    en_is_nat_ar_is_man,
-    en_is_nat_ar_is_women,
     jobs_mens_data,
     short_womens_jobs,
 )
@@ -106,7 +102,12 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
 
 
 def _get_direct_lookup(category: str) -> str:
-    """Try direct dictionary lookups for the category."""
+    """
+    Return a localized Arabic label for the given category when available.
+
+    Returns:
+        str: Arabic label for the category, or an empty string if no matching label is found.
+    """
     if category == "people":
         return "أشخاص"
 
@@ -119,59 +120,16 @@ def _get_direct_lookup(category: str) -> str:
     )
 
 
-def _handle_nationality_logic(
-    category: str,
-    main_ss: str,
-    category_suffix: str,
-    country_prefix: str,
-) -> Tuple[str, str, str]:
-    """
-    Handle nationality extraction and related job label logic.
-
-    Returns:
-        tuple: (country_lab, country_prefix, category_suffix, job_example_lab, updated_main_lab)
-    """
-    job_example_lab = ""
-    updated_main_lab = ""
-    country_lab = ""
-
-    category_suffix, country_prefix = get_suffix_with_keys(category, All_Nat, "nat")
-
-    if category_suffix and (main_ss in prefix_lab_for_2018) and not country_lab:
-        # en_is_nat_ar_is_women
-        job_example_lab = en_is_nat_ar_is_women.get(category_suffix.strip(), "")
-        if job_example_lab:
-            country_lab = job_example_lab.format(Nat_women[country_prefix])
-            logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
-            updated_main_lab = prefix_lab_for_2018[main_ss]["female"]
-
-        # en_is_nat_ar_is_man
-        if not country_lab:
-            job_example_lab = en_is_nat_ar_is_man.get(category_suffix.strip(), "")
-            if job_example_lab:
-                country_lab = job_example_lab.format(Nat_men[country_prefix])
-                logger.debug(f"<<lightblue>> bot_te_4, new {country_lab=} ")
-                updated_main_lab = prefix_lab_for_2018[main_ss]["male"]
-
-    return country_lab, job_example_lab, updated_main_lab
-
-
 @functools.lru_cache(maxsize=None)
 def te4_2018_Jobs(cate: str) -> str:
-    """Retrieve job-related information based on the specified category.
+    """
+    Determine the localized label for a job- or nationality-related category.
 
-    This function processes the input category to determine the appropriate
-    job-related label and returns it. It utilizes various mappings and
-    conditions to derive the correct label based on prefixes, gender
-    considerations, and other contextual information. The function also
-    caches results for efficiency, avoiding redundant computations for
-    previously queried categories.
-
-    Args:
-        cate (str): The category of jobs to retrieve information for.
+    Parameters:
+        cate (str): Category name or phrase (underscores are treated as spaces).
 
     Returns:
-        str: The job-related label corresponding to the input category.
+        str: The localized label corresponding to the category, or an empty string if no label can be resolved.
 
     TODO: use FormatData method
     """
@@ -204,16 +162,8 @@ def te4_2018_Jobs(cate: str) -> str:
     category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
 
     if not country_lab:
-        # 4. Nationality Logic
-        country_lab, job_example_lab, updated_main_lab = _handle_nationality_logic(
-            cate_lower, main_ss, category_suffix, country_prefix
-        )
-
         if category_suffix and not country_lab:
             country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
-
-        if updated_main_lab:
-            main_lab = updated_main_lab
 
         # 5. Fallback Prefixes
         if not country_lab:
@@ -222,10 +172,6 @@ def te4_2018_Jobs(cate: str) -> str:
     # 6. Final Formatting
     if main_ss and main_lab and country_lab:
         country_lab = main_lab.format(country_lab)
-        if main_ss in Main_prefix_to and job_example_lab:
-            job_example_lab = job_example_lab.format("").strip()
-            country_lab = Main_prefix_to[main_ss].format(nat=Nat_women[country_prefix], t=job_example_lab)
-
     if not country_lab:
         country_lab = new_religions_jobs_with_suffix(cate_lower)
 

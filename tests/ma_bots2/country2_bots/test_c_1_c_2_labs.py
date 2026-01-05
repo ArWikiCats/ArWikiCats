@@ -356,7 +356,6 @@ fast_data_c_2_1_lab = {
     "american football executives": "مسيرو كرة قدم أمريكية",
     "american football players": "لاعبو كرة قدم أمريكية",
     "american revolution": "الثورة الأمريكية",
-    "ancient indian philosophy": "فلسفة هندية قديمة",
     "andorra la vella": "أندورا لا فيلا",
     "ang thong province": "محافظة أنغ ثونغ",
     "animated television series": "مسلسلات تلفزيونية رسوم متحركة",

@@ -108,12 +108,6 @@ TELEVISION_KEYS = {
     "works": "أعمال",
 }
 
-# LGBTQ-related films format
-Films_key_CAO_new_format = {
-    "lgbtq-related films": "أفلام {} متعلقة بإل جي بي تي كيو",
-}
-
-
 # =============================================================================
 # Helper Functions
 # =============================================================================
@@ -552,7 +546,6 @@ __all__ = [
     "film_keys_for_male",
     "Films_key_333",
     "Films_key_CAO",
-    "Films_key_CAO_new_format",
     "Films_key_For_nat",
     "Films_key_man",
     "Films_keys_both_new_female",
