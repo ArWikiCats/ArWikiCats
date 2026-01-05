@@ -94,7 +94,7 @@ test_data = {
     "mexican independent films": "أفلام مستقلة مكسيكية",
     "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "moroccan musical films": "أفلام موسيقية مغربية",
-    "nigerian musical drama films": "أفلام درامية موسيقية نيجيرية",
+    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
     "north korean drama films": "أفلام درامية كورية شمالية",
     "norwegian comedy-drama films": "أفلام كوميدية درامية نرويجية",
     "philippine kung fu films": "أفلام كونغ فو فلبينية",
@@ -127,7 +127,7 @@ test_data = {
     "yemeni action drama films": "أفلام حركة درامية يمنية",
     "yemeni films images": "صور أفلام يمنية",
     "yemeni legal drama films": "أفلام دراما قانونية يمنية",
-    "yemeni musical drama films": "أفلام درامية موسيقية يمنية",
+    "yemeni musical drama films": "أفلام موسيقية درامية يمنية",
 }
 
 test_data2 = {

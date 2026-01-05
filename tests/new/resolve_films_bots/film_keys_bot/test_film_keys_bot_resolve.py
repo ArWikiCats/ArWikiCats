@@ -70,7 +70,7 @@ fast_data_with_nat = {
     "mexican independent films": "أفلام مستقلة مكسيكية",
     "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "moroccan musical films": "أفلام موسيقية مغربية",
-    "nigerian musical drama films": "أفلام درامية موسيقية نيجيرية",
+    "nigerian musical drama films": "أفلام موسيقية درامية نيجيرية",
     "north korean drama films": "أفلام درامية كورية شمالية",
     "norwegian comedy-drama films": "أفلام كوميدية درامية نرويجية",
     "philippine kung fu films": "أفلام كونغ فو فلبينية",

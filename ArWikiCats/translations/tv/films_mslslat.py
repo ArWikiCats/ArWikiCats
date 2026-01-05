@@ -459,9 +459,9 @@ films_mslslat_tab.update(
 Films_key_For_nat.update({
     "drama films": "أفلام درامية {}",
     "legal drama films": "أفلام درامية قانونية {}",
-    # "yemeni musical drama films" : "تصنيف:أفلام درامية موسيقية يمنية",
-    "musical drama films": "أفلام درامية موسيقية {}",
-    "political drama films": "أفلام درامية سياسية {}",
+    # "yemeni musical drama films" : "تصنيف:أفلام موسيقية درامية يمنية",
+    "musical drama films": "أفلام موسيقية درامية {}",
+    "political drama films": "أفلام سياسية درامية {}",
     "romantic drama films": "أفلام درامية رومانسية {}",
     "sports drama films": "أفلام درامية رياضية {}",
     "comedy drama films": "أفلام درامية كوميدية {}",
