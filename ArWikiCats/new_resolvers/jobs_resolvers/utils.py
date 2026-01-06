@@ -39,6 +39,9 @@ def one_Keys_more_2(
     # greek blind
     data[f"{en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
+    # Executed Albanian
+    data[f"{x} {en_nat_key}"] = f"{ar_nat_key} {v}"
+
     # greek writers blind
     data[f"{en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
@@ -46,6 +49,9 @@ def one_Keys_more_2(
     data[f"{en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     if add_women:
+        # Executed Albanian women
+        data[f"{x} {en_nat_key} {women_key}"] = f"{ar_nat_key} {v}"
+
         # female greek blind
         data[f"{women_key} {en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
@@ -60,7 +66,6 @@ def one_Keys_more_2(
 
         # writers female greek blind
         data[f"{en_job_key} {women_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
-
         # female writers greek blind
         data[f"{women_key} {en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 

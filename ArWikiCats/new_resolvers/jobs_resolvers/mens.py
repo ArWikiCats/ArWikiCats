@@ -81,6 +81,8 @@ def _load_formatted_data() -> dict:
         "blind": "مكفوفون",
         "abolitionists": "مناهضون للعبودية",
         "deaf": "صم",
+        "executed": "أعدموا",
+        "executed abroad": "أعدموا في الخارج",
         "deafblind": "صم ومكفوفون",
         "killed-in-action": "قتلوا في عمليات قتالية",
         "killed in action": "قتلوا في عمليات قتالية",
@@ -88,7 +90,6 @@ def _load_formatted_data() -> dict:
     }
 
     for x, v in genders_keys.items():
-        # formatted_data.update( one_Keys_more_2(x, v, add_women=False) )
         keys_more = one_Keys_more_2(
             x,
             v,
@@ -110,7 +111,9 @@ def _load_formatted_data() -> dict:
             # "{en_nat} saints": "{males} قديسون",
             "{en_nat} anti-communists": "{males} مناهضون للشيوعية",
             "{en_nat} disability rights activists": "{males} ناشطون في حقوق الإعاقة",
-            "{en_nat} executed abroad": "{males} أعدموا في الخارج",
+            # "executed {en_nat}": "{males} أعدموا",
+            # "{en_nat} executed": "{males} أعدموا",
+            # "{en_nat} executed abroad": "{males} أعدموا في الخارج",
             "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
             "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
             "{en_nat} contemporary artists": "فنانون {males} معاصرون",

@@ -77,8 +77,10 @@ def _load_formatted_data() -> dict:
 
     genders_keys: dict[str, str] = {
         "blind": "مكفوفات",
-        "deaf": "صم",
         "abolitionists": "مناهضات للعبودية",
+        "deaf": "صم",
+        "executed": "أعدمن",
+        "executed abroad": "أعدمن في الخارج",
         "deafblind": "صم ومكفوفات",
         "killed-in-action": "قتلن في عمليات قتالية",
         "killed in action": "قتلن في عمليات قتالية",
@@ -86,7 +88,18 @@ def _load_formatted_data() -> dict:
     }
 
     for x, v in genders_keys.items():
-        formatted_data.update(one_Keys_more_2(x, v, ar_nat_key="{females}", women_key="female", add_women=True))
+        keys_more = one_Keys_more_2(
+            x,
+            v,
+            en_nat_key="{en_nat}",
+            en_job_key="{en_job}",
+            ar_nat_key="{females}",
+            ar_job_key="{ar_job}",
+            women_key="female",
+            add_women=True,
+        )
+        formatted_data.update(keys_more)
+
     formatted_data.update(formatted_data_jobs_with_nat)
 
     # formatted_data.update({ "{en_nat} female film directors": "مخرجات أفلام {females}"})
