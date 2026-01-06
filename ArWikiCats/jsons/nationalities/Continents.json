@@ -59,16 +59,6 @@
         "the_female": "الأوقيانوسية",
         "the_male": "الأوقيانوسي"
     },
-    "australian": {
-        "male": "أسترالي",
-        "males": "أستراليون",
-        "female": "أسترالية",
-        "females": "أستراليات",
-        "en": "australia",
-        "ar": "أستراليا",
-        "the_female": "الأسترالية",
-        "the_male": "الأسترالي"
-    },
     "southern european": {
         "male": "أوروبي جنوبي",
         "males": "أوروبيون جنوبيون",

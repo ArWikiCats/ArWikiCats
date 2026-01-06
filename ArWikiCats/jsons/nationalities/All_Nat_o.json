@@ -49,6 +49,16 @@
         "the_female": "الألبانية",
         "the_male": "الألباني"
     },
+    "australian": {
+        "male": "أسترالي",
+        "males": "أستراليون",
+        "female": "أسترالية",
+        "females": "أستراليات",
+        "en": "australia",
+        "ar": "أستراليا",
+        "the_female": "الأسترالية",
+        "the_male": "الأسترالي"
+    },
     "algerian": {
         "male": "جزائري",
         "males": "جزائريون",
