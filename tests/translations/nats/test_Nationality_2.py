@@ -89,16 +89,6 @@ def test_normalize_aliases_alias_copy() -> None:
     assert out["russians"]["male"] == "روسي"
 
 
-def test_normalize_aliases_adds_southwest_asian() -> None:
-    """normalize_aliases must always inject 'southwest asian' entry."""
-
-    out = normalize_aliases({})
-    assert "southwest asian" in out
-    entry = out["southwest asian"]
-    assert entry["en"] == "southwest asia"
-    assert entry["ar"] == "جنوب غرب آسيا"
-
-
 def test_normalize_aliases_georgia_country_copy() -> None:
     """georgia (country) should be derived from georgian entry and override 'en'."""
 

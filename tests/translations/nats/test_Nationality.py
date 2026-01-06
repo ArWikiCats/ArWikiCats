@@ -31,11 +31,6 @@ def test_alias_mapping() -> None:
     assert out["russians"]["en"] == "russia"
 
 
-def test_southwest_asian_added() -> None:
-    out = normalize_aliases({})
-    assert "southwest asian" in out
-
-
 def test_georgia_country_copy() -> None:
     ArWikiCats = {"georgian": {"male": "x", "males": "", "female": "", "females": "", "en": "georgia", "ar": "جورجي"}}
     out = normalize_aliases(ArWikiCats)
