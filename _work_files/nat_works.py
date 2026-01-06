@@ -12,8 +12,8 @@ the_female
 "the_female": "الإفريقية الشمالية",
 
 
-"female": "جنوبية إفريقية",
-"the_female": "الجنوبية الإفريقية",
+"female": "جنوب إفريقية",
+"the_female": "الجنوب الإفريقية",
 """
 import json
 from pathlib import Path
@@ -27,7 +27,7 @@ def add_definite_article(word: str) -> str:
     Examples:
       - "بروسية" -> "البروسية"
       - "إفريقية شمالية" -> "الإفريقية الشمالية"
-      - "جنوبية إفريقية" -> "الجنوبية الإفريقية"
+      - "جنوب إفريقية" -> "الجنوب الإفريقية"
     """
     if not word:
         return word
