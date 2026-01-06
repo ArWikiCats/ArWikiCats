@@ -381,8 +381,14 @@ all_formatted_data = (
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
-    nats_data.update({x: v for x, v in nats_keys_as_country_names.items() if v.get("ar")})
+
+    nats_data = {
+        x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
+    }
+    nats_data.update({
+        x: v for x, v in nats_keys_as_country_names.items()  # if v.get("ar")
+    })
+
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,

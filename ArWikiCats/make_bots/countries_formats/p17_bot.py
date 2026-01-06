@@ -18,12 +18,12 @@ from ...translations import (
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
-countries_from_nat_sorted = sorted(
-    countries_from_nat.keys(),
-    key=lambda k: (-k.count(" "), -len(k)),
+countries_from_nat_sorted = dict(
+    sorted(
+        countries_from_nat.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
 )
-
-# @dump_data(1)
 
 
 def from_category_relation_mapping(suffix) -> str:
