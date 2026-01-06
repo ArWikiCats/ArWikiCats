@@ -325,7 +325,7 @@ te4_2018_Jobs_data = {
     "south korean expatriates": "كوريون جنوبيون مغتربون",
     "south korean male biathletes": "لاعبو بياثلون ذكور كوريون جنوبيون",
     "south korean songwriters": "كتاب أغان كوريون جنوبيون",
-    "south sudanese expatriate sports-people": "رياضيون جنوبيون سودانيون مغتربون",
+    "south sudanese expatriate sports-people": "رياضيون سودانيون جنوبيون مغتربون",
     "soviet biochemists": "كيميائيون حيويون سوفيت",
     "soviet filmmakers": "صانعو أفلام سوفيت",
     "soviet male figure skaters": "متزلجون فنيون ذكور سوفيت",

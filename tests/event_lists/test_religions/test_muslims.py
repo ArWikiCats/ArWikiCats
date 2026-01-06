@@ -160,7 +160,7 @@ religions_data = {
     "south african muslims": "تصنيف:جنوب إفريقيون مسلمون",
     "south american muslims": "تصنيف:أمريكيون جنوبيون مسلمون",
     "south korean muslims": "تصنيف:كوريون جنوبيون مسلمون",
-    "south sudanese muslims": "تصنيف:جنوبيون سودانيون مسلمون",
+    "south sudanese muslims": "تصنيف:سودانيون جنوبيون مسلمون",
     "soviet muslims": "تصنيف:سوفيت مسلمون",
     "spanish muslims": "تصنيف:إسبان مسلمون",
     "sri lankan muslims": "تصنيف:سريلانكيون مسلمون",
