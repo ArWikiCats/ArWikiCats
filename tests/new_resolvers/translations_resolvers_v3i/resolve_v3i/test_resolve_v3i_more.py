@@ -145,7 +145,6 @@ test_data_standard = {
     "18th-century people from Pennsylvania": "أشخاص من بنسلفانيا في القرن 18",
     "18th-century people from South Carolina": "أشخاص من كارولاينا الجنوبية في القرن 18",
     "18th-century people from the Dutch Empire": "أشخاص من الإمبراطورية الهولندية في القرن 18",
-    "18th-century people from the Kazakh Khanate": "أشخاص من خانات كازاخ في القرن 18",
     "18th-century people from the Polish–Lithuanian Commonwealth": "أشخاص من الكومنولث البولندي الليتواني في القرن 18",
     "18th-century people from the Russian Empire": "أشخاص من الإمبراطورية الروسية في القرن 18",
     "18th-century people from Virginia": "أشخاص من فرجينيا في القرن 18",

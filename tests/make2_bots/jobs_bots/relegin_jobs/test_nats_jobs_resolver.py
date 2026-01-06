@@ -8,7 +8,7 @@ from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix_lab
 
 # from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
 # from ArWikiCats import resolve_label_ar as resolve_nats_jobs
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
+# from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 
 data_without_nats = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",
@@ -34,6 +34,8 @@ test_data_error = {
 }
 
 test_data = {
+    "Turkish Cypriot Sufis": "قبرصيون شماليون صوفيون",
+    "Turkish Cypriot Sunni Muslims": "قبرصيون شماليون مسلمون سنة",
     "Afghan Christians": "أفغان مسيحيون",
     "American Episcopalians": "أمريكيون أسقفيون",
     "American Hindus": "أمريكيون هندوس",
@@ -91,8 +93,6 @@ test_data = {
     "Tunisian Sufis": "تونسيون صوفيون",
     "Tunisian Sunni Muslims": "تونسيون مسلمون سنة",
     "Turkish Christians": "أتراك مسيحيون",
-    "Turkish Cypriot Sufis": "قبرصيون شماليون صوفيون",
-    "Turkish Cypriot Sunni Muslims": "قبرصيون شماليون مسلمون سنة",
     "Turkish Sufis": "أتراك صوفيون",
     "Turkish Sunni Muslims": "أتراك مسلمون سنة",
     "Turkish Yazidis": "أتراك يزيديون",

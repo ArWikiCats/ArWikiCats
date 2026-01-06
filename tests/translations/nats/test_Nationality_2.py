@@ -4,6 +4,7 @@ import pytest
 
 from ArWikiCats.translations.nats.Nationality import (
     NationalityEntry,
+    All_Nat,
     build_american_forms,
     build_lookup_tables,
     load_sources,
@@ -291,3 +292,11 @@ def test_full_pipeline_with_alias_and_american() -> None:
 
     assert "russian" in result["Nat_men"]
     assert result["countries_from_nat"]["russia"] == "روسيا"
+
+
+def test_normalize_aliases_keys() -> None:
+    """Test that alias normalization works correctly for keys."""
+
+    assert "turkish cypriot" in All_Nat
+    assert "northern cypriot" in All_Nat
+    assert All_Nat["turkish cypriot"] == All_Nat["northern cypriot"]

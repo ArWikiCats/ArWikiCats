@@ -238,7 +238,6 @@ data_2018_with_nat = {
     "ivorian companies": "شركات إيفوارية",
     "japanese war crimes": "جرائم حرب يابانية",
     "jewish scottish history": "تاريخ إسكتلندي يهودي",
-    "kazakh presidential election": "انتخابات الرئاسة الكازاخية",
     "kyrgyzstani sport": "رياضة قيرغيزستانية",
     "lebanese television series": "مسلسلات تلفزيونية لبنانية",
     "lithuanian films": "أفلام ليتوانية",

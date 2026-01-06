@@ -220,7 +220,6 @@ fast_data = {
     "jewish american tennis": "كرة مضرب أمريكية يهودية",
     "jewish manuscripts": "مخطوطات يهودية",
     "jordanian football": "كرة القدم الأردنية",
-    "kazakh brands": "ماركات كازاخية",
     "kenyan novels": "روايات كينية",
     "kenyan television series": "مسلسلات تلفزيونية كينية",
     "korean american culture": "ثقافة أمريكية كورية",
