@@ -159,7 +159,7 @@ def load_sources(
 
     raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
     raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/sub_nats.json") or {}
-    continents: Dict[str, Any] = open_json_file("nationalities/Continents.json") or {}
+    continents: Dict[str, Any] = open_json_file("nationalities/continents.json") or {}
 
     data = {}
 
