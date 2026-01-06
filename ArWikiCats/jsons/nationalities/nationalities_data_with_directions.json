@@ -4,139 +4,139 @@
         "males": "شرقيون أوسطيون",
         "female": "شرقية أوسطية",
         "females": "شرقيات أوسطيات",
-        "en": "middle east",
-        "ar": "الشرق الأوسط",
+        "the_male": "الشرقي الأوسطي",
         "the_female": "الشرقية الأوسطية",
-        "the_male": "الشرقي الأوسطي"
+        "en": "middle east",
+        "ar": "الشرق الأوسط"
     },
     "south african": {
         "male": "جنوب إفريقي",
         "males": "جنوب إفريقيون",
         "female": "جنوب إفريقية",
         "females": "جنوب إفريقيات",
-        "en": "south africa",
-        "ar": "جنوب إفريقيا",
+        "the_male": "الجنوب الإفريقي",
         "the_female": "الجنوب الإفريقية",
-        "the_male": "الجنوب الإفريقي"
+        "en": "south africa",
+        "ar": "جنوب إفريقيا"
     },
     "north african": {
         "male": "إفريقي شمالي",
         "males": "إفريقيون شماليون",
         "female": "إفريقية شمالية",
         "females": "إفريقيات شماليات",
-        "en": "north africa",
-        "ar": "شمال إفريقيا",
+        "the_male": "الإفريقي الشمالي",
         "the_female": "الإفريقية الشمالية",
-        "the_male": "الإفريقي الشمالي"
+        "en": "north africa",
+        "ar": "شمال إفريقيا"
     },
     "south korean": {
         "male": "كوري جنوبي",
         "males": "كوريون جنوبيون",
         "female": "كورية جنوبية",
         "females": "كوريات جنوبيات",
-        "en": "south korea",
-        "ar": "كوريا الجنوبية",
+        "the_male": "الكوري الجنوبي",
         "the_female": "الكورية الجنوبية",
-        "the_male": "الكوري الجنوبي"
+        "en": "south korea",
+        "ar": "كوريا الجنوبية"
     },
     "south sudanese": {
         "male": "سوداني جنوبي",
         "males": "سودانيون جنوبيون",
         "female": "سودانية جنوبية",
         "females": "سودانيات جنوبيات",
-        "en": "south sudan",
-        "ar": "جنوب السودان",
+        "the_male": "السوداني الجنوبي",
         "the_female": "السودانية الجنوبية",
-        "the_male": "السوداني الجنوبي"
+        "en": "south sudan",
+        "ar": "جنوب السودان"
     },
     "north korean": {
         "male": "كوري شمالي",
         "males": "كوريون شماليون",
         "female": "كورية شمالية",
         "females": "كوريات شماليات",
-        "en": "north korea",
-        "ar": "كوريا الشمالية",
+        "the_male": "الكوري الشمالي",
         "the_female": "الكورية الشمالية",
-        "the_male": "الكوري الشمالي"
+        "en": "north korea",
+        "ar": "كوريا الشمالية"
     },
     "north macedonian": {
         "male": "مقدوني شمالي",
         "males": "مقدونيون شماليون",
         "female": "مقدونية شمالية",
         "females": "مقدونيات شماليات",
-        "en": "north macedonia",
-        "ar": "مقدونيا الشمالية",
+        "the_male": "المقدوني الشمالي",
         "the_female": "المقدونية الشمالية",
-        "the_male": "المقدوني الشمالي"
+        "en": "north macedonia",
+        "ar": "مقدونيا الشمالية"
     },
     "south yemeni": {
         "male": "يمني جنوبي",
         "males": "يمنيون جنوبيون",
         "female": "يمنية جنوبية",
         "females": "يمنيات جنوبيات",
-        "en": "south yemen",
-        "ar": "جمهورية اليمن الديمقراطية الشعبية",
+        "the_male": "اليمني الجنوبي",
         "the_female": "اليمنية الجنوبية",
-        "the_male": "اليمني الجنوبي"
+        "en": "south yemen",
+        "ar": "جمهورية اليمن الديمقراطية الشعبية"
     },
     "north yemeni": {
         "male": "يمني شمالي",
         "males": "يمنيون شماليون",
         "female": "يمنية شمالية",
         "females": "يمنيات شماليات",
-        "en": "north yemen",
-        "ar": "اليمن الشمالي",
+        "the_male": "اليمني الشمالي",
         "the_female": "اليمنية الشمالية",
-        "the_male": "اليمني الشمالي"
+        "en": "north yemen",
+        "ar": "اليمن الشمالي"
     },
     "northern cypriot": {
         "male": "قبرصي شمالي",
         "males": "قبرصيون شماليون",
         "female": "قبرصية شمالية",
         "females": "قبرصيات شماليات",
-        "en": "northern cyprus",
-        "ar": "قبرص الشمالية",
+        "the_male": "القبرصي الشمالي",
         "the_female": "القبرصية الشمالية",
-        "the_male": "القبرصي الشمالي"
+        "en": "northern cyprus",
+        "ar": "قبرص الشمالية"
     },
     "east german": {
         "male": "ألماني شرقي",
         "males": "ألمانيون شرقيون",
         "female": "ألمانية شرقية",
         "females": "ألمانيات شرقيات",
-        "en": "east germany",
-        "ar": "ألمانيا الشرقية",
+        "the_male": "الألماني الشرقي",
         "the_female": "الألمانية الشرقية",
-        "the_male": "الألماني الشرقي"
+        "en": "east germany",
+        "ar": "ألمانيا الشرقية"
     },
     "east timorese": {
         "male": "تيموري شرقي",
         "males": "تيموريون شرقيون",
         "female": "تيمورية شرقية",
         "females": "تيموريات شرقيات",
-        "en": "east timor",
-        "ar": "تيمور الشرقية",
+        "the_male": "التيموري الشرقي",
         "the_female": "التيمورية الشرقية",
-        "the_male": "التيموري الشرقي"
+        "en": "east timor",
+        "ar": "تيمور الشرقية"
     },
     "west german": {
         "male": "ألماني غربي",
         "males": "ألمانيون غربيون",
         "female": "ألمانية غربية",
         "females": "ألمانيات غربيات",
-        "en": "west germany",
-        "ar": "ألمانيا الغربية",
+        "the_male": "الألماني الغربي",
         "the_female": "الألمانية الغربية",
-        "the_male": "الألماني الغربي"
+        "en": "west germany",
+        "ar": "ألمانيا الغربية"
     },
     "western canadian": {
         "male": "كندي غربي",
         "males": "كنديون غربيون",
         "female": "كندية غربية",
         "females": "كنديات غربيات",
-        "en": "western canada",
-        "ar": "غرب كندا",
+        "the_male": "الكندي الغربي",
         "the_female": "الكندية الغربية",
-        "the_male": "الكندي الغربي"
+        "en": "western canada",
+        "ar": "غرب كندا"
     }
 }
