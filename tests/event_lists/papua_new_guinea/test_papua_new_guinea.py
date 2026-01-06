@@ -869,8 +869,6 @@ data_1 = {
     "Category:Peninsulas of Papua New Guinea": "تصنيف:أشباه جزر في بابوا غينيا الجديدة",
     "Category:People by educational institution in Papua New Guinea": "تصنيف:أشخاص حسب الهيئة التعليمية في بابوا غينيا الجديدة",
     "Category:People by university or college in Papua New Guinea": "تصنيف:أشخاص حسب الجامعة أو الكلية في بابوا غينيا الجديدة",
-    "Category:People executed by Papua New Guinea": "تصنيف:أشخاص أعدموا من قبل بابوا غينيا الجديدة",
-    "Category:People executed by Papua New Guinea by hanging": "تصنيف:أشخاص أعدموا من قبل بابوا غينيا الجديدة بالشنق",
     "Category:People murdered in Papua New Guinea": "تصنيف:أشخاص قتلوا في بابوا غينيا الجديدة",
     "Category:Performing arts in Papua New Guinea": "تصنيف:الفنون التمثيلية في بابوا غينيا الجديدة",
     "Category:Permanent representatives of Papua New Guinea to the European Union": "تصنيف:مندوبو بابوا غينيا الجديدة الدائمون إلى الاتحاد الأوروبي",

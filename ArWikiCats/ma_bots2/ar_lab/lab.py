@@ -317,13 +317,9 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
     Returns:
         List of lookup functions to try in order
     """
-    data = {
-        "executed people": "أشخاص أعدموا",
-    }
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
-        "data_get": lambda t: data.get(t),
         "get_from_new_p17_final": lambda t: get_from_new_p17_final(t),
         "new_resolvers_all": lambda t: new_resolvers_all(t),
         "_lookup_type_without_article": _lookup_type_without_article,
