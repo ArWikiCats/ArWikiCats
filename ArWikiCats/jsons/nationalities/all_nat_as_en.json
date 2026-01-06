@@ -1,106 +1,104 @@
 {
+    "northern ireland": {
+        "male": "أيرلندي شمالي",
+        "males": "أيرلنديون شماليون",
+        "female": "أيرلندية شمالية",
+        "females": "أيرلنديات شماليات",
+        "the_male": "الأيرلندي الشمالي",
+        "the_female": "الأيرلندية الشمالية",
+        "en": "northern ireland",
+        "ar": "أيرلندا الشمالية"
+    },
+    "botswana": {
+        "male": "بوتسواني",
+        "males": "بوتسوانيون",
+        "female": "بوتسوانية",
+        "females": "بوتسوانيات",
+        "the_male": "البوتسواني",
+        "the_female": "البوتسوانية",
+        "en": "botswana",
+        "ar": "بوتسوانا"
+    },
     "trinidad and tobago": {
         "en_nat": "trinidadian",
         "male": "ترنيدادي",
         "males": "ترنيداديون",
         "female": "ترنيدادية",
         "females": "ترنيداديات",
-        "en": "trinidad and tobago",
-        "ar": "ترينيداد وتوباغو",
+        "the_male": "الترنيدادي",
         "the_female": "الترنيدادية",
-        "the_male": "الترنيدادي"
+        "en": "trinidad and tobago",
+        "ar": "ترينيداد وتوباغو"
     },
-    "central african republic": {
-        "men__": "وسط إفريقي",
-        "xx_men": "إفريقي أوسطي",
-        "males": "أفارقة أوسطيون",
-        "female": "إفريقية أوسطية",
-        "females": "إفريقيات أوسطيات",
-        "en": "central african republic",
-        "ar": "جمهورية إفريقيا الوسطى",
-        "the_female": "الإفريقية الأوسطية",
-        "the_male": "الإفريقي الأوسطي"
-    },
-    "northern ireland": {
-        "male": "أيرلندي شمالي",
-        "males": "أيرلنديون شماليون",
-        "female": "أيرلندية شمالية",
-        "females": "أيرلنديات شماليات",
-        "en": "northern ireland",
-        "ar": "أيرلندا الشمالية",
-        "the_female": "الأيرلندية الشمالية",
-        "the_male": "الأيرلندي الشمالي"
-    },
-    "antigua and barbuda": {
-        "en_nat": "antiguan and barbudan",
-        "en": "antigua and barbuda",
-        "ar": "أنتيغوا وباربودا",
+    "antiguan and barbudan": {
         "male": "أنتيغوي وبربودي",
         "males": "أنتيغويون وبربوديون",
         "female": "أنتيغوية وبربودية",
         "females": "أنتيغويات وبربوديات",
+        "the_male": "الأنتيغوي والبربودي",
         "the_female": "الأنتيغوية والبربودية",
-        "the_male": "الأنتيغوي والبربودي"
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا"
     },
     "chinese taipei": {
         "male": "تايبي صيني",
         "males": "تايبيون صينيون",
         "female": "تايبيه صينية",
         "females": "تايبيات صينيات",
-        "en": "chinese taipei",
-        "ar": "تايبيه الصينية",
+        "the_male": "التايبي الصيني",
         "the_female": "التايبيه الصينية",
-        "the_male": "التايبي الصيني"
+        "en": "chinese taipei",
+        "ar": "تايبيه الصينية"
     },
     "dominican republic": {
         "male": "دومينيكاني",
         "males": "دومينيكانيون",
         "female": "دومينيكانية",
         "females": "دومينيكانيات",
-        "en": "dominican republic",
-        "ar": "جمهورية الدومينيكان",
+        "the_male": "الدومينيكاني",
         "the_female": "الدومينيكانية",
-        "the_male": "الدومينيكاني"
+        "en": "dominican republic",
+        "ar": "جمهورية الدومينيكان"
     },
     "federated states-of micronesia": {
         "male": "ميكرونيزي",
         "males": "ميكرونيزيون",
         "female": "ميكرونيزية",
         "females": "ميكرونيزيات",
-        "en": "federated states-of micronesia",
-        "ar": "ولايات ميكرونيسيا المتحدة",
+        "the_male": "الميكرونيزي",
         "the_female": "الميكرونيزية",
-        "the_male": "الميكرونيزي"
+        "en": "federated states-of micronesia",
+        "ar": "ولايات ميكرونيسيا المتحدة"
     },
     "hong kong": {
         "male": "هونغ كونغي",
         "males": "هونغ كونغيون",
         "female": "هونغ كونغية",
         "females": "هونغ كونغيات",
-        "en": "hong kong",
-        "ar": "هونغ كونغ",
+        "the_male": "الهونغ الكونغي",
         "the_female": "الهونغ الكونغية",
-        "the_male": "الهونغ الكونغي"
+        "en": "hong kong",
+        "ar": "هونغ كونغ"
     },
     "kiribati": {
         "male": "كيريباتي",
         "males": "كيريباتيون",
         "female": "كيريباتية",
         "females": "كيريباتيات",
-        "en": "kiribati",
-        "ar": "كيريباتي",
+        "the_male": "الكيريباتي",
         "the_female": "الكيريباتية",
-        "the_male": "الكيريباتي"
+        "en": "kiribati",
+        "ar": "كيريباتي"
     },
     "kyrgyz": {
         "male": "قيرغيزي",
         "males": "قيرغيزيون",
         "female": "قيرغيزية",
         "females": "قيرغيزيات",
-        "en": "kyrgyz",
-        "ar": "قيرغيز",
+        "the_male": "القيرغيزي",
         "the_female": "القيرغيزية",
-        "the_male": "القيرغيزي"
+        "en": "kyrgyz",
+        "ar": "قيرغيز"
     },
     "liechtenstein": {
         "en_nat": "liechtensteiner",
@@ -108,70 +106,69 @@
         "males": "ليختنشتانيون",
         "female": "ليختنشتانية",
         "females": "ليختنشتانيات",
-        "en": "liechtenstein",
-        "ar": "ليختنشتاين",
+        "the_male": "الليختنشتاني",
         "the_female": "الليختنشتانية",
-        "the_male": "الليختنشتاني"
+        "en": "liechtenstein",
+        "ar": "ليختنشتاين"
     },
     "lesotho": {
         "male": "ليسوتي",
         "males": "ليسوتيون",
         "female": "ليسوتية",
         "females": "ليسوتيات",
-        "en": "lesotho",
-        "ar": "ليسوتو",
+        "the_male": "الليسوتي",
         "the_female": "الليسوتية",
-        "the_male": "الليسوتي"
+        "en": "lesotho",
+        "ar": "ليسوتو"
     },
     "são toméan": {
         "male": "ساوتومي",
         "males": "ساوتوميون",
         "female": "ساوتومية",
         "females": "ساوتوميات",
-        "en": "são toméan",
-        "ar": "ساو تومي",
+        "the_male": "الساوتومي",
         "the_female": "الساوتومية",
-        "the_male": "الساوتومي"
+        "en": "são toméan",
+        "ar": "ساو تومي"
     },
     "turkmen": {
         "male": "تركماني",
         "males": "تركمانيون",
         "female": "تركمانية",
         "females": "تركمانيات",
-        "en": "turkmen",
-        "en1": "turkmens",
-        "ar": "تركمان",
+        "the_male": "التركماني",
         "the_female": "التركمانية",
-        "the_male": "التركماني"
+        "en": "turkmen",
+        "ar": "تركمان"
     },
     "turkmenistan": {
         "male": "تركماني",
         "males": "تركمانيون",
         "female": "تركمانية",
         "females": "تركمانيات",
-        "en": "turkmenistan",
-        "ar": "تركمانستان",
+        "the_male": "التركماني",
         "the_female": "التركمانية",
-        "the_male": "التركماني"
+        "en": "turkmenistan",
+        "ar": "تركمانستان"
     },
     "uzbek": {
         "male": "أوزبكي",
         "males": "أوزبكيون",
         "female": "أوزبكية",
         "females": "أوزبكيات",
-        "en": "uzbek",
-        "ar": "أوزبك",
+        "the_male": "الأوزبكي",
         "the_female": "الأوزبكية",
-        "the_male": "الأوزبكي"
+        "en": "uzbek",
+        "ar": "أوزبك"
     },
     "vatican": {
         "male": "فاتيكاني",
         "males": "فاتيكانيون",
         "female": "فاتيكانية",
         "females": "فاتيكانيات",
-        "en": "vatican",
-        "ar": "الفاتيكان",
+        "the_male": "الفاتيكاني",
         "the_female": "الفاتيكانية",
-        "the_male": "الفاتيكاني"
+        "en": "vatican",
+        "ar": "الفاتيكان"
     }
 }

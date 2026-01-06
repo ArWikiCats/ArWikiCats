@@ -69,7 +69,7 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     category = category.lower().replace("category:", "")
     # if category dosen't start with number, return ""
     if not category or not category[0].isdigit():
-        logger.debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no digit start", "")
+        logger.debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no digit start")
         return ""
 
     logger.debug(f"<<yellow>> start get_films_key_tyty_new_and_time: {category=}")

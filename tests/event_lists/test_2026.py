@@ -58,7 +58,7 @@ data2 = {
     "Category:16th century iranian people by occupation": "تصنيف:إيرانيون في القرن 16 حسب المهنة",
     "Category:20th century croatian people by occupation": "تصنيف:كروات في القرن 20 حسب المهنة",
     "Category:21st century yemeni people by occupation": "تصنيف:يمنيون في القرن 21 حسب المهنة",
-    "Category:3rd century asian people by nationality": "تصنيف:آسيويين في القرن 3 حسب الجنسية",
+    "Category:3rd century asian people by nationality": "تصنيف:آسيويون في القرن 3 حسب الجنسية",
     "Category:20th century american people by occupation": "تصنيف:أمريكيون في القرن 20 حسب المهنة",
 }
 

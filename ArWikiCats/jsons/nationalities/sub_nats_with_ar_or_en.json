@@ -1,0 +1,222 @@
+{
+    "appalachian": {
+        "male": "أبلاشي",
+        "males": "أبلاشيون",
+        "female": "أبلاشية",
+        "females": "أبلاشيات",
+        "the_male": "الأبلاشي",
+        "the_female": "الأبلاشية",
+        "en": "appalachia",
+        "ar": "الأبالاش"
+    },
+    "arab": {
+        "male": "عربي",
+        "males": "عرب",
+        "female": "عربية",
+        "females": "عربيات",
+        "the_male": "العربي",
+        "the_female": "العربية",
+        "en": "arab",
+        "ar": "عرب"
+    },
+    "assyrian": {
+        "male": "آشوري",
+        "males": "آشوريون",
+        "female": "آشورية",
+        "females": "آشوريات",
+        "the_male": "الآشوري",
+        "the_female": "الآشورية",
+        "en": "assyria",
+        "ar": "آشور"
+    },
+    "byzantine": {
+        "male": "بيزنطي",
+        "males": "بيزنطيون",
+        "female": "بيزنطية",
+        "females": "بيزنطيات",
+        "the_male": "البيزنطي",
+        "the_female": "البيزنطية",
+        "en": "byzantine empire",
+        "ar": "الإمبراطورية البيزنطية"
+    },
+    "caucasus": {
+        "male": "قوقازي",
+        "males": "قوقازيون",
+        "female": "قوقازية",
+        "females": "قوقازيات",
+        "the_male": "القوقازي",
+        "the_female": "القوقازية",
+        "en": "caucasus",
+        "ar": "القوقاز"
+    },
+    "chechen": {
+        "male": "شيشاني",
+        "males": "شيشانيون",
+        "female": "شيشانية",
+        "females": "شيشانيات",
+        "the_male": "الشيشاني",
+        "the_female": "الشيشانية",
+        "en": "chechens",
+        "ar": "الشيشان"
+    },
+    "circassians": {
+        "male": "شركسي",
+        "males": "شركس",
+        "female": "شركسية",
+        "females": "شركسيات",
+        "the_male": "الشركسي",
+        "the_female": "الشركسية",
+        "en": "khazars",
+        "ar": "خزر"
+    },
+    "coptic": {
+        "male": "قبطي",
+        "males": "أقباط",
+        "female": "قبطية",
+        "females": "قبطيات",
+        "the_male": "القبطي",
+        "the_female": "القبطية",
+        "en": "copts",
+        "ar": "أقباط"
+    },
+    "gothic": {
+        "male": "قوطي",
+        "males": "قوطيون",
+        "female": "قوطية",
+        "females": "قوطيات",
+        "the_male": "القوطي",
+        "the_female": "القوطية",
+        "en": "gothic",
+        "ar": "قوطي"
+    },
+    "guadeloupean": {
+        "male": "غواديلوبي",
+        "males": "غواديلوبيون",
+        "female": "غواديلوبية",
+        "females": "غواديلوبيات",
+        "the_male": "الغواديلوبي",
+        "the_female": "الغواديلوبية",
+        "en": "guadeloupe",
+        "ar": "غوادلوب"
+    },
+    "hoklo": {
+        "male": "هوكلوي",
+        "males": "هوكلو",
+        "female": "هوكلوية",
+        "females": "هوكلويات",
+        "the_male": "الهوكلوي",
+        "the_female": "الهوكلوية",
+        "en": "hoklo",
+        "ar": "هوكلو"
+    },
+    "kalmyk": {
+        "male": "قلميقي",
+        "males": "قلميقيون",
+        "female": "قلميقية",
+        "females": "قلميقيات",
+        "the_male": "القلميقي",
+        "the_female": "القلميقية",
+        "en": "kalmyks",
+        "ar": "قلميقيون"
+    },
+    "kurdish": {
+        "male": "كردي",
+        "males": "أكراد",
+        "female": "كردية",
+        "females": "كرديات",
+        "the_male": "الكردي",
+        "the_female": "الكردية",
+        "en": "",
+        "ar": "أكراد"
+    },
+    "nazis": {
+        "male": "نازي",
+        "males": "نازيون",
+        "female": "نازية",
+        "females": "نازيات",
+        "the_male": "النازي",
+        "the_female": "النازية",
+        "en": "nazi germany",
+        "ar": "ألمانيا النازية"
+    },
+    "nordic": {
+        "male": "نوردي",
+        "males": "نورديون",
+        "female": "نوردية",
+        "females": "نورديات",
+        "the_male": "النوردي",
+        "the_female": "النوردية",
+        "en": "nordic countries",
+        "ar": "دول الشمال"
+    },
+    "ossetian": {
+        "male": "أوسيتي",
+        "males": "أوسيتيون",
+        "female": "أوسيتية",
+        "females": "أوسيتيات",
+        "the_male": "الأوسيتي",
+        "the_female": "الأوسيتية",
+        "en": "south ossetia",
+        "ar": "أوسيتيا"
+    },
+    "ottoman": {
+        "male": "عثماني",
+        "males": "عثمانيون",
+        "female": "عثمانية",
+        "females": "عثمانيات",
+        "the_male": "العثماني",
+        "the_female": "العثمانية",
+        "en": "ottoman empire",
+        "ar": "الدولة العثمانية"
+    },
+    "people-of-the-ottoman-empire": {
+        "male": "عثماني",
+        "males": "عثمانيون",
+        "female": "عثمانية",
+        "females": "عثمانيات",
+        "the_male": "العثماني",
+        "the_female": "العثمانية",
+        "en": "ottoman empire",
+        "ar": "الدولة العثمانية"
+    },
+    "persian": {
+        "male": "فارسي",
+        "males": "فرس",
+        "female": "فارسية",
+        "females": "فارسيات",
+        "the_male": "الفارسي",
+        "the_female": "الفارسية",
+        "en": "",
+        "ar": "فارس"
+    },
+    "sahrawi": {
+        "male": "صحراوي",
+        "males": "صحراويون",
+        "female": "صحراوية",
+        "females": "صحراويات",
+        "the_male": "الصحراوي",
+        "the_female": "الصحراوية",
+        "en": "western sahara",
+        "ar": "الصحراء الغربية"
+    },
+    "yoruba": {
+        "male": "يوروبي",
+        "males": "يوروبيون",
+        "female": "يوروبية",
+        "females": "يوروبيات",
+        "the_male": "اليوروبي",
+        "the_female": "اليوروبية",
+        "en": "yoruba",
+        "ar": "يوروبا"
+    },
+    "zulu": {
+        "male": "زولي",
+        "males": "زولو",
+        "female": "زولية",
+        "females": "زوليات",
+        "the_male": "الزولي",
+        "the_female": "الزولية",
+        "en": "zulu people",
+        "ar": "زولو"
+    }
+}

@@ -1,553 +1,522 @@
 {
-    "anglo-irish": {
-        "male": "أنجلو إيرلندي",
-        "males": "أنجلو إيرلنديون",
-        "female": "أنجلو إيرلندية",
-        "females": "أنجلو إيرلنديات",
-        "en": "",
-        "ar": "",
-        "the_female": "الأنجلو الإيرلندية",
-        "the_male": "الأنجلو الإيرلندي"
-    },
-    "ulster scots": {
-        "male": "إسكتلندي أولستري",
-        "males": "إسكتلنديون أولستريون",
-        "female": "إسكتلندية أولسترية",
-        "females": "إسكتلنديات أولستريات",
-        "en": "",
-        "ar": "",
-        "the_female": "الإسكتلندية الأولسترية",
-        "the_male": "الإسكتلندي الأولستري"
-    },
-    "finno-ugric": {
-        "male": "أوغري فيني",
-        "males": "أوغريون فينيون",
-        "female": "أوغرية فينية",
-        "females": "أوغريات فينيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الأوغرية الفينية",
-        "the_male": "الأوغري الفيني"
-    },
-    "indo-aryan": {
-        "male": "هندي آرياني",
-        "males": "هنود آريانيون",
-        "female": "هندية آريانية",
-        "females": "هنديات آريانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الهندية الآريانية",
-        "the_male": "الهندي الآرياني"
-    },
-    "hindustani": {
-        "en_nat": "hindustan",
-        "male": "هندوستاني",
-        "males": "هندوستانيون",
-        "female": "هندوستانية",
-        "females": "هندوستانيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الهندوستانية",
-        "the_male": "الهندوستاني"
-    },
     "acehnese": {
         "male": "أتشيهي",
         "males": "أتشيهيون",
         "female": "أتشيهية",
         "females": "أتشيهيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الأتشيهي",
         "the_female": "الأتشيهية",
-        "the_male": "الأتشيهي"
+        "en": "",
+        "ar": ""
     },
     "aleut": {
         "male": "أليوطي",
         "males": "أليوطيون",
         "female": "أليوطية",
         "females": "أليوطيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الأليوطي",
         "the_female": "الأليوطية",
-        "the_male": "الأليوطي"
+        "en": "",
+        "ar": ""
     },
     "algonquian": {
         "male": "غونكياني",
         "males": "غونكيانيون",
         "female": "غونكيانية",
         "females": "غونكيانيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الغونكياني",
         "the_female": "الغونكيانية",
-        "the_male": "الغونكياني"
+        "en": "",
+        "ar": ""
     },
     "andalusian": {
         "male": "أندلسي",
         "males": "أندلسيون",
         "female": "أندلسية",
         "females": "أندلسيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الأندلسي",
         "the_female": "الأندلسية",
-        "the_male": "الأندلسي"
+        "en": "",
+        "ar": ""
+    },
+    "anglo-irish": {
+        "male": "أنجلو إيرلندي",
+        "males": "أنجلو إيرلنديون",
+        "female": "أنجلو إيرلندية",
+        "females": "أنجلو إيرلنديات",
+        "the_male": "الأنجلو الإيرلندي",
+        "the_female": "الأنجلو الإيرلندية",
+        "en": "",
+        "ar": ""
     },
     "arawak": {
         "male": "أرواكي",
         "males": "أرواكيون",
         "female": "أرواكية",
         "females": "أرواكيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الأرواكي",
         "the_female": "الأرواكية",
-        "the_male": "الأرواكي"
+        "en": "",
+        "ar": ""
     },
     "austronesian": {
         "male": "أسترونيزي",
         "males": "أسترونيزيون",
         "female": "أسترونيزية",
         "females": "أسترونيزيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الأسترونيزي",
         "the_female": "الأسترونيزية",
-        "the_male": "الأسترونيزي"
+        "en": "",
+        "ar": ""
     },
     "bakhtiari": {
         "male": "بختياري",
         "males": "بختياريون",
         "female": "بختيارية",
         "females": "بختياريات",
-        "en": "",
-        "ar": "",
+        "the_male": "البختياري",
         "the_female": "البختيارية",
-        "the_male": "البختياري"
+        "en": "",
+        "ar": ""
     },
     "balinese": {
         "male": "بالي",
         "males": "باليون",
         "female": "بالية",
         "females": "باليات",
-        "en": "",
-        "ar": "",
+        "the_male": "البالي",
         "the_female": "البالية",
-        "the_male": "البالي"
+        "en": "",
+        "ar": ""
     },
     "bantu": {
         "male": "بانتوي",
         "males": "بانتويون",
         "female": "بانتوية",
         "females": "بانتويات",
-        "en": "",
-        "ar": "",
+        "the_male": "البانتوي",
         "the_female": "البانتوية",
-        "the_male": "البانتوي"
+        "en": "",
+        "ar": ""
     },
     "basque": {
         "male": "باسكي",
         "males": "باسكيون",
         "female": "باسكية",
         "females": "باسكيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الباسكي",
         "the_female": "الباسكية",
-        "the_male": "الباسكي"
+        "en": "",
+        "ar": ""
+    },
+    "bermudian": {
+        "male": "برمودي",
+        "males": "برموديون",
+        "female": "برمودية",
+        "females": "برموديات",
+        "the_male": "البرمودي",
+        "the_female": "البرمودية",
+        "en": "",
+        "ar": ""
     },
     "bodo": {
         "male": "بودووي",
         "males": "بودوويون",
         "female": "بودووية",
         "females": "بودوويات",
-        "en": "",
-        "ar": "",
+        "the_male": "البودووي",
         "the_female": "البودووية",
-        "the_male": "البودووي"
+        "en": "",
+        "ar": ""
+    },
+    "bosniak": {
+        "male": "بوشناقي",
+        "males": "بوشناقيون",
+        "female": "بوشناقية",
+        "females": "بوشناقيات",
+        "the_male": "البوشناقي",
+        "the_female": "البوشناقية",
+        "en": "",
+        "ar": ""
     },
     "canarian": {
         "male": "كناري",
         "males": "كناريون",
         "female": "كنارية",
         "females": "كناريات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكناري",
         "the_female": "الكنارية",
-        "the_male": "الكناري"
+        "en": "",
+        "ar": ""
     },
     "cantonese": {
         "male": "كانتوني",
         "males": "كانتونيون",
         "female": "كانتونية",
         "females": "كانتونيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكانتوني",
         "the_female": "الكانتونية",
-        "the_male": "الكانتوني"
+        "en": "",
+        "ar": ""
+    },
+    "caymanian": {
+        "male": "كايماني",
+        "males": "كايمانيون",
+        "female": "كايمانية",
+        "females": "كايمانيات",
+        "the_male": "الكايماني",
+        "the_female": "الكايمانية",
+        "en": "",
+        "ar": ""
+    },
+    "celtic": {
+        "male": "كلتي",
+        "males": "كلتيون",
+        "female": "كلتية",
+        "females": "كلتيات",
+        "the_male": "الكلتي",
+        "the_female": "الكلتية",
+        "en": "",
+        "ar": ""
     },
     "cornish": {
         "male": "كورني",
         "males": "كورنيون",
         "female": "كورنية",
         "females": "كورنيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكورني",
         "the_female": "الكورنية",
-        "the_male": "الكورني"
+        "en": "",
+        "ar": ""
     },
     "corsican": {
         "male": "كورسيكي",
         "males": "كورسيكيون",
         "female": "كورسيكية",
         "females": "كورسيكيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكورسيكي",
         "the_female": "الكورسيكية",
-        "the_male": "الكورسيكي"
+        "en": "",
+        "ar": ""
+    },
+    "finno-ugric": {
+        "male": "أوغري فيني",
+        "males": "أوغريون فينيون",
+        "female": "أوغرية فينية",
+        "females": "أوغريات فينيات",
+        "the_male": "الأوغري الفيني",
+        "the_female": "الأوغرية الفينية",
+        "en": "",
+        "ar": ""
     },
     "gagauz": {
         "male": "كاكوزي",
         "males": "كاكوزيون",
         "female": "كاكوزية",
         "females": "كاكوزيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكاكوزي",
         "the_female": "الكاكوزية",
-        "the_male": "الكاكوزي"
+        "en": "",
+        "ar": ""
     },
     "garifuna": {
         "male": "غاريفوني",
         "males": "غاريفونيون",
         "female": "غاريفونية",
         "females": "غاريفونيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الغاريفوني",
         "the_female": "الغاريفونية",
-        "the_male": "الغاريفوني"
+        "en": "",
+        "ar": ""
     },
     "garo": {
         "male": "غاروي",
         "males": "غارويون",
         "female": "غاروية",
         "females": "غارويات",
-        "en": "",
-        "ar": "",
+        "the_male": "الغاروي",
         "the_female": "الغاروية",
-        "the_male": "الغاروي"
+        "en": "",
+        "ar": ""
+    },
+    "germanic": {
+        "male": "جرماني",
+        "males": "جرمانيون",
+        "female": "جرمانية",
+        "females": "جرمانيات",
+        "the_male": "الجرماني",
+        "the_female": "الجرمانية",
+        "en": "",
+        "ar": ""
+    },
+    "guianan": {
+        "male": "غوياني",
+        "males": "غويانيون",
+        "female": "غويانية",
+        "females": "غويانيات",
+        "the_male": "الغوياني",
+        "the_female": "الغويانية",
+        "en": "",
+        "ar": ""
     },
     "gujarati": {
         "male": "غجراتي",
         "males": "غجراتيون",
         "female": "غجراتية",
         "females": "غجراتيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الغجراتي",
         "the_female": "الغجراتية",
-        "the_male": "الغجراتي"
+        "en": "",
+        "ar": ""
     },
     "hamer": {
         "male": "حماري",
         "males": "حماريون",
         "female": "حمارية",
         "females": "حماريات",
-        "en": "",
-        "ar": "",
+        "the_male": "الحماري",
         "the_female": "الحمارية",
-        "the_male": "الحماري"
+        "en": "",
+        "ar": ""
     },
     "hemshin": {
         "male": "هيمشيني",
         "males": "هيمشينيون",
         "female": "هيمشينية",
         "females": "هيمشينيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الهيمشيني",
         "the_female": "الهيمشينية",
-        "the_male": "الهيمشيني"
-    },
-    "het": {
-        "male": "هيتي",
-        "males": "هيتيون",
-        "female": "هيتية",
-        "females": "هيتيات",
         "en": "",
-        "ar": "",
-        "the_female": "الهيتية",
-        "the_male": "الهيتي"
-    },
-    "ho": {
-        "male": "هووي",
-        "males": "هوويون",
-        "female": "هووية",
-        "females": "هوويات",
-        "en": "",
-        "ar": "",
-        "the_female": "الهووية",
-        "the_male": "الهووي"
-    },
-    "ingush": {
-        "male": "إنغوشي",
-        "males": "إنغوشيون",
-        "female": "إنغوشية",
-        "females": "إنغوشيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الإنغوشية",
-        "the_male": "الإنغوشي"
-    },
-    "javanese": {
-        "male": "جاوي",
-        "males": "جاويون",
-        "female": "جاوية",
-        "females": "جاويات",
-        "en": "",
-        "ar": "",
-        "the_female": "الجاوية",
-        "the_male": "الجاوي"
-    },
-    "jola": {
-        "male": "جولائي",
-        "males": "جولائيون",
-        "female": "جولائية",
-        "females": "جولائيات",
-        "en": "",
-        "ar": "",
-        "the_female": "الجولائية",
-        "the_male": "الجولائي"
+        "ar": ""
     },
     "kabyle": {
         "male": "قبايلي",
         "males": "قبايليون",
         "female": "قبايلية",
         "females": "قبايليات",
-        "en": "",
-        "ar": "",
+        "the_male": "القبايلي",
         "the_female": "القبايلية",
-        "the_male": "القبايلي"
+        "en": "",
+        "ar": ""
     },
     "kashmiri": {
         "male": "كشميري",
         "males": "كشميريون",
         "female": "كشميرية",
         "females": "كشميريات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكشميري",
         "the_female": "الكشميرية",
-        "the_male": "الكشميري"
-    },
-    "khakas": {
-        "male": "خاكي",
-        "males": "خاكيون",
-        "female": "خاكية",
-        "females": "خاكيات",
         "en": "",
-        "ar": "",
-        "the_female": "الخاكية",
-        "the_male": "الخاكي"
+        "ar": ""
     },
     "khanty": {
         "male": "خانتي",
         "males": "خانتيون",
         "female": "خانتية",
         "females": "خانتيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الخانتي",
         "the_female": "الخانتية",
-        "the_male": "الخانتي"
+        "en": "",
+        "ar": ""
+    },
+    "khazars": {
+        "male": "خزري",
+        "males": "خزر",
+        "female": "خزرية",
+        "females": "خزريات",
+        "the_male": "الخزري",
+        "the_female": "الخزرية",
+        "en": "",
+        "ar": ""
+    },
+    "kirghiz": {
+        "male": "قيرغيزي",
+        "males": "قيرغيزيون",
+        "female": "قيرغيزية",
+        "females": "قيرغيزيات",
+        "the_male": "القيرغيزي",
+        "the_female": "القيرغيزية",
+        "en": "",
+        "ar": ""
     },
     "komi": {
         "male": "كومي",
         "males": "كوميون",
         "female": "كومية",
         "females": "كوميات",
-        "en": "",
-        "ar": "",
+        "the_male": "الكومي",
         "the_female": "الكومية",
-        "the_male": "الكومي"
+        "en": "",
+        "ar": ""
     },
     "livonian": {
         "male": "ليفوني",
         "males": "ليفونيون",
         "female": "ليفونية",
         "females": "ليفونيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الليفوني",
         "the_female": "الليفونية",
-        "the_male": "الليفوني"
-    },
-    "madurese": {
-        "male": "مادوري",
-        "males": "مادوريون",
-        "female": "مادورية",
-        "females": "مادوريات",
         "en": "",
-        "ar": "",
-        "the_female": "المادورية",
-        "the_male": "المادوري"
-    },
-    "makassar": {
-        "male": "ماكاساري",
-        "males": "ماكاساريون",
-        "female": "ماكاسارية",
-        "females": "ماكاساريات",
-        "en": "",
-        "ar": "",
-        "the_female": "الماكاسارية",
-        "the_male": "الماكاساري"
+        "ar": ""
     },
     "manx": {
         "male": "مانكسي",
         "males": "مانكسيون",
         "female": "مانكسية",
         "females": "مانكسيات",
-        "en": "",
-        "ar": "",
+        "the_male": "المانكسي",
         "the_female": "المانكسية",
-        "the_male": "المانكسي"
-    },
-    "mari": {
-        "male": "ماريي",
-        "males": "مارييون",
-        "female": "ماريية",
-        "females": "مارييات",
         "en": "",
-        "ar": "",
-        "the_female": "الماريية",
-        "the_male": "الماريي"
+        "ar": ""
     },
-    "mende": {
-        "male": "ميندي",
-        "males": "مينديون",
-        "female": "ميندية",
-        "females": "مينديات",
+    "native americans": {
+        "male": "أمريكي أصلي",
+        "males": "أمريكيون أصليون",
+        "female": "أمريكية أصلية",
+        "females": "أمريكيات أصليات",
+        "the_male": "الأمريكي الأصلي",
+        "the_female": "الأمريكية الأصلية",
         "en": "",
-        "ar": "",
-        "the_female": "الميندية",
-        "the_male": "الميندي"
+        "ar": ""
+    },
+    "new caledonian": {
+        "male": "كاليدوني",
+        "males": "كاليدونيون",
+        "female": "كاليدونية",
+        "females": "كاليدونيات",
+        "the_male": "الكاليدوني",
+        "the_female": "الكاليدونية",
+        "en": "",
+        "ar": ""
     },
     "nubian": {
         "male": "نوبي",
         "males": "نوبيون",
         "female": "نوبية",
         "females": "نوبيات",
-        "en": "",
-        "ar": "",
+        "the_male": "النوبي",
         "the_female": "النوبية",
-        "the_male": "النوبي"
+        "en": "",
+        "ar": ""
+    },
+    "pueblo": {
+        "male": "بويبلي",
+        "males": "بويبلون",
+        "female": "بويبلية",
+        "females": "بويبلات",
+        "the_male": "البويبلي",
+        "the_female": "البويبلية",
+        "en": "",
+        "ar": ""
     },
     "riffian": {
         "male": "ريفي",
         "males": "ريفيون",
         "female": "ريفية",
         "females": "ريفيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الريفي",
         "the_female": "الريفية",
-        "the_male": "الريفي"
+        "en": "",
+        "ar": ""
     },
     "romansh": {
         "male": "رومانشي",
         "males": "رومانشيون",
         "female": "رومانشية",
         "females": "رومانشيات",
-        "en": "",
-        "ar": "",
+        "the_male": "الرومانشي",
         "the_female": "الرومانشية",
-        "the_male": "الرومانشي"
+        "en": "",
+        "ar": ""
     },
     "sa'idi": {
         "male": "صعيدي",
         "males": "صعيديون",
         "female": "صعيدية",
         "females": "صعيديات",
-        "en": "",
-        "ar": "",
+        "the_male": "الصعيدي",
         "the_female": "الصعيدية",
-        "the_male": "الصعيدي"
+        "en": "",
+        "ar": ""
     },
     "sardinian": {
         "male": "سرديني",
         "males": "سردينيون",
         "female": "سردينية",
         "females": "سردينيات",
-        "en": "",
-        "ar": "",
+        "the_male": "السرديني",
         "the_female": "السردينية",
-        "the_male": "السرديني"
+        "en": "",
+        "ar": ""
     },
     "sinhalese": {
         "male": "سنهالي",
         "males": "سنهاليون",
         "female": "سنهالية",
         "females": "سنهاليات",
-        "en": "",
-        "ar": "",
+        "the_male": "السنهالي",
         "the_female": "السنهالية",
-        "the_male": "السنهالي"
+        "en": "",
+        "ar": ""
     },
     "swahili": {
         "male": "سواحلي",
         "males": "سواحليون",
         "female": "سواحلية",
         "females": "سواحليات",
-        "en": "",
-        "ar": "",
+        "the_male": "السواحلي",
         "the_female": "السواحلية",
-        "the_male": "السواحلي"
+        "en": "",
+        "ar": ""
     },
     "tabasaran": {
         "male": "تبساراني",
         "males": "تبسارانيون",
         "female": "تبسارانية",
         "females": "تبسارانيات",
-        "en": "",
-        "ar": "",
+        "the_male": "التبساراني",
         "the_female": "التبسارانية",
-        "the_male": "التبساراني"
+        "en": "",
+        "ar": ""
     },
     "tagalog": {
         "male": "تاغالوغي",
         "males": "تاغالوغيون",
         "female": "تاغالوغية",
         "females": "تاغالوغيات",
-        "en": "",
-        "ar": "",
+        "the_male": "التاغالوغي",
         "the_female": "التاغالوغية",
-        "the_male": "التاغالوغي"
+        "en": "",
+        "ar": ""
     },
     "tamil": {
         "male": "تاميلي",
         "males": "تاميليون",
         "female": "تاميلية",
         "females": "تاميليات",
-        "en": "",
-        "ar": "",
+        "the_male": "التاميلي",
         "the_female": "التاميلية",
-        "the_male": "التاميلي"
+        "en": "",
+        "ar": ""
     },
     "telugu": {
         "male": "تيلوغوي",
         "males": "تيلوغويون",
         "female": "تيلوغوية",
         "females": "تيلوغويات",
-        "en": "",
-        "ar": "",
+        "the_male": "التيلوغوي",
         "the_female": "التيلوغوية",
-        "the_male": "التيلوغوي"
-    },
-    "udmurt": {
-        "male": "أدمورتي",
-        "males": "أدمورتيون",
-        "female": "أدمورتية",
-        "females": "أدمورتيات",
         "en": "",
-        "ar": "",
-        "the_female": "الأدمورتية",
-        "the_male": "الأدمورتي"
+        "ar": ""
     },
-    "xhosa": {
-        "male": "كوسي",
-        "males": "كوسيون",
-        "female": "كوسية",
-        "females": "كوسيات",
+    "ulster scots": {
+        "male": "إسكتلندي أولستري",
+        "males": "إسكتلنديون أولستريون",
+        "female": "إسكتلندية أولسترية",
+        "females": "إسكتلنديات أولستريات",
+        "the_male": "الإسكتلندي الأولستري",
+        "the_female": "الإسكتلندية الأولسترية",
         "en": "",
-        "ar": "",
-        "the_female": "الكوسية",
-        "the_male": "الكوسي"
+        "ar": ""
     }
 }

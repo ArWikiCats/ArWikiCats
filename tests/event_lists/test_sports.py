@@ -38,7 +38,6 @@ data2 = {
     "Category:Female association football managers": "تصنيف:مدربات كرة قدم",
     # "Category:Coaches of the West Indies national cricket team": "",
     # "Category:Nauru international soccer players": "",
-    "Category:South Africa international soccer players": "تصنيف:لاعبو منتخب جنوب إفريقيا لكرة القدم",
     "Category:Australia international soccer players": "تصنيف:لاعبو منتخب أستراليا لكرة القدم",
     "Category:Canada men's international soccer players": "تصنيف:لاعبو كرة قدم دوليون من كندا",
     "Category:Afghanistan women's national football team coaches": "تصنيف:مدربو منتخب أفغانستان لكرة القدم للسيدات",

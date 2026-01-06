@@ -5,9 +5,9 @@ TODO: use this instead of for_me.py and nats_women.py
 import functools
 
 from ...helps import logger
-from ...translations import all_country_with_nat, all_country_with_nat_ar
+from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import FormatDataV2
-from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -381,8 +381,18 @@ all_formatted_data = (
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
-    nats_data.update({x: v for x, v in nats_keys_as_country_names.items() if v.get("ar")})
+
+    nats_data = {
+        # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
+        x: v for x, v in All_Nat.items()  # if v.get("ar")
+    }
+    nats_data.update({
+        x: v for x, v in nats_keys_as_country_names.items()  # if v.get("ar")
+    })
+
+    if "jewish-american" not in nats_data:
+        print(nats_data.keys())
+
     return FormatDataV2(
         formatted_data=all_formatted_data,
         data_list=nats_data,
@@ -407,7 +417,7 @@ def fix_keys(category: str) -> str:
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
-    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
+    if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
         return ""
     category = fix_keys(category)

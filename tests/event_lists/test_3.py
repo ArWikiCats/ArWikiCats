@@ -64,7 +64,6 @@ data1 = {
     "time in azerbaijan": "تصنيف:الزمن في أذربيجان",
     "time in cyprus": "تصنيف:الزمن في قبرص",
     "triathlon in the 2004 summer olympics": "تصنيف:السباق الثلاثي في الألعاب الأولمبية الصيفية 2004",
-    "video gaming in south africa": "تصنيف:ألعاب الفيديو في جنوب إفريقيا",
     "women in niue": "تصنيف:المرأة في نييوي",
     "women in pala": "تصنيف:المرأة في بالاو",
     "women in the cook islands": "تصنيف:المرأة في جزر كوك",

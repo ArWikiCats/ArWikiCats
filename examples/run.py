@@ -12,6 +12,10 @@ from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import (
 )
 from ArWikiCats import resolve_arabic_category_label, logger
 from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
+
+from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
+
+from ArWikiCats.make_bots.jobs_bots.bot_te_4 import te_2018_with_nat
 logger.set_level("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))
@@ -28,6 +32,10 @@ logger.set_level("DEBUG")
 # print(_get_films_key_tyty_new("animated short film films"))
 # print(_get_films_key_tyty_new("American war films"))
 # print(_get_films_key_tyty_new("animated short films"))
-print(get_films_key_tyty_new_and_time("2017 American television series debuts"))
+# print(get_films_key_tyty_new_and_time("2017 American television series debuts"))
+# print(resolve_by_nats("Jewish history"))
+# print(resolve_by_nats("American history"))
+print(te_2018_with_nat("Jewish-American history"))
+print(resolve_by_nats("Jewish-American history"))
 
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"

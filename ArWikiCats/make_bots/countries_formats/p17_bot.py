@@ -18,8 +18,14 @@ from ...translations import (
 from ..format_bots import category_relation_mapping, pop_format
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
+countries_from_nat_sorted = dict(
+    sorted(
+        countries_from_nat.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
-# @dump_data(1)
+
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = category_relation_mapping.get(suffix, "")
@@ -53,7 +59,7 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     resolved_label = ""
     category = category.lower()
 
-    suffix, country_start = get_suffix_with_keys(category, countries_from_nat)
+    suffix, country_start = get_suffix_with_keys(category, countries_from_nat_sorted)
     country_start_lab = countries_from_nat.get(country_start, "")
 
     if not suffix or not country_start:

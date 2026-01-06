@@ -46,6 +46,7 @@ from .mixed.jenders_prefix_suffix import (
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
+    all_nat_sorted,
     All_Nat,
     Nat_men,
     Nat_mens,
@@ -63,6 +64,7 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
     nats_to_add,
     raw_nats_as_en_key,
+    countries_en_as_nationality_keys,
 )
 from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys
@@ -115,7 +117,9 @@ __all__ = [
     "Jobs_new",
     "get_from_new_p17_final",
     "NationalityEntry",
+    "countries_en_as_nationality_keys",
     "raw_nats_as_en_key",
+    "all_nat_sorted",
     "All_Nat",
     "Nat_women",
     "all_country_ar",

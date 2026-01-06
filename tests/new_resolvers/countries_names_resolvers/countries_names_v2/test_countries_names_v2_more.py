@@ -13,7 +13,7 @@ test_data = {
     # -------------------------
     "united states government officials": "مسؤولون حكوميون أمريكيون",
     "morocco government officials": "مسؤولون حكوميون مغاربة",
-    "vanuata government officials": "مسؤولون حكوميون فانواتيون",
+    "vanuatu government officials": "مسؤولون حكوميون فانواتيون",
     "vatican government officials": "مسؤولون حكوميون فاتيكانيون",
     "venezuela government officials": "مسؤولون حكوميون فنزويليون",
     "victoria-australia government officials": "مسؤولون حكوميون فيكتوريون",
@@ -21,7 +21,7 @@ test_data = {
     "wales government officials": "مسؤولون حكوميون ويلزيون",
     "west germany government officials": "مسؤولون حكوميون ألمانيون غربيون",
     "west india government officials": "مسؤولون حكوميون هنود غربيون",
-    "western asia government officials": "مسؤولون حكوميون آسيويين غربيون",
+    "western asia government officials": "مسؤولون حكوميون آسيويون غربيون",
     "western canada government officials": "مسؤولون حكوميون كنديون غربيون",
     "western sahara government officials": "مسؤولون حكوميون صحراويون",
     "yemen government officials": "مسؤولون حكوميون يمنيون",
@@ -41,7 +41,7 @@ test_data = {
     "sri lanka air force": "القوات الجوية السريلانكية",
     "netherlands royal air force": "القوات الجوية الملكية الهولندية",
     "korea air force": "القوات الجوية الكورية",
-    "vanuata air force": "القوات الجوية الفانواتية",
+    "vanuatu air force": "القوات الجوية الفانواتية",
     "vatican air force": "القوات الجوية الفاتيكانية",
     "venezuela air force": "القوات الجوية الفنزويلية",
     "victoria-australia air force": "القوات الجوية الفكتورية",
@@ -72,7 +72,7 @@ test_data = {
     "netherlands royal navy": "البحرية الملكية الهولندية",
     "iran navy": "البحرية الإيرانية",
     "sri lanka navy": "البحرية السريلانكية",
-    "south yemen navy": "البحرية الجنوبية اليمنية",
+    "south yemen navy": "البحرية اليمنية الجنوبية",
     "japan navy": "البحرية اليابانية",
     "united arab emirates navy": "البحرية الإماراتية",
     "benin navy": "البحرية البنينية",
@@ -90,7 +90,7 @@ test_data = {
     # -------------------------
     # civil war (women + إضافة “ال”)
     # -------------------------
-    "north yemen civil war": "الحرب الأهلية الشمالية اليمنية",
+    "north yemen civil war": "الحرب الأهلية اليمنية الشمالية",
     "sierra leone civil war": "الحرب الأهلية السيراليونية",
     "myanmar civil war": "الحرب الأهلية الميانمارية",
     "yemen civil war": "الحرب الأهلية اليمنية",

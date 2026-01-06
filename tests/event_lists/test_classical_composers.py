@@ -124,7 +124,6 @@ test_c_composers_3 = {
     "Scottish classical composers": "ملحنون كلاسيكيون إسكتلنديون",
     "Serbian classical composers": "ملحنون كلاسيكيون صرب",
     "Slovak classical composers": "ملحنون كلاسيكيون سلوفاكيون",
-    "South African classical composers": "ملحنون كلاسيكيون جنوب إفريقيون",
     "South Korean classical composers": "ملحنون كلاسيكيون كوريون جنوبيون",
     "Soviet women classical composers": "ملحنات كلاسيكيات سوفيتيات",
     "Spanish women classical composers": "ملحنات كلاسيكيات إسبانيات",

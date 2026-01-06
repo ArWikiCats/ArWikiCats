@@ -80,7 +80,6 @@ data1 = {
     "Category:Cultural depictions of Scottish men": "تصنيف:تصوير ثقافي عن رجال إسكتلنديين",
     "Category:Cultural depictions of Scottish people": "تصنيف:تصوير ثقافي عن إسكتلنديين",
     "Category:Cultural depictions of Serbian monarchs": "تصنيف:تصوير ثقافي عن ملكيين صرب",
-    "Category:Cultural depictions of South African people": "تصنيف:تصوير ثقافي عن جنوب إفريقيين",
     "Category:Cultural depictions of South Korean people": "تصنيف:تصوير ثقافي عن كوريين جنوبيين",
     "Category:Cultural depictions of Sri Lankan people": "تصنيف:تصوير ثقافي عن أعلام سريلانكيين",
     "Category:Cultural depictions of Swedish men": "تصنيف:تصوير ثقافي عن رجال سويديين",

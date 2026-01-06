@@ -1,38 +1,5 @@
 """
-D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json
-{
-    "zanzibari": {
-        "male": "زنجباري",
-        "males": "زنجباريون",
-        "female": "زنجبارية",
-        "females": "زنجباريات",
-        "en": "zanzibar",
-        "ar": "زنجبار"
-    },
-    "anguillan": {
-        "male": "أنغويلاني",
-        "males": "أنغويلانيون",
-        "female": "أنغويلانية",
-        "females": "أنغويلانيات",
-        "en": "anguilla",
-        "ar": "أنغويلا"
-    },
-    "afghan": {
-        "male": "أفغاني",
-        "males": "أفغان",
-        "female": "أفغانية",
-        "females": "أفغانيات",
-        "en": "afghanistan",
-        "ar": "أفغانستان"
-    },
-    "prussian": {
-        "male": "بروسي",
-        "males": "بروسيون",
-        "female": "بروسية",
-        "females": "بروسيات",
-        "en": "prussia",
-        "ar": "بروسيا"
-    },
+D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json
 
 قراءة الملف
 إضافة لكل مدخلة مفتاح جديد باسم
@@ -41,27 +8,26 @@ the_female
 "female": "بروسية",
 "the_female": "البروسية",
 
-"female": "شمالية إفريقية",
-"the_female": "الشمالية الإفريقية",
+"female": "إفريقية شمالية",
+"the_female": "الإفريقية الشمالية",
 
 
-"female": "جنوبية إفريقية",
-"the_female": "الجنوبية الإفريقية",
+"female": "جنوب إفريقية",
+"the_female": "الجنوب الإفريقية",
 """
 import json
 from pathlib import Path
 
-# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json")
-JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/uu_nats.json")
-# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/Sub_Nat.json")
+# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json")
+JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/sub_nats.json")
 
 
 def add_definite_article(word: str) -> str:
     """Prefix Arabic definite article 'ال' to each space-separated token if missing.
     Examples:
       - "بروسية" -> "البروسية"
-      - "شمالية إفريقية" -> "الشمالية الإفريقية"
-      - "جنوبية إفريقية" -> "الجنوبية الإفريقية"
+      - "إفريقية شمالية" -> "الإفريقية الشمالية"
+      - "جنوب إفريقية" -> "الجنوب الإفريقية"
     """
     if not word:
         return word

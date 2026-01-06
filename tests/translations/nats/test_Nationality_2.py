@@ -4,6 +4,7 @@ import pytest
 
 from ArWikiCats.translations.nats.Nationality import (
     NationalityEntry,
+    All_Nat,
     build_american_forms,
     build_lookup_tables,
     load_sources,
@@ -43,15 +44,11 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
     """load_sources should return dict of NationalityEntry with all keys present and string values."""
 
     def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
-        if name == "nationalities/All_Nat_o.json":
+        if name == "nationalities/nationalities_data.json":
             return {
                 "yemeni": {"en": "yemen", "ar": "اليمن", "male": "يمني"},
             }
-        if name == "nationalities/uu_nats.json":
-            return {
-                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
-            }
-        if name == "nationalities/Sub_Nat.json":
+        if name == "nationalities/sub_nats.json":
             return {
                 "italian": {"male": "إيطالي", "en": "italy", "ar": "إيطاليا"},
             }
@@ -64,7 +61,6 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
 
     assert isinstance(data, dict)
     assert "yemeni" in data
-    assert "hindustan" in data
     assert "italian" in data
 
     for entry in data.values():
@@ -72,28 +68,6 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
         assert set(entry.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
         # Ensure all values are strings
         assert all(isinstance(v, str) for v in entry.values())
-
-
-def test_load_sources_hindustani_mapped_to_hindustan(monkeypatch) -> None:
-    """hindustani should produce an additional key hindustan in the resulting dict."""
-
-    def fake_open_json_file(name: str) -> dict | dict[str, dict[str, str]]:
-        if name == "nationalities/All_Nat_o.json":
-            return {}
-        if name == "nationalities/uu_nats.json":
-            return {
-                "hindustani": {"en_nat": "hindustan", "en": "hindustani", "ar": "هندوستاني"},
-            }
-        if name == "nationalities/Sub_Nat.json":
-            return {}
-        return {}
-
-    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
-
-    data = load_sources()
-    assert "hindustan" in data
-    assert data["hindustan"]["en"] == "hindustani"
-    assert data["hindustan"]["ar"] == "هندوستاني"
 
 
 # -------------------------------------------------------------------
@@ -113,16 +87,6 @@ def test_normalize_aliases_alias_copy() -> None:
     assert out["russians"]["en"] == "russia"
     assert out["russians"]["ar"] == "روسيا"
     assert out["russians"]["male"] == "روسي"
-
-
-def test_normalize_aliases_adds_southwest_asian() -> None:
-    """normalize_aliases must always inject 'southwest asian' entry."""
-
-    out = normalize_aliases({})
-    assert "southwest asian" in out
-    entry = out["southwest asian"]
-    assert entry["en"] == "southwest asia"
-    assert entry["ar"] == "جنوب غرب آسيا"
 
 
 def test_normalize_aliases_georgia_country_copy() -> None:
@@ -295,7 +259,7 @@ def test_full_pipeline_minimal() -> None:
 def test_full_pipeline_with_alias_and_american() -> None:
     """Integration that includes alias normalization + american forms + lookups."""
 
-    # Start from a minimal All_Nat_o-like structure
+    # Start from a minimal nationalities_data-like structure
     all_nat_o = {
         "russian": make_entry(
             male="روسي",
@@ -318,3 +282,11 @@ def test_full_pipeline_with_alias_and_american() -> None:
 
     assert "russian" in result["Nat_men"]
     assert result["countries_from_nat"]["russia"] == "روسيا"
+
+
+def test_normalize_aliases_keys() -> None:
+    """Test that alias normalization works correctly for keys."""
+
+    assert "turkish cypriot" in All_Nat
+    assert "northern cypriot" in All_Nat
+    assert All_Nat["turkish cypriot"] == All_Nat["northern cypriot"]

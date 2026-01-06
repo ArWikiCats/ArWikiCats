@@ -82,10 +82,10 @@ def _load_countries_data() -> dict[str, NationalityEntry]:
                 "males": "أيرلنديون",
                 "female": "أيرلندية",
                 "females": "أيرلنديات",
+                "the_male": "الأيرلندي",
+                "the_female": "الأيرلندية",
                 "en": "ireland",
                 "ar": "أيرلندا",
-                "the_female": "الأيرلندية",
-                "the_male": "الأيرلندي",
             }
         }
     )

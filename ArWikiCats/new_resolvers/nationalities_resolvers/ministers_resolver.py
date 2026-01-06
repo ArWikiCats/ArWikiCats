@@ -26,11 +26,14 @@ nat_secretaries_mapping = {
 en_secretaries_mapping = {
     # TODO: solve this duplicate keys
     "ministers for {ministry} of {en}": "وزراء {no_al} {ar}",
-    "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
+    # "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
     "ministers of {ministry} for {en}": "وزراء {no_al} {ar}",
     "ministers of {ministry} of {en}": "وزراء {no_al} {ar}",
     "women government ministers of {en}": "وزيرات {females}",
-    "{ministry} ministers of {en}": "وزراء {no_al} في {ar}",
+
+    # "Category:Foreign ministers of Monaco" : "تصنيف:وزراء خارجية موناكو",
+    "{ministry} ministers of {en}": "وزراء {no_al} {ar}",
+
     "ministers of {ministry}": "وزراء {no_al}",
     "ministers for {ministry}": "وزراء {no_al}",
     "secretaries of {ministry}": "وزراء {no_al}",
@@ -70,12 +73,6 @@ en_secretaries_mapping = {
 }
 
 
-def remove_the(text: str) -> str:
-    if text.lower().startswith("the "):
-        return text[4:]
-    return text
-
-
 @functools.lru_cache(maxsize=1)
 def _load_nats_bot() -> MultiDataFormatterBaseV2:
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
@@ -96,12 +93,12 @@ def _load_nats_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=1)
 def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
-    countries_data = {remove_the(v["en"]): v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
+    countries_data = {v["en"]: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
 
     countries_data.update(nats_keys_as_country_names)
 
     countries_data.update(
-        {remove_the(v["en"]): v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")}
+        {v["en"]: v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")}
     )
 
     both_bot = format_multi_data_v2(

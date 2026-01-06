@@ -20,10 +20,10 @@ def test_build_en_nat_entries() -> None:
             "males": "ترنيداديون",
             "female": "ترنيدادية",
             "females": "ترنيداديات",
+            "the_male": "الترنيدادي",
+            "the_female": "الترنيدادية",
             "en": "trinidad and tobago",
             "ar": "ترينيداد وتوباغو",
-            "the_female": "الترنيدادية",
-            "the_male": "الترنيدادي",
         }
     }
 

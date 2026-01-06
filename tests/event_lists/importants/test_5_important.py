@@ -70,7 +70,6 @@ data0 = {
     "Category:Romania football manager history navigational boxes": "تصنيف:صناديق تصفح تاريخ مدربو كرة قدم رومانيا",
     "Category:Jewish football clubs": "تصنيف:أندية كرة القدم اليهودية",
     "Category:Jewish sports": "تصنيف:ألعاب رياضية يهودية",
-    "Category:south african rugby union": "تصنيف:اتحاد الرجبي الجنوب الإفريقي",
     "Category:European League of Football coaches": "تصنيف:مدربو الدوري الأوروبي لكرة القدم",
     "Category:Australian soccer by year": "تصنيف:كرة القدم الأسترالية حسب السنة",
     "Category:Political positions of United States presidential candidates": "تصنيف:مواقف سياسية لمرشحي الرئاسة الأمريكية",
@@ -123,7 +122,9 @@ data1 = {
     "Category:Burial sites of imperial Chinese families": "تصنيف:مواقع دفن أسر إمبراطورية صينية",
 }
 
-data_2 = {}
+data_2 = {
+
+}
 
 data_3 = {
     "1550 in asian women's football": "تصنيف:كرة قدم آسيوية للسيدات في 1550",

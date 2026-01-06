@@ -11,9 +11,60 @@ from typing import Any, Dict, List, Tuple, TypedDict
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
+regex_line = r"""
+"male": "([^"]+)?",
+\s+"males": "([^"]+)?",
+\s+"female": "([^"]+)?",
+\s+"females": "([^"]+)?",
+\s+"the_male": "([^"]+)?",
+\s+"the_female": "([^"]+)?",
+\s+"en": "([^"]+)?",
+\s+"ar": "([^"]+)?"
+
+"male": "$1",
+"males": "$2",
+"female": "$3",
+"females": "$4",
+"the_male": "$5",
+"the_female": "$6",
+"en": "$7",
+"ar": "$8"
+"""
 # =====================================================================
 # Type aliases
 # =====================================================================
+
+countries_en_as_nationality_keys = [
+    "antigua and barbuda",
+    "botswana",
+    "central african republic",
+    "chinese taipei",
+    "democratic republic of congo",
+    "democratic-republic-of-congo",
+    "dominican republic",
+    "federated states of micronesia",
+    "federated states-of micronesia",
+    "georgia (country)",
+    "hong kong",
+    "ireland",
+    "kiribati",
+    "kyrgyz",
+    "lesotho",
+    "liechtenstein",
+    "new zealand",
+    "northern ireland",
+    "republic of congo",
+    "republic of ireland",
+    "republic-of ireland",
+    "republic-of-congo",
+    "são toméan",
+    "trinidad and tobago",
+    "turkmen",
+    "turkmenistan",
+    "uzbek",
+    "vatican",
+    "west india",
+]
 
 
 class NationalityEntry(TypedDict):
@@ -23,10 +74,10 @@ class NationalityEntry(TypedDict):
     males: str
     female: str
     females: str
+    the_male: str
+    the_female: str
     en: str
     ar: str
-    the_female: str
-    the_male: str
 
 
 AllNatDict = Dict[str, NationalityEntry]
@@ -39,10 +90,10 @@ def build_nationality_structure(val):
         "males": val.get("males", ""),
         "female": val.get("female", ""),
         "females": val.get("females", ""),
-        "en": val.get("en", ""),
-        "ar": val.get("ar", ""),
         "the_female": val.get("the_female", ""),
         "the_male": val.get("the_male", ""),
+        "en": val.get("en", ""),
+        "ar": val.get("ar", ""),
     }
 
 
@@ -57,20 +108,20 @@ raw_sub_nat_additional_to_check = {
         "males": "مسلمون",
         "female": "مسلمة",
         "females": "مسلمات",
+        "the_male": "المسلم",
+        "the_female": "المسلمة",
         "en": "",
         "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم",
     },
     "muslim": {
         "male": "مسلم",
         "males": "مسلمون",
         "female": "مسلمة",
         "females": "مسلمات",
+        "the_male": "المسلم",
+        "the_female": "المسلمة",
         "en": "muslims",
         "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم",
     },
 }
 
@@ -80,30 +131,30 @@ raw_sub_nat_additional = {
         "males": "يهود",
         "female": "يهودية",
         "females": "يهوديات",
+        "the_male": "اليهودي",
+        "the_female": "اليهودية",
         "en": "",
         "ar": "اليهودية",
-        "the_female": "اليهودية",
-        "the_male": "اليهودي",
     },
     "sufi": {
         "male": "صوفي",
         "males": "صوفيون",
         "female": "صوفية",
         "females": "صوفيات",
+        "the_male": "الصوفي",
+        "the_female": "الصوفية",
         "en": "",
         "ar": "الصوفية",
-        "the_female": "الصوفية",
-        "the_male": "الصوفي",
     },
     "christian": {
         "male": "مسيحي",
         "males": "مسيحيون",
         "female": "مسيحية",
         "females": "مسيحيات",
+        "the_male": "المسيحي",
+        "the_female": "المسيحية",
         "en": "",
         "ar": "المسيحية",
-        "the_female": "المسيحية",
-        "the_male": "المسيحي",
     },
 }
 
@@ -112,27 +163,43 @@ def load_sources(
     raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
 ) -> Dict[str, NationalityEntry]:
     """
-    Load nationality JSON data and merge All_Nat_o + uu_nats + Sub_Nat.
+    Load nationality JSON data and merge nationalities_data + sub_nats.
     Ensures all entries follow the NationalityEntry structure (string values only).
-    """
 
-    raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
+    """
+    data_to_review = {
+        "people from jerusalem": {
+            "male": "مقدسي",
+            "males": "مقدسيون",
+            "female": "مقدسية",
+            "females": "مقدسيات",
+            "en": "jerusalem",
+            "ar": "القدس",
+            "the_female": "المقدسية",
+            "the_male": "المقدسي"
+        },
+    }
+
+    raw_all_nat_o: AllNatDict = open_json_file("nationalities/nationalities_data.json") or {}
+    nationality_directions_mapping: AllNatDict = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+
+    raw_uu_nats: AllNatDict = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
+    raw_sub_nat: AllNatDict = open_json_file("nationalities/sub_nats.json") or {}
+    continents: AllNatDict = open_json_file("nationalities/continents.json") or {}
+
+    raw_all_nat_o.update(nationality_directions_mapping)
 
     if raw_nats_as_en_key:
         raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
         raw_all_nat_o.update(raw_nats_as_en_key)
 
-    raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/uu_nats.json") or {}
-    raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/Sub_Nat.json") or {}
-
     data = {}
 
-    # Merge JSONs into All_Nat_o
+    # Merge JSONs into nationalities_data
     data.update(raw_uu_nats)
-    data.update(build_en_nat_entries(raw_uu_nats))
-    # for key, val in raw_uu_nats.items(): raw_all_nat_o[key] = val
 
     data.update(raw_sub_nat)
+    data.update(continents)
     data.update(raw_sub_nat_additional)
     # for key, val in raw_sub_nat.items(): raw_all_nat_o[key] = val
 
@@ -145,14 +212,18 @@ def load_sources(
         # Build guaranteed structure
         val = val if isinstance(val, dict) else {}
         entry: NationalityEntry = build_nationality_structure(val)
-
         normalized[key] = entry
+
+        # Special cases like "Category:Antigua and Barbuda writers" which use country names as nationalities
+        en_key = entry["en"].lower()
+        if en_key in countries_en_as_nationality_keys and en_key != key.lower():
+            normalized[en_key] = entry
 
     return normalized
 
 
-def build_en_nat_entries(raw_data: Dict[str, Any]) -> Dict[str, Any]:
-    data: Dict[str, Any] = {}
+def build_en_nat_entries(raw_data: AllNatDict) -> AllNatDict:
+    data: AllNatDict = {}
     if not raw_data:
         return {}
     for _, v in raw_data.items():
@@ -174,6 +245,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
     """
 
     alias_map: Dict[str, str] = {
+        "turkish cypriot": "northern cypriot",
         "luxembourg": "luxembourgish",
         "ancient romans": "ancient-romans",
         "ancient-roman": "ancient-romans",
@@ -182,7 +254,11 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "argentinian": "argentine",
         "austro-hungarian": "austrianhungarian",
         "bangladesh": "bangladeshi",
+        "barbadian_2": "barbadian",
+        "belizian": "belizean",
         "bosnia and herzegovina": "bosnian",
+        "burkinabé": "burkinabe",
+        "burkinese": "burkinabe",
         "canadians": "canadian",
         "caribbean": "caribbeans",
         "comoran": "comorian",
@@ -197,6 +273,8 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "ivoirian": "ivorian",
         "kosovar": "kosovan",
         "lao": "laotian",
+        "monacan": "monegasque",
+        "monégasque": "monegasque",
         "mosotho": "lesotho",
         "nepali": "nepalese",
         "roman": "romanian",
@@ -210,10 +288,10 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "south ossetian": "ossetian",
         "trinidadian": "trinidad and tobago",
         "trinidadians": "trinidad and tobago",
-        "turkish cypriot": "northern cypriot",
         "vietnamesei": "vietnamese",
         "yemenite": "yemeni",
         "jewish": "jews",
+        "native american": "native americans",
     }
 
     # Apply simple alias redirection
@@ -233,28 +311,16 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "males": "غينيون",
         "female": "غينية",
         "females": "غينيات",
+        "the_male": "الغيني",
+        "the_female": "الغينية",
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
-        "the_female": "الغينية",
-        "the_male": "الغيني",
     }
 
     # Handle Georgia (country)
     if "georgian" in all_nat_o:
         all_nat_o["georgia (country)"] = build_nationality_structure(all_nat_o["georgian"])
         all_nat_o["georgia (country)"]["en"] = "georgia (country)"
-
-    # Add southwest asian nationality
-    all_nat_o["southwest asian"] = {
-        "male": "جنوب غرب آسيوي",
-        "males": "جنوبيون غربيون آسيويين",
-        "female": "جنوب غربي آسيوية",
-        "females": "جنوبيات غربيات آسيويات",
-        "en": "southwest asia",
-        "ar": "جنوب غرب آسيا",
-        "the_female": "الجنوب غربي الآسيوية",
-        "the_male": "الجنوب غربي الآسيوي",
-    }
 
     return all_nat_o
 
@@ -404,13 +470,14 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # =====================================================================
 
 raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
-All_Nat_o: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
 
-All_Nat_o = normalize_aliases(All_Nat_o, True)
+nationalities_data: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
 
-All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
+nationalities_data = normalize_aliases(nationalities_data, True)
 
-American_nat = build_american_forms(All_Nat_o)
+All_Nat: AllNatDict = {k.lower(): v for k, v in nationalities_data.items()}
+
+American_nat = build_american_forms(nationalities_data)
 All_Nat.update(American_nat)
 result_tables = build_lookup_tables(All_Nat)
 
@@ -433,6 +500,13 @@ countries_nat_en_key: Dict[str, NationalityEntry] = result_tables["countries_nat
 en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 
 nats_to_add = {}
+
+all_nat_sorted = dict(
+    sorted(
+        All_Nat.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 len_result = {
     "raw_nats_as_en_key": 17,

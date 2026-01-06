@@ -9,7 +9,7 @@ from ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import 
 fast_data = {
     # US specific pattern
     "United States secretaries of state": "وزراء خارجية أمريكيون",  # Secretaries of state patterns - all countries from _all_country_with_nat
-    "secretaries of state of eastern asia": "وزراء خارجية آسيويين شرقيون",
+    "secretaries of state of eastern asia": "وزراء خارجية آسيويون شرقيون",
     "secretaries of state of eastern europe": "وزراء خارجية أوروبيون شرقيون",
     "secretaries of state of ecuador": "وزراء خارجية إكوادوريون",
     "secretaries of state of egypt": "وزراء خارجية مصريون",
@@ -66,9 +66,9 @@ fast_data = {
     "secretaries of finance of ecuador": "وزراء مالية إكوادوريون",
     "secretaries of defense of ecuador": "وزراء دفاع إكوادوريون",
     "secretaries of environment of ecuador": "وزراء بيئة إكوادوريون",  # Country secretaries of ministry patterns - Eastern Asian
-    "secretaries of finance of eastern asia": "وزراء مالية آسيويين شرقيون",
-    "secretaries of defense of eastern asia": "وزراء دفاع آسيويين شرقيون",
-    "secretaries of economy of eastern asia": "وزراء اقتصاد آسيويين شرقيون",
+    "secretaries of finance of eastern asia": "وزراء مالية آسيويون شرقيون",
+    "secretaries of defense of eastern asia": "وزراء دفاع آسيويون شرقيون",
+    "secretaries of economy of eastern asia": "وزراء اقتصاد آسيويون شرقيون",
     # Country secretaries of ministry patterns - Eastern European
     "secretaries of defense of eastern europe": "وزراء دفاع أوروبيون شرقيون",
     "secretaries of interior of eastern europe": "وزراء داخلية أوروبيون شرقيون",
@@ -199,10 +199,10 @@ fast_data = {
     "secretaries of environment and natural resources of ecuador": "وزراء بيئة وموارد طبيعية إكوادوريون",
     "secretaries of war and navy of ecuador": "وزراء حرب وبحرية إكوادوريون",
     # Combined ministries with countries - Eastern Asia
-    "secretaries of health and human services of eastern asia": "وزراء صحة وخدمات إنسانية آسيويين شرقيون",
-    "secretaries of communications and transportation of eastern asia": "وزراء اتصالات ونقل آسيويين شرقيون",
-    "secretaries of environment and natural resources of eastern asia": "وزراء بيئة وموارد طبيعية آسيويين شرقيون",
-    "secretaries of war and navy of eastern asia": "وزراء حرب وبحرية آسيويين شرقيون",
+    "secretaries of health and human services of eastern asia": "وزراء صحة وخدمات إنسانية آسيويون شرقيون",
+    "secretaries of communications and transportation of eastern asia": "وزراء اتصالات ونقل آسيويون شرقيون",
+    "secretaries of environment and natural resources of eastern asia": "وزراء بيئة وموارد طبيعية آسيويون شرقيون",
+    "secretaries of war and navy of eastern asia": "وزراء حرب وبحرية آسيويون شرقيون",
     # Combined ministries with countries - Eastern European
     "secretaries of health and human services of eastern europe": "وزراء صحة وخدمات إنسانية أوروبيون شرقيون",
     "secretaries of communications and transportation of eastern europe": "وزراء اتصالات ونقل أوروبيون شرقيون",

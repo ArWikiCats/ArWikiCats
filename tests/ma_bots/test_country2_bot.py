@@ -180,7 +180,7 @@ data_slow = {
     "establishments in republic-of venice": "تأسيسات في جمهورية البندقية",
     "establishments in sint maarten": "تأسيسات في سينت مارتن",
     "establishments in socialist republic-of macedonia": "تأسيسات في جمهورية مقدونيا الاشتراكية",
-    "estonia–south sudan relations": "العلاقات الإستونية الجنوبية السودانية",
+    "estonia–south sudan relations": "العلاقات الإستونية السودانية الجنوبية",
     "ethiopian basketball players": "لاعبو كرة سلة إثيوبيون",
     "euroleague by club": "الدوري الأوروبي لكرة السلة حسب النادي",
     "european games gold medalists for slovakia": "فائزون بميداليات ذهبية في الألعاب الأوروبية من سلوفاكيا",

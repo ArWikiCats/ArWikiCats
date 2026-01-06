@@ -223,7 +223,6 @@ data_1 = {
     "Category:Multi-sport events in Serbia": "تصنيف:أحداث رياضية متعددة في صربيا",
     "Category:Multi-sport events in Singapore": "تصنيف:أحداث رياضية متعددة في سنغافورة",
     "Category:Multi-sport events in Slovakia": "تصنيف:أحداث رياضية متعددة في سلوفاكيا",
-    "Category:Multi-sport events in South Africa": "تصنيف:أحداث رياضية متعددة في جنوب إفريقيا",
     "Category:Multi-sport events in South America": "تصنيف:أحداث رياضية متعددة في أمريكا الجنوبية",
     "Category:Multi-sport events in South Korea": "تصنيف:أحداث رياضية متعددة في كوريا الجنوبية",
     "Category:Multi-sport events in Spain": "تصنيف:أحداث رياضية متعددة في إسبانيا",

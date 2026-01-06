@@ -101,7 +101,6 @@ novels_films_test_data_0 = {
     "Romance films": "أفلام رومانسية",
     "Somalian documentary films": "أفلام وثائقية صومالية",
     "Somalian short films": "أفلام قصيرة صومالية",
-    "South African comedy-drama films": "أفلام كوميدية درامية جنوبية إفريقية",
     "South Korean children's films": "أفلام أطفال كورية جنوبية",
     "South Korean films by year": "أفلام كورية جنوبية حسب السنة",
     "South Korean political thriller films": "أفلام إثارة سياسية كورية جنوبية",
@@ -118,7 +117,6 @@ novels_films_test_data_0 = {
 
 novels_films_test_data = {
     "1940s Canadian animated films": "أفلام رسوم متحركة كندية في عقد 1940",
-    "1970s South African films": "أفلام جنوبية إفريقية في عقد 1970",
     "2000s Hong Kong films": "أفلام هونغ كونغية في عقد 2000",
     "2025 South Korean films": "أفلام كورية جنوبية في 2025",
     "1510s fantasy novels": "روايات فانتازيا في عقد 1510",

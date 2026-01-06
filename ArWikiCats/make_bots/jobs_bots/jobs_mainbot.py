@@ -13,7 +13,7 @@ from typing import Optional
 from ...helps import dump_data, logger
 from ...translations import (
     NAT_BEFORE_OCC,
-    All_Nat,
+    all_nat_sorted,
     Nat_mens,
     Nat_Womens,
     jobs_mens_data,
@@ -410,14 +410,16 @@ def jobs_with_nat_prefix_label(cate: str) -> str:
 
     cate_lower = cate.lower()
 
-    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
+    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
     if not category_suffix or not country_prefix:
+        logger.info(f'>> <> end jobs_with_nat_prefix_label "{cate}" , no {country_prefix=} or not {category_suffix=}')
         return ""
 
+    logger.debug(f'>> <> jobs_with_nat_prefix_label {country_prefix=}, {category_suffix=}')
     country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
 
-    logger.debug(f'end jobs_with_nat_prefix_label "{cate}" , {country_lab=}')
+    logger.info_if_or_debug(f"<<yellow>> end jobs_with_nat_prefix_label: {cate=}, {country_lab=}", country_lab)
 
     return country_lab
 
