@@ -1,14 +1,4 @@
 {
-    "european": {
-        "male": "أوروبي",
-        "males": "أوروبيون",
-        "female": "أوروبية",
-        "females": "أوروبيات",
-        "en": "europe",
-        "ar": "أوروبا",
-        "the_female": "الأوروبية",
-        "the_male": "الأوروبي"
-    },
     "african": {
         "male": "إفريقي",
         "males": "أفارقة",
@@ -28,6 +18,16 @@
         "ar": "آسيا",
         "the_female": "الآسيوية",
         "the_male": "الآسيوي"
+    },
+    "european": {
+        "male": "أوروبي",
+        "males": "أوروبيون",
+        "female": "أوروبية",
+        "females": "أوروبيات",
+        "en": "europe",
+        "ar": "أوروبا",
+        "the_female": "الأوروبية",
+        "the_male": "الأوروبي"
     },
     "south american": {
         "male": "أمريكي جنوبي",
@@ -49,16 +49,6 @@
         "the_female": "الأمريكية الشمالية",
         "the_male": "الأمريكي الشمالي"
     },
-    "australian": {
-        "male": "أسترالي",
-        "males": "أستراليون",
-        "female": "أسترالية",
-        "females": "أستراليات",
-        "en": "australia",
-        "ar": "أستراليا",
-        "the_female": "الأسترالية",
-        "the_male": "الأسترالي"
-    },
     "oceanian": {
         "male": "أوقيانوسي",
         "males": "أوقيانوسيون",
@@ -68,6 +58,16 @@
         "ar": "أوقيانوسيا",
         "the_female": "الأوقيانوسية",
         "the_male": "الأوقيانوسي"
+    },
+    "australian": {
+        "male": "أسترالي",
+        "males": "أستراليون",
+        "female": "أسترالية",
+        "females": "أستراليات",
+        "en": "australia",
+        "ar": "أستراليا",
+        "the_female": "الأسترالية",
+        "the_male": "الأسترالي"
     },
     "southern european": {
         "male": "أوروبي جنوبي",
