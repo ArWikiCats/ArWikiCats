@@ -4,149 +4,149 @@
         "males": "أفارقة",
         "female": "إفريقية",
         "females": "إفريقيات",
-        "en": "africa",
-        "ar": "إفريقيا",
+        "the_male": "الإفريقي",
         "the_female": "الإفريقية",
-        "the_male": "الإفريقي"
+        "en": "africa",
+        "ar": "إفريقيا"
     },
     "asian": {
         "male": "آسيوي",
         "males": "آسيويون",
         "female": "آسيوية",
         "females": "آسيويات",
-        "en": "asia",
-        "ar": "آسيا",
+        "the_male": "الآسيوي",
         "the_female": "الآسيوية",
-        "the_male": "الآسيوي"
+        "en": "asia",
+        "ar": "آسيا"
     },
     "european": {
         "male": "أوروبي",
         "males": "أوروبيون",
         "female": "أوروبية",
         "females": "أوروبيات",
-        "en": "europe",
-        "ar": "أوروبا",
+        "the_male": "الأوروبي",
         "the_female": "الأوروبية",
-        "the_male": "الأوروبي"
+        "en": "europe",
+        "ar": "أوروبا"
     },
     "oceanian": {
         "male": "أوقيانوسي",
         "males": "أوقيانوسيون",
         "female": "أوقيانوسية",
         "females": "أوقيانوسيات",
-        "en": "oceania",
-        "ar": "أوقيانوسيا",
+        "the_male": "الأوقيانوسي",
         "the_female": "الأوقيانوسية",
-        "the_male": "الأوقيانوسي"
+        "en": "oceania",
+        "ar": "أوقيانوسيا"
     },
     "south american": {
         "male": "أمريكي جنوبي",
         "males": "أمريكيون جنوبيون",
         "female": "أمريكية جنوبية",
         "females": "أمريكيات جنوبيات",
-        "en": "south america",
-        "ar": "أمريكا الجنوبية",
+        "the_male": "الأمريكي الجنوبي",
         "the_female": "الأمريكية الجنوبية",
-        "the_male": "الأمريكي الجنوبي"
+        "en": "south america",
+        "ar": "أمريكا الجنوبية"
     },
     "north american": {
         "male": "أمريكي شمالي",
         "males": "أمريكيون شماليون",
         "female": "أمريكية شمالية",
         "females": "أمريكيات شماليات",
-        "en": "north america",
-        "ar": "أمريكا الشمالية",
+        "the_male": "الأمريكي الشمالي",
         "the_female": "الأمريكية الشمالية",
-        "the_male": "الأمريكي الشمالي"
+        "en": "north america",
+        "ar": "أمريكا الشمالية"
     },
     "southern european": {
         "male": "أوروبي جنوبي",
         "males": "أوروبيون جنوبيون",
         "female": "أوروبية جنوبية",
         "females": "أوروبيات جنوبيات",
-        "en": "southern europe",
-        "ar": "أوروبا الجنوبية",
+        "the_male": "الأوروبي الجنوبي",
         "the_female": "الأوروبية الجنوبية",
-        "the_male": "الأوروبي الجنوبي"
+        "en": "southern europe",
+        "ar": "أوروبا الجنوبية"
     },
     "eastern european": {
         "male": "أوروبي شرقي",
         "males": "أوروبيون شرقيون",
         "female": "أوروبية شرقية",
         "females": "أوروبيات شرقيات",
-        "en": "eastern europe",
-        "ar": "شرق أوروبا",
+        "the_male": "الأوروبي الشرقي",
         "the_female": "الأوروبية الشرقية",
-        "the_male": "الأوروبي الشرقي"
+        "en": "eastern europe",
+        "ar": "شرق أوروبا"
     },
     "west asian": {
         "male": "آسيوي غربي",
         "males": "آسيويون غربيون",
         "female": "آسيوية غربية",
         "females": "آسيويات غربيات",
-        "en": "western asia",
-        "ar": "غرب آسيا",
+        "the_male": "الآسيوي الغربي",
         "the_female": "الآسيوية الغربية",
-        "the_male": "الآسيوي الغربي"
+        "en": "western asia",
+        "ar": "غرب آسيا"
     },
     "eastern asian": {
         "male": "آسيوي شرقي",
         "males": "آسيويون شرقيون",
         "female": "آسيوية شرقية",
         "females": "آسيويات شرقيات",
-        "en": "eastern asia",
-        "ar": "شرق آسيا",
+        "the_male": "الآسيوي الشرقي",
         "the_female": "الآسيوية الشرقية",
-        "the_male": "الآسيوي الشرقي"
+        "en": "eastern asia",
+        "ar": "شرق آسيا"
     },
     "central asian": {
         "male": "آسيوي أوسطي",
         "males": "آسيويون أوسطيون",
         "female": "آسيوية أوسطية",
         "females": "آسيويات أوسطيات",
-        "en": "central asia",
-        "ar": "آسيا الوسطى",
+        "the_male": "الآسيوي الأوسطي",
         "the_female": "الآسيوية الأوسطية",
-        "the_male": "الآسيوي الأوسطي"
+        "en": "central asia",
+        "ar": "آسيا الوسطى"
     },
     "central american": {
         "male": "أمريكي أوسطي",
         "males": "أمريكيون أوسطيون",
         "female": "أمريكية أوسطية",
         "females": "أمريكيات أوسطيات",
-        "en": "central america",
-        "ar": "أمريكا الوسطى",
+        "the_male": "الأمريكي الأوسطي",
         "the_female": "الأمريكية الأوسطية",
-        "the_male": "الأمريكي الأوسطي"
+        "en": "central america",
+        "ar": "أمريكا الوسطى"
     },
     "north african": {
         "male": "إفريقي شمالي",
         "males": "إفريقيون شماليون",
         "female": "إفريقية شمالية",
         "females": "إفريقيات شماليات",
-        "en": "north africa",
-        "ar": "شمال إفريقيا",
+        "the_male": "الإفريقي الشمالي",
         "the_female": "الإفريقية الشمالية",
-        "the_male": "الإفريقي الشمالي"
+        "en": "north africa",
+        "ar": "شمال إفريقيا"
     },
     "southeast asian": {
         "male": "آسيوي جنوب شرقي",
         "males": "آسيويون جنوبيون شرقيون",
         "female": "آسيوية جنوب شرقية",
         "females": "آسيويات جنوبيات شرقيات",
-        "en": "southeast asia",
-        "ar": "جنوب شرق آسيا",
+        "the_male": "الآسيوي الجنوبي الشرقي",
         "the_female": "الآسيوية الجنوبية الشرقية",
-        "the_male": "الآسيوي الجنوبي الشرقي"
+        "en": "southeast asia",
+        "ar": "جنوب شرق آسيا"
     },
     "southwest asian": {
         "male": "آسيوي جنوبي غربي",
         "males": "آسيويون جنوبيون غربيون",
         "female": "آسيوية جنوبية غربية",
         "females": "آسيويات جنوبيات غربيات",
-        "en": "southwest asia",
-        "ar": "جنوب غرب آسيا",
+        "the_male": "الآسيوي الجنوبي الغربي",
         "the_female": "الآسيوية الجنوبية الغربية",
-        "the_male": "الآسيوي الجنوبي الغربي"
+        "en": "southwest asia",
+        "ar": "جنوب غرب آسيا"
     }
 }

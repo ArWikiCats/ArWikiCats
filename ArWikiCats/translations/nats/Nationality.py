@@ -4,6 +4,17 @@ Nationality system with full refactoring and full type hints.
 All comments are in English only.
 """
 
+regex_line = """
+\s+"en": "([^"]+)?",
+\s+"ar": "([^"]+)?",
+\s+"the_female": "([^"]+)?",
+\s+"the_male": "([^"]+)?"
+
+"the_male": "$4",
+"the_female": "$3",
+"en": "$1",
+"ar": "$2"
+"""
 from __future__ import annotations
 
 from typing import Any, Dict, List, Tuple, TypedDict
@@ -57,20 +68,20 @@ raw_sub_nat_additional_to_check = {
         "males": "مسلمون",
         "female": "مسلمة",
         "females": "مسلمات",
+        "the_male": "المسلم",
+        "the_female": "المسلمة",
         "en": "",
         "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم",
     },
     "muslim": {
         "male": "مسلم",
         "males": "مسلمون",
         "female": "مسلمة",
         "females": "مسلمات",
+        "the_male": "المسلم",
+        "the_female": "المسلمة",
         "en": "muslims",
         "ar": "الإسلام",
-        "the_female": "المسلمة",
-        "the_male": "المسلم",
     },
 }
 
@@ -80,30 +91,30 @@ raw_sub_nat_additional = {
         "males": "يهود",
         "female": "يهودية",
         "females": "يهوديات",
+        "the_male": "اليهودي",
+        "the_female": "اليهودية",
         "en": "",
         "ar": "اليهودية",
-        "the_female": "اليهودية",
-        "the_male": "اليهودي",
     },
     "sufi": {
         "male": "صوفي",
         "males": "صوفيون",
         "female": "صوفية",
         "females": "صوفيات",
+        "the_male": "الصوفي",
+        "the_female": "الصوفية",
         "en": "",
         "ar": "الصوفية",
-        "the_female": "الصوفية",
-        "the_male": "الصوفي",
     },
     "christian": {
         "male": "مسيحي",
         "males": "مسيحيون",
         "female": "مسيحية",
         "females": "مسيحيات",
+        "the_male": "المسيحي",
+        "the_female": "المسيحية",
         "en": "",
         "ar": "المسيحية",
-        "the_female": "المسيحية",
-        "the_male": "المسيحي",
     },
 }
 
@@ -244,10 +255,10 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "males": "غينيون",
         "female": "غينية",
         "females": "غينيات",
+        "the_male": "الغيني",
+        "the_female": "الغينية",
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
-        "the_female": "الغينية",
-        "the_male": "الغيني",
     }
 
     # Handle Georgia (country)
