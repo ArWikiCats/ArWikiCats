@@ -232,7 +232,7 @@ the_male_sport_team_data = {
     "nigerian rifle shooting federation": "الاتحاد النيجيري لرماية البندقية",
     "nigerien rifle shooting racing federation": "الاتحاد النيجري لسباق رماية البندقية",
     "nordic road bicycle racing federation": "الاتحاد النوردي لسباق الدراجات على الطريق",
-    "north african road cycling federation": "الاتحاد الشمالي الإفريقي لسباق الدراجات على الطريق",
+    "north african road cycling federation": "الاتحاد الإفريقي الشمالي لسباق الدراجات على الطريق",
     "north american road race federation": "الاتحاد الأمريكي الشمالي لسباق الدراجات على الطريق",
     "north macedonian roller hockey racing federation": "الاتحاد الشمال المقدوني لسباق هوكي الدحرجة",
     "north yemeni roller hockey federation": "الاتحاد اليمني الشمالي لهوكي الدحرجة",

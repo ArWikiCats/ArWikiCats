@@ -41,8 +41,8 @@ the_female
 "female": "بروسية",
 "the_female": "البروسية",
 
-"female": "شمالية إفريقية",
-"the_female": "الشمالية الإفريقية",
+"female": "إفريقية شمالية",
+"the_female": "الإفريقية الشمالية",
 
 
 "female": "جنوبية إفريقية",
@@ -59,7 +59,7 @@ def add_definite_article(word: str) -> str:
     """Prefix Arabic definite article 'ال' to each space-separated token if missing.
     Examples:
       - "بروسية" -> "البروسية"
-      - "شمالية إفريقية" -> "الشمالية الإفريقية"
+      - "إفريقية شمالية" -> "الإفريقية الشمالية"
       - "جنوبية إفريقية" -> "الجنوبية الإفريقية"
     """
     if not word:

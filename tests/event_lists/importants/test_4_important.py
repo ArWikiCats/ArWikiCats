@@ -115,7 +115,7 @@ data1 = {
     "national hockey league": "دوريات هوكي وطنية",
     "national soccer league": "دوريات كرة قدم وطنية",
     "nigerian professional football league": "دوري كرة القدم النيجيري للمحترفين",
-    "north african super cup": "كأس السوبر الشمالي الإفريقي",
+    "north african super cup": "كأس السوبر الإفريقي الشمالي",
     "norwegian football cup": "كأس النرويج لكرة القدم",
     "omani league": "الدوري العماني",
     "palestine cup": "كأس فلسطين",
