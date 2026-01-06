@@ -802,7 +802,6 @@ data_2 = {
 to_test = [
     ("test_antigua_and_barbuda_0", data_0),
     ("test_antigua_and_barbuda_1", data_1),
-    # ("test_antigua_and_barbuda_2", data_2),
 ]
 
 
@@ -821,6 +820,15 @@ def test_antigua_and_barbuda_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    dump_diff(diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+
+
+@pytest.mark.parametrize("name,data", [("test_antigua_and_barbuda_2", data_2)])
+@pytest.mark.skip2
+def test_dump_it_skip2(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
     # dump_diff_text(expected, diff_result, name)

@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Tuple, TypedDict
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
-regex_line = """
+regex_line = r"""
 "male": "([^"]+)?",
 \s+"males": "([^"]+)?",
 \s+"female": "([^"]+)?",
@@ -33,6 +33,38 @@ regex_line = """
 # =====================================================================
 # Type aliases
 # =====================================================================
+
+countries_en_as_nationality_keys = [
+    "antigua and barbuda",
+    "botswana",
+    "central african republic",
+    "chinese taipei",
+    "democratic republic of congo",
+    "democratic-republic-of-congo",
+    "dominican republic",
+    "federated states of micronesia",
+    "federated states-of micronesia",
+    "georgia (country)",
+    "hong kong",
+    "ireland",
+    "kiribati",
+    "kyrgyz",
+    "lesotho",
+    "liechtenstein",
+    "new zealand",
+    "northern ireland",
+    "republic of congo",
+    "republic of ireland",
+    "republic-of ireland",
+    "republic-of-congo",
+    "são toméan",
+    "trinidad and tobago",
+    "turkmen",
+    "turkmenistan",
+    "uzbek",
+    "vatican",
+    "west india",
+]
 
 
 class NationalityEntry(TypedDict):
@@ -147,18 +179,19 @@ def load_sources(
             "the_male": "المقدسي"
         },
     }
-    raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/nationalities_data.json") or {}
-    nationality_directions_mapping: Dict[str, Any] = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+
+    raw_all_nat_o: AllNatDict = open_json_file("nationalities/nationalities_data.json") or {}
+    nationality_directions_mapping: AllNatDict = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+
+    raw_uu_nats: AllNatDict = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
+    raw_sub_nat: AllNatDict = open_json_file("nationalities/sub_nats.json") or {}
+    continents: AllNatDict = open_json_file("nationalities/continents.json") or {}
 
     raw_all_nat_o.update(nationality_directions_mapping)
 
     if raw_nats_as_en_key:
         raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
         raw_all_nat_o.update(raw_nats_as_en_key)
-
-    raw_uu_nats: Dict[str, Any] = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
-    raw_sub_nat: Dict[str, Any] = open_json_file("nationalities/sub_nats.json") or {}
-    continents: Dict[str, Any] = open_json_file("nationalities/continents.json") or {}
 
     data = {}
 
@@ -179,14 +212,18 @@ def load_sources(
         # Build guaranteed structure
         val = val if isinstance(val, dict) else {}
         entry: NationalityEntry = build_nationality_structure(val)
-
         normalized[key] = entry
+
+        # Special cases like "Category:Antigua and Barbuda writers" which use country names as nationalities
+        en_key = entry["en"].lower()
+        if en_key in countries_en_as_nationality_keys and en_key != key.lower():
+            normalized[en_key] = entry
 
     return normalized
 
 
-def build_en_nat_entries(raw_data: Dict[str, Any]) -> Dict[str, Any]:
-    data: Dict[str, Any] = {}
+def build_en_nat_entries(raw_data: AllNatDict) -> AllNatDict:
+    data: AllNatDict = {}
     if not raw_data:
         return {}
     for _, v in raw_data.items():
@@ -433,6 +470,7 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # =====================================================================
 
 raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
+
 nationalities_data: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
 
 nationalities_data = normalize_aliases(nationalities_data, True)

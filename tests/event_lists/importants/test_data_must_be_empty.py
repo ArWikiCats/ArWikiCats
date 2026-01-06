@@ -8,13 +8,13 @@ from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
 from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
-from ArWikiCats.new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
+from ArWikiCats.translations import countries_en_as_nationality_keys
 
 test_data_must_be_empty = {
     "the caribbean": "",
     "caribbean": "",
 }
-test_data_must_be_empty.update({x: "" for x in nats_keys_as_country_names_bad_keys})
+test_data_must_be_empty.update({x: "" for x in countries_en_as_nationality_keys})
 
 
 @pytest.mark.parametrize("category, expected_key", test_data_must_be_empty.items(), ids=test_data_must_be_empty.keys())

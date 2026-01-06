@@ -5,9 +5,9 @@ TODO: use this instead of for_me.py and nats_women.py
 import functools
 
 from ...helps import logger
-from ...translations import all_country_with_nat, all_country_with_nat_ar
+from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataV2
-from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -407,7 +407,7 @@ def fix_keys(category: str) -> str:
 def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
-    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
+    if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
         return ""
     category = fix_keys(category)

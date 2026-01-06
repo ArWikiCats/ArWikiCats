@@ -70,12 +70,6 @@ en_secretaries_mapping = {
 }
 
 
-def remove_the(text: str) -> str:
-    if text.lower().startswith("the "):
-        return text[4:]
-    return text
-
-
 @functools.lru_cache(maxsize=1)
 def _load_nats_bot() -> MultiDataFormatterBaseV2:
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
@@ -96,12 +90,12 @@ def _load_nats_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=1)
 def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
-    countries_data = {remove_the(v["en"]): v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
+    countries_data = {v["en"]: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
 
     countries_data.update(nats_keys_as_country_names)
 
     countries_data.update(
-        {remove_the(v["en"]): v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")}
+        {v["en"]: v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")}
     )
 
     both_bot = format_multi_data_v2(

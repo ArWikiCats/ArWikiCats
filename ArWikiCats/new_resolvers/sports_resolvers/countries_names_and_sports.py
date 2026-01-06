@@ -139,15 +139,9 @@ def _load_sports_formatted_data() -> dict[str, str]:
     return sports_formatted_data
 
 
-def remove_the(text: str) -> str:
-    if text.lower().startswith("the "):
-        return text[4:]
-    return text
-
-
 @functools.lru_cache(maxsize=1)
 def _load_nats_data() -> dict[str, dict[str, str]]:
-    nats_data = {remove_the(v["en"]): v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
+    nats_data = {v["en"]: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
 
     # nats_data.update(nats_keys_as_country_names)
 

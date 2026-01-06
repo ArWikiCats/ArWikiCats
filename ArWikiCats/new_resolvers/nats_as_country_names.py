@@ -10,6 +10,7 @@ Reference:
     https://en.wikipedia.org/wiki/Category:People_by_occupation_and_nationality
     https://en.wikipedia.org/wiki/Category:People_by_nationality_and_occupation
 """
+from ..helps import len_print
 from ..translations.nats.Nationality import raw_nats_as_en_key
 
 nats_keys_as_country_names = {
@@ -24,16 +25,14 @@ nats_keys_as_country_names = {
         "en": "ireland",
         "ar": "أيرلندا",
     },
-    "georgia (country)": {
-        "en_nat": "georgians",
-        "en_nat1": "georgian",
+    "georgia-country-nationality": {
         "male": "جورجي",
         "males": "جورجيون",
         "female": "جورجية",
         "females": "جورجيات",
         "the_male": "الجورجي",
         "the_female": "الجورجية",
-        "en": "georgia",
+        "en": "georgia (country)",
         "ar": "جورجيا",
     },
     "new zealand": {
@@ -56,48 +55,14 @@ nats_keys_as_country_names = {
         "the_female": "الأيرلندية الشمالية",
         "en": "northern ireland",
         "ar": "أيرلندا الشمالية",
-    },
-    "antigua and barbuda": {
-        "en_nat": "antiguan and barbudan",
-        "male": "أنتيغوي وبربودي",
-        "males": "أنتيغويون وبربوديون",
-        "female": "أنتيغوية وبربودية",
-        "females": "أنتيغويات وبربوديات",
-        "the_male": "الأنتيغوي والبربودي",
-        "the_female": "الأنتيغوية والبربودية",
-        "en": "antigua and barbuda",
-        "ar": "أنتيغوا وباربودا"
-    },
-    "trinidad and tobago": {
-        "en_nat": "trinidadian",
-        "male": "ترنيدادي",
-        "males": "ترنيداديون",
-        "female": "ترنيدادية",
-        "females": "ترنيداديات",
-        "the_male": "الترنيدادي",
-        "the_female": "الترنيدادية",
-        "en": "trinidad and tobago",
-        "ar": "ترينيداد وتوباغو",
-    },
+    }
 }
 
 nats_keys_as_country_names.update(raw_nats_as_en_key)
 
-nats_keys_as_country_names_bad_keys = list(nats_keys_as_country_names.keys())
-
-nats_keys_as_country_names_bad_keys.extend(
-    [
-        "federated states of micronesia",
-        "republic of ireland",
-        "republic-of ireland",
-        "democratic-republic-of-congo",
-        "democratic republic of congo",
-        "dominican republic",
-        "dominican republic",
-        "republic of congo",
-        "republic of congo",
-        "republic-of ireland",
-        "republic-of-congo",
-        "republic of congo",
-    ]
+len_print.data_len(
+    "nats_as_country_names.py",
+    {
+        "nats_keys_as_country_names": nats_keys_as_country_names,
+    },
 )

@@ -1,4 +1,14 @@
 {
+    "west india": {
+        "male": "هندي غربي",
+        "males": "هنود غربيون",
+        "female": "هندية غربية",
+        "females": "هنديات غربيات",
+        "the_male": "الهندي الغربي",
+        "the_female": "الهندية الغربية",
+        "en": "west india",
+        "ar": "الهند الغربية"
+    },
     "middle eastern": {
         "male": "شرق أوسطي",
         "males": "شرقيون أوسطيون",
@@ -18,6 +28,16 @@
         "the_female": "الجنوب الإفريقية",
         "en": "south africa",
         "ar": "جنوب إفريقيا"
+    },
+    "central african republic": {
+        "male": "إفريقي أوسطي",
+        "males": "أفارقة أوسطيون",
+        "female": "إفريقية أوسطية",
+        "females": "إفريقيات أوسطيات",
+        "the_male": "الإفريقي الأوسطي",
+        "the_female": "الإفريقية الأوسطية",
+        "en": "central african republic",
+        "ar": "جمهورية إفريقيا الوسطى"
     },
     "north african": {
         "male": "إفريقي شمالي",

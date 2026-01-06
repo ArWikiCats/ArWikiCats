@@ -9,8 +9,7 @@ import functools
 import re
 
 from ..helps import dump_data, logger
-from ..new_resolvers.nats_as_country_names import nats_keys_as_country_names_bad_keys
-from ..translations import All_Nat, all_country_with_nat
+from ..translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ..translations_formats import FormatDataV2
 from .categories_patterns.NAT_males import NAT_DATA_MALES
 
@@ -68,7 +67,7 @@ def resolve_nat_men_pattern_new(category: str) -> str:
 
     normalized_category = fix_keys(category)
 
-    if normalized_category in nats_keys_as_country_names_bad_keys or normalized_category in countries_en_keys:
+    if normalized_category in countries_en_as_nationality_keys or normalized_category in countries_en_keys:
         logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
         return ""
 

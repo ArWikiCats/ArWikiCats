@@ -6,6 +6,7 @@ import functools
 
 from ...helps import len_print, logger
 from ...translations import (
+    countries_en_as_nationality_keys,
     FEMALE_JOBS_BASE,
     RELIGIOUS_KEYS_PP,
     all_country_with_nat,
@@ -13,7 +14,7 @@ from ...translations import (
     jobs_womens_data,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
-from ..nats_as_country_names import nats_keys_as_country_names, nats_keys_as_country_names_bad_keys
+from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import filter_and_replace_gender_terms, fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -167,7 +168,7 @@ def womens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
     category = fix_keys(category)
 
-    if category in nats_keys_as_country_names_bad_keys or category in countries_en_keys:
+    if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip womens_resolver_labels: {category=}, [result=]")
         return ""
 
