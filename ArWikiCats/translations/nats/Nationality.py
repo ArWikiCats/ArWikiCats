@@ -114,6 +114,26 @@ def load_sources(
     """
     Load nationality JSON data and merge All_Nat_o + sub_nats.
     Ensures all entries follow the NationalityEntry structure (string values only).
+    "middle eastern": {
+        "male": "أوسطي شرقي",
+        "males": "أوسطيون شرقيون",
+        "female": "أوسطية شرقية",
+        "females": "أوسطيات شرقيات",
+        "en": "middle east",
+        "ar": "الشرق الأوسط",
+        "the_female": "الأوسطية الشرقية",
+        "the_male": "الأوسطي الشرقي"
+    },
+    "middle eastern": {
+        "male": "شرق أوسطي",
+        "males": "شرقيون أوسطيون",
+        "female": "شرقية أوسطية",
+        "females": "شرقيات أوسطيات",
+        "en": "middle east",
+        "ar": "الشرق الأوسط",
+        "the_female": "الشرقية الأوسطية",
+        "the_male": "الشرقي الأوسطي"
+    },
     """
 
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
