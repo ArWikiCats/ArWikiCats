@@ -1514,8 +1514,7 @@
         "males": "ناورونيون",
         "female": "ناورونية",
         "females": "ناورونيات",
-        "en": "republic of nauru",
-        "en1": "nauru",
+        "en": "nauru",
         "ar": "ناورو",
         "the_female": "الناورونية",
         "the_male": "الناوروني"
@@ -1659,17 +1658,6 @@
         "the_female": "الفرثية",
         "en": "parthian empire",
         "ar": "الإمبراطورية البارثية"
-    },
-    "people from jerusalem": {
-        "male": "مقدسي",
-        "males": "مقدسيون",
-        "female": "مقدسية",
-        "females": "مقدسيات",
-        "en": "jerusalem",
-        "en1": "jerusalem",
-        "ar": "القدس",
-        "the_female": "المقدسية",
-        "the_male": "المقدسي"
     },
     "peruvian": {
         "male": "بيروي",
@@ -2177,7 +2165,6 @@
         "female": "فانواتية",
         "females": "فانواتيات",
         "en": "vanuata",
-        "en1": "ripablik blong vanuatu",
         "ar": "فانواتو",
         "the_female": "الفانواتية",
         "the_male": "الفانواتي"

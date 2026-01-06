@@ -136,7 +136,18 @@ def load_sources(
     Ensures all entries follow the NationalityEntry structure (string values only).
 
     """
-
+    data_to_review = {
+        "people from jerusalem": {
+            "male": "مقدسي",
+            "males": "مقدسيون",
+            "female": "مقدسية",
+            "females": "مقدسيات",
+            "en": "jerusalem",
+            "ar": "القدس",
+            "the_female": "المقدسية",
+            "the_male": "المقدسي"
+        },
+    }
     raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/nationalities_data.json") or {}
     nationality_directions_mapping: Dict[str, Any] = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
 
