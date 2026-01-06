@@ -29,16 +29,6 @@
         "the_female": "الأفغانية",
         "the_male": "الأفغاني"
     },
-    "african": {
-        "male": "إفريقي",
-        "males": "أفارقة",
-        "female": "إفريقية",
-        "females": "إفريقيات",
-        "en": "africa",
-        "ar": "إفريقيا",
-        "the_female": "الإفريقية",
-        "the_male": "الإفريقي"
-    },
     "africanamerican": {
         "male": "أمريكي إفريقي",
         "males": "أمريكيون أفارقة",
@@ -199,16 +189,6 @@
         "the_female": "الأروبية",
         "the_male": "الأروبي"
     },
-    "asian": {
-        "male": "آسيوي",
-        "males": "آسيويون",
-        "female": "آسيوية",
-        "females": "آسيويات",
-        "en": "asia",
-        "ar": "آسيا",
-        "the_female": "الآسيوية",
-        "the_male": "الآسيوي"
-    },
     "australasian": {
         "male": "أسترالاسي",
         "males": "أسترالاسيون",
@@ -218,16 +198,6 @@
         "ar": "أسترالاسيا",
         "the_female": "الأسترالاسية",
         "the_male": "الأسترالاسي"
-    },
-    "australian": {
-        "male": "أسترالي",
-        "males": "أستراليون",
-        "female": "أسترالية",
-        "females": "أستراليات",
-        "en": "australia",
-        "ar": "أستراليا",
-        "the_female": "الأسترالية",
-        "the_male": "الأسترالي"
     },
     "austrian": {
         "male": "نمساوي",
@@ -818,16 +788,6 @@
         "ar": "إثيوبيا",
         "the_female": "الإثيوبية",
         "the_male": "الإثيوبي"
-    },
-    "european": {
-        "male": "أوروبي",
-        "males": "أوروبيون",
-        "female": "أوروبية",
-        "females": "أوروبيات",
-        "en": "europe",
-        "ar": "أوروبا",
-        "the_female": "الأوروبية",
-        "the_male": "الأوروبي"
     },
     "faroese": {
         "male": "فاروي",
