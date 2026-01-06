@@ -24,7 +24,6 @@ wheelchair_by_nats = {
     "Category:Scottish wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة إسكتلنديون",
     "Category:Scottish wheelchair curling champions": "تصنيف:أبطال الكيرلنغ على الكراسي المتحركة إسكتلنديون",
     "Category:Slovak wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة سلوفاكيون",
-    "Category:South African wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة جنوب إفريقيون",
     "Category:South Korean wheelchair curlers": "تصنيف:لاعبو كيرلنغ على الكراسي المتحركة كوريون جنوبيون",
     "Category:Spanish wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة إسبان",
     "Category:Spanish wheelchair fencers": "تصنيف:مبارزون على الكراسي المتحركة إسبان",

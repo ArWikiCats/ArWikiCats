@@ -128,7 +128,6 @@ data1 = {
     "scottish football league second division": "الدوري الإسكتلندي لكرة القدم الدرجة الثانية",
     "scottish football league": "الدوري الإسكتلندي لكرة القدم",
     "slovenian football cup": "كأس سلوفينيا لكرة القدم",
-    "south african premier division": "الدوري الجنوب الإفريقي الممتاز",
     "south american games": "الألعاب الأمريكية الجنوبية",
     "south american volleyball championship": "بطولة أمريكا الجنوبية لكرة الطائرة",
     "south american women's football championship": "بطولة أمريكا الجنوبية لكرة القدم للسيدات",

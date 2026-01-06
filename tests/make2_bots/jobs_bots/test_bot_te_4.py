@@ -273,8 +273,6 @@ data_2018_with_nat = {
     "scottish islands": "جزر إسكتلندية",
     "slovak eurodance groups": "فرق يورودانس سلوفاكية",
     "slovenian sport": "رياضة سلوفينية",
-    "south african jews": "يهود جنوب إفريقيون",
-    "south african provinces": "مقاطعات جنوبية إفريقية",
     "south korean tennis": "كرة مضرب كورية جنوبية",
     "soviet navy": "البحرية السوفيتية",
     "soviet war crimes": "جرائم حرب سوفيتية",

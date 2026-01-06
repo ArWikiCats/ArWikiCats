@@ -43,7 +43,6 @@ data_slow = {
     "Category:South Sudan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سودانيون جنوبيون",
     "Category:South Korea political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون كوريون جنوبيون",
     "Category:South America political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أمريكيون جنوبيون",
-    "Category:South Africa political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون جنوب إفريقيون",
     "Category:Somalia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون صوماليون",
     "Category:Slovakia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سلوفاكيون",
     "Category:Sierra Leone political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سيراليونيون",

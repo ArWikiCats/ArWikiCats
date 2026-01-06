@@ -287,7 +287,6 @@ fast_data = {
     "slovak music": "موسيقى سلوفاكية",
     "slovenian novels": "روايات سلوفينية",
     "slovenian rock music groups": "فرق موسيقى الروك سلوفينية",
-    "south african sport": "رياضة جنوبية إفريقية",
     "south american rugby union": "اتحاد الرجبي الأمريكي الجنوبي",
     "south american sport": "رياضة أمريكية جنوبية",
     "south korean sport": "رياضة كورية جنوبية",

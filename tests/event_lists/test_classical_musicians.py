@@ -185,8 +185,6 @@ test_c_musicians_3 = {
     "Singaporean classical musicians": "موسيقيون كلاسيكيون سنغافوريون",
     "Slovak classical musicians": "موسيقيون كلاسيكيون سلوفاكيون",
     "Slovenian classical musicians": "موسيقيون كلاسيكيون سلوفينيون",
-    "South African classical musicians by instrument": "موسيقيون كلاسيكيون جنوب إفريقيون حسب الآلة",
-    "South African classical musicians": "موسيقيون كلاسيكيون جنوب إفريقيون",
     "South Korean classical musicians by instrument": "موسيقيون كلاسيكيون كوريون جنوبيون حسب الآلة",
     "South Korean classical musicians": "موسيقيون كلاسيكيون كوريون جنوبيون",
     "Soviet classical musicians": "موسيقيون كلاسيكيون سوفيت",

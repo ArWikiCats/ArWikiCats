@@ -157,7 +157,6 @@ religions_data = {
     "sierra leonean muslims": "تصنيف:سيراليونيون مسلمون",
     "singaporean muslims": "تصنيف:سنغافوريون مسلمون",
     "somalian muslims": "تصنيف:صوماليون مسلمون",
-    "south african muslims": "تصنيف:جنوب إفريقيون مسلمون",
     "south american muslims": "تصنيف:أمريكيون جنوبيون مسلمون",
     "south korean muslims": "تصنيف:كوريون جنوبيون مسلمون",
     "south sudanese muslims": "تصنيف:سودانيون جنوبيون مسلمون",

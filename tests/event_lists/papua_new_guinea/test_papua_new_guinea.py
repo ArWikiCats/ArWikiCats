@@ -850,7 +850,7 @@ data_1 = {
     "Category:Papua New Guinea–Philippines relations": "تصنيف:العلاقات الغينية الفلبينية",
     "Category:Papua New Guinea–Poland relations": "تصنيف:العلاقات البولندية الغينية",
     "Category:Papua New Guinea–Singapore relations": "تصنيف:العلاقات السنغافورية الغينية",
-    "Category:Papua New Guinea–South Africa relations": "تصنيف:العلاقات الجنوبية الإفريقية الغينية",
+    "Category:Papua New Guinea–South Africa relations": "تصنيف:العلاقات الجنوب الإفريقية الغينية",
     "Category:Papua New Guinea–South Korea relations": "تصنيف:العلاقات الغينية الكورية الجنوبية",
     "Category:Papua New Guinea–Sri Lanka relations": "تصنيف:العلاقات السريلانكية الغينية",
     "Category:Papua New Guinea–Sweden relations": "تصنيف:العلاقات السويدية الغينية",
