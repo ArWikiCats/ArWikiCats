@@ -44,9 +44,8 @@ data0 = {
 }
 
 data1 = {
-    "Executed Jewish collaborators with Nazi Germany": "يهود معدمون متعاونون مع ألمانيا النازية",
-    "Sunni Muslim scholars of Islam by ethnicity": "باحثون عن الإسلام مسلمون سنة حسب المجموعة العرقية",
-    "Sunni Muslim scholars of Islam by nationality": "باحثون عن الإسلام مسلمون سنة حسب الجنسية",
+    "Sunni Muslim scholars of Islam by ethnicity": "مسلمون سنة باحثون عن الإسلام حسب المجموعة العرقية",
+    "Sunni Muslim scholars of Islam by nationality": "مسلمون سنة باحثون عن الإسلام حسب الجنسية",
 
     "20th-century Anglican archbishops in Ireland": "رؤساء أساقفة أنجليكيون في أيرلندا القرن 20",
     "20th-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا القرن 20",

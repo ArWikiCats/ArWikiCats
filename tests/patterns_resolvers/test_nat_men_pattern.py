@@ -267,8 +267,8 @@ test_data_males = {
     "american people of german descent": "أمريكيون من أصل ألماني",
     "brazilian people of german descent": "برازيليون من أصل ألماني",
     # executed {en_nat} people
-    "executed democratic-republic-of-congo people": "كونغويون ديمقراطيون معدومون",
-    "executed dominican republic people": "دومينيكانيون معدومون",
+    "executed democratic-republic-of-congo people": "كونغويون ديمقراطيون أعدموا",
+    "executed dominican republic people": "دومينيكانيون أعدموا",
     # {en_nat} models
     "eastern asian models": "عارضو أزياء آسيويون شرقيون",
     "equatoguinean models": "عارضو أزياء غينيون استوائيون",

@@ -29,7 +29,6 @@ te4_2018_Jobs_data = {
     "american folk musicians": "موسيقيو فولك أمريكيون",
     "american gospel singers": "مغنو غوسبل أمريكيون",
     "american novelists": "روائيون أمريكيون",
-    "american people executed abroad": "أمريكيون أعدموا في الخارج",
     "american playback singers": "مغنو أفلام أمريكيون",
     "american women folk singers": "مغنيات فولك أمريكيات",
     "american women geographers": "جغرافيات أمريكيات",
