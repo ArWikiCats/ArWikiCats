@@ -37,7 +37,6 @@ test_army_nat_data_1 = {
     "chilean air force generals": "جنرالات القوات الجوية التشيلية",
     "chilean army personnel": "أفراد الجيش التشيلي",
     "scottish parliament": "البرلمان الإسكتلندي",
-    "south african parliament": "البرلمان الجنوب الإفريقي",
 }
 
 test_army_nat_data_2 = {

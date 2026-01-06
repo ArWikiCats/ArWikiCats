@@ -52,7 +52,6 @@ test_data_males = {
     "scottish people": "إسكتلنديون",
     "serbian people": "صرب",
     "somalian people": "صوماليون",
-    "south african people": "جنوب إفريقيون",
     "sri lankan people": "سريلانكيون",
     "sudanese people": "سودانيون",
     "swedish people": "سويديون",
@@ -69,12 +68,13 @@ test_data_males = {
     "jamaican lgbtq people": "أعلام إل جي بي تي كيو جامايكيون",
     "norwegian lgbtq people": "أعلام إل جي بي تي كيو نرويجيون",
     "sierra leonean lgbtq people": "أعلام إل جي بي تي كيو سيراليونيون",
-    "south african lgbtq people": "أعلام إل جي بي تي كيو جنوب إفريقيون",
     "thai lgbtq people": "أعلام إل جي بي تي كيو تايلنديون",
     "tunisian lgbtq people": "أعلام إل جي بي تي كيو تونسيون",
     # {en_nat} political people
     "libyan political people": "ساسة ليبيون",
     "south african political people": "ساسة جنوب إفريقيون",
+    "south african lgbtq people": "أعلام إل جي بي تي كيو جنوب إفريقيون",
+    "south african people": "جنوب إفريقيون",
     "central african republic political people": "ساسة أفارقة أوسطيون",
     # {en_nat} people by occupation
     "bissau-guinean people by occupation": "غينيون بيساويون حسب المهنة",

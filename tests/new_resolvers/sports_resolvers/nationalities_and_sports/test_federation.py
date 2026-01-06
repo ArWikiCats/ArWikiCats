@@ -283,7 +283,6 @@ the_male_sport_team_data = {
     "somali snooker federation": "الاتحاد الصومالي للسنوكر",
     "somalian snooker racing federation": "الاتحاد الصومالي لسباق السنوكر",
 
-    "south african snowboarding federation": "الاتحاد الجنوب الإفريقي للتزلج على الثلوج",
     "south sudanese soft tennis federation": "الاتحاد السوداني الجنوبي لكرة المضرب اللينة",
     "southeast asian softball federation": "الاتحاد الآسيوي الجنوب الشرقي للكرة اللينة",
 

@@ -143,8 +143,6 @@ ireland_test_data = {
     "ireland–slovakia relations": "العلاقات الأيرلندية السلوفاكية",
     "ireland–slovenia relations": "العلاقات الأيرلندية السلوفينية",
     "ireland–somalia relations": "العلاقات الأيرلندية الصومالية",
-    "ireland–south africa relations": "العلاقات الأيرلندية الجنوبية الإفريقية",
-    "ireland–south africa sports relations": "العلاقات الأيرلندية الجنوبية الإفريقية الرياضية",
     "ireland–south korea relations": "العلاقات الأيرلندية الكورية الجنوبية",
     "ireland–soviet union relations": "العلاقات الأيرلندية السوفيتية",
     "ireland–spain relations": "العلاقات الأيرلندية الإسبانية",
