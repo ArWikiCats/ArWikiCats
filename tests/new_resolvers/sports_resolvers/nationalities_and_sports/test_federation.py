@@ -100,7 +100,6 @@ the_male_sport_team_data = {
     "chilean cue sports federation": "الاتحاد التشيلي للبلياردو",
     "chinese cue sports racing federation": "الاتحاد الصيني لسباق بلياردو",
     "chinese taipei curling federation": "الاتحاد التايبي الصيني للكيرلنغ",
-    "circassians cycle federation": "الاتحاد الشركسي للدراجات",
     "colombian cycle race federation": "الاتحاد الكولومبي لسباق الدراجات",
     "comoran cycle racing federation": "الاتحاد القمري لسباق الدراجات",
     "comorian cycle speedway federation": "الاتحاد القمري لسباق الدراجات النارية على المنعطفات",
