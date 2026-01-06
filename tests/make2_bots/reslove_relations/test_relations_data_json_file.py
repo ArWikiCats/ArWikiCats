@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.make_bots import change_cat
@@ -48,6 +48,8 @@ TEMPORAL_CASES2 = _load_data("relations_data_empty.json", 4000)
 def test_empty_dump(name: str, data: str) -> None:
     # expected, diff_result = one_dump_test(data, resolve_label_ar)
     expected, diff_result = one_dump_test(data, resolve_relations_label)
+    dump_same_and_not_same(data, diff_result, name)
 
     dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
+
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

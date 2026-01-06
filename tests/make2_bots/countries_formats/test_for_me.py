@@ -215,7 +215,6 @@ fast_data = {
     "japanese music": "موسيقى يابانية",
     "japanese politics": "السياسة اليابانية",
     "japanese sport": "رياضة يابانية",
-    "jewish american people": "أمريكيون يهود",
     "jewish american television series": "مسلسلات تلفزيونية أمريكية يهودية",
     "jewish american tennis": "كرة مضرب أمريكية يهودية",
     "jewish manuscripts": "مخطوطات يهودية",

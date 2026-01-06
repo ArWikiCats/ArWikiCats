@@ -9,6 +9,23 @@ test_skip = {
 }
 
 examples_1 = {
+    "Category:Ministers for foreign affairs of Papua New Guinea": "تصنيف:وزراء شؤون خارجية بابوا غينيا الجديدة",
+    "Category:Justice ministers of Papua New Guinea": "تصنيف:وزراء عدل بابوا غينيا الجديدة",
+    "Women government ministers of Antigua and Barbuda": "وزيرات أنتيغويات وبربوديات",
+    "Agriculture ministers of Antigua and Barbuda": "وزراء زراعة أنتيغوا وباربودا",
+    "Energy ministers of Antigua and Barbuda": "وزراء طاقة أنتيغوا وباربودا",
+    "Tourism ministers of Antigua and Barbuda": "وزراء سياحة أنتيغوا وباربودا",
+    "Trade ministers of Antigua and Barbuda": "وزراء تجارة أنتيغوا وباربودا",
+    "Category:Culture ministers of Uganda": "تصنيف:وزراء ثقافة أوغندا",
+    "Category:Defence ministers of Kuwait": "تصنيف:وزراء دفاع الكويت",
+    "Category:Education ministers of Afghanistan": "تصنيف:وزراء تعليم أفغانستان",
+    "Category:Finance ministers of Tunisia": "تصنيف:وزراء مالية تونس",
+    "Category:Foreign ministers of South Sudan": "تصنيف:وزراء خارجية جنوب السودان",
+    "Category:Labour ministers of Chad": "تصنيف:وزراء عمل تشاد",
+    "Category:Ministers for foreign affairs of Ireland": "تصنيف:وزراء شؤون خارجية أيرلندا",
+    "Category:Trade ministers of Indonesia": "تصنيف:وزراء تجارة إندونيسيا",
+    "Category:Transport ministers of Argentina": "تصنيف:وزراء نقل الأرجنتين",
+    "Category:Transport ministers of Liberia": "تصنيف:وزراء نقل ليبيريا",
     "Category:Foreign trade ministers of Netherlands": "تصنيف:وزراء تجارة خارجية هولندا",
     "Category:Social affairs ministers of Uganda": "تصنيف:وزراء شؤون اجتماعية أوغندا",
     "Category:Trade ministers of Togo": "تصنيف:وزراء تجارة توغو",

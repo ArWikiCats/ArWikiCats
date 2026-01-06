@@ -82,7 +82,6 @@ the_male_sport_team_data = {
     "bruneian canadian football racing federation": "الاتحاد البروني لسباق كرة القدم الكندية",
     "bulgarian canoe sprint federation": "الاتحاد البلغاري لسباق القوارب",
     "burkinabe canoeing and kayaking federation": "الاتحاد البوركينابي للكانو كاياك",
-    "burkinese canoeing federation": "الاتحاد الباركينسي لركوب الكنو",
     "burmese canoeing racing federation": "الاتحاد البورمي لسباق ركوب الكنو",
     "burundian chess federation": "الاتحاد البوروندي للشطرنج",
     "byzantine chess racing federation": "الاتحاد البيزنطي لسباق الشطرنج",
@@ -249,7 +248,6 @@ the_male_sport_team_data = {
     "panamanian rugby sevens federation": "الاتحاد البنمي لسباعيات الرجبي",
     "paraguayan rugby union federation": "الاتحاد البارغواياني لاتحاد الرجبي",
     "parthian rugby union racing federation": "الاتحاد الفرثي لسباق اتحاد الرجبي",
-    "people from jerusalem rugbyunion federation": "الاتحاد المقدسي لاتحاد الرجبي",
     "peruvian running racing federation": "الاتحاد البيروي لسباق الركض",
     "portuguese sailing federation": "الاتحاد البرتغالي للإبحار",
     "prussian sailing racing federation": "الاتحاد البروسي لسباق الإبحار",
@@ -284,7 +282,7 @@ the_male_sport_team_data = {
     "somalian snooker racing federation": "الاتحاد الصومالي لسباق السنوكر",
 
     "south sudanese soft tennis federation": "الاتحاد السوداني الجنوبي لكرة المضرب اللينة",
-    "southeast asian softball federation": "الاتحاد الآسيوي الجنوب الشرقي للكرة اللينة",
+    "southeast asian softball federation": "الاتحاد الآسيوي الجنوبي الشرقي للكرة اللينة",
 
     "south american snowboarding racing federation": "الاتحاد الأمريكي الجنوبي لسباق التزلج على الثلوج",
     "south korean soccer federation": "الاتحاد الكوري الجنوبي لكرة القدم",

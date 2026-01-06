@@ -72,7 +72,7 @@ test_data = {
     "netherlands royal navy": "البحرية الملكية الهولندية",
     "iran navy": "البحرية الإيرانية",
     "sri lanka navy": "البحرية السريلانكية",
-    "south yemen navy": "البحرية الجنوبية اليمنية",
+    "south yemen navy": "البحرية اليمنية الجنوبية",
     "japan navy": "البحرية اليابانية",
     "united arab emirates navy": "البحرية الإماراتية",
     "benin navy": "البحرية البنينية",
@@ -90,7 +90,7 @@ test_data = {
     # -------------------------
     # civil war (women + إضافة “ال”)
     # -------------------------
-    "north yemen civil war": "الحرب الأهلية الشمالية اليمنية",
+    "north yemen civil war": "الحرب الأهلية اليمنية الشمالية",
     "sierra leone civil war": "الحرب الأهلية السيراليونية",
     "myanmar civil war": "الحرب الأهلية الميانمارية",
     "yemen civil war": "الحرب الأهلية اليمنية",
