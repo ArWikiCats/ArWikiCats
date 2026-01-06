@@ -1,5 +1,5 @@
 from ...helps import logger
-from . import mens, womens
+from . import mens, womens, relegin_jobs_new
 
 
 def resolve_jobs_main(normalized_category) -> str:
@@ -8,7 +8,10 @@ def resolve_jobs_main(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying jobs_resolvers for: {normalized_category=}")
 
     resolved_label = (
-        mens.mens_resolver_labels(normalized_category) or womens.womens_resolver_labels(normalized_category) or ""
+        mens.mens_resolver_labels(normalized_category)
+        or womens.womens_resolver_labels(normalized_category)
+        or relegin_jobs_new.new_religions_jobs_with_suffix(normalized_category)
+        or ""
     )
 
     logger.debug(f"<<green>> end jobs_resolvers: {normalized_category=}, {resolved_label=}")

@@ -8,7 +8,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data_fast = {
-
+    "Anglican archbishops of Papua New Guinea": "رؤساء أساقفة أنجليكيون في بابوا غينيا الجديدة",
+    "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "african people by nationality": "أفارقة حسب الجنسية",
     "andy warhol": "آندي وارهول",
     "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
@@ -40,7 +41,6 @@ data_fast = {
     "polish-language films": "أفلام باللغة البولندية",
     "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
     "sara bareilles": "سارة باريلز",
-    "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "spanish-language mass media": "إعلام اللغة الإسبانية",
     "surinamese women children's writers": "كاتبات أطفال سوريناميات",
     "swedish-language albums": "ألبومات باللغة السويدية",

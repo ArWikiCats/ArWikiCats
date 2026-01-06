@@ -91,7 +91,6 @@ data_nat = {
     "american wheelchair track and field athletes": ("wheelchair track and field athletes", "american"),
     "american wheelchair track": ("wheelchair track", "american"),
     "american women wheelchair racers": ("women wheelchair racers", "american"),
-    "american women's wheelchair basketball players": ("women's wheelchair basketball players", "american"),
     "argentine multi instrumentalists": ("multi instrumentalists", "argentine"),
     "argentine multi-instrumentalists": ("multi-instrumentalists", "argentine"),
     "argentine songwriters": ("songwriters", "argentine"),

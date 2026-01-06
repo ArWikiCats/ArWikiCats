@@ -483,7 +483,6 @@ data_1 = {
     "Category:American expatriate sportspeople in Papua New Guinea": "تصنيف:رياضيون أمريكيون مغتربون في بابوا غينيا الجديدة",
     "Category:American expatriates in Papua New Guinea": "تصنيف:أمريكيون مغتربون في بابوا غينيا الجديدة",
     "Category:Amphibians of Papua New Guinea": "تصنيف:برمائيات بابوا غينيا الجديدة",
-    "Category:Anglican archbishops of Papua New Guinea": "تصنيف:رؤساء أساقفة أنجليكيون في بابوا غينيا الجديدة",
     "Category:Anglican bishops in Papua New Guinea": "تصنيف:أساقفة أنجليكيون في بابوا غينيا الجديدة",
     "Category:Anglican missionaries in Papua New Guinea": "تصنيف:مبشرون أنجليكيون في بابوا غينيا الجديدة",
     "Category:Anglicanism in Papua New Guinea": "تصنيف:أنجليكية في بابوا غينيا الجديدة",
