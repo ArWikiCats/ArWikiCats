@@ -9,6 +9,16 @@
         "the_female": "الهندية الغربية",
         "the_male": "الهندي الغربي"
     },
+    "northern ireland": {
+        "male": "أيرلندي شمالي",
+        "males": "أيرلنديون شماليون",
+        "female": "أيرلندية شمالية",
+        "females": "أيرلنديات شماليات",
+        "en": "northern ireland",
+        "ar": "أيرلندا الشمالية",
+        "the_female": "الأيرلندية الشمالية",
+        "the_male": "الأيرلندي الشمالي"
+    },
     "botswana": {
         "male": "بوتسواني",
         "males": "بوتسوانيون",
@@ -40,16 +50,6 @@
         "ar": "جمهورية إفريقيا الوسطى",
         "the_female": "الإفريقية الأوسطية",
         "the_male": "الإفريقي الأوسطي"
-    },
-    "northern ireland": {
-        "male": "أيرلندي شمالي",
-        "males": "أيرلنديون شماليون",
-        "female": "أيرلندية شمالية",
-        "females": "أيرلنديات شماليات",
-        "en": "northern ireland",
-        "ar": "أيرلندا الشمالية",
-        "the_female": "الأيرلندية الشمالية",
-        "the_male": "الأيرلندي الشمالي"
     },
     "antigua and barbuda": {
         "en_nat": "antiguan and barbudan",
