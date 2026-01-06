@@ -28,14 +28,14 @@ def _load_data(file_name, chunk_size=3000) -> list:
     return TEMPORAL_CASES
 
 
-TEMPORAL_CASES = _load_data("relations_data.json")
+TEMPORAL_CASES = _load_data("relations_data.json", 15000)
 
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
 def test_all_dump(name: str, data: str) -> None:
     expected, diff_result = one_dump_test(data, resolve_relations_label)
-
+    dump_same_and_not_same(data, diff_result, name)
     dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
