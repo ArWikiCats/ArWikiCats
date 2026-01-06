@@ -4,9 +4,9 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-data0 = {}
+data_0 = {}
 
-data1 = {
+data_1 = {
 
     "Albanian people executed abroad": "x",
     "Albanian people executed by Nazi Germany": "x",
@@ -2146,19 +2146,20 @@ data_3 = {
 data_4 = {}
 
 to_test = [
-    ("test_executed_0", data0),
-    ("test_executed_1", data1),
+    ("test_executed_0", data_0),
+    ("test_executed_1", data_1),
+    ("test_executed_2", data_2),
     ("test_executed_3", data_3),
     ("test_executed_4", data_4),
 ]
 
 
-@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 def test_executed_0(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 def test_executed_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
