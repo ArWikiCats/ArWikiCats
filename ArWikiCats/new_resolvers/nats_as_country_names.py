@@ -59,14 +59,14 @@ nats_keys_as_country_names = {
     },
     "antigua and barbuda": {
         "en_nat": "antiguan and barbudan",
-        "en": "antigua and barbuda",
-        "ar": "أنتيغوا وباربودا",
         "male": "أنتيغوي وبربودي",
         "males": "أنتيغويون وبربوديون",
         "female": "أنتيغوية وبربودية",
         "females": "أنتيغويات وبربوديات",
-        "the_female": "الأنتيغوية والبربودية",
         "the_male": "الأنتيغوي والبربودي",
+        "the_female": "الأنتيغوية والبربودية",
+        "en": "antigua and barbuda",
+        "ar": "أنتيغوا وباربودا"
     },
     "trinidad and tobago": {
         "en_nat": "trinidadian",
