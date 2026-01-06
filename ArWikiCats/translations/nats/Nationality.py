@@ -4,24 +4,33 @@ Nationality system with full refactoring and full type hints.
 All comments are in English only.
 """
 
-regex_line = """
-"en": "([^"]+)?",
-\s+"ar": "([^"]+)?",
-\s+"the_female": "([^"]+)?",
-\s+"the_male": "([^"]+)?"
-
-"the_male": "$4",
-"the_female": "$3",
-"en": "$1",
-"ar": "$2"
-"""
 from __future__ import annotations
 
+from ast import Str
 from typing import Any, Dict, List, Tuple, TypedDict
 
 from ...helps import len_print
 from ..utils.json_dir import open_json_file
 
+regex_line = """
+"male": "([^"]+)?",
+\s+"males": "([^"]+)?",
+\s+"female": "([^"]+)?",
+\s+"females": "([^"]+)?",
+\s+"the_male": "([^"]+)?",
+\s+"the_female": "([^"]+)?",
+\s+"en": "([^"]+)?",
+\s+"ar": "([^"]+)?"
+
+"male": "$1",
+"males": "$2",
+"female": "$3",
+"females": "$4",
+"the_male": "$5",
+"the_female": "$6",
+"en": "$7",
+"ar": "$8"
+"""
 # =====================================================================
 # Type aliases
 # =====================================================================
@@ -34,10 +43,10 @@ class NationalityEntry(TypedDict):
     males: str
     female: str
     females: str
+    the_male: str
+    the_female: str
     en: str
     ar: str
-    the_female: str
-    the_male: str
 
 
 AllNatDict = Dict[str, NationalityEntry]
@@ -50,10 +59,10 @@ def build_nationality_structure(val):
         "males": val.get("males", ""),
         "female": val.get("female", ""),
         "females": val.get("females", ""),
-        "en": val.get("en", ""),
-        "ar": val.get("ar", ""),
         "the_female": val.get("the_female", ""),
         "the_male": val.get("the_male", ""),
+        "en": val.get("en", ""),
+        "ar": val.get("ar", ""),
     }
 
 
