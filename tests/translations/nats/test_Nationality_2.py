@@ -43,7 +43,7 @@ def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch
     """load_sources should return dict of NationalityEntry with all keys present and string values."""
 
     def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
-        if name == "nationalities/All_Nat_o.json":
+        if name == "nationalities/nationalities_data.json":
             return {
                 "yemeni": {"en": "yemen", "ar": "اليمن", "male": "يمني"},
             }
@@ -268,7 +268,7 @@ def test_full_pipeline_minimal() -> None:
 def test_full_pipeline_with_alias_and_american() -> None:
     """Integration that includes alias normalization + american forms + lookups."""
 
-    # Start from a minimal All_Nat_o-like structure
+    # Start from a minimal nationalities_data-like structure
     all_nat_o = {
         "russian": make_entry(
             male="روسي",

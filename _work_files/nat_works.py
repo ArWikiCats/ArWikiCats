@@ -1,5 +1,5 @@
 """
-D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json
+D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json
 {
     "zanzibari": {
         "male": "زنجباري",
@@ -51,7 +51,7 @@ the_female
 import json
 from pathlib import Path
 
-# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json")
+# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json")
 JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/sub_nats.json")
 
 

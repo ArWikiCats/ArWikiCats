@@ -112,31 +112,15 @@ def load_sources(
     raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
 ) -> Dict[str, NationalityEntry]:
     """
-    Load nationality JSON data and merge All_Nat_o + sub_nats.
+    Load nationality JSON data and merge nationalities_data + sub_nats.
     Ensures all entries follow the NationalityEntry structure (string values only).
-    "middle eastern": {
-        "male": "أوسطي شرقي",
-        "males": "أوسطيون شرقيون",
-        "female": "أوسطية شرقية",
-        "females": "أوسطيات شرقيات",
-        "en": "middle east",
-        "ar": "الشرق الأوسط",
-        "the_female": "الأوسطية الشرقية",
-        "the_male": "الأوسطي الشرقي"
-    },
-    "middle eastern": {
-        "male": "شرق أوسطي",
-        "males": "شرقيون أوسطيون",
-        "female": "شرقية أوسطية",
-        "females": "شرقيات أوسطيات",
-        "en": "middle east",
-        "ar": "الشرق الأوسط",
-        "the_female": "الشرقية الأوسطية",
-        "the_male": "الشرقي الأوسطي"
-    },
+
     """
 
-    raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/All_Nat_o.json") or {}
+    raw_all_nat_o: Dict[str, Any] = open_json_file("nationalities/nationalities_data.json") or {}
+    nationality_directions_mapping: Dict[str, Any] = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+
+    raw_all_nat_o.update(nationality_directions_mapping)
 
     if raw_nats_as_en_key:
         raw_all_nat_o.update(build_en_nat_entries(raw_nats_as_en_key))
@@ -148,7 +132,7 @@ def load_sources(
 
     data = {}
 
-    # Merge JSONs into All_Nat_o
+    # Merge JSONs into nationalities_data
     data.update(raw_uu_nats)
 
     data.update(raw_sub_nat)
@@ -419,13 +403,13 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
 # =====================================================================
 
 raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
-All_Nat_o: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
+nationalities_data: Dict[str, NationalityEntry] = load_sources(raw_nats_as_en_key)
 
-All_Nat_o = normalize_aliases(All_Nat_o, True)
+nationalities_data = normalize_aliases(nationalities_data, True)
 
-All_Nat: AllNatDict = {k.lower(): v for k, v in All_Nat_o.items()}
+All_Nat: AllNatDict = {k.lower(): v for k, v in nationalities_data.items()}
 
-American_nat = build_american_forms(All_Nat_o)
+American_nat = build_american_forms(nationalities_data)
 All_Nat.update(American_nat)
 result_tables = build_lookup_tables(All_Nat)
 

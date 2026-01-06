@@ -1,5 +1,5 @@
 """
-D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/All_Nat_o.json
+D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json
 
 قراءة الملف
 إضافة لكل مدخلة مفتاح جديد باسم
