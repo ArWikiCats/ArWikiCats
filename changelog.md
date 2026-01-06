@@ -1,4 +1,18 @@
 
+## [#311](https://github.com/MrIbrahem/ArWikiCats/pull/311) - 2026-01-06
+
+* **New Features**
+  * Added comprehensive gendered nationality forms, continent/regional nationality sets, and directional nationality entries for better localization.
+
+* **Improvements**
+  * Standardized Arabic translations and adjective ordering; normalized nationality data layout and unified definite-form labels.
+
+* **API Changes**
+  * Public resolver renamed to resolve_label_ar.
+
+* **Data Updates**
+  * Added nationality keys (e.g., Northern Ireland, Botswana, Hindustani); removed numerous legacy entries (multiple South Africa items, Antigua & Barbuda, Kazakh Khanate, Monaco, and other outdated mappings).
+
 ## [#304](https://github.com/MrIbrahem/ArWikiCats/pull/304) - 2026-01-05
 
 * **New Features**
