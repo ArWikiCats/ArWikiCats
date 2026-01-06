@@ -139,10 +139,10 @@ def load_bot() -> MultiDataFormatterBaseV2:
                 "males": "أمريكيون يهود",
                 "female": "أمريكية يهودية",
                 "females": "أمريكيات يهوديات",
+                "the_male": "الأمريكي اليهودي",
+                "the_female": "الأمريكية اليهودية",
                 "en": "",
                 "ar": "",
-                "the_female": "الأمريكية اليهودية",
-                "the_male": "الأمريكي اليهودي",
             }
         }
     )

@@ -5,7 +5,7 @@ All comments are in English only.
 """
 
 regex_line = """
-\s+"en": "([^"]+)?",
+"en": "([^"]+)?",
 \s+"ar": "([^"]+)?",
 \s+"the_female": "([^"]+)?",
 \s+"the_male": "([^"]+)?"
