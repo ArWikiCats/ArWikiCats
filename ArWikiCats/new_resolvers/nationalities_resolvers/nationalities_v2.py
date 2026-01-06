@@ -5,7 +5,7 @@ TODO: use this instead of for_me.py and nats_women.py
 import functools
 
 from ...helps import logger
-from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys
+from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import FormatDataV2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
@@ -383,11 +383,15 @@ all_formatted_data = (
 def _load_bot() -> FormatDataV2:
 
     nats_data = {
-        x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
+        # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
+        x: v for x, v in All_Nat.items()  # if v.get("ar")
     }
     nats_data.update({
         x: v for x, v in nats_keys_as_country_names.items()  # if v.get("ar")
     })
+
+    if "jewish-american" not in nats_data:
+        print(nats_data.keys())
 
     return FormatDataV2(
         formatted_data=all_formatted_data,
