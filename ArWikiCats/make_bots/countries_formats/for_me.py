@@ -9,7 +9,7 @@ import re
 from ...helps import logger
 from ...translations import (
     Nat_men,
-    All_Nat,
+    all_nat_sorted,
     Nat_the_female,
     Nat_the_male,
     Nat_women,
@@ -179,7 +179,7 @@ def Work_for_me_main(category: str) -> str:
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
     result = ""
-    suffix, nationality_key = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
 
     if suffix:
         result = Work_for_me(normalized_category, nationality_key, suffix)

@@ -501,6 +501,11 @@ en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 
 nats_to_add = {}
 
+all_nat_sorted = sorted(
+    All_Nat.keys(),
+    key=lambda k: (-k.count(" "), -len(k)),
+)
+
 len_result = {
     "raw_nats_as_en_key": 17,
     "ar_Nat_men": 711,

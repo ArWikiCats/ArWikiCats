@@ -14,7 +14,7 @@ from typing import Optional
 
 from ...helps import logger
 from ...translations import (
-    All_Nat,
+    all_nat_sorted,
     Multi_sport_for_Jobs,
     Nat_mens,
     jobs_mens_data,
@@ -182,7 +182,7 @@ def te_2018_with_nat(category: str) -> str:
         return direct_result
 
     # Strategy 2: Nationality-based extraction
-    suffix, nationality_key = get_suffix_with_keys(normalized_category, All_Nat, "nat")
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
 
     if suffix:
         nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)

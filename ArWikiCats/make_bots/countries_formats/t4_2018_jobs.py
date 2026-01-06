@@ -9,7 +9,7 @@ from typing import Tuple
 from ...helps import logger
 from ...new_resolvers.jobs_resolvers import resolve_jobs_main
 from ...translations import (
-    All_Nat,
+    all_nat_sorted,
     People_key,
     change_male_to_female,
     jobs_mens_data,
@@ -159,7 +159,7 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = _get_direct_lookup(cate_lower)
 
-    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, All_Nat, "nat")
+    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
     if not country_lab:
         if category_suffix and not country_lab:
