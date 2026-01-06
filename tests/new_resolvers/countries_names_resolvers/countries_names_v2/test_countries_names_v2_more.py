@@ -13,7 +13,7 @@ test_data = {
     # -------------------------
     "united states government officials": "مسؤولون حكوميون أمريكيون",
     "morocco government officials": "مسؤولون حكوميون مغاربة",
-    "vanuata government officials": "مسؤولون حكوميون فانواتيون",
+    "vanuatu government officials": "مسؤولون حكوميون فانواتيون",
     "vatican government officials": "مسؤولون حكوميون فاتيكانيون",
     "venezuela government officials": "مسؤولون حكوميون فنزويليون",
     "victoria-australia government officials": "مسؤولون حكوميون فيكتوريون",
@@ -41,7 +41,7 @@ test_data = {
     "sri lanka air force": "القوات الجوية السريلانكية",
     "netherlands royal air force": "القوات الجوية الملكية الهولندية",
     "korea air force": "القوات الجوية الكورية",
-    "vanuata air force": "القوات الجوية الفانواتية",
+    "vanuatu air force": "القوات الجوية الفانواتية",
     "vatican air force": "القوات الجوية الفاتيكانية",
     "venezuela air force": "القوات الجوية الفنزويلية",
     "victoria-australia air force": "القوات الجوية الفكتورية",
