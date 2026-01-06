@@ -327,6 +327,7 @@ female_data.update(burial_sites)
 female_data.update({f"burial sites of {k}": f"مواقع دفن {v}" for k, v in burial_sites.items()})
 
 the_female_data = {
+    "{en} concentration camps": "معسكرات الاعتقال {the_female}",
     "{en} film awards": "جوائز الأفلام {the_female}",
     "{en} film award": "جوائز الأفلام {the_female}",
     "{en} film award winners": "فائزون بجائزة الأفلام {the_female}",
