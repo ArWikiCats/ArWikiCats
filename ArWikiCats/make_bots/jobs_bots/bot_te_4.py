@@ -23,6 +23,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
+from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ..countries_formats.for_me import Work_for_me_main
 from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ..o_bots import ethnic_bot
@@ -264,6 +265,7 @@ def jobs_in_multi_sports(category: str) -> str:
         return ""
 
     job_label = (
+        resolve_languages_labels(job_suffix) or
         te4_2018_Jobs(job_suffix) or
         Lang_work(job_suffix) or
         resolve_jobs_main(job_suffix) or

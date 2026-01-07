@@ -21,7 +21,7 @@ from .jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_na
 from .languages_bot.languages_resolvers import te_language
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
-
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 
 @functools.lru_cache(maxsize=None)
 def te_films(category: str) -> str:
@@ -59,6 +59,7 @@ def te_films(category: str) -> str:
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "Lang_work": lambda k: Lang_work(k),
+        "resolve_languages_labels": lambda k: resolve_languages_labels(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
         # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
@@ -74,6 +75,7 @@ def te_films(category: str) -> str:
     }
     _add_to_new_players_tables = [
         "Jobs_in_Multi_Sports",
+        "resolve_languages_labels",
         "te4_2018_Jobs",
         # "get_pop_All_18",
     ]

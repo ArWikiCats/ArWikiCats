@@ -22,7 +22,7 @@ from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
-
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -85,6 +85,7 @@ def event_label_work(target_category: str) -> str:
         or convert_time_to_arabic(normalized_target_category)
         or resolve_jobs_main(normalized_target_category)
         or Lang_work(normalized_target_category)
+        or resolve_languages_labels(normalized_target_category)
         or te4_2018_Jobs(normalized_target_category)
         or Jobs_in_Multi_Sports(normalized_target_category)
         or univer.te_universities(normalized_target_category)
