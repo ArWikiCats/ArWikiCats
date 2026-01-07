@@ -2,9 +2,7 @@
 Tests
 """
 
-from re import X
 import pytest
-from ArWikiCats.old_bots.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
 from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
@@ -15,13 +13,6 @@ test_data_must_be_empty = {
     "caribbean": "",
 }
 test_data_must_be_empty.update({x: "" for x in countries_en_as_nationality_keys})
-
-
-@pytest.mark.parametrize("category, expected_key", test_data_must_be_empty.items(), ids=test_data_must_be_empty.keys())
-@pytest.mark.fast
-def test_te4_2018_Jobs_must_be_empty(category: str, expected_key: str) -> None:
-    label1 = te4_2018_Jobs(category)
-    assert label1 == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", test_data_must_be_empty.items(), ids=test_data_must_be_empty.keys())

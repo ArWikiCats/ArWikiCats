@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.old_bots.bot_te_4_nat import nat_match
+from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
 nat_match_data = {
     "anti-haitian sentiment": "مشاعر معادية للهايتيون",
@@ -34,12 +34,12 @@ nat_match_data = {
 @pytest.mark.parametrize("category, expected", nat_match_data.items(), ids=nat_match_data.keys())
 @pytest.mark.fast
 def te_nat_match_data(category: str, expected: str) -> None:
-    label = nat_match(category)
+    label = resolve_by_nats(category)
     assert label == expected
 
 
 ENTERTAINMENT_CASES = [
-    ("te_nat_match_data", nat_match_data, nat_match),
+    ("te_nat_match_data_nats", nat_match_data, resolve_by_nats),
 ]
 
 

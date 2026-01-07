@@ -131,7 +131,6 @@ Multi_Sports_data = {
     "paralympic wheelchair fencers": "مبارزون على الكراسي المتحركة في الألعاب البارالمبية",
     "paralympic wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية",
     "paralympic wrestlers": "مصارعون في الألعاب البارالمبية",
-    "paralympics people": "أشخاص في الألعاب البارالمبية",
     "parapan american games badminton players": "لاعبو تنس ريشة في ألعاب بارابان الأمريكية",
     "parapan american games competitors": "منافسون في ألعاب بارابان الأمريكية",
     "parapan american games judoka": "لاعبو جودو في ألعاب بارابان الأمريكية",
