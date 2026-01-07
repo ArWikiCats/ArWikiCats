@@ -111,78 +111,6 @@ def _try_direct_job_lookup(normalized_category: str) -> Optional[str]:
     return short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
 
-def _try_nationality_based_strategies(
-    normalized_category: str,
-    nationality_key: str,
-    suffix: str,
-) -> Optional[str]:
-    """
-    Attempt nationality-aware translation strategies for a normalized category.
-
-    Tries each configured nationality-based strategy in order and returns the first non-empty translation.
-
-    Parameters:
-        normalized_category: The normalized category string (lowercased and cleaned).
-        nationality_key: The detected nationality key used by nationality-aware strategies.
-        suffix: The remaining suffix of the category after nationality extraction.
-
-    Returns:
-        The translated label if a strategy produced one, None otherwise.
-    """
-    strategies = [
-        ("ethnic_bot.ethnic_label", lambda: ethnic_bot.ethnic_label(normalized_category, nationality_key, suffix)),
-        ("nat_match", lambda: nat_match(normalized_category)),
-    ]
-
-    for strategy_name, strategy_func in strategies:
-        result = strategy_func()
-        if result:
-            logger.debug(f"<<lightblue>> te_2018_with_nat: def {strategy_name}() {result=}")
-            return result
-
-    return None
-
-
-@functools.lru_cache(maxsize=None)
-def te_2018_with_nat(category: str) -> str:
-    """Return a localized job label for 2018 categories with nationality hints.
-
-    This function processes job-related categories that include nationality
-    information and returns the appropriate Arabic translation.
-
-    Args:
-        category: The category string to translate.
-
-    Returns:
-        The localized job label, or empty string if no match.
-
-    Example:
-        >>> te_2018_with_nat("zimbabwean musical groups")
-        "مجموعات موسيقية زيمبابوية"
-
-    TODO: Consider using FormatData method for consistency.
-    """
-    logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
-
-    normalized_category = category.lower().replace("_", " ").replace("-", " ")
-
-    # Strategy 1: Direct dictionary lookup
-    direct_result = _try_direct_job_lookup(normalized_category) or Work_for_me_main(normalized_category)
-    if direct_result:
-        logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
-        return direct_result
-
-    # Strategy 2: Nationality-based extraction
-    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
-
-    if suffix:
-        nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)
-        if nationality_result:
-            return nationality_result
-
-    return ""
-
-
 def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
     """Find a matching sport prefix in the category.
 
@@ -269,7 +197,6 @@ Jobs_in_Multi_Sports = jobs_in_multi_sports
 
 __all__ = [
     "nat_match",
-    "te_2018_with_nat",
     "jobs_in_multi_sports",
     "Jobs_in_Multi_Sports",  # Backward compatibility
 ]
