@@ -259,16 +259,32 @@ test_mens_data_male = {
 
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
-def test_mens_prefixes_work(category: str, expected: str) -> None:
+def test_prefix_bot_mens_1(category: str, expected: str) -> None:
     label = mens_prefixes_work(category)
     assert label == expected
 
+    label2 = mens_resolver_labels(category)
+    assert label2 == expected
 
-@pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
-@pytest.mark.skip2
-def test_mens_resolver_labels(category: str, expected: str) -> None:
-    label = mens_resolver_labels(category)
+
+@pytest.mark.parametrize("category, expected", test_mens_data2.items(), ids=test_mens_data2.keys())
+@pytest.mark.fast
+def test_prefix_bot_mens_2(category: str, expected: str) -> None:
+    label = mens_prefixes_work(category)
     assert label == expected
+
+    label2 = mens_resolver_labels(category)
+    assert label2 == expected
+
+
+@pytest.mark.parametrize("category, expected", test_mens_data_male.items(), ids=test_mens_data_male.keys())
+@pytest.mark.fast
+def test_prefix_bot_mens_male(category: str, expected: str) -> None:
+    label = mens_prefixes_work(category)
+    assert label == expected
+
+    label2 = mens_resolver_labels(category)
+    assert label2 == expected
 
 
 TEMPORAL_CASES = [
