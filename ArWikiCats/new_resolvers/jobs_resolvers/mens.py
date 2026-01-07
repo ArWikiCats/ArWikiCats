@@ -31,7 +31,6 @@ Mens_prefix: dict[str, str] = {
     "children": "أطفال",
     "deaf": "صم",
     "deafblind": "صم ومكفوفون",
-    "disabled": "معاقون",
     "expatriate": "مغتربون",
     "latin": "لاتينيون",
     "lgbt": "مثليون",
@@ -44,11 +43,15 @@ Mens_prefix: dict[str, str] = {
 }
 
 genders_keys_new_under_test: dict[str, str] = {
-    "contemporary": "معاصرون",
-    "political": "سياسيون",
-    "fictional": "خياليون",
-    "religious": "دينيون",
     "kidnapped": "مختطفون",
+    "fictional": "خياليون",
+    "disabled": "معاقون",
+    "contemporary": "معاصرون",
+
+    "latin": "لاتينيون",
+    "child": "أطفال",
+    "political": "سياسيون",
+    "religious": "دينيون",
     "military": "عسكريون",
 }
 
