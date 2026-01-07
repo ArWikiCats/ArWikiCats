@@ -3,11 +3,17 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
+test_womens_data_0 = {
+}
+
 test_womens_data = {
+    "women children's writers": "كاتبات أطفال",
+    "female women's rights activists": "ناشطات في حقوق المرأة",
     "expatriate women's football players": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
@@ -76,7 +82,6 @@ test_womens_data = {
     "female triathletes": "لاعبات ترياثلون",
     "female water polo players": "لاعبات كرة ماء",
     "female weightlifters": "رباعات",
-    "female women's rights activists": "ناشطات في حقوق المرأة",
     "women academics": "أكاديميات",
     "women accordionists": "عازفات أكورديات",
     "women accountants": "محاسبات",
@@ -100,7 +105,6 @@ test_womens_data = {
     "women ceramists": "خزفيات",
     "women chefs": "طباخات",
     "women chemists": "كيميائيات",
-    "women children's writers": "كاتبات أطفال",
     "women choreographers": "مصممات رقص",
     "women cinematographers": "مصورات سينمائيات",
     "women civil servants": "موظفات خدمة مدنية",
@@ -260,3 +264,17 @@ def test_womens_prefixes_work(category: str, expected: str) -> None:
 def test_get_label(category: str, expected: str) -> None:
     label = womens_resolver_labels(category)
     assert label == expected
+
+
+TEMPORAL_CASES = [
+    ("test_prefix_bot_womens_1", test_womens_data, womens_resolver_labels),
+]
+
+
+@pytest.mark.dump
+@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
+def test_all_dump(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

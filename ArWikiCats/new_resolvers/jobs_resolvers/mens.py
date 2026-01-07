@@ -4,7 +4,7 @@ This module provides functionality to translate category titles
 import functools
 import re
 
-from ...helps import logger
+from ...helps import logger, len_print
 from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
@@ -14,7 +14,88 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
+keys_not_jobs = [
+    "women",
+    "men",
+]
 
+Mens_prefix: dict[str, str] = {
+    # "men": "رجال",
+    # "expatriate male": "ذكور مغتربون",
+    # "expatriate men's": "رجال مغتربون",
+    # "male": "ذكور",
+    # "male child": "أطفال ذكور",
+
+    "amputee": "مبتورو أحد الأطراف",
+    "blind": "مكفوفون",
+    "child": "أطفال",
+    "children": "أطفال",
+    "deaf": "صم",
+    "deafblind": "صم ومكفوفون",
+    "expatriate": "مغتربون",
+    "latin": "لاتينيون",
+    "lgbt": "مثليون",
+    "murdered": "قتلوا",
+    "mythological": "أسطوريون",
+    "nautical": "بحريون",
+    "renaissance": "عصر النهضة",
+    "romantic": "رومانسيون",
+    "sunni muslim": "مسلمون سنة",
+}
+
+genders_keys_new_under_test: dict[str, str] = {
+    "kidnapped": "مختطفون",
+    "fictional": "خياليون",
+    "disabled": "معاقون",
+    "contemporary": "معاصرون",
+
+    "latin": "لاتينيون",
+    "child": "أطفال",
+    "political": "سياسيون",
+    "religious": "دينيون",
+    # "military": "عسكريون", # NOTE: cause errors like: "British military": "بريطانيون عسكريون",
+}
+
+genders_keys: dict[str, str] = {
+    "assassinated": "مغتالون",
+    # "male deaf": "صم ذكور",
+    "blind": "مكفوفون",
+    "abolitionists": "مناهضون للعبودية",
+    "deaf": "صم",
+    "executed": "أعدموا",
+    "executed abroad": "أعدموا في الخارج",
+    "deafblind": "صم ومكفوفون",
+    "killed-in-action": "قتلوا في عمليات قتالية",
+    "killed in action": "قتلوا في عمليات قتالية",
+    "murdered abroad": "قتلوا في الخارج",
+}
+
+genders_keys.update(genders_keys_new_under_test)
+
+
+def is_false_key(key: str, value: str) -> bool:
+    if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
+        return True
+
+    if key in genders_keys:   # NOTE: under test
+        return True
+
+    if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
+        return True
+
+    not_in_keys = [
+        "expatriate",
+        "immigrants",
+    ]
+
+    # if any(word in key for word in not_in_keys) and not
+    if any(word in key for word in not_in_keys):
+        return True
+
+    return False
+
+
+@functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
@@ -36,6 +117,8 @@ def _load_formatted_data() -> dict:
         "{en_nat} films people": "أعلام أفلام {males}",
         "{en_nat} film people": "أعلام أفلام {males}",
         "male {en_nat}": "{males} ذكور",
+        "men {en_nat}": "{males}",      # رجال
+        "mens {en_nat}": "{males}",      # رجال
         # emigrants keys
         # "{en_nat} emigrants": "{ar_job} مهاجرون",
         "{en_nat} emigrants {en_job}": "{ar_job} {males} مهاجرون",
@@ -54,6 +137,8 @@ def _load_formatted_data() -> dict:
         "{en_job}": "{ar_job}",
         "{en_job} people": "أعلام {ar_job}",
         "male {en_job}": "{ar_job} ذكور",
+        "men {en_job}": "{ar_job}",     # رجال
+        "mens {en_job}": "{ar_job}",     # رجال
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
@@ -76,19 +161,7 @@ def _load_formatted_data() -> dict:
     #     f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{males}}" for x, v in formatted_data_jobs.items()
     # })
 
-    genders_keys: dict[str, str] = {
-        "male deaf": "صم ذكور",
-        "blind": "مكفوفون",
-        "abolitionists": "مناهضون للعبودية",
-        "deaf": "صم",
-        "deafblind": "صم ومكفوفون",
-        "killed-in-action": "قتلوا في عمليات قتالية",
-        "killed in action": "قتلوا في عمليات قتالية",
-        "murdered abroad": "قتلوا في الخارج",
-    }
-
     for x, v in genders_keys.items():
-        # formatted_data.update( one_Keys_more_2(x, v, add_women=False) )
         keys_more = one_Keys_more_2(
             x,
             v,
@@ -103,6 +176,7 @@ def _load_formatted_data() -> dict:
     formatted_data.update(formatted_data_jobs_with_nat)
     formatted_data.update(
         {
+            "military {en_job}": "{ar_job} عسكريون",
             "{en_nat} emigrants": "{males} مهاجرون",
             "fictional {en_nat} religious workers": "عمال دينيون {males} خياليون",
             "{en_nat} religious workers": "عمال دينيون {males}",
@@ -110,7 +184,9 @@ def _load_formatted_data() -> dict:
             # "{en_nat} saints": "{males} قديسون",
             "{en_nat} anti-communists": "{males} مناهضون للشيوعية",
             "{en_nat} disability rights activists": "{males} ناشطون في حقوق الإعاقة",
-            "{en_nat} executed abroad": "{males} أعدموا في الخارج",
+            # "executed {en_nat}": "{males} أعدموا",
+            # "{en_nat} executed": "{males} أعدموا",
+            # "{en_nat} executed abroad": "{males} أعدموا في الخارج",
             "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
             "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
             "{en_nat} contemporary artists": "فنانون {males} معاصرون",
@@ -129,6 +205,7 @@ def _load_formatted_data() -> dict:
         "blind",
         "jews",
         # "women's rights activists",
+        "female rights activists",
         "human rights activists",
         "imprisoned",
         "imprisoned abroad",
@@ -145,33 +222,30 @@ def _load_formatted_data() -> dict:
         if jobs_mens_data.get(x):
             formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
 
-    return formatted_data
+    formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
+    return formatted_data_final
 
 
+@functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
-    not_in_keys = [
-        "expatriate",
-        "immigrants",
-    ]
     # all keys without any word from not_in_keys
     data = {
         x: {"ar_job": v}
         for x, v in jobs_mens_data.items()
-        if not any(word in x for word in not_in_keys) and not RELIGIOUS_KEYS_PP.get(x)
+        if not is_false_key(x, v)
     }
+    len_diff = len(set(jobs_mens_data.keys()) - set(data.keys()))
+    logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
+    data = {
+        x.replace("'", "").replace("australian rules", "australian-rules"): v
+        for x, v in data.items()
+    }
     return data
 
 
 @functools.lru_cache(maxsize=1)
-def load_bot() -> MultiDataFormatterBaseV2:
-    jobs_data_enhanced = _load_jobs_data()
-    logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
-
-    formatted_data = _load_formatted_data()
-
-    logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
-
+def _load_nat_data() -> dict[str, str]:
     nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
@@ -190,6 +264,21 @@ def load_bot() -> MultiDataFormatterBaseV2:
             }
         }
     )
+
+    nats_data = {x.replace("'", ""): v for x, v in nats_data.items()}
+    return nats_data
+
+
+@functools.lru_cache(maxsize=1)
+def load_bot() -> MultiDataFormatterBaseV2:
+    jobs_data_enhanced = _load_jobs_data()
+    logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
+
+    formatted_data = _load_formatted_data()
+
+    logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
+
+    nats_data = _load_nat_data()
     return format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=nats_data,
@@ -208,7 +297,7 @@ def load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
-    category = fix_keys(category)
+    category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
@@ -221,4 +310,7 @@ def mens_resolver_labels(category: str) -> str:
     return result
 
 
-# len_print.data_len("mens.py", {"formatted_data": _load_formatted_data()})
+len_print.data_len("mens.py", {
+    "mens_formatted_data": _load_formatted_data(),
+    "mens_jobs_data": _load_jobs_data(),
+})

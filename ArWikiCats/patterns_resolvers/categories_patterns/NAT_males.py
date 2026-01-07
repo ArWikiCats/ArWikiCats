@@ -99,7 +99,7 @@ NAT_DATA_MALES = {
     "{en_nat} historians": "مؤرخون {males}",  # 114
     "{en_nat} communists": "شيوعيون {males}",  # 113
     "{en_nat} people of german descent": "{males} من أصل ألماني",  # 109
-    "executed {en_nat} people": "{males} معدومون",  # 67
+    "executed {en_nat} people": "{males} أعدموا",  # 67
     "{en_nat} models": "عارضو أزياء {males}",  # 70
     "{en_nat} painters": "رسامون {males}",  # 94
     "{en_nat} bankers": "مصرفيون {males}",  # 109

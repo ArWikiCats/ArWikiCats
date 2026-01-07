@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix, womens_result
+from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix, womens_result
 from ArWikiCats.translations import RELIGIOUS_KEYS_PP
 
 # new dict with only 20 items from RELIGIOUS_KEYS_PP

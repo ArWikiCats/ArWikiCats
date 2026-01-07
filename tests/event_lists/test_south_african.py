@@ -16,7 +16,6 @@ data_0 = {
     "south african cricket": "الكريكت الجنوب الإفريقية",
     "south african netball": "كرة الشبكة الجنوب الإفريقية",
     "south african soccer leagues": "دوريات كرة القدم الجنوب الإفريقية",
-    "executed south african people": "جنوب إفريقيون معدومون",
     "south african jews": "جنوب إفريقيون يهود",
     "1550 in south african cricket": "الكريكت الجنوب الإفريقية في 1550",
     "LGBT rights in South Africa": "معاملة المثليين في جنوب إفريقيا",

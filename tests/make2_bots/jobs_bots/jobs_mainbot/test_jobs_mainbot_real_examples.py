@@ -70,10 +70,10 @@ EXAMPLES = [
     {
         "suffix": "men wheelchair racers",
         "prefix": "south african",
-        "expected": "متسابقو كراسي متحركة رجال جنوب إفريقيون",
+        "expected": "متسابقو كراسي متحركة جنوب إفريقيون",
     },
-    {"suffix": "men wheelchair racers", "prefix": "swiss", "expected": "متسابقو كراسي متحركة رجال سويسريون"},
-    {"suffix": "men wheelchair racers", "prefix": "welsh", "expected": "متسابقو كراسي متحركة رجال ويلزيون"},
+    {"suffix": "men wheelchair racers", "prefix": "swiss", "expected": "متسابقو كراسي متحركة سويسريون"},
+    {"suffix": "men wheelchair racers", "prefix": "welsh", "expected": "متسابقو كراسي متحركة ويلزيون"},
     {
         "suffix": "men's wheelchair basketball players",
         "prefix": "american",

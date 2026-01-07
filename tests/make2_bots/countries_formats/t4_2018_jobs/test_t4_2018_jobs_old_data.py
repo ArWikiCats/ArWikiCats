@@ -8,12 +8,11 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data_fast = {
-
+    "Anglican archbishops of Papua New Guinea": "رؤساء أساقفة أنجليكيون في بابوا غينيا الجديدة",
+    "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "african people by nationality": "أفارقة حسب الجنسية",
     "andy warhol": "آندي وارهول",
-    "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
     "breton language activists": "ناشطون بلغة بريتانية",
-    "burmese men marathon runners": "عداؤو ماراثون رجال بورميون",
     "caymanian expatriates": "كايمانيون مغتربون",
     "cuban christians": "كوبيون مسيحيون",
     "eddie murphy": "إيدي ميرفي",
@@ -38,13 +37,10 @@ data_fast = {
     "native american aviators": "طيارون أمريكيون أصليون",
     "new caledonian women runners": "عداءات كاليدونيات",
     "polish-language films": "أفلام باللغة البولندية",
-    "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
     "sara bareilles": "سارة باريلز",
-    "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "spanish-language mass media": "إعلام اللغة الإسبانية",
     "surinamese women children's writers": "كاتبات أطفال سوريناميات",
     "swedish-language albums": "ألبومات باللغة السويدية",
-    "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
     "urdu-language musical comedy films": "أفلام كوميدية موسيقية باللغة الأردية",
     "yemeni shi'a muslims": "يمنيون مسلمون شيعة",
 

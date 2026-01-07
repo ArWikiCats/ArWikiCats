@@ -31,6 +31,7 @@ NAT_BEFORE_OCC_BASE = [
     "scholars-of-islam",
     "amputees",
     "executed abroad",
+    "executed",
     "emigrants",
 ]
 
@@ -99,6 +100,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     for x in NAT_BEFORE_OCC_BASE:
         if jobs_mens_data.get(x):
             formatted_data[f"{{rele_en}} {x}"] = f"{{rele_ar}} {jobs_mens_data[x]}"
+            formatted_data[f"{x} {{rele_en}}"] = f"{{rele_ar}} {jobs_mens_data[x]}"
 
     return format_multi_data(
         formatted_data=formatted_data,

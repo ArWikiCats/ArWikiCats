@@ -1,4 +1,33 @@
 
+## [#313](https://github.com/MrIbrahem/ArWikiCats/pull/313) - 2026-01-07
+This pull request includes a mix of data updates, refactoring, and performance improvements across several modules related to job, country, and by-label resolution in the ArWikiCats codebase. The most significant changes involve refactoring the job label resolution logic for better maintainability, updating and correcting translation data, and introducing caching to optimize performance for functions that load static data.
+
+**Key changes include:**
+
+### Refactoring and Logic Improvements
+
+* Refactored the job label resolution pipeline to move the `new_religions_jobs_with_suffix` resolver into the main jobs resolver, simplifying logic in `t4_2018_jobs.py` and ensuring all job-related resolution routes are handled in one place. (`ArWikiCats/new_resolvers/jobs_resolvers/__init__.py`, `ArWikiCats/make_bots/countries_formats/t4_2018_jobs.py`)
+* Moved definitions of `Mens_prefix`, `Mens_suffix`, and `womens_prefixes` directly into `prefix_bot.py` for better encapsulation and maintainability. (`ArWikiCats/make_bots/jobs_bots/prefix_bot.py`)
+* Improved gender transformation logic to use `short_womens_jobs` instead of `Female_Jobs` for more accurate label transformations. (`ArWikiCats/make_bots/jobs_bots/prefix_bot.py`)
+* Expanded and restructured gender-related keys and filtering logic in `mens.py` to better handle false positives and edge cases in job label resolution. (`ArWikiCats/new_resolvers/jobs_resolvers/mens.py`)
+
+### Data and Translation Updates
+
+* Added new mappings and corrected Arabic translations for various job and category labels, including updates to activists, priests, and removal of "executed" categories from multiple data files. (`ArWikiCats/jsons/jobs/activists_keys.json`, `ArWikiCats/jsons/jobs/jobs_3.json`, `ArWikiCats/jsons/jobs/jobs_Men_Womens_PP.json`, `ArWikiCats/jsons/keys/keys2_py.json`)
+* Updated debug logging to use `logger.info_if_or_debug` for more informative output in several resolver modules. (`ArWikiCats/new/resolve_films_bots/__init__.py`, `ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py`, `ArWikiCats/new_resolvers/jobs_resolvers/__init__.py`)
+
+### Performance and Code Quality Enhancements
+
+* Introduced `functools.lru_cache` to cache results of functions that load static data, improving performance for repeated lookups in multiple modules. (`ArWikiCats/ma_bots2/year_or_typeo/reg_result.py`, `ArWikiCats/make_bots/reslove_relations/rele.py`, `ArWikiCats/new_resolvers/bys_new.py`)
+* Renamed debug output keys in `bys_new.py` for clarity. (`ArWikiCats/new_resolvers/bys_new.py`)
+
+### Minor Fixes and Cleanups
+
+* Removed obsolete or redundant code, such as legacy data lookups and unused imports, to streamline the codebase. (`ArWikiCats/ma_bots2/ar_lab/lab.py`, [ArWikiCats/ma_bots2/ar_lab/lab.pyL320-L326](diffhunk://#diff-8896f6af8a78eac3d9c1663d38f82a01bda9e696b6a3e71c635264dbf0cd1793L320-L326))
+* Improved logging in `fixlabel` for better tracking of label transformations. (`ArWikiCats/fix/fixtitle.py`)
+
+These changes collectively improve the maintainability, accuracy, and performance of the job and category label resolution logic in the project.
+
 ## [#311](https://github.com/MrIbrahem/ArWikiCats/pull/311) - 2026-01-06
 
 * **New Features**

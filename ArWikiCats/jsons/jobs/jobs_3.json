@@ -112,7 +112,7 @@
         "females": "معمدانيات"
     },
     "catholic priests": {
-        "males": "قساوسة كاثوليك",
+        "males": "كهنة كاثوليك",
         "females": ""
     },
     "catholics": {
@@ -140,7 +140,7 @@
         "females": "منظرات الشطرنج"
     },
     "christian priests": {
-        "males": "قساوسة مسيحيون",
+        "males": "كهنة مسيحيون",
         "females": ""
     },
     "christians of crusades": {

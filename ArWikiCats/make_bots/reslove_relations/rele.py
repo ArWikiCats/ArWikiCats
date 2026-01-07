@@ -59,6 +59,7 @@ RELATIONS_END_KEYS = list(P17_PREFIXES.keys()) + list(RELATIONS_FEMALE.keys()) +
 # ".*?–.*? (joint economic efforts|conflict video games|conflict legal issues|proxy conflict|military relations|border crossings|border towns|football rivalry|conflict|relations|relations|border|clashes|wars|war|conflict)"
 
 
+@functools.lru_cache(maxsize=1)
 def _load_all_country_labels() -> dict[str, str]:
     all_country_labels = dict(all_country_ar)
     all_country_labels.update(

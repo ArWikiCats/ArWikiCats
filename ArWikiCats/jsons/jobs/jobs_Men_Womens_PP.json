@@ -59,8 +59,6 @@
     "bibliographers": {"males":"ببليوجرافيون", "females":"ببليوجرافيات"},
     "autobiographers": {"males":"كتاب سيرة ذاتية", "females":"كاتبات سيرة ذاتية"},
     "biographers": {"males":"كتاب سيرة", "females":"كاتبات سيرة"},
-    "executed abroad": {"males":"أعدموا في الخارج", "females":"أعدموا في الخارج"},
-    "executed": {"males":"معدومون", "females":"معدومات"},
     "extrajudicial prisoners": {"males":"مسجونون خارج نطاق القضاء", "females":"مسجونات خارج نطاق القضاء"},
     "prisoners": {"males":"مسجونون", "females":"مسجونات"},
     "prisoners of war": {"males":"أسرى", "females":"أسيرات"},

@@ -71,6 +71,8 @@ wheelchair_racers = {
 
 
 mens_womens = {
+    "Category:Men's wheelchair basketball players by nationality": "تصنيف:لاعبو كرة سلة على كراسي متحركة حسب الجنسية",
+    "Category:Men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة",
     "Category:2020 Women's World Wheelchair Basketball Championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة للسيدات 2020",
     "Category:American men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة أمريكيون",
     "Category:American women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة أمريكيات",
@@ -91,8 +93,6 @@ mens_womens = {
     "Category:Israeli women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة إسرائيليات",
     "Category:Japanese men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة يابانيون",
     "Category:Kuwaiti men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة كويتيون",
-    "Category:Men's wheelchair basketball players by nationality": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية حسب الجنسية",
-    "Category:Men's wheelchair basketball players": "تصنيف:لاعبو كرة سلة على كراسي متحركة رجالية",
 }
 
 

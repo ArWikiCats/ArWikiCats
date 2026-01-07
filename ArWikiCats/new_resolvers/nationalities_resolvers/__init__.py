@@ -22,7 +22,7 @@ def resolve_nationalities_main(normalized_category) -> str:
         or ""
     )
 
-    logger.debug(f"<<green>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info_if_or_debug(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}", resolved_label)
     return resolved_label
 
 

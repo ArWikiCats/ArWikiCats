@@ -44,6 +44,21 @@ data0 = {
 }
 
 data1 = {
+    "Sunni Muslim scholars of Islam by ethnicity": "مسلمون سنة باحثون عن الإسلام حسب المجموعة العرقية",
+    "Sunni Muslim scholars of Islam by nationality": "مسلمون سنة باحثون عن الإسلام حسب الجنسية",
+
+    "20th-century Anglican archbishops in Ireland": "رؤساء أساقفة أنجليكيون في أيرلندا القرن 20",
+    "20th-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا القرن 20",
+    "21st-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا القرن 21",
+    "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أمريكيات",
+    "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة تركيات",
+    "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
+    "german women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة ألمانيات",
+    "dutch women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة هولنديات",
+    "australian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أستراليات",
+    "british women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة بريطانيات",
+    "french women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة فرنسيات",
+    "canadian women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة كنديات",
     "19th-century women from Ottoman Arabia": "نساء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
     "19th-century poets from Ottoman Arabia": "شعراء من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
     "19th-century people from Ottoman Arabia": "أشخاص من الدولة العثمانية في شبه الجزيرة العربية في القرن 19",
@@ -155,7 +170,6 @@ data1 = {
     "parliament of india": "برلمان الهند",
     "political people": "ساسة",
 }
-
 
 data_2 = {
     "puerto princesa international airport": "مطار بويرتو برينسيسا الدولي",

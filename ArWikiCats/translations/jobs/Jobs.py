@@ -25,7 +25,7 @@ from .jobs_defs import (
 )
 from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
-from .jobs_womens import Female_Jobs
+from .jobs_womens import short_womens_jobs
 
 # ---------------------------------------------------------------------------
 # Helper utilities
@@ -479,7 +479,7 @@ _DATASET = _finalise_jobs_dataset()
 
 jobs_mens_data = _DATASET.males_jobs
 jobs_womens_data = _DATASET.females_jobs
-Jobs_new = _build_jobs_new(Female_Jobs)
+Jobs_new = _build_jobs_new(short_womens_jobs)
 
 _len_result = {
     "jobs_mens_data": {"count": 97797, "size": "3.7 MiB"},  # "zoologists": "علماء حيوانات"

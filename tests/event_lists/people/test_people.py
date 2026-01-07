@@ -4,7 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
-    "Category:People executed by Afghanistan": "تصنيف:أشخاص أعدموا من قبل أفغانستان",
     "Category:People in arts occupations by nationality": "تصنيف:أشخاص في مهن فنية حسب الجنسية",
     "Category:People of Ivorian descent": "تصنيف:أشخاص من أصل إيفواري",
     "Category:Polish women by occupation": "تصنيف:بولنديات حسب المهنة",

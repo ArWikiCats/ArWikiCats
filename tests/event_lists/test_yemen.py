@@ -7,7 +7,6 @@ from ArWikiCats import resolve_arabic_category_label
 data1 = {
     "Category:Yemeni football teams": "تصنيف:فرق كرة قدم يمنية",
     "Category:shi'a muslims": "تصنيف:مسلمون شيعة",
-    "Category:shi'a muslims expatriates": "تصنيف:مسلمون شيعة مغتربون",
     "Category:Yemeni national football teams": "تصنيف:منتخبات كرة قدم وطنية يمنية",
     "Category:Yemeni national football team managers": "تصنيف:مدربو منتخب اليمن لكرة القدم",
     "Category:Yemeni national softball team managers": "تصنيف:مدربو منتخب اليمن للكرة اللينة",

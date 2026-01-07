@@ -148,15 +148,15 @@ data_skip = {
 }
 
 data_0 = {
+    "Antigua and Barbuda men athletes": "لاعبو قوى أنتيغويون وبربوديون",
+    "Antigua and Barbuda men centenarians": "مئويون أنتيغويون وبربوديون",
+    "Antigua and Barbuda men high jumpers": "متسابقو قفز عالي أنتيغويون وبربوديون",
+    "Antigua and Barbuda men hurdlers": "لاعبو قفز الحواجز أنتيغويون وبربوديون",
+    "Antigua and Barbuda men long jumpers": "لاعبو قفز طويل أنتيغويون وبربوديون",
+    "Antigua and Barbuda men middle-distance runners": "عداؤو مسافات متوسطة أنتيغويون وبربوديون",
+    "Antigua and Barbuda men sprinters": "عداؤون سريعون أنتيغويون وبربوديون",
+    "Antigua and Barbuda men triple jumpers": "لاعبو وثب ثلاثي أنتيغويون وبربوديون",
     "Antigua and Barbuda men": "رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men athletes": "لاعبو قوى رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men centenarians": "مئويون رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men high jumpers": "متسابقو قفز عالي رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men hurdlers": "لاعبو قفز الحواجز رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men long jumpers": "لاعبو قفز طويل رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men middle-distance runners": "عداؤو مسافات متوسطة رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men sprinters": "عداؤون سريعون رجال أنتيغويون وبربوديون",
-    "Antigua and Barbuda men triple jumpers": "لاعبو وثب ثلاثي رجال أنتيغويون وبربوديون",
     "Antigua and Barbuda men's basketball players": "لاعبو كرة سلة أنتيغويون وبربوديون",
     "Antigua and Barbuda male actors": "ممثلون ذكور أنتيغويون وبربوديون",
     "Antigua and Barbuda male boxers": "ملاكمون ذكور أنتيغويون وبربوديون",

@@ -6,7 +6,7 @@ from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
-from .jobs.jobs_womens import FEMALE_JOBS_BASE, Female_Jobs, short_womens_jobs
+from .jobs.jobs_womens import FEMALE_JOBS_BASE_EXTENDED, short_womens_jobs
 from .languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
@@ -37,11 +37,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
     en_is_nat_ar_is_women_2,
-)
-from .mixed.jenders_prefix_suffix import (
-    Mens_prefix,
-    Mens_suffix,
-    womens_prefixes,
 )
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
@@ -109,9 +104,8 @@ __all__ = [
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",
     "jobs_womens_data",
-    "FEMALE_JOBS_BASE",
+    "FEMALE_JOBS_BASE_EXTENDED",
     "short_womens_jobs",
-    "Female_Jobs",
     "NAT_BEFORE_OCC",
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
@@ -180,7 +174,4 @@ __all__ = [
     "change_male_to_female",
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
-    "Mens_suffix",
-    "Mens_prefix",
-    "womens_prefixes",
 ]

@@ -574,11 +574,6 @@
         "job_females": "إنجيليات",
         "both_jobs": "إنجيليون وإنجيليات"
     },
-    "executed": {
-        "job_males": "معدومون",
-        "job_females": "معدومات",
-        "both_jobs": "معدومون ومعدومات"
-    },
     "executioners": {
         "job_males": "جلادون",
         "job_females": "جلادات",

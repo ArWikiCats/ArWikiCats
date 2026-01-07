@@ -325,7 +325,6 @@ data_in = {
     "manufacturing in the united states": ("manufacturing", "the united states"),
     "mass media in bosnia and herzegovina": ("mass media", "bosnia and herzegovina"),
     "mass media in morocco": ("mass media", "morocco"),
-    "men's footballers in togo": ("men's footballers", "togo"),
     "metres in the african championships in athletics": ("metres", "the african championships in athletics"),
     "metres in the iaaf world youth championships in athletics": (
         "metres",

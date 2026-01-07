@@ -1069,11 +1069,6 @@
         "job_females": "راهبات ميثوديات لاهوتيات",
         "both_jobs": "رهبان وراهبات ميثوديون لاهوتيون"
     },
-    "methodist nuns": {
-        "job_males": " ميثوديون لاهوتيون",
-        "job_females": "راهبات ميثوديات لاهوتيات",
-        "both_jobs": " وراهبات ميثوديون لاهوتيون"
-    },
     "methodist religious leaders": {
         "job_males": "قادة دينيون ميثوديون لاهوتيون",
         "job_females": "قائدات دينيات ميثوديات لاهوتيات",
@@ -2054,11 +2049,6 @@
         "job_females": "راهبات مسلمات شيعيات",
         "both_jobs": "رهبان وراهبات مسلمون شيعة"
     },
-    "shi'a muslim nuns": {
-        "job_males": " مسلمون شيعة",
-        "job_females": "راهبات مسلمات شيعيات",
-        "both_jobs": " وراهبات مسلمون شيعة"
-    },
     "shi'a muslim religious leaders": {
         "job_males": "قادة دينيون مسلمون شيعة",
         "job_females": "قائدات دينيات مسلمات شيعيات",
@@ -2123,11 +2113,6 @@
         "job_males": "رهبان مسلمون شيعة",
         "job_females": "راهبات مسلمات شيعيات",
         "both_jobs": "رهبان وراهبات مسلمون شيعة"
-    },
-    "shi'a muslims nuns": {
-        "job_males": " مسلمون شيعة",
-        "job_females": "راهبات مسلمات شيعيات",
-        "both_jobs": " وراهبات مسلمون شيعة"
     },
     "shi'a muslims religious leaders": {
         "job_males": "قادة دينيون مسلمون شيعة",
@@ -2194,11 +2179,6 @@
         "job_females": "راهبات مسلمات شيعيات",
         "both_jobs": "رهبان وراهبات مسلمون شيعة"
     },
-    "shia muslim nuns": {
-        "job_males": " مسلمون شيعة",
-        "job_females": "راهبات مسلمات شيعيات",
-        "both_jobs": " وراهبات مسلمون شيعة"
-    },
     "shia muslim religious leaders": {
         "job_males": "قادة دينيون مسلمون شيعة",
         "job_females": "قائدات دينيات مسلمات شيعيات",
@@ -2263,11 +2243,6 @@
         "job_males": "رهبان مسلمون شيعة",
         "job_females": "راهبات مسلمات شيعيات",
         "both_jobs": "رهبان وراهبات مسلمون شيعة"
-    },
-    "shia muslims nuns": {
-        "job_males": " مسلمون شيعة",
-        "job_females": "راهبات مسلمات شيعيات",
-        "both_jobs": " وراهبات مسلمون شيعة"
     },
     "shia muslims religious leaders": {
         "job_males": "قادة دينيون مسلمون شيعة",
@@ -2389,11 +2364,6 @@
         "job_females": "راهبات مسلمات سنيات",
         "both_jobs": "رهبان وراهبات مسلمون سنة"
     },
-    "sunni muslim nuns": {
-        "job_males": " مسلمون سنة",
-        "job_females": "راهبات مسلمات سنيات",
-        "both_jobs": " وراهبات مسلمون سنة"
-    },
     "sunni muslim religious leaders": {
         "job_males": "قادة دينيون مسلمون سنة",
         "job_females": "قائدات دينيات مسلمات سنيات",
@@ -2458,11 +2428,6 @@
         "job_males": "رهبان مسلمون سنة",
         "job_females": "راهبات مسلمات سنيات",
         "both_jobs": "رهبان وراهبات مسلمون سنة"
-    },
-    "sunni muslims nuns": {
-        "job_males": " مسلمون سنة",
-        "job_females": "راهبات مسلمات سنيات",
-        "both_jobs": " وراهبات مسلمون سنة"
     },
     "sunni muslims religious leaders": {
         "job_males": "قادة دينيون مسلمون سنة",

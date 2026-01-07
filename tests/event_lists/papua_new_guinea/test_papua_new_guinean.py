@@ -94,7 +94,6 @@ data_1 = {
     "Category:Assassinated Papua New Guinean politicians": "x",
     "Category:Australian people of Papua New Guinean descent": "x",
     "Category:British people of Papua New Guinean descent": "x",
-    "Category:Executed Papua New Guinean people": "x",
     "Category:Fijian people of Papua New Guinean descent": "x",
     "Category:Hip-hop albums by Papua New Guinean artists": "x",
     "Category:Japanese people of Papua New Guinean descent": "x",

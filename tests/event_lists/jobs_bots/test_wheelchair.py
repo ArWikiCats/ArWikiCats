@@ -62,7 +62,7 @@ wheelchair_racers_by_nat = {
     "Category:Kuwaiti wheelchair racers": "تصنيف:متسابقو كراسي متحركة كويتيون",
     "Category:Lithuanian wheelchair racers": "تصنيف:متسابقو كراسي متحركة ليتوانيون",
     "Category:Macedonian wheelchair racers": "تصنيف:متسابقو كراسي متحركة مقدونيون",
-    "Category:Men wheelchair racers": "تصنيف:متسابقو كراسي متحركة رجال",
+    "Category:Men wheelchair racers": "تصنيف:متسابقو كراسي متحركة",
     "Category:Mexican wheelchair racers": "تصنيف:متسابقو كراسي متحركة مكسيكيون",
     "Category:Mexican women wheelchair racers": "تصنيف:متسابقات كراسي متحركة مكسيكيات",
     "Category:Norwegian wheelchair racers": "تصنيف:متسابقو كراسي متحركة نرويجيون",

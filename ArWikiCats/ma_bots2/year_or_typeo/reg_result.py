@@ -1,3 +1,4 @@
+import functools
 import re
 from dataclasses import dataclass
 
@@ -5,6 +6,7 @@ from ...make_bots.format_bots import category_relation_mapping
 from ...translations.type_tables import basedtypeTable
 
 
+@functools.lru_cache(maxsize=1)
 def _load_pattern() -> re.Pattern:
     """Load the regex pattern for the first line of categories."""
     # These patterns depend on dynamically generated values and are compiled at runtime

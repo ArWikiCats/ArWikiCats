@@ -54,7 +54,6 @@ fast_data = {
     "fc nantes seasons": "مواسم نادي نانت",
     "fc petrolul ploiești seasons": "مواسم نادي بترولول بلويشتي لكرة القدم",
     "fc wacker innsbruck seasons": "مواسم واكر انسبروك",
-    "fictional executed people": "أعلام معدومون خياليون",
     "fifa women's world cup managers": "مدربو كأس العالم لكرة القدم للسيدات",
     "fk borac banja luka managers": "مدربو نادي بوراتس بانيا لوكا",
     "fk horizont turnovo seasons": "مواسم نادي هوريزونت تورنوفو",
