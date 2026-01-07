@@ -251,8 +251,6 @@ test_mens_data2 = {
     "religious philosophers": "فلاسفة دينيون",
     "religious workers": "عمال دينيون",
     "religious writers": "كتاب دينيون",
-    "renaissance composers": "ملحنون عصر النهضة",
-    "renaissance engineers": "مهندسون عصر النهضة",
     "romantic composers": "ملحنون رومانسيون",
     "sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة"
 }

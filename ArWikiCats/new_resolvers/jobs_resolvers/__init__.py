@@ -14,7 +14,7 @@ def resolve_jobs_main(normalized_category) -> str:
         or ""
     )
 
-    logger.debug(f"<<green>> end jobs_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info_if_or_debug(f"<<yellow>> end jobs_resolvers: {normalized_category=}, {resolved_label=}", resolved_label)
     return resolved_label
 
 
