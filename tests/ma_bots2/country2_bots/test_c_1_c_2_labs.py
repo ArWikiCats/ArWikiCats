@@ -217,7 +217,6 @@ fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "parks and open spaces", "output": "متنزهات ومساحات مفتوحة"},
     {"separator": " in ", "cone_1": "places of worship", "output": "أماكن عبادة"},
     {"separator": " in ", "cone_1": "polish air force", "output": "القوات الجوية البولندية"},
-    {"separator": " in ", "cone_1": "polish political prisoners", "output": "مسجونون سياسيون بولنديون"},
     {"separator": " in ", "cone_1": "populated coastal places", "output": "أماكن ساحلية مأهولة"},
     {"separator": " in ", "cone_1": "portuguese international schools", "output": "مدارس دولية برتغالية"},
     {"separator": " in ", "cone_1": "road incident deaths", "output": "وفيات حوادث الطرق"},

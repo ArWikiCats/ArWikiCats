@@ -194,7 +194,8 @@ def te_2018_with_nat(category: str) -> str:
             return nationality_result
 
     # Strategy 3: Prefix-based fallback
-    fallback_result = _try_prefix_based_work(normalized_category)
+    # fallback_result = _try_prefix_based_work(normalized_category)
+    fallback_result = ""
     logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{fallback_result}"')
     return fallback_result
 

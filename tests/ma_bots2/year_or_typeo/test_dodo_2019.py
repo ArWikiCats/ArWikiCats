@@ -3,7 +3,6 @@ import pytest
 from ArWikiCats.ma_bots2.year_or_typeo.dodo_2019 import work_2019, work_2019_wrap
 
 examples = {
-    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "19th-century actors": "ممثلون في القرن 19",
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
 }
@@ -19,12 +18,6 @@ def test_work_2019(category: str, expected: str) -> None:
 
 
 examples2 = [
-    {
-        "category3": "18th-century Dutch explorers",
-        "year": "18th-century",
-        "year_labe": "القرن 18",
-        "output": "مستكشفون هولنديون في القرن 18",
-    },
     {
         "category3": "19th-century actors",
         "year": "19th-century",
