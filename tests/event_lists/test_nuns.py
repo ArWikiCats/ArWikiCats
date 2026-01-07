@@ -5,23 +5,23 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data_0 = {
-    "Fictional Buddhist nuns": "تصنيف:بوذيون خياليون",
+    "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
+    "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
     "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
-    "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
     "burmese men marathon runners": "عداؤو ماراثون رجال بورميون",
-    "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
     "canadian men": "رجال كنديون",
-    "men's footballers in togo": "لاعبو كرة قدم في توغو",
-    "women in danish military": "المرأة في الجيش الدنماركي",
-    "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
-    "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
-    "Nazis executed by the British military": "نازيون أعدموا من قبل الجيش البريطاني",
     "Category:Men's basketball players from Northern Ireland": "تصنيف:لاعبو كرة سلة من أيرلندا الشمالية",
     "Category:Men's footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم في بابوا غينيا الجديدة",
     "expatriate men's footballers": "لاعبو كرة قدم رجالية مغتربون",
     "expatriate men's soccer players": "لاعبو كرة قدم رجالية مغتربون",
-    "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
-    "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
+    "Fictional Buddhist nuns": "تصنيف:بوذيون خياليون",
+    "men's footballers in togo": "لاعبو كرة قدم في توغو",
+    "Nazis executed by the British military": "نازيون أعدموا من قبل الجيش البريطاني",
+    "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
+    "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
+    "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
+    "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
+    "women in danish military": "المرأة في الجيش الدنماركي",
 }
 
 data_1 = {
@@ -142,6 +142,7 @@ data_3 = {
 }
 
 to_test = [
+    ("test_nuns_0", data_0),
     ("test_nuns_1", data_1),
     ("test_nuns_2", data_2),
     ("test_nuns_3", data_3),
