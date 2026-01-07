@@ -11,8 +11,8 @@ from ...translations import (
     all_nat_sorted,
     People_key,
     change_male_to_female,
-    jobs_mens_data,
-    short_womens_jobs,
+    # jobs_mens_data,
+    # short_womens_jobs,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
@@ -109,9 +109,9 @@ def _get_direct_lookup(category: str) -> str:
 
     return (
         People_key.get(category, "")
-        or short_womens_jobs.get(category, "")
+        # or short_womens_jobs.get(category, "")
         or resolve_languages_labels(category)
-        or jobs_mens_data.get(category, "")
+        # or jobs_mens_data.get(category, "")
     )
 
 
