@@ -32,7 +32,11 @@ def one_Keys_more_2(
     women_key="{women}",
     add_women=False,
 ) -> dict[str, str]:
+
     data = {}
+    # Executed police officers
+    data[f"{x} {en_job_key}"] = f"{ar_job_key} {v}"
+
     # writers blind
     data[f"{en_job_key} {x}"] = f"{ar_job_key} {v}"
 
@@ -41,6 +45,9 @@ def one_Keys_more_2(
 
     # Executed Albanian
     data[f"{x} {en_nat_key}"] = f"{ar_nat_key} {v}"
+
+    # Executed Albanian police officers
+    data[f"{x} {en_nat_key} {en_job_key}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     # greek writers blind
     data[f"{en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
@@ -89,21 +96,6 @@ def nat_and_gender_keys(nat_job_key, key, gender_key, gender_label) -> dict[str,
     return data
 
 
-def filter_and_replace_gender_terms(formatted_data) -> dict:
-    formatted_data_final = {x: v for x, v in formatted_data.items() if "{women}" not in x}
-
-    # handle womens keys
-    formatted_data_women = {x: v for x, v in formatted_data.items() if "{women}" in x}
-
-    for x, v in formatted_data_women.items():
-        # formatted_data_final[x.replace("{women}", "womens")] = v
-        # formatted_data_final[x.replace("{women}", "women")] = v
-        formatted_data_final[x.replace("{women}", "female")] = v
-
-    return formatted_data_final
-
-
 __all__ = [
     "nat_and_gender_keys",
-    "filter_and_replace_gender_terms",
 ]

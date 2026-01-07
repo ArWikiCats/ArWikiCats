@@ -15,7 +15,7 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
-from .utils import filter_and_replace_gender_terms, fix_keys, nat_and_gender_keys, one_Keys_more_2
+from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -108,7 +108,6 @@ def _load_formatted_data() -> dict:
             "{en_nat} female abolitionists": "{females} مناهضات للعبودية",
         }
     )
-    # formatted_data_final = filter_and_replace_gender_terms(formatted_data)
     formatted_data_final = formatted_data
 
     return formatted_data_final
