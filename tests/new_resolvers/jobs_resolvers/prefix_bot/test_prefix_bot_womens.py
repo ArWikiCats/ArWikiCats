@@ -7,7 +7,13 @@ import pytest
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
+test_womens_data_0 = {
+    "women children's writers": "كاتبات أطفال",
+}
+
 test_womens_data = {
+    "female women's rights activists": "ناشطات في حقوق المرأة",
+    "women's rights activists female": "ناشطات في حقوق المرأة",
     "expatriate women's football players": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
@@ -76,7 +82,6 @@ test_womens_data = {
     "female triathletes": "لاعبات ترياثلون",
     "female water polo players": "لاعبات كرة ماء",
     "female weightlifters": "رباعات",
-    "female women's rights activists": "ناشطات في حقوق المرأة",
     "women academics": "أكاديميات",
     "women accordionists": "عازفات أكورديات",
     "women accountants": "محاسبات",
@@ -100,7 +105,6 @@ test_womens_data = {
     "women ceramists": "خزفيات",
     "women chefs": "طباخات",
     "women chemists": "كيميائيات",
-    "women children's writers": "كاتبات أطفال",
     "women choreographers": "مصممات رقص",
     "women cinematographers": "مصورات سينمائيات",
     "women civil servants": "موظفات خدمة مدنية",

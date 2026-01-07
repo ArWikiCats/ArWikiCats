@@ -167,6 +167,7 @@ NAT_BEFORE_OCC_BASE: List[str] = [
     "blind",
     "jews",
     "women's rights activists",
+    "female rights activists",
     "human rights activists",
     "imprisoned",
     "imprisoned abroad",
