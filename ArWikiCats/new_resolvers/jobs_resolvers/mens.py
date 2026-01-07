@@ -77,7 +77,42 @@ def _load_formatted_data() -> dict:
     #     f"{{en_nat}}-american {x}" : f"{v} أمريكيون {{males}}" for x, v in formatted_data_jobs.items()
     # })
 
+    Mens_prefix: dict[str, str] = {
+        # "men": "رجال",
+        # "expatriate male": "ذكور مغتربون",
+        # "expatriate men's": "رجال مغتربون",
+        # "male": "ذكور",
+        # "male child": "أطفال ذكور",
+
+        "amputee": "مبتورو أحد الأطراف",
+        "blind": "مكفوفون",
+        "child": "أطفال",
+        "children": "أطفال",
+        "deaf": "صم",
+        "deafblind": "صم ومكفوفون",
+        "disabled": "معاقون",
+        "expatriate": "مغتربون",
+        "latin": "لاتينيون",
+        "lgbt": "مثليون",
+        "murdered": "قتلوا",
+        "mythological": "أسطوريون",
+        "nautical": "بحريون",
+        "renaissance": "عصر النهضة",
+        "romantic": "رومانسيون",
+        "sunni muslim": "مسلمون سنة",
+    }
+
+    genders_keys_new_under_test: dict[str, str] = {
+        "contemporary": "معاصرون",
+        "political": "سياسيون",
+        "fictional": "خياليون",
+        "religious": "دينيون",
+        "kidnapped": "مختطفون",
+        "military": "عسكريون",
+    }
+
     genders_keys: dict[str, str] = {
+        "assassinated": "مغتالون",
         "male deaf": "صم ذكور",
         "blind": "مكفوفون",
         "abolitionists": "مناهضون للعبودية",
@@ -89,6 +124,8 @@ def _load_formatted_data() -> dict:
         "killed in action": "قتلوا في عمليات قتالية",
         "murdered abroad": "قتلوا في الخارج",
     }
+
+    genders_keys.update(genders_keys_new_under_test)
 
     for x, v in genders_keys.items():
         keys_more = one_Keys_more_2(
