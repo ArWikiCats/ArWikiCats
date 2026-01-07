@@ -12,6 +12,7 @@ from ...translations import (
     all_country_with_nat,
     all_country_with_nat_ar,
     jobs_womens_data,
+    All_Nat,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
@@ -204,7 +205,8 @@ def _load_jobs_data() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_nat_data() -> dict[str, str]:
-    nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    nats_data: dict[str, str] = {x: v for x, v in All_Nat.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
 

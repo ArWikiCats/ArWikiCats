@@ -4,6 +4,7 @@ This module provides functionality to translate category titles
 import functools
 import re
 
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger, len_print
 from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
@@ -13,7 +14,7 @@ from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 jobs_mens_data_f = dict(jobs_mens_data.items())
-jobs_mens_data_f.update({x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")})
+# jobs_mens_data_f.update({x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")})
 
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
@@ -83,7 +84,8 @@ def is_false_key(key: str, value: str) -> bool:
     if key in genders_keys:   # NOTE: under test
         return True
 
-    # if RELIGIOUS_KEYS_PP.get(key): return True
+    if RELIGIOUS_KEYS_PP.get(key):
+        return True
 
     if key in keys_not_jobs:
         return True
@@ -104,6 +106,7 @@ def is_false_key(key: str, value: str) -> bool:
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
+        "{en_nat} contemporary classical musicians": "موسيقيون كلاسيكيون معاصرون {males}",
         "{en_nat}": "{males}",
         "{en_nat} muslims": "{males} مسلمون",
         "{en_nat} muslim": "{males} مسلمون",
@@ -307,6 +310,28 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 
 @functools.lru_cache(maxsize=10000)
+def _mens_resolver_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
+    category = fix_keys(category).replace("australian rules", "australian-rules")
+
+    _bot = load_bot()
+    result = _bot.search_all_category(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    return result
+
+
+religious_data = {x: f"{{}} {v['males']}" for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
+
+label_mappings_ends = dict(
+    sorted(
+        religious_data.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
+
+
+@functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
@@ -315,9 +340,12 @@ def mens_resolver_labels(category: str) -> str:
         logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
         return ""
 
-    _bot = load_bot()
-    result = _bot.search_all_category(category)
-
+    result = _mens_resolver_labels(category) or resolve_sport_category_suffix_with_mapping(
+        category=category,
+        data=label_mappings_ends,
+        callback=_mens_resolver_labels,
+        format_key="{}",
+    )
     logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
     return result
 
