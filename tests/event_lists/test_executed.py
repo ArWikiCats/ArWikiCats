@@ -362,7 +362,6 @@ data_3 = {
     "german people executed": "ألمان أعدموا",
     "Nazis executed by firing squad": "نازيون أعدموا رميا بالرصاص",
     "Nazis executed by guillotine": "نازيون أعدموا بالمقصلة",
-    "French nuns executed by guillotine during the French Revolution": "راهبات فرنسيات أعدمن بالمقصلة خلال الثورة الفرنسية",
     "Military personnel executed during the Iranian Revolution": "أفراد عسكريون أعدموا خلال الثورة الإيرانية",
     "Military personnel executed during World War I": "أفراد عسكريون أعدموا خلال الحرب العالمية الأولى",
     "Politicians executed during the Iranian Revolution": "سياسيون أعدموا خلال الثورة الإيرانية",
