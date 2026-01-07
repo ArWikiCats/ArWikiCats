@@ -19,6 +19,46 @@ from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
+keys_not_jobs = [
+    "women",
+    "men",
+]
+
+
+genders_keys: dict[str, str] = {
+    "blind": "مكفوفات",
+    "abolitionists": "مناهضات للعبودية",
+    "deaf": "صم",
+    "executed": "أعدمن",
+    "executed abroad": "أعدمن في الخارج",
+    "deafblind": "صم ومكفوفات",
+    "killed-in-action": "قتلن في عمليات قتالية",
+    "killed in action": "قتلن في عمليات قتالية",
+    "murdered abroad": "قتلن في الخارج",
+}
+
+
+def is_false_key(key: str, value: str) -> bool:
+    if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
+        return True
+
+    if key in genders_keys:   # NOTE: under test
+        return True
+
+    if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
+        return True
+
+    not_in_keys = [
+        "expatriate",
+        "immigrants",
+    ]
+
+    # if any(word in key for word in not_in_keys) and not
+    if any(word in key for word in not_in_keys):
+        return True
+
+    return False
+
 
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
@@ -76,18 +116,6 @@ def _load_formatted_data() -> dict:
         {f"{{en_nat}}-american {x}": f"{v} أمريكيات {{females}}" for x, v in formatted_data_jobs.items()}
     )
 
-    genders_keys: dict[str, str] = {
-        "blind": "مكفوفات",
-        "abolitionists": "مناهضات للعبودية",
-        "deaf": "صم",
-        "executed": "أعدمن",
-        "executed abroad": "أعدمن في الخارج",
-        "deafblind": "صم ومكفوفات",
-        "killed-in-action": "قتلن في عمليات قتالية",
-        "killed in action": "قتلن في عمليات قتالية",
-        "murdered abroad": "قتلن في الخارج",
-    }
-
     for x, v in genders_keys.items():
         keys_more = one_Keys_more_2(
             x,
@@ -115,16 +143,15 @@ def _load_formatted_data() -> dict:
 
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
-    not_in_keys = [
-        "expatriate",
-        "immigrants",
-    ]
     # all keys without any word from not_in_keys
     data = {
         x: {"ar_job": v}
         for x, v in jobs_womens_data.items()
-        if not any(word in x for word in not_in_keys) and not RELIGIOUS_KEYS_PP.get(x)
+        if not is_false_key(x, v)
     }
+    len_diff = len(set(jobs_womens_data.keys()) - set(data.keys()))
+    logger.error(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+
     data.update(
         {
             "actresses": {"ar_job": "ممثلات"},
@@ -132,7 +159,10 @@ def _load_jobs_data() -> dict[str, str]:
     )
     data.update({x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE.items()})
 
-    data = {x.replace("'", ""): v for x, v in data.items()}
+    data = {
+        x.replace("'", "").replace("australian rules", "australian-rules"): v
+        for x, v in data.items()
+    }
     return data
 
 
@@ -156,6 +186,7 @@ def _load_nat_data() -> dict[str, str]:
             }
         }
     )
+
     nats_data = {x.replace("'", ""): v for x, v in nats_data.items()}
     return nats_data
 
@@ -163,11 +194,13 @@ def _load_nat_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBaseV2:
     jobs_data_enhanced = _load_jobs_data()
+    logger.debug(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
+
     formatted_data = _load_formatted_data()
-    nats_data = _load_nat_data()
 
     logger.debug(f"_load_formatted_data womens: {len(formatted_data):,}")
 
+    nats_data = _load_nat_data()
     return format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=nats_data,
@@ -186,7 +219,7 @@ def load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def womens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
-    category = fix_keys(category)
+    category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip womens_resolver_labels: {category=}, [result=]")
@@ -199,14 +232,7 @@ def womens_resolver_labels(category: str) -> str:
     return result
 
 
-jobs_data_enhanced = _load_jobs_data()
-with_ = len([x for x in jobs_data_enhanced if "'" in x])
-logger.error(f"load_bot jobs_data_enhanced: {len(jobs_data_enhanced):,}, with apostrophe: {with_=}")
-
-len_print.data_len(
-    "womens.py",
-    {
-        "womens_formatted_data": _load_formatted_data(),
-        "womens_jobs_data_enhanced": _load_jobs_data(),
-    },
-)
+len_print.data_len("womens.py", {
+    "womens_formatted_data": _load_formatted_data(),
+    "womens_jobs_data_enhanced": _load_jobs_data(),
+})

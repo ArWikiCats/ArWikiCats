@@ -15,6 +15,7 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 keys_not_jobs = [
+    "women",
     "men",
 ]
 
@@ -219,8 +220,8 @@ def _load_formatted_data() -> dict:
         if jobs_mens_data.get(x):
             formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
 
-    formatted_data = {x.replace("'", ""): v for x, v in formatted_data.items()}
-    return formatted_data
+    formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
+    return formatted_data_final
 
 
 @functools.lru_cache(maxsize=1)
@@ -233,6 +234,7 @@ def _load_jobs_data() -> dict[str, str]:
     }
     len_diff = len(set(jobs_mens_data.keys()) - set(data.keys()))
     logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+
     data = {
         x.replace("'", "").replace("australian rules", "australian-rules"): v
         for x, v in data.items()
@@ -240,7 +242,8 @@ def _load_jobs_data() -> dict[str, str]:
     return data
 
 
-def _load_nat_data():
+@functools.lru_cache(maxsize=1)
+def _load_nat_data() -> dict[str, str]:
     nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})

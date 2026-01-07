@@ -36,26 +36,28 @@ def one_Keys_more_2(
 ) -> dict[str, str]:
 
     data = {}
-    # Executed police officers / deaf triathletes
-    data[f"{x} {en_job_key}"] = f"{ar_job_key} {v}"
 
-    # writers blind
-    data[f"{en_job_key} {x}"] = f"{ar_job_key} {v}"
+    if not add_women:
+        # Executed police officers / deaf triathletes
+        data[f"{x} {en_job_key}"] = f"{ar_job_key} {v}"
 
-    # greek blind
-    data[f"{en_nat_key} {x}"] = f"{ar_nat_key} {v}"
+        # writers blind
+        data[f"{en_job_key} {x}"] = f"{ar_job_key} {v}"
 
-    # Executed Albanian
-    data[f"{x} {en_nat_key}"] = f"{ar_nat_key} {v}"
+        # greek blind
+        data[f"{en_nat_key} {x}"] = f"{ar_nat_key} {v}"
 
-    # Executed Albanian police officers
-    data[f"{x} {en_nat_key} {en_job_key}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        # Executed Albanian
+        data[f"{x} {en_nat_key}"] = f"{ar_nat_key} {v}"
 
-    # greek writers blind
-    data[f"{en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        # Executed Albanian police officers
+        data[f"{x} {en_nat_key} {en_job_key}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
-    # writers greek blind
-    data[f"{en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+        # greek writers blind
+        data[f"{en_nat_key} {en_job_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
+
+        # writers greek blind
+        data[f"{en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
     if add_women:
         # Executed Albanian women
