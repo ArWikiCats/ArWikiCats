@@ -59,6 +59,8 @@ def one_Keys_more_2(
         # writers greek blind
         data[f"{en_job_key} {en_nat_key} {x}"] = f"{ar_job_key} {ar_nat_key} {v}"
 
+        # Dutch political artists
+        data[f"{en_nat_key} {x} {en_job_key}"] = f"{ar_job_key} {ar_nat_key} {v}"
     if add_women:
         # Executed Albanian women
         data[f"{x} {en_nat_key} {women_key}"] = f"{ar_nat_key} {v}"
