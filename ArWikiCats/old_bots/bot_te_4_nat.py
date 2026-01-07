@@ -138,6 +138,17 @@ def _try_nationality_based_strategies(
 
 @functools.lru_cache(maxsize=None)
 @dump_data(1)
+def extract_nationality_info(normalized_category):
+    nationality_result = ""
+    # Strategy 2: Nationality-based extraction
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
+
+    if suffix:
+        nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)
+    return nationality_result
+
+
+@functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
     """Return a localized job label for 2018 categories with nationality hints.
 
@@ -166,15 +177,9 @@ def te_2018_with_nat(category: str) -> str:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
         return direct_result
 
-    # Strategy 2: Nationality-based extraction
-    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
+    nationality_result = extract_nationality_info(normalized_category)
 
-    if suffix:
-        nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)
-        if nationality_result:
-            return nationality_result
-
-    return ""
+    return nationality_result
 
 
 __all__ = [
