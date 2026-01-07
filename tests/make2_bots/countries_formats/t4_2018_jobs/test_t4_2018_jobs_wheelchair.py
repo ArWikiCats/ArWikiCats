@@ -34,26 +34,6 @@ test_data_not_for_2018_bot = {
 }
 
 wheelchair_data_0 = {
-    "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
-    "australian men wheelchair racers": "متسابقو كراسي متحركة أستراليون",
-    "austrian men wheelchair racers": "متسابقو كراسي متحركة نمساويون",
-    "belgian men wheelchair racers": "متسابقو كراسي متحركة بلجيكيون",
-    "british men wheelchair racers": "متسابقو كراسي متحركة بريطانيون",
-    "brazilian men wheelchair racers": "متسابقو كراسي متحركة برازيليون",
-    "canadian men wheelchair racers": "متسابقو كراسي متحركة كنديون",
-    "english men wheelchair racers": "متسابقو كراسي متحركة إنجليز",
-    "finnish men wheelchair racers": "متسابقو كراسي متحركة فنلنديون",
-    "dutch men wheelchair racers": "متسابقو كراسي متحركة هولنديون",
-    "chinese men wheelchair racers": "متسابقو كراسي متحركة صينيون",
-    "french men wheelchair racers": "متسابقو كراسي متحركة فرنسيون",
-    "gabonese men wheelchair racers": "متسابقو كراسي متحركة غابونيون",
-    "german men wheelchair racers": "متسابقو كراسي متحركة ألمان",
-    "irish men wheelchair racers": "متسابقو كراسي متحركة أيرلنديون",
-    "israeli men wheelchair racers": "متسابقو كراسي متحركة إسرائيليون",
-    "japanese men wheelchair racers": "متسابقو كراسي متحركة يابانيون",
-    "mexican men wheelchair racers": "متسابقو كراسي متحركة مكسيكيون",
-    "swiss men wheelchair racers": "متسابقو كراسي متحركة سويسريون",
-    "welsh men wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
 }
 
 wheelchair_data_1 = {

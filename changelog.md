@@ -147,7 +147,6 @@ This pull request introduces several improvements and refactorings to the job, n
 
 * Updated the job label resolution pipeline (`te4_2018_Jobs`) to first try `resolve_jobs_main`, then fall back to religious jobs and nationality prefix label resolvers, improving accuracy and flexibility.
 * In the main film and country name resolvers, clarified and reordered the resolution pipeline to prioritize more accurate or recent resolvers, with explanatory comments.
-* Added a new `jobs_with_nat_prefix_label` function, with caching and logging, to provide a more robust and normalized way of generating job labels with nationality prefixes.
 
 ### Gendered and Religious Job Handling
 

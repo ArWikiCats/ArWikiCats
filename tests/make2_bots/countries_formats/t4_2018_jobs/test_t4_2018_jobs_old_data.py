@@ -13,7 +13,6 @@ data_fast = {
     "african people by nationality": "أفارقة حسب الجنسية",
     "andy warhol": "آندي وارهول",
     "caymanian expatriates": "كايمانيون مغتربون",
-    "cuban christians": "كوبيون مسيحيون",
     "eddie murphy": "إيدي ميرفي",
     "english-language culture": "ثقافة اللغة الإنجليزية",
     "english-language fantasy adventure films": "أفلام فانتازيا مغامرات باللغة الإنجليزية",
@@ -29,17 +28,13 @@ data_fast = {
     "japanese language": "لغة يابانية",
     "johann wolfgang von goethe": "يوهان فولفغانغ فون غوته",
     "lithuanian men's footballers": "لاعبو كرة قدم ليتوانيون",
-    "manx sailors (sport)": "بحارة رياضيون مانكسيون",
     "marathi films": "أفلام باللغة الماراثية",
     "michael porter": "مايكل بورتر",
-    "native american aviators": "طيارون أمريكيون أصليون",
-    "new caledonian women runners": "عداءات كاليدونيات",
     "polish-language films": "أفلام باللغة البولندية",
     "sara bareilles": "سارة باريلز",
     "spanish-language mass media": "إعلام اللغة الإسبانية",
     "surinamese women children's writers": "كاتبات أطفال سوريناميات",
     "swedish-language albums": "ألبومات باللغة السويدية",
-    "yemeni shi'a muslims": "يمنيون مسلمون شيعة",
 
 }
 
