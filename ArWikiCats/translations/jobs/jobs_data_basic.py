@@ -10,6 +10,11 @@ from ...helps import len_print
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 
+def combine_gender_labels(first_label, second_label) -> str:
+    label = f"{first_label} {second_label}" if first_label and second_label else ""
+    return label
+
+
 def _build_religious_job_labels(
     religions: Mapping[str, GenderedLabel],
     roles: Mapping[str, GenderedLabel],
@@ -28,12 +33,19 @@ def _build_religious_job_labels(
 
     combined_roles: GenderedLabelMap = {}
     for religion_key, religion_labels in religions.items():
+        if not religion_key or not religion_labels:
+            continue
         for role_key, role_labels in roles.items():
-            womens_label = f"{role_labels['females']} {religion_labels['females']}" if role_labels["females"] else ""
-            combined_roles[f"{religion_key} {role_key}"] = {
-                "males": f"{role_labels['males']} {religion_labels['males']}",
-                "females": womens_label,
-            }
+            if not role_key or not role_labels:
+                continue
+            females_label = combine_gender_labels(role_labels["females"], religion_labels["females"])
+            males_label = combine_gender_labels(role_labels["males"], religion_labels["males"])
+
+            if males_label or females_label:
+                combined_roles[f"{religion_key} {role_key}"] = {
+                    "males": males_label,
+                    "females": females_label,
+                }
 
     return combined_roles
 
