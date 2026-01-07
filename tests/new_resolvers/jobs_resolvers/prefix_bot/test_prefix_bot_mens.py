@@ -157,6 +157,28 @@ test_mens_data = {
 }
 
 test_mens_data2 = {
+
+    "men athletes": "لاعبو قوى",
+    "men centenarians": "مئويون",
+    "men competitors": "منافسون",
+    "men discus throwers": "رماة قرص",
+    "men hammer throwers": "رماة مطرقة",
+    "men high jumpers": "متسابقو قفز عالي",
+    "men hurdlers": "لاعبو قفز الحواجز",
+    "men long jumpers": "لاعبو قفز طويل",
+    "men long-distance runners": "عداؤو مسافات طويلة",
+    "men marathon runners": "عداؤو ماراثون",
+    "men middle-distance runners": "عداؤو مسافات متوسطة",
+    "men pole vaulters": "قافزون بالزانة",
+    "men runners": "عداؤون",
+    "men shot putters": "لاعبو دفع ثقل",
+    "men sprinters": "عداؤون سريعون",
+    "men steeplechase runners": "عداؤو موانع",
+    "men triple jumpers": "لاعبو وثب ثلاثي",
+    "men wheelchair racers": "متسابقو كراسي متحركة",
+    "fictional firefighters": "رجال إطفاء خياليون",
+
+    "fictional australian rules footballers": "لاعبو كرة قدم أسترالية خياليون",
     "assassinated civil rights activists": "ناشطو حقوق مدنية مغتالون",
     "assassinated ecuadorian people": "إكوادوريون مغتالون",
     "assassinated educators": "معلمون مغتالون",
@@ -191,7 +213,6 @@ test_mens_data2 = {
     "disabled sports-people": "رياضيون معاقون",
     "fictional american people": "أمريكيون خياليون",
     "fictional armenian people": "أرمن خياليون",
-    "fictional australian rules footballers": "لاعبو كرة قدم أسترالية خياليون",
     "fictional barons": "بارونات خياليون",
     "fictional british people": "بريطانيون خياليون",
     "fictional burmese people": "بورميون خياليون",
@@ -201,7 +222,6 @@ test_mens_data2 = {
     "fictional diarists": "كتاب يوميات خياليون",
     "fictional engineers": "مهندسون خياليون",
     "fictional entertainers": "فنانون ترفيهيون خياليون",
-    "fictional firefighters": "رجال إطفاء خياليون",
     "fictional herpetologists": "علماء زواحف وبرمائيات خياليون",
     "fictional indian people": "هنود خياليون",
     "fictional murderers": "قتلة خياليون",
@@ -221,24 +241,7 @@ test_mens_data2 = {
     "latin dance singers": "مغنو رقص لاتينيون",
     "latin jazz pianists": "عازفو بيانو جاز لاتينيون",
     "male child actors": "ممثلون أطفال ذكور",
-    "men athletes": "لاعبو قوى رجال",
-    "men centenarians": "مئويون رجال",
-    "men competitors": "منافسون رجال",
-    "men discus throwers": "رماة قرص رجال",
-    "men hammer throwers": "رماة مطرقة رجال",
-    "men high jumpers": "متسابقو قفز عالي رجال",
-    "men hurdlers": "لاعبو قفز الحواجز رجال",
-    "men long jumpers": "لاعبو قفز طويل رجال",
-    "men long-distance runners": "عداؤو مسافات طويلة رجال",
-    "men marathon runners": "عداؤو ماراثون رجال",
-    "men middle-distance runners": "عداؤو مسافات متوسطة رجال",
-    "men pole vaulters": "قافزون بالزانة رجال",
-    "men runners": "عداؤون رجال",
-    "men shot putters": "لاعبو دفع ثقل رجال",
-    "men sprinters": "عداؤون سريعون رجال",
-    "men steeplechase runners": "عداؤو موانع رجال",
-    "men triple jumpers": "لاعبو وثب ثلاثي رجال",
-    "men wheelchair racers": "متسابقو كراسي متحركة رجال",
+
     "military aviators": "طيارون عسكريون",
     "military doctors": "أطباء عسكريون",
     "military governors": "حكام عسكريون",
@@ -252,7 +255,6 @@ test_mens_data2 = {
     "religious workers": "عمال دينيون",
     "religious writers": "كتاب دينيون",
     "romantic composers": "ملحنون رومانسيون",
-    "sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة"
 }
 
 
@@ -271,7 +273,7 @@ def test_mens_resolver_labels(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    # ("test_prefix_bot_mens_1", test_mens_data2, mens_prefixes_work),
+    ("test_prefix_bot_mens_1", test_mens_data2, mens_prefixes_work),
     ("test_prefix_bot_mens_3", test_mens_data2, mens_resolver_labels),
 ]
 

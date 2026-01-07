@@ -57,7 +57,7 @@ womens_prefixes: dict[str, str] = {
 }
 
 Mens_prefix: dict[str, str] = {
-    "men": "{} رجال",
+    "men": "{}",
     "amputee": "{} مبتورو أحد الأطراف",
     "assassinated": "{} مغتالون",
     "blind": "{} مكفوفون",

@@ -36,7 +36,7 @@ def one_Keys_more_2(
 ) -> dict[str, str]:
 
     data = {}
-    # Executed police officers
+    # Executed police officers / deaf triathletes
     data[f"{x} {en_job_key}"] = f"{ar_job_key} {v}"
 
     # writers blind
