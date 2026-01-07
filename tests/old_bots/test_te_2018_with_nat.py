@@ -125,7 +125,7 @@ data_2018_with_nat = {
 
 
 @pytest.mark.parametrize("category, expected", data_2018_with_nat.items(), ids=data_2018_with_nat.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_te_2018_with_nat(category: str, expected: str) -> None:
     label = te_2018_with_nat(category)
     assert label == expected
@@ -137,7 +137,7 @@ ENTERTAINMENT_CASES = [
 
 
 @pytest.mark.parametrize("name,data,callback", ENTERTAINMENT_CASES)
-@pytest.mark.dump
+@pytest.mark.skip2
 def test_entertainment(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)

@@ -11,9 +11,7 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 import re
 from typing import Optional
-
-
-from ..helps import logger
+from ..helps import logger, dump_data
 from ..translations import (
     all_nat_sorted,
     Nat_mens,
@@ -139,6 +137,7 @@ def _try_nationality_based_strategies(
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def te_2018_with_nat(category: str) -> str:
     """Return a localized job label for 2018 categories with nationality hints.
 
