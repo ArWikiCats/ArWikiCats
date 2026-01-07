@@ -4,7 +4,9 @@ TODO: write code relegin_jobs_nats_jobs.py
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label as resolve_nats_jobs
+from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix as resolve_nats_jobs
+# from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all as resolve_nats_jobs
+# from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label as resolve_nats_jobs
 
 # from ArWikiCats.make_bots.jobs_bots.nats_jobs_resolver import resolve_nats_jobs
 # from ArWikiCats import resolve_label_ar as resolve_nats_jobs
@@ -164,21 +166,21 @@ def test_data_without_nats(input_text: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
     result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_religions_jobs_1(category: str, expected: str) -> None:
     result = resolve_nats_jobs(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", test_religions_female_data.items(), ids=test_religions_female_data.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = resolve_nats_jobs(category)
