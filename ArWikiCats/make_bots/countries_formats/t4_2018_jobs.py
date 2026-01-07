@@ -11,8 +11,6 @@ from ...translations import (
     all_nat_sorted,
     People_key,
     change_male_to_female,
-    # jobs_mens_data,
-    # short_womens_jobs,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
@@ -97,24 +95,6 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
     return category, main_ss, main_lab
 
 
-def _get_direct_lookup(category: str) -> str:
-    """
-    Return a localized Arabic label for the given category when available.
-
-    Returns:
-        str: Arabic label for the category, or an empty string if no matching label is found.
-    """
-    if category == "people":
-        return "أشخاص"
-
-    return (
-        People_key.get(category, "")
-        # or short_womens_jobs.get(category, "")
-        or resolve_languages_labels(category)
-        # or jobs_mens_data.get(category, "")
-    )
-
-
 @functools.lru_cache(maxsize=None)
 def te4_2018_Jobs(cate: str) -> str:
     """
@@ -147,8 +127,14 @@ def te4_2018_Jobs(cate: str) -> str:
 
     cate_lower = cate.lower()
 
+    if cate_lower == "people":
+        country_lab = "أشخاص"
+
     # 3. Direct Lookups
-    country_lab = _get_direct_lookup(cate_lower)
+    country_lab = country_lab or (
+        People_key.get(cate_lower, "")
+        or resolve_languages_labels(cate_lower)
+    )
 
     category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
