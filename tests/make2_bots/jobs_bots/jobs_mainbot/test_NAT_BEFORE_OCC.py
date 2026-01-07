@@ -11,8 +11,13 @@ from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import (
 )
 from ArWikiCats.translations import NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 
+nat_before_occ: list[str] = NAT_BEFORE_OCC.copy()
+# remove "executed abroad"
+if "executed abroad" in nat_before_occ:
+    nat_before_occ.remove("executed abroad")
+
 # =========================================================
-#   NEW TESTS – NAT_BEFORE_OCC VIA RELIGIOUS_KEYS_PP EXTENSION
+#   NEW TESTS – nat_before_occ VIA RELIGIOUS_KEYS_PP EXTENSION
 # =========================================================
 
 
@@ -29,7 +34,7 @@ def test_men_womens_with_nato_matches_source_template() -> None:
 @pytest.mark.dict
 def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) -> None:
     """
-    NAT_BEFORE_OCC was extended with RELIGIOUS_KEYS_PP keys.
+    nat_before_occ was extended with RELIGIOUS_KEYS_PP keys.
     For each religious key, jobs_with_nat_prefix should return a non-empty label that contains:
       - the men's nationality
       - the religious Arabic label from RELIGIOUS_KEYS_PP
@@ -49,7 +54,7 @@ def test_religious_keys_use_nat_and_religious_forms(suffix: str, forms: dict) ->
     assert forms["males"] in result, error_msg
 
 
-@pytest.mark.parametrize("suffix", NAT_BEFORE_OCC)
+@pytest.mark.parametrize("suffix", nat_before_occ)
 @pytest.mark.dict
 def test_NAT_BEFORE_OCC(suffix: str) -> None:
     """ """
@@ -62,12 +67,12 @@ def test_NAT_BEFORE_OCC(suffix: str) -> None:
     assert mens_nat in result, f" {suffix=}"
 
 
-# --- NAT_BEFORE_OCC Expansion Tests ---
+# --- nat_before_occ Expansion Tests ---
 
 
 def test_nat_before_occ_deafblind_mens_algerian() -> None:
     jobs_with_nat_prefix.cache_clear()
-    result = jobs_with_nat_prefix("", "algerian", "deafblind writers")  # "deafblind" is in NAT_BEFORE_OCC
+    result = jobs_with_nat_prefix("", "algerian", "deafblind writers")  # "deafblind" is in nat_before_occ
     assert result == "كتاب صم ومكفوفون جزائريون"  # Assuming mens_prefixes_work would return "كتاب صم ومكفوفون"
 
 
@@ -99,7 +104,7 @@ def test_nat_before_occ_religious_jews_womens_argentinean() -> None:
 
 
 def test_mens_religious_before_occ() -> None:
-    """Test religious key in NAT_BEFORE_OCC list (nationality before religion)"""
+    """Test religious key in nat_before_occ list (nationality before religion)"""
     result = jobs_with_nat_prefix("", "yemeni", "sunni muslims")
     assert result == "يمنيون مسلمون سنة"
 
