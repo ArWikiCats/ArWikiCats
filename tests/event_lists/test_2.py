@@ -6,8 +6,18 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
-    "Byzantine female saints": "تصنيف:قديسات بيزنطيات",
-    "Canarian Jews": "تصنيف:يهود كناريون",
+    "Canadian child singers": "مغنون كنديون أطفال",
+    "Native American people in American Revolution": "أمريكيون أصليون في الثورة الأمريكية",
+    "Yugoslav disabled sports-people": "رياضيون يوغسلافيون معاقون",
+    "American women in politics by descent": "أمريكيات في السياسة حسب الأصل",
+    "Native American people from Minnesota": "أمريكيون أصليون من منيسوتا",
+    "Native American people from North Dakota": "أمريكيون أصليون من داكوتا الشمالية",
+    "Native American people from South Dakota": "أمريكيون أصليون من داكوتا الجنوبية",
+    "Native American people from Washington (state)": "أمريكيون أصليون من ولاية واشنطن",
+    "Somalian disabled sports-people": "رياضيون صوماليون معاقون",
+    "American expatriate men's soccer players": "لاعبو كرة قدم أمريكيون مغتربون",
+    "Byzantine female saints": "قديسات بيزنطيات",
+    "Canarian Jews": "يهود كناريون",
     "Ancient Christian saints": "مسيحيون قديسون قدماء",
     "Ancient Jews by occupation": "يهود قدماء حسب المهنة",
     "Ancient Christians": "مسيحيون قدماء",
@@ -37,6 +47,7 @@ data0 = {
 }
 
 data1 = {
+    # "American expatriate men's soccer players in Canada": "",
     "West German men sprinters": "عداؤون سريعون ألمانيون غربيون",
     "Emirati men's footballers": "لاعبو كرة قدم إماراتيون",
     "2015 American television": "التلفزة الأمريكية 2015",
