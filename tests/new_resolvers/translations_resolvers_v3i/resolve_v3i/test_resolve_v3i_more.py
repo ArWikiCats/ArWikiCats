@@ -19,6 +19,22 @@ test_deaths_data = {
     "14th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 14",
 }
 
+test_females_data = {
+    "18th-century businesswomen from the Russian Empire": "سيدات أعمال من الإمبراطورية الروسية في القرن 18",
+    "businesswomen": "سيدات أعمال",
+    "actresses": "ممثلات",
+    "18th-century actresses from Bohemia": "ممثلات من بوهيميا في القرن 18",
+    "18th-century actresses from the Holy Roman Empire": "ممثلات من الإمبراطورية الرومانية المقدسة في القرن 18",
+    "19th-century actresses from the Ottoman Empire": "ممثلات من الدولة العثمانية في القرن 19",
+    "19th-century actresses from the Russian Empire": "ممثلات من الإمبراطورية الروسية في القرن 19",
+    "19th-century businesswomen from the Russian Empire": "سيدات أعمال من الإمبراطورية الروسية في القرن 19",
+    "20th-century actresses from Georgia (country)": "ممثلات من جورجيا في القرن 20",
+    "20th-century actresses from Northern Ireland": "ممثلات من أيرلندا الشمالية في القرن 20",
+    "20th-century actresses from the Ottoman Empire": "ممثلات من الدولة العثمانية في القرن 20",
+    "21st-century actresses from Georgia (country)": "ممثلات من جورجيا في القرن 21",
+    "21st-century actresses from Northern Ireland": "ممثلات من أيرلندا الشمالية في القرن 21",
+}
+
 test_data_standard = {
     "10th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 10",
     "10th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 10",
@@ -67,7 +83,6 @@ test_data_standard = {
     "18th-century botanists from the Russian Empire": "علماء نباتات من الإمبراطورية الروسية في القرن 18",
     "18th-century businesspeople from the Holy Roman Empire": "شخصيات أعمال من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century businesspeople from the Russian Empire": "شخصيات أعمال من الإمبراطورية الروسية في القرن 18",
-    "18th-century businesswomen from the Russian Empire": "سيدات أعمال من الإمبراطورية الروسية في القرن 18",
     "18th-century chemists from the Holy Roman Empire": "كيميائيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century classical composers from Bohemia": "ملحنون كلاسيكيون من بوهيميا في القرن 18",
     "18th-century classical composers from the Holy Roman Empire": "ملحنون كلاسيكيون من الإمبراطورية الرومانية المقدسة في القرن 18",
@@ -128,6 +143,7 @@ def test_resolve_v3i_more_1(category: str, expected: str) -> None:
 
 to_test = [
     ("test_resolve_v3i_more_2", test_data_standard, resolve_year_job_from_countries),
+    ("test_females_data", test_females_data, resolve_year_job_from_countries),
 ]
 
 
