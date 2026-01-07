@@ -19,15 +19,12 @@ from ...translations import (
     SPORT_JOB_VARIANTS,
     SPORTS_KEYS_FOR_LABEL,
     Female_Jobs,
-    Mens_prefix,
-    Mens_suffix,
     Nat_mens,
     People_key,
     change_male_to_female,
     jobs_mens_data,
     jobs_womens_data,
     short_womens_jobs,
-    womens_prefixes,
 )
 from ..lazy_data_bots.bot_2018 import get_pop_All_18
 
@@ -37,6 +34,58 @@ _WOMEN_SUFFIX = " women"
 
 replace_labels_2022: dict[str, str] = {
     "مجندون أطفال": "أطفال مجندون",
+}
+
+Mens_suffix: dict[str, str] = {
+    "male deaf": "{} صم ذكور",
+    "blind": "{} مكفوفون",
+    "deafblind": "{} صم ومكفوفون",
+    "deaf": "{} صم",
+    "killed-in-action": "{} قتلوا في عمليات قتالية",
+    "killed in action": "{} قتلوا في عمليات قتالية",
+    "murdered abroad": "{} قتلوا في الخارج",
+}
+
+womens_prefixes: dict[str, str] = {
+    "blind": "{} مكفوفات",
+    "deaf": "{} صم",
+    "deafblind": "{} صم ومكفوفات",
+    "expatriate women's": "{} مغتربات",
+    "female": "{}",
+    "women": "{}",
+    "women's": "{}",
+}
+
+Mens_prefix: dict[str, str] = {
+    "men": "{} رجال",
+    "amputee": "{} مبتورو أحد الأطراف",
+    "assassinated": "{} مغتالون",
+    "blind": "{} مكفوفون",
+    "child": "{} أطفال",
+    "children": "{} أطفال",
+    "contemporary": "{} معاصرون",
+    "deaf": "{} صم",
+    "deafblind": "{} صم ومكفوفون",
+    "disabled": "{} معاقون",
+    "executed": "{} معدومون",
+    "expatriate": "{} مغتربون",
+    "expatriate male": "{} ذكور مغتربون",
+    "expatriate men's": "{} رجال مغتربون",
+    "fictional": "{} خياليون",
+    "kidnapped": "{} مختطفون",
+    "latin": "{} لاتينيون",
+    "lgbt": "{} مثليون",
+    "male": "{} ذكور",
+    "male child": "{} أطفال ذكور",
+    "military": "{} عسكريون",
+    "murdered": "{} قتلوا",
+    "mythological": "{} أسطوريون",
+    "nautical": "{} بحريون",
+    "political": "{} سياسيون",
+    "religious": "{} دينيون",
+    "renaissance": "{} عصر النهضة",
+    "romantic": "{} رومانسيون",
+    "sunni muslim": "{} مسلمون سنة",
 }
 
 

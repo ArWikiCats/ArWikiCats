@@ -1351,8 +1351,6 @@ data_5 = {
 }
 
 data_6 = {
-
-    "executed artists": "فنانون معدومون",
     "Executed artists": "فنانون معدومون",
     "Executed assassins": "منفذو اغتيالات معدومون",
     "Executed children": "أطفال معدومون",

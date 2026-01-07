@@ -38,11 +38,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_women,
     en_is_nat_ar_is_women_2,
 )
-from .mixed.jenders_prefix_suffix import (
-    Mens_prefix,
-    Mens_suffix,
-    womens_prefixes,
-)
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
 from .nats.Nationality import (
@@ -180,7 +175,4 @@ __all__ = [
     "change_male_to_female",
     "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_women_2",
-    "Mens_suffix",
-    "Mens_prefix",
-    "womens_prefixes",
 ]
