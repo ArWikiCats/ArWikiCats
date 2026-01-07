@@ -72,6 +72,28 @@ genders_keys: dict[str, str] = {
 genders_keys.update(genders_keys_new_under_test)
 
 
+def is_false_key(key: str, value: str) -> bool:
+    if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
+        return True
+
+    if key in genders_keys:   # NOTE: under test
+        return True
+
+    if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
+        return True
+
+    not_in_keys = [
+        "expatriate",
+        "immigrants",
+    ]
+
+    # if any(word in key for word in not_in_keys) and not
+    if any(word in key for word in not_in_keys):
+        return True
+
+    return False
+
+
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
@@ -203,19 +225,14 @@ def _load_formatted_data() -> dict:
 
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
-    not_in_keys = [
-        "expatriate",
-        "immigrants",
-    ]
     # all keys without any word from not_in_keys
     data = {
         x: {"ar_job": v}
         for x, v in jobs_mens_data.items()
-        if not any(word in x for word in not_in_keys) and not RELIGIOUS_KEYS_PP.get(x)
-        and x not in keys_not_jobs
-        and x not in genders_keys   # NOTE: under test
+        if not is_false_key(x, v)
     }
-
+    len_diff = len(set(jobs_mens_data.keys()) - set(data.keys()))
+    logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
     data = {
         x.replace("'", "").replace("australian rules", "australian-rules"): v
         for x, v in data.items()
