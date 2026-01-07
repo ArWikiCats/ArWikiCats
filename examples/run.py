@@ -15,7 +15,7 @@ from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_g
 
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
-from ArWikiCats.make_bots.jobs_bots.bot_te_4 import te_2018_with_nat
+from ArWikiCats.old_bots.bot_te_4 import te_2018_with_nat
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 logger.set_level("DEBUG")

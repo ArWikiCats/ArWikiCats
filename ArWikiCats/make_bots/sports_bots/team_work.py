@@ -9,7 +9,7 @@ from ...helps import logger
 from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ...new.resolve_films_bots.film_keys_bot import Films
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ..jobs_bots import bot_te_4
+from ...old_bots import bot_te_4
 from ..o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {

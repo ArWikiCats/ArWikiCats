@@ -5,7 +5,7 @@ TODO: use mens_resolver_labels
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work
+from ArWikiCats.old_bots.prefix_bot import mens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 test_mens_data = {

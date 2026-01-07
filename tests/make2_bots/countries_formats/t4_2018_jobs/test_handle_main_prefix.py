@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import handle_main_prefix
+from ArWikiCats.old_bots.t4_2018_jobs import handle_main_prefix
 
 data = {
     "fictional basic": {

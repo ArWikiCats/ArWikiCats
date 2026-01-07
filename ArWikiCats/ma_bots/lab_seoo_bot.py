@@ -14,9 +14,9 @@ from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
 from ..main_processers import event2_stubs
-from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ..old_bots.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
-from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
+from ..old_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.o_bots import univer

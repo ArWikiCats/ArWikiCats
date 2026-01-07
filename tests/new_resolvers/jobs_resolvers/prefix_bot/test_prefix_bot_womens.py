@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
+from ArWikiCats.old_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
 test_womens_data_0 = {

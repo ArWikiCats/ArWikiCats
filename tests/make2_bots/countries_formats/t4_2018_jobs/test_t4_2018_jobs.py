@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ArWikiCats.old_bots.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 
 test_data_not_for_2018_bot = {

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ArWikiCats.old_bots.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
 
 te4_2018_Jobs_data = {

@@ -12,22 +12,22 @@ import functools
 import re
 from typing import Optional
 
-from ...new_resolvers.jobs_resolvers import resolve_jobs_main
-from ...make_bots.languages_bot.langs_w import Lang_work
+from ..new_resolvers.jobs_resolvers import resolve_jobs_main
+from ..make_bots.languages_bot.langs_w import Lang_work
 
-from ...helps import logger
-from ...translations import (
+from ..helps import logger
+from ..translations import (
     all_nat_sorted,
     Multi_sport_for_Jobs,
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,
 )
-from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
-from ..countries_formats.for_me import Work_for_me_main
-from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ..o_bots import ethnic_bot
-from .get_helps import get_suffix_with_keys
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+from ..make_bots.countries_formats.for_me import Work_for_me_main
+from .t4_2018_jobs import te4_2018_Jobs
+from ..make_bots.o_bots import ethnic_bot
+from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from .prefix_bot import mens_prefixes_work, womens_prefixes_work
 
 # Template patterns for anti-sentiment categories

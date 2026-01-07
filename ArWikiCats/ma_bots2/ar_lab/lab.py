@@ -12,7 +12,7 @@ from ...make_bots.languages_bot.langs_w import Lang_work
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
-from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ...old_bots.t4_2018_jobs import te4_2018_Jobs
 from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import (
     Tabl_with_in,
