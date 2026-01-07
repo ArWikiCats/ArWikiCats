@@ -6,6 +6,19 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "christian saints": "قديسون",
+    "electro musicians": "موسيقيو موسيقى كهربائية",
+    "film editors": "محررو أفلام",
+    "gardeners": "مزارعو حدائق",
+    "music journalists": "صحفيون موسيقيون",
+    "olympic beach volleyball players": "لاعبو كرة طائرة شاطئية أولمبيون",
+    "olympic divers": "غواصون أولمبيون",
+    "olympic handball players": "لاعبو كرة يد أولمبيون",
+    "olympic judoka": "لاعبو جودو أولمبيون",
+    "olympic nordic combined skiers": "متزحلقو تزلج نوردي مزدوج أولمبيون",
+    "polo players": "لاعبو بولو",
+    "traditional pop music singers": "مغنو موسيقى بوب تقليدية",
+    "voice actresses": "ممثلات أداء صوتي",
     "singaporean blind people": "أعلام سنغافوريون مكفوفون",
     "ukrainian deaf people": "أعلام أوكرانيون صم",
     "slovenian deaf people": "أعلام سلوفينيون صم",

@@ -1,23 +1,13 @@
 #!/usr/bin/python3
 """
-Bot for translating job-related and nationality-based categories.
-
-This module provides functionality for matching and translating categories
-related to jobs, nationalities, and multi-sports topics from English to Arabic.
-
-TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 """
 
 import functools
 import re
-from typing import Optional
 from ..helps import logger
 from ..translations import (
     Nat_mens,
-    jobs_mens_data,
-    short_womens_jobs,
 )
-from .for_me import Work_for_me_main
 
 # Template patterns for anti-sentiment categories
 ANTI_SENTIMENT_PATTERNS: dict[str, str] = {
@@ -77,51 +67,6 @@ def nat_match(category: str) -> str:
     return result
 
 
-def _try_direct_job_lookup(normalized_category: str) -> Optional[str]:
-    """Try direct dictionary lookups for job categories.
-
-    Args:
-        normalized_category: The normalized category string.
-
-    Returns:
-        The job label if found, None otherwise.
-    """
-    return short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
-
-
-@functools.lru_cache(maxsize=None)
-def te_2018_with_nat(category: str) -> str:
-    """Return a localized job label for 2018 categories with nationality hints.
-
-    This function processes job-related categories that include nationality
-    information and returns the appropriate Arabic translation.
-
-    Args:
-        category: The category string to translate.
-
-    Returns:
-        The localized job label, or empty string if no match.
-
-    Example:
-        >>> te_2018_with_nat("zimbabwean musical groups")
-        "مجموعات موسيقية زيمبابوية"
-
-    TODO: Consider using FormatData method for consistency.
-    """
-    logger.debug(f"<<lightyellow>>>> te_2018_with_nat >> category:({category})")
-
-    normalized_category = category.lower().replace("_", " ").replace("-", " ")
-
-    # Strategy 1: Direct dictionary lookup
-    direct_result = _try_direct_job_lookup(normalized_category) or Work_for_me_main(normalized_category)
-    if direct_result:
-        logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
-        return direct_result
-
-    return ""
-
-
 __all__ = [
     "nat_match",
-    "te_2018_with_nat",
 ]
