@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:West German men sprinters": "تصنيف:عداؤون سريعون ألمانيون غربيون",
+    "Category:Emirati men's footballers": "تصنيف:لاعبو كرة قدم إماراتيون",
     "Category:2015 American television": "تصنيف:التلفزة الأمريكية 2015",
     # "Category:yemeni presidential elections": "تصنيف:انتخابات اليمن الرئاسية",
     "Category:ambassadors of federated states of micronesia in yemen by year": "تصنيف:سفراء ولايات ميكرونيسيا المتحدة في اليمن حسب السنة",

@@ -22,6 +22,11 @@ class GenderedLabel(TypedDict):
 GenderedLabelMap = Dict[str, GenderedLabel]
 
 
+def combine_gender_labels(first_label, second_label) -> str:
+    label = f"{first_label} {second_label}" if first_label and second_label else ""
+    return label
+
+
 def join_terms(*terms: str) -> str:
     """Join non-empty terms with a single space.
 
