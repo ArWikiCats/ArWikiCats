@@ -426,5 +426,4 @@ def jobs_with_nat_prefix_label(cate: str) -> str:
 
 __all__ = [
     "jobs_with_nat_prefix_label",
-    "_construct_country_nationality_label",
 ]
