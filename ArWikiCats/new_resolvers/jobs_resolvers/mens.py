@@ -53,7 +53,7 @@ genders_keys_new_under_test: dict[str, str] = {
     "child": "أطفال",
     "political": "سياسيون",
     "religious": "دينيون",
-    "military": "عسكريون",
+    # "military": "عسكريون", # NOTE: cause errors like: "British military": "بريطانيون عسكريون",
 }
 
 genders_keys: dict[str, str] = {
