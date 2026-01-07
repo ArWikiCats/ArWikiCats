@@ -5,7 +5,110 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.make_bots.countries_formats.for_me import Work_for_me_main
+from ArWikiCats.old_bots.for_me import Work_for_me_main
+
+data_2018 = {
+    "american culture": "ثقافة أمريكية",
+    "argentine grand prix": "جائزة الأرجنتين الكبرى",
+    "argentine tennis": "كرة مضرب أرجنتينية",
+    "armenian television": "التلفزة الأرمينية",
+    "armenian world music groups": "فرق موسيقى العالم أرمينية",
+    "asian-american people": "أمريكيون آسيويون",
+    "austrian musical groups": "مجموعات موسيقية نمساوية",
+    "austrian television series": "مسلسلات تلفزيونية نمساوية",
+    "bangladeshi films": "أفلام بنغلاديشية",
+    "bangladeshi politics": "السياسة البنغلاديشية",
+    "belgian companies": "شركات بلجيكية",
+    "bhutanese sport": "رياضة بوتانية",
+    "brazilian football club seasons": "مواسم أندية كرة قدم برازيلية",
+    "british open": "المملكة المتحدة المفتوحة",
+    "british women's sport": "رياضة بريطانية نسائية",
+    "burmese names": "أسماء بورمية",
+    "byzantine titles": "ألقاب بيزنطية",
+    "canadian films": "أفلام كندية",
+    "canadian labour law": "قانون العمل الكندي",
+    "canadian music": "موسيقى كندية",
+    "central american football": "كرة القدم الأمريكية الأوسطية",
+    "chinese hip-hop groups": "فرق هيب هوب صينية",
+    "chinese music": "موسيقى صينية",
+    "christian texts": "نصوص مسيحية",
+    "croatian ice hockey league": "الدوري الكرواتي لهوكي الجليد",
+    "croatian music": "موسيقى كرواتية",
+    "czech thrash metal musical groups": "فرق موسيقى ثراش ميتال تشيكية",
+    "czech women's sport": "رياضة تشيكية نسائية",
+    "danish books": "كتب دنماركية",
+    "dutch tennis": "كرة مضرب هولندية",
+    "east german sport": "رياضة ألمانية شرقية",
+    "emirati sport": "رياضة إماراتية",
+    "eritrean premier league": "الدوري الإريتري الممتاز",
+    "estonian music people": "شخصيات موسيقية إستونية",
+    "european american culture": "ثقافة أمريكية أوروبية",
+    "european-argentine culture": "ثقافة أرجنتينية أوروبية",
+    "filipino-american culture": "ثقافة أمريكية فلبينية",
+    "french rugby union leagues": "اتحاد دوري الرجبي الفرنسي",
+    "gothic architecture": "عمارة قوطية",
+    "greek television series": "مسلسلات تلفزيونية يونانية",
+    "hungarian sport": "رياضة مجرية",
+    "hungarian websites": "مواقع ويب مجرية",
+    "indian companies": "شركات هندية",
+    "indonesian online encyclopedias": "موسوعات إنترنت إندونيسية",
+    "irish comedy": "كوميديا أيرلندية",
+    "irish league": "الدوري الأيرلندي",
+    "irish paintings": "لوحات أيرلندية",
+    "irish universities": "جامعات أيرلندية",
+    "israeli architecture awards": "جوائز عمارة إسرائيلية",
+    "italian black metal musical groups": "فرق موسيقى بلاك ميتال إيطالية",
+    "ivorian companies": "شركات إيفوارية",
+    "japanese war crimes": "جرائم حرب يابانية",
+    "jewish scottish history": "تاريخ إسكتلندي يهودي",
+    "kyrgyzstani sport": "رياضة قيرغيزستانية",
+    "lebanese television series": "مسلسلات تلفزيونية لبنانية",
+    "lithuanian films": "أفلام ليتوانية",
+    "malawian websites": "مواقع ويب ملاوية",
+    "mexican-american culture": "ثقافة أمريكية مكسيكية",
+    "moroccan television series": "مسلسلات تلفزيونية مغربية",
+    "moroccan tennis": "كرة مضرب مغربية",
+    "nepali television": "التلفزة النيبالية",
+    "nigerian football": "كرة القدم النيجيرية",
+    "norwegian folk music groups": "فرق موسيقى تقليدية نرويجية",
+    "norwegian jews": "يهود نرويجيون",
+    "pakistani football": "كرة القدم الباكستانية",
+    "philippine football": "كرة القدم الفلبينية",
+    "philippine presidential election": "انتخابات الرئاسة الفلبينية",
+    "philippine television commercials": "إعلانات تجارية تلفزيونية فلبينية",
+    "portuguese tennis": "كرة مضرب برتغالية",
+    "qatari football ": "كرة القدم القطرية",
+    "romanian clothing": "ملابس رومانية",
+    "romanian restaurants": "مطاعم رومانية",
+    "romanian sport": "رياضة رومانية",
+    "russian politics": "السياسة الروسية",
+    "saudi super cup": "كأس السوبر السعودي",
+    "scottish islands": "جزر إسكتلندية",
+    "slovak eurodance groups": "فرق يورودانس سلوفاكية",
+    "slovenian sport": "رياضة سلوفينية",
+    "south korean tennis": "كرة مضرب كورية جنوبية",
+    "soviet navy": "البحرية السوفيتية",
+    "soviet war crimes": "جرائم حرب سوفيتية",
+    "spanish films": "أفلام إسبانية",
+    "spanish jews": "يهود إسبان",
+    "surinamese sport": "رياضة سورينامية",
+    "swedish air force": "القوات الجوية السويدية",
+    "swedish motorsport": "رياضة محركات سويدية",
+    "swedish tennis": "كرة مضرب سويدية",
+    "swiss businesspeople": "شخصيات أعمال سويسرية",
+    "syrian websites": "مواقع ويب سورية",
+    "thai television": "التلفزة التايلندية",
+    "trinidad and tobago football": "كرة القدم الترنيدادية",
+    "turkish cookbooks": "كتب طبخ تركية",
+    "turkish musical groups": "مجموعات موسيقية تركية",
+    "ukrainian-jewish descent": "أصل يهودي أوكراني",
+    "vietnamese sport": "رياضة فيتنامية",
+    "yemeni civil war": "الحرب الأهلية اليمنية",
+    "yemeni executions": "إعدامات يمنية",
+    "yemeni sport": "رياضة يمنية",
+    "yoruba names": "أسماء يوروبية",
+    "zimbabwean musical groups": "مجموعات موسيقية زيمبابوية"
+}
 
 data_n = {
     "brazilian design": "تصميم برازيلي",
@@ -345,8 +448,8 @@ def test_data_fast(category: str, expected_key: str) -> None:
     Verify that Work_for_me_main produces the expected Arabic label for a given category string.
 
     Parameters:
-    	category (str): The input category or phrase to resolve.
-    	expected_key (str): The expected Arabic label string to compare against.
+        category (str): The input category or phrase to resolve.
+        expected_key (str): The expected Arabic label string to compare against.
     """
     label1 = Work_for_me_main(category)
     assert label1 == expected_key
@@ -367,6 +470,7 @@ def test_data_n(category: str, expected_key: str) -> None:
 
 
 to_test = [
+    ("test_Work_for_me_main", data_2018),
     ("test_fast_data", fast_data),
 ]
 
@@ -378,11 +482,11 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     Run a single dump comparison for the given dataset and assert there are no differences.
 
     Parameters:
-    	name (str): Identifier used when writing diff and summary outputs.
-    	data (dict[str, str]): Mapping of input category strings to expected labels to validate.
+        name (str): Identifier used when writing diff and summary outputs.
+        data (dict[str, str]): Mapping of input category strings to expected labels to validate.
 
     Raises:
-    	AssertionError: If the produced diff results do not match the expected results.
+        AssertionError: If the produced diff results do not match the expected results.
     """
     expected, diff_result = one_dump_test(data, Work_for_me_main)
     dump_diff(diff_result, name)

@@ -9,7 +9,7 @@ from ...helps import logger
 from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ...new.resolve_films_bots.film_keys_bot import Films
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ...old_bots import bot_te_4
+from ...old_bots import for_me
 from ..o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
@@ -101,7 +101,7 @@ def _resolve_club_label(club_key: str) -> str:
         or Clubs_key_2.get(club_key.lower())
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
-        or bot_te_4.te_2018_with_nat(club_key)
+        or for_me.Work_for_me_main(club_key)
         or get_films_key_tyty_new_and_time(club_key)
         or get_films_key_tyty_new(club_key)
         or Films(club_key)

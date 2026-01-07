@@ -6,8 +6,8 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 import re
 
-from ...helps import logger
-from ...translations import (
+from ..helps import logger
+from ..translations import (
     Nat_men,
     all_nat_sorted,
     Nat_the_female,
@@ -20,8 +20,8 @@ from ...translations import (
     en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
-from ...make_bots.jobs_bots.get_helps import get_suffix_with_keys
-from ..o_bots import ethnic_bot
+from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
+from ..make_bots.o_bots import ethnic_bot
 
 
 @functools.lru_cache(maxsize=None)
