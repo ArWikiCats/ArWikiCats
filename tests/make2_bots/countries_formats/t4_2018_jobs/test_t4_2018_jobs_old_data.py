@@ -12,7 +12,6 @@ data_fast = {
     "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "african people by nationality": "أفارقة حسب الجنسية",
     "andy warhol": "آندي وارهول",
-    "breton language activists": "ناشطون بلغة بريتانية",
     "caymanian expatriates": "كايمانيون مغتربون",
     "cuban christians": "كوبيون مسيحيون",
     "eddie murphy": "إيدي ميرفي",
@@ -22,7 +21,6 @@ data_fast = {
     "fijian language": "لغة فيجية",
     "francisco goya": "فرانثيسكو غويا",
     "french-language albums": "ألبومات باللغة الفرنسية",
-    "french-language singers": "مغنون باللغة الفرنسية",
     "french-language television": "تلفاز باللغة الفرنسية",
     "german people by occupation": "ألمان حسب المهنة",
     "german-language films": "أفلام باللغة الألمانية",
@@ -41,7 +39,6 @@ data_fast = {
     "spanish-language mass media": "إعلام اللغة الإسبانية",
     "surinamese women children's writers": "كاتبات أطفال سوريناميات",
     "swedish-language albums": "ألبومات باللغة السويدية",
-    "urdu-language musical comedy films": "أفلام كوميدية موسيقية باللغة الأردية",
     "yemeni shi'a muslims": "يمنيون مسلمون شيعة",
 
 }

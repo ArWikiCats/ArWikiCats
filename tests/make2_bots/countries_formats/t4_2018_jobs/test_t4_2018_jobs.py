@@ -429,7 +429,6 @@ data_fast = {
     "italian defectors": "إيطاليون منشقون",
     "ivorian emigrants": "إيفواريون مهاجرون",
     "ivorian expatriates": "إيفواريون مغتربون",
-    "male long-distance runners": "عداؤو مسافات طويلة ذكور",
     "moroccan competitors": "منافسون مغاربة",
     "moroccan male middle-distance runners": "عداؤو مسافات متوسطة ذكور مغاربة",
     "norwegian figure skaters": "متزلجون فنيون نرويجيون",

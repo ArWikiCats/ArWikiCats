@@ -13,6 +13,7 @@ import re
 from typing import Optional
 
 from ...new_resolvers.jobs_resolvers import resolve_jobs_main
+from ...make_bots.languages_bot.langs_w import Lang_work
 
 from ...helps import logger
 from ...translations import (
@@ -262,7 +263,12 @@ def jobs_in_multi_sports(category: str) -> str:
     if not job_suffix or not sport_label:
         return ""
 
-    job_label = te4_2018_Jobs(job_suffix) or resolve_jobs_main(job_suffix)
+    job_label = (
+        te4_2018_Jobs(job_suffix) or
+        Lang_work(job_suffix) or
+        resolve_jobs_main(job_suffix) or
+        ""
+    )
     if not job_label:
         return ""
 

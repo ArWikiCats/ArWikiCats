@@ -6,6 +6,7 @@ import re
 
 # from ...helps.jsonl_dump import dump_data
 from ..helps import logger
+from ..make_bots.languages_bot.langs_w import Lang_work
 from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, Films
 from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
@@ -57,6 +58,7 @@ def te_films(category: str) -> str:
         "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
+        "Lang_work": lambda k: Lang_work(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
         "nat_match": lambda k: nat_match(k),
         # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:

@@ -13,6 +13,8 @@ test_data_0 = {
 }
 
 test_data = {
+    "urdu-language comedy films": "أفلام كوميدية باللغة الأردية",
+    "Arabic language activists": "ناشطون بلغة عربية",
     "Arabic-language biographical drama films": "أفلام سير ذاتية درامية باللغة العربية",
     "Arabic-language biographical films": "أفلام سير ذاتية باللغة العربية",
     "Arabic-language comedy-drama films": "أفلام كوميدية درامية باللغة العربية",

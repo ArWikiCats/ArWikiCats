@@ -7,6 +7,8 @@ import functools
 import re
 from typing import Tuple
 
+from ...make_bots.languages_bot.langs_w import Lang_work
+
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
@@ -332,6 +334,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
         "te4_2018_Jobs": te4_2018_Jobs,
+        "Lang_work": Lang_work,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 

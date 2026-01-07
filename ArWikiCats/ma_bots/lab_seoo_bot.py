@@ -6,6 +6,8 @@
 import functools
 import re
 
+from ..make_bots.languages_bot.langs_w import Lang_work
+
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..fix import fixtitle
 from ..helps import logger
@@ -82,6 +84,7 @@ def event_label_work(target_category: str) -> str:
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or resolve_jobs_main(normalized_target_category)
+        or Lang_work(normalized_target_category)
         or te4_2018_Jobs(normalized_target_category)
         or Jobs_in_Multi_Sports(normalized_target_category)
         or univer.te_universities(normalized_target_category)

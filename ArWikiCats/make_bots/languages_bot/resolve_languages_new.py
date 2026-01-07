@@ -3,6 +3,7 @@
 TODO: use it instead of langs_w.py after adding
     jobs_mens_data,
     Films_key_For_nat,
+    Lang_work,
 
 """
 import functools
@@ -20,6 +21,9 @@ from ...translations_formats import FormatDataV2, MultiDataFormatterBase, format
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
+    "{en}-language comedy films": "أفلام كوميدية باللغة {al_ar}",
+    "{en} language activists": "ناشطون بلغة {ar}",
+    "{en}-language singers": "مغنون باللغة {al_ar}",
     "romanization of {en}": "رومنة اللغة {al_ar}",
     "{en} language countries": "بلدان اللغة {al_ar}",
     "{en} language culture": "ثقافة اللغة {al_ar}",
