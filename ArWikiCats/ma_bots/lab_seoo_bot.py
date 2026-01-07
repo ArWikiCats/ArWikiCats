@@ -14,7 +14,6 @@ from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
 from ..main_processers import event2_stubs
-from ..old_bots.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
 from ..old_bots.bot_te_4 import jobs_in_multi_sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
@@ -28,7 +27,7 @@ from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_state
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-from ..translations import Ambassadors_tab, get_from_new_p17_final
+from ..translations import Ambassadors_tab, get_from_new_p17_final, People_key
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
@@ -69,6 +68,9 @@ def event_label_work(target_category: str) -> str:
 
     normalized_target_category = target_category.lower().strip()
 
+    if normalized_target_category == "people":
+        return "أشخاص"
+
     logger.info("<<lightblue>>>> vvvvvvvvvvvv event_label_work start vvvvvvvvvvvv ")
     logger.info(f"<<lightyellow>>>>>> {normalized_target_category=}")
 
@@ -86,7 +88,7 @@ def event_label_work(target_category: str) -> str:
         or resolve_jobs_main(normalized_target_category)
         or Lang_work(normalized_target_category)
         or resolve_languages_labels(normalized_target_category)
-        or te4_2018_Jobs(normalized_target_category)
+        or People_key.get(normalized_target_category)
         or jobs_in_multi_sports(normalized_target_category)
         or univer.te_universities(normalized_target_category)
         or te_films(normalized_target_category)

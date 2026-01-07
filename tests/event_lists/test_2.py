@@ -6,6 +6,8 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "Fictional people executed for murder": "أشخاص خياليون أعدموا بتهمة قتل",
+    "Fictional people executed for treason": "أشخاص خياليون أعدموا بتهمة خيانة",
     "Buddhist comics": "تصنيف:قصص مصورة بوذيون",
     "Buddhist media in Taiwan": "تصنيف:إعلام بوذيون في تايوان",
     "Buddhist media": "تصنيف:إعلام بوذيون",

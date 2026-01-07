@@ -15,9 +15,9 @@ from ..make_bots.languages_bot.langs_w import Lang_work
 from ..helps import logger
 from ..translations import (
     Multi_sport_for_Jobs,
+    People_key,
 )
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
-from .t4_2018_jobs import te4_2018_Jobs
 
 
 def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
@@ -64,6 +64,7 @@ def jobs_in_multi_sports(category: str) -> str:
 
     data_find_in_it = {
         # medalists
+        "people": "أشخاص",
         "olympic medalists": "فائزون بميداليات أولمبية",
         "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
         "olympic silver medalists": "فائزون بميداليات فضية أولمبية",
@@ -75,6 +76,7 @@ def jobs_in_multi_sports(category: str) -> str:
         "winter olympic competitors": "منافسون أولمبيون شتويون",
         "summer olympic competitors": "منافسون أولمبيون صيفيون",
     }
+
     category_lower_fixed = category_lower.replace("olympics", "olympic")
     if category_lower_fixed in data_find_in_it:
         logger.info(f'end jobs_in_multi_sports "{category_lower_fixed}", direct found')
@@ -87,7 +89,7 @@ def jobs_in_multi_sports(category: str) -> str:
 
     job_label = (
         resolve_languages_labels(job_suffix) or
-        te4_2018_Jobs(job_suffix) or
+        People_key.get(job_suffix) or
         Lang_work(job_suffix) or
         resolve_jobs_main(job_suffix) or
         ""

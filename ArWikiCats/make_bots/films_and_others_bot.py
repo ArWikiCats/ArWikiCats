@@ -4,6 +4,8 @@
 import functools
 import re
 
+from ..translations import People_key
+
 # from ...helps.jsonl_dump import dump_data
 from ..helps import logger
 from ..make_bots.languages_bot.langs_w import Lang_work
@@ -16,7 +18,6 @@ from ..new_resolvers.nationalities_resolvers.ministers_resolver import resolve_s
 from ..new_resolvers.sports_resolvers import resolve_sports_main
 # from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
-from ..old_bots.t4_2018_jobs import te4_2018_Jobs
 from ..old_bots.bot_te_4 import jobs_in_multi_sports
 from ..old_bots.for_me import Work_for_me_main
 from .languages_bot.languages_resolvers import te_language
@@ -45,6 +46,9 @@ def te_films(category: str) -> str:
     if re.match(r"^\d+$", normalized_category.strip()):
         return normalized_category.strip()
 
+    if normalized_category == "people":
+        return "أشخاص"
+
     # TODO: move it to last position
     resolved_label = resolve_secretaries_labels(normalized_category)
     if resolved_label:
@@ -62,7 +66,7 @@ def te_films(category: str) -> str:
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "Lang_work": lambda k: Lang_work(k),
         "resolve_languages_labels": lambda k: resolve_languages_labels(k),
-        "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
+        "People_key": lambda k: People_key.get(k),
         # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
         # resolve_countries_names_main> [Italy political leader]:  "قادة إيطاليا السياسيون"
         # resolve_nationalities_main> [Italy political leader]:  "قادة سياسيون إيطاليون"
@@ -77,7 +81,6 @@ def te_films(category: str) -> str:
     _add_to_new_players_tables = [
         "jobs_in_multi_sports",
         "resolve_languages_labels",
-        "te4_2018_Jobs",
         # "get_pop_All_18",
     ]
 

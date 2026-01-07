@@ -1249,8 +1249,6 @@ data_5 = {
     "Danish people executed for witchcraft": "دنماركيون أعدموا بتهمة السحر",
     "Dutch people executed for witchcraft": "هولنديون أعدموا بتهمة السحر",
     "English people executed for witchcraft": "إنجليز أعدموا بتهمة السحر",
-    "Fictional people executed for murder": "أشخاص خياليون أعدموا بتهمة قتل",
-    "Fictional people executed for treason": "أشخاص خياليون أعدموا بتهمة خيانة",
     "Finnish people executed for witchcraft": "فنلنديون أعدموا بتهمة السحر",
     "French people executed for murder": "فرنسيون أعدموا بتهمة قتل",
     "French people executed for war crimes": "فرنسيون أعدموا بتهمة جرائم حرب",

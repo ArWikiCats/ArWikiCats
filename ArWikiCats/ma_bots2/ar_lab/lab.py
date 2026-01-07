@@ -12,7 +12,6 @@ from ...make_bots.languages_bot.langs_w import Lang_work
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
-from ...old_bots.t4_2018_jobs import te4_2018_Jobs
 from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import (
     Tabl_with_in,
@@ -29,6 +28,7 @@ from ...time_resolvers import time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
+    People_key,
     get_from_new_p17_final,
     get_from_pf_keys2,
 )
@@ -329,13 +329,13 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
+        "People_key": lambda t: People_key.get(t, ""),
         "te_films": te_films,
         "sport_lab_nat_load_new": sport_lab_nat_load_new,
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
         "resolve_languages_labels": resolve_languages_labels,
-        "te4_2018_Jobs": te4_2018_Jobs,
         "Lang_work": Lang_work,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
@@ -438,6 +438,9 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
 
     normalized_preposition = separator.strip()
     type_lower = type_value.lower()
+
+    if type_lower == "people":
+        return "أشخاص"
 
     # Handle special cases first
     label, should_append_in_label = _handle_special_type_cases(type_lower, normalized_preposition)
