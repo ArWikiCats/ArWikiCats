@@ -13,7 +13,7 @@ from ...translations import (
     change_male_to_female,
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
-from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
+from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label
 
 # TODO: fix typo to prefix_lab_for_2018
 prefix_lab_for_2018: dict[str, dict[str, str]] = {
@@ -113,8 +113,7 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_original = cate
     cate_lower_original = cate.lower()
 
-    # country_lab = jobs_with_nat_prefix_label(cate_lower_original)
-    country_lab = ""
+    country_lab = jobs_with_nat_prefix_label(cate_lower_original)
 
     if country_lab:
         return country_lab
@@ -135,9 +134,9 @@ def te4_2018_Jobs(cate: str) -> str:
 
     category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
-    if not country_lab:
-        if category_suffix and not country_lab:
-            country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
+    # if not country_lab:
+    #     if category_suffix and not country_lab:
+    #         country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
 
     # 6. Final Formatting
     if main_ss and main_lab and country_lab:
