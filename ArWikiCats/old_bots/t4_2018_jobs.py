@@ -117,7 +117,7 @@ def te4_2018_Jobs(cate: str) -> str:
         logger.debug(f"<<lightblue>> te4_2018_Jobs {cate=}, {cate_lower_original=}, {main_ss=}. ")
 
     cate_lower = cate.lower()
-
+    country_lab = ""
     if cate_lower == "people":
         country_lab = "أشخاص"
 
