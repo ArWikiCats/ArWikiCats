@@ -5,7 +5,7 @@ import functools
 import re
 
 from ...helps import logger, len_print
-from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys
+from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
@@ -80,7 +80,10 @@ def is_false_key(key: str, value: str) -> bool:
     if key in genders_keys:   # NOTE: under test
         return True
 
-    if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
+    if RELIGIOUS_KEYS_PP.get(key):
+        return True
+
+    if key in keys_not_jobs:
         return True
 
     not_in_keys = [
@@ -100,6 +103,8 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
         "{en_nat}": "{males}",
+        "{en_nat} muslims": "{males} مسلمون",
+        "{en_nat} muslim": "{males} مسلمون",
         # "{en_nat} people": "أعلام {males}",
         # "{en_nat} people": "{males}",
         "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
@@ -250,7 +255,8 @@ def _load_jobs_data() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_nat_data() -> dict[str, str]:
-    nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    nats_data: dict[str, str] = {x: v for x, v in All_Nat.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
 
