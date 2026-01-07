@@ -541,9 +541,9 @@ def resolve_by_labels(category: str) -> str:
 len_print.data_len(
     "bys_new.py",
     {
-        "data_to_find": data_to_find,
-        "formatted_data": _load_formatted_data(),
-        "by_data_new": _load_by_data_new(),
+        "bys_new_data_to_find": data_to_find,
+        "bys_new_formatted_data": _load_formatted_data(),
+        "bys_new_by_data_new": _load_by_data_new(),
     },
 )
 

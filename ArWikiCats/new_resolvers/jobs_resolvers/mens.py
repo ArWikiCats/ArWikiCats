@@ -4,7 +4,7 @@ This module provides functionality to translate category titles
 import functools
 import re
 
-from ...helps import logger
+from ...helps import logger, len_print
 from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
@@ -226,4 +226,4 @@ def mens_resolver_labels(category: str) -> str:
     return result
 
 
-# len_print.data_len("mens.py", {"formatted_data": _load_formatted_data()})
+len_print.data_len("mens.py", {"mens_formatted_data": _load_formatted_data()})
