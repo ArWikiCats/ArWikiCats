@@ -3,11 +3,10 @@ TODO: use mens_resolver_labels
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
-from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels as mens_prefixes_work
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
@@ -631,7 +630,7 @@ TEMPORAL_CASES = [
     ("test_prefix_bot_mens_1", test_mens_data, mens_prefixes_work),
     ("test_prefix_bot_mens_2", by_data_fast, mens_prefixes_work),
     ("test_prefix_bot_mens_3", test_suffix, mens_prefixes_work),
-    ("test_prefix_bot_mens_4", test_prefix, mens_resolver_labels),
+    ("test_prefix_bot_mens_4", test_prefix, mens_prefixes_work),
 ]
 
 
@@ -641,4 +640,5 @@ def test_all_dump(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
