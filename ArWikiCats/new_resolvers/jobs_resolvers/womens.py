@@ -1,6 +1,5 @@
 """
 This module provides functionality to translate category titles
-compare with womens_prefixes_work
 """
 import functools
 

@@ -5,7 +5,6 @@ TODO: use mens_resolver_labels
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.prefix_bot import mens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 test_mens_data = {
@@ -258,7 +257,7 @@ test_mens_data_male = {
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_1(category: str, expected: str) -> None:
-    label = mens_prefixes_work(category)
+    label = mens_resolver_labels(category)
     assert label == expected
 
     label2 = mens_resolver_labels(category)
@@ -268,7 +267,7 @@ def test_prefix_bot_mens_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_mens_data2.items(), ids=test_mens_data2.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_2(category: str, expected: str) -> None:
-    label = mens_prefixes_work(category)
+    label = mens_resolver_labels(category)
     assert label == expected
 
     label2 = mens_resolver_labels(category)
@@ -278,7 +277,7 @@ def test_prefix_bot_mens_2(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_mens_data_male.items(), ids=test_mens_data_male.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_male(category: str, expected: str) -> None:
-    label = mens_prefixes_work(category)
+    label = mens_resolver_labels(category)
     assert label == expected
 
     label2 = mens_resolver_labels(category)
