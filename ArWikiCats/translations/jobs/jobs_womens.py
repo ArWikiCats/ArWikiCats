@@ -74,6 +74,8 @@ FEMALE_JOBS_BASE_EXTENDED = _build_religious_job_labels(RELIGIOUS_KEYS_PP, RELIG
 
 short_womens_jobs = FEMALE_JOBS_BASE | FEMALE_JOBS_BASE_EXTENDED | FEMALE_JOBS_SPORTS
 
+FEMALE_JOBS_BASE_EXTENDED.update(FEMALE_JOBS_BASE)
+
 short_womens_jobs["sportswomen"] = "رياضيات"
 
 __all__ = [
