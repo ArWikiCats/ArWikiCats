@@ -106,6 +106,8 @@ def is_false_key(key: str, value: str) -> bool:
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
+        "{en_nat} sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة {males}",
+        "{en_nat} sunni muslim scholars of islam": "باحثون عن الإسلام مسلمون سنة {males}",
         "{en_nat} contemporary classical musicians": "موسيقيون كلاسيكيون معاصرون {males}",
         "{en_nat}": "{males}",
         "{en_nat} muslims": "{males} مسلمون",

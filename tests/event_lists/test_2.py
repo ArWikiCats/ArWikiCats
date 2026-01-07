@@ -6,6 +6,8 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "Byzantine female saints": "تصنيف:قديسات بيزنطيات",
+    "Canarian Jews": "تصنيف:يهود كناريون",
     "Ancient Christian saints": "مسيحيون قديسون قدماء",
     "Ancient Jews by occupation": "يهود قدماء حسب المهنة",
     "Ancient Christians": "مسيحيون قدماء",
