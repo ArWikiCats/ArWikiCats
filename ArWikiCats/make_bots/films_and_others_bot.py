@@ -18,7 +18,6 @@ from ..new_resolvers.sports_resolvers import resolve_sports_main
 from .countries_formats import resolved_countries_formats_labels
 from ..old_bots.t4_2018_jobs import te4_2018_Jobs
 from ..old_bots.bot_te_4 import jobs_in_multi_sports
-from ..old_bots.bot_te_4_nat import nat_match
 from ..old_bots.for_me import Work_for_me_main
 from .languages_bot.languages_resolvers import te_language
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
@@ -64,7 +63,6 @@ def te_films(category: str) -> str:
         "Lang_work": lambda k: Lang_work(k),
         "resolve_languages_labels": lambda k: resolve_languages_labels(k),
         "te4_2018_Jobs": lambda k: te4_2018_Jobs(k),
-        "nat_match": lambda k: nat_match(k),
         # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
         # resolve_countries_names_main> [Italy political leader]:  "قادة إيطاليا السياسيون"
         # resolve_nationalities_main> [Italy political leader]:  "قادة سياسيون إيطاليون"
