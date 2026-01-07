@@ -18,7 +18,7 @@ from ..translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..make_bots.countries_formats.for_me import Work_for_me_main
+from .for_me import Work_for_me_main
 from ..make_bots.o_bots import ethnic_bot
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
 
@@ -177,9 +177,9 @@ def te_2018_with_nat(category: str) -> str:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
         return direct_result
 
-    nationality_result = extract_nationality_info(normalized_category)
+    # nationality_result = extract_nationality_info(normalized_category)
 
-    return nationality_result
+    return ""
 
 
 __all__ = [

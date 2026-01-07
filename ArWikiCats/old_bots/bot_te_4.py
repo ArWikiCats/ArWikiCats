@@ -24,7 +24,7 @@ from ..translations import (
     short_womens_jobs,
 )
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
-from ..make_bots.countries_formats.for_me import Work_for_me_main
+from .for_me import Work_for_me_main
 from .t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.o_bots import ethnic_bot
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
