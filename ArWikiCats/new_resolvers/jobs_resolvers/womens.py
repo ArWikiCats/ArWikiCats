@@ -20,6 +20,7 @@ from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
+@functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         "{en_nat} female actresses": "ممثلات {females}",
@@ -113,6 +114,7 @@ def _load_formatted_data() -> dict:
     return formatted_data_final
 
 
+@functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     not_in_keys = [
         "expatriate",
@@ -136,8 +138,6 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def load_bot() -> MultiDataFormatterBaseV2:
     jobs_data_enhanced = _load_jobs_data()
-    logger.debug(f"jobs_data_enhanced womens: {len(jobs_data_enhanced):,}")
-
     formatted_data = _load_formatted_data()
     logger.debug(f"_load_formatted_data womens: {len(formatted_data):,}")
 
@@ -191,10 +191,14 @@ def womens_resolver_labels(category: str) -> str:
     return result
 
 
-formatted_data = _load_formatted_data()
+jobs_data_enhanced = _load_jobs_data()
+with_ = len([x for x in jobs_data_enhanced if "'" in x])
+logger.error(f"load_bot jobs_data_enhanced: {len(jobs_data_enhanced):,}, with apostrophe: {with_=}")
+
 len_print.data_len(
     "womens.py",
     {
-        "formatted_data": formatted_data,
+        "womens_formatted_data": _load_formatted_data(),
+        "womens_jobs_data_enhanced": _load_jobs_data(),
     },
 )

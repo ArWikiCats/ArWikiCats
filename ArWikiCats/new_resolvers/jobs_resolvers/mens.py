@@ -15,6 +15,7 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 
+@functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
@@ -151,6 +152,7 @@ def _load_formatted_data() -> dict:
     return formatted_data
 
 
+@functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     not_in_keys = [
         "expatriate",

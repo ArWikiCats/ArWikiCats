@@ -65,6 +65,7 @@ def fix_keys(label: str) -> str:
     return label
 
 
+@functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict[str, str]:
     formatted_data = {
         "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
@@ -109,6 +110,7 @@ def _load_formatted_data() -> dict[str, str]:
     return formatted_data
 
 
+@functools.lru_cache(maxsize=1)
 def _load_data_to_find() -> dict[str, str]:
     by_keys_under = {
         "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
@@ -192,6 +194,7 @@ def _load_data_to_find() -> dict[str, str]:
 data_to_find = _load_data_to_find()
 
 
+@functools.lru_cache(maxsize=1)
 def _load_by_data_new() -> dict[str, str]:
     _to_review = {
         "guillotine": "بالمقصلة",
