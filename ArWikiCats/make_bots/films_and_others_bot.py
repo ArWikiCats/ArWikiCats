@@ -13,12 +13,12 @@ from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ..new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 from ..new_resolvers.sports_resolvers import resolve_sports_main
-from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
+# from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
 from .countries_formats.t4_2018_jobs import te4_2018_Jobs
 from .jobs_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match, te_2018_with_nat
 from .languages_bot.languages_resolvers import te_language
-from .lazy_data_bots.bot_2018 import get_pop_All_18
+# from .lazy_data_bots.bot_2018 import get_pop_All_18
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
 

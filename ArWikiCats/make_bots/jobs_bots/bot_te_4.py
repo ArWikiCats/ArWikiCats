@@ -12,6 +12,8 @@ import functools
 import re
 from typing import Optional
 
+from ...new_resolvers.jobs_resolvers import resolve_jobs_main
+
 from ...helps import logger
 from ...translations import (
     all_nat_sorted,
@@ -260,7 +262,7 @@ def jobs_in_multi_sports(category: str) -> str:
     if not job_suffix or not sport_label:
         return ""
 
-    job_label = te4_2018_Jobs(job_suffix)
+    job_label = te4_2018_Jobs(job_suffix) or resolve_jobs_main(job_suffix)
     if not job_label:
         return ""
 

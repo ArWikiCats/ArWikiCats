@@ -14,6 +14,7 @@ from ...translations import (
     jobs_mens_data,
     short_womens_jobs,
 )
+from ...new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
 from ..jobs_bots.prefix_bot import mens_prefixes_work, womens_prefixes_work
@@ -159,9 +160,10 @@ def te4_2018_Jobs(cate: str) -> str:
         if category_suffix and not country_lab:
             country_lab = jobs_with_nat_prefix(cate_lower, country_prefix, category_suffix)
 
-        # 5. Fallback Prefixes
-        if not country_lab:
-            country_lab = womens_prefixes_work(cate_lower) or mens_prefixes_work(cate_lower)
+    # 5. Fallback Prefixes
+    if not country_lab:
+        country_lab = womens_prefixes_work(cate_lower) or mens_prefixes_work(cate_lower)
+        # country_lab = resolve_jobs_main(cate_lower)
 
     # 6. Final Formatting
     if main_ss and main_lab and country_lab:
