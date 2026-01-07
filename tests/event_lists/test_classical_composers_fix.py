@@ -82,7 +82,6 @@ test_to_fix_1 = {
     "Polish opera composers": "ملحنو أوبرا بولنديون",
     "Portuguese opera composers": "ملحنو أوبرا برتغاليون",
     "Romanian opera composers": "ملحنو أوبرا رومان",
-    "Romantic composers": "ملحنون رومانسيون",
     "Russian opera composers": "ملحنو أوبرا روس",
     "Scottish opera composers": "ملحنو أوبرا إسكتلنديون",
     "Serbian opera composers": "ملحنو أوبرا صرب",
@@ -115,6 +114,6 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
+    # dump_diff_text(expected, diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, True)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

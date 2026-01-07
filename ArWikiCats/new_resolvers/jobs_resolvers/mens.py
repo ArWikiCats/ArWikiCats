@@ -4,13 +4,17 @@ This module provides functionality to translate category titles
 import functools
 import re
 
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger, len_print
-from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys
+from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
+
+jobs_mens_data_f = dict(jobs_mens_data.items())
+# jobs_mens_data_f.update({x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")})
 
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
@@ -80,7 +84,10 @@ def is_false_key(key: str, value: str) -> bool:
     if key in genders_keys:   # NOTE: under test
         return True
 
-    if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
+    if RELIGIOUS_KEYS_PP.get(key):
+        return True
+
+    if key in keys_not_jobs:
         return True
 
     not_in_keys = [
@@ -99,7 +106,14 @@ def is_false_key(key: str, value: str) -> bool:
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # base keys
+        "{en_nat} muslim scholars-of-islam": "باحثون عن الإسلام مسلمون {males}",
+        "{en_nat} sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة {males}",
+        "{en_nat} sunni muslim scholars of islam": "باحثون عن الإسلام مسلمون سنة {males}",
+        "{en_nat} contemporary classical musicians": "موسيقيون كلاسيكيون معاصرون {males}",
+        "{en_nat} contemporary classical composers": "ملحنون كلاسيكيون معاصرون {males}",
         "{en_nat}": "{males}",
+        "{en_nat} muslims": "{males} مسلمون",
+        "{en_nat} muslim": "{males} مسلمون",
         # "{en_nat} people": "أعلام {males}",
         # "{en_nat} people": "{males}",
         "{en_nat}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
@@ -176,6 +190,10 @@ def _load_formatted_data() -> dict:
     formatted_data.update(formatted_data_jobs_with_nat)
     formatted_data.update(
         {
+            "fictional {en_nat} jews": "{males} يهود خياليون",
+
+            "ancient {en_nat}": "{males} قدماء",
+            "ancient {en_job}": "{ar_job} قدماء",
             "military {en_job}": "{ar_job} عسكريون",
             "{en_nat} emigrants": "{males} مهاجرون",
             "fictional {en_nat} religious workers": "عمال دينيون {males} خياليون",
@@ -219,8 +237,8 @@ def _load_formatted_data() -> dict:
         "emigrants",
     ]
     for x in NAT_BEFORE_OCC_BASE:
-        if jobs_mens_data.get(x):
-            formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
+        if jobs_mens_data_f.get(x):
+            formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data_f[x]}"
 
     formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
     return formatted_data_final
@@ -231,10 +249,10 @@ def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
     data = {
         x: {"ar_job": v}
-        for x, v in jobs_mens_data.items()
+        for x, v in jobs_mens_data_f.items()
         if not is_false_key(x, v)
     }
-    len_diff = len(set(jobs_mens_data.keys()) - set(data.keys()))
+    len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
     logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data = {
@@ -246,7 +264,8 @@ def _load_jobs_data() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_nat_data() -> dict[str, str]:
-    nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    nats_data: dict[str, str] = {x: v for x, v in All_Nat.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
 
@@ -295,6 +314,28 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 
 @functools.lru_cache(maxsize=10000)
+def _mens_resolver_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
+    category = fix_keys(category).replace("australian rules", "australian-rules")
+
+    _bot = load_bot()
+    result = _bot.search_all_category(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    return result
+
+
+religious_data = {x: f"{{}} {v['males']}" for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
+
+label_mappings_ends = dict(
+    sorted(
+        religious_data.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
+
+
+@functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
@@ -303,9 +344,12 @@ def mens_resolver_labels(category: str) -> str:
         logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
         return ""
 
-    _bot = load_bot()
-    result = _bot.search_all_category(category)
-
+    result = _mens_resolver_labels(category) or resolve_sport_category_suffix_with_mapping(
+        category=category,
+        data=label_mappings_ends,
+        callback=_mens_resolver_labels,
+        format_key="{}",
+    )
     logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
     return result
 

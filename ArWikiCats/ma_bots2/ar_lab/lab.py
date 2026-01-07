@@ -7,15 +7,18 @@ import functools
 import re
 from typing import Tuple
 
+from ...make_bots.languages_bot.langs_w import Lang_work
+
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
-from ...make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ...old_bots.t4_2018_jobs import te4_2018_Jobs
 from ...make_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import (
     Tabl_with_in,
     for_table,
 )
+from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.o_bots import bys
 from ...make_bots.o_bots.peoples_resolver import make_people_lab
@@ -331,7 +334,9 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
+        "resolve_languages_labels": resolve_languages_labels,
         "te4_2018_Jobs": te4_2018_Jobs,
+        "Lang_work": Lang_work,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 

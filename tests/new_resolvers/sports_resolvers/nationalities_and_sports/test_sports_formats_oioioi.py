@@ -8,6 +8,29 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
+wheelchair_data_0 = {
+    "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
+    "australian men wheelchair racers": "متسابقو كراسي متحركة أستراليون",
+    "austrian men wheelchair racers": "متسابقو كراسي متحركة نمساويون",
+    "belgian men wheelchair racers": "متسابقو كراسي متحركة بلجيكيون",
+    "british men wheelchair racers": "متسابقو كراسي متحركة بريطانيون",
+    "brazilian men wheelchair racers": "متسابقو كراسي متحركة برازيليون",
+    "canadian men wheelchair racers": "متسابقو كراسي متحركة كنديون",
+    "english men wheelchair racers": "متسابقو كراسي متحركة إنجليز",
+    "finnish men wheelchair racers": "متسابقو كراسي متحركة فنلنديون",
+    "dutch men wheelchair racers": "متسابقو كراسي متحركة هولنديون",
+    "chinese men wheelchair racers": "متسابقو كراسي متحركة صينيون",
+    "french men wheelchair racers": "متسابقو كراسي متحركة فرنسيون",
+    "gabonese men wheelchair racers": "متسابقو كراسي متحركة غابونيون",
+    "german men wheelchair racers": "متسابقو كراسي متحركة ألمان",
+    "irish men wheelchair racers": "متسابقو كراسي متحركة أيرلنديون",
+    "israeli men wheelchair racers": "متسابقو كراسي متحركة إسرائيليون",
+    "japanese men wheelchair racers": "متسابقو كراسي متحركة يابانيون",
+    "mexican men wheelchair racers": "متسابقو كراسي متحركة مكسيكيون",
+    "swiss men wheelchair racers": "متسابقو كراسي متحركة سويسريون",
+    "welsh men wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
+}
+
 data_1 = {
     "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
     "yemeni men basketball players": "لاعبو كرة سلة يمنيون",
@@ -81,6 +104,7 @@ def test_sport_lab_oioioi_load_3(category: str, expected: str) -> None:
 to_test = [
     ("test_sport_lab_oioioi_load_1", data_1, resolve_nats_sport_multi_v2),
     ("test_sport_lab_oioioi_load_3", data_3, resolve_nats_sport_multi_v2),
+    ("oioioi_wheelchair_data_0", wheelchair_data_0, resolve_nats_sport_multi_v2),
 ]
 
 

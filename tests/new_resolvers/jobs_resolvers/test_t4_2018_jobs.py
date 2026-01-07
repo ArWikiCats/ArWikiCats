@@ -5,8 +5,18 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
 from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+
+test_data_not_for_2018_bot = {
+    "weightlifters": "رباعون",
+    "judoka": "لاعبو جودو",
+    "pan-africanists": "وحدويون أفارقة",
+    "swimmers": "سباحون",
+    "football players": "لاعبو كرة قدم",
+    "athletes": "لاعبو قوى",
+    "competitors": "منافسون",
+    "cross-country skiers": "متزحلقون ريفيون",
+}
 
 te4_2018_Jobs_data = {
     "european sports coaches": "مدربو رياضة أوروبيون",
@@ -40,7 +50,6 @@ te4_2018_Jobs_data = {
     "armenian cross-country skiers": "متزحلقون ريفيون أرمن",
     "armenian expatriate sports-people": "رياضيون أرمن مغتربون",
     "asian politicians": "سياسيون آسيويون",
-    "athletes": "لاعبو قوى",
     "australian comedy writers": "كتاب كوميديا أستراليون",
     "australian expatriate sports-people": "رياضيون أستراليون مغتربون",
     "australian heavy metal singers": "مغنو هيفي ميتال أستراليون",
@@ -150,7 +159,6 @@ te4_2018_Jobs_data = {
     "finnish expatriates": "فنلنديون مغتربون",
     "finnish women archaeologists": "عالمات آثار فنلنديات",
     "finnish women's ice hockey defencemen": "مدافعات هوكي جليد فنلنديات",
-    "football players": "لاعبو كرة قدم",
     "french male painters": "رسامون ذكور فرنسيون",
     "french male singer-songwriters": "مغنون وكتاب أغاني ذكور فرنسيون",
     "french scholars-of-islam": "فرنسيون باحثون عن الإسلام",
@@ -221,7 +229,6 @@ te4_2018_Jobs_data = {
     "japanese social scientists": "مختصون بالعلوم الاجتماعية يابانيون",
     "jordanian equestrians": "فرسان خيول أردنيون",
     "jordanian expatriate sports-people": "رياضيون أردنيون مغتربون",
-    "judoka": "لاعبو جودو",
     "kazakhstani artists": "فنانون كازاخستانيون",
     "kazakhstani expatriates": "كازاخستانيون مغتربون",
     "kazakhstani football referees": "حكام كرة قدم كازاخستانيون",
@@ -264,7 +271,6 @@ te4_2018_Jobs_data = {
     "omani politicians": "سياسيون عمانيون",
     "pakistani expatriate actors": "ممثلون باكستانيون مغتربون",
     "pakistani pop singers": "مغنو بوب باكستانيون",
-    "pan-africanists": "وحدويون أفارقة",
     "panamanian anti-communists": "بنميون مناهضون للشيوعية",
     "panamanian expatriates": "بنميون مغتربون",
     "paraguayan male actors": "ممثلون ذكور بارغوايانيون",
@@ -347,7 +353,6 @@ te4_2018_Jobs_data = {
     "swedish inventors": "مخترعون سويديون",
     "swedish male archers": "نبالون ذكور سويديون",
     "swedish women guitarists": "عازفات قيثارة سويديات",
-    "swimmers": "سباحون",
     "swiss emigrants": "سويسريون مهاجرون",
     "swiss expatriate sports-people": "رياضيون سويسريون مغتربون",
     "swiss lugers": "زاحفون ثلجيون سويسريون",
@@ -381,7 +386,6 @@ te4_2018_Jobs_data = {
     "venezuelan surgeons": "جراحون فنزويليون",
     "vietnamese female freestyle swimmers": "سباحات تزلج حر فيتناميات",
     "vietnamese sports-people": "رياضيون فيتناميون",
-    "weightlifters": "رباعون",
     "welsh athletes": "لاعبو قوى ويلزيون",
     "welsh classical scholars": "باحثون كلاسيكيون ويلزيون",
     "welsh clergy": "رجال دين ويلزيون",
@@ -414,9 +418,7 @@ data_fast = {
     "british editorial cartoonists": "محررون كارتونيون بريطانيون",
     "british television chefs": "طباخو تلفاز بريطانيون",
     "canadian nuclear medicine physicians": "أطباء طب نووي كنديون",
-    "competitors": "منافسون",
     "croatian nuclear medicine physicians": "أطباء طب نووي كروات",
-    "cross-country skiers": "متزحلقون ريفيون",
     "dutch explorers": "مستكشفون هولنديون",
     "egyptian oncologists": "أطباء أورام مصريون",
     "european women": "أوروبيات",
@@ -429,7 +431,6 @@ data_fast = {
     "italian defectors": "إيطاليون منشقون",
     "ivorian emigrants": "إيفواريون مهاجرون",
     "ivorian expatriates": "إيفواريون مغتربون",
-    "male long-distance runners": "عداؤو مسافات طويلة ذكور",
     "moroccan competitors": "منافسون مغاربة",
     "moroccan male middle-distance runners": "عداؤو مسافات متوسطة ذكور مغاربة",
     "norwegian figure skaters": "متزلجون فنيون نرويجيون",
@@ -450,7 +451,7 @@ data_fast = {
 @pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=te4_2018_Jobs_data.keys())
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
-    label1 = te4_2018_Jobs(category)
+    label1 = new_resolvers_all(category)
     assert label1 == expected_key
 
     # label2 = new_resolvers_all(category)
@@ -460,7 +461,7 @@ def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
 @pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
-    label1 = te4_2018_Jobs(category)
+    label1 = new_resolvers_all(category)
     assert label1 == expected_key
 
     # label2 = new_resolvers_all(category)
@@ -468,15 +469,16 @@ def test_data_fast(category: str, expected_key: str) -> None:
 
 
 to_test = [
-    ("te4_2018_Jobs_data", te4_2018_Jobs_data),
-    ("te4_2018_data_fast", data_fast),
+    ("test_data_not_for_2018_bot_m", test_data_not_for_2018_bot, new_resolvers_all),
+    ("te4_2018_Jobs_data", te4_2018_Jobs_data, new_resolvers_all),
+    ("te4_2018_data_fast", data_fast, new_resolvers_all),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data, callback", to_test)
 @pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, new_resolvers_all)
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
 
     # dump_diff_text(expected, diff_result, name)

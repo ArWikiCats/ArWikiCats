@@ -3,12 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import _construct_country_nationality_label
 from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
-from ArWikiCats.translations import RELIGIOUS_KEYS_PP
-
-# new dict with only 10 items from RELIGIOUS_KEYS_PP
-RELIGIOUS_KEYS_10 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:10]}
 
 jobs_mens_data = {
     "scholars of islam": "باحثون عن الإسلام",
@@ -17,29 +12,28 @@ jobs_mens_data = {
     "expatriates": "مغتربون",
 }
 
-# new dict with only 20 items from RELIGIOUS_KEYS_PP
-RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
-
-
-@pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
-@pytest.mark.fast
-def test_with_suffix(key: str, data: dict[str, str]) -> None:
-    input2 = f"{key} science bloggers"
-    expected2 = f"مدونو علم {data['males']}"
-
-    result2 = new_religions_jobs_with_suffix(input2)
-    assert result2 == expected2, f"{expected2=}, {result2=}, {input2=}"
-
-
-def test_one() -> None:
-    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "males": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
-    input_text = "bahá'ís opera composers"
-    expected = "ملحنو أوبرا بهائيون"
-
-    result2 = new_religions_jobs_with_suffix(input_text)
-
-    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
-
+RELIGIOUS_KEYS_20_test = {
+    "bahá'ís science bloggers": "مدونو علم بهائيون",
+    "baháís science bloggers": "مدونو علم بهائيون",
+    "yazidis science bloggers": "مدونو علم يزيديون",
+    "christians science bloggers": "مدونو علم مسيحيون",
+    "anglican science bloggers": "مدونو علم أنجليكيون",
+    "anglicans science bloggers": "مدونو علم أنجليكيون",
+    "episcopalians science bloggers": "مدونو علم أسقفيون",
+    "christian science bloggers": "مدونو علم مسيحيون",
+    "buddhist science bloggers": "مدونو علم بوذيون",
+    "nazi science bloggers": "مدونو علم نازيون",
+    "muslim science bloggers": "مدونو علم مسلمون",
+    "coptic science bloggers": "مدونو علم أقباط",
+    "islamic science bloggers": "مدونو علم إسلاميون",
+    "hindus science bloggers": "مدونو علم هندوس",
+    "hindu science bloggers": "مدونو علم هندوس",
+    "protestant science bloggers": "مدونو علم بروتستانتيون",
+    "methodist science bloggers": "مدونو علم ميثوديون لاهوتيون",
+    "jewish science bloggers": "مدونو علم يهود",
+    "jews science bloggers": "مدونو علم يهود",
+    "zaydis science bloggers": "مدونو علم زيود"
+}
 
 test_data_2 = {
     "nazi bloggers": "مدونون نازيون",
@@ -316,6 +310,74 @@ test_data_2 = {
     "Venerated popes": "بابوات مبجلون",
 }
 
+MEN_WOMENS_WITH_NATO_data = {
+    "Jewish eugenicists": "علماء يهود متخصصون في تحسين النسل",
+    "Jewish politicians who committed suicide": "سياسيون يهود أقدموا على الانتحار",
+    "Anglican contemporary artists": "فنانون أنجليكيون معاصرون",
+}
+
+
+expatriates_data = {
+    "bahá'ís scholars of islam": "بهائيون باحثون عن الإسلام",
+    "bahá'ís women's rights activists": "بهائيون ناشطون في حقوق المرأة",
+    "bahá'ís objectivists": "موضوعيون بهائيون",
+    "bahá'ís expatriates": "بهائيون مغتربون",
+    "baháís scholars of islam": "بهائيون باحثون عن الإسلام",
+    "baháís women's rights activists": "بهائيون ناشطون في حقوق المرأة",
+    "baháís objectivists": "موضوعيون بهائيون",
+    "baháís expatriates": "بهائيون مغتربون",
+    "yazidis scholars of islam": "يزيديون باحثون عن الإسلام",
+    "yazidis women's rights activists": "يزيديون ناشطون في حقوق المرأة",
+    "yazidis objectivists": "موضوعيون يزيديون",
+    "yazidis expatriates": "يزيديون مغتربون",
+    "christians scholars of islam": "مسيحيون باحثون عن الإسلام",
+    "christians women's rights activists": "مسيحيون ناشطون في حقوق المرأة",
+    "christians objectivists": "موضوعيون مسيحيون",
+    "christians expatriates": "مسيحيون مغتربون",
+    "anglican scholars of islam": "أنجليكيون باحثون عن الإسلام",
+    "anglican women's rights activists": "أنجليكيون ناشطون في حقوق المرأة",
+    "anglican objectivists": "موضوعيون أنجليكيون",
+    "anglican expatriates": "أنجليكيون مغتربون",
+    "anglicans scholars of islam": "أنجليكيون باحثون عن الإسلام",
+    "anglicans women's rights activists": "أنجليكيون ناشطون في حقوق المرأة",
+    "anglicans objectivists": "موضوعيون أنجليكيون",
+    "anglicans expatriates": "أنجليكيون مغتربون",
+    "episcopalians scholars of islam": "أسقفيون باحثون عن الإسلام",
+    "episcopalians women's rights activists": "أسقفيون ناشطون في حقوق المرأة",
+    "episcopalians objectivists": "موضوعيون أسقفيون",
+    "episcopalians expatriates": "أسقفيون مغتربون",
+    "christian scholars of islam": "مسيحيون باحثون عن الإسلام",
+    "christian women's rights activists": "مسيحيون ناشطون في حقوق المرأة",
+    "christian objectivists": "موضوعيون مسيحيون",
+    "christian expatriates": "مسيحيون مغتربون",
+    "buddhist scholars of islam": "بوذيون باحثون عن الإسلام",
+    "buddhist women's rights activists": "بوذيون ناشطون في حقوق المرأة",
+    "buddhist objectivists": "موضوعيون بوذيون",
+    "buddhist expatriates": "بوذيون مغتربون",
+    "nazi scholars of islam": "نازيون باحثون عن الإسلام",
+    "nazi women's rights activists": "نازيون ناشطون في حقوق المرأة",
+    "nazi objectivists": "موضوعيون نازيون",
+    "nazi expatriates": "نازيون مغتربون"
+}
+
+
+@pytest.mark.parametrize("key,expected2", RELIGIOUS_KEYS_20_test.items(), ids=RELIGIOUS_KEYS_20_test.keys())
+@pytest.mark.fast
+def test_with_suffix(key: str, expected2: str) -> None:
+
+    result2 = new_religions_jobs_with_suffix(key)
+    assert result2 == expected2
+
+
+def test_one() -> None:
+    # {"cate": "bahá'ís classical europop composers", "country_prefix": "bahá'ís", "category_suffix": "classical europop composers", "males": "بهائيون", "females": "بهائيات", "country_lab": "ملحنو يوروبوب كلاسيكيون بهائيون"}
+    input_text = "bahá'ís opera composers"
+    expected = "ملحنو أوبرا بهائيون"
+
+    result2 = new_religions_jobs_with_suffix(input_text)
+
+    assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
+
 
 @pytest.mark.parametrize("input_text,expected", test_data_2.items(), ids=test_data_2.keys())
 @pytest.mark.fast
@@ -325,28 +387,12 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
 
 
-MEN_WOMENS_WITH_NATO_data = {
-    "Jewish eugenicists": "علماء يهود متخصصون في تحسين النسل",
-    "Jewish politicians who committed suicide": "سياسيون يهود أقدموا على الانتحار",
-    "Anglican contemporary artists": "فنانون أنجليكيون معاصرون",
-}
-
-
 @pytest.mark.parametrize("input_text,expected", MEN_WOMENS_WITH_NATO_data.items(), ids=MEN_WOMENS_WITH_NATO_data.keys())
 @pytest.mark.fast
 def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> None:
     result2 = new_religions_jobs_with_suffix(input_text)
 
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"
-
-
-expatriates_data = {}
-for key, data in RELIGIOUS_KEYS_10.items():
-    mens_label = data.get("males", "")
-    if mens_label:
-        for job_key, job_label in jobs_mens_data.items():
-            label = _construct_country_nationality_label(job_label, mens_label, job_key)
-            expatriates_data[f"{key} {job_key}"] = label
 
 
 @pytest.mark.parametrize("input_text,expected", expatriates_data.items(), ids=expatriates_data.keys())
@@ -361,6 +407,7 @@ TEMPORAL_CASES = [
     ("test_get_suffix_prefix", test_data_2, new_religions_jobs_with_suffix),
     ("test_MEN_WOMENS_WITH_NATO", MEN_WOMENS_WITH_NATO_data, new_religions_jobs_with_suffix),
     ("test_expatriates_data", expatriates_data, new_religions_jobs_with_suffix),
+    ("RELIGIOUS_KEYS_20_test", RELIGIOUS_KEYS_20_test, new_religions_jobs_with_suffix),
 ]
 
 

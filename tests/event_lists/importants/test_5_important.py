@@ -56,7 +56,7 @@ data0 = {
     "Category:Assassinated Canadian activists": "تصنيف:ناشطون كنديون مغتالون",
     "Category:Assassinated Guatemalan diplomats": "تصنيف:دبلوماسيون غواتيماليون مغتالون",
     "Category:Assassinated Swedish diplomats": "تصنيف:دبلوماسيون سويديون مغتالون",
-    "Category:Ancient Indian people by occupation": "تصنيف:أعلام هنود قدماء حسب المهنة",
+    "Category:Ancient Indian people by occupation": "تصنيف:هنود قدماء حسب المهنة",
     "Category:Fictional Australian criminals": "تصنيف:مجرمون أستراليون خياليون",
     "Category:Assassinated Peruvian politicians": "تصنيف:سياسيون بيرويون مغتالون",
     # "Category:Native American women leaders": "تصنيف:قائدات أمريكيات أصليون",

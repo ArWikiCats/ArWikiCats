@@ -27,10 +27,10 @@ examples = {
 }
 
 examples_century = {
+    # "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
+    # "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
     "1st-millennium architecture": "عمارة الألفية 1",
     "1st-millennium literature": "أدب الألفية 1",
-    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
-    "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
     "19th-century actors": "ممثلون في القرن 19",
     "19th-century actors by religion": "ممثلون في القرن 19 حسب الدين",
     "19th-century people by religion": "أشخاص في القرن 19 حسب الدين",

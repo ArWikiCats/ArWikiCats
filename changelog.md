@@ -1,4 +1,24 @@
 
+## [#314](https://github.com/MrIbrahem/ArWikiCats/pull/314) - 2026-01-07
+This pull request introduces several improvements and refactoring changes to how job, language, and nationality labels are resolved and formatted across the codebase. The main themes are: expanding language and job label resolution, updating data sources for nationality mappings, and reorganizing legacy bot files for clarity. These changes enhance the flexibility and accuracy of label generation in various bots and resolvers.
+
+**Label Resolution and Expansion**
+* Added new label resolution functions for jobs and languages, notably `Lang_work` and `resolve_languages_labels`, and incorporated them into key label lookup chains and bot functions such as `event_label_work`, `_create_type_lookup_chain`, and `te_films`. This allows for more comprehensive and accurate label generation for categories involving jobs and languages.
+* Expanded the formatted data used for language and job label generation with new templates for language-based categories (e.g., comedy films, singers, activists) and for jobs with nationality and religious context, improving coverage and output quality.
+
+**Nationality Data Source Updates**
+* Changed the nationality data source from `all_country_with_nat_ar` to `All_Nat` in both men's and women's job resolvers, ensuring more consistent and comprehensive country/nationality mappings.
+
+**Bot Refactoring and Organization**
+* Moved legacy bot files (`bot_te_4.py`, `prefix_bot.py`) from `make_bots/jobs_bots/` to `old_bots/` and updated import paths across the codebase to reflect this reorganization, improving maintainability and clarity.
+
+**Job Label Resolution Logic**
+* Enhanced job label resolution logic in `jobs_in_multi_sports` to use a prioritized chain of resolvers: `resolve_languages_labels`, `te4_2018_Jobs`, `Lang_work`, and `resolve_jobs_main`, ensuring the most relevant label is selected.
+
+**Job Data Filtering and Formatting**
+* Improved filtering and formatting of job data by using a local copy (`jobs_mens_data_f`) and refining logic to exclude false or irrelevant keys, as well as supporting new label patterns such as "Dutch political artists". (Fc675d55L3R3,
+
+These changes collectively make label generation for jobs, languages, and nationalities more robust and easier to maintain.
 ## [#313](https://github.com/MrIbrahem/ArWikiCats/pull/313) - 2026-01-07
 This pull request includes a mix of data updates, refactoring, and performance improvements across several modules related to job, country, and by-label resolution in the ArWikiCats codebase. The most significant changes involve refactoring the job label resolution logic for better maintainability, updating and correcting translation data, and introducing caching to optimize performance for functions that load static data.
 
@@ -147,7 +167,6 @@ This pull request introduces several improvements and refactorings to the job, n
 
 * Updated the job label resolution pipeline (`te4_2018_Jobs`) to first try `resolve_jobs_main`, then fall back to religious jobs and nationality prefix label resolvers, improving accuracy and flexibility.
 * In the main film and country name resolvers, clarified and reordered the resolution pipeline to prioritize more accurate or recent resolvers, with explanatory comments.
-* Added a new `jobs_with_nat_prefix_label` function, with caching and logging, to provide a more robust and normalized way of generating job labels with nationality prefixes.
 
 ### Gendered and Religious Job Handling
 

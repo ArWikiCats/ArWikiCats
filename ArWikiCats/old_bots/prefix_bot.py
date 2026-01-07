@@ -10,10 +10,10 @@ transformations.
 import functools
 from typing import Optional
 
-from ...helps.jsonl_dump import dump_data
-from ...helps import logger
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...translations import (
+from ..helps.jsonl_dump import dump_data
+from ..helps import logger
+from ..new_resolvers.bys_new import resolve_by_labels
+from ..translations import (
     FILM_PRODUCTION_COMPANY,
     PLAYERS_TO_MEN_WOMENS_JOBS,
     SPORT_JOB_VARIANTS,
@@ -25,7 +25,7 @@ from ...translations import (
     jobs_womens_data,
     short_womens_jobs,
 )
-from ..lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 
 # Constants
 _PEOPLE_SUFFIX = " people"

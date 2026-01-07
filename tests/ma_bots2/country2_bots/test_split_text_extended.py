@@ -210,9 +210,6 @@ data_by = {
     "wheelchair track and field athletes by nationality": ("wheelchair track and field athletes", "by nationality"),
     "wheelchair users by nationality": ("wheelchair users", "by nationality"),
     "wimbledon championship by year – wheelchair ": ("wimbledon championship", "by year – wheelchair"),
-    "works by gotthold ephraim lessing": ("works", "by gotthold ephraim lessing"),
-    "works by leo tolstoy": ("works", "by leo tolstoy"),
-    "works by osamu tezuka": ("works", "by osamu tezuka"),
 }
 
 

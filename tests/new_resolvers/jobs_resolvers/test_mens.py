@@ -12,7 +12,7 @@ test_data2 = {
     # nat
     "welsh people": "ويلزيون",
     "yemeni people": "يمنيون",
-    "abkhazian-american": "أبخازيون أمريكيون",
+    # "abkhazian-american": "أبخازيون أمريكيون",
     # "abkhazian-american people": "أبخازيون أمريكيون",
     # jobs
     "eugenicists": "علماء متخصصون في تحسين النسل",

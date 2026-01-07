@@ -12,19 +12,22 @@ import functools
 import re
 from typing import Optional
 
-from ...helps import logger
-from ...translations import (
+from ..new_resolvers.jobs_resolvers import resolve_jobs_main
+from ..make_bots.languages_bot.langs_w import Lang_work
+
+from ..helps import logger
+from ..translations import (
     all_nat_sorted,
     Multi_sport_for_Jobs,
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,
 )
-from ..countries_formats.for_me import Work_for_me_main
-from ..countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ..o_bots import ethnic_bot
-from .get_helps import get_suffix_with_keys
-from .prefix_bot import mens_prefixes_work, womens_prefixes_work
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+from ..make_bots.countries_formats.for_me import Work_for_me_main
+from .t4_2018_jobs import te4_2018_Jobs
+from ..make_bots.o_bots import ethnic_bot
+from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
 
 # Template patterns for anti-sentiment categories
 ANTI_SENTIMENT_PATTERNS: dict[str, str] = {
@@ -140,18 +143,6 @@ def _try_nationality_based_strategies(
     return None
 
 
-def _try_prefix_based_work(normalized_category: str) -> str:
-    """Try prefix-based job label extraction.
-
-    Args:
-        normalized_category: The normalized category string.
-
-    Returns:
-        The job label if found, empty string otherwise.
-    """
-    return mens_prefixes_work(normalized_category) or womens_prefixes_work(normalized_category) or ""
-
-
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
     """Return a localized job label for 2018 categories with nationality hints.
@@ -189,10 +180,7 @@ def te_2018_with_nat(category: str) -> str:
         if nationality_result:
             return nationality_result
 
-    # Strategy 3: Prefix-based fallback
-    fallback_result = _try_prefix_based_work(normalized_category)
-    logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{fallback_result}"')
-    return fallback_result
+    return ""
 
 
 def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
@@ -260,7 +248,13 @@ def jobs_in_multi_sports(category: str) -> str:
     if not job_suffix or not sport_label:
         return ""
 
-    job_label = te4_2018_Jobs(job_suffix)
+    job_label = (
+        resolve_languages_labels(job_suffix) or
+        te4_2018_Jobs(job_suffix) or
+        Lang_work(job_suffix) or
+        resolve_jobs_main(job_suffix) or
+        ""
+    )
     if not job_label:
         return ""
 

@@ -6,20 +6,23 @@
 import functools
 import re
 
+from ..make_bots.languages_bot.langs_w import Lang_work
+
+from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..fix import fixtitle
 from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
 from ..main_processers import event2_stubs
-from ..make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
+from ..old_bots.t4_2018_jobs import te4_2018_Jobs
 from ..make_bots.films_and_others_bot import te_films
-from ..make_bots.jobs_bots.bot_te_4 import Jobs_in_Multi_Sports
+from ..old_bots.bot_te_4 import Jobs_in_Multi_Sports
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
-
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -80,6 +83,9 @@ def event_label_work(target_category: str) -> str:
         or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
+        or resolve_jobs_main(normalized_target_category)
+        or Lang_work(normalized_target_category)
+        or resolve_languages_labels(normalized_target_category)
         or te4_2018_Jobs(normalized_target_category)
         or Jobs_in_Multi_Sports(normalized_target_category)
         or univer.te_universities(normalized_target_category)

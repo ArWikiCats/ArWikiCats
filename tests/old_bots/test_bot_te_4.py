@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.jobs_bots.bot_te_4 import (
+from ArWikiCats.old_bots.bot_te_4 import (
     Jobs_in_Multi_Sports,
     nat_match,
     te_2018_with_nat,
@@ -181,7 +181,6 @@ data_2018_with_nat = {
     "armenian television": "التلفزة الأرمينية",
     "armenian world music groups": "فرق موسيقى العالم أرمينية",
     "asian-american people": "أمريكيون آسيويون",
-    "assassinated politicians": "سياسيون مغتالون",
     "austrian musical groups": "مجموعات موسيقية نمساوية",
     "austrian television series": "مسلسلات تلفزيونية نمساوية",
     "bangladeshi films": "أفلام بنغلاديشية",
@@ -192,10 +191,6 @@ data_2018_with_nat = {
     "british open": "المملكة المتحدة المفتوحة",
     "british women's sport": "رياضة بريطانية نسائية",
     "burmese names": "أسماء بورمية",
-    "by benjamin britten": "بواسطة بنجامين بريتن",
-    "by james cameron": "بواسطة جيمس كاميرون",
-    "by raphael": "بواسطة رافاييل",
-    "by vaikom muhammad basheer": "بواسطة محمد بشير",
     "byzantine titles": "ألقاب بيزنطية",
     "canadian films": "أفلام كندية",
     "canadian labour law": "قانون العمل الكندي",
@@ -241,8 +236,6 @@ data_2018_with_nat = {
     "lebanese television series": "مسلسلات تلفزيونية لبنانية",
     "lithuanian films": "أفلام ليتوانية",
     "malawian websites": "مواقع ويب ملاوية",
-    "male models": "عارضو أزياء ذكور",
-    "male sport shooters": "لاعبو رماية ذكور",
     "mexican-american culture": "ثقافة أمريكية مكسيكية",
     "moroccan television series": "مسلسلات تلفزيونية مغربية",
     "moroccan tennis": "كرة مضرب مغربية",

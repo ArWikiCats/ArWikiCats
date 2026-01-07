@@ -5,47 +5,34 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
-from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
-from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
 
-wheelchair_data_0 = {
-    "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
+test_data_not_for_2018_bot = {
+    "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
+    "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
+    "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
+    "wheelchair fencers": "مبارزون على الكراسي المتحركة",
+    "wheelchair racers": "متسابقو كراسي متحركة",
+    "wheelchair rugby coaches": "مدربو رجبي على كراسي متحركة",
+    "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
+    "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
     "american men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أمريكيون",
-    "australian men wheelchair racers": "متسابقو كراسي متحركة أستراليون",
     "australian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أستراليون",
-    "austrian men wheelchair racers": "متسابقو كراسي متحركة نمساويون",
-    "belgian men wheelchair racers": "متسابقو كراسي متحركة بلجيكيون",
-    "british men wheelchair racers": "متسابقو كراسي متحركة بريطانيون",
     "british men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة بريطانيون",
-    "brazilian men wheelchair racers": "متسابقو كراسي متحركة برازيليون",
     "cameroonian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كاميرونيون",
-    "canadian men wheelchair racers": "متسابقو كراسي متحركة كنديون",
     "canadian men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كنديون",
-    "english men wheelchair racers": "متسابقو كراسي متحركة إنجليز",
-    "finnish men wheelchair racers": "متسابقو كراسي متحركة فنلنديون",
-    "dutch men wheelchair racers": "متسابقو كراسي متحركة هولنديون",
     "dutch men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة هولنديون",
-    "chinese men wheelchair racers": "متسابقو كراسي متحركة صينيون",
-    "french men wheelchair racers": "متسابقو كراسي متحركة فرنسيون",
     "french men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة فرنسيون",
-    "gabonese men wheelchair racers": "متسابقو كراسي متحركة غابونيون",
-    "german men wheelchair racers": "متسابقو كراسي متحركة ألمان",
     "german men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ألمان",
-    "irish men wheelchair racers": "متسابقو كراسي متحركة أيرلنديون",
-    "israeli men wheelchair racers": "متسابقو كراسي متحركة إسرائيليون",
     "israeli men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسرائيليون",
-    "japanese men wheelchair racers": "متسابقو كراسي متحركة يابانيون",
     "japanese men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة يابانيون",
     "kuwaiti men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كويتيون",
-    "mexican men wheelchair racers": "متسابقو كراسي متحركة مكسيكيون",
     "spanish men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة إسبان",
-    "swiss men wheelchair racers": "متسابقو كراسي متحركة سويسريون",
     "swiss men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة سويسريون",
     "turkish men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أتراك",
-    "welsh men wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
+}
+
+wheelchair_data_0 = {
 }
 
 wheelchair_data_1 = {
@@ -164,14 +151,6 @@ wheelchair_data_1 = {
     "welsh wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة ويلزيون",
     "welsh wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
     "welsh women wheelchair racers": "متسابقات كراسي متحركة ويلزيات",
-    "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
-    "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
-    "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
-    "wheelchair fencers": "مبارزون على الكراسي المتحركة",
-    "wheelchair racers": "متسابقو كراسي متحركة",
-    "wheelchair rugby coaches": "مدربو رجبي على كراسي متحركة",
-    "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
-    "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
     "zambian wheelchair racers": "متسابقو كراسي متحركة زامبيون",
 
 }
@@ -180,22 +159,21 @@ wheelchair_data_1 = {
 @pytest.mark.parametrize("category, expected_key", wheelchair_data_1.items(), ids=wheelchair_data_1.keys())
 @pytest.mark.slow
 def test_wheelchair_data(category: str, expected_key: str) -> None:
-    label1 = te4_2018_Jobs(category)
+    label1 = new_resolvers_all(category)
     assert label1 == expected_key
-
-    # label2 = new_resolvers_all(category)
-    # assert label2 == expected_key
 
 
 to_test = [
-    ("test_wheelchair_data", wheelchair_data_1),
+    ("test_wheelchair_data_1", test_data_not_for_2018_bot, new_resolvers_all),
+    ("test_wheelchair_data_2", wheelchair_data_0, new_resolvers_all),
+    ("test_wheelchair_data_3", wheelchair_data_1, new_resolvers_all),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data, callback", to_test)
 @pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, new_resolvers_all)
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
 
     # dump_diff_text(expected, diff_result, name)
