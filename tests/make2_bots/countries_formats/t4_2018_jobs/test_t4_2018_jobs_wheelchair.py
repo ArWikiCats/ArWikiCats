@@ -6,12 +6,17 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats.make_bots.countries_formats.t4_2018_jobs import te4_2018_Jobs
-from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
-from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
-from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main
 
 wheelchair_data_0 = {
+    "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
+    "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
+    "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
+    "wheelchair fencers": "مبارزون على الكراسي المتحركة",
+    "wheelchair racers": "متسابقو كراسي متحركة",
+    "wheelchair rugby coaches": "مدربو رجبي على كراسي متحركة",
+    "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
+    "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
     "american men wheelchair racers": "متسابقو كراسي متحركة أمريكيون",
     "american men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أمريكيون",
     "australian men wheelchair racers": "متسابقو كراسي متحركة أستراليون",
@@ -164,14 +169,6 @@ wheelchair_data_1 = {
     "welsh wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة ويلزيون",
     "welsh wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
     "welsh women wheelchair racers": "متسابقات كراسي متحركة ويلزيات",
-    "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
-    "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
-    "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
-    "wheelchair fencers": "مبارزون على الكراسي المتحركة",
-    "wheelchair racers": "متسابقو كراسي متحركة",
-    "wheelchair rugby coaches": "مدربو رجبي على كراسي متحركة",
-    "wheelchair rugby players": "لاعبو رجبي على كراسي متحركة",
-    "wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة",
     "zambian wheelchair racers": "متسابقو كراسي متحركة زامبيون",
 
 }
@@ -188,14 +185,15 @@ def test_wheelchair_data(category: str, expected_key: str) -> None:
 
 
 to_test = [
-    ("test_wheelchair_data", wheelchair_data_1),
+    ("test_wheelchair_data", wheelchair_data_0, te4_2018_Jobs),
+    ("test_wheelchair_data", wheelchair_data_1, te4_2018_Jobs),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data, callback", to_test)
 @pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, new_resolvers_all)
+def test_dump_it(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
 
     # dump_diff_text(expected, diff_result, name)
