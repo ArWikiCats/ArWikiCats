@@ -6,6 +6,7 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "American child classical musicians": "موسيقيون كلاسيكيون أمريكيون أطفال",
     "Canadian child singers": "مغنون كنديون أطفال",
     "Native American people in American Revolution": "أمريكيون أصليون في الثورة الأمريكية",
     "Yugoslav disabled sports-people": "رياضيون يوغسلافيون معاقون",

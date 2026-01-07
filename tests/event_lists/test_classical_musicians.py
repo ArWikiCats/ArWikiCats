@@ -247,7 +247,6 @@ test_c_musicians_4 = {
     "21st-century Norwegian classical musicians": "موسيقيون كلاسيكيون نرويجيون في القرن 21",
     "21st-century Russian classical musicians": "موسيقيون كلاسيكيون روس في القرن 21",
     "African-American classical musicians": "موسيقيون كلاسيكيون أمريكيون أفارقة",
-    "American child classical musicians": "موسيقيون كلاسيكيون أطفال أمريكيون",
     "American classical musicians by ethnicity": "موسيقيون كلاسيكيون أمريكيون حسب المجموعة العرقية",
     "American classical musicians of Indian descent": "موسيقيون كلاسيكيون أمريكيون من أصل هندي",
     "American male classical musicians": "موسيقيون كلاسيكيون ذكور أمريكيون",
