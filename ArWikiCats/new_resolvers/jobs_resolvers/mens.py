@@ -176,6 +176,8 @@ def _load_formatted_data() -> dict:
     formatted_data.update(formatted_data_jobs_with_nat)
     formatted_data.update(
         {
+            "ancient {en_nat}": "{males} قدماء",
+            "ancient {en_job}": "{ar_job} قدماء",
             "military {en_job}": "{ar_job} عسكريون",
             "{en_nat} emigrants": "{males} مهاجرون",
             "fictional {en_nat} religious workers": "عمال دينيون {males} خياليون",

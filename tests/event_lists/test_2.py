@@ -6,6 +6,10 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "Ancient Christian saints": "مسيحيون قديسون قدماء",
+    "Ancient Jews by occupation": "يهود قدماء حسب المهنة",
+    "Ancient Christians": "مسيحيون قدماء",
+    "Ancient Jews": "يهود قدماء",
     "2017 sports events": "أحداث 2017 الرياضية",
     "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
     "cantonese-language speculative fiction films": "أفلام خيال تأملي باللغة الكانتونية",
