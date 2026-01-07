@@ -264,7 +264,7 @@ def fixlabel(label_old: str, en: str = "") -> str:
         was rejected by one of the validation steps.
     """
     logger.debug(f"fixlabel: Starting with label_old: {label_old=}| {en=}")
-
+    original_label = label_old
     letters_regex = "[abcdefghijklmnopqrstuvwxyz]"
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:
         return ""
@@ -293,7 +293,8 @@ def fixlabel(label_old: str, en: str = "") -> str:
     if "لاعبو" in ar_label and ("women's" in en or "womens" in en or "سيدات" in ar_label or "نسائية" in ar_label):
         ar_label = ar_label.replace("لاعبو", "لاعبات")
 
-    logger.info(f'fixtitle: label_old before:"{label_old}", after:"{ar_label}"')
+    if original_label != ar_label:
+        logger.info(f'fixtitle: original_label:"{original_label}", after:"{ar_label}"')
 
     return ar_label
 

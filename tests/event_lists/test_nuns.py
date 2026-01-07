@@ -5,23 +5,24 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data_0 = {
+    "Nazis executed by the British military": "نازيون أعدموا من قبل بريطانيون عسكريون",
+    "People executed by the British military": "أشخاص أعدموا من قبل بريطانيون عسكريون",
+    "People executed by the French military": "أشخاص أعدموا من قبل فرنسيون عسكريون",
+    "women in danish military": "المرأة في دنماركيون عسكريون",
+    "Fictional Buddhist nuns": "راهبات بوذيات خياليات",
+
     "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
     "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
     "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
-    "burmese men marathon runners": "عداؤو ماراثون رجال بورميون",
+    "burmese men marathon runners": "عداؤو ماراثون بورميون",
     "canadian men": "رجال كنديون",
     "Men's basketball players from Northern Ireland": "لاعبو كرة سلة من أيرلندا الشمالية",
     "Men's footballers in Papua New Guinea": "لاعبو كرة قدم في بابوا غينيا الجديدة",
     "expatriate men's footballers": "لاعبو كرة قدم رجالية مغتربون",
     "expatriate men's soccer players": "لاعبو كرة قدم رجالية مغتربون",
-    "Fictional Buddhist nuns": "بوذيون خياليون",
     "men's footballers in togo": "لاعبو كرة قدم في توغو",
-    "Nazis executed by the British military": "نازيون أعدموا من قبل الجيش البريطاني",
-    "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
-    "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
-    "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
+    "puerto rican men high jumpers": "متسابقو قفز عالي بورتوريكيون",
     "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
-    "women in danish military": "المرأة في الجيش الدنماركي",
 }
 
 data_1 = {
