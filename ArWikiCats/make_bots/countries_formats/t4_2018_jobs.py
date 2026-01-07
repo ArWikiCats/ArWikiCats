@@ -12,7 +12,7 @@ from ...translations import (
     People_key,
     change_male_to_female,
 )
-from ..jobs_bots.get_helps import get_suffix_with_keys
+# from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label
 
 # TODO: fix typo to prefix_lab_for_2018
@@ -132,7 +132,7 @@ def te4_2018_Jobs(cate: str) -> str:
     # 3. Direct Lookups
     country_lab = country_lab or People_key.get(cate_lower, "")
 
-    category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
+    # category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
     # if not country_lab:
     #     if category_suffix and not country_lab:

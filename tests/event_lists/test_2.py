@@ -13,6 +13,25 @@ data0 = {
     "2017 sports events": "أحداث 2017 الرياضية",
     "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
     "cantonese-language speculative fiction films": "أفلام خيال تأملي باللغة الكانتونية",
+    "Ancient Christian female saints": "قديسات مسيحيات قدماء",
+    "Ancient Egyptian Jews": "مصريون يهود قدماء",
+    "Ancient Jewish physicians": "أطباء يهود قدماء",
+    "Ancient Jewish scholars": "دارسون يهود قدماء",
+    "Ancient Jewish women": "يهوديات قدماء",
+    "Ancient Jewish writers": "كتاب يهود قدماء",
+    "Fictional American Jews in comics": "أمريكيون يهود خياليون في قصص مصورة",
+    "Fictional American Jews": "أمريكيون يهود خياليون",
+    "Fictional Argentine Jews": "أرجنتينيون يهود خياليون",
+    "Fictional British Jews": "بريطانيون يهود خياليون",
+    "Fictional Canadian Jews": "كنديون يهود خياليون",
+    "Fictional English Jews": "إنجليز يهود خياليون",
+    "Fictional German Jews": "ألمان يهود خياليون",
+    "Fictional Israeli Jews": "إسرائيليون يهود خياليون",
+    "Fictional Italian Jews": "إيطاليون يهود خياليون",
+    "Fictional Polish Jews": "بولنديون يهود خياليون",
+    "Fictional Russian Jews": "روس يهود خياليون",
+    "Fictional Serbian Jews": "صرب يهود خياليون",
+    "Murdered American Jews": "أمريكيون يهود قتلوا"
 }
 
 data1 = {
@@ -116,6 +135,13 @@ to_test = [
     ("test_2", data_test2),
     ("test_2_new_bug_check", data_list_bad),
 ]
+
+
+@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
+@pytest.mark.skip2
+def test_0(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
