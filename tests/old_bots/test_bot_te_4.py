@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.old_bots.bot_te_4 import (
     Jobs_in_Multi_Sports,
     nat_match,
-    te_2018_with_nat,
 )
 
 fast_data = {
