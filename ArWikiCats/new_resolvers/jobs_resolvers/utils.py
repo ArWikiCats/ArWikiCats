@@ -1,11 +1,12 @@
 import functools
 import re
-
+from ...helps import logger
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 
 def fix_keys(category: str) -> str:
+    original_category = category
     category = category.replace("'", "").lower()
     category = REGEX_THE.sub("", category)
     category = re.sub(r"\s+", " ", category)
@@ -19,6 +20,7 @@ def fix_keys(category: str) -> str:
         category = category.replace(old, new)
 
     category = REGEX_WOMENS.sub("female", category)
+    logger.debug(f"fix_keys: {original_category} -> {category}")
     return category.strip()
 
 

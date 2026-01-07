@@ -67,7 +67,6 @@ Mens_prefix: dict[str, str] = {
     "deaf": "{} صم",
     "deafblind": "{} صم ومكفوفون",
     "disabled": "{} معاقون",
-    "executed": "{} معدومون",
     "expatriate": "{} مغتربون",
     "expatriate male": "{} ذكور مغتربون",
     "expatriate men's": "{} رجال مغتربون",

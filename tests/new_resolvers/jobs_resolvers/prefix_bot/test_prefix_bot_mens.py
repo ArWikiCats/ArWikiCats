@@ -4,7 +4,7 @@ TODO: use mens_resolver_labels
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work, work_mens_prefix, work_mens_suffix
+from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 test_mens_data = {
@@ -241,7 +241,6 @@ test_mens_data = {
     "uruguayan deaf": "أوروغويانيون صم",
 }
 
-
 by_data_fast = {
     "by abraham lincoln": "بواسطة أبراهام لينكون",
     "by andrea mantegna": "بواسطة أندريا مانتينيا",
@@ -339,7 +338,6 @@ by_data_fast = {
     "by football team": "حسب فريق كرة القدم",
 }
 
-
 test_suffix = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
     "bulgarian deaf": "بلغاريون صم",
@@ -357,7 +355,6 @@ test_suffix = {
     "slovenian deaf": "سلوفينيون صم",
     "ukrainian deaf": "أوكرانيون صم",
 }
-
 
 test_prefix = {
     "assassinated civil rights activists": "ناشطو حقوق مدنية مغتالون",
@@ -590,6 +587,7 @@ test_prefix = {
     "sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة",
 }
 
+all_data = test_mens_data | by_data_fast | test_suffix | test_prefix
 
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
@@ -608,12 +606,19 @@ def test_by_data(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_suffix.items(), ids=test_suffix.keys())
 @pytest.mark.fast
 def test_work_mens_suffix(category: str, expected: str) -> None:
-    label = work_mens_suffix(category)
+    label = mens_prefixes_work(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_prefix.items(), ids=test_prefix.keys())
 @pytest.mark.fast
 def test_work_mens_prefix(category: str, expected: str) -> None:
-    label = work_mens_prefix(category)
+    label = mens_prefixes_work(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", all_data.items(), ids=all_data.keys())
+@pytest.mark.skip2
+def test_mens_resolver_labels(category: str, expected: str) -> None:
+    label = mens_resolver_labels(category)
     assert label == expected
