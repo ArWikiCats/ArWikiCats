@@ -149,6 +149,7 @@ def _load_formatted_data() -> dict:
         if jobs_mens_data.get(x):
             formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
 
+    formatted_data = {x.replace("'", ""): v for x, v in formatted_data.items()}
     return formatted_data
 
 
@@ -165,18 +166,11 @@ def _load_jobs_data() -> dict[str, str]:
         if not any(word in x for word in not_in_keys) and not RELIGIOUS_KEYS_PP.get(x)
     }
 
+    data = {x.replace("'", ""): v for x, v in data.items()}
     return data
 
 
-@functools.lru_cache(maxsize=1)
-def load_bot() -> MultiDataFormatterBaseV2:
-    jobs_data_enhanced = _load_jobs_data()
-    logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
-
-    formatted_data = _load_formatted_data()
-
-    logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
-
+def _load_nat_data():
     nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
 
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
@@ -195,6 +189,21 @@ def load_bot() -> MultiDataFormatterBaseV2:
             }
         }
     )
+
+    nats_data = {x.replace("'", ""): v for x, v in nats_data.items()}
+    return nats_data
+
+
+@functools.lru_cache(maxsize=1)
+def load_bot() -> MultiDataFormatterBaseV2:
+    jobs_data_enhanced = _load_jobs_data()
+    logger.debug(f"jobs_data_enhanced mens: {len(jobs_data_enhanced):,}")
+
+    formatted_data = _load_formatted_data()
+
+    logger.debug(f"_load_formatted_data mens: {len(formatted_data):,}")
+
+    nats_data = _load_nat_data()
     return format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=nats_data,
