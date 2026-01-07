@@ -12,6 +12,9 @@ from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
+jobs_mens_data_f = dict(jobs_mens_data.items())
+jobs_mens_data_f.update({x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")})
+
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
 keys_not_jobs = [
@@ -80,8 +83,7 @@ def is_false_key(key: str, value: str) -> bool:
     if key in genders_keys:   # NOTE: under test
         return True
 
-    if RELIGIOUS_KEYS_PP.get(key):
-        return True
+    # if RELIGIOUS_KEYS_PP.get(key): return True
 
     if key in keys_not_jobs:
         return True
@@ -228,8 +230,8 @@ def _load_formatted_data() -> dict:
         "emigrants",
     ]
     for x in NAT_BEFORE_OCC_BASE:
-        if jobs_mens_data.get(x):
-            formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data[x]}"
+        if jobs_mens_data_f.get(x):
+            formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data_f[x]}"
 
     formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
     return formatted_data_final
@@ -240,10 +242,10 @@ def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
     data = {
         x: {"ar_job": v}
-        for x, v in jobs_mens_data.items()
+        for x, v in jobs_mens_data_f.items()
         if not is_false_key(x, v)
     }
-    len_diff = len(set(jobs_mens_data.keys()) - set(data.keys()))
+    len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
     logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data = {
