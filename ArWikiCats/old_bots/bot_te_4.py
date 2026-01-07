@@ -9,106 +9,15 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 """
 
 import functools
-import re
-from typing import Optional
-
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..make_bots.languages_bot.langs_w import Lang_work
 
 from ..helps import logger
 from ..translations import (
-    all_nat_sorted,
     Multi_sport_for_Jobs,
-    Nat_mens,
-    jobs_mens_data,
-    short_womens_jobs,
 )
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
-from .for_me import Work_for_me_main
 from .t4_2018_jobs import te4_2018_Jobs
-from ..make_bots.o_bots import ethnic_bot
-from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
-
-# Template patterns for anti-sentiment categories
-ANTI_SENTIMENT_PATTERNS: dict[str, str] = {
-    r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
-}
-
-
-def _normalize_category(category: str) -> str:
-    """Normalize a category string for matching.
-
-    Args:
-        category: The raw category string.
-
-    Returns:
-        Lowercase category with 'category:' prefix removed.
-    """
-    return category.lower().replace("category:", "")
-
-
-def _match_anti_sentiment_pattern(normalized_category: str) -> tuple[str, str]:
-    """Match a category against anti-sentiment patterns.
-
-    Args:
-        normalized_category: The normalized category string.
-
-    Returns:
-        A tuple of (matched_country_key, template) or ("", "") if no match.
-    """
-    for pattern, template in ANTI_SENTIMENT_PATTERNS.items():
-        match = re.match(pattern, normalized_category)
-        if match:
-            return match.group(1), template
-    return "", ""
-
-
-@functools.lru_cache(maxsize=10000)
-def nat_match(category: str) -> str:
-    """Match a category string to a localized anti-sentiment label.
-
-    Processes categories like "anti-haitian sentiment" and returns the
-    Arabic equivalent "مشاعر معادية للهايتيون".
-
-    Args:
-        category: The category string to be matched.
-
-    Returns:
-        The localized sentiment label, or empty string if no match.
-
-    Example:
-        >>> nat_match("anti-haitian sentiment")
-        "مشاعر معادية للهايتيون"
-    """
-    normalized_category = _normalize_category(category)
-    logger.debug(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{normalized_category}"')
-
-    matched_country_key, template = _match_anti_sentiment_pattern(normalized_category)
-
-    if not matched_country_key:
-        return ""
-
-    logger.debug(f'<<lightblue>> bot_te_4: nat_match country_key :: "{matched_country_key}"')
-
-    nationality_label = Nat_mens.get(matched_country_key, "")
-    if not nationality_label:
-        return ""
-
-    result = template % nationality_label
-    logger.debug(f"<<lightblue>> bot_te_4: nat_match {result=}")
-    return result
-
-
-def _try_direct_job_lookup(normalized_category: str) -> Optional[str]:
-    """Try direct dictionary lookups for job categories.
-
-    Args:
-        normalized_category: The normalized category string.
-
-    Returns:
-        The job label if found, None otherwise.
-    """
-    return short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
 
 def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
@@ -125,7 +34,7 @@ def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
         if category_lower.startswith(prefix_pattern):
             job_suffix = category_lower[len(prefix_pattern) :]
             logger.debug(
-                f'Jobs_in_Multi_Sports match: prefix="{prefix_pattern}", ' f'label="{sport_label}", job="{job_suffix}"'
+                f'jobs_in_multi_sports match: prefix="{prefix_pattern}", ' f'label="{sport_label}", job="{job_suffix}"'
             )
             return job_suffix, sport_label
     return "", ""
@@ -191,12 +100,6 @@ def jobs_in_multi_sports(category: str) -> str:
     return result
 
 
-# Backward compatibility alias
-Jobs_in_Multi_Sports = jobs_in_multi_sports
-
-
 __all__ = [
-    "nat_match",
     "jobs_in_multi_sports",
-    "Jobs_in_Multi_Sports",  # Backward compatibility
 ]

@@ -5,33 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.bot_te_4 import (
-    Jobs_in_Multi_Sports,
-    nat_match,
-)
-
-fast_data = {
-    "anti-haitian sentiment": "مشاعر معادية للهايتيون",
-    "anti-palestinian sentiment": "مشاعر معادية للفلسطينيون",
-    "anti-turkish sentiment": "مشاعر معادية للأتراك",
-    "anti-american sentiment": "مشاعر معادية للأمريكيون",
-    "anti-czech sentiment": "مشاعر معادية للتشيكيون",
-    "anti-japanese sentiment": "مشاعر معادية لليابانيون",
-    "anti-asian sentiment": "مشاعر معادية للآسيويون",
-    "anti-slovene sentiment": "مشاعر معادية للسلوفينيون",
-    "anti-ukrainian sentiment": "مشاعر معادية للأوكرانيون",
-    "anti-chechen sentiment": "مشاعر معادية للشيشانيون",
-    "anti-mexican sentiment": "مشاعر معادية للمكسيكيون",
-    "anti-chinese sentiment": "مشاعر معادية للصينيون",
-    "anti-christian sentiment": "مشاعر معادية للمسيحيون",
-    "anti-serbian sentiment": "مشاعر معادية للصرب",
-    "anti-armenian sentiment": "مشاعر معادية للأرمن",
-    "anti-scottish sentiment": "مشاعر معادية للإسكتلنديون",
-    "anti-iranian sentiment": "مشاعر معادية للإيرانيون",
-    "anti-english sentiment": "مشاعر معادية للإنجليز",
-    "anti-hungarian sentiment": "مشاعر معادية للمجريون",
-    "anti-greek sentiment": "مشاعر معادية لليونانيون",
-}
+from ArWikiCats.old_bots.bot_te_4 import jobs_in_multi_sports
 
 Multi_Sports_data = {
     "afc asian cup managers": "مدربون في كأس آسيا",
@@ -174,23 +148,15 @@ Multi_Sports_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
-@pytest.mark.fast
-def test_nat_match(category: str, expected: str) -> None:
-    label = nat_match(category)
-    assert label == expected
-
-
 @pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=Multi_Sports_data.keys())
 @pytest.mark.fast
 def test_Jobs_in_Multi_Sports(category: str, expected: str) -> None:
-    label = Jobs_in_Multi_Sports(category)
+    label = jobs_in_multi_sports(category)
     assert label == expected
 
 
 ENTERTAINMENT_CASES = [
-    ("test_nat_match", fast_data, nat_match),
-    ("test_Jobs_in_Multi_Sports", Multi_Sports_data, Jobs_in_Multi_Sports),
+    ("test_Jobs_in_Multi_Sports", Multi_Sports_data, jobs_in_multi_sports),
 ]
 
 

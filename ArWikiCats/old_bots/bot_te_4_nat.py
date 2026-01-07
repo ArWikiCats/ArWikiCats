@@ -11,33 +11,18 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 import re
 from typing import Optional
-from ..helps import logger, dump_data
+from ..helps import logger
 from ..translations import (
-    all_nat_sorted,
     Nat_mens,
     jobs_mens_data,
     short_womens_jobs,
 )
 from .for_me import Work_for_me_main
-from ..make_bots.o_bots import ethnic_bot
-from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
 
 # Template patterns for anti-sentiment categories
 ANTI_SENTIMENT_PATTERNS: dict[str, str] = {
     r"^anti\-(\w+) sentiment$": "مشاعر معادية لل%s",
 }
-
-
-def _normalize_category(category: str) -> str:
-    """Normalize a category string for matching.
-
-    Args:
-        category: The raw category string.
-
-    Returns:
-        Lowercase category with 'category:' prefix removed.
-    """
-    return category.lower().replace("category:", "")
 
 
 def _match_anti_sentiment_pattern(normalized_category: str) -> tuple[str, str]:
@@ -73,7 +58,7 @@ def nat_match(category: str) -> str:
         >>> nat_match("anti-haitian sentiment")
         "مشاعر معادية للهايتيون"
     """
-    normalized_category = _normalize_category(category)
+    normalized_category = category.lower().replace("category:", "")
     logger.debug(f'<<lightblue>> bot_te_4: nat_match normalized_category :: "{normalized_category}"')
 
     matched_country_key, template = _match_anti_sentiment_pattern(normalized_category)
@@ -104,50 +89,6 @@ def _try_direct_job_lookup(normalized_category: str) -> Optional[str]:
     return short_womens_jobs.get(normalized_category) or jobs_mens_data.get(normalized_category)
 
 
-def _try_nationality_based_strategies(
-    normalized_category: str,
-    nationality_key: str,
-    suffix: str,
-) -> Optional[str]:
-    """
-    Attempt nationality-aware translation strategies for a normalized category.
-
-    Tries each configured nationality-based strategy in order and returns the first non-empty translation.
-
-    Parameters:
-        normalized_category: The normalized category string (lowercased and cleaned).
-        nationality_key: The detected nationality key used by nationality-aware strategies.
-        suffix: The remaining suffix of the category after nationality extraction.
-
-    Returns:
-        The translated label if a strategy produced one, None otherwise.
-    """
-    strategies = [
-        ("ethnic_bot.ethnic_label", lambda: ethnic_bot.ethnic_label(normalized_category, nationality_key, suffix)),
-        ("nat_match", lambda: nat_match(normalized_category)),
-    ]
-
-    for strategy_name, strategy_func in strategies:
-        result = strategy_func()
-        if result:
-            logger.debug(f"<<lightblue>> te_2018_with_nat: def {strategy_name}() {result=}")
-            return result
-
-    return None
-
-
-@functools.lru_cache(maxsize=None)
-@dump_data(1)
-def extract_nationality_info(normalized_category):
-    nationality_result = ""
-    # Strategy 2: Nationality-based extraction
-    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
-
-    if suffix:
-        nationality_result = _try_nationality_based_strategies(normalized_category, nationality_key, suffix)
-    return nationality_result
-
-
 @functools.lru_cache(maxsize=None)
 def te_2018_with_nat(category: str) -> str:
     """Return a localized job label for 2018 categories with nationality hints.
@@ -176,8 +117,6 @@ def te_2018_with_nat(category: str) -> str:
     if direct_result:
         logger.debug(f'<<lightblue>> bot_te_4: te_2018_with_nat :: "{direct_result}"')
         return direct_result
-
-    # nationality_result = extract_nationality_info(normalized_category)
 
     return ""
 

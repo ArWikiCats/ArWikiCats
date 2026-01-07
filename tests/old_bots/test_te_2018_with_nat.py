@@ -5,7 +5,30 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.bot_te_4_nat import te_2018_with_nat
+from ArWikiCats.old_bots.bot_te_4_nat import te_2018_with_nat, nat_match
+
+nat_match_data = {
+    "anti-haitian sentiment": "مشاعر معادية للهايتيون",
+    "anti-palestinian sentiment": "مشاعر معادية للفلسطينيون",
+    "anti-turkish sentiment": "مشاعر معادية للأتراك",
+    "anti-american sentiment": "مشاعر معادية للأمريكيون",
+    "anti-czech sentiment": "مشاعر معادية للتشيكيون",
+    "anti-japanese sentiment": "مشاعر معادية لليابانيون",
+    "anti-asian sentiment": "مشاعر معادية للآسيويون",
+    "anti-slovene sentiment": "مشاعر معادية للسلوفينيون",
+    "anti-ukrainian sentiment": "مشاعر معادية للأوكرانيون",
+    "anti-chechen sentiment": "مشاعر معادية للشيشانيون",
+    "anti-mexican sentiment": "مشاعر معادية للمكسيكيون",
+    "anti-chinese sentiment": "مشاعر معادية للصينيون",
+    "anti-christian sentiment": "مشاعر معادية للمسيحيون",
+    "anti-serbian sentiment": "مشاعر معادية للصرب",
+    "anti-armenian sentiment": "مشاعر معادية للأرمن",
+    "anti-scottish sentiment": "مشاعر معادية للإسكتلنديون",
+    "anti-iranian sentiment": "مشاعر معادية للإيرانيون",
+    "anti-english sentiment": "مشاعر معادية للإنجليز",
+    "anti-hungarian sentiment": "مشاعر معادية للمجريون",
+    "anti-greek sentiment": "مشاعر معادية لليونانيون",
+}
 
 data_2018_with_nat = {
     "american culture": "ثقافة أمريكية",
@@ -131,8 +154,16 @@ def test_te_2018_with_nat(category: str, expected: str) -> None:
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", nat_match_data.items(), ids=nat_match_data.keys())
+@pytest.mark.fast
+def te_nat_match_data(category: str, expected: str) -> None:
+    label = nat_match(category)
+    assert label == expected
+
+
 ENTERTAINMENT_CASES = [
     ("te_2018_with_nat", data_2018_with_nat, te_2018_with_nat),
+    ("te_nat_match_data", nat_match_data, nat_match),
 ]
 
 

@@ -17,8 +17,8 @@ from ..new_resolvers.sports_resolvers import resolve_sports_main
 # from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
 from ..old_bots.t4_2018_jobs import te4_2018_Jobs
-from ..old_bots.bot_te_4 import Jobs_in_Multi_Sports, nat_match
-from ..old_bots.bot_te_4_nat import te_2018_with_nat
+from ..old_bots.bot_te_4 import jobs_in_multi_sports
+from ..old_bots.bot_te_4_nat import te_2018_with_nat, nat_match
 from .languages_bot.languages_resolvers import te_language
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
@@ -54,7 +54,7 @@ def te_films(category: str) -> str:
         "get_Films_key_CAO": lambda k: get_Films_key_CAO(k),
         "get_films_key_tyty_new_and_time": lambda k: get_films_key_tyty_new_and_time(k),
         "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
-        "Jobs_in_Multi_Sports": lambda k: Jobs_in_Multi_Sports(k),
+        "jobs_in_multi_sports": lambda k: jobs_in_multi_sports(k),
         "te_2018_with_nat": lambda k: te_2018_with_nat(k),
         "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
@@ -75,7 +75,7 @@ def te_films(category: str) -> str:
         "te_language": lambda k: te_language(k),
     }
     _add_to_new_players_tables = [
-        "Jobs_in_Multi_Sports",
+        "jobs_in_multi_sports",
         "resolve_languages_labels",
         "te4_2018_Jobs",
         # "get_pop_All_18",
