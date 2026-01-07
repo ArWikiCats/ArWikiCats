@@ -632,7 +632,6 @@ data_1 = {
     "Category:Ethnic groups in Papua New Guinea": "تصنيف:مجموعات عرقية في بابوا غينيا الجديدة",
     "Category:Expatriate football managers in Papua New Guinea": "تصنيف:مدربو كرة قدم مغتربون في بابوا غينيا الجديدة",
     "Category:Expatriate footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم مغتربون في بابوا غينيا الجديدة",
-    "Category:Expatriate men's footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم رجالية مغتربون في بابوا غينيا الجديدة",
     "Category:Expatriate sportspeople in Papua New Guinea": "تصنيف:رياضيون مغتربون في بابوا غينيا الجديدة",
     "Category:Expatriate sportspeople in Papua New Guinea by nationality": "تصنيف:رياضيون مغتربون في بابوا غينيا الجديدة حسب الجنسية",
     "Category:Expatriates in Papua New Guinea": "تصنيف:مغتربون في بابوا غينيا الجديدة",

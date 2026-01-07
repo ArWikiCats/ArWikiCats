@@ -82,7 +82,6 @@ test_to_fix_1 = {
     "Polish opera composers": "ملحنو أوبرا بولنديون",
     "Portuguese opera composers": "ملحنو أوبرا برتغاليون",
     "Romanian opera composers": "ملحنو أوبرا رومان",
-    "Romantic composers": "ملحنون رومانسيون",
     "Russian opera composers": "ملحنو أوبرا روس",
     "Scottish opera composers": "ملحنو أوبرا إسكتلنديون",
     "Serbian opera composers": "ملحنو أوبرا صرب",

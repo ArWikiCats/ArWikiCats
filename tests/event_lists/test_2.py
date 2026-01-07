@@ -6,6 +6,18 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "male models": "عارضو أزياء ذكور",
+    "male sport shooters": "لاعبو رماية ذكور",
+    "by benjamin britten": "بواسطة بنجامين بريتن",
+    "by james cameron": "بواسطة جيمس كاميرون",
+    "by raphael": "بواسطة رافاييل",
+    "by vaikom muhammad basheer": "بواسطة محمد بشير",
+    "assassinated politicians": "سياسيون مغتالون",
+    "expatriate men's footballers": "لاعبو كرة قدم رجالية مغتربون",
+    "expatriate men's soccer players": "لاعبو كرة قدم رجالية مغتربون",
+    "Icelandic deaf people": "أعلام آيسلنديون صم",
+    "Romantic composers": "ملحنون رومانسيون",
+    "Category:Expatriate men's footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم رجالية مغتربون في بابوا غينيا الجديدة",
     "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "Category:1650s crimes": "تصنيف:جرائم عقد 1650",
     "1650s controversies": "خلافات عقد 1650",
