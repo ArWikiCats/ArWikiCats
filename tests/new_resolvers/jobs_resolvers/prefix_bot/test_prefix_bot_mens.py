@@ -26,8 +26,6 @@ test_mens_data = {
     "expatriate golfers": "لاعبو غولف مغتربون",
     "expatriate handball players": "لاعبو كرة يد مغتربون",
     "expatriate ice hockey players": "لاعبو هوكي جليد مغتربون",
-    "expatriate men's footballers": "لاعبو كرة قدم رجالية مغتربون",
-    "expatriate men's soccer players": "لاعبو كرة قدم رجالية مغتربون",
     "expatriate rugby league players": "لاعبو دوري رجبي مغتربون",
     "expatriate rugby union players": "لاعبو اتحاد رجبي مغتربون",
     "expatriate soccer players": "لاعبو كرة قدم مغتربون",

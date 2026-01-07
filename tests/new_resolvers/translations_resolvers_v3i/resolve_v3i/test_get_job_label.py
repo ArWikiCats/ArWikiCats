@@ -64,7 +64,6 @@ test_data_standard = {
     "mathematicians": "رياضياتيون",
     "medical doctors": "أطباء",
     "memoirists": "كتاب مذكرات",
-    "men": "رجال",
     "military personnel": "أفراد عسكريون",
     "musicians": "موسيقيون",
     "naturalists": "علماء طبيعة",

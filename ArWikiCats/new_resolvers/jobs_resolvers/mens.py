@@ -204,6 +204,7 @@ def _load_formatted_data() -> dict:
         "blind",
         "jews",
         # "women's rights activists",
+        "female rights activists",
         "human rights activists",
         "imprisoned",
         "imprisoned abroad",

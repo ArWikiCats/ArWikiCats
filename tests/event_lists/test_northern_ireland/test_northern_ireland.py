@@ -70,7 +70,6 @@ data_1 = {
     "Category:Male sailors (sport) from Northern Ireland": "تصنيف:بحارة رياضيون ذكور من أيرلندا الشمالية",
     "Category:Male sport shooters from Northern Ireland": "تصنيف:لاعبو رماية ذكور من أيرلندا الشمالية",
     "Category:Marxists from Northern Ireland": "تصنيف:ماركسيون من أيرلندا الشمالية",
-    "Category:Men's basketball players from Northern Ireland": "تصنيف:لاعبو كرة سلة رجالية من أيرلندا الشمالية",
     "Category:Meteorologists from Northern Ireland": "تصنيف:خبراء أرصاد جوية من أيرلندا الشمالية",
     "Category:Music critics from Northern Ireland": "تصنيف:نقاد موسيقى من أيرلندا الشمالية",
     "Category:Music journalists from Northern Ireland": "تصنيف:صحفيون موسيقيون من أيرلندا الشمالية",

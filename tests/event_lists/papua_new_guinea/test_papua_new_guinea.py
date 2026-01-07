@@ -749,7 +749,6 @@ data_1 = {
     "Category:May 2016 sports events in Papua New Guinea": "تصنيف:أحداث مايو 2016 الرياضية في بابوا غينيا الجديدة",
     "Category:Medical and health organisations based in Papua New Guinea": "تصنيف:منظمات طبية وصحية مقرها في بابوا غينيا الجديدة",
     "Category:Men in Papua New Guinea": "تصنيف:رجال في بابوا غينيا الجديدة",
-    "Category:Men's footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم رجالية في بابوا غينيا الجديدة",
     "Category:Men's footballers in Papua New Guinea by club": "تصنيف:لاعبو كرة قدم رجالية في بابوا غينيا الجديدة حسب النادي",
     "Category:Men's sport in Papua New Guinea": "تصنيف:رياضة رجالية في بابوا غينيا الجديدة",
     "Category:Methodist missionaries in Papua New Guinea": "تصنيف:مبشرون ميثوديون لاهوتيون في بابوا غينيا الجديدة",

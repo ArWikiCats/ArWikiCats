@@ -4,6 +4,25 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_0 = {
+    "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
+    "turkish women's rights activists": "أتراك ناشطون في حقوق المرأة",
+    "burmese men marathon runners": "عداؤو ماراثون رجال بورميون",
+    "puerto rican men high jumpers": "متسابقو قفز عالي رجال بورتوريكيون",
+    "canadian men": "رجال كنديون",
+    "men's footballers in togo": "لاعبو كرة قدم في توغو",
+    "women in danish military": "المرأة في الجيش الدنماركي",
+    "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
+    "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
+    "Nazis executed by the British military": "نازيون أعدموا من قبل الجيش البريطاني",
+    "Category:Men's basketball players from Northern Ireland": "تصنيف:لاعبو كرة سلة من أيرلندا الشمالية",
+    "Category:Men's footballers in Papua New Guinea": "تصنيف:لاعبو كرة قدم في بابوا غينيا الجديدة",
+    "expatriate men's footballers": "لاعبو كرة قدم رجالية مغتربون",
+    "expatriate men's soccer players": "لاعبو كرة قدم رجالية مغتربون",
+    "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
+    "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
+}
+
 data_1 = {
     "Category:20th-century American Buddhist nuns": "تصنيف:راهبات بوذيات أمريكيات في القرن 20",
     "Category:21st-century American Buddhist nuns": "تصنيف:راهبات بوذيات أمريكيات في القرن 21",
@@ -95,7 +114,31 @@ data_2 = {
 }
 
 data_3 = {
-
+    "Category:Abolitionists from Wisconsin": "تصنيف:مناهضون للعبودية من ويسكونسن",
+    "Category:Albanian women's rights activists": "تصنيف:ألبان ناشطون في حقوق المرأة",
+    "Category:Algerian men middle-distance runners": "تصنيف:عداؤو مسافات متوسطة رجال جزائريون",
+    "Category:Austrian Giro d'Italia stage winners": "تصنيف:نمساويون فائزون في مراحل طواف إيطاليا",
+    "Category:Azerbaijani men marathon runners": "تصنيف:عداؤو ماراثون رجال أذربيجانيون",
+    "Category:Botswana women's rights activists": "تصنيف:بوتسوانيون ناشطون في حقوق المرأة",
+    "Category:Brazilian men sprinters": "تصنيف:عداؤون سريعون رجال برازيليون",
+    "Category:Burmese men long-distance runners": "تصنيف:عداؤو مسافات طويلة رجال بورميون",
+    "Category:Estonian men long-distance runners": "تصنيف:عداؤو مسافات طويلة رجال إستونيون",
+    "Category:Gibraltarian men athletes": "تصنيف:لاعبو قوى رجال جبل طارقيون",
+    "Category:Guatemalan men middle-distance runners": "تصنيف:عداؤو مسافات متوسطة رجال غواتيماليون",
+    "Category:Haitian men athletes": "تصنيف:لاعبو قوى رجال هايتيون",
+    "Category:Icelandic deaf people": "تصنيف:صم آيسلنديون",
+    "Category:Iranian men athletes": "تصنيف:لاعبو قوى رجال إيرانيون",
+    "Category:Iraqi men middle-distance runners": "تصنيف:عداؤو مسافات متوسطة رجال عراقيون",
+    "Category:Kyrgyzstani men marathon runners": "تصنيف:عداؤو ماراثون رجال قيرغيزستانيون",
+    "Category:Liechtenstein men sprinters": "تصنيف:عداؤون سريعون رجال ليختنشتانيون",
+    "Category:Macedonian men sprinters": "تصنيف:عداؤون سريعون رجال مقدونيون",
+    "Category:Men discus throwers": "تصنيف:رماة قرص رجال",
+    "Category:Men's footballers in Mongolia": "تصنيف:لاعبو كرة قدم رجالية في منغوليا",
+    "Category:Nicaraguan men high jumpers": "تصنيف:متسابقو قفز عالي رجال نيكاراغويون",
+    "Category:Russian men pole vaulters": "تصنيف:قافزون بالزانة رجال روس",
+    "Category:Taiwanese men long jumpers": "تصنيف:لاعبو قفز طويل رجال تايوانيون",
+    "Category:Trinidad and Tobago men discus throwers": "تصنيف:رماة قرص رجال ترنيداديون",
+    "Category:Venezuelan women's rights activists": "تصنيف:فنزويليون ناشطون في حقوق المرأة"
 }
 
 to_test = [

@@ -94,7 +94,6 @@ te4_2018_Jobs_data = {
     "canadian ice dancers": "راقصو جليد كنديون",
     "canadian male biathletes": "لاعبو بياثلون ذكور كنديون",
     "canadian male kickboxers": "مقاتلو كيك بوكسنغ ذكور كنديون",
-    "canadian men": "رجال كنديون",
     "canadian musicians": "موسيقيون كنديون",
     "canadian sports businesspeople": "شخصيات أعمال رياضيون كنديون",
     "canadian sportsmen": "رياضيون رجال كنديون",

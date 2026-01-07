@@ -370,7 +370,6 @@ title_work_tests_data = {
     "men's football by continent": "كرة القدم للرجال حسب القارة",
     "men's footballers in djibouti": "لاعبو كرة قدم رجالية في جيبوتي في",
     "men's footballers in montenegro": "لاعبو كرة قدم رجالية في الجبل الأسود في",
-    "men's footballers in togo": "لاعبو كرة قدم رجالية في توغو في",
     "military facilities on the-national-register-of-historic-places": "مرافق عسكرية على السجل الوطني للأماكن التاريخية",
     "military history of africa": "تاريخ إفريقيا العسكري",
     "military history of croatia": "تاريخ كرواتيا العسكري",
