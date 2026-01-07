@@ -208,7 +208,6 @@ data2 = {
 }
 
 data3 = {
-    "Category:Canadian football players in Edmonton": "تصنيف:لاعبو كرة قدم كندية في إدمونتون",
     "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كندية",
     "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كندية",
     "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كندية",

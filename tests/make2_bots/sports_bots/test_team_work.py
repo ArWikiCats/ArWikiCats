@@ -42,7 +42,6 @@ fast_data = {
     "cs sfaxien players": "لاعبو النادي الرياضي الصفاقسي",
     "cuban football logos": "شعارات كرة القدم الكوبية",
     "dallas cowboys personnel": "أفراد دالاس كاوبويز",
-    "deaf culture": "ثقافة صم",
     "deportivo toluca f.c. matches": "مباريات نادي تولوكا",
     "derry city f.c. matches": "مباريات ديري سيتي",
     "fc barcelona managers": "مدربو نادي برشلونة",

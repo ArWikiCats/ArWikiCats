@@ -6,6 +6,22 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "Buddhist comics": "تصنيف:قصص مصورة بوذيون",
+    "Buddhist media in Taiwan": "تصنيف:إعلام بوذيون في تايوان",
+    "Buddhist media": "تصنيف:إعلام بوذيون",
+    "Buddhist music": "تصنيف:موسيقى بوذيون",
+    "Buddhist video games": "تصنيف:ألعاب فيديو بوذيون",
+    "Hindu music": "تصنيف:موسيقى هندوس",
+    "Islamic media in India": "تصنيف:إعلام إسلاميون في الهند",
+    "Islamic media": "تصنيف:إعلام إسلاميون",
+    "Islamic music": "تصنيف:موسيقى إسلاميون",
+    "Jewish music genres": "تصنيف:أنواع موسيقى يهود",
+    "Nazi culture": "تصنيف:ثقافة نازيون",
+    "Nazi songs": "تصنيف:أغاني نازيون",
+    "Saints and Soldiers films": "تصنيف:قديسون وأفلام مجندون",
+    "muslim people templates": "تصنيف:قوالب أعلام مسلمون",
+    "deaf culture": "ثقافة صم",
+    "Category:Canadian football players in Edmonton": "تصنيف:لاعبو كرة قدم كندية في إدمونتون",
     "christian saints": "قديسون",
     "electro musicians": "موسيقيو موسيقى كهربائية",
     "film editors": "محررو أفلام",

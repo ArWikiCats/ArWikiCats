@@ -150,7 +150,6 @@ religions_data = {
     "montenegrin muslims": "تصنيف:مونتينيغريون مسلمون",
     "moroccan muslims": "تصنيف:مغاربة مسلمون",
     "mozambican muslims": "تصنيف:موزمبيقيون مسلمون",
-    "muslim people templates": "تصنيف:قوالب أعلام مسلمون",
     "namibian muslims": "تصنيف:ناميبيون مسلمون",
     "nepalese muslims": "تصنيف:نيباليون مسلمون",
     "nigerian muslims": "تصنيف:نيجيريون مسلمون",
