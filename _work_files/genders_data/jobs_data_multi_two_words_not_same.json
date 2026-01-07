@@ -74,11 +74,6 @@
         "job_females": "راهبات أنجليكيات",
         "both_jobs": "رهبان وراهبات أنجليكيون"
     },
-    "anglican nuns": {
-        "job_males": " أنجليكيون",
-        "job_females": "راهبات أنجليكيات",
-        "both_jobs": " وراهبات أنجليكيون"
-    },
     "anglican saints": {
         "job_males": "قديسون أنجليكيون",
         "job_females": "قديسات أنجليكيات",
@@ -133,11 +128,6 @@
         "job_males": "رهبان أنجليكيون",
         "job_females": "راهبات أنجليكيات",
         "both_jobs": "رهبان وراهبات أنجليكيون"
-    },
-    "anglicans nuns": {
-        "job_males": " أنجليكيون",
-        "job_females": "راهبات أنجليكيات",
-        "both_jobs": " وراهبات أنجليكيون"
     },
     "anglicans saints": {
         "job_males": "قديسون أنجليكيون",
@@ -239,11 +229,6 @@
         "job_females": "راهبات بهائيات",
         "both_jobs": "رهبان وراهبات بهائيون"
     },
-    "bahá'ís nuns": {
-        "job_males": " بهائيون",
-        "job_females": "راهبات بهائيات",
-        "both_jobs": " وراهبات بهائيون"
-    },
     "bahá'ís saints": {
         "job_males": "قديسون بهائيون",
         "job_females": "قديسات بهائيات",
@@ -298,11 +283,6 @@
         "job_males": "رهبان بهائيون",
         "job_females": "راهبات بهائيات",
         "both_jobs": "رهبان وراهبات بهائيون"
-    },
-    "baháís nuns": {
-        "job_males": " بهائيون",
-        "job_females": "راهبات بهائيات",
-        "both_jobs": " وراهبات بهائيون"
     },
     "baháís saints": {
         "job_males": "قديسون بهائيون",
@@ -384,11 +364,6 @@
         "job_females": "راهبات بوذيات",
         "both_jobs": "رهبان وراهبات بوذيون"
     },
-    "buddhist nuns": {
-        "job_males": " بوذيون",
-        "job_females": "راهبات بوذيات",
-        "both_jobs": " وراهبات بوذيون"
-    },
     "buddhist saints": {
         "job_males": "قديسون بوذيون",
         "job_females": "قديسات بوذيات",
@@ -464,11 +439,6 @@
         "job_females": "راهبات مسيحيات",
         "both_jobs": "رهبان وراهبات مسيحيون"
     },
-    "christian nuns": {
-        "job_males": " مسيحيون",
-        "job_females": "راهبات مسيحيات",
-        "both_jobs": " وراهبات مسيحيون"
-    },
     "christian theologians": {
         "job_males": "لاهوتيون مسيحيون",
         "job_females": "لاهوتيات مسيحيات",
@@ -518,11 +488,6 @@
         "job_males": "رهبان مسيحيون",
         "job_females": "راهبات مسيحيات",
         "both_jobs": "رهبان وراهبات مسيحيون"
-    },
-    "christians nuns": {
-        "job_males": " مسيحيون",
-        "job_females": "راهبات مسيحيات",
-        "both_jobs": " وراهبات مسيحيون"
     },
     "christians saints": {
         "job_males": "قديسون مسيحيون",
@@ -649,11 +614,6 @@
         "job_females": "راهبات قبطيات",
         "both_jobs": "رهبان وراهبات أقباط"
     },
-    "coptic nuns": {
-        "job_males": " أقباط",
-        "job_females": "راهبات قبطيات",
-        "both_jobs": " وراهبات أقباط"
-    },
     "coptic saints": {
         "job_males": "قديسون أقباط",
         "job_females": "قديسات قبطيات",
@@ -774,11 +734,6 @@
         "job_females": "راهبات أسقفيات",
         "both_jobs": "رهبان وراهبات أسقفيون"
     },
-    "episcopalians nuns": {
-        "job_males": " أسقفيون",
-        "job_females": "راهبات أسقفيات",
-        "both_jobs": " وراهبات أسقفيون"
-    },
     "episcopalians saints": {
         "job_males": "قديسون أسقفيون",
         "job_females": "قديسات أسقفيات",
@@ -838,11 +793,6 @@
         "job_males": "رهبان إنجيليون",
         "job_females": "راهبات إنجيليات",
         "both_jobs": "رهبان وراهبات إنجيليون"
-    },
-    "evangelical nuns": {
-        "job_males": " إنجيليون",
-        "job_females": "راهبات إنجيليات",
-        "both_jobs": " وراهبات إنجيليون"
     },
     "evangelical saints": {
         "job_males": "قديسون إنجيليون",
@@ -969,11 +919,6 @@
         "job_females": "راهبات هندوسيات",
         "both_jobs": "رهبان وراهبات هندوس"
     },
-    "hindu nuns": {
-        "job_males": " هندوس",
-        "job_females": "راهبات هندوسيات",
-        "both_jobs": " وراهبات هندوس"
-    },
     "hindu saints": {
         "job_males": "قديسون هندوس",
         "job_females": "قديسات هندوسيات",
@@ -1028,11 +973,6 @@
         "job_males": "رهبان هندوس",
         "job_females": "راهبات هندوسيات",
         "both_jobs": "رهبان وراهبات هندوس"
-    },
-    "hindus nuns": {
-        "job_males": " هندوس",
-        "job_females": "راهبات هندوسيات",
-        "both_jobs": " وراهبات هندوس"
     },
     "hindus saints": {
         "job_males": "قديسون هندوس",
@@ -1249,11 +1189,6 @@
         "job_females": "راهبات إسلاميات",
         "both_jobs": "رهبان وراهبات إسلاميون"
     },
-    "islamic nuns": {
-        "job_males": " إسلاميون",
-        "job_females": "راهبات إسلاميات",
-        "both_jobs": " وراهبات إسلاميون"
-    },
     "islamic saints": {
         "job_males": "قديسون إسلاميون",
         "job_females": "قديسات إسلاميات",
@@ -1309,11 +1244,6 @@
         "job_females": "راهبات يهوديات",
         "both_jobs": "رهبان وراهبات يهود"
     },
-    "jewish nuns": {
-        "job_males": " يهود",
-        "job_females": "راهبات يهوديات",
-        "both_jobs": " وراهبات يهود"
-    },
     "jewish saints": {
         "job_males": "قديسون يهود",
         "job_females": "قديسات يهوديات",
@@ -1368,11 +1298,6 @@
         "job_males": "رهبان يهود",
         "job_females": "راهبات يهوديات",
         "both_jobs": "رهبان وراهبات يهود"
-    },
-    "jews nuns": {
-        "job_males": " يهود",
-        "job_females": "راهبات يهوديات",
-        "both_jobs": " وراهبات يهود"
     },
     "jews saints": {
         "job_males": "قديسون يهود",
@@ -1604,11 +1529,6 @@
         "job_females": "راهبات مسلمات",
         "both_jobs": "رهبان وراهبات مسلمون"
     },
-    "muslim nuns": {
-        "job_males": " مسلمون",
-        "job_females": "راهبات مسلمات",
-        "both_jobs": " وراهبات مسلمون"
-    },
     "muslim saints": {
         "job_males": "قديسون مسلمون",
         "job_females": "قديسات مسلمات",
@@ -1663,11 +1583,6 @@
         "job_males": "رهبان مسلمون",
         "job_females": "راهبات مسلمات",
         "both_jobs": "رهبان وراهبات مسلمون"
-    },
-    "muslims nuns": {
-        "job_males": " مسلمون",
-        "job_females": "راهبات مسلمات",
-        "both_jobs": " وراهبات مسلمون"
     },
     "muslims saints": {
         "job_males": "قديسون مسلمون",
@@ -1743,11 +1658,6 @@
         "job_males": "موسيقيون نازيون",
         "job_females": "موسيقيات نازيات",
         "both_jobs": "موسيقيون وموسيقيات نازيون"
-    },
-    "nazi nuns": {
-        "job_males": " نازيون",
-        "job_females": "راهبات نازيات",
-        "both_jobs": " وراهبات نازيون"
     },
     "nazi nurses": {
         "job_males": "ممرضون نازيون",
@@ -2134,11 +2044,6 @@
         "job_females": "راهبات بروتستانتيات",
         "both_jobs": "رهبان وراهبات بروتستانتيون"
     },
-    "protestant nuns": {
-        "job_males": " بروتستانتيون",
-        "job_females": "راهبات بروتستانتيات",
-        "both_jobs": " وراهبات بروتستانتيون"
-    },
     "protestant saints": {
         "job_males": "قديسون بروتستانتيون",
         "job_females": "قديسات بروتستانتيات",
@@ -2224,11 +2129,6 @@
         "job_females": "راهبات دينيات",
         "both_jobs": "رهبان وراهبات دينيون"
     },
-    "religious nuns": {
-        "job_males": " دينيون",
-        "job_females": "راهبات دينيات",
-        "both_jobs": " وراهبات دينيون"
-    },
     "religious painters": {
         "job_males": "رسامون دينيون",
         "job_females": "رسامات دينيات",
@@ -2308,11 +2208,6 @@
         "job_males": "رهبان قديسون",
         "job_females": "راهبات قديسات",
         "both_jobs": "رهبان وراهبات قديسون"
-    },
-    "saints nuns": {
-        "job_males": " قديسون",
-        "job_females": "راهبات قديسات",
-        "both_jobs": " وراهبات قديسون"
     },
     "saints saints": {
         "job_males": "قديسون قديسون",
@@ -2539,11 +2434,6 @@
         "job_females": "راهبات صوفيات",
         "both_jobs": "رهبان وراهبات صوفيون"
     },
-    "sufis nuns": {
-        "job_males": " صوفيون",
-        "job_females": "راهبات صوفيات",
-        "both_jobs": " وراهبات صوفيون"
-    },
     "sufis saints": {
         "job_males": "قديسون صوفيون",
         "job_females": "قديسات صوفيات",
@@ -2654,11 +2544,6 @@
         "job_females": "راهبات مبجلات",
         "both_jobs": "رهبان وراهبات مبجلون"
     },
-    "venerated nuns": {
-        "job_males": " مبجلون",
-        "job_females": "راهبات مبجلات",
-        "both_jobs": " وراهبات مبجلون"
-    },
     "venerated saints": {
         "job_males": "قديسون مبجلون",
         "job_females": "قديسات مبجلات",
@@ -2754,11 +2639,6 @@
         "job_females": "راهبات يزيديات",
         "both_jobs": "رهبان وراهبات يزيديون"
     },
-    "yazidis nuns": {
-        "job_males": " يزيديون",
-        "job_females": "راهبات يزيديات",
-        "both_jobs": " وراهبات يزيديون"
-    },
     "yazidis saints": {
         "job_males": "قديسون يزيديون",
         "job_females": "قديسات يزيديات",
@@ -2814,11 +2694,6 @@
         "job_females": "راهبات زيديات",
         "both_jobs": "رهبان وراهبات زيود"
     },
-    "zaydi nuns": {
-        "job_males": " زيود",
-        "job_females": "راهبات زيديات",
-        "both_jobs": " وراهبات زيود"
-    },
     "zaydi saints": {
         "job_males": "قديسون زيود",
         "job_females": "قديسات زيديات",
@@ -2873,11 +2748,6 @@
         "job_males": "رهبان زيود",
         "job_females": "راهبات زيديات",
         "both_jobs": "رهبان وراهبات زيود"
-    },
-    "zaydis nuns": {
-        "job_males": " زيود",
-        "job_females": "راهبات زيديات",
-        "both_jobs": " وراهبات زيود"
     },
     "zaydis saints": {
         "job_males": "قديسون زيود",
