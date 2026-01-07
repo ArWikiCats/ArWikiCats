@@ -21,8 +21,6 @@ test_deaths_data = {
 
 test_females_data = {
     "18th-century businesswomen from the Russian Empire": "سيدات أعمال من الإمبراطورية الروسية في القرن 18",
-    "businesswomen": "سيدات أعمال",
-    "actresses": "ممثلات",
     "18th-century actresses from Bohemia": "ممثلات من بوهيميا في القرن 18",
     "18th-century actresses from the Holy Roman Empire": "ممثلات من الإمبراطورية الرومانية المقدسة في القرن 18",
     "19th-century actresses from the Ottoman Empire": "ممثلات من الدولة العثمانية في القرن 19",
@@ -141,9 +139,20 @@ def test_resolve_v3i_more_1(category: str, expected: str) -> None:
     assert result2 == expected
 
 
+@pytest.mark.parametrize("category,expected", test_females_data.items(), ids=test_females_data.keys())
+@pytest.mark.fast
+def test_females_data_1(category: str, expected: str) -> None:
+    """Test resolve year job from countries function for test_females_data."""
+    result2 = resolve_label_ar(category)
+    assert result2 == expected
+
+    result1 = resolve_year_job_from_countries(category)
+    assert result1 == expected
+
+
 to_test = [
     ("test_resolve_v3i_more_2", test_data_standard, resolve_year_job_from_countries),
-    ("test_females_data", test_females_data, resolve_year_job_from_countries),
+    ("test_females_data_1", test_females_data, resolve_year_job_from_countries),
 ]
 
 
