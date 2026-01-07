@@ -3,9 +3,11 @@ TODO: use mens_resolver_labels
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.jobs_bots.prefix_bot import mens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels as mens_prefixes_work
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
@@ -589,6 +591,7 @@ test_prefix = {
 
 all_data = test_mens_data | by_data_fast | test_suffix | test_prefix
 
+
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
 def test_mens_prefixes_work(category: str, expected: str) -> None:
@@ -622,3 +625,20 @@ def test_work_mens_prefix(category: str, expected: str) -> None:
 def test_mens_resolver_labels(category: str, expected: str) -> None:
     label = mens_resolver_labels(category)
     assert label == expected
+
+
+TEMPORAL_CASES = [
+    ("test_prefix_bot_mens_1", test_mens_data, mens_prefixes_work),
+    ("test_prefix_bot_mens_2", by_data_fast, mens_prefixes_work),
+    ("test_prefix_bot_mens_3", test_suffix, mens_prefixes_work),
+    ("test_prefix_bot_mens_4", test_prefix, mens_resolver_labels),
+]
+
+
+@pytest.mark.dump
+@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
+def test_all_dump(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
