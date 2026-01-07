@@ -18,7 +18,6 @@ from ...translations import (
     PLAYERS_TO_MEN_WOMENS_JOBS,
     SPORT_JOB_VARIANTS,
     SPORTS_KEYS_FOR_LABEL,
-    Female_Jobs,
     Nat_mens,
     People_key,
     change_male_to_female,
@@ -157,16 +156,16 @@ def _get_job_label(job_key: str) -> Optional[str]:
 
 def _apply_gender_transformation(prefix_label: str, job_key: str) -> str:
     """
-    Apply gender transformation if the job is in Female_Jobs and transformation exists.
+    Apply gender transformation if the job is in short_womens_jobs and transformation exists.
 
     Args:
         prefix_label: The prefix label to potentially transform.
-        job_key: The job key to check against Female_Jobs.
+        job_key: The job key to check against short_womens_jobs.
 
     Returns:
         str: The transformed prefix label if applicable, otherwise original.
     """
-    if job_key in Female_Jobs and prefix_label in change_male_to_female:
+    if job_key in short_womens_jobs and prefix_label in change_male_to_female:
         return change_male_to_female[prefix_label]
     return prefix_label
 

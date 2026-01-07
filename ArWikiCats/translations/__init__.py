@@ -6,7 +6,7 @@ from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
-from .jobs.jobs_womens import FEMALE_JOBS_BASE, FEMALE_JOBS_BASE_EXTENDED, Female_Jobs, short_womens_jobs
+from .jobs.jobs_womens import FEMALE_JOBS_BASE_EXTENDED, short_womens_jobs
 from .languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
@@ -105,9 +105,7 @@ __all__ = [
     "jobs_mens_data",
     "jobs_womens_data",
     "FEMALE_JOBS_BASE_EXTENDED",
-    "FEMALE_JOBS_BASE",
     "short_womens_jobs",
-    "Female_Jobs",
     "NAT_BEFORE_OCC",
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
