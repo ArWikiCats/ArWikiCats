@@ -110,7 +110,6 @@ fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "asian games medalists", "output": "فائزون بميداليات الألعاب الآسيوية"},
     {"separator": " in ", "cone_1": "bosnia and herzegovina", "output": "البوسنة والهرسك"},
     {"separator": " in ", "cone_1": "buildings and structures", "output": "مبان ومنشآت"},
-    {"separator": " in ", "cone_1": "by francisco de zurbarán", "output": "بواسطة فرانسيسكو دي زورباران"},
     {"separator": " in ", "cone_1": "by high school", "output": "حسب المدرسة الثانوية"},
     {"separator": " in ", "cone_1": "by populated place and occupation", "output": "حسب المكان المأهول والمهنة"},
     {"separator": " in ", "cone_1": "canadian chief executives", "output": "رؤساء تنفيذيون كنديون"},

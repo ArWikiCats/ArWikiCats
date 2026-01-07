@@ -6,6 +6,11 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "singaporean blind people": "أعلام سنغافوريون مكفوفون",
+    "ukrainian deaf people": "أعلام أوكرانيون صم",
+    "slovenian deaf people": "أعلام سلوفينيون صم",
+    "russian blind people": "أعلام روس مكفوفون",
+    "czech deaf people": "أعلام تشيكيون صم",
     "male models": "عارضو أزياء ذكور",
     "male sport shooters": "لاعبو رماية ذكور",
     "by benjamin britten": "بواسطة بنجامين بريتن",
