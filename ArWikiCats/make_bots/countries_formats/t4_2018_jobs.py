@@ -14,7 +14,6 @@ from ...translations import (
 )
 from ..jobs_bots.get_helps import get_suffix_with_keys
 from ..jobs_bots.jobs_mainbot import jobs_with_nat_prefix, jobs_with_nat_prefix_label
-# from ..languages_bot.resolve_languages_new import resolve_languages_labels
 
 # TODO: fix typo to prefix_lab_for_2018
 prefix_lab_for_2018: dict[str, dict[str, str]] = {
@@ -114,7 +113,8 @@ def te4_2018_Jobs(cate: str) -> str:
     cate_original = cate
     cate_lower_original = cate.lower()
 
-    country_lab = jobs_with_nat_prefix_label(cate_lower_original)
+    # country_lab = jobs_with_nat_prefix_label(cate_lower_original)
+    country_lab = ""
 
     if country_lab:
         return country_lab
@@ -131,7 +131,7 @@ def te4_2018_Jobs(cate: str) -> str:
         country_lab = "أشخاص"
 
     # 3. Direct Lookups
-    country_lab = country_lab or People_key.get(cate_lower, "")  # or resolve_languages_labels(cate_lower)
+    country_lab = country_lab or People_key.get(cate_lower, "")
 
     category_suffix, country_prefix = get_suffix_with_keys(cate_lower, all_nat_sorted, "nat")
 
