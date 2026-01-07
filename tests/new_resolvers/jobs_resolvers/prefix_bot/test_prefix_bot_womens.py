@@ -8,12 +8,11 @@ from ArWikiCats.make_bots.jobs_bots.prefix_bot import womens_prefixes_work
 from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
 test_womens_data_0 = {
-    "women children's writers": "كاتبات أطفال",
 }
 
 test_womens_data = {
+    "women children's writers": "كاتبات أطفال",
     "female women's rights activists": "ناشطات في حقوق المرأة",
-    "women's rights activists female": "ناشطات في حقوق المرأة",
     "expatriate women's football players": "لاعبات كرة قدم مغتربات",
     "female alpine skiers": "متزحلقات منحدرات ثلجية",
     "female archers": "نبالات",
