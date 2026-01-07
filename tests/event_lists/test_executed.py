@@ -1177,7 +1177,7 @@ data_3 = {
     "Polish people executed by the Russian Empire": "بولنديون أعدموا من قبل الإمبراطورية الروسية",
     "Polish people executed by the Soviet Union": "بولنديون أعدموا من قبل الاتحاد السوفيتي",
     "Portuguese people executed abroad": "برتغاليون أعدموا في الخارج",
-    "Roman Catholic priests executed by Nazi Germany": "قساوسة كاثوليك رومان أعدموا من قبل ألمانيا النازية",
+    "Roman Catholic priests executed by Nazi Germany": "كهنة كاثوليك رومان أعدموا من قبل ألمانيا النازية",
     "Romanian people executed abroad": "رومان أعدموا في الخارج",
     "Romanian people executed by Nazi Germany": "رومان أعدموا من قبل ألمانيا النازية",
     "Russian people executed abroad": "روس أعدموا في الخارج",
