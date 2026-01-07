@@ -6,7 +6,7 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 import functools
 from typing import Tuple
 
-from ..helps import logger
+from ..helps import dump_data, logger
 from ..translations import (
     People_key,
     change_male_to_female,
@@ -92,6 +92,7 @@ def handle_main_prefix(category: str, category_original: str = "") -> Tuple[str,
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def te4_2018_Jobs(cate: str) -> str:
     """
     Determine the localized label for a job- or nationality-related category.
@@ -135,5 +136,4 @@ def te4_2018_Jobs(cate: str) -> str:
 
 __all__ = [
     "te4_2018_Jobs",
-    "handle_main_prefix",
 ]
