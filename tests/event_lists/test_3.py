@@ -156,6 +156,12 @@ data_1 = {
 }
 
 data_2 = {
+    "Austrian Giro d'Italia stage winners": "فائزون في مراحل طواف إيطاليا نمساويون",
+    "Azerbaijani men marathon runners": "عداؤو ماراثون أذربيجانيون",
+    "Brazilian men sprinters": "عداؤون سريعون برازيليون",
+    "Burmese men long-distance runners": "عداؤو مسافات طويلة بورميون",
+    "Estonian men long-distance runners": "عداؤو مسافات طويلة إستونيون",
+    "Gibraltarian men athletes": "لاعبو قوى جبل طارقيون",
     "Nazis executed by the British military": "نازيون أعدموا من قبل الجيش البريطاني",
     "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
     "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
@@ -176,12 +182,6 @@ data_2 = {
     "Sculptures of men in England": "منحوتات في رجال في إنجلترا",
     "Sculptures of men in London": "منحوتات في رجال في لندن",
     "Algerian men middle-distance runners": "عداؤو مسافات متوسطة جزائريون",
-    "Austrian Giro d'Italia stage winners": "فائزون في مراحل طواف إيطاليا نمساويون",
-    "Azerbaijani men marathon runners": "عداؤو ماراثون أذربيجانيون",
-    "Brazilian men sprinters": "عداؤون سريعون برازيليون",
-    "Burmese men long-distance runners": "عداؤو مسافات طويلة بورميون",
-    "Estonian men long-distance runners": "عداؤو مسافات طويلة إستونيون",
-    "Gibraltarian men athletes": "لاعبو قوى جبل طارقيون",
     "Guatemalan men middle-distance runners": "عداؤو مسافات متوسطة غواتيماليون",
     "Haitian men athletes": "لاعبو قوى هايتيون",
     "Iranian men athletes": "لاعبو قوى إيرانيون",
