@@ -8,9 +8,6 @@ from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .Newkey import pop_final6
 
-en_is_nat_ar_is_al_mens: dict[str, str] = {
-}
-
 # العربي جنسية مثل : Yemeni > اليمني
 # tab[Category:syrian invasion] = "تصنيف:الغزو السوري"
 
@@ -288,13 +285,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
 }
 
 
-def _extend_sport_mappings() -> None:
-    """Populate sport related mappings for both genders."""
-
-    for category, label in baston_men.items():
-        en_is_nat_ar_is_al_mens[category.lower()] = f"{label} {{}}"
-
-
 def _extend_singer_and_business_entries() -> None:
     """Populate singer and businessperson derived mappings."""
 
@@ -355,7 +345,6 @@ ttk2: dict[str, str] = {
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
 }
-_extend_sport_mappings()
 
 _extend_singer_and_business_entries()
 books_keys = _extend_book_entries()
@@ -363,7 +352,6 @@ en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
     "change_male_to_female",
-    "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
 ]
@@ -372,7 +360,6 @@ __all__ = [
 len_print.data_len(
     "bot_te_4_list.py",
     {
-        "en_is_nat_ar_is_al_mens": en_is_nat_ar_is_al_mens,
         "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
         "change_male_to_female": change_male_to_female,

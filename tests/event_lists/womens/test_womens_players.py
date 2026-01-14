@@ -62,7 +62,7 @@ data_2 = {
     "Category:Victorian Women's Football League players": "تصنيف:لاعبات الدوري الفيكتوري لكرة القدم للسيدات",
     "Category:Volleyball players by women's national team": "تصنيف:لاعبات كرة طائرة حسب منتخب السيدات الوطني",
     "Category:Women's Africa Cup of Nations players": "تصنيف:لاعبات كأس الأمم الإفريقية للسيدات",
-    "Category:Women's basketball players in the United States by league": "تصنيف:لاعبات كرة سلة نسائية في الولايات المتحدة حسب الدوري",
+    "Category:Women's basketball players in the United States by league": "تصنيف:لاعبات كرة سلة في الولايات المتحدة حسب الدوري",
     "Category:Women's Chinese Basketball Association players": "تصنيف:لاعبات الرابطة الصينية لكرة السلة للسيدات",
     "Category:Women's field hockey players in England": "تصنيف:لاعبات هوكي ميدان في إنجلترا",
     "Category:Women's field hockey players in Ireland": "تصنيف:لاعبات هوكي ميدان في أيرلندا",
@@ -80,7 +80,7 @@ data_2 = {
     "Category:Women's National Basketball League players": "تصنيف:لاعبات الدوري الوطني لكرة السلة للسيدات",
     "Category:Women's National Basketball League teams": "تصنيف:فرق الدوري الوطني لكرة السلة للسيدات",
     "Category:Women's National Basketball League": "تصنيف:الدوري الوطني لكرة السلة للسيدات",
-    "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبات كرة قدم نسائية في أستراليا حسب المنافسة",
+    "Category:Women's soccer players in Australia by competition": "تصنيف:لاعبات كرة قدم في أستراليا حسب المنافسة",
 }
 data_3 = {}
 data_4 = {}

@@ -45,9 +45,6 @@ data0 = {
 
 data1 = {
     "samoan rugby league players": "لاعبو دوري رجبي سامويون",
-    "20th-century Anglican archbishops in Ireland": "رؤساء أساقفة أنجليكيون في أيرلندا في القرن 20",
-    "20th-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا في القرن 20",
-    "21st-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا في القرن 21",
 
     "Sunni Muslim scholars of Islam by ethnicity": "مسلمون سنة باحثون عن الإسلام حسب المجموعة العرقية",
     "Sunni Muslim scholars of Islam by nationality": "مسلمون سنة باحثون عن الإسلام حسب الجنسية",
