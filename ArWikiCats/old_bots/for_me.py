@@ -130,7 +130,8 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
         return res
 
     # 6. رجالية بألف ولام التعريف (Fallback)
-    return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
+    # return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
+    return ""
 
 
 @functools.lru_cache(maxsize=None)
