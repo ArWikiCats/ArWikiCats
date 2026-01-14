@@ -32,7 +32,6 @@ data = [
     (" in ", "years of 18th century", "سنوات القرن 18"),
     (" of ", "ports and harbours of", "مرافئ وموانئ"),
     (" of ", "motor vehicle manufacturers of", "مصانع السيارات في"),
-    (" in ", "lists of political office-holders", "قوائم أصحاب مناصب سياسية"),
     (" in ", "senegalese expatriate basketball people", "أعلام كرة سلة سنغاليون مغتربون"),
     (" in ", "sports clubs and teams", "أندية وفرق رياضية"),
     (" by ", "road incident deaths in the united states", "وفيات حوادث الطرق في الولايات المتحدة"),

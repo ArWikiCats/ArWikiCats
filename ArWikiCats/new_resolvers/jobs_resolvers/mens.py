@@ -105,6 +105,9 @@ def is_false_key(key: str, value: str) -> bool:
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
+
+        "political office-holders": "أصحاب مناصب سياسية",
+        "{en_nat} political office-holders": "أصحاب مناصب سياسية {males}",
         # base keys
         "{en_nat} muslim scholars-of-islam": "باحثون عن الإسلام مسلمون {males}",
         "{en_nat} sunni muslim scholars-of-islam": "باحثون عن الإسلام مسلمون سنة {males}",

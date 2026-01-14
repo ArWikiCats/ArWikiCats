@@ -78,7 +78,6 @@ data_of = {
     "lists of legislators": ("lists of", "legislators"),
     "lists of mass media": ("lists of", "mass media"),
     "lists of mayors of places": ("lists of", "mayors of places"),
-    "lists of political office-holders": ("lists of", "political office-holders"),
     "lists of roads": ("lists of", "roads"),
     "lists of television characters": ("lists of", "television characters"),
     "lists of universities and colleges": ("lists of", "universities and colleges"),

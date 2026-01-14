@@ -324,7 +324,6 @@ title_work_tests_data = {
     "lists of german people": "قوائم ألمان",
     "lists of legislators": "قوائم مشرعون",
     "lists of mayors of places": "قوائم رؤساء بلديات",
-    "lists of political office-holders": "قوائم أصحاب مناصب سياسية",
     "lists of religious buildings and structures": "قوائم مبان ومنشآت دينية",
     "lists of roads": "قوائم طرقات",
     "lists of schools": "قوائم مدارس",

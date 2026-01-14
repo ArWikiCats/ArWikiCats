@@ -251,7 +251,7 @@ data_list = [
     ("may 1550 by continent", " by ", "مايو 1550 حسب القارة"),
     ("mayors of ajaccio", " of ", "عمدات أجاكسيو"),
     ("members of maine legislature", " of ", "أعضاء هيئة مين التشريعية"),
-    ("men's footballers in togo by club", " by ", "لاعبو كرة قدم رجالية في توغو حسب النادي"),
+    ("men's footballers in togo by club", " by ", "لاعبو كرة قدم في توغو حسب النادي"),
     ("mexico by month", " by ", "المكسيك حسب الشهر"),
     ("military campaigns involving denmark", " involving ", "حملات عسكرية تشمل الدنمارك"),
     (
