@@ -5,6 +5,12 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "christian children's books": "كتب أطفال مسيحية",
+    "christian children's magazines": "مجلات أطفال مسيحية",
+    "christian illuminated manuscripts": "مخطوطات مذهبة مسيحية",
+    "christian manuscripts": "مخطوطات مسيحية",
+    "christian new religious movements": "حركات دينية جديدة مسيحية",
+    "christian paintings": "لوحات مسيحية",
     "belgian children's books": "كتب أطفال بلجيكية",
     "jewish children's magazines": "مجلات أطفال يهودية",
     "american international schools": "مدارس دولية أمريكية",

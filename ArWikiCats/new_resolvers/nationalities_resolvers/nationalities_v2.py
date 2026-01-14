@@ -111,13 +111,40 @@ male_data = {
 
 }
 
+female_data_music = {
+    "{en} black metal musical groups": "فرق موسيقى بلاك ميتال {female}",
+    "{en} blues musical groups": "فرق موسيقى بلوز {female}",
+    "{en} contemporary r&b musical groups": "فرق موسيقى آر أند بي معاصر {female}",
+    "{en} country music groups": "فرق كانتري {female}",
+    "{en} doom metal musical groups": "فرق موسيقى دوم ميتال {female}",
+    "{en} electronic dance music groups": "فرق موسيقى الرقص الإلكترونية {female}",
+    "{en} eurodance groups": "فرق يورودانس {female}",
+    "{en} folk music groups": "فرق موسيقى تقليدية {female}",
+    "{en} folk rock groups": "فرق فولك روك {female}",
+    "{en} funk musical groups": "فرق موسيقى فانك {female}",
+    "{en} gothic metal musical groups": "فرق موسيقى غوثيك ميتال {female}",
+    "{en} heavy metal musical groups by genre": "فرق موسيقى هيفي ميتال {female} حسب النوع الفني",
+    "{en} heavy metal musical groups": "فرق موسيقى هيفي ميتال {female}",
+    "{en} hip hop groups": "فرق هيب هوب {female}",
+    "{en} hip-hop groups": "فرق هيب هوب {female}",
+    "{en} indie pop groups": "فرق إيندي بوب {female}",
+    "{en} indie rock groups": "فرق إيندي روك {female}",
+    "{en} musicals": "مسرحيات غنائية {female}",
+    "{en} pop music groups": "فرق موسيقى بوب {female}",
+    "{en} reggae musical groups": "فرق موسيقى ريغيه {female}",
+    "{en} rock music groups": "فرق موسيقى الروك {female}",
+    "{en} ska groups": "فرق سكا {female}",
+    "{en} thrash metal musical groups": "فرق موسيقى ثراش ميتال {female}",
+    "{en} world music groups": "فرق موسيقى العالم {female}",
+}
+
 female_data = {
+    "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
     "{en} hindu festivals": "مهرجانات هندوسية {female}",
     "{en} documentaries": "وثائقيات {female}",
     "{en} cookbooks": "كتب طبخ {female}",
-    "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} political websites": "مواقع ويب سياسية {female}",
     "{en} comic": "قصص مصورة {female}",
     "{en} organized crime": "جريمة منظمة {female}",
@@ -374,6 +401,8 @@ female_data = {
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
 
 }
+
+female_data.update(female_data_music)
 
 burial_sites = {
     "{en} dynasties": "أسر {female}",

@@ -52,22 +52,16 @@ data_1 = {
 data_2 = {
     "christian alternative metal groups": "فرق ميتال بديل مسيحية",
     "christian bibliographies": "ببليوجرافيات مسيحية",
-    "christian children's books": "كتب أطفال مسيحية",
-    "christian children's magazines": "مجلات أطفال مسيحية",
     "christian conferences": "مؤتمرات مسيحية",
     "christian contemporary r&b groups": "فرق آر أند بي معاصر مسيحية",
     "christian hip hop groups": "فرق هيب هوب مسيحية",
     "Christian hip-hop groups": "فرق هيب هوب مسيحية",
-    "christian illuminated manuscripts": "مخطوطات مذهبة مسيحية",
-    "christian manuscripts": "مخطوطات مسيحية",
     "christian metal musical groups": "فرق موسيقى ميتال مسيحية",
     "christian music awards": "جوائز موسيقى مسيحية",
-    "christian new religious movements": "حركات دينية جديدة مسيحية",
-    "christian paintings": "لوحات مسيحية",
     "christian pop groups": "فرق بوب مسيحية",
     "christian rhythm and blues groups": "فرق ريذم أند بلوز مسيحية",
     "christian ska groups": "فرق سكا مسيحية",
-    "christian socialist organizations": "منظمات اشتراكية مسيحية",
+    "christian socialist organizations": "منظمات اشتراكية مسيحية"
 }
 
 data_2018 = {
