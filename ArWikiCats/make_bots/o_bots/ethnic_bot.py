@@ -307,6 +307,21 @@ def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
     return result
 
 
+@functools.lru_cache(maxsize=None)
+def ethnic_label_main(category: str) -> str:
+    logger.debug(f"<<lightyellow>>>> ethnic_label_main >> category:({category})")
+
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+    result = ""
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
+
+    if suffix:
+        result = ethnic_label(normalized_category, nationality_key, suffix)
+
+    logger.debug(f'<<lightblue>> ethnic_label_main :: "{result}"')
+    return result
+
+
 __all__ = [
     "ethnic",
     "ethnic_label",
