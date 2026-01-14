@@ -10,7 +10,7 @@ from typing import Dict, List, Mapping, MutableMapping
 from ...helps import len_print
 from ..companies import companies_to_jobs
 from ..mixed.all_keys2 import BOOK_CATEGORIES
-from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
+from ..mixed.female_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import BASE_CYCLING_EVENTS
 from ..tv.films_mslslat import film_keys_for_female

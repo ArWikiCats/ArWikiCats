@@ -224,7 +224,7 @@ def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
     for key, label in RESOURCE_LABELS.items():
         registry[key.lower()] = label
 
-    registry.update(New_male_keys)
+    # registry.update(New_male_keys)
     return registry, clubs_index
 
 

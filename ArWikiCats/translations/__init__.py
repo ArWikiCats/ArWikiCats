@@ -30,7 +30,7 @@ from .mixed.all_keys3 import (
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
 from .mixed.keys2 import PARTIES
-from .mixed.male_keys import New_female_keys, New_male_keys
+from .mixed.female_keys import New_female_keys
 from .nats.Nationality import (
     all_nat_sorted,
     All_Nat,
@@ -153,7 +153,6 @@ __all__ = [
     "language_key_translations",
     "LANGUAGE_TOPIC_FORMATS",
     "New_female_keys",
-    "New_male_keys",
     "New_Company",
     "ministers_keys",
     "change_numb_to_word",

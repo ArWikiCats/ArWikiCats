@@ -106,6 +106,7 @@ male_data = {
     "{en} military history": "تاريخ عسكري {male}",
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
+
 }
 
 female_data = {
