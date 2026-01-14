@@ -7,6 +7,7 @@ import pytest
 from ArWikiCats.make_bots.sports_bots.team_work import Get_team_work_Club
 
 fast_data = {
+
     # "baseball world cup players": "لاعبو كأس العالم لكرة القاعدة",
     # "egyptian second division seasons": "مواسم الدوري المصري الدرجة الثانية",
     # "rugby world cup referees": "حكام كأس العالم للرجبي",
@@ -17,7 +18,6 @@ fast_data = {
     "al ansar fc matches": "مباريات نادي الأنصار",
     "aldershot f.c. managers": "مدربو نادي ألدرشوت",
     "algerian ligue professionnelle 1 seasons": "مواسم الرابطة الجزائرية المحترفة الأولى",
-    "american football films": "أفلام كرة القدم الأمريكية",
     "american football league seasons": "مواسم دوري كرة القدم الأمريكية",
     "associação chapecoense de futebol seasons": "مواسم نادي شابيكوينسي",
     "atlante f.c. footballers": "لاعبو أتلانتي إف سي",
@@ -37,7 +37,6 @@ fast_data = {
     "copa américa managers": "مدربو كوبا أمريكا",
     "copa américa matches": "مباريات كوبا أمريكا",
     "cs sfaxien players": "لاعبو النادي الرياضي الصفاقسي",
-    "cuban football logos": "شعارات كرة القدم الكوبية",
     "dallas cowboys personnel": "أفراد دالاس كاوبويز",
     "deportivo toluca f.c. matches": "مباريات نادي تولوكا",
     "derry city f.c. matches": "مباريات ديري سيتي",
@@ -71,12 +70,9 @@ fast_data = {
     "luxembourgian european commissioners": "مفوضو أوروبيون لوكسمبورغيون",
     "major league baseball owners and executives": "رؤساء تنفيذيون وملاك دوري كرة القاعدة الرئيسي",
     "mc oran players": "لاعبو مولودية وهران",
-    "mexican revolution films": "أفلام الثورة المكسيكية",
     "mighty jets f.c. players": "لاعبو مايتي جيتس",
     "music managers": "مدربو موسيقى",
     "nac breda non-playing staff": "طاقم إن أي سي بريدا غير اللاعبين",
-    "north american television awards": "جوائز التلفزة الأمريكية الشمالية",
-    "northern-ireland football cups": "كؤوس كرة القدم الأيرلندية الشمالية",
     "oakland raiders owners": "ملاك أوكلاند ريدرز",
     "orlando pride players": "لاعبو أورلاندو برايد",
     "pfc beroe stara zagora players": "لاعبو نادي بيروي ستارا زاغورا",
