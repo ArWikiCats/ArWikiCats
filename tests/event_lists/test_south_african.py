@@ -73,7 +73,6 @@ data_0 = {
     "Christian denominations in South Africa": "طوائف مسيحية في جنوب إفريقيا",
     "Christian missionaries in South Africa": "مبشرون مسيحيون في جنوب إفريقيا",
     "Christian music albums by South African artists": "ألبومات موسيقى مسيحية بواسطة فنانون جنوب إفريقيون",
-    "Christian political parties in South Africa": "أحزاب سياسية مسيحية في جنوب إفريقيا",
     "Christian rock albums by South African artists": "ألبومات روك مسيحي بواسطة فنانون جنوب إفريقيون",
     "Christian schools in South Africa": "مدارس مسيحية في جنوب إفريقيا",
     "Church of Jesus Christ of Latter-day Saints in South Africa": "كنيسة يسوع المسيح لقديسي الأيام الأخيرة في جنوب إفريقيا",

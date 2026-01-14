@@ -119,7 +119,6 @@ data_list = [
     ("cabinets of british columbia navigational boxes", " of ", "مجالس وزراء في صناديق تصفح كولومبيا البريطانية"),
     ("cantons of marseille", " of ", "كانتونات مارسيليا"),
     ("chemical companies established in 1550", " established in ", "شركات كيميائية أسست في 1550"),
-    ("christian texts by genre", " by ", "نصوص مسيحية حسب النوع الفني"),
     ("christians from ohio", " from ", "مسيحيون من أوهايو"),
     ("churches completed in 1550", " completed in ", "كنائس اكتملت في 1550"),
     ("city of zagreb", " of ", "مدينة زغرب"),

@@ -37,7 +37,6 @@ temporal_2 = {
     "Category:2000s in film": "تصنيف:عقد 2000 في الأفلام",
     "Category:2006 Winter Paralympics events": "تصنيف:أحداث الألعاب البارالمبية الشتوية 2006",
     "Category:2006 establishments by country": "تصنيف:تأسيسات سنة 2006 حسب البلد",
-    "Category:2006 in Northern Ireland sport": "تصنيف:رياضة أيرلندية شمالية في 2006",
     "Category:2006 in north korean sport": "تصنيف:رياضة كورية شمالية في 2006",
     "Category:2017 American television series debuts": "تصنيف:مسلسلات تلفزيونية أمريكية بدأ عرضها في 2017",
     "Category:2017 American television series endings": "تصنيف:مسلسلات تلفزيونية أمريكية انتهت في 2017",

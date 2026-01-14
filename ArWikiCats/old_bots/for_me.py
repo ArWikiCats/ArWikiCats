@@ -18,7 +18,6 @@ from ..translations.mixed.bot_te_4_list import (
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
-from ..make_bots.o_bots.ethnic_bot import ethnic_label_main
 
 
 def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
@@ -62,6 +61,6 @@ def Work_for_me_main(category: str) -> str:
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    result = ethnic_label_main(normalized_category) or _work_for_me_main(normalized_category)
+    result = _work_for_me_main(normalized_category)
 
     return result
