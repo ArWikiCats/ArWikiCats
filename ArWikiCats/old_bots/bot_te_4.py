@@ -10,14 +10,10 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 
 import functools
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
-from ..make_bots.languages_bot.langs_w import Lang_work
 
-from ..helps import dump_data, logger
-from ..translations import (
-    People_key,
-)
-from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
-Multi_sport_for_Jobs = {
+from ..helps import logger
+
+multi_sport_for_jobs = {
     "afc asian cup": "كأس آسيا",
     "afc asian cup finals": "نهائيات كأس آسيا",
     "afc asian cup qualification": "تصفيات كأس آسيا",
@@ -131,7 +127,7 @@ def _find_sport_prefix_match(category_lower: str) -> tuple[str, str]:
     Returns:
         A tuple of (job_suffix, sport_label) or ("", "") if no match.
     """
-    for sport_prefix, sport_label in Multi_sport_for_Jobs.items():
+    for sport_prefix, sport_label in multi_sport_for_jobs.items():
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):
             job_suffix = category_lower[len(prefix_pattern) :]
@@ -189,13 +185,8 @@ def jobs_in_multi_sports(category: str) -> str:
     if not job_suffix or not sport_label:
         return ""
 
-    job_label = (
-        resolve_languages_labels(job_suffix) or
-        People_key.get(job_suffix) or
-        Lang_work(job_suffix) or
-        resolve_jobs_main(job_suffix) or
-        ""
-    )
+    job_label = resolve_jobs_main(job_suffix)
+
     if not job_label:
         return ""
 

@@ -5,12 +5,34 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers import resolve_countries_names_medalists
 from ArWikiCats.old_bots.bot_te_4 import jobs_in_multi_sports
 
-Multi_Sports_data = {
+multi_sports_data_competitors = {
+    "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
+    "paralympic competitors": "منافسون بارالمبيون",
+    "african games competitors": "منافسون في الألعاب الإفريقية",
+    "asian games competitors": "منافسون في الألعاب الآسيوية",
+    "parapan american games competitors": "منافسون في ألعاب بارابان الأمريكية",
+    "sea games competitors": "منافسون في ألعاب البحر",
+    "south american games competitors": "منافسون في ألعاب أمريكا الجنوبية",
+    "summer olympics competitors": "منافسون أولمبيون صيفيون",
+    "summer world university games competitors": "منافسون في ألعاب الجامعات العالمية الصيفية",
+    "winter olympics competitors": "منافسون أولمبيون شتويون",
+    "pan american games competitors": "منافسون في دورة الألعاب الأمريكية",
+    "maccabiah games competitors": "منافسون في الألعاب المكابيه",
+    "mediterranean games competitors": "منافسون في الألعاب المتوسطية",
+    "islamic solidarity games competitors": "منافسون في ألعاب التضامن الإسلامي",
+    "european games competitors": "منافسون في الألعاب الأوروبية",
+    "asian para games competitors": "منافسون في الألعاب البارالمبية الآسيوية",
+    "central american and caribbean games competitors": "منافسون في ألعاب أمريكا الوسطى والكاريبي",
+    "commonwealth games competitors": "منافسون في ألعاب الكومنولث",
+
+}
+
+multi_sports_data = {
     "afc asian cup managers": "مدربون في كأس آسيا",
     "afc asian cup players": "لاعبون في كأس آسيا",
-    "african games competitors": "منافسون في الألعاب الإفريقية",
     "african games judoka": "لاعبو جودو في الألعاب الإفريقية",
     "african games taekwondo practitioners": "لاعبو تايكوندو في الألعاب الإفريقية",
     "asian games alpine skiers": "متزحلقو منحدرات ثلجية في الألعاب الآسيوية",
@@ -21,7 +43,6 @@ Multi_Sports_data = {
     "asian games boxers": "ملاكمون في الألعاب الآسيوية",
     "asian games canoeists": "متسابقو قوارب الكانوي في الألعاب الآسيوية",
     "asian games chess players": "لاعبو شطرنج في الألعاب الآسيوية",
-    "asian games competitors": "منافسون في الألعاب الآسيوية",
     "asian games cricketers": "لاعبو كريكت في الألعاب الآسيوية",
     "asian games divers": "غواصون في الألعاب الآسيوية",
     "asian games footballers": "لاعبو كرة قدم في الألعاب الآسيوية",
@@ -44,13 +65,10 @@ Multi_Sports_data = {
     "asian games weightlifters": "رباعون في الألعاب الآسيوية",
     "asian games wrestlers": "مصارعون في الألعاب الآسيوية",
     "asian games xiangqi players": "لاعبو شطرنج صيني في الألعاب الآسيوية",
-    "asian para games competitors": "منافسون في الألعاب البارالمبية الآسيوية",
-    "central american and caribbean games competitors": "منافسون في ألعاب أمريكا الوسطى والكاريبي",
     "commonwealth games athletes": "لاعبو قوى في ألعاب الكومنولث",
     "commonwealth games badminton players": "لاعبو تنس ريشة في ألعاب الكومنولث",
     "commonwealth games bowls players": "لاعبو بولينج في ألعاب الكومنولث",
     "commonwealth games boxers": "ملاكمون في ألعاب الكومنولث",
-    "commonwealth games competitors": "منافسون في ألعاب الكومنولث",
     "commonwealth games divers": "غواصون في ألعاب الكومنولث",
     "commonwealth games fencers": "مبارزون في ألعاب الكومنولث",
     "commonwealth games field hockey players": "لاعبو هوكي ميدان في ألعاب الكومنولث",
@@ -61,14 +79,12 @@ Multi_Sports_data = {
     "commonwealth games triathletes": "لاعبو ترياثلون في ألعاب الكومنولث",
     "commonwealth games weightlifters": "رباعون في ألعاب الكومنولث",
     "european games boxers": "ملاكمون في الألعاب الأوروبية",
-    "european games competitors": "منافسون في الألعاب الأوروبية",
     "european games gymnasts": "لاعبو جمباز في الألعاب الأوروبية",
     "european games sambo practitioners": "ممارسو سامبو في الألعاب الأوروبية",
     "european games volleyball players": "لاعبو كرة طائرة في الألعاب الأوروبية",
     "islamic solidarity games archers": "نبالون في ألعاب التضامن الإسلامي",
     "islamic solidarity games basketball players": "لاعبو كرة سلة في ألعاب التضامن الإسلامي",
     "islamic solidarity games boxers": "ملاكمون في ألعاب التضامن الإسلامي",
-    "islamic solidarity games competitors": "منافسون في ألعاب التضامن الإسلامي",
     "islamic solidarity games cyclists": "دراجون في ألعاب التضامن الإسلامي",
     "islamic solidarity games fencers": "مبارزون في ألعاب التضامن الإسلامي",
     "islamic solidarity games footballers": "لاعبو كرة قدم في ألعاب التضامن الإسلامي",
@@ -86,18 +102,14 @@ Multi_Sports_data = {
     "islamic solidarity games volleyball players": "لاعبو كرة طائرة في ألعاب التضامن الإسلامي",
     "islamic solidarity games weightlifters": "رباعون في ألعاب التضامن الإسلامي",
     "islamic solidarity games wrestlers": "مصارعون في ألعاب التضامن الإسلامي",
-    "maccabiah games competitors": "منافسون في الألعاب المكابيه",
     "maccabiah games gymnasts": "لاعبو جمباز في الألعاب المكابيه",
     "maccabiah games rugby union players": "لاعبو اتحاد رجبي في الألعاب المكابيه",
-    "mediterranean games competitors": "منافسون في الألعاب المتوسطية",
-    "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
     "pan american games archers": "نبالون في دورة الألعاب الأمريكية",
     "pan american games athletes": "لاعبو قوى في دورة الألعاب الأمريكية",
     "pan american games baseball players": "لاعبو كرة قاعدة في دورة الألعاب الأمريكية",
     "pan american games basketball players": "لاعبو كرة سلة في دورة الألعاب الأمريكية",
     "pan american games bowlers": "لاعبو بولينج في دورة الألعاب الأمريكية",
     "pan american games boxers": "ملاكمون في دورة الألعاب الأمريكية",
-    "pan american games competitors": "منافسون في دورة الألعاب الأمريكية",
     "pan american games cyclists": "دراجون في دورة الألعاب الأمريكية",
     "pan american games equestrians": "فرسان خيول في دورة الألعاب الأمريكية",
     "pan american games field hockey players": "لاعبو هوكي ميدان في دورة الألعاب الأمريكية",
@@ -122,7 +134,6 @@ Multi_Sports_data = {
     "paralympic biathletes": "لاعبو بياثلون في الألعاب البارالمبية",
     "paralympic boccia players": "لاعبو بوتشيا في الألعاب البارالمبية",
     "paralympic coaches": "مدربون في الألعاب البارالمبية",
-    "paralympic competitors": "منافسون في الألعاب البارالمبية",
     "paralympic cross-country skiers": "متزحلقون ريفيون في الألعاب البارالمبية",
     "paralympic cyclists": "دراجون في الألعاب البارالمبية",
     "paralympic equestrians": "فرسان خيول في الألعاب البارالمبية",
@@ -155,34 +166,34 @@ Multi_Sports_data = {
     "paralympic wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية",
     "paralympic wrestlers": "مصارعون في الألعاب البارالمبية",
     "parapan american games badminton players": "لاعبو تنس ريشة في ألعاب بارابان الأمريكية",
-    "parapan american games competitors": "منافسون في ألعاب بارابان الأمريكية",
     "parapan american games judoka": "لاعبو جودو في ألعاب بارابان الأمريكية",
     "parapan american games wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية",
     "parapan american games wheelchair rugby players": "لاعبو رجبي على كراسي متحركة في ألعاب بارابان الأمريكية",
     "parapan american games wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة في ألعاب بارابان الأمريكية",
-    "sea games competitors": "منافسون في ألعاب البحر",
-    "south american games competitors": "منافسون في ألعاب أمريكا الجنوبية",
     "summer olympics coaches": "مدربون في الألعاب الأولمبية الصيفية",
-    "summer olympics competitors": "منافسون أولمبيون صيفيون",
-    "summer world university games competitors": "منافسون في ألعاب الجامعات العالمية الصيفية",
-    "winter olympics competitors": "منافسون أولمبيون شتويون",
     "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",
     "youth olympics field hockey players": "لاعبو هوكي ميدان في الألعاب الأولمبية الشبابية",
     "youth olympics ice hockey players": "لاعبو هوكي جليد في الألعاب الأولمبية الشبابية",
     "youth olympics nordic combined skiers": "متزحلقو تزلج نوردي مزدوج في الألعاب الأولمبية الشبابية",
-    "paralympic competitors": "منافسون بارالمبيون",
 }
 
 
-@pytest.mark.parametrize("category, expected", Multi_Sports_data.items(), ids=Multi_Sports_data.keys())
+@pytest.mark.parametrize("category, expected", multi_sports_data.items(), ids=multi_sports_data.keys())
 @pytest.mark.fast
-def test_Jobs_in_Multi_Sports(category: str, expected: str) -> None:
+def test_jobs_in_multi_sports(category: str, expected: str) -> None:
     label = jobs_in_multi_sports(category)
     assert label == expected
 
 
+@pytest.mark.parametrize("category, expected", multi_sports_data_competitors.items(), ids=multi_sports_data_competitors.keys())
+@pytest.mark.fast
+def test_resolve_countries_names_medalists(category: str, expected: str) -> None:
+    label = resolve_countries_names_medalists(category)
+    assert label == expected
+
+
 ENTERTAINMENT_CASES = [
-    ("test_Jobs_in_Multi_Sports", Multi_Sports_data, jobs_in_multi_sports),
+    ("test_jobs_in_multi_sports", multi_sports_data, jobs_in_multi_sports),
 ]
 
 
