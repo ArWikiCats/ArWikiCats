@@ -79,7 +79,6 @@ the_male_data = {
     "{en} presidential pardons": "العفو الرئاسي {the_male}",
     "{en} pardons": "العفو {the_male}",
     # "professional football league": "الدوري {the_male} لكرة القدم للمحترفين",
-    "{en} women's rugby union": "اتحاد الرجبي {the_male} للنساء",
 }
 
 male_data = {
@@ -112,6 +111,18 @@ male_data = {
 }
 
 female_data_music = {
+    "{en} christian communities": "مجتمعات مسيحية {female}",
+    "{en} christian metal musical groups": "فرق موسيقى ميتال مسيحي {female}",
+    "{en} christian rock groups": "فرق روك مسيحي {female}",
+    "{en} alternative metal groups": "فرق ميتال بديل {female}",
+    "{en} bibliographies": "ببليوجرافيات {female}",
+    "{en} conferences": "مؤتمرات {female}",
+    "{en} contemporary r&b groups": "فرق آر أند بي معاصر {female}",
+    "{en} metal musical groups": "فرق موسيقى ميتال {female}",
+    "{en} music awards": "جوائز موسيقى {female}",
+    "{en} pop groups": "فرق بوب {female}",
+    "{en} rhythm and blues groups": "فرق ريذم أند بلوز {female}",
+    "{en} socialist organizations": "منظمات اشتراكية {female}",
     "{en} black metal musical groups": "فرق موسيقى بلاك ميتال {female}",
     "{en} blues musical groups": "فرق موسيقى بلوز {female}",
     "{en} contemporary r&b musical groups": "فرق موسيقى آر أند بي معاصر {female}",
