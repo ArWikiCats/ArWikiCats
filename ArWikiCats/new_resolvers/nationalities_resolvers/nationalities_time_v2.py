@@ -16,6 +16,14 @@ from ...translations_formats import (
 )
 
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
+formatted_data = {
+    # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
+    "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
+    "{year1} {en_nat} films": "أفلام {female} في {year1}",
+    "{year1} {en_nat} texts": "نصوص {female} في {year1}",
+    "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
+    "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
+}
 
 
 def populate_film_patterns(formatted_data):
@@ -65,13 +73,6 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
     Returns:
         MultiDataFormatterBaseYearV2: A formatter set up to format categories that combine nationality and year placeholders into Arabic translations.
     """
-    formatted_data = {
-        # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
-        "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
-        "{year1} {en_nat} films": "أفلام {female} في {year1}",
-        "{en_nat} general election {year1}": "الانتخابات التشريعية {the_female} {year1}",
-        "{en_nat} presidential election {year1}": "انتخابات الرئاسة {the_female} {year1}",
-    }
     # populate_film_patterns(formatted_data)
 
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
