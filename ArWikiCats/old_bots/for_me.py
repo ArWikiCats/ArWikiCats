@@ -11,6 +11,8 @@ from ..translations import (
     Nat_the_female,
     Nat_women,
     New_female_keys,
+)
+from ..translations.mixed.bot_te_4_list import (
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys

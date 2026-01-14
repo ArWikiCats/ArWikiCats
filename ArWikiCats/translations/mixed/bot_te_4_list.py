@@ -276,23 +276,6 @@ def _extend_book_entries() -> dict:
     return data
 
 
-change_male_to_female: dict[str, str] = {
-    "{} مغتربون": "{} مغتربات",
-    "{} مختطفون": "{} مختطفات",
-    "{} معاقون": "{} معاقات",
-    "{} مثليون": "{} مثليات",
-    "{} أصليون": "{} أصليات",
-    "{} أسطوريون": "{} أسطوريات",
-    "{} خياليون": "{} خياليات",
-    "{} بحريون": "{} بحريات",
-    "{} سياسيون": "{} سياسيات",
-    "{} معاصرون": "{} معاصرات",
-    "{} عسكريون": "{} عسكريات",
-    "{} لاتينيون": "{} لاتينيات",
-    "{} رومانسيون": "{} رومانسيات",
-    "{} دينيون": "{} دينيات",
-}
-
 ttk: dict[str, str] = {
     "cultural depictions of": "التصوير الثقافي ل{}",
     "fictional depictions of": "التصوير الخيالي ل{}",
@@ -310,7 +293,6 @@ books_keys = _extend_book_entries()
 en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
-    "change_male_to_female",
     "en_is_nat_ar_is_women",
 ]
 
@@ -319,6 +301,5 @@ len_print.data_len(
     "bot_te_4_list.py",
     {
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
-        "change_male_to_female": change_male_to_female,
     },
 )
