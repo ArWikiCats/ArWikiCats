@@ -16,21 +16,6 @@ from .Newkey import pop_final6
 # الإنجليزية والعربية اسم البلد
 # tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
 
-# الإنجليزي جنسية والعربي اسم البلد
-# tab[Category:Bahraini King's Cup] = "تصنيف:كأس ملك البحرين"
-en_is_nat_ar_is_P17: dict[str, str] = {
-    "grand prix": "جائزة {} الكبرى",
-    "king's cup": "كأس ملك {}",  # Bahraini King's Cup
-    "cup": "كأس {}",
-    "independence": "استقلال {}",
-    "open": "{} المفتوحة",
-    "ladies open": "{} المفتوحة للسيدات",
-    "national university": "جامعة {} الوطنية",
-    "national university alumni": "خريجو جامعة {} الوطنية",
-    # "open (tennis)" : "{} المفتوحة للتنس",
-}
-
-
 # الانجليزية جنسية
 # رجالية بألف ولام التعريف
 # tab[Category:Yemeni president cup] = "تصنيف:كأس الرئيس اليمني"
@@ -363,27 +348,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
 }
 
 
-def _build_new_kkk() -> dict[str, str]:
-    """
-    English nationality → Arabic country-name
-    Example: “men's hockey cup” → “كأس {} الهوكي للرجال”
-    """
-    label_index: dict[str, str] = {}
-
-    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
-        # Category:National junior women's goalball teams
-        label_index[f"men's {team2} cup"] = f"كأس {{}} {team2_lab} للرجال"
-        label_index[f"women's {team2} cup"] = f"كأس {{}} {team2_lab} للسيدات"
-        label_index[f"{team2} cup"] = f"كأس {{}} {team2_lab}"
-        label_index[f"national junior men's {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
-        label_index[f"national junior {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
-        label_index[f"national {team2} team"] = f"منتخب {{}} {team2_lab}"
-        label_index[f"national women's {team2} team"] = f"منتخب {{}} {team2_lab} للسيدات"
-        label_index[f"national men's {team2} team"] = f"منتخب {{}} {team2_lab} للرجال"
-
-    return label_index
-
-
 def _extend_sport_mappings() -> None:
     """Populate sport related mappings for both genders."""
 
@@ -456,11 +420,6 @@ ttk2: dict[str, str] = {
     "fictional depictions of": "تصوير خيالي عن {}",
     "depictions of": "تصوير عن {}",
 }
-
-SPORT_FORMATS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
-
-en_is_nat_ar_is_P17.update(SPORT_FORMATS_NEW_KKK)
-
 _extend_sport_mappings()
 
 en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
@@ -471,7 +430,6 @@ _extend_book_entries()
 
 __all__ = [
     "change_male_to_female",
-    "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
@@ -482,7 +440,6 @@ __all__ = [
 len_print.data_len(
     "bot_te_4_list.py",
     {
-        "en_is_nat_ar_is_P17": en_is_nat_ar_is_P17,
         "en_is_nat_ar_is_al_mens": en_is_nat_ar_is_al_mens,
         "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,

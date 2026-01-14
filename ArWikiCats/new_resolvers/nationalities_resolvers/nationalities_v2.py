@@ -31,7 +31,6 @@ males_data = {
 males_data.update(peoples_nats_not_jobs_males)
 
 ar_data = {
-    # ar - en_is_nat_ar_is_P17
     "{en} grand prix": "جائزة {ar} الكبرى",
     "{en} kings cup": "كأس ملك {ar}",  # Bahraini King's Cup
     "{en} cup": "كأس {ar}",

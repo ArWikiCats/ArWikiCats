@@ -33,7 +33,6 @@ from .mixed.bot_te_4_list import (
     change_male_to_female,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
-    en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
     en_is_nat_ar_is_women_2,
 )
@@ -166,7 +165,6 @@ __all__ = [
     "ministers_keys",
     "change_numb_to_word",
     "People_key",
-    "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",

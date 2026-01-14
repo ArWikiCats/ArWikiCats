@@ -19,7 +19,6 @@ test_data_males = {
 }
 
 test_data_ar = {
-    # ar - en_is_nat_ar_is_P17
     "Bahraini King's Cup": "كأس ملك البحرين",
     "Yemeni King's Cup": "كأس ملك اليمن",
     "French Grand Prix": "جائزة فرنسا الكبرى",

@@ -15,7 +15,6 @@ from ..translations import (
     all_country_with_nat_ar,
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
-    en_is_nat_ar_is_P17,
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
@@ -56,25 +55,6 @@ def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str
     logger.info(f"Work_for_New_2018_men_Keys_with_all: {nat=}, {men_nat_lab=}, {country_lab=} ")
 
     return country_lab
-
-
-def _get_p17_label(nat: str, suffix: str) -> str | None:
-    """Attempt to get label from P17 mappings."""
-    con_3_lab = en_is_nat_ar_is_P17.get(suffix.strip(), "")
-    if not con_3_lab:
-        return None
-
-    cco_lab = ""
-    if nat.strip() in all_country_with_nat_ar:
-        cco_lab = all_country_with_nat_ar[nat.strip()].get("ar", "")
-
-    if cco_lab:
-        logger.debug(f"<<lightblue>> Work_for_me: {con_3_lab=} ")
-        country_lab = con_3_lab.format(cco_lab)
-        logger.debug(f"<<lightblue>> for_me:all_country_with_nat_ar new {country_lab=} ")
-        return country_lab
-
-    return ""
 
 
 def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
@@ -133,11 +113,6 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     the_female_nat_lab = Nat_the_female.get(nat, "")
 
     logger.debug(f"<<lightblue>>>> Work_for_me >> {cate} .nat:({nat}), {suffix=}, nat_lab={women_nat_lab}")
-
-    # 1. الإنجليزي جنسية والعربي اسم البلد
-    res = _get_p17_label(nat, suffix)
-    if res is not None:
-        return res
 
     # 2. نسائية بدون ألف ولام التعريف (Ethnic)
     res = ethnic_bot.ethnic_label(cate, nat, suffix)
