@@ -370,9 +370,6 @@ def _extend_singer_and_business_entries() -> None:
         en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
 
 
-en_is_nat_ar_is_women_2: dict[str, str] = dict(en_is_nat_ar_is_women)
-
-
 def _extend_book_entries() -> None:
     """Populate mappings derived from book categories."""
 
@@ -421,7 +418,7 @@ ttk2: dict[str, str] = {
 }
 _extend_sport_mappings()
 
-en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
+# en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
 
 _extend_singer_and_business_entries()
 _extend_book_entries()
@@ -432,7 +429,6 @@ __all__ = [
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
-    "en_is_nat_ar_is_women_2",
 ]
 
 
@@ -443,6 +439,5 @@ len_print.data_len(
         "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
         "change_male_to_female": change_male_to_female,
-        "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
     },
 )

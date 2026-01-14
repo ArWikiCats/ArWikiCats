@@ -34,7 +34,6 @@ from .mixed.bot_te_4_list import (
     en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
     en_is_nat_ar_is_women,
-    en_is_nat_ar_is_women_2,
 )
 from .mixed.keys2 import PARTIES
 from .mixed.male_keys import New_female_keys, New_male_keys
@@ -169,5 +168,4 @@ __all__ = [
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "change_male_to_female",
-    "en_is_nat_ar_is_women_2",
 ]
