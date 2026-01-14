@@ -14,15 +14,15 @@ from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..helps import logger
 
 multi_sport_for_jobs = {
-    "afc asian cup": "كأس آسيا",
     "afc asian cup finals": "نهائيات كأس آسيا",
     "afc asian cup qualification": "تصفيات كأس آسيا",
+    "afc asian cup": "كأس آسيا",
     "afc challenge league": "دوري التحدي الآسيوي",
-    "afc champions league": "دوري أبطال آسيا",
     "afc champions league elite": "دوري نخبة ابطال آسيا",
     "afc champions league two": "دوري أبطال آسيا الثاني",
-    "afc cup": "كأس الاتحاد الآسيوي",
+    "afc champions league": "دوري أبطال آسيا",
     "afc cup participants": "مشاركون في كأس الاتحاد الآسيوي لكرة القدم",
+    "afc cup": "كأس الاتحاد الآسيوي",
     "afc elite league": "دوري نخبة ابطال آسيا",
     "afc football": "كرة قدم الاتحاد الآسيوي لكرة القدم",
     "afc futsal asian cup": "كأس آسيا لكرة الصالات",
@@ -75,12 +75,12 @@ multi_sport_for_jobs = {
     "commonwealth youth games": "ألعاب الكومنولث الشبابية",
     "deaflympic games": "ألعاب ديفلمبياد",
     "european games": "الألعاب الأوروبية",
-    "european youth olympic": "الألعاب الأولمبية الشبابية الأوروبية",
     "european youth olympic winter": "الألعاب الأولمبية الشبابية الأوروبية الشتوية",
-    "fifa futsal world cup": "كأس العالم لكرة الصالات",
-    "fifa futsal world cup qualification": "تصفيات كأس العالم لكرة الصالات",
+    "european youth olympic": "الألعاب الأولمبية الشبابية الأوروبية",
     "fifa futsal world cup qualification (afc)": "تصفيات كأس العالم لكرة الصالات (آسيا)",
     "fifa futsal world cup qualification (caf)": "تصفيات كأس العالم لكرة الصالات (إفريقيا)",
+    "fifa futsal world cup qualification": "تصفيات كأس العالم لكرة الصالات",
+    "fifa futsal world cup": "كأس العالم لكرة الصالات",
     "fifa world cup qualification (afc)": "تصفيات كأس العالم لكرة القدم (آسيا)",
     "fifa world cup qualification (caf)": "تصفيات كأس العالم لكرة القدم (إفريقيا)",
     "fis nordic world ski championships": "بطولة العالم للتزلج النوردي على الثلج",
@@ -113,8 +113,8 @@ multi_sport_for_jobs = {
     "winter world university games": "ألعاب الجامعات العالمية الشتوية",
     "world championships": "بطولات العالم",
     "youth olympic": "الألعاب الأولمبية الشبابية",
+    "youth olympics games": "الألعاب الأولمبية الشبابية",
     "youth olympics": "الألعاب الأولمبية الشبابية",
-    "youth olympics games": "الألعاب الأولمبية الشبابية"
 }
 
 
