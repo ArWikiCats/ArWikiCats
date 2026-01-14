@@ -62,6 +62,6 @@ def Work_for_me_main(category: str) -> str:
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
 
-    result = ethnic_label_main(normalized_category) or _work_for_me_main(normalized_category)
+    result = ethnic_label_main(normalized_category)  # or _work_for_me_main(normalized_category)
 
     return result

@@ -543,7 +543,6 @@ data_1 = {
     "Category:Chile–Papua New Guinea relations": "تصنيف:العلاقات التشيلية الغينية",
     "Category:China–Papua New Guinea relations": "تصنيف:العلاقات الصينية الغينية",
     "Category:Christian missionaries in Papua New Guinea": "تصنيف:مبشرون مسيحيون في بابوا غينيا الجديدة",
-    "Category:Christian political parties in Papua New Guinea": "تصنيف:أحزاب سياسية مسيحية في بابوا غينيا الجديدة",
     "Category:Christianity in Papua New Guinea": "تصنيف:المسيحية في بابوا غينيا الجديدة",
     "Category:Churches in Papua New Guinea": "تصنيف:كنائس في بابوا غينيا الجديدة",
     "Category:Cinema of Papua New Guinea": "تصنيف:سينما في بابوا غينيا الجديدة",
