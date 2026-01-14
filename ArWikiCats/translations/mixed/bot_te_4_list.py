@@ -352,7 +352,6 @@ en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
     "change_male_to_female",
-    "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
 ]
 
@@ -360,7 +359,6 @@ __all__ = [
 len_print.data_len(
     "bot_te_4_list.py",
     {
-        "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
         "change_male_to_female": change_male_to_female,
     },

@@ -393,6 +393,8 @@ the_female_data = {
     "{en} courts": "محاكم {female}",
     "{en} sports templates": "قوالب رياضة {female}",
     "{en} political party": "أحزاب سياسية {female}",
+    # "society" : "الجمعية {the_female}",
+    "{en} presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
 }
 
 all_formatted_data = (
