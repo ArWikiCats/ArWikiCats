@@ -147,12 +147,14 @@ def _load_sports_formatted_data() -> dict[str, str]:
         # expatriate basketball people
         "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
         "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+
         # _build_new_kkk() -> dict[str, str]:
         # Category:National junior womens goalball teams
         "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
         "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
         "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
         "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+
         # SPORT_FORMATS_FEMALE_NAT
         # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
         "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
