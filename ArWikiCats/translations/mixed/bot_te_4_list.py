@@ -11,14 +11,6 @@ from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .Newkey import pop_final6
 
-# الإنجليزية والعربية اسم البلد
-# tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
-
-# الانجليزية جنسية
-# رجالية بألف ولام التعريف
-# tab[Category:Yemeni president cup] = "تصنيف:كأس الرئيس اليمني"
-
-
 en_is_nat_ar_is_al_mens: dict[str, str] = {
 }
 
