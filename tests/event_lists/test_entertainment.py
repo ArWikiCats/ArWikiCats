@@ -72,7 +72,6 @@ entertainment_2 = {
     "Category:Films by type": "تصنيف:أفلام حسب الفئة",
     "Category:Films set in national parks": "تصنيف:أفلام تقع أحداثها في متنزهات وطنية",
     "Category:French comic strips": "تصنيف:شرائط كومكس فرنسية",
-    "Category:French comic": "تصنيف:قصص مصورة فرنسية",
     "Category:Historical anime and manga": "تصنيف:أنمي ومانغا تاريخية",
     "Category:Historical comics": "تصنيف:قصص مصورة تاريخية",
     "Category:Historical fiction by setting location": "تصنيف:خيال تاريخي حسب موقع الأحداث",
