@@ -18,6 +18,7 @@ from ..translations.mixed.bot_te_4_list import (
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
+from ..make_bots.o_bots.ethnic_bot import ethnic_label_main
 
 
 def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
@@ -38,20 +39,11 @@ def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
 
 @functools.lru_cache(maxsize=None)
 @dump_data(1)
-def Work_for_me_main(category: str) -> str:
+def _work_for_me_main(normalized_category: str) -> str:
     """
-    Normalize an input category and resolve the corresponding country label using a derived suffix and nationality key.
-
-    Parameters:
-        category (str): Category name (e.g., a Wikipedia category) used to derive a suffix and nationality key.
-
-    Returns:
-        str: The resolved country label, or an empty string if no label could be determined.
     """
-    logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({category})")
+    logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({normalized_category})")
 
-    normalized_category = category.lower().replace("_", " ").replace("-", " ")
-    result = ""
     suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
 
     if suffix:
@@ -59,4 +51,17 @@ def Work_for_me_main(category: str) -> str:
         result = _get_female_no_def_label(suffix, women_nat_lab)
 
     logger.debug(f'<<lightblue>> for_me: Work_for_me_main :: "{result}"')
+    return result
+
+
+@functools.lru_cache(maxsize=None)
+def Work_for_me_main(category: str) -> str:
+    """
+    """
+    logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({category})")
+
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+
+    result = ethnic_label_main(normalized_category) or _work_for_me_main(normalized_category)
+
     return result
