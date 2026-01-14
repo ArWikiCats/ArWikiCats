@@ -27,6 +27,7 @@ from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_n
 from ...time_resolvers import time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
+    religious_entries,
     New_female_keys,
     People_key,
     get_from_new_p17_final,
@@ -329,6 +330,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
+        "religious_entries": lambda t: religious_entries.get(t, ""),
         "People_key": lambda t: People_key.get(t, ""),
         "te_films": te_films,
         "sport_lab_nat_load_new": sport_lab_nat_load_new,
@@ -350,7 +352,7 @@ def _lookup_country_with_dash_variants(country_lower: str, country_no_dash: str)
     if label:
         return label
 
-    label = New_female_keys.get(country_no_dash, "")
+    label = New_female_keys.get(country_no_dash, "") or religious_entries.get(country_no_dash, "")
     if label:
         return label
 

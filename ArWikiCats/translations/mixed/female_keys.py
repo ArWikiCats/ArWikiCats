@@ -3,7 +3,324 @@
 from ...helps import len_print
 from ..companies import companies_data
 from ..structures import structures_data
-from ..utils.json_dir import open_json_file
+
+
+religious_entries = {
+    "bahá'í buildings and structures": "مبان ومنشآت بهائية",
+    "bahá'í buildings": "مبان بهائية",
+    "bahá'í educational institutions": "هيئات تعليمية بهائية",
+    "bahá'í educational": "تعليمية بهائية",
+    "bahá'í institutions": "مؤسسات بهائية",
+    "buddhist buildings and structures": "مبان ومنشآت بوذية",
+    "buddhist buildings": "مبان بوذية",
+    "buddhist charities": "جمعيات خيرية بوذية",
+    "buddhist communities": "مجتمعات بوذية",
+    "buddhist culture": "ثقافة بوذية",
+    "buddhist educational institutions": "هيئات تعليمية بوذية",
+    "buddhist educational": "تعليمية بوذية",
+    "buddhist festivals": "مهرجانات بوذية",
+    "buddhist movements": "حركات بوذية",
+    "buddhist museums": "متاحف بوذية",
+    "buddhist orders": "أخويات بوذية",
+    "buddhist organisations": "منظمات بوذية",
+    "buddhist organization": "منظمات بوذية",
+    "buddhist organizations": "منظمات بوذية",
+    "buddhist religious occupations": "مهن دينية بوذية",
+    "buddhist schools": "مدارس بوذية",
+    "buddhist temples": "معابد بوذية",
+    "buddhist women's organizations": "منظمات نسائية بوذية",
+    "buddhist youth organizations": "منظمات شبابية بوذية",
+    "christian buildings and structures": "مبان ومنشآت مسيحية",
+    "christian buildings": "مبان مسيحية",
+    "christian charities": "جمعيات خيرية مسيحية",
+    "christian communities": "مجتمعات مسيحية",
+    "christian culture": "ثقافة مسيحية",
+    "christian denominations": "طوائف مسيحية",
+    "christian educational institutions": "هيئات تعليمية مسيحية",
+    "christian educational": "تعليمية مسيحية",
+    "christian festivals": "مهرجانات مسيحية",
+    "christian groups": "مجموعات مسيحية",
+    "christian movements": "حركات مسيحية",
+    "christian museums": "متاحف مسيحية",
+    "christian orders": "أخويات مسيحية",
+    "christian organisations": "منظمات مسيحية",
+    "christian organization": "منظمات مسيحية",
+    "christian organizations": "منظمات مسيحية",
+    "christian religious occupations": "مهن دينية مسيحية",
+    "christian religious orders": "أخويات دينية مسيحية",
+    "christian schools": "مدارس مسيحية",
+    "christian societies": "جمعيات مسيحية",
+    "christian student organizations": "منظمات طلابية مسيحية",
+    "christian women's organizations": "منظمات نسائية مسيحية",
+    "christian youth organizations": "منظمات شبابية مسيحية",
+    "hindu buildings and structures": "مبان ومنشآت هندوسية",
+    "hindu buildings": "مبان هندوسية",
+    "hindu communities": "مجتمعات هندوسية",
+    "hindu culture": "ثقافة هندوسية",
+    "hindu denominations": "طوائف هندوسية",
+    "hindu educational institutions": "هيئات تعليمية هندوسية",
+    "hindu educational": "تعليمية هندوسية",
+    "hindu festivals": "مهرجانات هندوسية",
+    "hindu groups": "مجموعات هندوسية",
+    "hindu movements": "حركات هندوسية",
+    "hindu organisations": "منظمات هندوسية",
+    "hindu organizations": "منظمات هندوسية",
+    "hindu religious orders": "أخويات دينية هندوسية",
+    "hindu schools": "مدارس هندوسية",
+    "hindu temples": "معابد هندوسية",
+    "islamic awards": "جوائز إسلامية",
+    "islamic banks": "بنوك إسلامية",
+    "islamic buildings and structures": "مبان ومنشآت إسلامية",
+    "islamic buildings": "مبان إسلامية",
+    "islamic charities": "جمعيات خيرية إسلامية",
+    "islamic culture": "ثقافة إسلامية",
+    "islamic educational institutions": "هيئات تعليمية إسلامية",
+    "islamic educational": "تعليمية إسلامية",
+    "islamic festivals": "مهرجانات إسلامية",
+    "islamic movements": "حركات إسلامية",
+    "islamic museums": "متاحف إسلامية",
+    "islamic orders": "أخويات إسلامية",
+    "islamic organisations": "منظمات إسلامية",
+    "islamic organization": "منظمات إسلامية",
+    "islamic organizations": "منظمات إسلامية",
+    "islamic politics": "سياسة إسلامية",
+    "islamic religious occupations": "مهن دينية إسلامية",
+    "islamic schools": "مدارس إسلامية",
+    "islamic youth organizations": "منظمات شبابية إسلامية",
+    "jain communities": "مجتمعات جاينية",
+    "jain culture": "ثقافة جاينية",
+    "jain festivals": "مهرجانات جاينية",
+    "jain organisations": "منظمات جاينية",
+    "jain religious occupations": "مهن دينية جاينية",
+    "jain temples": "معابد جاينية",
+    "jewish buildings and structures": "مبان ومنشآت يهودية",
+    "jewish buildings": "مبان يهودية",
+    "jewish charities": "جمعيات خيرية يهودية",
+    "jewish clubs": "نوادي يهودية",
+    "jewish communities": "مجتمعات يهودية",
+    "jewish culture": "ثقافة يهودية",
+    "jewish educational institutions": "هيئات تعليمية يهودية",
+    "jewish educational": "تعليمية يهودية",
+    "jewish federations": "اتحادات يهودية",
+    "jewish festivals": "مهرجانات يهودية",
+    "jewish groups": "مجموعات يهودية",
+    "jewish institutions": "مؤسسات يهودية",
+    "jewish movements": "حركات يهودية",
+    "jewish museums": "متاحف يهودية",
+    "jewish organisations": "منظمات يهودية",
+    "jewish organization": "منظمات يهودية",
+    "jewish organizations": "منظمات يهودية",
+    "jewish religious occupations": "مهن دينية يهودية",
+    "jewish schools": "مدارس يهودية",
+    "jewish services": "خدمات يهودية",
+    "jewish women's organizations": "منظمات نسائية يهودية",
+    "jewish youth organizations": "منظمات شبابية يهودية",
+    "masonic buildings": "مبان ماسونية",
+    "masonic culture": "ثقافة ماسونية",
+    "masonic educational institutions": "هيئات تعليمية ماسونية",
+    "masonic educational": "تعليمية ماسونية",
+    "masonic museums": "متاحف ماسونية",
+    "masonic organizations": "منظمات ماسونية",
+    "masonic youth organizations": "منظمات شبابية ماسونية",
+    "new religious movements": "حركات دينية جديدة",
+    "new thought denominations": "طوائف فكر جديد",
+    "new thought organizations": "منظمات فكر جديد",
+    "political party founders": "مؤسسو أحزاب سياسية",
+    "protestant buildings and structures": "مبان ومنشآت بروتستانتية",
+    "protestant buildings": "مبان بروتستانتية",
+    "protestant denominations": "طوائف بروتستانتية",
+    "protestant educational institutions": "هيئات تعليمية بروتستانتية",
+    "protestant educational": "تعليمية بروتستانتية",
+    "protestant orders": "أخويات بروتستانتية",
+    "protestant organizations": "منظمات بروتستانتية",
+    "protestant schools": "مدارس بروتستانتية",
+    "religious academies": "أكاديميات دينية",
+    "religious awards": "جوائز دينية",
+    "religious building and structure": "مبان ومنشآت دينية",
+    "religious buildings and structures": "مبان ومنشآت دينية",
+    "religious buildings": "مبان دينية",
+    "religious charities": "جمعيات خيرية دينية",
+    "religious communities": "مجتمعات دينية",
+    "religious corporations": "مؤسسات تجارية دينية",
+    "religious culture": "ثقافة دينية",
+    "religious denominations": "طوائف دينية",
+    "religious educational institutions": "هيئات تعليمية دينية",
+    "religious educational": "تعليمية دينية",
+    "religious festivals": "مهرجانات دينية",
+    "religious groups": "مجموعات دينية",
+    "religious movements": "حركات دينية",
+    "religious museums": "متاحف دينية",
+    "religious occupations": "مهن دينية",
+    "religious orders": "أخويات دينية",
+    "religious organisations": "منظمات دينية",
+    "religious organization": "منظمات دينية",
+    "religious organizations": "منظمات دينية",
+    "religious schools": "مدارس دينية",
+    "religious service organizations": "منظمات خدمية دينية",
+    "religious temples": "معابد دينية",
+    "scientology organization": "منظمات سينتولوجيا",
+    "scientology organizations": "منظمات سينتولوجيا",
+    "sikh communities": "مجتمعات سيخية",
+    "sikh culture": "ثقافة سيخية",
+    "sikh festivals": "مهرجانات سيخية",
+    "sikh groups": "مجموعات سيخية",
+    "sikh organisations": "منظمات سيخية",
+    "sikh organizations": "منظمات سيخية",
+    "sikh politics": "سياسة سيخية",
+    "spiritualist communities": "مجتمعات روحانية",
+    "spiritualist organizations": "منظمات روحانية",
+    "taoist buildings and structures": "مبان ومنشآت طاوية",
+    "taoist buildings": "مبان طاوية",
+    "taoist communities": "مجتمعات طاوية",
+    "taoist culture": "ثقافة طاوية",
+    "taoist festivals": "مهرجانات طاوية",
+    "taoist organizations": "منظمات طاوية",
+    "taoist schools": "مدارس طاوية",
+    "taoist temples": "معابد طاوية",
+    "unitarian universalist organizations": "منظمات توحيدية عالمية",
+    "zoroastrian culture": "ثقافة زرادشتية",
+    "zoroastrian festivals": "مهرجانات زرادشتية",
+    "zoroastrian organizations": "منظمات زرادشتية",
+}
+
+films_data = {
+    "educational organizations": "منظمات تعليمية",
+    "religious organizations": "منظمات دينية",
+    "sports organizations": "منظمات رياضية",
+    "student organizations": "منظمات طلاب",
+    "political organizations": "منظمات سياسية",
+    "political organisations": "منظمات سياسية",
+    "lgbtq culture": "ثقافة إل جي بي تي كيو",
+    "religious organisations": "منظمات دينية",
+    "sports organisations": "منظمات رياضية",
+    "educational organisations": "منظمات تعليمية",
+    "sex industry": "صناعة جنسية",
+    "music organisations": "منظمات موسيقية",
+    "music organizations": "منظمات موسيقية",
+    "internet culture": "ثقافة إنترنت",
+    "music industry": "صناعة موسيقية",
+    "television companies": "شركات تلفزيونية",
+    "aviation organisations": "منظمات طيران",
+    "feminist organisations": "منظمات نسوية",
+    "feminist organizations": "منظمات نسوية",
+    "lgbtq organisations": "منظمات إل جي بي تي كيو",
+    "lgbtq organizations": "منظمات إل جي بي تي كيو",
+    "aviation organizations": "منظمات طيران",
+    "student organisations": "منظمات طلاب",
+    "sports companies": "شركات رياضية",
+    "military occupations": "مهن عسكرية",
+    "dance companies": "شركات رقص",
+    "television organizations": "منظمات تلفزيونية",
+    "sports culture": "ثقافة رياضية",
+    "music companies": "شركات موسيقية",
+    "legal organizations": "منظمات قانونية",
+    "military research": "أبحاث عسكرية",
+    "legal organisations": "منظمات قانونية",
+    "internet technology": "تقانة إنترنت",
+    "educational technology": "تقانة تعليمية",
+    "television organisations": "منظمات تلفزيونية",
+    "military organizations": "منظمات عسكرية",
+    "aviation organization": "منظمات طيران",
+    "maritime organization": "منظمات بحرية",
+    "religious occupations": "مهن دينية",
+    "science organizations": "منظمات علمية",
+    "legal issues": "قضايا قانونية",
+    "maritime culture": "ثقافة بحرية",
+    "student culture": "ثقافة طلاب",
+    "science research": "أبحاث علمية",
+    "propaganda organizations": "منظمات دعائية",
+    "propaganda organisations": "منظمات دعائية",
+    "maritime organisations": "منظمات بحرية",
+    "military culture": "ثقافة عسكرية",
+    "aviation companies": "شركات طيران",
+    "criminal organization": "منظمات جنائية",
+    "dance organizations": "منظمات رقص",
+    "political culture": "ثقافة سياسية",
+    "historical research": "أبحاث تاريخية",
+    "television technology": "تقانة تلفزيونية",
+    "military organization": "منظمات عسكرية",
+    "school organizations": "منظمات مدرسية",
+    "legal occupations": "مهن قانونية",
+    "criminal organizations": "منظمات جنائية",
+    "political organization": "منظمات سياسية",
+    "educational research": "أبحاث تعليمية",
+    "military technology": "تقانة عسكرية",
+    "anime industry": "صناعة أنمي",
+    "internet companies": "شركات إنترنت",
+    "independent agencies": "وكالات مستقلة",
+    "maritime disasters": "كوارث بحرية",
+    "maritime organizations": "منظمات بحرية",
+    "martial arts organizations": "منظمات فنون قتال",
+    "science occupations": "مهن علمية",
+    "religious organization": "منظمات دينية",
+    "independent research": "أبحاث مستقلة",
+    "aviation industry": "صناعة طيران",
+    "aviation technology": "تقانة طيران",
+    "black culture": "ثقافة سوداء",
+    "maritime industry": "صناعة بحرية",
+    "lgbtq issues": "قضايا إل جي بي تي كيو",
+    "political research": "أبحاث سياسية",
+    "sports agencies": "وكالات رياضية",
+    "school research": "أبحاث مدرسية",
+    "fiction organizations": "منظمات خيالية",
+    "legal research": "أبحاث قانونية",
+    "lgbtq-related organizations": "منظمات متعلقة بإل جي بي تي كيو",
+    "science companies": "شركات علمية",
+    "martial arts culture": "ثقافة فنون قتال",
+    "music technology": "تقانة موسيقية",
+    "school organisations": "منظمات مدرسية",
+    "religious culture": "ثقافة دينية",
+    "sound technology": "تقانة ناطقة",
+    "sports occupations": "مهن رياضية",
+    "sports organization": "منظمات رياضية",
+    "western culture": "ثقافة غرب أمريكية",
+    "anime companies": "شركات أنمي",
+    "science technology": "تقانة علمية",
+    "aviation culture": "ثقافة طيران",
+    "aviation research": "أبحاث طيران",
+    "sports industry": "صناعة رياضية",
+    "christmas organizations": "منظمات عيد الميلاد",
+    "war organizations": "منظمات حربية",
+    "cyberpunk culture": "ثقافة سايبربانك",
+    "dance culture": "ثقافة رقص",
+    "dance occupations": "مهن رقص",
+    "dance organisations": "منظمات رقص",
+    "dance research": "أبحاث رقص",
+    "astronomical research": "أبحاث فلكية",
+    "school organization": "منظمات مدرسية",
+    "interactive technology": "تقانة تفاعلية",
+    "science organisations": "منظمات علمية",
+    "fantasy organizations": "منظمات فانتازيا",
+    "detective agencies": "وكالات مباحث",
+    "historical agencies": "وكالات تاريخية",
+    "historical organisations": "منظمات تاريخية",
+    "martial arts organization": "منظمات فنون قتال",
+    "lgbt culture": "ثقافة إل جي بي تي",
+    "lgbt organisations": "منظمات إل جي بي تي",
+    "lgbtq organization": "منظمات إل جي بي تي كيو",
+    "maritime companies": "شركات بحرية",
+    "aviation occupations": "مهن طيران",
+    "action organizations": "منظمات حركة",
+    "science industry": "صناعة علمية",
+    "musical culture": "ثقافة موسيقية",
+    "music organization": "منظمات موسيقية",
+    "environment research": "أبحاث بيئية",
+    "naval research": "أبحاث بحرية عسكرية",
+    "political issues": "قضايا سياسية",
+    "political occupations": "مهن سياسية",
+    "science fiction culture": "ثقافة خيال علمي",
+    "fiction culture": "ثقافة خيالية",
+    "science fiction organizations": "منظمات خيال علمي",
+    "science organization": "منظمات علمية",
+    "sports technology": "تقانة رياضية",
+    "children's research": "أبحاث أطفال",
+    "television issues": "قضايا تلفزيونية",
+    "television industry": "صناعة تلفزيونية",
+    "television occupations": "مهن تلفزيونية",
+    "reality companies": "شركات واقعية",
+    "reality organizations": "منظمات واقعية",
+    "nautical research": "أبحاث بحرية"
+}
 
 RELIGIOUS_FEMALE_KEYS: dict[str, str] = {
     "masonic": "ماسونية",
@@ -221,77 +538,15 @@ FEMALE_EXPANSIONS: dict[str, str] = {
 }
 
 
-def _add_religious_entries() -> None:
-    """Expand the registry with religion related suffixes."""
-    data = {}
-    for base, label in RELIGIOUS_FEMALE_KEYS.items():
-        lowered = base.lower()
-        data[f"{lowered} companies of"] = f"شركات {label} في"
-        for suffix, suffix_label in FEMALE_SUFFIXES.items():
-            key = f"{lowered} {suffix}"
-            data[key] = f"{suffix_label} {label}"
-            if "movements" in suffix:
-                data[f"new {lowered} {suffix}"] = f"{suffix_label} {label} جديدة"
-        data[f"{lowered} founders"] = f"مؤسسو {label}"
-        data[f"{lowered} rights"] = f"حقوق {label}"
-        data[f"{lowered} underground culture"] = f"ثقافة باطنية {label}"
-        data[f"{lowered} culture"] = f"ثقافة {label}"
-        data[f"{lowered} think tanks"] = f"مؤسسات فكر ورأي {label}"
-        data[f"{lowered} temples"] = f"معابد {label}"
-        data[f"{lowered} research"] = f"أبحاث {label}"
-        data[f"{lowered} industry"] = f"صناعة {label}"
-        data[f"{lowered} technology"] = f"تقانة {label}"
-        data[f"{lowered} disasters"] = f"كوارث {label}"
-        data[f"{lowered} politics"] = f"سياسة {label}"
-        data[f"{lowered} banks"] = f"بنوك {label}"
-        data[f"{lowered} buildings"] = f"مبان {label}"
-        data[f"{lowered} buildings and structures"] = f"مبان ومنشآت {label}"
-        data[f"{lowered} building and structure"] = f"مبان ومنشآت {label}"
-    return data
-
-
-def _add_film_entries() -> None:
-    """Update the registry with film-based female categories."""
-
-    Films_keys_male_female = open_json_file("media/Films_keys_male_female.json") or {}
-
-    # Films_keys_male_female["superhero"] = {"male": "خارق", "female": "أبطال خارقين"}
-    Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
-
-    data = {}
-    for key, labels in Films_keys_male_female.items():
-        label = labels.get("female", "")
-        if not label:
-            continue
-        lowered = key.lower()
-        data[f"{lowered} agencies"] = f"وكالات {label}"
-        data[f"{lowered} occupations"] = f"مهن {label}"
-        data[f"{lowered} organisations"] = f"منظمات {label}"
-        data[f"{lowered} organizations"] = f"منظمات {label}"
-        data[f"{lowered} organization"] = f"منظمات {label}"
-        data[f"{lowered} research"] = f"أبحاث {label}"
-        data[f"{lowered} industry"] = f"صناعة {label}"
-        data[f"{lowered} technology"] = f"تقانة {label}"
-        data[f"{lowered} disasters"] = f"كوارث {label}"
-        data[f"{lowered} issues"] = f"قضايا {label}"
-        data[f"{lowered} culture"] = f"ثقافة {label}"
-        data[f"{lowered} companies"] = f"شركات {label}"
-    return data
-
-
 def build_female_keys() -> dict[str, str]:
     """Return the expanded mapping used for female-labelled categories."""
-
-    data = _add_religious_entries()
-
+    data = {}
     for base, labels in POP3_KEYS.items():
         if labels.get("female"):
             lowered = base.lower()
             for template, translation in FEMALE_EXPANSIONS.items():
                 data[template.format(base=lowered)] = translation.format(label=labels.get("female"))
 
-    films_data = _add_film_entries()
-    data.update(films_data)
     data.update(structures_data)
     data.update(companies_data)
 
@@ -304,6 +559,7 @@ def build_female_keys() -> dict[str, str]:
 
 
 New_female_keys: dict[str, str] = build_female_keys()
+New_female_keys.update(films_data)
 
 __all__ = [
     "New_female_keys",
@@ -313,7 +569,9 @@ __all__ = [
 len_print.data_len(
     "female_keys.py",
     {
+        "films_data": films_data,
         "New_female_keys": New_female_keys,
         "RELIGIOUS_FEMALE_KEYS": RELIGIOUS_FEMALE_KEYS,
+        "religious_entries": religious_entries,
     },
 )

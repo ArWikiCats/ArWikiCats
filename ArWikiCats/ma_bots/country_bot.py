@@ -21,6 +21,7 @@ from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
+    religious_entries,
     New_female_keys,
     jobs_mens_data,
     pop_of_without_in,
@@ -199,6 +200,7 @@ class CountryLabelRetriever:
 
         label = (
             New_female_keys.get(country, "")
+            or religious_entries.get(country, "")
             or te_films(country)
             or sport_lab_nat_load_new(country)
             or team_work.Get_team_work_Club(country)
@@ -260,7 +262,7 @@ class CountryLabelRetriever:
         if test_numeric in ["", "-", "–", "−"]:
             return term_lower
 
-        term_label = New_female_keys.get(term_lower, "")
+        term_label = New_female_keys.get(term_lower, "") or religious_entries.get(term_lower, "")
         if not term_label:
             term_label = convert_time_to_arabic(term_lower)
 

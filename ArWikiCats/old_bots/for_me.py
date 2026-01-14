@@ -10,6 +10,7 @@ from ..translations import (
     all_nat_sorted,
     Nat_the_female,
     Nat_women,
+    religious_entries,
     New_female_keys,
 )
 from ..translations.mixed.bot_te_4_list import (
@@ -23,7 +24,7 @@ def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
     """Attempt to get female label without definite article."""
     con_3_lab = en_is_nat_ar_is_women.get(suffix.strip(), "")
     if not con_3_lab:
-        con_3_lab = New_female_keys.get(suffix.strip(), "")
+        con_3_lab = New_female_keys.get(suffix.strip(), "") or religious_entries.get(suffix.strip(), "")
         if con_3_lab:
             con_3_lab += " {}"
 
