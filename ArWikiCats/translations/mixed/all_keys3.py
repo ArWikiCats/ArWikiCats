@@ -3,9 +3,22 @@
 from __future__ import annotations
 
 from ...helps import len_print
-from ..companies import typeTable_update
 from ..sports.games_labs import SUMMER_WINTER_TABS
 from ..utils.json_dir import open_json_file
+
+typeTable_update = {
+    "aviation accidents": "حوادث طيران",
+    "transport disasters": "كوارث نقل",
+    "railway accidents": "حوادث سكك حديد",
+    "airlines accidents": "حوادث طيران",
+    "distance education institutions": "مؤسسات تعليم عن بعد",
+    "railway accident": "حوادث سكك حديد",
+    "aviation accident": "حوادث طيران",
+    "transport accidents": "حوادث نقل",
+    "road accidents": "حوادث طرق",
+    "transport accident": "حوادث نقل",
+    "design institutions": "مؤسسات تصميم"
+}
 
 companies_keys3 = {
     "railway": "السكك الحديدية",

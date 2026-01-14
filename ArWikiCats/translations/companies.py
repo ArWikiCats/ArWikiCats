@@ -568,8 +568,6 @@ companies_data = {
     "wine museums": "متاحف نبيذ"
 }
 
-typeTable_update = {}
-
 COMPANY_TYPE_TRANSLATIONS = {
     "privately held": "خاصة",
     "airliner": "طائرات",
@@ -706,63 +704,10 @@ COMPANY_TYPE_TRANSLATIONS = {
     "clothing retailers": "متاجر ملابس بالتجزئة",
 }
 
-
-COMPANY_COLLECTION_PREFIXES = {
-    "manufacturers": "مصانع",
-    "manufacturing": "تصنيع",
-    "manufacturing companies": "شركات تصنيع",
-    "privately held companies": "شركات خاصة",
-    "companies": "شركات",
-    "franchises": "امتيازات",
-    "policy": "سياسات",
-    "stations": "محطات",
-    "tickets": "تذاكر",
-}
-COMPANY_EVENT_PREFIXES = {
-    "accident": "حوادث",
-    "accidents": "حوادث",
-    "institutions": "مؤسسات",
-    "disasters": "كوارث",
-}
-COMPANY_CATEGORY_CONTEXT = {
-    "distance education": {"si": "التعليم عن بعد", "bb": "تعليم عن بعد"},
-    "government-owned": {"si": "مملوكة للحكومة", "bb": "مملوكة للحكومة"},
-    "design": {"si": "تصميم", "bb": "تصميم"},
-    "holding": {"si": "قابضة", "bb": "قابضة"},
-    "railway": {"si": "السكك الحديدية", "bb": "سكك حديد"},
-    "rail industry": {"si": "السكك الحديدية", "bb": "سكك حديد"},
-    "truck": {"si": "الشاحنات", "bb": "شاحنات"},
-    "bus": {"si": "الباصات", "bb": "باصات"},
-    "airline": {"si": "الخطوط الجوية", "bb": "خطوط جوية"},
-    "cargo airlines": {"si": "الشحن الجوي", "bb": "شحن جوي"},
-    "entertainment": {"si": "ترفيه", "bb": "الترفيه"},
-    "airlines": {"si": "طيران", "bb": "طيران"},
-    "aviation": {"si": "الطيران", "bb": "طيران"},
-    "transport": {"si": "النقل", "bb": "نقل"},
-    "road transport": {"si": "النقل البري", "bb": "نقل بري"},
-    "privately held": {"si": "خاصة", "bb": "خاصة"},
-    "road": {"si": "الطرق", "bb": "طرق"},
-    "water transport": {"si": "النقل المائي", "bb": "نقل مائي"},
-    "ferry transport": {"si": "النقل بالعبارات", "bb": "نقل عبارات"},
-    "shipping": {"si": "النقل البحري", "bb": "نقل بحري"},
-    "motor vehicle": {"si": "السيارات", "bb": "سيارات"},
-    "vehicle": {"si": "المركبات", "bb": "مركبات"},
-    "locomotive": {"si": "القاطرات", "bb": "قاطرات"},
-    "rolling stock": {"si": "القطارات", "bb": "قطارات"},
-}
-
-
-for category_key in COMPANY_CATEGORY_CONTEXT:
-    singular_label = COMPANY_CATEGORY_CONTEXT[category_key]["si"]
-    plural_label = COMPANY_CATEGORY_CONTEXT[category_key]["bb"]
-    for event_key, event_label in COMPANY_EVENT_PREFIXES.items():
-        typeTable_update[f"{category_key} {event_key}"] = f"{event_label} {plural_label}"
-
 len_print.data_len(
     "companies.py",
     {
         "companies_data": companies_data,
         "COMPANY_TYPE_TRANSLATIONS": COMPANY_TYPE_TRANSLATIONS,
-        "typeTable_update": typeTable_update,
     },
 )
