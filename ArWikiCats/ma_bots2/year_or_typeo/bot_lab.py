@@ -20,6 +20,7 @@ from ...utils import check_key_in_tables
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
+from ...new_resolvers.reslove_all import new_resolvers_all
 
 type_after_country = ["non-combat"]
 
@@ -155,7 +156,10 @@ class LabelForStartWithYearOrTypeo:
 
         cmp = self.year_at_first.strip() + " " + self.country_lower
 
-        self.country_label = get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
+        self.country_label = (
+            new_resolvers_all(self.country_lower)
+            or get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
+        )
 
         if self.country_label:
             self.cat_test = self.replace_cat_test(self.cat_test, self.country_lower)

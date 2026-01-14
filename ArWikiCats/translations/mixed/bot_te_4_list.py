@@ -237,7 +237,7 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "sport": "رياضة {}",
     "sports competitions": "منافسات رياضية {}",
     "sports events": "أحداث رياضية {}",
-    "sports": "رياضة {}",
+    "sports": "ألعاب رياضية {}",
     "surnames": "ألقاب {}",
     "swamps": "مستنقعات {}",
     "telenovelas": "تيلينوفيلا {}",
