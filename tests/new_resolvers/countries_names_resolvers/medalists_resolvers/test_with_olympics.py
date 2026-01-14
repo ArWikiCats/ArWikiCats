@@ -38,7 +38,6 @@ olympics = {
     "asian beach games medalists": "فائزون بميداليات دورة الألعاب الآسيوية الشاطئية",
     "asian beach games medallists": "فائزون بميداليات دورة الألعاب الآسيوية الشاطئية",
     "asian beach games silver medalists": "فائزون بميداليات فضية في دورة الألعاب الآسيوية الشاطئية",
-    "asian games bronze medalists": "فائزون بميداليات برونزية في الألعاب الآسيوية",
     "asian games gold medalists": "فائزون بميداليات ذهبية في الألعاب الآسيوية",
     "asian games medalists": "فائزون بميداليات الألعاب الآسيوية",
     "asian games medallists": "فائزون بميداليات الألعاب الآسيوية",
