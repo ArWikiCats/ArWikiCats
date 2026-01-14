@@ -20,36 +20,6 @@ from .Newkey import pop_final6
 
 
 en_is_nat_ar_is_al_mens: dict[str, str] = {
-    "president cup": "كأس الرئيس {}",
-    "federation cup": "كأس الاتحاد {}",
-    "fa cup": "كأس الاتحاد {}",
-    "occupation": "الاحتلال {}",
-    "super cup": "كأس السوبر {}",
-    "elite cup": "كأس النخبة {}",
-    "referendum": "الاستفتاء {}",
-    "involvement": "التدخل {}",
-    "census": "التعداد {}",
-    # "professional football league": "الدوري {} لكرة القدم للمحترفين",
-    "professional football league": "دوري كرة القدم {} للمحترفين",
-    "premier football league": "الدوري {} الممتاز لكرة القدم",
-    "national super league": "دوري السوبر {}",
-    "super league": "دوري السوبر {}",
-    "premier league": "الدوري {} الممتاز",
-    "premier division": "الدوري {} الممتاز",
-    "amateur football league": "الدوري {} لكرة القدم للهواة",
-    "football league": "الدوري {} لكرة القدم",
-    "population census": "التعداد السكاني {}",
-    "population and housing census": "التعداد {} للسكان والمساكن",
-    "national party": "الحزب الوطني {}",
-    "criminal law": "القانون الجنائي {}",
-    "family law": "قانون الأسرة {}",
-    "labour law": "قانون العمل {}",
-    "abortion law": "قانون الإجهاض {}",
-    "rugby union leagues": "اتحاد دوري الرجبي {}",
-    "women's rugby union": "اتحاد الرجبي {} للنساء",
-    "rugby union": "اتحاد الرجبي {}",
-    "presidential pardons": "العفو الرئاسي {}",
-    "pardons": "العفو {}",
 }
 
 # العربي جنسية مثل : Yemeni > اليمني

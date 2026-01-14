@@ -12,10 +12,6 @@ COUNTRY_PLACEHOLDER: Final[str] = "{}"
 
 SPORT_FORMATS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 
-# ----------------------------------------------------------------------
-# Helpers
-# ----------------------------------------------------------------------
-
 
 def _build_male_nat() -> Dict[str, str]:
     """English nationality → Arabic nationality (male formats)."""

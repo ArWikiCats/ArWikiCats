@@ -78,6 +78,8 @@ the_male_data = {
     "{en} rugby union": "اتحاد الرجبي {the_male}",
     "{en} presidential pardons": "العفو الرئاسي {the_male}",
     "{en} pardons": "العفو {the_male}",
+    # "professional football league": "الدوري {the_male} لكرة القدم للمحترفين",
+    "{en} women's rugby union": "اتحاد الرجبي {the_male} للنساء",
 }
 
 male_data = {
