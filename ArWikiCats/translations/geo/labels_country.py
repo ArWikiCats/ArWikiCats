@@ -5,7 +5,6 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping
 
 from ...helps import len_print, logger
-from ..companies import COMPANY_TYPE_TRANSLATIONS as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
@@ -263,9 +262,16 @@ def _make_turkey_labels(data: dict[str, str]) -> dict[str, str]:
 
 
 COMPANY_LABELS_NEW = {
-    company_name.lower(): company_label
-    for company_name, company_label in COMPANY_LABELS.items()
-    if company_label and company_name.lower() not in pf_keys2
+    "airliner": "طائرات",
+    "condiment": "توابل",
+    "fraternal service": "خدمات أخوية",
+    "health care": "رعاية صحية",
+    "internet": "إنترنت",
+    "magazine": "مجلات",
+    "mass media": "وسائل إعلام",
+    "military logistics": "لوجستية عسكرية",
+    "rail": "سكك حديدية",
+    "submarine": "غواصات"
 }
 
 JAPAN_LABELS = _make_japan_labels(JAPAN_REGIONAL_LABELS)

@@ -326,9 +326,6 @@ class TestChangeKeyMappingsReplacements:
         "’ test": "' test",
         "something ’ something": "something ' something",
         "’": "'",
-        # Add tests for defunct companies from COMPANY_TYPE_TRANSLATIONS
-        # Assuming COMPANY_TYPE_TRANSLATIONS has entries like "privately held": "خاصة"
-        # But since it's dynamic, we can add a few examples
         "defunct privately held companies test": "defunct-privately held-companies test",
         "something defunct privately held companies something": "something defunct-privately held-companies something",
         "defunct privately held companies": "defunct-privately held-companies",
