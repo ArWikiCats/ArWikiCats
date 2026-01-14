@@ -170,6 +170,7 @@ Multi_Sports_data = {
     "youth olympics field hockey players": "لاعبو هوكي ميدان في الألعاب الأولمبية الشبابية",
     "youth olympics ice hockey players": "لاعبو هوكي جليد في الألعاب الأولمبية الشبابية",
     "youth olympics nordic combined skiers": "متزحلقو تزلج نوردي مزدوج في الألعاب الأولمبية الشبابية",
+    "paralympic competitors": "منافسون بارالمبيون",
 }
 
 

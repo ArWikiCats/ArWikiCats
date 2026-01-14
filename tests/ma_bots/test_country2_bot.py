@@ -402,7 +402,6 @@ data_slow = {
     "olympic figure skating": "تزلج فني أولمبي",
     "olympic gold medalists for south africa": "فائزون بميداليات ذهبية أولمبية من جنوب إفريقيا",
     "olympic gold medalists for united states": "فائزون بميداليات ذهبية أولمبية من الولايات المتحدة",
-    "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
     "olympic ice hockey players for belgium": "لاعبو هوكي جليد أولمبيون في بلجيكا",
     "olympic judoka for italy": "لاعبو جودو أولمبيون في إيطاليا",
     "olympic medalists for united states": "فائزون بميداليات أولمبية من الولايات المتحدة",

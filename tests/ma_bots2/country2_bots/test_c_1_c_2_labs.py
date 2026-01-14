@@ -206,7 +206,6 @@ fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "monuments and memorials", "output": "معالم أثرية ونصب تذكارية"},
     {"separator": " in ", "cone_1": "new democratic party candidates", "output": "مرشحو الحزب الديمقراطي الجديد"},
     {"separator": " in ", "cone_1": "north american competitors", "output": "منافسون أمريكيون شماليون"},
-    {"separator": " in ", "cone_1": "olympic gold medalists", "output": "فائزون بميداليات ذهبية أولمبية"},
     {
         "separator": " in ",
         "cone_1": "pan american games silver medalists",
