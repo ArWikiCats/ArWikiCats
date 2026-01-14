@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.translations.mixed import Newkey, all_keys2, all_keys4, bot_te_4_list, keys_23
+from ArWikiCats.translations.mixed import Newkey, all_keys2, all_keys4, keys_23
 
 
 @pytest.mark.parametrize(
@@ -33,8 +33,6 @@ def test_women_competitions_use_correct_spelling() -> None:
     """Ensure the women's competitions render with the corrected Arabic term."""
 
     assert "للسيدات" in all_keys4.new2019["uci women's world tour"]
-    assert "للسيدات" in keys_23.AFC_KEYS["afc women's asian cup"]
-    assert "للسيدات" in bot_te_4_list.Multi_sport_for_Jobs["afc women's asian cup"]
 
 
 def test_time_trial_translations_include_against_the_clock() -> None:
@@ -42,9 +40,3 @@ def test_time_trial_translations_include_against_the_clock() -> None:
 
     assert "ضد الساعة" in all_keys4.new2019["uci road world championships – men's team time trial"]
     assert "ضد الساعة" in all_keys4.new2019["uci track cycling world championships – women's 500 m time trial"]
-
-
-def test_short_story_translations_use_correct_phrase() -> None:
-    """The short story categories should reference "قصص قصيرة" consistently."""
-
-    assert "قصص قصيرة" in bot_te_4_list.en_is_nat_ar_is_women["short stories"]

@@ -17,15 +17,18 @@ from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ...time_resolvers import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2, typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from ...make_bots.o_bots.peoples_resolver import work_peoples
 from ...make_bots.reslove_relations.rele import resolve_relations_label
+
 from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ...new_resolvers.bys_new import resolve_by_labels
+from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ...new_resolvers.reslove_all import new_resolvers_all
+
 from .utils import split_text_by_separator
 
 pp_start_with2 = {
@@ -259,14 +262,16 @@ def separator_arabic_resolve(separator: str) -> str:
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     part_2_label = (
-        c_2_1_lab(part_2)
+        new_resolvers_all(part_2)
+        or c_2_1_lab(part_2)
         or country_bot.Get_c_t_lab(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
         or ""
     )
 
     part_1_label = (
-        c_1_1_lab(separator, part_1, with_years=with_years)
+        new_resolvers_all(part_1)
+        or c_1_1_lab(separator, part_1, with_years=with_years)
         or country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
         or ""
     )

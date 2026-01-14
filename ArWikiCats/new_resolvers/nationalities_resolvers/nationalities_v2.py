@@ -31,7 +31,6 @@ males_data = {
 males_data.update(peoples_nats_not_jobs_males)
 
 ar_data = {
-    # ar - en_is_nat_ar_is_P17
     "{en} grand prix": "جائزة {ar} الكبرى",
     "{en} kings cup": "كأس ملك {ar}",  # Bahraini King's Cup
     "{en} cup": "كأس {ar}",
@@ -79,6 +78,8 @@ the_male_data = {
     "{en} rugby union": "اتحاد الرجبي {the_male}",
     "{en} presidential pardons": "العفو الرئاسي {the_male}",
     "{en} pardons": "العفو {the_male}",
+    # "professional football league": "الدوري {the_male} لكرة القدم للمحترفين",
+    "{en} women's rugby union": "اتحاد الرجبي {the_male} للنساء",
 }
 
 male_data = {
@@ -113,6 +114,23 @@ female_data = {
     "{en} womens sports": "رياضات نسائية {female}",
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
+
+    "{en} video game businesspeople": "شخصيات أعمال {} في ألعاب الفيديو",
+    "{en} video game industry businesspeople": "شخصيات أعمال {} في صناعة ألعاب الفيديو",
+    "{en} real estate businesspeople": "شخصيات أعمال {} في العقارات",
+    "{en} real estate industry businesspeople": "شخصيات أعمال {} في صناعة العقارات",
+    "{en} metals businesspeople": "شخصيات أعمال {} في المعادن",
+    "{en} metals industry businesspeople": "شخصيات أعمال {} في صناعة المعادن",
+    "{en} financial industry businesspeople": "شخصيات أعمال {} في صناعة المالية",
+    "{en} financial businesspeople": "شخصيات أعمال {} في المالية",
+    "{en} fashion businesspeople": "شخصيات أعمال {} في الأزياء",
+    "{en} fashion industry businesspeople": "شخصيات أعمال {} في صناعة الأزياء",
+    "{en} entertainment businesspeople": "شخصيات أعمال {} في الترفيه",
+    "{en} cosmetics businesspeople": "شخصيات أعمال {} في مستحضرات التجميل",
+    "{en} cosmetics industry businesspeople": "شخصيات أعمال {} في صناعة مستحضرات التجميل",
+    "{en} computer industry businesspeople": "شخصيات أعمال {} في صناعة كمبيوتر",
+    "{en} computer businesspeople": "شخصيات أعمال {} في الكمبيوتر",
+
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
     "{en} non-fiction comic strips": "شرائط كومكس {female} غير خيالية",
     "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
@@ -313,6 +331,7 @@ female_data = {
     "{en} youth competitions": "منافسات شبابية {female}",
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
+
 }
 
 burial_sites = {
@@ -374,6 +393,8 @@ the_female_data = {
     "{en} courts": "محاكم {female}",
     "{en} sports templates": "قوالب رياضة {female}",
     "{en} political party": "أحزاب سياسية {female}",
+    # "society" : "الجمعية {the_female}",
+    "{en} presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
 }
 
 all_formatted_data = (

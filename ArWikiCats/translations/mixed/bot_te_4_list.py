@@ -4,72 +4,9 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports import (
-    SPORT_FORMATS_FEMALE_NAT,
-    SPORT_FORMATS_MALE_NAT,
-    SPORTS_KEYS_FOR_TEAM,
-)
-from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
-from .keys_23 import AFC_KEYS
 from .Newkey import pop_final6
-
-# الإنجليزية والعربية اسم البلد
-# tab[Category:United States board members] = "تصنيف:أعضاء مجلس الولايات المتحدة"
-
-# الإنجليزي جنسية والعربي اسم البلد
-# tab[Category:Bahraini King's Cup] = "تصنيف:كأس ملك البحرين"
-en_is_nat_ar_is_P17: dict[str, str] = {
-    "grand prix": "جائزة {} الكبرى",
-    "king's cup": "كأس ملك {}",  # Bahraini King's Cup
-    "cup": "كأس {}",
-    "independence": "استقلال {}",
-    "open": "{} المفتوحة",
-    "ladies open": "{} المفتوحة للسيدات",
-    "national university": "جامعة {} الوطنية",
-    "national university alumni": "خريجو جامعة {} الوطنية",
-    # "open (tennis)" : "{} المفتوحة للتنس",
-}
-
-
-# الانجليزية جنسية
-# رجالية بألف ولام التعريف
-# tab[Category:Yemeni president cup] = "تصنيف:كأس الرئيس اليمني"
-
-
-en_is_nat_ar_is_al_mens: dict[str, str] = {
-    "president cup": "كأس الرئيس {}",
-    "federation cup": "كأس الاتحاد {}",
-    "fa cup": "كأس الاتحاد {}",
-    "occupation": "الاحتلال {}",
-    "super cup": "كأس السوبر {}",
-    "elite cup": "كأس النخبة {}",
-    "referendum": "الاستفتاء {}",
-    "involvement": "التدخل {}",
-    "census": "التعداد {}",
-    # "professional football league": "الدوري {} لكرة القدم للمحترفين",
-    "professional football league": "دوري كرة القدم {} للمحترفين",
-    "premier football league": "الدوري {} الممتاز لكرة القدم",
-    "national super league": "دوري السوبر {}",
-    "super league": "دوري السوبر {}",
-    "premier league": "الدوري {} الممتاز",
-    "premier division": "الدوري {} الممتاز",
-    "amateur football league": "الدوري {} لكرة القدم للهواة",
-    "football league": "الدوري {} لكرة القدم",
-    "population census": "التعداد السكاني {}",
-    "population and housing census": "التعداد {} للسكان والمساكن",
-    "national party": "الحزب الوطني {}",
-    "criminal law": "القانون الجنائي {}",
-    "family law": "قانون الأسرة {}",
-    "labour law": "قانون العمل {}",
-    "abortion law": "قانون الإجهاض {}",
-    "rugby union leagues": "اتحاد دوري الرجبي {}",
-    "women's rugby union": "اتحاد الرجبي {} للنساء",
-    "rugby union": "اتحاد الرجبي {}",
-    "presidential pardons": "العفو الرئاسي {}",
-    "pardons": "العفو {}",
-}
 
 # العربي جنسية مثل : Yemeni > اليمني
 # tab[Category:syrian invasion] = "تصنيف:الغزو السوري"
@@ -83,47 +20,6 @@ baston_men: dict[str, str] = {
     "military": "الجيش",
     "army": "الجيش",
 }
-
-# نسائية بألف ولام التعريف
-# الانجليزية والعربية جنسية
-# tab[Category:Yemeni navy] = "تصنيف:البحرية اليمنية"
-# tab[Category:syrian air force] = "تصنيف:القوات الجوية السورية"
-en_is_nat_ar_is_al_women: dict[str, str] = {
-    "royal air force": "القوات الجوية الملكية {}",
-    "air force": "القوات الجوية {}",
-    "royal defence force": "قوات الدفاع الملكية {}",
-    "royal navy": "البحرية {}",
-    "naval force": "البحرية {}",
-    "naval forces": "البحرية {}",
-    "navy": "البحرية {}",
-    "airways accidents and incidents": "حوادث الخطوط الجوية {}",
-    "airways accidents-and-incidents": "حوادث الخطوط الجوية {}",
-    "airways": "الخطوط الجوية {}",
-    "youth games": "الألعاب {} الشبابية",
-    "financial crisis": "الأزمة المالية {}",
-    "presidential crisis": "الأزمة الرئاسية {}",
-    # "society" : "الجمعية {}",
-    "military academy": "الأكاديمية العسكرية {}",
-    "military college": "الكلية العسكرية {}",
-    "crisis": "الأزمة {}",
-    "energy crisis": "أزمة الطاقة {}",
-    "constitutional crisis": "الأزمة الدستورية {}",
-    "games competitors": "منافسون في الألعاب {}",
-    "games medalists": "فائزون بميداليات الألعاب {}",
-    "games gold medalists": "فائزون بميداليات ذهبية في الألعاب {}",
-    "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
-    "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",
-    "television people": "شخصيات التلفزة {}",
-    "presidential primaries": "الانتخابات الرئاسية التمهيدية {}",
-    "legislative election": "الانتخابات التشريعية {}",
-    "parliamentary election": "الانتخابات البرلمانية {}",
-    "general election": "الانتخابات العامة {}",
-    "regional election": "انتخابات الإقليمية {}",
-    "vice-presidential election": "انتخابات نائب الرئاسة {}",
-    "presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
-    "presidential election": "انتخابات الرئاسة {}",
-}
-
 
 # [Category:myanmarian movement] = "تصنيف:الحركة الميانمارية"
 baston_women: dict[str, str] = {
@@ -146,23 +42,6 @@ baston_women: dict[str, str] = {
     "politics": "السياسة",
     # "sports" : "الرياضة",
 }
-
-
-def _extend_female_sport_mappings() -> None:
-    """
-    Populate sport related mappings for female categories.
-
-    # Russian Professional Football League
-    # دوري كرة القدم الروسي للمحترفين
-
-    """
-    data = {}
-    for key, value in SPORT_FORMATS_FEMALE_NAT.items():
-        data[key] = value
-    for category, label in baston_women.items():
-        data[category.lower()] = f"{label} {{}}"
-    return data
-
 
 # جنسية عربي وإنجليزي
 # نسائية بدون ألف ولام التعريف
@@ -314,7 +193,7 @@ en_is_nat_ar_is_women: dict[str, str] = {
     "sport": "رياضة {}",
     "sports competitions": "منافسات رياضية {}",
     "sports events": "أحداث رياضية {}",
-    "sports": "رياضة {}",
+    "sports": "ألعاب رياضية {}",
     "surnames": "ألقاب {}",
     "swamps": "مستنقعات {}",
     "telenovelas": "تيلينوفيلا {}",
@@ -365,37 +244,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
 }
 
 
-def _build_new_kkk() -> dict[str, str]:
-    """
-    English nationality → Arabic country-name
-    Example: “men's hockey cup” → “كأس {} الهوكي للرجال”
-    """
-    label_index: dict[str, str] = {}
-
-    for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
-        # Category:National junior women's goalball teams
-        label_index[f"men's {team2} cup"] = f"كأس {{}} {team2_lab} للرجال"
-        label_index[f"women's {team2} cup"] = f"كأس {{}} {team2_lab} للسيدات"
-        label_index[f"{team2} cup"] = f"كأس {{}} {team2_lab}"
-        label_index[f"national junior men's {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
-        label_index[f"national junior {team2} team"] = f"منتخب {{}} {team2_lab} للناشئين"
-        label_index[f"national {team2} team"] = f"منتخب {{}} {team2_lab}"
-        label_index[f"national women's {team2} team"] = f"منتخب {{}} {team2_lab} للسيدات"
-        label_index[f"national men's {team2} team"] = f"منتخب {{}} {team2_lab} للرجال"
-
-    return label_index
-
-
-def _extend_sport_mappings() -> None:
-    """Populate sport related mappings for both genders."""
-
-    for key, value in SPORT_FORMATS_MALE_NAT.items():
-        en_is_nat_ar_is_al_mens[key] = value
-
-    for category, label in baston_men.items():
-        en_is_nat_ar_is_al_mens[category.lower()] = f"{label} {{}}"
-
-
 def _extend_singer_and_business_entries() -> None:
     """Populate singer and businessperson derived mappings."""
 
@@ -409,43 +257,24 @@ def _extend_singer_and_business_entries() -> None:
         en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
 
 
-en_is_nat_ar_is_women_2: dict[str, str] = dict(en_is_nat_ar_is_women)
-
-
-def _extend_book_entries() -> None:
+def _extend_book_entries() -> dict:
     """Populate mappings derived from book categories."""
-
+    data = {}
     for key, label in BOOK_CATEGORIES.items():
         lowered = key.lower()
-        en_is_nat_ar_is_women[lowered] = f"{label} {{}}"
+        data[lowered] = f"{label} {{}}"
         for book_type, book_label in BOOK_TYPES.items():
             composite = f"{book_type.lower()} {lowered}"
-            en_is_nat_ar_is_women[composite] = f"{label} {book_label} {{}}"
+            data[composite] = f"{label} {book_label} {{}}"
 
-        en_is_nat_ar_is_women[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        en_is_nat_ar_is_women[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        en_is_nat_ar_is_women[f"online {lowered}"] = f"{label} إنترنت {{}}"
+        data[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        data[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        data[f"online {lowered}"] = f"{label} إنترنت {{}}"
 
     for key, label in pop_final6.items():
-        en_is_nat_ar_is_women[key.lower()] = f"{label} {{}}"
+        data[key.lower()] = f"{label} {{}}"
+    return data
 
-
-change_male_to_female: dict[str, str] = {
-    "{} مغتربون": "{} مغتربات",
-    "{} مختطفون": "{} مختطفات",
-    "{} معاقون": "{} معاقات",
-    "{} مثليون": "{} مثليات",
-    "{} أصليون": "{} أصليات",
-    "{} أسطوريون": "{} أسطوريات",
-    "{} خياليون": "{} خياليات",
-    "{} بحريون": "{} بحريات",
-    "{} سياسيون": "{} سياسيات",
-    "{} معاصرون": "{} معاصرات",
-    "{} عسكريون": "{} عسكريات",
-    "{} لاتينيون": "{} لاتينيات",
-    "{} رومانسيون": "{} رومانسيات",
-    "{} دينيون": "{} دينيات",
-}
 
 ttk: dict[str, str] = {
     "cultural depictions of": "التصوير الثقافي ل{}",
@@ -459,47 +288,18 @@ ttk2: dict[str, str] = {
     "depictions of": "تصوير عن {}",
 }
 
-Multi_sport_for_Jobs: dict[str, str] = {
-    "afc asian cup": "كأس آسيا",
-    "afc cup": "كأس الاتحاد الآسيوي",
-    "fifa futsal world cup": "كأس العالم لكرة الصالات",
-}
-
-Multi_sport_for_Jobs.update(SUMMER_WINTER_GAMES)
-Multi_sport_for_Jobs.update(AFC_KEYS)
-
-SPORT_FORMATS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
-
-en_is_nat_ar_is_P17.update(SPORT_FORMATS_NEW_KKK)
-
-_extend_sport_mappings()
-
-en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
-
 _extend_singer_and_business_entries()
-_extend_book_entries()
-
+books_keys = _extend_book_entries()
+en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
-    "change_male_to_female",
-    "Multi_sport_for_Jobs",
-    "en_is_nat_ar_is_P17",
-    "en_is_nat_ar_is_al_mens",
-    "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
-    "en_is_nat_ar_is_women_2",
 ]
 
 
 len_print.data_len(
     "bot_te_4_list.py",
     {
-        "en_is_nat_ar_is_P17": en_is_nat_ar_is_P17,
-        "en_is_nat_ar_is_al_mens": en_is_nat_ar_is_al_mens,
-        "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
-        "change_male_to_female": change_male_to_female,
-        "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
-        "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
     },
 )

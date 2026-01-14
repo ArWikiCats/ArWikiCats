@@ -76,7 +76,6 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "cone_1": "roman catholic archbishops", "output": "رؤساء أساقفة رومان كاثوليك"},
     {"separator": " by ", "cone_1": "roman catholic bishops", "output": "أساقفة كاثوليك رومان"},
     {"separator": " by ", "cone_1": "rugby league coaches", "output": "مدربو دوري رجبي"},
-    {"separator": " by ", "cone_1": "samoan rugby league players", "output": "لاعبو الدوري الساموي للرجبي"},
     {"separator": " by ", "cone_1": "science fiction films", "output": "أفلام خيال علمي"},
     {"separator": " by ", "cone_1": "science fiction novels", "output": "روايات خيال علمي"},
     {"separator": " by ", "cone_1": "serbian basketball players", "output": "لاعبو كرة سلة صرب"},
@@ -206,7 +205,6 @@ fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "monuments and memorials", "output": "معالم أثرية ونصب تذكارية"},
     {"separator": " in ", "cone_1": "new democratic party candidates", "output": "مرشحو الحزب الديمقراطي الجديد"},
     {"separator": " in ", "cone_1": "north american competitors", "output": "منافسون أمريكيون شماليون"},
-    {"separator": " in ", "cone_1": "olympic gold medalists", "output": "فائزون بميداليات ذهبية أولمبية"},
     {
         "separator": " in ",
         "cone_1": "pan american games silver medalists",
@@ -338,6 +336,9 @@ fast_and_data = {
 }
 
 fast_data_c_2_1_lab = {
+    "australian royal navy": "البحرية الملكية الأسترالية",
+    "swedish royal navy": "البحرية الملكية السويدية",
+    "thai royal navy": "البحرية الملكية التايلندية",
     "1st century bc": "القرن 1 ق م",
     "6th century bc": "القرن 6 ق م",
     "7th century bc": "القرن 7 ق م",
@@ -360,7 +361,6 @@ fast_data_c_2_1_lab = {
     "australian capital territory": "إقليم العاصمة الأسترالية",
     "australian national university": "جامعة أستراليا الوطنية",
     "australian royal air force": "القوات الجوية الملكية الأسترالية",
-    "australian royal navy": "البحرية الأسترالية",
     "australian rules football": "كرة القدم الأسترالية",
     "aviation accidents or incidents": "حوادث طيران",
     "azerbaijan soviet socialist republic": "الجمهورية الأذرية السوفيتية الاشتراكية",
@@ -481,14 +481,12 @@ fast_data_c_2_1_lab = {
     "st. johns river": "نهر سانت جونز",
     "state lower houses": "مجالس نواب الولايات",
     "sultanate of zanzibar": "سلطنة زنجبار",
-    "swedish royal navy": "البحرية السويدية",
     "syrian civil war": "الحرب الأهلية السورية",
     "são paulo (city)": "ساو باولو",
     "são paulo (state)": "ولاية ساو باولو",
     "tai po district": "مقاطعة تاي بو",
     "telugu desam party": "حزب تيلوغو ديسام",
     "thai royal air force": "القوات الجوية الملكية التايلندية",
-    "thai royal navy": "البحرية التايلندية",
     "third dynasty of egypt": "الأسرة المصرية الثالثة",
     "thirteen colonies": "المستعمرات الثلاث عشرة",
     "thirtieth dynasty of egypt": "الأسرة المصرية الثلاثون",

@@ -44,12 +44,11 @@ data0 = {
 }
 
 data1 = {
+    "samoan rugby league players": "لاعبو دوري رجبي سامويون",
+
     "Sunni Muslim scholars of Islam by ethnicity": "مسلمون سنة باحثون عن الإسلام حسب المجموعة العرقية",
     "Sunni Muslim scholars of Islam by nationality": "مسلمون سنة باحثون عن الإسلام حسب الجنسية",
 
-    "20th-century Anglican archbishops in Ireland": "رؤساء أساقفة أنجليكيون في أيرلندا القرن 20",
-    "20th-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا القرن 20",
-    "21st-century Anglican archbishops in New Zealand": "رؤساء أساقفة أنجليكيون في نيوزيلندا القرن 21",
     "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أمريكيات",
     "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة تركيات",
     "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",
@@ -74,7 +73,7 @@ data1 = {
     "all-africa games": "ألعاب عموم إفريقيا",
     "american hockey league": "الدوري الأمريكي للهوكي",
     "anguillan league": "الدوري الأنغويلاني",
-    "armenian independence cup": "كأس استقلال أرمينيا",
+    "armenian independence cup": "كأس الاستقلال الأرميني",
     "armenian premier league": "الدوري الأرميني الممتاز",
     "asian games": "الألعاب الآسيوية",
     "australian baseball league": "الدوري الأسترالي لكرة القاعدة",

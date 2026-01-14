@@ -8,6 +8,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data_fast = {
+    "bulgarian cup": "كأس بلغاريا",
+    "swiss grand prix": "جائزة سويسرا الكبرى",
     "Anglican archbishops of Papua New Guinea": "رؤساء أساقفة أنجليكيون في بابوا غينيا الجديدة",
     "shi'a muslims expatriates": "مسلمون شيعة مغتربون",
     "african people by nationality": "أفارقة حسب الجنسية",

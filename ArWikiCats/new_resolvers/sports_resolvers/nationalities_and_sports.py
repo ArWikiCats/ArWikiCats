@@ -118,6 +118,8 @@ def _levels_data() -> dict[str, str]:
 def _load_sports_formatted_data() -> dict[str, str]:
 
     sports_formatted_data = {
+        "{en} league cup": "كأس الدوري {the_male}",
+        "{en} independence cup": "كأس الاستقلال {the_male}",
         "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
         "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
         "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
@@ -141,18 +143,45 @@ def _load_sports_formatted_data() -> dict[str, str]:
         # coaches of basketball
         "coaches of {en_sport}": "مدربو {sport_jobs}",
         "players of {en_sport}": "لاعبو {sport_jobs}",
+
         # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
         "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
         "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
         # expatriate basketball people
         "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
         "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+        "{en} {en_sport} people": "أعلام {sport_label} {the_female}",
+
         # _build_new_kkk() -> dict[str, str]:
         # Category:National junior womens goalball teams
         "{en} national junior mens {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
         "{en} national junior {en_sport} team": "منتخب {ar} {sport_team} للناشئين",
         "{en} national womens {en_sport} team": "منتخب {ar} {sport_team} للسيدات",
         "{en} national mens {en_sport} team": "منتخب {ar} {sport_team} للرجال",
+
+        # _build_male_nat()
+        "{en} league" : "الدوري {the_male}",
+        "{en} fa cup": "كأس الاتحاد {the_male}",
+        "{en} {en_sport} super league" : "دوري السوبر {sport_label} {the_male}",
+        "{en} professional {en_sport} league": "دوري {sport_label} {the_male} للمحترفين",
+        # Middle East Rally Championship بطولة الشرق الأوسط للراليات
+
+        "{en} {en_sport} league": "الدوري {the_male} {sport_team}",
+
+        "{en} {en_sport} league administrators": "مدراء الدوري {the_male} {sport_team}",
+        "{en} {en_sport} league players": "لاعبو الدوري {the_male} {sport_team}",
+        "{en} {en_sport} league playerss": "لاعبو الدوري {the_male} {sport_team}",
+
+        # tab[Category:American Indoor Soccer League coaches] = "تصنيف:مدربو الدوري الأمريكي لكرة القدم داخل الصالات"
+        "{en} indoor {en_sport} league": "الدوري {the_male} {sport_team} داخل الصالات",
+        "{en} outdoor {en_sport} league": "الدوري {the_male} {sport_team} في الهواء الطلق",
+
+        # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
+        "{en} major indoor {en_sport} league": "الدوري الرئيسي {the_male} {sport_team} داخل الصالات",
+
+        # "yemeni major indoor wheelchair football league": "الدوري الرئيسي اليمني لكرة القدم على الكراسي المتحركة داخل الصالات",
+        "{en} major indoor wheelchair {en_sport} league": "الدوري الرئيسي {the_male} {sport_team} على الكراسي المتحركة داخل الصالات",
+        # ---
         # SPORT_FORMATS_FEMALE_NAT
         # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
         "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
@@ -252,14 +281,17 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
         # "yemeni football": "كرة قدم يمنية",
         # "{en} {en_sport}": "{sport_jobs} {female}",
+        "{en} federation cup": "كأس الاتحاد {the_male}",
         "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
-        "{en} rugby union": "اتحاد الرجبي {the_male}",  # Category:American_basketball
         "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
         "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
         "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
         "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
         "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
         "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
+
+        "{en} rugby union": "اتحاد الرجبي {the_male}",
+        "{en} rugby league": "الدوري {the_male} للرجبي",
     }
 
     sports_formatted_data.update(_levels_data())

@@ -16,6 +16,7 @@ from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_g
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 
 logger.set_level("DEBUG")
 
@@ -37,7 +38,8 @@ logger.set_level("DEBUG")
 # print(resolve_by_nats("Jewish history"))
 # print(resolve_by_nats("American history"))
 # print(resolve_by_nats("Jewish-American history"))
-print(mens_resolver_labels("men writers"))
+# print(mens_resolver_labels("men writers"))
+print(jobs_in_multi_sports("paralympic sailors"))
 
 # python3 D:/categories_bot/make2_new/examples/run.py
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"

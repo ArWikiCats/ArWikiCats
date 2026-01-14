@@ -167,7 +167,7 @@ data_0 = {
     "Antigua and Barbuda male swimmers": "سباحون ذكور أنتيغويون وبربوديون",
     "Antigua and Barbuda male tennis players": "لاعبو كرة مضرب ذكور أنتيغويون وبربوديون",
     "Antigua and Barbuda men's footballers": "لاعبو كرة قدم أنتيغويون وبربوديون",
-    "Men's footballers in Antigua and Barbuda by club": "لاعبو كرة قدم رجالية في أنتيغوا وباربودا حسب النادي",
+    "Men's footballers in Antigua and Barbuda by club": "لاعبو كرة قدم في أنتيغوا وباربودا حسب النادي",
     "Antigua and Barbuda expatriate footballers": "لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
     "Antigua and Barbuda expatriate men's footballers": "لاعبو كرة قدم أنتيغويون وبربوديون مغتربون",
 }
