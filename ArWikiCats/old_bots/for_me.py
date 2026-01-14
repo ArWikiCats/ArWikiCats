@@ -9,52 +9,13 @@ from ..helps import logger
 from ..translations import (
     all_nat_sorted,
     Nat_the_female,
-    Nat_the_male,
     Nat_women,
     New_female_keys,
-    all_country_with_nat_ar,
-    en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
 from ..make_bots.o_bots import ethnic_bot
-
-
-@functools.lru_cache(maxsize=None)
-def Work_for_New_2018_men_Keys_with_all(cate: str, nat: str, suffix: str) -> str:
-    """Retrieve country label for men based on category, nationality, and a
-    specific key.
-
-    This function attempts to derive a country label based on the
-    nationality and the provided key. The function utilizes various mappings
-    to format the country label appropriately.
-
-    Args:
-        cate (str): The category of the work.
-        nat (str): The nationality to be used for label generation.
-        suffix (str): A specific key used to retrieve additional information.
-
-    Returns:
-        str: The formatted country label for men based on the inputs.
-    """
-
-    men_nat_lab = Nat_the_male.get(nat, "")
-
-    if not men_nat_lab:
-        return ""
-
-    # رجالية بألف ولام التعريف
-    suffix_label = en_is_nat_ar_is_al_mens.get(suffix.strip(), "")
-
-    if not suffix_label:
-        return ""
-
-    country_lab = suffix_label.format(men_nat_lab)
-    logger.info(f"Work_for_New_2018_men_Keys_with_all: {suffix=}, {suffix_label=} ")
-    logger.info(f"Work_for_New_2018_men_Keys_with_all: {nat=}, {men_nat_lab=}, {country_lab=} ")
-
-    return country_lab
 
 
 def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
@@ -129,8 +90,6 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
     if res is not None:
         return res
 
-    # 6. رجالية بألف ولام التعريف (Fallback)
-    # return Work_for_New_2018_men_Keys_with_all(cate, nat, suffix)
     return ""
 
 

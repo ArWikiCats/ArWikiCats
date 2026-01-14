@@ -33,8 +33,6 @@ def _build_male_nat() -> Dict[str, str]:
     for team2, team2_lab in SPORTS_KEYS_FOR_TEAM.items():
         # Middle East Rally Championship بطولة الشرق الأوسط للراليات
 
-        # label_index[f"{team2.lower()} federation"] = f"الاتحاد {COUNTRY_PLACEHOLDER} {team2_lab}"
-
         label_index[f"{team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab}"
 
         label_index[f"women's {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} للسيدات"
@@ -47,9 +45,7 @@ def _build_male_nat() -> Dict[str, str]:
         label_index[f"outdoor {team2.lower()} league"] = f"الدوري {COUNTRY_PLACEHOLDER} {team2_lab} في الهواء الطلق"
 
         # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
-        label_index[
-            f"major indoor {team2.lower()} league"
-        ] = f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
+        label_index[f"major indoor {team2.lower()} league"] = f"الدوري الرئيسي {COUNTRY_PLACEHOLDER} {team2_lab} داخل الصالات"
 
     return label_index
 
