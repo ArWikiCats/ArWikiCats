@@ -11,7 +11,6 @@ from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_
 
 # TODO: add data from ArWikiCats/translations/sports/olympics_data.py
 medalists_data = {
-    "central-american-and-caribbean-games": "ألعاب أمريكا الوسطى والكاريبي",
     # "central american and caribbean games": "ألعاب أمريكا الوسطى والكاريبي",
     "african games": "الألعاب الإفريقية",
     "all-africa games": "ألعاب عموم إفريقيا",
@@ -24,6 +23,7 @@ medalists_data = {
     "bolivarian games": "الألعاب البوليفارية",
     "central american and caribbean games": "ألعاب أمريكا الوسطى والكاريبي",
     "central american games": "ألعاب أمريكا الوسطى",
+    "central-american-and-caribbean-games": "ألعاب أمريكا الوسطى والكاريبي",
     "commonwealth games": "ألعاب الكومنولث",
     "commonwealth youth games": "ألعاب الكومنولث الشبابية",
     "deaflympic games": "ألعاب ديفلمبياد",
@@ -61,6 +61,8 @@ medalists_data = {
     "world university games": "ألعاب الجامعات العالمية",
     "youth olympic games": "الألعاب الأولمبية الشبابية",
     "youth olympic": "الألعاب الأولمبية الشبابية",
+    "youth olympics games": "الألعاب الأولمبية الشبابية",
+    "youth olympics": "الألعاب الأولمبية الشبابية",
 }
 
 

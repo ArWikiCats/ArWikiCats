@@ -103,18 +103,17 @@ multi_sport_for_jobs = {
     "south asian games": "ألعاب جنوب أسيا",
     "south asian winter games": "ألعاب جنوب آسيا الشتوية",
     "southeast asian games": "ألعاب جنوب شرق آسيا",
-    "summer olympics": "الألعاب الأولمبية الصيفية",
+    "summer olympic": "الألعاب الأولمبية الصيفية",
     "summer universiade": "الألعاب الجامعية الصيفية",
     "summer world university games": "ألعاب الجامعات العالمية الصيفية",
     "the universiade": "الألعاب الجامعية",
     "universiade": "الألعاب الجامعية",
-    "winter olympics": "الألعاب الأولمبية الشتوية",
+    "winter olympic": "الألعاب الأولمبية الشتوية",
     "winter universiade": "الألعاب الجامعية الشتوية",
     "winter world university games": "ألعاب الجامعات العالمية الشتوية",
     "world championships": "بطولات العالم",
     "youth olympic": "الألعاب الأولمبية الشبابية",
-    "youth olympics games": "الألعاب الأولمبية الشبابية",
-    "youth olympics": "الألعاب الأولمبية الشبابية",
+    "youth olympic games": "الألعاب الأولمبية الشبابية",
 }
 
 
