@@ -498,7 +498,7 @@ test_data_ar = {
     "yemeni industrial groups": "فرق صناعية يمنية",
     "yemeni electronic musical groups": "فرق موسيقى إليكترونيك يمنية",
     "yemeni minimal music groups": "فرق موسيقى حد أدنى يمنية",
-    "yemeni música popular brasileira musical groups": "فرق موسيقى موسيقى شعبية برازيلية يمنية",
+    "yemeni música popular brasileira musical groups": "فرق موسيقى شعبية برازيلية يمنية",
     "yemeni swing music groups": "فرق سوينغ يمنية",
     "yemeni peruvian cumbia musical groups": "فرق موسيقى كومبيا بيروفية يمنية",
     "yemeni opera groups": "فرق أوبرا يمنية",

@@ -204,7 +204,7 @@ female_data_music = {
     "{en} metal groups": "فرق ميتال {female}",
     "{en} minimal music groups": "فرق موسيقى حد أدنى {female}",
     "{en} music groups": "فرق موسيقى {female}",
-    "{en} música popular brasileira musical groups": "فرق موسيقى موسيقى شعبية برازيلية {female}",
+    "{en} música popular brasileira musical groups": "فرق موسيقى شعبية برازيلية {female}",
     "{en} new wave groups": "فرق موجة جديدة {female}",
     "{en} new wave musical groups": "فرق موسيقى موجة جديدة {female}",
     "{en} new-age music groups": "فرق موسيقى العصر الجديد {female}",
