@@ -112,6 +112,7 @@ male_data = {
 }
 
 female_data = {
+    "{en} texts": "نصوص {female}",
     "{en} events": "أحداث {female}",
     "{en} political organizations": "منظمات سياسية {female}",
     "{en} rock groups": "فرق روك {female}",

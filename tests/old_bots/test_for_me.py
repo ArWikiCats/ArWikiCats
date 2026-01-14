@@ -154,7 +154,6 @@ data0 = {
     "jewish political movements": "حركات سياسية يهودية",
     "jewish political parties": "أحزاب سياسية يهودية",
     "jewish religious movements": "حركات دينية يهودية",
-    "jewish rock groups": "فرق روك يهودية",
     "Jewish texts by century": "نصوص يهودية حسب القرن",
     "jewish texts": "نصوص يهودية",
     "korean international schools": "مدارس دولية كورية",
@@ -189,15 +188,6 @@ data0 = {
 }
 
 data_2018 = {
-    "christian events": "أحداث مسيحية",
-    "christian political organizations": "منظمات سياسية مسيحية",
-    "christian rock groups": "فرق روك مسيحية",
-    "jewish history organizations": "منظمات تاريخ يهودية",
-    "jewish political organizations": "منظمات سياسية يهودية",
-    "jewish religious organizations": "منظمات دينية يهودية",
-    "Kurdish Islamic organisations": "منظمات إسلامية كردية",
-    "kurdish islamic organizations": "منظمات إسلامية كردية",
-
 }
 
 
@@ -234,6 +224,6 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     """
     """
     expected, diff_result = one_dump_test(data, Work_for_me_main)
-    dump_diff(diff_result, name)
+    # dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

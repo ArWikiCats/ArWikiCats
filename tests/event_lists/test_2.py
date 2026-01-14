@@ -5,6 +5,24 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "Christian texts by century": "نصوص مسيحية حسب القرن",
+    "Christian texts by genre": "نصوص مسيحية حسب النوع الفني",
+    "Christian texts by medium": "نصوص مسيحية حسب الوسط",
+    "Christian texts by millennium": "نصوص مسيحية حسب الألفية",
+    "Christian texts by period": "نصوص مسيحية حسب الحقبة",
+    "christian texts": "نصوص مسيحية",
+    "Jewish texts by century": "نصوص يهودية حسب القرن",
+    "jewish texts": "نصوص يهودية",
+    "jewish rock groups": "فرق روك يهودية",
+    "christian events": "أحداث مسيحية",
+    "christian political organizations": "منظمات سياسية مسيحية",
+    "christian rock groups": "فرق روك مسيحية",
+    "jewish history organizations": "منظمات تاريخ يهودية",
+    "jewish political organizations": "منظمات سياسية يهودية",
+    "jewish religious organizations": "منظمات دينية يهودية",
+    "Kurdish Islamic organisations": "منظمات إسلامية كردية",
+    "kurdish islamic organizations": "منظمات إسلامية كردية",
+
     "jewish sports organizations": "منظمات ألعاب رياضية يهودية",
     "christian sports organizations": "منظمات ألعاب رياضية مسيحية",
     "romanian motorsport people": "أعلام رياضة المحركات الرومانية",
