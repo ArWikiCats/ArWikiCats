@@ -73,7 +73,7 @@ def _get_p17_label(nat: str, suffix: str) -> str | None:
     if cco_lab:
         logger.debug(f"<<lightblue>> Work_for_me: {con_3_lab=} ")
         country_lab = con_3_lab.format(cco_lab)
-        logger.debug(f"<<lightblue>> bot_te_4:all_country_with_nat_ar new {country_lab=} ")
+        logger.debug(f"<<lightblue>> for_me:all_country_with_nat_ar new {country_lab=} ")
         return country_lab
 
     return ""
@@ -114,7 +114,7 @@ def _get_female_def_label(suffix: str, the_female_nat_lab: str) -> str | None:
         country_lab = con_3_lab.format(nat=the_female_nat_lab)
     else:
         country_lab = con_3_lab.format(the_female_nat_lab)
-    logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_al_women new {country_lab=} ")
+    logger.debug(f"<<lightblue>> for_me:en_is_nat_ar_is_al_women new {country_lab=} ")
     return country_lab
 
 
@@ -184,5 +184,5 @@ def Work_for_me_main(category: str) -> str:
     if suffix:
         result = Work_for_me(normalized_category, nationality_key, suffix)
 
-    logger.debug(f'<<lightblue>> bot_te_4: Work_for_me_main :: "{result}"')
+    logger.debug(f'<<lightblue>> for_me: Work_for_me_main :: "{result}"')
     return result

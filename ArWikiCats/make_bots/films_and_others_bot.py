@@ -18,7 +18,7 @@ from ..new_resolvers.nationalities_resolvers.ministers_resolver import resolve_s
 from ..new_resolvers.sports_resolvers import resolve_sports_main
 # from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
-from ..old_bots.bot_te_4 import jobs_in_multi_sports
+from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 from ..old_bots.for_me import Work_for_me_main
 from .languages_bot.languages_resolvers import te_language
 # from .lazy_data_bots.bot_2018 import get_pop_All_18

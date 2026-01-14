@@ -389,7 +389,7 @@ def _get_male_no_def_label(suffix: str, men_nat_lab: str) -> str | None:
         return None
 
     country_lab = con_3_lab.format(men_nat_lab)
-    # logger.debug(f"<<lightblue>> bot_te_4:en_is_nat_ar_is_man new {country_lab=} ")
+    # logger.debug(f"<<lightblue>> _get_male_no_def_label:en_is_nat_ar_is_man new {country_lab=} ")
     return country_lab
 
 
