@@ -7,26 +7,7 @@ from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 data0 = {
-
-    "yemeni women's rugby union": "اتحاد الرجبي اليمني للنساء",
-    "yemeni rugby union leagues": "اتحاد دوري الرجبي اليمني",
-
-    "yemeni indoor rugby league": "الدوري اليمني للرجبي داخل الصالات",
-    "yemeni indoor wheelchair rugby league": "الدوري اليمني للرجبي على الكراسي المتحركة داخل الصالات",
-    "yemeni major indoor rugby league": "الدوري الرئيسي اليمني للرجبي داخل الصالات",
-    "yemeni major indoor wheelchair rugby league": "الدوري الرئيسي اليمني للرجبي على الكراسي المتحركة داخل الصالات",
-    "yemeni outdoor rugby league": "الدوري اليمني للرجبي في الهواء الطلق",
-    "yemeni outdoor wheelchair rugby league": "الدوري اليمني للرجبي على الكراسي المتحركة في الهواء الطلق",
-    "yemeni professional rugby league": "دوري الرجبي اليمني للمحترفين",
-    "yemeni professional wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة اليمني للمحترفين",
-    "yemeni rugby league administrators": "مدراء الدوري اليمني للرجبي",
-    "yemeni rugby league players": "لاعبو الدوري اليمني للرجبي",
-    "yemeni wheelchair rugby league": "الدوري اليمني للرجبي على الكراسي المتحركة",
-    "yemeni wheelchair rugby league administrators": "مدراء الدوري اليمني للرجبي على الكراسي المتحركة",
-    "yemeni wheelchair rugby league players": "لاعبو الدوري اليمني للرجبي على الكراسي المتحركة",
-    "yemeni wheelchair rugby league playerss": "لاعبو الدوري اليمني للرجبي على الكراسي المتحركة",
-    "yemeni women's rugby league": "الدوري اليمني للرجبي للسيدات",
-    "yemeni women's wheelchair rugby league": "الدوري اليمني للرجبي على الكراسي المتحركة للسيدات",
+    "yemeni major indoor wheelchair football league": "الدوري الرئيسي اليمني لكرة القدم على الكراسي المتحركة داخل الصالات",
 }
 
 data1 = {

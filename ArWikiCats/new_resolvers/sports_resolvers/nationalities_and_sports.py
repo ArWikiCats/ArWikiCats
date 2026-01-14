@@ -175,7 +175,9 @@ def _load_sports_formatted_data() -> dict[str, str]:
         # tab[Category:Canadian Major Indoor Soccer League seasons] = "تصنيف:مواسم الدوري الرئيسي الكندي لكرة القدم داخل الصالات"
         "{en} major indoor {en_sport} league": "الدوري الرئيسي {the_male} {sport_team} داخل الصالات",
 
-        # ----
+        # "yemeni major indoor wheelchair football league": "الدوري الرئيسي اليمني لكرة القدم على الكراسي المتحركة داخل الصالات",
+        "{en} major indoor wheelchair {en_sport} league": "الدوري الرئيسي {the_male} {sport_team} على الكراسي المتحركة داخل الصالات",
+        # ---
         # SPORT_FORMATS_FEMALE_NAT
         # [chinese outdoor boxing] : "تصنيف:بوكسينغ صينية في الهواء الطلق",
         "{en} outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق",
