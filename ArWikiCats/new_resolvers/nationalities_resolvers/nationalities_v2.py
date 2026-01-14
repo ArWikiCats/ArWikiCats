@@ -82,6 +82,17 @@ the_male_data = {
 }
 
 male_data = {
+    # "jewish {en} cuisine": "مطبخ {male} يهودي",
+    # "jewish {en} history": "تاريخ {male} يهودي",
+
+    "{en} cuisine": "مطبخ {male}",
+    "{en} history": "تاريخ {male}",
+
+    "{en}-jewish descent": "أصل يهودي {male}",
+    "{en}-jewish diaspora": "شتات يهودي {male}",
+    "{en} jewish descent": "أصل يهودي {male}",
+    "{en} jewish diaspora": "شتات يهودي {male}",
+
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
     "{en} fiction": "خيال {male}",
@@ -94,7 +105,6 @@ male_data = {
     "{en} design": "تصميم {male}",
     "{en} contemporary art": "فن معاصر {male}",
     "{en} art": "فن {male}",
-    "{en} cuisine": "مطبخ {male}",
     "{en} calendar": "تقويم {male}",
     "{en} non fiction literature": "أدب غير خيالي {male}",
     "{en} non-fiction literature": "أدب غير خيالي {male}",
@@ -102,7 +112,6 @@ male_data = {
     "{en} caste system": "نظام طبقي {male}",
     "{en} law": "قانون {male}",
     "{en} wine": "نبيذ {male}",
-    "{en} history": "تاريخ {male}",
     "{en} nuclear history": "تاريخ نووي {male}",
     "{en} military history": "تاريخ عسكري {male}",
     "{en} traditions": "تراث {male}",
@@ -111,6 +120,16 @@ male_data = {
 }
 
 female_data_music = {
+    "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
+    "{en} mixtape albums": "ألبومات ميكستايب {female}",
+    "{en} mixtape music": "موسيقى ميكستايب {female}",
+    "{en} music": "موسيقى {female}",
+    "{en} music people": "شخصيات موسيقية {female}",
+    "{en} music personalities": "شخصيات موسيقية {female}",
+    "{en} musical duos": "فرق موسيقية ثنائية {female}",
+    "{en} musical groups": "فرق موسيقية {female}",
+    "{en} musical instruments": "آلات موسيقية {female}",
+    "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
     "{en} a cappella groups": "فرق أكابيلا {female}",
     "{en} a cappella musical groups": "فرق موسيقى أكابيلا {female}",
     "{en} alternative metal musical groups": "فرق موسيقى ميتال بديل {female}",
@@ -272,6 +291,9 @@ female_data_music = {
 }
 
 female_data = {
+    # north american-jewish culture
+    "{en}-jewish culture": "ثقافة يهودية {female}",
+    "{en} jewish culture": "ثقافة يهودية {female}",
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
