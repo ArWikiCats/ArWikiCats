@@ -12,7 +12,7 @@ import functools
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..make_bots.languages_bot.langs_w import Lang_work
 
-from ..helps import logger
+from ..helps import dump_data, logger
 from ..translations import (
     People_key,
 )
