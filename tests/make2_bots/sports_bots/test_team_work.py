@@ -81,7 +81,6 @@ fast_data = {
     "queensland lions fc matches": "مباريات كوينزلاند ليونز",
     "racing club de avellaneda non-playing staff": "طاقم نادي راسينغ غير اللاعبين",
     "rampla juniors managers": "مدربو رامبلا جونيورز",
-    "romanian motorsport people": "أعلام رياضة محركات رومانية",
     "rosario central matches": "مباريات روزاريو سنترال",
     "san antonio spurs owners": "ملاك سان أنطونيو سبرز",
     "silkeborg if players": "لاعبو نادي سيلكيبورج",
