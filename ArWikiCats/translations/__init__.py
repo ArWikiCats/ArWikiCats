@@ -31,7 +31,6 @@ from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
 from .mixed.bot_te_4_list import (
     change_male_to_female,
-    en_is_nat_ar_is_al_mens,
     en_is_nat_ar_is_al_women,
     en_is_nat_ar_is_women,
 )
@@ -164,7 +163,6 @@ __all__ = [
     "ministers_keys",
     "change_numb_to_word",
     "People_key",
-    "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
     "en_is_nat_ar_is_women",
     "change_male_to_female",

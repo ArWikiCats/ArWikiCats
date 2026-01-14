@@ -4,9 +4,6 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports.skeys import (
-    SPORT_FORMATS_MALE_NAT,
-)
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
 from .Newkey import pop_final6
@@ -293,9 +290,6 @@ en_is_nat_ar_is_women: dict[str, str] = {
 
 def _extend_sport_mappings() -> None:
     """Populate sport related mappings for both genders."""
-
-    for key, value in SPORT_FORMATS_MALE_NAT.items():
-        en_is_nat_ar_is_al_mens[key] = value
 
     for category, label in baston_men.items():
         en_is_nat_ar_is_al_mens[category.lower()] = f"{label} {{}}"
