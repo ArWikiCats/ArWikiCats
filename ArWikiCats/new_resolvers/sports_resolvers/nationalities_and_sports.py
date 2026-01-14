@@ -143,12 +143,14 @@ def _load_sports_formatted_data() -> dict[str, str]:
         # coaches of basketball
         "coaches of {en_sport}": "مدربو {sport_jobs}",
         "players of {en_sport}": "لاعبو {sport_jobs}",
+
         # lithuanian expatriate basketball people "أعلام كرة سلة ليتوانيون مغتربون"
         "{en} expatriate {en_sport} peoplee": "أعلام {sport_jobs} {males} مغتربون",
         "{en} expatriate {en_sport} people": "أعلام {sport_jobs} {males} مغتربون",
         # expatriate basketball people
         "expatriate {en_sport} peoplee": "أعلام {sport_jobs} مغتربون",
         "expatriate {en_sport} people": "أعلام {sport_jobs} مغتربون",
+        "{en} {en_sport} people": "أعلام {sport_label} {the_female}",
 
         # _build_new_kkk() -> dict[str, str]:
         # Category:National junior womens goalball teams
