@@ -10,6 +10,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
 test_data_males = {
+    "christian political parties": "أحزاب سياسية مسيحية",
+    "jewish political parties": "أحزاب سياسية يهودية",
+    "palestinian political parties": "أحزاب سياسية فلسطينية",
     "Yemeni expatriates": "يمنيون مغتربون",
     "Yemeni emigrants": "يمنيون مهاجرون",
 }

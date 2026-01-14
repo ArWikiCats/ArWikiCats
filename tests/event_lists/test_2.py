@@ -5,6 +5,23 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "Christian political parties by country": "أحزاب سياسية مسيحية حسب البلد",
+    "Christian political parties in Australia": "أحزاب سياسية مسيحية في أستراليا",
+    "Christian political parties in Canada": "أحزاب سياسية مسيحية في كندا",
+    "Christian political parties in Germany": "أحزاب سياسية مسيحية في ألمانيا",
+    "Christian political parties in Hungary": "أحزاب سياسية مسيحية في المجر",
+    "Christian political parties in Lebanon": "أحزاب سياسية مسيحية في لبنان",
+    "Christian political parties in Montenegro": "أحزاب سياسية مسيحية في الجبل الأسود",
+    "Christian political parties in New Zealand": "أحزاب سياسية مسيحية في نيوزيلندا",
+    "Christian political parties in Papua New Guinea": "أحزاب سياسية مسيحية في بابوا غينيا الجديدة",
+    "Christian political parties in Poland": "أحزاب سياسية مسيحية في بولندا",
+    "Christian political parties in Quebec": "أحزاب سياسية مسيحية في كيبك",
+    "Christian political parties in South Africa": "أحزاب سياسية مسيحية في جنوب إفريقيا",
+    "Christian political parties in Ukraine": "أحزاب سياسية مسيحية في أوكرانيا",
+    "Christian political parties in United Kingdom": "أحزاب سياسية مسيحية في المملكة المتحدة",
+    "Christian political parties in United States": "أحزاب سياسية مسيحية في الولايات المتحدة",
+    "Politicians of Christian political parties": "سياسيون من أحزاب سياسية مسيحية",
+    "Politicians of Jewish political parties": "سياسيون من أحزاب سياسية يهودية",
     "Christian texts by century": "نصوص مسيحية حسب القرن",
     "Christian texts by genre": "نصوص مسيحية حسب النوع الفني",
     "Christian texts by medium": "نصوص مسيحية حسب الوسط",

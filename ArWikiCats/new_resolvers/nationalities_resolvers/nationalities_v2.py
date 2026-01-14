@@ -112,6 +112,8 @@ male_data = {
 }
 
 female_data = {
+    # Christian political parties": "أحزاب سياسية مسيحية",
+    "{en} political parties": "أحزاب سياسية {female}",
     "{en} texts": "نصوص {female}",
     "{en} events": "أحداث {female}",
     "{en} political organizations": "منظمات سياسية {female}",
