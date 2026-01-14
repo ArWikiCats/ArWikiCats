@@ -85,6 +85,8 @@ the_male_data = {
 male_data = {
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
+    "{en} fiction": "خيال {male}",
+    "{en} science": "علم {male}",
     "{en} diaspora": "شتات {male}",
     "{en} descent": "أصل {male}",
     "{en} military occupations": "احتلال عسكري {male}",
