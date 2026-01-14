@@ -616,8 +616,6 @@ data_1 = {
     "Birds of Antigua and Barbuda": "طيور أنتيغوا وباربودا",
     "Bodies of water of Antigua and Barbuda": "مسطحات مائية في أنتيغوا وباربودا",
     "Borders of Antigua and Barbuda": "حدود أنتيغوا وباربودا",
-    "British Antigua and Barbuda": "أنتيغويون وبربوديون بريطانيون",
-    "British Antigua and Barbuda people": "أنتيغويون وبربوديون بريطانيون",
     "British emigrants to Antigua and Barbuda": "بريطانيون مهاجرون إلى أنتيغوا وباربودا",
     "Business organisations based in Antigua and Barbuda": "منظمات أعمال مقرها في أنتيغوا وباربودا",
     "Canadian people of Antigua and Barbuda descent": "كنديون من أصل أنتيغوي وبربودي",

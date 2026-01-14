@@ -134,19 +134,3 @@ for number_key, arabic_label in change_numb.items():
     if len(number_key) == 2:
         extended_three_hundred_key = f"3{number_key}"
     change_numb_to_word[extended_three_hundred_key] = f"{arabic_label} بعد الثلاثمائة"
-
-
-def get_tens_labels() -> dict[int, str]:
-    """Return Arabic labels for tens (20–90) keyed by their leading digit."""
-    tens_mapping = {
-        2: "العشرون",
-        3: "الثلاثون",
-        4: "الأربعون",
-        5: "الخمسون",
-        6: "الستون",
-        7: "السبعون",
-        8: "الثمانون",
-        9: "التسعون",
-    }
-
-    return tens_mapping

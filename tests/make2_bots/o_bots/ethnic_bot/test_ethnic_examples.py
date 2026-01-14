@@ -1,148 +1,381 @@
 import pytest
 
-from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_culture, ethnic_label
+from load_one_data import dump_diff, one_dump_test
 
-# -------------------------------------------------
-# Sample comparisons for ethnic_label()  (people → شعوب)
-# -------------------------------------------------
+from ArWikiCats.make_bots.o_bots.ethnic_bot import ethnic_label_main
+
+data0 = {
+}
+
+fast_data = {
+    "afghan jewish descent": "أصل يهودي أفغاني",
+    "african jewish culture": "ثقافة يهودية إفريقية",
+    "african jewish descent": "أصل يهودي إفريقي",
+    "african jewish diaspora": "شتات يهودي إفريقي",
+    "algerian jewish culture": "ثقافة يهودية جزائرية",
+    "algerian jewish descent": "أصل يهودي جزائري",
+    "algerian jewish diaspora": "شتات يهودي جزائري",
+    "american christian musical groups": "فرق موسيقية مسيحية أمريكية",
+    "american christian novels": "روايات مسيحية أمريكية",
+    "american jewish culture": "ثقافة يهودية أمريكية",
+    "american jewish descent": "أصل يهودي أمريكي",
+    "american jewish diaspora": "شتات يهودي أمريكي",
+    "arab jewish culture": "ثقافة يهودية عربية",
+    "arab jewish surnames": "ألقاب يهودية عربية",
+    "argentine jewish culture": "ثقافة يهودية أرجنتينية",
+    "argentine jewish descent": "أصل يهودي أرجنتيني",
+    "argentine jewish diaspora": "شتات يهودي أرجنتيني",
+    "armenian jewish descent": "أصل يهودي أرميني",
+    "asian jewish culture": "ثقافة يهودية آسيوية",
+    "asian jewish descent": "أصل يهودي آسيوي",
+    "asian jewish diaspora": "شتات يهودي آسيوي",
+    "asian south african": "جنوب إفريقيون آسيويون",
+    "australian christian musical groups": "فرق موسيقية مسيحية أسترالية",
+    "australian jewish culture": "ثقافة يهودية أسترالية",
+    "australian jewish descent": "أصل يهودي أسترالي",
+    "australian jewish diaspora": "شتات يهودي أسترالي",
+    "austrian jewish culture": "ثقافة يهودية نمساوية",
+    "austrian jewish descent": "أصل يهودي نمساوي",
+    "austrian jewish diaspora": "شتات يهودي نمساوي",
+    "austrian nazis": "نازيون نمساويون",
+    "azerbaijani jewish descent": "أصل يهودي أذربيجاني",
+    "belarusian jewish culture": "ثقافة يهودية بيلاروسية",
+    "belarusian jewish descent": "أصل يهودي بيلاروسي",
+    "belarusian jewish diaspora": "شتات يهودي بيلاروسي",
+    "belgian jewish descent": "أصل يهودي بلجيكي",
+    "bosnia and herzegovina jewish descent": "أصل يهودي بوسني",
+    "brazilian christian music": "موسيقى مسيحية برازيلية",
+    "brazilian jewish descent": "أصل يهودي برازيلي",
+    "brazilian jewish diaspora": "شتات يهودي برازيلي",
+    "british antigua and barbuda people": "أنتيغويون وبربوديون بريطانيون",
+    "british antigua and barbuda": "أنتيغويون وبربوديون بريطانيون",
+    "british christian music": "موسيقى مسيحية بريطانية",
+    "british christian musical groups": "فرق موسيقية مسيحية بريطانية",
+    "british jewish culture": "ثقافة يهودية بريطانية",
+    "british jewish descent": "أصل يهودي بريطاني",
+    "british jewish diaspora": "شتات يهودي بريطاني",
+    "bulgarian jewish culture": "ثقافة يهودية بلغارية",
+    "bulgarian jewish descent": "أصل يهودي بلغاري",
+    "bulgarian jewish diaspora": "شتات يهودي بلغاري",
+    "burmese jewish descent": "أصل يهودي بورمي",
+    "cameroonian jewish descent": "أصل يهودي كاميروني",
+    "canadian christian musical groups": "فرق موسيقية مسيحية كندية",
+    "canadian jewish culture": "ثقافة يهودية كندية",
+    "canadian jewish descent": "أصل يهودي كندي",
+    "canadian jewish diaspora": "شتات يهودي كندي",
+    "chilean jewish descent": "أصل يهودي تشيلي",
+    "chinese australian culture": "ثقافة أسترالية صينية",
+    "chinese canadians": "كنديون صينيون",
+    "chinese jewish descent": "أصل يهودي صيني",
+    "chinese jewish diaspora": "شتات يهودي صيني",
+    "colombian jewish descent": "أصل يهودي كولومبي",
+    "coptic british": "بريطانيون أقباط",
+    "costa rican jewish descent": "أصل يهودي كوستاريكي",
+    "croatian jewish descent": "أصل يهودي كرواتي",
+    "cuban jewish descent": "أصل يهودي كوبي",
+    "czech jewish culture": "ثقافة يهودية تشيكية",
+    "czech jewish descent": "أصل يهودي تشيكي",
+    "czech jewish diaspora": "شتات يهودي تشيكي",
+    "czechoslovak jewish descent": "أصل يهودي تشيكوسلوفاكي",
+    "danish american culture": "ثقافة أمريكية دنماركية",
+    "danish jewish descent": "أصل يهودي دنماركي",
+    "democratic republic of congo christian music": "موسيقى مسيحية كونغوية ديمقراطية",
+    "dutch christian music": "موسيقى مسيحية هولندية",
+    "dutch jewish culture": "ثقافة يهودية هولندية",
+    "dutch jewish descent": "أصل يهودي هولندي",
+    "dutch jewish diaspora": "شتات يهودي هولندي",
+    "egyptian jewish culture": "ثقافة يهودية مصرية",
+    "egyptian jewish descent": "أصل يهودي مصري",
+    "egyptian jewish diaspora": "شتات يهودي مصري",
+    "english christian musical groups": "فرق موسيقية مسيحية إنجليزية",
+    "english gothic architecture": "عمارة قوطية إنجليزية",
+    "english jewish culture": "ثقافة يهودية إنجليزية",
+    "english jewish descent": "أصل يهودي إنجليزي",
+    "english jewish diaspora": "شتات يهودي إنجليزي",
+    "estonian jewish descent": "أصل يهودي إستوني",
+    "ethiopian jewish culture": "ثقافة يهودية إثيوبية",
+    "ethiopian jewish descent": "أصل يهودي إثيوبي",
+    "ethiopian jewish diaspora": "شتات يهودي إثيوبي",
+    "european american culture": "ثقافة أمريكية أوروبية",
+    "european american": "أمريكيون أوروبيون",
+    "european argentine culture": "ثقافة أرجنتينية أوروبية",
+    "european jewish culture": "ثقافة يهودية أوروبية",
+    "european jewish descent": "أصل يهودي أوروبي",
+    "european jewish diaspora": "شتات يهودي أوروبي",
+    "finnish christian musical groups": "فرق موسيقية مسيحية فنلندية",
+    "finnish jewish descent": "أصل يهودي فنلندي",
+    "french jewish culture": "ثقافة يهودية فرنسية",
+    "french jewish descent": "أصل يهودي فرنسي",
+    "french jewish diaspora": "شتات يهودي فرنسي",
+    "georgian jewish culture": "ثقافة يهودية جورجية",
+    "georgian jewish descent": "أصل يهودي جورجي",
+    "german jewish culture": "ثقافة يهودية ألمانية",
+    "german jewish descent": "أصل يهودي ألماني",
+    "german jewish diaspora": "شتات يهودي ألماني",
+    "german jewish history": "تاريخ يهودي ألماني",
+    "german romanian descent": "أصل روماني ألماني",
+    "ghanaian christian music": "موسيقى مسيحية غانية",
+    "greek jewish culture": "ثقافة يهودية يونانية",
+    "greek jewish descent": "أصل يهودي يوناني",
+    "greek jewish diaspora": "شتات يهودي يوناني",
+    "hungarian jewish culture": "ثقافة يهودية مجرية",
+    "hungarian jewish descent": "أصل يهودي مجري",
+    "hungarian jewish diaspora": "شتات يهودي مجري",
+    "hungarian nazis": "نازيون مجريون",
+    "indian christian music": "موسيقى مسيحية هندية",
+    "indian jewish culture": "ثقافة يهودية هندية",
+    "indian jewish descent": "أصل يهودي هندي",
+    "indian jewish diaspora": "شتات يهودي هندي",
+    "iranian jewish culture": "ثقافة يهودية إيرانية",
+    "iranian jewish descent": "أصل يهودي إيراني",
+    "iranian jewish diaspora": "شتات يهودي إيراني",
+    "iraqi jewish culture": "ثقافة يهودية عراقية",
+    "iraqi jewish descent": "أصل يهودي عراقي",
+    "iraqi jewish diaspora": "شتات يهودي عراقي",
+    "irish american gangs": "عصابات أمريكية أيرلندية",
+    "irish jewish descent": "أصل يهودي أيرلندي",
+    "italian canadian culture": "ثقافة كندية إيطالية",
+    "italian jewish culture": "ثقافة يهودية إيطالية",
+    "italian jewish descent": "أصل يهودي إيطالي",
+    "italian jewish diaspora": "شتات يهودي إيطالي",
+    "ivorian american": "أمريكيون إيفواريون",
+    "jamaican jewish descent": "أصل يهودي جامايكي",
+    "japanese americans": "أمريكيون يابانيون",
+    "jewish afghan history": "تاريخ أفغاني يهودي",
+    "jewish albanian history": "تاريخ ألباني يهودي",
+    "jewish algerian history": "تاريخ جزائري يهودي",
+    "jewish americans": "أمريكيون يهود",
+    "jewish angolan history": "تاريخ أنغولي يهودي",
+    "jewish argentine culture": "ثقافة أرجنتينية يهودية",
+    "jewish argentine history": "تاريخ أرجنتيني يهودي",
+    "jewish armenian history": "تاريخ أرميني يهودي",
+    "jewish australian history": "تاريخ أسترالي يهودي",
+    "jewish austrian families": "عائلات نمساوية يهودية",
+    "jewish austrian history": "تاريخ نمساوي يهودي",
+    "jewish azerbaijani history": "تاريخ أذربيجاني يهودي",
+    "jewish bangladeshi history": "تاريخ بنغلاديشي يهودي",
+    "jewish belarusian history": "تاريخ بيلاروسي يهودي",
+    "jewish belgian history": "تاريخ بلجيكي يهودي",
+    "jewish bosnian history": "تاريخ بوسني يهودي",
+    "jewish brazilian history": "تاريخ برازيلي يهودي",
+    "jewish british culture": "ثقافة بريطانية يهودية",
+    "jewish british families": "عائلات بريطانية يهودية",
+    "jewish british history": "تاريخ بريطاني يهودي",
+    "jewish bulgarian history": "تاريخ بلغاري يهودي",
+    "jewish canadian cuisine": "مطبخ كندي يهودي",
+    "jewish canadian culture": "ثقافة كندية يهودية",
+    "jewish canadian families": "عائلات كندية يهودية",
+    "jewish canadian history": "تاريخ كندي يهودي",
+    "jewish canadian literature": "أدب كندي يهودي",
+    "jewish canadian television series": "مسلسلات تلفزيونية كندية يهودية",
+    "jewish cape verdean history": "تاريخ رأس أخضري يهودي",
+    "jewish chilean history": "تاريخ تشيلي يهودي",
+    "jewish chinese families": "عائلات صينية يهودية",
+    "jewish chinese history": "تاريخ صيني يهودي",
+    "jewish christian literature": "أدب مسيحي يهودي",
+    "jewish croatian history": "تاريخ كرواتي يهودي",
+    "jewish cuban history": "تاريخ كوبي يهودي",
+    "jewish cypriot history": "تاريخ قبرصي يهودي",
+    "jewish czech history": "تاريخ تشيكي يهودي",
+    "jewish danish families": "عائلات دنماركية يهودية",
+    "jewish danish history": "تاريخ دنماركي يهودي",
+    "jewish dutch history": "تاريخ هولندي يهودي",
+    "jewish egyptian history": "تاريخ مصري يهودي",
+    "jewish english history": "تاريخ إنجليزي يهودي",
+    "jewish eritrean history": "تاريخ إريتري يهودي",
+    "jewish estonian history": "تاريخ إستوني يهودي",
+    "jewish ethiopian history": "تاريخ إثيوبي يهودي",
+    "jewish finnish history": "تاريخ فنلندي يهودي",
+    "jewish french culture": "ثقافة فرنسية يهودية",
+    "jewish french families": "عائلات فرنسية يهودية",
+    "jewish french history": "تاريخ فرنسي يهودي",
+    "jewish georgian history": "تاريخ جورجي يهودي",
+    "jewish german culture": "ثقافة ألمانية يهودية",
+    "jewish german families": "عائلات ألمانية يهودية",
+    "jewish german history": "تاريخ ألماني يهودي",
+    "jewish gibraltarian history": "تاريخ جبل طارقي يهودي",
+    "jewish greek history": "تاريخ يوناني يهودي",
+    "jewish guatemalan history": "تاريخ غواتيمالي يهودي",
+    "jewish hong kong history": "تاريخ هونغ كونغي يهودي",
+    "jewish hungarian families": "عائلات مجرية يهودية",
+    "jewish hungarian history": "تاريخ مجري يهودي",
+    "jewish indian history": "تاريخ هندي يهودي",
+    "jewish indonesian history": "تاريخ إندونيسي يهودي",
+    "jewish iraqi history": "تاريخ عراقي يهودي",
+    "jewish irish history": "تاريخ أيرلندي يهودي",
+    "jewish israeli culture": "ثقافة إسرائيلية يهودية",
+    "jewish italian families": "عائلات إيطالية يهودية",
+    "jewish italian history": "تاريخ إيطالي يهودي",
+    "jewish jamaican history": "تاريخ جامايكي يهودي",
+    "jewish japanese history": "تاريخ ياباني يهودي",
+    "jewish jordanian history": "تاريخ أردني يهودي",
+    "jewish kenyan history": "تاريخ كيني يهودي",
+    "jewish kosovan history": "تاريخ كوسوفي يهودي",
+    "jewish kurdish history": "تاريخ كردي يهودي",
+    "jewish latvian history": "تاريخ لاتفي يهودي",
+    "jewish lebanese history": "تاريخ لبناني يهودي",
+    "jewish libyan history": "تاريخ ليبي يهودي",
+    "jewish lithuanian history": "تاريخ ليتواني يهودي",
+    "jewish luxembourgian history": "تاريخ لوكسمبورغي يهودي",
+    "jewish macedonian history": "تاريخ مقدوني يهودي",
+    "jewish malagasy history": "تاريخ مدغشقري يهودي",
+    "jewish mexican history": "تاريخ مكسيكي يهودي",
+    "jewish moldovan history": "تاريخ مولدوفي يهودي",
+    "jewish moroccan history": "تاريخ مغربي يهودي",
+    "jewish nepalese history": "تاريخ نيبالي يهودي",
+    "jewish nigerian history": "تاريخ نيجيري يهودي",
+    "jewish norwegian history": "تاريخ نرويجي يهودي",
+    "jewish pakistani history": "تاريخ باكستاني يهودي",
+    "jewish persian": "فرس يهود",
+    "jewish peruvian history": "تاريخ بيروي يهودي",
+    "jewish polish families": "عائلات بولندية يهودية",
+    "jewish polish history": "تاريخ بولندي يهودي",
+    "jewish portuguese families": "عائلات برتغالية يهودية",
+    "jewish portuguese history": "تاريخ برتغالي يهودي",
+    "jewish roman wars": "حروب رومانية يهودية",
+    "jewish romanian history": "تاريخ روماني يهودي",
+    "jewish russian history": "تاريخ روسي يهودي",
+    "jewish russian": "روس يهود",
+    "jewish saudiarabian history": "تاريخ سعودي يهودي",
+    "jewish scottish history": "تاريخ إسكتلندي يهودي",
+    "jewish serbian history": "تاريخ صربي يهودي",
+    "jewish slovak history": "تاريخ سلوفاكي يهودي",
+    "jewish slovenian history": "تاريخ سلوفيني يهودي",
+    "jewish south african families": "عائلات جنوب إفريقية يهودية",
+    "jewish south african history": "تاريخ جنوب إفريقي يهودي",
+    "jewish south korean history": "تاريخ كوري جنوبي يهودي",
+    "jewish spanish history": "تاريخ إسباني يهودي",
+    "jewish sudanese history": "تاريخ سوداني يهودي",
+    "jewish surinamese history": "تاريخ سورينامي يهودي",
+    "jewish swedish history": "تاريخ سويدي يهودي",
+    "jewish swiss history": "تاريخ سويسري يهودي",
+    "jewish syrian history": "تاريخ سوري يهودي",
+    "jewish tunisian history": "تاريخ تونسي يهودي",
+    "jewish turkish history": "تاريخ تركي يهودي",
+    "jewish ugandan history": "تاريخ أوغندي يهودي",
+    "jewish ukrainian history": "تاريخ أوكراني يهودي",
+    "jewish uruguayan history": "تاريخ أوروغوياني يهودي",
+    "jewish uzbek history": "تاريخ أوزبكي يهودي",
+    "jewish venezuelan history": "تاريخ فنزويلي يهودي",
+    "jewish vietnamese history": "تاريخ فيتنامي يهودي",
+    "jewish welsh history": "تاريخ ويلزي يهودي",
+    "jewish yemeni history": "تاريخ يمني يهودي",
+    "jewish zimbabwean history": "تاريخ زيمبابوي يهودي",
+    "kazakhstani jewish descent": "أصل يهودي كازاخستاني",
+    "korean american culture": "ثقافة أمريكية كورية",
+    "kurdish jewish culture": "ثقافة يهودية كردية",
+    "kurdish jewish descent": "أصل يهودي كردي",
+    "kurdish jewish diaspora": "شتات يهودي كردي",
+    "latvian jewish culture": "ثقافة يهودية لاتفية",
+    "latvian jewish descent": "أصل يهودي لاتفي",
+    "latvian jewish diaspora": "شتات يهودي لاتفي",
+    "lebanese canadian culture": "ثقافة كندية لبنانية",
+    "lebanese jewish descent": "أصل يهودي لبناني",
+    "lebanese jewish diaspora": "شتات يهودي لبناني",
+    "libyan jewish culture": "ثقافة يهودية ليبية",
+    "libyan jewish descent": "أصل يهودي ليبي",
+    "libyan jewish diaspora": "شتات يهودي ليبي",
+    "lithuanian jewish culture": "ثقافة يهودية ليتوانية",
+    "lithuanian jewish descent": "أصل يهودي ليتواني",
+    "lithuanian jewish diaspora": "شتات يهودي ليتواني",
+    "luxembourgian european": "أوروبيون لوكسمبورغيون",
+    "luxembourgian jewish descent": "أصل يهودي لوكسمبورغي",
+    "macedonian jewish descent": "أصل يهودي مقدوني",
+    "mexican jewish descent": "أصل يهودي مكسيكي",
+    "moldovan jewish descent": "أصل يهودي مولدوفي",
+    "moldovan jewish diaspora": "شتات يهودي مولدوفي",
+    "moroccan jewish culture": "ثقافة يهودية مغربية",
+    "moroccan jewish descent": "أصل يهودي مغربي",
+    "moroccan jewish diaspora": "شتات يهودي مغربي",
+    "north african jewish culture": "ثقافة يهودية إفريقية شمالية",
+    "north african jewish descent": "أصل يهودي إفريقي شمالي",
+    "north african jewish diaspora": "شتات يهودي إفريقي شمالي",
+    "north american jewish culture": "ثقافة يهودية أمريكية شمالية",
+    "north american jewish descent": "أصل يهودي أمريكي شمالي",
+    "north american jewish diaspora": "شتات يهودي أمريكي شمالي",
+    "norwegian christian musical groups": "فرق موسيقية مسيحية نرويجية",
+    "ottoman jewish descent": "أصل يهودي عثماني",
+    "palestinian jewish descent": "أصل يهودي فلسطيني",
+    "persian jewish cuisine": "مطبخ يهودي فارسي",
+    "polish jewish culture": "ثقافة يهودية بولندية",
+    "polish jewish descent": "أصل يهودي بولندي",
+    "polish jewish diaspora": "شتات يهودي بولندي",
+    "portuguese jewish culture": "ثقافة يهودية برتغالية",
+    "portuguese jewish descent": "أصل يهودي برتغالي",
+    "portuguese jewish diaspora": "شتات يهودي برتغالي",
+    "romanian european": "أوروبيون رومان",
+    "romanian jewish culture": "ثقافة يهودية رومانية",
+    "romanian jewish descent": "أصل يهودي روماني",
+    "romanian jewish diaspora": "شتات يهودي روماني",
+    "russian jewish culture": "ثقافة يهودية روسية",
+    "russian jewish descent": "أصل يهودي روسي",
+    "russian jewish diaspora": "شتات يهودي روسي",
+    "russian jewish surnames": "ألقاب يهودية روسية",
+    "rwandan christian music": "موسيقى مسيحية رواندية",
+    "scottish jewish descent": "أصل يهودي إسكتلندي",
+    "serbian jewish descent": "أصل يهودي صربي",
+    "slovak jewish culture": "ثقافة يهودية سلوفاكية",
+    "slovak jewish descent": "أصل يهودي سلوفاكي",
+    "slovak jewish diaspora": "شتات يهودي سلوفاكي",
+    "south african jewish culture": "ثقافة يهودية جنوب إفريقية",
+    "south african jewish descent": "أصل يهودي جنوب إفريقي",
+    "south african jewish diaspora": "شتات يهودي جنوب إفريقي",
+    "south american jewish culture": "ثقافة يهودية أمريكية جنوبية",
+    "south american jewish descent": "أصل يهودي أمريكي جنوبي",
+    "south american jewish diaspora": "شتات يهودي أمريكي جنوبي",
+    "spanish american wars": "حروب أمريكية إسبانية",
+    "spanish jewish culture": "ثقافة يهودية إسبانية",
+    "spanish jewish descent": "أصل يهودي إسباني",
+    "spanish jewish diaspora": "شتات يهودي إسباني",
+    "sri lankan english": "إنجليز سريلانكيون",
+    "sri lankan tamil descent": "أصل تاميلي سريلانكي",
+    "surinamese jewish descent": "أصل يهودي سورينامي",
+    "swedish christian musical groups": "فرق موسيقية مسيحية سويدية",
+    "swedish jewish descent": "أصل يهودي سويدي",
+    "swiss jewish descent": "أصل يهودي سويسري",
+    "syrian jewish culture": "ثقافة يهودية سورية",
+    "syrian jewish descent": "أصل يهودي سوري",
+    "syrian jewish diaspora": "شتات يهودي سوري",
+    "tajikistani jewish descent": "أصل يهودي طاجيكي",
+    "tunisian jewish culture": "ثقافة يهودية تونسية",
+    "tunisian jewish descent": "أصل يهودي تونسي",
+    "tunisian jewish diaspora": "شتات يهودي تونسي",
+    "turkish jewish culture": "ثقافة يهودية تركية",
+    "turkish jewish descent": "أصل يهودي تركي",
+    "turkish jewish diaspora": "شتات يهودي تركي",
+    "turkish kurdish people": "أكراد أتراك",
+    "ukrainian jewish culture": "ثقافة يهودية أوكرانية",
+    "ukrainian jewish descent": "أصل يهودي أوكراني",
+    "ukrainian jewish diaspora": "شتات يهودي أوكراني",
+    "uruguayan jewish descent": "أصل يهودي أوروغوياني",
+    "uzbekistani jewish descent": "أصل يهودي أوزبكستاني",
+    "venezuelan jewish descent": "أصل يهودي فنزويلي",
+    "venezuelan spanish": "إسبان فنزويليون",
+    "welsh jewish descent": "أصل يهودي ويلزي",
+    "yemeni jewish culture": "ثقافة يهودية يمنية",
+    "yemeni jewish descent": "أصل يهودي يمني",
+    "yemeni jewish diaspora": "شتات يهودي يمني",
+    "yugoslav jewish culture": "ثقافة يهودية يوغسلافية",
+}
 
 
-@pytest.mark.unit
-@pytest.mark.parametrize(
-    "category,start,suffix,expected_ar",
-    [
-        # English: "Zanzibari people" + "Yemeni"
-        # Arabic:  "زنجباريون يمنيون"
-        (
-            "Category:Zanzibari people of Yemeni origin",
-            "yemeni",
-            "zanzibari people",
-            "زنجباريون يمنيون",
-        ),
-        # English: "Afghan people" + "Yemeni"
-        # Arabic:  "أفغان يمنيون"
-        (
-            "Category:Afghan people of Yemeni origin",
-            "yemeni",
-            "afghan people",
-            "أفغان يمنيون",
-        ),
-        # English: "Yemeni people" + "Afghan"
-        # Arabic:  "يمنيون أفغان"
-        (
-            "Category:Yemeni people of Afghan origin",
-            "afghan",
-            "yemeni people",
-            "يمنيون أفغان",
-        ),
-    ],
-)
-def test_ethnic_direct_mens_examples(category: str, start: str, suffix: str, expected_ar: str) -> None:
-    """Check a few realistic <nat> people categories."""
-    result = ethnic_label(category, start, suffix)
-    assert result == expected_ar
+@pytest.mark.parametrize("category, expected_key", fast_data.items(), ids=fast_data.keys())
+@pytest.mark.fast
+def test_data_fast(category: str, expected_key: str) -> None:
+    label1 = ethnic_label_main(category)
+    assert label1 == expected_key
 
 
-@pytest.mark.unit
-def test_ethnic_fallback_to_ethnic_culture() -> None:
-    """
-    Example where ethnic_label() cannot build males-composition and falls back
-    to ethnic_culture().
-    """
-    category = "Category:Afghan history"
-    start = "afghan"
-    suffix = "afghan history"
-
-    result = ethnic_label(category, start, suffix)
-
-    # Nat_men["afghan"] == "أفغاني"
-    # MALE_TOPIC_TABLE["history"] == "تاريخ {}"
-    # inner string: "أفغاني أفغاني"
-    expected = "تاريخ أفغاني أفغاني"
-    assert result == expected
-
-
-@pytest.mark.unit
-def test_ethnic_unknown_returns_empty() -> None:
-    """Unknown nationalities should return empty string."""
-    result = ethnic_label("Category:Unknown people", "unknown-nat", "unknown-nat people")
-    assert result == ""
-
-
-# -------------------------------------------------
-# Sample comparisons for ethnic_culture()
-# -------------------------------------------------
-
-
-@pytest.mark.unit
-@pytest.mark.parametrize(
-    "category,start,suffix,expected_ar",
-    [
-        # MALE path
-        # English: "Afghan history"
-        # Arabic (by current algorithm): "تاريخ أفغاني أفغاني"
-        (
-            "Category:Afghan history",
-            "afghan",
-            "afghan history",
-            "تاريخ أفغاني أفغاني",
-        ),
-        # English: "Prussian literature"
-        # Arabic (by current algorithm): "أدب بروسي بروسي"
-        (
-            "Category:Prussian literature",
-            "prussian",
-            "prussian literature",
-            "أدب بروسي بروسي",
-        ),
-    ],
-)
-def test_ethnic_culture_male_examples(category: str, start: str, suffix: str, expected_ar: str) -> None:
-    """Check a few culture-like categories for male topics."""
-    result = ethnic_culture(category, start, suffix)
-    assert result == expected_ar
-
-
-ethnic_culture_female_examples = [
-    # FEMALE path using en_is_nat_ar_is_women_2["music"] == "موسيقى {}"
-    # Nat_women["zanzibari-american"] == "أمريكية زنجبارية"
-    # inner string: "أمريكية زنجبارية أمريكية زنجبارية"
-    (
-        "Category:Zanzibari-American music",
-        "zanzibari-american",
-        "zanzibari-american music",
-        "موسيقى أمريكية زنجبارية أمريكية زنجبارية",
-    ),
-    # FEMALE path using en_is_nat_ar_is_women_2["movies"] == "أفلام {}"
-    # Nat_women["afghan-american"] == "أمريكية أفغانية"
-    # inner string: "أمريكية أفغانية أمريكية أفغانية"
-    (
-        "Category:Afghan-American movies",
-        "afghan-american",
-        "afghan-american movies",
-        "أفلام أمريكية أفغانية أمريكية أفغانية",
-    ),
+to_test = [
+    ("test_fast_data", fast_data),
 ]
 
 
-@pytest.mark.unit
-@pytest.mark.parametrize(
-    "category,start,suffix,expected_ar",
-    ethnic_culture_female_examples,
-    ids=[x[0] for x in ethnic_culture_female_examples],
-)
-def test_ethnic_culture_female_examples(category: str, start: str, suffix: str, expected_ar: str) -> None:
-    """Check a few culture-like categories for female topics."""
-    result = ethnic_culture(category, start, suffix)
-    assert result == expected_ar
-
-
-@pytest.mark.unit
-def test_ethnic_culture_unknown_nationality() -> None:
-    """If nationality not in Nat_men or Nat_women, result must be empty."""
-    result = ethnic_culture(
-        "Category:Unknown culture",
-        "unknown-nat",
-        "unknown-nat culture",
-    )
-    assert result == ""
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+    """
+    """
+    expected, diff_result = one_dump_test(data, ethnic_label_main)
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

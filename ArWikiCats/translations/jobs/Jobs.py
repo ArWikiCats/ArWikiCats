@@ -8,12 +8,10 @@ from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
 from ...helps import len_print
-from ..companies import companies_to_jobs
 from ..mixed.all_keys2 import BOOK_CATEGORIES
-from ..mixed.male_keys import RELIGIOUS_FEMALE_KEYS
+from ..mixed.female_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import BASE_CYCLING_EVENTS
-from ..tv.films_mslslat import film_keys_for_female
 from ..utils.json_dir import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
@@ -30,6 +28,121 @@ from .jobs_womens import short_womens_jobs
 # ---------------------------------------------------------------------------
 # Helper utilities
 # ---------------------------------------------------------------------------
+
+companies_to_jobs = {
+    "mass media owners": {
+        "males": "ملاك وسائل إعلام",
+        "females": "مالكات وسائل إعلام"
+    },
+    "media owners": {
+        "males": "ملاك إعلامية",
+        "females": "مالكات إعلامية"
+    },
+    "magazine founders": {
+        "males": "مؤسسو مجلات",
+        "females": "مؤسسات مجلات"
+    },
+    "television company founders": {
+        "males": "مؤسسو شركات تلفاز",
+        "females": "مؤسسات شركات تلفاز"
+    },
+    "technology company founders": {
+        "males": "مؤسسو شركات تقانة",
+        "females": "مؤسسات شركات تقانة"
+    },
+    "mass media company founders": {
+        "males": "مؤسسو شركات وسائل إعلام",
+        "females": "مؤسسات شركات وسائل إعلام"
+    },
+    "media company founders": {
+        "males": "مؤسسو شركات إعلامية",
+        "females": "مؤسسات شركات إعلامية"
+    },
+    "financial company founders": {
+        "males": "مؤسسو شركات مالية",
+        "females": "مؤسسات شركات مالية"
+    },
+    "retail company founders": {
+        "males": "مؤسسو شركات تجارة التجزئة",
+        "females": "مؤسسات شركات تجارة التجزئة"
+    },
+    "internet company founders": {
+        "males": "مؤسسو شركات إنترنت",
+        "females": "مؤسسات شركات إنترنت"
+    },
+    "drink company founders": {
+        "males": "مؤسسو شركات مشروبات",
+        "females": "مؤسسات شركات مشروبات"
+    },
+    "publishing company founders": {
+        "males": "مؤسسو شركات نشر",
+        "females": "مؤسسات شركات نشر"
+    },
+    "entertainment company founders": {
+        "males": "مؤسسو شركات ترفيه",
+        "females": "مؤسسات شركات ترفيه"
+    },
+    "food company founders": {
+        "males": "مؤسسو شركات أطعمة",
+        "females": "مؤسسات شركات أطعمة"
+    },
+    "real estate company founders": {
+        "males": "مؤسسو شركات عقارية",
+        "females": "مؤسسات شركات عقارية"
+    },
+    "food and drink company founders": {
+        "males": "مؤسسو شركات أطعمة ومشروبات",
+        "females": "مؤسسات شركات أطعمة ومشروبات"
+    },
+    "pharmaceutical company founders": {
+        "males": "مؤسسو شركات أدوية",
+        "females": "مؤسسات شركات أدوية"
+    },
+    "shipping company founders": {
+        "males": "مؤسسو شركات نقل بحري",
+        "females": "مؤسسات شركات نقل بحري"
+    },
+    "airline founders": {
+        "males": "مؤسسو خطوط جوية",
+        "females": "مؤسسات خطوط جوية"
+    },
+    "construction and civil engineering company founders": {
+        "males": "مؤسسو شركات بناء وهندسة مدنية",
+        "females": "مؤسسات شركات بناء وهندسة مدنية"
+    },
+    "engineering company founders": {
+        "males": "مؤسسو شركات هندسية",
+        "females": "مؤسسات شركات هندسية"
+    },
+    "design company founders": {
+        "males": "مؤسسو شركات تصميم",
+        "females": "مؤسسات شركات تصميم"
+    },
+    "energy company founders": {
+        "males": "مؤسسو شركات طاقة",
+        "females": "مؤسسات شركات طاقة"
+    },
+    "health care company founders": {
+        "males": "مؤسسو شركات رعاية صحية",
+        "females": "مؤسسات شركات رعاية صحية"
+    },
+    "manufacturing company founders": {
+        "males": "مؤسسو شركات تصنيع",
+        "females": "مؤسسات شركات تصنيع"
+    },
+    "media founders": {
+        "males": "مؤسسو وسائل إعلامية",
+        "females": "مؤسسات وسائل إعلامية"
+    },
+    "mining company founders": {
+        "males": "مؤسسو شركات تعدين",
+        "females": "مؤسسات شركات تعدين"
+    },
+    "transport company founders": {
+        "males": "مؤسسو شركات نقل",
+        "females": "مؤسسات شركات نقل"
+    }
+}
 
 
 def _append_list_unique(sequence: List[str], value: str) -> None:
@@ -495,6 +608,7 @@ _len_result = {
 len_print.data_len(
     "jobs.py",
     {
+        "companies_to_jobs": companies_to_jobs,
         "jobs_mens_data": jobs_mens_data,
         "jobs_womens_data": jobs_womens_data,
         "Jobs_new": Jobs_new,

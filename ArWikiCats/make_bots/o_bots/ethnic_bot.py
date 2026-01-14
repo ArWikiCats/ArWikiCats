@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps import logger
+from ...helps import logger, dump_data
 from ...translations import all_nat_sorted, Nat_men, Nat_mens, Nat_women
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
@@ -307,8 +307,25 @@ def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
     return result
 
 
+@functools.lru_cache(maxsize=None)
+@dump_data(1)
+def ethnic_label_main(category: str) -> str:
+    logger.debug(f"<<lightyellow>>>> ethnic_label_main >> category:({category})")
+
+    normalized_category = category.lower().replace("_", " ").replace("-", " ")
+    result = ""
+    suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
+
+    if suffix:
+        result = ethnic_label(normalized_category, nationality_key, suffix)
+
+    logger.debug(f'<<lightblue>> ethnic_label_main :: "{result}"')
+    return result
+
+
 __all__ = [
     "ethnic",
     "ethnic_label",
+    "ethnic_label_main",
     "ethnic_culture",
 ]

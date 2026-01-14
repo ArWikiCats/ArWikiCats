@@ -254,7 +254,6 @@ data_in = {
     "1789 establishments in india": ("1789 establishments", "india"),
     "1789 in asian sport": ("1789", "asian sport"),
     "1789 in brazilian sport": ("1789", "brazilian sport"),
-    "1789 in chinese sport": ("1789", "chinese sport"),
     "1789 in men's football": ("1789", "men's football"),
     "1789 in north america": ("1789", "north america"),
     "1789 in south america": ("1789", "south america"),

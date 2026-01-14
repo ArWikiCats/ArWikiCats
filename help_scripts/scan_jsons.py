@@ -55,7 +55,16 @@ def main() -> None:
         # Path("D:/categories_bot/len_data/jobs.py/sport_variants.json"),
         # Path("D:/categories_bot/len_data/jobs.py/people_variants.json"),
         # Path("D:/categories_bot/len_data/jobs_players_list.py/SPORT_JOB_VARIANTS.json"),
-        Path("D:/categories_bot/len_data/bot_te_4_list.py/en_is_nat_ar_is_women.json"),
+        # Path("D:/categories_bot/len_data/bot_te_4_list.py/en_is_nat_ar_is_women.json"),
+        # Path("D:/categories_bot/len_data/male_keys.py/New_male_keys.json"),
+        # Path("D:/categories_bot/len_data/female_keys.py/films_data.json"),
+        # Path("D:/categories_bot/len_data/female_keys.py/religious_entries.json"),
+        # Path("D:/categories_bot/len_data/structures.py/structures_data.json"),
+        # Path("D:/categories_bot/len_data/structures.py/pop_final_3_update.json"),
+        # Path("D:/categories_bot/len_data/companies.py/companies_data.json"),
+        # Path("D:/categories_bot/len_data/companies.py/companies_keys3.json"),
+        # Path("D:/categories_bot/len_data/companies.py/typeTable_update.json"),
+        Path("D:/categories_bot/len_data/jobs.py/companies_to_jobs.json"),
     ]
     status = {}
     for file in files:

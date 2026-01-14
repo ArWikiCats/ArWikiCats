@@ -6,7 +6,7 @@ import functools
 import re
 from typing import Dict
 
-from ...translations import New_Company
+from ...translations import COMPANY_TYPE_TRANSLATIONS
 
 # Cache for compiled regex patterns
 _change_key_compiled = {
@@ -151,7 +151,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # "university of" :"university-of",
 }
 
-for x in New_Company:
+for x in COMPANY_TYPE_TRANSLATIONS:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
 CHANGE_KEY_SECONDARY: Dict[str, str] = {
