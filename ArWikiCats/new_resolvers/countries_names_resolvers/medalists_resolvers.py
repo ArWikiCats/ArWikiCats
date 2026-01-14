@@ -106,23 +106,24 @@ medalists_data = {
     "south asian beach games": "دورة ألعاب جنوب أسيا الشاطئية",
     "south asian games": "ألعاب جنوب أسيا",
     "south asian winter games": "ألعاب جنوب آسيا الشتوية",
+
+    # "winter olympic": "الألعاب الأولمبية الشتوية",
+    # "winter universiade": "الألعاب الجامعية الشتوية",
+    # "winter world university games": "ألعاب الجامعات العالمية الشتوية",
+
+    # "summer olympic": "الألعاب الأولمبية الصيفية",
+    # "summer universiade": "الألعاب الجامعية الصيفية",
+    # "summer world university games": "ألعاب الجامعات العالمية الصيفية",
+
     "southeast asian games": "ألعاب جنوب شرق آسيا",
-    "summer olympic": "الألعاب الأولمبية الصيفية",
-    "summer universiade": "الألعاب الجامعية الصيفية",
-    "summer world university games": "ألعاب الجامعات العالمية الصيفية",
     "the universiade": "الألعاب الجامعية",
     "universiade": "الألعاب الجامعية",
-    "winter olympic": "الألعاب الأولمبية الشتوية",
-    "winter universiade": "الألعاب الجامعية الشتوية",
-    "winter world university games": "ألعاب الجامعات العالمية الشتوية",
     "world athletics indoor championships": "بطولة العالم لألعاب القوى داخل الصالات",
     "world championships": "بطولات العالم",
     "world games": "دورة الألعاب العالمية",
     "world university games": "ألعاب الجامعات العالمية",
     "youth olympic games": "الألعاب الأولمبية الشبابية",
     "youth olympic": "الألعاب الأولمبية الشبابية",
-    "youth olympics games": "الألعاب الأولمبية الشبابية",
-    "youth olympics": "الألعاب الأولمبية الشبابية",
 }
 
 
@@ -133,6 +134,8 @@ def _build_formatted_data() -> Dict[str, str]:
     base_formatted_data = {
         "{en} at {game_en}": "{ar} في {game_ar}",
         "{game_en}": "{game_ar}",
+        "{game_en} coaches": "مدربون في {game_ar}",
+        "{game_en} managers": "مدربون في {game_ar}",
         "{game_en} competitors": "منافسون في {game_ar}",
         "{game_en} competitors for {en}": "منافسون في {game_ar} من {ar}",
         "{game_en} competitions": "منافسات {game_ar}",

@@ -9,6 +9,9 @@ from ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers impo
 from ArWikiCats.old_bots.bot_te_4 import jobs_in_multi_sports
 
 multi_sports_data_competitors = {
+    "summer olympics coaches": "مدربون في الألعاب الأولمبية الصيفية",
+    "paralympic coaches": "مدربون في الألعاب البارالمبية",
+    "afc asian cup managers": "مدربون في كأس آسيا",
     "olympic gold medalists": "فائزون بميداليات ذهبية أولمبية",
     "paralympic competitors": "منافسون بارالمبيون",
     "african games competitors": "منافسون في الألعاب الإفريقية",
@@ -31,7 +34,6 @@ multi_sports_data_competitors = {
 }
 
 multi_sports_data = {
-    "afc asian cup managers": "مدربون في كأس آسيا",
     "afc asian cup players": "لاعبون في كأس آسيا",
     "african games judoka": "لاعبو جودو في الألعاب الإفريقية",
     "african games taekwondo practitioners": "لاعبو تايكوندو في الألعاب الإفريقية",
@@ -133,7 +135,6 @@ multi_sports_data = {
     "paralympic badminton players": "لاعبو تنس ريشة في الألعاب البارالمبية",
     "paralympic biathletes": "لاعبو بياثلون في الألعاب البارالمبية",
     "paralympic boccia players": "لاعبو بوتشيا في الألعاب البارالمبية",
-    "paralympic coaches": "مدربون في الألعاب البارالمبية",
     "paralympic cross-country skiers": "متزحلقون ريفيون في الألعاب البارالمبية",
     "paralympic cyclists": "دراجون في الألعاب البارالمبية",
     "paralympic equestrians": "فرسان خيول في الألعاب البارالمبية",
@@ -170,7 +171,6 @@ multi_sports_data = {
     "parapan american games wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية",
     "parapan american games wheelchair rugby players": "لاعبو رجبي على كراسي متحركة في ألعاب بارابان الأمريكية",
     "parapan american games wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة في ألعاب بارابان الأمريكية",
-    "summer olympics coaches": "مدربون في الألعاب الأولمبية الصيفية",
     "youth olympics biathletes": "لاعبو بياثلون في الألعاب الأولمبية الشبابية",
     "youth olympics field hockey players": "لاعبو هوكي ميدان في الألعاب الأولمبية الشبابية",
     "youth olympics ice hockey players": "لاعبو هوكي جليد في الألعاب الأولمبية الشبابية",
