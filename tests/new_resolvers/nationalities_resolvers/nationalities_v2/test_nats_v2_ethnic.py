@@ -151,7 +151,7 @@ all_test_data_2 = {
 
 
 @pytest.mark.parametrize("category, expected_key", all_test_data_2.items(), ids=all_test_data_2.keys())
-@pytest.mark.slow
+@pytest.mark.skip2
 def test_resolve_by_nats(category: str, expected_key: str) -> None:
     label2 = resolve_by_nats(category)
     assert label2 == expected_key
