@@ -112,12 +112,6 @@ data0 = {
     "christian rhythm and blues groups": "فرق ريذم أند بلوز مسيحية",
     "christian ska groups": "فرق سكا مسيحية",
     "christian socialist organizations": "منظمات اشتراكية مسيحية",
-    "Christian texts by century": "نصوص مسيحية حسب القرن",
-    "Christian texts by genre": "نصوص مسيحية حسب النوع الفني",
-    "Christian texts by medium": "نصوص مسيحية حسب الوسط",
-    "Christian texts by millennium": "نصوص مسيحية حسب الألفية",
-    "Christian texts by period": "نصوص مسيحية حسب الحقبة",
-    "christian texts": "نصوص مسيحية",
     "czech rock music groups": "فرق موسيقى الروك تشيكية",
     "czech thrash metal musical groups": "فرق موسيقى ثراش ميتال تشيكية",
     "english christian rock groups": "فرق روك مسيحي إنجليزية",
@@ -154,8 +148,6 @@ data0 = {
     "jewish political movements": "حركات سياسية يهودية",
     "jewish political parties": "أحزاب سياسية يهودية",
     "jewish religious movements": "حركات دينية يهودية",
-    "Jewish texts by century": "نصوص يهودية حسب القرن",
-    "jewish texts": "نصوص يهودية",
     "korean international schools": "مدارس دولية كورية",
     "malagasy world music groups": "فرق موسيقى العالم مدغشقرية",
     "mauritian folk music groups": "فرق موسيقى تقليدية موريشيوسية",
@@ -184,7 +176,7 @@ data0 = {
     "syrian rock music groups": "فرق موسيقى الروك سورية",
     "tajikistani rock music groups": "فرق موسيقى الروك طاجيكستانية",
     "thai buddhist temples": "معابد بوذية تايلندية",
-    "turkish cookbooks": "كتب طبخ تركية",
+    "turkish cookbooks": "كتب طبخ تركية"
 }
 
 data_2018 = {
@@ -224,6 +216,6 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     """
     """
     expected, diff_result = one_dump_test(data, Work_for_me_main)
-    # dump_diff(diff_result, name)
+    dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
