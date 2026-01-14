@@ -1,4 +1,10 @@
+
 country_names_and_nats_data = {
+
+    # "{en} army": "الجيش {the_male}",
+    "{en} invasion": "الغزو {the_male}",
+    "{en} military": "الجيش {the_male}",
+    "{en} solidarity movement": "حركة التضامن {the_male}",
     # en_is_P17_ar_is_al_women
     # the_female - en_is_nat_ar_is_al_women
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
