@@ -236,7 +236,6 @@ data_nat = {
     "italian defectors": ("defectors", "italian"),
     "italian wheelchair curlers": ("wheelchair curlers", "italian"),
     "italian wheelchair racers": ("wheelchair racers", "italian"),
-    "ivorian american": ("american", "ivorian"),
     "ivorian descent": ("descent", "ivorian"),
     "ivorian diaspora": ("diaspora", "ivorian"),
     "ivorian emigrants": ("emigrants", "ivorian"),

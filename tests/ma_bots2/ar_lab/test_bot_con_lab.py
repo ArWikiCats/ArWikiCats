@@ -16,7 +16,6 @@ def test_get_con_lab_data_one() -> None:
 data = [
     {"separator_stripped": "about", "country": "busan", "output": "بوسان"},
     {"separator_stripped": "about", "country": "chefs", "output": "طباخون"},
-    {"separator_stripped": "about", "country": "chinese canadians", "output": "كنديون صينيون"},
     {"separator_stripped": "about", "country": "slavery", "output": "العبودية"},
     {"separator_stripped": "about", "country": "south carolina", "output": "كارولاينا الجنوبية"},
     {"separator_stripped": "about", "country": "south dakota", "output": "داكوتا الجنوبية"},

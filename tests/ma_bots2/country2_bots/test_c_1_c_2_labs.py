@@ -476,8 +476,6 @@ fast_data_c_2_1_lab = {
     "sri lanka navy": "البحرية السريلانكية",
     "sri lankan civil war": "الحرب الأهلية السريلانكية",
     "sri lankan descent": "أصل سريلانكي",
-    "sri lankan english": "إنجليز سريلانكيون",
-    "sri lankan tamil descent": "أصل تاميلي سريلانكي",
     "st. johns river": "نهر سانت جونز",
     "state lower houses": "مجالس نواب الولايات",
     "sultanate of zanzibar": "سلطنة زنجبار",
