@@ -5,6 +5,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "christian hip hop groups": "فرق هيب هوب مسيحية",
+    "Christian hip-hop groups": "فرق هيب هوب مسيحية",
+    "christian ska groups": "فرق سكا مسيحية",
     "christian children's books": "كتب أطفال مسيحية",
     "christian children's magazines": "مجلات أطفال مسيحية",
     "christian illuminated manuscripts": "مخطوطات مذهبة مسيحية",
