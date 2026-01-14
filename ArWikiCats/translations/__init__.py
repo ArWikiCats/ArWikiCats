@@ -1,6 +1,6 @@
 """ """
 
-from .companies import New_Company
+from .companies import COMPANY_TYPE_TRANSLATIONS
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new_p17_final
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
@@ -154,7 +154,7 @@ __all__ = [
     "LANGUAGE_TOPIC_FORMATS",
     "religious_entries",
     "New_female_keys",
-    "New_Company",
+    "COMPANY_TYPE_TRANSLATIONS",
     "ministers_keys",
     "change_numb_to_word",
     "People_key",

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping
 
 from ...helps import len_print, logger
-from ..companies import New_Company as COMPANY_LABELS
+from ..companies import COMPANY_TYPE_TRANSLATIONS as COMPANY_LABELS
 from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar

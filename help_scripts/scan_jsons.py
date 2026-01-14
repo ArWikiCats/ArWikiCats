@@ -60,7 +60,8 @@ def main() -> None:
         # Path("D:/categories_bot/len_data/female_keys.py/films_data.json"),
         # Path("D:/categories_bot/len_data/female_keys.py/religious_entries.json"),
         # Path("D:/categories_bot/len_data/structures.py/structures_data.json"),
-        Path("D:/categories_bot/len_data/structures.py/pop_final_3_update.json"),
+        # Path("D:/categories_bot/len_data/structures.py/pop_final_3_update.json"),
+        Path("D:/categories_bot/len_data/companies.py/companies_data.json"),
     ]
     status = {}
     for file in files:

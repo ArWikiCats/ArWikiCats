@@ -8,12 +8,10 @@ from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
 from ...helps import len_print
-from ..companies import companies_to_jobs
 from ..mixed.all_keys2 import BOOK_CATEGORIES
 from ..mixed.female_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports.cycling import BASE_CYCLING_EVENTS
-from ..tv.films_mslslat import film_keys_for_female
 from ..utils.json_dir import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
@@ -26,10 +24,27 @@ from .jobs_defs import (
 from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
 from .jobs_womens import short_womens_jobs
+from ..companies import COMPANY_TYPE_TRANSLATIONS
 
 # ---------------------------------------------------------------------------
 # Helper utilities
 # ---------------------------------------------------------------------------
+
+companies_to_jobs = {}
+
+for company_type, label in COMPANY_TYPE_TRANSLATIONS.items():
+    companies_to_jobs[f"{company_type} owners"] = {
+        "males": f"ملاك {label}",
+        "females": f"مالكات {label}",
+    }
+    companies_to_jobs[f"{company_type} founders"] = {
+        "males": f"مؤسسو {label}",
+        "females": f"مؤسسات {label}",
+    }
+    companies_to_jobs[f"{company_type} company founders"] = {
+        "males": f"مؤسسو شركات {label}",
+        "females": f"مؤسسات شركات {label}",
+    }
 
 
 def _append_list_unique(sequence: List[str], value: str) -> None:
