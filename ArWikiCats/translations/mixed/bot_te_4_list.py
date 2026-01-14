@@ -9,10 +9,8 @@ from ..sports import (
     SPORT_FORMATS_MALE_NAT,
     SPORTS_KEYS_FOR_TEAM,
 )
-from ..sports.games_labs import SUMMER_WINTER_GAMES
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
-from .keys_23 import AFC_KEYS
 from .Newkey import pop_final6
 
 # الإنجليزية والعربية اسم البلد
@@ -459,15 +457,6 @@ ttk2: dict[str, str] = {
     "depictions of": "تصوير عن {}",
 }
 
-Multi_sport_for_Jobs: dict[str, str] = {
-    "afc asian cup": "كأس آسيا",
-    "afc cup": "كأس الاتحاد الآسيوي",
-    "fifa futsal world cup": "كأس العالم لكرة الصالات",
-}
-
-Multi_sport_for_Jobs.update(SUMMER_WINTER_GAMES)
-Multi_sport_for_Jobs.update(AFC_KEYS)
-
 SPORT_FORMATS_NEW_KKK = _build_new_kkk()  # الإنجليزي جنسية والعربي اسم البلد
 
 en_is_nat_ar_is_P17.update(SPORT_FORMATS_NEW_KKK)
@@ -482,7 +471,6 @@ _extend_book_entries()
 
 __all__ = [
     "change_male_to_female",
-    "Multi_sport_for_Jobs",
     "en_is_nat_ar_is_P17",
     "en_is_nat_ar_is_al_mens",
     "en_is_nat_ar_is_al_women",
@@ -499,7 +487,6 @@ len_print.data_len(
         "en_is_nat_ar_is_al_women": en_is_nat_ar_is_al_women,
         "en_is_nat_ar_is_women": en_is_nat_ar_is_women,
         "change_male_to_female": change_male_to_female,
-        "Multi_sport_for_Jobs": Multi_sport_for_Jobs,
         "en_is_nat_ar_is_women_2": en_is_nat_ar_is_women_2,
     },
 )

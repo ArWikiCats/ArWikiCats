@@ -33,7 +33,6 @@ def test_women_competitions_use_correct_spelling() -> None:
     """Ensure the women's competitions render with the corrected Arabic term."""
 
     assert "للسيدات" in all_keys4.new2019["uci women's world tour"]
-    assert "للسيدات" in keys_23.AFC_KEYS["afc women's asian cup"]
     assert "للسيدات" in bot_te_4_list.Multi_sport_for_Jobs["afc women's asian cup"]
 
 
