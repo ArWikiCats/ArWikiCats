@@ -349,7 +349,6 @@ title_work_tests_data = {
     "local politicians in united kingdom": "سياسيون محليون في المملكة المتحدة في",
     "malaysia in fiction": "ماليزيا في الخيال",
     "malaysia in summer olympics": "ماليزيا في الألعاب الأولمبية الصيفية",
-    "male actors from west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "manufacturing in united states": "تصنيع في الولايات المتحدة",
     "mass shootings in europe": "إطلاق نار عشوائي في أوروبا",
     "mayors of places in alabama": "رؤساء بلديات في ألاباما في",

@@ -6,6 +6,7 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "male actors from west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "paralympics people": "أشخاص في الألعاب البارالمبية",
     "Fictional people executed for murder": "أشخاص خياليون أعدموا بتهمة قتل",
     "Fictional people executed for treason": "أشخاص خياليون أعدموا بتهمة خيانة",
