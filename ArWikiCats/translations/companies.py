@@ -568,7 +568,6 @@ companies_data = {
     "wine museums": "متاحف نبيذ"
 }
 
-companies_keys3 = {}
 typeTable_update = {}
 
 COMPANY_TYPE_TRANSLATIONS = {
@@ -755,23 +754,14 @@ COMPANY_CATEGORY_CONTEXT = {
 
 for category_key in COMPANY_CATEGORY_CONTEXT:
     singular_label = COMPANY_CATEGORY_CONTEXT[category_key]["si"]
-    companies_keys3[category_key] = singular_label
-    for suffix_key, suffix_label in COMPANY_COLLECTION_PREFIXES.items():
-        companies_keys3[f"{category_key} {suffix_key}"] = f"{suffix_label} {singular_label}"
-
     plural_label = COMPANY_CATEGORY_CONTEXT[category_key]["bb"]
-    companies_keys3[f"defunct {category_key} of"] = f"{plural_label} سابقة في"
-    companies_keys3[f"defunct {category_key}"] = f"{plural_label} سابقة"
     for event_key, event_label in COMPANY_EVENT_PREFIXES.items():
-        companies_keys3[f"{category_key} {event_key}"] = f"{event_label} {plural_label}"
         typeTable_update[f"{category_key} {event_key}"] = f"{event_label} {plural_label}"
-        companies_keys3[f"{category_key} {event_key} of"] = f"{event_label} {plural_label} في"
 
 len_print.data_len(
     "companies.py",
     {
         "companies_data": companies_data,
-        "companies_keys3": companies_keys3,
         "COMPANY_TYPE_TRANSLATIONS": COMPANY_TYPE_TRANSLATIONS,
         "typeTable_update": typeTable_update,
     },
