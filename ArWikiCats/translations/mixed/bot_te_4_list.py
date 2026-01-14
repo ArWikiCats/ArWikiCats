@@ -4,10 +4,9 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
-from ..sports import (
+from ..sports.skeys import (
     SPORT_FORMATS_FEMALE_NAT,
     SPORT_FORMATS_MALE_NAT,
-    SPORTS_KEYS_FOR_TEAM,
 )
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
 from .all_keys3 import BUSINESSPEOPLE_INDUSTRIES
