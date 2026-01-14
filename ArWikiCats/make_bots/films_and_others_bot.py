@@ -21,7 +21,6 @@ from ..new_resolvers.sports_resolvers import resolve_sports_main
 # from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
 from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
-from ..old_bots.for_me import Work_for_me_main
 from .languages_bot.languages_resolvers import te_language
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
@@ -62,7 +61,6 @@ def te_films(category: str) -> str:
         "get_films_key_tyty_new_and_time": lambda k: get_films_key_tyty_new_and_time(k),
         "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
         "jobs_in_multi_sports": lambda k: jobs_in_multi_sports(k),
-        "Work_for_me_main": lambda k: Work_for_me_main(k),
         "ethnic_label_main": lambda k: ethnic_label_main(k),
         "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
@@ -89,7 +87,6 @@ def te_films(category: str) -> str:
 
     _add_to_films_o_tt_tables = [
         "ethnic_label_main",
-        "Work_for_me_main",
         "Films",
     ]
 
