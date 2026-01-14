@@ -5,6 +5,8 @@ TODO: planed to be replaced by ArWikiCats.new_resolvers.nationalities_resolvers
 
 import functools
 
+from ..helps.jsonl_dump import dump_data
+
 from ..helps import logger
 from ..translations import (
     all_nat_sorted,
@@ -68,6 +70,7 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
+@dump_data(1)
 def Work_for_me_main(category: str) -> str:
     """
     Normalize an input category and resolve the corresponding country label using a derived suffix and nationality key.
