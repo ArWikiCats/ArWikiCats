@@ -60,7 +60,7 @@ def Work_for_me_main(category: str) -> str:
     logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({category})")
 
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
-
+    return ""
     result = _work_for_me_main(normalized_category)
 
     return result
