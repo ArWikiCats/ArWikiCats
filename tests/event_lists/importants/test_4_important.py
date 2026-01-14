@@ -76,7 +76,7 @@ data1 = {
     "all-africa games": "ألعاب عموم إفريقيا",
     "american hockey league": "الدوري الأمريكي للهوكي",
     "anguillan league": "الدوري الأنغويلاني",
-    "armenian independence cup": "كأس استقلال أرمينيا",
+    "armenian independence cup": "كأس الاستقلال الأرميني",
     "armenian premier league": "الدوري الأرميني الممتاز",
     "asian games": "الألعاب الآسيوية",
     "australian baseball league": "الدوري الأسترالي لكرة القاعدة",
