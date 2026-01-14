@@ -10,6 +10,7 @@ country_names_and_nats_data = {
     "{en} royal air force": "القوات الجوية الملكية {the_female}",
     "{en} civil war": "الحرب الأهلية {the_female}",
     "{en} air force": "القوات الجوية {the_female}",
+    "{en} air force personnel": "أفراد القوات الجوية {the_female}",
     "{en} air force generals": "جنرالات القوات الجوية {the_female}",
     "{en} royal defence force": "قوات الدفاع الملكية {the_female}",
     "{en} navy": "البحرية {the_female}",

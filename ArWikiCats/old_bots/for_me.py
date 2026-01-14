@@ -11,7 +11,6 @@ from ..translations import (
     Nat_the_female,
     Nat_women,
     New_female_keys,
-    en_is_nat_ar_is_al_women,
     en_is_nat_ar_is_women,
 )
 from ..make_bots.jobs_bots.get_helps import get_suffix_with_keys
@@ -31,29 +30,6 @@ def _get_female_no_def_label(suffix: str, women_nat_lab: str) -> str | None:
 
     country_lab = con_3_lab.format(women_nat_lab)
     logger.debug(f"<<lightblue>> test44:en_is_nat_ar_is_women new {country_lab=} ")
-    return country_lab
-
-
-def _get_female_def_label(suffix: str, the_female_nat_lab: str) -> str | None:
-    """
-    Return a female country label that includes the definite article for the given suffix and female nationality label.
-
-    Parameters:
-        suffix (str): Suffix key used to look up a definite-article template.
-        the_female_nat_lab (str): Female nationality label to insert into the template.
-
-    Returns:
-        str | None: Formatted country label when a template is found for the suffix, `None` if no template exists.
-    """
-    con_3_lab = en_is_nat_ar_is_al_women.get(suffix.strip(), "")
-    if not con_3_lab:
-        return None
-
-    if "{nat}" in con_3_lab:
-        country_lab = con_3_lab.format(nat=the_female_nat_lab)
-    else:
-        country_lab = con_3_lab.format(the_female_nat_lab)
-    logger.debug(f"<<lightblue>> for_me:en_is_nat_ar_is_al_women new {country_lab=} ")
     return country_lab
 
 
@@ -82,11 +58,6 @@ def Work_for_me(cate: str, nat: str, suffix: str) -> str:
 
     # 3. نسائية بدون ألف ولام التعريف
     res = _get_female_no_def_label(suffix, women_nat_lab)
-    if res is not None:
-        return res
-
-    # 4. نسائية بألف ولام التعريف
-    res = _get_female_def_label(suffix, the_female_nat_lab)
     if res is not None:
         return res
 

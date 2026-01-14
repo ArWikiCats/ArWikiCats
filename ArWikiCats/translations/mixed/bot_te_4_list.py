@@ -21,47 +21,6 @@ baston_men: dict[str, str] = {
     "army": "الجيش",
 }
 
-# نسائية بألف ولام التعريف
-# الانجليزية والعربية جنسية
-# tab[Category:Yemeni navy] = "تصنيف:البحرية اليمنية"
-# tab[Category:syrian air force] = "تصنيف:القوات الجوية السورية"
-en_is_nat_ar_is_al_women: dict[str, str] = {
-    "royal air force": "القوات الجوية الملكية {}",
-    "air force": "القوات الجوية {}",
-    "royal defence force": "قوات الدفاع الملكية {}",
-    "royal navy": "البحرية {}",
-    "naval force": "البحرية {}",
-    "naval forces": "البحرية {}",
-    "navy": "البحرية {}",
-    "airways accidents and incidents": "حوادث الخطوط الجوية {}",
-    "airways accidents-and-incidents": "حوادث الخطوط الجوية {}",
-    "airways": "الخطوط الجوية {}",
-    "youth games": "الألعاب {} الشبابية",
-    "financial crisis": "الأزمة المالية {}",
-    "presidential crisis": "الأزمة الرئاسية {}",
-    # "society" : "الجمعية {}",
-    "military academy": "الأكاديمية العسكرية {}",
-    "military college": "الكلية العسكرية {}",
-    "crisis": "الأزمة {}",
-    "energy crisis": "أزمة الطاقة {}",
-    "constitutional crisis": "الأزمة الدستورية {}",
-    "games competitors": "منافسون في الألعاب {}",
-    "games medalists": "فائزون بميداليات الألعاب {}",
-    "games gold medalists": "فائزون بميداليات ذهبية في الألعاب {}",
-    "games silver medalists": "فائزون بميداليات فضية في الألعاب {}",
-    "games bronze medalists": "فائزون بميداليات برونزية في الألعاب {}",
-    "television people": "شخصيات التلفزة {}",
-    "presidential primaries": "الانتخابات الرئاسية التمهيدية {}",
-    "legislative election": "الانتخابات التشريعية {}",
-    "parliamentary election": "الانتخابات البرلمانية {}",
-    "general election": "الانتخابات العامة {}",
-    "regional election": "انتخابات الإقليمية {}",
-    "vice-presidential election": "انتخابات نائب الرئاسة {}",
-    "presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
-    "presidential election": "انتخابات الرئاسة {}",
-}
-
-
 # [Category:myanmarian movement] = "تصنيف:الحركة الميانمارية"
 baston_women: dict[str, str] = {
     "movement": "الحركة",

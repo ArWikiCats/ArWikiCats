@@ -1,4 +1,3 @@
-# black:skip_file
 """ """
 
 import pytest
@@ -76,4 +75,3 @@ data_n = {
 def test_data_n(category: str, expected_key: str) -> None:
     label1 = resolve_label_ar(category)
     assert label1 == expected_key
-

@@ -1,4 +1,3 @@
-# black:skip_file
 """ """
 
 import pytest
