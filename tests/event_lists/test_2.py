@@ -5,6 +5,52 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "belgian children's books": "كتب أطفال بلجيكية",
+    "jewish children's magazines": "مجلات أطفال يهودية",
+    "american international schools": "مدارس دولية أمريكية",
+    "bengali hindu festivals": "مهرجانات هندوسية بنغالية",
+    "british international schools": "مدارس دولية بريطانية",
+    "canadian documentaries": "وثائقيات كندية",
+    "chinese cookbooks": "كتب طبخ صينية",
+    "English tennis commentators": "معلقو كرة مضرب إنجليزية",
+    "european political websites": "مواقع ويب سياسية أوروبية",
+    "french comic": "قصص مصورة فرنسية",
+    "greek organized crime": "جريمة منظمة يونانية",
+    "greek paintings": "لوحات يونانية",
+    "indonesian online encyclopedias": "موسوعات إنترنت إندونيسية",
+    "iranian paintings": "لوحات إيرانية",
+    "irish paintings": "لوحات أيرلندية",
+    "israeli architecture awards": "جوائز عمارة إسرائيلية",
+    "jewish ethnic groups": "مجموعات عرقية يهودية",
+    "Jewish feminist organizations": "منظمات نسوية يهودية",
+    "jewish illuminated manuscripts": "مخطوطات مذهبة يهودية",
+    "jewish manuscripts": "مخطوطات يهودية",
+    "jewish medical organizations": "منظمات طبية يهودية",
+    "jewish military units and formations": "وحدات وتشكيلات عسكرية يهودية",
+    "jewish new religious movements": "حركات دينية جديدة يهودية",
+    "jewish political movements": "حركات سياسية يهودية",
+    "jewish religious movements": "حركات دينية يهودية",
+    "korean international schools": "مدارس دولية كورية",
+    "polish biographical dictionaries": "قواميس سير ذاتية بولندية",
+    "portuguese international schools": "مدارس دولية برتغالية",
+    "serbian cultural organizations": "منظمات ثقافية صربية",
+    "thai buddhist temples": "معابد بوذية تايلندية",
+    "turkish cookbooks": "كتب طبخ تركية",
+    "Members of Christian religious orders": "أعضاء أخويات دينية مسيحية",
+    "Christian religious orders by century of establishment": "أخويات دينية مسيحية حسب قرن التأسيس",
+    "Christian religious orders established in 11th century": "أخويات دينية مسيحية أسست في القرن 11",
+    "Christian religious orders established in 12th century": "أخويات دينية مسيحية أسست في القرن 12",
+    "Christian religious orders established in 13th century": "أخويات دينية مسيحية أسست في القرن 13",
+    "Christian religious orders established in 14th century": "أخويات دينية مسيحية أسست في القرن 14",
+    "Christian religious orders established in 15th century": "أخويات دينية مسيحية أسست في القرن 15",
+    "Christian religious orders established in 16th century": "أخويات دينية مسيحية أسست في القرن 16",
+    "Christian religious orders established in 17th century": "أخويات دينية مسيحية أسست في القرن 17",
+    "Christian religious orders established in 18th century": "أخويات دينية مسيحية أسست في القرن 18",
+    "Christian religious orders established in 19th century": "أخويات دينية مسيحية أسست في القرن 19",
+    "Christian religious orders established in 20th century": "أخويات دينية مسيحية أسست في القرن 20",
+    "Christian religious orders established in 21st century": "أخويات دينية مسيحية أسست في القرن 21",
+    "Christian religious orders established in 5th century": "أخويات دينية مسيحية أسست في القرن 5",
+    "Christian religious orders established in 6th century": "أخويات دينية مسيحية أسست في القرن 6",
     "Christian political parties by country": "أحزاب سياسية مسيحية حسب البلد",
     "Christian political parties in Australia": "أحزاب سياسية مسيحية في أستراليا",
     "Christian political parties in Canada": "أحزاب سياسية مسيحية في كندا",
@@ -583,6 +629,13 @@ to_test = [
     ("test_2_test_2", data_test2),
     ("test_2_new_bug_check", data_list_bad),
 ]
+
+
+@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
+@pytest.mark.fast
+def test_2_fast_data(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
