@@ -118,6 +118,8 @@ def _levels_data() -> dict[str, str]:
 def _load_sports_formatted_data() -> dict[str, str]:
 
     sports_formatted_data = {
+        "{en} league cup": "كأس الدوري {the_male}",
+        "{en} independence cup": "كأس الاستقلال {the_male}",
         "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
         "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
         "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
