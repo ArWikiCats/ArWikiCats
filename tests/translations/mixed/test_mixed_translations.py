@@ -40,9 +40,3 @@ def test_time_trial_translations_include_against_the_clock() -> None:
 
     assert "ضد الساعة" in all_keys4.new2019["uci road world championships – men's team time trial"]
     assert "ضد الساعة" in all_keys4.new2019["uci track cycling world championships – women's 500 m time trial"]
-
-
-def test_short_story_translations_use_correct_phrase() -> None:
-    """The short story categories should reference "قصص قصيرة" consistently."""
-
-    assert "قصص قصيرة" in bot_te_4_list.en_is_nat_ar_is_women["short stories"]

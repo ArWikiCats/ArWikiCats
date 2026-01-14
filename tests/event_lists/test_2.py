@@ -145,6 +145,23 @@ data0 = {
 }
 
 data1 = {
+    "Category:1991 in Canadian sports by province or territory": "تصنيف:ألعاب رياضية كندية في 1991 حسب المقاطعة أو الإقليم",
+    "Category:2025 in Qatari motorsport": "تصنيف:رياضة المحركات القطرية في 2025",
+    "Category:Scottish sports trophies and awards": "تصنيف:جوائز وإنجازات ألعاب رياضية إسكتلندية",
+    "2026 in American motorsport": "رياضة المحركات الأمريكية في 2026",
+    "2026 in American sports by month": "ألعاب رياضية أمريكية في 2026 حسب الشهر",
+    "2026 in American sports by state": "ألعاب رياضية أمريكية في 2026 حسب الولاية",
+    "2026 in American sports": "ألعاب رياضية أمريكية في 2026",
+    "2026 in Australian motorsport": "رياضة المحركات الأسترالية في 2026",
+    "2026 in Canadian sports by month": "ألعاب رياضية كندية في 2026 حسب الشهر",
+    "2026 in Canadian sports by province or territory": "ألعاب رياضية كندية في 2026 حسب المقاطعة أو الإقليم",
+    "2026 in Canadian sports": "ألعاب رياضية كندية في 2026",
+    "2026 in Emirati motorsport": "رياضة المحركات الإماراتية في 2026",
+    "2026 in French motorsport": "رياضة المحركات الفرنسية في 2026",
+    "2026 in German motorsport": "رياضة المحركات الألمانية في 2026",
+    "2026 in Japanese motorsport": "رياضة المحركات اليابانية في 2026",
+    "2026 in Mexican sports by month": "ألعاب رياضية مكسيكية في 2026 حسب الشهر",
+    "2026 in Mexican sports": "ألعاب رياضية مكسيكية في 2026",
     # "American expatriate men's soccer players in Canada": "",
     "West German men sprinters": "عداؤون سريعون ألمانيون غربيون",
     "Emirati men's footballers": "لاعبو كرة قدم إماراتيون",

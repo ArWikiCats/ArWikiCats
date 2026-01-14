@@ -322,22 +322,23 @@ def _extend_singer_and_business_entries() -> None:
         en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
 
 
-def _extend_book_entries() -> None:
+def _extend_book_entries() -> dict:
     """Populate mappings derived from book categories."""
-
+    data = {}
     for key, label in BOOK_CATEGORIES.items():
         lowered = key.lower()
-        en_is_nat_ar_is_women[lowered] = f"{label} {{}}"
+        data[lowered] = f"{label} {{}}"
         for book_type, book_label in BOOK_TYPES.items():
             composite = f"{book_type.lower()} {lowered}"
-            en_is_nat_ar_is_women[composite] = f"{label} {book_label} {{}}"
+            data[composite] = f"{label} {book_label} {{}}"
 
-        en_is_nat_ar_is_women[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        en_is_nat_ar_is_women[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        en_is_nat_ar_is_women[f"online {lowered}"] = f"{label} إنترنت {{}}"
+        data[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        data[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
+        data[f"online {lowered}"] = f"{label} إنترنت {{}}"
 
     for key, label in pop_final6.items():
-        en_is_nat_ar_is_women[key.lower()] = f"{label} {{}}"
+        data[key.lower()] = f"{label} {{}}"
+    return data
 
 
 change_male_to_female: dict[str, str] = {
@@ -371,8 +372,8 @@ ttk2: dict[str, str] = {
 _extend_sport_mappings()
 
 _extend_singer_and_business_entries()
-_extend_book_entries()
-
+books_keys = _extend_book_entries()
+en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
     "change_male_to_female",

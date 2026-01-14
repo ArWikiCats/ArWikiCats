@@ -208,8 +208,6 @@ BOOK_CATEGORIES: dict[str, str] = {
     "comic strips": "شرائط كومكس",
     "comic": "قصص مصورة",
     "comics": "قصص مصورة",
-    # "compositions": "تراكيب",
-    # "compositions": "مؤلفات موسيقية",
     "cookbooks": "كتب طبخ",
     "crime": "جريمة",
     "dictionaries": "قواميس",
