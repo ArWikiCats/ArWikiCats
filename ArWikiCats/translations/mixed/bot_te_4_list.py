@@ -257,25 +257,6 @@ def _extend_singer_and_business_entries() -> None:
         en_is_nat_ar_is_women[f"{key} industry businesspeople"] = f"شخصيات أعمال {{}} في صناعة {label}"
 
 
-def _extend_book_entries() -> dict:
-    """Populate mappings derived from book categories."""
-    data = {}
-    for key, label in BOOK_CATEGORIES.items():
-        lowered = key.lower()
-        data[lowered] = f"{label} {{}}"
-        for book_type, book_label in BOOK_TYPES.items():
-            composite = f"{book_type.lower()} {lowered}"
-            data[composite] = f"{label} {book_label} {{}}"
-
-        data[f"non fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        data[f"non-fiction {lowered}"] = f"{label} {{}} غير خيالية"
-        data[f"online {lowered}"] = f"{label} إنترنت {{}}"
-
-    for key, label in pop_final6.items():
-        data[key.lower()] = f"{label} {{}}"
-    return data
-
-
 ttk: dict[str, str] = {
     "cultural depictions of": "التصوير الثقافي ل{}",
     "fictional depictions of": "التصوير الخيالي ل{}",
@@ -289,8 +270,6 @@ ttk2: dict[str, str] = {
 }
 
 _extend_singer_and_business_entries()
-books_keys = _extend_book_entries()
-en_is_nat_ar_is_women.update(books_keys)
 
 __all__ = [
     "en_is_nat_ar_is_women",
