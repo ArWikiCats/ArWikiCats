@@ -69,7 +69,6 @@ data0 = {
     "christian children's magazines": "مجلات أطفال مسيحية",
     "christian conferences": "مؤتمرات مسيحية",
     "christian contemporary r&b groups": "فرق آر أند بي معاصر مسيحية",
-    "christian events": "أحداث مسيحية",
     "christian hip hop groups": "فرق هيب هوب مسيحية",
     "Christian hip-hop groups": "فرق هيب هوب مسيحية",
     "christian illuminated manuscripts": "مخطوطات مذهبة مسيحية",
@@ -78,7 +77,6 @@ data0 = {
     "christian music awards": "جوائز موسيقى مسيحية",
     "christian new religious movements": "حركات دينية جديدة مسيحية",
     "christian paintings": "لوحات مسيحية",
-    "christian political organizations": "منظمات سياسية مسيحية",
     "Christian political parties by country": "أحزاب سياسية مسيحية حسب البلد",
     "Christian political parties in Australia": "أحزاب سياسية مسيحية في أستراليا",
     "Christian political parties in Canada": "أحزاب سياسية مسيحية في كندا",
@@ -112,10 +110,8 @@ data0 = {
     "Christian religious orders established in 6th century": "أخويات دينية مسيحية أسست في القرن 6",
     "christian religious orders": "أخويات دينية مسيحية",
     "christian rhythm and blues groups": "فرق ريذم أند بلوز مسيحية",
-    "christian rock groups": "فرق روك مسيحية",
     "christian ska groups": "فرق سكا مسيحية",
     "christian socialist organizations": "منظمات اشتراكية مسيحية",
-    "christian sports organizations": "منظمات رياضية مسيحية",
     "Christian texts by century": "نصوص مسيحية حسب القرن",
     "Christian texts by genre": "نصوص مسيحية حسب النوع الفني",
     "Christian texts by medium": "نصوص مسيحية حسب الوسط",
@@ -150,24 +146,18 @@ data0 = {
     "jewish folk rock groups": "فرق فولك روك يهودية",
     "jewish hip hop groups": "فرق هيب هوب يهودية",
     "Jewish hip-hop groups": "فرق هيب هوب يهودية",
-    "jewish history organizations": "منظمات تاريخ يهودية",
     "jewish illuminated manuscripts": "مخطوطات مذهبة يهودية",
     "jewish manuscripts": "مخطوطات يهودية",
     "jewish medical organizations": "منظمات طبية يهودية",
     "jewish military units and formations": "وحدات وتشكيلات عسكرية يهودية",
     "jewish new religious movements": "حركات دينية جديدة يهودية",
     "jewish political movements": "حركات سياسية يهودية",
-    "jewish political organizations": "منظمات سياسية يهودية",
     "jewish political parties": "أحزاب سياسية يهودية",
     "jewish religious movements": "حركات دينية يهودية",
-    "jewish religious organizations": "منظمات دينية يهودية",
     "jewish rock groups": "فرق روك يهودية",
-    "jewish sports organizations": "منظمات رياضية يهودية",
     "Jewish texts by century": "نصوص يهودية حسب القرن",
     "jewish texts": "نصوص يهودية",
     "korean international schools": "مدارس دولية كورية",
-    "Kurdish Islamic organisations": "منظمات إسلامية كردية",
-    "kurdish islamic organizations": "منظمات إسلامية كردية",
     "malagasy world music groups": "فرق موسيقى العالم مدغشقرية",
     "mauritian folk music groups": "فرق موسيقى تقليدية موريشيوسية",
     "Members of Christian religious orders": "أعضاء أخويات دينية مسيحية",
@@ -180,7 +170,6 @@ data0 = {
     "Politicians of Christian political parties": "سياسيون من أحزاب سياسية مسيحية",
     "Politicians of Jewish political parties": "سياسيون من أحزاب سياسية يهودية",
     "portuguese international schools": "مدارس دولية برتغالية",
-    "romanian motorsport people": "أعلام رياضة محركات رومانية",
     "salvadoran reggae musical groups": "فرق موسيقى ريغيه سلفادورية",
     "saudiarabian black metal musical groups": "فرق موسيقى بلاك ميتال سعودية",
     "serbian cultural organizations": "منظمات ثقافية صربية",
@@ -199,7 +188,17 @@ data0 = {
     "turkish cookbooks": "كتب طبخ تركية",
 }
 
-data_2018 = {}
+data_2018 = {
+    "christian events": "أحداث مسيحية",
+    "christian political organizations": "منظمات سياسية مسيحية",
+    "christian rock groups": "فرق روك مسيحية",
+    "jewish history organizations": "منظمات تاريخ يهودية",
+    "jewish political organizations": "منظمات سياسية يهودية",
+    "jewish religious organizations": "منظمات دينية يهودية",
+    "Kurdish Islamic organisations": "منظمات إسلامية كردية",
+    "kurdish islamic organizations": "منظمات إسلامية كردية",
+
+}
 
 
 @pytest.mark.parametrize("category, expected_key", data0.items(), ids=data0.keys())

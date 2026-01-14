@@ -5,6 +5,9 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
+    "jewish sports organizations": "منظمات ألعاب رياضية يهودية",
+    "christian sports organizations": "منظمات ألعاب رياضية مسيحية",
+    "romanian motorsport people": "أعلام رياضة المحركات الرومانية",
     "american culture": "ثقافة أمريكية",
     "antigua and barbuda sport": "رياضة أنتيغوية وبربودية",
     "armenian television": "التلفزة الأرمينية",

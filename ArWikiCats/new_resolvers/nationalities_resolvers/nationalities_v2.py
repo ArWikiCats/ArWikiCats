@@ -112,6 +112,14 @@ male_data = {
 }
 
 female_data = {
+    "{en} events": "أحداث {female}",
+    "{en} political organizations": "منظمات سياسية {female}",
+    "{en} rock groups": "فرق روك {female}",
+    "{en} history organizations": "منظمات تاريخ {female}",
+    "{en} religious organizations": "منظمات دينية {female}",
+    "{en} Islamic organisations": "منظمات إسلامية {female}",
+    "{en} islamic organizations": "منظمات إسلامية {female}",
+
     # "Category:1972 in American women's sports": "تصنيف:رياضة أمريكية للسيدات في 1972",
     "{en} sports": "ألعاب رياضية {female}",
     "{en} womens sports": "رياضات نسائية {female}",
