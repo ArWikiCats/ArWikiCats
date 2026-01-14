@@ -45,7 +45,7 @@ def _work_for_me_main(normalized_category: str) -> str:
     logger.debug(f"<<lightyellow>>>> Work_for_me_main >> category:({normalized_category})")
 
     suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")
-
+    result = ""
     if suffix:
         women_nat_lab = Nat_women.get(nationality_key, "")
         result = _get_female_no_def_label(suffix, women_nat_lab)
