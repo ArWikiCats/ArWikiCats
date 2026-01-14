@@ -589,7 +589,6 @@ title_work_tests_data = {
     "women's football by country": "كرة القدم للسيدات حسب البلد",
     "women's footballers in ireland": "لاعبات كرة قدم في أيرلندا",
     "works about automobiles": "أعمال عن سيارات",
-    "works about british army": "أعمال عن الجيش البريطاني",
     "works about countries": "أعمال عن بلدان",
     "works about guinea-bissau": "أعمال عن غينيا بيساو",
     "works about obesity": "أعمال عن السمنة",

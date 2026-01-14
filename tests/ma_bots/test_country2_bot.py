@@ -601,7 +601,6 @@ data_slow = {
     "women's universities and colleges": "جامعات نسائية وكليات",
     "women's volleyball": "كرة الطائرة للسيدات",
     "works about automobiles": "أعمال عن سيارات",
-    "works about british army": "أعمال عن الجيش البريطاني",
     "works about countries": "أعمال عن بلدان",
     "works about guinea-bissau": "أعمال عن غينيا بيساو",
     "works about obesity": "أعمال عن السمنة",

@@ -167,25 +167,25 @@ def test_year_at_end_uses_country2_when_translate_empty() -> None:
 @pytest.mark.fast
 def test_year_at_end_parentheses_range() -> None:
     result = Try_With_Years("American Soccer League (1933–83)")
-    assert result == "دوري كرة القدم الأمريكية (1933–83)"
+    assert result == "الدوري الأمريكي لكرة القدم (1933–83)"
 
 
 @pytest.mark.fast
 def test_year_at_end_parentheses_with_present() -> None:
     result = Try_With_Years("American Soccer League (1933–present)")
     # "–present" should be converted to "–الآن"
-    assert result == "دوري كرة القدم الأمريكية (1933–الآن)"
+    assert result == "الدوري الأمريكي لكرة القدم (1933–الآن)"
 
 
 @pytest.mark.fast
 def test_year_at_end_parentheses_with_hyphen_variants() -> None:
     # Normal hyphen inside parentheses
     result_hyphen = Try_With_Years("American Soccer League (1933-83)")
-    assert result_hyphen == "دوري كرة القدم الأمريكية (1933-83)"
+    assert result_hyphen == "الدوري الأمريكي لكرة القدم (1933-83)"
 
     # Minus sign, normalized
     result_minus = Try_With_Years("American Soccer League (1933−83)")
-    assert result_minus == "دوري كرة القدم الأمريكية (1933-83)"
+    assert result_minus == "الدوري الأمريكي لكرة القدم (1933-83)"
 
 
 # ---------------------------------------------------------------------------

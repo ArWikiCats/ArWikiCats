@@ -6,6 +6,10 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "thai league cup": "كأس الدوري التايلندي",
+    "lao premier league seasons": "مواسم الدوري اللاوسي الممتاز",
+    "chinese professional baseball league awards": "جوائز دوري كرة القاعدة الصيني للمحترفين",
+    "american indoor soccer league seasons": "مواسم الدوري الأمريكي لكرة القدم داخل الصالات",
     "male actors from west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "paralympics people": "أشخاص في الألعاب البارالمبية",
     "Fictional people executed for murder": "أشخاص خياليون أعدموا بتهمة قتل",
