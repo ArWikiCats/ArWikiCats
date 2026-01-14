@@ -5,7 +5,6 @@ Rich lookup tables for gendered and national prefix/suffix mappings.
 from ...helps import len_print
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..sports.skeys import (
-    SPORT_FORMATS_FEMALE_NAT,
     SPORT_FORMATS_MALE_NAT,
 )
 from .all_keys2 import BOOK_CATEGORIES, BOOK_TYPES
@@ -128,23 +127,6 @@ baston_women: dict[str, str] = {
     "politics": "السياسة",
     # "sports" : "الرياضة",
 }
-
-
-def _extend_female_sport_mappings() -> None:
-    """
-    Populate sport related mappings for female categories.
-
-    # Russian Professional Football League
-    # دوري كرة القدم الروسي للمحترفين
-
-    """
-    data = {}
-    for key, value in SPORT_FORMATS_FEMALE_NAT.items():
-        data[key] = value
-    for category, label in baston_women.items():
-        data[category.lower()] = f"{label} {{}}"
-    return data
-
 
 # جنسية عربي وإنجليزي
 # نسائية بدون ألف ولام التعريف
@@ -417,8 +399,6 @@ ttk2: dict[str, str] = {
     "depictions of": "تصوير عن {}",
 }
 _extend_sport_mappings()
-
-# en_is_nat_ar_is_al_women.update(_extend_female_sport_mappings())
 
 _extend_singer_and_business_entries()
 _extend_book_entries()

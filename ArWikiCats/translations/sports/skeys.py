@@ -11,7 +11,6 @@ from .Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 COUNTRY_PLACEHOLDER: Final[str] = "{}"
 
 SPORT_FORMATS_MALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
-SPORT_FORMATS_FEMALE_NAT = {}  # الإنجليزي جنسية والعربي جنسية
 
 # ----------------------------------------------------------------------
 # Helpers
@@ -50,34 +49,18 @@ def _build_male_nat() -> Dict[str, str]:
     return label_index
 
 
-def _build_female_nat() -> Dict[str, str]:
-    """English nationality → Arabic nationality (female formats)."""
-    label_index: Dict[str, str] = {}
-
-    for sport, label in SPORTS_KEYS_FOR_LABEL.items():
-        # SPORT_FORMATS_FEMALE_NAT
-        # tab[Category:American Indoor Soccer] = "تصنيف:كرة القدم الأمريكية داخل الصالات"
-        label_index[f"outdoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} في الهواء الطلق"
-        label_index[f"indoor {sport.lower()}"] = f"{label} {COUNTRY_PLACEHOLDER} داخل الصالات"
-
-    return label_index
-
-
 # ----------------------------------------------------------------------
 # Build final dictionaries once
 # ----------------------------------------------------------------------
 SPORT_FORMATS_MALE_NAT = _build_male_nat()
-SPORT_FORMATS_FEMALE_NAT = _build_female_nat()
 
 len_print.data_len(
     "skeys.py",
     {
-        "SPORT_FORMATS_FEMALE_NAT": SPORT_FORMATS_FEMALE_NAT,
         "SPORT_FORMATS_MALE_NAT": SPORT_FORMATS_MALE_NAT,
     },
 )
 
 __all__ = [
-    "SPORT_FORMATS_FEMALE_NAT",
     "SPORT_FORMATS_MALE_NAT",
 ]

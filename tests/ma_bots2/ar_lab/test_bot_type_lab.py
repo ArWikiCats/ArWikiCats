@@ -217,7 +217,6 @@ data = [
     (" by ", "historic districts in massachusetts", "المناطق التاريخية في ماساتشوستس"),
     (" by ", "rugby union players from west yorkshire", "لاعبو اتحاد رجبي من غرب يوركشاير"),
     (" by ", "railway stations in the philippines", "محطات السكك الحديدية في الفلبين"),
-    (" in ", "american football governing bodies", "هيئات تنظيم كرة القدم الأمريكية"),
     (" to ", "trinidad and tobago emigrants", "ترنيداديون مهاجرون"),
     (" by ", "unincorporated communities in alaska", "مجتمعات فردية في ألاسكا"),
     (" by ", "1789 in south america", "أمريكا الجنوبية في 1789"),

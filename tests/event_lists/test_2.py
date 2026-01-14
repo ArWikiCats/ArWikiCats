@@ -6,6 +6,7 @@ from ArWikiCats import resolve_label_ar
 
 
 data0 = {
+    "american football governing bodies": "هيئات تنظيم كرة قدم أمريكية",
     "1828 New Jersey elections": "انتخابات نيوجيرسي في 1828",
     "1971–72 in Northern Ireland association football": "كرة القدم الأيرلندية الشمالية في 1971–72",
     "1999–2000 in European rugby union leagues": "اتحاد دوري الرجبي الأوروبي في 1999–2000",
