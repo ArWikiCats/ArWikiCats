@@ -1,7 +1,10 @@
 from .model_data import FormatData
-from .model_data_double import FormatDataDouble
-from .model_data_time import YearFormatData
 from .model_data_v2 import FormatDataV2, MultiDataFormatterBaseV2
+
+from .model_data_double import FormatDataDouble
+from .model_data_double_v2 import FormatDataDoubleV2
+
+from .model_data_time import YearFormatData
 from .model_multi_data import (
     MultiDataFormatterBase,
     MultiDataFormatterBaseYear,
@@ -15,6 +18,7 @@ from .model_multi_data_year_from_2 import MultiDataFormatterYearAndFrom2
 __all__ = [
     "FormatDataV2",
     "FormatDataDouble",
+    "FormatDataDoubleV2",
     "MultiDataFormatterBase",
     "MultiDataFormatterBaseV2",
     "MultiDataFormatterDataDouble",

@@ -52,6 +52,7 @@ from .data_with_time import format_year_country_data, format_year_country_data_v
 from .DataModel import (
     FormatData,
     FormatDataDouble,
+    FormatDataDoubleV2,
     FormatDataFrom,
     FormatDataV2,
     MultiDataFormatterBase,
@@ -75,6 +76,7 @@ __all__ = [
     "MultiDataFormatterDataDouble",
     "FormatDataV2",
     "FormatDataDouble",
+    "FormatDataDoubleV2",
     "YearFormatData",
     "FormatData",
     "NormalizeResult",
