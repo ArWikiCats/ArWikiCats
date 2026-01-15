@@ -665,7 +665,6 @@ data1 = {
     "American football culture": "ثقافة كرة قدم أمريكية",
     "2012–13 in Spanish rugby union leagues": "دوريات اتحاد الرجبي الإسباني في 2012–13",
     "american football films": "أفلام كرة قدم أمريكية",
-    "Jewish music genres": "أنواع موسيقى يهودية",
     "Men's footballers in Azerbaijan by competition": "لاعبو كرة قدم في أذربيجان حسب المنافسة",
     "Men's footballers in Guinea-Bissau by club": "لاعبو كرة قدم في غينيا بيساو حسب النادي",
     "Men's footballers in Portugal by competition": "لاعبو كرة قدم في البرتغال حسب المنافسة",

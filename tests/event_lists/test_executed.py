@@ -1256,7 +1256,6 @@ data_5 = {
     "German people executed for murder": "ألمان أعدموا بتهمة قتل",
     "German people executed for war crimes": "ألمان أعدموا بتهمة جرائم حرب",
     "German people executed for witchcraft": "ألمان أعدموا بتهمة السحر",
-    "Hungarian Nazis executed for war crimes": "نازيون مجريون أعدموا بتهمة جرائم حرب",
     "Hungarian people executed for war crimes": "مجريون أعدموا بتهمة جرائم حرب",
     "Icelandic people executed for witchcraft": "آيسلنديون أعدموا بتهمة السحر",
     "Iranian people executed for murder": "إيرانيون أعدموا بتهمة قتل",

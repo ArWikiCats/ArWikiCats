@@ -489,7 +489,6 @@ data_1 = {
     "Antigua and Barbuda people of North American descent": "أنتيغويون وبربوديون من أصل أمريكي شمالي",
     "Antigua and Barbuda people of Portuguese descent": "أنتيغويون وبربوديون من أصل برتغالي",
     "Antigua and Barbuda people of Russian descent": "أنتيغويون وبربوديون من أصل روسي",
-    "Antigua and Barbuda people of Russian-Jewish descent": "أنتيغويون وبربوديون من أصل يهودي روسي",
     "Antigua and Barbuda people of Spanish descent": "أنتيغويون وبربوديون من أصل إسباني",
     "Antigua and Barbuda people of Syrian descent": "أنتيغويون وبربوديون من أصل سوري",
     "Antigua and Barbuda people of Trinidad and Tobago descent": "أنتيغويون وبربوديون من أصل ترنيدادي",
