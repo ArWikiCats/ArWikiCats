@@ -17,15 +17,23 @@ class FormatDataDoubleV2(FormatDataBase):
     This class extends FormatDataBase to handle categories where two adjacent
     keys from the data_list appear together (e.g., "action drama films").
     It can match both single keys and pairs of keys, combining their Arabic
-    labels in the correct order.
+    labels in the correct order, with options to sort labels or place specific
+    labels last.
 
     Attributes:
         formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
-        key_placeholder (str): Placeholder used in formatted_data keys.
+        data_list (Dict[str, Union[str, Dict[str, str]]]): Key-to-Arabic-label mappings for replacements.
+        key_placeholder (str): Placeholder used in formatted_data keys (default: "xoxo").
+        text_after (str): Text to append after the formatted label (default: "").
+        text_before (str): Text to prepend before the formatted label (default: "").
+        splitter (str): Separator used in patterns for splitting keys (default: " ").
+        ar_joiner (str): Joiner for combining Arabic labels (default: " ").
+        sort_ar_labels (bool): Whether to sort Arabic labels alphabetically (default: False).
         keys_to_split (dict): Cache mapping combined keys to their component parts.
-        put_label_last (dict): Keys whose labels should appear last in combinations.
+        put_label_last (set[str] | list[str]): Keys whose labels should appear last in combinations.
         search_multi_cache (dict): Cache for combined label lookups.
+        alternation (str): Regex alternation string for keys.
+        pattern (re.Pattern): Regex pattern for matching single keys.
         pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
