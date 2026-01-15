@@ -18,14 +18,15 @@ formatted_data_double = {
     "{en} jewish diaspora": "شتات يهودي {male}",
 
     "{en}-jewish surnames": "ألقاب يهودية {female}",
-    "{en}-jewish descent": "أصل يهودي {male}",
     "{en}-jewish culture": "ثقافة يهودية {female}",
+    "{en}-jewish descent": "أصل يهودي {male}",
     "{en}-jewish diaspora": "شتات يهودي {male}",
 }
 
 formatted_data = {
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",
+    "{en} people": "{males}",
 
     # north american-jewish culture
     "{en} surnames": "ألقاب {female}",
@@ -39,6 +40,13 @@ formatted_data = {
     "{en} cuisine": "مطبخ {male}",
     "{en} descent": "أصل {male}",
     "{en} diaspora": "شتات {male}",
+
+    "{en} musical groups": "فرق موسيقية {female}",
+    "{en} music": "موسيقى {female}",
+
+    "{en} novels": "روايات {female}",
+    "{en} architecture": "عمارة {female}",
+    "{en} gangs": "عصابات {female}",
 }
 
 nats_data = {

@@ -8,6 +8,7 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
 
 male_tests = {
+    "sri lankan tamil descent": "أصل تاميلي سريلانكي",
     "jewish german history": "تاريخ ألماني يهودي",
     "german jewish history": "تاريخ ألماني يهودي",
     "afghan jewish descent": "أصل أفغاني يهودي",
@@ -383,12 +384,31 @@ male_tests = {
 }
 
 males_tests = {
+    "austrian nazis": "نازيون نمساويون",
+    "british antigua and barbuda": "أنتيغويون وبربوديون بريطانيون",
+    "european american": "أمريكيون أوروبيون",
+    "ivorian american": "أمريكيون إيفواريون",
+    "japanese americans": "أمريكيون يابانيون",
+    "jewish americans": "أمريكيون يهود",
     "jewish persian": "فرس يهود",
+    "jewish russian": "روس يهود",
+    "luxembourgian european": "أوروبيون لوكسمبورغيون",
+    "romanian european": "أوروبيون رومان",
+    "sri lankan english": "إنجليز سريلانكيون",
+    "venezuelan spanish": "إسبان فنزويليون",
     "yemeni yugoslav": "يمنيون يوغسلافيون",
     "yemeni-yugoslav": "يمنيون يوغسلافيون",
 }
 
 female_tests = {
+    "chinese australian culture": "ثقافة أسترالية صينية",
+    "danish american culture": "ثقافة أمريكية دنماركية",
+    "european american culture": "ثقافة أمريكية أوروبية",
+    "european argentine culture": "ثقافة أرجنتينية أوروبية",
+    "korean american culture": "ثقافة أمريكية كورية",
+    "lebanese canadian culture": "ثقافة كندية لبنانية",
+    "spanish american wars": "حروب أمريكية إسبانية",
+
     "african jewish culture": "ثقافة إفريقية يهودية",
     "african-jewish culture": "ثقافة إفريقية يهودية",
     "algerian jewish culture": "ثقافة جزائرية يهودية",
@@ -524,6 +544,28 @@ female_tests = {
     "yugoslav-jewish culture": "ثقافة يهودية يوغسلافية",
 }
 
+test_data_fast = {
+    "american christian musical groups": "فرق موسيقية أمريكية مسيحية",
+    "australian christian musical groups": "فرق موسيقية أسترالية مسيحية",
+    "british christian musical groups": "فرق موسيقية بريطانية مسيحية",
+    "canadian christian musical groups": "فرق موسيقية كندية مسيحية",
+    "swedish christian musical groups": "فرق موسيقية سويدية مسيحية",
+    "english christian musical groups": "فرق موسيقية إنجليزية مسيحية",
+    "finnish christian musical groups": "فرق موسيقية فنلندية مسيحية",
+    "brazilian christian music": "موسيقى برازيلية مسيحية",
+    "democratic republic of congo christian music": "موسيقى كونغوية ديمقراطية مسيحية",
+    "ghanaian christian music": "موسيقى غانية مسيحية",
+    "rwandan christian music": "موسيقى رواندية مسيحية",
+    "american christian novels": "روايات أمريكية مسيحية",
+    "english gothic architecture": "عمارة إنجليزية قوطية",
+    "turkish kurdish people": "أتراك أكراد",
+    "norwegian christian musical groups": "فرق موسيقية مسيحية نرويجية",
+    "dutch christian music": "موسيقى مسيحية هولندية",
+    "indian christian music": "موسيقى مسيحية هندية",
+    "irish american gangs": "عصابات أمريكية أيرلندية",
+    "british antigua and barbuda people": "أنتيغويون وبربوديون بريطانيون"
+}
+
 
 @pytest.mark.parametrize("category, expected_key", male_tests.items(), ids=male_tests.keys())
 @pytest.mark.fast
@@ -550,6 +592,7 @@ to_test = [
     ("test_male_tests", male_tests, resolve_by_nats_double_v2),
     ("test_males_tests", males_tests, resolve_by_nats_double_v2),
     ("test_female_tests", female_tests, resolve_by_nats_double_v2),
+    ("test_data_fast", test_data_fast, resolve_by_nats_double_v2),
 ]
 
 
