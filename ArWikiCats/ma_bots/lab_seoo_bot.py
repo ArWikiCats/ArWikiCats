@@ -15,15 +15,13 @@ from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 
-from ..ma_bots2.year_or_typeo.dodo_2019 import work_2019_wrap
 from ..new_resolvers.reslove_all import new_resolvers_all
 
 from ..old_bots import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from . import ye_ts_bot
-
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+# from ..ma_bots2.year_or_typeo.dodo_2019 import work_2019_wrap
 
 
 @functools.lru_cache(maxsize=None)
@@ -70,7 +68,7 @@ def event_label_work(target_category: str) -> str:
         or te_films(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
-        or work_2019_wrap(normalized_target_category)
+        # or work_2019_wrap(normalized_target_category)
         or ""
     )
 
