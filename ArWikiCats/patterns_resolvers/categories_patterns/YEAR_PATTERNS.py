@@ -4,6 +4,7 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "category:{year1} missing person cases": "تصنيف:قضايا أشخاص مفقودين في {year1}",
     "category:{year1} meteorology": "تصنيف:الأرصاد الجوية في {year1}",
     "category:refugee olympic team in {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",
     "category:refugee olympic team in {year1} winter olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",

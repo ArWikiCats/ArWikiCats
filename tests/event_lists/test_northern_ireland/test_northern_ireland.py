@@ -7,6 +7,23 @@ from ArWikiCats import resolve_arabic_category_label
 data0 = {}
 
 data_1 = {
+    "Category:1690s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1690",
+    "Category:1620s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1620",
+    "Category:1580s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1580",
+    "Category:1540s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1540",
+    "Category:1550s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1550",
+    "Category:1510s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1510",
+    "Category:1520s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1520",
+    "Category:1500s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1500",
+    "Category:1590s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1590",
+    "Category:1610s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1610",
+    "Category:1630s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1630",
+    "Category:1670s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1670",
+    "Category:1570s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1570",
+    "Category:1680s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1680",
+    "Category:1460s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1460",
+    "Category:1410s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1410",
+
     "Category:Film people from Northern Ireland": "تصنيف:أعلام أفلام من أيرلندا الشمالية",
     "Category:20th-century architects from Northern Ireland": "تصنيف:معماريون من أيرلندا الشمالية في القرن 20",
     "Category:20th-century engineers from Northern Ireland": "تصنيف:مهندسون من أيرلندا الشمالية في القرن 20",
@@ -117,7 +134,6 @@ data_1 = {
     "Category:Women photographers from Northern Ireland": "تصنيف:مصورات من أيرلندا الشمالية",
     "Category:Women television personalities from Northern Ireland": "تصنيف:شخصيات تلفزيون من أيرلندا الشمالية",
     "Category:Women travel writers from Northern Ireland": "تصنيف:كاتبات سفر من أيرلندا الشمالية",
-    "Category:Works by musicians from Northern Ireland": "تصنيف:أعمال موسيقيون من أيرلندا الشمالية",
 }
 
 data_2 = {
