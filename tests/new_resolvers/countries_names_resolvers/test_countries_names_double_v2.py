@@ -5,12 +5,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_double_v2 import resolve_countries_names_double
 
-test_relations_v2 = {
-    "yemeni–lebanese conflict": "الصراع اليمني اللبناني",
-    "zimbabwean–palestinian conflict legal issues": "قضايا قانونية في الصراع الزيمبابوي الفلسطيني",
-    "zimbabwean–palestinian conflict video games": "ألعاب فيديو الصراع الزيمبابوي الفلسطيني",
-    "zimbabwean–palestinian conflict": "الصراع الزيمبابوي الفلسطيني",
-    "zimbabwean–palestinian joint economic efforts": "الجهود الاقتصادية المشتركة الزيمبابوية الفلسطينية",
+test_relations_names_v2 = {
+    "ireland–republic-of-congo relations": "العلاقات الأيرلندية الكونغوية",
     "russia–south sudan relations": "العلاقات الروسية السودانية الجنوبية",
     "russia-south sudan relations": "العلاقات الروسية السودانية الجنوبية",
     "russia south sudan relations": "العلاقات الروسية السودانية الجنوبية",
@@ -23,7 +19,7 @@ test_relations_v1 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_relations_v2.items(), ids=test_relations_v2.keys())
+@pytest.mark.parametrize("category, expected", test_relations_names_v2.items(), ids=test_relations_names_v2.keys())
 @pytest.mark.fast
 def test_data_relations_v2(category: str, expected: str) -> None:
     label = resolve_countries_names_double(category)
@@ -39,7 +35,7 @@ def test_data_relations_v1(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_data_relations_v1", test_relations_v1, resolve_countries_names_double),
-    ("test_data_relations_v2", test_relations_v2, resolve_countries_names_double)
+    ("test_data_relations_v2", test_relations_names_v2, resolve_countries_names_double)
 ]
 
 

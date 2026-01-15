@@ -5,6 +5,15 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
+from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_double_v2 import resolve_countries_names_double
+from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
+
+
+def new_relations_resolvers(category: str) -> str:
+    label = resolve_by_nats_double_v2(category) or resolve_countries_names_double(category)
+    return label
+
+
 ireland_test_data = {
     "russia–south sudan relations": "العلاقات الروسية السودانية الجنوبية",
     "saudi arabia–south sudan relations": "العلاقات السعودية السودانية الجنوبية",
@@ -165,7 +174,6 @@ ireland_test_data = {
     "ireland–poland relations": "العلاقات الأيرلندية البولندية",
     "ireland–portugal relations": "العلاقات الأيرلندية البرتغالية",
     "ireland–qatar relations": "العلاقات الأيرلندية القطرية",
-    "ireland–republic-of-congo relations": "العلاقات الأيرلندية الكونغوية",
     "ireland–romania relations": "العلاقات الأيرلندية الرومانية",
     "ireland–russia relations": "العلاقات الأيرلندية الروسية",
     "ireland–rwanda relations": "العلاقات الأيرلندية الرواندية",
@@ -468,20 +476,20 @@ test_data = {
 @pytest.mark.parametrize("category, expected", ireland_test_data.items(), ids=ireland_test_data.keys())
 @pytest.mark.fast
 def test_ireland_test_data(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
+    label = new_relations_resolvers(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_work_relations_new(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
+    label = new_relations_resolvers(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_work_relations_new", test_data, resolve_relations_label),
-    ("test_work_relations_ireland", ireland_test_data, resolve_relations_label)
+    ("test_work_relations_new", test_data, new_relations_resolvers),
+    ("test_work_relations_ireland", ireland_test_data, new_relations_resolvers)
 ]
 
 
@@ -489,7 +497,7 @@ TEMPORAL_CASES = [
 @pytest.mark.dump
 def test_dump_all(name: str, data: str, callback: str) -> None:
     expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
+    dump_diff(diff_result, f"test_new_relations_resolvers_big_data_{name}")
 
     # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
