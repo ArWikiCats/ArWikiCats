@@ -8,21 +8,6 @@ from ...translations import countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-formatted_data_double = {
-    # "jewish {en} cuisine": "مطبخ {male} يهودي",
-    # "jewish {en} history": "تاريخ {male} يهودي",
-    # north american-jewish culture
-    "{en} jewish surnames": "ألقاب يهودية {female}",
-    "{en} jewish descent": "أصل يهودي {male}",
-    "{en} jewish culture": "ثقافة يهودية {female}",
-    "{en} jewish diaspora": "شتات يهودي {male}",
-
-    "{en}-jewish surnames": "ألقاب يهودية {female}",
-    "{en}-jewish culture": "ثقافة يهودية {female}",
-    "{en}-jewish descent": "أصل يهودي {male}",
-    "{en}-jewish diaspora": "شتات يهودي {male}",
-}
-
 formatted_data = {
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",
@@ -40,6 +25,12 @@ formatted_data = {
     "{en} cuisine": "مطبخ {male}",
     "{en} descent": "أصل {male}",
     "{en} diaspora": "شتات {male}",
+
+    "{en} law": "قانون {male}",
+    "{en} wine": "نبيذ {male}",
+    "{en} traditions": "تراث {male}",
+    "{en} folklore": "فلكور {male}",
+    "{en} television": "تلفاز {male}",
 
     "{en} musical groups": "فرق موسيقية {female}",
     "{en} music": "موسيقى {female}",
@@ -88,16 +79,16 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats_double_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
+    logger.debug(f"<<yellow>> start resolve_by_nats_double_v2: {category=}")
 
     if category in countries_en_as_nationality_keys:  # or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
         return ""
 
     category = fix_keys(category)
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}", result)
     return result
 
 

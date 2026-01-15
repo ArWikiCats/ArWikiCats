@@ -298,6 +298,7 @@ female_data_music = {
 }
 
 female_data = {
+    "{en} miniseries": "مسلسلات قصيرة {female}",
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
