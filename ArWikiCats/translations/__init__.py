@@ -54,7 +54,6 @@ from .nats.Nationality import (
 from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
-from .sports.olympics_data import olympic_event_translations
 from .sports.Sport_key import (
     SPORT_KEY_RECORDS,
     SPORT_KEY_RECORDS_BASE,
@@ -90,7 +89,6 @@ __all__ = [
     "typeTable",
     "olympic_event_translations_type_tables",
     "match_sport_key",
-    "olympic_event_translations",
     "en_nats_to_ar_label",
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",

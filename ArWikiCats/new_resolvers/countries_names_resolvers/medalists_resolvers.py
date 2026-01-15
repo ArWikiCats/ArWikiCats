@@ -9,7 +9,7 @@ from ...helps import logger
 from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 
-# TODO: add data from ArWikiCats/translations/sports/olympics_data.py
+# TODO: add data from olympic_event_translations
 medalists_data = {
     # "central american and caribbean games": "ألعاب أمريكا الوسطى والكاريبي",
     "afc asian cup finals": "نهائيات كأس آسيا",
