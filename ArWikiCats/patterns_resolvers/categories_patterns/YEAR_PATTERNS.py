@@ -4,6 +4,28 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} censuses": "تعداد السكان في {year1}",
+    "{year1} science fiction works": "أعمال خيال علمي {year1}",
+    "{year1} controversies": "خلافات {year1}",
+    "{year1} floods": "فيضانات {year1}",
+    "{year1} mass shootings": "إطلاق نار عشوائي {year1}",
+    "{year1} murders": "جرائم قتل {year1}",
+    "{year1} century music": "الموسيقى في {year1}",
+    "{year1} century theatre": "المسرح في {year1}",
+    "{year1} cookbooks": "كتب طبخ {year1}",
+    "{year1} musicals": "مسرحيات غنائية {year1}",
+    "{year1} racehorse deaths": "خيول سباق نفقت في {year1}",
+    "{year1} mining disasters": "كوارث التعدين {year1}",
+    "{year1} albums": "ألبومات {year1}",
+    "{year1} Christmas albums": "ألبومات عيد الميلاد {year1}",
+    "{year1} landslides": "انهيارات أرضية {year1}",
+    "{year1} publications": "منشورات {year1}",
+    "{year1} revolutions": "ثورات {year1}",
+    "{year1} transport disasters": "كوارث نقل في {year1}",
+    "{year1} mosques": "مساجد {year1}",
+    "{year1} texts": "نصوص {year1}",
+    "{year1} executions": "إعدامات في {year1}",
+
     "{year1} buddhist temples": "معابد بوذية {year1}",
     "{year1} jain temples": "معابد جاينية {year1}",
     "{year1} hindu temples": "معابد هندوسية {year1}",
