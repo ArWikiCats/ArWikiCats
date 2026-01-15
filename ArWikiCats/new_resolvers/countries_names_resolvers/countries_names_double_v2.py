@@ -161,6 +161,12 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_v1(category: str) -> str:
     """
+    Examples:
+        >>> # Example of a dual-country resolution (v1)
+        >>> resolve_v1("jordan–iraq relations")
+        'علاقات الأردن والعراق'
+        >>> # Example of skipping a single country key
+        >>> resolve_v1("jordan")
     """
     logger.debug(f"<<yellow>> start resolve_v1: {category=}")
 
@@ -178,6 +184,12 @@ def resolve_v1(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_v2(category: str) -> str:
     """
+    Examples:
+        >>> # Example of a dual-country resolution (v2)
+        >>> resolve_v2("jordan–iraq relations")
+        'العلاقات الأردنية العراقية'
+        >>> # Example of skipping a single country key
+        >>> resolve_v2("jordan")
     """
     logger.debug(f"<<yellow>> start resolve_v2: {category=}")
 
