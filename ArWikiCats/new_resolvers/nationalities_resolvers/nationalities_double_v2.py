@@ -8,6 +8,21 @@ from ...translations import countries_en_as_nationality_keys, All_Nat
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
+formatted_data_double = {
+    # "jewish {en} cuisine": "مطبخ {male} يهودي",
+    # "jewish {en} history": "تاريخ {male} يهودي",
+    # north american-jewish culture
+    "{en} jewish surnames": "ألقاب يهودية {female}",
+    "{en} jewish descent": "أصل يهودي {male}",
+    "{en} jewish culture": "ثقافة يهودية {female}",
+    "{en} jewish diaspora": "شتات يهودي {male}",
+
+    "{en}-jewish surnames": "ألقاب يهودية {female}",
+    "{en}-jewish descent": "أصل يهودي {male}",
+    "{en}-jewish culture": "ثقافة يهودية {female}",
+    "{en}-jewish diaspora": "شتات يهودي {male}",
+}
+
 formatted_data = {
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",

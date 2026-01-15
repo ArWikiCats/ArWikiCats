@@ -12,6 +12,21 @@ from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
+formatted_data_double = {
+    # "jewish {en} cuisine": "مطبخ {male} يهودي",
+    # "jewish {en} history": "تاريخ {male} يهودي",
+    # north american-jewish culture
+    "{en} jewish surnames": "ألقاب يهودية {female}",
+    "{en} jewish descent": "أصل يهودي {male}",
+    "{en} jewish culture": "ثقافة يهودية {female}",
+    "{en} jewish diaspora": "شتات يهودي {male}",
+
+    "{en}-jewish surnames": "ألقاب يهودية {female}",
+    "{en}-jewish descent": "أصل يهودي {male}",
+    "{en}-jewish culture": "ثقافة يهودية {female}",
+    "{en}-jewish diaspora": "شتات يهودي {male}",
+}
+
 peoples_nats_not_jobs_males = {
     "{en} expatriates": "{males} مغتربون",
     "{en} emigrants": "{males} مهاجرون",
@@ -82,16 +97,8 @@ the_male_data = {
 }
 
 male_data = {
-    # "jewish {en} cuisine": "مطبخ {male} يهودي",
-    # "jewish {en} history": "تاريخ {male} يهودي",
-
     "{en} cuisine": "مطبخ {male}",
     "{en} history": "تاريخ {male}",
-
-    "{en}-jewish descent": "أصل يهودي {male}",
-    "{en}-jewish diaspora": "شتات يهودي {male}",
-    "{en} jewish descent": "أصل يهودي {male}",
-    "{en} jewish diaspora": "شتات يهودي {male}",
 
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
@@ -291,12 +298,6 @@ female_data_music = {
 }
 
 female_data = {
-    # north american-jewish culture
-    "{en} jewish surnames": "ألقاب يهودية {female}",
-    "{en}-jewish surnames": "ألقاب يهودية {female}",
-    "{en}-jewish culture": "ثقافة يهودية {female}",
-    "{en} jewish culture": "ثقافة يهودية {female}",
-
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
@@ -626,7 +627,9 @@ the_female_data = {
 }
 
 all_formatted_data = (
-    males_data | ar_data | the_male_data | male_data | the_female_data | country_names_and_nats_data | female_data
+    males_data | ar_data | the_male_data | male_data
+    | the_female_data | country_names_and_nats_data
+    | female_data  # | formatted_data_double
 )
 
 
