@@ -11,6 +11,7 @@ from ...helps import logger
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     countries_en_as_nationality_keys,
+    countries_nat_en_key,
     All_Nat,
     all_country_with_nat,
     all_country_ar,
@@ -61,13 +62,10 @@ formatted_data_v2 = {
 
 @functools.lru_cache(maxsize=1)
 def _load_all_country_labels_v2() -> dict[str, dict[str, str]]:
-    nats_data = {
-        x: v for x, v in All_Nat.items()
-    }
-    nats_data.update({
-        x: v for x, v in nats_keys_as_country_names.items()
-    })
-    nats_data.update({
+    data = dict(countries_nat_en_key)
+    # nats_data = { x: v for x, v in All_Nat.items() }
+    # nats_data.update({ x: v for x, v in nats_keys_as_country_names.items() })
+    data.update({
         "ireland": {
             "male": "أيرلندي",
             "males": "أيرلنديون",
@@ -79,7 +77,7 @@ def _load_all_country_labels_v2() -> dict[str, dict[str, str]]:
             "ar": "أيرلندا",
         }
     })
-    return nats_data
+    return data
 
 
 @functools.lru_cache(maxsize=1)
@@ -129,7 +127,7 @@ def double_bot_v2() -> FormatDataDoubleV2:
     - formatted_data: Set to formatted_data_v2 (presumably predefined formatted data).
     - data_list: The list of all country labels loaded.
     - key_placeholder: "{en}" for English placeholders.
-    - splitter: A regex pattern r"[ \-–]" to split on spaces, hyphens, or en dashes.
+    - splitter: A regex pattern "[ -–]" to split on spaces, hyphens, or en dashes.
     - sort_ar_labels: True to sort Arabic labels.
     Returns:
         FormatDataDoubleV2: An instance of FormatDataDoubleV2 configured for double-format processing of country names.
