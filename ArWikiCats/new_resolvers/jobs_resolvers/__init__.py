@@ -1,7 +1,9 @@
+import functools
 from ...helps import logger
 from . import mens, womens, relegin_jobs_new
 
 
+@functools.lru_cache(maxsize=None)
 def resolve_jobs_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
