@@ -265,8 +265,7 @@ type_Table_no.update(type_table_television_keys)
 
 olympic_type_tables = {}
 
-for olmp, olmp_lab in olympic_event_translations.items():
-    olympic_type_tables[f"{olmp} for"] = f"{olmp_lab} من"
+# for olmp, olmp_lab in olympic_event_translations.items(): olympic_type_tables[f"{olmp} for"] = f"{olmp_lab} من"
 
 type_table_labels = type_Table_no | basedtypeTable
 
