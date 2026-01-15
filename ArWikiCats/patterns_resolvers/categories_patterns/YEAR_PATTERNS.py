@@ -4,6 +4,11 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} buddhist temples": "معابد بوذية {year1}",
+    "{year1} hindu temples": "معابد هندوسية {year1}",
+    "{year1} essays": "مقالات {year1}",
+    "{year1} operas": "أوبيرات {year1}",
+
     "category:{year1} missing person cases": "تصنيف:قضايا أشخاص مفقودين في {year1}",
     "category:{year1} meteorology": "تصنيف:الأرصاد الجوية في {year1}",
     "category:refugee olympic team in {year1} summer olympics": "تصنيف:فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",

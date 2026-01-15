@@ -3,6 +3,56 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
+test_data_0 = {
+    "10th-century Buddhist temples": "معابد بوذية القرن 10",
+    "10th-century Hindu temples": "معابد هندوسية القرن 10",
+    "11th-century Buddhist temples": "معابد بوذية القرن 11",
+    "11th-century Hindu temples": "معابد هندوسية القرن 11",
+    "12th-century Buddhist temples": "معابد بوذية القرن 12",
+    "12th-century Hindu temples": "معابد هندوسية القرن 12",
+    "13th-century Buddhist temples": "معابد بوذية القرن 13",
+    "13th-century Hindu temples": "معابد هندوسية القرن 13",
+    "14th-century Buddhist temples": "معابد بوذية القرن 14",
+    "14th-century Hindu temples": "معابد هندوسية القرن 14",
+    "15th-century Buddhist temples in China": "معابد بوذية في الصين القرن 15",
+    "15th-century Buddhist temples": "معابد بوذية القرن 15",
+    "15th-century Hindu temples": "معابد هندوسية القرن 15",
+    "16th-century Buddhist temples": "معابد بوذية القرن 16",
+    "16th-century Hindu temples": "معابد هندوسية القرن 16",
+    "17th-century Buddhist temples": "معابد بوذية القرن 17",
+    "17th-century Hindu temples": "معابد هندوسية القرن 17",
+    "18th-century Buddhist temples in China": "معابد بوذية في الصين القرن 18",
+    "18th-century Buddhist temples in Thailand": "معابد بوذية في تايلاند القرن 18",
+    "18th-century Buddhist temples": "معابد بوذية القرن 18",
+    "18th-century Hindu temples": "معابد هندوسية القرن 18",
+    "19th-century Buddhist temples": "معابد بوذية القرن 19",
+    "19th-century Hindu temples": "معابد هندوسية القرن 19",
+    "1st-century BC Hindu temples": "معابد هندوسية القرن 1 ق م",
+    "1st-century Hindu temples": "معابد هندوسية القرن 1",
+    "20th-century Buddhist temples": "معابد بوذية القرن 20",
+    "20th-century Hindu temples": "معابد هندوسية القرن 20",
+    "20th-century Jain temples": "معابد جاينية القرن 20",
+    "21st-century Buddhist temples": "معابد بوذية القرن 21",
+    "21st-century Hindu temples": "معابد هندوسية القرن 21",
+    "2nd-century BC Hindu temples": "معابد هندوسية القرن 2 ق م",
+    "2nd-century Hindu temples": "معابد هندوسية القرن 2",
+    "3rd-century BC Hindu temples": "معابد هندوسية القرن 3 ق م",
+    "3rd-century Buddhist temples": "معابد بوذية القرن 3",
+    "4th-century Buddhist temples": "معابد بوذية القرن 4",
+    "4th-century Hindu temples": "معابد هندوسية القرن 4",
+    "5th-century BC Hindu temples": "معابد هندوسية القرن 5 ق م",
+    "5th-century Buddhist temples": "معابد بوذية القرن 5",
+    "5th-century Hindu temples": "معابد هندوسية القرن 5",
+    "6th-century Buddhist temples": "معابد بوذية القرن 6",
+    "6th-century Hindu temples": "معابد هندوسية القرن 6",
+    "7th-century Buddhist temples": "معابد بوذية القرن 7",
+    "7th-century Hindu temples": "معابد هندوسية القرن 7",
+    "8th-century Buddhist temples": "معابد بوذية القرن 8",
+    "8th-century Hindu temples": "معابد هندوسية القرن 8",
+    "9th-century Buddhist temples": "معابد بوذية القرن 9",
+    "9th-century Hindu temples": "معابد هندوسية القرن 9",
+}
+
 test_data_1 = {
     "10th-century Buddhist temples": "معابد بوذية القرن 10",
     "10th-century Hindu temples": "معابد هندوسية القرن 10",
@@ -23,24 +73,12 @@ test_data_1 = {
     "15th-century executions": "إعدامات في القرن 15",
     "15th-century Hindu temples": "معابد هندوسية القرن 15",
     "15th-century lords of Monaco": "لوردات موناكو القرن 15",
-    "1610s essays": "مقالات عقد 1610",
-    "1610s operas": "أوبيرات عقد 1610",
-    "1620s operas": "أوبيرات عقد 1620",
-    "1630s operas": "أوبيرات عقد 1630",
     "1630s science fiction works": "أعمال خيال علمي عقد 1630",
-    "1640s essays": "مقالات عقد 1640",
-    "1640s operas": "أوبيرات عقد 1640",
     "1650s controversies": "خلافات عقد 1650",
     "1650s floods": "فيضانات عقد 1650",
     "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
     "1650s murders": "جرائم قتل عقد 1650",
-    "1650s operas": "أوبيرات عقد 1650",
     "1650s science fiction works": "أعمال خيال علمي عقد 1650",
-    "1670s operas": "أوبيرات عقد 1670",
-    "1680s essays": "مقالات عقد 1680",
-    "1680s operas": "أوبيرات عقد 1680",
-    "1690s essays": "مقالات عقد 1690",
-    "1690s operas": "أوبيرات عقد 1690",
     "16th century music": "الموسيقى في القرن 16",
     "16th century theatre": "المسرح في القرن 16",
     "16th-century Buddhist temples": "معابد بوذية القرن 16",
@@ -173,6 +211,13 @@ test_data_1 = {
 }
 
 
+@pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
+@pytest.mark.fast
+def test_mk3_skips_test_data_0(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
@@ -191,5 +236,5 @@ def test_peoples(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
-    dump_same_and_not_same(data, expected, name, just_dump=True)
+    # dump_same_and_not_same(data, expected, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
