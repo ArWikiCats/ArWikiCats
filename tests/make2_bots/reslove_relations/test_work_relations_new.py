@@ -465,6 +465,13 @@ test_data = {
 }
 
 
+@pytest.mark.parametrize("category, expected", ireland_test_data.items(), ids=ireland_test_data.keys())
+@pytest.mark.fast
+def test_ireland_test_data(category: str, expected: str) -> None:
+    label = resolve_relations_label(category)
+    assert label == expected
+
+
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_work_relations_new(category: str, expected: str) -> None:
@@ -472,14 +479,16 @@ def test_work_relations_new(category: str, expected: str) -> None:
     assert label == expected
 
 
-TEMPORAL_CASES = [("test_work_relations_new", test_data), ("test_work_relations_ireland", ireland_test_data)]
+TEMPORAL_CASES = [
+    ("test_work_relations_new", test_data, resolve_relations_label),
+    ("test_work_relations_ireland", ireland_test_data, resolve_relations_label)
+]
 
 
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_dump_all(name: str, data: str) -> None:
-    # expected, diff_result = one_dump_test(data, resolve_label_ar)
-    expected, diff_result = one_dump_test(data, resolve_relations_label)
+def test_dump_all(name: str, data: str, callback: str) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
 
     # dump_same_and_not_same(data, diff_result, name)
