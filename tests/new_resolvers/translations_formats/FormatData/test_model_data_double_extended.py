@@ -15,6 +15,7 @@ from ArWikiCats.translations_formats import FormatDataDouble
 def base_data():
     formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
+        "{film_key} movies": "أفلام {film_ar}",
     }
     data_list = {
         "action": "أكشن",
@@ -61,16 +62,20 @@ def test_sort_simple_no_sort(base_data):
         sort_ar_labels=False,
     )
     result = bot.search("action drama films")
-    expected = "أفلام أكشن دراما"
-    res_hex = [hex(ord(c)) for c in result]
-    exp_hex = [hex(ord(c)) for c in expected]
-    assert result == expected, f"Got {result} ({res_hex}), expected {expected} ({exp_hex})"
+    assert result == "أفلام أكشن دراما"
 
-    result = bot.search("drama action films")
-    expected = "أفلام دراما أكشن"
-    res_hex = [hex(ord(c)) for c in result]
-    exp_hex = [hex(ord(c)) for c in expected]
-    assert result == expected, f"Got {result} ({res_hex}), expected {expected} ({exp_hex})"
+
+def test_sort_simple_no_sort_2(base_data):
+    formatted_data, data_list = base_data
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        sort_ar_labels=False,
+    )
+    result2 = bot.search("drama action movies")
+    assert result2 == "أفلام دراما أكشن"
 
 
 def test_sort_simple_with_sort(base_data):
