@@ -42,9 +42,9 @@ class LabsYears(MatchTimes):
         self.category_templates = dict(YEAR_DATA)
         self.category_templates.update(
             {
-                f"category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
-                f"category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
-                f"category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
+                f"{YEAR_PARAM}": f"{YEAR_PARAM}",
+                f"films in {YEAR_PARAM}": f"أفلام في {YEAR_PARAM}",
+                f"{YEAR_PARAM} films": f"أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
@@ -69,7 +69,7 @@ class LabsYears(MatchTimes):
             return cat_year, from_year
 
         cat_year = year_match
-        cat_key = category_r.replace(cat_year, YEAR_PARAM)
+        cat_key = category_r.replace(cat_year, YEAR_PARAM).lower().replace("category:", "").strip()
 
         cat_year_ar = ""
         if cat_year.isdigit():

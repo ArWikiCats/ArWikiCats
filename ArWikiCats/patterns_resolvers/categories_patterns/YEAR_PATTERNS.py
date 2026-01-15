@@ -4,6 +4,7 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} novels": "روايات {year1}",  # 317
     # "sports events": {"ar": "أحداث", "s": "الرياضية"},
     # "sports-events": {"ar": "أحداث", "s": "الرياضية"},
     "{year1} sports-events": "أحداث {year1} الرياضية",
@@ -182,7 +183,6 @@ YEAR_DATA = {
     "{year1} natural disasters": "كوارث طبيعية في {year1}",  # 132
     "{year1} non fiction books": "كتب غير خيالية {year1}",  # 312
     "{year1} non-fiction books": "كتب غير خيالية {year1}",  # 312
-    "{year1} novels": "روايات {year1}",  # 317
     "{year1} paintings": "لوحات {year1}",  # 346
     "{year1} plays": "مسرحيات {year1}",  # 257
     "{year1} poems": "قصائد {year1}",  # 180
