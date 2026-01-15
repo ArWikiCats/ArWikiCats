@@ -23,7 +23,6 @@ class FormatDataDoubleV2(FormatDataBase):
         formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
         data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
         key_placeholder (str): Placeholder used in formatted_data keys.
-        value_placeholder (str): Placeholder used in formatted_data values.
         keys_to_split (dict): Cache mapping combined keys to their component parts.
         put_label_last (dict): Keys whose labels should appear last in combinations.
         search_multi_cache (dict): Cache for combined label lookups.
