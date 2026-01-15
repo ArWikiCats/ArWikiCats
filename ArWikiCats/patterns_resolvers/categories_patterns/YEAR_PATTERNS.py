@@ -7,6 +7,7 @@ YEAR_DATA = {
     "{year1} buddhist temples": "معابد بوذية {year1}",
     "{year1} jain temples": "معابد جاينية {year1}",
     "{year1} hindu temples": "معابد هندوسية {year1}",
+    "{year1} literature": "أدب {year1}",
     "{year1} essays": "مقالات {year1}",
     "{year1} operas": "أوبيرات {year1}",
 

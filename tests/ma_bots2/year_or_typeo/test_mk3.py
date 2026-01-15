@@ -14,6 +14,17 @@ data0 = {
 }
 
 data1 = {
+    "1st-millennium literature": "أدب الألفية 1",
+    "20th-century Ghanaian literature": "أدب غاني في القرن 20",
+    "20th-century Mexican literature": "أدب مكسيكي في القرن 20",
+    "20th-century Taiwanese literature": "أدب تايواني في القرن 20",
+    "20th-century Ukrainian literature": "أدب أوكراني في القرن 20",
+    "20th-century Zimbabwean literature": "أدب زيمبابوي في القرن 20",
+    "21st-century Ghanaian literature": "أدب غاني في القرن 21",
+    "21st-century Moroccan literature": "أدب مغربي في القرن 21",
+    "21st-century Taiwanese literature": "أدب تايواني في القرن 21",
+    "21st-century Ukrainian literature": "أدب أوكراني في القرن 21",
+    "21st-century Zimbabwean literature": "أدب زيمبابوي في القرن 21",
     "10th-century Buddhist temples": "معابد بوذية القرن 10",
     "10th-century Hindu temples": "معابد هندوسية القرن 10",
     "11th-century Buddhist temples": "معابد بوذية القرن 11",

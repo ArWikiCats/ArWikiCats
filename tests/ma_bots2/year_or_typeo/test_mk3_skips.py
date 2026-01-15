@@ -4,28 +4,6 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 test_data_0 = {
-}
-
-test_data_1 = {
-    "12th-century Indian books": "كتب هندية القرن 12",
-    "13th-century Roman Catholic archbishops in Ireland": "رؤساء أساقفة رومان كاثوليك في أيرلندا القرن 13",
-    "14th-century lords of Monaco": "لوردات موناكو القرن 14",
-    "1520s censuses": "تعداد السكان في عقد 1520",
-    "15th-century executions": "إعدامات في القرن 15",
-    "15th-century lords of Monaco": "لوردات موناكو القرن 15",
-    "1630s science fiction works": "أعمال خيال علمي عقد 1630",
-    "1650s controversies": "خلافات عقد 1650",
-    "1650s floods": "فيضانات عقد 1650",
-    "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
-    "1650s murders": "جرائم قتل عقد 1650",
-    "1650s science fiction works": "أعمال خيال علمي عقد 1650",
-    "16th century music": "الموسيقى في القرن 16",
-    "16th century theatre": "المسرح في القرن 16",
-    "16th-century lords of Monaco": "لوردات موناكو القرن 16",
-    "17th century music": "الموسيقى في القرن 17",
-    "17th century theatre": "المسرح في القرن 17",
-    "17th-century cookbooks": "كتب طبخ القرن 17",
-    "17th-century lords of Monaco": "لوردات موناكو القرن 17",
     "1830s alabama": "ألاباما عقد 1830",
     "1830s arkansas": "أركنساس عقد 1830",
     "1830s connecticut": "كونيتيكت عقد 1830",
@@ -57,6 +35,30 @@ test_data_1 = {
     "1830s virginia": "فرجينيا عقد 1830",
     "1830s wisconsin territory": "إقليم ويسكونسن عقد 1830",
     "1830s wisconsin": "ويسكونسن عقد 1830",
+
+}
+
+test_data_1 = {
+    "12th-century Indian books": "كتب هندية في القرن 12",
+    "13th-century Roman Catholic archbishops in Ireland": "رؤساء أساقفة رومان كاثوليك في أيرلندا في القرن 13",
+    "14th-century lords of Monaco": "لوردات موناكو في القرن 14",
+    "1520s censuses": "تعداد السكان في عقد 1520",
+    "15th-century executions": "إعدامات في القرن 15",
+    "15th-century lords of Monaco": "لوردات موناكو القرن 15",
+    "1630s science fiction works": "أعمال خيال علمي عقد 1630",
+    "1650s controversies": "خلافات عقد 1650",
+    "1650s floods": "فيضانات عقد 1650",
+    "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
+    "1650s murders": "جرائم قتل عقد 1650",
+    "1650s science fiction works": "أعمال خيال علمي عقد 1650",
+    "16th century music": "الموسيقى في القرن 16",
+    "16th century theatre": "المسرح في القرن 16",
+    "16th-century lords of Monaco": "لوردات موناكو القرن 16",
+    "17th century music": "الموسيقى في القرن 17",
+    "17th century theatre": "المسرح في القرن 17",
+    "17th-century cookbooks": "كتب طبخ القرن 17",
+    "17th-century lords of Monaco": "لوردات موناكو القرن 17",
+
     "1910s musicals": "مسرحيات غنائية عقد 1910",
     "1910s racehorse deaths": "خيول سباق نفقت في عقد 1910",
     "1914 mining disasters": "كوارث التعدين 1914",
@@ -67,7 +69,6 @@ test_data_1 = {
     "19th-century executions by Spain": "إعدامات في إسبانيا في القرن 19",
     "19th-century publications": "منشورات القرن 19",
     "1st-century BC Kings of Bithynia": "ملوك بيثينيا القرن 1 ق م",
-    "1st-millennium literature": "أدب الألفية 1",
     "2000s Singaporean television series debuts": "مسلسلات تلفزيونية سنغافورية بدأ عرضها في عقد 2000",
     "2020s revolutions": "ثورات عقد 2020",
     "2020s Taiwanese television series debuts": "مسلسلات تلفزيونية تايوانية بدأ عرضها في عقد 2020",
@@ -86,27 +87,17 @@ test_data_1 = {
     "20th century roman catholic church buildings": "مبان كنائس رومانية كاثوليكية القرن 20",
     "20th century sultans of": "سلاطين القرن 20",
     "20th-century executions by Gambia": "إعدامات في غامبيا في القرن 20",
-    "20th-century Ghanaian literature": "أدب غاني القرن 20",
     "20th-century House of Habsburg": "آل هابسبورغ القرن 20",
     "20th-century Islamic terrorist incidents": "حوادث إرهابية منسوبة للمسلمين القرن 20",
     "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
-    "20th-century Mexican literature": "أدب مكسيكي القرن 20",
     "20th-century railway accidents": "حوادث سكك حديد في القرن 20",
-    "20th-century Taiwanese literature": "أدب تايواني القرن 20",
-    "20th-century Ukrainian literature": "أدب أوكراني القرن 20",
-    "20th-century Zimbabwean literature": "أدب زيمبابوي القرن 20",
     "21st-century executions by Alabama": "إعدامات في ألاباما في القرن 21",
     "21st-century executions by Somalia": "إعدامات في الصومال في القرن 21",
-    "21st-century Ghanaian literature": "أدب غاني القرن 21",
     "21st-century Islamic terrorist incidents": "حوادث إرهابية منسوبة للمسلمين القرن 21",
     "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
     "21st-century military alliances": "تحالفات عسكرية في القرن 21",
-    "21st-century Moroccan literature": "أدب مغربي القرن 21",
     "21st-century mosques": "مساجد القرن 21",
-    "21st-century Taiwanese literature": "أدب تايواني القرن 21",
     "21st-century terrorist incidents in Denmark": "حوادث إرهابية في الدنمارك القرن 21",
-    "21st-century Ukrainian literature": "أدب أوكراني القرن 21",
-    "21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21",
     "2nd-millennium texts": "نصوص الألفية 2",
     "5th-century BC kings of Tyre": "ملوك صور القرن 5 ق م",
     "8th-century executions by Umayyad Caliphate": "إعدامات في الدولة الأموية في القرن 8",
@@ -132,6 +123,7 @@ def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
 
 
 to_test = [
+    ("test_mk3_skips_test_data_0", test_data_0),
     ("test_mk3_skips_test_data_1", test_data_1),
 ]
 

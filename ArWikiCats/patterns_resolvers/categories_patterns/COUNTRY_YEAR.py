@@ -18,6 +18,7 @@ COUNTRY_YEAR_DATA_TO_CHECK = {
 
 # 18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
+    "{year1} {country1}": "{year1} في {country1}",  # 34632
     "{year1} in {country1}": "{year1} في {country1}",  # 34632
     "{year1} synagogues in {country1}": "كنس في {country1} في {year1}",
     "{year1} prime ministers of {country1}": "رؤساء وزراء {country1} في {year1}",
