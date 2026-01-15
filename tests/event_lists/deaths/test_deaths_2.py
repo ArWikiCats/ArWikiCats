@@ -191,7 +191,6 @@ airstrikes_data = {
     "Category:Deaths by New Zealand airstrikes during World War II": "تصنيف:وفيات بضربات جوية نيوزيلندية خلال الحرب العالمية الثانية",
     "Category:Deaths by British airstrikes": "تصنيف:وفيات بضربات جوية بريطانية",
     "Category:Deaths by Colombian airstrikes": "تصنيف:وفيات بضربات جوية كولومبية",
-    "Category:Deaths by drone strikes": "تصنيف:وفيات بواسطة هجمات الطائرات بدون طيار",
     "Category:Deaths by Russian airstrikes": "تصنيف:وفيات بضربات جوية روسية",
     "Category:Deaths by Saudi Arabian airstrikes": "تصنيف:وفيات بضربات جوية سعودية",
     "Category:Deaths by Greek airstrikes": "تصنيف:وفيات بضربات جوية يونانية",

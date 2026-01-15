@@ -245,6 +245,7 @@ test_data_3 = {
 
 
 test_data_4 = {
+    "Category:Deaths by drone strikes": "تصنيف:وفيات بواسطة هجمات الطائرات بدون طيار",
     "16th century music": "الموسيقى في القرن 16",
     "16th century theatre": "المسرح في القرن 16",
     "17th century music": "الموسيقى في القرن 17",
