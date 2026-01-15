@@ -31,12 +31,6 @@ formatted_data_v1 = {
 }
 
 formatted_data_v2 = {
-    # P17_PREFIXES: Mapping[str, str] = {}
-    # "{en} conflict": "صراع {ar}",
-    "{en} proxy conflict": "صراع {ar} بالوكالة",
-    # "{en} relations": "علاقات {ar}",
-    # "{en} sports relations": "علاقات {ar} الرياضية",
-
     # RELATIONS_FEMALE: Mapping[str, str] = {}
     "{en} military relations": "العلاقات {the_female} العسكرية",
     "{en} sports relations": "العلاقات {the_female} الرياضية",
