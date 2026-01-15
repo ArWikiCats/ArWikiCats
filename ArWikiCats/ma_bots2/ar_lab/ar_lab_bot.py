@@ -14,10 +14,7 @@ from ...ma_bots.country_bot import event2_d2
 from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import (
-    Add_ar_in,
-    Table_for_frist_word,
-)
+from ...make_bots.matables_bots.bot import Table_for_frist_word
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
@@ -29,7 +26,7 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
-
+Add_ar_in = {}
 pop_format2 = {
     "politics of {}": "سياسة {}",
     "military installations of": "منشآت {} العسكرية",

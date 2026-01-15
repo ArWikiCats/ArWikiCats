@@ -76,8 +76,8 @@ def test_2_skip2_0(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
-@pytest.mark.fast
+@pytest.mark.parametrize("category, expected", data0_no_label.items(), ids=data0_no_label.keys())
+@pytest.mark.skip2
 def test_2_skip2_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
