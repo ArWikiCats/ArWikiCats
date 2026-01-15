@@ -465,12 +465,13 @@ def test_extra_spaces_normalized(base_data_v2):
 
 
 def test_put_label_last_basic(base_data_v2):
-    """Test put_label_last functionality."""
+    """Test put_label_last functionality with log_multi_cache=False."""
     formatted_data, data_list = base_data_v2
     bot = FormatDataDoubleV2(
         formatted_data=formatted_data,
         data_list=data_list,
         key_placeholder="{film_key}",
+        log_multi_cache=False,
     )
     bot.update_put_label_last(["action"])
     # When "action" is in put_label_last, it should appear last
@@ -485,6 +486,7 @@ def test_put_label_last_with_reverse_order(base_data_v2):
         formatted_data=formatted_data,
         data_list=data_list,
         key_placeholder="{film_key}",
+        log_multi_cache=False,
     )
     bot.update_put_label_last(["drama"])
     result = bot.search("action drama films")
@@ -500,6 +502,7 @@ def test_put_label_last_with_ar_joiner(base_data_v2):
         data_list=data_list,
         key_placeholder="{film_key}",
         ar_joiner=" و ",
+        log_multi_cache=False,
     )
     bot.update_put_label_last(["action"])
     result = bot.search("action drama films")
@@ -513,8 +516,71 @@ def test_put_label_last_both_in_list(base_data_v2):
         formatted_data=formatted_data,
         data_list=data_list,
         key_placeholder="{film_key}",
+        log_multi_cache=False,
     )
     bot.update_put_label_last(["action", "drama"])
     # When both are in the list, order should be preserved
     result = bot.search("action drama films")
     assert result == "أفلام أكشن دراما"
+
+
+# ============================================================================
+# Tests for log_multi_cache parameter
+# ============================================================================
+
+
+def test_log_multi_cache_true_default(base_data_v2):
+    """Test log_multi_cache=True (default) caches results."""
+    formatted_data, data_list = base_data_v2
+    bot = FormatDataDoubleV2(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        log_multi_cache=True,
+    )
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن دراما"
+    # Check that cache was populated
+    assert len(bot.search_multi_cache) > 0
+
+
+def test_log_multi_cache_false_no_caching(base_data_v2):
+    """Test log_multi_cache=False doesn't cache results."""
+    formatted_data, data_list = base_data_v2
+    bot = FormatDataDoubleV2(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        log_multi_cache=False,
+    )
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن دراما"
+    # Check that cache was NOT populated
+    assert len(bot.search_multi_cache) == 0
+
+
+def test_log_multi_cache_affects_put_label_last(base_data_v2):
+    """Test that log_multi_cache=False allows put_label_last to work correctly."""
+    formatted_data, data_list = base_data_v2
+    # With caching enabled, put_label_last might not work after first call
+    bot_cached = FormatDataDoubleV2(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        log_multi_cache=True,
+    )
+    bot_cached.update_put_label_last(["action"])
+    result_cached = bot_cached.search("action drama films")
+
+    # With caching disabled, put_label_last works correctly
+    bot_no_cache = FormatDataDoubleV2(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        log_multi_cache=False,
+    )
+    bot_no_cache.update_put_label_last(["action"])
+    result_no_cache = bot_no_cache.search("action drama films")
+
+    # The no-cache version should respect put_label_last
+    assert result_no_cache == "أفلام دراما أكشن"
