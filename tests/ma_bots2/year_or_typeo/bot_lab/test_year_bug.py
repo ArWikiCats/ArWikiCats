@@ -15,7 +15,6 @@ examples_century = {
     # "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     # "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
     "1st-millennium architecture": "عمارة الألفية 1",
-    "1st-millennium literature": "أدب الألفية 1",
     "1st-century architecture": "عمارة القرن 1",
     "10th-century BC architecture": "عمارة القرن 10 ق م",
 }

@@ -1,6 +1,7 @@
 import pytest
 
 test_data = {
+    "1st-millennium literature": "أدب الألفية 1",
     "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
     "July 2018 events by continent": "أحداث يوليو 2018 حسب القارة",
     "2000s films": "أفلام إنتاج عقد 2000",
@@ -204,4 +205,40 @@ test_data_2 = {
     "Lists of Hindu buildings and structures": "تصنيف:قوائم مبان ومنشآت هندوسية",
     "Lists of Islamic buildings and structures": "تصنيف:قوائم مبان ومنشآت إسلامية",
     "Lists of Jewish buildings and structures": "تصنيف:قوائم مبان ومنشآت يهودية"
+}
+
+test_data_3 = {
+    "Category:13th-century Roman Catholic archbishops in Ireland": "تصنيف:رؤساء أساقفة رومان كاثوليك في أيرلندا القرن 13",
+    "Category:15th-century executions": "تصنيف:إعدامات في القرن 15",
+    "Category:17th-century cookbooks": "تصنيف:كتب طبخ القرن 17",
+    "Category:18th-century sultans of Brunei": "تصنيف:سلاطين بروناي القرن 18",
+    "Category:1910s musicals": "تصنيف:مسرحيات غنائية عقد 1910",
+    "Category:1910s racehorse deaths": "تصنيف:خيول سباق نفقت في عقد 1910",
+    "Category:1914 mining disasters": "تصنيف:كوارث التعدين 1914",
+    "Category:1950s Scottish television series debuts": "تصنيف:مسلسلات تلفزيونية إسكتلندية بدأ عرضها في عقد 1950",
+    "Category:1970s albums": "تصنيف:ألبومات عقد 1970",
+    "Category:1980s Christmas albums": "تصنيف:ألبومات عيد الميلاد عقد 1980",
+    "Category:19th-century executions by Spain": "تصنيف:إعدامات في إسبانيا في القرن 19",
+    "Category:1st-century BC Kings of Bithynia": "تصنيف:ملوك بيثينيا القرن 1 ق م",
+    "Category:2000s in politics by country": "تصنيف:سياسة في عقد 2000 حسب البلد",
+    "Category:2011 road incidents in Europe": "تصنيف:حوادث طرق في أوروبا 2011",
+    "Category:2020s transport disasters": "تصنيف:كوارث نقل في عقد 2020",
+    "Category:2022 local elections in Nigeria": "تصنيف:انتخابات محلية في نيجيريا 2022",
+    "Category:2022–23 EuroLeague by club": "تصنيف:الدوري الأوروبي لكرة السلة في 2022–23 حسب النادي",
+    "Category:20th-century executions by Gambia": "تصنيف:إعدامات في غامبيا في القرن 20",
+    "Category:20th-century Jain temples": "تصنيف:معابد جاينية القرن 20",
+    "Category:21st-century executions by Alabama": "تصنيف:إعدامات في ألاباما في القرن 21",
+    "Category:21st-century military alliances": "تصنيف:تحالفات عسكرية في القرن 21",
+    "Category:21st-century mosques": "تصنيف:مساجد القرن 21",
+    "Category:2nd-millennium texts": "تصنيف:نصوص الألفية 2",
+    "Category:4th-century bishops in Roman Empire": "تصنيف:أساقفة في الإمبراطورية الرومانية في القرن 4",
+    "Category:4th-century Hindu temples": "تصنيف:معابد هندوسية القرن 4",
+    "Category:8th-century executions by Umayyad Caliphate": "تصنيف:إعدامات في الدولة الأموية في القرن 8",
+    "Category:Counties of Appalachia": "تصنيف:مقاطعات الأبالاش",
+    "Category:Counties of England by date of disestablishment": "تصنيف:مقاطعات إنجلترا حسب تاريخ الانحلال",
+    "Category:Counties of Gyeonggi Province": "تصنيف:مقاطعات مقاطعة غيونغي",
+    "Category:Counties of Iran": "تصنيف:مقاطعات إيران",
+    "Category:Lists of organizations based in Central America": "تصنيف:قوائم منظمات مقرها في أمريكا الوسطى",
+    "Category:Members of Parliament for Gers": "تصنيف:أعضاء البرلمان عن جارس (إقليم فرنسي)",
+    "Category:Qualification for 1968 Summer Olympics": "تصنيف:تصفيات مؤهلة إلى الألعاب الأولمبية الصيفية 1968"
 }
