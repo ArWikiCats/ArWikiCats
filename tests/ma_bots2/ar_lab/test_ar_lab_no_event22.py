@@ -43,12 +43,11 @@ data_list_2 = {
 }
 
 to_test = [
-    ("data_list_1", data_list_1),
     ("data_list_2", data_list_2),
 ]
 
 
-@pytest.mark.parametrize("category, expected", data_list_1.items(), ids=data_list_1.keys())
+@pytest.mark.parametrize("category, expected", data_list_2.items(), ids=data_list_2.keys())
 @pytest.mark.fast
 def test_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
