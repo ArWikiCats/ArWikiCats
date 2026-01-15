@@ -18,7 +18,6 @@ from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens, typeTable
 from ...utils import check_key_in_tables
-from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
 
 type_after_country = ["non-combat"]
@@ -230,28 +229,6 @@ class LabelForStartWithYearOrTypeo:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
             logger.debug("a<<lightblue>>>>>> No country_lower.")
-            return
-
-        if self.country_lower:
-            if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate,
-                    self.cat_test,
-                    self.year_at_first,
-                    self.typeo,
-                    self.In,
-                    self.country_lower,
-                    self.arlabel,
-                    self.year_labe,
-                    self.suf,
-                    self.Add_In,
-                    self.country_label,
-                    self.Add_In_Done,
-                )
-                return
-
-            logger.info(f"a<<lightblue>>>>>> Cant id {self.country_lower=} ")
-            self.NoLab = True
             return
 
         logger.info("a<<lightblue>>>>>> No label.")
