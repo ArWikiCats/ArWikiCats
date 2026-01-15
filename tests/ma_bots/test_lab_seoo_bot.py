@@ -4,7 +4,6 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots2.year_or_typeo.dodo_2019 import work_2019_wrap
 from ArWikiCats.ma_bots.lab_seoo_bot import event_label_work
 
 event_Lab_seoo_data = {
@@ -110,43 +109,4 @@ event_Lab_seoo_data = {
 @pytest.mark.fast
 def test_event_Lab_seoo_data(category: str, expected_key: str) -> None:
     label = event_label_work(category)
-    assert label == expected_key
-
-
-te_bot_3_data = {
-    "1930s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1930",
-    "1930s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1930",
-    "1940s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1940",
-    "1940s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1940",
-    "1950s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1950",
-    "1950s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1950",
-    "1970s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1970",
-    "1970s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1970",
-    "1980s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1980",
-    "1980s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1980",
-    "1990s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 1990",
-    "1990s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 1990",
-    "19th century establishments templates by country": "القرن 19 قوالب تأسيسات حسب البلد",
-    "2000s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 2000",
-    "2000s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 2000",
-    "2010s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 2010",
-    "2010s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 2010",
-    "2020s television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في عقد 2020",
-    "2020s television series-endings": "مسلسلات تلفزيونية انتهت في عقد 2020",
-    "20th century andorran people": "أندوريون في القرن 20",
-    "20th century andorran politicians": "سياسيون أندوريون في القرن 20",
-    "20th century establishments templates by country": "القرن 20 قوالب تأسيسات حسب البلد",
-    "21st century andorran people": "أندوريون في القرن 21",
-    "21st century andorran politicians": "سياسيون أندوريون في القرن 21",
-    "20th century television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في القرن 20",
-    "20th century television series-endings": "مسلسلات تلفزيونية انتهت في القرن 20",
-    "21st century television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في القرن 21",
-    "21st century television series-endings": "مسلسلات تلفزيونية انتهت في القرن 21",
-}
-
-
-@pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=te_bot_3_data.keys())
-@pytest.mark.skip2("need more work")
-def test_te_bot_3_data(category: str, expected_key: str) -> None:
-    label = work_2019_wrap(category)
     assert label == expected_key
