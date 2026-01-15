@@ -90,8 +90,7 @@ def _load_all_country_labels_v1() -> dict[str, str]:
             "european union": "الاتحاد الأوروبي",
         }
     )
-
-    all_country_labels.update(COUNTRY_LABEL_OVERRIDES)
+    all_country_labels.update({k: v for k, v in COUNTRY_LABEL_OVERRIDES.items() if "(" not in k})
     return all_country_labels
 
 
