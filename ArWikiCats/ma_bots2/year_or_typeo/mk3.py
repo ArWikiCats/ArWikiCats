@@ -6,14 +6,34 @@ Usage:
 import re
 
 from ...helps import logger
-from ...make_bots.format_bots import ar_lab_before_year_to_add_in, country_before_year
+from ...make_bots.format_bots import ar_label_before_year_to_add_in
 from ...make_bots.matables_bots.bot import (
     Films_O_TT,
     Table_for_frist_word,
 )
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
-from ...utils import check_key_in_tables, check_key_in_tables_return_tuple
+from ...utils import check_key_in_tables_return_tuple
+
+
+country_before_year = [
+    "men's road cycling",
+    "women's road cycling",
+    "track cycling",
+    "motorsport",
+    "pseudonymous writers",
+    "space",
+    "disasters",
+    "spaceflight",
+    "inventions",
+    "sports",
+    "introductions",
+    "discoveries",
+    "comics",
+    "nuclear history",
+    "military history",
+    "military alliances",
+]
 
 
 def check_country_in_tables(country: str) -> bool:
@@ -105,8 +125,8 @@ def added_in_new(
     Add_In_Done = False
 
     if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
-        if Add_In and country_label.strip() in ar_lab_before_year_to_add_in:
-            logger.info("ar_lab_before_year_to_add_in Add في to arlabel")
+        if Add_In and country_label.strip() in ar_label_before_year_to_add_in:
+            logger.info("ar_label_before_year_to_add_in Add في to arlabel")
             suf = " في "
             Add_In = False
             Add_In_Done = True

@@ -17,8 +17,6 @@ from ...make_bots.format_bots import (
     category_relation_mapping,
     for_table,
     pop_format,
-    pop_format2,
-    pop_format33,
 )
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import (
@@ -36,6 +34,15 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
+
+pop_format2 = {
+    "politics of {}": "سياسة {}",
+    "military installations of": "منشآت {} العسكرية",
+}
+pop_format33 = {
+    "qualification for the": "تصفيات {} مؤهلة إلى {} ",
+    "qualification for": "تصفيات {} مؤهلة إلى {} ",
+}
 
 separators_lists_raw = [
     "in",

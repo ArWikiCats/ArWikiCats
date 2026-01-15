@@ -35,60 +35,23 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-# Precompiled regex patterns for CHANGE KEY MAPPINGS and CHANGE KEY SECONDARY will be created in change_cat function
-# since they depend on imported dictionaries that may not be fully populated at module level
-
-# ---
 for_table = {
     "for national teams": "للمنتخبات الوطنية",
     "for member-of-parliament": "لعضوية البرلمان",
 }
-# ---
-# ---
+
 Dont_Add_min = [
     "women of",
     "founders of",
 ]
-# ---
-ar_lab_before_year_to_add_in = [
+
+ar_label_before_year_to_add_in = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
     # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
     "كتاب بأسماء مستعارة",
     "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
-# ---
-country_before_year = [
-    "men's road cycling",
-    "women's road cycling",
-    "track cycling",
-    "motorsport",
-    "pseudonymous writers",
-    "space",
-    "disasters",
-    "spaceflight",
-    "inventions",
-    "sports",
-    "introductions",
-    "discoveries",
-    "comics",
-    "nuclear history",
-    "military history",
-    "military alliances",
-]
-# ---
-# ---Tour de
-# category = re.sub(r" {}".format(chk) , " {}".format(chk_lab) , category )
-# category = re.sub(r"{} ".format(chk) , "{} ".format(chk_lab) , category )
-# ---
-Tabl_with_in = {
-    "sport in": "الرياضة في",
-}
 
-pop_format33 = {
-    "qualification for the": "تصفيات {} مؤهلة إلى {} ",
-    "qualification for": "تصفيات {} مؤهلة إلى {} ",
-}
-# ---
 pop_format = {
     "prehistory of": "{} ما قبل التاريخ",
     "naval units and formations of": "وحدات وتشكيلات {} البحرية",
@@ -143,10 +106,6 @@ pop_format = {
     # "law" : "قانون {}" ,
 }
 # ---
-pop_format2 = {
-    "politics of {}": "سياسة {}",
-    "military installations of": "منشآت {} العسكرية",
-}
 
 replaces = {
     "election, ": "election ",
@@ -174,14 +133,6 @@ replaces = {
     "heads of mission ": "heads-of-mission ",
     "house of commons of canada": "house-of-commons-of-canada",
 }
-
-
-def get_tabl_with_in(cone_1: str, separator: str) -> str:
-    con_1_in = f"{cone_1.strip()} {separator.strip()}"
-    part_1_label = Tabl_with_in.get(con_1_in, "")
-    logger.debug(f"<<<< {con_1_in=}, {part_1_label=}")
-
-    return part_1_label
 
 
 def change_cat(cat_orginal: str) -> str:
@@ -260,13 +211,9 @@ def change_cat(cat_orginal: str) -> str:
 
 __all__ = [
     "Dont_Add_min",
-    "Tabl_with_in",
     "category_relation_mapping",
-    "ar_lab_before_year_to_add_in",
+    "ar_label_before_year_to_add_in",
     "change_cat",
-    "country_before_year",
     "for_table",
     "pop_format",
-    "pop_format2",
-    "pop_format33",
 ]

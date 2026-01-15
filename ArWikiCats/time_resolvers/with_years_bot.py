@@ -9,7 +9,7 @@ from typing import Pattern
 
 from ..helps import logger
 from ..ma_bots.ye_ts_bot import translate_general_category
-from ..make_bots.format_bots import ar_lab_before_year_to_add_in
+from ..make_bots.format_bots import ar_label_before_year_to_add_in
 from ..make_bots.matables_bots.data import Add_in_table
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
@@ -114,8 +114,8 @@ def _handle_year_at_start(category_text: str) -> str:
 
     separator = " "
 
-    if remainder_label.strip() in ar_lab_before_year_to_add_in:
-        logger.debug("ar_lab_before_year_to_add_in Add في to arlabel sus.")
+    if remainder_label.strip() in ar_label_before_year_to_add_in:
+        logger.debug("ar_label_before_year_to_add_in Add في to arlabel sus.")
         separator = " في "
 
     elif remainder in Add_in_table:
