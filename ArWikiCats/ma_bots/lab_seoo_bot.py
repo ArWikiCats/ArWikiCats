@@ -25,20 +25,16 @@ from . import ye_ts_bot
 
 @functools.lru_cache(maxsize=None)
 def event_label_work(target_category: str) -> str:
-    """Retrieve category lab information based on the provided category.
-
-    This function attempts to find the corresponding category lab for a
-    given category string by checking multiple sources in a specific order.
-    It first normalizes the input category string and then queries various
-    data sources to retrieve the relevant information. If no match is found,
-    it attempts to find a wikidata entry based on the category string.
-
-    Args:
-        target_category (str): The category string for which the lab information is sought.
-
+    """
+    Resolve an Arabic label for a category key by consulting multiple resolver sources in priority order.
+    
+    The input is normalized (lowercased and trimmed); the special key "people" maps to "أشخاص". The function returns the first non-empty label found from a sequence of resolver modules, or an empty string when no resolver provides a label.
+    
+    Parameters:
+        target_category (str): The category key to resolve (will be lowercased and stripped).
+    
     Returns:
-        str: The corresponding category lab information or an empty string if not
-            found.
+        str: The resolved Arabic label for the category, or an empty string if none is found.
     """
 
     normalized_target_category = target_category.lower().strip()

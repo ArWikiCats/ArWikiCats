@@ -86,6 +86,15 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str]) -> None:
+    """
+    Run a diff-based validation that compares expected labels to those produced by the labeling function and write dump files.
+    
+    This test computes which items differ between the provided expected label mapping and the labels produced by the event labeling function, writes matching and differing items to dump files named using `name`, and fails the test if any differences remain.
+    
+    Parameters:
+        name (str): Identifier used for dump filenames and reporting.
+        data (dict[str, str]): Mapping from category keys to their expected label strings.
+    """
     expected, diff_result = one_dump_test(data, event_label_work)
     dump_same_and_not_same(data, diff_result, name)
     dump_diff(diff_result, name)

@@ -123,6 +123,17 @@ EXAMPLES = [
 @pytest.mark.parametrize("example", EXAMPLES, ids=lambda e: e["category"])
 @pytest.mark.skip2
 def test_new_func_mk2_subset(example) -> None:
+    """
+    Parametrized unit test that verifies new_func_mk2 produces the expected output for a single example case.
+    
+    Calls new_func_mk2 with values extracted from the provided example mapping and asserts that the function's second return value equals example["output"].
+    
+    Parameters:
+        example (dict): Test case mapping containing keys including:
+            - category, year, typeo, In, country, arlabel, year_labe, suf,
+              Add_In, country_label, Add_In_Done, and output.
+            The function uses these keys to construct the call arguments and to obtain the expected result.
+    """
     _, result = new_func_mk2(
         example["category"],
         "",

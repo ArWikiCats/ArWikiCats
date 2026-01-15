@@ -44,7 +44,17 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
 
 
 def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> None:
-    """Store an Arabic label assembled from type and country components."""
+    """
+    Determine the correct Arabic word order for a label composed of a type and a country and assemble that label string.
+    
+    The function chooses whether the type or the country should come first based on known ordering rules and membership of `typeo` in lookup tables, then constructs the combined Arabic label string.
+    
+    Parameters:
+        typeo (str): The category type text used to decide ordering.
+        country_label (str): Resolved Arabic label for the country.
+        typeo_lab (str): Resolved Arabic label for the type.
+        category_r (str): The original category string being processed (used for context).
+    """
     in_tables_lowers = check_key_new_players(typeo.lower())
     in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
 
@@ -212,7 +222,23 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def apply_label_rules(self) -> None:
-        """Apply validation rules and build labels using available data."""
+        """
+        Validate available year and country data, finalize the Arabic label when possible, and mark the instance as unable to produce a label when validation fails.
+        
+        Performs these actions:
+        - If a year is present but no Arabic year label was produced, marks the instance as unable to produce a label (`self.NoLab = True`) and exits.
+        - If a year is missing or its Arabic label is missing while unconsumed category text remains, marks the instance as unable to produce a label and exits.
+        - If neither a country nor a relation preposition is present, appends any configured suffix to `self.arlabel`, normalizes whitespace, and exits (label is considered complete).
+        - If a country key is present:
+          - If a resolved country label exists, performs final assembly of the remaining category text and Arabic label, updating `self.cat_test` and `self.arlabel`.
+          - If no resolved country label exists, marks the instance as unable to produce a label.
+        - Otherwise marks the instance as unable to produce a label.
+        
+        Side effects:
+        - May set `self.NoLab` to True.
+        - May modify `self.arlabel` and `self.cat_test`.
+        - May append `self.suf` to `self.arlabel`.
+        """
 
         if self.year_at_first and not self.year_labe:
             self.NoLab = True
@@ -262,7 +288,21 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def finalize(self) -> str:
-        """Perform final validation and return the completed label."""
+        """
+        Validate the constructed Arabic label against remaining category text and return the finalized label if acceptable.
+        
+        This method:
+        - Checks that an intermediate Arabic label exists.
+        - Compares the remaining category text (`cat_test`) to acceptable values (empty, the country token, or the normalized category) and marks the instance as not producing a label (`NoLab = True`) when the remaining text is inconsistent.
+        - If the instance is still allowed to produce a label and the current `arlabel` contains no ASCII alphabetic characters, runs `fixtitle.fixlabel` to normalize the label, logs the result, and returns the fixed label.
+        
+        Returns:
+            The finalized Arabic label string when validation passes and a fixed label was produced; otherwise an empty string.
+        
+        Side effects:
+        - May set `self.NoLab` to True.
+        - May modify `self.arlabel`.
+        """
         if not self.arlabel:
             return ""
 
@@ -306,7 +346,15 @@ class LabelForStartWithYearOrTypeo:
     # ----------------------------------------------------
 
     def build(self, category_r: str) -> str:
-        """Construct the final label for categories starting with a year or type."""
+        """
+        Builds an Arabic label for a category that starts with a year or a type.
+        
+        Parameters:
+            category_r (str): The category title to analyze and convert into an Arabic label.
+        
+        Returns:
+            str: The computed Arabic label, or an empty string if no label applies.
+        """
         self.parse_input(category_r)
 
         if not self.year_at_first and not self.typeo:

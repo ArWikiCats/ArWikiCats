@@ -230,7 +230,16 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, separator: str = "") -> str:
-    """Wraps the event2bot.event2 function with caching."""
+    """
+    Attempt to resolve an Arabic label for a category using university, event, and year-based resolvers.
+    
+    Parameters:
+        category (str): Category text to resolve.
+        separator (str): Optional separator value (accepted for compatibility; ignored).
+    
+    Returns:
+        str: Resolved Arabic label for the category, or an empty string if no resolver matches.
+    """
     result = (
         univer.te_universities(category)
         or event2_d2(category)

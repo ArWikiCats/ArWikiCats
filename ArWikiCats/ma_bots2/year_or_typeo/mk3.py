@@ -165,32 +165,27 @@ def new_func_mk2(
     country_label: str,
     Add_In_Done: bool,
 ) -> tuple[str, str]:
-    """Process and modify category-related labels based on various conditions.
-
-    This function takes multiple parameters related to categories and
-    modifies the `cat_test` and `arlabel` based on the presence of the
-    country in predefined tables, the type of input, and other conditions.
-    It also handles specific formatting for the labels and manages the
-    addition of certain phrases based on the context. The function performs
-    checks against lists of countries and predefined rules to determine how
-    to construct the final output labels.
-
-    Args:
-        category (str): The category to be processed.
-        cat_test (str): The test string for the category.
-        year (str): The year associated with the category.
-        typeo (str): The type of input being processed.
-        In (str): A string indicating location (e.g., "in", "at").
-        country (str): The country name to be checked.
-        arlabel (str): The Arabic label to be modified.
-        year_labe (str): The label for the year.
-        suf (str): A suffix to be added to the label.
-        Add_In (bool): A flag indicating whether to add a specific input.
-        country_label (str): A resolved label associated with the country.
-        Add_In_Done (bool): A flag indicating whether the addition has been completed.
-
+    """
+    Modify category test and Arabic label according to country, year, and placement rules.
+    
+    Processes the inputs to remove the country from `cat_test` and to construct or adjust `arlabel` by applying table-driven and context-sensitive rules for inserting linking phrases (e.g., location prepositions) and normalizing whitespace.
+    
+    Parameters:
+        category (str): The category being processed.
+        cat_test (str): The category test string; the function will remove occurrences of `country`.
+        year (str): The year associated with the category; used to decide year-related insertions.
+        typeo (str): A type discriminator that influences placement rules.
+        In (str): Location indicator (commonly "in" or "at") that may trigger insertion of linking phrases.
+        country (str): Country or domain name to check against lookup tables.
+        arlabel (str): The Arabic label to be adjusted and normalized.
+        year_labe (str): The year label token used when deciding year-prefix handling.
+        suf (str): Suffix text to place between country label and `arlabel` when applicable.
+        Add_In (bool): Input flag indicating whether a linking phrase addition is allowed.
+        country_label (str): Resolved human-readable label for the country used when composing `arlabel`.
+        Add_In_Done (bool): Flag indicating whether a linking insertion has already been performed.
+    
     Returns:
-        tuple: A tuple containing the modified `cat_test` and `arlabel`.
+        tuple (cat_test, arlabel): Modified `cat_test` with `country` removed and the possibly-updated, whitespace-normalized Arabic label.
     """
     cat_test = cat_test.replace(country, "")
 

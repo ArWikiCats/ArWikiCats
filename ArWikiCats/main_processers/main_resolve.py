@@ -42,7 +42,21 @@ def build_labs_years_object() -> LabsYears:
 
 @functools.lru_cache(maxsize=None)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
-    """Resolve the label using multi-step logic."""
+    """
+    Resolve an input category string to its Arabic label using layered heuristics and fallbacks.
+    
+    Attempts multiple normalization, extraction, pattern-matching, and mapping strategies to determine an Arabic label for the provided category. The function may extract a year-based label, map known categories, or apply pattern resolvers; if no label is found it returns an empty Arabic label.
+    
+    Parameters:
+        category (str): The original category string to resolve.
+        fix_label (bool): If True, apply final normalization/fixing to the resolved Arabic label.
+    
+    Returns:
+        CategoryResult: 
+            - en: the original input `category`.
+            - ar: the resolved Arabic label, or an empty string if none was determined.
+            - from_match: contains the extracted year string when the label was derived from a year; otherwise a boolean (`True` if a resolver pattern produced the label, `False` if no match).
+    """
     changed_cat = change_cat(category)
 
     if category.isdigit():
