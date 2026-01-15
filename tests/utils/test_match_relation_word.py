@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.make_bots.format_bots import category_relation_mapping
+from ArWikiCats.make_bots.format_bots.relation_mapping import translation_category_relations
 from ArWikiCats.utils.match_relation_word import get_relation_word, get_relation_word_new
 
 # ===============================================
@@ -28,7 +28,7 @@ data_test2 = [
     ids=[x[0] for x in data_test2],
 )
 def test_single_relation(category: str, expected_key: str, expected_value: str) -> None:
-    key, value = get_relation_word(category, category_relation_mapping)
+    key, value = get_relation_word(category, translation_category_relations)
     assert key.strip() == expected_key
     assert value == expected_value
 
@@ -39,8 +39,8 @@ def test_single_relation(category: str, expected_key: str, expected_value: str) 
     ids=[x[0] for x in data_test2],
 )
 def test_single_relation_compare(category: str, expected_key: str, expected_value: str) -> None:
-    key1, value1 = get_relation_word(category, category_relation_mapping)
-    key2, value2 = get_relation_word_new(category, category_relation_mapping)
+    key1, value1 = get_relation_word(category, translation_category_relations)
+    key2, value2 = get_relation_word_new(category, translation_category_relations)
     assert key2 == key1
     assert value2 == value1
 
@@ -67,7 +67,7 @@ def test_single_relation_compare(category: str, expected_key: str, expected_valu
 )
 def test_multiple_relations_first_match(category: str, first_expected_key: str, first_expected_value: str) -> None:
     """Ensure that only the first matching relation word is returned."""
-    key, value = get_relation_word(category, category_relation_mapping)
+    key, value = get_relation_word(category, translation_category_relations)
     assert key.strip() == first_expected_key
     assert value == first_expected_value
 
@@ -75,7 +75,7 @@ def test_multiple_relations_first_match(category: str, first_expected_key: str, 
 def test_multiple_relations() -> None:
     """Ensure that only the first matching relation word is returned."""
     category = "Ships built in Germany and France launched in 1900"
-    key, value = get_relation_word(category, category_relation_mapping)
+    key, value = get_relation_word(category, translation_category_relations)
     assert key.strip() in ["built in", "launched in"]
     assert value in ["بنيت في", "أطلقت في"]
 
@@ -94,7 +94,7 @@ def test_multiple_relations() -> None:
     ],
 )
 def test_no_relation(category: str) -> None:
-    key, value = get_relation_word(category, category_relation_mapping)
+    key, value = get_relation_word(category, translation_category_relations)
     assert key == ""
     assert value == ""
 
@@ -114,7 +114,7 @@ def test_no_relation(category: str) -> None:
     ],
 )
 def test_relation_not_matched_without_spaces(category: str, wrong_rel: str) -> None:
-    key, value = get_relation_word(category, category_relation_mapping)
+    key, value = get_relation_word(category, translation_category_relations)
     assert key == ""
     assert value == ""
 
@@ -130,6 +130,6 @@ def test_first_match_priority() -> None:
     cat = "Topic involving science in Europe"
 
     # mapping order: "involving" comes before "in"
-    key, value = get_relation_word(cat, category_relation_mapping)
+    key, value = get_relation_word(cat, translation_category_relations)
     assert key.strip() == "involving"
     assert value == "تشمل"
