@@ -12,7 +12,7 @@ from ...ma_bots import country_bot
 from ...make_bots.films_and_others_bot import te_films
 
 from ...make_bots.format_bots import pop_format
-from ...make_bots.format_bots.relation_mapping import category_relation_mapping
+from ...make_bots.format_bots.relation_mapping import translation_category_relations
 
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
@@ -269,8 +269,8 @@ def separator_arabic_resolve(separator: str) -> str:
         ar_separator = " على "
     elif separator == "about":
         ar_separator = " عن "
-    elif separator in category_relation_mapping and separator != "by":
-        ar_separator = f" {category_relation_mapping[separator]} "
+    elif separator in translation_category_relations and separator != "by":
+        ar_separator = f" {translation_category_relations[separator]} "
     elif separator == "based in":
         ar_separator = " مقرها في "
 

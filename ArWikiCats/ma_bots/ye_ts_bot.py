@@ -13,7 +13,7 @@ from typing import Optional
 from ..fix import fixtitle
 from ..helps import dump_data, logger
 from ..ma_bots2.ar_lab.ar_lab_bot import find_ar_label
-from ..make_bots.format_bots.relation_mapping import category_relation_mapping
+from ..make_bots.format_bots.relation_mapping import translation_category_relations
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import Films_O_TT, players_new_keys
 from ..time_resolvers import time_to_arabic
@@ -74,7 +74,7 @@ def work_separator_names(
     Returns:
         The associated Arabic label if found, otherwise an empty string.
     """
-    separator, separator_name = get_relation_word(category, category_relation_mapping)
+    separator, separator_name = get_relation_word(category, translation_category_relations)
 
     if not separator:
         return ""
