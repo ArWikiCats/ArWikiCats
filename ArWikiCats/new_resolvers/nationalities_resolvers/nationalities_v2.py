@@ -510,7 +510,6 @@ female_data = {
     "{en} short stories": "قصص قصيرة {female}",
     "{en} societies": "جمعيات {female}",
     "{en} songs": "أغاني {female}",
-    "{en} sorts events": "أحداث رياضية {female}",
     "{en} sports-events": "أحداث رياضية {female}",
     "{en} soundtracks": "موسيقى تصويرية {female}",
     "{en} sport": "رياضة {female}",
