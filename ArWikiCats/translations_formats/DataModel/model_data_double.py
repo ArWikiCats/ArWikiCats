@@ -174,7 +174,6 @@ class FormatDataDouble(FormatDataBase):
         if self.sort_ar_labels:
             labels_sorted = sorted([first_label, second_label])
             label = " ".join(labels_sorted)
-
         self.search_multi_cache[f"{part2} {part1}"] = label
 
         return label
