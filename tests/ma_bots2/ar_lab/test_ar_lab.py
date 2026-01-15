@@ -9,7 +9,6 @@ from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import add_in_tab, find_ar_label
 fast_data = {
     "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
     "1000s disestablishments in Asia": "انحلالات عقد 1000 في آسيا",
-    # "1980 sports events in Europe": "أحداث 1980 الرياضية في أوروبا",
     "1990s BC disestablishments in Asia": "انحلالات عقد 1990 ق م في آسيا",
     "1990s disestablishments in Europe": "انحلالات عقد 1990 في أوروبا",
     "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
