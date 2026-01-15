@@ -1,4 +1,7 @@
-"""Resolve labels for relations between countries."""
+"""
+Resolve labels for relations between countries.
+TODO: replaced by countries_names_double_v2.py and nationalities_double_v2.py
+"""
 
 from __future__ import annotations
 
@@ -73,20 +76,18 @@ def _load_all_country_labels() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def _load_countries_data() -> dict[str, NationalityEntry]:
     data = dict(countries_nat_en_key)
-    data.update(
-        {
-            "ireland": {
-                "male": "أيرلندي",
-                "males": "أيرلنديون",
-                "female": "أيرلندية",
-                "females": "أيرلنديات",
-                "the_male": "الأيرلندي",
-                "the_female": "الأيرلندية",
-                "en": "ireland",
-                "ar": "أيرلندا",
-            }
+    data.update({
+        "ireland": {
+            "male": "أيرلندي",
+            "males": "أيرلنديون",
+            "female": "أيرلندية",
+            "females": "أيرلنديات",
+            "the_male": "الأيرلندي",
+            "the_female": "الأيرلندية",
+            "en": "ireland",
+            "ar": "أيرلندا",
         }
-    )
+    })
     return data
 
 

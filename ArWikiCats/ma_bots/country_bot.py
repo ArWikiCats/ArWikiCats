@@ -31,7 +31,7 @@ from . import ye_ts_bot
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..translations import get_from_pf_keys2
 from ..make_bots.sports_bots import sport_lab_suffixes
@@ -47,7 +47,7 @@ def get_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        resolve_relations_label(country2)
+        new_relations_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)

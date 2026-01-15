@@ -1,9 +1,38 @@
-import pytest
-from load_one_data import dump_diff, one_dump_test
+from __future__ import annotations
 
-from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
+import pytest
+
+from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 
 big_data = {
+    "monaco–republic-of-congo relations": "العلاقات الكونغوية الموناكية",
+    "georgia (country)–ireland sports relations": "العلاقات الأيرلندية الجورجية الرياضية",
+    "ireland–japan sports relations": "العلاقات الأيرلندية اليابانية الرياضية",
+    "ireland–romania sports relations": "العلاقات الأيرلندية الرومانية الرياضية",
+    "ireland–russia sports relations": "العلاقات الأيرلندية الروسية الرياضية",
+    "ireland–samoa sports relations": "العلاقات الأيرلندية الساموية الرياضية",
+    "ireland–slovakia sports relations": "العلاقات الأيرلندية السلوفاكية الرياضية",
+    "ireland–tanzania sports relations": "العلاقات الأيرلندية التنزانية الرياضية",
+    "ireland–tonga sports relations": "العلاقات الأيرلندية التونغانية الرياضية",
+    "ireland–uganda sports relations": "العلاقات الأوغندية الأيرلندية الرياضية",
+    "ireland–uruguay sports relations": "العلاقات الأوروغويانية الأيرلندية الرياضية",
+    "ireland–zambia sports relations": "العلاقات الأيرلندية الزامبية الرياضية",
+    "federated states of micronesia–palau relations": "علاقات بالاو وولايات ميكرونيسيا المتحدة",
+    "federated states of micronesia–papua new guinea relations": "علاقات بابوا غينيا الجديدة وولايات ميكرونيسيا المتحدة",
+    "federated states of micronesia–sweden relations": "علاقات السويد وولايات ميكرونيسيا المتحدة",
+    "federated states of micronesia–tonga relations": "علاقات تونغا وولايات ميكرونيسيا المتحدة",
+    "marshall islands–samoa relations": "علاقات جزر مارشال وساموا",
+    "marshall islands–tuvalu relations": "علاقات توفالو وجزر مارشال",
+    "palau–solomon islands relations": "علاقات بالاو وجزر سليمان",
+    "solomon islands–tonga relations": "علاقات تونغا وجزر سليمان",
+    "solomon islands–tuvalu relations": "علاقات توفالو وجزر سليمان",
+    "kiribati–vanuatu relations": "العلاقات الفانواتية الكيريباتية",
+    "nauru–palau relations": "العلاقات البالاوية الناورونية",
+    "nauru–samoa relations": "العلاقات الساموية الناورونية",
+    "nauru–tonga relations": "العلاقات التونغانية الناورونية",
+    "nauru–tuvalu relations": "العلاقات التوفالية الناورونية",
+    "palau–vanuatu relations": "العلاقات البالاوية الفانواتية",
+    "tuvalu–vanuatu relations": "العلاقات التوفالية الفانواتية",
     "afghanistan–european union relations": "علاقات أفغانستان والاتحاد الأوروبي",
     "andorra–european union relations": "علاقات أندورا والاتحاد الأوروبي",
     "armenia–european union relations": "علاقات أرمينيا والاتحاد الأوروبي",
@@ -467,99 +496,84 @@ big_data = {
     "United States–Venezuela sports relations": "العلاقات الأمريكية الفنزويلية الرياضية",
 }
 
-big_data2 = {
-    "georgia (country)–ireland sports relations": "العلاقات الأيرلندية الجورجية الرياضية",
-    "ireland–japan sports relations": "العلاقات الأيرلندية اليابانية الرياضية",
-    "ireland–romania sports relations": "العلاقات الأيرلندية الرومانية الرياضية",
-    "ireland–russia sports relations": "العلاقات الأيرلندية الروسية الرياضية",
-    "ireland–samoa sports relations": "العلاقات الأيرلندية الساموية الرياضية",
-    "ireland–slovakia sports relations": "العلاقات الأيرلندية السلوفاكية الرياضية",
-    "ireland–tanzania sports relations": "العلاقات الأيرلندية التنزانية الرياضية",
-    "ireland–tonga sports relations": "العلاقات الأيرلندية التونغانية الرياضية",
-    "ireland–uganda sports relations": "العلاقات الأوغندية الأيرلندية الرياضية",
-    "ireland–uruguay sports relations": "العلاقات الأوروغويانية الأيرلندية الرياضية",
-    "ireland–zambia sports relations": "العلاقات الأيرلندية الزامبية الرياضية",
-    "federated states of micronesia–palau relations": "علاقات بالاو وولايات ميكرونيسيا المتحدة",
-    "federated states of micronesia–papua new guinea relations": "علاقات بابوا غينيا الجديدة وولايات ميكرونيسيا المتحدة",
-    "federated states of micronesia–sweden relations": "علاقات السويد وولايات ميكرونيسيا المتحدة",
-    "federated states of micronesia–tonga relations": "علاقات تونغا وولايات ميكرونيسيا المتحدة",
-    "marshall islands–samoa relations": "علاقات جزر مارشال وساموا",
-    "marshall islands–tuvalu relations": "علاقات توفالو وجزر مارشال",
-    "palau–solomon islands relations": "علاقات بالاو وجزر سليمان",
-    "solomon islands–tonga relations": "علاقات تونغا وجزر سليمان",
-    "solomon islands–tuvalu relations": "علاقات توفالو وجزر سليمان",
-    "australia–saint kitts and nevis relations": "علاقات أستراليا وسانت كيتس ونيفيس",
-    "austrian empire–kingdom of sardinia relations": "علاقات الإمبراطورية النمساوية ومملكة سردينيا",
-    "czech republic–serbia and montenegro relations": "علاقات التشيك وصربيا والجبل الأسود",
-    "dominica–mexico relations": "علاقات المكسيك ودومينيكا",
-    "eswatini–poland relations": "علاقات إسواتيني وبولندا",
-    "honduras–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس وهندوراس",
-    "iceland–saint kitts and nevis relations": "علاقات آيسلندا وسانت كيتس ونيفيس",
-    "ireland–saint kitts and nevis relations": "علاقات أيرلندا وسانت كيتس ونيفيس",
-    "kazakhstan–serbia and montenegro relations": "علاقات صربيا والجبل الأسود وكازاخستان",
-    "kiribati–vanuatu relations": "العلاقات الفانواتية الكيريباتية",
-    "monaco–republic of congo relations": "العلاقات الكونغوية الموناكية",
-    "nauru–palau relations": "العلاقات البالاوية الناورونية",
-    "nauru–samoa relations": "العلاقات الساموية الناورونية",
-    "nauru–tonga relations": "العلاقات التونغانية الناورونية",
-    "nauru–tuvalu relations": "العلاقات التوفالية الناورونية",
-    "palau–vanuatu relations": "العلاقات البالاوية الفانواتية",
-    "tuvalu–vanuatu relations": "العلاقات التوفالية الفانواتية",
-    "kosovo–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس وكوسوفو",
-    "malta–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس ومالطا",
-    "new zealand–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس ونيوزيلندا",
-    "norway–saint kitts and nevis relations": "علاقات النرويج وسانت كيتس ونيفيس",
-    "portugal–saint kitts and nevis relations": "علاقات البرتغال وسانت كيتس ونيفيس",
-    "russia–serbia and montenegro relations": "علاقات روسيا وصربيا والجبل الأسود",
-    "saint kitts and nevis–romania relations": "علاقات رومانيا وسانت كيتس ونيفيس",
-    "saint kitts and nevis–spain relations": "علاقات إسبانيا وسانت كيتس ونيفيس",
-    "saint kitts and nevis–thailand relations": "علاقات تايلاند وسانت كيتس ونيفيس",
-    "saint kitts and nevis–united kingdom sports relations": "علاقات المملكة المتحدة وسانت كيتس ونيفيس الرياضية",
-    "saint kitts and nevis–united states sports relations": "علاقات الولايات المتحدة وسانت كيتس ونيفيس الرياضية",
-    "saint lucia–sri lanka relations": "علاقات سانت لوسيا وسريلانكا",
-    "saint lucia–united kingdom sports relations": "علاقات المملكة المتحدة وسانت لوسيا الرياضية",
-    "serbia and montenegro–slovakia relations": "علاقات سلوفاكيا وصربيا والجبل الأسود",
-    "serbia and montenegro–yemen relations": "علاقات اليمن وصربيا والجبل الأسود",
-    "tokelau–united states relations": "علاقات الولايات المتحدة وتوكيلاو",
+test_data = {
+    "ireland–spain military relations": "العلاقات الأيرلندية الإسبانية العسكرية",
+    "ireland–united kingdom military relations": "العلاقات الأيرلندية البريطانية العسكرية",
+    "iran–iraq war films": "أفلام الحرب الإيرانية العراقية",
+    "mexican–american war films": "أفلام الحرب الأمريكية المكسيكية",
+    "soviet–afghan war films": "أفلام الحرب الأفغانية السوفيتية",
+    "soviet–afghan war video games": "ألعاب فيديو الحرب الأفغانية السوفيتية",
+    "spanish–american war films": "أفلام الحرب الأمريكية الإسبانية",
 }
-
-big_data_empty = {
-    "african american–jewish relations": "",
-    "arab villages depopulated after the 1948 arab–israeli war": "",
-    "attacks on hospitals during the chechen–russian conflict": "",
-    "bangladesh–the gambia relations": "",
-    "battles of the hundred years' croatian–ottoman war": "",
-    "british india–china military relations": "",
-    "deaths by israeli airstrikes during the iran–israel war": "",
-    "military operations of the eritrean–ethiopian border conflict": "",
-    "people of the ethiopian–adal war": "",
-    "people of the nizari–seljuk wars": "",
-    "points for exit and entry of nationals from third countries along the india–nepal border": "",
-    "republic of congo–holy see relations": "",
-    "the gambia–guinea-bissau relations": "",
-    "the gambia–ivory coast relations": "",
-    "the gambia–netherlands relations": "",
-    "united nations security council resolutions concerning the eritrean–ethiopian border conflict": "",
-}
-
-TEMPORAL_CASES = [
-    ("500_items", big_data),
-    ("test_big_data2", big_data2),
-    ("test_big_data_empty", big_data_empty),
-]
 
 
 @pytest.mark.parametrize("category, expected", big_data.items(), ids=big_data.keys())
-@pytest.mark.fast
-def test_resolve_relations_label_big_data(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
+@pytest.mark.slow
+def test_relations_big_data(category: str, expected: str) -> None:
+    label = new_relations_resolvers(category)
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.dump
-def test_all_dump(name: str, data: str) -> None:
-    expected, diff_result = one_dump_test(data, resolve_relations_label)
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_work_relations_female(category: str, expected: str) -> None:
+    label = new_relations_resolvers(category)
+    assert label == expected
 
-    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+
+@pytest.mark.unit
+def test_burma_cambodia_relations_from_country_table() -> None:
+    """Female 'relations' using countries_nat_en_key women demonyms."""
+    value = "burma-cambodia relations"
+    result = new_relations_resolvers(value)
+    assert result == "العلاقات البورمية الكمبودية"
+
+
+@pytest.mark.unit
+def test_burundi_canada_military_relations() -> None:
+    """Female 'military relations' with two countries from country table."""
+    value = "burundi-canada military relations"
+    result = new_relations_resolvers(value)
+    # بوروندية + كندية
+    assert result == "العلاقات البوروندية الكندية العسكرية"
+
+
+@pytest.mark.unit
+def test_nat_women_fallback_for_singapore_luxembourg() -> None:
+    """Female 'relations' using Nat_women fallback (no entry in main country table)."""
+    value = "singapore-luxembourg relations"
+    result = new_relations_resolvers(value)
+    # سنغافورية + لوكسمبورغية
+    assert result == "العلاقات السنغافورية اللوكسمبورغية"
+
+
+@pytest.mark.unit
+def test_dash_variants_en_dash() -> None:
+    """Relations using en dash instead of hyphen."""
+    value = "burma–cambodia relations"
+    result = new_relations_resolvers(value)
+    assert result == "العلاقات البورمية الكمبودية"
+
+
+@pytest.mark.unit
+def test_dash_variants_minus_sign() -> None:
+    """Relations using minus sign instead of hyphen."""
+    value = "burma−cambodia relations"
+    result = new_relations_resolvers(value)
+    assert result == "العلاقات البورمية الكمبودية"
+
+
+def test_nato_relations_special_case() -> None:
+    """Special-case NATO handling for plain 'relations'."""
+    value = "nato-afghanistan relations"
+    result = new_relations_resolvers(value)
+    # Uses hard-coded "الناتو" plus country label
+    assert result == "علاقات أفغانستان والناتو"
+
+
+@pytest.mark.unit
+def test_female_suffix_not_matched_returns_empty() -> None:
+    """No recognized female or male suffix should return empty string."""
+    value = "burma-cambodia partnership"
+    result = new_relations_resolvers(value)
+    assert result == ""

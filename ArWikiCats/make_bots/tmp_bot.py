@@ -10,18 +10,29 @@ import functools
 from ..helps import logger
 from ..ma_bots import ye_ts_bot
 from ..time_resolvers import with_years_bot
-from .format_bots.ends_keys import pp_ends_with, pp_ends_with_pase, pp_start_with
+from .format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
+
+pp_start_with = {
+    "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
+    "candidates for president of": "مرشحو رئاسة {}",
+    # "candidates in president of" : "مرشحو رئاسة {}",
+    "candidates-for": "مرشحو {}",
+    # "candidates for" : "مرشحو {}",
+    "categories named afters": "تصنيفات سميت بأسماء {}",
+    "scheduled": "{} مقررة",
+    # "defunct" : "{} سابقة",
+}
 
 
 def _resolve_label(label: str) -> str:
@@ -34,7 +45,7 @@ def _resolve_label(label: str) -> str:
         Resolved Arabic label or empty string
     """
     resolved_label = (
-        resolve_relations_label(label)
+        new_relations_resolvers(label)
         or get_from_pf_keys2(label)
         or get_pop_All_18(label)
         or te_films(label)
@@ -75,9 +86,6 @@ def create_label_from_prefix(input_label):
 
 def create_label_from_suffix(input_label):
     template_label = ""
-
-    # Merge pp_ends_with_pase and pp_ends_with for efficiency
-    combined_suffix_mappings = {**pp_ends_with_pase, **pp_ends_with}
 
     # Try suffix matching - more efficient iteration
     for suffix, format_template in combined_suffix_mappings.items():

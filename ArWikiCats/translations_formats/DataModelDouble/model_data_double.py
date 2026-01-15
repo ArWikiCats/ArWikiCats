@@ -47,10 +47,17 @@ class FormatDataDouble(FormatDataBase):
         data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
         key_placeholder (str): Placeholder used in formatted_data keys.
         value_placeholder (str): Placeholder used in formatted_data values.
+        text_after (str): Text to append after the translated label.
+        text_before (str): Text to prepend before the translated label.
+        splitter (str): Separator used between keys in input strings.
+        ar_joiner (str): Separator used between Arabic labels in output.
+        sort_ar_labels (bool): Whether to sort Arabic labels alphabetically.
+        alternation (str): Regex alternation string for keys.
+        pattern (re.Pattern): Regex pattern for single key matching.
+        pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
         keys_to_split (dict): Cache mapping combined keys to their component parts.
         put_label_last (dict): Keys whose labels should appear last in combinations.
         search_multi_cache (dict): Cache for combined label lookups.
-        pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
         >>> data_list = {
@@ -76,7 +83,9 @@ class FormatDataDouble(FormatDataBase):
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
+        ar_joiner: str = " ",
         sort_ar_labels: bool = False,
+        log_multi_cache: bool = True,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(
@@ -86,12 +95,14 @@ class FormatDataDouble(FormatDataBase):
             text_after=text_after,
             text_before=text_before,
         )
+        self.log_multi_cache = log_multi_cache
         self.sort_ar_labels = sort_ar_labels
         self.value_placeholder = value_placeholder
         self.keys_to_split = {}
         self.put_label_last = {}
         self.search_multi_cache = {}
         self.splitter = splitter or " "
+        self.ar_joiner = ar_joiner or " "
 
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
@@ -170,16 +181,16 @@ class FormatDataDouble(FormatDataBase):
         if not first_label or not second_label:
             return ""
 
-        label = f"{first_label} {second_label}"
+        label = f"{first_label}{self.ar_joiner}{second_label}"
 
         if part1 in self.put_label_last and part2 not in self.put_label_last:
-            label = f"{second_label} {first_label}"
+            label = f"{second_label}{self.ar_joiner}{first_label}"
 
         if self.sort_ar_labels:
             labels_sorted = sorted([first_label, second_label])
-            label = " ".join(labels_sorted)
-
-        self.search_multi_cache[f"{part2} {part1}"] = label
+            label = self.ar_joiner.join(labels_sorted)
+        if self.log_multi_cache:
+            self.search_multi_cache[f"{part2} {part1}"] = label
 
         return label
 

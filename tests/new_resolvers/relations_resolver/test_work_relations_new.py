@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
+from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 
 ireland_test_data = {
     "russia–south sudan relations": "العلاقات الروسية السودانية الجنوبية",
@@ -165,7 +165,6 @@ ireland_test_data = {
     "ireland–poland relations": "العلاقات الأيرلندية البولندية",
     "ireland–portugal relations": "العلاقات الأيرلندية البرتغالية",
     "ireland–qatar relations": "العلاقات الأيرلندية القطرية",
-    "ireland–republic-of-congo relations": "العلاقات الأيرلندية الكونغوية",
     "ireland–romania relations": "العلاقات الأيرلندية الرومانية",
     "ireland–russia relations": "العلاقات الأيرلندية الروسية",
     "ireland–rwanda relations": "العلاقات الأيرلندية الرواندية",
@@ -216,6 +215,25 @@ ireland_test_data = {
 }
 
 test_data = {
+    "Georgia (country)–Luxembourg relations": "العلاقات الجورجية اللوكسمبورغية",
+    "France–Papua New Guinea relations": "العلاقات الغينية الفرنسية",
+    "Angola–Guinea-Bissau relations": "العلاقات الأنغولية الغينية البيساوية",
+    "Azerbaijan–Guinea-Bissau relations": "العلاقات الأذربيجانية الغينية البيساوية",
+    "Belgium–Guinea-Bissau relations": "العلاقات البلجيكية الغينية البيساوية",
+    "Brazil–Guinea-Bissau relations": "العلاقات البرازيلية الغينية البيساوية",
+    "Bulgaria–Guinea-Bissau relations": "العلاقات البلغارية الغينية البيساوية",
+    "Cape Verde–Guinea-Bissau relations": "العلاقات الرأس الأخضرية الغينية البيساوية",
+    "China–Guinea-Bissau relations": "العلاقات الصينية الغينية البيساوية",
+    "Cyprus–Guinea-Bissau relations": "العلاقات الغينية البيساوية القبرصية",
+    "Democratic republic of congo–republic of congo border crossings": "معابر الحدود الكونغوية الكونغوية الديمقراطية",
+    "Egypt–Guinea-Bissau relations": "العلاقات الغينية البيساوية المصرية",
+    "Ethiopia–Guinea-Bissau relations": "العلاقات الإثيوبية الغينية البيساوية",
+    "Finland–Guinea-Bissau relations": "العلاقات الغينية البيساوية الفنلندية",
+    "France–Guinea-Bissau relations": "العلاقات الغينية البيساوية الفرنسية",
+    "Georgia (country)–Guinea-Bissau relations": "العلاقات الجورجية الغينية البيساوية",
+    "Greece–Guinea-Bissau relations": "العلاقات الغينية البيساوية اليونانية",
+    "democratic-republic-of-congo–libya relations": "العلاقات الكونغوية الديمقراطية الليبية",
+    "democratic-republic-of-congo–netherlands relations": "العلاقات الكونغوية الديمقراطية الهولندية",
     "ireland–sahrawi arab democratic republic relations": "علاقات أيرلندا والجمهورية العربية الصحراوية الديمقراطية",
     "abbasid caliphate–byzantine empire relations": "علاقات الإمبراطورية البيزنطية والدولة العباسية",
     "algeria–sahrawi arab democratic republic relations": "علاقات الجزائر والجمهورية العربية الصحراوية الديمقراطية",
@@ -465,22 +483,31 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("category, expected", ireland_test_data.items(), ids=ireland_test_data.keys())
 @pytest.mark.fast
-def test_work_relations_new(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
+def test_ireland_test_data(category: str, expected: str) -> None:
+    label = new_relations_resolvers(category)
     assert label == expected
 
 
-TEMPORAL_CASES = [("test_work_relations_new", test_data), ("test_work_relations_ireland", ireland_test_data)]
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_work_relations_new(category: str, expected: str) -> None:
+    label = new_relations_resolvers(category)
+    assert label == expected
 
 
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+TEMPORAL_CASES = [
+    ("test_work_relations_new", test_data, new_relations_resolvers),
+    ("test_work_relations_ireland", ireland_test_data, new_relations_resolvers)
+]
+
+
+@pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_dump_all(name: str, data: str) -> None:
-    # expected, diff_result = one_dump_test(data, resolve_label_ar)
-    expected, diff_result = one_dump_test(data, resolve_relations_label)
-    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
+def test_dump_all(name: str, data: str, callback: str) -> None:
+    expected, diff_result = one_dump_test(data, callback)
+    dump_diff(diff_result, f"test_new_relations_resolvers_big_data_{name}")
 
     # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

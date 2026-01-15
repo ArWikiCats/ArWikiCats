@@ -99,7 +99,6 @@ covid_pandemic_data = {
     "Category:Deaths from the COVID-19 pandemic in the Czech Republic": "تصنيف:وفيات من جائحة فيروس كورونا في التشيك",
     "Category:Deaths from the COVID-19 pandemic in the Dominican Republic": "تصنيف:وفيات من جائحة فيروس كورونا في جمهورية الدومينيكان",
     "Category:Deaths from the COVID-19 pandemic in the Federal District (Brazil)": "تصنيف:وفيات من جائحة فيروس كورونا في القطاع الفدرالي (البرازيل)",
-    "Category:Deaths from the COVID-19 pandemic in Trentino-Alto Adige/Südtirol": "تصنيف:وفيات من جائحة فيروس كورونا في ترينتينو ألتو أديجي",
     "Category:Deaths from the COVID-19 pandemic in Tuscany": "تصنيف:وفيات من جائحة فيروس كورونا في توسكانا",
     "Category:Deaths from the COVID-19 pandemic in Ukraine": "تصنيف:وفيات من جائحة فيروس كورونا في أوكرانيا",
     "Category:Deaths from the COVID-19 pandemic in Veneto": "تصنيف:وفيات من جائحة فيروس كورونا في فينيتو",

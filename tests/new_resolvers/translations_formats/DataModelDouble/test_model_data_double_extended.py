@@ -48,7 +48,7 @@ def test_splitter_underscore(base_data):
         splitter="[_ ]",
     )
     assert bot.search("action_drama films") == "أفلام أكشن دراما"
-    # Should not match with space
+    # Also matches with space since "[_ ]" is a character class matching both
     assert bot.search("action drama films") == "أفلام أكشن دراما"
 
 
@@ -60,20 +60,11 @@ def test_sort_simple_no_sort(base_data):
         key_placeholder="{film_key}",
         value_placeholder="{film_ar}",
         sort_ar_labels=False,
+        log_multi_cache=False,
     )
     result = bot.search("action drama films")
     assert result == "أفلام أكشن دراما"
 
-
-def test_sort_simple_no_sort_2(base_data):
-    formatted_data, data_list = base_data
-    bot = FormatDataDouble(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder="{film_key}",
-        value_placeholder="{film_ar}",
-        sort_ar_labels=False,
-    )
     result2 = bot.search("drama action movies")
     assert result2 == "أفلام دراما أكشن"
 
@@ -124,3 +115,88 @@ def test_splitter_regex_chars(base_data):
     # But does it match 'action_drama'?
     # If not escaped, yes!
     assert bot.search("action_drama films") == "أفلام أكشن دراما"
+
+
+def test_ar_joiner_default(base_data):
+    formatted_data, data_list = base_data
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+    )
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن دراما"
+
+
+def test_ar_joiner_and(base_data):
+    formatted_data, data_list = base_data
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        ar_joiner=" و ",
+    )
+    # "أكشن" + " و " + "دراما" -> "أفلام أكشن و دراما"
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن و دراما"
+
+
+def test_ar_joiner_dash(base_data):
+    formatted_data, data_list = base_data
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        ar_joiner="-",
+    )
+    # "أكشن" + "-" + "دراما" -> "أفلام أكشن-دراما"
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن-دراما"
+
+
+def test_ar_joiner_with_sort(base_data):
+    formatted_data, data_list = base_data
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        sort_ar_labels=True,
+        ar_joiner=" و ",
+    )
+    # أكشن (Action) < دراما (Drama)
+    # "action drama" -> "أفلام أكشن و دراما"
+    assert bot.search("action drama films") == "أفلام أكشن و دراما"
+    # "drama action" -> "أفلام أكشن و دراما"
+    assert bot.search("drama action films") == "أفلام أكشن و دراما"
+
+
+def test_ar_joiner_none(base_data):
+    formatted_data, data_list = base_data
+    # ar_joiner=None should default to space " "
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        ar_joiner=None,
+    )
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن دراما"
+
+
+def test_ar_joiner_empty(base_data):
+    formatted_data, data_list = base_data
+    # ar_joiner="" should ALSO default to space " " because of 'or " "' in __init__
+    bot = FormatDataDouble(
+        formatted_data=formatted_data,
+        data_list=data_list,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+        ar_joiner="",
+    )
+    result = bot.search("action drama films")
+    assert result == "أفلام أكشن دراما"

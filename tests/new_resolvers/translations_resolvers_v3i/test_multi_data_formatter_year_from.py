@@ -55,7 +55,7 @@ def multi_bot() -> MultiDataFormatterYearAndFrom2:
     return MultiDataFormatterYearAndFrom2(
         country_bot=country_bot,
         year_bot=year_bot,
-        translation_category_relations=translation_category_relations,
+        category_relation_mapping=translation_category_relations,
         other_key_first=True,
     )
 

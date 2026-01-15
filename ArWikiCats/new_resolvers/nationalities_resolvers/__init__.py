@@ -5,7 +5,6 @@ from . import (
     ministers_resolver,
     nationalities_time_v2,
     nationalities_v2,
-    nationalities_double_v2,
 )
 
 
@@ -20,7 +19,6 @@ def resolve_nationalities_main(normalized_category) -> str:
         nationalities_v2.resolve_by_nats(normalized_category)
         or nationalities_time_v2.resolve_nats_time_v2(normalized_category)
         or ministers_resolver.resolve_secretaries_labels(normalized_category)
-        or nationalities_double_v2.resolve_by_nats_double_v2(normalized_category)
         or ""
     )
 

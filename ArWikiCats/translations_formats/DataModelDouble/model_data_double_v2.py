@@ -17,16 +17,23 @@ class FormatDataDoubleV2(FormatDataBase):
     This class extends FormatDataBase to handle categories where two adjacent
     keys from the data_list appear together (e.g., "action drama films").
     It can match both single keys and pairs of keys, combining their Arabic
-    labels in the correct order.
+    labels in the correct order, with options to sort labels or place specific
+    labels last.
 
     Attributes:
         formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
-        key_placeholder (str): Placeholder used in formatted_data keys.
-        value_placeholder (str): Placeholder used in formatted_data values.
+        data_list (Dict[str, Union[str, Dict[str, str]]]): Key-to-Arabic-label mappings for replacements.
+        key_placeholder (str): Placeholder used in formatted_data keys (default: "xoxo").
+        text_after (str): Text to append after the formatted label (default: "").
+        text_before (str): Text to prepend before the formatted label (default: "").
+        splitter (str): Separator used in patterns for splitting keys (default: " ").
+        ar_joiner (str): Joiner for combining Arabic labels (default: " ").
+        sort_ar_labels (bool): Whether to sort Arabic labels alphabetically (default: False).
         keys_to_split (dict): Cache mapping combined keys to their component parts.
-        put_label_last (dict): Keys whose labels should appear last in combinations.
+        put_label_last (set[str] | list[str]): Keys whose labels should appear last in combinations.
         search_multi_cache (dict): Cache for combined label lookups.
+        alternation (str): Regex alternation string for keys.
+        pattern (re.Pattern): Regex pattern for matching single keys.
         pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
@@ -51,7 +58,9 @@ class FormatDataDoubleV2(FormatDataBase):
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
+        ar_joiner: str = " ",
         sort_ar_labels: bool = False,
+        log_multi_cache: bool = True,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(
@@ -61,11 +70,13 @@ class FormatDataDoubleV2(FormatDataBase):
             text_after=text_after,
             text_before=text_before,
         )
+        self.log_multi_cache = log_multi_cache
         self.sort_ar_labels = sort_ar_labels
         self.keys_to_split = {}
         self.put_label_last = {}
         self.search_multi_cache = {}
         self.splitter = splitter or " "
+        self.ar_joiner = ar_joiner or " "
 
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
@@ -184,11 +195,15 @@ class FormatDataDoubleV2(FormatDataBase):
         first_label = self.data_list_ci.get(part1)
         second_label = self.data_list_ci.get(part2)
 
-        keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
-
         if not first_label or not second_label:
             logger.debug(f">>> create_label_from_keys: missing label for {part1=}, {part2=}")
             return ""
+
+        if not isinstance(first_label, dict) or not isinstance(second_label, dict):
+            logger.debug(f">>> create_label_from_keys: non-dict label for {part1=}, {part2=}")
+            return ""
+
+        keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
 
         logger.debug(f"!!! create_label_from_keys: found label for {part1=}, {part2=}")
 
@@ -199,18 +214,18 @@ class FormatDataDoubleV2(FormatDataBase):
             first_lab = first_label.get(key, "")
             second_lab = second_label.get(key, "")
             if first_lab and second_lab:
-                label = f"{first_lab} {second_lab}"
+                label = f"{first_lab}{self.ar_joiner}{second_lab}"
                 # logger.debug(f"!!! create_label_from_keys: label: {label}")
 
                 if part1 in self.put_label_last and part2 not in self.put_label_last:
-                    label = f"{second_lab} {first_lab}"
+                    label = f"{second_lab}{self.ar_joiner}{first_lab}"
 
                 if self.sort_ar_labels:
                     labels_sorted = sorted([first_lab, second_lab])
-                    label = " ".join(labels_sorted)
+                    label = self.ar_joiner.join(labels_sorted)
                 compound_data[key] = label
-
-        self.search_multi_cache[f"{part2} {part1}"] = compound_data
+        if self.log_multi_cache:
+            self.search_multi_cache[f"{part2} {part1}"] = compound_data
 
         return compound_data
 

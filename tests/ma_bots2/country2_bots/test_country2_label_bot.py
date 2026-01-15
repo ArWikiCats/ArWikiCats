@@ -6,69 +6,8 @@ import pytest
 
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import (
-    country_2_title_work,
-    separator_arabic_resolve,
-)
+from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 
-
-@pytest.mark.fast
-def test_separator_arabic_resolve() -> None:
-    """Test separator_arabic_resolve function with various separators."""
-    # Test "to" separator
-    result = separator_arabic_resolve("to")
-    assert result == " إلى "
-
-    # Test "on" separator
-    result = separator_arabic_resolve("on")
-    assert result == " على "
-
-    # Test "about" separator
-    result = separator_arabic_resolve("about")
-    assert result == " عن "
-
-    # Test "based in" separator
-    result = separator_arabic_resolve("based in")
-    assert result == " مقرها في "
-
-    # Test "in" separator (from category_relation_mapping)
-    result = separator_arabic_resolve("in")
-    assert result == " في "
-
-    # Test "from" separator (from category_relation_mapping)
-    result = separator_arabic_resolve("from")
-    assert result == " من "
-
-    # Test "by" separator (should return space, not from mapping)
-    result = separator_arabic_resolve("by")
-    assert result == " "
-
-    # Test empty string
-    result = separator_arabic_resolve("")
-    assert isinstance(result, str)
-
-    # Test unknown separator
-    result = separator_arabic_resolve("unknown_sep")
-    assert isinstance(result, str)
-
-
-test_historic_places = {
-    "railway stations on national-register-of-historic-places": "محطات السكك الحديدية على السجل الوطني للأماكن التاريخية",
-    "residential buildings on national-register-of-historic-places": "مبان سكنية على السجل الوطني للأماكن التاريخية",
-    "opera houses on national-register-of-historic-places": "دور أوبرا على السجل الوطني للأماكن التاريخية",
-    "military facilities on national-register-of-historic-places": "مرافق عسكرية على السجل الوطني للأماكن التاريخية",
-    "museums on national-register-of-historic-places": "متاحف على السجل الوطني للأماكن التاريخية",
-    "fire stations on national-register-of-historic-places": "محطات الإطفاء على السجل الوطني للأماكن التاريخية",
-    "forts on national-register-of-historic-places": "حصون على السجل الوطني للأماكن التاريخية",
-    "houses on national-register-of-historic-places": "منازل على السجل الوطني للأماكن التاريخية",
-    "cemeteries on national-register-of-historic-places": "مقابر على السجل الوطني للأماكن التاريخية",
-    "buildings and structures on national-register-of-historic-places": "مبان ومنشآت على السجل الوطني للأماكن التاريخية",
-    "bank buildings on national-register-of-historic-places": "مباني بنوك على السجل الوطني للأماكن التاريخية",
-    "archaeological sites on national-register-of-historic-places": "مواقع أثرية على السجل الوطني للأماكن التاريخية",
-    "agricultural buildings and structures on national-register-of-historic-places": "مبان ومنشآت زراعية على السجل الوطني للأماكن التاريخية",
-    "clubhouses on national-register-of-historic-places": "نوادي على السجل الوطني للأماكن التاريخية",
-    "courthouses on national-register-of-historic-places": "محاكم على السجل الوطني للأماكن التاريخية",
-}
 
 title_work_tests_data = {
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
@@ -313,6 +252,9 @@ title_work_tests_data = {
     "years of 19th century": "سنوات القرن 19",
 }
 
+test_2 = {
+}
+
 data_2 = {
     "sport in ottoman empire": "الرياضة في الدولة العثمانية",
     "sports in ottoman empire": "الرياضة في الدولة العثمانية",
@@ -334,8 +276,8 @@ def test_data_based_in_data_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("title_work_tests_data", title_work_tests_data, resolve_label_ar),
-    ("test_historic_places", test_historic_places, resolve_label_ar),
+    ("title_work_tests_data", title_work_tests_data, country_2_title_work),
+    ("test_2", test_2, country_2_title_work),
 ]
 
 

@@ -9,6 +9,24 @@ from ArWikiCats import resolve_label_ar
 fix_title_all = False
 
 
+test_historic = {
+    "railway stations on national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
+    "residential buildings on national-register-of-historic-places": "مبان سكنية في السجل الوطني للأماكن التاريخية",
+    "opera houses on national-register-of-historic-places": "دور أوبرا في السجل الوطني للأماكن التاريخية",
+    "military facilities on national-register-of-historic-places": "مرافق عسكرية في السجل الوطني للأماكن التاريخية",
+    "museums on national-register-of-historic-places": "متاحف في السجل الوطني للأماكن التاريخية",
+    "fire stations on national-register-of-historic-places": "محطات الإطفاء في السجل الوطني للأماكن التاريخية",
+    "forts on national-register-of-historic-places": "حصون في السجل الوطني للأماكن التاريخية",
+    "houses on national-register-of-historic-places": "منازل في السجل الوطني للأماكن التاريخية",
+    "cemeteries on national-register-of-historic-places": "مقابر في السجل الوطني للأماكن التاريخية",
+    "buildings and structures on national-register-of-historic-places": "مبان ومنشآت في السجل الوطني للأماكن التاريخية",
+    "bank buildings on national-register-of-historic-places": "مباني بنوك في السجل الوطني للأماكن التاريخية",
+    "archaeological sites on national-register-of-historic-places": "مواقع أثرية في السجل الوطني للأماكن التاريخية",
+    "agricultural buildings and structures on national-register-of-historic-places": "مبان ومنشآت زراعية في السجل الوطني للأماكن التاريخية",
+    "clubhouses on national-register-of-historic-places": "نوادي في السجل الوطني للأماكن التاريخية",
+    "courthouses on national-register-of-historic-places": "محاكم في السجل الوطني للأماكن التاريخية"
+}
+
 data_fast = {
     "kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",
@@ -64,7 +82,6 @@ data_fast = {
     "bank of korea": "بنك كوريا",
     "barracks in spain": "ثكنات في إسبانيا",
 }
-
 
 data_slow = {
     "people from santa fe province": "أشخاص من محافظة سانتا في",
@@ -636,5 +653,12 @@ def test_Get_country2_fast(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=data_slow.keys())
 @pytest.mark.slow
 def test_Get_country2_slow(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_historic.items(), ids=test_historic.keys())
+@pytest.mark.slow
+def test_historic_places(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected

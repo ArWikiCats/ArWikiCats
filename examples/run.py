@@ -18,7 +18,7 @@ from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import re
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
+from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 logger.set_level("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))

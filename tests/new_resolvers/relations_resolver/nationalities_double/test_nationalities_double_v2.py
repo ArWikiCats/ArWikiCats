@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
+from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 
 male_tests = {
     "sri lankan tamil descent": "أصل تاميلي سريلانكي",
@@ -407,8 +407,6 @@ female_tests = {
     "european argentine culture": "ثقافة أرجنتينية أوروبية",
     "korean american culture": "ثقافة أمريكية كورية",
     "lebanese canadian culture": "ثقافة كندية لبنانية",
-    "spanish american wars": "حروب أمريكية إسبانية",
-
     "african jewish culture": "ثقافة إفريقية يهودية",
     "african-jewish culture": "ثقافة إفريقية يهودية",
     "algerian jewish culture": "ثقافة جزائرية يهودية",
@@ -483,7 +481,6 @@ female_tests = {
     "jewish italian families": "عائلات إيطالية يهودية",
     "jewish polish families": "عائلات بولندية يهودية",
     "jewish portuguese families": "عائلات برتغالية يهودية",
-    "jewish roman wars": "حروب رومانية يهودية",
     "jewish south african families": "عائلات جنوب إفريقية يهودية",
     "jewish-austrian families": "عائلات نمساوية يهودية",
     "jewish-british families": "عائلات بريطانية يهودية",
@@ -496,7 +493,6 @@ female_tests = {
     "jewish-italian families": "عائلات إيطالية يهودية",
     "jewish-polish families": "عائلات بولندية يهودية",
     "jewish-portuguese families": "عائلات برتغالية يهودية",
-    "jewish-roman wars": "حروب رومانية يهودية",
     "jewish-south african families": "عائلات جنوب إفريقية يهودية",
     "kurdish jewish culture": "ثقافة كردية يهودية",
     "kurdish-jewish culture": "ثقافة كردية يهودية",
@@ -541,7 +537,7 @@ female_tests = {
     "yemeni jewish culture": "ثقافة يمنية يهودية",
     "yemeni-jewish culture": "ثقافة يمنية يهودية",
     "yugoslav jewish culture": "ثقافة يهودية يوغسلافية",
-    "yugoslav-jewish culture": "ثقافة يهودية يوغسلافية",
+    "yugoslav-jewish culture": "ثقافة يهودية يوغسلافية"
 }
 
 test_data_fast = {

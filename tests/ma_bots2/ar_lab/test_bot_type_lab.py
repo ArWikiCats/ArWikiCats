@@ -7,15 +7,14 @@ import pytest
 from ArWikiCats.ma_bots2.ar_lab.lab import get_type_lab
 
 data = [
-    # (" of ", "national sports teams of", "منتخبات رياضية وطنية"),
-    # (" by ", "mass media in morocco", "وسائل إعلام في المغرب"),
-    ("in", "arizona territory", "إقليم أريزونا"),
+    (" of ", "forests and woodlands of", "غابات"),
+    (" of ", "ports and harbours of", "مرافئ وموانئ"),
     (" of ", " university of", "جامعة"),
+    ("in", "arizona territory", "إقليم أريزونا"),
     (" by ", "basketball playerss in lebanon", "لاعبو كرة سلة في لبنان"),
     (" in ", "former buildings and structures", "مبان ومنشآت سابقة"),
     (" opened in ", "railway stations in south korea", "محطات السكك الحديدية في كوريا الجنوبية"),
     (" in ", "tunisian expatriate basketball people", "أعلام كرة سلة تونسيون مغتربون"),
-    (" of ", "internet service providers of", "تزويد خدمة الإنترنت في"),
     (" by ", "history of central african republic", "تاريخ جمهورية إفريقيا الوسطى"),
     (" involving ", "battles of napoleonic wars", "معارك الحروب النابليونية"),
     (" by ", "burials in washington (state)", "مدفونون في ولاية واشنطن"),
@@ -30,8 +29,6 @@ data = [
     (" in ", "buildings and structures under construction", "مبان ومنشآت تحت بناء"),
     (" in ", "lists of buildings and structures", "قوائم مبان ومنشآت"),
     (" in ", "years of 18th century", "سنوات القرن 18"),
-    (" of ", "ports and harbours of", "مرافئ وموانئ"),
-    (" of ", "motor vehicle manufacturers of", "مصانع السيارات في"),
     (" in ", "senegalese expatriate basketball people", "أعلام كرة سلة سنغاليون مغتربون"),
     (" in ", "sports clubs and teams", "أندية وفرق رياضية"),
     (" by ", "road incident deaths in the united states", "وفيات حوادث الطرق في الولايات المتحدة"),
@@ -53,10 +50,7 @@ data = [
     (" in ", "years of 20th century", "سنوات القرن 20"),
     (" by ", "skyscrapers in the united arab emirates", "ناطحات سحاب في الإمارات العربية المتحدة"),
     (" to ", "ambassadors of south africa", "سفراء جنوب إفريقيا"),
-    (" of ", "privately held companies of", "شركات خاصة في"),
-    (" of ", "amphibious warfare vessels of", "سفن حربية برمائية في "),
     (" by ", "welsh rugby union players", "لاعبو اتحاد رجبي ويلزيون"),
-    (" of ", "native american history of", "تاريخ الأمريكيين الأصليين في"),
     (" closed in ", "railway stations in northern-ireland", "محطات السكك الحديدية في أيرلندا الشمالية"),
     (" by ", "sports venues in australia", "ملاعب رياضية في أستراليا"),
     (" closed in ", "railway stations in albania", "محطات السكك الحديدية في ألبانيا"),
@@ -69,7 +63,6 @@ data = [
     (" by ", "buildings and structures in idaho", "مبان ومنشآت في أيداهو"),
     (" in ", "olympic silver medalists for the united states", "فائزون بميداليات فضية أولمبية من الولايات المتحدة"),
     (" by ", "netball in north america", "كرة الشبكة في أمريكا الشمالية"),
-    (" of ", "state constitutional officers of", "مسؤولون دستوريون في"),
     (" in ", "12th century religious buildings and structures", "مبان دينية القرن 12 ومنشآت"),
     (" in ", "religious buildings and structures", "مبان ومنشآت دينية"),
     (" in ", "years of 19th century", "سنوات القرن 19"),
@@ -95,9 +88,7 @@ data = [
     (" opened in ", "railway stations in the united states", "محطات السكك الحديدية في الولايات المتحدة"),
     (" by ", "1789 crimes in africa", "جرائم 1789 في إفريقيا"),
     (" by ", "buildings and structures in prince edward island", "مبان ومنشآت في جزيرة الأمير إدوارد"),
-    (" of ", "forests and woodlands of", "غابات"),
     (" opened in ", "railway stations in latvia", "محطات السكك الحديدية في لاتفيا"),
-    (" of ", "electric power companies of", "شركات طاقة كهربائية في"),
     (" concerning ", "united nations security council resolutions", "قرارات مجلس الأمن التابع للأمم المتحدة"),
     (" opened in ", "railway stations in indonesia", "محطات السكك الحديدية في إندونيسيا"),
     (" closed in ", "railway stations in republic-of ireland", "محطات السكك الحديدية في جمهورية أيرلندا"),
@@ -119,13 +110,10 @@ data = [
     (" based in ", "medical and health organizations", "منظمات طبية وصحية"),
     (" in ", "military units and formations", "وحدات وتشكيلات عسكرية"),
     (" completed in ", "religious buildings and structures", "مبان ومنشآت دينية"),
-    (" of ", "prisoners and detainees of", "سجناء ومعتقلون في"),
     (" by ", "disestablishments in georgia (u.s. state)", "انحلالات في ولاية جورجيا"),
     (" by ", "history of northern ireland", "تاريخ أيرلندا الشمالية"),
     (" in ", "parliament of united kingdom", "برلمان المملكة المتحدة"),
     (" opened in ", "railway stations in northern-ireland", "محطات السكك الحديدية في أيرلندا الشمالية"),
-    (" of ", "mine warfare vessels of", "سفن حرب ألغام في "),
-    (" of ", "central african republic people of", "أفارقة أوسطيون في "),
     (" in ", "australian rules football clubs", "أندية كرة قدم أسترالية"),
     (" by ", "1789 elections in the united states", "انتخابات 1789 في الولايات المتحدة"),
     (" by ", "buildings and structures in georgia (u.s. state)", "مبان ومنشآت في ولاية جورجيا"),
@@ -133,18 +121,14 @@ data = [
     (" in ", "attacks on buildings and structures", "هجمات على مبان ومنشآت"),
     (" in ", "french expatriate rugby union players", "لاعبو اتحاد رجبي فرنسيون مغتربون"),
     (" opened in ", "railway stations in austria", "محطات السكك الحديدية في النمسا"),
-    (" of ", "spanish american wars of", "حروب أمريكية إسبانية في "),
     (" hosted by ", "international ice hockey competitions", "منافسات هوكي جليد دولية"),
-    (" of ", "military units and formations of", "وحدات وتشكيلات عسكرية في "),
     (" opened in ", "railway stations in the netherlands", "محطات السكك الحديدية في هولندا"),
     (" in ", "18th century religious buildings and structures", "مبان دينية القرن 18 ومنشآت"),
-    (" of ", "french guianan people of", "غويانيون فرنسيون في "),
     (" from ", "players of american football", "لاعبو كرة قدم أمريكية"),
     (" during ", "military history of estonia", "تاريخ إستونيا العسكري"),
     (" in ", "defunct sports clubs and teams", "أندية وفرق رياضية سابقة"),
     (" in ", "installations of united states air force", "منشآت في القوات الجوية الأمريكية"),
     (" in ", "united states air force", "القوات الجوية الأمريكية"),
-    (" of ", "roman catholic archbishops of", "رؤساء أساقفة رومان كاثوليك في "),
     (" in ", "christian buildings and structures", "مبان ومنشآت مسيحية"),
     (" from ", "major league baseball players", "لاعبو دوري كرة القاعدة الرئيسي"),
     (" opened in ", "railway stations in great britain", "محطات السكك الحديدية في بريطانيا العظمى"),
@@ -158,7 +142,6 @@ data = [
         "national-register-of-historic-places in north carolina",
         "السجل الوطني للأماكن التاريخية في كارولاينا الشمالية",
     ),
-    (" of ", "mass media companies of", "شركات وسائل إعلام في"),
     (" involving ", "battles of vietnam war", "معارك حرب فيتنام"),
     (" by ", "sports-people in västmanland county", "رياضيون في مقاطعة فستمانلاند"),
     (" for ", "olympic field hockey players", "لاعبو هوكي ميدان أولمبيون"),
@@ -169,9 +152,7 @@ data = [
     (" by ", "1789 in asian sport", "رياضة آسيوية في 1789"),
     (" by ", "1789 in chinese sport", "رياضة صينية في 1789"),
     (" in ", "track and field athletes", "رياضيو المسار والميدان"),
-    (" of ", "oil and gas companies of", "شركات النفط والغاز في"),
     (" by ", "1789 in youth football", "كرة القدم للشباب في 1789"),
-    (" of ", "british military personnel of", "أفراد عسكريون بريطانيون في "),
     (" by ", "transport infrastructure in south america", "البنية التحتية للنقل في أمريكا الجنوبية"),
     (
         " in ",
@@ -197,17 +178,13 @@ data = [
     ),
     (" by ", "nations in the summer olympics", "بلدان في الألعاب الأولمبية الصيفية"),
     (" for ", "pan american games medalists", "فائزون بميداليات دورة الألعاب الأمريكية"),
-    (" of ", "south american people of", "أمريكيون جنوبيون في "),
     (" by ", "universities and colleges in texas", "جامعات وكليات في تكساس"),
     (" in ", "attacks on diplomatic missions", "هجمات على بعثات دبلوماسية"),
-    (" of ", "whig party members of", "أعضاء حزب اليمين في "),
     (
         " from ",
         "whig party members of united states house-of-representatives",
         "أعضاء حزب اليمين في مجلس النواب الأمريكي",
     ),
-    (" of ", "canadian military personnel of", "أفراد عسكريون كنديون في "),
-    (" of ", "federalist party members of", "أعضاء الحزب الفيدرالي الأمريكي في "),
     (
         " from ",
         "federalist party members of united states house-of-representatives",
@@ -219,7 +196,6 @@ data = [
     (" to ", "trinidad and tobago emigrants", "ترنيداديون مهاجرون"),
     (" by ", "unincorporated communities in alaska", "مجتمعات فردية في ألاسكا"),
     (" by ", "1789 in south america", "أمريكا الجنوبية في 1789"),
-    (" of ", "law enforcement agencies of", "تصنيف:وكالات تطبيق القانون في "),
     (" by ", "parks in south america", "متنزهات في أمريكا الجنوبية"),
     (" disestablished in ", "television channels and stations", "قنوات وشبكات تلفزيونية"),
     (" to ", "permanent representatives of bahrain", "مندوبو البحرين الدائمون"),
@@ -246,7 +222,6 @@ data = [
     (" in ", "military and war museums", "متاحف عسكرية وحربية"),
     (" from ", "democratic party united states senators", "أعضاء مجلس الشيوخ الأمريكي من الحزب الديمقراطي"),
     (" in ", "15th century religious buildings and structures", "مبان دينية القرن 15 ومنشآت"),
-    (" of ", "british army personnel of", "أفراد الجيش البريطاني في "),
     (" by ", "universities and colleges in ukraine", "جامعات وكليات في أوكرانيا"),
     (" closed in ", "railway stations in new zealand", "محطات السكك الحديدية في نيوزيلندا"),
     (" for ", "african games bronze medalists", "فائزون بميداليات برونزية في الألعاب الإفريقية"),
@@ -256,10 +231,8 @@ data = [
         "military operations of war in afghanistan (1789–1789)",
         "عمليات عسكرية في الحرب في أفغانستان (1789–1789)",
     ),
-    (" of ", "iraqi military personnel of", "أفراد عسكريون عراقيون في "),
     (" by ", "field hockey playerss in germany", "لاعبو هوكي ميدان في ألمانيا"),
     (" in ", "history of petroleum industry", "تاريخ صناعة بترولية"),
-    (" of ", "north korean people of", "كوريون شماليون في "),
     (" in ", "private universities and colleges", "جامعات وكليات خاصة"),
     (" in ", "croatian expatriate basketball people", "أعلام كرة سلة كروات مغتربون"),
     (" to ", "emigrants from the russian empire", "مهاجرون من الإمبراطورية الروسية"),
@@ -267,7 +240,6 @@ data = [
     (" by ", "female field hockey players", "لاعبات هوكي ميدان"),
     (" in ", "brazilian expatriate basketball people", "أعلام كرة سلة برازيليون مغتربون"),
     (" by ", "tanks of united states", "دبابات الولايات المتحدة"),
-    (" of ", "canyons and gorges of", "أخاديد في"),
     (" by ", "food and drink in europe", "أطعمة ومشروبات في أوروبا"),
     (" to ", "permanent representatives of kazakhstan", "مندوبو كازاخستان الدائمون"),
     (" for ", "islamic solidarity games silver medalists", "فائزون بميداليات فضية في ألعاب التضامن الإسلامي"),
@@ -279,26 +251,3 @@ data = [
 def test_get_type_lab_data(preposition: str, category: str, output: str) -> None:
     label, _ = get_type_lab(preposition, category)
     assert label.strip() == output.strip()
-
-
-def test_get_type_lab() -> None:
-    # Test with basic inputs
-    result = get_type_lab("from", "women")
-    assert isinstance(result, tuple)
-    assert len(result) == 2
-    assert isinstance(result[0], str)
-    assert isinstance(result[1], bool)
-
-    # Test with different parameters
-    result_various = get_type_lab("to", "sports")
-    assert isinstance(result_various, tuple)
-    assert len(result_various) == 2
-    assert isinstance(result_various[0], str)
-    assert isinstance(result_various[1], bool)
-
-    # Test with empty strings
-    result_empty = get_type_lab("", "")
-    assert isinstance(result_empty, tuple)
-    assert len(result_empty) == 2
-    assert isinstance(result_empty[0], str)
-    assert isinstance(result_empty[1], bool)

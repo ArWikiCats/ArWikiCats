@@ -11,7 +11,7 @@ from ..ma_bots import ye_ts_bot
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..ma_bots.lab_seoo_bot import event_label_work
 from ..make_bots import tmp_bot
-from ..make_bots.format_bots.ends_keys import pp_ends_with, pp_ends_with_pase
+from ..make_bots.format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.format_bots import change_cat
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.o_bots import univer
@@ -28,7 +28,7 @@ from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot
 from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..make_bots.reslove_relations.rele import resolve_relations_label
+from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -46,7 +46,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        resolve_relations_label(country2)
+        new_relations_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
@@ -189,15 +189,12 @@ class EventLabResolver:
         """
         list_of_cat: str = ""
 
-        for data in [pp_ends_with_pase, pp_ends_with]:
-            for pri_ff, vas in data.items():
-                suffix = pri_ff.lower()
-                if category3.endswith(suffix):
-                    logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
-                    list_of_cat = vas
-                    category3 = category3[: -len(suffix)].strip()
-                    break
-            if list_of_cat:
+        for pri_ff, vas in combined_suffix_mappings.items():
+            suffix = pri_ff.lower()
+            if category3.endswith(suffix):
+                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
+                list_of_cat = vas
+                category3 = category3[: -len(suffix)].strip()
                 break
 
         return list_of_cat, category3
