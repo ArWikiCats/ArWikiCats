@@ -47,10 +47,17 @@ class FormatDataDouble(FormatDataBase):
         data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
         key_placeholder (str): Placeholder used in formatted_data keys.
         value_placeholder (str): Placeholder used in formatted_data values.
+        text_after (str): Text to append after the translated label.
+        text_before (str): Text to prepend before the translated label.
+        splitter (str): Separator used between keys in input strings.
+        ar_joiner (str): Separator used between Arabic labels in output.
+        sort_ar_labels (bool): Whether to sort Arabic labels alphabetically.
+        alternation (str): Regex alternation string for keys.
+        pattern (re.Pattern): Regex pattern for single key matching.
+        pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
         keys_to_split (dict): Cache mapping combined keys to their component parts.
         put_label_last (dict): Keys whose labels should appear last in combinations.
         search_multi_cache (dict): Cache for combined label lookups.
-        pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
         >>> data_list = {
