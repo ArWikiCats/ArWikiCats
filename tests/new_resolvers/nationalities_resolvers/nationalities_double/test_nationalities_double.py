@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double import resolve_by_nats_double
+from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
 
 males_tests = {
     "jewish persian": "فرس يهود",
@@ -122,20 +122,20 @@ tests_ready = {
 @pytest.mark.parametrize("category, expected_key", tests_ready.items(), ids=tests_ready.keys())
 @pytest.mark.fast
 def test_tests_ready(category: str, expected_key: str) -> None:
-    label2 = resolve_by_nats_double(category)
+    label2 = resolve_by_nats_double_v2(category)
     assert label2 == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", male_tests.items(), ids=male_tests.keys())
 @pytest.mark.fast
 def test_male_tests(category: str, expected_key: str) -> None:
-    label2 = resolve_by_nats_double(category)
+    label2 = resolve_by_nats_double_v2(category)
     assert label2 == expected_key
 
 
 to_test = [
-    ("test_male_tests", male_tests, resolve_by_nats_double),
-    ("test_tests_ready", tests_ready, resolve_by_nats_double),
+    ("test_male_tests", male_tests, resolve_by_nats_double_v2),
+    ("test_tests_ready", tests_ready, resolve_by_nats_double_v2),
 ]
 
 
