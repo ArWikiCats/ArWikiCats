@@ -242,3 +242,42 @@ test_data_3 = {
     "Category:Members of Parliament for Gers": "تصنيف:أعضاء البرلمان عن جارس (إقليم فرنسي)",
     "Category:Qualification for 1968 Summer Olympics": "تصنيف:تصفيات مؤهلة إلى الألعاب الأولمبية الصيفية 1968"
 }
+
+
+test_data_4 = {
+    "16th century music": "الموسيقى في القرن 16",
+    "16th century theatre": "المسرح في القرن 16",
+    "17th century music": "الموسيقى في القرن 17",
+    "17th century theatre": "المسرح في القرن 17",
+    "1830s alabama": "ألاباما عقد 1830",
+    "1830s arkansas": "أركنساس عقد 1830",
+    "1830s connecticut": "كونيتيكت عقد 1830",
+    "1830s delaware": "ديلاوير عقد 1830",
+    "1830s georgia (u.s. state)": "ولاية جورجيا عقد 1830",
+    "1830s indiana": "إنديانا عقد 1830",
+    "1830s iowa territory": "إقليم آيوا عقد 1830",
+    "1830s iowa": "آيوا عقد 1830",
+    "1830s kentucky": "كنتاكي عقد 1830",
+    "1830s louisiana": "لويزيانا عقد 1830",
+    "1830s maine": "مين عقد 1830",
+    "1830s maryland": "ماريلند عقد 1830",
+    "1830s massachusetts": "ماساتشوستس عقد 1830",
+    "1830s michigan": "ميشيغان عقد 1830",
+    "1830s minnesota territory": "إقليم منيسوتا عقد 1830",
+    "1830s mississippi territory": "إقليم مسيسيبي عقد 1830",
+    "1830s mississippi": "مسيسيبي عقد 1830",
+    "1830s missouri": "ميزوري عقد 1830",
+    "1830s new hampshire": "نيوهامشير عقد 1830",
+    "1830s new jersey": "نيوجيرسي عقد 1830",
+    "1830s new york (state)": "ولاية نيويورك عقد 1830",
+    "1830s north carolina": "كارولاينا الشمالية عقد 1830",
+    "1830s ohio": "أوهايو عقد 1830",
+    "1830s pennsylvania": "بنسلفانيا عقد 1830",
+    "1830s rhode island": "رود آيلاند عقد 1830",
+    "1830s south carolina": "كارولاينا الجنوبية عقد 1830",
+    "1830s tennessee": "تينيسي عقد 1830",
+    "1830s vermont": "فيرمونت عقد 1830",
+    "1830s virginia": "فرجينيا عقد 1830",
+    "1830s wisconsin territory": "إقليم ويسكونسن عقد 1830",
+    "1830s wisconsin": "ويسكونسن عقد 1830"
+}

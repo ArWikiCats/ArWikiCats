@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.ma_bots.lab_seoo_bot import event_label_work
 
@@ -33,11 +34,7 @@ event_Lab_seoo_data = {
     "13th united states congress": "الكونغرس الأمريكي الثالث عشر",
     "14th united states congress": "الكونغرس الأمريكي الرابع عشر",
     "15th united states congress": "الكونغرس الأمريكي الخامس عشر",
-    "16th century music": "الموسيقى في القرن 16",
-    "16th century theatre": "المسرح في القرن 16",
     "16th united states congress": "الكونغرس الأمريكي السادس عشر",
-    "17th century music": "الموسيقى في القرن 17",
-    "17th century theatre": "المسرح في القرن 17",
     "1830 alabama": "ألاباما 1830",
     "1830 arkansas": "أركنساس 1830",
     "1830 connecticut": "كونيتيكت 1830",
@@ -70,38 +67,7 @@ event_Lab_seoo_data = {
     "1830 trabzon": "طرابزون 1830",
     "1830 vermont": "فيرمونت 1830",
     "1830 virginia": "فرجينيا 1830",
-    "1830 wisconsin territory": "إقليم ويسكونسن 1830",
-    "1830s alabama": "ألاباما عقد 1830",
-    "1830s arkansas": "أركنساس عقد 1830",
-    "1830s connecticut": "كونيتيكت عقد 1830",
-    "1830s delaware": "ديلاوير عقد 1830",
-    "1830s georgia (u.s. state)": "ولاية جورجيا عقد 1830",
-    "1830s indiana": "إنديانا عقد 1830",
-    "1830s iowa territory": "إقليم آيوا عقد 1830",
-    "1830s iowa": "آيوا عقد 1830",
-    "1830s kentucky": "كنتاكي عقد 1830",
-    "1830s louisiana": "لويزيانا عقد 1830",
-    "1830s maine": "مين عقد 1830",
-    "1830s maryland": "ماريلند عقد 1830",
-    "1830s massachusetts": "ماساتشوستس عقد 1830",
-    "1830s michigan": "ميشيغان عقد 1830",
-    "1830s minnesota territory": "إقليم منيسوتا عقد 1830",
-    "1830s mississippi territory": "إقليم مسيسيبي عقد 1830",
-    "1830s mississippi": "مسيسيبي عقد 1830",
-    "1830s missouri": "ميزوري عقد 1830",
-    "1830s new hampshire": "نيوهامشير عقد 1830",
-    "1830s new jersey": "نيوجيرسي عقد 1830",
-    "1830s new york (state)": "ولاية نيويورك عقد 1830",
-    "1830s north carolina": "كارولاينا الشمالية عقد 1830",
-    "1830s ohio": "أوهايو عقد 1830",
-    "1830s pennsylvania": "بنسلفانيا عقد 1830",
-    "1830s rhode island": "رود آيلاند عقد 1830",
-    "1830s south carolina": "كارولاينا الجنوبية عقد 1830",
-    "1830s tennessee": "تينيسي عقد 1830",
-    "1830s vermont": "فيرمونت عقد 1830",
-    "1830s virginia": "فرجينيا عقد 1830",
-    "1830s wisconsin territory": "إقليم ويسكونسن عقد 1830",
-    "1830s wisconsin": "ويسكونسن عقد 1830",
+    "1830 wisconsin territory": "إقليم ويسكونسن 1830"
 }
 
 
@@ -110,3 +76,17 @@ event_Lab_seoo_data = {
 def test_event_Lab_seoo_data(category: str, expected_key: str) -> None:
     label = event_label_work(category)
     assert label == expected_key
+
+
+to_test = [
+    ("test_lab_seoo_bot_1", event_Lab_seoo_data),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_peoples(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, event_label_work)
+    dump_same_and_not_same(data, diff_result, name)
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
