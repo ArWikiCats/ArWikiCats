@@ -192,9 +192,9 @@ def new_func_mk2(
     Returns:
         tuple: A tuple containing the modified `cat_test` and `arlabel`.
     """
-
     cat_test = cat_test.replace(country, "")
 
+    return cat_test, ""
     arlabel = " ".join(arlabel.strip().split())
     suf = f" {suf.strip()} " if suf else " "
     arlabel2 = arlabel
