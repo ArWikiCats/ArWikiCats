@@ -60,6 +60,7 @@ class FormatDataDoubleV2(FormatDataBase):
         splitter: str = " ",
         ar_joiner: str = " ",
         sort_ar_labels: bool = False,
+        log_multi_cache: bool = True,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(
@@ -69,6 +70,7 @@ class FormatDataDoubleV2(FormatDataBase):
             text_after=text_after,
             text_before=text_before,
         )
+        self.log_multi_cache = log_multi_cache
         self.sort_ar_labels = sort_ar_labels
         self.keys_to_split = {}
         self.put_label_last = {}
@@ -222,8 +224,8 @@ class FormatDataDoubleV2(FormatDataBase):
                     labels_sorted = sorted([first_lab, second_lab])
                     label = self.ar_joiner.join(labels_sorted)
                 compound_data[key] = label
-
-        self.search_multi_cache[f"{part2} {part1}"] = compound_data
+        if self.log_multi_cache:
+            self.search_multi_cache[f"{part2} {part1}"] = compound_data
 
         return compound_data
 
