@@ -98,6 +98,8 @@ def _load_all_country_labels_v1() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def double_bot_v1() -> FormatDataDouble:
+    """
+    """
     all_country_labels = _load_all_country_labels_v1()
     _bot = FormatDataDouble(
         formatted_data=formatted_data_v1,
@@ -114,6 +116,8 @@ def double_bot_v1() -> FormatDataDouble:
 
 @functools.lru_cache(maxsize=1)
 def double_bot_v2() -> FormatDataDoubleV2:
+    """
+    """
     all_country_labels = _load_all_country_labels_v2()
     _bot = FormatDataDoubleV2(
         formatted_data=formatted_data_v2,
