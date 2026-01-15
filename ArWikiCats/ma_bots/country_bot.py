@@ -10,7 +10,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps import logger
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
-from ..make_bots.films_and_others_bot import te_films
+from ..old_bots.films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
@@ -20,7 +20,7 @@ from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 
 from ..new_resolvers.reslove_all import new_resolvers_all
 
-from ..time_resolvers import with_years_bot
+from ..old_bots import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,

@@ -10,8 +10,8 @@ from ..helps import logger
 from ..ma_bots import ye_ts_bot
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..ma_bots.lab_seoo_bot import event_label_work
-from ..make_bots import tmp_bot
-from ..make_bots.films_and_others_bot import te_films
+from ..old_bots import tmp_bot
+from ..old_bots.films_and_others_bot import te_films
 from ..make_bots.format_bots import change_cat
 from ..make_bots.format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18

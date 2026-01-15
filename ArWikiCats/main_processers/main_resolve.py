@@ -9,10 +9,10 @@ from dataclasses import dataclass
 import re
 
 from ..patterns_resolvers import nat_men_pattern
-from ..time_resolvers import with_years_bot
+from ..old_bots import with_years_bot
 from ..make_bots.o_bots import univer
 from ..ma_bots.country_bot import event2_d2
-from . import event_lab_bot, event2_stubs
+from . import event_lab_bot
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
@@ -107,7 +107,6 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
                 or event2_d2(changed_cat)
                 or with_years_bot.Try_With_Years2(changed_cat)
                 or label_for_startwith_year_or_typeo(changed_cat)
-                or event2_stubs.stubs_label(changed_cat)
                 or ""
             )
 

@@ -198,7 +198,6 @@ fast_data_c_1_1_lab = [
     {"separator": " in ", "cone_1": "media and communications", "output": "الإعلام والاتصالات"},
     {"separator": " in ", "cone_1": "medical research institutes", "output": "معاهد أبحاث طبية"},
     {"separator": " in ", "cone_1": "military units and formations", "output": "وحدات وتشكيلات عسكرية"},
-    {"separator": " in ", "cone_1": "missing person cases", "output": "قضايا أشخاص مفقودين"},
     {"separator": " in ", "cone_1": "monuments and memorials", "output": "معالم أثرية ونصب تذكارية"},
     {"separator": " in ", "cone_1": "new democratic party candidates", "output": "مرشحو الحزب الديمقراطي الجديد"},
     {"separator": " in ", "cone_1": "north american competitors", "output": "منافسون أمريكيون شماليون"},

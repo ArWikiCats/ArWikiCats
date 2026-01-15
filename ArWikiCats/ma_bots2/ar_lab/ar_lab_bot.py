@@ -11,7 +11,6 @@ from typing import Tuple
 from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
-from ...main_processers import event2_stubs
 from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
@@ -22,7 +21,7 @@ from ...make_bots.matables_bots.bot import (
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
-from ...time_resolvers import with_years_bot
+from ...old_bots import with_years_bot
 from ...translations import pop_of_without_in
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .lab import (
@@ -237,7 +236,6 @@ def wrap_event2(category: str, separator: str = "") -> str:
         or event2_d2(category)
         or with_years_bot.Try_With_Years2(category)
         or label_for_startwith_year_or_typeo(category)
-        or event2_stubs.stubs_label(category)
         or ""
     )
     return result

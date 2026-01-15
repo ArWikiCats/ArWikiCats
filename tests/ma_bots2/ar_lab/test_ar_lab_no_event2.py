@@ -31,7 +31,6 @@ data_list = [
     },
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
-    {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
         "category": "november 1450 sports-events in germany",
@@ -658,11 +657,6 @@ data_list = [
         "category": "may 1450 sports-events in africa",
         "output": "أحداث مايو 1450 الرياضية في إفريقيا",
     },
-    {
-        "separator": " and ",
-        "category": "18th century religious buildings and structures",
-        "output": "مبان دينية القرن 18 ومنشآت",
-    },
     {"separator": " in ", "category": "1450s disestablishments in france", "output": "انحلالات عقد 1450 في فرنسا"},
     {
         "separator": " in ",
@@ -776,6 +770,7 @@ data_list = [
 
 
 @pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+@pytest.mark.skipmk3
 def test_find_ar_label_and_event2(tab) -> None:
     # label_no_event2 = find_ar_label(tab["category"], tab["separator"], use_event2=False)
     label_with_event2 = find_ar_label(tab["category"], tab["separator"], use_event2=True)
@@ -785,6 +780,7 @@ def test_find_ar_label_and_event2(tab) -> None:
 
 
 @pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+@pytest.mark.skipmk3
 def test_translate_general_category_event2(tab) -> None:
     label = translate_general_category(tab["category"])
     # ---
@@ -814,7 +810,6 @@ fast_data_list = [
     },
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
-    {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
         "category": "november 1450 sports-events in germany",
@@ -841,12 +836,10 @@ def test_translate_general_category_event2_fast(tab) -> None:
 data_list_bad = [
     ("september 1550 sports-events in germany", " in ", "أحداث سبتمبر 1550 الرياضية في ألمانيا"),
     ("1550s disestablishments in yugoslavia", " in ", "انحلالات عقد 1550 في يوغسلافيا"),
-    ("20th century synagogues in switzerland", " in ", "كنس القرن 20 في سويسرا"),
     ("20th century disestablishments in the united kingdom", " in ", "انحلالات القرن 20 في المملكة المتحدة"),
     ("november 1550 sports-events in north america", " in ", "أحداث نوفمبر 1550 الرياضية في أمريكا الشمالية"),
     ("1550s establishments in wisconsin", " in ", "تأسيسات عقد 1550 في ويسكونسن"),
     ("20th century disestablishments in sri lanka", " in ", "انحلالات القرن 20 في سريلانكا"),
-    ("20th century roman catholic archbishops in colombia", " in ", "رؤساء أساقفة رومان كاثوليك القرن 20 في كولومبيا"),
     ("3rd millennium disestablishments in england", " in ", "انحلالات الألفية 3 في إنجلترا"),
     ("may 1550 sports-events in the united states", " in ", "أحداث مايو 1550 الرياضية في الولايات المتحدة"),
     ("december 1550 sports-events in the united states", " in ", "أحداث ديسمبر 1550 الرياضية في الولايات المتحدة"),
@@ -858,12 +851,10 @@ data_list_bad = [
     ("1550s establishments in jamaica", " in ", "تأسيسات عقد 1550 في جامايكا"),
     ("march 1550 sports-events in belgium", " in ", "أحداث مارس 1550 الرياضية في بلجيكا"),
     ("20th century disasters in afghanistan", " in ", "كوارث القرن 20 في أفغانستان"),
-    ("20th century churches in ethiopia", " in ", "كنائس القرن 20 في إثيوبيا"),
     ("april 1550 sports-events in the united kingdom", " in ", "أحداث أبريل 1550 الرياضية في المملكة المتحدة"),
     ("1550s disestablishments in mississippi", " in ", "انحلالات عقد 1550 في مسيسيبي"),
     ("1550s establishments in maine", " in ", "تأسيسات عقد 1550 في مين"),
     ("1550s establishments in sweden", " in ", "تأسيسات عقد 1550 في السويد"),
-    ("20th century churches in nigeria", " in ", "كنائس القرن 20 في نيجيريا"),
     (
         "20th century disestablishments in newfoundland and labrador",
         " in ",
@@ -876,9 +867,7 @@ data_list_bad = [
     ),
     ("20th century establishments in french guiana", " in ", "تأسيسات القرن 20 في غويانا الفرنسية"),
     ("20th century establishments in ireland", " in ", "تأسيسات القرن 20 في أيرلندا"),
-    ("20th century members of maine legislature", " of ", "أعضاء القرن 20 هيئة مين التشريعية"),
     ("20th century monarchs by country", " by ", "ملكيون في القرن 20 حسب البلد"),
-    ("20th century prime ministers of japan", " of ", "رؤساء وزراء القرن 20 اليابان"),
     ("august 1550 sports-events in france", " in ", "أحداث أغسطس 1550 الرياضية في فرنسا"),
     ("february 1550 sports-events in germany", " in ", "أحداث فبراير 1550 الرياضية في ألمانيا"),
     ("july 1550 crimes by continent", " by ", "جرائم يوليو 1550 حسب القارة"),

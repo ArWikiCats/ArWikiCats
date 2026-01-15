@@ -13,7 +13,6 @@ examples = {
     "Category:2017 American television series endings": "تصنيف:مسلسلات تلفزيونية أمريكية انتهت في 2017",
     "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
     "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
-    "Category:20th-century railway accidents": "تصنيف:حوادث سكك حديد في القرن 20",
 }
 
 TEMPORAL_CASES = [

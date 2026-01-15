@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.tmp_bot import Work_Templates
+from ArWikiCats.old_bots.tmp_bot import Work_Templates
 
 
 def test_work_templates() -> None:

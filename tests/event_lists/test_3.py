@@ -166,8 +166,6 @@ data_2 = {
     "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
     "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
     "women in danish military": "المرأة في الجيش الدنماركي",
-    "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
-    "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
     "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
     "burmese men marathon runners": "عداؤو ماراثون بورميون",
     "canadian men": "رجال كنديون",

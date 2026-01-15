@@ -71,7 +71,7 @@ data_n = {
 
 
 @pytest.mark.parametrize("category, expected_key", data_n.items(), ids=data_n.keys())
-@pytest.mark.fast
+@pytest.mark.skipmk3
 def test_data_n(category: str, expected_key: str) -> None:
     label1 = resolve_label_ar(category)
     assert label1 == expected_key

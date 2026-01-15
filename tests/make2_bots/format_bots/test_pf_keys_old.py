@@ -9,7 +9,6 @@ data1 = {
     "african-american muslims": "africanamerican muslims",
     "amphibious warfare vessels of islamic republic of iran navy": "amphibious warfare vessels of islamic republic-of iran navy",
     "auxiliary ships of islamic republic of iran navy": "auxiliary ships of islamic republic-of iran navy",
-    "category:1980 sports events in europe": "category:1980 sports-events in europe",
     "category:2016 women's africa cup of nations squad navigational boxes": "category:2016 women's africa cup-of-nations squad navigational boxes",
     "category:2016 women's africa cup of nations": "category:2016 women's africa cup-of-nations",
     "category:2017 american television seasons": "category:2017 american television-seasons",

@@ -4,45 +4,23 @@
 """
 
 import functools
-import re
-
-from ..fix import fixtitle
 from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
-from ..main_processers import event2_stubs
-from ..make_bots.films_and_others_bot import te_films
+from ..old_bots.films_and_others_bot import te_films
 from ..make_bots.languages_bot.langs_w import Lang_work
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 
 from ..new_resolvers.reslove_all import new_resolvers_all
 
-from ..time_resolvers import with_years_bot
+from ..old_bots import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from . import ye_ts_bot
-
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
-
-
-def te_bot_3(category_key: str) -> str:
-    """Return cached category labels when available in ``New_Lan``."""
-    arabic_label = New_Lan.get(category_key.lower(), "")
-
-    if arabic_label:
-        logger.info("<<lightblue>>>> vvvvvvvvvvvv te_bot_3 start vvvvvvvvvvvv ")
-        logger.info(f'<<lightyellow>>>>>>  {category_key}", labs :"{arabic_label}"')
-        if re.sub(en_literes, "", arabic_label, flags=re.IGNORECASE) == arabic_label:
-            normalized_label = f"تصنيف:{fixtitle.fixlabel(arabic_label, en=category_key)}"
-            logger.info(f'>>>>>> <<lightyellow>> te_bot_3: cat:"{category_key}", labs:"{normalized_label}"')
-            logger.info("<<lightblue>>>> ^^^^^^^^^ te_bot_3 end ^^^^^^^^^ ")
-            return normalized_label
-    return ""
 
 
 @functools.lru_cache(maxsize=None)
@@ -79,7 +57,6 @@ def event_label_work(target_category: str) -> str:
         or event2_d2(normalized_target_category)
         or with_years_bot.Try_With_Years2(normalized_target_category)
         or bot_lab.label_for_startwith_year_or_typeo(normalized_target_category)
-        or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or new_resolvers_all(normalized_target_category)
@@ -90,7 +67,6 @@ def event_label_work(target_category: str) -> str:
         or te_films(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
-        or te_bot_3(normalized_target_category)
         or ""
     )
 

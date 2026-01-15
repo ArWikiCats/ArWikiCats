@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.time_resolvers.with_years_bot import Try_With_Years
+from ArWikiCats.old_bots.with_years_bot import Try_With_Years
 
 # from ArWikiCats.make_bots.date_bots import with_years_bot
 

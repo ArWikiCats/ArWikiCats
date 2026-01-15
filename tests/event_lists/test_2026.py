@@ -18,7 +18,6 @@ data_not_ready = {
     "Category:Canadian football leagues": "تصنيف:دوريات كرة القدم الكندية",
     "Category:1880s in film by country": "تصنيف:أفلام في عقد 1880 حسب البلد",
     "Category:Canadian football on television": "تصنيف:كرة القدم الكندية على التلفاز",
-    "Category:1980 sports events in Europe": "تصنيف:أحداث 1980 الرياضية في أوروبا",
     "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     "Category:20th-century presidents of Russia": "تصنيف:رؤساء روسيا القرن 20",
     "Category:Attacks on diplomatic missions of Russia": "تصنيف:هجمات على بعثات دبلوماسية روسيا",

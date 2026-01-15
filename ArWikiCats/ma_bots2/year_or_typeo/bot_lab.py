@@ -12,13 +12,12 @@ from ...helps import logger
 from ...ma_bots.country_bot import get_country
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
+from ...make_bots.matables_bots.bot import Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens, typeTable
 from ...utils import check_key_in_tables
-from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
 
@@ -55,11 +54,6 @@ def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> No
         ar = f"{typeo_lab} {country_label}"
     else:
         ar = f"{country_label} {typeo_lab}"
-
-    New_Lan[category_r.lower()] = ar
-
-    logger.info(f'>>>> <<lightyellow>> {typeo_lab=}, cnt_la "{country_label}"')
-    logger.info(f'>>>> <<lightyellow>> New_Lan[{category_r}] = "{ar}" ')
 
 
 class LabelForStartWithYearOrTypeo:
@@ -264,16 +258,6 @@ class LabelForStartWithYearOrTypeo:
         self.NoLab = True
 
     # ----------------------------------------------------
-    # 7 — APPLY FALLBACKS
-    # ----------------------------------------------------
-
-    def apply_fallbacks(self) -> None:
-        """Run backup labeling logic when primary processing fails."""
-        if self.NoLab and self.cat_test == "":
-            if self.country_label and self.typeo_lab and not self.year_at_first and self.In == "":
-                do_ar(self.typeo, self.country_label, self.typeo_lab, self.category_r)
-
-    # ----------------------------------------------------
     # 8 — FINALIZE
     # ----------------------------------------------------
 
@@ -305,12 +289,6 @@ class LabelForStartWithYearOrTypeo:
 
         logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
 
-        # special 2019 handler
-        if self.NoLab and self.year_at_first and self.year_labe:
-            cat4_lab = work_2019(self.cate3, self.year_at_first, self.year_labe)
-            if cat4_lab:
-                New_Lan[self.category_r.lower()] = cat4_lab
-
         if not self.NoLab:
             if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", self.arlabel, flags=re.IGNORECASE) == self.arlabel:
                 self.arlabel = fixtitle.fixlabel(self.arlabel, en=self.category_r)
@@ -339,7 +317,6 @@ class LabelForStartWithYearOrTypeo:
         self.handle_year()
         self.handle_relation_mapping()
         self.apply_label_rules()
-        self.apply_fallbacks()
 
         return self.finalize()
 
