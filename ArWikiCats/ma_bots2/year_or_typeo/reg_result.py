@@ -2,7 +2,7 @@ import functools
 import re
 from dataclasses import dataclass
 
-from ...make_bots.format_bots import category_relation_mapping
+from ...make_bots.format_bots.relation_mapping import category_relation_mapping
 from ...translations.type_tables import basedtypeTable
 
 

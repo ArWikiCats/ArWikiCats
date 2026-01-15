@@ -15,7 +15,9 @@ from ...helps import logger
 from ...translations import (
     countries_from_nat,
 )
-from ..format_bots import category_relation_mapping, pop_format
+from ..format_bots.relation_mapping import category_relation_mapping
+from ..format_bots import pop_format
+
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 countries_from_nat_sorted = dict(

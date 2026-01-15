@@ -10,7 +10,7 @@ import re
 from ...fix import fixtitle
 from ...helps import logger
 from ...ma_bots.country_bot import get_country
-from ...make_bots.format_bots import category_relation_mapping
+from ...make_bots.format_bots.relation_mapping import category_relation_mapping
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
 from ...make_bots.matables_bots.check_bot import check_key_new_players

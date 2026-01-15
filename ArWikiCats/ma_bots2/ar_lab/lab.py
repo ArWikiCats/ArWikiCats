@@ -13,9 +13,6 @@ from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.films_and_others_bot import te_films
-from ...make_bots.format_bots import (
-    for_table,
-)
 from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.o_bots import bys
@@ -404,6 +401,12 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
     Returns:
         Dictionary of lookup functions to try in order
     """
+
+    for_table = {
+        "for national teams": "للمنتخبات الوطنية",
+        "for member-of-parliament": "لعضوية البرلمان",
+    }
+
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),

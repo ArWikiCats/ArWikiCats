@@ -6,7 +6,6 @@ Usage:
 import re
 
 from ...helps import logger
-from ...make_bots.format_bots import ar_label_before_year_to_add_in
 from ...make_bots.matables_bots.bot import (
     Films_O_TT,
     Table_for_frist_word,
@@ -33,6 +32,14 @@ country_before_year = [
     "nuclear history",
     "military history",
     "military alliances",
+]
+
+
+ar_label_before_year_to_add_in = [
+    # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
+    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
+    "كتاب بأسماء مستعارة",
+    "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
 
 

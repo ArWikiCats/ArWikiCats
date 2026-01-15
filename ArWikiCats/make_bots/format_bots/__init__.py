@@ -7,7 +7,6 @@ import re
 
 from ...helps import logger
 from .pf_keys import change_key_mappings_replacements
-from .relation_mapping import category_relation_mapping
 
 # Precompiled Regex Patterns
 REGEX_SUB_WHITESPACE = re.compile(r"[\s\t]+", re.IGNORECASE)
@@ -34,23 +33,6 @@ REGEX_SUB_PERCENT27 = re.compile(r"\%27", re.IGNORECASE)
 REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
-
-for_table = {
-    "for national teams": "للمنتخبات الوطنية",
-    "for member-of-parliament": "لعضوية البرلمان",
-}
-
-Dont_Add_min = [
-    "women of",
-    "founders of",
-]
-
-ar_label_before_year_to_add_in = [
-    # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
-    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
-    "كتاب بأسماء مستعارة",
-    "بطولات اتحاد رجبي للمنتخبات الوطنية",
-]
 
 pop_format = {
     "prehistory of": "{} ما قبل التاريخ",
@@ -105,7 +87,7 @@ pop_format = {
     "motorcycle grand prix": "جائزة {} الكبرى للدراجات النارية",
     # "law" : "قانون {}" ,
 }
-# ---
+
 
 replaces = {
     "election, ": "election ",
@@ -210,10 +192,6 @@ def change_cat(cat_orginal: str) -> str:
 
 
 __all__ = [
-    "Dont_Add_min",
-    "category_relation_mapping",
-    "ar_label_before_year_to_add_in",
     "change_cat",
-    "for_table",
     "pop_format",
 ]

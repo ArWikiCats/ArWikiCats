@@ -12,12 +12,8 @@ from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...main_processers import event2_stubs
-from ...make_bots.format_bots import (
-    Dont_Add_min,
-    category_relation_mapping,
-    for_table,
-    pop_format,
-)
+from ...make_bots.format_bots.relation_mapping import category_relation_mapping
+from ...make_bots.format_bots import pop_format
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import (
     Add_ar_in,
@@ -338,6 +334,11 @@ class Fixing:
                     if p18lab and p18lab == self.country_label:
                         tatl = ""
 
+                for_table = {
+                    "for national teams": "للمنتخبات الوطنية",
+                    "for member-of-parliament": "لعضوية البرلمان",
+                }
+
                 if self.country_lower in for_table:
                     tatl = ""
 
@@ -451,10 +452,16 @@ class LabelPipeline(Fixing):
 
     def refine_type_label(self) -> None:
         """Refines the type label with prepositions."""
+
+        excluded_type_labels_from_min = [
+            "women of",
+            "founders of",
+        ]
+
         if self.add_in_lab:
             self.type_label = separator_lists_fixing(self.type_label, self.separator_stripped, self.type_lower)
-            if self.type_lower in Dont_Add_min:
-                logger.info(f'>>>> type_lower "{self.type_lower}" in Dont_Add_min ')
+            if self.type_lower in excluded_type_labels_from_min:
+                logger.info(f'>>>> type_lower "{self.type_lower}" in excluded_type_labels_from_min ')
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.separator_stripped)
 
