@@ -4,26 +4,7 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_label_ar
 
-fast_data_1 = {}
-
-fast_data_2 = {
-    "Sports events cancelled due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث الغزو الروسي لأوكرانيا الرياضة",
-    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events curtailed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events in Africa": "أحداث إفريقيا الرياضة",
-    "Sports events in Asia": "أحداث آسيا الرياضة",
-    "Sports events in Attica": "أحداث أتيكا الرياضة",
-    "Sports events in Bucharest": "أحداث بوخارست الرياضة",
-    "Sports events in Cardiff": "أحداث كارديف الرياضة",
-    "Sports events in Central Macedonia": "أحداث إقليم مقدونيا الوسطى الرياضة",
-    "Sports events in Europe": "أحداث أوروبا الرياضة",
-    "Sports events in North America": "أحداث أمريكا الشمالية الرياضة",
-    "Sports events in Oceania": "أحداث أوقيانوسيا الرياضة",
-    "Sports events in Ponce, Puerto Rico": "أحداث بونس، بورتوريكو الرياضة",
-    "Sports events in South America": "أحداث أمريكا الجنوبية الرياضة",
-    "Sports events in Western Greece": "أحداث غرب اليونان الرياضة",
-    "Sports events postponed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
+fast_data_1 = {
     "April 2020 sports events France": "",
     "ASEAN sports events": "",
     "Cancelled sports events": "",
@@ -48,6 +29,26 @@ fast_data_2 = {
     "Sports events music": "",
     "Sports events official songs and anthems": "",
     "Wikipedia categories named after sports events": ""
+}
+
+fast_data_2 = {
+    "Sports events cancelled due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
+    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث الغزو الروسي لأوكرانيا الرياضة",
+    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
+    "Sports events curtailed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
+    "Sports events in Africa": "أحداث إفريقيا الرياضة",
+    "Sports events in Asia": "أحداث آسيا الرياضة",
+    "Sports events in Attica": "أحداث أتيكا الرياضة",
+    "Sports events in Bucharest": "أحداث بوخارست الرياضة",
+    "Sports events in Cardiff": "أحداث كارديف الرياضة",
+    "Sports events in Central Macedonia": "أحداث إقليم مقدونيا الوسطى الرياضة",
+    "Sports events in Europe": "أحداث أوروبا الرياضة",
+    "Sports events in North America": "أحداث أمريكا الشمالية الرياضة",
+    "Sports events in Oceania": "أحداث أوقيانوسيا الرياضة",
+    "Sports events in Ponce, Puerto Rico": "أحداث بونس، بورتوريكو الرياضة",
+    "Sports events in South America": "أحداث أمريكا الجنوبية الرياضة",
+    "Sports events in Western Greece": "أحداث غرب اليونان الرياضة",
+    "Sports events postponed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
 
 }
 
@@ -81,17 +82,9 @@ fast_data_3 = {
 }
 
 to_test = [
-    ("test_sports_events_1", fast_data_1),
     ("test_sports_events_2", fast_data_2),
     ("test_sports_events_3", fast_data_3),
 ]
-
-
-@pytest.mark.parametrize("category, expected", fast_data_1.items(), ids=fast_data_1.keys())
-@pytest.mark.fast
-def test_2_fast_data(category: str, expected: str) -> None:
-    label = resolve_label_ar(category)
-    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=fast_data_2.keys())
