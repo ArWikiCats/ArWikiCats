@@ -452,6 +452,10 @@ test_same = {
 }
 
 big_data2 = {
+    "spanish american wars": "الحروب الأمريكية الإسبانية",
+    "jewish roman wars": "الحروب الرومانية اليهودية",
+    "jewish-roman wars": "الحروب الرومانية اليهودية",
+    "Jewish-Roman wars": "الحروب الرومانية اليهودية",
     "cambodian–vietnamese war": "الحرب الفيتنامية الكمبودية",
     "chadian–libyan war": "الحرب التشادية الليبية",
     "dutch–portuguese war": "الحرب البرتغالية الهولندية",
