@@ -73,7 +73,7 @@ from .tv.films_mslslat import (
     films_mslslat_tab,
     television_keys,
 )
-from .type_tables import typeTable, olympic_event_translations_type_tables
+from .type_tables import typeTable
 from .utils import apply_pattern_replacements
 from .utils.json_dir import open_json_file
 from .utils.match_sport_keys import match_sport_key
@@ -87,7 +87,6 @@ __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "apply_pattern_replacements",
     "typeTable",
-    "olympic_event_translations_type_tables",
     "match_sport_key",
     "en_nats_to_ar_label",
     "CITY_TRANSLATIONS_LOWER",

@@ -16,7 +16,7 @@ from ...make_bots.matables_bots.bot import Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
-from ...translations import Nat_mens, typeTable, olympic_event_translations_type_tables
+from ...translations import Nat_mens, typeTable
 from ...utils import check_key_in_tables
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
@@ -46,7 +46,7 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
 def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> None:
     """Store an Arabic label assembled from type and country components."""
     in_tables_lowers = check_key_new_players(typeo.lower())
-    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable, olympic_event_translations_type_tables])
+    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
 
     if typeo in type_after_country:
         ar = f"{country_label} {typeo_lab}"
@@ -119,7 +119,7 @@ class LabelForStartWithYearOrTypeo:
         """Translate the type portion of the category when available."""
         if not self.typeo:
             return
-        in_ty = typeTable.get(self.typeo) or olympic_event_translations_type_tables.get(self.typeo)
+        in_ty = typeTable.get(self.typeo)
         if in_ty:
             self.typeo_lab = in_ty["ar"]
             logger.info(f'a<<lightblue>>>>>> {self.typeo=} in typeTable "{self.typeo_lab}"')

@@ -25,7 +25,7 @@ from ...new_resolvers.bys_new import resolve_by_labels
 
 from ...old_bots import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
-from ...translations import get_from_pf_keys2, typeTable, olympic_event_translations_type_tables
+from ...translations import get_from_pf_keys2, typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .utils import split_text_by_separator
 
@@ -196,7 +196,6 @@ def make_cnt_lab(
     in_players = check_key_new_players(part_1_normalized.lower())
 
     to_check_them_tuble = {
-        "olympic_event_translations_type_tables": olympic_event_translations_type_tables,
         "typeTable": typeTable,
         "Films_O_TT": Films_O_TT,
     }

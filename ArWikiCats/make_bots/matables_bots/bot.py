@@ -9,7 +9,7 @@ from ...translations import (
     ALBUMS_TYPE,
     Jobs_new,
     typeTable,
-    olympic_event_translations_type_tables,
+    ,
 )
 
 olympic_event_translations: dict[str, str] = {
@@ -391,7 +391,6 @@ All_P17 = {}
 Films_O_TT = {}
 
 Table_for_frist_word = {
-    "olympic_event_translations_type_tables": olympic_event_translations_type_tables,
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
     "New_players": players_new_keys,

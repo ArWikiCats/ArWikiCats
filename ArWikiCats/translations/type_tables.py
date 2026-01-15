@@ -262,8 +262,6 @@ type_table_television_keys = {
 
 type_Table_no.update(type_table_television_keys)
 
-olympic_type_tables = {}
-
 type_table_labels = type_Table_no | basedtypeTable
 
 type_Table_oo = {
@@ -278,8 +276,6 @@ type_Table_oo = {
 
 type_table_labels.update(type_Table_oo)
 
-olympic_event_translations_type_tables = {x: {"ar": v} for x, v in olympic_type_tables.items()}
-
 typeTable = {x: {"ar": v} for x, v in type_table_labels.items()}
 
 typeTable.update(
@@ -292,14 +288,12 @@ typeTable.update(
 __all__ = [
     "typeTable",
     "basedtypeTable",
-    "olympic_event_translations_type_tables",
 ]
 
 len_print.data_len(
     "type_tables.py",
     {
         "type_table_television_keys": type_table_television_keys,
-        "olympic_event_translations_type_tables": olympic_event_translations_type_tables,
         "typeTable": typeTable,
     },
 )
