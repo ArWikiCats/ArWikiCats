@@ -53,9 +53,13 @@ class FormatDataDouble(FormatDataBase):
         pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
+        >>> data_list = {
+        ...     "action": "أكشن",
+        ...     "drama": "دراما",
+        ... }
         >>> bot = FormatDataDouble(
         ...     formatted_data={"{genre} films": "أفلام {genre_label}"},
-        ...     data_list={"action": "أكشن", "drama": "دراما"},
+        ...     data_list=data_list,
         ...     key_placeholder="{genre}",
         ...     value_placeholder="{genre_label}",
         ... )
@@ -174,6 +178,7 @@ class FormatDataDouble(FormatDataBase):
         if self.sort_ar_labels:
             labels_sorted = sorted([first_label, second_label])
             label = " ".join(labels_sorted)
+
         self.search_multi_cache[f"{part2} {part1}"] = label
 
         return label

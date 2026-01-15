@@ -214,7 +214,7 @@ class FormatDataBase:
     def get_template(self, sport_key: str, category: str) -> str:
         """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
-        logger.debug(f"normalized xoxo : {normalized=}")
+        logger.debug(f"[] get_template:  : {normalized=}")
         # Case-insensitive key lookup
         return self.formatted_data_ci.get(normalized.lower(), "")
 
@@ -264,7 +264,7 @@ class FormatDataBase:
             return ""
 
         result = self.apply_pattern_replacement(template_label, sport_label)
-        logger.debug(f" {result=}")
+        logger.debug(f"[] apply_pattern_replacement: {result=}")
 
         logger.debug(f"++++++++ end {self.__class__.__name__} ++++++++ ")
 
