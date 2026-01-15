@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-TODO: replace rele.py with countries_names_double_v2.py and nationalities_double_v2.py resolvers.
 """
 import functools
 

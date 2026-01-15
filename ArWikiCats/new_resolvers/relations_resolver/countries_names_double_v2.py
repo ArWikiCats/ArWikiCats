@@ -3,7 +3,6 @@
 This resolver uses two different formatting data sets to resolve
 categories that mention relations/conflicts between two countries.
 
-TODO: replace rele.py with countries_names_double_v2.py and nationalities_double_v2.py resolvers.
 """
 import functools
 
