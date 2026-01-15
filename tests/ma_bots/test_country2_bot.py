@@ -70,6 +70,7 @@ data_slow = {
     "people from santa fe province": "أشخاص من محافظة سانتا في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
+
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
     "baseball players from maine": "لاعبو كرة قاعدة من مين",
     "basketball competitions": "منافسات كرة سلة",
@@ -198,7 +199,7 @@ data_slow = {
     "figure skating people": "أعلام تزلج فني",
     "figure skating": "التزلج الفني",
     "films about automobiles": "أفلام عن سيارات",
-    "films about chinese canadians": "أفلام عن كنديون صينيون",
+    "films about chinese canadians": "أفلام عن صينيون كنديون",
     "films about higher education": "أفلام عن تعليم عال",
     "films about lizards": "أفلام عن سحالي",
     "films about olympic boxing": "أفلام عن بوكسينغ أولمبي",
