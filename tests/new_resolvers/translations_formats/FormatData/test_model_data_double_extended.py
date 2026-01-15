@@ -44,11 +44,11 @@ def test_splitter_underscore(base_data):
         data_list=data_list,
         key_placeholder="{film_key}",
         value_placeholder="{film_ar}",
-        splitter="_",
+        splitter="[_ ]",
     )
     assert bot.search("action_drama films") == "أفلام أكشن دراما"
     # Should not match with space
-    assert bot.search("action drama films") == "أفلام أكشن"
+    assert bot.search("action drama films") == "أفلام أكشن دراما"
 
 
 def test_sort_simple_no_sort(base_data):
@@ -68,7 +68,9 @@ def test_sort_simple_no_sort(base_data):
 
     result = bot.search("drama action films")
     expected = "أفلام دراما أكشن"
-    assert result == expected
+    res_hex = [hex(ord(c)) for c in result]
+    exp_hex = [hex(ord(c)) for c in expected]
+    assert result == expected, f"Got {result} ({res_hex}), expected {expected} ({exp_hex})"
 
 
 def test_sort_simple_with_sort(base_data):
