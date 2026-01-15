@@ -99,6 +99,12 @@ def _load_all_country_labels_v1() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def double_bot_v1() -> FormatDataDouble:
     """
+    Create and return a cached FormatDataDouble instance for handling country names in English and Arabic.
+    This function loads all country labels using _load_all_country_labels_v1() and initializes a FormatDataDouble object
+    with predefined formatting parameters, including placeholders for English and Arabic labels, a splitter for parsing,
+    an Arabic joiner, and sorting of Arabic labels.
+    Returns:
+        FormatDataDouble: An instance configured for double-language country name processing.
     """
     all_country_labels = _load_all_country_labels_v1()
     _bot = FormatDataDouble(
@@ -117,6 +123,16 @@ def double_bot_v1() -> FormatDataDouble:
 @functools.lru_cache(maxsize=1)
 def double_bot_v2() -> FormatDataDoubleV2:
     """
+    Creates and returns a FormatDataDoubleV2 instance configured for processing country names.
+    This function loads all country labels using the internal helper function _load_all_country_labels_v2().
+    It then initializes a FormatDataDoubleV2 object with the following parameters:
+    - formatted_data: Set to formatted_data_v2 (presumably predefined formatted data).
+    - data_list: The list of all country labels loaded.
+    - key_placeholder: "{en}" for English placeholders.
+    - splitter: A regex pattern r"[ \-–]" to split on spaces, hyphens, or en dashes.
+    - sort_ar_labels: True to sort Arabic labels.
+    Returns:
+        FormatDataDoubleV2: An instance of FormatDataDoubleV2 configured for double-format processing of country names.
     """
     all_country_labels = _load_all_country_labels_v2()
     _bot = FormatDataDoubleV2(
@@ -144,6 +160,8 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_v1(category: str) -> str:
+    """
+    """
     logger.debug(f"<<yellow>> start resolve_v1: {category=}")
 
     all_country_labels = _load_all_country_labels_v1()
@@ -159,6 +177,8 @@ def resolve_v1(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_v2(category: str) -> str:
+    """
+    """
     logger.debug(f"<<yellow>> start resolve_v2: {category=}")
 
     nat_data = _load_all_country_labels_v2()
