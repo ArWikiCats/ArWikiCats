@@ -9,7 +9,7 @@ from typing import Pattern
 
 from ..helps import logger
 from ..ma_bots.ye_ts_bot import translate_general_category
-from ..make_bots.films_and_others_bot import te_films
+from .films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.data import Add_in_table
 from ..make_bots.matables_bots.table1_bot import get_KAKO

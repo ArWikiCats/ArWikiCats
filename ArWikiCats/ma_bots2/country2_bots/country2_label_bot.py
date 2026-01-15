@@ -9,7 +9,7 @@ from typing import Tuple
 
 from ...helps import logger
 from ...ma_bots import country_bot
-from ...make_bots.films_and_others_bot import te_films
+from ...old_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
@@ -23,7 +23,7 @@ from ...make_bots.sports_bots import sport_lab_suffixes, team_work
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.bys_new import resolve_by_labels
 
-from ...time_resolvers import with_years_bot
+from ...old_bots import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2, typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
