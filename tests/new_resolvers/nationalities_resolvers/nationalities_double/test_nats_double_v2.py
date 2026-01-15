@@ -10,6 +10,10 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
 
 male_tests = {
+    "Jewish music genres": "أنواع موسيقى يهودية",
+}
+
+male_tests = {
     "American people of South African-Jewish descent": "أمريكيون من أصل جنوب إفريقي يهودي",
     "British people of South African-Jewish descent": "بريطانيون من أصل جنوب إفريقي يهودي",
     "English people of South African-Jewish descent": "إنجليز من أصل جنوب إفريقي يهودي",
@@ -29,8 +33,7 @@ male_tests = {
     "South African-Jewish culture in Israel": "ثقافة جنوب إفريقية يهودية في إسرائيل",
     "South African-Jewish diaspora": "شتات جنوب إفريقي يهودي",
     "Hungarian Nazis executed for war crimes": "مجريون نازيون أعدموا بتهمة جرائم حرب",
-    "Antigua and Barbuda people of Russian-Jewish descent": "أنتيغويون وبربوديون من أصل يهودي روسي",
-    "Jewish music genres": "أنواع موسيقى يهودية",
+    "Antigua and Barbuda people of Russian-Jewish descent": "أنتيغويون وبربوديون من أصل روسي يهودي",
     "Israeli people of North African-Jewish descent": "إسرائيليون من أصل إفريقي شمالي يهودي",
     "North African-Jewish culture in Israel": "ثقافة إفريقية شمالية يهودية في إسرائيل",
     "North African-Jewish culture in the United States": "ثقافة إفريقية شمالية يهودية في الولايات المتحدة",
