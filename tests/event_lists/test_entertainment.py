@@ -85,7 +85,6 @@ entertainment_2 = {
 
 entertainment_3 = {
     "Category:Magical girl anime and manga": "تصنيف:أنمي ومانغا فتاة ساحرة",
-    "Category:Martial arts anime and manga": "تصنيف:أنمي ومانغا فنون قتالية",
     "Category:Mecha anime and manga": "تصنيف:أنمي ميكا",
     "Category:Musical films by genre": "تصنيف:أفلام موسيقية حسب النوع الفني",
     "Category:Mystery anime and manga": "تصنيف:أنمي ومانغا غموض",
