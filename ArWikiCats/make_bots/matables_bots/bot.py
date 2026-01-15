@@ -58,7 +58,6 @@ cash_2022 = {
     "category:ladies european tour golfers": "تصنيف:لاعبات بطولة أوروبا للغولف للسيدات",
 }
 # ---
-New_Lan = {}
 All_P17 = {}
 Films_O_TT = {}
 
@@ -109,5 +108,4 @@ __all__ = [
     "add_to_Films_O_TT",
     "All_P17",
     "Pp_Priffix",
-    "New_Lan",
 ]

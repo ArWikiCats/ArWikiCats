@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.lab_seoo_bot import event_label_work, te_bot_3
+from ArWikiCats.ma_bots2.year_or_typeo.dodo_2019 import work_2019_wrap
+from ArWikiCats.ma_bots.lab_seoo_bot import event_label_work
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",
@@ -147,5 +148,5 @@ te_bot_3_data = {
 @pytest.mark.parametrize("category, expected_key", te_bot_3_data.items(), ids=te_bot_3_data.keys())
 @pytest.mark.skip2("need more work")
 def test_te_bot_3_data(category: str, expected_key: str) -> None:
-    label = te_bot_3(category)
+    label = work_2019_wrap(category)
     assert label == expected_key
