@@ -107,7 +107,7 @@ class FormatDataDouble(FormatDataBase):
         if self.alternation is None:
             self.alternation = self.create_alternation()
 
-        data_pattern = rf"(?<!\w)({self.alternation}){self.splitter}({self.alternation})(?!\w)"
+        data_pattern = rf"(?<!\w)({self.alternation})({self.splitter})({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -128,11 +128,9 @@ class FormatDataDouble(FormatDataBase):
         match = self.pattern_double.search(f" {normalized_category} ")
         if match:
             first_key = match.group(1).lower()
-            second_key = match.group(2).lower()
-            result = f"{first_key} {second_key}"
-
-            if result not in normalized_category:
-                result = f"{first_key}-{second_key}"
+            splitter = match.group(2).lower()
+            second_key = match.group(3).lower()
+            result = f"{first_key}{splitter}{second_key}"
 
             logger.debug(f">!> match_key: {first_key=}, {second_key=}")
             logger.debug(f">!> match_key: {result=}")
