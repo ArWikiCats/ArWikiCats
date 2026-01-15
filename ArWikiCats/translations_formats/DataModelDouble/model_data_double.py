@@ -29,8 +29,8 @@ import functools
 import re
 from typing import Dict, Optional
 
-from ...helps import logger
-from .model_data_base import FormatDataBase
+from ..formats_logger import logger
+from ..DataModel.model_data_base import FormatDataBase
 
 
 class FormatDataDouble(FormatDataBase):
@@ -53,9 +53,13 @@ class FormatDataDouble(FormatDataBase):
         pattern_double (re.Pattern): Regex pattern for matching two adjacent keys.
 
     Example:
+        >>> data_list = {
+        ...     "action": "أكشن",
+        ...     "drama": "دراما",
+        ... }
         >>> bot = FormatDataDouble(
         ...     formatted_data={"{genre} films": "أفلام {genre_label}"},
-        ...     data_list={"action": "أكشن", "drama": "دراما"},
+        ...     data_list=data_list,
         ...     key_placeholder="{genre}",
         ...     value_placeholder="{genre_label}",
         ... )
@@ -71,6 +75,8 @@ class FormatDataDouble(FormatDataBase):
         value_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
+        splitter: str = " ",
+        sort_ar_labels: bool = False,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(
@@ -80,10 +86,12 @@ class FormatDataDouble(FormatDataBase):
             text_after=text_after,
             text_before=text_before,
         )
+        self.sort_ar_labels = sort_ar_labels
         self.value_placeholder = value_placeholder
         self.keys_to_split = {}
         self.put_label_last = {}
         self.search_multi_cache = {}
+        self.splitter = splitter or " "
 
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
@@ -103,7 +111,7 @@ class FormatDataDouble(FormatDataBase):
         if self.alternation is None:
             self.alternation = self.create_alternation()
 
-        data_pattern = rf"(?<!\w)({self.alternation}) ({self.alternation})(?!\w)"
+        data_pattern = rf"(?<!\w)({self.alternation})({self.splitter})({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
     @functools.lru_cache(maxsize=None)
@@ -111,7 +119,6 @@ class FormatDataDouble(FormatDataBase):
         """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
             return ""
-
 
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
@@ -125,8 +132,10 @@ class FormatDataDouble(FormatDataBase):
         match = self.pattern_double.search(f" {normalized_category} ")
         if match:
             first_key = match.group(1).lower()
-            second_key = match.group(2).lower()
-            result = f"{first_key} {second_key}"
+            splitter = match.group(2).lower()
+            second_key = match.group(3).lower()
+            result = f"{first_key}{splitter}{second_key}"
+
             logger.debug(f">!> match_key: {first_key=}, {second_key=}")
             logger.debug(f">!> match_key: {result=}")
             self.keys_to_split[result] = [first_key, second_key]
@@ -165,6 +174,10 @@ class FormatDataDouble(FormatDataBase):
 
         if part1 in self.put_label_last and part2 not in self.put_label_last:
             label = f"{second_label} {first_label}"
+
+        if self.sort_ar_labels:
+            labels_sorted = sorted([first_label, second_label])
+            label = " ".join(labels_sorted)
 
         self.search_multi_cache[f"{part2} {part1}"] = label
 

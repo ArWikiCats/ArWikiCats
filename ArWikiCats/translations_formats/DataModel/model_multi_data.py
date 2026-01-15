@@ -11,7 +11,6 @@ Classes:
     MultiDataFormatterBase: Combines two FormatData instances.
     MultiDataFormatterBaseYear: Combines FormatData with YearFormatData.
     MultiDataFormatterBaseYearV2: Combines FormatDataV2 with YearFormatData.
-    MultiDataFormatterDataDouble: Combines FormatData with FormatDataDouble.
 
 Example:
     >>> from ArWikiCats.translations_formats.DataModel import MultiDataFormatterBase, FormatData
@@ -27,7 +26,6 @@ test at tests.translations_formats.test_format_2_data.py
 from typing import Dict
 
 from .model_data import FormatData
-from .model_data_double import FormatDataDouble
 from .model_data_time import YearFormatData
 from .model_data_v2 import FormatDataV2
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
@@ -143,39 +141,3 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         self.other_bot = other_bot
         self.data_to_find = data_to_find
         self.other_key_first = other_key_first
-
-
-class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
-    """
-    Combines FormatData with FormatDataDouble for double-key category translations.
-
-    This class orchestrates a FormatData instance for nationality/country
-    elements and a FormatDataDouble instance for elements that may have
-    two adjacent keys (e.g., "action drama" in film genres). It handles
-    categories like "british action drama films".
-
-    Attributes:
-        country_bot (FormatData): Formatter for nationality/country elements.
-        other_bot (FormatDataDouble): Formatter for double-key elements (e.g., film genres).
-        search_first_part (bool): If True, search using only the first part after normalization.
-        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
-
-    Example:
-        >>> bot = MultiDataFormatterDataDouble(country_bot, genre_bot)
-        >>> bot.create_label("british action drama films")
-        'أفلام أكشن دراما بريطانية'
-    """
-
-    def __init__(
-        self,
-        country_bot: FormatData,
-        other_bot: FormatDataDouble,
-        search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
-    ) -> None:
-        """Prepare helpers for matching and formatting template-driven labels."""
-
-        self.search_first_part = search_first_part
-        self.country_bot = country_bot
-        self.other_bot = other_bot
-        self.data_to_find = data_to_find

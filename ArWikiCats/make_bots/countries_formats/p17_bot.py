@@ -15,7 +15,9 @@ from ...helps import logger
 from ...translations import (
     countries_from_nat,
 )
-from ..format_bots import category_relation_mapping, pop_format
+from ..format_bots.relation_mapping import translation_category_relations
+from ..format_bots import pop_format
+
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 countries_from_nat_sorted = dict(
@@ -28,7 +30,7 @@ countries_from_nat_sorted = dict(
 
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
-    codd = category_relation_mapping.get(suffix, "")
+    codd = translation_category_relations.get(suffix, "")
 
     if codd.startswith("لل"):
         suffix_label = "{} " + codd

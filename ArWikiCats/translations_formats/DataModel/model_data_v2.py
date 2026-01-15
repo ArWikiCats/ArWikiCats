@@ -27,7 +27,7 @@ Example:
 import re
 from typing import Dict, Union
 
-from ...helps import logger
+from ..formats_logger import logger
 from .model_data_base import FormatDataBase
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
@@ -66,6 +66,7 @@ class FormatDataV2(FormatDataBase):
         key_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
+        regex_filter: str = "",
         **kwargs,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
@@ -75,6 +76,7 @@ class FormatDataV2(FormatDataBase):
             key_placeholder=key_placeholder,
             text_after=text_after,
             text_before=text_before,
+            regex_filter=regex_filter,
         )
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()

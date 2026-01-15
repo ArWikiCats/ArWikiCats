@@ -12,6 +12,21 @@ from .data import country_names_and_nats_data
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
+formatted_data_double = {
+    # "jewish {en} cuisine": "مطبخ {male} يهودي",
+    # "jewish {en} history": "تاريخ {male} يهودي",
+    # north american-jewish culture
+    "{en} jewish surnames": "ألقاب يهودية {female}",
+    "{en} jewish descent": "أصل يهودي {male}",
+    "{en} jewish culture": "ثقافة يهودية {female}",
+    "{en} jewish diaspora": "شتات يهودي {male}",
+
+    "{en}-jewish surnames": "ألقاب يهودية {female}",
+    "{en}-jewish descent": "أصل يهودي {male}",
+    "{en}-jewish culture": "ثقافة يهودية {female}",
+    "{en}-jewish diaspora": "شتات يهودي {male}",
+}
+
 peoples_nats_not_jobs_males = {
     "{en} expatriates": "{males} مغتربون",
     "{en} emigrants": "{males} مهاجرون",
@@ -82,16 +97,8 @@ the_male_data = {
 }
 
 male_data = {
-    # "jewish {en} cuisine": "مطبخ {male} يهودي",
-    # "jewish {en} history": "تاريخ {male} يهودي",
-
     "{en} cuisine": "مطبخ {male}",
     "{en} history": "تاريخ {male}",
-
-    "{en}-jewish descent": "أصل يهودي {male}",
-    "{en}-jewish diaspora": "شتات يهودي {male}",
-    "{en} jewish descent": "أصل يهودي {male}",
-    "{en} jewish diaspora": "شتات يهودي {male}",
 
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
@@ -291,9 +298,7 @@ female_data_music = {
 }
 
 female_data = {
-    # north american-jewish culture
-    "{en}-jewish culture": "ثقافة يهودية {female}",
-    "{en} jewish culture": "ثقافة يهودية {female}",
+    "{en} miniseries": "مسلسلات قصيرة {female}",
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
@@ -338,21 +343,21 @@ female_data = {
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
 
-    "{en} video game businesspeople": "شخصيات أعمال {} في ألعاب الفيديو",
-    "{en} video game industry businesspeople": "شخصيات أعمال {} في صناعة ألعاب الفيديو",
-    "{en} real estate businesspeople": "شخصيات أعمال {} في العقارات",
-    "{en} real estate industry businesspeople": "شخصيات أعمال {} في صناعة العقارات",
-    "{en} metals businesspeople": "شخصيات أعمال {} في المعادن",
-    "{en} metals industry businesspeople": "شخصيات أعمال {} في صناعة المعادن",
-    "{en} financial industry businesspeople": "شخصيات أعمال {} في صناعة المالية",
-    "{en} financial businesspeople": "شخصيات أعمال {} في المالية",
-    "{en} fashion businesspeople": "شخصيات أعمال {} في الأزياء",
-    "{en} fashion industry businesspeople": "شخصيات أعمال {} في صناعة الأزياء",
-    "{en} entertainment businesspeople": "شخصيات أعمال {} في الترفيه",
-    "{en} cosmetics businesspeople": "شخصيات أعمال {} في مستحضرات التجميل",
-    "{en} cosmetics industry businesspeople": "شخصيات أعمال {} في صناعة مستحضرات التجميل",
-    "{en} computer industry businesspeople": "شخصيات أعمال {} في صناعة كمبيوتر",
-    "{en} computer businesspeople": "شخصيات أعمال {} في الكمبيوتر",
+    "{en} video game businesspeople": "شخصيات أعمال {female} في ألعاب الفيديو",
+    "{en} video game industry businesspeople": "شخصيات أعمال {female} في صناعة ألعاب الفيديو",
+    "{en} real estate businesspeople": "شخصيات أعمال {female} في العقارات",
+    "{en} real estate industry businesspeople": "شخصيات أعمال {female} في صناعة العقارات",
+    "{en} metals businesspeople": "شخصيات أعمال {female} في المعادن",
+    "{en} metals industry businesspeople": "شخصيات أعمال {female} في صناعة المعادن",
+    "{en} financial industry businesspeople": "شخصيات أعمال {female} في صناعة المالية",
+    "{en} financial businesspeople": "شخصيات أعمال {female} في المالية",
+    "{en} fashion businesspeople": "شخصيات أعمال {female} في الأزياء",
+    "{en} fashion industry businesspeople": "شخصيات أعمال {female} في صناعة الأزياء",
+    "{en} entertainment businesspeople": "شخصيات أعمال {female} في الترفيه",
+    "{en} cosmetics businesspeople": "شخصيات أعمال {female} في مستحضرات التجميل",
+    "{en} cosmetics industry businesspeople": "شخصيات أعمال {female} في صناعة مستحضرات التجميل",
+    "{en} computer industry businesspeople": "شخصيات أعمال {female} في صناعة كمبيوتر",
+    "{en} computer businesspeople": "شخصيات أعمال {female} في الكمبيوتر",
 
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
     "{en} non-fiction comic strips": "شرائط كومكس {female} غير خيالية",
@@ -505,7 +510,6 @@ female_data = {
     "{en} short stories": "قصص قصيرة {female}",
     "{en} societies": "جمعيات {female}",
     "{en} songs": "أغاني {female}",
-    "{en} sorts events": "أحداث رياضية {female}",
     "{en} sports-events": "أحداث رياضية {female}",
     "{en} soundtracks": "موسيقى تصويرية {female}",
     "{en} sport": "رياضة {female}",
@@ -619,11 +623,14 @@ the_female_data = {
     "{en} sports templates": "قوالب رياضة {female}",
     "{en} political party": "أحزاب سياسية {female}",
     # "society" : "الجمعية {the_female}",
-    "{en} presidential primarie": "الانتخابات الرئاسية التمهيدية {nat}",
+    "{en} presidential primarie": "الانتخابات الرئاسية التمهيدية {the_female}",
+    "{en} presidential primaries": "الانتخابات الرئاسية التمهيدية {the_female}",
 }
 
 all_formatted_data = (
-    males_data | ar_data | the_male_data | male_data | the_female_data | country_names_and_nats_data | female_data
+    males_data | ar_data | the_male_data | male_data
+    | the_female_data | country_names_and_nats_data
+    | female_data  # | formatted_data_double
 )
 
 

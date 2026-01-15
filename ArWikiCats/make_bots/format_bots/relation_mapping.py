@@ -3,7 +3,7 @@
 !
 """
 
-category_relation_mapping = {
+translation_category_relations = {
     "for-deaf": "للصم",
     "for-deafblind": "للصم وللمكفوفون",
     "for-blind": "للمكفوفون",
@@ -150,5 +150,5 @@ category_relation_mapping = {
 }
 
 __all__ = [
-    "category_relation_mapping",
+    "translation_category_relations",
 ]

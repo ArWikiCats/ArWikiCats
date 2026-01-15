@@ -10,7 +10,10 @@ from typing import Tuple
 from ...helps import logger
 from ...ma_bots import country_bot
 from ...make_bots.films_and_others_bot import te_films
-from ...make_bots.format_bots import category_relation_mapping, get_tabl_with_in, pop_format, pop_format2
+
+from ...make_bots.format_bots import pop_format
+from ...make_bots.format_bots.relation_mapping import translation_category_relations
+
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
@@ -96,6 +99,17 @@ def time_label(text: str) -> str:
     return ""
 
 
+def get_table_with_in(cone_1: str, separator: str) -> str:
+    table_with_in = {
+        "sport in": "الرياضة في",
+    }
+    con_1_in = f"{cone_1.strip()} {separator.strip()}"
+    part_1_label = table_with_in.get(con_1_in, "")
+    logger.debug(f"<<<< {con_1_in=}, {part_1_label=}")
+
+    return part_1_label
+
+
 @functools.lru_cache(maxsize=10000)
 def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
     """
@@ -118,7 +132,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or sport_lab_suffixes.get_teams_new(cone_1)
         or parties_bot.get_parties_lab(cone_1)
         or team_work.Get_team_work_Club(cone_1)
-        or get_tabl_with_in(cone_1, separator)
+        or get_table_with_in(cone_1, separator)
         or convert_time_to_arabic(cone_1)
         or time_label(cone_1)
         or work_with_pp_start_with2(cone_1, separator, with_years)
@@ -218,9 +232,13 @@ def make_cnt_lab(
                 logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format "{faxos}":')
                 resolved_label = faxos.format(part_2_label)
 
-        if part_1_normalized in pop_format2:
-            logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format2 "{pop_format2[part_1_normalized]}":')
-            resolved_label = pop_format2[part_1_normalized].format(part_2_label)
+        label_format_mappings = {
+            "politics of {}": "سياسة {}",
+            "military installations of": "منشآت {} العسكرية",
+        }
+        if part_1_normalized in label_format_mappings:
+            logger.info(f'<<lightblue>>>>>> part_1_normalized in label_format_mappings "{label_format_mappings[part_1_normalized]}":')
+            resolved_label = label_format_mappings[part_1_normalized].format(part_2_label)
 
     # NOTE: important to fix bug like: [sport in ottoman] = "الرياضة في في الدولة العثمانية" !
 
@@ -251,8 +269,8 @@ def separator_arabic_resolve(separator: str) -> str:
         ar_separator = " على "
     elif separator == "about":
         ar_separator = " عن "
-    elif separator in category_relation_mapping and separator != "by":
-        ar_separator = f" {category_relation_mapping[separator]} "
+    elif separator in translation_category_relations and separator != "by":
+        ar_separator = f" {translation_category_relations[separator]} "
     elif separator == "based in":
         ar_separator = " مقرها في "
 

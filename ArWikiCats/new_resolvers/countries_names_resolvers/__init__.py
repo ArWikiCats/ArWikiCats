@@ -1,3 +1,4 @@
+import functools
 from ...helps import logger
 from . import (
     countries_names,
@@ -7,6 +8,7 @@ from . import (
 )
 
 
+@functools.lru_cache(maxsize=None)
 def resolve_countries_names_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)

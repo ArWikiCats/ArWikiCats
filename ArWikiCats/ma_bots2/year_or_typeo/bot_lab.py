@@ -10,7 +10,7 @@ import re
 from ...fix import fixtitle
 from ...helps import logger
 from ...ma_bots.country_bot import get_country
-from ...make_bots.format_bots import category_relation_mapping
+from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
 from ...make_bots.matables_bots.check_bot import check_key_new_players
@@ -204,8 +204,8 @@ class LabelForStartWithYearOrTypeo:
         if not self.In.strip():
             return
 
-        if self.In.strip() in category_relation_mapping:
-            if category_relation_mapping[self.In.strip()].strip() in self.arlabel:
+        if self.In.strip() in translation_category_relations:
+            if translation_category_relations[self.In.strip()].strip() in self.arlabel:
                 self.cat_test = self.replace_cat_test(self.cat_test, self.In)
         else:
             self.cat_test = self.replace_cat_test(self.cat_test, self.In)

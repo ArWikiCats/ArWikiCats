@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-Tests for MultiDataFormatterYearAndFrom2 class with category_relation_mapping integration.
+Tests for MultiDataFormatterYearAndFrom2 class with translation_category_relations integration.
 
 This module tests the new methods added to MultiDataFormatterYearAndFrom2:
 - get_relation_word: Find relation words in categories
 - resolve_relation_label: Append Arabic relation words to labels
-- get_relation_mapping: Access the category_relation_mapping dictionary
+- get_relation_mapping: Access the translation_category_relations dictionary
 
 Tests follow existing project conventions and use pytest parametrize for data-driven testing.
 
@@ -14,7 +14,7 @@ TODO: use MultiDataFormatterYearAndFrom2 in workflows.
 
 import pytest
 
-from ArWikiCats.make_bots.format_bots import category_relation_mapping
+from ArWikiCats.make_bots.format_bots.relation_mapping import translation_category_relations
 from ArWikiCats.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom2
 
@@ -55,7 +55,7 @@ def multi_bot() -> MultiDataFormatterYearAndFrom2:
     return MultiDataFormatterYearAndFrom2(
         country_bot=country_bot,
         year_bot=year_bot,
-        category_relation_mapping=category_relation_mapping,
+        translation_category_relations=translation_category_relations,
         other_key_first=True,
     )
 
@@ -209,7 +209,7 @@ class TestEdgeCases:
 
     def test_multiple_relation_words(self, multi_bot: MultiDataFormatterYearAndFrom2) -> None:
         """Test category with multiple relation words returns first match."""
-        # "from" appears before "in" in category_relation_mapping
+        # "from" appears before "in" in translation_category_relations
         key, arabic = multi_bot.get_relation_word("People from Germany in Europe")
         # Should match the first relation word found in the mapping
         assert key in ["from", "in"]

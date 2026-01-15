@@ -28,7 +28,7 @@ Example:
 import functools
 from typing import Dict
 
-from ...helps import logger
+from ..formats_logger import logger
 from .model_data_base import FormatDataBase
 
 

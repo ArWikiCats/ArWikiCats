@@ -16,6 +16,7 @@ def one_req(name: str) -> bool:
 
 @dataclass(frozen=True)
 class PrintConfig:
+    noprint_formats: bool
     noprint: bool
 
 
@@ -36,6 +37,7 @@ class Config:
 settings = Config(
     print=PrintConfig(
         noprint=one_req("NOPRINT"),
+        noprint_formats=one_req("NOPRINT_FORMATS"),
     ),
     app=AppConfig(
         start_tgc_resolver_first=one_req("TGC_RESOLVER_FIRST"),

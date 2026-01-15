@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-"""Integration tests """
+"""
 
-import re
+Integration tests
 
+TODO: write tests for the parameters:
+        splitter: str = " ",
+        sort_ar_labels: bool = False,
+"""
 import pytest
-
 from ArWikiCats.translations_formats import FormatDataDouble
 
 

@@ -2,7 +2,7 @@ import functools
 import re
 from dataclasses import dataclass
 
-from ...make_bots.format_bots import category_relation_mapping
+from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...translations.type_tables import basedtypeTable
 
 
@@ -27,7 +27,7 @@ def _load_pattern() -> re.Pattern:
     _typeo_pattern = "|".join(map(re.escape, [n.lower() for n in _basedtypeTable]))
 
     _sorted_mapping = sorted(
-        category_relation_mapping.keys(),
+        translation_category_relations.keys(),
         key=lambda k: (-k.count(" "), -len(k)),
     )
     _in_pattern = " |".join(map(re.escape, [n.lower() for n in _sorted_mapping]))

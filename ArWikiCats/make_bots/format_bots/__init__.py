@@ -7,7 +7,6 @@ import re
 
 from ...helps import logger
 from .pf_keys import change_key_mappings_replacements
-from .relation_mapping import category_relation_mapping
 
 # Precompiled Regex Patterns
 REGEX_SUB_WHITESPACE = re.compile(r"[\s\t]+", re.IGNORECASE)
@@ -35,188 +34,6 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-# Precompiled regex patterns for CHANGE KEY MAPPINGS and CHANGE KEY SECONDARY will be created in change_cat function
-# since they depend on imported dictionaries that may not be fully populated at module level
-
-# ---
-for_table = {
-    "for national teams": "للمنتخبات الوطنية",
-    "for member-of-parliament": "لعضوية البرلمان",
-}
-# ---
-# ---
-Dont_Add_min = [
-    "women of",
-    "founders of",
-]
-# ---
-ar_lab_before_year_to_add_in = [
-    # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
-    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
-    "كتاب بأسماء مستعارة",
-    "بطولات اتحاد رجبي للمنتخبات الوطنية",
-]
-# ---
-country_before_year = [
-    "men's road cycling",
-    "women's road cycling",
-    "track cycling",
-    "motorsport",
-    "pseudonymous writers",
-    "space",
-    "disasters",
-    "spaceflight",
-    "inventions",
-    "sports",
-    "introductions",
-    "discoveries",
-    "comics",
-    "nuclear history",
-    "military history",
-    "military alliances",
-]
-# ---
-# ---Tour de
-# category = re.sub(r" {}".format(chk) , " {}".format(chk_lab) , category )
-# category = re.sub(r"{} ".format(chk) , "{} ".format(chk_lab) , category )
-# ---
-Tabl_with_in = {
-    "sport in": "الرياضة في",
-}
-# --- Tour de
-pp_start_with = {
-    "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
-    "candidates for president of": "مرشحو رئاسة {}",
-    # "candidates in president of" : "مرشحو رئاسة {}",
-    "candidates-for": "مرشحو {}",
-    # "candidates for" : "مرشحو {}",
-    "categories named afters": "تصنيفات سميت بأسماء {}",
-    "scheduled": "{} مقررة",
-    # "defunct" : "{} سابقة",
-}
-# ---
-pp_ends_with = {}
-pp_ends_with_pase = {
-    "-related professional associations": "جمعيات تخصصية متعلقة ب{}",
-    "-related media": "إعلام متعلق ب{}",
-    "-related lists": "قوائم متعلقة ب{}",
-    "with disabilities": "{} بإعاقات",
-    " mens tournament": "{} - مسابقة الرجال",
-    " - telugu": "{} - تيلوغوي",
-    "first division": "{} الدرجة الأولى",
-    "second division": "{} الدرجة الثانية",
-    "third division": "{} الدرجة الثالثة",
-    "forth division": "{} الدرجة الرابعة",
-    "candidates": "مرشحو {}",
-    # "candidates for": "مرشحو {} في",
-    "squad": "تشكيلة {}",
-    "squads": "تشكيلات {}",
-    "final tournaments": "نهائيات مسابقات {}",
-    "finals": "نهائيات {}",
-    " - kannada": "{} - كنادي",
-    " - tamil": "{} - تاميلي",
-    " - qualifying": "{} - التصفيات",  # – Mixed Doubles
-    " - mixed doubles": "{} - زوجي مختلط",  # – Mixed Doubles
-    " - men's tournament": "{} - مسابقة الرجال",
-    " - women's tournament": "{} - مسابقة السيدات",
-    " - men's qualification": "{} - تصفيات الرجال",
-    " - women's qualification": "{} - تصفيات السيدات",
-    " – kannada": "{} – كنادي",
-    " – tamil": "{} – تاميلي",
-    " – qualifying": "{} – التصفيات",  # – Mixed Doubles
-    " – mixed doubles": "{} – زوجي مختلط",  # – Mixed Doubles
-    " – men's tournament": "{} – مسابقة الرجال",
-    " – women's tournament": "{} – مسابقة السيدات",
-    " womens tournament": "{} – مسابقة السيدات",
-    " – men's qualification": "{} – تصفيات الرجال",
-    " – women's qualification": "{} – تصفيات السيدات",
-}
-# ---
-# "mixed doubles" : " زوجي مختلط",
-# "mixed team" : " فريق مختلط",
-#  "womens team" : " فريق سيدات",
-#  "mens team" : " فريق رجال",
-#   "womens tournament" : " منافسة السيدات",
-#   "mens tournament" : " منافسة الرجال",
-# ---
-key_5_suff = {
-    "tournament": "مسابقة",
-    "singles": "فردي",
-    "qualification": "تصفيات",
-    "team": "فريق",
-    "doubles": "زوجي",
-}
-# ---
-key_2_3 = {
-    "girls": "فتيات",
-    "mixed": "مختلط",
-    "boys": "فتيان",
-    "singles": "فردي",
-    "womens": "سيدات",
-    "ladies": "سيدات",
-    "males": "رجال",
-    "men's": "رجال",
-}
-fix_o = {
-    # "squad navigational boxes": "صناديق تصفح تشكيلات",
-    "squads navigational boxes": "صناديق تصفح تشكيلات",
-    "navigational boxes": "صناديق تصفح",
-    "bids": "ترشيحات",
-    "episodes": "حلقات",
-    "treaties": "معاهدات",
-    "leagues seasons": "مواسم دوريات",
-    "leagues": "دوريات",
-    "seasons": "مواسم",
-    "local elections": "انتخابات محلية",
-    "presidential elections": "انتخابات رئاسية",
-    "presidential primaries": "انتخابات رئاسية تمهيدية",
-    "elections": "انتخابات",
-    "champions": "أبطال",
-    "organizations": "منظمات",
-    "nonprofits": "منظمات غير ربحية",
-    "non-profit organizations": "منظمات غير ربحية",
-    "non-profit publishers": "ناشرون غير ربحيون",
-    "applications": "تطبيقات",
-    "employees": "موظفو",
-    "resolutions": "قرارات",
-    # "ministries" : "وزارات",
-    "campaigns": "حملات",
-    "referees": "حكام",
-    # "films" : "أفلام",
-    "squad templates": "قوالب تشكيلات",
-    "templates": "قوالب",
-    "venues": "ملاعب",
-    "stadiums": "استادات",
-    "managers": "مدربو",
-    "trainers": "مدربو",
-    "scouts": "كشافة",
-    "coaches": "مدربو",
-    "teams": "فرق",
-    "owners": "ملاك",
-    "owners and executives": "رؤساء تنفيذيون وملاك {}",
-    "uniforms": "بدلات",
-    "announcers": "مذيعو",
-    "playoffs": "تصفيات",
-    "genres": "أنواع",
-    "leaks": "تسريبات",
-    "categories": "تصانيف",
-    "qualification": "تصفيات",
-    "counties": "مقاطعات",
-    # "religious occupations": "مهن دينية",
-    # "occupations": "مهن",
-    "equipment": "معدات",
-    "trophies and awards": "جوائز وإنجازات",
-    "logos": "شعارات",
-    "tactics and skills": "مهارات",
-    "terminology": "مصطلحات",
-    "variants": "أشكال",
-}
-
-pop_format33 = {
-    "qualification for the": "تصفيات {} مؤهلة إلى {} ",
-    "qualification for": "تصفيات {} مؤهلة إلى {} ",
-}
-# ---
 pop_format = {
     "prehistory of": "{} ما قبل التاريخ",
     "naval units and formations of": "وحدات وتشكيلات {} البحرية",
@@ -270,22 +87,7 @@ pop_format = {
     "motorcycle grand prix": "جائزة {} الكبرى للدراجات النارية",
     # "law" : "قانون {}" ,
 }
-# ---
-pop_format2 = {
-    "politics of {}": "سياسة {}",
-    "military installations of": "منشآت {} العسكرية",
-}
-# ---
-fof = "{}"
-# ---
-for start, start_lab in key_2_3.items():
-    for suff, suff_lab in key_5_suff.items():
-        ke = f" - {start} {suff}"
-        lab_ke = f"{fof} - {suff_lab} {start_lab}"
-        pp_ends_with[ke] = lab_ke
-# ---
-for i, i_lab in fix_o.items():
-    pp_ends_with[f" {i}"] = i_lab + " {}"
+
 
 replaces = {
     "election, ": "election ",
@@ -313,14 +115,6 @@ replaces = {
     "heads of mission ": "heads-of-mission ",
     "house of commons of canada": "house-of-commons-of-canada",
 }
-
-
-def get_tabl_with_in(cone_1: str, separator: str) -> str:
-    con_1_in = f"{cone_1.strip()} {separator.strip()}"
-    part_1_label = Tabl_with_in.get(con_1_in, "")
-    logger.debug(f"<<<< {con_1_in=}, {part_1_label=}")
-
-    return part_1_label
 
 
 def change_cat(cat_orginal: str) -> str:
@@ -398,17 +192,6 @@ def change_cat(cat_orginal: str) -> str:
 
 
 __all__ = [
-    "Dont_Add_min",
-    "Tabl_with_in",
-    "category_relation_mapping",
-    "ar_lab_before_year_to_add_in",
     "change_cat",
-    "country_before_year",
-    "for_table",
     "pop_format",
-    "pop_format2",
-    "pop_format33",
-    "pp_ends_with",
-    "pp_ends_with_pase",
-    "pp_start_with",
 ]

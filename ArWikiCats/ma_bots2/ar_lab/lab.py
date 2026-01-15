@@ -13,10 +13,6 @@ from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.films_and_others_bot import te_films
-from ...make_bots.format_bots import (
-    Tabl_with_in,
-    for_table,
-)
 from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.o_bots import bys
@@ -276,12 +272,16 @@ def _handle_special_type_cases(type_lower: str, normalized_preposition: str) -> 
         logger.info('>> >> >> Make label="نساء من".')
         return "نساء من", True
 
-    # Check for type with preposition in Tabl_with_in
+    # Check for type with preposition in Type_with_preposition_mappings
     type_with_prep = type_lower.strip()
     if not type_with_prep.endswith(f" {normalized_preposition}"):
         type_with_prep = f"{type_lower.strip()} {normalized_preposition}"
 
-    label = Tabl_with_in.get(type_with_prep, "")
+    Type_with_preposition_mappings = {
+        "sport in": "الرياضة في",
+    }
+
+    label = Type_with_preposition_mappings.get(type_with_prep, "")
     if label:
         logger.info(f"<<<< {type_with_prep=}, {label=}")
         return label, False
@@ -401,6 +401,12 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
     Returns:
         Dictionary of lookup functions to try in order
     """
+
+    for_table = {
+        "for national teams": "للمنتخبات الوطنية",
+        "for member-of-parliament": "لعضوية البرلمان",
+    }
+
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),

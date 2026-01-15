@@ -10,7 +10,7 @@ import functools
 from ..helps import logger
 from ..ma_bots import ye_ts_bot
 from ..time_resolvers import with_years_bot
-from .format_bots import pp_ends_with, pp_ends_with_pase, pp_start_with
+from .format_bots.ends_keys import pp_ends_with, pp_ends_with_pase, pp_start_with
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
@@ -55,26 +55,25 @@ def _resolve_label(label: str) -> str:
     return resolved_label
 
 
-@functools.lru_cache(maxsize=10000)
-def Work_Templates(input_label: str) -> str:
-    """Generate Arabic category labels based on predefined templates.
+def create_label_from_prefix(input_label):
+    template_label = ""
 
-    This function attempts to match the input label against predefined
-    templates based on suffixes and prefixes, using multiple resolution
-    strategies to generate appropriate Arabic labels.
+    for prefix, format_template in pp_start_with.items():
+        if input_label.startswith(prefix.lower()):
+            remaining_label = input_label[len(prefix) :]
 
-    Args:
-        input_label: The input string for which the template-based label
-                    is to be generated.
+            resolved_label = _resolve_label(remaining_label)
+            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
 
-    Returns:
-        The formatted Arabic label based on matching templates, or an
-        empty string if no matching template is found.
-    """
-    # Normalize input for consistent caching
-    input_label = input_label.lower().strip()
-    logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
+            if resolved_label:
+                logger.info(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}')
+                template_label = format_template.format(resolved_label)
+                logger.info(f">>>> {template_label=}")
+                break
+    return template_label
 
+
+def create_label_from_suffix(input_label):
     template_label = ""
 
     # Merge pp_ends_with_pase and pp_ends_with for efficiency
@@ -95,22 +94,20 @@ def Work_Templates(input_label: str) -> str:
                 logger.info(f">>>> {template_label=}")
                 break
 
-    if template_label:
-        return template_label
+    return template_label
 
-    # Try prefix matching
-    for prefix, format_template in pp_start_with.items():
-        if input_label.startswith(prefix.lower()):
-            remaining_label = input_label[len(prefix) :]
 
-            resolved_label = _resolve_label(remaining_label)
-            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
+@functools.lru_cache(maxsize=10000)
+def Work_Templates(input_label: str) -> str:
+    """
+    """
+    input_label = input_label.lower().strip()
+    logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
 
-            if resolved_label:
-                logger.info(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}')
-                template_label = format_template.format(resolved_label)
-                logger.info(f">>>> {template_label=}")
-                break
+    template_label = (
+        create_label_from_suffix(input_label)
+        or create_label_from_prefix(input_label)
+    )
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")
     return template_label

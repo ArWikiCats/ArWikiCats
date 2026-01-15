@@ -9,7 +9,6 @@ from typing import Pattern
 
 from ..helps import logger
 from ..ma_bots.ye_ts_bot import translate_general_category
-from ..make_bots.format_bots import ar_lab_before_year_to_add_in
 from ..make_bots.matables_bots.data import Add_in_table
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
@@ -35,6 +34,14 @@ known_bodies = {
     "iranian majlis": "المجلس الإيراني",
     "united states congress": "الكونغرس الأمريكي",
 }
+
+
+arabic_labels_preceding_year = [
+    # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
+    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
+    "كتاب بأسماء مستعارة",
+    "بطولات اتحاد رجبي للمنتخبات الوطنية",
+]
 
 pattern_str = r"^(\d+)(th|nd|st|rd) (%s)$" % "|".join(known_bodies.keys())
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
@@ -114,8 +121,8 @@ def _handle_year_at_start(category_text: str) -> str:
 
     separator = " "
 
-    if remainder_label.strip() in ar_lab_before_year_to_add_in:
-        logger.debug("ar_lab_before_year_to_add_in Add في to arlabel sus.")
+    if remainder_label.strip() in arabic_labels_preceding_year:
+        logger.debug("arabic_labels_preceding_year Add في to arlabel sus.")
         separator = " في "
 
     elif remainder in Add_in_table:

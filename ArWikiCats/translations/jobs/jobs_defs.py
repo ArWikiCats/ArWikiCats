@@ -22,7 +22,7 @@ class GenderedLabel(TypedDict):
 GenderedLabelMap = Dict[str, GenderedLabel]
 
 
-def combine_gender_labels(first_label, second_label) -> str:
+def combine_gender_labels(first_label: str, second_label: str) -> str:
     label = f"{first_label} {second_label}" if first_label and second_label else ""
     return label
 

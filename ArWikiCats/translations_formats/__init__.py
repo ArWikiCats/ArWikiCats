@@ -49,16 +49,19 @@ Example:
 
 from .data_new_model import format_films_country_data
 from .data_with_time import format_year_country_data, format_year_country_data_v2
+from .DataModelDouble import (
+    FormatDataDouble,
+    FormatDataDoubleV2,
+    MultiDataFormatterDataDouble,
+)
 from .DataModel import (
     FormatData,
-    FormatDataDouble,
     FormatDataFrom,
     FormatDataV2,
     MultiDataFormatterBase,
     MultiDataFormatterBaseV2,
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
-    MultiDataFormatterDataDouble,
     MultiDataFormatterYearAndFrom,
     MultiDataFormatterYearAndFrom2,
     NormalizeResult,
@@ -75,6 +78,7 @@ __all__ = [
     "MultiDataFormatterDataDouble",
     "FormatDataV2",
     "FormatDataDouble",
+    "FormatDataDoubleV2",
     "YearFormatData",
     "FormatData",
     "NormalizeResult",

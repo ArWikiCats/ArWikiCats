@@ -26,7 +26,7 @@ Note:
 
 import re
 
-from ...helps import logger
+from ..formats_logger import logger
 from ...time_resolvers import (
     convert_time_to_arabic,
     fixing,
