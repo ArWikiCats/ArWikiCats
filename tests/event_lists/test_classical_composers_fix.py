@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -92,7 +92,7 @@ test_to_fix_1 = {
     "Swiss opera composers": "ملحنو أوبرا سويسريون",
     "Turkish opera composers": "ملحنو أوبرا أتراك",
     "Venezuelan opera composers": "ملحنو أوبرا فنزويليون",
-    "Women opera composers": "ملحنات أوبرا"
+    "Women opera composers": "ملحنات أوبرا",
 }
 
 to_test = [

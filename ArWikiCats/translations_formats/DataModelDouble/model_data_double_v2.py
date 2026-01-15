@@ -6,8 +6,8 @@ import functools
 import re
 from typing import Dict, Optional, Union
 
-from ..formats_logger import logger
 from ..DataModel.model_data_base import FormatDataBase
+from ..formats_logger import logger
 
 
 class FormatDataDoubleV2(FormatDataBase):
@@ -105,14 +105,14 @@ class FormatDataDoubleV2(FormatDataBase):
             logger.debug(f'No sport label matched for sport key: "{sport_key}"')
             return ""
 
-        logger.debug(f'sport label: {sport_label=}')
+        logger.debug(f"sport label: {sport_label=}")
 
         template_label = self.get_template(sport_key, category)
         if not template_label:
             logger.debug(f'No template label matched for sport key: "{sport_key}" and {category=}')
             return ""
 
-        logger.debug(f'template_label: {template_label=}')
+        logger.debug(f"template_label: {template_label=}")
 
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f"[] apply_pattern_replacement: {result=}")
@@ -251,8 +251,7 @@ class FormatDataDoubleV2(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
-        """
-        """
+        """ """
         logger.debug(f"@@ replace_value_placeholder: {label=}, {value=}")
 
         if not isinstance(value, dict):

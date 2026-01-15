@@ -1,4 +1,3 @@
-
 from ..helps import len_print
 
 companies_data = {
@@ -565,7 +564,7 @@ companies_data = {
     "engineering organization": "منظمات هندسية",
     "wine company": "شركات نبيذ",
     "wine industry organizations": "منظمات صناعة نبيذ",
-    "wine museums": "متاحف نبيذ"
+    "wine museums": "متاحف نبيذ",
 }
 
 COMPANY_TYPE_TRANSLATIONS = {

@@ -76,10 +76,10 @@ def Films(category: str) -> str:
     logger.debug(f"<<yellow>> start Films: {normalized_category=}")
 
     result = (
-        Films_key_CAO.get(normalized_category, "") or
-        get_Films_key_CAO(normalized_category) or
-        get_films_key_tyty_new(normalized_category) or
-        ""
+        Films_key_CAO.get(normalized_category, "")
+        or get_Films_key_CAO(normalized_category)
+        or get_films_key_tyty_new(normalized_category)
+        or ""
     )
 
     logger.info_if_or_debug(f"<<yellow>> end Films: {normalized_category=}, {result=}", result)

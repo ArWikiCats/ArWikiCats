@@ -151,7 +151,7 @@ data_to_fix3 = {
     "Italian children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إيطالية للأطفال",
     "Japanese children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين يابانية للأطفال",
     "South Korean children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين كورية جنوبية للأطفال",
-    "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إسبانية للأطفال"
+    "Spanish children's animated superhero television series": "مسلسلات تلفزيونية رسوم متحركة أبطال خارقين إسبانية للأطفال",
 }
 
 to_test = [

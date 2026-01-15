@@ -7,8 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 
-test_womens_data_0 = {
-}
+test_womens_data_0 = {}
 
 test_womens_data = {
     "women children's writers": "كاتبات أطفال",

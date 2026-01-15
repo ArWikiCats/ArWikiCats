@@ -71,8 +71,8 @@ def _build_painter_job_labels(
         for role_key, role_labels in painter_roles.items():
             composite_key = f"{style_key} {role_key}"
 
-            males_label = combine_gender_labels(role_labels['males'], style_labels['males'])
-            females_label = combine_gender_labels(role_labels['females'], style_labels['females'])
+            males_label = combine_gender_labels(role_labels["males"], style_labels["males"])
+            females_label = combine_gender_labels(role_labels["females"], style_labels["females"])
 
             combined_data[composite_key] = {
                 "males": males_label,
@@ -125,8 +125,8 @@ def _build_military_job_labels(
     for military_key, prefix_labels in military_prefixes.items():
         for role_key, role_labels in military_roles.items():
             composite_key = f"{military_key} {role_key}"
-            males_label = combine_gender_labels(role_labels['males'], prefix_labels['males'])
-            females_label = combine_gender_labels(role_labels['females'], prefix_labels['females'])
+            males_label = combine_gender_labels(role_labels["males"], prefix_labels["males"])
+            females_label = combine_gender_labels(role_labels["females"], prefix_labels["females"])
             combined_roles[composite_key] = {
                 "males": males_label,
                 "females": females_label,

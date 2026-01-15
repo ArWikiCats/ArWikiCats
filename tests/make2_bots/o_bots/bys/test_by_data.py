@@ -3,13 +3,12 @@
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+
 from ArWikiCats.make_bots.o_bots.bys import by_people_bot
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
-data_0 = {
-    "by football team": "حسب فريق كرة القدم"
-}
+data_0 = {"by football team": "حسب فريق كرة القدم"}
 
 by_data_peoples = {
     "by abraham lincoln": "بواسطة أبراهام لينكون",
@@ -75,7 +74,7 @@ by_data_peoples = {
     "by warren g. harding": "بواسطة وارن جي. هاردينغ",
     "by will ferrell": "بواسطة ويل فيرل",
     "by william blake": "بواسطة وليم بليك",
-    "by wolfgang amadeus mozart": "بواسطة فولفغانغ أماديوس موتسارت"
+    "by wolfgang amadeus mozart": "بواسطة فولفغانغ أماديوس موتسارت",
 }
 
 by_data_fast = {

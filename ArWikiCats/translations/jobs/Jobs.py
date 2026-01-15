@@ -30,118 +30,40 @@ from .jobs_womens import short_womens_jobs
 # ---------------------------------------------------------------------------
 
 companies_to_jobs = {
-    "mass media owners": {
-        "males": "ملاك وسائل إعلام",
-        "females": "مالكات وسائل إعلام"
-    },
-    "media owners": {
-        "males": "ملاك إعلامية",
-        "females": "مالكات إعلامية"
-    },
-    "magazine founders": {
-        "males": "مؤسسو مجلات",
-        "females": "مؤسسات مجلات"
-    },
-    "television company founders": {
-        "males": "مؤسسو شركات تلفاز",
-        "females": "مؤسسات شركات تلفاز"
-    },
-    "technology company founders": {
-        "males": "مؤسسو شركات تقانة",
-        "females": "مؤسسات شركات تقانة"
-    },
-    "mass media company founders": {
-        "males": "مؤسسو شركات وسائل إعلام",
-        "females": "مؤسسات شركات وسائل إعلام"
-    },
-    "media company founders": {
-        "males": "مؤسسو شركات إعلامية",
-        "females": "مؤسسات شركات إعلامية"
-    },
-    "financial company founders": {
-        "males": "مؤسسو شركات مالية",
-        "females": "مؤسسات شركات مالية"
-    },
-    "retail company founders": {
-        "males": "مؤسسو شركات تجارة التجزئة",
-        "females": "مؤسسات شركات تجارة التجزئة"
-    },
-    "internet company founders": {
-        "males": "مؤسسو شركات إنترنت",
-        "females": "مؤسسات شركات إنترنت"
-    },
-    "drink company founders": {
-        "males": "مؤسسو شركات مشروبات",
-        "females": "مؤسسات شركات مشروبات"
-    },
-    "publishing company founders": {
-        "males": "مؤسسو شركات نشر",
-        "females": "مؤسسات شركات نشر"
-    },
-    "entertainment company founders": {
-        "males": "مؤسسو شركات ترفيه",
-        "females": "مؤسسات شركات ترفيه"
-    },
-    "food company founders": {
-        "males": "مؤسسو شركات أطعمة",
-        "females": "مؤسسات شركات أطعمة"
-    },
-    "real estate company founders": {
-        "males": "مؤسسو شركات عقارية",
-        "females": "مؤسسات شركات عقارية"
-    },
+    "mass media owners": {"males": "ملاك وسائل إعلام", "females": "مالكات وسائل إعلام"},
+    "media owners": {"males": "ملاك إعلامية", "females": "مالكات إعلامية"},
+    "magazine founders": {"males": "مؤسسو مجلات", "females": "مؤسسات مجلات"},
+    "television company founders": {"males": "مؤسسو شركات تلفاز", "females": "مؤسسات شركات تلفاز"},
+    "technology company founders": {"males": "مؤسسو شركات تقانة", "females": "مؤسسات شركات تقانة"},
+    "mass media company founders": {"males": "مؤسسو شركات وسائل إعلام", "females": "مؤسسات شركات وسائل إعلام"},
+    "media company founders": {"males": "مؤسسو شركات إعلامية", "females": "مؤسسات شركات إعلامية"},
+    "financial company founders": {"males": "مؤسسو شركات مالية", "females": "مؤسسات شركات مالية"},
+    "retail company founders": {"males": "مؤسسو شركات تجارة التجزئة", "females": "مؤسسات شركات تجارة التجزئة"},
+    "internet company founders": {"males": "مؤسسو شركات إنترنت", "females": "مؤسسات شركات إنترنت"},
+    "drink company founders": {"males": "مؤسسو شركات مشروبات", "females": "مؤسسات شركات مشروبات"},
+    "publishing company founders": {"males": "مؤسسو شركات نشر", "females": "مؤسسات شركات نشر"},
+    "entertainment company founders": {"males": "مؤسسو شركات ترفيه", "females": "مؤسسات شركات ترفيه"},
+    "food company founders": {"males": "مؤسسو شركات أطعمة", "females": "مؤسسات شركات أطعمة"},
+    "real estate company founders": {"males": "مؤسسو شركات عقارية", "females": "مؤسسات شركات عقارية"},
     "food and drink company founders": {
         "males": "مؤسسو شركات أطعمة ومشروبات",
-        "females": "مؤسسات شركات أطعمة ومشروبات"
+        "females": "مؤسسات شركات أطعمة ومشروبات",
     },
-    "pharmaceutical company founders": {
-        "males": "مؤسسو شركات أدوية",
-        "females": "مؤسسات شركات أدوية"
-    },
-    "shipping company founders": {
-        "males": "مؤسسو شركات نقل بحري",
-        "females": "مؤسسات شركات نقل بحري"
-    },
-    "airline founders": {
-        "males": "مؤسسو خطوط جوية",
-        "females": "مؤسسات خطوط جوية"
-    },
+    "pharmaceutical company founders": {"males": "مؤسسو شركات أدوية", "females": "مؤسسات شركات أدوية"},
+    "shipping company founders": {"males": "مؤسسو شركات نقل بحري", "females": "مؤسسات شركات نقل بحري"},
+    "airline founders": {"males": "مؤسسو خطوط جوية", "females": "مؤسسات خطوط جوية"},
     "construction and civil engineering company founders": {
         "males": "مؤسسو شركات بناء وهندسة مدنية",
-        "females": "مؤسسات شركات بناء وهندسة مدنية"
+        "females": "مؤسسات شركات بناء وهندسة مدنية",
     },
-    "engineering company founders": {
-        "males": "مؤسسو شركات هندسية",
-        "females": "مؤسسات شركات هندسية"
-    },
-    "design company founders": {
-        "males": "مؤسسو شركات تصميم",
-        "females": "مؤسسات شركات تصميم"
-    },
-    "energy company founders": {
-        "males": "مؤسسو شركات طاقة",
-        "females": "مؤسسات شركات طاقة"
-    },
-    "health care company founders": {
-        "males": "مؤسسو شركات رعاية صحية",
-        "females": "مؤسسات شركات رعاية صحية"
-    },
-    "manufacturing company founders": {
-        "males": "مؤسسو شركات تصنيع",
-        "females": "مؤسسات شركات تصنيع"
-    },
-    "media founders": {
-        "males": "مؤسسو وسائل إعلامية",
-        "females": "مؤسسات وسائل إعلامية"
-    },
-    "mining company founders": {
-        "males": "مؤسسو شركات تعدين",
-        "females": "مؤسسات شركات تعدين"
-    },
-    "transport company founders": {
-        "males": "مؤسسو شركات نقل",
-        "females": "مؤسسات شركات نقل"
-    }
+    "engineering company founders": {"males": "مؤسسو شركات هندسية", "females": "مؤسسات شركات هندسية"},
+    "design company founders": {"males": "مؤسسو شركات تصميم", "females": "مؤسسات شركات تصميم"},
+    "energy company founders": {"males": "مؤسسو شركات طاقة", "females": "مؤسسات شركات طاقة"},
+    "health care company founders": {"males": "مؤسسو شركات رعاية صحية", "females": "مؤسسات شركات رعاية صحية"},
+    "manufacturing company founders": {"males": "مؤسسو شركات تصنيع", "females": "مؤسسات شركات تصنيع"},
+    "media founders": {"males": "مؤسسو وسائل إعلامية", "females": "مؤسسات وسائل إعلامية"},
+    "mining company founders": {"males": "مؤسسو شركات تعدين", "females": "مؤسسات شركات تعدين"},
+    "transport company founders": {"males": "مؤسسو شركات نقل", "females": "مؤسسات شركات نقل"},
 }
 
 

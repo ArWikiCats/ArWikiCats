@@ -10,14 +10,11 @@ NAT_DATA_to_check = {
     "{en_nat} cyclists": "دراجون ودراجات {males}",  # 68
     "{en_nat} film actors": "ممثلو وممثلات أفلام {males}",  # 74
     "{en_nat} television actors": "ممثلو وممثلات تلفاز {males}",  # 60
-
     "{en_nat} actors by medium": "ممثلون وممثلات {males} حسب الوسط",  # 65
-
     "{en_nat} footballers": "لاعبو ولاعبات كرة قدم {males}",  # 171
     "{en_nat} tennis players": "لاعبو ولاعبات كرة مضرب {males}",  # 87
     "{en_nat} basketball players": "لاعبو ولاعبات كرة سلة {males}",  # 65
     "{en_nat} expatriate footballers": "لاعبو ولاعبات كرة قدم {males} مغتربون",  # 162
-
     "{en_nat} businesspeople": "أصحاب أعمال {males}",  # 110
     "{en_nat} non-fiction writers": "كتاب غير روائيين {males}",  # 118
     "{en_nat} christians": "مسيحيون {males}",  # 134

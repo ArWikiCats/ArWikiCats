@@ -8,7 +8,7 @@ data_skip = {
     "south african anti–world-war-ii activists": "",
     "South African military memorials and cemeteries": "",
     "South African soccer biography stubs": "",
-    "LGBTQ rights in South Africa": ""
+    "LGBTQ rights in South Africa": "",
 }
 
 data_0 = {
@@ -43,7 +43,8 @@ data_0 = {
     "South Africa political leader navigational boxes": "صناديق تصفح قادة سياسيون جنوب إفريقيون",
     "Nuclear technology in South Africa": "تقانة نووية في جنوب إفريقيا",
     "Science and technology in South Africa": "العلوم والتقانة في جنوب إفريقيا",
-    "Deaths by person in South Africa": "وفيات حسب الشخص في جنوب إفريقيا", "Deaths from brain cancer in South Africa": "وفيات سرطان الدماغ في جنوب إفريقيا",
+    "Deaths by person in South Africa": "وفيات حسب الشخص في جنوب إفريقيا",
+    "Deaths from brain cancer in South Africa": "وفيات سرطان الدماغ في جنوب إفريقيا",
     "Women members of the National Assembly of South Africa": "عضوات الجمعية الوطنية في جنوب إفريقيا",
     "Speakers of the National Assembly of South Africa": "رؤساء الجمعية الوطنية في جنوب إفريقيا",
     "Members of the National Assembly of South Africa 1994–1999": "أعضاء الجمعية الوطنية في جنوب إفريقيا 1994–1999",
@@ -340,8 +341,7 @@ data_1 = {
     "South Africa–Zimbabwe relations": "العلاقات الجنوب الإفريقية الزيمبابوية",
 }
 
-data_2 = {
-}
+data_2 = {}
 
 to_test = [
     ("test_south_african_0", data_0),

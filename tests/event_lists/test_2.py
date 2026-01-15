@@ -763,7 +763,6 @@ data1 = {
     "2026 in Canadian sports": "ألعاب رياضية كندية في 2026",
     "2026 in Mexican sports by month": "ألعاب رياضية مكسيكية في 2026 حسب الشهر",
     "2026 in Mexican sports": "ألعاب رياضية مكسيكية في 2026",
-
     "2025 in Qatari motorsport": "رياضة المحركات القطرية في 2025",
     "2026 in American motorsport": "رياضة المحركات الأمريكية في 2026",
     "2026 in Australian motorsport": "رياضة المحركات الأسترالية في 2026",

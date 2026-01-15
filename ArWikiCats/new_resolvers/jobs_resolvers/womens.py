@@ -5,13 +5,13 @@ import functools
 
 from ...helps import len_print, logger
 from ...translations import (
-    countries_en_as_nationality_keys,
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,
+    All_Nat,
     all_country_with_nat,
     all_country_with_nat_ar,
+    countries_en_as_nationality_keys,
     jobs_womens_data,
-    All_Nat,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
@@ -30,7 +30,6 @@ genders_keys_new_under_test: dict[str, str] = {
     "fictional": "خياليات",
     # "disabled": "معاقون",
     # "contemporary": "معاصرون",
-
     # "latin": "لاتينيون",
     # "child": "أطفال",
     # "political": "سياسيون",
@@ -65,7 +64,7 @@ def is_false_key(key: str, value: str) -> bool:
     if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
         return True
 
-    if key in genders_keys:   # NOTE: under test
+    if key in genders_keys:  # NOTE: under test
         return True
 
     if RELIGIOUS_KEYS_PP.get(key) or key in keys_not_jobs:
@@ -153,15 +152,17 @@ def _load_formatted_data() -> tuple[dict[str, str], dict[str, str]]:
             add_women=True,
         )
         formatted_data.update(keys_more)
-        formatted_data_womens_jobs.update(one_Keys_more_2(
-            x,
-            v,
-            en_nat_key="{en_nat}",
-            en_job_key="{en_job}",
-            ar_nat_key="{females}",
-            ar_job_key="{ar_job}",
-            add_women=False,
-        ))
+        formatted_data_womens_jobs.update(
+            one_Keys_more_2(
+                x,
+                v,
+                en_nat_key="{en_nat}",
+                en_job_key="{en_job}",
+                ar_nat_key="{females}",
+                ar_job_key="{ar_job}",
+                add_women=False,
+            )
+        )
 
     formatted_data.update(formatted_data_jobs_with_nat)
 
@@ -174,9 +175,7 @@ def _load_formatted_data() -> tuple[dict[str, str], dict[str, str]]:
     formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
 
     formatted_data_womens_jobs = {
-        x.replace("'", ""): v
-        for x, v in formatted_data_womens_jobs.items()
-        if "{en_nat}" not in x
+        x.replace("'", ""): v for x, v in formatted_data_womens_jobs.items() if "{en_nat}" not in x
     }
 
     return formatted_data_final, formatted_data_womens_jobs
@@ -185,21 +184,14 @@ def _load_formatted_data() -> tuple[dict[str, str], dict[str, str]]:
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {
-        x: {"ar_job": v}
-        for x, v in jobs_womens_data.items()
-        if not is_false_key(x, v)
-    }
+    data = {x: {"ar_job": v} for x, v in jobs_womens_data.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_womens_data.keys()) - set(data.keys()))
     if len_diff:
         logger.error(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     # data.update({x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()})
 
-    data = {
-        x.replace("'", "").replace("australian rules", "australian-rules"): v
-        for x, v in data.items()
-    }
+    data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
     return data
 
 
@@ -317,8 +309,11 @@ def womens_resolver_labels(category: str) -> str:
     return result
 
 
-len_print.data_len("womens.py", {
-    "womens_formatted_data": _load_formatted_data()[0],
-    "formatted_data_womens_jobs": _load_formatted_data()[1],
-    "womens_jobs_data_enhanced": _load_jobs_data(),
-})
+len_print.data_len(
+    "womens.py",
+    {
+        "womens_formatted_data": _load_formatted_data()[0],
+        "formatted_data_womens_jobs": _load_formatted_data()[1],
+        "womens_jobs_data_enhanced": _load_jobs_data(),
+    },
+)

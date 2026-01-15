@@ -1,10 +1,9 @@
-
 """
 Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
@@ -32,7 +31,6 @@ test_data3 = {
     "comic science fiction television series": "مسلسلات تلفزيونية خيالية علمية كوميدية",
     "comic science fiction video games": "ألعاب فيديو خيالية علمية كوميدية",
     "comic science fiction web series": "مسلسلات ويب خيالية علمية كوميدية",
-
     "television comics": "قصص مصورة تلفزيونية",
     "television episodes": "حلقات تلفزيونية",
     "television film series": "سلاسل أفلام تلفزيونية",
@@ -45,12 +43,11 @@ test_data3 = {
     "television soap opera": "مسلسلات طويلة تلفزيونية",
     "television video games": "ألعاب فيديو تلفزيونية",
     "television web series": "مسلسلات ويب تلفزيونية",
-
     "comics": "قصص مصورة",
     "film series": "سلاسل أفلام",
     "soap opera": "مسلسلات طويلة",
     "video games": "ألعاب فيديو",
-    "web series": "مسلسلات ويب"
+    "web series": "مسلسلات ويب",
 }
 
 

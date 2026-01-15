@@ -12,8 +12,8 @@ fast_data_with_nats = {
     "northern ireland films 2020": "",
     "2020 northern ireland films": "أفلام أيرلندية شمالية في 2020",
     "2020 northern ireland": "",
-    "2020 Australian children's animated superhero film characters" : "شخصيات أفلام رسوم متحركة أبطال خارقين أسترالية للأطفال في 2020",
-    "20th-century supernatural thriller films" : "أفلام إثارة خارقة للطبيعة في القرن 20",
+    "2020 Australian children's animated superhero film characters": "شخصيات أفلام رسوم متحركة أبطال خارقين أسترالية للأطفال في 2020",
+    "20th-century supernatural thriller films": "أفلام إثارة خارقة للطبيعة في القرن 20",
     "20th-century american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية في القرن 20",
     "20th-century american drama television series": "مسلسلات تلفزيونية درامية أمريكية في القرن 20",
     # nats
@@ -44,7 +44,6 @@ fast_data_no_nats = {
     "2020s heist internet films": "أفلام سرقة إنترنت في عقد 2020",
     "2020s heist joker films": "أفلام سرقة جوكر في عقد 2020",
     "2020s heist kaiju films": "أفلام سرقة كايجو في عقد 2020",
-
     "20th-century heist kung fu films": "أفلام سرقة كونغ فو في القرن 20",
     "20th-century heist latin films": "أفلام سرقة لاتينية في القرن 20",
     "20th-century heist legal films": "أفلام سرقة قانونية في القرن 20",

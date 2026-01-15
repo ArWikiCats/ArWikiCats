@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -88,7 +88,7 @@ test_jesuits_1 = {
     "Sri Lankan Jesuits": "يسوعيون سريلانكيون",
     "Swiss Jesuits": "يسوعيون سويسريون",
     "Venezuelan Jesuits": "يسوعيون فنزويليون",
-    "Welsh Jesuits": "يسوعيون ويلزيون"
+    "Welsh Jesuits": "يسوعيون ويلزيون",
 }
 
 test_jesuits_2 = {

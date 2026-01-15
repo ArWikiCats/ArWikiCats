@@ -1,7 +1,7 @@
 import functools
 
 from ...helps import logger
-from .film_keys_bot import get_Films_key_CAO, Films
+from .film_keys_bot import Films, get_Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
@@ -32,7 +32,9 @@ def resolve_nationalities_main(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}", resolved_label)
+    logger.info_if_or_debug(
+        f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
+    )
     return resolved_label
 
 

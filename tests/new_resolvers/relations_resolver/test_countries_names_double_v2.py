@@ -35,7 +35,7 @@ def test_data_relations_v1(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_data_relations_v1", test_relations_v1, resolve_countries_names_double),
-    ("test_data_relations_v2", test_relations_names_v2, resolve_countries_names_double)
+    ("test_data_relations_v2", test_relations_names_v2, resolve_countries_names_double),
 ]
 
 

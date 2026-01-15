@@ -208,8 +208,8 @@ def _build_general_scope_labels(
     for role_key, role_labels in roles.items():
         for scope_key, scope_labels in scopes.items():
             composite_key = f"{scope_key} {role_key}".lower()
-            males_label = combine_gender_labels(role_labels['males'], scope_labels['males'])
-            females_label = combine_gender_labels(role_labels['females'], scope_labels['females'])
+            males_label = combine_gender_labels(role_labels["males"], scope_labels["males"])
+            females_label = combine_gender_labels(role_labels["females"], scope_labels["females"])
             result[composite_key] = {
                 "males": males_label,
                 "females": females_label,
@@ -288,20 +288,20 @@ def _build_sports_job_variants(
 
             olympic_key = f"olympic {lowered_job_key} {lowered_football_key}"
             result[olympic_key] = {
-                "males": combine_gender_labels(football_labels['males'], f"{arabic_label} أولمبيون"),
-                "females": combine_gender_labels(football_labels['females'], f"{arabic_label} أولمبيات"),
+                "males": combine_gender_labels(football_labels["males"], f"{arabic_label} أولمبيون"),
+                "females": combine_gender_labels(football_labels["females"], f"{arabic_label} أولمبيات"),
             }
 
             mens_key = f"men's {lowered_job_key} {lowered_football_key}"
             result[mens_key] = {
-                "males": combine_gender_labels(football_labels['males'], f"{arabic_label} رجالية"),
+                "males": combine_gender_labels(football_labels["males"], f"{arabic_label} رجالية"),
                 "females": "",
             }
 
             composite_key = f"{lowered_job_key} {lowered_football_key}"
             result[composite_key] = {
-                "males": combine_gender_labels(football_labels['males'], arabic_label),
-                "females": combine_gender_labels(football_labels['females'], arabic_label),
+                "males": combine_gender_labels(football_labels["males"], arabic_label),
+                "females": combine_gender_labels(football_labels["females"], arabic_label),
             }
 
     return result

@@ -1,9 +1,8 @@
 #
 import pytest
-from load_one_data import dump_diff, dump_diff_text, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 data0 = {
@@ -28,7 +27,7 @@ data1 = {
     "oceanian rugby union": "اتحاد الرجبي الأوقيانوسي",
     "russian rugby union": "اتحاد الرجبي الروسي",
     "south american rugby union": "اتحاد الرجبي الأمريكي الجنوبي",
-    "welsh rugby league": "الدوري الويلزي للرجبي"
+    "welsh rugby league": "الدوري الويلزي للرجبي",
 }
 
 data_2 = {
@@ -38,14 +37,12 @@ data_2 = {
     "eritrean premier league": "الدوري الإريتري الممتاز",
     "french rugby union leagues": "اتحاد دوري الرجبي الفرنسي",
     "irish league": "الدوري الأيرلندي",
-    "saudi super cup": "كأس السوبر السعودي"
+    "saudi super cup": "كأس السوبر السعودي",
 }
 
-data_3 = {
-}
+data_3 = {}
 
-data_4 = {
-}
+data_4 = {}
 
 to_test = [
     ("test_mans_data_0", data0, resolve_label_ar),

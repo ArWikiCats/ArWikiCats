@@ -1,6 +1,8 @@
 import functools
 import re
+
 from ...helps import logger
+
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 REGEX_THE = re.compile(r"\b(the)\b", re.I)
 
@@ -34,7 +36,6 @@ def one_Keys_more_2(
     women_key="{women}",
     add_women=False,
 ) -> dict[str, str]:
-
     data = {}
 
     if not add_women:

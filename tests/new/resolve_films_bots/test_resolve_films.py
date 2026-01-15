@@ -11,7 +11,7 @@ fast_data_with_nats = {
     "animated short film comics": "قصص مصورة رسوم متحركة قصيرة",
     # "Category:American animated television films": "تصنيف:أفلام رسوم متحركة تلفزيونية أمريكية",
     "northern ireland": "",
-    "supernatural thriller films" : "أفلام إثارة خارقة للطبيعة",
+    "supernatural thriller films": "أفلام إثارة خارقة للطبيعة",
     "american animated short television series": "مسلسلات تلفزيونية رسوم متحركة قصيرة أمريكية",
     "american drama television series": "مسلسلات تلفزيونية درامية أمريكية",
     # nats

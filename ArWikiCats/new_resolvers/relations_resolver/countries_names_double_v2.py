@@ -3,20 +3,19 @@
 This resolver uses two different formatting data sets to resolve
 categories that mention relations/conflicts between two countries.
 
-TODO: replace rele.py with countries_names_double_v2.py and nationalities_double_v2.py resolvers.
 """
 import functools
 
 from ...helps import logger
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
+    All_Nat,
+    all_country_ar,
+    all_country_with_nat,
     countries_en_as_nationality_keys,
     countries_nat_en_key,
-    All_Nat,
-    all_country_with_nat,
-    all_country_ar,
 )
-from ...translations_formats import FormatDataDoubleV2, FormatDataDouble
+from ...translations_formats import FormatDataDouble, FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -45,7 +44,6 @@ formatted_data_v2 = {
     "{en} border war": "حرب الحدود {the_female}",
     "{en} war films": "أفلام الحرب {the_female}",
     "{en} war video games": "ألعاب فيديو الحرب {the_female}",
-
     # RELATIONS_MALE: Mapping[str, str] = {}
     "{en} conflict video games": "ألعاب فيديو الصراع {the_male}",
     "{en} conflict legal issues": "قضايا قانونية في الصراع {the_male}",
@@ -59,18 +57,20 @@ def _load_all_country_labels_v2() -> dict[str, dict[str, str]]:
     data = dict(countries_nat_en_key)
     # nats_data = { x: v for x, v in All_Nat.items() }
     # nats_data.update({ x: v for x, v in nats_keys_as_country_names.items() })
-    data.update({
-        "ireland": {
-            "male": "أيرلندي",
-            "males": "أيرلنديون",
-            "female": "أيرلندية",
-            "females": "أيرلنديات",
-            "the_male": "الأيرلندي",
-            "the_female": "الأيرلندية",
-            "en": "ireland",
-            "ar": "أيرلندا",
+    data.update(
+        {
+            "ireland": {
+                "male": "أيرلندي",
+                "males": "أيرلنديون",
+                "female": "أيرلندية",
+                "females": "أيرلنديات",
+                "the_male": "الأيرلندي",
+                "the_female": "الأيرلندية",
+                "en": "ireland",
+                "ar": "أيرلندا",
+            }
         }
-    })
+    )
     return data
 
 

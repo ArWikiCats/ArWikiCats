@@ -1,10 +1,9 @@
-
 """
 Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
@@ -111,7 +110,7 @@ novels_films_test_data_0 = {
     "Urdu-language films by decade": "أفلام باللغة الأردية حسب العقد",
     "Bangladeshi musical drama films": "أفلام موسيقية درامية بنغلاديشية",
     "Croatian crime drama films": "أفلام جريمة درامية كرواتية",
-    "Philippine war drama films": "أفلام حربية درامية فلبينية"
+    "Philippine war drama films": "أفلام حربية درامية فلبينية",
 }
 
 
@@ -178,14 +177,15 @@ novels_films_test_data = {
     "2026 horror films": "أفلام رعب في 2026",
     "2026 science fiction action films": "أفلام خيال علمي وحركة في 2026",
     "2026 science fiction films": "أفلام خيال علمي في 2026",
-    "2026 thriller films": "أفلام إثارة في 2026"
+    "2026 thriller films": "أفلام إثارة في 2026",
 }
 
 
-@pytest.mark.parametrize("name,data,callback", [("get_films_key_tyty_new_and_time", novels_films_test_data, get_films_key_tyty_new_and_time)])
+@pytest.mark.parametrize(
+    "name,data,callback", [("get_films_key_tyty_new_and_time", novels_films_test_data, get_films_key_tyty_new_and_time)]
+)
 @pytest.mark.dump
 def test_dump_2nd(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, str], callback) -> None:
-
     """
     Run a comparison test of film-label resolution with time by patching its helper and asserting the output matches expected.
 

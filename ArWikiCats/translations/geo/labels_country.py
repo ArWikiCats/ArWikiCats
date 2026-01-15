@@ -271,7 +271,7 @@ COMPANY_LABELS_NEW = {
     "mass media": "وسائل إعلام",
     "military logistics": "لوجستية عسكرية",
     "rail": "سكك حديدية",
-    "submarine": "غواصات"
+    "submarine": "غواصات",
 }
 
 JAPAN_LABELS = _make_japan_labels(JAPAN_REGIONAL_LABELS)

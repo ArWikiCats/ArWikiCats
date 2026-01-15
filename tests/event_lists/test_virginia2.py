@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
@@ -13,7 +13,6 @@ data_virginia2_1 = {
     "Category:1671 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1671 في مستعمرة فرجينيا",
     "Category:1673 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1673 في مستعمرة فرجينيا",
     "Category:1759 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1759 في مستعمرة فرجينيا",
-
 }
 
 data_virginia2_3 = {

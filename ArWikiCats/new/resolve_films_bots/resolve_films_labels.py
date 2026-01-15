@@ -11,9 +11,8 @@ import functools
 from typing import Dict
 
 from ...helps import logger
-from ...translations import (
+from ...translations import (  # film_keys_for_female,
     Nat_women,
-    # film_keys_for_female,
 )
 from ...translations_formats import MultiDataFormatterBase, format_films_country_data, format_multi_data
 
@@ -224,7 +223,7 @@ film_keys_for_female = {
     "western": "غرب أمريكية",
     "woman's": "نسائية",
     "zombie": "زومبي",
-    "zombie comedy": "كوميدية الزومبي"
+    "zombie comedy": "كوميدية الزومبي",
 }
 
 
@@ -264,10 +263,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
     # Genre-based categories
     # ArWikiCats/jsons/media/Films_key_For_nat.json
     genre_categories = {
-
         # "fiction": "خيال",
         "film series": "سلاسل أفلام",
-
         "webcomics": "ويب كومكس",
         "anime and manga": "أنمي ومانغا",
         "compilation albums": "ألبومات تجميعية",
@@ -294,10 +291,8 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         "television characters": "شخصيات تلفزيونية",
         "video games": "ألعاب فيديو",
         "web series": "مسلسلات ويب",
-
         "film characters": "شخصيات أفلام",
         "games": "ألعاب",
-
         "soap opera": "مسلسلات طويلة",
         "television news": "أخبار تلفزيونية",
         "miniseries": "مسلسلات قصيرة",
@@ -312,7 +307,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
 
     # Standard categories
     for suffix, arabic_base in genre_categories.items():
-
         # Base TV keys with common suffixes
         for sub_suffix, arabic_sub_suffix in [
             ("characters", "شخصيات"),
@@ -340,7 +334,6 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
                 f"television {suffix}": f"{arabic_base} تلفزيونية",
                 f"{{film_key}} {suffix}": f"{arabic_base} {{film_ar}}",
                 f"children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين للأطفال",
-
                 f"children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية للأطفال",
             }
         )
@@ -353,9 +346,7 @@ def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
         data.update(
             {
                 f"{{nat_en}} {{film_key}} {suffix}": f"{arabic_base} {{film_ar}} {{nat_ar}}",
-
                 f"{{nat_en}} children's-animated-superhero {suffix}": f"{arabic_base} رسوم متحركة أبطال خارقين {{nat_ar}} للأطفال",
-
                 f"{{nat_en}} children's-animated-adventure-television {suffix}": f"{arabic_base} مغامرات رسوم متحركة تلفزيونية {{nat_ar}} للأطفال",
             }
         )
@@ -383,9 +374,7 @@ def _make_bot() -> MultiDataFormatterBase:
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
-
         # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
-
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
@@ -398,7 +387,6 @@ def _make_bot() -> MultiDataFormatterBase:
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
         # TODO: move this to jobs bot?
         # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
-
         "{nat_en} animated television films": "أفلام رسوم متحركة تلفزيونية {nat_ar}",
         "{nat_en} animated television series": "مسلسلات رسوم متحركة تلفزيونية {nat_ar}",
     }
@@ -409,10 +397,8 @@ def _make_bot() -> MultiDataFormatterBase:
 
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
-
         # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
-
         "animated television films": "أفلام رسوم متحركة تلفزيونية",
         "animated television series": "مسلسلات رسوم متحركة تلفزيونية",
     }

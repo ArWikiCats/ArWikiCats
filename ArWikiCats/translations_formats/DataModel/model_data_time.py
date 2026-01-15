@@ -26,12 +26,12 @@ Note:
 
 import re
 
-from ..formats_logger import logger
 from ...time_resolvers import (
     convert_time_to_arabic,
     fixing,
     match_time_en_first,
 )
+from ..formats_logger import logger
 from .model_multi_data_year_from import FormatDataFrom
 
 

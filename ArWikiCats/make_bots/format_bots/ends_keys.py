@@ -1,5 +1,5 @@
-
 from ...helps import len_print
+
 # --- Tour de
 
 # ---
@@ -63,7 +63,6 @@ pp_ends_with_pase = {
 pp_ends_with = {
     " womens tournament": "{} – مسابقة السيدات",
     " mens tournament": "{} - مسابقة الرجال",
-
     "-related lists": "قوائم متعلقة ب{}",
     "-related media": "إعلام متعلق ب{}",
     "-related professional associations": "جمعيات تخصصية متعلقة ب{}",
@@ -77,7 +76,6 @@ pp_ends_with = {
     "squads": "تشكيلات {}",
     "third division": "{} الدرجة الثالثة",
     "with disabilities": "{} بإعاقات",
-
     " announcers": "مذيعو {}",
     " applications": "تطبيقات {}",
     " bids": "ترشيحات {}",
@@ -123,7 +121,7 @@ pp_ends_with = {
     " trophies and awards": "جوائز وإنجازات {}",
     " uniforms": "بدلات {}",
     " variants": "أشكال {}",
-    " venues": "ملاعب {}"
+    " venues": "ملاعب {}",
 }
 
 combined_suffix_mappings = {**pp_ends_with_pase, **pp_ends_with}

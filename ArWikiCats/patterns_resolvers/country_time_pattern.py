@@ -8,7 +8,7 @@ bot (`yc_bot`) to handle the translation logic.
 import functools
 
 from ..helps import logger
-from ..translations import US_STATES, all_country_ar, COUNTRY_LABEL_OVERRIDES
+from ..translations import COUNTRY_LABEL_OVERRIDES, US_STATES, all_country_ar
 from ..translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 

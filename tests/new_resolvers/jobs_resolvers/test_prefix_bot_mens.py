@@ -65,7 +65,6 @@ test_mens_data2 = {
     "men triple jumpers": "لاعبو وثب ثلاثي",
     "men wheelchair racers": "متسابقو كراسي متحركة",
     "fictional firefighters": "رجال إطفاء خياليون",
-
     "fictional australian rules footballers": "لاعبو كرة قدم أسترالية خياليون",
     "assassinated civil rights activists": "ناشطو حقوق مدنية مغتالون",
     "assassinated ecuadorian people": "إكوادوريون مغتالون",
@@ -128,7 +127,6 @@ test_mens_data2 = {
     "latin american people": "أمريكيون لاتينيون",
     "latin dance singers": "مغنو رقص لاتينيون",
     "latin jazz pianists": "عازفو بيانو جاز لاتينيون",
-
     "military aviators": "طيارون عسكريون",
     "military doctors": "أطباء عسكريون",
     "military governors": "حكام عسكريون",

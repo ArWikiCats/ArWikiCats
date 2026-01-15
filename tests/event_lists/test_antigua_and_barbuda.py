@@ -496,7 +496,6 @@ data_1 = {
     "Antigua and Barbuda philanthropists": "فاعلو خير أنتيغويون وبربوديون",
     "Antigua and Barbuda physicians": "أطباء أنتيغويون وبربوديون",
     "Antigua and Barbuda police officers": "ضباط شرطة أنتيغويون وبربوديون",
-
     "antigua and barbuda political people": "ساسة أنتيغويون وبربوديون",
     "antigua and barbuda politicians by party": "سياسيون أنتيغويون وبربوديون حسب الحزب",
     "antigua and barbuda politicians": "سياسيون أنتيغويون وبربوديون",

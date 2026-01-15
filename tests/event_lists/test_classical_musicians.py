@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -204,7 +204,7 @@ test_c_musicians_3 = {
     "Venezuelan classical musicians by instrument": "موسيقيون كلاسيكيون فنزويليون حسب الآلة",
     "Venezuelan classical musicians": "موسيقيون كلاسيكيون فنزويليون",
     "Welsh classical musicians by instrument": "موسيقيون كلاسيكيون ويلزيون حسب الآلة",
-    "Welsh classical musicians": "موسيقيون كلاسيكيون ويلزيون"
+    "Welsh classical musicians": "موسيقيون كلاسيكيون ويلزيون",
 }
 
 test_c_musicians_4 = {
@@ -279,7 +279,7 @@ test_c_musicians_4 = {
     "Romanian classical musicians": "موسيقيون كلاسيكيون رومان",
     "Uzbekistani classical musicians": "موسيقيون كلاسيكيون أوزبكستانيون",
     "Women classical musicians by nationality": "موسيقيات كلاسيكيات حسب الجنسية",
-    "Yugoslav classical musicians": "موسيقيون كلاسيكيون يوغسلافيون"
+    "Yugoslav classical musicians": "موسيقيون كلاسيكيون يوغسلافيون",
 }
 
 to_test = [

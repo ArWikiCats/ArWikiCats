@@ -7,21 +7,22 @@ on suffixes and prefixes.
 """
 
 import functools
+
 from ..helps import logger
 from ..ma_bots import ye_ts_bot
-from ..time_resolvers import with_years_bot
-from .format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.films_and_others_bot import te_films
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
+from .format_bots.ends_keys import combined_suffix_mappings
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
@@ -107,15 +108,11 @@ def create_label_from_suffix(input_label):
 
 @functools.lru_cache(maxsize=10000)
 def Work_Templates(input_label: str) -> str:
-    """
-    """
+    """ """
     input_label = input_label.lower().strip()
     logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
 
-    template_label = (
-        create_label_from_suffix(input_label)
-        or create_label_from_prefix(input_label)
-    )
+    template_label = create_label_from_suffix(input_label) or create_label_from_prefix(input_label)
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")
     return template_label

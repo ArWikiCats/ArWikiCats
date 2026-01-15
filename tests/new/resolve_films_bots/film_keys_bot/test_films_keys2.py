@@ -2,8 +2,8 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 
 data_0 = {
     "animated television films": "أفلام تلفزيونية رسوم متحركة",
@@ -2380,7 +2380,7 @@ data_1 = {
     "zombie television programs": "برامج تلفزيونية زومبي",
     "zombie television series": "مسلسلات تلفزيونية زومبي",
     "zombie video games": "ألعاب فيديو زومبي",
-    "zombie web series": "مسلسلات ويب زومبي"
+    "zombie web series": "مسلسلات ويب زومبي",
 }
 
 data_2_not_same = {
@@ -2536,7 +2536,7 @@ data_2_not_same = {
     "television series-endings": "مسلسلات تلفزيونية انتهت",
     "video games endings": "نهايات ألعاب فيديو",
     "web series debuts": "مسلسلات ويب بدأ عرضها",
-    "web series endings": "مسلسلات ويب انتهت"
+    "web series endings": "مسلسلات ويب انتهت",
 }
 
 TEMPORAL_CASES = [

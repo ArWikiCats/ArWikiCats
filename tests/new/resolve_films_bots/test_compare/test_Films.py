@@ -1,10 +1,9 @@
-
 """
 Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
@@ -2329,8 +2328,9 @@ test_data2 = {
     "zombie television programs": "برامج تلفزيونية زومبي",
     "zombie television series": "مسلسلات تلفزيونية زومبي",
     "zombie video games": "ألعاب فيديو زومبي",
-    "zombie web series": "مسلسلات ويب زومبي"
+    "zombie web series": "مسلسلات ويب زومبي",
 }
+
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast

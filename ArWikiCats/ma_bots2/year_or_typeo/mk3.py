@@ -14,7 +14,6 @@ from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
 from ...utils import check_key_in_tables_return_tuple
 
-
 country_before_year = [
     "men's road cycling",
     "women's road cycling",

@@ -436,7 +436,6 @@ films_mslslat_tab.update(
         "supernatural television series": "مسلسلات تلفزيونية خارقة للطبيعة",
         "supernatural comics": "قصص مصورة خارقة للطبيعة",
         "adult animated supernatural television series": "مسلسلات تلفزيونية رسوم متحركة خارقة للطبيعة للكبار",
-
         "superhero television characters": "شخصيات تلفزيونية أبطال خارقين",
         "superhero television series": "مسلسلات تلفزيونية أبطال خارقين",
         "superhero film series": "سلاسل أفلام أبطال خارقين",
@@ -452,26 +451,27 @@ films_mslslat_tab.update(
     {x.replace(" endings", "-endings"): y for x, y in films_mslslat_tab.items() if " endings" in x}
 )
 
-Films_key_For_nat.update({
-    "drama films": "أفلام درامية {}",
-    "legal drama films": "أفلام قانونية درامية {}",
-    # "yemeni musical drama films" : "تصنيف:أفلام موسيقية درامية يمنية",
-    "musical drama films": "أفلام موسيقية درامية {}",
-    "political drama films": "أفلام سياسية درامية {}",
-    "romantic drama films": "أفلام رومانسية درامية {}",
-    "sports drama films": "أفلام رياضية درامية {}",
-    "comedy drama films": "أفلام كوميدية درامية {}",
-    "war drama films": "أفلام حربية درامية {}",
-
-    "action drama films": "أفلام حركة درامية {}",
-    "adventure drama films": "أفلام مغامرات درامية {}",
-    "animated drama films": "أفلام رسوم متحركة درامية {}",
-    "children's drama films": "أفلام أطفال درامية {}",
-    "crime drama films": "أفلام جريمة درامية {}",
-    "erotic drama films": "أفلام إغرائية درامية {}",
-    "fantasy drama films": "أفلام فانتازيا درامية {}",
-    "horror drama films": "أفلام رعب درامية {}",
-})
+Films_key_For_nat.update(
+    {
+        "drama films": "أفلام درامية {}",
+        "legal drama films": "أفلام قانونية درامية {}",
+        # "yemeni musical drama films" : "تصنيف:أفلام موسيقية درامية يمنية",
+        "musical drama films": "أفلام موسيقية درامية {}",
+        "political drama films": "أفلام سياسية درامية {}",
+        "romantic drama films": "أفلام رومانسية درامية {}",
+        "sports drama films": "أفلام رياضية درامية {}",
+        "comedy drama films": "أفلام كوميدية درامية {}",
+        "war drama films": "أفلام حربية درامية {}",
+        "action drama films": "أفلام حركة درامية {}",
+        "adventure drama films": "أفلام مغامرات درامية {}",
+        "animated drama films": "أفلام رسوم متحركة درامية {}",
+        "children's drama films": "أفلام أطفال درامية {}",
+        "crime drama films": "أفلام جريمة درامية {}",
+        "erotic drama films": "أفلام إغرائية درامية {}",
+        "fantasy drama films": "أفلام فانتازيا درامية {}",
+        "horror drama films": "أفلام رعب درامية {}",
+    }
+)
 Films_key_For_nat.update(Films_key_For_nat_extended)
 
 Films_key_For_nat.update(

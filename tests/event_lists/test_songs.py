@@ -33,7 +33,7 @@ data1 = {
     "Jewish folk songs": "تصنيف:أغاني فولك يهودي",
     "Jewish hip-hop": "تصنيف:هيب هوب يهودي",
     "Jewish rock songs": "تصنيف:أغاني روك يهودي",
-    "Jewish rock": "تصنيف:روك يهودي"
+    "Jewish rock": "تصنيف:روك يهودي",
 }
 
 to_test = [

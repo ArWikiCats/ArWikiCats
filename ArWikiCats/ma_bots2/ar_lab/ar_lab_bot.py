@@ -12,8 +12,8 @@ from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...main_processers import event2_stubs
-from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.format_bots import pop_format
+from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import (
     Add_ar_in,

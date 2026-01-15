@@ -24,7 +24,7 @@ test_historic = {
     "archaeological sites on national-register-of-historic-places": "مواقع أثرية في السجل الوطني للأماكن التاريخية",
     "agricultural buildings and structures on national-register-of-historic-places": "مبان ومنشآت زراعية في السجل الوطني للأماكن التاريخية",
     "clubhouses on national-register-of-historic-places": "نوادي في السجل الوطني للأماكن التاريخية",
-    "courthouses on national-register-of-historic-places": "محاكم في السجل الوطني للأماكن التاريخية"
+    "courthouses on national-register-of-historic-places": "محاكم في السجل الوطني للأماكن التاريخية",
 }
 
 data_fast = {
@@ -87,7 +87,6 @@ data_slow = {
     "people from santa fe province": "أشخاص من محافظة سانتا في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
-
     "bas-sassandra district": "مقاطعة باس-ساساندرا",
     "baseball players from maine": "لاعبو كرة قاعدة من مين",
     "basketball competitions": "منافسات كرة سلة",

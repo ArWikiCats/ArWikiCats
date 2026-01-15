@@ -189,8 +189,6 @@ te4_2018_Jobs_data = {
     "hungarian male opera singers": "مغنو أوبرا ذكور مجريون",
     "icelandic actresses": "ممثلات آيسلنديات",
     "icelandic emigrants": "آيسلنديون مهاجرون",
-
-
     "indian cricketers": "لاعبو كريكت هنود",
     "indian explorers": "مستكشفون هنود",
     "indian muslim missionaries": "مبشرون مسلمون هنود",
@@ -248,7 +246,6 @@ te4_2018_Jobs_data = {
     "malian artists": "فنانون ماليون",
     "maltese artisans": "حرفيون مالطيون",
     "maltese christian missionaries": "مبشرون مسيحيون مالطيون",
-
     "mexican actresses": "ممثلات مكسيكيات",
     "mexican comedians": "كوميديون مكسيكيون",
     "mexican crime fiction writers": "كتاب خيال الجريمة مكسيكيون",

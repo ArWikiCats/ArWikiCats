@@ -1230,7 +1230,7 @@ data_4 = {
     "Argentine people executed in Nazi concentration camps": "أرجنتينيون أعدموا في معسكرات الاعتقال النازية",
     "Austrian people executed in Nazi concentration camps": "نمساويون أعدموا في معسكرات الاعتقال النازية",
     "Belgian people executed in Nazi concentration camps": "بلجيكيون أعدموا في معسكرات الاعتقال النازية",
-    "Dutch people executed in Nazi concentration camps": "هولنديون أعدموا في معسكرات الاعتقال النازية"
+    "Dutch people executed in Nazi concentration camps": "هولنديون أعدموا في معسكرات الاعتقال النازية",
 }
 
 data_5 = {
@@ -1369,7 +1369,7 @@ data_6 = {
     "Executed students": "طلاب أعدموا",
     "Executed spies": "جواسيس أعدموا",
     "Executed serial killers": "قتلة متسلسلون أعدموا",
-    "Executed anarchists": "لاسلطويون أعدموا"
+    "Executed anarchists": "لاسلطويون أعدموا",
 }
 
 to_test = [

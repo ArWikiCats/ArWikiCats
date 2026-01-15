@@ -29,10 +29,9 @@ from .mixed.all_keys3 import (
 )
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
-from .mixed.keys2 import PARTIES
 from .mixed.female_keys import New_female_keys, religious_entries
+from .mixed.keys2 import PARTIES
 from .nats.Nationality import (
-    all_nat_sorted,
     All_Nat,
     Nat_men,
     Nat_mens,
@@ -44,13 +43,14 @@ from .nats.Nationality import (
     all_country_ar,
     all_country_with_nat,
     all_country_with_nat_ar,
+    all_nat_sorted,
     ar_Nat_men,
+    countries_en_as_nationality_keys,
     countries_from_nat,
     countries_nat_en_key,
     en_nats_to_ar_label,
     nats_to_add,
     raw_nats_as_en_key,
-    countries_en_as_nationality_keys,
 )
 from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys

@@ -6,9 +6,9 @@
 import functools
 
 from ...helps import logger
-from .resolve_films_labels import get_films_key_tyty_new, _get_films_key_tyty_new
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from .resolve_films_labels import _get_films_key_tyty_new, get_films_key_tyty_new
 
 formatted_data = {
     "{year1} {en}": "{ar} في {year1}",

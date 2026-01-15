@@ -32,8 +32,7 @@ test_data_not_for_2018_bot = {
     "turkish men's wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أتراك",
 }
 
-wheelchair_data_0 = {
-}
+wheelchair_data_0 = {}
 
 wheelchair_data_1 = {
     "american wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة أمريكيون",
@@ -152,7 +151,6 @@ wheelchair_data_1 = {
     "welsh wheelchair racers": "متسابقو كراسي متحركة ويلزيون",
     "welsh women wheelchair racers": "متسابقات كراسي متحركة ويلزيات",
     "zambian wheelchair racers": "متسابقو كراسي متحركة زامبيون",
-
 }
 
 

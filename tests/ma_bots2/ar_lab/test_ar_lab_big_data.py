@@ -113,7 +113,6 @@ data_list = [
     ("black metal albums by french artists", " by ", "ألبومات بلاك ميتال حسب بواسطة فنانون فرنسيون"),
     ("blues musicians from tennessee", " from ", "موسيقيو بلوز من تينيسي"),
     ("bolivian artists by century", " by ", "فنانون بوليفيون حسب القرن"),
-
     ("bridges in france by material", " by ", "جسور في فرنسا حسب المادة"),
     ("cabinets of british columbia ", " of ", "مجالس وزراء في كولومبيا البريطانية"),
     ("cabinets of british columbia navigational boxes", " of ", "مجالس وزراء في صناديق تصفح كولومبيا البريطانية"),
@@ -148,7 +147,6 @@ data_list = [
     ("dog breeds originating in japan", " originating in ", "سلالات كلاب نشأت في اليابان"),
     ("donkey breeds originating in portugal", " originating in ", "سلالات حمير نشأت في البرتغال"),
     ("dutch companies established in 1550", " established in ", "شركات هولندية أسست في 1550"),
-
     ("dutch people of hungarian descent", " of ", "هولنديون في أصل مجري"),
     ("echinoderms described in 20th century", " described in ", "شوكيات الجلد وصفت في القرن 20"),
     ("economy of burundi", " of ", "اقتصاد بوروندي"),

@@ -1,9 +1,8 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-
 
 data0_no_label = {
     "north american television awards": "جوائز التلفزة الأمريكية الشمالية",
@@ -52,7 +51,7 @@ data0_no_label = {
     "Ancient Jewish scholars": "دارسون يهود قدماء",
     "Ancient Jewish women": "يهوديات قدماء",
     "Ancient Jewish writers": "كتاب يهود قدماء",
-    "Murdered American Jews": "أمريكيون يهود قتلوا"
+    "Murdered American Jews": "أمريكيون يهود قتلوا",
 }
 
 data0 = {
@@ -62,8 +61,7 @@ data0 = {
     "17th-century Dutch books": "كتب هولندية في القرن 17",
 }
 
-data1 = {
-}
+data1 = {}
 
 to_test = [
     # ("test_2_skip2_0", data0),

@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """
-TODO: replace rele.py with countries_names_double_v2.py and nationalities_double_v2.py resolvers.
 """
 import functools
 
 from ...helps import logger
-from ...translations import countries_en_as_nationality_keys, All_Nat, all_country_with_nat
+from ...translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
@@ -18,11 +17,9 @@ formatted_data = {
     "{en} conflict legal issues": "قضايا قانونية في الصراع {the_male}",
     "{en} conflict": "الصراع {the_male}",
     "{en} football rivalry": "التنافس {the_male} في كرة القدم",
-
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",
     "{en} people": "{males}",
-
     # north american-jewish culture
     "{en} surnames": "ألقاب {female}",
     "{en} culture": "ثقافة {female}",
@@ -32,48 +29,42 @@ formatted_data = {
     "{en} war": "الحرب {the_female}",
     "{en} wars": "الحروب {the_female}",
     "{en} television series": "مسلسلات تلفزيونية {female}",
-
     "{en} literature": "أدب {male}",
     "{en} history": "تاريخ {male}",
     "{en} cuisine": "مطبخ {male}",
     "{en} descent": "أصل {male}",
     "{en} diaspora": "شتات {male}",
-
     "{en} law": "قانون {male}",
     "{en} wine": "نبيذ {male}",
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
     "{en} television": "تلفاز {male}",
     "{en} rock genres": "أنواع روك {male}",
-
     "{en} musical groups": "فرق موسيقية {female}",
     "{en} music": "موسيقى {female}",
     "{en} music genres": "أنواع موسيقى {female}",
     "{en} genres": "أنواع {female}",
-
     "{en} novels": "روايات {female}",
     "{en} architecture": "عمارة {female}",
     "{en} gangs": "عصابات {female}",
 }
 
-nats_data = {
-    x: v for x, v in All_Nat.items()
-}
-nats_data.update({
-    x: v for x, v in nats_keys_as_country_names.items()
-})
-nats_data.update({
-    "ireland": {
-        "male": "أيرلندي",
-        "males": "أيرلنديون",
-        "female": "أيرلندية",
-        "females": "أيرلنديات",
-        "the_male": "الأيرلندي",
-        "the_female": "الأيرلندية",
-        "en": "ireland",
-        "ar": "أيرلندا",
+nats_data = {x: v for x, v in All_Nat.items()}
+nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
+nats_data.update(
+    {
+        "ireland": {
+            "male": "أيرلندي",
+            "males": "أيرلنديون",
+            "female": "أيرلندية",
+            "females": "أيرلنديات",
+            "the_male": "الأيرلندي",
+            "the_female": "الأيرلندية",
+            "en": "ireland",
+            "ar": "أيرلندا",
+        }
     }
-})
+)
 
 
 @functools.lru_cache(maxsize=1)

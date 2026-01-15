@@ -5,7 +5,7 @@ TODO: use this instead of nats_women.py
 import functools
 
 from ...helps import logger
-from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys, All_Nat
+from ...translations import All_Nat, all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataV2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
@@ -20,7 +20,6 @@ formatted_data_double = {
     "{en} jewish descent": "أصل يهودي {male}",
     "{en} jewish culture": "ثقافة يهودية {female}",
     "{en} jewish diaspora": "شتات يهودي {male}",
-
     "{en}-jewish surnames": "ألقاب يهودية {female}",
     "{en}-jewish descent": "أصل يهودي {male}",
     "{en}-jewish culture": "ثقافة يهودية {female}",
@@ -99,7 +98,6 @@ the_male_data = {
 male_data = {
     "{en} cuisine": "مطبخ {male}",
     "{en} history": "تاريخ {male}",
-
     # male - en_is_nat_ar_is_man
     # "{en} television": "تلفاز {male}",
     "{en} fiction": "خيال {male}",
@@ -123,7 +121,6 @@ male_data = {
     "{en} military history": "تاريخ عسكري {male}",
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
-
 }
 
 female_data_music = {
@@ -336,13 +333,11 @@ female_data = {
     "{en} religious organizations": "منظمات دينية {female}",
     "{en} Islamic organisations": "منظمات إسلامية {female}",
     "{en} islamic organizations": "منظمات إسلامية {female}",
-
     # "Category:1972 in American women's sports": "تصنيف:رياضة أمريكية للسيدات في 1972",
     "{en} sports": "ألعاب رياضية {female}",
     "{en} womens sports": "رياضات نسائية {female}",
     "burial sites of {en} noble families": "مواقع دفن عائلات نبيلة {female}",
     "burial sites of {en} royal houses": "مواقع دفن بيوت ملكية {female}",
-
     "{en} video game businesspeople": "شخصيات أعمال {female} في ألعاب الفيديو",
     "{en} video game industry businesspeople": "شخصيات أعمال {female} في صناعة ألعاب الفيديو",
     "{en} real estate businesspeople": "شخصيات أعمال {female} في العقارات",
@@ -358,7 +353,6 @@ female_data = {
     "{en} cosmetics industry businesspeople": "شخصيات أعمال {female} في صناعة مستحضرات التجميل",
     "{en} computer industry businesspeople": "شخصيات أعمال {female} في صناعة كمبيوتر",
     "{en} computer businesspeople": "شخصيات أعمال {female} في الكمبيوتر",
-
     "{en} entertainment industry businesspeople": "شخصيات أعمال {female} في صناعة الترفيه",
     "{en} non-fiction comic strips": "شرائط كومكس {female} غير خيالية",
     "{en} non-fiction comic": "قصص مصورة {female} غير خيالية",
@@ -558,7 +552,6 @@ female_data = {
     "{en} youth competitions": "منافسات شبابية {female}",
     "{en} youth music competitions": "منافسات موسيقية شبابية {female}",
     "{en} youth sports competitions": "منافسات رياضية شبابية {female}",
-
 }
 
 female_data.update(female_data_music)
@@ -628,22 +621,24 @@ the_female_data = {
 }
 
 all_formatted_data = (
-    males_data | ar_data | the_male_data | male_data
-    | the_female_data | country_names_and_nats_data
+    males_data
+    | ar_data
+    | the_male_data
+    | male_data
+    | the_female_data
+    | country_names_and_nats_data
     | female_data  # | formatted_data_double
 )
 
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-
     nats_data = {
         # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
-        x: v for x, v in All_Nat.items()  # if v.get("ar")
+        x: v
+        for x, v in All_Nat.items()  # if v.get("ar")
     }
-    nats_data.update({
-        x: v for x, v in nats_keys_as_country_names.items()  # if v.get("ar")
-    })
+    nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})  # if v.get("ar")
 
     if "jewish-american" not in nats_data:
         print(nats_data.keys())

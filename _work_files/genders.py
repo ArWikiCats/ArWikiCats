@@ -126,5 +126,5 @@ print(f">>> new_data5: {len(new_data5)=}")
 save_file(new_data4, "jobs_data_multi_more_than_two_words_same")
 save_file(new_data5, "jobs_data_multi_more_than_two_words_not_same")
 
-len_all_dumps = (len(new_data2) + len(new_data3) + len(new_data4) + len(new_data5))
+len_all_dumps = len(new_data2) + len(new_data3) + len(new_data4) + len(new_data5)
 print(f"Total entries in all dumps: {len_all_dumps}")

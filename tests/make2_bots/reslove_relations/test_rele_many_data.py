@@ -25,11 +25,10 @@ data_0 = {
     "united states–middle eastern relations": "العلاقات الأمريكية الشرقية الأوسطية",
     "united states–north american relations": "العلاقات الأمريكية الأمريكية الشمالية",
     "united states–oceanian relations": "العلاقات الأمريكية الأوقيانوسية",
-    "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية"
+    "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية",
 }
 
-data_3 = {
-}
+data_3 = {}
 
 
 @pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())

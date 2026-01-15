@@ -164,7 +164,7 @@ data2 = {
     "Category:Canadian football people from Victoria, British Columbia": "تصنيف:أعلام كرة قدم كندية من فيكتوريا (كولومبيا البريطانية)",
     "Category:Canadian football people from Windsor, Ontario": "تصنيف:أعلام كرة قدم كندية من وندسور (أونتاريو)",
     "Category:Canadian football people from Winnipeg": "تصنيف:أعلام كرة قدم كندية من وينيبيغ",
-    "Category:Canadian football terminology": "تصنيف:مصطلحات كرة قدم كندية"
+    "Category:Canadian football terminology": "تصنيف:مصطلحات كرة قدم كندية",
 }
 
 data3 = {

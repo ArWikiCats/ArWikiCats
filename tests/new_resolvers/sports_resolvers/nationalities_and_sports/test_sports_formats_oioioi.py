@@ -428,7 +428,7 @@ en_is_nat_ar_is_P17_data = {
     "yemeni wushu racing cup": "كأس اليمن لسباق ووشو",
     "yemeni xiangqi cup": "كأس اليمن للشطرنج الصيني",
     "yemeni xiangqi racing cup": "كأس اليمن لسباق الشطرنج الصيني",
-    "yemeni yacht racing cup": "كأس اليمن لسباقات اليخوت"
+    "yemeni yacht racing cup": "كأس اليمن لسباقات اليخوت",
 }
 
 

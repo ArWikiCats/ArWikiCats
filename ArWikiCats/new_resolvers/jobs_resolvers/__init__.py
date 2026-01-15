@@ -1,6 +1,7 @@
 import functools
+
 from ...helps import logger
-from . import mens, womens, relegin_jobs_new
+from . import mens, relegin_jobs_new, womens
 
 
 @functools.lru_cache(maxsize=None)

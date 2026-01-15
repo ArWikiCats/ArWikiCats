@@ -4,9 +4,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-test_skip = {
-    "Jewish-American history in New York City": ""
-}
+test_skip = {"Jewish-American history in New York City": ""}
 
 examples_1 = {
     "Ministers for foreign affairs of Papua New Guinea": "وزراء شؤون خارجية بابوا غينيا الجديدة",

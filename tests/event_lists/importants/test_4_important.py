@@ -45,10 +45,8 @@ data0 = {
 
 data1 = {
     "samoan rugby league players": "لاعبو دوري رجبي سامويون",
-
     "Sunni Muslim scholars of Islam by ethnicity": "مسلمون سنة باحثون عن الإسلام حسب المجموعة العرقية",
     "Sunni Muslim scholars of Islam by nationality": "مسلمون سنة باحثون عن الإسلام حسب الجنسية",
-
     "american women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة أمريكيات",
     "turkish women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة تركيات",
     "israeli women's wheelchair basketball players": "لاعبات كرة سلة على كراسي متحركة إسرائيليات",

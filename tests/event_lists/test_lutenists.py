@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -17,7 +17,7 @@ test_lutenists_1 = {
     "Category:Danish lutenists": "عازفو آلات وترية دنماركيون",
     "Category:Russian lutenists": "عازفو آلات وترية روس",
     "Category:French lutenists": "عازفو آلات وترية فرنسيون",
-    "Category:Dutch lutenists": "عازفو آلات وترية هولنديون"
+    "Category:Dutch lutenists": "عازفو آلات وترية هولنديون",
 }
 to_test = [
     ("test_lutenists_1", test_lutenists_1),
