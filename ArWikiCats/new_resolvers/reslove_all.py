@@ -7,6 +7,7 @@ from .nationalities_resolvers import resolve_nationalities_main
 from .sports_resolvers import resolve_sports_main
 from .translations_resolvers_v3i import resolve_v3i_main
 from ..new.resolve_films_bots import get_films_key_tyty_new_and_time, get_films_key_tyty_new
+from .relations_resolver import new_relations_resolvers
 
 
 @functools.lru_cache(maxsize=None)
@@ -23,6 +24,7 @@ def new_resolvers_all(category: str) -> str:
         or resolve_countries_names_main(category)
         or get_films_key_tyty_new_and_time(category)
         or get_films_key_tyty_new(category)
+        or new_relations_resolvers(category)
         or ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")

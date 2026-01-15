@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_double_v2 import resolve_countries_names_double
+from ArWikiCats.new_resolvers.relations_resolver.countries_names_double_v2 import resolve_countries_names_double
 
 test_relations_names_v2 = {
     "ireland–republic-of-congo relations": "العلاقات الأيرلندية الكونغوية",

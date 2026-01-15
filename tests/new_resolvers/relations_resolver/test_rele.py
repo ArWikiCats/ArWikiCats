@@ -6,7 +6,7 @@ from ArWikiCats.translations import (
     all_country_ar,
 )
 from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_double_v2 import countries_nat_en_key
+from ArWikiCats.new_resolvers.relations_resolver.countries_names_double_v2 import countries_nat_en_key
 
 #
 TEST_ALL_COUNTRY_AR = {

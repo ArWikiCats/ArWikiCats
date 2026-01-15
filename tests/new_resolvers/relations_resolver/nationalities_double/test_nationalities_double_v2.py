@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
+from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 
 male_tests = {
     "sri lankan tamil descent": "أصل تاميلي سريلانكي",

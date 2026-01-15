@@ -4,7 +4,7 @@ Sports team and club category processing.
 """
 
 import functools
-from ...new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
+from ...new_resolvers.relations_resolver import new_relations_resolvers
 from ...helps import logger
 from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ...new.resolve_films_bots.film_keys_bot import Films
@@ -100,7 +100,7 @@ def _resolve_club_label(club_key: str) -> str:
         or Clubs_key_2.get(club_key.lower())
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
-        or resolve_by_nats_double_v2(club_key)
+        or new_relations_resolvers(club_key)
         or get_films_key_tyty_new_and_time(club_key)
         or get_films_key_tyty_new(club_key)
         or Films(club_key)
