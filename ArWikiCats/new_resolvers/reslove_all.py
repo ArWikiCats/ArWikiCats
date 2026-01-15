@@ -1,3 +1,5 @@
+import functools
+
 from ..helps import logger
 from .countries_names_resolvers import resolve_countries_names_main
 from .jobs_resolvers import resolve_jobs_main
@@ -7,6 +9,7 @@ from .translations_resolvers_v3i import resolve_v3i_main
 from ..new.resolve_films_bots import get_films_key_tyty_new_and_time, get_films_key_tyty_new
 
 
+@functools.lru_cache(maxsize=None)
 def new_resolvers_all(category: str) -> str:
     logger.debug(f">> new_resolvers_all: {category}")
     category_lab = (
