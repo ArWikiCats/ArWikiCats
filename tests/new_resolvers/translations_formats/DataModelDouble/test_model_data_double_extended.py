@@ -60,20 +60,11 @@ def test_sort_simple_no_sort(base_data):
         key_placeholder="{film_key}",
         value_placeholder="{film_ar}",
         sort_ar_labels=False,
+        log_multi_cache=False,
     )
     result = bot.search("action drama films")
     assert result == "أفلام أكشن دراما"
 
-
-def test_sort_simple_no_sort_2(base_data):
-    formatted_data, data_list = base_data
-    bot = FormatDataDouble(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder="{film_key}",
-        value_placeholder="{film_ar}",
-        sort_ar_labels=False,
-    )
     result2 = bot.search("drama action movies")
     assert result2 == "أفلام دراما أكشن"
 
