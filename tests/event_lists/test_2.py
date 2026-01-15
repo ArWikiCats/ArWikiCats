@@ -642,7 +642,6 @@ data1 = {
     "2005 in Australian tennis": "كرة المضرب الأسترالية في 2005",
     "2010s in Taiwanese tennis": "كرة المضرب التايوانية في عقد 2010",
     "Ancient Egyptian Jews": "مصريون قدماء يهود",
-    "2017 sports events": "أحداث رياضية 2017",
     "Canarian Jews": "كناريون يهود",
     "Ancient Christian saints": "قديسون قدماء",
     "works by gotthold ephraim lessing": "أعمال إفرايم ليسينغ",
