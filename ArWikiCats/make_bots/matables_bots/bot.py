@@ -10,8 +10,33 @@ from ...translations import (
     Jobs_new,
     olympic_event_translations,
     typeTable,
-    typeTable_7,
+    olympic_event_translations_type_tables,
 )
+
+typeTable_7: dict[str, str] = {
+    "air force": "قوات جوية",
+    "airlines accidents": "حوادث طيران",
+    "aviation accident": "حوادث طيران",
+    "aviation accidents": "حوادث طيران",
+    "design institutions": "مؤسسات تصميم",
+    "distance education institutions": "مؤسسات تعليم عن بعد",
+    "executed-burning": "أعدموا شنقاً",
+    "executed-decapitation": "أعدموا بقطع الرأس",
+    "executed-firearm": "أعدموا بسلاح ناري",
+    "executed-hanging": "أعدموا حرقاً",
+    "executions": "إعدامات",
+    "people executed by": "أشخاص أعدموا من قبل",
+    "people executed-by-burning": "أشخاص أعدموا شنقاً",
+    "people executed-by-decapitation": "أشخاص أعدموا بقطع الرأس",
+    "people executed-by-firearm": "أشخاص أعدموا بسلاح ناري",
+    "people executed-by-hanging": "أشخاص أعدموا حرقاً",
+    "railway accident": "حوادث سكك حديد",
+    "railway accidents": "حوادث سكك حديد",
+    "road accidents": "حوادث طرق",
+    "transport accident": "حوادث نقل",
+    "transport accidents": "حوادث نقل",
+    "transport disasters": "كوارث نقل"
+}
 
 
 def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
@@ -62,6 +87,7 @@ All_P17 = {}
 Films_O_TT = {}
 
 Table_for_frist_word = {
+    "olympic_event_translations_type_tables": olympic_event_translations_type_tables,
     "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
     "New_players": players_new_keys,

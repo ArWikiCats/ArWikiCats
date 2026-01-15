@@ -16,8 +16,9 @@ from ...make_bots.matables_bots.bot import Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
-from ...translations import Nat_mens, typeTable
+from ...translations import Nat_mens, typeTable, olympic_event_translations_type_tables
 from ...utils import check_key_in_tables
+from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
 
 type_after_country = ["non-combat"]
@@ -45,7 +46,7 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
 def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> None:
     """Store an Arabic label assembled from type and country components."""
     in_tables_lowers = check_key_new_players(typeo.lower())
-    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
+    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable, olympic_event_translations_type_tables])
 
     if typeo in type_after_country:
         ar = f"{country_label} {typeo_lab}"
@@ -118,9 +119,9 @@ class LabelForStartWithYearOrTypeo:
         """Translate the type portion of the category when available."""
         if not self.typeo:
             return
-
-        if self.typeo in typeTable:
-            self.typeo_lab = typeTable[self.typeo]["ar"]
+        in_ty = typeTable.get(self.typeo) or olympic_event_translations_type_tables.get(self.typeo)
+        if in_ty:
+            self.typeo_lab = in_ty["ar"]
             logger.info(f'a<<lightblue>>>>>> {self.typeo=} in typeTable "{self.typeo_lab}"')
 
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
@@ -132,8 +133,8 @@ class LabelForStartWithYearOrTypeo:
 
             logger.info(f"a<<lightblue>>>typeo_lab : {self.typeo_lab}")
 
-            if "s" in typeTable[self.typeo]:
-                self.suf = typeTable[self.typeo]["s"]
+            if "s" in in_ty:
+                self.suf = in_ty["s"]
 
         else:
             logger.info(f'a<<lightblue>>>>>> typeo "{self.typeo}" not in typeTable')
@@ -229,6 +230,28 @@ class LabelForStartWithYearOrTypeo:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
             logger.debug("a<<lightblue>>>>>> No country_lower.")
+            return
+
+        if self.country_lower == "x":
+            if self.country_label:
+                self.cat_test, self.arlabel = new_func_mk2(
+                    self.cate,
+                    self.cat_test,
+                    self.year_at_first,
+                    self.typeo,
+                    self.In,
+                    self.country_lower,
+                    self.arlabel,
+                    self.year_labe,
+                    self.suf,
+                    self.Add_In,
+                    self.country_label,
+                    self.Add_In_Done,
+                )
+                return
+
+            logger.info(f"a<<lightblue>>>>>> Cant id {self.country_lower=} ")
+            self.NoLab = True
             return
 
         logger.info("a<<lightblue>>>>>> No label.")

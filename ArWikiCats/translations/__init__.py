@@ -25,7 +25,6 @@ from .mixed.all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
-    typeTable_7,
 )
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
@@ -75,7 +74,7 @@ from .tv.films_mslslat import (
     films_mslslat_tab,
     television_keys,
 )
-from .type_tables import typeTable
+from .type_tables import typeTable, olympic_event_translations_type_tables
 from .utils import apply_pattern_replacements
 from .utils.json_dir import open_json_file
 from .utils.match_sport_keys import match_sport_key
@@ -89,6 +88,7 @@ __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "apply_pattern_replacements",
     "typeTable",
+    "olympic_event_translations_type_tables",
     "match_sport_key",
     "olympic_event_translations",
     "en_nats_to_ar_label",
@@ -129,7 +129,6 @@ __all__ = [
     "pop_of_without_in",
     "pop_of_football_lower",
     "WORD_AFTER_YEARS",
-    "typeTable_7",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",

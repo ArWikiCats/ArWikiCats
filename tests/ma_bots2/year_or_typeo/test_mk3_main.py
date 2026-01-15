@@ -212,7 +212,6 @@ data1 = {
     "Video games sidebar templates": "قوالب أشرطة جانبية ألعاب فيديو",
     "1000 disestablishments by country": "انحلالات سنة 1000 حسب البلد",
     "1000 disestablishments in europe": "انحلالات سنة 1000 في أوروبا",
-    "2000s films": "أفلام في عقد 2000",
     "awards by country": "جوائز حسب البلد",
     "politics of united states by state": "سياسة الولايات المتحدة حسب الولاية",
     "television series by city of location": "مسلسلات تلفزيونية حسب مدينة الموقع",
