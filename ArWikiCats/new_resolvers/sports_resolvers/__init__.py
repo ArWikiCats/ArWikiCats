@@ -7,6 +7,7 @@ from . import (
     nationalities_and_sports,
     raw_sports,
     sport_lab_nat,
+    jobs_multi_sports_reslover,
 )
 
 
@@ -21,6 +22,7 @@ def resolve_sports_main(normalized_category) -> str:
         # raw_sports.wrap_team_xo_normal_2025_with_ends(normalized_category) or               #
         countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category)
         or nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category)
+        or jobs_multi_sports_reslover.jobs_in_multi_sports(normalized_category)
         or
         # match_labs.find_teams_2025(normalized_category) or
         # sport_lab_nat.sport_lab_nat_load_new(normalized_category) or

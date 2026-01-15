@@ -19,11 +19,11 @@ from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import work_peoples
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ...new_resolvers.relations_resolver import new_relations_resolvers
+
 from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+
 from ...time_resolvers import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2, typeTable
@@ -46,7 +46,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_relations_resolvers(country2)
+        new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
@@ -55,7 +55,6 @@ def wrap_lab_for_country2(country: str) -> str:
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or univer.te_universities(country2)
-        or resolve_us_states(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -124,6 +123,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
     part_1_label = (
         get_pop_All_18(cone_1)
         or te_films(cone_1)
+        or new_resolvers_all(cone_1)
         or sport_lab_nat_load_new(cone_1)
         or sport_lab_suffixes.get_teams_new(cone_1)
         or parties_bot.get_parties_lab(cone_1)
@@ -154,6 +154,7 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
         get_pop_All_18(cone_2)
         or bys.get_by_label(cone_2)
         or te_films(cone_2)
+        or new_resolvers_all(cone_2)
         or sport_lab_nat_load_new(cone_2)
         or sport_lab_suffixes.get_teams_new(cone_2)
         or parties_bot.get_parties_lab(cone_2)

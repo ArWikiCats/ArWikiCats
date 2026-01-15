@@ -22,11 +22,11 @@ from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ..new_resolvers.relations_resolver import new_relations_resolvers
-from ..new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
+
+from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_new_p17_final, get_from_pf_keys2
@@ -43,7 +43,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_relations_resolvers(country2)
+        new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
@@ -52,7 +52,6 @@ def wrap_lab_for_country2(country: str) -> str:
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or univer.te_universities(country2)
-        or resolve_us_states(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -147,7 +146,10 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or resolve_nats_sport_multi_v2(category3)
+        category_lab = (
+            wrap_team_xo_normal_2025_with_ends(category3)
+            or new_resolvers_all(category3)
+        )
         if category_lab:
             return category_lab
 

@@ -16,9 +16,10 @@ from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
-from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ..new_resolvers.relations_resolver import new_relations_resolvers
+
+from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
@@ -46,7 +47,7 @@ def _resolve_label(label: str) -> str:
         Resolved Arabic label or empty string
     """
     resolved_label = (
-        new_relations_resolvers(label)
+        new_resolvers_all(label)
         or get_from_pf_keys2(label)
         or get_pop_All_18(label)
         or te_films(label)
@@ -55,7 +56,6 @@ def _resolve_label(label: str) -> str:
         or parties_bot.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)
         or univer.te_universities(label)
-        or resolve_us_states(label)
         or work_peoples(label)
         or get_KAKO(label)
         or convert_time_to_arabic(label)
