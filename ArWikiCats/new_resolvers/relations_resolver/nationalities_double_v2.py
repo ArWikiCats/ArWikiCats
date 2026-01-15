@@ -85,7 +85,7 @@ def double_bot() -> FormatDataDoubleV2:
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en}",
-        splitter=r"[ \-−–]",
+        splitter=r"[−–\- ]",
         sort_ar_labels=True,
     )
 
