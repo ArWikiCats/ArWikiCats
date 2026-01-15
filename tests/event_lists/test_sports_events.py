@@ -817,10 +817,10 @@ fast_data_2 = {
 }
 
 fast_data_3 = {
+    "Lists of sports events": "قوائم أحداث رياضية",
+    # "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
     "Lists of American sports events": "قوائم أحداث رياضية أمريكية",
     "Lists of announcers of American sports events": "قوائم مذيعون من أحداث رياضية أمريكية",
-    "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
-    "Lists of sports events": "أحداث قوائم الرياضة",
     "Lists of Taiwanese sports events": "قوائم أحداث رياضية تايوانية",
     "Men's sports events by continent": "أحداث رياضية رجالية حسب القارة",
     "Men's sports events in Africa": "أحداث رياضية رجالية في إفريقيا",
