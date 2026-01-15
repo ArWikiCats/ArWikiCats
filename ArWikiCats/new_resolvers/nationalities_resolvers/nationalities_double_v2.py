@@ -36,6 +36,7 @@ formatted_data = {
 
     "{en} musical groups": "فرق موسيقية {female}",
     "{en} music": "موسيقى {female}",
+    # "{en} music genres": "أنواع موسيقى {female}",
 
     "{en} novels": "روايات {female}",
     "{en} architecture": "عمارة {female}",
