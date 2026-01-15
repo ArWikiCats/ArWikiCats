@@ -4,9 +4,11 @@
 import functools
 
 from ...helps import logger
-from ...translations import countries_en_as_nationality_keys, All_Nat
+from ...translations import countries_en_as_nationality_keys, All_Nat, all_country_with_nat
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
+
+countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 formatted_data = {
     # "jewish persian": "فرس يهود",
@@ -81,7 +83,7 @@ def fix_keys(category: str) -> str:
 def resolve_by_nats_double_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_nats_double_v2: {category=}")
 
-    if category in countries_en_as_nationality_keys:  # or category in countries_en_keys:
+    if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
         return ""
 
