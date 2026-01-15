@@ -883,7 +883,7 @@ data_virginia_2 = {
     "Category:Wyoming County, West Virginia": "تصنيف:مقاطعة وايومنغ (فرجينيا الغربية)",
     "Category:Wythe County, Virginia": "تصنيف:مقاطعة وايذ (فرجينيا)",
     "Category:Years of the 19th century in West Virginia": "تصنيف:سنوات القرن 19 في فرجينيا الغربية",
-    "Category:York County, Virginia": "تصنيف:مقاطعة يورك (فرجينيا)"
+    "Category:York County, Virginia": "تصنيف:مقاطعة يورك (فرجينيا)",
 }
 
 to_test = [

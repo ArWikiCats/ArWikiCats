@@ -60,14 +60,13 @@ data_1 = {
 data_2 = {
     "yemeni children's-animated-adventure-television films": "أفلام مغامرات رسوم متحركة تلفزيونية يمنية للأطفال",
     "children's-animated-adventure-television films": "أفلام مغامرات رسوم متحركة تلفزيونية للأطفال",
-    "action television characters": "شخصيات تلفزيونية حركة"
+    "action television characters": "شخصيات تلفزيونية حركة",
 }
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_films_keys2_batch_1(category: str, expected: str) -> None:
-
     label = Films(category)
     assert label == expected
 
@@ -81,7 +80,6 @@ TEMPORAL_CASES = [
 @pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str], callback: callable) -> None:
-
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

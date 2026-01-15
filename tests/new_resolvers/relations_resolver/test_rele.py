@@ -68,6 +68,7 @@ def test_male_relations_with_en_dash() -> None:
     result = new_relations_resolvers("afghan–prussian conflict")
     assert result == "الصراع الأفغاني البروسي"
 
+
 # ======================
 # اختبارات البادئات (P17_PREFIXES)
 # ======================

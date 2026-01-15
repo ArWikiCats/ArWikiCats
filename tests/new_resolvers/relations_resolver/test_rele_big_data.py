@@ -448,7 +448,7 @@ test_same = {
     "monaco–ukraine relations": "العلاقات الأوكرانية الموناكية",
     "monaco–united kingdom relations": "العلاقات البريطانية الموناكية",
     "monaco–united states relations": "العلاقات الأمريكية الموناكية",
-    "monaco–yugoslavia relations": "العلاقات الموناكية اليوغسلافية"
+    "monaco–yugoslavia relations": "العلاقات الموناكية اليوغسلافية",
 }
 
 big_data2 = {
@@ -526,13 +526,11 @@ big_data2 = {
     "saint kitts and nevis–thailand relations": "علاقات تايلاند وسانت كيتس ونيفيس",
     "saint kitts and nevis–united kingdom sports relations": "علاقات المملكة المتحدة وسانت كيتس ونيفيس الرياضية",
     "saint kitts and nevis–united states sports relations": "علاقات الولايات المتحدة وسانت كيتس ونيفيس الرياضية",
-
     "serbia and montenegro–slovakia relations": "علاقات سلوفاكيا وصربيا والجبل الأسود",
     "serbia and montenegro–yemen relations": "علاقات اليمن وصربيا والجبل الأسود",
     "kazakhstan–serbia and montenegro relations": "علاقات صربيا والجبل الأسود وكازاخستان",
     "russia–serbia and montenegro relations": "علاقات روسيا وصربيا والجبل الأسود",
     "czech republic–serbia and montenegro relations": "علاقات التشيك وصربيا والجبل الأسود",
-
     "austrian empire–kingdom of sardinia relations": "علاقات الإمبراطورية النمساوية ومملكة سردينيا",
     "dominica–mexico relations": "علاقات المكسيك ودومينيكا",
     "eswatini–poland relations": "علاقات إسواتيني وبولندا",

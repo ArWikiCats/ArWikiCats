@@ -28,7 +28,9 @@ def resolve_countries_names_main(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}", resolved_label)
+    logger.info_if_or_debug(
+        f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
+    )
     return resolved_label
 
 

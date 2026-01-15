@@ -44,7 +44,6 @@ formatted_data_v2 = {
     "{en} border war": "حرب الحدود {the_female}",
     "{en} war films": "أفلام الحرب {the_female}",
     "{en} war video games": "ألعاب فيديو الحرب {the_female}",
-
     # RELATIONS_MALE: Mapping[str, str] = {}
     "{en} conflict video games": "ألعاب فيديو الصراع {the_male}",
     "{en} conflict legal issues": "قضايا قانونية في الصراع {the_male}",
@@ -58,18 +57,20 @@ def _load_all_country_labels_v2() -> dict[str, dict[str, str]]:
     data = dict(countries_nat_en_key)
     # nats_data = { x: v for x, v in All_Nat.items() }
     # nats_data.update({ x: v for x, v in nats_keys_as_country_names.items() })
-    data.update({
-        "ireland": {
-            "male": "أيرلندي",
-            "males": "أيرلنديون",
-            "female": "أيرلندية",
-            "females": "أيرلنديات",
-            "the_male": "الأيرلندي",
-            "the_female": "الأيرلندية",
-            "en": "ireland",
-            "ar": "أيرلندا",
+    data.update(
+        {
+            "ireland": {
+                "male": "أيرلندي",
+                "males": "أيرلنديون",
+                "female": "أيرلندية",
+                "females": "أيرلنديات",
+                "the_male": "الأيرلندي",
+                "the_female": "الأيرلندية",
+                "en": "ireland",
+                "ar": "أيرلندا",
+            }
         }
-    })
+    )
     return data
 
 

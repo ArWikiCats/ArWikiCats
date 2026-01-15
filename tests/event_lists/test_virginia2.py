@@ -13,7 +13,6 @@ data_virginia2_1 = {
     "Category:1671 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1671 في مستعمرة فرجينيا",
     "Category:1673 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1673 في مستعمرة فرجينيا",
     "Category:1759 establishments in the Colony of Virginia": "تصنيف:تأسيسات سنة 1759 في مستعمرة فرجينيا",
-
 }
 
 data_virginia2_3 = {

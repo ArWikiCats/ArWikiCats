@@ -49,7 +49,6 @@ olympics = {
     "asian indoor games medallists": "فائزون بميداليات دورة الألعاب الآسيوية داخل الصالات",
     "asian indoor games silver medalists": "فائزون بميداليات فضية في دورة الألعاب الآسيوية داخل الصالات",
     "asian para games bronze medalists": "فائزون بميداليات برونزية في الألعاب البارالمبية الآسيوية",
-
     "asian para games gold medalists": "فائزون بميداليات ذهبية في الألعاب البارالمبية الآسيوية",
     "asian para games medalists": "فائزون بميداليات الألعاب البارالمبية الآسيوية",
     "asian para games medallists": "فائزون بميداليات الألعاب البارالمبية الآسيوية",

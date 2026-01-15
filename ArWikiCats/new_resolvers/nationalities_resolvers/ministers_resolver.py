@@ -30,10 +30,8 @@ en_secretaries_mapping = {
     "ministers of {ministry} for {en}": "وزراء {no_al} {ar}",
     "ministers of {ministry} of {en}": "وزراء {no_al} {ar}",
     "women government ministers of {en}": "وزيرات {females}",
-
     # "Category:Foreign ministers of Monaco" : "تصنيف:وزراء خارجية موناكو",
     "{ministry} ministers of {en}": "وزراء {no_al} {ar}",
-
     "ministers of {ministry}": "وزراء {no_al}",
     "ministers for {ministry}": "وزراء {no_al}",
     "secretaries of {ministry}": "وزراء {no_al}",
@@ -97,9 +95,7 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
 
     countries_data.update(nats_keys_as_country_names)
 
-    countries_data.update(
-        {v["en"]: v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")}
-    )
+    countries_data.update({v["en"]: v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")})
 
     both_bot = format_multi_data_v2(
         formatted_data=en_secretaries_mapping,

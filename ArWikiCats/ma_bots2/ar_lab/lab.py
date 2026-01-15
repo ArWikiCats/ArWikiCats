@@ -67,6 +67,7 @@ def wrap_lab_for_country2(country: str) -> str:
 
     return resolved_label
 
+
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 
 

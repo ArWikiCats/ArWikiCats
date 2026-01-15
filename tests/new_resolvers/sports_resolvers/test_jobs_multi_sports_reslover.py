@@ -28,45 +28,35 @@ multi_sports_data_competitors = {
     "asian para games competitors": "منافسون في الألعاب البارالمبية الآسيوية",
     "central american and caribbean games competitors": "منافسون في ألعاب أمريكا الوسطى والكاريبي",
     "commonwealth games competitors": "منافسون في ألعاب الكومنولث",
-
 }
 
 multi_sports_data = {
     "paralympic sailors": "بحارة في الألعاب البارالمبية",
     "pan american games sailors": "بحارة في دورة الألعاب الأمريكية",
-
     "islamic solidarity games cyclists": "دراجون في ألعاب التضامن الإسلامي",
     "paralympic cyclists": "دراجون في الألعاب البارالمبية",
     "pan american games cyclists": "دراجون في دورة الألعاب الأمريكية",
-
     "islamic solidarity games weightlifters": "رباعون في ألعاب التضامن الإسلامي",
     "commonwealth games weightlifters": "رباعون في ألعاب الكومنولث",
     "asian games weightlifters": "رباعون في الألعاب الآسيوية",
     "paralympic weightlifters": "رباعون في الألعاب البارالمبية",
     "pan american games weightlifters": "رباعون في دورة الألعاب الأمريكية",
-
     "islamic solidarity games shooters": "رماة في ألعاب التضامن الإسلامي",
     "asian games shooters": "رماة في الألعاب الآسيوية",
     "paralympic shooters": "رماة في الألعاب البارالمبية",
-
     "islamic solidarity games track and field athletes": "رياضيو المسار والميدان في ألعاب التضامن الإسلامي",
     "paralympic track and field athletes": "رياضيو المسار والميدان في الألعاب البارالمبية",
     "pan american games track and field athletes": "رياضيو المسار والميدان في دورة الألعاب الأمريكية",
-
     "islamic solidarity games swimmers": "سباحون في ألعاب التضامن الإسلامي",
     "commonwealth games swimmers": "سباحون في ألعاب الكومنولث",
     "asian games swimmers": "سباحون في الألعاب الآسيوية",
     "paralympic swimmers": "سباحون في الألعاب البارالمبية",
     "pan american games swimmers": "سباحون في دورة الألعاب الأمريكية",
-
     "paralympic marathon runners": "عداؤو ماراثون في الألعاب البارالمبية",
-
     "commonwealth games divers": "غواصون في ألعاب الكومنولث",
     "asian games divers": "غواصون في الألعاب الآسيوية",
-
     "paralympic equestrians": "فرسان خيول في الألعاب البارالمبية",
     "pan american games equestrians": "فرسان خيول في دورة الألعاب الأمريكية",
-
     "maccabiah games rugby union players": "لاعبو اتحاد رجبي في الألعاب المكابيه",
     "commonwealth games squash players": "لاعبو اسكواش في ألعاب الكومنولث",
     "paralympic boccia players": "لاعبو بوتشيا في الألعاب البارالمبية",
@@ -146,16 +136,13 @@ multi_sports_data = {
     "pan american games field hockey players": "لاعبو هوكي ميدان في دورة الألعاب الأمريكية",
     "paralympic triple jumpers": "لاعبو وثب ثلاثي في الألعاب البارالمبية",
     "afc asian cup players": "لاعبون في كأس آسيا",
-
     "paralympic wheelchair fencers": "مبارزون على الكراسي المتحركة في الألعاب البارالمبية",
     "islamic solidarity games fencers": "مبارزون في ألعاب التضامن الإسلامي",
     "commonwealth games fencers": "مبارزون في ألعاب الكومنولث",
-
     "youth olympics nordic combined skiers": "متزحلقو تزلج نوردي مزدوج في الألعاب الأولمبية الشبابية",
     "asian games alpine skiers": "متزحلقو منحدرات ثلجية في الألعاب الآسيوية",
     "paralympic alpine skiers": "متزحلقو منحدرات ثلجية في الألعاب البارالمبية",
     "paralympic cross-country skiers": "متزحلقون ريفيون في الألعاب البارالمبية",
-
     "paralympic snowboarders": "متزلجون على الثلج في الألعاب البارالمبية",
     "asian games ski-orienteers": "متسابقو تزلج موجه في الألعاب الآسيوية",
     "asian games modern pentathletes": "متسابقو خماسي حديث في الألعاب الآسيوية",
@@ -171,13 +158,11 @@ multi_sports_data = {
     "paralympic wrestlers": "مصارعون في الألعاب البارالمبية",
     "pan american games wrestlers": "مصارعون في دورة الألعاب الأمريكية",
     "islamic solidarity games kickboxers": "مقاتلو كيك بوكسنغ في ألعاب التضامن الإسلامي",
-
     "islamic solidarity games boxers": "ملاكمون في ألعاب التضامن الإسلامي",
     "commonwealth games boxers": "ملاكمون في ألعاب الكومنولث",
     "asian games boxers": "ملاكمون في الألعاب الآسيوية",
     "european games boxers": "ملاكمون في الألعاب الأوروبية",
     "pan american games boxers": "ملاكمون في دورة الألعاب الأمريكية",
-
     "paralympic powerlifters": "ممارسو رياضة القوة في الألعاب البارالمبية",
     "asian games sambo practitioners": "ممارسو سامبو في الألعاب الآسيوية",
     "european games sambo practitioners": "ممارسو سامبو في الألعاب الأوروبية",

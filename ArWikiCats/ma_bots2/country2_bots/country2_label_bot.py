@@ -237,7 +237,9 @@ def make_cnt_lab(
             "military installations of": "منشآت {} العسكرية",
         }
         if part_1_normalized in label_format_mappings:
-            logger.info(f'<<lightblue>>>>>> part_1_normalized in label_format_mappings "{label_format_mappings[part_1_normalized]}":')
+            logger.info(
+                f'<<lightblue>>>>>> part_1_normalized in label_format_mappings "{label_format_mappings[part_1_normalized]}":'
+            )
             resolved_label = label_format_mappings[part_1_normalized].format(part_2_label)
 
     # NOTE: important to fix bug like: [sport in ottoman] = "الرياضة في في الدولة العثمانية" !

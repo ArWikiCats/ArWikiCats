@@ -498,7 +498,6 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
     tato_type = {
         "treason": "خيانة",
         "harassment": "مضايقة",
-
         "archaeological parks": "متنزهات أثرية",
         "architecture museums": "متاحف معمارية",
         "architecture schools": "مدارس عمارة",
@@ -580,7 +579,7 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
         "video gaming": "ألعاب الفيديو",
         "witchcraft": "السحر",
         "world war i museums": "متاحف الحرب العالمية الأولى",
-        "world war ii museums": "متاحف الحرب العالمية الثانية"
+        "world war ii museums": "متاحف الحرب العالمية الثانية",
     }
 
     data.update({key.lower(): value for key, value in tato_type.items()})

@@ -125,7 +125,7 @@ fast_data_no_nat = {
     "science fiction thriller films": "أفلام إثارة خيال علمي",
     "thriller films": "أفلام إثارة",
     "war films": "أفلام حربية",
-    "melodrama films": "أفلام ميلودراما"
+    "melodrama films": "أفلام ميلودراما",
 }
 
 
@@ -138,7 +138,6 @@ def test_resolve_films_no_nat(category: str, expected: str) -> None:
 
 to_test = [
     ("no_nat", fast_data_no_nat, Films),
-
     ("with_nat_tyty", fast_data_with_nat, get_films_key_tyty_new),
     ("no_nat_tyty", fast_data_no_nat, get_films_key_tyty_new),
 ]

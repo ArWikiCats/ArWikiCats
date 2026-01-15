@@ -17,7 +17,7 @@ test_lutenists_1 = {
     "Category:Danish lutenists": "عازفو آلات وترية دنماركيون",
     "Category:Russian lutenists": "عازفو آلات وترية روس",
     "Category:French lutenists": "عازفو آلات وترية فرنسيون",
-    "Category:Dutch lutenists": "عازفو آلات وترية هولنديون"
+    "Category:Dutch lutenists": "عازفو آلات وترية هولنديون",
 }
 to_test = [
     ("test_lutenists_1", test_lutenists_1),

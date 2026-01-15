@@ -106,15 +106,12 @@ medalists_data = {
     "south asian beach games": "دورة ألعاب جنوب أسيا الشاطئية",
     "south asian games": "ألعاب جنوب أسيا",
     "south asian winter games": "ألعاب جنوب آسيا الشتوية",
-
     # "winter olympic": "الألعاب الأولمبية الشتوية",
     # "winter universiade": "الألعاب الجامعية الشتوية",
     # "winter world university games": "ألعاب الجامعات العالمية الشتوية",
-
     # "summer olympic": "الألعاب الأولمبية الصيفية",
     # "summer universiade": "الألعاب الجامعية الصيفية",
     # "summer world university games": "ألعاب الجامعات العالمية الصيفية",
-
     "southeast asian games": "ألعاب جنوب شرق آسيا",
     "the universiade": "الألعاب الجامعية",
     "universiade": "الألعاب الجامعية",

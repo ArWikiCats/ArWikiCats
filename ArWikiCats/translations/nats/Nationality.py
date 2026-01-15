@@ -176,12 +176,14 @@ def load_sources(
             "en": "jerusalem",
             "ar": "القدس",
             "the_female": "المقدسية",
-            "the_male": "المقدسي"
+            "the_male": "المقدسي",
         },
     }
 
     raw_all_nat_o: AllNatDict = open_json_file("nationalities/nationalities_data.json") or {}
-    nationality_directions_mapping: AllNatDict = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+    nationality_directions_mapping: AllNatDict = (
+        open_json_file("nationalities/nationalities_data_with_directions.json") or {}
+    )
 
     raw_uu_nats: AllNatDict = open_json_file("nationalities/sub_nats_with_ar_or_en.json") or {}
     raw_sub_nat: AllNatDict = open_json_file("nationalities/sub_nats.json") or {}

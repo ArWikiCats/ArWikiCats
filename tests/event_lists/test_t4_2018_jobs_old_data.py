@@ -37,7 +37,6 @@ data_fast = {
     "spanish-language mass media": "إعلام اللغة الإسبانية",
     "surinamese women children's writers": "كاتبات أطفال سوريناميات",
     "swedish-language albums": "ألبومات باللغة السويدية",
-
 }
 
 

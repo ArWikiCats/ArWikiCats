@@ -432,7 +432,6 @@ data1 = {
     "Category:Finance ministers of Russia": "تصنيف:وزراء مالية روسيا",
     "Category:Health ministers of Russia": "تصنيف:وزراء صحة روسيا",
     "Category:Justice ministers of Russia": "تصنيف:وزراء عدل روسيا",
-
     "Category:Military personnel of the Tsardom of Russia": "تصنيف:أفراد عسكريون من روسيا القيصرية",
     "Category:Military history of the Tsardom of Russia": "تصنيف:تاريخ روسيا القيصرية العسكري",
     "Category:Immigrants to the Tsardom of Russia": "تصنيف:مهاجرون إلى روسيا القيصرية",

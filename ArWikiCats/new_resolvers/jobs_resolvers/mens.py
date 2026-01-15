@@ -6,7 +6,14 @@ import re
 
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...helps import logger, len_print
-from ...translations import RELIGIOUS_KEYS_PP, all_country_with_nat, all_country_with_nat_ar, jobs_mens_data, countries_en_as_nationality_keys, All_Nat
+from ...translations import (
+    RELIGIOUS_KEYS_PP,
+    all_country_with_nat,
+    all_country_with_nat_ar,
+    jobs_mens_data,
+    countries_en_as_nationality_keys,
+    All_Nat,
+)
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
@@ -29,7 +36,6 @@ Mens_prefix: dict[str, str] = {
     # "expatriate men's": "رجال مغتربون",
     # "male": "ذكور",
     # "male child": "أطفال ذكور",
-
     "amputee": "مبتورو أحد الأطراف",
     "blind": "مكفوفون",
     "child": "أطفال",
@@ -52,7 +58,6 @@ genders_keys_new_under_test: dict[str, str] = {
     "fictional": "خياليون",
     "disabled": "معاقون",
     "contemporary": "معاصرون",
-
     "latin": "لاتينيون",
     "child": "أطفال",
     "political": "سياسيون",
@@ -81,7 +86,7 @@ def is_false_key(key: str, value: str) -> bool:
     if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
         return True
 
-    if key in genders_keys:   # NOTE: under test
+    if key in genders_keys:  # NOTE: under test
         return True
 
     if RELIGIOUS_KEYS_PP.get(key):
@@ -105,7 +110,6 @@ def is_false_key(key: str, value: str) -> bool:
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
-
         "political office-holders": "أصحاب مناصب سياسية",
         "{en_nat} political office-holders": "أصحاب مناصب سياسية {males}",
         # base keys
@@ -134,8 +138,8 @@ def _load_formatted_data() -> dict:
         "{en_nat} films people": "أعلام أفلام {males}",
         "{en_nat} film people": "أعلام أفلام {males}",
         "male {en_nat}": "{males} ذكور",
-        "men {en_nat}": "{males}",      # رجال
-        "mens {en_nat}": "{males}",      # رجال
+        "men {en_nat}": "{males}",  # رجال
+        "mens {en_nat}": "{males}",  # رجال
         # emigrants keys
         # "{en_nat} emigrants": "{ar_job} مهاجرون",
         "{en_nat} emigrants {en_job}": "{ar_job} {males} مهاجرون",
@@ -154,8 +158,8 @@ def _load_formatted_data() -> dict:
         "{en_job}": "{ar_job}",
         "{en_job} people": "أعلام {ar_job}",
         "male {en_job}": "{ar_job} ذكور",
-        "men {en_job}": "{ar_job}",     # رجال
-        "mens {en_job}": "{ar_job}",     # رجال
+        "men {en_job}": "{ar_job}",  # رجال
+        "mens {en_job}": "{ar_job}",  # رجال
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
@@ -194,7 +198,6 @@ def _load_formatted_data() -> dict:
     formatted_data.update(
         {
             "fictional {en_nat} jews": "{males} يهود خياليون",
-
             "ancient {en_nat}": "{males} قدماء",
             "ancient {en_job}": "{ar_job} قدماء",
             "military {en_job}": "{ar_job} عسكريون",
@@ -250,20 +253,13 @@ def _load_formatted_data() -> dict:
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {
-        x: {"ar_job": v}
-        for x, v in jobs_mens_data_f.items()
-        if not is_false_key(x, v)
-    }
+    data = {x: {"ar_job": v} for x, v in jobs_mens_data_f.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
         logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
-    data = {
-        x.replace("'", "").replace("australian rules", "australian-rules"): v
-        for x, v in data.items()
-    }
+    data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
     return data
 
 
@@ -359,7 +355,10 @@ def mens_resolver_labels(category: str) -> str:
     return result
 
 
-len_print.data_len("mens.py", {
-    "mens_formatted_data": _load_formatted_data(),
-    "mens_jobs_data": _load_jobs_data(),
-})
+len_print.data_len(
+    "mens.py",
+    {
+        "mens_formatted_data": _load_formatted_data(),
+        "mens_jobs_data": _load_jobs_data(),
+    },
+)

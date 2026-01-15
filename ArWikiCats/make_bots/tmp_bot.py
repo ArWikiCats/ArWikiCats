@@ -107,15 +107,11 @@ def create_label_from_suffix(input_label):
 
 @functools.lru_cache(maxsize=10000)
 def Work_Templates(input_label: str) -> str:
-    """
-    """
+    """ """
     input_label = input_label.lower().strip()
     logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
 
-    template_label = (
-        create_label_from_suffix(input_label)
-        or create_label_from_prefix(input_label)
-    )
+    template_label = create_label_from_suffix(input_label) or create_label_from_prefix(input_label)
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")
     return template_label

@@ -537,7 +537,7 @@ female_tests = {
     "yemeni jewish culture": "ثقافة يمنية يهودية",
     "yemeni-jewish culture": "ثقافة يمنية يهودية",
     "yugoslav jewish culture": "ثقافة يهودية يوغسلافية",
-    "yugoslav-jewish culture": "ثقافة يهودية يوغسلافية"
+    "yugoslav-jewish culture": "ثقافة يهودية يوغسلافية",
 }
 
 test_data_fast = {
@@ -559,7 +559,7 @@ test_data_fast = {
     "dutch christian music": "موسيقى مسيحية هولندية",
     "indian christian music": "موسيقى مسيحية هندية",
     "irish american gangs": "عصابات أمريكية أيرلندية",
-    "british antigua and barbuda people": "أنتيغويون وبربوديون بريطانيون"
+    "british antigua and barbuda people": "أنتيغويون وبربوديون بريطانيون",
 }
 
 

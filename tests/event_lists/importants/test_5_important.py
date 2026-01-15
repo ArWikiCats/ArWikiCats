@@ -122,9 +122,7 @@ data1 = {
     "Category:Burial sites of imperial Chinese families": "تصنيف:مواقع دفن أسر إمبراطورية صينية",
 }
 
-data_2 = {
-
-}
+data_2 = {}
 
 data_3 = {
     "1550 in asian women's football": "تصنيف:كرة قدم آسيوية للسيدات في 1550",

@@ -38,29 +38,28 @@ def populate_film_patterns(formatted_data):
     films_non_patterns_data = {
         "animated television series": {
             "value": "مسلسلات رسوم متحركة تلفزيونية",
-            "value_nat": "مسلسلات رسوم متحركة تلفزيونية {female}"
+            "value_nat": "مسلسلات رسوم متحركة تلفزيونية {female}",
         },
         "children's animated adventure television series": {
             "value": "مسلسلات مغامرات رسوم متحركة تلفزيونية للأطفال",
-            "value_nat": "مسلسلات مغامرات رسوم متحركة تلفزيونية {female} للأطفال"
+            "value_nat": "مسلسلات مغامرات رسوم متحركة تلفزيونية {female} للأطفال",
         },
     }
     for k, v in films_non_patterns_data.items():
         value_with_nat = v.get("value_nat")
         value = v.get("value")
-        formatted_data.update({
-            f"{k}": f"{value}",
-            f"{{year1}} {k}": f"{value} في {{year1}}",
-
-            f"{{en_nat}} {k}": f"{value_with_nat}",
-            f"{{year1}} {{en_nat}} {k}": f"{value_with_nat} في {{year1}}",
-
-            f"{{year1}} {k}-endings": f"{value} انتهت في {{year1}}",
-            f"{{year1}} {k} endings": f"{value} انتهت في {{year1}}",
-
-            f"{{year1}} {{en_nat}} {k}-endings": f"{value_with_nat} انتهت في {{year1}}",
-            f"{{year1}} {{en_nat}} {k} endings": f"{value_with_nat} انتهت في {{year1}}",
-        })
+        formatted_data.update(
+            {
+                f"{k}": f"{value}",
+                f"{{year1}} {k}": f"{value} في {{year1}}",
+                f"{{en_nat}} {k}": f"{value_with_nat}",
+                f"{{year1}} {{en_nat}} {k}": f"{value_with_nat} في {{year1}}",
+                f"{{year1}} {k}-endings": f"{value} انتهت في {{year1}}",
+                f"{{year1}} {k} endings": f"{value} انتهت في {{year1}}",
+                f"{{year1}} {{en_nat}} {k}-endings": f"{value_with_nat} انتهت في {{year1}}",
+                f"{{year1}} {{en_nat}} {k} endings": f"{value_with_nat} انتهت في {{year1}}",
+            }
+        )
 
 
 @functools.lru_cache(maxsize=1)

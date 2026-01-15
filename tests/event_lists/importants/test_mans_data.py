@@ -28,7 +28,7 @@ data1 = {
     "oceanian rugby union": "اتحاد الرجبي الأوقيانوسي",
     "russian rugby union": "اتحاد الرجبي الروسي",
     "south american rugby union": "اتحاد الرجبي الأمريكي الجنوبي",
-    "welsh rugby league": "الدوري الويلزي للرجبي"
+    "welsh rugby league": "الدوري الويلزي للرجبي",
 }
 
 data_2 = {
@@ -38,14 +38,12 @@ data_2 = {
     "eritrean premier league": "الدوري الإريتري الممتاز",
     "french rugby union leagues": "اتحاد دوري الرجبي الفرنسي",
     "irish league": "الدوري الأيرلندي",
-    "saudi super cup": "كأس السوبر السعودي"
+    "saudi super cup": "كأس السوبر السعودي",
 }
 
-data_3 = {
-}
+data_3 = {}
 
-data_4 = {
-}
+data_4 = {}
 
 to_test = [
     ("test_mans_data_0", data0, resolve_label_ar),

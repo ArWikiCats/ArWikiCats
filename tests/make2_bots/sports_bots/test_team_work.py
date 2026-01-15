@@ -7,7 +7,6 @@ import pytest
 from ArWikiCats.make_bots.sports_bots.team_work import Get_team_work_Club
 
 fast_data = {
-
     # "baseball world cup players": "لاعبو كأس العالم لكرة القاعدة",
     # "egyptian second division seasons": "مواسم الدوري المصري الدرجة الثانية",
     # "rugby world cup referees": "حكام كأس العالم للرجبي",

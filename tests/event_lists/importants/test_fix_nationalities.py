@@ -11,7 +11,7 @@ data0 = {
     "North African campaign": "",
     "North African campaign films": "",
     "North African football biography stubs": "",
-    "North African legendary creatures": ""
+    "North African legendary creatures": "",
 }
 
 data1 = {}
@@ -48,8 +48,7 @@ data_2 = {
     "People of North African descent": "أشخاص من أصل إفريقي شمالي",
     "Tunisian people of North African descent": "تونسيون من أصل إفريقي شمالي",
 }
-data_3 = {
-}
+data_3 = {}
 
 to_test = [
     ("test_fix_nationalities_data_2", data_2),

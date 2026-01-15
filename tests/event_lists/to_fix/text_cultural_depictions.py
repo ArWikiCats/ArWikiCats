@@ -1089,7 +1089,7 @@ data_slow = {
     "Category:Cultural depictions of Yuri Gagarin": "تصنيف:تصوير ثقافي عن يوري جاجارين",
     "Category:Cultural depictions of Zachary Taylor": "تصنيف:تصوير ثقافي عن زكاري تايلور",
     "Category:Cultural depictions of Zhou Enlai": "تصنيف:تصوير ثقافي عن تشو ان لاى",
-    "Category:Cultural depictions of Zulfikar Ali Bhutto": "تصنيف:تصوير ثقافي عن ذو الفقار علي بوتو"
+    "Category:Cultural depictions of Zulfikar Ali Bhutto": "تصنيف:تصوير ثقافي عن ذو الفقار علي بوتو",
 }
 
 to_test = [

@@ -252,8 +252,7 @@ title_work_tests_data = {
     "years of 19th century": "سنوات القرن 19",
 }
 
-test_2 = {
-}
+test_2 = {}
 
 data_2 = {
     "sport in ottoman empire": "الرياضة في الدولة العثمانية",

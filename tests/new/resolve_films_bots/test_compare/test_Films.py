@@ -1,4 +1,3 @@
-
 """
 Tests
 """
@@ -2329,8 +2328,9 @@ test_data2 = {
     "zombie television programs": "برامج تلفزيونية زومبي",
     "zombie television series": "مسلسلات تلفزيونية زومبي",
     "zombie video games": "ألعاب فيديو زومبي",
-    "zombie web series": "مسلسلات ويب زومبي"
+    "zombie web series": "مسلسلات ويب زومبي",
 }
+
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast

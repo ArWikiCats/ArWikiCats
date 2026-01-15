@@ -15,8 +15,7 @@ nats_1 = {
     "zimbabwean–palestinian joint economic efforts": "الجهود الاقتصادية المشتركة الزيمبابوية الفلسطينية",
 }
 
-nats_2 = {
-}
+nats_2 = {}
 
 
 @pytest.mark.parametrize("category, expected", nats_1.items(), ids=nats_1.keys())
@@ -33,10 +32,7 @@ def test_nats_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-TEMPORAL_CASES = [
-    ("nats_1", nats_1, resolve_by_nats_double_v2),
-    ("nats_2", nats_2, resolve_by_nats_double_v2)
-]
+TEMPORAL_CASES = [("nats_1", nats_1, resolve_by_nats_double_v2), ("nats_2", nats_2, resolve_by_nats_double_v2)]
 
 
 @pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)

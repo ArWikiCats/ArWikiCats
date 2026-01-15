@@ -1,4 +1,3 @@
-
 """
 Tests
 """
@@ -134,7 +133,7 @@ test_data = {
     "yemeni action drama films": "أفلام حركة درامية يمنية",
     "yemeni films images": "صور أفلام يمنية",
     "yemeni legal drama films": "أفلام دراما قانونية يمنية",
-    "yemeni musical drama films": "أفلام موسيقية درامية يمنية"
+    "yemeni musical drama films": "أفلام موسيقية درامية يمنية",
 }
 
 test_data2 = {
@@ -152,7 +151,7 @@ test_data2 = {
     "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "polish television series-debuts": "مسلسلات تلفزيونية بولندية بدأ عرضها في",
     "puerto rican television series-debuts": "مسلسلات تلفزيونية بورتوريكية بدأ عرضها في",
-    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في"
+    "spanish television series-debuts": "مسلسلات تلفزيونية إسبانية بدأ عرضها في",
 }
 
 test_data3 = test_data

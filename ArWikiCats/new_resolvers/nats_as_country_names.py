@@ -55,7 +55,7 @@ nats_keys_as_country_names = {
         "the_female": "الأيرلندية الشمالية",
         "en": "northern ireland",
         "ar": "أيرلندا الشمالية",
-    }
+    },
 }
 
 nats_keys_as_country_names.update(raw_nats_as_en_key)

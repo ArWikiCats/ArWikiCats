@@ -22,6 +22,7 @@ from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new

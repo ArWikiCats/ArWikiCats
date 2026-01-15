@@ -24,7 +24,6 @@ test_sport_bot_data = {
     "female players of american-football": "لاعبات كرة قدم أمريكية",
     "male players of american-football": "لاعبو كرة قدم أمريكية",
     "players of american-football": "لاعبو ولاعبات كرة قدم أمريكية",
-
     "yemeni players of american-football": "لاعبو ولاعبات كرة قدم أمريكية يمنيون",
     "yemeni male players of american-football": "لاعبو كرة قدم أمريكية يمنيون",
     "yemeni female players of american-football": "لاعبات كرة قدم أمريكية يمنيات",

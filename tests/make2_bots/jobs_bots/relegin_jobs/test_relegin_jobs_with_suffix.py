@@ -32,7 +32,7 @@ RELIGIOUS_KEYS_20_test = {
     "methodist science bloggers": "مدونو علم ميثوديون لاهوتيون",
     "jewish science bloggers": "مدونو علم يهود",
     "jews science bloggers": "مدونو علم يهود",
-    "zaydis science bloggers": "مدونو علم زيود"
+    "zaydis science bloggers": "مدونو علم زيود",
 }
 
 test_data_2 = {
@@ -357,14 +357,13 @@ expatriates_data = {
     "nazi scholars of islam": "نازيون باحثون عن الإسلام",
     "nazi women's rights activists": "نازيون ناشطون في حقوق المرأة",
     "nazi objectivists": "موضوعيون نازيون",
-    "nazi expatriates": "نازيون مغتربون"
+    "nazi expatriates": "نازيون مغتربون",
 }
 
 
 @pytest.mark.parametrize("key,expected2", RELIGIOUS_KEYS_20_test.items(), ids=RELIGIOUS_KEYS_20_test.keys())
 @pytest.mark.fast
 def test_with_suffix(key: str, expected2: str) -> None:
-
     result2 = new_religions_jobs_with_suffix(key)
     assert result2 == expected2
 

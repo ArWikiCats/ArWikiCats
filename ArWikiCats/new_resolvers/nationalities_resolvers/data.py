@@ -1,6 +1,4 @@
-
 country_names_and_nats_data = {
-
     # "{en} army": "الجيش {the_male}",
     "{en} invasion": "الغزو {the_male}",
     "{en} military": "الجيش {the_male}",

@@ -44,7 +44,8 @@ def match_game_key(category_lower: str) -> str:
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):
             logger.debug(
-                f'jobs_in_multi_sports match: prefix="{prefix_pattern}", ' f'label="{sport_label}", sport_prefix="{sport_prefix}"'
+                f'jobs_in_multi_sports match: prefix="{prefix_pattern}", '
+                f'label="{sport_label}", sport_prefix="{sport_prefix}"'
             )
             return sport_prefix
     return ""

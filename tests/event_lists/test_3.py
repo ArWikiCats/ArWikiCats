@@ -166,7 +166,6 @@ data_2 = {
     "People executed by the British military": "أشخاص أعدموا من قبل الجيش البريطاني",
     "People executed by the French military": "أشخاص أعدموا من قبل الجيش الفرنسي",
     "women in danish military": "المرأة في الجيش الدنماركي",
-
     "20th-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 20",
     "21st-century men from Northern Ireland": "رجال من أيرلندا الشمالية في القرن 21",
     "brazilian women's rights activists": "برازيليون ناشطون في حقوق المرأة",
@@ -198,7 +197,7 @@ data_2 = {
     "Abolitionists from Wisconsin": "مناهضون للعبودية من ويسكونسن",
     "Albanian women's rights activists": "ألبان ناشطون في حقوق المرأة",
     "Botswana women's rights activists": "بوتسوانيون ناشطون في حقوق المرأة",
-    "Venezuelan women's rights activists": "فنزويليون ناشطون في حقوق المرأة"
+    "Venezuelan women's rights activists": "فنزويليون ناشطون في حقوق المرأة",
 }
 
 data_3 = {}

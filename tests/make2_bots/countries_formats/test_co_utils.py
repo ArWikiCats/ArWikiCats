@@ -23,6 +23,7 @@ def test_add_all() -> None:
     result_various = add_definite_article("another label")
     assert isinstance(result_various, str)
 
+
 # --------------------------------------------
 # Tests for add_definite_article
 # --------------------------------------------

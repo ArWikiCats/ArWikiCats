@@ -232,7 +232,7 @@ the_male_sport_team_data = {
     "nordic road bicycle racing federation": "الاتحاد النوردي لسباق الدراجات على الطريق",
     "north african road cycling federation": "الاتحاد الإفريقي الشمالي لسباق الدراجات على الطريق",
     "north american road race federation": "الاتحاد الأمريكي الشمالي لسباق الدراجات على الطريق",
-    "north macedonian roller hockey racing federation" : "الاتحاد المقدوني الشمالي لسباق هوكي الدحرجة",
+    "north macedonian roller hockey racing federation": "الاتحاد المقدوني الشمالي لسباق هوكي الدحرجة",
     "north yemeni roller hockey federation": "الاتحاد اليمني الشمالي لهوكي الدحرجة",
     "northern cypriot roller hockey racing federation": "الاتحاد القبرصي الشمالي لسباق هوكي الدحرجة",
     "northern ireland roller skating federation": "الاتحاد الأيرلندي الشمالي للتزلج بالعجلات",
@@ -279,10 +279,8 @@ the_male_sport_team_data = {
     "slovenian sledge hockey racing federation": "الاتحاد السلوفيني لسباق هوكي المزلجة",
     "somali snooker federation": "الاتحاد الصومالي للسنوكر",
     "somalian snooker racing federation": "الاتحاد الصومالي لسباق السنوكر",
-
     "south sudanese soft tennis federation": "الاتحاد السوداني الجنوبي لكرة المضرب اللينة",
     "southeast asian softball federation": "الاتحاد الآسيوي الجنوبي الشرقي للكرة اللينة",
-
     "south american snowboarding racing federation": "الاتحاد الأمريكي الجنوبي لسباق التزلج على الثلوج",
     "south korean soccer federation": "الاتحاد الكوري الجنوبي لكرة القدم",
     "south ossetian soccer racing federation": "الاتحاد الأوسيتي لسباق كرة القدم",

@@ -88,7 +88,7 @@ test_jesuits_1 = {
     "Sri Lankan Jesuits": "يسوعيون سريلانكيون",
     "Swiss Jesuits": "يسوعيون سويسريون",
     "Venezuelan Jesuits": "يسوعيون فنزويليون",
-    "Welsh Jesuits": "يسوعيون ويلزيون"
+    "Welsh Jesuits": "يسوعيون ويلزيون",
 }
 
 test_jesuits_2 = {

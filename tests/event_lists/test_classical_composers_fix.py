@@ -92,7 +92,7 @@ test_to_fix_1 = {
     "Swiss opera composers": "ملحنو أوبرا سويسريون",
     "Turkish opera composers": "ملحنو أوبرا أتراك",
     "Venezuelan opera composers": "ملحنو أوبرا فنزويليون",
-    "Women opera composers": "ملحنات أوبرا"
+    "Women opera composers": "ملحنات أوبرا",
 }
 
 to_test = [

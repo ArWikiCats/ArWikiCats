@@ -17,7 +17,9 @@ from ArWikiCats.ma_bots2.year_or_typeo.reg_result import (
 # -----------------------------------------------------------
 
 # new dict with only 20 items from category_relation_mapping
-category_relation_mapping_20 = {k: translation_category_relations[k] for k in list(translation_category_relations.keys())[:20]}
+category_relation_mapping_20 = {
+    k: translation_category_relations[k] for k in list(translation_category_relations.keys())[:20]
+}
 
 
 @pytest.mark.parametrize("eng", list(category_relation_mapping_20.keys()))

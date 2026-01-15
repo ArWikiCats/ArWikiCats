@@ -61,7 +61,7 @@ male_tests = {
     "Women in Dutch Caribbean": "المرأة في كاريبيون هولنديون",
     "Romanian people of Hungarian-Jewish descent": "رومان من أصل مجري يهودي",
     "Churches in Dutch Caribbean": "كنائس في كاريبيون هولنديون",
-    "Populated places in Dutch Caribbean": "أماكن مأهولة في كاريبيون هولنديون"
+    "Populated places in Dutch Caribbean": "أماكن مأهولة في كاريبيون هولنديون",
 }
 
 data_2 = {
@@ -975,7 +975,7 @@ data_2 = {
     "Yemeni-Jewish culture in Israel": "ثقافة يمنية يهودية في إسرائيل",
     "Yemeni-Jewish diaspora": "شتات يمني يهودي",
     "Zimbabwean people of Lithuanian-Jewish descent": "زيمبابويون من أصل ليتواني يهودي",
-    "Zimbabwean people of Polish-Jewish descent": "زيمبابويون من أصل بولندي يهودي"
+    "Zimbabwean people of Polish-Jewish descent": "زيمبابويون من أصل بولندي يهودي",
 }
 
 

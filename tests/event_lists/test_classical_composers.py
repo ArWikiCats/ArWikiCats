@@ -10,7 +10,6 @@ test_c_composers_0 = {
     "German classical composers of church music": "ملحنو كلاسيكية ألمان في موسيقى مسيحية",
     "English classical composers of church music": "ملحنو كلاسيكية إنجليز في موسيقى مسيحية",
     "Classical composers of church music": "ملحنون كلاسيكيون من موسيقى مسيحية",
-
     "American male classical composers": "ملحنون كلاسيكيون أمريكيون",
     "Australian male classical composers": "ملحنون كلاسيكيون أستراليون",
     "Austrian male classical composers": "ملحنون كلاسيكيون نمساويون",
@@ -31,7 +30,6 @@ test_c_composers_0 = {
     "Russian male classical composers": "ملحنون كلاسيكيون روس",
     "Soviet male classical composers": "ملحنون كلاسيكيون سوفيت",
     "Spanish male classical composers": "ملحنون كلاسيكيون إسبان",
-
     "Mexican classical composers": "ملحنون وملحنات كلاسيكيون مكسيكيون",
     "Polish classical composers": "ملحنون وملحنات كلاسيكيون بولنديون",
     "Russian classical composers": "ملحنون وملحنات كلاسيكيون روس",
@@ -140,7 +138,7 @@ test_c_composers_3 = {
     "Welsh classical composers": "ملحنون كلاسيكيون ويلزيون",
     "Welsh male classical composers": "ملحنون كلاسيكيون ذكور ويلزيون",
     "Women classical composers": "ملحنات كلاسيكيات",
-    "Works by British classical composers": "أعمال ملحنون كلاسيكيون بريطانيون"
+    "Works by British classical composers": "أعمال ملحنون كلاسيكيون بريطانيون",
 }
 
 test_c_composers_1 = {
@@ -286,7 +284,7 @@ test_c_composers_1 = {
     "Scottish women classical composers": "ملحنات كلاسيكيات إسكتلنديات",
     "Ukrainian women classical composers": "ملحنات كلاسيكيات أوكرانيات",
     "Welsh women classical composers": "ملحنات كلاسيكيات ويلزيات",
-    "Women classical composers by nationality": "ملحنات كلاسيكيات حسب الجنسية"
+    "Women classical composers by nationality": "ملحنات كلاسيكيات حسب الجنسية",
 }
 
 test_c_composers_male = {
@@ -305,7 +303,7 @@ test_c_composers_male = {
     "Armenian male classical composers": "ملحنون كلاسيكيون ذكور أرمن",
     "Brazilian male classical composers": "ملحنون كلاسيكيون ذكور برازيليون",
     "Bulgarian male classical composers": "ملحنون كلاسيكيون ذكور بلغاريون",
-    "Chilean male classical composers": "ملحنون كلاسيكيون ذكور تشيليون"
+    "Chilean male classical composers": "ملحنون كلاسيكيون ذكور تشيليون",
 }
 
 

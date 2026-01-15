@@ -152,7 +152,7 @@ structures_data = {
     "proposed hydroelectric power stations": "محطات طاقة كهرمائية مقترحة",
     "renewable energy power plants": "محطات طاقة متجددة",
     "energy power plants": "محطات طاقة",
-    "energy facilities": "مرافق طاقة"
+    "energy facilities": "مرافق طاقة",
 }
 
 
@@ -467,7 +467,7 @@ films_data = {
     "television occupations": "مهن تلفزيونية",
     "reality companies": "شركات واقعية",
     "reality organizations": "منظمات واقعية",
-    "nautical research": "أبحاث بحرية"
+    "nautical research": "أبحاث بحرية",
 }
 
 RELIGIOUS_FEMALE_KEYS: dict[str, str] = {
@@ -580,7 +580,6 @@ POP3_KEYS: dict[str, dict[str, str]] = {
     "universities": {"male": "", "female": "جامعات"},
     "college": {"male": "", "female": "كليات"},
     "colleges": {"male": "", "female": "كليات"},
-
     "educational": {"male": "تعليمي", "female": "تعليمية"},
     "masonic": {"male": "ماسوني", "female": "ماسونية"},
     "office": {"male": "إداري", "female": "إدارية"},

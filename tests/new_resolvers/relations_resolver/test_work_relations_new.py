@@ -499,7 +499,7 @@ def test_work_relations_new(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_work_relations_new", test_data, new_relations_resolvers),
-    ("test_work_relations_ireland", ireland_test_data, new_relations_resolvers)
+    ("test_work_relations_ireland", ireland_test_data, new_relations_resolvers),
 ]
 
 

@@ -17,7 +17,7 @@ typeTable_update = {
     "transport accidents": "حوادث نقل",
     "road accidents": "حوادث طرق",
     "transport accident": "حوادث نقل",
-    "design institutions": "مؤسسات تصميم"
+    "design institutions": "مؤسسات تصميم",
 }
 
 companies_keys3 = {
@@ -110,7 +110,7 @@ companies_keys3 = {
     "transport tickets": "تذاكر النقل",
     "railway franchises": "امتيازات السكك الحديدية",
     "road transport companies": "شركات النقل البري",
-    "water transport companies": "شركات النقل المائي"
+    "water transport companies": "شركات النقل المائي",
 }
 
 tab2 = {
@@ -146,7 +146,7 @@ tab2 = {
     "schools": "مدارس",
     "Standardized tests": "اختبارات قياسية",
     "universities": "جامعات",
-    "universities and colleges": "جامعات وكليات"
+    "universities and colleges": "جامعات وكليات",
 }
 
 pop_final_3_update = {

@@ -66,7 +66,7 @@ data_n = {
     "Category:21st-century Ghanaian literature": "أدب غاني القرن 21",
     "Category:21st-century Moroccan literature": "أدب مغربي القرن 21",
     "Category:21st-century Taiwanese literature": "أدب تايواني القرن 21",
-    "Category:21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21"
+    "Category:21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21",
 }
 
 
