@@ -5,7 +5,97 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 # from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
-test_data = {
+test_data_0 = {
+    "africanamerican–asian-american relations": "العلاقات الأمريكية الآسيوية الأمريكية الإفريقية",
+    "africanamerican–jewish relations": "العلاقات الأمريكية الإفريقية اليهودية",
+    "african–native american relations": "العلاقات الأمريكية الأصلية الإفريقية",
+    "algerian–tunisian wars": "الحروب التونسية الجزائرية",
+    "arab–american relations": "العلاقات الأمريكية العربية",
+    "arab–byzantine wars": "الحروب البيزنطية العربية",
+    "australia– gambia relations": "العلاقات الأسترالية الغامبية",
+    "austria– gambia relations": "العلاقات الغامبية النمساوية",
+    "azerbaijan– gambia relations": "العلاقات الأذربيجانية الغامبية",
+    "bangladesh– gambia relations": "العلاقات البنغلاديشية الغامبية",
+    "belgium– gambia relations": "العلاقات البلجيكية الغامبية",
+    "botswana– gambia relations": "العلاقات البوتسوانية الغامبية",
+    "brazil– gambia relations": "العلاقات البرازيلية الغامبية",
+    "bulgarian–ottoman wars": "الحروب البلغارية العثمانية",
+    "bulgarian–serbian wars": "الحروب البلغارية الصربية",
+    "bulgaria– gambia relations": "العلاقات البلغارية الغامبية",
+    "burkina faso– gambia relations": "العلاقات البوركينابية الغامبية",
+    "byzantine–bulgarian wars": "الحروب البلغارية البيزنطية",
+    "byzantine–georgian wars": "الحروب البيزنطية الجورجية",
+    "byzantine–hungarian wars": "الحروب البيزنطية المجرية",
+    "byzantine–ottoman wars": "الحروب البيزنطية العثمانية",
+    "byzantine–sasanian wars": "الحروب البيزنطية الساسانية",
+    "byzantine–turkish wars": "الحروب البيزنطية التركية",
+    "cambodian–vietnamese war": "الحرب الفيتنامية الكمبودية",
+    "cameroon– gambia relations": "العلاقات الغامبية الكاميرونية",
+    "canada– gambia relations": "العلاقات الغامبية الكندية",
+    "canada–oceanian relations": "العلاقات الأوقيانوسية الكندية",
+    "chadian–libyan war": "الحرب التشادية الليبية",
+    "china– gambia relations": "العلاقات الصينية الغامبية",
+    "colombia– gambia relations": "العلاقات الغامبية الكولومبية",
+    "cuba– gambia relations": "العلاقات الغامبية الكوبية",
+    "cyprus– gambia relations": "العلاقات الغامبية القبرصية",
+    "czech republic– gambia relations": "العلاقات التشيكية الغامبية",
+    "democratic-republic-of-congo–republic-of ireland relations": "العلاقات الأيرلندية الكونغوية الديمقراطية",
+    "denmark– gambia relations": "العلاقات الدنماركية الغامبية",
+    "dutch–portuguese war": "الحرب البرتغالية الهولندية",
+    "ecuadorian–peruvian war": "الحرب الإكوادورية البيروية",
+    "ecuadorian–peruvian wars": "الحروب الإكوادورية البيروية",
+    "egyptian–ottoman war": "الحرب العثمانية المصرية",
+    "eritrean–ethiopian war": "الحرب الإثيوبية الإريترية",
+    "estonia– gambia relations": "العلاقات الإستونية الغامبية",
+    "ethiopia– gambia relations": "العلاقات الإثيوبية الغامبية",
+    "finland– gambia relations": "العلاقات الغامبية الفنلندية",
+    "france– gambia relations": "العلاقات الغامبية الفرنسية",
+    "gabon– gambia relations": "العلاقات الغابونية الغامبية",
+    "german–romania military relations": "العلاقات الألمانية الرومانية العسكرية",
+    "guinea– gambia relations": "العلاقات الغامبية الغينية",
+    "hungarian–czechoslovak war": "الحرب التشيكوسلوفاكية المجرية",
+    "hungarian–ottoman wars": "الحروب العثمانية المجرية",
+    "hungarian–romanian war": "الحرب الرومانية المجرية",
+    "jewish–roman wars": "الحروب الرومانية اليهودية",
+    "mexican–american war": "الحرب الأمريكية المكسيكية",
+    "native american–jewish relations": "العلاقات الأمريكية الأصلية اليهودية",
+    "ottoman–persian wars": "الحروب العثمانية الفارسية",
+    "ottoman–serbian wars": "الحروب الصربية العثمانية",
+    "philippine–american war": "الحرب الأمريكية الفلبينية",
+    "polish–lithuanian war": "الحرب البولندية الليتوانية",
+    "polish–ottoman wars": "الحروب البولندية العثمانية",
+    "polish–russian wars": "الحروب البولندية الروسية",
+    "polish–soviet war": "الحرب البولندية السوفيتية",
+    "polish–ukrainian war": "الحرب الأوكرانية البولندية",
+    "polish–ukrainian wars": "الحروب الأوكرانية البولندية",
+    "republic-of ireland–united kingdom border crossings": "معابر الحدود الأيرلندية البريطانية",
+    "republic-of ireland–united kingdom border": "الحدود الأيرلندية البريطانية",
+    "roman–greek wars": "الحروب الرومانية اليونانية",
+    "roman–iranian relations": "العلاقات الإيرانية الرومانية",
+    "roman–parthian wars": "الحروب الرومانية الفرثية",
+    "roman–persian wars": "الحروب الرومانية الفارسية",
+    "roman–sasanian wars": "الحروب الرومانية الساسانية",
+    "russian–ukrainian wars": "الحروب الأوكرانية الروسية",
+    "scottish–norwegian war": "الحرب الإسكتلندية النرويجية",
+    "sinhalese–portuguese war": "الحرب البرتغالية السنهالية",
+    "slovak–hungarian war": "الحرب السلوفاكية المجرية",
+    "soviet–afghan war": "الحرب الأفغانية السوفيتية",
+    "spanish–american war": "الحرب الأمريكية الإسبانية",
+    "swedish–norwegian war": "الحرب السويدية النرويجية",
+    "ukrainian–soviet war": "الحرب الأوكرانية السوفيتية",
+    "united kingdom–asian relations": "العلاقات الآسيوية البريطانية",
+    "united kingdom–middle eastern relations": "العلاقات البريطانية الشرقية الأوسطية",
+    "united kingdom–oceanian relations": "العلاقات الأوقيانوسية البريطانية",
+    "united states–asian relations": "العلاقات الآسيوية الأمريكية",
+    "united states–central american relations": "العلاقات الأمريكية الأمريكية الأوسطية",
+    "united states–european relations": "العلاقات الأمريكية الأوروبية",
+    "united states–middle eastern relations": "العلاقات الأمريكية الشرقية الأوسطية",
+    "united states–north american relations": "العلاقات الأمريكية الأمريكية الشمالية",
+    "united states–oceanian relations": "العلاقات الأمريكية الأوقيانوسية",
+    "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية"
+}
+
+test_data_1 = {
     "angola–seychelles relations": "علاقات أنغولا وسيشل",
     "angola–são tomé and príncipe relations": "علاقات أنغولا وساو تومي وبرينسيب",
     "antigua and barbuda–saint vincent and grenadines relations": "علاقات أنتيغوا وباربودا وسانت فنسنت وجزر غرينادين",
@@ -188,7 +278,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_relations_with_get_from_new_p17_final(category: str, expected: str) -> None:
     label = new_relations_resolvers(category)
@@ -196,7 +286,7 @@ def test_relations_with_get_from_new_p17_final(category: str, expected: str) -> 
 
 
 to_test = [
-    ("test_relations_0", test_data),
+    ("test_relations_0", test_data_1),
 ]
 
 
