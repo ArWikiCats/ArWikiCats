@@ -33,10 +33,12 @@ formatted_data = {
     "{en} traditions": "تراث {male}",
     "{en} folklore": "فلكور {male}",
     "{en} television": "تلفاز {male}",
+    "{en} rock genres": "أنواع روك {male}",
 
     "{en} musical groups": "فرق موسيقية {female}",
     "{en} music": "موسيقى {female}",
-    # "{en} music genres": "أنواع موسيقى {female}",
+    "{en} music genres": "أنواع موسيقى {female}",
+    "{en} genres": "أنواع {female}",
 
     "{en} novels": "روايات {female}",
     "{en} architecture": "عمارة {female}",
@@ -82,13 +84,18 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats_double_v2(category: str) -> str:
+    category = fix_keys(category)
     logger.debug(f"<<yellow>> start resolve_by_nats_double_v2: {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
         return ""
 
-    category = fix_keys(category)
+    if category in nats_data:
+        # NOTE: only nationality key should be handled by other resolvers
+        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: one nationality key only {category=}, [result=]")
+        return ""
+
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
     logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}", result)

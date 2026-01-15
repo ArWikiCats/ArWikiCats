@@ -9,8 +9,11 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats import resolve_label_ar
 
-male_tests = {
+data_0 = {
     "Jewish music genres": "أنواع موسيقى يهودية",
+    "christian music genres": "أنواع موسيقى مسيحية",
+    "christian rock genres": "أنواع روك مسيحي",
+    "christian genres": "أنواع مسيحية",
 }
 
 male_tests = {
@@ -976,6 +979,13 @@ data_2 = {
 }
 
 
+@pytest.mark.parametrize("category, expected_key", data_0.items(), ids=data_0.keys())
+@pytest.mark.fast
+def test_data_0(category: str, expected_key: str) -> None:
+    label2 = resolve_label_ar(category)
+    assert label2 == expected_key
+
+
 @pytest.mark.parametrize("category, expected_key", male_tests.items(), ids=male_tests.keys())
 @pytest.mark.fast
 def test_male_tests(category: str, expected_key: str) -> None:
@@ -984,13 +994,16 @@ def test_male_tests(category: str, expected_key: str) -> None:
 
 
 to_test = [
-    ("test_male_tests", male_tests, resolve_label_ar),
+    ("data_0", data_0, resolve_label_ar),
+    ("male_tests", male_tests, resolve_label_ar),
+    ("data_2", data_2, resolve_label_ar),
 ]
 
 
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str], callback) -> None:
+    name = f"{__file__}_{name}"
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
