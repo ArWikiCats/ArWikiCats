@@ -1,5 +1,5 @@
 """
-Tests
+Tests for COUNTRY_YEAR_DATA
 """
 
 import pytest
@@ -7,6 +7,11 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 test_data = {
+    "14th-century lords of Monaco": "لوردات موناكو في القرن 14",
+    "15th-century lords of Monaco": "لوردات موناكو في القرن 15",
+    "16th-century lords of Monaco": "لوردات موناكو في القرن 16",
+    "17th-century lords of Monaco": "لوردات موناكو في القرن 17",
+
     "1830s alabama": "ألاباما في عقد 1830",
     "1830s arkansas": "أركنساس في عقد 1830",
     "1830s connecticut": "كونيتيكت في عقد 1830",

@@ -7,6 +7,10 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 test_data = {
+    "16th century music": "الموسيقى في القرن 16",
+    "16th century theatre": "المسرح في القرن 16",
+    "17th century music": "الموسيقى في القرن 17",
+    "17th century theatre": "المسرح في القرن 17",
     "12th-century Indian books": "كتب هندية في القرن 12",
     "1520s censuses": "تعداد السكان في عقد 1520",
     "1630s science fiction works": "أعمال خيال علمي عقد 1630",

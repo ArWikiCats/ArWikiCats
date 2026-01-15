@@ -18,6 +18,10 @@ COUNTRY_YEAR_DATA_TO_CHECK = {
 
 # 18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
+    # "20th-century executions by Gambia": "إعدامات في غامبيا في القرن 20",
+    # "14th-century lords of Monaco": "لوردات موناكو في القرن 14",
+    "{year1} lords of {country1}": "لوردات {country1} في {year1}",
+    "{year1} kings of {country1}": "ملوك {country1} في {year1}",
     "{year1} {country1}": "{year1} في {country1}",  # 34632
     "{year1} in {country1}": "{year1} في {country1}",  # 34632
     "{year1} synagogues in {country1}": "كنس في {country1} في {year1}",
