@@ -4,10 +4,10 @@
 
 import functools
 import re
-from typing import Dict, Optional
+from typing import Dict, Optional, Union
 
 from ...helps import logger
-from .model_data_base import FormatDataBase
+from ..DataModel.model_data_base import FormatDataBase
 
 
 class FormatDataDoubleV2(FormatDataBase):
@@ -46,9 +46,8 @@ class FormatDataDoubleV2(FormatDataBase):
     def __init__(
         self,
         formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
+        data_list: Dict[str, Union[str, Dict[str, str]]],
         key_placeholder: str = "xoxo",
-        value_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
@@ -63,7 +62,6 @@ class FormatDataDoubleV2(FormatDataBase):
             text_before=text_before,
         )
         self.sort_ar_labels = sort_ar_labels
-        self.value_placeholder = value_placeholder
         self.keys_to_split = {}
         self.put_label_last = {}
         self.search_multi_cache = {}
@@ -76,6 +74,41 @@ class FormatDataDoubleV2(FormatDataBase):
 
     def update_put_label_last(self, data: list[str] | set[str]) -> None:
         self.put_label_last = data
+
+    def _search(self, category: str) -> str:
+        """End-to-end resolution."""
+        logger.debug("$$$ start _search(): ")
+        logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
+
+        if self.formatted_data_ci.get(category):
+            return self.formatted_data_ci[category]
+
+        sport_key = self.match_key(category)
+
+        if not sport_key:
+            logger.debug(f"No sport key matched for {category=}")
+            return ""
+
+        sport_label = self.get_key_label(sport_key)
+        if not sport_label:
+            logger.debug(f'No sport label matched for sport key: "{sport_key}"')
+            return ""
+
+        logger.debug(f'sport label: {sport_label=}')
+
+        template_label = self.get_template(sport_key, category)
+        if not template_label:
+            logger.debug(f'No template label matched for sport key: "{sport_key}" and {category=}')
+            return ""
+
+        logger.debug(f'template_label: {template_label=}')
+
+        result = self.apply_pattern_replacement(template_label, sport_label)
+        logger.debug(f"[] apply_pattern_replacement: {result=}")
+
+        logger.debug(f"++++++++ end {self.__class__.__name__} ++++++++ ")
+
+        return result
 
     def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
         """
@@ -123,15 +156,23 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return result
 
-    @functools.lru_cache(maxsize=None)
-    def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
         """Replace value placeholder once template is chosen."""
-        final_label = template_label.replace(self.value_placeholder, sport_label)
+        logger.debug(f"[] apply_pattern_replacement: {template_label=}, ")
+        logger.debug(f"[] apply_pattern_replacement: {sport_label=}, ")
 
-        if self.value_placeholder not in final_label:
-            return final_label.strip()
+        if not isinstance(sport_label, dict):
+            logger.error("===> apply_pattern_replacement: sport_label not dict..")
+            return template_label
 
-        return ""
+        final_label = template_label
+
+        if isinstance(sport_label, dict):
+            for key, val in sport_label.items():
+                if isinstance(val, str) and val:
+                    final_label = final_label.replace(f"{{{key}}}", val)
+
+        return final_label.strip()
 
     @functools.lru_cache(maxsize=None)
     def create_label_from_keys(self, part1: str, part2: str):
@@ -143,43 +184,68 @@ class FormatDataDoubleV2(FormatDataBase):
         first_label = self.data_list_ci.get(part1)
         second_label = self.data_list_ci.get(part2)
 
+        keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
+
         if not first_label or not second_label:
+            logger.debug(f">>> create_label_from_keys: missing label for {part1=}, {part2=}")
             return ""
 
-        label = f"{first_label} {second_label}"
+        logger.debug(f"!!! create_label_from_keys: found label for {part1=}, {part2=}")
 
-        if part1 in self.put_label_last and part2 not in self.put_label_last:
-            label = f"{second_label} {first_label}"
+        compound_data = {}
 
-        if self.sort_ar_labels:
-            labels_sorted = sorted([first_label, second_label])
-            label = " ".join(labels_sorted)
+        for key in keys_in_2_parts:
+            compound_data[key] = ""
+            first_lab = first_label.get(key, "")
+            second_lab = second_label.get(key, "")
+            if first_lab and second_lab:
+                label = f"{first_lab} {second_lab}"
+                # logger.debug(f"!!! create_label_from_keys: label: {label}")
 
-        self.search_multi_cache[f"{part2} {part1}"] = label
+                if part1 in self.put_label_last and part2 not in self.put_label_last:
+                    label = f"{second_lab} {first_lab}"
 
-        return label
+                if self.sort_ar_labels:
+                    labels_sorted = sorted([first_lab, second_lab])
+                    label = " ".join(labels_sorted)
+                compound_data[key] = label
 
-    def get_key_label(self, sport_key: str) -> str:
+        self.search_multi_cache[f"{part2} {part1}"] = compound_data
+
+        return compound_data
+
+    def get_key_label(self, sport_key: str) -> dict[str, str]:
         """
         Return the Arabic label mapped to the provided key if present.
-        Example:
-            sport_key="action", result="أكشن"
-            sport_key="action drama", result="أكشن دراما"
         """
+        logger.debug(f"@@ get_key_label: {sport_key=}")
+
         result = self.data_list_ci.get(sport_key)
         if result:
             return result
 
         if self.search_multi_cache.get(sport_key.lower()):
+            logger.debug(f"@@ get_key_label: found in search_multi_cache {sport_key=}")
             return self.search_multi_cache[sport_key.lower()]
 
         if sport_key in self.keys_to_split:
             part1, part2 = self.keys_to_split[sport_key]
+            logger.debug(f"@@ get_key_label: found in keys_to_split {sport_key=}")
             return self.create_label_from_keys(part1, part2)
 
         return ""
 
-    def replace_value_placeholder(self, label: str, value: str) -> str:
-        # Replace placeholder
-        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
-        return label.replace(self.value_placeholder, value)
+    def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
+        """
+        """
+        logger.debug(f"@@ replace_value_placeholder: {label=}, {value=}")
+
+        if not isinstance(value, dict):
+            return label
+
+        final_label = label
+        for key, val in value.items():
+            if isinstance(val, str) and val:
+                final_label = final_label.replace(f"{{{key}}}", val)
+
+        return final_label

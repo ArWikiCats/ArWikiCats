@@ -30,7 +30,7 @@ import re
 from typing import Dict, Optional
 
 from ...helps import logger
-from .model_data_base import FormatDataBase
+from ..DataModel.model_data_base import FormatDataBase
 
 
 class FormatDataDouble(FormatDataBase):

@@ -23,7 +23,8 @@ Example:
 
 from typing import Dict
 
-from .DataModel import FormatData, FormatDataDouble, MultiDataFormatterDataDouble
+from .DataModel import FormatData
+from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 
 def format_films_country_data(
