@@ -292,8 +292,11 @@ female_data_music = {
 
 female_data = {
     # north american-jewish culture
+    "{en} jewish surnames": "ألقاب يهودية {female}",
+    "{en}-jewish surnames": "ألقاب يهودية {female}",
     "{en}-jewish culture": "ثقافة يهودية {female}",
     "{en} jewish culture": "ثقافة يهودية {female}",
+
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
     "{en} childrens books": "كتب أطفال {female}",
