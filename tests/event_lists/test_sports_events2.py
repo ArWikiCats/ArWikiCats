@@ -32,24 +32,23 @@ fast_data_1 = {
 }
 
 fast_data_2 = {
-    "Sports events cancelled due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث الغزو الروسي لأوكرانيا الرياضة",
-    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events curtailed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-    "Sports events in Africa": "أحداث إفريقيا الرياضة",
-    "Sports events in Asia": "أحداث آسيا الرياضة",
-    "Sports events in Attica": "أحداث أتيكا الرياضة",
-    "Sports events in Bucharest": "أحداث بوخارست الرياضة",
-    "Sports events in Cardiff": "أحداث كارديف الرياضة",
-    "Sports events in Central Macedonia": "أحداث إقليم مقدونيا الوسطى الرياضة",
-    "Sports events in Europe": "أحداث أوروبا الرياضة",
-    "Sports events in North America": "أحداث أمريكا الشمالية الرياضة",
-    "Sports events in Oceania": "أحداث أوقيانوسيا الرياضة",
-    "Sports events in Ponce, Puerto Rico": "أحداث بونس، بورتوريكو الرياضة",
-    "Sports events in South America": "أحداث أمريكا الجنوبية الرياضة",
-    "Sports events in Western Greece": "أحداث غرب اليونان الرياضة",
-    "Sports events postponed due to the COVID-19 pandemic": "أحداث جائحة فيروس كورونا الرياضة",
-
+    "Sports events cancelled due to the COVID-19 pandemic": "أحداث رياضية ألغيت بسبب جائحة فيروس كورونا",
+    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث رياضية ألغيت بسبب الغزو الروسي لأوكرانيا",
+    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث رياضية اختصرت وألغيت بسبب جائحة فيروس كورونا",
+    "Sports events curtailed due to the COVID-19 pandemic": "أحداث رياضية اختصرت بسبب جائحة فيروس كورونا",
+    "Sports events in Africa": "أحداث رياضية في إفريقيا",
+    "Sports events in Asia": "أحداث رياضية في آسيا",
+    "Sports events in Attica": "أحداث رياضية في أتيكا",
+    "Sports events in Bucharest": "أحداث رياضية في بوخارست",
+    "Sports events in Cardiff": "أحداث رياضية في كارديف",
+    "Sports events in Central Macedonia": "أحداث رياضية في إقليم مقدونيا الوسطى",
+    "Sports events in Europe": "أحداث رياضية في أوروبا",
+    "Sports events in North America": "أحداث رياضية في أمريكا الشمالية",
+    "Sports events in Oceania": "أحداث رياضية في أوقيانوسيا",
+    "Sports events in Ponce, Puerto Rico": "أحداث رياضية في بونس، بورتوريكو",
+    "Sports events in South America": "أحداث رياضية في أمريكا الجنوبية",
+    "Sports events in Western Greece": "أحداث رياضية في غرب اليونان",
+    "Sports events postponed due to the COVID-19 pandemic": "أحداث رياضية تأجلت بسبب جائحة فيروس كورونا"
 }
 
 fast_data_3 = {
