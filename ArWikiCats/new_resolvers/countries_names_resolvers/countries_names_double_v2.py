@@ -189,6 +189,8 @@ def resolve_v2(category: str) -> str:
         >>> # Example of skipping a single country key
         >>> resolve_v2("jordan")
     """
+    category = category.replace("democratic republic of congo", "democratic-republic-of-congo")
+    category = category.replace("republic of congo", "republic-of-congo")
     logger.debug(f"<<yellow>> start resolve_v2: {category=}")
 
     nat_data = _load_all_country_labels_v2()
