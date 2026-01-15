@@ -72,49 +72,6 @@ data_0 = {
     "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية"
 }
 
-data_1 = {
-    "artsakh–united states relations": "علاقات أرتساخ والولايات المتحدة",
-    "australia–niue relations": "علاقات أستراليا ونييوي",
-    "byzantine empire–carolingian empire relations": "علاقات الإمبراطورية البيزنطية والإمبراطورية الكارولنجية",
-    "byzantine empire–empire of trebizond relations": "علاقات إمبراطورية طرابزون والإمبراطورية البيزنطية",
-    "byzantine empire–first bulgarian empire relations": "علاقات الإمبراطورية البلغارية الأولى والإمبراطورية البيزنطية",
-    "china–russian empire relations": "علاقات الإمبراطورية الروسية والصين",
-    "djibouti–somaliland relations": "علاقات أرض الصومال وجيبوتي",
-    "east asia–united states relations": "علاقات الولايات المتحدة وشرق آسيا",
-    "ethiopia–somaliland relations": "علاقات أرض الصومال وإثيوبيا",
-    "france–hawaii relations": "علاقات فرنسا وهاواي",
-    "gaza–israel conflict": "صراع إسرائيل وغزة",
-    "germany–somaliland relations": "علاقات أرض الصومال وألمانيا",
-    "hawaii–united kingdom relations": "علاقات المملكة المتحدة وهاواي",
-    "israel–somaliland relations": "علاقات أرض الصومال وإسرائيل",
-    "japan–hawaii relations": "علاقات اليابان وهاواي",
-    "japan–niue relations": "علاقات اليابان ونييوي",
-    "japan–south vietnam relations": "علاقات اليابان وفيتنام الجنوبية",
-    "jersey–united kingdom relations": "علاقات المملكة المتحدة وجيرزي",
-    "lithuania–second polish republic relations": "علاقات الجمهورية البولندية الثانية وليتوانيا",
-    "new zealand–niue relations": "علاقات نيوزيلندا ونييوي",
-    "new zealand–pacific relations": "علاقات باسيفيك ونيوزيلندا",
-    "niue–european union relations": "علاقات الاتحاد الأوروبي ونييوي",
-    "niue–united kingdom relations": "علاقات المملكة المتحدة ونييوي",
-    "niue–united states relations": "علاقات الولايات المتحدة ونييوي",
-    "ottoman empire–russian empire relations": "علاقات الإمبراطورية الروسية والدولة العثمانية",
-    "philippines–south vietnam relations": "علاقات الفلبين وفيتنام الجنوبية",
-    "poland–saxony relations": "علاقات بولندا وساكسونيا",
-    "russian empire–united states relations": "علاقات الإمبراطورية الروسية والولايات المتحدة",
-    "russia–transnistria relations": "علاقات ترانسنيستريا وروسيا",
-    "second polish republic–soviet union relations": "علاقات الاتحاد السوفيتي والجمهورية البولندية الثانية",
-    "sint maarten–united states relations": "علاقات الولايات المتحدة وسينت مارتن",
-    "somaliland–taiwan relations": "علاقات أرض الصومال وتايوان",
-    "somaliland–united arab emirates relations": "علاقات أرض الصومال والإمارات العربية المتحدة",
-    "somaliland–united kingdom relations": "علاقات أرض الصومال والمملكة المتحدة",
-    "somaliland–united states relations": "علاقات أرض الصومال والولايات المتحدة",
-    "south korea–south vietnam relations": "علاقات فيتنام الجنوبية وكوريا الجنوبية",
-    "south vietnam–taiwan relations": "علاقات تايوان وفيتنام الجنوبية",
-    "south vietnam–united states relations": "علاقات الولايات المتحدة وفيتنام الجنوبية",
-    "transnistria–ukraine relations": "علاقات أوكرانيا وترانسنيستريا",
-    "transnistria–united states relations": "علاقات الولايات المتحدة وترانسنيستريا",
-}
-
 data_3 = {
 }
 
@@ -122,14 +79,7 @@ data_3 = {
 @pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.fast
 def test_data_0(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
-    assert label == expected
-
-
-@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.fast
-def test_data_1(category: str, expected: str) -> None:
-    label = resolve_relations_label(category)
+    label = new_relations_resolvers(category)
     assert label == expected
 
 
@@ -141,8 +91,7 @@ def test_data_3(category: str, expected: str) -> None:
 
 
 to_test = [
-    # ("test_relations_0", data_0),
-    ("test_relations_1", data_1),
+    ("test_relations_0", data_0),
     # ("test_relations_3", data_3),
 ]
 

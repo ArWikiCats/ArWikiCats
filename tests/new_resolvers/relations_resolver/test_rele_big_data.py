@@ -452,6 +452,19 @@ test_same = {
 }
 
 big_data2 = {
+    "japan–south vietnam relations": "علاقات اليابان وفيتنام الجنوبية",
+    "philippines–south vietnam relations": "علاقات الفلبين وفيتنام الجنوبية",
+    "south korea–south vietnam relations": "علاقات فيتنام الجنوبية وكوريا الجنوبية",
+    "south vietnam–taiwan relations": "علاقات تايوان وفيتنام الجنوبية",
+    "south vietnam–united states relations": "علاقات الولايات المتحدة وفيتنام الجنوبية",
+    "somaliland–taiwan relations": "علاقات أرض الصومال وتايوان",
+    "somaliland–united arab emirates relations": "علاقات أرض الصومال والإمارات العربية المتحدة",
+    "somaliland–united kingdom relations": "علاقات أرض الصومال والمملكة المتحدة",
+    "somaliland–united states relations": "علاقات أرض الصومال والولايات المتحدة",
+    "djibouti–somaliland relations": "علاقات أرض الصومال وجيبوتي",
+    "ethiopia–somaliland relations": "علاقات أرض الصومال وإثيوبيا",
+    "germany–somaliland relations": "علاقات أرض الصومال وألمانيا",
+    "israel–somaliland relations": "علاقات أرض الصومال وإسرائيل",
     "kosovo–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس وكوسوفو",
     "malta–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس ومالطا",
     "new zealand–saint kitts and nevis relations": "علاقات سانت كيتس ونيفيس ونيوزيلندا",

@@ -81,8 +81,10 @@ def _load_all_country_labels_v1() -> dict[str, str]:
         {
             "saint kitts and nevis": "سانت كيتس ونيفيس",
             "serbia and montenegro": "صربيا والجبل الأسود",
+            "south vietnam": "فيتنام الجنوبية",
             "dominica": "دومينيكا",
             "saint vincent and grenadines": "سانت فنسنت وجزر غرينادين",
+            "somaliland": "أرض الصومال",
             "eswatini": "إسواتيني",
             "são tomé and príncipe": "ساو تومي وبرينسيب",
             "serbia-and-montenegro": "صربيا والجبل الأسود",

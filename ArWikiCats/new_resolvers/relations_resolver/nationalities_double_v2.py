@@ -29,7 +29,7 @@ formatted_data = {
     "{en} war video games": "ألعاب فيديو الحرب {the_female}",
     "{en} war films": "أفلام الحرب {the_female}",
     "{en} families": "عائلات {female}",
-    "{en} wars": "حروب {female}",
+    "{en} wars": "الحروب {the_female}",
     "{en} television series": "مسلسلات تلفزيونية {female}",
 
     "{en} literature": "أدب {male}",
