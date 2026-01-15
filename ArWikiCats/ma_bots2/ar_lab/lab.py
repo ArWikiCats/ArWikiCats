@@ -18,10 +18,9 @@ from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
-from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ...new_resolvers.relations_resolver import new_relations_resolvers
+
 from ...new_resolvers.reslove_all import new_resolvers_all
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -44,16 +43,14 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_relations_resolvers(country2)
+        new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
-        or sport_lab_nat_load_new(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or univer.te_universities(country2)
-        or resolve_us_states(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -331,7 +328,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "religious_entries": lambda t: religious_entries.get(t, ""),
         "People_key": lambda t: People_key.get(t, ""),
         "te_films": te_films,
-        "sport_lab_nat_load_new": sport_lab_nat_load_new,
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
@@ -418,7 +414,6 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "te_films": te_films,
-        "sport_lab_nat_load_new": sport_lab_nat_load_new,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
         "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,

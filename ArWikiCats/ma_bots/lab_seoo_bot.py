@@ -20,11 +20,8 @@ from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 
-# from ..bots import tmp_bot
-from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ..new_resolvers.jobs_resolvers import resolve_jobs_main
-from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ..new_resolvers.reslove_all import new_resolvers_all
+
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
@@ -85,16 +82,13 @@ def event_label_work(target_category: str) -> str:
         or event2_stubs.stubs_label(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
-        or resolve_jobs_main(normalized_target_category)
+        or new_resolvers_all(normalized_target_category)
         or Lang_work(normalized_target_category)
         or resolve_languages_labels(normalized_target_category)
         or People_key.get(normalized_target_category)
-        or jobs_in_multi_sports(normalized_target_category)
         or univer.te_universities(normalized_target_category)
         or te_films(normalized_target_category)
-        or sport_lab_nat_load_new(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
-        or resolve_us_states(normalized_target_category)
         or work_peoples(normalized_target_category)
         or te_bot_3(normalized_target_category)
         or ""
