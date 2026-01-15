@@ -15,7 +15,7 @@ YEAR_DATA = {
     "{year1} controversies": "خلافات {year1}",
     "{year1} floods": "فيضانات {year1}",
     "{year1} mass shootings": "إطلاق نار عشوائي {year1}",
-    "{year1} murders": "جرائم قتل {year1}",
+    "{year1} murders": "جرائم قتل في {year1}",
     # "{year1} murders": "قتل في {year1}",  # 300
     "{year1} music": "الموسيقى في {year1}",
     "{year1} theatre": "المسرح في {year1}",
