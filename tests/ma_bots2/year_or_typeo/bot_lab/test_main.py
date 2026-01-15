@@ -22,9 +22,7 @@ fast_data = {
     "20th century roman catholic bishops": "أساقفة كاثوليك رومان في القرن 20",
     "20th century romanian people": "رومان في القرن 20",
     "march 1650 crimes": "جرائم مارس 1650",
-    "october 1650 sports-events": "أحداث أكتوبر 1650 الرياضية",
     "september 1650 crimes": "جرائم سبتمبر 1650",
-    "september 1650 sports-events": "أحداث سبتمبر 1650 الرياضية"
 }
 
 
