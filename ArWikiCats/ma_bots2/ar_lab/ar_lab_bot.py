@@ -26,6 +26,7 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
+from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 Add_ar_in = {}
 pop_format2 = {
     "politics of {}": "سياسة {}",
@@ -266,6 +267,12 @@ class TypeResolver:
     def resolve(preposition: str, type_value: str, country_lower: str, use_event2: bool = True) -> Tuple[str, bool]:
         """Resolve the type label and whether to append 'in' label."""
         type_lower = type_value.strip().lower()
+
+        logger.debug(f'>>>>> > Resolving type: "{type_lower}", preposition: "{preposition}"')
+
+        type_label = resolve_lab_from_years_patterns(type_lower)
+        if type_label:
+            return type_label, True
 
         type_label, add_in_lab = get_type_lab(preposition, type_value)
 

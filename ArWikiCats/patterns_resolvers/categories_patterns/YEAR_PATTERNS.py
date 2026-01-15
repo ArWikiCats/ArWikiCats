@@ -4,6 +4,12 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    # "sports events": {"ar": "أحداث", "s": "الرياضية"},
+    # "sports-events": {"ar": "أحداث", "s": "الرياضية"},
+    "{year1} sports events": "أحداث {year1} الرياضية",
+    "{year1} sportsz events": "أحداث {year1} الرياضية",  # test
+    "{year1} sports-events": "أحداث {year1} الرياضية",
+
     "{year1} censuses": "تعداد السكان في {year1}",
     "{year1} science fiction works": "أعمال خيال علمي {year1}",
     "{year1} controversies": "خلافات {year1}",

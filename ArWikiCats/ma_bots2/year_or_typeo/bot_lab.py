@@ -126,7 +126,10 @@ class LabelForStartWithYearOrTypeo:
 
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
 
-            if self.typeo in ("sports events", "sports-events") and self.year_at_first:
+            # sports_list = ("sports events", "sports-events")
+            sports_list = ()
+
+            if self.typeo in sports_list and self.year_at_first:
                 self.typeo_lab = "أحداث"
 
             self.arlabel += self.typeo_lab
@@ -254,7 +257,7 @@ class LabelForStartWithYearOrTypeo:
             self.NoLab = True
             return
 
-        logger.info("a<<lightblue>>>>>> No label.")
+        logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
         self.NoLab = True
 
     # ----------------------------------------------------

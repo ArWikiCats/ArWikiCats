@@ -4,6 +4,7 @@ Tests
 
 import pytest
 
+from ArWikiCats.time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 from ArWikiCats import resolve_label_ar
 
 test_data = {
@@ -33,9 +34,20 @@ test_data = {
     "15th-century executions": "إعدامات في القرن 15"
 }
 
+test_data2 = {
+    "February 2020 sports-events": "أحداث فبراير 2020 الرياضية",
+}
+
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data2.items(), ids=test_data2.keys())
+@pytest.mark.fast
+def test_years_data(category: str, expected: str) -> None:
+    label = resolve_lab_from_years_patterns(category)
     assert label == expected
