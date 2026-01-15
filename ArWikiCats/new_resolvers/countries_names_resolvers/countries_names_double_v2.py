@@ -79,7 +79,14 @@ def _load_all_country_labels_v1() -> dict[str, str]:
     all_country_labels = dict(all_country_ar)
     all_country_labels.update(
         {
+            "saint kitts and nevis": "سانت كيتس ونيفيس",
+            "serbia and montenegro": "صربيا والجبل الأسود",
+            "dominica": "دومينيكا",
+            "eswatini": "إسواتيني",
             "nato": "الناتو",
+            "austrian empire": "الإمبراطورية النمساوية",
+            "tokelau": "توكيلاو",
+            "saint lucia": "سانت لوسيا",
             "european union": "الاتحاد الأوروبي",
         }
     )
