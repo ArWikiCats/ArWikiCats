@@ -5,7 +5,7 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 # from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
-test_data_0 = {
+data_0 = {
     "africanamerican–asian-american relations": "العلاقات الأمريكية الآسيوية الأمريكية الإفريقية",
     "africanamerican–jewish relations": "العلاقات الأمريكية الإفريقية اليهودية",
     "african–native american relations": "العلاقات الأمريكية الأصلية الإفريقية",
@@ -95,7 +95,7 @@ test_data_0 = {
     "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية"
 }
 
-test_data_1 = {
+data_1 = {
     "angola–seychelles relations": "علاقات أنغولا وسيشل",
     "angola–são tomé and príncipe relations": "علاقات أنغولا وساو تومي وبرينسيب",
     "antigua and barbuda–saint vincent and grenadines relations": "علاقات أنتيغوا وباربودا وسانت فنسنت وجزر غرينادين",
@@ -278,15 +278,23 @@ test_data_1 = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.fast
-def test_relations_with_get_from_new_p17_final(category: str, expected: str) -> None:
+def test_data_0(category: str, expected: str) -> None:
+    label = new_relations_resolvers(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.fast
+def test_data_1(category: str, expected: str) -> None:
     label = new_relations_resolvers(category)
     assert label == expected
 
 
 to_test = [
-    ("test_relations_0", test_data_1),
+    ("test_relations_1", data_1),
+    ("test_relations_0", data_0),
 ]
 
 
