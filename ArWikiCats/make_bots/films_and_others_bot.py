@@ -14,7 +14,6 @@ from ..translations import People_key
 from .countries_formats import resolved_countries_formats_labels
 from .languages_bot.languages_resolvers import te_language
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
-# from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
 
 
@@ -82,11 +81,5 @@ def te_films(category: str) -> str:
 
         logger.info(f">>>> (te_films) {name}, {normalized_category=}, {resolved_label=}")
         return resolved_label
-
-    # most likely due to a circular import
-    # resolved_label = resolve_v3i_main(normalized_category)
-    # if resolved_label:
-    #     logger.info(f'>>>> (te_films) resolve_v3i_main, {normalized_category=}, {resolved_label=}')
-    #     return resolved_label
 
     return ""
