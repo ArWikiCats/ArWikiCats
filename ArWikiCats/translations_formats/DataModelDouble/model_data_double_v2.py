@@ -51,6 +51,7 @@ class FormatDataDoubleV2(FormatDataBase):
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
+        ar_joiner: str = " ",
         sort_ar_labels: bool = False,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
@@ -66,6 +67,7 @@ class FormatDataDoubleV2(FormatDataBase):
         self.put_label_last = {}
         self.search_multi_cache = {}
         self.splitter = splitter or " "
+        self.ar_joiner = ar_joiner or " "
 
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
@@ -203,15 +205,15 @@ class FormatDataDoubleV2(FormatDataBase):
             first_lab = first_label.get(key, "")
             second_lab = second_label.get(key, "")
             if first_lab and second_lab:
-                label = f"{first_lab} {second_lab}"
+                label = f"{first_lab}{self.ar_joiner}{second_lab}"
                 # logger.debug(f"!!! create_label_from_keys: label: {label}")
 
                 if part1 in self.put_label_last and part2 not in self.put_label_last:
-                    label = f"{second_lab} {first_lab}"
+                    label = f"{second_lab}{self.ar_joiner}{first_lab}"
 
                 if self.sort_ar_labels:
                     labels_sorted = sorted([first_lab, second_lab])
-                    label = " ".join(labels_sorted)
+                    label = self.ar_joiner.join(labels_sorted)
                 compound_data[key] = label
 
         self.search_multi_cache[f"{part2} {part1}"] = compound_data

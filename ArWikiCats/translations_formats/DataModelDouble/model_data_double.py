@@ -76,6 +76,7 @@ class FormatDataDouble(FormatDataBase):
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
+        ar_joiner: str = " ",
         sort_ar_labels: bool = False,
     ):
         """Prepare helpers for matching and formatting template-driven labels."""
@@ -92,6 +93,7 @@ class FormatDataDouble(FormatDataBase):
         self.put_label_last = {}
         self.search_multi_cache = {}
         self.splitter = splitter or " "
+        self.ar_joiner = ar_joiner or " "
 
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
@@ -170,14 +172,14 @@ class FormatDataDouble(FormatDataBase):
         if not first_label or not second_label:
             return ""
 
-        label = f"{first_label} {second_label}"
+        label = f"{first_label}{self.ar_joiner}{second_label}"
 
         if part1 in self.put_label_last and part2 not in self.put_label_last:
-            label = f"{second_label} {first_label}"
+            label = f"{second_label}{self.ar_joiner}{first_label}"
 
         if self.sort_ar_labels:
             labels_sorted = sorted([first_label, second_label])
-            label = " ".join(labels_sorted)
+            label = self.ar_joiner.join(labels_sorted)
 
         self.search_multi_cache[f"{part2} {part1}"] = label
 
