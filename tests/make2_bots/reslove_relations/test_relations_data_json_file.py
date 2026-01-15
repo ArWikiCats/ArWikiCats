@@ -7,6 +7,7 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.make_bots import change_cat
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
+# from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 
 
 def _load_data(file_name, chunk_size=3000) -> list:

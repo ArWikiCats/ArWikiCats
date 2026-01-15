@@ -1,6 +1,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 big_data = {

@@ -5,6 +5,7 @@ from ArWikiCats.translations import (
     Nat_women,
     all_country_ar,
 )
+from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 from ArWikiCats.make_bots.reslove_relations.rele import (
     countries_nat_en_key,
     resolve_relations_label,

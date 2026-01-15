@@ -3,16 +3,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
-
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_double_v2 import resolve_countries_names_double
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
-
-
-def new_relations_resolvers(category: str) -> str:
-    label = resolve_by_nats_double_v2(category) or resolve_countries_names_double(category)
-    return label
-
+from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 
 ireland_test_data = {
     "russia–south sudan relations": "العلاقات الروسية السودانية الجنوبية",

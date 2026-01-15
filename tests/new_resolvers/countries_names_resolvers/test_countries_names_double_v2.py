@@ -44,7 +44,7 @@ TEMPORAL_CASES = [
 def test_dump_all(name: str, data: str, callback: str) -> None:
     name = f"{__name__}_{name}"
     expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, f"test_resolve_relations_label_big_data_{name}")
+    dump_diff(diff_result, f"test_resolve_by_nats_double_v2_big_data_{name}")
 
     # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

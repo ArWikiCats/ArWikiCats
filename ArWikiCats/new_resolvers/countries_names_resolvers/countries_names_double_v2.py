@@ -104,7 +104,7 @@ def double_bot_v1() -> FormatDataDouble:
         data_list=all_country_labels,
         key_placeholder="{en}",
         value_placeholder="{ar}",
-        splitter=r"[ \-–]",
+        splitter=r"[ \-−–]",
         ar_joiner=" و",
         sort_ar_labels=True,
     )
@@ -131,7 +131,7 @@ def double_bot_v2() -> FormatDataDoubleV2:
         formatted_data=formatted_data_v2,
         data_list=all_country_labels,
         key_placeholder="{en}",
-        splitter=r"[ \-–]",
+        splitter=r"[ \-−–]",
         sort_ar_labels=True,
     )
 

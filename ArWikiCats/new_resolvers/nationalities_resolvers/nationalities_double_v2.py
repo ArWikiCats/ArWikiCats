@@ -16,6 +16,7 @@ formatted_data = {
     "{en} conflict video games": "ألعاب فيديو الصراع {the_male}",
     "{en} conflict legal issues": "قضايا قانونية في الصراع {the_male}",
     "{en} conflict": "الصراع {the_male}",
+    "{en} football rivalry": "التنافس {the_male} في كرة القدم",
 
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",
@@ -24,6 +25,8 @@ formatted_data = {
     # north american-jewish culture
     "{en} surnames": "ألقاب {female}",
     "{en} culture": "ثقافة {female}",
+    "{en} war video games": "ألعاب فيديو الحرب {the_female}",
+    "{en} war films": "أفلام الحرب {the_female}",
     "{en} families": "عائلات {female}",
     "{en} wars": "حروب {female}",
     "{en} television series": "مسلسلات تلفزيونية {female}",
@@ -81,7 +84,7 @@ def double_bot() -> FormatDataDoubleV2:
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en}",
-        splitter=r"[ \-–]",
+        splitter=r"[ \-−–]",
         sort_ar_labels=True,
     )
 
