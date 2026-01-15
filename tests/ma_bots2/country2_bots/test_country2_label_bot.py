@@ -3,11 +3,10 @@ Tests for country2_label_bot module functions.
 """
 
 import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import country_2_title_work
-
 
 title_work_tests_data = {
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",

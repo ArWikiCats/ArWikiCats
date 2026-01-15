@@ -8,8 +8,8 @@ import pytest
 from _pytest.mark.structures import ParameterSet
 
 from ArWikiCats.ma_bots2.year_or_typeo.reg_result import (
-    translation_category_relations,
     get_reg_result,
+    translation_category_relations,
 )
 
 # -----------------------------------------------------------

@@ -8,6 +8,7 @@ This module provides exhaustive tests for:
 """
 
 import pytest
+
 from ArWikiCats.translations_formats import FormatDataDouble
 
 

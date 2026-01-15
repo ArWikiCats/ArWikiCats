@@ -3,8 +3,8 @@ from typing import Dict
 import pytest
 
 from ArWikiCats.translations.nats.Nationality import (
-    NationalityEntry,
     All_Nat,
+    NationalityEntry,
     build_american_forms,
     build_lookup_tables,
     load_sources,

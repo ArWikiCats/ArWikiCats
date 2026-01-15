@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
 from ArWikiCats.new_resolvers.nationalities_resolvers import resolve_nationalities_main
 from ArWikiCats.new_resolvers.sports_resolvers import resolve_sports_main

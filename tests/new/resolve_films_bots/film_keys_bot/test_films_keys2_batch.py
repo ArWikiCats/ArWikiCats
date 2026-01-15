@@ -2,8 +2,8 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
 
 data_1 = {
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
