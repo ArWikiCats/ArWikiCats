@@ -5,7 +5,7 @@ tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
 all_test_data_integrated = {
@@ -76,13 +76,13 @@ data_series_empty = {
     "category, expected_key", all_test_data_integrated.items(), ids=all_test_data_integrated.keys()
 )
 @pytest.mark.slow
-def test_with_resolve_arabic_category_label(category: str, expected_key: str) -> None:
-    label2 = resolve_arabic_category_label(category)
+def test_with_resolve_label_ar(category: str, expected_key: str) -> None:
+    label2 = resolve_label_ar(category)
     assert label2 == expected_key
 
 
 to_test = [
-    ("test_with_resolve_arabic_category_label", all_test_data_integrated, resolve_arabic_category_label),
+    ("test_with_resolve_label_ar", all_test_data_integrated, resolve_label_ar),
 ]
 
 
