@@ -1,9 +1,11 @@
 import pytest
 
-from ArWikiCats.make_bots.reslove_relations.rele import (
+from ArWikiCats.translations import (
     Nat_men,
     Nat_women,
     all_country_ar,
+)
+from ArWikiCats.make_bots.reslove_relations.rele import (
     countries_nat_en_key,
     resolve_relations_label,
 )

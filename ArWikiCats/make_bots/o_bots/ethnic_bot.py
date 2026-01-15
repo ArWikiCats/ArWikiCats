@@ -5,7 +5,7 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps import logger, dump_data
+from ...helps import logger
 from ...translations import all_nat_sorted, Nat_men, Nat_mens, Nat_women
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
@@ -308,7 +308,6 @@ def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-@dump_data(1)
 def ethnic_label_main(category: str) -> str:
     logger.debug(f"<<lightyellow>>>> ethnic_label_main >> category:({category})")
     # return ""
