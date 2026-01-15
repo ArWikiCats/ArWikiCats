@@ -39,7 +39,7 @@ def get_game_label(text: str) -> str:
 
 
 def match_game_key(category_lower: str) -> str:
-    print(f" match_game_key: category_lower: {category_lower}")
+    logger.debug(f" match_game_key: category_lower: {category_lower}")
     for sport_prefix, sport_label in medalists_data.items():
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):
