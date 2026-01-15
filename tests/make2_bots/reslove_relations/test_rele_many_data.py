@@ -3,7 +3,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
-# from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
+from ArWikiCats.make_bots.reslove_relations.rele import resolve_relations_label
 
 data_0 = {
     "africanamerican–asian-american relations": "العلاقات الأمريكية الآسيوية الأمريكية الإفريقية",
@@ -281,14 +281,14 @@ data_1 = {
 @pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.fast
 def test_data_0(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = resolve_relations_label(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_data_1(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = resolve_relations_label(category)
     assert label == expected
 
 
@@ -301,7 +301,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, new_relations_resolvers)
+    expected, diff_result = one_dump_test(data, resolve_relations_label)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
