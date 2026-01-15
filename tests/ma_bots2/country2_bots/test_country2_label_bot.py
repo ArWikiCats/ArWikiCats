@@ -53,21 +53,21 @@ def test_separator_arabic_resolve() -> None:
 
 
 test_historic_places = {
-    "railway stations on the-national-register-of-historic-places": "محطات السكك الحديدية على السجل الوطني للأماكن التاريخية",
-    "residential buildings on the-national-register-of-historic-places": "مبان سكنية على السجل الوطني للأماكن التاريخية",
-    "opera houses on the-national-register-of-historic-places": "دور أوبرا على السجل الوطني للأماكن التاريخية",
-    "military facilities on the-national-register-of-historic-places": "مرافق عسكرية على السجل الوطني للأماكن التاريخية",
-    "museums on the-national-register-of-historic-places": "متاحف على السجل الوطني للأماكن التاريخية",
-    "fire stations on the-national-register-of-historic-places": "محطات الإطفاء على السجل الوطني للأماكن التاريخية",
-    "forts on the-national-register-of-historic-places": "حصون على السجل الوطني للأماكن التاريخية",
-    "houses on the-national-register-of-historic-places": "منازل على السجل الوطني للأماكن التاريخية",
-    "cemeteries on the-national-register-of-historic-places": "مقابر على السجل الوطني للأماكن التاريخية",
-    "buildings and structures on the-national-register-of-historic-places": "مبان ومنشآت على السجل الوطني للأماكن التاريخية",
-    "bank buildings on the-national-register-of-historic-places": "مباني بنوك على السجل الوطني للأماكن التاريخية",
-    "archaeological sites on the-national-register-of-historic-places": "مواقع أثرية على السجل الوطني للأماكن التاريخية",
-    "agricultural buildings and structures on the-national-register-of-historic-places": "مبان ومنشآت زراعية على السجل الوطني للأماكن التاريخية",
-    "clubhouses on the-national-register-of-historic-places": "نوادي على السجل الوطني للأماكن التاريخية",
-    "courthouses on the-national-register-of-historic-places": "محاكم على السجل الوطني للأماكن التاريخية",
+    "railway stations on national-register-of-historic-places": "محطات السكك الحديدية على السجل الوطني للأماكن التاريخية",
+    "residential buildings on national-register-of-historic-places": "مبان سكنية على السجل الوطني للأماكن التاريخية",
+    "opera houses on national-register-of-historic-places": "دور أوبرا على السجل الوطني للأماكن التاريخية",
+    "military facilities on national-register-of-historic-places": "مرافق عسكرية على السجل الوطني للأماكن التاريخية",
+    "museums on national-register-of-historic-places": "متاحف على السجل الوطني للأماكن التاريخية",
+    "fire stations on national-register-of-historic-places": "محطات الإطفاء على السجل الوطني للأماكن التاريخية",
+    "forts on national-register-of-historic-places": "حصون على السجل الوطني للأماكن التاريخية",
+    "houses on national-register-of-historic-places": "منازل على السجل الوطني للأماكن التاريخية",
+    "cemeteries on national-register-of-historic-places": "مقابر على السجل الوطني للأماكن التاريخية",
+    "buildings and structures on national-register-of-historic-places": "مبان ومنشآت على السجل الوطني للأماكن التاريخية",
+    "bank buildings on national-register-of-historic-places": "مباني بنوك على السجل الوطني للأماكن التاريخية",
+    "archaeological sites on national-register-of-historic-places": "مواقع أثرية على السجل الوطني للأماكن التاريخية",
+    "agricultural buildings and structures on national-register-of-historic-places": "مبان ومنشآت زراعية على السجل الوطني للأماكن التاريخية",
+    "clubhouses on national-register-of-historic-places": "نوادي على السجل الوطني للأماكن التاريخية",
+    "courthouses on national-register-of-historic-places": "محاكم على السجل الوطني للأماكن التاريخية",
 }
 
 title_work_tests_data = {
