@@ -3,7 +3,9 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
-test_data = {
+test_data_0 = {}
+
+test_data_1 = {
     "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
     "1000s disestablishments in Asia": "انحلالات عقد 1000 في آسيا",
     "10th-century Buddhist temples": "معابد بوذية القرن 10",
@@ -303,15 +305,16 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
-def test_mk3_0(category: str, expected: str) -> None:
+def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
 
 to_test = [
-    ("test_mk3_skips", test_data),
+    ("test_mk3_skips_test_data_0", test_data_0),
+    ("test_mk3_skips_test_data_1", test_data_1),
 ]
 
 
