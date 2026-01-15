@@ -7,12 +7,6 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-data_list_1 = {
-    "1450s murders in ireland": "",
-    "6th century kings of italy": "",
-    "21st century executions in kentucky": ""
-}
-
 data_list_2 = {
     "1450s disasters in kazakhstan": "كوارث في كازاخستان في عقد 1450",
     "1450s disasters in kyrgyzstan": "كوارث في قيرغيزستان في عقد 1450",
