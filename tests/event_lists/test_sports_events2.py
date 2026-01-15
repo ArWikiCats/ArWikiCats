@@ -28,32 +28,14 @@ fast_data_1 = {
     "Sports events founded by Sri Chinmoy": "",
     "Sports events music": "",
     "Sports events official songs and anthems": "",
-    "Wikipedia categories named after sports events": ""
 }
 
 fast_data_2 = {
-    "Sports events cancelled due to the COVID-19 pandemic": "أحداث رياضية ألغيت بسبب جائحة فيروس كورونا",
-    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث رياضية ألغيت بسبب الغزو الروسي لأوكرانيا",
-    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث رياضية اختصرت وألغيت بسبب جائحة فيروس كورونا",
-    "Sports events curtailed due to the COVID-19 pandemic": "أحداث رياضية اختصرت بسبب جائحة فيروس كورونا",
-    "Sports events in Africa": "أحداث رياضية في إفريقيا",
-    "Sports events in Asia": "أحداث رياضية في آسيا",
-    "Sports events in Attica": "أحداث رياضية في أتيكا",
-    "Sports events in Bucharest": "أحداث رياضية في بوخارست",
-    "Sports events in Cardiff": "أحداث رياضية في كارديف",
-    "Sports events in Central Macedonia": "أحداث رياضية في إقليم مقدونيا الوسطى",
-    "Sports events in Europe": "أحداث رياضية في أوروبا",
-    "Sports events in North America": "أحداث رياضية في أمريكا الشمالية",
-    "Sports events in Oceania": "أحداث رياضية في أوقيانوسيا",
-    "Sports events in Ponce, Puerto Rico": "أحداث رياضية في بونس، بورتوريكو",
-    "Sports events in South America": "أحداث رياضية في أمريكا الجنوبية",
-    "Sports events in Western Greece": "أحداث رياضية في غرب اليونان",
-    "Sports events postponed due to the COVID-19 pandemic": "أحداث رياضية تأجلت بسبب جائحة فيروس كورونا"
 }
 
 fast_data_3 = {
     "Lists of sports events": "قوائم أحداث رياضية",
-    # "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
+    "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
     "Lists of American sports events": "قوائم أحداث رياضية أمريكية",
     "Lists of announcers of American sports events": "قوائم مذيعون من أحداث رياضية أمريكية",
     "Lists of Taiwanese sports events": "قوائم أحداث رياضية تايوانية",

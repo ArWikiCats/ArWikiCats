@@ -192,7 +192,6 @@ fast_data_1 = {
     "december 2020 sports-events in the united states": "أحداث ديسمبر 2020 الرياضية في الولايات المتحدة",
     "december 2020 sports-events in united kingdom": "أحداث ديسمبر 2020 الرياضية في المملكة المتحدة",
     "december 2020 sports-events in united states": "أحداث ديسمبر 2020 الرياضية في الولايات المتحدة",
-    "Entertainment at sports events": "أحداث ترفيه في الرياضة",
     "February 2020 sports events in Africa": "أحداث فبراير 2020 الرياضية في إفريقيا",
     "February 2020 sports events in Argentina": "أحداث فبراير 2020 الرياضية في الأرجنتين",
     "February 2020 sports events in Asia": "أحداث فبراير 2020 الرياضية في آسيا",
@@ -771,7 +770,26 @@ fast_data_1 = {
     "september 2020 sports-events": "أحداث سبتمبر 2020 الرياضية",
 }
 
-fast_data_2 = {}
+fast_data_2 = {
+    # "Entertainment at sports events": "ترفيه في أحداث رياضية",
+    "Sports events cancelled due to the COVID-19 pandemic": "أحداث رياضية ألغيت بسبب جائحة فيروس كورونا",
+    "Sports events cancelled due to the Russian invasion of Ukraine": "أحداث رياضية ألغيت بسبب الغزو الروسي لأوكرانيا",
+    "Sports events curtailed and voided due to the COVID-19 pandemic": "أحداث رياضية اختصرت وألغيت بسبب جائحة فيروس كورونا",
+    "Sports events curtailed due to the COVID-19 pandemic": "أحداث رياضية اختصرت بسبب جائحة فيروس كورونا",
+    "Sports events in Africa": "أحداث رياضية في إفريقيا",
+    "Sports events in Asia": "أحداث رياضية في آسيا",
+    "Sports events in Attica": "أحداث رياضية في أتيكا",
+    "Sports events in Bucharest": "أحداث رياضية في بوخارست",
+    "Sports events in Cardiff": "أحداث رياضية في كارديف",
+    "Sports events in Central Macedonia": "أحداث رياضية في إقليم مقدونيا الوسطى",
+    "Sports events in Europe": "أحداث رياضية في أوروبا",
+    "Sports events in North America": "أحداث رياضية في أمريكا الشمالية",
+    "Sports events in Oceania": "أحداث رياضية في أوقيانوسيا",
+    "Sports events in Ponce, Puerto Rico": "أحداث رياضية في بونس، بورتوريكو",
+    "Sports events in South America": "أحداث رياضية في أمريكا الجنوبية",
+    "Sports events in Western Greece": "أحداث رياضية في غرب اليونان",
+    "Sports events postponed due to the COVID-19 pandemic": "أحداث رياضية تأجلت بسبب جائحة فيروس كورونا"
+}
 
 to_test = [
     ("test_sports_events_1", fast_data_1),
