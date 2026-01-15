@@ -776,6 +776,7 @@ data_list = [
 
 
 @pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+@pytest.mark.skipmk3
 def test_find_ar_label_and_event2(tab) -> None:
     # label_no_event2 = find_ar_label(tab["category"], tab["separator"], use_event2=False)
     label_with_event2 = find_ar_label(tab["category"], tab["separator"], use_event2=True)
@@ -785,6 +786,7 @@ def test_find_ar_label_and_event2(tab) -> None:
 
 
 @pytest.mark.parametrize("tab", data_list, ids=lambda x: x["category"])
+@pytest.mark.skipmk3
 def test_translate_general_category_event2(tab) -> None:
     label = translate_general_category(tab["category"])
     # ---

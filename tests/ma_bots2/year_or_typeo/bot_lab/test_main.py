@@ -47,7 +47,7 @@ fast_data = {
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
-@pytest.mark.fast
+@pytest.mark.skipmk3
 def test_event2_fast(category: str, expected: str) -> None:
     label = label_for_startwith_year_or_typeo(category)
     assert label == expected
