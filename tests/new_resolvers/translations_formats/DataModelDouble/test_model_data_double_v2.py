@@ -139,6 +139,7 @@ def test_sort_ar_labels_false_preserves_order(base_data_v2):
         data_list=data_list,
         key_placeholder="{film_key}",
         sort_ar_labels=False,
+        log_multi_cache=False,
     )
     result1 = bot.search("action drama films")
     result2 = bot.search("drama action films")
