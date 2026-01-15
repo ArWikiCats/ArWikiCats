@@ -421,7 +421,6 @@ fast_data = {
     "syrian websites": "مواقع ويب سورية",
     "thai television": "التلفزة التايلندية",
     "trinidad and tobago football": "كرة القدم الترنيدادية",
-    "ukrainian-jewish descent": "أصل يهودي أوكراني",
     "vietnamese sport": "رياضة فيتنامية",
     "yemeni civil war": "الحرب الأهلية اليمنية",
     "yoruba names": "أسماء يوروبية",

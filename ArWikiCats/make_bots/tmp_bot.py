@@ -56,6 +56,8 @@ def _resolve_label(label: str) -> str:
 
 
 def create_label_from_prefix(input_label):
+    template_label = ""
+
     for prefix, format_template in pp_start_with.items():
         if input_label.startswith(prefix.lower()):
             remaining_label = input_label[len(prefix) :]
@@ -91,6 +93,7 @@ def create_label_from_suffix(input_label):
                 template_label = format_template.format(resolved_label)
                 logger.info(f">>>> {template_label=}")
                 break
+
     return template_label
 
 

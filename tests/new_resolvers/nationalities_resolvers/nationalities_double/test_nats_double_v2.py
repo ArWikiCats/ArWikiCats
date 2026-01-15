@@ -38,7 +38,6 @@ male_tests = {
     "North African-Jewish culture in Israel": "ثقافة إفريقية شمالية يهودية في إسرائيل",
     "North African-Jewish culture in the United States": "ثقافة إفريقية شمالية يهودية في الولايات المتحدة",
     "People of North African-Jewish descent": "أشخاص من أصل إفريقي شمالي يهودي",
-    "ukrainian-jewish descent": "أصل أوكراني يهودي",
     "Argentine people of French-Jewish descent": "أرجنتينيون من أصل فرنسي يهودي",
     "French people of Polish-Jewish descent": "فرنسيون من أصل بولندي يهودي",
     "French people of Syrian-Jewish descent": "فرنسيون من أصل سوري يهودي",
