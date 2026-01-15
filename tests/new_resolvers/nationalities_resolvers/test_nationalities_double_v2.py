@@ -13,10 +13,10 @@ males_tests = {
 }
 
 female_tests = {
-    "arab jewish surnames": "ألقاب يهودية عربية",
-    "arab-jewish surnames": "ألقاب يهودية عربية",
-    "russian jewish surnames": "ألقاب يهودية روسية",
-    "russian-jewish surnames": "ألقاب يهودية روسية",
+    "arab jewish surnames": "ألقاب عربية يهودية",
+    "arab-jewish surnames": "ألقاب عربية يهودية",
+    "russian jewish surnames": "ألقاب روسية يهودية",
+    "russian-jewish surnames": "ألقاب روسية يهودية",
     "jewish french culture": "ثقافة فرنسية يهودية",
     "jewish danish families": "عائلات دنماركية يهودية",
     "jewish chinese families": "عائلات صينية يهودية",
@@ -154,8 +154,8 @@ male_tests = {
 }
 
 tests_ready = {
-    "jewish german history": "تاريخ يهودي ألماني",
-    "german jewish history": "تاريخ يهودي ألماني",
+    "jewish german history": "تاريخ ألماني يهودي",
+    "german jewish history": "تاريخ ألماني يهودي",
 }
 
 

@@ -10,8 +10,11 @@ from ..nats_as_country_names import nats_keys_as_country_names
 
 formatted_data = {
     # north american-jewish culture
-    "{en} surnames": "ألقاب يهودية {female}",
-    "{en} culture": "ثقافة يهودية {female}",
+    "{en} surnames": "ألقاب {female}",
+    "{en} culture": "ثقافة {female}",
+    "{en} families": "عائلات {female}",
+    "{en} wars": "حروب {female}",
+    "{en} television series": "مسلسلات تلفزيونية {female}",
 
     "{en} literature": "أدب {male}",
     "{en} history": "تاريخ {male}",
