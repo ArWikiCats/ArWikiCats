@@ -103,8 +103,13 @@ def test_sort_ar_labels_false(base_data):
     )
 
     # action (أكشن), drama (دراما)
-    assert bot.search("action drama films") == "أفلام أكشن دراما"
-    assert bot.search("drama action films") == "أفلام دراما أكشن"
+    result1 = bot.search("action drama films")
+    print(f"DEBUG: result1='{result1}'")
+    assert result1 == "أفلام أكشن دراما"
+
+    result2 = bot.search("drama action films")
+    print(f"DEBUG: result2='{result2}'")
+    assert result2 == "أفلام دراما أكشن"
 
 
 def test_sort_ar_labels_true(base_data):
