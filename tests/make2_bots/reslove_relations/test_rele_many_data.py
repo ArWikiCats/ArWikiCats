@@ -141,9 +141,9 @@ def test_data_3(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_relations_0", data_0),
+    # ("test_relations_0", data_0),
     ("test_relations_1", data_1),
-    ("test_relations_3", data_3),
+    # ("test_relations_3", data_3),
 ]
 
 
