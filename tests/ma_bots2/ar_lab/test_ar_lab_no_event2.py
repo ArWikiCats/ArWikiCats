@@ -31,7 +31,6 @@ data_list = [
     },
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
-    {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
         "category": "november 1450 sports-events in germany",
@@ -658,11 +657,6 @@ data_list = [
         "category": "may 1450 sports-events in africa",
         "output": "أحداث مايو 1450 الرياضية في إفريقيا",
     },
-    {
-        "separator": " and ",
-        "category": "18th century religious buildings and structures",
-        "output": "مبان دينية القرن 18 ومنشآت",
-    },
     {"separator": " in ", "category": "1450s disestablishments in france", "output": "انحلالات عقد 1450 في فرنسا"},
     {
         "separator": " in ",
@@ -816,7 +810,6 @@ fast_data_list = [
     },
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
-    {"separator": " in ", "category": "20th century synagogues in australia", "output": "كنس القرن 20 في أستراليا"},
     {
         "separator": " in ",
         "category": "november 1450 sports-events in germany",

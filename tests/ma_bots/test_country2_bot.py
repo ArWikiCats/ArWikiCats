@@ -323,7 +323,6 @@ data_slow = {
     "lists of football players": "قوائم لاعبو كرة قدم",
     "lists of german people": "قوائم ألمان",
     "lists of mayors of places": "قوائم رؤساء بلديات",
-    "lists of religious buildings and structures": "قوائم مبان ومنشآت دينية",
     "lists of schools": "قوائم مدارس",
     "lists of television characters": "قوائم شخصيات تلفزيونية",
     "lists of tourist attractions": "قوائم مواقع جذب سياحي",
