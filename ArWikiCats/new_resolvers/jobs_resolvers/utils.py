@@ -1,5 +1,6 @@
 import functools
 import re
+
 from ...helps import logger
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)

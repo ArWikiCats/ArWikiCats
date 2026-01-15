@@ -1,7 +1,7 @@
 import functools
 
 from ...helps import logger
-from .film_keys_bot import get_Films_key_CAO, Films
+from .film_keys_bot import Films, get_Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 

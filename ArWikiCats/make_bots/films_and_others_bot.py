@@ -3,28 +3,28 @@
 
 import functools
 import re
-from ..translations import People_key
 
 # from ...helps.jsonl_dump import dump_data
 from ..helps import logger
 from ..make_bots.languages_bot.langs_w import Lang_work
-from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO, Films
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
+from ..new.resolve_films_bots.film_keys_bot import Films, get_Films_key_CAO
 from ..new_resolvers.countries_names_resolvers import resolve_countries_names_main
 from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..new_resolvers.nationalities_resolvers import resolve_nationalities_main
-from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
+from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..new_resolvers.sports_resolvers import resolve_sports_main
+from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
+from ..translations import People_key
 
 # from ..new_resolvers.translations_resolvers_v3i import resolve_v3i_main
 from .countries_formats import resolved_countries_formats_labels
-from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 from .languages_bot.languages_resolvers import te_language
 
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
 from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
-from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 
 
 @functools.lru_cache(maxsize=None)

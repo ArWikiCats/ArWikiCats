@@ -4,7 +4,7 @@
 
 from typing import Tuple
 
-from ..helps import logger, dump_data
+from ..helps import dump_data, logger
 
 
 # @dump_data(1)

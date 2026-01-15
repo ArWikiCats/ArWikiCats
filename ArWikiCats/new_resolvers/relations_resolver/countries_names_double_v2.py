@@ -9,13 +9,13 @@ import functools
 from ...helps import logger
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
+    All_Nat,
+    all_country_ar,
+    all_country_with_nat,
     countries_en_as_nationality_keys,
     countries_nat_en_key,
-    All_Nat,
-    all_country_with_nat,
-    all_country_ar,
 )
-from ...translations_formats import FormatDataDoubleV2, FormatDataDouble
+from ...translations_formats import FormatDataDouble, FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]

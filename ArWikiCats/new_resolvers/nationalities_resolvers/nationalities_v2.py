@@ -5,7 +5,7 @@ TODO: use this instead of nats_women.py
 import functools
 
 from ...helps import logger
-from ...translations import all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys, All_Nat
+from ...translations import All_Nat, all_country_with_nat, all_country_with_nat_ar, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataV2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data

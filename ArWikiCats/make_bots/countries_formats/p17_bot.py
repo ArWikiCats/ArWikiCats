@@ -10,14 +10,13 @@ It checks the suffix against the following tables:
 
 import functools
 
-from ...helps.jsonl_dump import dump_data
 from ...helps import logger
+from ...helps.jsonl_dump import dump_data
 from ...translations import (
     countries_from_nat,
 )
-from ..format_bots.relation_mapping import translation_category_relations
 from ..format_bots import pop_format
-
+from ..format_bots.relation_mapping import translation_category_relations
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
 countries_from_nat_sorted = dict(

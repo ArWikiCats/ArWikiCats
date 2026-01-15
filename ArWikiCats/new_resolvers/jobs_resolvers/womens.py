@@ -5,13 +5,13 @@ import functools
 
 from ...helps import len_print, logger
 from ...translations import (
-    countries_en_as_nationality_keys,
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,
+    All_Nat,
     all_country_with_nat,
     all_country_with_nat_ar,
+    countries_en_as_nationality_keys,
     jobs_womens_data,
-    All_Nat,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names

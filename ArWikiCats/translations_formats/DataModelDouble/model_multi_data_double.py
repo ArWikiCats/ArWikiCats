@@ -5,8 +5,8 @@
 from typing import Dict
 
 from ..DataModel.model_data import FormatData
-from .model_data_double import FormatDataDouble
 from ..DataModel.model_multi_data_base import MultiDataFormatterBaseHelpers
+from .model_data_double import FormatDataDouble
 
 
 class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):

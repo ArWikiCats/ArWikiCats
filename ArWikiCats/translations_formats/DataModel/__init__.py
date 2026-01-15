@@ -1,7 +1,6 @@
 from .model_data import FormatData
-from .model_data_v2 import FormatDataV2, MultiDataFormatterBaseV2
-
 from .model_data_time import YearFormatData
+from .model_data_v2 import FormatDataV2, MultiDataFormatterBaseV2
 from .model_multi_data import (
     MultiDataFormatterBase,
     MultiDataFormatterBaseYear,

@@ -8,10 +8,11 @@ related to jobs, nationalities, and multi-sports topics from English to Arabic.
 """
 
 import functools
+
 from ...helps import logger
-from ..jobs_resolvers import resolve_jobs_main
-from ..countries_names_resolvers.medalists_resolvers import medalists_data
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from ..countries_names_resolvers.medalists_resolvers import medalists_data
+from ..jobs_resolvers import resolve_jobs_main
 
 medalists_data = dict(
     sorted(

@@ -8,8 +8,8 @@ from ...matables_bots.table1_bot import table1get, get_KAKO
 import functools
 from typing import Dict
 
-from ...helps.jsonl_dump import dump_data
 from ...helps import logger
+from ...helps.jsonl_dump import dump_data
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys

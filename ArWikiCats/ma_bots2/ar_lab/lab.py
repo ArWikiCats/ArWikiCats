@@ -7,34 +7,31 @@ import functools
 import re
 from typing import Tuple
 
-from ...make_bots.languages_bot.langs_w import Lang_work
-
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots import tmp_bot
 from ...make_bots.films_and_others_bot import te_films
+from ...make_bots.languages_bot.langs_w import Lang_work
 from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.o_bots import bys
-from ...make_bots.o_bots.peoples_resolver import make_people_lab
-from ...make_bots.sports_bots import team_work, sport_lab_suffixes
+from ...make_bots.matables_bots.table1_bot import get_KAKO
+from ...make_bots.o_bots import bys, parties_bot, univer
+from ...make_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
+from ...make_bots.sports_bots import sport_lab_suffixes, team_work
+from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ...new_resolvers.relations_resolver import new_relations_resolvers
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ...time_resolvers import time_to_arabic
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
-    religious_entries,
     New_female_keys,
     People_key,
     get_from_new_p17_final,
     get_from_pf_keys2,
+    religious_entries,
 )
-from ...make_bots.matables_bots.table1_bot import get_KAKO
-from ...make_bots.o_bots import parties_bot, univer
-from ...make_bots.o_bots.peoples_resolver import work_peoples
-from ...new_resolvers.relations_resolver import new_relations_resolvers
-from ...new_resolvers.countries_names_resolvers.us_states import resolve_us_states
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 
 
 @functools.lru_cache(maxsize=10000)

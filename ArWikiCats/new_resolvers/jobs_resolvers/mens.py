@@ -4,15 +4,15 @@ This module provides functionality to translate category titles
 import functools
 import re
 
+from ...helps import len_print, logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...helps import logger, len_print
 from ...translations import (
     RELIGIOUS_KEYS_PP,
+    All_Nat,
     all_country_with_nat,
     all_country_with_nat_ar,
-    jobs_mens_data,
     countries_en_as_nationality_keys,
-    All_Nat,
+    jobs_mens_data,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names

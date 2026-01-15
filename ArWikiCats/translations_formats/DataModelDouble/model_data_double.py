@@ -29,8 +29,8 @@ import functools
 import re
 from typing import Dict, Optional
 
-from ..formats_logger import logger
 from ..DataModel.model_data_base import FormatDataBase
+from ..formats_logger import logger
 
 
 class FormatDataDouble(FormatDataBase):

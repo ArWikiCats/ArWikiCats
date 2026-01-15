@@ -14,13 +14,13 @@ from ...make_bots.format_bots.relation_mapping import translation_category_relat
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, New_Lan
 from ...make_bots.matables_bots.check_bot import check_key_new_players
+from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens, typeTable
 from ...utils import check_key_in_tables
 from .dodo_2019 import work_2019
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
-from ...new_resolvers.reslove_all import new_resolvers_all
 
 type_after_country = ["non-combat"]
 

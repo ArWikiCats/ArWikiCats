@@ -6,29 +6,28 @@
 import functools
 import re
 
-from ..make_bots.languages_bot.langs_w import Lang_work
-
-from ..new_resolvers.jobs_resolvers import resolve_jobs_main
 from ..fix import fixtitle
 from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
 from ..main_processers import event2_stubs
 from ..make_bots.films_and_others_bot import te_films
-from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
+from ..make_bots.languages_bot.langs_w import Lang_work
+from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.bot import New_Lan
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
-from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 
 # from ..bots import tmp_bot
 from ..new_resolvers.countries_names_resolvers.us_states import resolve_us_states
+from ..new_resolvers.jobs_resolvers import resolve_jobs_main
+from ..new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-from ..translations import Ambassadors_tab, get_from_new_p17_final, People_key
+from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from . import ye_ts_bot
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
