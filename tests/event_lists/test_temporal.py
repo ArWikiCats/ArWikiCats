@@ -24,14 +24,12 @@ temporal_1 = {
     "Category:1990s BC disestablishments in Asia": "تصنيف:انحلالات عقد 1990 ق م في آسيا",
     "Category:1990s disestablishments in Europe": "تصنيف:انحلالات عقد 1990 في أوروبا",
     "Category:1994–95 in European rugby union by country": "تصنيف:اتحاد الرجبي الأوروبي في 1994–95 حسب البلد",
-    "Category:19th-century publications": "تصنيف:منشورات القرن 19",
     "Category:1st century BC": "تصنيف:القرن 1 ق م",
     "Category:1st-century architecture": "تصنيف:عمارة القرن 1",
 }
 
 temporal_2 = {
     "Category:1st-millennium architecture": "تصنيف:عمارة الألفية 1",
-    "Category:1st-millennium literature": "تصنيف:أدب الألفية 1",
     "Category:2000s films": "تصنيف:أفلام إنتاج عقد 2000",
     "Category:2000s in American cinema": "تصنيف:السينما الأمريكية في عقد 2000",
     "Category:2000s in film": "تصنيف:عقد 2000 في الأفلام",
@@ -61,7 +59,6 @@ temporal_3 = {
     "Category:19th-century actors by religion": "تصنيف:ممثلون في القرن 19 حسب الدين",
     "Category:19th-century people by religion": "تصنيف:أشخاص في القرن 19 حسب الدين",
     "Category:2000s in the United States by state": "تصنيف:الولايات المتحدة في عقد 2000 حسب الولاية",
-    "Category:20th-century railway accidents": "تصنيف:حوادث سكك حديد في القرن 20",
     "Category:21st century in the Czech Republic": "تصنيف:التشيك في القرن 21",
     "Category:21st-century in Qatar": "تصنيف:قطر في القرن 21",
     "Category:April 1983 sports events": "تصنيف:أحداث أبريل 1983 الرياضية",
