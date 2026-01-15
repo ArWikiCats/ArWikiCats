@@ -25,7 +25,6 @@ from ..new.end_start_bots.fax2_temp import get_templates_fo
 
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
@@ -47,7 +46,6 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
-        or sport_lab_nat_load_new(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)

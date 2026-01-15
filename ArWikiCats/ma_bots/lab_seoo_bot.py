@@ -21,7 +21,6 @@ from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import team_work
 
 from ..new_resolvers.reslove_all import new_resolvers_all
-from ..new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
 from ..time_resolvers import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
@@ -89,7 +88,6 @@ def event_label_work(target_category: str) -> str:
         or People_key.get(normalized_target_category)
         or univer.te_universities(normalized_target_category)
         or te_films(normalized_target_category)
-        or sport_lab_nat_load_new(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
         or te_bot_3(normalized_target_category)
