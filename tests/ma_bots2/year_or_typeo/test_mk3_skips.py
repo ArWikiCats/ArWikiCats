@@ -243,7 +243,6 @@ test_data_3 = {
     "Category:Qualification for 1968 Summer Olympics": "تصنيف:تصفيات مؤهلة إلى الألعاب الأولمبية الصيفية 1968"
 }
 
-
 test_data_4 = {
     "1450s murders in ireland": "",
     "6th century kings of italy": "",
@@ -285,4 +284,34 @@ test_data_4 = {
     "1830s virginia": "فرجينيا عقد 1830",
     "1830s wisconsin territory": "إقليم ويسكونسن عقد 1830",
     "1830s wisconsin": "ويسكونسن عقد 1830"
+}
+
+data5 = {
+    "20th-century Ghanaian literature": "أدب غاني القرن 20",
+    "20th-century Mexican literature": "أدب مكسيكي القرن 20",
+    "20th-century Taiwanese literature": "أدب تايواني القرن 20",
+    "20th-century Zimbabwean literature": "أدب زيمبابوي القرن 20",
+    "21st-century Ghanaian literature": "أدب غاني القرن 21",
+    "21st-century Moroccan literature": "أدب مغربي القرن 21",
+    "21st-century Taiwanese literature": "أدب تايواني القرن 21",
+    "21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21",
+    "1650s films": "أفلام إنتاج عقد 1650",
+    "1650s floods": "فيضانات عقد 1650",
+    "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
+    "1650s murders": "جرائم قتل عقد 1650",
+    "1650s television series": "مسلسلات تلفزيونية عقد 1650",
+    "20th century bc kings of": "ملوك القرن 20 ق م",
+    "20th century bce kings of": "ملوك القرن 20 ق م",
+    "20th century heads of": "قادة القرن 20",
+    "20th century kings of": "ملوك القرن 20",
+    "20th century mayors of": "عمدات القرن 20",
+    "20th century members of": "أعضاء القرن 20",
+    "20th century military history of": "التاريخ العسكري في القرن 20",
+    "20th century presidents of": "رؤساء القرن 20",
+    "20th century prime ministers of": "رؤساء وزراء القرن 20",
+    "20th century princesses of": "أميرات القرن 20",
+    "20th century religious buildings": "مبان دينية القرن 20",
+    "20th century roman catholic church buildings": "مبان كنائس رومانية كاثوليكية القرن 20",
+    "20th century sultans of": "سلاطين القرن 20",
+    "20th century women": "المرأة في القرن 20"
 }

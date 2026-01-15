@@ -1,8 +1,9 @@
-import pytest
 
-from ArWikiCats.ma_bots2.year_or_typeo.mk3 import (
-    new_func_mk2,
-)
+import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+from ArWikiCats.ma_bots2.year_or_typeo.mk3 import new_func_mk2
+from ArWikiCats import resolve_label_ar
+
 
 EXAMPLES = [
     {
@@ -140,3 +141,21 @@ def test_new_func_mk2_subset(example) -> None:
 
     expected = example["output"]
     assert result == expected
+
+
+data1 = {x["category"]: x["output"] for x in EXAMPLES}
+
+to_test = [
+    # ("test_2_skip2_0", data0),
+    ("test_2_skip2_2", data1),
+]
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_peoples(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
+
+    dump_diff(diff_result, name)
+    dump_same_and_not_same(data, expected, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
