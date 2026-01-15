@@ -276,8 +276,8 @@ def test_data_based_in_data_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("title_work_tests_data", title_work_tests_data, resolve_label_ar),
-    ("test_2", test_2, resolve_label_ar),
+    ("title_work_tests_data", title_work_tests_data, country_2_title_work),
+    ("test_2", test_2, country_2_title_work),
 ]
 
 
