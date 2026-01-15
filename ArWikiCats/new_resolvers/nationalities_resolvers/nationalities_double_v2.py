@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+TODO: replace rele.py with countries_names_double_v2.py and nationalities_double_v2.py resolvers.
 """
 import functools
 
@@ -11,6 +12,11 @@ from ..nats_as_country_names import nats_keys_as_country_names
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 formatted_data = {
+    "{en} joint economic efforts": "الجهود الاقتصادية المشتركة {the_female}",
+    "{en} conflict video games": "ألعاب فيديو الصراع {the_male}",
+    "{en} conflict legal issues": "قضايا قانونية في الصراع {the_male}",
+    "{en} conflict": "الصراع {the_male}",
+
     # "jewish persian": "فرس يهود",
     "{en}": "{males}",
     "{en} people": "{males}",
@@ -51,6 +57,18 @@ nats_data = {
 nats_data.update({
     x: v for x, v in nats_keys_as_country_names.items()
 })
+nats_data.update({
+    "ireland": {
+        "male": "أيرلندي",
+        "males": "أيرلنديون",
+        "female": "أيرلندية",
+        "females": "أيرلنديات",
+        "the_male": "الأيرلندي",
+        "the_female": "الأيرلندية",
+        "en": "ireland",
+        "ar": "أيرلندا",
+    }
+})
 
 
 @functools.lru_cache(maxsize=1)
@@ -63,7 +81,7 @@ def double_bot() -> FormatDataDoubleV2:
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en}",
-        splitter=r"[ \-]",
+        splitter=r"[ \-–]",
         sort_ar_labels=True,
     )
 

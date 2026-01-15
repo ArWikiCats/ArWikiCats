@@ -1,4 +1,7 @@
-"""Resolve labels for relations between countries."""
+"""
+Resolve labels for relations between countries.
+TODO: replaced by countries_names_double_v2.py and nationalities_double_v2.py
+"""
 
 from __future__ import annotations
 
