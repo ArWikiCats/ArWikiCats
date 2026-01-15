@@ -64,7 +64,8 @@ def main() -> None:
         # Path("D:/categories_bot/len_data/companies.py/companies_data.json"),
         # Path("D:/categories_bot/len_data/companies.py/companies_keys3.json"),
         # Path("D:/categories_bot/len_data/companies.py/typeTable_update.json"),
-        Path("D:/categories_bot/len_data/jobs.py/companies_to_jobs.json"),
+        # Path("D:/categories_bot/len_data/jobs.py/companies_to_jobs.json"),
+        Path("D:/categories_bot/len_data/bot_te_4_list.py/en_is_nat_ar_is_women.json"),
     ]
     status = {}
     for file in files:

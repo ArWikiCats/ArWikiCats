@@ -93,18 +93,10 @@ en_is_nat_ar_is_women_2: Dict[str, str] = {
     "military-equipment": "معدات عسكرية {}",
     "military-terminology": "مصطلحات عسكرية {}",
     "miniseries": "مسلسلات قصيرة {}",
-    "mixtape albums": "ألبومات ميكستايب {}",
-    "mixtape music": "موسيقى ميكستايب {}",
     "monarchy": "ملكية {}",
     "motorsport": "رياضة محركات {}",
     "mountains": "جبال {}",
     "movies": "أفلام {}",
-    "music": "موسيقى {}",
-    "music people": "شخصيات موسيقية {}",
-    "music personalities": "شخصيات موسيقية {}",
-    "musical duos": "فرق موسيقية ثنائية {}",
-    "musical groups": "فرق موسيقية {}",
-    "musical instruments": "آلات موسيقية {}",
     "mythology": "أساطير {}",
     "names": "أسماء {}",
     "nationalism": "قومية {}",
@@ -197,6 +189,14 @@ en_is_nat_ar_is_women_2: Dict[str, str] = {
     "works": "أعمال {}",
     "youth competitions": "منافسات شبابية {}",
     "youth music competitions": "منافسات موسيقية شبابية {}",
+    "mixtape albums": "ألبومات ميكستايب {}",
+    "mixtape music": "موسيقى ميكستايب {}",
+    "music": "موسيقى {}",
+    "music people": "شخصيات موسيقية {}",
+    "music personalities": "شخصيات موسيقية {}",
+    "musical duos": "فرق موسيقية ثنائية {}",
+    "musical groups": "فرق موسيقية {}",
+    "musical instruments": "آلات موسيقية {}",
     "youth sports competitions": "منافسات رياضية شبابية {}"
 }
 
@@ -311,7 +311,7 @@ def ethnic_label(category: str, nat: str = "", suffix: str = "") -> str:
 @dump_data(1)
 def ethnic_label_main(category: str) -> str:
     logger.debug(f"<<lightyellow>>>> ethnic_label_main >> category:({category})")
-
+    # return ""
     normalized_category = category.lower().replace("_", " ").replace("-", " ")
     result = ""
     suffix, nationality_key = get_suffix_with_keys(normalized_category, all_nat_sorted, "nat")

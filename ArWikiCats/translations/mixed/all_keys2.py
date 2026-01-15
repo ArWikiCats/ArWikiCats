@@ -683,5 +683,4 @@ __all__ = [
     "pop_of_football_lower",
     "WORD_AFTER_YEARS",
     "BOOK_CATEGORIES",
-    "BOOK_TYPES",
 ]
