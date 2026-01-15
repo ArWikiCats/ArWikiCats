@@ -184,11 +184,15 @@ class FormatDataDoubleV2(FormatDataBase):
         first_label = self.data_list_ci.get(part1)
         second_label = self.data_list_ci.get(part2)
 
-        keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
-
         if not first_label or not second_label:
             logger.debug(f">>> create_label_from_keys: missing label for {part1=}, {part2=}")
             return ""
+
+        if not isinstance(first_label, dict) or not isinstance(second_label, dict):
+            logger.debug(f">>> create_label_from_keys: non-dict label for {part1=}, {part2=}")
+            return ""
+
+        keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
 
         logger.debug(f"!!! create_label_from_keys: found label for {part1=}, {part2=}")
 

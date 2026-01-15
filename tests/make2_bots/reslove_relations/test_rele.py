@@ -155,12 +155,6 @@ def test_female_relations_basic(monkeypatch: pytest.MonkeyPatch) -> None:
         TEST_ALL_COUNTRY_WITH_NAT,
         raising=False,
     )
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("canada–burma military relations")
     assert result == "العلاقات البورمية الكندية العسكرية"
 
@@ -189,12 +183,6 @@ def test_female_relations_mixed_sources(monkeypatch: pytest.MonkeyPatch) -> None
         TEST_ALL_COUNTRY_WITH_NAT,
         raising=False,
     )
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("burma–zanzibari border crossings")
     assert result == "معابر الحدود البورمية الزنجبارية"
 
@@ -206,12 +194,6 @@ def test_female_relations_unknown_country(monkeypatch: pytest.MonkeyPatch) -> No
         TEST_ALL_COUNTRY_WITH_NAT,
         raising=False,
     )
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("unknown–canada relations")
     assert result == ""
 
@@ -223,11 +205,6 @@ def test_female_relations_unknown_country(monkeypatch: pytest.MonkeyPatch) -> No
 
 def test_male_relations_basic(monkeypatch: pytest.MonkeyPatch) -> None:
     """Basic male relations"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_men",
-        TEST_NAT_MEN,
-        raising=False,
-    )
 
     result = resolve_relations_label("german–polish football rivalry")
     assert result == "التنافس الألماني البولندي في كرة القدم"
@@ -235,24 +212,12 @@ def test_male_relations_basic(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_male_relations_with_en_dash(monkeypatch: pytest.MonkeyPatch) -> None:
     """Use en-dash instead of hyphen"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_men",
-        TEST_NAT_MEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("afghan–prussian conflict")
     assert result == "الصراع الأفغاني البروسي"
 
 
 def test_male_relations_with_minus_sign(monkeypatch: pytest.MonkeyPatch) -> None:
     """Use minus sign separator"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_men",
-        TEST_NAT_MEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("indian−pakistani wars")
     assert result == "الحروب الباكستانية الهندية"
 
@@ -310,12 +275,6 @@ def test_special_nato_case_male(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_missing_separator(monkeypatch: pytest.MonkeyPatch) -> None:
     """Missing separator should fail"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
-
     result = resolve_relations_label("canadaburma relations")
     assert result == ""
 
@@ -327,11 +286,6 @@ def test_missing_separator(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_trailing_whitespace(monkeypatch: pytest.MonkeyPatch) -> None:
     """Trailing whitespace"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
 
     result = resolve_relations_label("canada–burma relations   ")
     assert result == "العلاقات البورمية الكندية"
@@ -339,11 +293,6 @@ def test_trailing_whitespace(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_leading_whitespace(monkeypatch: pytest.MonkeyPatch) -> None:
     """Leading whitespace"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
 
     result = resolve_relations_label("   canada–burma relations")
     assert result == "العلاقات البورمية الكندية"
@@ -351,11 +300,6 @@ def test_leading_whitespace(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_mixed_case_input(monkeypatch: pytest.MonkeyPatch) -> None:
     """Mixed-case input"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
 
     result = resolve_relations_label("CaNaDa–BuRmA ReLaTiOnS")
     assert result == "العلاقات البورمية الكندية"
@@ -363,11 +307,6 @@ def test_mixed_case_input(monkeypatch: pytest.MonkeyPatch) -> None:
 
 def test_multiple_dashes(monkeypatch: pytest.MonkeyPatch) -> None:
     """Multiple separators should fail"""
-    monkeypatch.setattr(
-        "ArWikiCats.make_bots.reslove_relations.rele.Nat_women",
-        TEST_NAT_WOMEN,
-        raising=False,
-    )
 
     result = resolve_relations_label("canada–burma–india relations")
     assert result == ""

@@ -48,7 +48,7 @@ def test_splitter_underscore(base_data):
         splitter="[_ ]",
     )
     assert bot.search("action_drama films") == "أفلام أكشن دراما"
-    # Should not match with space
+    # Also matches with space since "[_ ]" is a character class matching both
     assert bot.search("action drama films") == "أفلام أكشن دراما"
 
 
