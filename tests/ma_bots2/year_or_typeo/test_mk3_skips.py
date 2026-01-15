@@ -417,6 +417,8 @@ test_data_1 = {
     "Works by musicians from Northern Ireland": "أعمال موسيقيون من أيرلندا الشمالية"
 }
 
+test_data_1 = {x : v for x, v in test_data_1.items() if x not in test_data_0}
+
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
