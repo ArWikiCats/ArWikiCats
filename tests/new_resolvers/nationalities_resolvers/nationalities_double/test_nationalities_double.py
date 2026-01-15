@@ -7,11 +7,6 @@ from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_double_v2 import resolve_by_nats_double_v2
 
-males_tests = {
-    "jewish persian": "فرس يهود",
-    "jewish russian": "روس يهود",
-}
-
 male_tests = {
     "jewish-afghan history": "تاريخ أفغاني يهودي",
     "jewish afghan history": "تاريخ أفغاني يهودي",

@@ -9,6 +9,9 @@ from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
 formatted_data = {
+    # "jewish persian": "فرس يهود",
+    "{en}": "{males}",
+
     # north american-jewish culture
     "{en} surnames": "ألقاب {female}",
     "{en} culture": "ثقافة {female}",
