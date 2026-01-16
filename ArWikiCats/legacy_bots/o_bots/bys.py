@@ -10,8 +10,7 @@ from __future__ import annotations
 import functools
 import re
 
-from ...new.resolve_films_bots import resolve_films_main
-
+from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
@@ -85,7 +84,7 @@ def make_new_by_label(category: str) -> str:
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = (
-            resolve_films_main(candidate)
+            new_resolvers_all(candidate)
             or resolve_languages_labels(candidate)
             or People_key.get(candidate)
         )
