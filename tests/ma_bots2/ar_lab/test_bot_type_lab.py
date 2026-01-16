@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.old_bots.ma_bots2.lab import get_type_lab
+from ArWikiCats.legacy_bots.ma_bots2.lab import get_type_lab
 
 data = [
     (" of ", "forests and woodlands of", "غابات"),

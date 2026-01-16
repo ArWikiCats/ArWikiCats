@@ -9,11 +9,11 @@ from __future__ import annotations
 import functools
 
 from ..helps import dump_data, logger
-from ..make_bots.o_bots.utils import resolve_suffix_template
 from ..new_resolvers.sports_resolvers import resolve_sports_main
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..translations import SPORTS_KEYS_FOR_JOBS
 from . import team_work
+from .o_bots.utils import resolve_suffix_template
 
 
 # @dump_data(1)

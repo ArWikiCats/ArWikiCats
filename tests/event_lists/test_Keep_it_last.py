@@ -7,7 +7,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.make_bots.matables_bots.data import Keep_it_last
+from ArWikiCats.legacy_bots.matables_bots.data import Keep_it_last
 
 
 @pytest.mark.fast

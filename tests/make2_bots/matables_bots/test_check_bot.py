@@ -7,7 +7,7 @@ check_key_new_players(key)
 
 import pytest
 
-from ArWikiCats.make_bots.matables_bots.check_bot import check_key_new_players
+from ArWikiCats.legacy_bots.matables_bots.check_bot import check_key_new_players
 
 
 @pytest.mark.fast

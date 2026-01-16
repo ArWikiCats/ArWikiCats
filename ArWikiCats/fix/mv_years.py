@@ -6,7 +6,7 @@ import functools
 import re
 
 from ..helps import dump_data, logger
-from ..make_bots.reg_lines import YEARS_REGEX_AR
+from ..legacy_bots.make_bots.reg_lines import YEARS_REGEX_AR
 
 # Precompiled Regex Patterns
 REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)

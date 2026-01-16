@@ -1,6 +1,6 @@
 import re
 
-from ..helps import logger
+from ...helps import logger
 
 CATEGORY_BLACKLIST: list[str] = [
     "Disambiguation",

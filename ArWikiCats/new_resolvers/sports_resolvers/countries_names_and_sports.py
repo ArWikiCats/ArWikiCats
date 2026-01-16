@@ -5,7 +5,7 @@
 import functools
 
 from ...helps import logger
-from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
+from ...legacy_bots.make_bots.teams_mappings_ends import teams_label_mappings_ends
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations.nats.Nationality import all_country_with_nat_ar
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS

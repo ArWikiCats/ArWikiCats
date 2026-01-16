@@ -12,7 +12,7 @@ import re
 from typing import Iterable, Mapping
 
 from ..helps import logger
-from ..make_bots.reg_lines import YEARS_REGEX_AR
+from ..legacy_bots.make_bots.reg_lines import YEARS_REGEX_AR
 from .fixlists import (
     ENDING_REPLACEMENTS,
     REPLACEMENTS,

@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.make_bots.o_bots.bys import get_by_label
+from ArWikiCats.legacy_bots.o_bots.bys import get_by_label
 
 data_0 = {
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",

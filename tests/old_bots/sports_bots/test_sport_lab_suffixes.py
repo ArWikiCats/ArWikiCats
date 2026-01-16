@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.sport_lab_suffixes import get_teams_new
+from ArWikiCats.legacy_bots.sport_lab_suffixes import get_teams_new
 
 get_teams_new_data = {
     "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",

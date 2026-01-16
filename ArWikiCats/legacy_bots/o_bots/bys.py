@@ -13,9 +13,9 @@ import re
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ...old_bots.films_and_others_bot import te_films
 from ...translations import People_key, get_from_new_p17_final
-from ..bot_2018 import get_pop_All_18
+from ..films_and_others_bot import te_films
+from ..make_bots.bot_2018 import get_pop_All_18
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
 BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)

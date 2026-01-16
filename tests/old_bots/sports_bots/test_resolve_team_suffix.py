@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.sport_lab_suffixes import resolve_team_suffix
+from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
 
 resolve_team_suffix_data = {
     "australian rules football awards": "جوائز كرة قدم أسترالية",

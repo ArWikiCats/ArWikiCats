@@ -9,17 +9,17 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import logger
-from ..make_bots.bot_2018 import get_pop_All_18
-from ..make_bots.ends_keys import combined_suffix_mappings
-from ..make_bots.matables_bots.table1_bot import get_KAKO
-from ..make_bots.o_bots import parties_bot, univer
-from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
 from .films_and_others_bot import te_films
 from .ma_bots import ye_ts_bot
+from .make_bots.bot_2018 import get_pop_All_18
+from .make_bots.ends_keys import combined_suffix_mappings
+from .matables_bots.table1_bot import get_KAKO
+from .o_bots import parties_bot, univer
+from .o_bots.peoples_resolver import work_peoples
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
