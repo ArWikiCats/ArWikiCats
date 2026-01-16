@@ -8,16 +8,12 @@ import re
 from typing import Tuple
 
 from ...helps import logger
-from ..ma_bots.country_bot import Get_c_t_lab, get_country
 from ...make_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.resolve_languages import resolve_languages_labels
-from .. import team_work, tmp_bot
-from ..films_and_others_bot import te_films
-from .. import sport_lab_suffixes
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -28,6 +24,9 @@ from ...translations import (
     get_from_pf_keys2,
     religious_entries,
 )
+from .. import sport_lab_suffixes, team_work, tmp_bot
+from ..films_and_others_bot import te_films
+from ..ma_bots.country_bot import Get_c_t_lab, get_country
 
 
 @functools.lru_cache(maxsize=10000)

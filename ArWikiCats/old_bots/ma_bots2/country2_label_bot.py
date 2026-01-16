@@ -9,7 +9,6 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ..ma_bots import country_bot
 from ...make_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
@@ -18,12 +17,12 @@ from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import work_peoples
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.reslove_all import new_resolvers_all
-from .. import team_work, with_years_bot
-from ..films_and_others_bot import te_films
-from .. import sport_lab_suffixes
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2
 from ...utils import fix_minor
+from .. import sport_lab_suffixes, team_work, with_years_bot
+from ..films_and_others_bot import te_films
+from ..ma_bots import country_bot
 from .utils import split_text_by_separator
 
 

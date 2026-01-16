@@ -8,9 +8,6 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
-from ..old_bots.ma_bots import ye_ts_bot
-from ..old_bots.ma_bots2.country2_label_bot import country_2_title_work
-from ..old_bots.ma_bots.lab_seoo_bot import event_label_work
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.matables_bots.table1_bot import get_KAKO
@@ -21,9 +18,11 @@ from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
-from ..old_bots import team_work, tmp_bot
+from ..old_bots import sport_lab_suffixes, team_work, tmp_bot
 from ..old_bots.films_and_others_bot import te_films
-from ..old_bots import sport_lab_suffixes
+from ..old_bots.ma_bots import ye_ts_bot
+from ..old_bots.ma_bots2.country2_label_bot import country_2_title_work
+from ..old_bots.ma_bots.lab_seoo_bot import event_label_work
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_new_p17_final, get_from_pf_keys2
