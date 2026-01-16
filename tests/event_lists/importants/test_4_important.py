@@ -9,6 +9,8 @@ data0 = {
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",
     "permanent representatives of kyrgyzstan": "مندوبو قيرغيزستان الدائمون",
     "permanent representatives of luxembourg": "مندوبو لوكسمبورغ الدائمون",
+    "bilateral relations of united kingdom": "علاقات المملكة المتحدة الثنائية",
+    "permanent representatives of barbados": "مندوبو بربادوس الدائمون",
 
     "Military units and formations of Islamic Emirate of Afghanistan": "وحدات وتشكيلات عسكرية في إمارة أفغانستان الإسلامية",
     "Military units and formations of World War I": "وحدات وتشكيلات عسكرية في الحرب العالمية الأولى",

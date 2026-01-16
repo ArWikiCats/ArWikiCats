@@ -103,7 +103,6 @@ data_of = {
     "permanent representatives of jamaica": ("permanent representatives of", "jamaica"),
     "permanent representatives of kazakhstan": ("permanent representatives of", "kazakhstan"),
     "permanent representatives of kyrgyzstan": ("permanent representatives of", "kyrgyzstan"),
-    "permanent representatives of luxembourg": ("permanent representatives of", "luxembourg"),
     "persecution of lgbtq people": ("persecution of", "lgbtq people"),
     "politics of united states": ("politics of", "united states"),
     "prime ministers of japan": ("prime ministers of", "japan"),

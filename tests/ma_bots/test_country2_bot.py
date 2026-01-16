@@ -358,7 +358,6 @@ data_slow = {
     "military history of croatia": "تاريخ كرواتيا العسكري",
     "military history of united states": "تاريخ الولايات المتحدة العسكري",
     "military pentathlon": "خماسي عسكرية",
-    "military units and formations of royal navy": "وحدات وتشكيلات البحرية الملكية العسكرية",
     "mississippi territory": "إقليم مسيسيبي",
     "mixed martial arts": "فنون القتال المختلطة",
     "moldova–south korea relations": "العلاقات الكورية الجنوبية المولدوفية",
