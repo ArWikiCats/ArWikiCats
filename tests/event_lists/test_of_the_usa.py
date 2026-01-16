@@ -159,7 +159,7 @@ data_3 = {
     "Hills of the United States": "تلال الولايات المتحدة",
     "Historians of the United States": "مؤرخو الولايات المتحدة",
     "Historiography of the United States": "تأريخ الولايات المتحدة",
-    "Hot springs of the United States": "ينابيع حارة الولايات المتحدة",
+    "Hot springs of the United States": "ينابيع حارة في الولايات المتحدة",
     "Images of the United States": "صور من الولايات المتحدة",
     "Insects of the United States": "حشرات الولايات المتحدة",
     "Invertebrates of the United States": "لافقاريات الولايات المتحدة",

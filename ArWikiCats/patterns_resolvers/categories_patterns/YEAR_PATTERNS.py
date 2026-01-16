@@ -121,6 +121,7 @@ YEAR_DATA = {
     "{year1} bc deaths": "وفيات {year1} ق م",  # 440
     "{year1} bc": "{year1} ق م",  # 649
     "{year1} beginnings": "بدايات {year1}",  # 1946
+    "{year1} attacks": "هجمات {year1}",
     "{year1} births": "مواليد {year1}",  # 1923
     "{year1} books": "كتب {year1}",  # 581
     "{year1} by city": "{year1} حسب المدينة",  # 233

@@ -569,7 +569,7 @@ data1 = {
     "Category:Historians of Russia": "تصنيف:مؤرخو روسيا",
     "Category:Historiography of Russia": "تصنيف:تأريخ روسيا",
     "Category:History of Russia": "تصنيف:تاريخ روسيا",
-    "Category:Hot springs of Russia": "تصنيف:ينابيع حارة روسيا",
+    "Category:Hot springs of Russia": "تصنيف:ينابيع حارة في روسيا",
     "Category:Images of Russia": "تصنيف:صور من روسيا",
     "Category:Indigenous peoples of Russia": "تصنيف:شعوب أصلية في روسيا",
     "Category:Insects of Russia": "تصنيف:حشرات روسيا",

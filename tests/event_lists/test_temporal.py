@@ -16,8 +16,6 @@ temporal_1 = {
     "Category:1000 disestablishments by country": "تصنيف:انحلالات سنة 1000 حسب البلد",
     "Category:1000 disestablishments in Europe": "تصنيف:انحلالات سنة 1000 في أوروبا",
     "Category:1000s disestablishments in Asia": "تصنيف:انحلالات عقد 1000 في آسيا",
-    "Category:10th-century BC architecture": "تصنيف:عمارة القرن 10 ق م",
-    "Category:1370s conflicts": "تصنيف:نزاعات في عقد 1370",
     "Category:13th century establishments in the Roman Empire": "تصنيف:تأسيسات القرن 13 في الإمبراطورية الرومانية",
     "Category:14th-century establishments in India": "تصنيف:تأسيسات القرن 14 في الهند",
     "Category:1902 films": "تصنيف:أفلام إنتاج 1902",
@@ -25,11 +23,9 @@ temporal_1 = {
     "Category:1990s disestablishments in Europe": "تصنيف:انحلالات عقد 1990 في أوروبا",
     "Category:1994–95 in European rugby union by country": "تصنيف:اتحاد الرجبي الأوروبي في 1994–95 حسب البلد",
     "Category:1st century BC": "تصنيف:القرن 1 ق م",
-    "Category:1st-century architecture": "تصنيف:عمارة القرن 1",
 }
 
 temporal_2 = {
-    "Category:1st-millennium architecture": "تصنيف:عمارة الألفية 1",
     "Category:2000s films": "تصنيف:أفلام إنتاج عقد 2000",
     "Category:2000s in American cinema": "تصنيف:السينما الأمريكية في عقد 2000",
     "Category:2000s in film": "تصنيف:عقد 2000 في الأفلام",
