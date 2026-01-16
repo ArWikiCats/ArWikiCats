@@ -25,12 +25,10 @@ from ...new_resolvers.bys_new import resolve_by_labels
 from ...old_bots import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import get_from_pf_keys2
-from ...translations.type_tables import typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .utils import split_text_by_separator
 
 to_check_them_tuble = {
-    "typeTable": typeTable,
     "Films_O_TT": Films_O_TT,
 }
 

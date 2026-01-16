@@ -26,10 +26,8 @@ from .lab import (
     get_type_lab,
 )
 from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
-from ...translations.type_tables import typeTable
 
 Table_for_frist_word = {
-    "typetable": typeTable,
     "Films_O_TT": Films_O_TT,
     "New_players": players_new_keys,
 }
