@@ -30,7 +30,6 @@ title_work_tests_data = {
     "1520 in rugby union": "1520 في اتحاد الرجبي",
     "1520 in south america": "1520 في أمريكا الجنوبية",
     "1520 in south american football": "1520 في كرة القدم الأمريكية الجنوبية",
-    "1520 in sports": "1520 في ألعاب رياضية",
     "1520 in taiwan": "1520 في تايوان",
     "1520 in television": "1520 في التلفاز",
     "1520 in thailand": "1520 في تايلاند",

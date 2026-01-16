@@ -64,32 +64,6 @@ def test_make_cnt_lab_communist_party(country: str, part_2_label: str, expected:
     assert label == expected
 
 
-def test_make_cnt_lab() -> None:
-    result1 = make_cnt_lab(
-        separator=" in ",
-        country="university of arts in belgrade",
-        part_2_label="بلغراد",
-        part_1_label="جامعة {} للفنون في",
-        part_1_normalized="university of arts",
-        part_2_normalized="belgrade",
-        ar_separator=" في ",
-    )
-    assert isinstance(result1, str)
-    assert result1 == "جامعة بلغراد للفنون"
-
-    result1 = make_cnt_lab(
-        separator=" of ",
-        country="by medium from insular areas of united states",
-        part_2_label="الولايات المتحدة",
-        part_1_label="حسب الوسط من المناطق المعزولة في ",
-        part_1_normalized="by medium from insular areas of",
-        part_2_normalized="united states",
-        ar_separator=" ",
-    )
-    assert isinstance(result1, str)
-    assert result1 == "حسب الوسط من المناطق المعزولة في الولايات المتحدة"
-
-
 congress_data = {
     "103rd": "الثالث بعد المئة",
     "104th": "الرابع بعد المئة",

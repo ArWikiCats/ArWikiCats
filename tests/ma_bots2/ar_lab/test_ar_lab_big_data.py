@@ -181,7 +181,6 @@ data_list = [
     ("football clubs established in 1550", " established in ", "أندية كرة قدم أسست في 1550"),
     ("footballers from harlow", " from ", "لاعبو كرة قدم من هارلو"),
     ("footballers from mexico city", " from ", "لاعبو كرة قدم من مدينة مكسيكو"),
-    ("foreign relations of fatimid caliphate", " of ", "علاقات الدولة الفاطمية الخارجية"),
     ("french companies disestablished in 1550", " disestablished in ", "شركات فرنسية انحلت في 1550"),
     ("french-language singers of cuba", " of ", "مغنون باللغة الفرنسية في كوبا"),
     ("geography of kansas by populated place", " by ", "جغرافيا كانساس حسب المكان المأهول"),

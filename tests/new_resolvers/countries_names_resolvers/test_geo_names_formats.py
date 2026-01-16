@@ -11,6 +11,7 @@ from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
 
 data_0 = {
+    "foreign relations of fatimid caliphate": "علاقات الدولة الفاطمية الخارجية",
     "Banks of bologna": "بنوك بولونيا",
     "Military history of Amhara Region": "تاريخ أمهرة العسكري",
     "Military history of Bologna": "تاريخ بولونيا العسكري",
