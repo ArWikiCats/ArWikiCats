@@ -6,6 +6,8 @@ Country Label Bot Module
 import functools
 import re
 
+from ..old_bots.sports_bots import team_work
+
 from ..config import app_settings
 from ..fix import fixtitle
 from ..helps import logger
@@ -15,7 +17,7 @@ from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
-from ..make_bots.sports_bots import sport_lab_suffixes, team_work
+from ..old_bots.sports_bots import sport_lab_suffixes
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..old_bots import with_years_bot
 from ..old_bots.films_and_others_bot import te_films

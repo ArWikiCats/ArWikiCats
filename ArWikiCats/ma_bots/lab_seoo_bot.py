@@ -13,7 +13,7 @@ from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_la
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..make_bots.sports_bots import team_work
+from ..old_bots.sports_bots import team_work
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..old_bots import with_years_bot
 from ..old_bots.films_and_others_bot import te_films

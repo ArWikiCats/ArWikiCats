@@ -42,7 +42,7 @@ The ArWikiCats system processes categories through a multi-stage pipeline:
 | 1. Input | `event_processing.py` | `EventProcessor.process()` | Receives categories |
 | 2. Normalization | `event_processing.py` | `_normalize_category()` | Cleans input |
 | 3. Format | `make_bots/format_bots` | `change_cat()` | Initial transformation |
-| 4. Filter | `make_bots/co_bots/filter_en` | `filter_cat()` | Validates category |
+| 4. Filter | `make_bots/filter_en` | `filter_cat()` | Validates category |
 | 5. Year Detection | `time_resolvers/labs_years.py` | `lab_from_year()` | Extracts temporal data |
 | 6. Pattern Resolution | Multiple resolvers | Various | Matches patterns |
 | 7. Translation | `main_processers/main_resolve.py` | `resolve_label()` | Core translation |

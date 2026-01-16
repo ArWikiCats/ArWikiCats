@@ -5,7 +5,7 @@
 
 import re
 
-from ...helps import logger
+from ..helps import logger
 from .pf_keys import change_key_mappings_replacements
 
 # Precompiled Regex Patterns

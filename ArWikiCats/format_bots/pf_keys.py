@@ -6,7 +6,7 @@ import functools
 import re
 from typing import Dict
 
-from ...translations import COMPANY_TYPE_TRANSLATIONS
+from ..translations import COMPANY_TYPE_TRANSLATIONS
 
 # Cache for compiled regex patterns
 _change_key_compiled = {

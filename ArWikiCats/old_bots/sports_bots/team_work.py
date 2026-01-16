@@ -10,7 +10,7 @@ from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty
 from ...new.resolve_films_bots.film_keys_bot import Films
 from ...new_resolvers.relations_resolver import new_relations_resolvers
 from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ..o_bots.utils import resolve_suffix_template
+from ...make_bots.o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",

@@ -7,16 +7,18 @@ import functools
 import re
 from typing import Tuple
 
+from ...old_bots.sports_bots import team_work
+
 from ...helps import logger
 from ...ma_bots import country_bot
-from ...make_bots.format_bots.relation_mapping import translation_category_relations
+from ...format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import work_peoples
-from ...make_bots.sports_bots import sport_lab_suffixes, team_work
+from ...old_bots.sports_bots import sport_lab_suffixes
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...old_bots import with_years_bot
