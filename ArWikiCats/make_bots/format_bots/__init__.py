@@ -75,15 +75,16 @@ pop_format = {
     "maritime history of": "تاريخ {} البحري",
     "military equipment of": "عتاد {} العسكري",
     "military history of": "تاريخ {} العسكري",
-    "military history": "تاريخ {} العسكري",
     "modern history of": "تاريخ {} الحديث",
     "natural history of": "تاريخ {} الطبيعي",
-    "natural history": "تاريخ {} الطبيعي",
     "naval history of": "تاريخ {} العسكري البحري",
-    "nuclear history": "تاريخ {} النووي",
     "political history of": "تاريخ {} السياسي",
-    "political history": "تاريخ {} السياسي",
     "social history of": "تاريخ {} الاجتماعي",
+
+    "nuclear history": "تاريخ {} النووي",
+    "natural history": "تاريخ {} الطبيعي",
+    "military history": "تاريخ {} العسكري",
+    "political history": "تاريخ {} السياسي",
     "social history": "تاريخ {} الاجتماعي",
 }
 
