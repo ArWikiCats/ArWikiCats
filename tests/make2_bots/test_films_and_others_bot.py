@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.films_and_others_bot import te_films
+from ArWikiCats import resolve_label_ar
 
 fast_data_drama = {
 }
@@ -51,20 +51,20 @@ fast_data = {
 @pytest.mark.parametrize("category, expected", fast_data_drama.items(), ids=fast_data_drama.keys())
 @pytest.mark.fast
 def test_fast_data_drama(category: str, expected: str) -> None:
-    label = te_films(category)
+    label = resolve_label_ar(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data_films(category: str, expected: str) -> None:
-    label = te_films(category)
+    label = resolve_label_ar(category)
     assert label == expected
 
 
 to_test = [
-    ("test_fast_data_drama", fast_data_drama, te_films),
-    ("test_fast_data_films", fast_data, te_films),
+    ("test_fast_data_drama", fast_data_drama, resolve_label_ar),
+    ("test_fast_data_films", fast_data, resolve_label_ar),
 ]
 
 
@@ -75,16 +75,3 @@ def test_peoples(name: str, data: dict[str, str], callback) -> None:
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-def test_test_films() -> None:
-    # Test with a basic input
-    result = te_films("action films")
-    assert isinstance(result, str)
-
-    result_empty = te_films("")
-    assert isinstance(result_empty, str)
-
-    # Test with reference category
-    result_with_ref = te_films("drama movies")
-    assert isinstance(result_with_ref, str)
