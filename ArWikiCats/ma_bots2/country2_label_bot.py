@@ -18,9 +18,9 @@ from ..make_bots.o_bots import bys, parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..new_resolvers.bys_new import resolve_by_labels
 from ..new_resolvers.reslove_all import new_resolvers_all
-from ..old_bots import with_years_bot
+from ..old_bots import team_work, with_years_bot
 from ..old_bots.films_and_others_bot import te_films
-from ..old_bots.sports_bots import sport_lab_suffixes, team_work
+from ..old_bots import sport_lab_suffixes
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
 from ..utils import fix_minor

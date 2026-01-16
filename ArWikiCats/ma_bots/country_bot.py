@@ -16,9 +16,9 @@ from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..new_resolvers.reslove_all import new_resolvers_all
-from ..old_bots import with_years_bot
+from ..old_bots import team_work, with_years_bot
 from ..old_bots.films_and_others_bot import te_films
-from ..old_bots.sports_bots import sport_lab_suffixes, team_work
+from ..old_bots import sport_lab_suffixes
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import (
     SPORTS_KEYS_FOR_LABEL,

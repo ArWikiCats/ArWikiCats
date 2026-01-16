@@ -5,12 +5,12 @@ Sports team and club category processing.
 
 import functools
 
-from ...helps import logger
-from ...make_bots.o_bots.utils import resolve_suffix_template
-from ...new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
-from ...new.resolve_films_bots.film_keys_bot import Films
-from ...new_resolvers.relations_resolver import new_relations_resolvers
-from ...translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
+from ..helps import logger
+from ..make_bots.o_bots.utils import resolve_suffix_template
+from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
+from ..new.resolve_films_bots.film_keys_bot import Films
+from ..new_resolvers.relations_resolver import new_relations_resolvers
+from ..translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",

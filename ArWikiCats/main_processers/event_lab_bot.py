@@ -21,9 +21,9 @@ from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
-from ..old_bots import tmp_bot
+from ..old_bots import team_work, tmp_bot
 from ..old_bots.films_and_others_bot import te_films
-from ..old_bots.sports_bots import sport_lab_suffixes, team_work
+from ..old_bots import sport_lab_suffixes
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_new_p17_final, get_from_pf_keys2

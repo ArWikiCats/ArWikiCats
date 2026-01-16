@@ -18,9 +18,9 @@ from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
-from . import with_years_bot
+from . import team_work, with_years_bot
 from .films_and_others_bot import te_films
-from .sports_bots import sport_lab_suffixes, team_work
+from . import sport_lab_suffixes
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",

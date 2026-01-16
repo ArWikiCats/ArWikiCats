@@ -7,6 +7,8 @@ import functools
 import re
 from typing import Pattern
 
+from . import team_work
+
 from ..helps import logger
 from ..ma_bots.ye_ts_bot import translate_general_category
 from ..make_bots.bot_2018 import get_pop_All_18
@@ -19,7 +21,7 @@ from ..new_resolvers.reslove_all import new_resolvers_all
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, change_numb_to_word, get_from_pf_keys2
 from .films_and_others_bot import te_films
-from .sports_bots import sport_lab_suffixes, team_work
+from . import sport_lab_suffixes
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

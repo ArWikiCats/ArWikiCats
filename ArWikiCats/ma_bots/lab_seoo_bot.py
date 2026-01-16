@@ -15,7 +15,7 @@ from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.resolve_languages import resolve_languages_labels
 from ..old_bots import with_years_bot
 from ..old_bots.films_and_others_bot import te_films
-from ..old_bots.sports_bots import team_work
+from ..old_bots import team_work
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from . import ye_ts_bot
