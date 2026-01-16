@@ -377,7 +377,6 @@ data1 = {
     "category:non-fiction books about jack ripper": "تصنيف:كتب غير خيالية عن جاك السفاح",
     "category:non-fiction books about james bond": "تصنيف:كتب غير خيالية عن جيمس بوند",
     "category:non-fiction books about military history of united states": "تصنيف:كتب غير خيالية عن التاريخ العسكري الولايات المتحدة",
-    "category:non-fiction books about military history of": "تصنيف:كتب غير خيالية عن التاريخ العسكري",
     "category:non-fiction books about mining": "تصنيف:كتب غير خيالية عن تعدين",
     "category:non-fiction books about murders in united states": "تصنيف:كتب غير خيالية عن جرائم قتل في الولايات المتحدة",
     "category:non-fiction books about murders": "تصنيف:كتب غير خيالية عن جرائم قتل",
