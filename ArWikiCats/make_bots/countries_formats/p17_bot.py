@@ -3,7 +3,6 @@ This module processes categories that start with an English country name and map
 It checks the suffix against the following tables:
 
 * category_relation_mapping
-* pop_format
 
 
 """
@@ -14,7 +13,6 @@ from ...helps import dump_data, logger
 from ...translations import (
     countries_from_nat,
 )
-from ..format_bots import pop_format
 from ..format_bots.relation_mapping import translation_category_relations
 from ..jobs_bots.get_helps import get_suffix_with_keys
 
@@ -62,7 +60,6 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
 
     suffix_label = (
         from_category_relation_mapping(suffix)
-        or pop_format.get(suffix.strip())
         or ""
     )
 

@@ -11,7 +11,6 @@ from typing import Tuple
 from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
-from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Table_for_frist_word
@@ -534,14 +533,6 @@ class LabelPipeline(Fixing):
             logger.info(f'<<lightblue>>>>>> vr in pop_format2 "{pop_format2[vr]}":')
             logger.info(f"<<lightblue>>>>>>> {vr=}:")
             arlabel = pop_format2[vr].format(self.country_label)
-        elif self.type_lower in pop_format:
-            if not self.country_label.startswith("حسب"):
-                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}":')
-                arlabel = pop_format[self.type_lower].format(self.country_label)
-            else:
-                logger.info(
-                    f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") '
-                )
 
         elif self.separator_stripped in pop_format33:
             logger.info(f'>>>> <<lightblue>> separator in pop_format33 "{pop_format33[self.separator_stripped]}":')
