@@ -279,7 +279,6 @@ to_test = [
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    name = f"{__file__}_{name}"
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)
