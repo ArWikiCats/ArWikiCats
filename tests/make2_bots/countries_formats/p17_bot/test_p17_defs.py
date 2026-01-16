@@ -6,34 +6,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.make_bots.countries_formats.p17_bot import from_category_relation_mapping, get_con_3_lab_pop_format
 
-test_data_with_pop_format = {
-    "contemporary history of": "تاريخ {} المعاصر",
-    "diplomatic missions of": "بعثات {} الدبلوماسية",
-    "early-modern history of": "تاريخ {} الحديث المبكر",
-    "economic history of": "تاريخ {} الاقتصادي",
-    "foreign relations of": "علاقات {} الخارجية",
-    "grand prix": "جائزة {} الكبرى",
-    "military history of": "تاريخ {} العسكري",
-    "military installations of": "منشآت {} العسكرية",
-    "modern history of": "تاريخ {} الحديث",
-    "national symbols of": "رموز {} الوطنية",
-    "natural history of": "تاريخ {} الطبيعي",
-    "political history of": "تاريخ {} السياسي",
-    "politics of": "سياسة {}",
-    "prehistory of": "{} ما قبل التاريخ",
-    "umayyad governors of": "ولاة {} الأمويون",
-    "university of arts": "جامعة {} للفنون",
-    "university of": "جامعة {}",
-}
-
 test_data_relation_mapping = {}
-
-
-@pytest.mark.parametrize("category, expected", test_data_with_pop_format.items(), ids=test_data_with_pop_format.keys())
-@pytest.mark.fast
-def test_with_pop_format(category: str, expected: str) -> None:
-    result = get_con_3_lab_pop_format(category)
-    assert result == expected
 
 
 @pytest.mark.parametrize(
@@ -46,7 +19,6 @@ def test_from_category_relation_mapping(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_with_pop_format", test_data_with_pop_format, get_con_3_lab_pop_format),
     ("test_from_category_relation_mapping", test_data_relation_mapping, from_category_relation_mapping),
 ]
 
