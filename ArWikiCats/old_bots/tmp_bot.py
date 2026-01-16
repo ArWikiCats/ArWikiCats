@@ -9,7 +9,7 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import logger
-from ..ma_bots import ye_ts_bot
+from .ma_bots import ye_ts_bot
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.matables_bots.table1_bot import get_KAKO

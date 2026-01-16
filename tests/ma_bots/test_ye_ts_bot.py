@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots.ye_ts_bot import (
+from ArWikiCats.old_bots.ma_bots.ye_ts_bot import (
     find_lab,
     translate_general_category,
     work_separator_names,

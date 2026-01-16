@@ -5,19 +5,19 @@
 
 import functools
 
-from ..helps import logger
+from ...helps import logger
 from ..ma_bots2 import year_or_typeo
-from ..ma_bots.country_bot import event2_d2
-from ..make_bots.bot_2018 import get_pop_All_18
-from ..make_bots.o_bots import univer
-from ..make_bots.o_bots.peoples_resolver import work_peoples
-from ..new_resolvers.reslove_all import new_resolvers_all
-from ..new_resolvers.resolve_languages import resolve_languages_labels
-from ..old_bots import with_years_bot
-from ..old_bots.films_and_others_bot import te_films
-from ..old_bots import team_work
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
-from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
+from .country_bot import event2_d2
+from ...make_bots.bot_2018 import get_pop_All_18
+from ...make_bots.o_bots import univer
+from ...make_bots.o_bots.peoples_resolver import work_peoples
+from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers.resolve_languages import resolve_languages_labels
+from .. import with_years_bot
+from ..films_and_others_bot import te_films
+from .. import team_work
+from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+from ...translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from . import ye_ts_bot
 
 

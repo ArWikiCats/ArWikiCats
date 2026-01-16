@@ -4,7 +4,7 @@ Extended tests for split_text_by_separator function covering additional edge cas
 
 import pytest
 
-from ArWikiCats.ma_bots2.country2_label_bot import (
+from ArWikiCats.old_bots.ma_bots2.country2_label_bot import (
     split_text_by_separator,
 )
 

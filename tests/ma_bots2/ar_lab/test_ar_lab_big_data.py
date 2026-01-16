@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.ma_bots2.ar_lab_bot import find_ar_label
+from ArWikiCats.old_bots.ma_bots2.ar_lab_bot import find_ar_label
 
 simple_list = [
     ("1550 mass shootings in oceania", " in ", "إطلاق نار عشوائي 1550 في أوقيانوسيا"),
