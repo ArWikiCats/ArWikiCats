@@ -4,11 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.languages_bot.langs_w import (  # Lang_work,
-    language_key_translations,
-)
-from ArWikiCats.make_bots.languages_bot.resolve_languages_new import add_definite_article
-from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
+from ArWikiCats.translations import language_key_translations
+from ArWikiCats.new_resolvers.resolve_languages_new import add_definite_article
+from ArWikiCats.new_resolvers.resolve_languages_new import resolve_languages_labels as resolve_languages_labels
 
 languages_key_subset = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:15]}
 
@@ -109,20 +107,20 @@ data = {
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
 def test_Lang_work_main(category: str, expected: str) -> None:
-    result = Lang_work(category)
+    result = resolve_languages_labels(category)
     assert result == expected
 
 
 def test_lang_work() -> None:
     # Test with a basic input
-    result = Lang_work("test language")
+    result = resolve_languages_labels("test language")
     assert isinstance(result, str)
 
-    result_empty = Lang_work("")
+    result_empty = resolve_languages_labels("")
     assert isinstance(result_empty, str)
 
     # Test with various inputs
-    result_various = Lang_work("english language")
+    result_various = resolve_languages_labels("english language")
     assert isinstance(result_various, str)
 
 
@@ -137,9 +135,9 @@ def test_lang_work() -> None:
     ids=list(languages_key_subset.keys()),
 )
 def test_lang_work_direct(key: str, expected: str) -> None:
-    """Test Lang_work for direct language keys."""
-    result = Lang_work(key)
-    # Lang_work may return full label or variant formatting
+    """Test resolve_languages_labels for direct language keys."""
+    result = resolve_languages_labels(key)
+    # resolve_languages_labels may return full label or variant formatting
     assert isinstance(result, str)
     # If expected is Arabic label, result must equal or include it
     if result:
@@ -160,7 +158,7 @@ data_2 = [(k, f"لغة {languages_key_subset[k]}") for k in languages_key_subset
 def test_lang_work_language_suffix(key: str, expected: str) -> None:
     """Test '<lang> language' format."""
     candidate = f"{key} language"
-    result = Lang_work(candidate)
+    result = resolve_languages_labels(candidate)
 
     if candidate in languages_key_subset:
         # Must exactly match mapping
@@ -183,7 +181,7 @@ def test_lang_work_films_suffix(key: str, arabic: str) -> None:
     base = key.replace("-language", "")
     candidate = f"{base} films"
 
-    result = Lang_work(candidate)
+    result = resolve_languages_labels(candidate)
 
     if result:
         assert isinstance(result, str)
@@ -213,7 +211,7 @@ data_x = [(k, suf) for k in languages_key_subset for suf in TOPIC_SUFFIXES]
 def test_lang_work_topics(key: str, suffix: str) -> None:
     """Test '<lang> grammar', '<lang> writing system', etc."""
     candidate = f"{key} {suffix}"
-    result = Lang_work(candidate)
+    result = resolve_languages_labels(candidate)
 
     assert result is not None
     if result:

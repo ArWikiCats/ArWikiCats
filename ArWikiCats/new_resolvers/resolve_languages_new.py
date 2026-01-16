@@ -9,14 +9,14 @@ TODO: use it instead of langs_w.py after adding
 import functools
 import re
 
-from ...helps import logger
-from ...translations import (  # Films_key_333,; Films_key_For_nat,; Films_keys_both_new_female,
+from ..helps import logger
+from ..translations import (  # Films_key_333,; Films_key_For_nat,; Films_keys_both_new_female,
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
     Films_key_CAO,
     film_keys_for_female,
 )
-from ...translations_formats import FormatDataV2, MultiDataFormatterBase, format_films_country_data
+from ..translations_formats import FormatDataV2, MultiDataFormatterBase, format_films_country_data
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 

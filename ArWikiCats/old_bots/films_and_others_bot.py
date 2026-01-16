@@ -5,9 +5,7 @@ import functools
 import re
 
 from ..helps import logger
-from ..make_bots.languages_bot.langs_w import Lang_work
-from ..make_bots.languages_bot.languages_resolvers import te_language
-from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+from ..new_resolvers.resolve_languages_new import resolve_languages_labels
 from ..make_bots.matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ..new.resolve_films_bots.film_keys_bot import Films, get_Films_key_CAO
@@ -55,7 +53,6 @@ def te_films(category: str) -> str:
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
         "resolve_languages_labels": lambda k: resolve_languages_labels(k),
         "People_key": lambda k: People_key.get(k),
-        "te_language": lambda k: te_language(k),
     }
     _add_to_new_players_tables = [
         "resolve_languages_labels",

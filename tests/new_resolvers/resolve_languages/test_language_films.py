@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
+from ArWikiCats.new_resolvers.resolve_languages_new import resolve_languages_labels
 
 test_data_0 = {
     "Arabic-language action films": "أفلام حركة باللغة العربية",

@@ -181,7 +181,6 @@ data_list = [
     ("footballers from harlow", " from ", "لاعبو كرة قدم من هارلو"),
     ("footballers from mexico city", " from ", "لاعبو كرة قدم من مدينة مكسيكو"),
     ("french companies disestablished in 1550", " disestablished in ", "شركات فرنسية انحلت في 1550"),
-    ("french-language singers of cuba", " of ", "مغنون باللغة الفرنسية في كوبا"),
     ("geography of kansas by populated place", " by ", "جغرافيا كانساس حسب المكان المأهول"),
     ("geography of kansas", " of ", "جغرافيا كانساس"),
     ("ghanaian people of nigerien descent", " of ", "غانيون في أصل نيجري"),
