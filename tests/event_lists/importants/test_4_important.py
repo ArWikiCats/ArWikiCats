@@ -5,6 +5,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data0 = {
+    "Military units and formations of World War I": "وحدات وتشكيلات عسكرية في الحرب العالمية الأولى",
     # "1697 meteorology": "الأرصاد الجوية في 1697",
     # "1680s meteorology": "الأرصاد الجوية في عقد 1680",
     # "1684 meteorology": "الأرصاد الجوية في 1684",
