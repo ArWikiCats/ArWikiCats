@@ -18,7 +18,7 @@ test_data = {
     "1650s controversies": "خلافات عقد 1650",
     "1650s floods": "فيضانات عقد 1650",
     "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
-    "1650s murders": "جرائم قتل عقد 1650",
+    "1650s murders": "جرائم قتل في عقد 1650",
     "1650s science fiction works": "أعمال خيال علمي عقد 1650",
     "17th-century cookbooks": "كتب طبخ القرن 17",
     "1910s musicals": "مسرحيات غنائية عقد 1910",

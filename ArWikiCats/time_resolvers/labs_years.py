@@ -99,6 +99,7 @@ class LabsYears(MatchTimes):
         Returns:
             None
         """
+        category_r = category_r.lower().replace("category:", "").strip()
         if not ar_year:
             category_lab_2 = category_lab.replace("بعقد ", "عقد ")
             ar_year = self.match_ar_time(category_lab_2)
