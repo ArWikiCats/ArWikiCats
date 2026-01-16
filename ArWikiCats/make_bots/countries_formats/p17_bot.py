@@ -62,7 +62,7 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
 
     suffix_label = (
         from_category_relation_mapping(suffix)
-        or pop_format(suffix.strip())
+        or pop_format.get(suffix.strip())
         or ""
     )
 
