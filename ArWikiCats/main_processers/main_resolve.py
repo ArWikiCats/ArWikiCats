@@ -15,7 +15,7 @@ from ..ma_bots.country_bot import event2_d2
 from . import event_lab_bot
 from ..time_resolvers.labs_years import LabsYears
 from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
-from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from ..ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
 from ..config import app_settings
 from ..make_bots import filter_en
 from ..format_bots import change_cat

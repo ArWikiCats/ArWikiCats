@@ -24,7 +24,7 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
-from .year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [
     "in",

@@ -2,7 +2,7 @@ import functools
 import re
 from dataclasses import dataclass
 
-from ...format_bots.relation_mapping import translation_category_relations
+from ..format_bots.relation_mapping import translation_category_relations
 
 
 @functools.lru_cache(maxsize=1)
