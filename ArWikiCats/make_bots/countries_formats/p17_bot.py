@@ -10,8 +10,7 @@ It checks the suffix against the following tables:
 
 import functools
 
-from ...helps import logger
-from ...helps.jsonl_dump import dump_data
+from ...helps import dump_data, logger
 from ...translations import (
     countries_from_nat,
 )
@@ -27,6 +26,7 @@ countries_from_nat_sorted = dict(
 )
 
 
+@dump_data(1)
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = translation_category_relations.get(suffix, "")
@@ -39,6 +39,7 @@ def from_category_relation_mapping(suffix) -> str:
     return suffix_label
 
 
+@dump_data(1)
 def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
     suffix_label = ""
 
@@ -50,6 +51,7 @@ def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def get_p17_main(category: str) -> str:  # الإنجليزي جنسية والعربي اسم البلد
     """
     Category input in english is nationality, return arabic as country name.
