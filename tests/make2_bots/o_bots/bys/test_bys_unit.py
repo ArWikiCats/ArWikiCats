@@ -10,7 +10,7 @@ from ArWikiCats.legacy_bots.o_bots import bys
 @pytest.mark.unit
 def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "ArWikiCats.legacy_bots.o_bots.bys.te_films",
+        "ArWikiCats.legacy_bots.o_bots.bys.resolve_films_main",
         lambda name: {"The Matrix": "فيلم"}.get(name, ""),
     )
 
@@ -21,7 +21,7 @@ def test_make_by_label_prefers_film_labels(monkeypatch: pytest.MonkeyPatch) -> N
 @pytest.mark.unit
 def test_make_by_label_falls_back_to_nationality(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "ArWikiCats.legacy_bots.o_bots.bys.te_films",
+        "ArWikiCats.legacy_bots.o_bots.bys.resolve_films_main",
         lambda name: {"Ali": "مصري"}.get(name, ""),
     )
 
