@@ -7,19 +7,17 @@ import functools
 import re
 from typing import Tuple
 
-from ...old_bots.sports_bots import team_work
-
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
-from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...make_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
-from ...old_bots.sports_bots import sport_lab_suffixes
 from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...old_bots import tmp_bot
 from ...old_bots.films_and_others_bot import te_films
+from ...old_bots.sports_bots import sport_lab_suffixes, team_work
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (

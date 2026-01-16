@@ -5,11 +5,11 @@ import functools
 import re
 
 from ..helps import logger
-from ..new_resolvers.resolve_languages import resolve_languages_labels
 from ..make_bots.matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ..new.resolve_films_bots.film_keys_bot import Films, get_Films_key_CAO
 from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers.resolve_languages import resolve_languages_labels
 from ..translations import People_key
 
 # from .bot_2018 import get_pop_All_18

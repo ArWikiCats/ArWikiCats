@@ -8,10 +8,10 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
+from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
-from ...format_bots.relation_mapping import translation_category_relations
 from ...make_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
