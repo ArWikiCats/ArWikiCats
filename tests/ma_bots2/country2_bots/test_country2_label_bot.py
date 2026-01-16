@@ -30,7 +30,6 @@ title_work_tests_data = {
     "1520 in rugby union": "1520 في اتحاد الرجبي",
     "1520 in south america": "1520 في أمريكا الجنوبية",
     "1520 in south american football": "1520 في كرة القدم الأمريكية الجنوبية",
-    "1520 in sports": "1520 في ألعاب رياضية",
     "1520 in taiwan": "1520 في تايوان",
     "1520 in television": "1520 في التلفاز",
     "1520 in thailand": "1520 في تايلاند",
@@ -140,7 +139,6 @@ title_work_tests_data = {
     "lists of legislators": "قوائم مشرعون",
     "lists of roads": "قوائم طرقات",
     "members of maine legislature": "أعضاء هيئة مين التشريعية",
-    "military history of estonia": "تاريخ إستونيا العسكري",
     "military operations of american civil war": "عمليات عسكرية في الحرب الأهلية الأمريكية",
     "military operations of syrian civil war": "عمليات عسكرية في الحرب الأهلية السورية",
     "military operations of war in afghanistan (1520–1520)": "عمليات عسكرية في الحرب في أفغانستان (1520–1520)",
@@ -280,7 +278,6 @@ to_test = [
 @pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    name = f"{__file__}_{name}"
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

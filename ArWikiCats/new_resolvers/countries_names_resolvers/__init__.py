@@ -6,6 +6,7 @@ from . import (  # countries_names_double_v2,
     countries_names_v2,
     medalists_resolvers,
     us_states,
+    geo_names_formats,
 )
 
 
@@ -24,6 +25,7 @@ def resolve_countries_names_main(normalized_category) -> str:
         or countries_names.resolve_by_countries_names(normalized_category)
         or medalists_resolvers.resolve_countries_names_medalists(normalized_category)
         or us_states.resolve_us_states(normalized_category)
+        or geo_names_formats.resolve_by_geo_names(normalized_category)
         # or countries_names_double_v2.resolve_countries_names_double(normalized_category)
         or ""
     )

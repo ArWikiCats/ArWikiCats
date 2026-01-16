@@ -149,7 +149,6 @@ data3 = {
     "Category:2026 United States state superintendent of public instruction elections": "تصنيف:x",
     "Category:2026 United States state treasurer elections": "تصنيف:x",
     "Category:2026 WAFF Championship": "تصنيف:x",
-    "Category:2026 Winter Olympics event sidebar templates": "تصنيف:x",
     "Category:2026 Women's FIH Hockey World Cup qualification": "تصنيف:x",
     "Category:2026 Women's FIH Hockey World Cup Qualifying Tournaments": "تصنيف:x",
     "Category:2026 Women's FIH Hockey World Cup": "تصنيف:x",

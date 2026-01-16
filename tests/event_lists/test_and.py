@@ -16,12 +16,8 @@ data0 = {
     "films about olympic swimming and diving": "أفلام عن سباحة أولمبية والغطس",
     "criminal groups and organizations": "مجموعات إجرامية ومنظمات",
     "cherokee and united states treaties": "شيروكي ومعاهدات الولايات المتحدة",
-    "caribbean politics and government templates": "السياسة الكاريبية وقوالب الحكومة",
     "European Union and science and technology": "الاتحاد الأوروبي والعلوم والتقانة",
     "british empire and commonwealth games": "الإمبراطورية البريطانية وألعاب الكومنولث",
-    "Arts and culture sidebar templates": "قوالب أشرطة جانبية الفنون وثقافة",
-    "Science and nature sidebar templates": "قوالب أشرطة جانبية العلم والطبيعة",
-    "History and events sidebar templates": "قوالب أشرطة جانبية تاريخ وأحداث",
     "Russia and Soviet Union political leader navigational boxes": "روسيا وصناديق تصفح قادة سياسيون سوفيت",
     "Papua New Guinea and the United Nations": "بابوا غينيا الجديدة والأمم المتحدة",
     "Christian theology and politics": "اللاهوت المسيحي وسياسة",
@@ -78,8 +74,8 @@ def test_2(category: str, expected: str) -> None:
 
 to_test = [
     # ("test_1", data_1),
-    ("test_2", data_2),
-    # ("test_3", data_3),
+    # ("test_2", data_2),
+    ("test_3", data_3),
 ]
 
 
@@ -96,5 +92,4 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

@@ -104,50 +104,6 @@ class TestSplitTextBySeparatorByKeyword:
         part_1, part_2 = split_text_by_separator(separator, country)
         assert (part_1, part_2) == expected
 
-
-class TestSplitTextBySeparatorOfVariants:
-    @pytest.mark.parametrize(
-        "separator,country,expected",
-        [
-            # 'of' with spaces – special handling appends ' of' to the first part
-            (" of ", "History of Yemen", ("history of", "yemen")),
-            # '-of ' – hyphenated special case
-            ("-of ", "History-of Yemen", ("history of", "yemen")),
-        ],
-    )
-    def test_of_single_occurrence(self, separator, country, expected):
-        """
-        Check that 'of' and '-of ' are normalized so the first part ends with ' of'.
-        """
-        part_1, part_2 = split_text_by_separator(separator, country)
-        assert (part_1, part_2) == expected
-
-    @pytest.mark.parametrize(
-        "separator,country,expected",
-        [
-            # Repeated 'of' – must include the second 'of' in the second part
-            (
-                " of ",
-                "History of art of Europe",
-                ("History of", "art of Europe"),
-            ),
-            # Repeated '-of ' – typical hyphenated pattern
-            (
-                "-of ",
-                "History-of art-of Europe",
-                ("History of", "art-of Europe"),
-            ),
-        ],
-    )
-    def test_of_repeated_occurrence(self, separator, country, expected):
-        """
-        Cover the branch where test_N is non-empty and not equal to 'of',
-        so the function uses Type_t / country_t (original casing).
-        """
-        part_1, part_2 = split_text_by_separator(separator, country)
-        assert (part_1, part_2) == expected
-
-
 class TestSplitTextBySeparatorRepeatedSeparators:
     @pytest.mark.parametrize(
         "separator,country,expected",

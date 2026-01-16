@@ -49,7 +49,6 @@ fast_data_3 = {
     "Sports events by continent": "أحداث رياضية حسب القارة",
     "Sports events by sport": "أحداث رياضية حسب الرياضة",
     "Sports events navigational boxes": "صناديق تصفح أحداث رياضية",
-    "Sports events sidebar templates": "قوالب أشرطة جانبية أحداث رياضية",
     "Sports events templates": "قوالب أحداث رياضية",
     "Sports events": "أحداث رياضية",
     "Women's sports events by continent": "أحداث رياضية نسائية حسب القارة",

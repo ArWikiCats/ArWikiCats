@@ -10,6 +10,17 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import resolve_by_countries_names
 
 data_1 = {
+    "university of china": "جامعة الصين",
+    "politics of yemen": "سياسة اليمن",
+    "military installations of yemen": "منشآت اليمن العسكرية",
+    "foreign relations of yemen": "علاقات اليمن الخارجية",
+    "national symbols of yemen": "رموز اليمن الوطنية",
+    "university of yemen": "جامعة اليمن",
+    "university of arts of yemen": "جامعة اليمن للفنون",
+    "politics of venezuela": "سياسة فنزويلا",
+    "politics of zambia": "سياسة زامبيا",
+    "politics of zimbabwe": "سياسة زيمبابوي",
+    "umayyad governors of yemen": "ولاة اليمن الأمويون",
     "angola men's international footballers": "لاعبو منتخب أنغولا لكرة القدم للرجال",
     "armenia national football team managers": "مدربو منتخب أرمينيا لكرة القدم",
     "bolivia men's international footballers": "لاعبو منتخب بوليفيا لكرة القدم للرجال",

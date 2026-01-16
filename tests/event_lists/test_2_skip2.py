@@ -5,6 +5,9 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data0_no_label = {
+    "Lists of people executed in the United States by year": "قوائم أشخاص أعدموا في الولايات المتحدة حسب السنة",
+    "Lists of people executed in United States by year": "قوائم أشخاص أعدموا في الولايات المتحدة حسب السنة",
+    "Healthcare by city of the United States": "الرعاية الصحية بواسطة مدينة الولايات المتحدة",
     "north american television awards": "جوائز التلفزة الأمريكية الشمالية",
     "mexican revolution films": "أفلام الثورة المكسيكية",
     "northern-ireland football cups": "كؤوس كرة القدم الأيرلندية الشمالية",

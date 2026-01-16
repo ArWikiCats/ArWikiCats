@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
 from ArWikiCats.translations import US_STATES
 
@@ -55,7 +55,7 @@ for en in data_1.keys():
     if US_STATES.get(en):
         ar = US_STATES.get(en)
         test_one = {
-            f"Category:{x.format(en=en)}": f"تصنيف:{normalize_state(v.format(ar=ar))}"
+            f"{x.format(en=en)}": f"{normalize_state(v.format(ar=ar))}"
             for x, v in test_data_keys.items()
         }
         data_1[en] = test_one
@@ -73,7 +73,7 @@ to_test.append(("test_all_test_data", all_test_data))
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
@@ -82,71 +82,71 @@ def test_all_dump(name: str, data: dict[str, str]) -> None:
 @pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
 def test_all_data(input_text: str, expected: str) -> None:
-    result = resolve_arabic_category_label(input_text)
+    result = resolve_label_ar(input_text)
     assert result == expected
 
 
 empty_data = {
-    "Category:Georgia (U.S. state) National Republicans": "تصنيف:أعضاء الحزب الجمهوري الوطني في ولاية جورجيا",
-    "Category:Georgia (U.S. state) Attorney General elections": "",
-    "Category:Georgia (U.S. state) case law": "",
-    "Category:Georgia (U.S. state) city council members": "",
-    "Category:Georgia (U.S. state) city user templates": "",
-    "Category:Georgia (U.S. state) college and university user templates": "",
-    "Category:Georgia (U.S. state) commissioners of agriculture": "",
-    "Category:Georgia (U.S. state) Constitutional Unionists": "",
-    "Category:Georgia (U.S. state) county navigational boxes": "",
-    "Category:Georgia (U.S. state) culture by city": "",
-    "Category:Georgia (U.S. state) education navigational boxes": "",
-    "Category:Georgia (U.S. state) education-related lists": "",
-    "Category:Georgia (U.S. state) election templates": "",
-    "Category:Georgia (U.S. state) geography-related lists": "",
-    "Category:Georgia (U.S. state) government navigational boxes": "",
-    "Category:Georgia (U.S. state) high school athletic conference navigational boxes": "",
-    "Category:Georgia (U.S. state) history-related lists": "",
-    "Category:Georgia (U.S. state) judicial elections": "",
-    "Category:Georgia (U.S. state) labor commissioners": "",
-    "Category:Georgia (U.S. state) legislative districts": "",
-    "Category:Georgia (U.S. state) legislative sessions": "",
-    "Category:Georgia (U.S. state) Libertarians": "",
-    "Category:Georgia (U.S. state) lieutenant gubernatorial elections": "",
-    "Category:Georgia (U.S. state) location map modules": "",
-    "Category:Georgia (U.S. state) maps": "",
-    "Category:Georgia (U.S. state) mass media navigational boxes": "",
-    "Category:Georgia (U.S. state) militia": "",
-    "Category:Georgia (U.S. state) militiamen in the American Revolution": "",
-    "Category:Georgia (U.S. state) Oppositionists": "",
-    "Category:Georgia (U.S. state) placenames of Native American origin": "",
-    "Category:Georgia (U.S. state) Populists": "",
-    "Category:Georgia (U.S. state) portal": "",
-    "Category:Georgia (U.S. state) postmasters": "",
-    "Category:Georgia (U.S. state) presidential primaries": "",
-    "Category:Georgia (U.S. state) Progressives (1912)": "",
-    "Category:Georgia (U.S. state) Prohibitionists": "",
-    "Category:Georgia (U.S. state) radio market navigational boxes": "",
-    "Category:Georgia (U.S. state) railroads": "",
-    "Category:Georgia (U.S. state) Sea Islands": "",
-    "Category:Georgia (U.S. state) shopping mall templates": "",
-    "Category:Georgia (U.S. state) society": "",
-    "Category:Georgia (U.S. state) special elections": "",
-    "Category:Georgia (U.S. state) sports-related lists": "",
-    "Category:Georgia (U.S. state) state constitutional officer elections": "",
-    "Category:Georgia (U.S. state) state forests": "",
-    "Category:Georgia (U.S. state) statutes": "",
-    "Category:Georgia (U.S. state) television station user templates": "",
-    "Category:Georgia (U.S. state) transportation-related lists": "",
-    "Category:Georgia (U. S. state) universities and colleges leaders navigational boxes": "",
-    "Category:Georgia (U.S. state) universities and colleges navigational boxes": "",
-    "Category:Georgia (U.S. state) user categories": "",
-    "Category:Georgia (U.S. state) user templates": "",
-    "Category:Georgia (U.S. state) Wikipedians": "",
-    "Category:Georgia (U.S. state) wine": "",
+    "Georgia (U.S. state) government navigational boxes": "صناديق تصفح حكومة ولاية جورجيا",
+    "Georgia (U.S. state) National Republicans": "أعضاء الحزب الجمهوري الوطني في ولاية جورجيا",
+    "Georgia (U.S. state) Attorney General elections": "",
+    "Georgia (U.S. state) case law": "",
+    "Georgia (U.S. state) city council members": "",
+    "Georgia (U.S. state) city user templates": "",
+    "Georgia (U.S. state) college and university user templates": "",
+    "Georgia (U.S. state) commissioners of agriculture": "",
+    "Georgia (U.S. state) Constitutional Unionists": "",
+    "Georgia (U.S. state) county navigational boxes": "",
+    "Georgia (U.S. state) culture by city": "",
+    "Georgia (U.S. state) education navigational boxes": "",
+    "Georgia (U.S. state) education-related lists": "",
+    "Georgia (U.S. state) election templates": "",
+    "Georgia (U.S. state) geography-related lists": "",
+    "Georgia (U.S. state) high school athletic conference navigational boxes": "",
+    "Georgia (U.S. state) history-related lists": "",
+    "Georgia (U.S. state) judicial elections": "",
+    "Georgia (U.S. state) labor commissioners": "",
+    "Georgia (U.S. state) legislative districts": "",
+    "Georgia (U.S. state) legislative sessions": "",
+    "Georgia (U.S. state) Libertarians": "",
+    "Georgia (U.S. state) lieutenant gubernatorial elections": "",
+    "Georgia (U.S. state) location map modules": "",
+    "Georgia (U.S. state) maps": "",
+    "Georgia (U.S. state) mass media navigational boxes": "",
+    "Georgia (U.S. state) militia": "",
+    "Georgia (U.S. state) militiamen in the American Revolution": "",
+    "Georgia (U.S. state) Oppositionists": "",
+    "Georgia (U.S. state) placenames of Native American origin": "",
+    "Georgia (U.S. state) Populists": "",
+    "Georgia (U.S. state) portal": "",
+    "Georgia (U.S. state) postmasters": "",
+    "Georgia (U.S. state) presidential primaries": "",
+    "Georgia (U.S. state) Progressives (1912)": "",
+    "Georgia (U.S. state) Prohibitionists": "",
+    "Georgia (U.S. state) radio market navigational boxes": "",
+    "Georgia (U.S. state) railroads": "",
+    "Georgia (U.S. state) Sea Islands": "",
+    "Georgia (U.S. state) shopping mall templates": "",
+    "Georgia (U.S. state) society": "",
+    "Georgia (U.S. state) special elections": "",
+    "Georgia (U.S. state) sports-related lists": "",
+    "Georgia (U.S. state) state constitutional officer elections": "",
+    "Georgia (U.S. state) state forests": "",
+    "Georgia (U.S. state) statutes": "",
+    "Georgia (U.S. state) television station user templates": "",
+    "Georgia (U.S. state) transportation-related lists": "",
+    "Georgia (U. S. state) universities and colleges leaders navigational boxes": "",
+    "Georgia (U.S. state) universities and colleges navigational boxes": "",
+    "Georgia (U.S. state) user categories": "",
+    "Georgia (U.S. state) user templates": "",
+    "Georgia (U.S. state) Wikipedians": "",
+    "Georgia (U.S. state) wine": "",
 }
 
 
 @pytest.mark.dump
 def test_us_counties_empty() -> None:
-    expected, diff_result = one_dump_test(empty_data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(empty_data, resolve_label_ar)
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(empty_data):,}"

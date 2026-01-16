@@ -10,7 +10,7 @@ import functools
 from typing import Dict
 
 from ...helps import logger
-from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
+from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
 
@@ -27,7 +27,7 @@ formatted_data_updated = dict(formatted_data_en_ar_only)
 formatted_data_updated.update(ONLY_COUNTRY_NAMES)
 countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
 
-# TODO: update countries_from_nat_data with COUNTRY_LABEL_OVERRIDES after check any issues!
+# TODO: COUNTRY_LABEL_OVERRIDES already used in geo_names_formats.py
 
 
 @functools.lru_cache(maxsize=1)
