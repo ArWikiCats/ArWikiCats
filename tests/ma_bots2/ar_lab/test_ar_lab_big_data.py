@@ -698,7 +698,7 @@ data_list_in = {
     "1550 mass shootings in oceania": "إطلاق نار عشوائي 1550 في أوقيانوسيا",
     "1550 murders in north america": "جرائم قتل في 1550 في أمريكا الشمالية",
     "1550 murders in russia": "جرائم قتل في 1550 في روسيا",
-    "1550 natural disasters in united states": "كوارث طبيعية 1550 في الولايات المتحدة",
+    "1550 natural disasters in united states": "كوارث طبيعية في 1550 في الولايات المتحدة",
     "1550s elections in caribbean": "انتخابات عقد 1550 في الكاريبي",
     "1550s in asia": "عقد 1550 في آسيا",
     "1550s in belgium": "عقد 1550 في بلجيكا",
