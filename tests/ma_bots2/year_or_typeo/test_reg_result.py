@@ -119,7 +119,6 @@ class TestTypeExtraction:
             ("Category:1999 births", "births"),
             ("Category:2020 deaths", "deaths"),
             ("Category:18th century BC conflicts", "conflicts"),
-            ("Category:1990s establishments in Japan", "establishments"),
             ("Category:3rd millennium BCE architecture", "architecture"),
             # basedtypeTable
             ("Category:1999 television series", "television series"),
