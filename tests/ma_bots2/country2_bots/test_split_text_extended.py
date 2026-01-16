@@ -161,7 +161,6 @@ data_about = {
     "films about olympic figure skating": ("films", "olympic figure skating"),
     "films about olympic gymnastics": ("films", "olympic gymnastics"),
     "films about olympic skiing": ("films", "olympic skiing"),
-    "films about olympic swimming and diving": ("films", "olympic swimming and diving"),
     "films about olympic track and field": ("films", "olympic track and field"),
     "films about the olympic games": ("films", "the olympic games"),
     "films basedon non-fiction books about organized crime": ("films basedon non-fiction books", "organized crime"),

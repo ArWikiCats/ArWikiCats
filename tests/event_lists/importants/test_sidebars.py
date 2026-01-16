@@ -31,7 +31,6 @@ data_0 = {
     "Category:LGBTQ sidebar templates": "تصنيف:قوالب أشرطة جانبية مثليون",
 }
 data_1 = {
-    "Category:Arts and culture sidebar templates": "تصنيف:قوالب أشرطة جانبية الفنون وثقافة",
     "Category:Economics by country sidebar templates": "تصنيف:قوالب أشرطة جانبية الاقتصاد حسب البلد",
     "Category:History of science and technology sidebar templates": "تصنيف:قوالب أشرطة جانبية تاريخ العلوم والتقانة",
     "Category:Islam sidebar templates": "تصنيف:قوالب أشرطة جانبية الإسلام",
@@ -132,7 +131,6 @@ data_1 = {
     "Category:Guinea-Bissau sidebar templates": "تصنيف:قوالب أشرطة جانبية غينيا بيساو",
     "Category:Guyana sidebar templates": "تصنيف:قوالب أشرطة جانبية غيانا",
     "Category:Hinduism sidebar templates": "تصنيف:قوالب أشرطة جانبية الهندوسية",
-    "Category:History and events sidebar templates": "تصنيف:قوالب أشرطة جانبية تاريخ وأحداث",
     "Category:Holocaust sidebar templates": "تصنيف:قوالب أشرطة جانبية هولوكوست",
     "Category:Hong Kong sidebar templates": "تصنيف:قوالب أشرطة جانبية هونغ كونغ",
     "Category:Human rights sidebar templates": "تصنيف:قوالب أشرطة جانبية حقوق الإنسان",
@@ -222,7 +220,6 @@ data_1 = {
     "Category:Rwanda sidebar templates": "تصنيف:قوالب أشرطة جانبية رواندا",
     "Category:San Marino sidebar templates": "تصنيف:قوالب أشرطة جانبية سان مارينو",
     "Category:Saudi Arabia sidebar templates": "تصنيف:قوالب أشرطة جانبية السعودية",
-    "Category:Science and nature sidebar templates": "تصنيف:قوالب أشرطة جانبية العلم والطبيعة",
     "Category:Senegal sidebar templates": "تصنيف:قوالب أشرطة جانبية السنغال",
     "Category:Serbia sidebar templates": "تصنيف:قوالب أشرطة جانبية صربيا",
     "Category:Sidebar templates by region": "تصنيف:قوالب أشرطة جانبية حسب المنطقة",

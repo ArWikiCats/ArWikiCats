@@ -47,7 +47,6 @@ entertainment_2 = {
     "Category:Films about Olympic figure skating": "تصنيف:أفلام عن تزلج فني أولمبي",
     "Category:Films about Olympic gymnastics": "تصنيف:أفلام عن جمباز أولمبي",
     "Category:Films about Olympic skiing": "تصنيف:أفلام عن تزلج أولمبي",
-    "Category:Films about Olympic swimming and diving": "تصنيف:أفلام عن سباحة أولمبية والغطس",
     "Category:Films about Olympic track and field": "تصنيف:أفلام عن سباقات مضمار وميدان أولمبي",
     "Category:Films about automobiles": "تصنيف:أفلام عن سيارات",
     "Category:Films about the Olympic Games by athletic event": "تصنيف:أفلام عن الألعاب الأولمبية حسب حدث ألعاب القوى",

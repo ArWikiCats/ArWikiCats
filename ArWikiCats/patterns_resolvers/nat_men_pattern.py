@@ -9,7 +9,7 @@ import functools
 import re
 
 from ..helps import dump_data, logger
-from ..translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
+from ..translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys, RELIGIOUS_KEYS_PP
 from ..translations_formats import FormatDataV2
 from .categories_patterns.NAT_males import NAT_DATA_MALES
 
@@ -50,6 +50,13 @@ def _bot_new() -> FormatDataV2:
         for x, v in All_Nat.items()
         if v.get("males")
     }
+    nats_data.update({
+        x: {
+            "males": v["males"],
+            "females": v["females"],
+        }
+        for x, v in RELIGIOUS_KEYS_PP.items()
+    })
 
     return FormatDataV2(
         formatted_data=formatted_data,

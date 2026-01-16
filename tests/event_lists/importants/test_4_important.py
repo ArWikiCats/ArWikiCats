@@ -83,7 +83,6 @@ data1 = {
     "bermudian premier division": "الدوري البرمودي الممتاز",
     "bosnia and herzegovina football cup": "كأس البوسنة والهرسك لكرة القدم",
     "botswana premier league": "الدوري البوتسواني الممتاز",
-    "british empire and commonwealth games": "الإمبراطورية البريطانية وألعاب الكومنولث",
     "burkinabé premier league": "الدوري البوركينابي الممتاز",
     "cambodian league": "الدوري الكمبودي",
     "costa rican cup": "كأس كوستاريكا",
