@@ -26,7 +26,6 @@ countries_from_nat_sorted = dict(
 )
 
 
-@dump_data(1)
 def from_category_relation_mapping(suffix) -> str:
     suffix_label = ""
     codd = translation_category_relations.get(suffix, "")
@@ -35,17 +34,6 @@ def from_category_relation_mapping(suffix) -> str:
         suffix_label = "{} " + codd
 
     logger.debug(f'from_category_relation_mapping {suffix=}, {suffix_label}"')
-
-    return suffix_label
-
-
-@dump_data(1)
-def get_con_3_lab_pop_format(suffix, country_start="", category="") -> str:
-    suffix_label = ""
-
-    key = suffix.strip()
-    suffix_label = pop_format.get(key, "")
-    logger.debug(f"<<lightblue>>>>>> <<lightgreen>>pop_format<<lightblue>> {category=}, {country_start=}, {suffix=}")
 
     return suffix_label
 
@@ -73,7 +61,9 @@ def get_p17_main(category: str) -> str:  # الإنجليزي جنسية وال�
     logger.debug(f"<<lightpurple>>>>>> {country_start_lab=}")
 
     suffix_label = (
-        from_category_relation_mapping(suffix) or get_con_3_lab_pop_format(suffix, country_start, category) or ""
+        from_category_relation_mapping(suffix)
+        or pop_format(suffix.strip())
+        or ""
     )
 
     if not suffix_label:
