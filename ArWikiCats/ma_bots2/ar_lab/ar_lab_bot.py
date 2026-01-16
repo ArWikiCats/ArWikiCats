@@ -37,7 +37,7 @@ separators_lists_raw = [
 ]
 
 
-def _should_add_preposition_في(type_label: str, type_lower: str) -> bool:
+def _should_add_preposition_fe(type_label: str, type_lower: str) -> bool:
     """Check if 'في' should be added to the label.
 
     Args:
@@ -67,7 +67,7 @@ def _handle_in_separator(type_label: str, separator_stripped: str, type_lower: s
         return type_label
 
     # Add 'في' if conditions are met
-    if _should_add_preposition_في(type_label, type_lower):
+    if _should_add_preposition_fe(type_label, type_lower):
         logger.info(f'>>-- Add في to type_label:in"{type_label}", for "{type_lower}"')
         return f"{type_label} في"
 
