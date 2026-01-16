@@ -4,15 +4,15 @@ TODO: write code relegin_jobs_nats_jobs.py
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.relegin_jobs_nats_jobs import resolve_nats_jobs
+from ArWikiCats.make_bots.relegin_jobs_nats_jobs import resolve_nats_jobs
 
 # from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix as resolve_nats_jobs
 # from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all as resolve_nats_jobs
-# from ArWikiCats.make_bots.jobs_bots.jobs_mainbot import jobs_with_nat_prefix_label as resolve_nats_jobs
+# from ArWikiCats.make_bots.jobs_mainbot import jobs_with_nat_prefix_label as resolve_nats_jobs
 
 
 # from ArWikiCats import resolve_label_ar as resolve_nats_jobs
-# from ArWikiCats.make_bots.jobs_bots.relegin_jobs_new import new_religions_jobs_with_suffix
+# from ArWikiCats.make_bots.relegin_jobs_new import new_religions_jobs_with_suffix
 
 data_without_nats = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",

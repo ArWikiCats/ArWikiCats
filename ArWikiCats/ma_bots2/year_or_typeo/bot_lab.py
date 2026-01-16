@@ -11,7 +11,7 @@ from ...fix import fixtitle
 from ...helps import logger
 from ...ma_bots.country_bot import get_country
 from ...format_bots.relation_mapping import translation_category_relations
-from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ...make_bots.bot_2018 import get_pop_All_18
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens

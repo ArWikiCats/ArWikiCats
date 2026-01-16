@@ -12,7 +12,7 @@ from ...old_bots.sports_bots import team_work
 from ...helps import logger
 from ...ma_bots import country_bot
 from ...format_bots.relation_mapping import translation_category_relations
-from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ...make_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO

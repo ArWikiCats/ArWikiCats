@@ -8,8 +8,8 @@ import functools
 from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
-from ..new_resolvers.resolve_languages_new import resolve_languages_labels
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..new_resolvers.resolve_languages import resolve_languages_labels
+from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.o_bots import univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..old_bots.sports_bots import team_work

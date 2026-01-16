@@ -12,7 +12,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..helps import logger
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
-from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
+from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples

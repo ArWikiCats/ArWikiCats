@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.jobs_bots.get_helps import get_suffix
+from ArWikiCats.make_bots.get_helps import get_suffix
 
 data_countries_from_nat = {
     "afghanistan national football team managers": ("national football team managers", "afghanistan"),

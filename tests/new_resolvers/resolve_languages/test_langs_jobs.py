@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.resolve_languages_new import resolve_languages_labels
+from ArWikiCats.new_resolvers.resolve_languages import resolve_languages_labels
 
 test_data = {
     "Category:Persian-language singers of Tajikistan": "تصنيف:مغنون باللغة الفارسية في طاجيكستان",

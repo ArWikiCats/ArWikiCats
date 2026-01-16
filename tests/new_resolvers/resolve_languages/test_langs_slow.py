@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.translations import LANGUAGE_TOPIC_FORMATS, language_key_translations
-from ArWikiCats.new_resolvers.resolve_languages_new import resolve_languages_labels
+from ArWikiCats.new_resolvers.resolve_languages import resolve_languages_labels
 
 language_key_translations = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:10]}
 
