@@ -16,7 +16,7 @@ title_work_tests_data = {
     "1520 by country": "1520 حسب البلد",
     "1520 crimes in africa": "جرائم 1520 في إفريقيا",
     "1520 elections in united states": "انتخابات 1520 في الولايات المتحدة",
-    "1520 establishments in india": "تأسيسات 1520 في الهند",
+    "1520 establishments in india": "تأسيسات سنة 1520 في الهند",
     "1520 in antigua and barbuda": "1520 في أنتيغوا وباربودا",
     "1520 in asian sport": "1520 في رياضة آسيوية",
     "1520 in brazilian sport": "1520 في رياضة برازيلية",

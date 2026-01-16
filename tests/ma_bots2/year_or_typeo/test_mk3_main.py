@@ -14,6 +14,8 @@ data0 = {
 }
 
 data1 = {
+    "2000s films": "أفلام إنتاج عقد 2000",
+    "1650s films": "أفلام إنتاج عقد 1650",
     "1st-millennium literature": "أدب الألفية 1",
     "20th-century Ghanaian literature": "أدب غاني في القرن 20",
     "20th-century Mexican literature": "أدب مكسيكي في القرن 20",
@@ -84,7 +86,6 @@ data1 = {
     "1640s essays": "مقالات عقد 1640",
 
     "13th-century Hindu philosophers and theologians": "فلاسفة هندوس في القرن 13 ولاهوتيون",
-    "1650s films": "أفلام في عقد 1650",
     "1650s television series": "مسلسلات تلفزيونية في عقد 1650",
     "16th-century Anglican bishops in Ireland": "أساقفة أنجليكيون في القرن 16 في أيرلندا",
     "16th-century Hindu philosophers and theologians": "فلاسفة هندوس في القرن 16 ولاهوتيون",
@@ -122,7 +123,6 @@ data1 = {
     "19th-century Anglican bishops of Gibraltar": "أساقفة أنجليكيون في القرن 19 في جبل طارق",
     "19th-century Hindu philosophers and theologians": "فلاسفة هندوس في القرن 19 ولاهوتيون",
     "19th-century princesses of Wales": "أميرات في القرن 19 في ويلز",
-    "2000s films": "أفلام في عقد 2000",
     "2000s in politics by country": "السياسة في عقد 2000 حسب البلد",
     "2011 road incidents in Europe": "حوادث طرق في 2011 في أوروبا",
     "2022 local elections in Nigeria": "انتخابات محلية 2022 في نيجيريا",
@@ -179,7 +179,7 @@ data1 = {
     "21st-century Anglican bishops in Uganda": "أساقفة أنجليكيون في القرن 21 في أوغندا",
     "21st-century Anglican bishops in United States": "أساقفة أنجليكيون في القرن 21 في الولايات المتحدة",
     "21st-century Anglican bishops of Gibraltar": "أساقفة أنجليكيون في القرن 21 في جبل طارق",
-    "21st-century films": "أفلام في القرن 21",
+    "21st-century films": "أفلام إنتاج القرن 21",
     "21st-century Hindu philosophers and theologians": "فلاسفة هندوس في القرن 21 ولاهوتيون",
     "21st-century Methodist bishops in United States": "أساقفة ميثوديون لاهوتيون في القرن 21 في الولايات المتحدة",
     "4th-century bishops in Roman Empire": "أساقفة في القرن 4 في الإمبراطورية الرومانية",
