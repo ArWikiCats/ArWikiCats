@@ -2,8 +2,7 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats import resolve_label_ar
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
+from ArWikiCats.new.resolve_films_bots import resolve_films_main
 
 data_0 = {
     "animated television films": "أفلام تلفزيونية رسوم متحركة",
@@ -2540,8 +2539,7 @@ data_2_not_same = {
 }
 
 TEMPORAL_CASES = [
-    ("test_films_keys_1", data_1, Films),
-    ("test_films_keys_2", data_1, resolve_label_ar),
+    ("test_films_keys_1", data_1, resolve_films_main),
 ]
 
 

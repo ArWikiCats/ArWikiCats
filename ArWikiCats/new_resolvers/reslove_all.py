@@ -26,8 +26,10 @@ def new_resolvers_all(category: str) -> str:
         # resolve_nationalities_main> [Italy political leader]:  "قادة سياسيون إيطاليون"
         or resolve_nationalities_main(category)
         or resolve_countries_names_main(category)
+
         or get_films_key_tyty_new_and_time(category)
         or get_films_key_tyty_new(category)
+
         or new_relations_resolvers(category)
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or resolved_names_with_sports(category)

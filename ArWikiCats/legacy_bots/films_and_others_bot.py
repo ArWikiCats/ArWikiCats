@@ -4,13 +4,9 @@
 import functools
 import re
 
-from ..translations import Films_key_CAO
-
 from ..helps import logger
-from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
-from ..new.resolve_films_bots.film_keys_bot import get_Films_key_CAO
+from ..new.resolve_films_bots import resolve_films_main
 from ..new_resolvers.reslove_all import new_resolvers_all
-from .matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 
 # from .bot_2018 import get_pop_All_18
 
@@ -45,10 +41,7 @@ def te_films(category: str) -> str:
         return resolved_label
 
     sources = {
-        "get_Films_key_CAO": lambda k: get_Films_key_CAO(k),
-        "get_films_key_tyty_new_and_time": lambda k: get_films_key_tyty_new_and_time(k),
-        "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
-        "Films_key_CAO": lambda k: Films_key_CAO.get(k),
+        "resolve_films_main": lambda k: resolve_films_main(k),
     }
     for name, source in sources.items():
         resolved_label = source(normalized_category)
