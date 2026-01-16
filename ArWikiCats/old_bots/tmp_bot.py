@@ -10,19 +10,17 @@ import functools
 
 from ..helps import logger
 from ..ma_bots import ye_ts_bot
-from .films_and_others_bot import te_films
+from ..make_bots.format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.matables_bots.table1_bot import get_KAKO
 from ..make_bots.o_bots import parties_bot, univer
 from ..make_bots.o_bots.peoples_resolver import work_peoples
 from ..make_bots.sports_bots import sport_lab_suffixes, team_work
-
 from ..new_resolvers.reslove_all import new_resolvers_all
-
-from . import with_years_bot
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_pf_keys2
-from ..make_bots.format_bots.ends_keys import combined_suffix_mappings
+from . import with_years_bot
+from .films_and_others_bot import te_films
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
@@ -113,9 +111,7 @@ def Work_Templates(input_label: str) -> str:
         "sports leagues": "دوريات رياضية",
     }
     template_label = (
-        data.get(input_label)
-        or create_label_from_suffix(input_label)
-        or create_label_from_prefix(input_label)
+        data.get(input_label) or create_label_from_suffix(input_label) or create_label_from_prefix(input_label)
     )
 
     logger.info(">> ----------------- end Work_ Templates ----------------- ")

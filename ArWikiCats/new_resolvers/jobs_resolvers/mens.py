@@ -259,9 +259,11 @@ def _load_jobs_data() -> dict[str, str]:
     if len_diff:
         logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
-    data.update({
-        "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
-    })
+    data.update(
+        {
+            "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
+        }
+    )
 
     data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
     return data

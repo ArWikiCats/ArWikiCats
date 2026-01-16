@@ -54,10 +54,7 @@ data_1 = {
 for en in data_1.keys():
     if US_STATES.get(en):
         ar = US_STATES.get(en)
-        test_one = {
-            f"{x.format(en=en)}": f"{normalize_state(v.format(ar=ar))}"
-            for x, v in test_data_keys.items()
-        }
+        test_one = {f"{x.format(en=en)}": f"{normalize_state(v.format(ar=ar))}" for x, v in test_data_keys.items()}
         data_1[en] = test_one
         all_test_data.update(test_one)
 

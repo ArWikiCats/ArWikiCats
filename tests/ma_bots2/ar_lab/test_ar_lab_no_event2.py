@@ -5,10 +5,9 @@ Tests
 import pytest
 from load_one_data import dump_diff
 
-from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import find_ar_label
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import find_ar_label
 from ArWikiCats.ma_bots.ye_ts_bot import translate_general_category
-
 
 fast_data_list = [
     {
@@ -23,7 +22,6 @@ fast_data_list = [
     },
     {"separator": " in ", "category": "1450s crimes in california", "output": "جرائم عقد 1450 في كاليفورنيا"},
     {"separator": " in ", "category": "1450s crimes in asia", "output": "جرائم عقد 1450 في آسيا"},
-
     {"separator": " in ", "category": "1450s establishments in england", "output": "تأسيسات عقد 1450 في إنجلترا"},
     {"separator": " in ", "category": "may 1450 crimes in asia", "output": "جرائم مايو 1450 في آسيا"},
 ]
@@ -152,7 +150,6 @@ data_list_1 = {
     "june 1450 crimes in the united states": "جرائم يونيو 1450 في الولايات المتحدة",
     "july 1450 crimes in north america": "جرائم يوليو 1450 في أمريكا الشمالية",
     "january 1450 crimes in north america": "جرائم يناير 1450 في أمريكا الشمالية",
-
 }
 
 

@@ -17,6 +17,7 @@ from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
 from ...old_bots import with_years_bot
+from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 from ...translations import pop_of_without_in
 from ...utils import fix_minor
 from .lab import (
@@ -24,7 +25,6 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
-from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 
 separators_lists_raw = [
     "in",
@@ -286,9 +286,7 @@ class Fixing:
         if self.separator_stripped == "in":
             ar_separator = " في "
 
-        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-            " في" not in self.type_label
-        ):
+        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (" في" not in self.type_label):
             self.type_label = self.type_label + " في"
 
         if self.add_in_lab:

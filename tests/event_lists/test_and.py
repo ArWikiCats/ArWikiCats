@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -51,8 +51,7 @@ data0 = {
     "Singapore history and events templates": "تاريخ سنغافوري وقوالب أحداث",
 }
 
-data_1 = {
-}
+data_1 = {}
 
 data_2 = {
     "Category:17th-century_establishments_in_Närke_and_Värmland_County": "تأسيسات القرن 17 في مقاطعة ناركه وفارملاند",

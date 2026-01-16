@@ -23,7 +23,6 @@ data_1 = {
     "Category:1680s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1680",
     "Category:1460s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1460",
     "Category:1410s missing person cases": "تصنيف:قضايا أشخاص مفقودين في عقد 1410",
-
     "Category:Film people from Northern Ireland": "تصنيف:أعلام أفلام من أيرلندا الشمالية",
     "Category:20th-century architects from Northern Ireland": "تصنيف:معماريون من أيرلندا الشمالية في القرن 20",
     "Category:20th-century engineers from Northern Ireland": "تصنيف:مهندسون من أيرلندا الشمالية في القرن 20",

@@ -32,7 +32,7 @@ typeTable_7: dict[str, str] = {
     "road accidents": "حوادث طرق",
     "transport accident": "حوادث نقل",
     "transport accidents": "حوادث نقل",
-    "transport disasters": "كوارث نقل"
+    "transport disasters": "كوارث نقل",
 }
 
 

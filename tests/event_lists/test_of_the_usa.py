@@ -1,6 +1,6 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_diff_text
+from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
@@ -56,7 +56,6 @@ data_1 = {
     "Secretaries of agriculture of the United States": "وزراء زراعة أمريكيون",
     "Secretaries of transportation of the United States": "وزراء نقل أمريكيون",
     "Regions of the West Coast of the United States": "مناطق الساحل الغربي للولايات المتحدة",
-
 }
 
 data_2 = {
@@ -68,21 +67,17 @@ data_2 = {
     "Works about presidents of the United States": "أعمال عن رؤساء الولايات المتحدة",
     "Works about the military of the United States": "أعمال عن عسكرية الولايات المتحدة",
     "Works by presidents of the United States": "أعمال رؤساء الولايات المتحدة",
-
     "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية الولايات المتحدة",
     "National sports teams of the United States": "منتخبات رياضية وطنية من الولايات المتحدة",
     "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
     "Women's national sports teams of the United States": "منتخبات رياضية وطنية نسائية الولايات المتحدة",
-
     "Biographical films about presidents of the United States": "أفلام سير ذاتية عن رؤساء الولايات المتحدة",
     "Documentary films about presidents of the United States": "أفلام وثائقية عن رؤساء الولايات المتحدة",
     "Films about fictional presidents of the United States": "أفلام عن رؤساء خياليون الولايات المتحدة",
     "Films about presidents of the United States": "أفلام عن رؤساء الولايات المتحدة",
-
     "Candidates for President of the United States": "مرشحون لمنصب رئيس الولايات المتحدة",
     "Jewish candidates for President of the United States": "مرشحون يهود لمنصب رئيس الولايات المتحدة",
     "Female candidates for President of the United States": "مرشحات لمنصب رئيس الولايات المتحدة",
-
     "Books about politics of the United States": "كتب عن سياسة الولايات المتحدة",
     "Books about presidents of the United States": "كتب عن رؤساء الولايات المتحدة",
     "Books about the economy of the United States": "كتب عن اقتصاد الولايات المتحدة",
@@ -96,7 +91,6 @@ data_2 = {
     "Television series about presidents of the United States": "مسلسلات تلفزيونية عن رؤساء الولايات المتحدة",
     "Television series about the history of the United States": "مسلسلات تلفزيونية عن تاريخ الولايات المتحدة",
     "Conspiracy theories involving presidents of the United States": "نظريات مؤامرة تشمل رؤساء الولايات المتحدة",
-
 }
 
 data_3 = {
@@ -110,7 +104,6 @@ data_3 = {
     "Political history of the United States": "تاريخ الولايات المتحدة السياسي",
     "Prehistory of the United States": "الولايات المتحدة ما قبل التاريخ",
     "Social history of the United States": "تاريخ الولايات المتحدة الاجتماعي",
-
     "Acting presidents of the United States": "رؤساء الولايات المتحدة بالإنابة",
     "Ambassadors of the United States": "سفراء الولايات المتحدة",
     "Amphibians of the United States": "برمائيات الولايات المتحدة",
@@ -167,7 +160,6 @@ data_3 = {
     "Lakes of the United States": "بحيرات الولايات المتحدة",
     "Landforms of the United States": "تضاريس الولايات المتحدة",
     "Languages of the United States": "لغات الولايات المتحدة",
-
     "Mammals of the United States": "ثدييات الولايات المتحدة",
     "Military equipment of the United States": "عتاد الولايات المتحدة العسكري",
     "Military installations of the United States": "منشآت الولايات المتحدة العسكرية",

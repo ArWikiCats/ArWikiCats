@@ -104,6 +104,7 @@ class TestSplitTextBySeparatorByKeyword:
         part_1, part_2 = split_text_by_separator(separator, country)
         assert (part_1, part_2) == expected
 
+
 class TestSplitTextBySeparatorRepeatedSeparators:
     @pytest.mark.parametrize(
         "separator,country,expected",

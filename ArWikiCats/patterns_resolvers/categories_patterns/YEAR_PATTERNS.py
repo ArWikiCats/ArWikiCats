@@ -7,7 +7,6 @@ YEAR_DATA = {
     "{year1} establishments": "تأسيسات سنة {year1}",  # 1243
     "{year1}s disestablishments": "انحلالات عقد {year1}",  # 699
     "{year1} disestablishments": "انحلالات سنة {year1}",  # 699
-
     "{year1} disestablishments by continent": "انحلالات سنة {year1} حسب القارة",  # 368
     "{year1} disestablishments by country": "انحلالات سنة {year1} حسب البلد",  # 347
     "{year1} establishments by continent": "تأسيسات سنة {year1} حسب القارة",  # 523
@@ -15,13 +14,11 @@ YEAR_DATA = {
     "{year1} establishments in ottoman empire": "تأسيسات سنة {year1} في الدولة العثمانية",  # 211
     "{year1} establishments in russian empire": "تأسيسات سنة {year1} في الإمبراطورية الروسية",  # 152
     "{year1} establishments in spanish empire": "تأسيسات سنة {year1} في الإمبراطورية الإسبانية",  # 256
-
     "{year1} elections": "انتخابات {year1}",  # 214
     # "{year1} elections": "انتخابات في {year1}",  # 214
     "{year1} novels": "روايات {year1}",  # 317
     "{year1} sports-events": "أحداث {year1} الرياضية",
     "{year1} sports events": "أحداث {year1} الرياضية",  # 1295
-
     "{year1} censuses": "تعداد السكان في {year1}",
     "{year1} science fiction works": "أعمال خيال علمي {year1}",
     "{year1} controversies": "خلافات {year1}",
@@ -44,14 +41,12 @@ YEAR_DATA = {
     "{year1} mosques": "مساجد {year1}",
     "{year1} texts": "نصوص {year1}",
     "{year1} executions": "إعدامات في {year1}",
-
     "{year1} buddhist temples": "معابد بوذية {year1}",
     "{year1} jain temples": "معابد جاينية {year1}",
     "{year1} hindu temples": "معابد هندوسية {year1}",
     "{year1} literature": "أدب {year1}",
     "{year1} essays": "مقالات {year1}",
     "{year1} operas": "أوبيرات {year1}",
-
     "{year1} missing person cases": "قضايا أشخاص مفقودين في {year1}",
     "{year1} meteorology": "الأرصاد الجوية في {year1}",
     "refugee olympic team in {year1} summer olympics": "فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الصيفية {year1}",

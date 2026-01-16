@@ -1,11 +1,10 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
 fast_data_1 = {
-
     "April 2020 sports events in Africa": "أحداث أبريل 2020 الرياضية في إفريقيا",
     "April 2020 sports events in Argentina": "أحداث أبريل 2020 الرياضية في الأرجنتين",
     "April 2020 sports events in Asia": "أحداث أبريل 2020 الرياضية في آسيا",
@@ -788,7 +787,7 @@ fast_data_2 = {
     "Sports events in Ponce, Puerto Rico": "أحداث رياضية في بونس، بورتوريكو",
     "Sports events in South America": "أحداث رياضية في أمريكا الجنوبية",
     "Sports events in Western Greece": "أحداث رياضية في غرب اليونان",
-    "Sports events postponed due to the COVID-19 pandemic": "أحداث رياضية تأجلت بسبب جائحة فيروس كورونا"
+    "Sports events postponed due to the COVID-19 pandemic": "أحداث رياضية تأجلت بسبب جائحة فيروس كورونا",
 }
 
 to_test = [

@@ -1,13 +1,12 @@
-
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+
 from ArWikiCats import resolve_label_ar
 
 data0 = {
     "15th-century Buddhist temples in China": "معابد بوذية في الصين القرن 15",
     "18th-century Buddhist temples in China": "معابد بوذية في الصين القرن 18",
     "18th-century Buddhist temples in Thailand": "معابد بوذية في تايلاند القرن 18",
-
     "1450s murders in ireland": "",
     "21st century executions in kentucky": "",
     "6th century kings of italy": "",
@@ -19,7 +18,6 @@ data1 = {
     "Lists of Islamic buildings and structures": "قوائم مبان ومنشآت إسلامية",
     "Lists of Jewish buildings and structures": "قوائم مبان ومنشآت يهودية",
     "lists of religious buildings and structures": "قوائم مبان ومنشآت دينية",
-
     "2000s films": "أفلام إنتاج عقد 2000",
     "1650s films": "أفلام إنتاج عقد 1650",
     "1st-millennium literature": "أدب الألفية 1",
@@ -85,12 +83,10 @@ data1 = {
     "1670s operas": "أوبيرات عقد 1670",
     "1680s operas": "أوبيرات عقد 1680",
     "1690s operas": "أوبيرات عقد 1690",
-
     "1680s essays": "مقالات عقد 1680",
     "1690s essays": "مقالات عقد 1690",
     "1610s essays": "مقالات عقد 1610",
     "1640s essays": "مقالات عقد 1640",
-
     "13th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 13",
     "16th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 16",
     "17th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 17",
@@ -214,7 +210,7 @@ data1 = {
     "politics of united states by state": "سياسة الولايات المتحدة حسب الولاية",
     "television series by city of location": "مسلسلات تلفزيونية حسب مدينة الموقع",
     "19th century people": "أشخاص في القرن 19",
-    "lists of football players by national team": "قوائم لاعبو كرة قدم حسب المنتخب الوطني"
+    "lists of football players by national team": "قوائم لاعبو كرة قدم حسب المنتخب الوطني",
 }
 
 

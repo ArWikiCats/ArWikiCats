@@ -1,8 +1,7 @@
-
-
 import json
-from tqdm import tqdm
 from pathlib import Path
+
+from tqdm import tqdm
 
 dir = Path(__file__).parent
 

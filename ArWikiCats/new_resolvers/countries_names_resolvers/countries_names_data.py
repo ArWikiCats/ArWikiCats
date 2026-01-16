@@ -2,8 +2,9 @@
 """
 
 """
-from ...helps import len_print
 from typing import Dict
+
+from ...helps import len_print
 
 formatted_data_of_no_in: Dict[str, str] = {
     "history": "تاريخ",
@@ -16,7 +17,6 @@ formatted_data_of_no_in: Dict[str, str] = {
 formatted_data_en_ar_only: Dict[str, str] = {
     "warm springs of {en}": "ينابيع دائفة في {ar}",
     "hot springs of {en}": "ينابيع حارة في {ar}",
-
     "acting presidents of {en}": "رؤساء {ar} بالإنابة",
     "bilateral military relations of {en}": "علاقات {ar} الثنائية العسكرية",
     "bilateral relations of {en}": "علاقات {ar} الثنائية",
@@ -28,7 +28,6 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "permanent delegates of {en}": "مندوبو {ar} الدائمون",
     "naval units and formations of {en}": "وحدات وتشكيلات {ar} البحرية",
     "permanent representatives of {en}": "مندوبو {ar} الدائمون",
-
     "{en} motorcycle grand prix": "جائزة {ar} الكبرى للدراجات النارية",
     "{en} grand prix": "جائزة {ar} الكبرى",
     "university of arts of {en}": "جامعة {ar} للفنون",
@@ -38,7 +37,6 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "prehistory of {en}": "{ar} ما قبل التاريخ",
     "history of {en}": "تاريخ {ar}",
     "umayyad governors of {en}": "ولاة {ar} الأمويون",
-
     "ancient history of {en}": "تاريخ {ar} القديم",
     "contemporary history of {en}": "تاريخ {ar} المعاصر",
     "cultural history of {en}": "تاريخ {ar} الثقافي",
@@ -58,15 +56,12 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "nuclear history of {en}": "تاريخ {ar} النووي",
     "political history of {en}": "تاريخ {ar} السياسي",
     "social history of {en}": "تاريخ {ar} الاجتماعي",
-
     "first league of {en}": "دوري {ar} الممتاز",
     "academic staff of university of {en}": "أعضاء هيئة تدريس جامعة {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
-
     "bilateral treaties of {en}": "معاهدات {ar} الثنائية",
     "secretaries of {en}": "وزراء {ar}",
-
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
     "{en}": "{ar}",
@@ -115,10 +110,13 @@ formatted_data_en_ar_only: Dict[str, str] = {
 }
 
 
-formatted_data_en_ar_only.update({
-    # "history of {en}": "تاريخ {ar}",
-    f"{x} of {{en}}" : f"{v} {{ar}}" for x, v in formatted_data_of_no_in.items()
-})
+formatted_data_en_ar_only.update(
+    {
+        # "history of {en}": "تاريخ {ar}",
+        f"{x} of {{en}}": f"{v} {{ar}}"
+        for x, v in formatted_data_of_no_in.items()
+    }
+)
 
 # TODO: add data from pop_format
 pop_of_without_in_data = {
@@ -282,7 +280,7 @@ pop_of_without_in_data = {
     "waterfalls of {en}": "شلالات {ar}",
     "wives of {en}": "زوجات {ar}",
     "works of {en}": "أعمال {ar}",
-    "years of {en}": "سنوات {ar}"
+    "years of {en}": "سنوات {ar}",
 }
 
 formatted_data_en_ar_only.update(pop_of_without_in_data)
@@ -436,7 +434,7 @@ from_russia_data = {
     "truck manufacturers of {en}": "مصانع الشاحنات في {ar}",
     "uninhabited islands of {en}": "جزر غير مأهولة في {ar}",
     "vertebrates of {en}": "فقاريات {ar}",
-    "wetlands of {en}": "مناطق رطبة في {ar}"
+    "wetlands of {en}": "مناطق رطبة في {ar}",
 }
 
 main_data = {

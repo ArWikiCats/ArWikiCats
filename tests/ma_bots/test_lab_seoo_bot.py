@@ -3,7 +3,7 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.ma_bots.lab_seoo_bot import event_label_work
 
@@ -67,7 +67,7 @@ event_Lab_seoo_data = {
     "1830 trabzon": "طرابزون 1830",
     "1830 vermont": "فيرمونت 1830",
     "1830 virginia": "فرجينيا 1830",
-    "1830 wisconsin territory": "إقليم ويسكونسن 1830"
+    "1830 wisconsin territory": "إقليم ويسكونسن 1830",
 }
 
 

@@ -4,9 +4,9 @@ from ...helps import logger
 from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,
+    geo_names_formats,
     medalists_resolvers,
     us_states,
-    geo_names_formats,
 )
 
 
