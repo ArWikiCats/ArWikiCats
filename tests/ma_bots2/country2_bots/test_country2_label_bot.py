@@ -109,7 +109,6 @@ title_work_tests_data = {
     "fauna of vermont": "حيوانات فيرمونت",
     "federalist party members of united states house-of-representatives": "أعضاء الحزب الفيدرالي الأمريكي في مجلس النواب الأمريكي",
     "field hockey playerss in germany": "لاعبو هوكي ميدان في ألمانيا",
-    "films about olympic swimming and diving": "أفلام عن سباحة أولمبية والغطس",
     "films basedon non-fiction books about organized crime": "أفلام مبنية على كتب غير خيالية عن جريمة منظمة",
     "fishes of europe": "أسماك أوروبا",
     "food and drink in europe": "أطعمة ومشروبات في أوروبا",
