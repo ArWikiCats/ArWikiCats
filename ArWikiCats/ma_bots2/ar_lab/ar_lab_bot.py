@@ -27,14 +27,6 @@ from .lab import (
 )
 from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 Add_ar_in = {}
-pop_format2 = {
-    "politics of {}": "سياسة {}",
-    "military installations of": "منشآت {} العسكرية",
-}
-pop_format33 = {
-    "qualification for the": "تصفيات {} مؤهلة إلى {} ",
-    "qualification for": "تصفيات {} مؤهلة إلى {} ",
-}
 
 separators_lists_raw = [
     "in",
@@ -526,17 +518,6 @@ class LabelPipeline(Fixing):
 
         logger.debug(f">>>> {ar_separator=}")
         logger.debug(f">>>> {arlabel=}")
-
-        # Formatting replacements
-        vr = re.sub(re.escape(self.country_lower), "{}", self.category.lower())
-        if vr in pop_format2:
-            logger.info(f'<<lightblue>>>>>> vr in pop_format2 "{pop_format2[vr]}":')
-            logger.info(f"<<lightblue>>>>>>> {vr=}:")
-            arlabel = pop_format2[vr].format(self.country_label)
-
-        elif self.separator_stripped in pop_format33:
-            logger.info(f'>>>> <<lightblue>> separator in pop_format33 "{pop_format33[self.separator_stripped]}":')
-            arlabel = pop_format33[self.separator_stripped].format(self.type_label, self.country_label)
 
         arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", self.country_lower.strip())
