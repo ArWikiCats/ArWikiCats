@@ -4,6 +4,8 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} elections": "انتخابات {year1}",  # 214
+    # "{year1} elections": "انتخابات في {year1}",  # 214
     "{year1} novels": "روايات {year1}",  # 317
     # "sports events": {"ar": "أحداث", "s": "الرياضية"},
     # "sports-events": {"ar": "أحداث", "s": "الرياضية"},
@@ -130,7 +132,6 @@ YEAR_DATA = {
     "{year1} domestic association football leagues": "دوريات كرة قدم محلية {year1}",  # 142
     "{year1} earthquakes": "زلازل {year1}",  # 171
     "{year1} elections by country": "انتخابات {year1} حسب البلد",  # 189
-    "{year1} elections": "انتخابات في {year1}",  # 214
     "{year1} endings": "نهايات {year1}",  # 1970
     "{year1} establishments by continent": "تأسيسات سنة {year1} حسب القارة",  # 523
     "{year1} establishments by country": "تأسيسات سنة {year1} حسب البلد",  # 731
