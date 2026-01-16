@@ -18,7 +18,7 @@ from ..patterns_resolvers.country_time_pattern import resolve_country_time_patte
 from ..ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ..config import app_settings
 from ..make_bots import filter_en
-from ..make_bots.format_bots import change_cat
+from ..format_bots import change_cat
 from ..ma_bots import ye_ts_bot
 from ..make_bots.matables_bots.bot import cash_2022
 from ..new_resolvers.reslove_all import new_resolvers_all

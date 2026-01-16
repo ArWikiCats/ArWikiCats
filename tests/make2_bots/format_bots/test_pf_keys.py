@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.make_bots.format_bots.pf_keys import change_key_mappings_replacements, change_key_secondary_replacements
+from ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements, change_key_secondary_replacements
 
 
 class TestChangeKeyMappingsReplacements:
