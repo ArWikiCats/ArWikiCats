@@ -35,6 +35,7 @@ REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
 pop_format = {
+    # "sports-events": "أحداث {} الرياضية",
     "prehistory of": "{} ما قبل التاريخ",
     "naval units and formations of": "وحدات وتشكيلات {} البحرية",
     "military units and formations of": "وحدات وتشكيلات {} العسكرية",
@@ -49,7 +50,6 @@ pop_format = {
     "acting presidents of": "رؤساء {} بالإنابة",
     "diplomatic missions of": "بعثات {} الدبلوماسية",
     "umayyad governors of": "ولاة {} الأمويون",
-    "sports-events": "أحداث {} الرياضة",
     "fictional presidents of": "رؤساء {} الخياليون",
     "political history of": "تاريخ {} السياسي",
     "early-modern history of": "تاريخ {} الحديث المبكر",

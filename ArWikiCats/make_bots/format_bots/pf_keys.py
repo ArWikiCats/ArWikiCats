@@ -115,7 +115,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "shot dead by law enforcement officers": "shot dead-by-law enforcement officers",
     "sport ministers": "sport-ministers",
     "sports culture": "sports-culture",
-    "sports events": "sports-events",
+    # "sports events": "sports-events",
     "sports media": "sports-media",
     "sports ministers": "sports-ministers",
     "sportspeople": "sports-people",
@@ -146,7 +146,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     # "people of ottoman empire" :"people-of-ottoman-empire",
     # "province of" :"province-of",
     # "sentenced to death" :"sentenced-to-death",
-    # "sports events" : "sports-events",
     # "university of " :"university-of ",
     # "university of" :"university-of",
 }

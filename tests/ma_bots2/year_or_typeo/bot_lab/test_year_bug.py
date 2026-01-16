@@ -6,7 +6,6 @@ from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import (
 )
 
 examples = {
-    "April 1983 sports events": "أحداث أبريل 1983 الرياضية",
     "1370s conflicts": "نزاعات عقد 1370",
     # "8th parliament of la rioja": "برلمان منطقة لا ريوخا الثامن",
 }

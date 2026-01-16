@@ -2,8 +2,8 @@
 Labs Years processing module.
 """
 
+import functools
 import re
-
 from ..helps import logger
 from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA, YEAR_PARAM_NAME
 from .time_to_arabic import (
@@ -42,9 +42,9 @@ class LabsYears(MatchTimes):
         self.category_templates = dict(YEAR_DATA)
         self.category_templates.update(
             {
-                f"category:{YEAR_PARAM}": f"تصنيف:{YEAR_PARAM}",
-                f"category:films in {YEAR_PARAM}": f"تصنيف:أفلام في {YEAR_PARAM}",
-                f"category:{YEAR_PARAM} films": f"تصنيف:أفلام إنتاج {YEAR_PARAM}",
+                f"{YEAR_PARAM}": f"{YEAR_PARAM}",
+                f"films in {YEAR_PARAM}": f"أفلام في {YEAR_PARAM}",
+                f"{YEAR_PARAM} films": f"أفلام إنتاج {YEAR_PARAM}",
             }
         )
 
@@ -58,16 +58,18 @@ class LabsYears(MatchTimes):
         Returns:
         - `tuple`: A tuple containing the extracted year and the corresponding category key. If no year is found, an empty string and an empty string are returned.
         """
+        logger.debug(f"start lab_from_year: {category_r=}")
         from_year = ""
         cat_year = ""
         category_r = category_r.lower()
         year_match = self.match_en_time(category_r)
 
         if not year_match:
+            logger.debug(f" end lab_from_year: {category_r=}, {cat_year=}")
             return cat_year, from_year
 
         cat_year = year_match
-        cat_key = category_r.replace(cat_year, YEAR_PARAM)
+        cat_key = category_r.replace(cat_year, YEAR_PARAM).lower().replace("category:", "").strip()
 
         cat_year_ar = ""
         if cat_year.isdigit():
@@ -81,9 +83,10 @@ class LabsYears(MatchTimes):
             from_year = canonical_label.format_map({YEAR_PARAM_NAME: cat_year_ar})
             from_year = fixing(from_year)
             self.lookup_count += 1
-            logger.info(f"<<green>> lab_from_year: {self.lookup_count}")
+            logger.info(f"<<green>> lab_from_year: {self.lookup_count}, {canonical_label=}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")
 
+        logger.debug(f"end lab_from_year: {category_r=}, {cat_year=}")
         return cat_year, from_year
 
     def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str = "") -> bool:
@@ -96,6 +99,7 @@ class LabsYears(MatchTimes):
         Returns:
             None
         """
+        category_r = category_r.lower().replace("category:", "").strip()
         if not ar_year:
             category_lab_2 = category_lab.replace("بعقد ", "عقد ")
             ar_year = self.match_ar_time(category_lab_2)

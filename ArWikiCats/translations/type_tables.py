@@ -1,5 +1,4 @@
 from ..helps import len_print
-from .sports.olympics_data import olympic_event_translations
 from .tv.films_mslslat import television_keys
 
 basedtypeTable = {
@@ -81,19 +80,189 @@ type_Table_no = {
     "comedy television series": "مسلسلات تلفزيونية كوميدية",
 }
 
-for ff, la_b in television_keys.items():
-    type_Table_no[f"{ff} debuts"] = f"{la_b} بدأ عرضها في"
-    type_Table_no[f"{ff} revived after cancellation"] = f"{la_b} أعيدت بعد إلغائها"
-    type_Table_no[f"{ff} endings"] = f"{la_b} انتهت في"
+type_table_television_keys = {
+    "albums debuts": "ألبومات بدأ عرضها في",
+    "albums endings": "ألبومات انتهت في",
+    "albums revived after cancellation": "ألبومات أعيدت بعد إلغائها",
+    "animation debuts": "رسوم متحركة بدأ عرضها في",
+    "animation endings": "رسوم متحركة انتهت في",
+    "animation revived after cancellation": "رسوم متحركة أعيدت بعد إلغائها",
+    "anime and manga debuts": "أنمي ومانغا بدأ عرضها في",
+    "anime and manga endings": "أنمي ومانغا انتهت في",
+    "anime and manga revived after cancellation": "أنمي ومانغا أعيدت بعد إلغائها",
+    "bodies debuts": "هيئات بدأ عرضها في",
+    "bodies endings": "هيئات انتهت في",
+    "bodies revived after cancellation": "هيئات أعيدت بعد إلغائها",
+    "championships debuts": "بطولات بدأ عرضها في",
+    "championships endings": "بطولات انتهت في",
+    "championships revived after cancellation": "بطولات أعيدت بعد إلغائها",
+    "clubs and teams debuts": "أندية وفرق بدأ عرضها في",
+    "clubs and teams endings": "أندية وفرق انتهت في",
+    "clubs and teams revived after cancellation": "أندية وفرق أعيدت بعد إلغائها",
+    "clubs debuts": "أندية بدأ عرضها في",
+    "clubs endings": "أندية انتهت في",
+    "clubs revived after cancellation": "أندية أعيدت بعد إلغائها",
+    "comic strips debuts": "شرائط كومكس بدأ عرضها في",
+    "comic strips endings": "شرائط كومكس انتهت في",
+    "comic strips revived after cancellation": "شرائط كومكس أعيدت بعد إلغائها",
+    "comics debuts": "قصص مصورة بدأ عرضها في",
+    "comics endings": "قصص مصورة انتهت في",
+    "comics revived after cancellation": "قصص مصورة أعيدت بعد إلغائها",
+    "competition debuts": "منافسات بدأ عرضها في",
+    "competition endings": "منافسات انتهت في",
+    "competition revived after cancellation": "منافسات أعيدت بعد إلغائها",
+    "competitions debuts": "منافسات بدأ عرضها في",
+    "competitions endings": "منافسات انتهت في",
+    "competitions revived after cancellation": "منافسات أعيدت بعد إلغائها",
+    "culture debuts": "ثقافة بدأ عرضها في",
+    "culture endings": "ثقافة انتهت في",
+    "culture revived after cancellation": "ثقافة أعيدت بعد إلغائها",
+    "equipment debuts": "معدات بدأ عرضها في",
+    "equipment endings": "معدات انتهت في",
+    "equipment revived after cancellation": "معدات أعيدت بعد إلغائها",
+    "executives debuts": "مدراء بدأ عرضها في",
+    "executives endings": "مدراء انتهت في",
+    "executives revived after cancellation": "مدراء أعيدت بعد إلغائها",
+    "film series debuts": "سلاسل أفلام بدأ عرضها في",
+    "film series endings": "سلاسل أفلام انتهت في",
+    "film series revived after cancellation": "سلاسل أفلام أعيدت بعد إلغائها",
+    "films debuts": "أفلام بدأ عرضها في",
+    "films endings": "أفلام انتهت في",
+    "films revived after cancellation": "أفلام أعيدت بعد إلغائها",
+    "games debuts": "ألعاب بدأ عرضها في",
+    "games endings": "ألعاب انتهت في",
+    "games revived after cancellation": "ألعاب أعيدت بعد إلغائها",
+    "governing bodies debuts": "هيئات تنظيم بدأ عرضها في",
+    "governing bodies endings": "هيئات تنظيم انتهت في",
+    "governing bodies revived after cancellation": "هيئات تنظيم أعيدت بعد إلغائها",
+    "graphic novels debuts": "روايات مصورة بدأ عرضها في",
+    "graphic novels endings": "روايات مصورة انتهت في",
+    "graphic novels revived after cancellation": "روايات مصورة أعيدت بعد إلغائها",
+    "logos debuts": "شعارات بدأ عرضها في",
+    "logos endings": "شعارات انتهت في",
+    "logos revived after cancellation": "شعارات أعيدت بعد إلغائها",
+    "magazines debuts": "مجلات بدأ عرضها في",
+    "magazines endings": "مجلات انتهت في",
+    "magazines revived after cancellation": "مجلات أعيدت بعد إلغائها",
+    "manga debuts": "مانغا بدأ عرضها في",
+    "manga endings": "مانغا انتهت في",
+    "manga revived after cancellation": "مانغا أعيدت بعد إلغائها",
+    "media debuts": "إعلام بدأ عرضها في",
+    "media endings": "إعلام انتهت في",
+    "media revived after cancellation": "إعلام أعيدت بعد إلغائها",
+    "miniseries debuts": "مسلسلات قصيرة بدأ عرضها في",
+    "miniseries endings": "مسلسلات قصيرة انتهت في",
+    "miniseries revived after cancellation": "مسلسلات قصيرة أعيدت بعد إلغائها",
+    "music debuts": "موسيقى بدأ عرضها في",
+    "music endings": "موسيقى انتهت في",
+    "music revived after cancellation": "موسيقى أعيدت بعد إلغائها",
+    "non-profit organizations debuts": "منظمات غير ربحية بدأ عرضها في",
+    "non-profit organizations endings": "منظمات غير ربحية انتهت في",
+    "non-profit organizations revived after cancellation": "منظمات غير ربحية أعيدت بعد إلغائها",
+    "non-profit publishers debuts": "ناشرون غير ربحيون بدأ عرضها في",
+    "non-profit publishers endings": "ناشرون غير ربحيون انتهت في",
+    "non-profit publishers revived after cancellation": "ناشرون غير ربحيون أعيدت بعد إلغائها",
+    "novellas debuts": "روايات قصيرة بدأ عرضها في",
+    "novellas endings": "روايات قصيرة انتهت في",
+    "novellas revived after cancellation": "روايات قصيرة أعيدت بعد إلغائها",
+    "novels debuts": "روايات بدأ عرضها في",
+    "novels endings": "روايات انتهت في",
+    "novels revived after cancellation": "روايات أعيدت بعد إلغائها",
+    "occupations debuts": "مهن بدأ عرضها في",
+    "occupations endings": "مهن انتهت في",
+    "occupations revived after cancellation": "مهن أعيدت بعد إلغائها",
+    "organizations debuts": "منظمات بدأ عرضها في",
+    "organizations endings": "منظمات انتهت في",
+    "organizations revived after cancellation": "منظمات أعيدت بعد إلغائها",
+    "short stories debuts": "قصص قصيرة بدأ عرضها في",
+    "short stories endings": "قصص قصيرة انتهت في",
+    "short stories revived after cancellation": "قصص قصيرة أعيدت بعد إلغائها",
+    "soap opera debuts": "مسلسلات طويلة بدأ عرضها في",
+    "soap opera endings": "مسلسلات طويلة انتهت في",
+    "soap opera revived after cancellation": "مسلسلات طويلة أعيدت بعد إلغائها",
+    "soundtracks debuts": "موسيقى تصويرية بدأ عرضها في",
+    "soundtracks endings": "موسيقى تصويرية انتهت في",
+    "soundtracks revived after cancellation": "موسيقى تصويرية أعيدت بعد إلغائها",
+    "tactics and skills debuts": "مهارات بدأ عرضها في",
+    "tactics and skills endings": "مهارات انتهت في",
+    "tactics and skills revived after cancellation": "مهارات أعيدت بعد إلغائها",
+    "teams debuts": "فرق بدأ عرضها في",
+    "teams endings": "فرق انتهت في",
+    "teams revived after cancellation": "فرق أعيدت بعد إلغائها",
+    "television commercials debuts": "إعلانات تجارية تلفزيونية بدأ عرضها في",
+    "television commercials endings": "إعلانات تجارية تلفزيونية انتهت في",
+    "television commercials revived after cancellation": "إعلانات تجارية تلفزيونية أعيدت بعد إلغائها",
+    "television episodes debuts": "حلقات تلفزيونية بدأ عرضها في",
+    "television episodes endings": "حلقات تلفزيونية انتهت في",
+    "television episodes revived after cancellation": "حلقات تلفزيونية أعيدت بعد إلغائها",
+    "television films debuts": "أفلام تلفزيونية بدأ عرضها في",
+    "television films endings": "أفلام تلفزيونية انتهت في",
+    "television films revived after cancellation": "أفلام تلفزيونية أعيدت بعد إلغائها",
+    "television films-debuts": "أفلام تلفزيونية بدأ عرضها في",
+    "television films-endings": "أفلام تلفزيونية انتهت في",
+    "television miniseries debuts": "مسلسلات قصيرة تلفزيونية بدأ عرضها في",
+    "television miniseries endings": "مسلسلات قصيرة تلفزيونية انتهت في",
+    "television miniseries revived after cancellation": "مسلسلات قصيرة تلفزيونية أعيدت بعد إلغائها",
+    "television miniseries-debuts": "مسلسلات قصيرة تلفزيونية بدأ عرضها في",
+    "television miniseries-endings": "مسلسلات قصيرة تلفزيونية انتهت في",
+    "television news debuts": "أخبار تلفزيونية بدأ عرضها في",
+    "television news endings": "أخبار تلفزيونية انتهت في",
+    "television news revived after cancellation": "أخبار تلفزيونية أعيدت بعد إلغائها",
+    "television programmes debuts": "برامج تلفزيونية بدأ عرضها في",
+    "television programmes endings": "برامج تلفزيونية انتهت في",
+    "television programmes revived after cancellation": "برامج تلفزيونية أعيدت بعد إلغائها",
+    "television programming debuts": "برمجة تلفزيونية بدأ عرضها في",
+    "television programming endings": "برمجة تلفزيونية انتهت في",
+    "television programming revived after cancellation": "برمجة تلفزيونية أعيدت بعد إلغائها",
+    "television programs debuts": "برامج تلفزيونية بدأ عرضها في",
+    "television programs endings": "برامج تلفزيونية انتهت في",
+    "television programs revived after cancellation": "برامج تلفزيونية أعيدت بعد إلغائها",
+    "television schedules debuts": "جداول تلفزيونية بدأ عرضها في",
+    "television schedules endings": "جداول تلفزيونية انتهت في",
+    "television schedules revived after cancellation": "جداول تلفزيونية أعيدت بعد إلغائها",
+    "television series debuts": "مسلسلات تلفزيونية بدأ عرضها في",
+    "television series endings": "مسلسلات تلفزيونية انتهت في",
+    "television series revived after cancellation": "مسلسلات تلفزيونية أعيدت بعد إلغائها",
+    "television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في",
+    "television series-endings": "مسلسلات تلفزيونية انتهت في",
+    "television shows debuts": "عروض تلفزيونية بدأ عرضها في",
+    "television shows endings": "عروض تلفزيونية انتهت في",
+    "television shows revived after cancellation": "عروض تلفزيونية أعيدت بعد إلغائها",
+    "terminology debuts": "مصطلحات بدأ عرضها في",
+    "terminology endings": "مصطلحات انتهت في",
+    "terminology revived after cancellation": "مصطلحات أعيدت بعد إلغائها",
+    "variants debuts": "أشكال بدأ عرضها في",
+    "variants endings": "أشكال انتهت في",
+    "variants revived after cancellation": "أشكال أعيدت بعد إلغائها",
+    "video games debuts": "ألعاب فيديو بدأ عرضها في",
+    "video games endings": "ألعاب فيديو انتهت في",
+    "video games revived after cancellation": "ألعاب فيديو أعيدت بعد إلغائها",
+    "web series debuts": "مسلسلات ويب بدأ عرضها في",
+    "web series endings": "مسلسلات ويب انتهت في",
+    "web series revived after cancellation": "مسلسلات ويب أعيدت بعد إلغائها",
+    "webcomic debuts": "ويب كومكس بدأ عرضها في",
+    "webcomic endings": "ويب كومكس انتهت في",
+    "webcomic revived after cancellation": "ويب كومكس أعيدت بعد إلغائها",
+    "webcomics debuts": "ويب كومكس بدأ عرضها في",
+    "webcomics endings": "ويب كومكس انتهت في",
+    "webcomics revived after cancellation": "ويب كومكس أعيدت بعد إلغائها",
+    "works debuts": "أعمال بدأ عرضها في",
+    "works endings": "أعمال انتهت في",
+    "works revived after cancellation": "أعمال أعيدت بعد إلغائها"
+}
 
-    if ff.lower() in debuts_endings_key:
-        type_Table_no[f"{ff}-debuts"] = f"{la_b} بدأ عرضها في"
-        type_Table_no[f"{ff}-endings"] = f"{la_b} انتهت في"
+# for ff, la_b in television_keys.items():
+#     type_table_television_keys[f"{ff} debuts"] = f"{la_b} بدأ عرضها في"
+#     type_table_television_keys[f"{ff} revived after cancellation"] = f"{la_b} أعيدت بعد إلغائها"
+#     type_table_television_keys[f"{ff} endings"] = f"{la_b} انتهت في"
 
-type_table_labels = dict(type_Table_no) | dict(basedtypeTable)
+#     if ff.lower() in debuts_endings_key:
+#         type_table_television_keys[f"{ff}-debuts"] = f"{la_b} بدأ عرضها في"
+#         type_table_television_keys[f"{ff}-endings"] = f"{la_b} انتهت في"
 
-for olmp, olmp_lab in olympic_event_translations.items():
-    type_table_labels[f"{olmp} for"] = f"{olmp_lab} من"
+type_Table_no.update(type_table_television_keys)
+
+type_table_labels = type_Table_no | basedtypeTable
 
 type_Table_oo = {
     "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
@@ -109,12 +278,8 @@ type_table_labels.update(type_Table_oo)
 
 typeTable = {x: {"ar": v} for x, v in type_table_labels.items()}
 
-typeTable.update(
-    {
-        "sports events": {"ar": "أحداث", "s": "الرياضية"},
-        "sports-events": {"ar": "أحداث", "s": "الرياضية"},
-    }
-)
+typeTable.pop("sports events", None)
+typeTable.pop("sports-events", None)
 
 __all__ = [
     "typeTable",
@@ -124,6 +289,7 @@ __all__ = [
 len_print.data_len(
     "type_tables.py",
     {
+        "type_table_television_keys": type_table_television_keys,
         "typeTable": typeTable,
     },
 )

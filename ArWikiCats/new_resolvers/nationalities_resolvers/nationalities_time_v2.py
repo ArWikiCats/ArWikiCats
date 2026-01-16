@@ -17,6 +17,11 @@ from ...translations_formats import (
 
 # from ..main_processers.categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 formatted_data = {
+    # "12th-century Indian books": "كتب هندية في القرن 12",
+    "{year1} {en_nat} books": "كتب {female} في {year1}",
+    # "20th-century Mexican literature": "أدب مكسيكي القرن 20",
+    "{year1} {en_nat} literature": "أدب {male} في {year1}",
+
     # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
     "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
     "{year1} {en_nat} films": "أفلام {female} في {year1}",

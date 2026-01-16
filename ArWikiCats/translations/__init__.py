@@ -25,7 +25,6 @@ from .mixed.all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
-    typeTable_7,
 )
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
@@ -55,7 +54,6 @@ from .nats.Nationality import (
 from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
-from .sports.olympics_data import olympic_event_translations
 from .sports.Sport_key import (
     SPORT_KEY_RECORDS,
     SPORT_KEY_RECORDS_BASE,
@@ -90,7 +88,6 @@ __all__ = [
     "apply_pattern_replacements",
     "typeTable",
     "match_sport_key",
-    "olympic_event_translations",
     "en_nats_to_ar_label",
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",
@@ -129,7 +126,6 @@ __all__ = [
     "pop_of_without_in",
     "pop_of_football_lower",
     "WORD_AFTER_YEARS",
-    "typeTable_7",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",

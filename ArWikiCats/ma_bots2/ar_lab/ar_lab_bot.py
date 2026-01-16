@@ -14,10 +14,7 @@ from ...ma_bots.country_bot import event2_d2
 from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import (
-    Add_ar_in,
-    Table_for_frist_word,
-)
+from ...make_bots.matables_bots.bot import Table_for_frist_word
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
@@ -29,7 +26,8 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
-
+from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
+Add_ar_in = {}
 pop_format2 = {
     "politics of {}": "سياسة {}",
     "military installations of": "منشآت {} العسكرية",
@@ -269,6 +267,12 @@ class TypeResolver:
     def resolve(preposition: str, type_value: str, country_lower: str, use_event2: bool = True) -> Tuple[str, bool]:
         """Resolve the type label and whether to append 'in' label."""
         type_lower = type_value.strip().lower()
+
+        logger.debug(f'>>>>> > Resolving type: "{type_lower}", preposition: "{preposition}"')
+
+        type_label = resolve_lab_from_years_patterns(type_lower)
+        if type_label:
+            return type_label, True
 
         type_label, add_in_lab = get_type_lab(preposition, type_value)
 

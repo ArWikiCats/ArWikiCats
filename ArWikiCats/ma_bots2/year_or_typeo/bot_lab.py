@@ -18,7 +18,6 @@ from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens, typeTable
 from ...utils import check_key_in_tables
-from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
 
 type_after_country = ["non-combat"]
@@ -119,22 +118,19 @@ class LabelForStartWithYearOrTypeo:
         """Translate the type portion of the category when available."""
         if not self.typeo:
             return
-
-        if self.typeo in typeTable:
-            self.typeo_lab = typeTable[self.typeo]["ar"]
+        in_ty = typeTable.get(self.typeo)
+        if in_ty:
+            self.typeo_lab = in_ty["ar"]
             logger.info(f'a<<lightblue>>>>>> {self.typeo=} in typeTable "{self.typeo_lab}"')
 
             self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
-
-            if self.typeo in ("sports events", "sports-events") and self.year_at_first:
-                self.typeo_lab = "أحداث"
 
             self.arlabel += self.typeo_lab
 
             logger.info(f"a<<lightblue>>>typeo_lab : {self.typeo_lab}")
 
-            if "s" in typeTable[self.typeo]:
-                self.suf = typeTable[self.typeo]["s"]
+            if "s" in in_ty:
+                self.suf = in_ty["s"]
 
         else:
             logger.info(f'a<<lightblue>>>>>> typeo "{self.typeo}" not in typeTable')
@@ -232,29 +228,7 @@ class LabelForStartWithYearOrTypeo:
             logger.debug("a<<lightblue>>>>>> No country_lower.")
             return
 
-        if self.country_lower:
-            if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate,
-                    self.cat_test,
-                    self.year_at_first,
-                    self.typeo,
-                    self.In,
-                    self.country_lower,
-                    self.arlabel,
-                    self.year_labe,
-                    self.suf,
-                    self.Add_In,
-                    self.country_label,
-                    self.Add_In_Done,
-                )
-                return
-
-            logger.info(f"a<<lightblue>>>>>> Cant id {self.country_lower=} ")
-            self.NoLab = True
-            return
-
-        logger.info("a<<lightblue>>>>>> No label.")
+        logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
         self.NoLab = True
 
     # ----------------------------------------------------

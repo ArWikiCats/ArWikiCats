@@ -109,8 +109,8 @@ def test_add_fee(text: str, expected: str) -> None:
     "ar_label, en_label, expected",
     [
         ("كأس العالم لكرة القدم 2022", "World Cup", "كأس العالم 2022"),
-        ("تأسيسات 1990", "establishments", "تأسيسات سنة 1990"),
-        ("انحلالات 1985", "disestablishments", "انحلالات سنة 1985"),
+        ("تأسيسات سنة 1990", "establishments", "تأسيسات سنة 1990"),
+        ("انحلالات سنة 1985", "disestablishments", "انحلالات سنة 1985"),
     ],
     ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )

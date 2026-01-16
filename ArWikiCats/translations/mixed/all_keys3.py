@@ -6,20 +6,6 @@ from ...helps import len_print
 from ..sports.games_labs import SUMMER_WINTER_TABS
 from ..utils.json_dir import open_json_file
 
-typeTable_update = {
-    "aviation accidents": "حوادث طيران",
-    "transport disasters": "كوارث نقل",
-    "railway accidents": "حوادث سكك حديد",
-    "airlines accidents": "حوادث طيران",
-    "distance education institutions": "مؤسسات تعليم عن بعد",
-    "railway accident": "حوادث سكك حديد",
-    "aviation accident": "حوادث طيران",
-    "transport accidents": "حوادث نقل",
-    "road accidents": "حوادث طرق",
-    "transport accident": "حوادث نقل",
-    "design institutions": "مؤسسات تصميم",
-}
-
 companies_keys3 = {
     "railway": "السكك الحديدية",
     "transport": "النقل",
@@ -296,20 +282,6 @@ pop_final_3_update = {
     "universities": "جامعات",
 }
 
-TYPE_TABLE_7_BASE: dict[str, str] = {
-    "air force": "قوات جوية",
-    "people executed by": "أشخاص أعدموا من قبل",
-    "executions": "إعدامات",
-    "executed-burning": "أعدموا شنقاً",
-    "executed-hanging": "أعدموا حرقاً",
-    "executed-decapitation": "أعدموا بقطع الرأس",
-    "executed-firearm": "أعدموا بسلاح ناري",
-    "people executed-by-burning": "أشخاص أعدموا شنقاً",
-    "people executed-by-hanging": "أشخاص أعدموا حرقاً",
-    "people executed-by-decapitation": "أشخاص أعدموا بقطع الرأس",
-    "people executed-by-firearm": "أشخاص أعدموا بسلاح ناري",
-}
-
 ALBUMS_TYPE: dict[str, str] = {
     "folktronica": "فولكترونيكا",
     "concept": "مفاهيمية",
@@ -399,7 +371,6 @@ def build_pop_final_3() -> dict[str, str]:
 
 
 pop_final_3: dict[str, str] = build_pop_final_3()
-typeTable_7: dict[str, str] = {**TYPE_TABLE_7_BASE, **typeTable_update}
 
 Ambassadors_tab: dict[str, str] = {}
 
@@ -407,7 +378,6 @@ len_print.data_len(
     "all_keys3.py",
     {
         "pop_final_3": pop_final_3,
-        "typeTable_7": typeTable_7,
         "ALBUMS_TYPE": ALBUMS_TYPE,
         "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
         "Ambassadors_tab": Ambassadors_tab,
@@ -417,7 +387,6 @@ len_print.data_len(
 
 __all__ = [
     "pop_final_3",
-    "typeTable_7",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
     "Ambassadors_tab",

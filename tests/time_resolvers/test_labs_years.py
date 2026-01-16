@@ -6,6 +6,29 @@ import pytest
 
 from ArWikiCats.time_resolvers.labs_years import LabsYears
 
+test_data = {
+    "12th-century Indian books": "كتب هندية في القرن 12",
+    "1520s censuses": "تعداد السكان في عقد 1520",
+    "1630s science fiction works": "أعمال خيال علمي عقد 1630",
+    "1650s controversies": "خلافات عقد 1650",
+    "1650s floods": "فيضانات عقد 1650",
+    "1650s mass shootings": "إطلاق نار عشوائي عقد 1650",
+    "1650s murders": "جرائم قتل في عقد 1650",
+    "1650s science fiction works": "أعمال خيال علمي عقد 1650",
+    "17th-century cookbooks": "كتب طبخ القرن 17",
+    "1910s musicals": "مسرحيات غنائية عقد 1910",
+    "1910s racehorse deaths": "خيول سباق نفقت في عقد 1910",
+    "1914 mining disasters": "كوارث التعدين 1914",
+    "1970s albums": "ألبومات عقد 1970",
+    "1990s landslides": "انهيارات أرضية عقد 1990",
+    "19th-century publications": "منشورات القرن 19",
+    "2020s revolutions": "ثورات عقد 2020",
+    "2020s transport disasters": "كوارث نقل في عقد 2020",
+    "21st-century mosques": "مساجد القرن 21",
+    "2nd-millennium texts": "نصوص الألفية 2",
+    "15th-century executions": "إعدامات في القرن 15"
+}
+
 
 @pytest.mark.unit
 def test_labsyears() -> None:
@@ -53,16 +76,16 @@ def test_lab_from_year_add_creates() -> None:
     bot = LabsYears()
 
     # _, label = bot.lab_from_year("Category:1670-related list")
-    # assert label == "تصنيف:قوائم متعلقة ب1670"
+    # assert label == "قوائم متعلقة ب1670"
     bot.category_templates = {}
 
-    added = bot.lab_from_year_add("Category:2020s-related list", "تصنيف:قوائم متعلقة بعقد 2020", en_year="")
+    added = bot.lab_from_year_add("Category:2020s-related list", "قوائم متعلقة بعقد 2020", en_year="")
     assert added
 
-    assert "category:{year1}-related list" in bot.category_templates
+    assert "{year1}-related list" in bot.category_templates
 
     _, label2 = bot.lab_from_year("Category:1670s-related list")
-    assert label2 == "تصنيف:قوائم متعلقة بعقد 1670"
+    assert label2 == "قوائم متعلقة بعقد 1670"
 
 
 @pytest.mark.unit
@@ -72,12 +95,12 @@ def test_lab_from_year_add_creates_template() -> None:
 
     bot.lab_from_year_add(
         category_r="Category:Films in 1999",
-        category_lab="تصنيف:أفلام في 1999",
+        category_lab="أفلام في 1999",
         en_year="1999",
     )
 
-    assert "category:films in {year1}" in bot.category_templates
-    assert bot.category_templates["category:films in {year1}"] == "تصنيف:أفلام في {year1}"
+    assert "films in {year1}" in bot.category_templates
+    assert bot.category_templates["films in {year1}"] == "أفلام في {year1}"
 
 
 @pytest.mark.unit
@@ -88,7 +111,7 @@ def test_lab_from_year_successful_lookup_and_replacement() -> None:
     # Prepare template
     bot.lab_from_year_add(
         category_r="Category:Events in 2010",
-        category_lab="تصنيف:أحداث في 2010",
+        category_lab="أحداث في 2010",
         en_year="2010",
         ar_year="2010",
     )
@@ -96,7 +119,7 @@ def test_lab_from_year_successful_lookup_and_replacement() -> None:
     year, label = bot.lab_from_year("Category:Events in 2010")
 
     assert year == "2010"
-    assert label == "تصنيف:أحداث في 2010"
+    assert label == "أحداث في 2010"
     assert bot.lookup_count == 1
 
 
@@ -108,7 +131,7 @@ def test_lab_from_year_template_exists_with_different_year() -> None:
     # Add template for {year1}-base
     bot.lab_from_year_add(
         category_r="Category:Sports in 2022",
-        category_lab="تصنيف:رياضة في 2022",
+        category_lab="رياضة في 2022",
         en_year="2022",
         ar_year="2022",
     )
@@ -117,7 +140,7 @@ def test_lab_from_year_template_exists_with_different_year() -> None:
     year, label = bot.lab_from_year("Category:Sports in 2022")
 
     assert year == "2022"
-    assert label == "تصنيف:رياضة في 2022"
+    assert label == "رياضة في 2022"
     assert bot.lookup_count == 1
 
 
@@ -129,7 +152,7 @@ def test_lab_from_year_add_missing_real_year() -> None:
 
     bot.lab_from_year_add(
         category_r="Category:Something in 2015",
-        category_lab="تصنيف:شيء ما",  # Does NOT contain 2015
+        category_lab="شيء ما",  # Does NOT contain 2015
         en_year="2015",
         ar_year="",
     )
@@ -144,7 +167,7 @@ def test_with_decade() -> None:
     # Add template for {year1}-base
     bot.lab_from_year_add(
         category_r="Category:1990 works",
-        category_lab="تصنيف:أعمال 1990",
+        category_lab="أعمال 1990",
         en_year="1990",
         ar_year="1990",
     )
@@ -156,5 +179,5 @@ def test_with_decade() -> None:
     en_year2, label = bot.lab_from_year("Category:1990s works")
 
     assert en_year2 == "1990s"
-    assert label == "تصنيف:أعمال عقد 1990"
+    assert label == "أعمال عقد 1990"
     assert bot.lookup_count == 1

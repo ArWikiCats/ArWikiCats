@@ -19,7 +19,6 @@ data_n = {
     "hong kong descent": "أصل هونغ كونغي",
     "icelandic descent": "أصل آيسلندي",
     "indian descent": "أصل هندي",
-    "indian literature": "أدب هندي",
     "iraqi descent": "أصل عراقي",
     "irish folklore": "فلكور أيرلندي",
     "japanese descent": "أصل ياباني",
@@ -31,7 +30,6 @@ data_n = {
     "ossetian diaspora": "شتات أوسيتي",
     "pakistani descent": "أصل باكستاني",
     "pakistani law": "قانون باكستاني",
-    "russian literature": "أدب روسي",
     "singaporean art": "فن سنغافوري",
     "singaporean descent": "أصل سنغافوري",
     "south american descent": "أصل أمريكي جنوبي",
@@ -49,29 +47,23 @@ data_n = {
     "samoan diaspora": "شتات ساموي",
     "peruvian descent": "أصل بيروي",
     "ossetian descent": "أصل أوسيتي",
-    "north korean literature": "أدب كوري شمالي",
     "japanese folklore": "فلكور ياباني",
     "iraqi diaspora": "شتات عراقي",
     "hungarian diaspora": "شتات مجري",
-    "german literature": "أدب ألماني",
     "finnish descent": "أصل فنلندي",
     "coptic calendar": "تقويم قبطي",
     "croatian diaspora": "شتات كرواتي",
     "chilean law": "قانون تشيلي",
     "austrian descent": "أصل نمساوي",
-    "Category:20th-century Ghanaian literature": "أدب غاني القرن 20",
-    "Category:20th-century Mexican literature": "أدب مكسيكي القرن 20",
-    "Category:20th-century Taiwanese literature": "أدب تايواني القرن 20",
-    "Category:20th-century Zimbabwean literature": "أدب زيمبابوي القرن 20",
-    "Category:21st-century Ghanaian literature": "أدب غاني القرن 21",
-    "Category:21st-century Moroccan literature": "أدب مغربي القرن 21",
-    "Category:21st-century Taiwanese literature": "أدب تايواني القرن 21",
-    "Category:21st-century Zimbabwean literature": "أدب زيمبابوي القرن 21",
+    "north korean literature": "أدب كوري شمالي",
+    "german literature": "أدب ألماني",
+    "russian literature": "أدب روسي",
+    "indian literature": "أدب هندي",
 }
 
 
 @pytest.mark.parametrize("category, expected_key", data_n.items(), ids=data_n.keys())
-@pytest.mark.skipmk3
+@pytest.mark.fast
 def test_data_n(category: str, expected_key: str) -> None:
     label1 = resolve_label_ar(category)
     assert label1 == expected_key

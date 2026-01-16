@@ -7,7 +7,7 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 import re
-
+from ..helps import logger
 from ..patterns_resolvers import nat_men_pattern
 from ..old_bots import with_years_bot
 from ..make_bots.o_bots import univer
@@ -36,8 +36,7 @@ class CategoryResult:
 
 @functools.lru_cache(maxsize=1)
 def build_labs_years_object() -> LabsYears:
-    labs_years_bot = LabsYears()
-    return labs_years_bot
+    return LabsYears()
 
 
 @functools.lru_cache(maxsize=None)
@@ -63,9 +62,12 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
 
     category_lab = ""
 
-    labs_years_bot = build_labs_years_object()
+    logger.debug(f"<<yellow>> start lab_from_year: {category=}")
 
+    labs_years_bot = build_labs_years_object()
     cat_year, from_year = labs_years_bot.lab_from_year(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end lab_from_year: {category=}, {cat_year=}", cat_year)
 
     if from_year:
         category_lab = from_year

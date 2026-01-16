@@ -16,7 +16,6 @@ from ...translations import (
     films_mslslat_tab,
     get_from_new_p17_final,
     jobs_mens_data,
-    olympic_event_translations,
     open_json_file,
     pf_keys2,
     pop_final_5,
@@ -78,10 +77,7 @@ def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
     result = (
         first_data.get(key.lower(), "")
-        or
-        # olympic_event_translations.get(key, "") or
-        # olympic_event_translations.get(key.lower(), "") or
-        ""
+        or ""
     )
 
     if result:

@@ -8,10 +8,33 @@ from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
     Jobs_new,
-    olympic_event_translations,
     typeTable,
-    typeTable_7,
 )
+
+typeTable_7: dict[str, str] = {
+    "air force": "قوات جوية",
+    "airlines accidents": "حوادث طيران",
+    "aviation accident": "حوادث طيران",
+    "aviation accidents": "حوادث طيران",
+    "design institutions": "مؤسسات تصميم",
+    "distance education institutions": "مؤسسات تعليم عن بعد",
+    "executed-burning": "أعدموا شنقاً",
+    "executed-decapitation": "أعدموا بقطع الرأس",
+    "executed-firearm": "أعدموا بسلاح ناري",
+    "executed-hanging": "أعدموا حرقاً",
+    "executions": "إعدامات",
+    "people executed by": "أشخاص أعدموا من قبل",
+    "people executed-by-burning": "أشخاص أعدموا شنقاً",
+    "people executed-by-decapitation": "أشخاص أعدموا بقطع الرأس",
+    "people executed-by-firearm": "أشخاص أعدموا بسلاح ناري",
+    "people executed-by-hanging": "أشخاص أعدموا حرقاً",
+    "railway accident": "حوادث سكك حديد",
+    "railway accidents": "حوادث سكك حديد",
+    "road accidents": "حوادث طرق",
+    "transport accident": "حوادث نقل",
+    "transport accidents": "حوادث نقل",
+    "transport disasters": "كوارث نقل"
+}
 
 
 def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
@@ -31,7 +54,7 @@ def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
     return Pp_Priffix
 
 
-def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
+def _make_players_keys() -> dict:
     players_keys = {}
     players_keys["women"] = "المرأة"
 
@@ -42,14 +65,12 @@ def _make_players_keys(Add_ar_in: dict[str, str]) -> dict:
     players_keys["national sports teams"] = "منتخبات رياضية وطنية"
     players_keys["people"] = "أشخاص"
 
-    players_keys.update(Add_ar_in)
     return players_keys
 
 
-Add_ar_in = dict(olympic_event_translations)
-players_new_keys = _make_players_keys(Add_ar_in)
-Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
+players_new_keys = _make_players_keys()
 
+Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
 
 cash_2022 = {
     "category:japan golf tour golfers": "تصنيف:لاعبو بطولة اليابان للغولف",
@@ -102,7 +123,6 @@ __all__ = [
     "Table_for_frist_word",
     "cash_2022",
     "Films_O_TT",
-    "Add_ar_in",
     "players_new_keys",
     "add_to_new_players",
     "add_to_Films_O_TT",
