@@ -474,6 +474,7 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     label = _lookup_label_from_sources(lookup_chain, country_lower, log_context=f"get_con_lab({country_lower})")
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
+    logger.info(f"?????? get_con_lab: {start_get_country2=}, {country=}, {separator=}")
 
     return label or ""
 
