@@ -10,7 +10,6 @@ from typing import Tuple
 from ...helps import logger
 from ...ma_bots import country_bot
 from ...old_bots.films_and_others_bot import te_films
-from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
@@ -129,7 +128,6 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or convert_time_to_arabic(cone_1)
         or time_label(cone_1)
         or work_with_pp_start_with2(cone_1, separator, with_years)
-        or pop_format.get(cone_1)
         or get_from_pf_keys2(cone_1)
         or get_KAKO(cone_1)
         or ""
@@ -218,13 +216,6 @@ def make_cnt_lab(
             logger.info("<<lightblue>>>>>> part_2_normalized in By table main")
 
     if part_2_label:
-        if not part_2_normalized.startswith("by "):
-            tashr = f"{part_1_normalized} {separator.strip()}"
-            faxos = pop_format.get(part_1_normalized) or pop_format.get(tashr)
-            if faxos:
-                logger.info(f'<<lightblue>>>>>> part_1_normalized in pop_format "{faxos}":')
-                resolved_label = faxos.format(part_2_label)
-
         label_format_mappings = {
             "politics of {}": "سياسة {}",
             "military installations of": "منشآت {} العسكرية",

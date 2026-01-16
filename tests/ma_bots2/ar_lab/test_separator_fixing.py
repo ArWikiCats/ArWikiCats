@@ -12,7 +12,7 @@ from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import (
     _handle_in_separator,
     _should_add_min_for_from_separator,
     _should_add_min_for_of_suffix,
-    _should_add_preposition_في,
+    _should_add_preposition_fe,
     add_in_tab,
     separator_lists_fixing,
 )
@@ -183,19 +183,19 @@ class TestHelperFunctions:
     """Tests for helper functions."""
 
     def test_should_add_preposition_in_true(self) -> None:
-        """Test _should_add_preposition_في returns True when conditions are met."""
-        assert _should_add_preposition_في("منشآت عسكرية", "military installations in") is True
+        """Test _should_add_preposition_fe returns True when conditions are met."""
+        assert _should_add_preposition_fe("منشآت عسكرية", "military installations in") is True
 
     def test_should_add_preposition_in_false_when_in_present(self) -> None:
-        """Test _should_add_preposition_في returns False when 'في' is present."""
-        assert _should_add_preposition_في("منشآت عسكرية في", "military installations in") is False
+        """Test _should_add_preposition_fe returns False when 'في' is present."""
+        assert _should_add_preposition_fe("منشآت عسكرية في", "military installations in") is False
 
     def test_should_add_preposition_in_false_when_no_in(self) -> None:
-        """Test _should_add_preposition_في returns False when ' in' (with space) is not in type_lower.
+        """Test _should_add_preposition_fe returns False when ' in' (with space) is not in type_lower.
 
         'installations' contains substring 'in' but not ' in' with a leading space.
         """
-        result = _should_add_preposition_في("منشآت عسكرية", "military installations")
+        result = _should_add_preposition_fe("منشآت عسكرية", "military installations")
         # " in" (with space) is not in "military installations", so should be False
         assert result is True
 

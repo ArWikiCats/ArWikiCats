@@ -141,7 +141,13 @@ def fix_keys(category: str) -> str:
 def resolve_sport_under_labels(category: str) -> str:
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start resolve_sport_under_labels: {category=}")
-    result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
+
+    result = (
+        _load_under_bot().search(category)
+        or _load_bot_with_sports_keys().search(category)
+        or ""
+    )
+
     logger.info_if_or_debug(f"<<yellow>> end resolve_sport_under_labels: {category=}, {result=}", result)
     return result
 

@@ -18,7 +18,7 @@ def example_data(request: pytest.FixtureRequest):
         return json.load(f), file_path.stem
 
 
-DATA_DIR = Path(__file__).parent.parent / "examples/data"
+DATA_DIR = Path(__file__).parent.parent.parent / "examples/data"
 FILE_PATHS = list(DATA_DIR.glob("*.json"))
 
 

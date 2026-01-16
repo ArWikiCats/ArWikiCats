@@ -26,7 +26,7 @@ This pull request includes a mix of data updates, refactoring, and performance i
 
 ### Refactoring and Logic Improvements
 
-* Refactored the job label resolution pipeline to move the `new_religions_jobs_with_suffix` resolver into the main jobs resolver, simplifying logic in `t4_2018_jobs.py` and ensuring all job-related resolution routes are handled in one place. (`ArWikiCats/new_resolvers/jobs_resolvers/__init__.py`, `ArWikiCats/make_bots/countries_formats/t4_2018_jobs.py`)
+* Refactored the job label resolution pipeline to move the `new_religions_jobs_with_suffix` resolver into the main jobs resolver, simplifying logic in `t4_2018_jobs.py` and ensuring all job-related resolution routes are handled in one place. (`ArWikiCats/new_resolvers/jobs_resolvers/__init__.py`, `ArWikiCats/make_bots/countries_names_with_sports/t4_2018_jobs.py`)
 * Moved definitions of `Mens_prefix`, `Mens_suffix`, and `womens_prefixes` directly into `prefix_bot.py` for better encapsulation and maintainability. (`ArWikiCats/make_bots/jobs_bots/prefix_bot.py`)
 * Improved gender transformation logic to use `short_womens_jobs` instead of `Female_Jobs` for more accurate label transformations. (`ArWikiCats/make_bots/jobs_bots/prefix_bot.py`)
 * Expanded and restructured gender-related keys and filtering logic in `mens.py` to better handle false positives and edge cases in job label resolution. (`ArWikiCats/new_resolvers/jobs_resolvers/mens.py`)

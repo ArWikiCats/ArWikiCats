@@ -11,7 +11,6 @@ from typing import Tuple
 from ...helps import logger
 from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
-from ...make_bots.format_bots import pop_format
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.bot import Table_for_frist_word
@@ -28,14 +27,6 @@ from .lab import (
 )
 from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 Add_ar_in = {}
-pop_format2 = {
-    "politics of {}": "سياسة {}",
-    "military installations of": "منشآت {} العسكرية",
-}
-pop_format33 = {
-    "qualification for the": "تصفيات {} مؤهلة إلى {} ",
-    "qualification for": "تصفيات {} مؤهلة إلى {} ",
-}
 
 separators_lists_raw = [
     "in",
@@ -46,7 +37,7 @@ separators_lists_raw = [
 ]
 
 
-def _should_add_preposition_في(type_label: str, type_lower: str) -> bool:
+def _should_add_preposition_fe(type_label: str, type_lower: str) -> bool:
     """Check if 'في' should be added to the label.
 
     Args:
@@ -76,7 +67,7 @@ def _handle_in_separator(type_label: str, separator_stripped: str, type_lower: s
         return type_label
 
     # Add 'في' if conditions are met
-    if _should_add_preposition_في(type_label, type_lower):
+    if _should_add_preposition_fe(type_label, type_lower):
         logger.info(f'>>-- Add في to type_label:in"{type_label}", for "{type_lower}"')
         return f"{type_label} في"
 
@@ -527,25 +518,6 @@ class LabelPipeline(Fixing):
 
         logger.debug(f">>>> {ar_separator=}")
         logger.debug(f">>>> {arlabel=}")
-
-        # Formatting replacements
-        vr = re.sub(re.escape(self.country_lower), "{}", self.category.lower())
-        if vr in pop_format2:
-            logger.info(f'<<lightblue>>>>>> vr in pop_format2 "{pop_format2[vr]}":')
-            logger.info(f"<<lightblue>>>>>>> {vr=}:")
-            arlabel = pop_format2[vr].format(self.country_label)
-        elif self.type_lower in pop_format:
-            if not self.country_label.startswith("حسب"):
-                logger.info(f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}":')
-                arlabel = pop_format[self.type_lower].format(self.country_label)
-            else:
-                logger.info(
-                    f'>>>> <<lightblue>> type_lower in pop_format "{pop_format[self.type_lower]}" and country_label.startswith("حسب") '
-                )
-
-        elif self.separator_stripped in pop_format33:
-            logger.info(f'>>>> <<lightblue>> separator in pop_format33 "{pop_format33[self.separator_stripped]}":')
-            arlabel = pop_format33[self.separator_stripped].format(self.type_label, self.country_label)
 
         arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", self.country_lower.strip())
