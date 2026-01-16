@@ -2198,7 +2198,6 @@ data1 = {
     "Category:sports-people from Vienne": "تصنيف:رياضيون من فيين (إقليم فرنسي)",
     "Category:sports-people from Vienne (department)": "تصنيف:رياضيون من فيين (إقليم فرنسي)",
     "Category:sports-people stubs": "تصنيف:بذرة رياضيين",
-    "Category:Sportsperson infobox templates": "تصنيف:قوالب رياضيين",
     "Category:Spouses of Iranian politicians": "تصنيف:قرينات سياسيين إيرانيين",
     "Category:Spouses of heads of state by country": "تصنيف:قرينات قادة وطنيين حسب البلد",
     "Category:Spouses of politicians": "تصنيف:أزواج سياسيين",

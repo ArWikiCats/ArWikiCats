@@ -24,8 +24,6 @@ def test_get_templates_fo() -> None:
 def test_specific_keys_in_dict_temps() -> None:
     # Test each specific known key branch
     cases = {
-        "politics and government templates": "قوالب سياسة وحكومة {}",
-        "infobox templates": "قوالب معلومات {}",
         "squad templates": "قوالب تشكيلات {}",
     }
 

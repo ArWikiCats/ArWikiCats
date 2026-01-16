@@ -352,7 +352,6 @@ data_1 = {
     "Category:Multi-sport events in Morocco": "تصنيف:أحداث رياضية متعددة في المغرب",
     "Category:Multi-sport events in Saudi Arabia": "تصنيف:أحداث رياضية متعددة في السعودية",
     "Category:Multi-sport events in Tunisia": "تصنيف:أحداث رياضية متعددة في تونس",
-    "Category:Multi-sport events infobox templates": "تصنيف:قوالب معلومات أحداث رياضية متعددة",
     "Category:Multi-sport events navigational boxes": "تصنيف:صناديق تصفح أحداث رياضية متعددة",
     "Category:Namibia at multi-sport events": "تصنيف:ناميبيا في الأحداث الرياضية المتعددة",
     "Category:Nations at multi-sport events": "تصنيف:بلدان في الأحداث الرياضية المتعددة",

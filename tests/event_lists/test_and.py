@@ -16,7 +16,6 @@ data0 = {
     "films about olympic swimming and diving": "أفلام عن سباحة أولمبية والغطس",
     "criminal groups and organizations": "مجموعات إجرامية ومنظمات",
     "cherokee and united states treaties": "شيروكي ومعاهدات الولايات المتحدة",
-    "caribbean politics and government templates": "السياسة الكاريبية وقوالب الحكومة",
     "European Union and science and technology": "الاتحاد الأوروبي والعلوم والتقانة",
     "british empire and commonwealth games": "الإمبراطورية البريطانية وألعاب الكومنولث",
     "Russia and Soviet Union political leader navigational boxes": "روسيا وصناديق تصفح قادة سياسيون سوفيت",

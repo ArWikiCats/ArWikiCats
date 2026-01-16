@@ -14,6 +14,8 @@ formatted_data_of_no_in: Dict[str, str] = {
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
 
+    # "Germany politics and government templates": "قوالب سياسة وحكومة ألمانيا",
+    "{en} politics and government templates": "قوالب سياسة وحكومة {ar}",
     "prehistory of {en}": "{ar} ما قبل التاريخ",
     "history of {en}": "تاريخ {ar}",
 
