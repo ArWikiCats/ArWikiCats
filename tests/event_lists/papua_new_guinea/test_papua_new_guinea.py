@@ -795,7 +795,6 @@ data_1 = {
     "Category:Palestine–Papua New Guinea relations": "تصنيف:العلاقات الغينية الفلسطينية",
     "Category:Palestinian expatriates in Papua New Guinea": "تصنيف:فلسطينيون مغتربون في بابوا غينيا الجديدة",
     "Category:Papua New Guinea": "تصنيف:بابوا غينيا الجديدة",
-    "Category:Papua New Guinea and the United Nations": "تصنيف:بابوا غينيا الجديدة والأمم المتحدة",
     "Category:Papua New Guinea at the 2016 OFC Nations Cup": "تصنيف:بابوا غينيا الجديدة في كأس أوقيانوسيا للأمم 2016",
     "Category:Papua New Guinea at the Commonwealth Games": "تصنيف:بابوا غينيا الجديدة في ألعاب الكومنولث",
     "Category:Papua New Guinea at the Olympics": "تصنيف:بابوا غينيا الجديدة في الألعاب الأولمبية",

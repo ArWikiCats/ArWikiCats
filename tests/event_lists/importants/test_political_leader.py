@@ -49,7 +49,6 @@ data_slow = {
     "Category:Senegal political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سنغاليون",
     "Category:Saudi Arabia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون سعوديون",
     "Category:Rwanda political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون روانديون",
-    "Category:Russia and Soviet Union political leader navigational boxes": "تصنيف:روسيا وصناديق تصفح قادة سياسيون سوفيت",
     "Category:Romania political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون رومان",
     "Category:Portugal political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون برتغاليون",
     "Category:Philippines political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون فلبينيون",
