@@ -34,21 +34,6 @@ REGEX_SUB_CATEGORY_MINISTERS = re.compile(r"category\:ministers of ", re.IGNOREC
 REGEX_SUB_ASSOCIATION_FOOTBALL_AFC = re.compile(r"association football afc", re.IGNORECASE)
 REGEX_SUB_ASSOCIATION_FOOTBALL = re.compile(r"association football", re.IGNORECASE)
 
-pop_format = {
-    "acting presidents of": "رؤساء {} بالإنابة",
-    "bilateral military relations of": "علاقات {} الثنائية العسكرية",
-    "bilateral relations of": "علاقات {} الثنائية",
-    "diplomatic missions of": "بعثات {} الدبلوماسية",
-    "fictional presidents of": "رؤساء {} الخياليون",
-    "military installations of": "منشآت {} العسكرية",
-    "military units and formations of": "وحدات وتشكيلات {} العسكرية",
-    "military-equipment of": "عتاد {} العسكري",
-    "national symbols of": "رموز {} الوطنية",
-    "permanent delegates of": "مندوبو {} الدائمون",
-    "naval units and formations of": "وحدات وتشكيلات {} البحرية",
-    "permanent representatives of": "مندوبو {} الدائمون",
-}
-
 replaces = {
     "election, ": "election ",
     "national women's youth": "national youth women's",
@@ -153,5 +138,4 @@ def change_cat(cat_orginal: str) -> str:
 
 __all__ = [
     "change_cat",
-    "pop_format",
 ]
