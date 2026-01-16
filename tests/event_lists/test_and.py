@@ -78,8 +78,8 @@ def test_2(category: str, expected: str) -> None:
 
 to_test = [
     # ("test_1", data_1),
-    ("test_2", data_2),
-    # ("test_3", data_3),
+    # ("test_2", data_2),
+    ("test_3", data_3),
 ]
 
 
@@ -96,5 +96,4 @@ def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
-    dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

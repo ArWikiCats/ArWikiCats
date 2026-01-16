@@ -633,7 +633,7 @@ data1 = {
     "Category:Naval history of Russia": "تصنيف:تاريخ روسيا العسكري البحري",
     "Category:Naval ships of Russia": "تصنيف:سفن قوات بحرية في روسيا",
     "Category:Naval units and formations of Russia": "تصنيف:وحدات وتشكيلات روسيا البحرية",
-    "Category:Nuclear history of Russia": "تصنيف:التاريخ النووي روسيا",
+    "Category:Nuclear history of Russia": "تصنيف:تاريخ روسيا النووي",
     "Category:Nuclear missiles of Russia": "تصنيف:صواريخ نووية في روسيا",
     "Category:Nuclear weapons of Russia": "تصنيف:أسلحة نووية في روسيا",
     "Category:Oil fields of Russia": "تصنيف:حقول نفط في روسيا",
