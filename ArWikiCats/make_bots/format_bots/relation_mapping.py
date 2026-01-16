@@ -146,7 +146,7 @@ translation_category_relations = {
     "outside": "خارج",
     "under": "تحت",
     "against": "ضد",
-    "and": "و",
+    # "and": "و",
 }
 
 __all__ = [

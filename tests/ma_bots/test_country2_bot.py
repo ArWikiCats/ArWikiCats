@@ -148,7 +148,6 @@ data_slow = {
     "commonwealth games weightlifters for england": "رباعون في ألعاب الكومنولث في إنجلترا",
     "communications in united states": "الاتصالات في الولايات المتحدة",
     "companies of bahamas": "شركات في باهاماس",
-    "construction and architecture": "بناء وهندسة معمارية",
     "constructivism (art)": "بنائية (فنون)",
     "county longford": "مقاطعة لونجفورد",
     "cricket clubs": "أندية كريكت",
