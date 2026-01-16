@@ -1,6 +1,6 @@
 from ..helps import len_print
 
-type_Table_no = {
+type_table_labels = {
     "cycling race winners": "فائزون في سباق الدراجات",
     "films": "أفلام",
     "short films": "أفلام قصيرة",
@@ -8,6 +8,13 @@ type_Table_no = {
     "american comedy television series": "مسلسلات تلفزيونية أمريكية",
     "american television series": "مسلسلات تلفزيونية أمريكية كوميدية",
     "comedy television series": "مسلسلات تلفزيونية كوميدية",
+    "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
+    "categories by province of": "تصنيفات حسب المقاطعة في",
+    "invasions of": "غزو",
+    "invasions by": "غزوات",
+    "casualties": "خسائر",
+    "prisoners of war held by": "أسرى أعتقلوا من قبل",
+    "amnesty international prisoners-of-conscience held by": "سجناء حرية التعبير في",
 }
 
 type_table_television_keys = {
@@ -181,26 +188,9 @@ type_table_television_keys = {
     "works revived after cancellation": "أعمال أعيدت بعد إلغائها"
 }
 
-type_Table_no.update(type_table_television_keys)
-
-type_table_labels = type_Table_no
-
-type_Table_oo = {
-    "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
-    "categories by province of": "تصنيفات حسب المقاطعة في",
-    "invasions of": "غزو",
-    "invasions by": "غزوات",
-    "casualties": "خسائر",
-    "prisoners of war held by": "أسرى أعتقلوا من قبل",
-    "amnesty international prisoners-of-conscience held by": "سجناء حرية التعبير في",
-}
-
-type_table_labels.update(type_Table_oo)
+type_table_labels.update(type_table_television_keys)
 
 typeTable = {x: {"ar": v} for x, v in type_table_labels.items()}
-
-typeTable.pop("sports events", None)
-typeTable.pop("sports-events", None)
 
 __all__ = [
     "typeTable",
