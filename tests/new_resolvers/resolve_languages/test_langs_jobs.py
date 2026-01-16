@@ -22,7 +22,6 @@ test_data = {
     "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
     "cantonese-language speculative fiction films": "أفلام خيالية تأملية باللغة الكانتونية",
     "abkhazian-language writers": "كتاب باللغة الأبخازية",
-
 }
 
 

@@ -695,7 +695,6 @@ to_test = [
 @pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
 @pytest.mark.fast
 def test_language_films_0(category: str, expected: str) -> None:
-
     label2 = resolve_languages_labels(category)
     assert label2 == expected
 
@@ -703,7 +702,6 @@ def test_language_films_0(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_language_films(category: str, expected: str) -> None:
-
     label2 = resolve_languages_labels(category)
     assert label2 == expected
 
