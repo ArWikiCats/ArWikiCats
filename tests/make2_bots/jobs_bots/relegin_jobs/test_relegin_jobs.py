@@ -87,6 +87,8 @@ test_data = {
 test_data_2 = {
     "actors Episcopalians": "ممثلون أسقفيون",
     "actors Sunni Muslims": "ممثلون مسلمون سنة",
+    "hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس",
+    "hindu philosophers": "فلاسفة هندوس",
 }
 
 
