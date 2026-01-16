@@ -39,6 +39,16 @@ def build_labs_years_object() -> LabsYears:
     return LabsYears()
 
 
+def retrieve_year_from_category(category):
+    logger.debug(f"<<yellow>> start lab_from_year: {category=}")
+
+    labs_years_bot = build_labs_years_object()
+    cat_year, from_year = labs_years_bot.lab_from_year(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end lab_from_year: {category=}, {from_year=}", from_year)
+    return cat_year, from_year
+
+
 @functools.lru_cache(maxsize=None)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     """Resolve the label using multi-step logic."""
@@ -62,12 +72,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
 
     category_lab = ""
 
-    logger.debug(f"<<yellow>> start lab_from_year: {category=}")
-
-    labs_years_bot = build_labs_years_object()
-    cat_year, from_year = labs_years_bot.lab_from_year(category)
-
-    logger.info_if_or_debug(f"<<yellow>> end lab_from_year: {category=}, {cat_year=}", cat_year)
+    cat_year, from_year = retrieve_year_from_category(category)
 
     if from_year:
         category_lab = from_year
