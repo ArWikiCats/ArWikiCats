@@ -876,7 +876,6 @@ data_1 = {
     "Category:Power stations in Papua New Guinea": "تصنيف:محطات طاقة في بابوا غينيا الجديدة",
     "Category:Prime ministers of Papua New Guinea": "تصنيف:رؤساء وزراء بابوا غينيا الجديدة",
     "Category:Prisoners and detainees of Papua New Guinea": "تصنيف:سجناء ومعتقلون في بابوا غينيا الجديدة",
-    "Category:Prisoners sentenced to death by Papua New Guinea": "تصنيف:مسجونون حكم عليهم بالإعدام بواسطة بابوا غينيا الجديدة",
     "Category:Protected areas of Papua New Guinea": "تصنيف:مناطق محمية في بابوا غينيا الجديدة",
     "Category:Protestant missionaries in Papua New Guinea": "تصنيف:مبشرون بروتستانتيون في بابوا غينيا الجديدة",
     "Category:Protestantism in Papua New Guinea": "تصنيف:البروتستانتية في بابوا غينيا الجديدة",
