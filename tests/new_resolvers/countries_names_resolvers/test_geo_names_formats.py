@@ -7,8 +7,8 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 
 data_0 = {
     "foreign relations of fatimid caliphate": "علاقات الدولة الفاطمية الخارجية",
@@ -26,8 +26,7 @@ data_0 = {
     "Political history of West Virginia": "تاريخ فرجينيا الغربية السياسي",
 }
 
-data_1 = {
-}
+data_1 = {}
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())

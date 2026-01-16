@@ -5,6 +5,19 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data0_no_label = {
+    "Category:1st-millennium architecture": "تصنيف:عمارة الألفية 1",
+    "Category:10th-century BC architecture": "تصنيف:عمارة القرن 10 ق م",
+    "Category:1st-century architecture": "تصنيف:عمارة القرن 1",
+    "Category:1370s conflicts": "تصنيف:نزاعات في عقد 1370",
+    "Attacks on Jewish institutions by century": "تصنيف:هجمات على مؤسسات يهودية حسب القرن",
+    "Attacks on Jewish institutions in Poland": "تصنيف:هجمات على مؤسسات يهودية في بولندا",
+    "Attacks on Jewish institutions in United States": "تصنيف:هجمات على مؤسسات يهودية في الولايات المتحدة",
+    "Attacks on Jewish institutions": "تصنيف:هجمات على مؤسسات يهودية",
+    "18th-century attacks on Jewish institutions": "تصنيف:هجمات القرن 18 في مؤسسات يهودية",
+    "20th-century attacks on Jewish institutions in United States": "تصنيف:هجمات القرن 20 في مؤسسات يهودية في الولايات المتحدة",
+    "20th-century attacks on Jewish institutions": "تصنيف:هجمات القرن 20 في مؤسسات يهودية",
+    "21st-century attacks on Jewish institutions in United States": "تصنيف:هجمات القرن 21 في مؤسسات يهودية في الولايات المتحدة",
+    "21st-century attacks on Jewish institutions": "تصنيف:هجمات القرن 21 في مؤسسات يهودية",
     "Lists of people executed in the United States by year": "قوائم أشخاص أعدموا في الولايات المتحدة حسب السنة",
     "Lists of people executed in United States by year": "قوائم أشخاص أعدموا في الولايات المتحدة حسب السنة",
     "Healthcare by city of the United States": "الرعاية الصحية بواسطة مدينة الولايات المتحدة",

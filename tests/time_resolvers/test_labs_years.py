@@ -26,7 +26,7 @@ test_data = {
     "2020s transport disasters": "كوارث نقل في عقد 2020",
     "21st-century mosques": "مساجد القرن 21",
     "2nd-millennium texts": "نصوص الألفية 2",
-    "15th-century executions": "إعدامات في القرن 15"
+    "15th-century executions": "إعدامات في القرن 15",
 }
 
 

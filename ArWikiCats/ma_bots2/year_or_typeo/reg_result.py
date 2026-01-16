@@ -3,7 +3,6 @@ import re
 from dataclasses import dataclass
 
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
-from ...translations.type_tables import basedtypeTable
 
 
 @functools.lru_cache(maxsize=1)
@@ -20,12 +19,6 @@ def _load_pattern() -> re.Pattern:
 
     _MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
-    _basedtypeTable = sorted(
-        basedtypeTable.keys(),
-        key=lambda k: (-k.count(" "), -len(k)),
-    )
-    _typeo_pattern = "|".join(map(re.escape, [n.lower() for n in _basedtypeTable]))
-
     _sorted_mapping = sorted(
         translation_category_relations.keys(),
         key=lambda k: (-k.count(" "), -len(k)),
@@ -33,10 +26,7 @@ def _load_pattern() -> re.Pattern:
     _in_pattern = " |".join(map(re.escape, [n.lower() for n in _sorted_mapping]))
 
     _reg_line_1_match = (
-        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*"
-        r"(?P<typeo>" + _typeo_pattern + r"|)\s*"
-        r"(?P<in>" + _in_pattern + r"|)\s*"
-        r"(?P<country>.*|).*"
+        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*" r"(?P<in>" + _in_pattern + r"|)\s*" r"(?P<country>.*|).*"
     )
     return re.compile(_reg_line_1_match, re.I)
 
@@ -52,7 +42,6 @@ REGEX_SUB_CATEGORY_LOWERCASE = re.compile(r"category:", re.IGNORECASE)
 class TypiesResult:
     year_at_first: str
     year_at_first_strip: str
-    typeo: str
     In: str
     country: str
     cat_test: str
@@ -75,13 +64,11 @@ def get_reg_result(category_r: str) -> TypiesResult:
     match_it = REGEX_SEARCH_REG_LINE_1.search(cate_gory)
 
     year_first = ""
-    typeo = ""
     country = ""
     In = ""
 
     if match_it:
         year_first = match_it.group("monthyear")
-        typeo = match_it.group("typeo")
         country = match_it.group("country")
         In = match_it.group("in")
 
@@ -94,18 +81,12 @@ def get_reg_result(category_r: str) -> TypiesResult:
     if In.strip() == "by":
         country = f"by {country}"
 
-    if not year_first and not typeo:
+    if not year_first:
         country = ""
-
-    # if country.lower() == cate_gory.lower().replace("category:", ""): country = ""
-    # Category:january 2025 disasters during Covid-19
-    # year_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
-    # print(f"{year_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
 
     return TypiesResult(
         year_at_first=year_first,
         year_at_first_strip=year_first.strip(),
-        typeo=typeo,
         In=In,
         country=country,
         cat_test=cat_test,

@@ -3,12 +3,12 @@ import functools
 from ..helps import logger
 from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from .countries_names_resolvers import resolve_countries_names_main
+from .countries_names_with_sports import resolved_names_with_sports
 from .jobs_resolvers import resolve_jobs_main
 from .nationalities_resolvers import resolve_nationalities_main
 from .relations_resolver import new_relations_resolvers
 from .sports_resolvers import resolve_sports_main, sport_lab_nat
 from .translations_resolvers_v3i import resolve_v3i_main
-from .countries_names_with_sports import resolved_names_with_sports
 
 
 @functools.lru_cache(maxsize=None)

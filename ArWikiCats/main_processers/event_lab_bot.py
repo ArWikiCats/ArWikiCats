@@ -10,8 +10,6 @@ from ..helps import logger
 from ..ma_bots import ye_ts_bot
 from ..ma_bots2.country2_bots.country2_label_bot import country_2_title_work
 from ..ma_bots.lab_seoo_bot import event_label_work
-from ..old_bots import tmp_bot
-from ..old_bots.films_and_others_bot import te_films
 from ..make_bots.format_bots import change_cat
 from ..make_bots.format_bots.ends_keys import combined_suffix_mappings
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
@@ -22,10 +20,10 @@ from ..make_bots.sports_bots import sport_lab_suffixes, team_work
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
-
+from ..old_bots import tmp_bot
+from ..old_bots.films_and_others_bot import te_films
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import get_from_new_p17_final, get_from_pf_keys2
@@ -144,10 +142,7 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = (
-            wrap_team_xo_normal_2025_with_ends(category3)
-            or new_resolvers_all(category3)
-        )
+        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or new_resolvers_all(category3)
         if category_lab:
             return category_lab
 

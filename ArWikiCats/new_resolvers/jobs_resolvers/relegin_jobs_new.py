@@ -103,9 +103,11 @@ def _load_mens_bot() -> MultiDataFormatterBase:
             formatted_data[f"{x} {{rele_en}}"] = f"{{rele_ar}} {jobs_mens_data[x]}"
 
     jobs_data = dict(jobs_mens_data)
-    jobs_data.update({
-        "philosophers and theologians": "فلاسفة ولاهوتيون",
-    })
+    jobs_data.update(
+        {
+            "philosophers and theologians": "فلاسفة ولاهوتيون",
+        }
+    )
 
     return format_multi_data(
         formatted_data=formatted_data,

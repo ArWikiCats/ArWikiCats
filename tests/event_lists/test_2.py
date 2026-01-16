@@ -601,6 +601,9 @@ fast_data = {
 }
 
 data1 = {
+    "Lists of office-holders in 2014": "قوائم أصحاب المناصب في 2014",
+    "Lists of office-holders in Armenia": "قوائم أصحاب المناصب في أرمينيا",
+    "Lists of office-holders in Syria": "قوائم أصحاب المناصب في سوريا",
     "Christian Science in England": "علم مسيحي في إنجلترا",
     "Christian fiction": "خيال مسيحي",
     "Christian Science in California": "علم مسيحي في كاليفورنيا",
@@ -653,9 +656,6 @@ data1 = {
     "2020 in French tennis": "كرة المضرب الفرنسية في 2020",
     "2020s in Thai motorsport": "رياضة المحركات التايلندية في عقد 2020",
     "2023 in Malaysian motorsport": "رياضة المحركات الماليزية في 2023",
-    "Lists of office-holders in 2014": "قوائم أصحاب مناصب في 2014",
-    "Lists of office-holders in Armenia": "قوائم أصحاب مناصب في أرمينيا",
-    "Lists of office-holders in Syria": "قوائم أصحاب مناصب في سوريا",
     "Women's soccer players in United States by competition": "لاعبات كرة قدم في الولايات المتحدة حسب المنافسة",
     "1999–2000 in European rugby union leagues": "دوريات اتحاد الرجبي الأوروبي في 1999–2000",
     "2016–17 in European women's rugby union": "اتحاد رجبي أوروبية للسيدات في 2016–17",

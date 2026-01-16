@@ -9,29 +9,22 @@ from typing import Tuple
 
 from ...helps import logger
 from ...ma_bots import country_bot
-from ...old_bots.films_and_others_bot import te_films
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT
+from ...make_bots.matables_bots.bot import add_to_Films_O_TT
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.table1_bot import get_KAKO
 from ...make_bots.o_bots import bys, parties_bot, univer
 from ...make_bots.o_bots.peoples_resolver import work_peoples
 from ...make_bots.sports_bots import sport_lab_suffixes, team_work
-
-from ...new_resolvers.reslove_all import new_resolvers_all
 from ...new_resolvers.bys_new import resolve_by_labels
-
+from ...new_resolvers.reslove_all import new_resolvers_all
 from ...old_bots import with_years_bot
+from ...old_bots.films_and_others_bot import te_films
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
-from ...translations import get_from_pf_keys2, typeTable
-from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...translations import get_from_pf_keys2
+from ...utils import fix_minor
 from .utils import split_text_by_separator
-
-pp_start_with2 = {
-    "defunct": "{} سابقة",
-    "scheduled": "{} مقررة",
-}
 
 
 @functools.lru_cache(maxsize=10000)
@@ -61,25 +54,6 @@ def wrap_lab_for_country2(country: str) -> str:
     logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
 
     return resolved_label
-
-
-def work_with_pp_start_with2(cone_1: str, separator: str, with_years: bool = False) -> str:
-    part_1_label = ""
-    for pri_ss, pri_lab in pp_start_with2.items():
-        if cone_1.startswith(pri_ss):
-            U_c = cone_1[len(pri_ss) :]
-            logger.debug(f" pp_start_with2 <<lightblue>> {cone_1=}, {U_c=}, {separator=} ")
-            U_lab = wrap_lab_for_country2(U_c)
-
-            if U_lab == "" and with_years:
-                U_lab = with_years_bot.Try_With_Years(U_c)
-
-            if U_lab:
-                logger.debug(f'>>>><<lightblue>> dddd.startswith pri_ss("{pri_ss}"), {U_c=}, {U_lab=}')
-                part_1_label = pri_lab.format(U_lab)
-                logger.debug(f">>>> {part_1_label=}")
-                break
-    return part_1_label
 
 
 def time_label(text: str) -> str:
@@ -127,7 +101,6 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or get_table_with_in(cone_1, separator)
         or convert_time_to_arabic(cone_1)
         or time_label(cone_1)
-        or work_with_pp_start_with2(cone_1, separator, with_years)
         or get_from_pf_keys2(cone_1)
         or get_KAKO(cone_1)
         or ""
@@ -193,13 +166,7 @@ def make_cnt_lab(
     resolved_label = part_1_label + ar_separator + part_2_label
     in_players = check_key_new_players(part_1_normalized.lower())
 
-    to_check_them_tuble = {
-        "typeTable": typeTable,
-        "Films_O_TT": Films_O_TT,
-    }
-    co_in_tables, tab_name = check_key_in_tables_return_tuple(part_1_normalized, to_check_them_tuble)
-
-    if co_in_tables or in_players:
+    if in_players:
         if in_players:
             if part_2_label.startswith("أصل "):
                 logger.info(f">>>>>> Add من to {part_1_normalized=} part_1_normalized in New_players:")

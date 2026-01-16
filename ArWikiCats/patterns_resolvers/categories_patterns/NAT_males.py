@@ -27,7 +27,6 @@ NAT_DATA_to_check = {
 NAT_DATA_MALES = {
     # 17th-century Hindu philosophers and theologians
     "{en_nat} philosophers and theologians": "فلاسفة ولاهوتيون {males}",
-
     "{en_nat} men's basketball players": "لاعبو كرة سلة {males}",  # 64
     "{en_nat} men's footballers": "لاعبو كرة قدم {males}",  # 167
     "{en_nat} expatriate men's footballers": "لاعبو كرة قدم {males} مغتربون",  # 163

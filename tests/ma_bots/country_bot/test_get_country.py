@@ -13,7 +13,6 @@ data_1 = {
     "Defunct National Hockey League teams": "فرق دوري هوكي وطنية سابقة",
     "Members of defunct national legislatures": "أعضاء هيئات تشريعية وطنية سابقة",
     "Defunct national sports teams": "فرق رياضية وطنية سابقة",
-    "Defunct national sports teams by country": "منتخبات رياضية وطنية سابقة حسب البلد",
 }
 
 

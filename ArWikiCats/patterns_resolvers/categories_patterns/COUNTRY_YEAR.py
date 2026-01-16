@@ -27,7 +27,6 @@ COUNTRY_YEAR_DATA = {
     "{year1} establishments in {country1} city": "تأسيسات سنة {year1} في مدينة {country1}",  # 124
     "{year1} establishments in {country1}, d.c.": "تأسيسات سنة {year1} في {country1} العاصمة",  # 112
     "{year1} establishments in {country1} by state or union territory": "تأسيسات سنة {year1} في {country1} حسب الولاية أو الإقليم الاتحادي",  # 72
-
     # "20th-century executions by Gambia": "إعدامات في غامبيا في القرن 20",
     # "14th-century lords of Monaco": "لوردات موناكو في القرن 14",
     "{year1} lords of {country1}": "لوردات {country1} في {year1}",

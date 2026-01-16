@@ -11,7 +11,6 @@ test_data = {
     "15th-century lords of Monaco": "لوردات موناكو في القرن 15",
     "16th-century lords of Monaco": "لوردات موناكو في القرن 16",
     "17th-century lords of Monaco": "لوردات موناكو في القرن 17",
-
     "1830s alabama": "ألاباما في عقد 1830",
     "1830s arkansas": "أركنساس في عقد 1830",
     "1830s connecticut": "كونيتيكت في عقد 1830",

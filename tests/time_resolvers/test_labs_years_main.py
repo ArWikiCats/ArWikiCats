@@ -4,8 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 
 test_data = {
     "16th century music": "الموسيقى في القرن 16",
@@ -31,7 +31,7 @@ test_data = {
     "2020s transport disasters": "كوارث نقل في عقد 2020",
     "21st-century mosques": "مساجد القرن 21",
     "2nd-millennium texts": "نصوص الألفية 2",
-    "15th-century executions": "إعدامات في القرن 15"
+    "15th-century executions": "إعدامات في القرن 15",
 }
 
 test_data2 = {

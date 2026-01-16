@@ -135,7 +135,7 @@ def _load_sports_formatted_data() -> dict[str, str]:
     }
 
     sports_formatted_data.update(WOMENS_NATIONAL_DATA)
-    sports_formatted_data.update(formatted_data_en_ar_only)     # NOTE: should not be here!
+    sports_formatted_data.update(formatted_data_en_ar_only)  # NOTE: should not be here!
     return sports_formatted_data
 
 

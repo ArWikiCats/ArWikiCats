@@ -7,11 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import c_1_1_lab
 
-
 fast_data_c_1_1_lab = [
-    {"separator": " based in ", "cone_1": "defunct lgbtq organizations", "output": "منظمات إل جي بي تي كيو سابقة"},
-    {"separator": " based in ", "cone_1": "defunct political organizations", "output": "منظمات سياسية سابقة"},
-    {"separator": " based in ", "cone_1": "defunct professional associations", "output": "جمعيات تخصصية سابقة"},
     {"separator": " by ", "cone_1": "american football teams", "output": "فرق كرة قدم أمريكية"},
     {"separator": " by ", "cone_1": "american rock musicians", "output": "موسيقيو روك أمريكيون"},
     {"separator": " by ", "cone_1": "amphibious warfare vessels", "output": "سفن حربية برمائية"},
@@ -28,13 +24,6 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "cone_1": "christian universities and colleges", "output": "جامعات وكليات مسيحية"},
     {"separator": " by ", "cone_1": "dance music albums", "output": "ألبومات موسيقى الرقص"},
     {"separator": " by ", "cone_1": "death metal albums", "output": "ألبومات ديث ميتال"},
-    {"separator": " by ", "cone_1": "defunct baseball venues", "output": "ملاعب كرة قاعدة سابقة"},
-    {"separator": " by ", "cone_1": "defunct clubs and societies", "output": "أندية وجمعيات سابقة"},
-    {"separator": " by ", "cone_1": "defunct liberal political parties", "output": "أحزاب سياسية ليبرالية سابقة"},
-    {"separator": " by ", "cone_1": "defunct railway stations", "output": "محطات السكك الحديدية سابقة"},
-    {"separator": " by ", "cone_1": "defunct shopping malls", "output": "مراكز تسوق سابقة"},
-    {"separator": " by ", "cone_1": "defunct socialist parties", "output": "أحزاب اشتراكية سابقة"},
-    {"separator": " by ", "cone_1": "defunct tennis tournaments", "output": "بطولات كرة مضرب سابقة"},
     {"separator": " by ", "cone_1": "east german people", "output": "ألمانيون شرقيون"},
     {"separator": " by ", "cone_1": "east german sports-people", "output": "رياضيون ألمانيون شرقيون"},
     {"separator": " by ", "cone_1": "eastern orthodox cathedrals", "output": "كاتدرائيات أرثوذكسية شرقية"},
@@ -105,12 +94,6 @@ fast_data_c_1_1_lab = [
     {"separator": " of ", "cone_1": "chief justices of", "output": "رؤساء قضاء"},
     {"separator": " of ", "cone_1": "congressional districts of", "output": "مقاطعات الكونغرس في"},
     {"separator": " of ", "cone_1": "cultural depictions of", "output": "تصوير ثقافي عن"},
-    {"separator": " of ", "cone_1": "defunct bodies of", "output": "هيئات سابقة"},
-    {"separator": " of ", "cone_1": "defunct clubs and societies of", "output": "أندية وجمعيات في سابقة"},
-    {"separator": " of ", "cone_1": "defunct companies of", "output": "شركات سابقة في"},
-    {"separator": " of ", "cone_1": "defunct diplomatic missions of", "output": "بعثات دبلوماسية في سابقة"},
-    {"separator": " of ", "cone_1": "defunct locomotive manufacturers of", "output": "مصانع القاطرات في سابقة"},
-    {"separator": " of ", "cone_1": "defunct state agencies of", "output": "أجهزة الدولة في سابقة"},
     {"separator": " of ", "cone_1": "drainage basins of", "output": "أحواض تصريف في"},
     {"separator": " of ", "cone_1": "eastern front of", "output": "الجبهة الشرقية في"},
     {"separator": " of ", "cone_1": "featured pictures of", "output": "صور مميزة عن"},

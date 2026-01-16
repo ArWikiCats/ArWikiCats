@@ -3,6 +3,7 @@ Labs Years processing module.
 """
 
 import functools
+
 from ..helps import logger
 from .labs_years import LabsYears
 

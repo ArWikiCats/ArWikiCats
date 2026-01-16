@@ -24,10 +24,7 @@ from ...translations import (
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 
-pop_All_2018.update({
-    "establishments": "تأسيسات",
-    "disestablishments": "انحلالات",
-})
+pop_All_2018.update({"establishments": "تأسيسات", "disestablishments": "انحلالات", })
 
 first_data = {
     "by country": "حسب البلد",
@@ -80,10 +77,7 @@ def _get_from_alias(key: str) -> str:
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
     """Fetch a population label, falling back to sports team lookups."""
-    result = (
-        first_data.get(key.lower(), "")
-        or ""
-    )
+    result = first_data.get(key.lower(), "") or ""
 
     if result:
         return result

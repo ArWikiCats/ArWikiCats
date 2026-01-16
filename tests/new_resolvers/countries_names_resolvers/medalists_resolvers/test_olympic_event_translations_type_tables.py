@@ -1,8 +1,6 @@
-
-
 import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers import resolve_countries_names_medalists
 

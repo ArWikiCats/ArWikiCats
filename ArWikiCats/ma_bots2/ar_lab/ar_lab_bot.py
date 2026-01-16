@@ -13,20 +13,18 @@ from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Table_for_frist_word
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
 from ...old_bots import with_years_bot
+from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
 from ...translations import pop_of_without_in
-from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...utils import fix_minor
 from .lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
-from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
-Add_ar_in = {}
 
 separators_lists_raw = [
     "in",
@@ -288,17 +286,8 @@ class Fixing:
         if self.separator_stripped == "in":
             ar_separator = " في "
 
-        if self.country_in_table and self.add_in_lab:
-            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.country_label or self.type_lower in Add_ar_in
-            ):
-                ar_separator = " في "
-                logger.info("ssps:%s" % ar_separator)
-        else:
-            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.type_label or self.type_lower in Add_ar_in
-            ):
-                self.type_label = self.type_label + " في"
+        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (" في" not in self.type_label):
+            self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
             logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
@@ -387,9 +376,6 @@ class LabelPipeline(Fixing):
         self.should_append_in_label = True
         self.add_in_lab = True  # Renamed from add_in_lab for consistency but keeping logic
 
-        self.country_in_table = False
-        self.type_in_table = False
-
     def extract_components(self) -> None:
         """Extracts type and country components."""
         self.category_type, self.country = get_type_country(self.category, self.separator)
@@ -458,16 +444,6 @@ class LabelPipeline(Fixing):
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.separator_stripped)
 
-    def check_tables(self) -> None:
-        """Checks if components are in specific tables."""
-        self.country_in_table, table1 = check_key_in_tables_return_tuple(self.country_lower, Table_for_frist_word)
-        self.type_in_table, table2 = check_key_in_tables_return_tuple(self.type_lower, Table_for_frist_word)
-
-        if self.country_in_table:
-            logger.info(f'>>>> X:<<lightpurple>> country_lower "{self.country_lower}" in {table1}.')
-        if self.type_in_table:
-            logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
-
     def join_labels(self, ar_separator: str) -> str:
         """Constructs the final Arabic label."""
         keep_type_last = False
@@ -488,19 +464,7 @@ class LabelPipeline(Fixing):
             logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist")
             keep_type_first = True
 
-        # Determine order
-        if self.type_in_table and self.country_in_table:
-            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in Table_for_frist_word.")
-            in_tables = check_key_new_players(self.country_lower)
-            if not keep_type_first and in_tables:
-                arlabel = self.country_label + ar_separator + self.type_label
-            else:
-                arlabel = self.type_label + ar_separator + self.country_label
-        else:
-            if keep_type_first and self.country_in_table:
-                arlabel = self.country_label + ar_separator + self.type_label
-            else:
-                arlabel = self.type_label + ar_separator + self.country_label
+        arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
             logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
@@ -537,7 +501,6 @@ class LabelPipeline(Fixing):
             return ""
 
         self.refine_type_label()
-        self.check_tables()
 
         ar_separator = self.determine_separator()
         arlabel = self.join_labels(ar_separator)

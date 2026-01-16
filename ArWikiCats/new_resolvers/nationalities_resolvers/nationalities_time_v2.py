@@ -21,7 +21,6 @@ formatted_data = {
     "{year1} {en_nat} books": "كتب {female} في {year1}",
     # "20th-century Mexican literature": "أدب مكسيكي القرن 20",
     "{year1} {en_nat} literature": "أدب {male} في {year1}",
-
     # "coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في",
     "{year1} {en_nat} coming-of-age story television programmes endings": "برامج تلفزيونية قصة تقدم في العمر انتهت في {year1}",
     "{year1} {en_nat} films": "أفلام {female} في {year1}",
