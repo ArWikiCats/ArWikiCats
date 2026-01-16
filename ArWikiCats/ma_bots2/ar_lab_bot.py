@@ -8,18 +8,18 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
-from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
-from ...ma_bots.country_bot import event2_d2
-from ...make_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.check_bot import check_key_new_players
-from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
-from ...make_bots.o_bots import univer
-from ...old_bots import with_years_bot
-from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
-from ...translations import pop_of_without_in
-from ...utils import fix_minor
+from ..format_bots.relation_mapping import translation_category_relations
+from ..helps import logger
+from .year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
+from ..ma_bots.country_bot import event2_d2
+from ..make_bots.bot_2018 import get_pop_All_18
+from ..make_bots.matables_bots.check_bot import check_key_new_players
+from ..make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
+from ..make_bots.o_bots import univer
+from ..old_bots import with_years_bot
+from ..time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
+from ..translations import pop_of_without_in
+from ..utils import fix_minor
 from .lab import (
     get_con_lab,
     get_type_country,
