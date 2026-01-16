@@ -2,7 +2,7 @@
 
 from .companies import COMPANY_TYPE_TRANSLATIONS
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new_p17_final
+from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new_p17_final, raw_region_overrides
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
@@ -84,6 +84,7 @@ __all__ = [
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
+    "raw_region_overrides",
     "COUNTRY_LABEL_OVERRIDES",
     "apply_pattern_replacements",
     "typeTable",

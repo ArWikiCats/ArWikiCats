@@ -7,7 +7,7 @@ import functools
 from typing import Dict
 
 from ...helps import logger
-from ...translations import COUNTRY_LABEL_OVERRIDES
+from ...translations import COUNTRY_LABEL_OVERRIDES, raw_region_overrides
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
 
@@ -15,10 +15,13 @@ formatted_data_updated = dict(formatted_data_en_ar_only)
 
 geo_keys: Dict[str, str] = {
     "sanaa": "صنعاء",
+    "manitoba": "مانيتوبا",
     "bologna": "بولونيا",
+    "hubei": "خوبي",
+    "west virginia": "فرجينيا الغربية",
 }
 
-geo_data: Dict[str, str] = COUNTRY_LABEL_OVERRIDES | geo_keys
+geo_data: Dict[str, str] = COUNTRY_LABEL_OVERRIDES | raw_region_overrides | geo_keys
 
 
 @functools.lru_cache(maxsize=1)

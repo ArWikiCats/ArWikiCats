@@ -7,22 +7,22 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
 from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
 
 data_0 = {
-    "military history of estonia": "تاريخ إستونيا العسكري",
-    "Political history of West Virginia": "تاريخ فرجينيا الغربية السياسي",
-    "Military history of the Tsardom of Russia": "تاريخ روسيا القيصرية العسكري",
-    "Banks of Zambia": "بنوك زامبيا",
+    "Banks of bologna": "بنوك بولونيا",
     "Military history of Amhara Region": "تاريخ أمهرة العسكري",
+    "Military history of Bologna": "تاريخ بولونيا العسكري",
     "Military history of Hubei": "تاريخ خوبي العسكري",
     "Military history of republic of Venice": "تاريخ جمهورية البندقية العسكري",
+    "Military history of the Tsardom of Russia": "تاريخ روسيا القيصرية العسكري",
     "Military history of West Virginia": "تاريخ فرجينيا الغربية العسكري",
+    "Political history of Kurdistan": "تاريخ كردستان السياسي",
     "Political history of Manitoba": "تاريخ مانيتوبا السياسي",
     "Political history of Tamil Nadu": "تاريخ تامل نادو السياسي",
     "Political history of Texas": "تاريخ تكساس السياسي",
-    "Military history of Bologna": "تاريخ بولونيا العسكري",
-    "Political history of Kurdistan": "تاريخ كردستان السياسي",
+    "Political history of West Virginia": "تاريخ فرجينيا الغربية السياسي",
 }
 
 data_1 = {
