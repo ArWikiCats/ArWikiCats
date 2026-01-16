@@ -10,12 +10,13 @@ from __future__ import annotations
 import functools
 import re
 
+from ...new.resolve_films_bots import resolve_films_main
+
 from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ...translations import People_key, get_from_new_p17_final
-from ..films_and_others_bot import te_films
 from ..make_bots.bot_2018 import get_pop_All_18
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
@@ -84,7 +85,7 @@ def make_new_by_label(category: str) -> str:
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = (
-            te_films(candidate)
+            resolve_films_main(candidate)
             or resolve_languages_labels(candidate)
             or People_key.get(candidate)
         )

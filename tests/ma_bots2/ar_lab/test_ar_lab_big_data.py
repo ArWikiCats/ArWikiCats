@@ -483,7 +483,6 @@ data_list = [
 ]
 
 data_list_in = {
-    "1550 in music": "1550 في الموسيقى",
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
     "1550 in chinese motorsport": "1550 في رياضة المحركات الصينية",
     "1550 in english cricket": "1550 في الكريكت الإنجليزية",

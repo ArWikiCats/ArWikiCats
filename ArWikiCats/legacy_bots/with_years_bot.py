@@ -14,7 +14,6 @@ from ..new_resolvers.reslove_all import new_resolvers_all
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work
-from .films_and_others_bot import te_films
 from .ma_bots.ye_ts_bot import translate_general_category
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
@@ -56,7 +55,6 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or te_films(country2)
         or resolve_languages_labels(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)

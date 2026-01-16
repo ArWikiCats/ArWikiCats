@@ -10,7 +10,6 @@ from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
 from ..legacy_bots import sport_lab_suffixes, team_work, tmp_bot
-from ..legacy_bots.films_and_others_bot import te_films
 from ..legacy_bots.ma_bots import ye_ts_bot
 from ..legacy_bots.ma_bots2.country2_label_bot import country_2_title_work
 from ..legacy_bots.ma_bots.lab_seoo_bot import event_label_work
@@ -43,7 +42,6 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or te_films(country2)
         or resolve_languages_labels(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)

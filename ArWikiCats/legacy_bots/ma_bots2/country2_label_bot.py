@@ -16,7 +16,6 @@ from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor
 from .. import sport_lab_suffixes, team_work, with_years_bot
-from ..films_and_others_bot import te_films
 from ..ma_bots import country_bot
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
@@ -40,7 +39,6 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or te_films(country2)
         or resolve_languages_labels(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
@@ -95,7 +93,6 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
     part_1_label = (
         get_pop_All_18(cone_1)
-        or te_films(cone_1)
         or resolve_languages_labels(cone_1)
         or People_key.get(cone_1)
         or new_resolvers_all(cone_1)
@@ -125,7 +122,6 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
     part_2_label = (
         get_pop_All_18(cone_2)
         or bys.get_by_label(cone_2)
-        or te_films(cone_2)
         or resolve_languages_labels(cone_2)
         or People_key.get(cone_2)
         or new_resolvers_all(cone_2)

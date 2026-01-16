@@ -14,7 +14,6 @@ from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
 from ..new_resolvers.resolve_languages import resolve_languages_labels
-from .films_and_others_bot import te_films
 from .ma_bots import ye_ts_bot
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
@@ -47,7 +46,6 @@ def _resolve_label(label: str) -> str:
         new_resolvers_all(label)
         or get_from_pf_keys2(label)
         or get_pop_All_18(label)
-        or te_films(label)
         or resolve_languages_labels(label)
         or People_key.get(label)
         or sport_lab_suffixes.get_teams_new(label)

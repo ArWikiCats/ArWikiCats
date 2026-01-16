@@ -23,7 +23,6 @@ from ...translations import (
     religious_entries,
 )
 from .. import sport_lab_suffixes, team_work, with_years_bot
-from ..films_and_others_bot import te_films
 from ..ma_bots2.country2_label_bot import country_2_title_work
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
@@ -46,7 +45,6 @@ def get_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or te_films(country2)
         or resolve_languages_labels(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
@@ -197,7 +195,6 @@ class CountryLabelRetriever:
         label = (
             New_female_keys.get(country, "")
             or religious_entries.get(country, "")
-            or te_films(country)
             or resolve_languages_labels(country)
             or People_key.get(country)
             or new_resolvers_all(country)
