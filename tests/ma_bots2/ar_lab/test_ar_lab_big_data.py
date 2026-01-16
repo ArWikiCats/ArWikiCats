@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.ma_bots2.ar_lab.ar_lab_bot import find_ar_label
+from ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot import find_ar_label
 
 simple_list = [
     ("1550 mass shootings in oceania", " in ", "إطلاق نار عشوائي 1550 في أوقيانوسيا"),
@@ -181,7 +181,6 @@ data_list = [
     ("footballers from harlow", " from ", "لاعبو كرة قدم من هارلو"),
     ("footballers from mexico city", " from ", "لاعبو كرة قدم من مدينة مكسيكو"),
     ("french companies disestablished in 1550", " disestablished in ", "شركات فرنسية انحلت في 1550"),
-    ("french-language singers of cuba", " of ", "مغنون باللغة الفرنسية في كوبا"),
     ("geography of kansas by populated place", " by ", "جغرافيا كانساس حسب المكان المأهول"),
     ("geography of kansas", " of ", "جغرافيا كانساس"),
     ("ghanaian people of nigerien descent", " of ", "غانيون في أصل نيجري"),

@@ -4,7 +4,7 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.ma_bots.country_bot import Get_c_t_lab
+from ArWikiCats.legacy_bots.ma_bots.country_bot import Get_c_t_lab
 
 
 def test_get_c_t_lab() -> None:

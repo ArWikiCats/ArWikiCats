@@ -14,7 +14,7 @@ import functools
 import re
 
 from ...helps import logger
-from ...make_bots.matables_bots.table1_bot import get_KAKO
+from ...legacy_bots.matables_bots.table1_bot import get_KAKO
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations import get_from_new_p17_final, get_from_pf_keys2
 from ...translations.mixed.keys2 import medical_keys

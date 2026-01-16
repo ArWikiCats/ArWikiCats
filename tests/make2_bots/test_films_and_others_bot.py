@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.old_bots.films_and_others_bot import te_films
+from ArWikiCats.legacy_bots.films_and_others_bot import te_films
 
 fast_data_drama = {
     "english-language political drama films": "أفلام سياسية درامية باللغة الإنجليزية",

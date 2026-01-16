@@ -6,7 +6,7 @@ from typing import Dict
 
 import pytest
 
-from ArWikiCats.make_bots.o_bots import utils
+from ArWikiCats.legacy_bots.o_bots import utils
 
 
 @pytest.mark.parametrize(

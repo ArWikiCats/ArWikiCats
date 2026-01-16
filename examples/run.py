@@ -6,7 +6,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import logger, resolve_arabic_category_label
 from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
-from ArWikiCats.ma_bots2.year_or_typeo.bot_lab import (
+from ArWikiCats.legacy_bots.ma_bots2.year_or_typeo import (
     label_for_startwith_year_or_typeo,
 )
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new

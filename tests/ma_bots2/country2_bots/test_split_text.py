@@ -4,7 +4,7 @@
 
 import pytest
 
-from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import (
+from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import (
     split_text_by_separator,
 )
 

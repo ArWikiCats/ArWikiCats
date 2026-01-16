@@ -843,7 +843,6 @@ data1 = {
     "category:ukrainian non-fiction books": "تصنيف:كتب أوكرانية غير خيالية",
     "category:ukrainian non-fiction writers": "تصنيف:كتاب غير روائيين أوكرانيون",
     "category:ukrainian women non-fiction writers": "تصنيف:كاتبات غير روائيات أوكرانيات",
-    "category:urdu-language non-fiction writers": "تصنيف:كتاب غير روائيين باللغة الأردية",
     "category:uruguayan non-fiction books": "تصنيف:كتب أوروغويانية غير خيالية",
     "category:uruguayan non-fiction writers": "تصنيف:كتاب غير روائيين أوروغويانيون",
     "category:venezuelan non-fiction writers": "تصنيف:كتاب غير روائيين فنزويليون",

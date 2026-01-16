@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.old_bots.tmp_bot import Work_Templates
+from ArWikiCats.legacy_bots.tmp_bot import Work_Templates
 
 suffix_pase_data = [
     # ---------------------------------------------------------
