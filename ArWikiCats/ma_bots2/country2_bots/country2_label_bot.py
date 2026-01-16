@@ -24,9 +24,15 @@ from ...new_resolvers.bys_new import resolve_by_labels
 
 from ...old_bots import with_years_bot
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
-from ...translations import get_from_pf_keys2, typeTable
+from ...translations import get_from_pf_keys2
+from ...translations.type_tables import typeTable
 from ...utils import check_key_in_tables_return_tuple, fix_minor
 from .utils import split_text_by_separator
+
+to_check_them_tuble = {
+    "typeTable": typeTable,
+    "Films_O_TT": Films_O_TT,
+}
 
 pp_start_with2 = {
     "defunct": "{} سابقة",
@@ -193,10 +199,6 @@ def make_cnt_lab(
     resolved_label = part_1_label + ar_separator + part_2_label
     in_players = check_key_new_players(part_1_normalized.lower())
 
-    to_check_them_tuble = {
-        "typeTable": typeTable,
-        "Films_O_TT": Films_O_TT,
-    }
     co_in_tables, tab_name = check_key_in_tables_return_tuple(part_1_normalized, to_check_them_tuble)
 
     if co_in_tables or in_players:

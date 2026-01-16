@@ -8,7 +8,6 @@ from ...helps import len_print
 from ...translations import (
     ALBUMS_TYPE,
     Jobs_new,
-    typeTable,
 )
 
 typeTable_7: dict[str, str] = {
@@ -81,12 +80,6 @@ cash_2022 = {
 # ---
 All_P17 = {}
 Films_O_TT = {}
-
-Table_for_frist_word = {
-    "typetable": typeTable,
-    "Films_O_TT": Films_O_TT,
-    "New_players": players_new_keys,
-}
 
 
 def add_to_new_players(en: str, ar: str) -> None:

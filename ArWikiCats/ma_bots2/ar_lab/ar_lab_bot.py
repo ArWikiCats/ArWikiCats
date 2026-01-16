@@ -13,7 +13,7 @@ from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Table_for_frist_word
+from ...make_bots.matables_bots.bot import Films_O_TT, players_new_keys
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
@@ -26,7 +26,13 @@ from .lab import (
     get_type_lab,
 )
 from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
-Add_ar_in = {}
+from ...translations.type_tables import typeTable
+
+Table_for_frist_word = {
+    "typetable": typeTable,
+    "Films_O_TT": Films_O_TT,
+    "New_players": players_new_keys,
+}
 
 separators_lists_raw = [
     "in",
@@ -290,13 +296,13 @@ class Fixing:
 
         if self.country_in_table and self.add_in_lab:
             if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.country_label or self.type_lower in Add_ar_in
+                " في" not in self.country_label
             ):
                 ar_separator = " في "
                 logger.info("ssps:%s" % ar_separator)
         else:
             if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.type_label or self.type_lower in Add_ar_in
+                " في" not in self.type_label
             ):
                 self.type_label = self.type_label + " في"
 
