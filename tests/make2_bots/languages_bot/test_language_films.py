@@ -5,7 +5,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.make_bots.languages_bot.langs_w import Lang_work
 from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 
 test_data_0 = {
@@ -696,8 +695,6 @@ to_test = [
 @pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
 @pytest.mark.fast
 def test_language_films_0(category: str, expected: str) -> None:
-    label1 = Lang_work(category)
-    assert label1 == expected
 
     label2 = resolve_languages_labels(category)
     assert label2 == expected
@@ -706,8 +703,6 @@ def test_language_films_0(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_language_films(category: str, expected: str) -> None:
-    label1 = Lang_work(category)
-    assert label1 == expected
 
     label2 = resolve_languages_labels(category)
     assert label2 == expected

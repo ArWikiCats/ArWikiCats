@@ -4,11 +4,11 @@ Tests
 
 import pytest
 
-from ArWikiCats.make_bots.languages_bot.langs_w import (  # Lang_work,
+from ArWikiCats.make_bots.languages_bot.langs_w import (
     LANGUAGE_TOPIC_FORMATS,
     language_key_translations,
 )
-from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels as Lang_work
+from ArWikiCats.make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 
 language_key_translations = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:10]}
 
@@ -21,7 +21,7 @@ BASE_LANG_OUTPUT = "اللغة الأبخازية"
 def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # builds: "<lang> <suffix>"
     category = f"{BASE_LANG} {suffix}"
-    result = Lang_work(category)
+    result = resolve_languages_labels(category)
 
     # expected formatting
     expected = template.format(BASE_LANG_OUTPUT)
@@ -33,7 +33,7 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
 
 @pytest.mark.parametrize("lang,expected", language_key_translations.items())
 def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
-    result = Lang_work(lang)
+    result = resolve_languages_labels(lang)
     assert result == expected, (
         f"language_key_translations lookup mismatch for '{lang}'\n" f" {expected=}\n" f"Got:      {result}"
     )
@@ -41,47 +41,47 @@ def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
 
 def test_sample_direct_language() -> None:
     # from _languages_key
-    assert Lang_work("abkhazian language") == "لغة أبخازية"
-    assert Lang_work("afrikaans-language") == "اللغة الإفريقية"
-    assert Lang_work("albanian languages") == "اللغات الألبانية"
+    assert resolve_languages_labels("abkhazian language") == "لغة أبخازية"
+    assert resolve_languages_labels("afrikaans-language") == "اللغة الإفريقية"
+    assert resolve_languages_labels("albanian languages") == "اللغات الألبانية"
 
 
 def test_sample_lang_key_m_albums() -> None:
     # "albums": "ألبومات ب{}",
-    result = Lang_work("abkhazian-language albums")
+    result = resolve_languages_labels("abkhazian-language albums")
     assert result == "ألبومات باللغة الأبخازية"
 
 
 def test_sample_lang_key_m_categories() -> None:
     # "categories": "تصنيفات {}",
-    result = Lang_work("abkhazian-language categories")
+    result = resolve_languages_labels("abkhazian-language categories")
     assert result == "تصنيفات اللغة الأبخازية"
 
 
 def test_sample_lang_key_m_grammar() -> None:
     # "grammar": "قواعد اللغة ال{}",
-    result = Lang_work("abkhazian-language grammar")
+    result = resolve_languages_labels("abkhazian-language grammar")
     assert result == "قواعد اللغة الأبخازية"
 
 
 def test_sample_films_drama() -> None:
     # "action drama films": "أفلام حركة درامية {}",
-    result = Lang_work("abkhazian-language action drama films")
+    result = resolve_languages_labels("abkhazian-language action drama films")
     assert result == "أفلام حركة درامية باللغة الأبخازية"
 
 
 def test_romanization_pattern() -> None:
     # "romanization of"
-    result = Lang_work("romanization of abkhazian")
+    result = resolve_languages_labels("romanization of abkhazian")
     assert result == "رومنة اللغة الأبخازية"
 
 
 def test_films_pattern_basic() -> None:
     # "<lang> films" (no suffix)
-    result = Lang_work("abkhazian-language films")
+    result = resolve_languages_labels("abkhazian-language films")
     assert result == "أفلام باللغة الأبخازية"
 
 
 def test_no_match() -> None:
-    assert Lang_work("abkhazian-language unknown unknown") == ""
-    assert Lang_work("xyz something") == ""
+    assert resolve_languages_labels("abkhazian-language unknown unknown") == ""
+    assert resolve_languages_labels("xyz something") == ""
