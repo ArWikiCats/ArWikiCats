@@ -2,8 +2,7 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats import resolve_label_ar
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
+from ArWikiCats.new.resolve_films_bots import resolve_films_main
 
 data_1 = {
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
@@ -67,12 +66,12 @@ data_2 = {
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_films_keys2_batch_1(category: str, expected: str) -> None:
-    label = Films(category)
+    label = resolve_films_main(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_films_keys2_batch_1", data_1, Films),
+    ("test_films_keys2_batch_1", data_1, resolve_films_main),
     # ("test_films_keys2_batch_2", data_1, resolve_label_ar),
 ]
 

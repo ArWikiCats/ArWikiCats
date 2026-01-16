@@ -6,10 +6,10 @@ Sports team and club category processing.
 import functools
 
 from ..helps import logger
-from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_new_and_time
+from ..new.resolve_films_bots import get_Films_key_CAO, get_films_key_tyty_new, get_films_key_tyty_new_and_time
 from ..new.resolve_films_bots.film_keys_bot import Films
 from ..new_resolvers.relations_resolver import new_relations_resolvers
-from ..translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
+from ..translations import INTER_FEDS_LOWER, Clubs_key_2, Films_key_CAO, pop_of_football_lower
 from .o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
@@ -96,15 +96,17 @@ def _resolve_club_label(club_key: str) -> str:
     Returns:
         str: The resolved Arabic label for the given club_key, or an empty string if no match is found.
     """
+    club_key = club_key.lower().strip()
     club_lab = (
-        Clubs_key_2.get(club_key)
-        or Clubs_key_2.get(club_key.lower())
+        Clubs_key_2.get(club_key.lower())
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
         or new_relations_resolvers(club_key)
+
         or get_films_key_tyty_new_and_time(club_key)
+        or Films_key_CAO.get(club_key, "")
+        or get_Films_key_CAO(club_key)
         or get_films_key_tyty_new(club_key)
-        or Films(club_key)
         or ""
     )
     return club_lab

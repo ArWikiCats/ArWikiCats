@@ -88,3 +88,10 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
 def fetch_films_by_category(category):
     result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
     return result
+
+
+__all__ = [
+    "fetch_films_by_category",
+    "get_films_key_tyty_new_and_time",
+    "get_films_key_tyty_new",
+]
