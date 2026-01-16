@@ -11,7 +11,6 @@ from ...old_bots.sports_bots import team_work
 
 from ...helps import logger
 from ...ma_bots.country_bot import Get_c_t_lab, get_country
-from ...make_bots.languages_bot.langs_w import Lang_work
 from ...make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ...make_bots.matables_bots.table1_bot import get_KAKO
@@ -332,7 +331,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
         "resolve_languages_labels": resolve_languages_labels,
-        "Lang_work": Lang_work,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 

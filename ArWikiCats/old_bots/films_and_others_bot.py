@@ -53,7 +53,6 @@ def te_films(category: str) -> str:
         "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
         # "get_pop_All_18": lambda k: get_pop_All_18(k),
-        "Lang_work": lambda k: Lang_work(k),
         "resolve_languages_labels": lambda k: resolve_languages_labels(k),
         "People_key": lambda k: People_key.get(k),
         "te_language": lambda k: te_language(k),

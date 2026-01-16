@@ -8,7 +8,6 @@ import functools
 from ..helps import logger
 from ..ma_bots2.year_or_typeo import bot_lab
 from ..ma_bots.country_bot import event2_d2
-from ..make_bots.languages_bot.langs_w import Lang_work
 from ..make_bots.languages_bot.resolve_languages_new import resolve_languages_labels
 from ..make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
 from ..make_bots.o_bots import univer
@@ -59,7 +58,6 @@ def event_label_work(target_category: str) -> str:
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or new_resolvers_all(normalized_target_category)
-        or Lang_work(normalized_target_category)
         or resolve_languages_labels(normalized_target_category)
         or People_key.get(normalized_target_category)
         or univer.te_universities(normalized_target_category)
