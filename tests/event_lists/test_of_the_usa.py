@@ -1,0 +1,245 @@
+#
+import pytest
+from load_one_data import dump_diff, one_dump_test, dump_diff_text
+
+from ArWikiCats import resolve_label_ar
+
+data_1 = {
+    "Attacks on diplomatic missions of the United States": "هجمات على بعثات دبلوماسية الولايات المتحدة",
+    "Islands of the West Coast of the United States": "جزر الساحل الغربي للولايات المتحدة",
+    "Legal history of the United States": "تاريخ الولايات المتحدة القانوني",
+    "Lists of ambassadors of the United States": "قوائم سفراء الولايات المتحدة",
+    "Lists of amphibians of the United States": "قوائم برمائيات الولايات المتحدة",
+    "Lists of animals of the United States": "قوائم حيوانات الولايات المتحدة",
+    "Lists of beaches of the United States": "قوائم شواطئ الولايات المتحدة",
+    "Lists of biota of the United States": "قوائم حيويات الولايات المتحدة",
+    "Lists of birds of the United States": "قوائم طيور الولايات المتحدة",
+    "Lists of candidates for President of the United States": "قوائم مرشحون لمنصب رئيس الولايات المتحدة",
+    "Lists of caves of the United States": "قوائم كهوف الولايات المتحدة",
+    "Geography of the West Coast of the United States": "جغرافيا الساحل الغربي للولايات المتحدة",
+    "Heads of state of the United States": "قادة الولايات المتحدة",
+    "History of the foreign relations of the United States": "تاريخ علاقات الولايات المتحدة الخارجية",
+    "History of the government of the United States": "تاريخ حكومة الولايات المتحدة",
+    "History of the Supreme Court of the United States": "تاريخ المحكمة العليا الأمريكية",
+    "Finances of presidents of the United States": "مالية رؤساء الولايات المتحدة",
+    "Flora of the West Coast of the United States": "نباتات الساحل الغربي للولايات المتحدة",
+    "Cultural depictions of presidents of the United States": "تصوير ثقافي عن رؤساء الولايات المتحدة",
+    "Children of presidents of the United States": "أبناء رؤساء الولايات المتحدة",
+    "Children of vice presidents of the United States": "أبناء نواب رؤساء الولايات المتحدة",
+    "Beaches of the West Coast of the United States": "شواطئ الساحل الغربي للولايات المتحدة",
+    "Bibliographies of presidents of the United States": "ببليوجرافيات رؤساء الولايات المتحدة",
+    "Assassins of presidents of the United States": "منفذو اغتيالات من رؤساء الولايات المتحدة",
+    "Assistant Secretaries of Defense of the United States": "مساعدو وزير الدفاع الأمريكي",
+    "History of the West Coast of the United States": "تاريخ الساحل الغربي للولايات المتحدة",
+    "Lists of fictional presidents of the United States": "قوائم رؤساء الولايات المتحدة الخياليون",
+    "Lists of fishes of the United States": "قوائم أسماك الولايات المتحدة",
+    "Lists of flags of the United States": "قوائم أعلام الولايات المتحدة",
+    "Lists of flora of the United States": "قوائم نباتات الولايات المتحدة",
+    "Lists of insects of the United States": "قوائم حشرات الولايات المتحدة",
+    "Lists of islands of the United States": "قوائم جزر الولايات المتحدة",
+    "Lists of lakes of the United States": "قوائم بحيرات الولايات المتحدة",
+    "Lists of landforms of the United States": "قوائم تضاريس الولايات المتحدة",
+    "Lists of mammals of the United States": "قوائم ثدييات الولايات المتحدة",
+    "Lists of members of the Cabinet of the United States": "قوائم أعضاء مجلس وزراء الولايات المتحدة",
+    "Lists of military units and formations of the United States": "قوائم وحدات وتشكيلات الولايات المتحدة العسكرية",
+    "Monuments and memorials to presidents of the United States": "معالم أثرية ونصب تذكارية لرؤساء الولايات المتحدة",
+    "Physicians to the president of the United States": "أطباء إلى رئيس الولايات المتحدة",
+    "Lists of monuments and memorials to presidents of the United States": "قوائم معالم أثرية ونصب تذكارية إلى رؤساء الولايات المتحدة",
+    "Lists of mountains of the United States": "قوائم جبال الولايات المتحدة",
+    "Lists of reptiles of the United States": "قوائم زواحف الولايات المتحدة",
+    "Lists of rivers of the United States": "قوائم أنهار الولايات المتحدة",
+    "Lists of ships of the United States": "قوائم سفن الولايات المتحدة",
+    "Lists of state governors of the United States": "قوائم حكام ولايات من الولايات المتحدة",
+    "Lists of subdivisions of the United States": "قوائم تقسيمات الولايات المتحدة",
+    "Members of the Cabinet of the United States": "أعضاء مجلس وزراء الولايات المتحدة",
+    "Mistresses of presidents of the United States": "عشيقات رؤساء الولايات المتحدة",
+    "Secretaries of agriculture of the United States": "وزراء زراعة أمريكيون",
+    "Secretaries of transportation of the United States": "وزراء نقل أمريكيون",
+    "Regions of the West Coast of the United States": "مناطق الساحل الغربي للولايات المتحدة",
+
+}
+
+data_2 = {
+    "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
+    "Bilateral military relations of the United States": "علاقات الولايات المتحدة الثنائية العسكرية",
+    "Bilateral relations of the United States": "علاقات الولايات المتحدة الثنائية",
+    "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
+    "Works about military history of the United States": "أعمال عن التاريخ العسكري الولايات المتحدة",
+    "Works about presidents of the United States": "أعمال عن رؤساء الولايات المتحدة",
+    "Works about the military of the United States": "أعمال عن عسكرية الولايات المتحدة",
+    "Works by presidents of the United States": "أعمال رؤساء الولايات المتحدة",
+
+    "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية الولايات المتحدة",
+    "National sports teams of the United States": "منتخبات رياضية وطنية من الولايات المتحدة",
+    "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
+    "Women's national sports teams of the United States": "منتخبات رياضية وطنية نسائية الولايات المتحدة",
+
+    "Biographical films about presidents of the United States": "أفلام سير ذاتية عن رؤساء الولايات المتحدة",
+    "Documentary films about presidents of the United States": "أفلام وثائقية عن رؤساء الولايات المتحدة",
+    "Films about fictional presidents of the United States": "أفلام عن رؤساء خياليون الولايات المتحدة",
+    "Films about presidents of the United States": "أفلام عن رؤساء الولايات المتحدة",
+
+    "Candidates for President of the United States": "مرشحون لمنصب رئيس الولايات المتحدة",
+    "Jewish candidates for President of the United States": "مرشحون يهود لمنصب رئيس الولايات المتحدة",
+    "Female candidates for President of the United States": "مرشحات لمنصب رئيس الولايات المتحدة",
+
+    "Books about politics of the United States": "كتب عن سياسة الولايات المتحدة",
+    "Books about presidents of the United States": "كتب عن رؤساء الولايات المتحدة",
+    "Books about the economy of the United States": "كتب عن اقتصاد الولايات المتحدة",
+    "Categories by language of the United States": "تصنيفات حسب لغة الولايات المتحدة",
+    "Cinema by language of the United States": "سينما حسب لغة الولايات المتحدة",
+    "Mass media by language of the United States": "وسائل إعلام حسب لغة الولايات المتحدة",
+    "Books written by presidents of the United States": "كتب كتبها رؤساء الولايات المتحدة",
+    "Children's books about presidents of the United States": "كتب أطفال عن رؤساء الولايات المتحدة",
+    "Non-fiction books about military history of the United States": "كتب غير خيالية عن التاريخ العسكري الولايات المتحدة",
+    "Songs about presidents of the United States": "أغاني عن رؤساء الولايات المتحدة",
+    "Television series about presidents of the United States": "مسلسلات تلفزيونية عن رؤساء الولايات المتحدة",
+    "Television series about the history of the United States": "مسلسلات تلفزيونية عن تاريخ الولايات المتحدة",
+    "Conspiracy theories involving presidents of the United States": "نظريات مؤامرة تشمل رؤساء الولايات المتحدة",
+
+}
+
+data_3 = {
+    "Cultural history of the United States": "تاريخ الولايات المتحدة الثقافي",
+    "Demographic history of the United States": "تاريخ الولايات المتحدة الديموغرافي",
+    "Economic history of the United States": "تاريخ الولايات المتحدة الاقتصادي",
+    "History of the United States": "تاريخ الولايات المتحدة",
+    "Maritime history of the United States": "تاريخ الولايات المتحدة البحري",
+    "Military history of the United States": "تاريخ الولايات المتحدة العسكري",
+    "Nuclear history of the United States": "تاريخ الولايات المتحدة النووي",
+    "Political history of the United States": "تاريخ الولايات المتحدة السياسي",
+    "Prehistory of the United States": "الولايات المتحدة ما قبل التاريخ",
+    "Social history of the United States": "تاريخ الولايات المتحدة الاجتماعي",
+
+    "Acting presidents of the United States": "رؤساء الولايات المتحدة بالإنابة",
+    "Ambassadors of the United States": "سفراء الولايات المتحدة",
+    "Amphibians of the United States": "برمائيات الولايات المتحدة",
+    "Arachnids of the United States": "عنكبيات الولايات المتحدة",
+    "Archipelagoes of the United States": "أرخبيلات الولايات المتحدة",
+    "Arthropods of the United States": "مفصليات الولايات المتحدة",
+    "Attorneys general of the United States": "مدعون عامون من الولايات المتحدة",
+    "Banks of the United States": "بنوك الولايات المتحدة",
+    "Bats of the United States": "خفاشيات الولايات المتحدة",
+    "Bays of the United States": "خلجان الولايات المتحدة",
+    "Beaches of the United States": "شواطئ الولايات المتحدة",
+    "Bilateral treaties of the United States": "معاهدات الولايات المتحدة الثنائية",
+    "Biota of the United States": "حيويات الولايات المتحدة",
+    "Birds of the United States": "طيور الولايات المتحدة",
+    "Borders of the United States": "حدود الولايات المتحدة",
+    "Cabinet of the United States": "مجلس وزراء الولايات المتحدة",
+    "Cacti of the United States": "صباريات الولايات المتحدة",
+    "Cargo ships of the United States": "سفن بضائع الولايات المتحدة",
+    "Caves of the United States": "كهوف الولايات المتحدة",
+    "Chief justices of the United States": "رؤساء قضاء الولايات المتحدة",
+    "Cliffs of the United States": "منحدرات الولايات المتحدة",
+    "Climate of the United States": "مناخ الولايات المتحدة",
+    "Coachbuilders of the United States": "صانعو هياكل سيارات من الولايات المتحدة",
+    "Coasts of the United States": "سواحل الولايات المتحدة",
+    "Crustaceans of the United States": "قشريات الولايات المتحدة",
+    "Culture of the United States": "ثقافة الولايات المتحدة",
+    "Deserts of the United States": "صحاري الولايات المتحدة",
+    "Diplomatic missions of the United States": "بعثات الولايات المتحدة الدبلوماسية",
+    "Economy of the United States": "اقتصاد الولايات المتحدة",
+    "Environment of the United States": "بيئة الولايات المتحدة",
+    "Explorers of the United States": "مستكشفو الولايات المتحدة",
+    "Extrajudicial prisoners of the United States": "مسجونون خارج نطاق القضاء من الولايات المتحدة",
+    "Fauna of the United States": "حيوانات الولايات المتحدة",
+    "Featured pictures of the United States": "صور مميزة عن الولايات المتحدة",
+    "Fictional presidents of the United States": "رؤساء الولايات المتحدة الخياليون",
+    "Fish of the United States": "أسماك الولايات المتحدة",
+    "Flags of the United States": "أعلام الولايات المتحدة",
+    "Flora of the United States": "نباتات الولايات المتحدة",
+    "Foreign relations of the United States": "علاقات الولايات المتحدة الخارجية",
+    "Forests of the United States": "غابات الولايات المتحدة",
+    "Fungi of the United States": "فطريات الولايات المتحدة",
+    "Geography of the United States": "جغرافيا الولايات المتحدة",
+    "Geology of the United States": "جيولوجيا الولايات المتحدة",
+    "Government of the United States": "حكومة الولايات المتحدة",
+    "Gulfs of the United States": "خلجان الولايات المتحدة",
+    "Hills of the United States": "تلال الولايات المتحدة",
+    "Historians of the United States": "مؤرخو الولايات المتحدة",
+    "Historiography of the United States": "تأريخ الولايات المتحدة",
+    "Hot springs of the United States": "ينابيع حارة الولايات المتحدة",
+    "Images of the United States": "صور من الولايات المتحدة",
+    "Insects of the United States": "حشرات الولايات المتحدة",
+    "Invertebrates of the United States": "لافقاريات الولايات المتحدة",
+    "Islands of the United States": "جزر الولايات المتحدة",
+    "Lakes of the United States": "بحيرات الولايات المتحدة",
+    "Landforms of the United States": "تضاريس الولايات المتحدة",
+    "Languages of the United States": "لغات الولايات المتحدة",
+
+    "Mammals of the United States": "ثدييات الولايات المتحدة",
+    "Military equipment of the United States": "عتاد الولايات المتحدة العسكري",
+    "Military installations of the United States": "منشآت الولايات المتحدة العسكرية",
+    "Military of the United States": "عسكرية الولايات المتحدة",
+    "Military units and formations of the United States": "وحدات وتشكيلات الولايات المتحدة العسكرية",
+    "Molluscs of the United States": "رخويات الولايات المتحدة",
+    "Mountains of the United States": "جبال الولايات المتحدة",
+    "Music of the United States": "موسيقى الولايات المتحدة",
+    "National debt of the United States": "الدين العام الأمريكي",
+    "National symbols of the United States": "رموز الولايات المتحدة الوطنية",
+    "Orders, decorations, and medals of the United States": "مراتب تشريفية وأوسمة وميداليات الولايات المتحدة",
+    "Peace treaties of the United States": "معاهدات سلام الولايات المتحدة",
+    "Plains of the United States": "سهول الولايات المتحدة",
+    "Plateaus of the United States": "هضاب الولايات المتحدة",
+    "Politics of the United States": "سياسة الولايات المتحدة",
+    "Presidencies of the United States": "رئاسات الولايات المتحدة",
+    "Presidency of the United States": "رئاسة الولايات المتحدة",
+    "Presidents of the United States": "رؤساء الولايات المتحدة",
+    "Reefs of the United States": "شعاب الولايات المتحدة",
+    "Regions of the United States": "مناطق الولايات المتحدة",
+    "Reptiles of the United States": "زواحف الولايات المتحدة",
+    "Rivers of the United States": "أنهار الولايات المتحدة",
+    "Rodents of the United States": "قوارض الولايات المتحدة",
+    "Satellites of the United States": "أقمار صناعية تتبع الولايات المتحدة",
+    "Seas of the United States": "بحار الولايات المتحدة",
+    "Ships of the United States": "سفن الولايات المتحدة",
+    "Society of the United States": "مجتمع الولايات المتحدة",
+    "Springs of the United States": "ينابيع الولايات المتحدة",
+    "State appellate courts of the United States": "محاكم استئناف ولايات الولايات المتحدة",
+    "State cabinet secretaries of the United States": "أعضاء مجلس وزراء الولايات المتحدة",
+    "State governors of the United States": "حكام ولايات من الولايات المتحدة",
+    "State legislators of the United States": "مشرعو الولايات من الولايات المتحدة",
+    "State treasurers of the United States": "أمناء خزينة ولاية الولايات المتحدة",
+    "Straits of the United States": "مضائق الولايات المتحدة",
+    "Submarines of the United States": "غواصات الولايات المتحدة",
+    "Tanks of the United States": "دبابات الولايات المتحدة",
+    "Treasurers of the United States": "أمناء خزينة الولايات المتحدة",
+    "Treaties of the United States": "معاهدات الولايات المتحدة",
+    "Valleys of the United States": "أودية الولايات المتحدة",
+    "Vehicles of the United States": "مركبات الولايات المتحدة",
+    "Vertebrates of the United States": "فقاريات الولايات المتحدة",
+    "Vice presidency of the United States": "نائب رئاسة الولايات المتحدة",
+    "Vice presidents of the United States": "نواب رؤساء الولايات المتحدة",
+    "Volcanoes of the United States": "براكين الولايات المتحدة",
+    "Waterfalls of the United States": "شلالات الولايات المتحدة",
+}
+
+
+@pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_2(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
+to_test = [
+    # ("test_1", data_1),
+    # ("test_2", data_2),
+    ("test_3", data_3),
+]
+
+
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+def test_1(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.dump
+def test_dump_it(name: str, data: dict[str, str]) -> None:
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
+
+    dump_diff(diff_result, name)
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

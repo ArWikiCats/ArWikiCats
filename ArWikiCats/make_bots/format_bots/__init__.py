@@ -61,7 +61,14 @@ pop_format = {
     "university of": "جامعة {}",
 
     "prehistory of": "{} ما قبل التاريخ",
+    "nuclear history": "تاريخ {} النووي",
+    "natural history": "تاريخ {} الطبيعي",
+    "military history": "تاريخ {} العسكري",
+    "political history": "تاريخ {} السياسي",
+    "social history": "تاريخ {} الاجتماعي",
+}
 
+pop_format_history = {
     "contemporary history of": "تاريخ {} المعاصر",
     "cultural history of": "تاريخ {} الثقافي",
     "demographic history of": "تاريخ {} الديموغرافي",
@@ -80,14 +87,9 @@ pop_format = {
     "naval history of": "تاريخ {} العسكري البحري",
     "political history of": "تاريخ {} السياسي",
     "social history of": "تاريخ {} الاجتماعي",
-
-    "nuclear history": "تاريخ {} النووي",
-    "natural history": "تاريخ {} الطبيعي",
-    "military history": "تاريخ {} العسكري",
-    "political history": "تاريخ {} السياسي",
-    "social history": "تاريخ {} الاجتماعي",
 }
 
+# pop_format.update(pop_format_history)
 
 replaces = {
     "election, ": "election ",
