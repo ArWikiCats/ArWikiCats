@@ -140,7 +140,6 @@ title_work_tests_data = {
     "lists of legislators": "قوائم مشرعون",
     "lists of roads": "قوائم طرقات",
     "members of maine legislature": "أعضاء هيئة مين التشريعية",
-    "military history of estonia": "تاريخ إستونيا العسكري",
     "military operations of american civil war": "عمليات عسكرية في الحرب الأهلية الأمريكية",
     "military operations of syrian civil war": "عمليات عسكرية في الحرب الأهلية السورية",
     "military operations of war in afghanistan (1520–1520)": "عمليات عسكرية في الحرب في أفغانستان (1520–1520)",

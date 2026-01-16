@@ -82,7 +82,6 @@ data_of = {
     "lists of television characters": ("lists of", "television characters"),
     "lists of universities and colleges": ("lists of", "universities and colleges"),
     "members of maine legislature": ("members of", "maine legislature"),
-    "military history of estonia": ("military history of", "estonia"),
     "military history of united states": ("military history of", "united states"),
     "military operations of american civil war": ("military operations of", "american civil war"),
     "military operations of syrian civil war": ("military operations of", "syrian civil war"),

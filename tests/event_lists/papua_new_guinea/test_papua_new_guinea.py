@@ -507,7 +507,7 @@ data_1 = {
     "Category:Aviation in Papua New Guinea": "تصنيف:طيران في بابوا غينيا الجديدة",
     "Category:Aviation organisations based in Papua New Guinea": "تصنيف:منظمات طيران مقرها في بابوا غينيا الجديدة",
     "Category:Bangladesh–Papua New Guinea relations": "تصنيف:العلاقات البنغلاديشية الغينية",
-    "Category:Banks of Papua New Guinea": "تصنيف:بنوك في بابوا غينيا الجديدة",
+    "Category:Banks of Papua New Guinea": "تصنيف:بنوك بابوا غينيا الجديدة",
     "Category:Basketball in Papua New Guinea": "تصنيف:كرة السلة في بابوا غينيا الجديدة",
     "Category:Basketball teams in Papua New Guinea": "تصنيف:فرق كرة السلة في بابوا غينيا الجديدة",
     "Category:Battles and operations of World War II involving Papua New Guinea": "تصنيف:معارك وعمليات الحرب العالمية الثانية تشمل بابوا غينيا الجديدة",

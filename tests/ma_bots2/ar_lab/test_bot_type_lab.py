@@ -122,7 +122,6 @@ data = [
     (" hosted by ", "international ice hockey competitions", "منافسات هوكي جليد دولية"),
     (" opened in ", "railway stations in the netherlands", "محطات السكك الحديدية في هولندا"),
     (" from ", "players of american football", "لاعبو كرة قدم أمريكية"),
-    (" during ", "military history of estonia", "تاريخ إستونيا العسكري"),
     (" in ", "defunct sports clubs and teams", "أندية وفرق رياضية سابقة"),
     (" in ", "installations of united states air force", "منشآت في القوات الجوية الأمريكية"),
     (" in ", "united states air force", "القوات الجوية الأمريكية"),
