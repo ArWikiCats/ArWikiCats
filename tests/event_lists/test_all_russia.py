@@ -704,14 +704,8 @@ data1 = {
     "Category:History books about the Tsardom of Russia": "تصنيف:كتب تاريخ عن روسيا القيصرية",
     "Category:Films about the French invasion of Russia": "تصنيف:أفلام عن الغزو الفرنسي في روسيا",
     "Category:Books about presidents of Russia": "تصنيف:كتب عن رؤساء روسيا",
-    "Category:Yiddish-language singers of Russia": "تصنيف:مغنون باللغة اليديشية في روسيا",
-    "Category:Tajik-language singers of Russia": "تصنيف:مغنون باللغة الطاجيكية في روسيا",
-    "Category:Persian-language singers of Russia": "تصنيف:مغنون باللغة الفارسية في روسيا",
     "Category:Mass media by language of Russia": "تصنيف:وسائل إعلام حسب لغة روسيا",
-    "Category:Hebrew-language singers of Russia": "تصنيف:مغنون باللغة العبرية في روسيا",
-    "Category:German-language singers of Russia": "تصنيف:مغنون باللغة الألمانية في روسيا",
     "Category:Categories by language of Russia": "تصنيف:تصنيفات حسب لغة روسيا",
-    "Category:Azerbaijani-language singers of Russia": "تصنيف:مغنون باللغة الأذربيجانية في روسيا",
 }
 
 companies_data = {
