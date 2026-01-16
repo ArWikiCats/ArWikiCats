@@ -6,18 +6,19 @@ from pathlib import Path
 
 dir = Path(__file__).parent
 
-f_path = dir / "endings.json"
+f_path = dir / "beginnings.json"
 
 f_data = {}
 
-json_files = list((dir / "data").glob("*.json") + (dir / "big_data").glob("*.json"))
+json_files = list((dir / "data").glob("*.json"))
+json_files.extend(list((dir / "big_data").glob("*.json")))
 
 for file in tqdm(json_files, desc="Processing JSON files"):
     with open(file, "r", encoding="utf-8") as f:
         json_data = json.load(f)
 
     for key, value in json_data.copy().items():
-        if "endings" in key:
+        if "beginnings" in key:
             f_data[key] = value
             del json_data[key]
     with open(file, "w", encoding="utf-8") as f:
