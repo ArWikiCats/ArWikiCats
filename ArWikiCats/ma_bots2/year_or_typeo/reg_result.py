@@ -3,7 +3,6 @@ import re
 from dataclasses import dataclass
 
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
-from ...translations.type_tables import basedtypeTable
 
 
 @functools.lru_cache(maxsize=1)
@@ -20,10 +19,8 @@ def _load_pattern() -> re.Pattern:
 
     _MONTHSTR3 = "(?:january|february|march|april|may|june|july|august|september|october|november|december)? *"
 
-    _basedtypeTable = sorted(
-        basedtypeTable.keys(),
-        key=lambda k: (-k.count(" "), -len(k)),
-    )
+    _basedtypeTable = {}
+
     _typeo_pattern = "|".join(map(re.escape, [n.lower() for n in _basedtypeTable]))
 
     _sorted_mapping = sorted(
@@ -96,11 +93,6 @@ def get_reg_result(category_r: str) -> TypiesResult:
 
     if not year_first and not typeo:
         country = ""
-
-    # if country.lower() == cate_gory.lower().replace("category:", ""): country = ""
-    # Category:january 2025 disasters during Covid-19
-    # year_first='january 2025 ', typeo='disasters', In='during ', country='covid-19', cat_test='january 2025 disasters during covid-19'
-    # print(f"{year_first=}, {typeo=}, {In=}, {country=}, {cat_test=}\n" * 10)
 
     return TypiesResult(
         year_at_first=year_first,

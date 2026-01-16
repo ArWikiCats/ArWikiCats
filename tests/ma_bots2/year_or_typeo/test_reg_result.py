@@ -4,19 +4,14 @@ Tests
 
 import pytest
 
-from ArWikiCats.ma_bots2.year_or_typeo.reg_result import (
-    TypiesResult,
-    get_reg_result,
-)
+from ArWikiCats.ma_bots2.year_or_typeo.reg_result import get_reg_result
 
 
 def test_get_reg_result_1() -> None:
     # Test with basic inputs
-    # >>>> self.year_at_first='19th ', self.typeo='', "self.In='', self.country='government of turkey', self.cat_test='government of turkey'
     result = get_reg_result("Category:19th government of turkey")
     assert result.year_at_first_strip == "19th"
     assert result.In == ""
-    assert result.typeo == ""
     assert result.country == "government of turkey"
     assert result.cat_test == "government of turkey"
 
@@ -26,7 +21,6 @@ def test_get_reg_result() -> None:
     result = get_reg_result("Category:2025 in fishes")
     assert hasattr(result, "year_at_first")
     assert result.year_at_first_strip == "2025"
-    assert hasattr(result, "typeo")
     assert hasattr(result, "In")
     assert hasattr(result, "country")
     assert hasattr(result, "cat_test")
@@ -34,30 +28,9 @@ def test_get_reg_result() -> None:
     # Test with different parameters
     result_various = get_reg_result("category:year in type")
     assert hasattr(result_various, "year_at_first")
-    assert hasattr(result_various, "typeo")
     assert hasattr(result_various, "In")
     assert hasattr(result_various, "country")
     assert hasattr(result_various, "cat_test")
-
-
-def test_typies() -> None:
-    # Test that TypiesResult class can be instantiated
-    typies_instance = TypiesResult(
-        year_at_first="2020", year_at_first_strip="2020", typeo="test", In="in", country="us", cat_test="test"
-    )
-    assert typies_instance.year_at_first_strip == "2020"
-    assert typies_instance.typeo == "test"
-    assert typies_instance.In == "in"
-    assert typies_instance.country == "us"
-    assert typies_instance.cat_test == "test"
-
-    # Test with empty values
-    typies_empty = TypiesResult(year_at_first="", year_at_first_strip="", typeo="", In="", country="", cat_test="")
-    assert typies_empty.year_at_first == ""
-    assert typies_empty.typeo == ""
-    assert typies_empty.In == ""
-    assert typies_empty.country == ""
-    assert typies_empty.cat_test == ""
 
 
 class TestYearExtraction:
@@ -101,7 +74,6 @@ class TestYearExtraction:
     def test_year2(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
-
 
 
 # -----------------------------------------------------------
@@ -165,7 +137,6 @@ class TestEdgeCases:
     def test_empty_category(self) -> None:
         out = get_reg_result("")
         assert out.year_at_first == ""
-        assert out.typeo == ""
         assert out.In == ""
         assert out.country == ""
 
@@ -173,10 +144,8 @@ class TestEdgeCases:
         cat = "Category:"
         out = get_reg_result(cat)
         assert out.year_at_first == ""
-        assert out.typeo == ""
 
     def test_spaces_only(self) -> None:
         cat = "Category:     "
         out = get_reg_result(cat)
         assert out.year_at_first == ""
-        assert out.typeo == ""

@@ -1,71 +1,6 @@
 from ..helps import len_print
 from .tv.films_mslslat import television_keys
 
-basedtypeTable = {
-    # "establishments": "تأسيسات",
-    # "disestablishments": "انحلالات",
-    # "sports events": "أحداث رياضية",
-    # "sports-events": "أحداث رياضية",
-
-    "video games": "ألعاب فيديو",
-    "politics": "سياسة",
-    "installations": "منشآت",
-    "fortifications": "تحصينات",
-    "finales": "نهايات",
-    "festivals": "مهرجانات",
-    "elections": "انتخابات",
-    "counties": "مقاطعات",
-    "awards": "جوائز",
-    "youth sport": "رياضة شبابية",
-    "works by": "أعمال بواسطة",
-    "uci road world cup": "كأس العالم لسباق الدراجات على الطريق",
-    "television series": "مسلسلات تلفزيونية",
-    "television seasons": "مواسم تلفزيونية",
-    "television news": "أخبار تلفزيونية",
-    "miniseries": "مسلسلات قصيرة",
-    "television miniseries": "مسلسلات قصيرة تلفزيونية",
-    "television films": "أفلام تلفزيونية",
-    "television commercials": "إعلانات تجارية تلفزيونية",
-    "road cycling": "سباق الدراجات على الطريق",
-    "qualification for": "تصفيات مؤهلة إلى",
-    "produced": "أنتجت",
-    "paralympic competitors for": "منافسون بارالمبيون من",
-    "olympic medalists for": "فائزون بميداليات أولمبية من",
-    "olympic competitors for": "منافسون أولمبيون من",
-    "members of parliament for": "أعضاء البرلمان عن",
-    "lists of": "قوائم",
-    "interactive fiction": "الخيال التفاعلي",
-    "fish described": "أسماك وصفت",
-    "events": "أحداث",
-    "endings": "نهايات",
-    "disasters": "كوارث",
-    "deaths by": "وفيات بواسطة",
-    "deaths": "وفيات",
-    "crimes": "جرائم",
-    "conflicts": "نزاعات",
-    "characters": "شخصيات",
-    "births": "مواليد",
-    "beginnings": "بدايات",
-    "attacks": "هجمات",
-    "architecture": "عمارة",
-
-    "FIFA World Cup players": "لاعبو كأس العالم لكرة القدم",
-    "FIFA futsal World Cup players": "لاعبو كأس العالم لكرة الصالات",
-    "commonwealth games competitors for": "منافسون في ألعاب الكومنولث من",
-    "winter olympics competitors for": "منافسون أولمبيون شتويون من",
-
-    "uci women's road world cup": "كأس العالم لسباق الدراجات على الطريق للنساء",
-    "UCI Oceania Tour": "طواف أوقيانوسيا للدراجات",
-    "UCI Europe Tour": "طواف أوروبا للدراجات",
-    "UCI Asia Tour": "طواف آسيا للدراجات",
-    "UCI America Tour": "طواف أمريكا للدراجات",
-    "UCI Africa Tour": "طواف إفريقيا للدراجات",
-
-    "-related timelines": "جداول زمنية متعلقة",
-    "-related professional associations": "جمعيات تخصصية متعلقة",
-    "-related lists": "قوائم متعلقة",
-}
-
 debuts_endings_key = [
     "television series",
     "television miniseries",
@@ -264,7 +199,7 @@ type_table_television_keys = {
 
 type_Table_no.update(type_table_television_keys)
 
-type_table_labels = type_Table_no | basedtypeTable
+type_table_labels = type_Table_no
 
 type_Table_oo = {
     "prisoners sentenced to life imprisonment by": "سجناء حكم عليهم بالحبس المؤبد من قبل",
@@ -285,7 +220,6 @@ typeTable.pop("sports-events", None)
 
 __all__ = [
     "typeTable",
-    "basedtypeTable",
 ]
 
 len_print.data_len(
