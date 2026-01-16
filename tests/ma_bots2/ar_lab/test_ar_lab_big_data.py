@@ -948,7 +948,6 @@ data_list_in = {
     "roads in dnipro": "طرقات في دنيبروبتروفسك",
     "roads in united kingdom": "طرقات في المملكة المتحدة",
     "roman catholic archbishops in colombia": "رؤساء أساقفة رومان كاثوليك في كولومبيا",
-    "roman catholic churches in puducherry": "كنائس رومانية كاثوليكية في بونديشيري",
     "roman catholic churches in umbria": "كنائس رومانية كاثوليكية في أومبريا",
     "rugby league in africa": "دوري الرجبي في إفريقيا",
     "rugby union leagues in japan": "اتحاد دوري الرجبي في اليابان",

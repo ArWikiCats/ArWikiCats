@@ -32,10 +32,6 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
         "lab": "صناديق تصفح الرياضة في {}",
         "example": "Category:Yemen sports navigational boxes",
     },
-    "sports sidebar templates": {
-        "lab": "قوالب أشرطة جانبية الرياضة في {}",
-        "example": "Category:Winter Olympics sports sidebar templates",
-    },
     "navigational boxes": {
         "lab": "صناديق تصفح {}",
         "example": "",

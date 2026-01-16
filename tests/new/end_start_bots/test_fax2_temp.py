@@ -14,11 +14,6 @@ def test_get_templates_fo() -> None:
     assert isinstance(list_of_cat, str)
     assert isinstance(category3, str)
 
-    # Test with a specific template type
-    list_of_cat2, category3_2 = get_templates_fo("test sidebar templates")
-    assert isinstance(list_of_cat2, str)
-    assert isinstance(category3_2, str)
-
     # Test with empty string
     list_of_cat_empty, category3_empty = get_templates_fo("")
     assert isinstance(list_of_cat_empty, str)
@@ -29,7 +24,6 @@ def test_get_templates_fo() -> None:
 def test_specific_keys_in_dict_temps() -> None:
     # Test each specific known key branch
     cases = {
-        "sidebar templates": "قوالب أشرطة جانبية {}",
         "politics and government templates": "قوالب سياسة وحكومة {}",
         "infobox templates": "قوالب معلومات {}",
         "squad templates": "قوالب تشكيلات {}",
@@ -76,14 +70,6 @@ def test_spaces_are_stripped_correctly() -> None:
 
     assert list_of_cat == "قوالب {}"
     assert category3 == "myname"
-
-
-@pytest.mark.fast
-def test_specific_key_with_extra_spaces() -> None:
-    list_of_cat, category3 = get_templates_fo(" title   sidebar templates")
-
-    assert list_of_cat == "قوالب أشرطة جانبية {}"
-    assert category3 == "title"
 
 
 @pytest.mark.fast

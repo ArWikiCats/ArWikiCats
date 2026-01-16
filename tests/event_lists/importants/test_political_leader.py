@@ -19,16 +19,13 @@ data_fast = {
     "Category:Yemen political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون يمنيون",
     "Category:Vietnam political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون فيتناميون",
     "Category:United States political leader templates": "تصنيف:قوالب قادة سياسيون أمريكيون",
-    "Category:United States political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون أمريكيون",
     "Category:United States political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أمريكيون",
     "Category:United Kingdom political leader templates": "تصنيف:قوالب قادة سياسيون بريطانيون",
     "Category:United Kingdom political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون بريطانيون",
     "Category:United Arab Emirates political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إماراتيون",
     "Category:Ukraine political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أوكرانيون",
     "Category:Uganda political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أوغنديون",
-    "Category:Turkey political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون أتراك",
     "Category:Turkey political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أتراك",
-    "Category:Tunisia political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون تونسيون",
     "Category:Tunisia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون تونسيون",
 }
 
@@ -57,7 +54,6 @@ data_slow = {
     "Category:Oman political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون عمانيون",
     "Category:Oceania political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أوقيانوسيون",
     "Category:North Macedonia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون مقدونيون شماليون",
-    "Category:North America political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون أمريكيون شماليون",
     "Category:North America political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أمريكيون شماليون",
     "Category:Nigeria political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون نيجيريون",
     "Category:Niger political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون نيجريون",
@@ -66,7 +62,6 @@ data_slow = {
     "Category:Namibia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون ناميبيون",
     "Category:Myanmar political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون ميانماريون",
     "Category:Mozambique political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون موزمبيقيون",
-    "Category:Morocco political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون مغاربة",
     "Category:Montenegro political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون مونتينيغريون",
     "Category:Moldova political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون مولدوفيون",
     "Category:Middle East political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون شرقيون أوسطيون",
@@ -86,7 +81,6 @@ data_slow = {
     "Category:Japan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون يابانيون",
     "Category:Ivory Coast political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إيفواريون",
     "Category:Italy political leader templates": "تصنيف:قوالب قادة سياسيون إيطاليون",
-    "Category:Italy political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون إيطاليون",
     "Category:Italy political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إيطاليون",
     "Category:Israel political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إسرائيليون",
     "Category:Iraq political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون عراقيون",
@@ -110,7 +104,6 @@ data_slow = {
     "Category:Fiji political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون فيجيون",
     "Category:Europe political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أوروبيون",
     "Category:Estonia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون إستونيون",
-    "Category:Egypt political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون مصريون",
     "Category:Egypt political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون مصريون",
     "Category:Democratic Republic of the Congo political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون كونغويون ديمقراطيون",
     "Category:Czechoslovakia political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون تشيكوسلوفاكيون",
@@ -141,7 +134,6 @@ data_slow = {
     "Category:Albania political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون ألبان",
     "Category:Africa political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أفارقة",
     "Category:Afghanistan political leader navigational boxes": "تصنيف:صناديق تصفح قادة سياسيون أفغان",
-    "Category:Russia political leader sidebar templates": "تصنيف:قوالب أشرطة جانبية قادة سياسيون روس",
 }
 
 to_test = [

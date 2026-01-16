@@ -208,7 +208,6 @@ data1 = {
     "April 1983 events in Europe": "أحداث أبريل 1983 في أوروبا",
     "July 2018 events by continent": "أحداث يوليو 2018 حسب القارة",
     "Lists of organizations based in Central America": "قوائم منظمات مقرها في أمريكا الوسطى",
-    "Video games sidebar templates": "قوالب أشرطة جانبية ألعاب فيديو",
     "1000 disestablishments by country": "انحلالات سنة 1000 حسب البلد",
     "1000 disestablishments in europe": "انحلالات سنة 1000 في أوروبا",
     "awards by country": "جوائز حسب البلد",

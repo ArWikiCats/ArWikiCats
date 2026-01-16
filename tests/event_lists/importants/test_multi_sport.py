@@ -243,7 +243,6 @@ data_1 = {
     "Category:Multi-sport events in West Germany": "تصنيف:أحداث رياضية متعددة في ألمانيا الغربية",
     "Category:Multi-sport events in Yugoslavia": "تصنيف:أحداث رياضية متعددة في يوغسلافيا",
     "Category:Multi-sport events in Zimbabwe": "تصنيف:أحداث رياضية متعددة في زيمبابوي",
-    "Category:Multi-sport events sidebar templates": "تصنيف:قوالب أشرطة جانبية أحداث رياضية متعددة",
     "Category:Multi-sport events templates": "تصنيف:قوالب أحداث رياضية متعددة",
     "Category:Multi-sport events venues": "تصنيف:ملاعب أحداث رياضية متعددة",
     "Category:National multi-sport events": "تصنيف:أحداث رياضية متعددة وطنية",
