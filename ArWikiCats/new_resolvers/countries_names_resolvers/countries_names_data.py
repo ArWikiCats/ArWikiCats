@@ -289,7 +289,6 @@ from_russia_data = {
     "artificial islands of {en}": "جزر اصطناعية في {ar}",
     "artillery of {en}": "مدفعية في {ar}",
     "auxiliary ships of {en}": "سفن مساعدة في {ar}",
-    "banks of {en}": "بنوك في {ar}",
     "battlecruisers of {en}": "طرادات معركة في {ar}",
     "battleships of {en}": "بوارج في {ar}",
     "bays of {en}": "خلجان {ar}",

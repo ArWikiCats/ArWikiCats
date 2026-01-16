@@ -606,7 +606,7 @@ data_1 = {
     "Australian expatriates in Antigua and Barbuda": "أستراليون مغتربون في أنتيغوا وباربودا",
     "Australian people of Antigua and Barbuda descent": "أستراليون من أصل أنتيغوي وبربودي",
     "Aviation accidents and incidents in Antigua and Barbuda": "حوادث طيران في أنتيغوا وباربودا",
-    "Banks of Antigua and Barbuda": "بنوك في أنتيغوا وباربودا",
+    "Banks of Antigua and Barbuda": "بنوك أنتيغوا وباربودا",
     "Beaches of Antigua and Barbuda": "شواطئ أنتيغوا وباربودا",
     "Bermudian expatriates in Antigua and Barbuda": "برموديون مغتربون في أنتيغوا وباربودا",
     "Bermudian people of Antigua and Barbuda descent": "برموديون من أصل أنتيغوي وبربودي",
