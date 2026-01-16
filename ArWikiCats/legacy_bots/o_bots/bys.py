@@ -10,6 +10,7 @@ from __future__ import annotations
 import functools
 import re
 
+from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -82,7 +83,11 @@ def make_new_by_label(category: str) -> str:
 
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
-        film_label = te_films(candidate)
+        film_label = (
+            te_films(candidate)
+            or resolve_languages_labels(candidate)
+            or People_key.get(candidate)
+        )
         if film_label:
             resolved = f"بواسطة {film_label}"
             logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")

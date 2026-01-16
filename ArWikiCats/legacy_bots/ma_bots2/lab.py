@@ -43,6 +43,8 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
+        or resolve_languages_labels(country2)
+        or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)

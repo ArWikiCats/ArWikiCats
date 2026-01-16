@@ -6,6 +6,7 @@ Country Label Bot Module
 import functools
 import re
 
+from ...new_resolvers.resolve_languages import resolve_languages_labels
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
@@ -15,6 +16,7 @@ from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
+    People_key,
     get_from_pf_keys2,
     jobs_mens_data,
     pop_of_without_in,
@@ -45,6 +47,8 @@ def get_lab_for_country2(country: str) -> str:
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or te_films(country2)
+        or resolve_languages_labels(country2)
+        or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
@@ -194,6 +198,8 @@ class CountryLabelRetriever:
             New_female_keys.get(country, "")
             or religious_entries.get(country, "")
             or te_films(country)
+            or resolve_languages_labels(country)
+            or People_key.get(country)
             or new_resolvers_all(country)
             or team_work.Get_team_work_Club(country)
         )

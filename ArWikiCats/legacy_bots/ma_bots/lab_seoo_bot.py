@@ -61,6 +61,8 @@ def event_label_work(target_category: str) -> str:
         or People_key.get(normalized_target_category)
         or univer.te_universities(normalized_target_category)
         or te_films(normalized_target_category)
+        or resolve_languages_labels(normalized_target_category)
+        or People_key.get(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
         or ""

@@ -50,17 +50,15 @@ def te_films(category: str) -> str:
         "get_films_key_tyty_new": lambda k: get_films_key_tyty_new(k),
         "Films": lambda k: Films(k),
         # TODO: get_pop_All_18 make some issues, see: tests/test_bug/test_bug_bad_data.py
-        # "get_pop_All_18": lambda k: get_pop_All_18(k),
-        "resolve_languages_labels": lambda k: resolve_languages_labels(k),
-        "People_key": lambda k: People_key.get(k),
+        # # "get_pop_All_18": lambda k: get_pop_All_18(k),
+        # "resolve_languages_labels": lambda k: resolve_languages_labels(k),
+        # "People_key": lambda k: People_key.get(k),
     }
     _add_to_new_players_tables = [
         "resolve_languages_labels",
-        # "get_pop_All_18",
     ]
 
     _add_to_films_o_tt_tables = [
-        "ethnic_label_main",
         "Films",
     ]
 
