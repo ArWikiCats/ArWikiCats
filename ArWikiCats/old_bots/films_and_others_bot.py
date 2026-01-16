@@ -11,7 +11,7 @@ from ..new.resolve_films_bots import get_films_key_tyty_new, get_films_key_tyty_
 from ..new.resolve_films_bots.film_keys_bot import Films, get_Films_key_CAO
 from ..new_resolvers.reslove_all import new_resolvers_all
 from ..translations import People_key
-from ..make_bots.countries_formats import resolved_countries_formats_labels
+from ..make_bots.countries_names_with_sports import resolved_countries_formats_labels
 from ..make_bots.languages_bot.languages_resolvers import te_language
 from ..make_bots.matables_bots.bot import add_to_Films_O_TT, add_to_new_players
 # from .lazy_data_bots.bot_2018 import get_pop_All_18
