@@ -29,8 +29,7 @@ def run_dump_logic(name, data):
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
-
-JSON_FILES = list((Path(__file__).parent / "religions_data").glob("*.json"))
+JSON_FILES = list((Path(__file__).parent.parent / "examples/religions_data").glob("*.json"))
 
 
 @pytest.mark.dumpbig
