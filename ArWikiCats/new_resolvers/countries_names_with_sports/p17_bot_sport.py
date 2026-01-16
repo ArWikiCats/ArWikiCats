@@ -12,7 +12,7 @@ from ...translations import (
     countries_from_nat,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
-from ..teams_mappings_ends import teams_label_mappings_ends
+from ...make_bots.teams_mappings_ends import teams_label_mappings_ends
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
     "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",

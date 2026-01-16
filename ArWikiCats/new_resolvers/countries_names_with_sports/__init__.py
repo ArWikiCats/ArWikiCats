@@ -5,7 +5,7 @@ from . import (
 )
 
 
-def resolved_countries_formats_labels(normalized_category) -> str:
+def resolved_names_with_sports(normalized_category) -> str:
     resolved_label = (
         #  [yemen international soccer players] : "تصنيف:لاعبو منتخب اليمن لكرة القدم",
         # countries_names.resolve_by_countries_names(normalized_category) or
