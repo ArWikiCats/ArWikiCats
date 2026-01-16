@@ -11,19 +11,18 @@ from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import
 
 data_0 = {
     "military history of estonia": "تاريخ إستونيا العسكري",
-    "Category:Political history of West Virginia": "تصنيف:تاريخ فرجينيا الغربية السياسي",
-
-    "Category:Military history of the Tsardom of Russia": "تصنيف:تاريخ روسيا القيصرية العسكري",
-    "Category:Banks of Zambia": "تصنيف:بنوك زامبيا",
-    "Category:Military history of Amhara Region": "تصنيف:تاريخ أمهرة العسكري",
-    "Category:Military history of Hubei": "تصنيف:تاريخ خوبي العسكري",
-    "Category:Military history of republic of Venice": "تصنيف:تاريخ جمهورية البندقية العسكري",
-    "Category:Military history of West Virginia": "تصنيف:تاريخ فرجينيا الغربية العسكري",
-    "Category:Political history of Manitoba": "تصنيف:تاريخ مانيتوبا السياسي",
-    "Category:Political history of Tamil Nadu": "تصنيف:تاريخ تامل نادو السياسي",
-    "Category:Political history of Texas": "تصنيف:تاريخ تكساس السياسي",
-    "Category:Military history of Bologna": "تصنيف:تاريخ بولونيا العسكري",
-    "Category:Political history of Kurdistan": "تصنيف:تاريخ كردستان السياسي",
+    "Political history of West Virginia": "تاريخ فرجينيا الغربية السياسي",
+    "Military history of the Tsardom of Russia": "تاريخ روسيا القيصرية العسكري",
+    "Banks of Zambia": "بنوك زامبيا",
+    "Military history of Amhara Region": "تاريخ أمهرة العسكري",
+    "Military history of Hubei": "تاريخ خوبي العسكري",
+    "Military history of republic of Venice": "تاريخ جمهورية البندقية العسكري",
+    "Military history of West Virginia": "تاريخ فرجينيا الغربية العسكري",
+    "Political history of Manitoba": "تاريخ مانيتوبا السياسي",
+    "Political history of Tamil Nadu": "تاريخ تامل نادو السياسي",
+    "Political history of Texas": "تاريخ تكساس السياسي",
+    "Military history of Bologna": "تاريخ بولونيا العسكري",
+    "Political history of Kurdistan": "تاريخ كردستان السياسي",
 }
 
 data_1 = {
