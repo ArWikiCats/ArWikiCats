@@ -24,6 +24,11 @@ from ...translations import (
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 
+pop_All_2018.update({
+    "establishments": "تأسيسات",
+    "disestablishments": "انحلالات",
+})
+
 first_data = {
     "by country": "حسب البلد",
     "in": "في",

@@ -513,7 +513,6 @@ FEMALE_SUFFIXES: dict[str, str] = {
     "culture": "ثقافة",
     "denominations": "طوائف",
     "disciplines": "تخصصات",
-    "educational establishments": "مؤسسات تعليمية",
     "educational institutions": "هيئات تعليمية",
     "educational": "تعليمية",
     "facilities": "مرافق",

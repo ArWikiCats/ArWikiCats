@@ -4,6 +4,18 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} establishments": "تأسيسات سنة {year1}",  # 1243
+    "{year1}s disestablishments": "انحلالات عقد {year1}",  # 699
+    "{year1} disestablishments": "انحلالات سنة {year1}",  # 699
+
+    "{year1} disestablishments by continent": "انحلالات سنة {year1} حسب القارة",  # 368
+    "{year1} disestablishments by country": "انحلالات سنة {year1} حسب البلد",  # 347
+    "{year1} establishments by continent": "تأسيسات سنة {year1} حسب القارة",  # 523
+    "{year1} establishments by country": "تأسيسات سنة {year1} حسب البلد",  # 731
+    "{year1} establishments in ottoman empire": "تأسيسات سنة {year1} في الدولة العثمانية",  # 211
+    "{year1} establishments in russian empire": "تأسيسات سنة {year1} في الإمبراطورية الروسية",  # 152
+    "{year1} establishments in spanish empire": "تأسيسات سنة {year1} في الإمبراطورية الإسبانية",  # 256
+
     "{year1} elections": "انتخابات {year1}",  # 214
     # "{year1} elections": "انتخابات في {year1}",  # 214
     "{year1} novels": "روايات {year1}",  # 317
@@ -124,21 +136,12 @@ YEAR_DATA = {
     "{year1} deaths": "وفيات {year1}",  # 2045
     "{year1} disasters by country": "كوارث في {year1} حسب البلد",  # 86
     "{year1} disasters": "كوارث {year1}",  # 322
-    "{year1} disestablishments by continent": "انحلالات سنة {year1} حسب القارة",  # 368
-    "{year1} disestablishments by country": "انحلالات سنة {year1} حسب البلد",  # 347
-    "{year1} disestablishments": "انحلالات سنة {year1}",  # 699
     "{year1} documents": "وثائق في {year1}",  # 179
     "{year1} domestic association football cups": "كؤوس كرة قدم محلية {year1}",  # 288
     "{year1} domestic association football leagues": "دوريات كرة قدم محلية {year1}",  # 142
     "{year1} earthquakes": "زلازل {year1}",  # 171
     "{year1} elections by country": "انتخابات {year1} حسب البلد",  # 189
     "{year1} endings": "نهايات {year1}",  # 1970
-    "{year1} establishments by continent": "تأسيسات سنة {year1} حسب القارة",  # 523
-    "{year1} establishments by country": "تأسيسات سنة {year1} حسب البلد",  # 731
-    "{year1} establishments in ottoman empire": "تأسيسات سنة {year1} في الدولة العثمانية",  # 211
-    "{year1} establishments in russian empire": "تأسيسات سنة {year1} في الإمبراطورية الروسية",  # 152
-    "{year1} establishments in spanish empire": "تأسيسات سنة {year1} في الإمبراطورية الإسبانية",  # 256
-    "{year1} establishments": "تأسيسات سنة {year1}",  # 1243
     "{year1} events by continent": "أحداث {year1} حسب القارة",  # 967
     "{year1} events by country": "أحداث {year1} حسب البلد",  # 956
     "{year1} events by month": "أحداث {year1} حسب الشهر",  # 228
@@ -194,5 +197,4 @@ YEAR_DATA = {
     "{year1} treaties": "معاهدات في {year1}",  # 283
     "{year1} works": "أعمال في {year1}",  # 945
     "{year1}": "{year1}",  # 2387
-    "{year1}s disestablishments": "انحلالات عقد {year1}",  # 699
 }

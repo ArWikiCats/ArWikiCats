@@ -2,17 +2,18 @@ from ..helps import len_print
 from .tv.films_mslslat import television_keys
 
 basedtypeTable = {
+    "establishments": "تأسيسات",
+    "disestablishments": "انحلالات",
     "sports events": "أحداث رياضية",
     "sports-events": "أحداث رياضية",
+
     "video games": "ألعاب فيديو",
     "politics": "سياسة",
     "installations": "منشآت",
     "fortifications": "تحصينات",
     "finales": "نهايات",
     "festivals": "مهرجانات",
-    "establishments": "تأسيسات",
     "elections": "انتخابات",
-    "disestablishments": "انحلالات",
     "counties": "مقاطعات",
     "awards": "جوائز",
     "youth sport": "رياضة شبابية",
