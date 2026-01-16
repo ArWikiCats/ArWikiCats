@@ -14,6 +14,10 @@ from ArWikiCats.make_bots.countries_formats.p17_bot_sport import get_p17_with_sp
 # =========================================================
 
 data_0 = {
+    "south korea national under-17 football team": "منتخب كوريا الجنوبية لكرة القدم تحت 17 سنة",
+    "south korea national under-20 football team": "منتخب كوريا الجنوبية لكرة القدم تحت 20 سنة",
+    "south korea national under-23 football team": "منتخب كوريا الجنوبية لكرة القدم تحت 23 سنة",
+    "bosnia and herzegovina national under-21 football team": "منتخب البوسنة والهرسك لكرة القدم تحت 21 سنة",
     "sweden national under-21 football team managers": "مدربو منتخب السويد لكرة القدم تحت 21 سنة",
     "france national under-21 football team": "منتخب فرنسا لكرة القدم تحت 21 سنة",
     "germany national under-21 football team managers": "مدربو منتخب ألمانيا لكرة القدم تحت 21 سنة",
