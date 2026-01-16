@@ -113,7 +113,6 @@ len_print.data_len(
 )
 
 __all__ = [
-    "Table_for_frist_word",
     "cash_2022",
     "Films_O_TT",
     "players_new_keys",

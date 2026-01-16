@@ -13,24 +13,18 @@ from ...ma_bots2.year_or_typeo.bot_lab import label_for_startwith_year_or_typeo
 from ...ma_bots.country_bot import event2_d2
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Films_O_TT, players_new_keys
 from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...make_bots.matables_bots.data import Keep_it_frist, Keep_it_last
 from ...make_bots.o_bots import univer
 from ...old_bots import with_years_bot
 from ...translations import pop_of_without_in
-from ...utils import check_key_in_tables_return_tuple, fix_minor
+from ...utils import fix_minor
 from .lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
 from ...time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
-
-Table_for_frist_word = {
-    "Films_O_TT": Films_O_TT,
-    "New_players": players_new_keys,
-}
 
 separators_lists_raw = [
     "in",
@@ -462,16 +456,6 @@ class LabelPipeline(Fixing):
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.separator_stripped)
 
-    def check_tables(self) -> None:
-        """Checks if components are in specific tables."""
-        self.country_in_table, table1 = check_key_in_tables_return_tuple(self.country_lower, Table_for_frist_word)
-        self.type_in_table, table2 = check_key_in_tables_return_tuple(self.type_lower, Table_for_frist_word)
-
-        if self.country_in_table:
-            logger.info(f'>>>> X:<<lightpurple>> country_lower "{self.country_lower}" in {table1}.')
-        if self.type_in_table:
-            logger.info(f'>>>>xX:<<lightpurple>> type_lower "{self.type_lower}" in {table2}.')
-
     def join_labels(self, ar_separator: str) -> str:
         """Constructs the final Arabic label."""
         keep_type_last = False
@@ -494,7 +478,7 @@ class LabelPipeline(Fixing):
 
         # Determine order
         if self.type_in_table and self.country_in_table:
-            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in Table_for_frist_word.")
+            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in country_in_table.")
             in_tables = check_key_new_players(self.country_lower)
             if not keep_type_first and in_tables:
                 arlabel = self.country_label + ar_separator + self.type_label
@@ -541,7 +525,6 @@ class LabelPipeline(Fixing):
             return ""
 
         self.refine_type_label()
-        self.check_tables()
 
         ar_separator = self.determine_separator()
         arlabel = self.join_labels(ar_separator)
