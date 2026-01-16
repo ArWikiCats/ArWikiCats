@@ -18,7 +18,6 @@ basedtypeTable = {
     "awards": "جوائز",
     "youth sport": "رياضة شبابية",
     "works by": "أعمال بواسطة",
-    "warm springs of": "ينابيع دائفة في",
     "uci road world cup": "كأس العالم لسباق الدراجات على الطريق",
     "television series": "مسلسلات تلفزيونية",
     "television seasons": "مواسم تلفزيونية",
@@ -49,20 +48,22 @@ basedtypeTable = {
     "beginnings": "بدايات",
     "attacks": "هجمات",
     "architecture": "عمارة",
+
+    "FIFA World Cup players": "لاعبو كأس العالم لكرة القدم",
+    "FIFA futsal World Cup players": "لاعبو كأس العالم لكرة الصالات",
+    "commonwealth games competitors for": "منافسون في ألعاب الكومنولث من",
+    "winter olympics competitors for": "منافسون أولمبيون شتويون من",
+
+    "uci women's road world cup": "كأس العالم لسباق الدراجات على الطريق للنساء",
     "UCI Oceania Tour": "طواف أوقيانوسيا للدراجات",
     "UCI Europe Tour": "طواف أوروبا للدراجات",
     "UCI Asia Tour": "طواف آسيا للدراجات",
     "UCI America Tour": "طواف أمريكا للدراجات",
     "UCI Africa Tour": "طواف إفريقيا للدراجات",
-    "Hot springs of": "ينابيع حارة في",
-    "FIFA World Cup players": "لاعبو كأس العالم لكرة القدم",
-    "FIFA futsal World Cup players": "لاعبو كأس العالم لكرة الصالات",
+
     "-related timelines": "جداول زمنية متعلقة",
     "-related professional associations": "جمعيات تخصصية متعلقة",
     "-related lists": "قوائم متعلقة",
-    "commonwealth games competitors for": "منافسون في ألعاب الكومنولث من",
-    "winter olympics competitors for": "منافسون أولمبيون شتويون من",
-    "uci women's road world cup": "كأس العالم لسباق الدراجات على الطريق للنساء",
 }
 
 debuts_endings_key = [

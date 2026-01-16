@@ -14,6 +14,8 @@ formatted_data_of_no_in: Dict[str, str] = {
 
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
+    "warm springs of {en}": "ينابيع دائفة في {ar}",
+    "hot springs of {en}": "ينابيع حارة في {ar}",
 
     "acting presidents of {en}": "رؤساء {ar} بالإنابة",
     "bilateral military relations of {en}": "علاقات {ar} الثنائية العسكرية",
@@ -363,7 +365,6 @@ from_russia_data = {
     "health ministers of {en}": "وزراء صحة في {ar}",
     "historians of {en}": "مؤرخو {ar}",
     "history of the foreign relations of {en}": "تاريخ علاقات خارجية {ar}",
-    "hot springs of {en}": "ينابيع حارة {ar}",
     "images of {en}": "صور من {ar}",
     "indigenous peoples of {en}": "شعوب أصلية في {ar}",
     "insects of {en}": "حشرات {ar}",
