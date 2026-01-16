@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
+# from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 novels_films_test_data_0 = {
@@ -197,11 +197,11 @@ def test_dump_2nd(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, st
 
     No return value. The test records differences and same/not-same items, and asserts that the produced diff equals the expected result.
     """
-    monkeypatch.setattr(
-        "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
-        _get_films_key_tyty_new,
-        raising=True,
-    )
+    # monkeypatch.setattr(
+    #     "ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time.get_films_key_tyty_new",
+    #     get_films_key_tyty_new,
+    #     raising=True,
+    # )
     expected, diff_result = one_dump_test(data, callback)
 
     dump_diff(diff_result, name)

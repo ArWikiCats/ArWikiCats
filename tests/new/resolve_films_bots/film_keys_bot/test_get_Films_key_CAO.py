@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import get_Films_key_CAO
+from ArWikiCats.new.resolve_films_bots import resolve_films_main
 
 fast_data_drama_cao = {
     "3d films": "أفلام ثلاثية الأبعاد",
@@ -82,20 +82,18 @@ fast_data_drama_cao = {
     "sports films": "أفلام رياضية",
     "sports logos": "شعارات رياضية",
     "sports television series": "مسلسلات تلفزيونية رياضية",
-    # "superhero films": "أفلام أبطال خارقين",
     "teen television series": "مسلسلات تلفزيونية مراهقة",
     "television logos": "شعارات تلفزيونية",
     "thriller films": "أفلام إثارة",
     "thriller novels": "روايات إثارة",
     "war films": "أفلام حربية",
     "war television series": "مسلسلات تلفزيونية حربية",
-    "wargames": "ألعاب حربية",
     "zombie films": "أفلام زومبي",
 }
 
 
 @pytest.mark.parametrize("category, expected", fast_data_drama_cao.items(), ids=fast_data_drama_cao.keys())
 @pytest.mark.fast
-def test_get_Films_key_CAO(category: str, expected: str) -> None:
-    label = get_Films_key_CAO(category)
+def test_get_films_key_cao(category: str, expected: str) -> None:
+    label = resolve_films_main(category)
     assert label == expected

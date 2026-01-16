@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
+from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
 
 fast_data_with_nats = {
     "animated short film comics": "قصص مصورة رسوم متحركة قصيرة",
@@ -77,20 +77,20 @@ fast_data_no_nats = {
 @pytest.mark.parametrize("category, expected", fast_data_no_nats.items(), ids=fast_data_no_nats.keys())
 @pytest.mark.fast
 def test_get_films_key_tyty(category: str, expected: str) -> None:
-    label2 = _get_films_key_tyty_new(category)
+    label2 = get_films_key_tyty_new(category)
     assert label2 == expected
 
 
 @pytest.mark.parametrize("category, expected", fast_data_with_nats.items(), ids=fast_data_with_nats.keys())
 @pytest.mark.fast
 def test_fast_data_with_nats(category: str, expected: str) -> None:
-    label2 = _get_films_key_tyty_new(category)
+    label2 = get_films_key_tyty_new(category)
     assert label2 == expected
 
 
 to_test = [
-    ("test_get_films_key_tyty", fast_data_no_nats, _get_films_key_tyty_new),
-    ("test_fast_data_with_nats", fast_data_with_nats, _get_films_key_tyty_new),
+    ("test_get_films_key_tyty", fast_data_no_nats, get_films_key_tyty_new),
+    ("test_fast_data_with_nats", fast_data_with_nats, get_films_key_tyty_new),
 ]
 
 
