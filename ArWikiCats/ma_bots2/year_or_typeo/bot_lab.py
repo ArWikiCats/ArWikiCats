@@ -12,15 +12,10 @@ from ...helps import logger
 from ...ma_bots.country_bot import get_country
 from ...make_bots.format_bots.relation_mapping import translation_category_relations
 from ...make_bots.lazy_data_bots.bot_2018 import get_pop_All_18
-from ...make_bots.matables_bots.bot import Films_O_TT
-from ...make_bots.matables_bots.check_bot import check_key_new_players
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens, typeTable
-from ...utils import check_key_in_tables
 from .reg_result import get_cats, get_reg_result
-
-type_after_country = ["non-combat"]
 
 
 def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:
@@ -42,26 +37,12 @@ def get_country_label(country_lower: str, country_not_lower: str, cate3: str, co
     return country_label
 
 
-def do_ar(typeo: str, country_label: str, typeo_lab: str, category_r: str) -> None:
-    """Store an Arabic label assembled from type and country components."""
-    in_tables_lowers = check_key_new_players(typeo.lower())
-    in_tables = check_key_in_tables(typeo, [Films_O_TT, typeTable])
-
-    if typeo in type_after_country:
-        ar = f"{country_label} {typeo_lab}"
-    elif in_tables or in_tables_lowers:
-        ar = f"{typeo_lab} {country_label}"
-    else:
-        ar = f"{country_label} {typeo_lab}"
-
-
 class LabelForStartWithYearOrTypeo:
     def __init__(self) -> None:
         """Set up placeholders used while constructing category labels."""
         self.cate = ""
         self.cate3 = ""
         self.year_at_first = ""
-        self.typeo = ""
         self.In = ""
         self.country = ""
         self.country_lower = ""
@@ -70,7 +51,6 @@ class LabelForStartWithYearOrTypeo:
         self.category_r = ""
 
         self.arlabel = ""
-        self.typeo_lab = ""
         self.suf = ""
         self.year_labe = ""
 
@@ -100,7 +80,6 @@ class LabelForStartWithYearOrTypeo:
         result = get_reg_result(category_r)
 
         self.year_at_first = result.year_at_first
-        self.typeo = result.typeo
         self.In = result.In
         self.country = result.country
         self.cat_test = result.cat_test
@@ -108,32 +87,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = self.country.lower()
         self.country_not_lower = self.country
 
-        logger.debug(f'>>>> {self.year_at_first=}, {self.typeo=}, "{self.In=}, {self.country=}, {self.cat_test=}')
-
-    # ----------------------------------------------------
-    # 2 — HANDLE TYPEO
-    # ----------------------------------------------------
-
-    def handle_typeo(self) -> None:
-        """Translate the type portion of the category when available."""
-        if not self.typeo:
-            return
-        in_ty = typeTable.get(self.typeo)
-        if in_ty:
-            self.typeo_lab = in_ty["ar"]
-            logger.info(f'a<<lightblue>>>>>> {self.typeo=} in typeTable "{self.typeo_lab}"')
-
-            self.cat_test = self.replace_cat_test(self.cat_test, self.typeo)
-
-            self.arlabel += self.typeo_lab
-
-            logger.info(f"a<<lightblue>>>typeo_lab : {self.typeo_lab}")
-
-            if "s" in in_ty:
-                self.suf = in_ty["s"]
-
-        else:
-            logger.info(f'a<<lightblue>>>>>> typeo "{self.typeo}" not in typeTable')
+        logger.debug(f'>>>> {self.year_at_first=}, "{self.In=}, {self.country=}, {self.cat_test=}')
 
     # ----------------------------------------------------
     # 3 — HANDLE COUNTRY
@@ -283,10 +237,9 @@ class LabelForStartWithYearOrTypeo:
         """Construct the final label for categories starting with a year or type."""
         self.parse_input(category_r)
 
-        if not self.year_at_first and not self.typeo:
+        if not self.year_at_first:
             return ""
 
-        self.handle_typeo()
         self.handle_country()
         self.handle_year()
         self.handle_relation_mapping()

@@ -1,11 +1,4 @@
 from ..helps import len_print
-from .tv.films_mslslat import television_keys
-
-debuts_endings_key = [
-    "television series",
-    "television miniseries",
-    "television films",
-]
 
 type_Table_no = {
     "cycling race winners": "فائزون في سباق الدراجات",
@@ -187,15 +180,6 @@ type_table_television_keys = {
     "works endings": "أعمال انتهت في",
     "works revived after cancellation": "أعمال أعيدت بعد إلغائها"
 }
-
-# for ff, la_b in television_keys.items():
-#     type_table_television_keys[f"{ff} debuts"] = f"{la_b} بدأ عرضها في"
-#     type_table_television_keys[f"{ff} revived after cancellation"] = f"{la_b} أعيدت بعد إلغائها"
-#     type_table_television_keys[f"{ff} endings"] = f"{la_b} انتهت في"
-
-#     if ff.lower() in debuts_endings_key:
-#         type_table_television_keys[f"{ff}-debuts"] = f"{la_b} بدأ عرضها في"
-#         type_table_television_keys[f"{ff}-endings"] = f"{la_b} انتهت في"
 
 type_Table_no.update(type_table_television_keys)
 
