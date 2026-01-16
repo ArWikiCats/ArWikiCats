@@ -4,6 +4,8 @@ from pathlib import Path
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
+from ArWikiCats.legacy_bots.o_bots.bys import make_by_label
+
 from ArWikiCats.legacy_bots.ma_bots2.lab import get_con_lab
 
 from ArWikiCats import logger, resolve_arabic_category_label
@@ -41,7 +43,8 @@ logger.set_level("DEBUG")
 # print(mens_resolver_labels("men writers"))
 # print(jobs_in_multi_sports("paralympic sailors"))
 # print(resolve_by_nats_double_v2("jewish german surnames"))
-print(get_con_lab("by", "by danish artists", True))
+# print(get_con_lab("by", "by danish artists", True))
+print(make_by_label("by danish artists"))
 # print(resolve_by_nats_double_v2("jewish history"))
 
 # python3 D:/categories_bot/make2_new/examples/run.py
