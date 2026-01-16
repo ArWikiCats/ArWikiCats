@@ -4,6 +4,13 @@
 """
 from typing import Dict
 
+formatted_data_of_no_in: Dict[str, str] = {
+    "history": "تاريخ",
+    "secretaries": "وزراء",
+    "banks": "بنوك",
+    "treaties": "معاهدات",
+}
+
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
     "first league of {en}": "دوري {ar} الممتاز",
@@ -13,7 +20,10 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "academic staff of university of {en}": "أعضاء هيئة تدريس جامعة {ar}",
     "ministries of the government of {en}": "وزارات حكومة {ar}",
     "government ministers of {en}": "وزراء {ar}",
+
+    "bilateral treaties of {en}": "معاهدات {ar} الثنائية",
     "secretaries of {en}": "وزراء {ar}",
+
     "united states secretaries of state": "وزراء خارجية أمريكيون",
     "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
     "{en}": "{ar}",
@@ -61,6 +71,11 @@ formatted_data_en_ar_only: Dict[str, str] = {
     "{en} winter olympics": " {ar} في الألعاب الأولمبية الشتوية",
 }
 
+
+formatted_data_en_ar_only.update({
+    # "history of {en}": "تاريخ {ar}",
+    f"{x} of {{en}}" : f"{v} {{ar}}" for x, v in formatted_data_of_no_in.items()
+})
 
 # TODO: add data from pop_format
 pop_of_without_in_data = {

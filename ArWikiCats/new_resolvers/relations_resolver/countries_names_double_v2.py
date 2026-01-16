@@ -23,6 +23,7 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 
 formatted_data_v1 = {
     # P17_PREFIXES: Mapping[str, str] = {}
+    "{en} treaties": "معاهدات {ar}",
     "{en} conflict": "صراع {ar}",
     "{en} proxy conflict": "صراع {ar} بالوكالة",
     "{en} relations": "علاقات {ar}",
