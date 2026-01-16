@@ -286,17 +286,10 @@ class Fixing:
         if self.separator_stripped == "in":
             ar_separator = " في "
 
-        if self.country_in_table and self.add_in_lab:
-            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.country_label
-            ):
-                ar_separator = " في "
-                logger.info("ssps:%s" % ar_separator)
-        else:
-            if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
-                " في" not in self.type_label
-            ):
-                self.type_label = self.type_label + " في"
+        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (
+            " في" not in self.type_label
+        ):
+            self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
             logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
@@ -384,9 +377,6 @@ class LabelPipeline(Fixing):
         self.country_label = ""
         self.should_append_in_label = True
         self.add_in_lab = True  # Renamed from add_in_lab for consistency but keeping logic
-
-        self.country_in_table = False
-        self.type_in_table = False
 
     def extract_components(self) -> None:
         """Extracts type and country components."""
@@ -476,19 +466,7 @@ class LabelPipeline(Fixing):
             logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist")
             keep_type_first = True
 
-        # Determine order
-        if self.type_in_table and self.country_in_table:
-            logger.info(">>> > X:<<lightpurple>> type_lower and country_lower in country_in_table.")
-            in_tables = check_key_new_players(self.country_lower)
-            if not keep_type_first and in_tables:
-                arlabel = self.country_label + ar_separator + self.type_label
-            else:
-                arlabel = self.type_label + ar_separator + self.country_label
-        else:
-            if keep_type_first and self.country_in_table:
-                arlabel = self.country_label + ar_separator + self.type_label
-            else:
-                arlabel = self.type_label + ar_separator + self.country_label
+        arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
             logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
