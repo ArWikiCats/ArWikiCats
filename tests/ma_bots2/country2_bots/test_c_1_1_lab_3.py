@@ -7,20 +7,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import c_1_1_lab
 
+
 fast_data_c_1_1_lab = [
-    {"separator": " of ", "cone_1": "azerbaijan university of", "output": "جامعة أذربيجان"},
-    {"separator": " of ", "cone_1": "bangladesh university of", "output": "جامعة بنغلاديش"},
-    {"separator": " of ", "cone_1": "defunct university of", "output": "جامعة سابقة"},
-    {
-        "separator": " about ",
-        "cone_1": "american documentary television series",
-        "output": "مسلسلات تلفزيونية وثائقية أمريكية",
-    },
-    {"separator": " about ", "cone_1": "american propaganda films", "output": "أفلام دعائية أمريكية"},
-    {"separator": " about ", "cone_1": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
-    {"separator": " about ", "cone_1": "brazilian television shows", "output": "عروض تلفزيونية برازيلية"},
-    {"separator": " about ", "cone_1": "british television series", "output": "مسلسلات تلفزيونية بريطانية"},
-    {"separator": " about ", "cone_1": "documentary television series", "output": "مسلسلات تلفزيونية وثائقية"},
     {"separator": " based in ", "cone_1": "defunct lgbtq organizations", "output": "منظمات إل جي بي تي كيو سابقة"},
     {"separator": " based in ", "cone_1": "defunct political organizations", "output": "منظمات سياسية سابقة"},
     {"separator": " based in ", "cone_1": "defunct professional associations", "output": "جمعيات تخصصية سابقة"},

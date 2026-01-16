@@ -5,7 +5,16 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.ma_bots2.country2_bots.country2_label_bot import c_2_1_lab
+
+test_data = {
+    "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
+    "american propaganda films": "أفلام دعائية أمريكية",
+    "brazilian television shows": "عروض تلفزيونية برازيلية",
+    "british television series": "مسلسلات تلفزيونية بريطانية",
+    "documentary television series": "مسلسلات تلفزيونية وثائقية",
+}
 
 fast_and_data = {
     "akrotiri and dhekelia": "أكروتيري ودكليا",
@@ -50,7 +59,6 @@ fast_data_c_2_1_lab = {
     "american revolution": "الثورة الأمريكية",
     "andorra la vella": "أندورا لا فيلا",
     "ang thong province": "محافظة أنغ ثونغ",
-    "animated television series": "مسلسلات تلفزيونية رسوم متحركة",
     "arab world": "الوطن العربي",
     "archelaus of macedon": "أرخيلاوس الأول المقدوني",
     "asian football confederation": "الاتحاد الآسيوي لكرة القدم",
@@ -207,6 +215,13 @@ fast_data_c_2_1_lab = {
 @pytest.mark.fast
 def test_c_2_1_lab(category: str, expected: str) -> None:
     label = c_2_1_lab(category, with_years=True)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_test_data(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
     assert label == expected
 
 
