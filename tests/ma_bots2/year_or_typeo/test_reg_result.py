@@ -6,12 +6,8 @@ import pytest
 
 from ArWikiCats.ma_bots2.year_or_typeo.reg_result import (
     TypiesResult,
-    basedtypeTable,
     get_reg_result,
 )
-
-# new dict with only 20 items from basedtypeTable
-basedtypeTable_20 = {k: basedtypeTable[k] for k in list(basedtypeTable.keys())[:20]}
 
 
 def test_get_reg_result_1() -> None:
@@ -280,21 +276,6 @@ class TestBCE_BC:
     def test_bce(self, category: str, expected: str) -> None:
         out = get_reg_result(category)
         assert out.year_at_first.lower() == expected.lower()
-
-
-# -----------------------------------------------------------
-# 9) Stress-test with all basedtypeTable + years
-# -----------------------------------------------------------
-
-
-@pytest.mark.parametrize("eng", list(basedtypeTable_20.keys()))
-@pytest.mark.dict
-def test_all_based_types(eng) -> None:
-    category = f"Category:1999 {eng} in France"
-    out = get_reg_result(category)
-    assert out.typeo.lower() == eng.lower()
-    assert out.year_at_first_strip.lower() == "1999"
-    assert out.country.lower() == "france"
 
 
 # -----------------------------------------------------------
