@@ -124,7 +124,6 @@ class TestTypeExtraction:
             # basedtypeTable
             ("Category:1999 television series", "television series"),
             ("Category:2000 video games", "video games"),
-            ("Category:1999 sports events", "sports events"),
             # No type → empty
             ("Category:1999 France", ""),
             ("Category:2020 Japan", ""),

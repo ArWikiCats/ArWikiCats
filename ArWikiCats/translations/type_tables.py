@@ -2,10 +2,10 @@ from ..helps import len_print
 from .tv.films_mslslat import television_keys
 
 basedtypeTable = {
-    "establishments": "تأسيسات",
-    "disestablishments": "انحلالات",
-    "sports events": "أحداث رياضية",
-    "sports-events": "أحداث رياضية",
+    # "establishments": "تأسيسات",
+    # "disestablishments": "انحلالات",
+    # "sports events": "أحداث رياضية",
+    # "sports-events": "أحداث رياضية",
 
     "video games": "ألعاب فيديو",
     "politics": "سياسة",

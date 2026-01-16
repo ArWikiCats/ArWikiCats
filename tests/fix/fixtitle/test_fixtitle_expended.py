@@ -140,7 +140,6 @@ def test_fixlab_rejected(label_old: str) -> None:
 @pytest.mark.parametrize(
     "ar_label, en_label",
     [
-        ("أحداث رياضية الرياضية", "sports events"),
         ("من القرن 19", "19th century"),
         ("من الحروب", "wars"),
         ("من الثورة", "revolutions"),

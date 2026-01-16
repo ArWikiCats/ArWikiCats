@@ -19,8 +19,6 @@ YEAR_DATA = {
     "{year1} elections": "انتخابات {year1}",  # 214
     # "{year1} elections": "انتخابات في {year1}",  # 214
     "{year1} novels": "روايات {year1}",  # 317
-    # "sports events": {"ar": "أحداث", "s": "الرياضية"},
-    # "sports-events": {"ar": "أحداث", "s": "الرياضية"},
     "{year1} sports-events": "أحداث {year1} الرياضية",
     "{year1} sports events": "أحداث {year1} الرياضية",  # 1295
 
