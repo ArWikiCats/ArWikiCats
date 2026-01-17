@@ -19,6 +19,8 @@ all_data = dict(sorted(all_data.items()))
 
 data_per_file = len(all_data) // len(json_files) + 1
 
+print(f"data_per_file: {data_per_file}, total data: {len(all_data)}")
+
 for i, json_file in enumerate(tqdm(json_files, desc="Writing split JSON files")):
     start_index = i * data_per_file
     end_index = start_index + data_per_file
