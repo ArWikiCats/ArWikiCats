@@ -6,9 +6,9 @@ Module to resolve nationality gender patterns in Arabic categories.
 import functools
 import re
 
-from ..helps import logger
-from ..translations import SPORT_KEY_RECORDS_BASE, All_Nat, open_json_file
-from ..translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
+from ...helps import logger
+from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat, open_json_file
+from ...translations_formats import FormatDataV2, MultiDataFormatterBaseV2, format_multi_data_v2
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)  # replaced by female
 REGEX_MENS = re.compile(r"\b(mens|men)\b", re.I)  # replaced by male

@@ -7,7 +7,7 @@ import re
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
+from ArWikiCats.new_resolvers.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
 
 test_data_ar = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
