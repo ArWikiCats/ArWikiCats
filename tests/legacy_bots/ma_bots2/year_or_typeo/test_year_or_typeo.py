@@ -15,7 +15,6 @@ data_1 = {
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
-@pytest.mark.skip2
 def test_year_or_typeo_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
@@ -29,7 +28,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, label_for_startwith_year_or_typeo)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, expected, name)
