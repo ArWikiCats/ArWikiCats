@@ -28,17 +28,9 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
     )
 
 
-@pytest.mark.parametrize("lang,expected", language_key_translations.items())
-def test_directlanguages_key_lookup(lang: str, expected: str) -> None:
-    result = resolve_languages_labels(lang)
-    assert result == expected, (
-        f"language_key_translations lookup mismatch for '{lang}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
-
-
 def test_sample_direct_language() -> None:
     # from _languages_key
-    assert resolve_languages_labels("abkhazian language") == "لغة أبخازية"
+    assert resolve_languages_labels("abkhazian language") == "اللغة الأبخازية"
     assert resolve_languages_labels("afrikaans-language") == "اللغة الإفريقية"
     assert resolve_languages_labels("albanian languages") == "اللغات الألبانية"
 

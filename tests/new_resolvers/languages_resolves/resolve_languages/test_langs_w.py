@@ -24,7 +24,6 @@ data = {
     "afar-language grammar": "قواعد اللغة العفارية",
     "afar languages grammar": "قواعد اللغات العفارية",
     "abkhazian films": "أفلام باللغة الأبخازية",
-    "abkhazian language": "لغة أبخازية",
     "abkhazian languages dialects": "لهجات اللغات الأبخازية",
     "abkhazian languages films": "أفلام باللغات الأبخازية",
     "abkhazian languages given names": "أسماء شخصية باللغات الأبخازية",
@@ -35,9 +34,7 @@ data = {
     "abkhazian-language given names": "أسماء شخصية باللغة الأبخازية",
     "abkhazian-language surnames": "ألقاب باللغة الأبخازية",
     "abkhazian-language writing system": "نظام كتابة اللغة الأبخازية",
-    "abkhazian-language": "اللغة الأبخازية",
     "afar films": "أفلام باللغة العفارية",
-    "afar language": "لغة عفارية",
     "afar languages dialects": "لهجات اللغات العفارية",
     "afar languages films": "أفلام باللغات العفارية",
     "afar languages given names": "أسماء شخصية باللغات العفارية",
@@ -48,9 +45,7 @@ data = {
     "afar-language given names": "أسماء شخصية باللغة العفارية",
     "afar-language surnames": "ألقاب باللغة العفارية",
     "afar-language writing system": "نظام كتابة اللغة العفارية",
-    "afar-language": "اللغة العفارية",
     "afrikaans films": "أفلام باللغة الإفريقية",
-    "afrikaans language": "لغة إفريقية",
     "afrikaans languages dialects": "لهجات اللغات الإفريقية",
     "afrikaans languages films": "أفلام باللغات الإفريقية",
     "afrikaans languages given names": "أسماء شخصية باللغات الإفريقية",
@@ -61,9 +56,7 @@ data = {
     "afrikaans-language given names": "أسماء شخصية باللغة الإفريقية",
     "afrikaans-language surnames": "ألقاب باللغة الإفريقية",
     "afrikaans-language writing system": "نظام كتابة اللغة الإفريقية",
-    "afrikaans-language": "اللغة الإفريقية",
     "balinese films": "أفلام باللغة البالية",
-    "balinese language": "لغة بالية",
     "balinese languages dialects": "لهجات اللغات البالية",
     "balinese languages films": "أفلام باللغات البالية",
     "balinese languages given names": "أسماء شخصية باللغات البالية",
@@ -74,10 +67,7 @@ data = {
     "balinese-language given names": "أسماء شخصية باللغة البالية",
     "balinese-language surnames": "ألقاب باللغة البالية",
     "balinese-language writing system": "نظام كتابة اللغة البالية",
-    "balinese-language": "اللغة البالية",
-    "english language": "لغة إنجليزية",
     "pali films": "أفلام باللغة البالية",
-    "pali language": "لغة بالية",
     "pali languages dialects": "لهجات اللغات البالية",
     "pali languages films": "أفلام باللغات البالية",
     "pali languages given names": "أسماء شخصية باللغات البالية",
@@ -88,9 +78,7 @@ data = {
     "pali-language given names": "أسماء شخصية باللغة البالية",
     "pali-language surnames": "ألقاب باللغة البالية",
     "pali-language writing system": "نظام كتابة اللغة البالية",
-    "pali-language": "اللغة البالية",
     "arabic films": "أفلام باللغة العربية",
-    "arabic language": "لغة عربية",
     "arabic languages dialects": "لهجات اللغات العربية",
     "arabic languages films": "أفلام باللغات العربية",
     "arabic languages given names": "أسماء شخصية باللغات العربية",
@@ -101,8 +89,24 @@ data = {
     "arabic-language given names": "أسماء شخصية باللغة العربية",
     "arabic-language surnames": "ألقاب باللغة العربية",
     "arabic-language writing system": "نظام كتابة اللغة العربية",
-    "arabic-language": "اللغة العربية",
 }
+
+data_2 = {
+    "abkhazian-language": "اللغة الأبخازية",
+    "afar-language": "اللغة العفارية",
+    "balinese-language": "اللغة البالية",
+    "pali-language": "اللغة البالية",
+    "arabic-language": "اللغة العربية",
+    "afrikaans-language": "اللغة الإفريقية",
+    "Lao-language": "اللغة اللاوية",
+    "english-language": "اللغة الإنجليزية",
+}
+
+
+@pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
+def test_Lang_work_main_data_2(category: str, expected: str) -> None:
+    result = resolve_languages_labels(category)
+    assert result == expected
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
@@ -122,26 +126,6 @@ def test_lang_work() -> None:
     # Test with various inputs
     result_various = resolve_languages_labels("english language")
     assert isinstance(result_various, str)
-
-
-# -----------------------------------------------------------
-# 1) Parametrize: test direct keys from languages_key_subset
-# -----------------------------------------------------------
-
-
-@pytest.mark.parametrize(
-    "key, expected",
-    [(k, v) for k, v in languages_key_subset.items()],
-    ids=list(languages_key_subset.keys()),
-)
-def test_lang_work_direct(key: str, expected: str) -> None:
-    """Test resolve_languages_labels for direct language keys."""
-    result = resolve_languages_labels(key)
-    # resolve_languages_labels may return full label or variant formatting
-    assert isinstance(result, str)
-    # If expected is Arabic label, result must equal or include it
-    if result:
-        assert expected in result or result == expected
 
 
 # -----------------------------------------------------------

@@ -14,6 +14,11 @@ from ...translations_formats import FormatDataV2
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
+    # "{en} language": "لغة {ar}",
+    "{en} language": "اللغة {al_ar}",
+    "{en}-language": "اللغة {al_ar}",
+
+    "{en} languages": "اللغات {al_ar}",
     "{en} language comedy films": "أفلام كوميدية باللغة {al_ar}",
     "{en} language film series": "سلاسل أفلام باللغة {al_ar}",
     "{en} films": "أفلام باللغة {al_ar}",
@@ -48,9 +53,6 @@ formatted_data = {
     "{en} mythology": "أساطير {ar}",
     "{en} texts": "نصوص {ar}",
     "{en} prose texts": "نصوص نثرية {ar}",
-    "{en} language": "لغة {ar}",
-    # "{en} language": "اللغة {al_ar}",
-    "{en} languages": "اللغات {al_ar}",
     "{en} languages writing system": "نظام كتابة اللغات {al_ar}",
     "{en} languages dialects": "لهجات اللغات {al_ar}",
     "{en} languages given names": "أسماء شخصية باللغات {al_ar}",
