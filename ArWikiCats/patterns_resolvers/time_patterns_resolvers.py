@@ -21,7 +21,7 @@ def build_labs_years_object() -> LabsYearsFormat:
     })
     labs_years_bot = LabsYearsFormat(
         category_templates=category_templates,
-        year_param_placeholder="{year1}",
+        key_param_placeholder="{year1}",
         year_param_name="year1",
         fixing_callback=standardize_time_phrases,
     )

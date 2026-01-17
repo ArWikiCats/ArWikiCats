@@ -34,7 +34,8 @@ class LabsYearsFormat(MatchTimes):
     def __init__(
         self,
         category_templates: dict[str, str],
-        year_param_placeholder: str = "{year1}",
+        key_param_placeholder: str = "{year1}",
+        value_param_placeholder: str = "{year1}",
         year_param_name: str = "year1",
         fixing_callback: Optional[Callable] = None,
     ) -> None:
@@ -42,7 +43,8 @@ class LabsYearsFormat(MatchTimes):
         self.lookup_count = 0
         self.category_templates = category_templates
         self.year_param_name = year_param_name
-        self.year_param_placeholder = year_param_placeholder
+        self.key_param_placeholder = key_param_placeholder
+        self.value_param_placeholder = value_param_placeholder
         self.fixing_callback = fixing_callback
 
     def lab_from_year(self, category_r: str) -> tuple:
@@ -66,19 +68,18 @@ class LabsYearsFormat(MatchTimes):
             return cat_year, from_year
 
         cat_year = year_match
-        cat_key = category_r.replace(cat_year, self.year_param_placeholder).lower().replace("category:", "").strip()
+        cat_key = category_r.replace(cat_year, self.key_param_placeholder).lower().replace("category:", "").strip()
 
-        cat_year_ar = ""
-        if cat_year.isdigit():
-            cat_year_ar = cat_year
-        else:
-            cat_year_ar = convert_time_to_arabic(cat_year)
+        cat_year_ar = convert_time_to_arabic(cat_year)
 
         canonical_label = self.category_templates.get(cat_key)
 
-        if canonical_label and self.year_param_placeholder in canonical_label and cat_year_ar:
+        if canonical_label and self.value_param_placeholder in canonical_label and cat_year_ar:
 
-            from_year = canonical_label.format_map({self.year_param_name: cat_year_ar})
+            from_year = canonical_label.format_map(
+                {self.year_param_name: cat_year_ar}
+            )
+
             if self.fixing_callback:
                 from_year = self.fixing_callback(from_year)
 
@@ -91,7 +92,7 @@ class LabsYearsFormat(MatchTimes):
 
     def lab_from_year_add(self, category_r: str, category_lab: str, en_year: str, ar_year: str = "") -> bool:
         """
-        A function that converts the year in category_r and category_lab to self.year_param_placeholder and updates the category_templates dictionary accordingly.
+        A function that converts the year in category_r and category_lab to self.key_param_placeholder and updates the category_templates dictionary accordingly.
         Parameters:
             category_r (str): The category from which to update the year.
             category_lab (str): The category from which to update the year.
@@ -116,8 +117,8 @@ class LabsYearsFormat(MatchTimes):
         if not en_year or en_year not in category_r:
             return False
 
-        cat_key = category_r.replace(en_year, self.year_param_placeholder)
-        lab_key = category_lab.replace(ar_year, self.year_param_placeholder)
+        cat_key = category_r.replace(en_year, self.key_param_placeholder)
+        lab_key = category_lab.replace(ar_year, self.value_param_placeholder)
 
         logger.debug("<<yellow>> lab_from_year_add:")
         logger.debug(f"\t<<yellow>> {cat_key=} , {lab_key=}")
