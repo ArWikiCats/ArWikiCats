@@ -22,7 +22,6 @@ class PrintConfig:
 
 @dataclass(frozen=True)
 class AppConfig:
-    start_tgc_resolver_first: bool
     find_stubs: bool
     makeerr: bool
     save_data_path: str
@@ -40,7 +39,6 @@ settings = Config(
         noprint_formats=one_req("NOPRINT_FORMATS"),
     ),
     app=AppConfig(
-        start_tgc_resolver_first=one_req("TGC_RESOLVER_FIRST"),
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
