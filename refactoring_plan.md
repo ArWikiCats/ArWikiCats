@@ -62,8 +62,6 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 4. resolve_nat_men_pattern_new()             # Nationality + gender patterns
         ↓ (if no match)
-5. cash_2022.get()                           # Dictionary lookup
-        ↓ (if no match)
 6. event2_new2()                              # Event2 bot
         ↓ (if no match)
 7. event_Lab()                               # Event Lab bot
@@ -232,12 +230,6 @@ from ArWikiCats.config import app_settings, print_settings
        │ resolve_nat_men_pattern_new()            │                     │
        │─────────────────────────────────────────>│                     │
        │<────────────────────────────────────────-│                     │
-       │                    │                     │                     │
-       │ [Fallback to dictionary]                 │                     │
-       │                    │                     │                     │
-       │ cash_2022.get()    │                     │                     │
-       │───────────────────────────────────────────────────────────────>│
-       │<──────────────────────────────────────────────────────────────-│
        │                    │                     │                     │
        │ [Continue chain...]│                     │                     │
 ```

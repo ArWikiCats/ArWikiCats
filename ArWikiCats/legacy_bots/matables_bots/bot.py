@@ -71,13 +71,6 @@ players_new_keys = _make_players_keys()
 
 Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
 
-cash_2022 = {
-    "category:japan golf tour golfers": "تصنيف:لاعبو بطولة اليابان للغولف",
-    "category:asian tour golfers": "تصنيف:لاعبو بطولة آسيا للغولف",
-    "category:european tour golfers": "تصنيف:لاعبو بطولة أوروبا للغولف",
-    "category:ladies european tour golfers": "تصنيف:لاعبات بطولة أوروبا للغولف للسيدات",
-}
-# ---
 All_P17 = {}
 Films_O_TT = {}
 
@@ -113,7 +106,6 @@ len_print.data_len(
 )
 
 __all__ = [
-    "cash_2022",
     "Films_O_TT",
     "players_new_keys",
     "add_to_new_players",

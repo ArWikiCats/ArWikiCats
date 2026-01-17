@@ -8,19 +8,21 @@ import functools
 from dataclasses import dataclass
 import re
 from ..helps import logger
-from ..patterns_resolvers import nat_men_pattern
+
+from ..patterns_resolvers import all_patterns_resolvers
+# from ..patterns_resolvers import nat_men_pattern
+# from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
+
 from ..legacy_bots import with_years_bot
 from ..legacy_bots.o_bots import univer
 from ..legacy_bots.ma_bots.country_bot import event2_d2
 from . import event_lab_bot
 from ..time_resolvers.labs_years import LabsYears
-from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 from ..legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
 from ..config import app_settings
 from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
-from ..legacy_bots.matables_bots.bot import cash_2022
 from ..new_resolvers import all_new_resolvers
 from ..fix import fixlabel
 
@@ -85,37 +87,28 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             or ""
         )
 
-    start_ylab = ""
     from_match = False
     if not category_lab:
-        category_lab = resolve_country_time_pattern(changed_cat)  # or resolve_nat_women_time_pattern(changed_cat)
+        category_lab = (
+            all_patterns_resolvers(changed_cat)
+            # resolve_country_time_pattern(changed_cat)
+            # or nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
+        )
         from_match = category_lab != ""
 
-    if not category_lab:
-        category_lab = nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
-        from_match = category_lab != ""
-
-    start_ylab = ""
+    # start_ylab = ""
     # if not category_lab: start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lower = category.lower()
-        if category_lower != changed_cat:
-            category_lab = cash_2022.get(category_lower, "")
-        if not category_lab:
-            category_lab = cash_2022.get(changed_cat, "")
+        # if not category_lab and app_settings.start_tgc_resolver_first: category_lab = start_ylab
 
-        if not category_lab and app_settings.start_tgc_resolver_first:
-            category_lab = start_ylab
-
-        if not category_lab:
-            category_lab = (
-                univer.te_universities(changed_cat)
-                or event2_d2(changed_cat)
-                or with_years_bot.Try_With_Years2(changed_cat)
-                or label_for_startwith_year_or_typeo(changed_cat)
-                or ""
-            )
+        category_lab = (
+            univer.te_universities(changed_cat)
+            or event2_d2(changed_cat)
+            or with_years_bot.Try_With_Years2(changed_cat)
+            or label_for_startwith_year_or_typeo(changed_cat)
+            or ""
+        )
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
