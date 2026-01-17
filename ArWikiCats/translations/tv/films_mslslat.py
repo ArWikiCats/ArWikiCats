@@ -32,7 +32,7 @@ SERIES_DEBUTS_ENDINGS = {
 }
 
 # General television/media category base translations
-TELEVISION_BASE_KEYS = {
+TELEVISION_BASE_KEYS_FEMALE = {
     "video games": "ألعاب فيديو",
     "soap opera": "مسلسلات طويلة",
     "television characters": "شخصيات تلفزيونية",
@@ -201,7 +201,7 @@ def _build_series_and_nat_keys(
     _key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
 
     # Build base series keys
-    for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+    for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
         _key_for_nat[tt] = f"{tt_lab} {NAT_PLACEHOLDER}"
         _mslslat_tab[tt] = tt_lab
 
@@ -224,7 +224,7 @@ def _build_series_and_nat_keys(
 
     # Build combinations of female film keys with series keys
     for ke, ke_lab in female_keys.items():
-        for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+        for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
             key_base = f"{ke} {tt}"
 
             # Base combination
@@ -258,7 +258,7 @@ def _build_series_and_nat_keys(
 
 def _build_television_cao(
     female_keys: Dict[str, str],
-) -> Tuple[Dict[str, str], int]:
+) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
     Build CAO (Characters, Albums, Organizations, etc.) mappings.
 
@@ -266,12 +266,11 @@ def _build_television_cao(
         - films_key_cao: CAO translation mapping
         - count: Number of genre-TV combinations created
     """
+    films_key_cao2 = {}
     films_key_cao = {}
-    count = 0
 
     # Base TV keys with common suffixes
     for ff, label in TELEVISION_KEYS.items():
-        films_key_cao[ff] = label
         for suffix, arabic_suffix in [
             ("characters", "شخصيات"),
             ("title cards", "بطاقات عنوان"),
@@ -302,82 +301,30 @@ def _build_television_cao(
     ]
 
     for ke, ke_lab in female_keys.items():
+        if not ke or not ke_lab:
+            continue
         # Special cases
         films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
         films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
 
         # Standard categories
         for suffix, arabic_base in genre_categories:
+            if not suffix or not arabic_base:
+                continue
             films_key_cao[f"{ke} {suffix}"] = f"{arabic_base} {ke_lab}"
 
         # Combinations with all TV keys
         for fao, base_label in TELEVISION_KEYS.items():
-            count += 1
-            films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
-
-    return films_key_cao, count
-
-
-def _build_female_combo_keys(
-    filmskeys_male_female: Dict[str, Dict[str, str]],
-) -> Dict[str, str]:
-    """Build all pairwise combinations of female genre labels."""
-    result = {}
-
-    # Extract female labels
-    base_female = {x: v["female"] for x, v in filmskeys_male_female.items() if v.get("female", "").strip()}
-
-    # Generate combinations
-    for en, tab in filmskeys_male_female.items():
-        tab_female = tab.get("female", "").strip()
-        if not tab_female:
-            continue
-
-        for en2, tab2_female in base_female.items():
-            if en == en2:
+            if not fao or not base_label:
                 continue
-            new_key = f"{en} {en2}".lower()
-            if tab2_female:
-                result[new_key] = f"{tab_female} {tab2_female}"
+            films_key_cao2[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 
-    return result
-
-
-def build_gender_specific_film_maps(
-    Films_keys_male_female: Dict[str, Dict[str, str]],
-    Films_key_O_multi: Dict[str, Dict[str, str]],
-    films_key_both: Dict[str, Dict[str, str]],
-) -> tuple[dict, dict]:
-    """
-    Build gender-aware film key mappings.
-
-    Returns:
-        - Films_key_333: key → {male, female}
-        - film_keys_for_female: Key → female label
-    """
-    Films_key_333: Dict[str, str] = {}
-    # Build gender-specific maps
-
-    film_keys_for_female: Dict[str, str] = {
-        x: v.get("female", "").strip() for x, v in films_key_both.items() if v.get("female", "").strip()
-    }
-
-    female_extended_labels = _extend_females_labels(Films_keys_male_female)
-    Films_key_333.update(female_extended_labels)
-    film_keys_for_female.update(female_extended_labels)
-
-    # Extend Films_key_333 with female labels from Films_key_O_multi
-    for cd, ff in Films_key_O_multi.items():
-        female_label = ff.get("female", "").strip()
-        if female_label:  # and cd not in Films_key_333:
-            Films_key_333[cd] = female_label
-
-    return Films_key_333, film_keys_for_female
-
+    return films_key_cao, films_key_cao2
 
 # =============================================================================
 # Module Initialization
 # =============================================================================
+
 
 # Load JSON resources
 Films_key_For_nat = open_json_file("media/Films_key_For_nat.json") or {}
@@ -393,22 +340,221 @@ Films_key_O_multi = {
 }
 
 # Build gender-aware mappings
-(
-    Films_key_both,
-    Films_key_man,
-) = _build_gender_key_maps(Films_key_O_multi)
+Films_key_both, Films_key_man = _build_gender_key_maps(Films_key_O_multi)
 
 film_keys_for_male: Dict[str, str] = {
     x: v.get("male", "").strip() for x, v in Films_key_both.items() if v.get("male", "").strip()
 }
 
-Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
-    Films_keys_male_female, Films_key_O_multi, Films_key_both
-)
-
-
-# Build series and nationality keys
-# films_key_for_nat_extended_org, films_mslslat_tab_base_org = _build_series_and_nat_keys(film_keys_for_female)
+film_keys_for_female = {
+    "3d": "ثلاثية الأبعاد",
+    "4d": "رباعية الأبعاد",
+    "action": "حركة",
+    "action comedy": "حركة كوميدية",
+    "action thriller": "إثارة حركة",
+    "adaptation": "مقتبسة",
+    "adult animated": "رسوم متحركة للكبار",
+    "adult animated drama": "رسوم متحركة دراما للكبار",
+    "adult animated supernatural": "رسوم متحركة خارقة للطبيعة للكبار",
+    "adventure": "مغامرات",
+    "animated": "رسوم متحركة",
+    "animated science": "علمية رسوم متحركة",
+    "animated short film": "رسوم متحركة قصيرة",
+    "animated short": "رسوم متحركة قصيرة",
+    "animation": "رسوم متحركة",
+    "anime": "أنمي",
+    "anthology": "أنثولوجيا",
+    "apocalyptic": "نهاية العالم",
+    "astronomical": "فلكية",
+    "aviation": "طيران",
+    "b movie": "درجة ثانية",
+    "biographical": "سير ذاتية",
+    "black": "سوداء",
+    "black and white": "أبيض وأسود",
+    "black comedy": "كوميدية سوداء",
+    "black-and-white": "أبيض وأسود",
+    "bollywood": "بوليوود",
+    "buddy": "رفقاء",
+    "cancelled": "ملغية",
+    "cannibal": "آكلو لحم البشر",
+    "chase": "مطاردة",
+    "children's": "أطفال",
+    "children's animated": "رسوم متحركة أطفال",
+    "children's comedy": "أطفال كوميدية",
+    "christmas": "عيد الميلاد",
+    "colonial cinema": "استعمار",
+    "comedy": "كوميدية",
+    "comedy drama": "كوميدية درامية",
+    "comedy fiction": "كوميدية خيالية",
+    "comedy horror": "كوميدية رعب",
+    "comedy thriller": "كوميدية إثارة",
+    "comedy-drama": "كوميدية درامية",
+    "comic science fiction": "خيالية علمية كوميدية",
+    "coming-of-age": "تقدم في العمر",
+    "coming-of-age story": "قصة تقدم في العمر",
+    "computer animated": "حركة حاسوبية",
+    "computer-animated": "حركة حاسوبية",
+    "crime": "جريمة",
+    "crime comedy": "جنائية كوميدية",
+    "crime thriller": "إثارة وجريمة",
+    "crime-comedy": "جنائية كوميدية",
+    "criminal": "جنائية",
+    "criminal comedy": "كوميديا الجريمة",
+    "cyberpunk": "سايبربانك",
+    "dance": "رقص",
+    "dark fantasy": "فانتازيا مظلمة",
+    "detective": "مباحث",
+    "detective fiction": "خيالية بوليسية",
+    "disaster": "كوارثية",
+    "disney animated": "رسوم متحركة ديزني",
+    "docudrama": "درامية وثائقية",
+    "documentary": "وثائقية",
+    "drama": "درامية",
+    "educational": "تعليمية",
+    "environment": "بيئية",
+    "epic": "ملحمية",
+    "erotic": "إغرائية",
+    "erotic thriller": "إثارة جنسية",
+    "european art cinema": "السينما الفنية الأوروبية",
+    "experimental": "تجريبية",
+    "exploitation": "استغلالية",
+    "family": "عائلية",
+    "fan": "معجبين",
+    "fantasy": "فانتازيا",
+    "feature": "طويلة",
+    "female buddy": "رفيقات",
+    "feminist": "نسوية",
+    "fiction": "خيالية",
+    "final fantasy": "فاينل فانتازي",
+    "flashback": "استرجاع",
+    "found footage": "تسجيلات مكتشفة",
+    "free cinema": "سينما حرة",
+    "gangster": "عصابات",
+    "girls with guns": "فتيات مع أسلحة",
+    "hacking": "إختراق",
+    "heist": "سرقة",
+    "historical": "تاريخية",
+    "holocaust": "هولوكوستية",
+    "hood": "هود",
+    "horror": "رعب",
+    "independent": "مستقلة",
+    "interactive": "تفاعلية",
+    "internet": "إنترنت",
+    "japanese horror": "رعب يابانية",
+    "joker": "جوكر",
+    "kaiju": "كايجو",
+    "kung fu": "كونغ فو",
+    "latin": "لاتينية",
+    "legal": "قانونية",
+    "legal drama": "دراما قانونية",
+    "legal thriller": "إثارة قانونية",
+    "lgbt": "إل جي بي تي",
+    "lgbtq": "إل جي بي تي كيو",
+    "lgbtq-related": "متعلقة بإل جي بي تي كيو",
+    "live": "مباشرة",
+    "live-action": "حركة مباشرة",
+    "lost": "مفقودة",
+    "low-budget": "منخفضة التكلفة",
+    "mafia": "مافيا",
+    "magic realism": "واقعية سحرية",
+    "magical girl": "فتاة ساحرة",
+    "maritime": "بحرية",
+    "martial arts": "فنون قتال",
+    "melodrama": "ميلودراما",
+    "metafictional": "ما وراء القص",
+    "military": "عسكرية",
+    "mixtape": "ميكستايب",
+    "mockumentary": "وثائقية كاذبة",
+    "monster": "وحوش",
+    "music": "موسيقية",
+    "musical": "موسيقية",
+    "musical comedy": "كوميدية موسيقية",
+    "mystery": "غموض",
+    "nature documentary": "وثائقية برية",
+    "nautical": "بحرية",
+    "naval": "بحرية عسكرية",
+    "neo-noir": "نيو-نوار",
+    "noir": "نوار",
+    "non fiction": "غير خيالية",
+    "non narrative": "غير سردية",
+    "non-fiction": "غير خيالية",
+    "non-narrative": "غير سردية",
+    "one man": "رجل واحد",
+    "one-man": "رجل واحد",
+    "parody": "ساخرة",
+    "period": "حقبية",
+    "pirate": "قراصنة",
+    "police procedural": "إجراءات الشرطة",
+    "political": "سياسية",
+    "political cinema": "سينما سياسية",
+    "political fiction": "خيالية سياسية",
+    "political thriller": "إثارة سياسية",
+    "porno": "إباحية",
+    "pornographic": "إباحية",
+    "post-apocalyptic": "ما بعد الكارثة",
+    "prequel": "بادئة",
+    "propaganda": "دعائية",
+    "psychological": "نفسية",
+    "psychological horror": "رعب نفسي",
+    "psychological thriller": "إثارة نفسية",
+    "reality": "واقعية",
+    "reboot": "ريبوت",
+    "rediscovered": "اكتشاف",
+    "religious": "دينية",
+    "remix": "ريمكس",
+    "reportage": "تقرير",
+    "robot": "آلية",
+    "rockumentary": "وثائقي الروك",
+    "romance": "رومانسية",
+    "romantic": "رومانسية",
+    "romantic comedy": "كوميدية رومانسية",
+    "sailing": "إبحار",
+    "samurai cinema": "ساموراي",
+    "satire": "هجائية",
+    "school": "مدرسية",
+    "science": "علمية",
+    "science fantasy": "فنتازيا علمية",
+    "science fiction": "خيال علمي",
+    "science fiction action": "خيال علمي وحركة",
+    "science fiction thriller": "إثارة خيال علمي",
+    "sequel": "متممة",
+    "sex": "جنسية",
+    "short": "قصيرة",
+    "siddy": "أصدقاء",
+    "silent": "صامتة",
+    "silent short": "قصيرة صامته",
+    "sisiness": "أعمال",
+    "slapstick": "كوميدية تهريجية",
+    "slasher": "تقطيع",
+    "sound": "ناطقة",
+    "spaghetti western": "سباغيتي وسترن",
+    "speculative": "تأملية",
+    "speculative fiction": "خيالية تأملية",
+    "sports": "رياضية",
+    "spy": "تجسسية",
+    "street fighter": "قتال شوارع",
+    "student": "طلاب",
+    "submarines": "غواصات",
+    "super robot": "آلية خارقة",
+    "supernatural": "خارقة للطبيعة",
+    "supernatural drama": "دراما خارقة للطبيعة",
+    "survival": "البقاء على قيد الحياة",
+    "teen": "مراهقة",
+    "television": "تلفزيونية",
+    "thriller": "إثارة",
+    "tragicomedy": "تراجيدية كوميدية",
+    "travel documentary": "وثائقي سفر",
+    "treasure hunt": "صيد كنوز",
+    "unfinished": "ناقصة",
+    "upcoming": "قادمة",
+    "vampire": "مصاصي دماء",
+    "war": "حربية",
+    "werewolve": "مستذئب",
+    "western": "غرب أمريكية",
+    "woman's": "نسائية",
+    "zombie": "زومبي",
+    "zombie comedy": "كوميدية الزومبي",
+}
 
 films_mslslat_tab_base = open_json_file("films_mslslat_tab_found.json")
 
@@ -503,32 +649,28 @@ Films_key_For_nat.update(
 )
 
 # Build television CAO mappings
-Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
+Films_key_CAO, films_key_cao2 = _build_television_cao(film_keys_for_female)
+Films_key_CAO.update(TELEVISION_KEYS)
+Films_key_CAO.update(films_key_cao2)
 
 # Build female combination keys
-# Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
-
-# Legacy aliases
-film_key_women_2 = TELEVISION_BASE_KEYS
-television_keys = TELEVISION_KEYS
 
 # Summary output
 len_print.data_len(
     "films_mslslat.py",
     {
         "Films_key_For_nat_extended": Films_key_For_nat_extended,
-        "television_keys": television_keys,
+        "TELEVISION_KEYS": TELEVISION_KEYS,
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
-        "ss_Films_key_CAO": ss_Films_key_CAO,
-        "Films_key_333": Films_key_333,
+        "films_key_cao2": films_key_cao2,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
         "film_keys_for_female": film_keys_for_female,
         "film_keys_for_male": film_keys_for_male,
         "Films_key_man": Films_key_man,
-        "film_key_women_2": film_key_women_2,
+        "TELEVISION_BASE_KEYS_FEMALE": TELEVISION_BASE_KEYS_FEMALE,
         # "films_key_for_nat_extended_org": films_key_for_nat_extended_org,
         # "films_mslslat_tab_base_org": films_mslslat_tab_base_org,
     },
@@ -540,14 +682,12 @@ len_print.data_len(
 # =============================================================================
 
 __all__ = [
-    "television_keys",
     "films_mslslat_tab",
     "film_keys_for_female",
     "film_keys_for_male",
-    "Films_key_333",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_man",
     "Films_keys_both_new_female",
-    "film_key_women_2",
+    "TELEVISION_BASE_KEYS_FEMALE",
 ]

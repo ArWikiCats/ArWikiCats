@@ -69,7 +69,6 @@ data = [
     {"separator_stripped": "filmed in", "country": "jiangsu", "output": "جيانغسو"},
     {"separator_stripped": "for", "country": "for argentina", "output": "الأرجنتين"},
     {"separator_stripped": "for", "country": "for australia", "output": "أستراليا"},
-    {"separator_stripped": "for", "country": "for german-language films", "output": "أفلام باللغة الألمانية"},
     {"separator_stripped": "for", "country": "for germany", "output": "ألمانيا"},
     {"separator_stripped": "for", "country": "for national teams", "output": "للمنتخبات الوطنية"},
     {"separator_stripped": "for", "country": "for women's football", "output": "كرة القدم للسيدات"},

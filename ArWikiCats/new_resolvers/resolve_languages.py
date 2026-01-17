@@ -10,9 +10,10 @@ import functools
 import re
 
 from ..helps import logger
-from ..translations import (  # Films_key_333,; Films_key_For_nat,; Films_keys_both_new_female,
+from ..translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
+    TELEVISION_KEYS,
     Films_key_CAO,
     film_keys_for_female,
 )
@@ -141,6 +142,7 @@ def _make_bot() -> MultiDataFormatterBase:
         "lgbtq-related",
         "upcoming",
     }
+    to_find = TELEVISION_KEYS | Films_key_CAO
 
     data = {x: add_definite_article(v) for x, v in new_data.items()}
     bot = format_films_country_data(
@@ -153,7 +155,7 @@ def _make_bot() -> MultiDataFormatterBase:
         value2_placeholder="{film_ar}",
         text_after="",
         text_before="",
-        data_to_find=Films_key_CAO,
+        data_to_find=to_find,
         # other_formatted_data=other_formatted_data,
     )
 
@@ -182,7 +184,7 @@ def _load_bot() -> FormatDataV2:
 
 
 def fix_keys(category: str) -> str:
-    category = category.replace("'", "").lower()
+    category = category.lower().replace("category:", "").replace("'", "")
     category = category.replace("-language ", " language ")
     return category
 
@@ -193,7 +195,11 @@ def resolve_languages_labels(category: str) -> str:
 
     category = fix_keys(category)
 
-    result = _load_bot().search_all_category(category) or _make_bot().search_all_category(category) or ""
+    result = (
+        _load_bot().search_all_category(category)
+        or _make_bot().search_all_category(category)
+        or ""
+    )
 
     logger.info_if_or_debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}", result)
     return result

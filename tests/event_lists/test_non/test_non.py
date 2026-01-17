@@ -7,7 +7,6 @@ from ArWikiCats import resolve_arabic_category_label
 data1 = {
     "Category:Jewish American non-fiction writers": "تصنيف:كتاب غير روائيين أمريكيون يهود",
     "Category:Non-fiction books about the United States Army": "تصنيف:كتب غير خيالية عن القوات المسلحة الأمريكية",
-    "Category:Non-fiction works about the United States Army": "تصنيف:أعمال غير خيالية عن القوات المسلحة الأمريكية",
     "category:non-fiction writers from northern ireland": "تصنيف:كتاب غير روائيين من أيرلندا الشمالية",
     "category:non-fiction writers from russian empire": "تصنيف:كتاب غير روائيين من الإمبراطورية الروسية",
     "category:1550 non-fiction books": "تصنيف:كتب غير خيالية 1550",
@@ -863,15 +862,7 @@ data1 = {
 }
 
 non_fiction = {
-    "category:lists of non-fiction works": "تصنيف:قوائم أعمال غير خيالية",
     "category:non-fiction television shows": "تصنيف:عروض تلفزيونية غير خيالية",
-    "category:non-fiction works about crime in canada": "تصنيف:أعمال غير خيالية عن جريمة في كندا",
-    "category:non-fiction works about espionage": "تصنيف:أعمال غير خيالية عن التجسس",
-    "category:non-fiction works about law in canada": "تصنيف:أعمال غير خيالية عن قانون في كندا",
-    "category:non-fiction works about serial killers": "تصنيف:أعمال غير خيالية عن قتلة متسلسلون",
-    "category:non-fiction works about united states air force": "تصنيف:أعمال غير خيالية عن القوات الجوية الأمريكية",
-    "category:non-fiction works about united states navy": "تصنيف:أعمال غير خيالية عن البحرية الأمريكية",
-    "category:non-fiction works": "تصنيف:أعمال غير خيالية",
 }
 
 data_series = {

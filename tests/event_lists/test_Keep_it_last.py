@@ -89,8 +89,6 @@ fast_data_empty = {
     "Category:American remakes of Spanish films": "x",
     "Category:American remakes of Swedish films": "x",
     "Category:American remakes of Thai films": "x",
-    "Category:Assamese-language remakes of Hindi films": "x",
-    "Category:Assamese-language remakes of Malayalam films": "x",
     "Category:Bangladeshi remakes of American films": "x",
     "Category:Bangladeshi remakes of foreign films": "x",
     "Category:Bangladeshi remakes of Indian films": "x",

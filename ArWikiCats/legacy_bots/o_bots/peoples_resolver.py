@@ -6,7 +6,7 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import People_key, film_key_women_2, nats_to_add
+from ...translations import People_key, TELEVISION_BASE_KEYS_FEMALE, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template
 
@@ -85,7 +85,7 @@ def make_people_lab(normalized_value: str) -> str:
 
     if not new_label:
         base_value = re.sub(r"people$", "", normalized_value)
-        film_label = film_key_women_2.get(base_value, "")
+        film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
         if film_label:
             new_label = f"أعلام {film_label}"
 

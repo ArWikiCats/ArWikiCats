@@ -9,7 +9,7 @@ import re
 
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import dump_data, logger
 from ...new_resolvers.reslove_all import new_resolvers_all
 from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens
@@ -79,12 +79,14 @@ class LabelForStartWithYearOrTypeo:
         self.cate, self.cate3 = get_cats(category_r)
         result = get_reg_result(category_r)
 
+        country_cleaned = result.country.strip()
+
         self.year_at_first = result.year_at_first
         self.In = result.In
-        self.country = result.country
         self.cat_test = result.cat_test
 
-        self.country_lower = self.country.lower()
+        self.country = country_cleaned
+        self.country_lower = country_cleaned
         self.country_not_lower = self.country
 
         logger.debug(f'>>>> {self.year_at_first=}, "{self.In=}, {self.country=}, {self.cat_test=}')
@@ -248,6 +250,7 @@ class LabelForStartWithYearOrTypeo:
         return self.finalize()
 
 
+@dump_data(1)
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()
