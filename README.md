@@ -232,7 +232,6 @@ print(f"تم إيجاد تسمية: {result.has_label}")
 
 ```bash
 python examples/run.py           # مثال بسيط
-python examples/1k.py            # معالجة 1000 تصنيف
 python examples/5k.py            # معالجة 5000 تصنيف
 ```
 

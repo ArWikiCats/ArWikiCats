@@ -13,6 +13,12 @@ test_data_skip = {
 }
 
 test_data_0 = {
+    "fijian language": "اللغة الفيجية",
+    "japanese language": "اللغة اليابانية",
+    "Chinese language templates": "قوالب اللغة الصينية",
+    "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
+    "2010s French-language films": "أفلام باللغة الفرنسية في عقد 2010",
+    "1960s in Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
     "Persian-language singers of Tajikistan": "مغنون باللغة الفارسية في طاجيكستان",
     "Yiddish-language singers of Austria": "مغنون باللغة اليديشية في النمسا",
     "Yiddish-language singers of Russia": "مغنون باللغة اليديشية في روسيا",
