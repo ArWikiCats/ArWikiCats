@@ -193,7 +193,11 @@ def resolve_languages_labels(category: str) -> str:
 
     category = fix_keys(category)
 
-    result = _load_bot().search_all_category(category) or _make_bot().search_all_category(category) or ""
+    result = (
+        _load_bot().search_all_category(category)
+        or _make_bot().search_all_category(category)
+        or ""
+    )
 
     logger.info_if_or_debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}", result)
     return result
