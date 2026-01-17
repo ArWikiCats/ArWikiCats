@@ -9,18 +9,18 @@ from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import resolve_nationalities_main
 from .relations_resolver import new_relations_resolvers
 from .sports_resolvers import resolve_sports_main, sport_lab_nat
-from .translations_resolvers_v3i import resolve_v3i_main
+from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 
 @functools.lru_cache(maxsize=None)
-def new_resolvers_all(category: str) -> str:
-    logger.debug(f">> new_resolvers_all: {category}")
+def all_new_resolvers(category: str) -> str:
+    logger.debug(f">> all_new_resolvers: {category}")
     category_lab = (
         # resolve_jobs_main before sports, to avoid mis-resolving like:
         # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
         # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
         resolve_jobs_main(category)
-        or resolve_v3i_main(category)
+        or time_and_jobs_resolvers_main(category)
         or resolve_sports_main(category)
         # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
         # resolve_countries_names_main> [Italy political leader]:  "قادة إيطاليا السياسيون"
@@ -34,5 +34,5 @@ def new_resolvers_all(category: str) -> str:
         or resolve_languages_labels_with_time(category)
         or ""
     )
-    logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")
+    logger.debug(f"<< all_new_resolvers: {category} => {category_lab}")
     return category_lab

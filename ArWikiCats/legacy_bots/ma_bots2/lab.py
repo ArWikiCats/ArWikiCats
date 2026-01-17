@@ -8,7 +8,7 @@ import re
 from typing import Tuple
 
 from ...helps import logger
-from ...new_resolvers import new_resolvers_all
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
@@ -38,7 +38,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_resolvers_all(country2)
+        all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
@@ -316,7 +316,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
         "get_from_new_p17_final": lambda t: get_from_new_p17_final(t),
-        "new_resolvers_all": lambda t: new_resolvers_all(t),
+        "all_new_resolvers": lambda t: all_new_resolvers(t),
         "_lookup_type_without_article": _lookup_type_without_article,
         "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
@@ -398,7 +398,7 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
         # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
-        "new_resolvers_all": lambda t: new_resolvers_all(t),
+        "all_new_resolvers": lambda t: all_new_resolvers(t),
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),

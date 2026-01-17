@@ -9,7 +9,7 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...new_resolvers import new_resolvers_all
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
@@ -36,7 +36,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_resolvers_all(country2)
+        all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
@@ -95,7 +95,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         get_pop_All_18(cone_1)
         or resolve_languages_labels_with_time(cone_1)
         or People_key.get(cone_1)
-        or new_resolvers_all(cone_1)
+        or all_new_resolvers(cone_1)
         or sport_lab_suffixes.get_teams_new(cone_1)
         or parties_bot.get_parties_lab(cone_1)
         or team_work.Get_team_work_Club(cone_1)
@@ -124,7 +124,7 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
         or bys.get_by_label(cone_2)
         or resolve_languages_labels_with_time(cone_2)
         or People_key.get(cone_2)
-        or new_resolvers_all(cone_2)
+        or all_new_resolvers(cone_2)
         or sport_lab_suffixes.get_teams_new(cone_2)
         or parties_bot.get_parties_lab(cone_2)
         or bys.get_and_label(cone_2)
@@ -235,7 +235,7 @@ def separator_arabic_resolve(separator: str) -> str:
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     part_2_label = (
-        new_resolvers_all(part_2)
+        all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
         or country_bot.Get_c_t_lab(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
@@ -243,7 +243,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     )
 
     part_1_label = (
-        new_resolvers_all(part_1)
+        all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1, with_years=with_years)
         or country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
         or ""

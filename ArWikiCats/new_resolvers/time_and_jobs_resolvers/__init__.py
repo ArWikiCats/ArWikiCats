@@ -8,10 +8,10 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_v3i_main(normalized_category) -> str:
+def time_and_jobs_resolvers_main(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying v3i resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> Trying time_and_jobs_resolvers_main for: {normalized_category=}")
 
     resolved_label = (
         year_job_origin_resolver.resolve_year_job_from_countries(normalized_category)
@@ -20,11 +20,11 @@ def resolve_v3i_main(normalized_category) -> str:
     )
 
     logger.info_if_or_debug(
-        f"<<yellow>> end resolve_v3i_main: {normalized_category=}, {resolved_label=}", resolved_label
+        f"<<yellow>> end time_and_jobs_resolvers_main: {normalized_category=}, {resolved_label=}", resolved_label
     )
     return resolved_label
 
 
 __all__ = [
-    "resolve_v3i_main",
+    "time_and_jobs_resolvers_main",
 ]

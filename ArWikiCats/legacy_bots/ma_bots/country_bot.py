@@ -9,7 +9,7 @@ import re
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
-from ...new_resolvers import new_resolvers_all
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -42,7 +42,7 @@ def get_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_resolvers_all(country2)
+        all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
@@ -173,7 +173,7 @@ class CountryLabelRetriever:
                 _resolve_remainder(country)
                 or self._check_prefixes(country)
                 or check_historical_prefixes(country)
-                or new_resolvers_all(country)
+                or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
                 or SPORTS_KEYS_FOR_LABEL.get(country, "")
@@ -197,7 +197,7 @@ class CountryLabelRetriever:
             or religious_entries.get(country, "")
             or resolve_languages_labels_with_time(country)
             or People_key.get(country)
-            or new_resolvers_all(country)
+            or all_new_resolvers(country)
             or team_work.Get_team_work_Club(country)
         )
         return label

@@ -8,7 +8,7 @@ import re
 from typing import Pattern
 
 from ..helps import logger
-from ..new_resolvers import new_resolvers_all
+from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
@@ -51,7 +51,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_resolvers_all(country2)
+        all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or resolve_languages_labels(country2)
@@ -108,7 +108,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     if not remainder_label:
         remainder_label = (
-            new_resolvers_all(remainder)
+            all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
             or get_KAKO(remainder)
             or translate_general_category(remainder, fix_title=False)
@@ -160,7 +160,7 @@ def _handle_year_at_end(
     remainder = category_text[: -len(year_at_end_label)]
 
     remainder_label = (
-        new_resolvers_all(remainder)
+        all_new_resolvers(remainder)
         or translate_general_category(remainder, fix_title=False)
         or wrap_lab_for_country2(remainder)
         or ""

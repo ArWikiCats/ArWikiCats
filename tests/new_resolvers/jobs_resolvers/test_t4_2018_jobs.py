@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.new_resolvers import new_resolvers_all
+from ArWikiCats.new_resolvers import all_new_resolvers
 
 test_data_not_for_2018_bot = {
     "weightlifters": "رباعون",
@@ -448,27 +448,27 @@ data_fast = {
 @pytest.mark.parametrize("category, expected_key", te4_2018_Jobs_data.items(), ids=te4_2018_Jobs_data.keys())
 @pytest.mark.slow
 def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
-    label1 = new_resolvers_all(category)
+    label1 = all_new_resolvers(category)
     assert label1 == expected_key
 
-    # label2 = new_resolvers_all(category)
+    # label2 = all_new_resolvers(category)
     # assert label2 == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
-    label1 = new_resolvers_all(category)
+    label1 = all_new_resolvers(category)
     assert label1 == expected_key
 
-    # label2 = new_resolvers_all(category)
+    # label2 = all_new_resolvers(category)
     # assert label2 == expected_key
 
 
 to_test = [
-    ("test_data_not_for_2018_bot_m", test_data_not_for_2018_bot, new_resolvers_all),
-    ("te4_2018_Jobs_data", te4_2018_Jobs_data, new_resolvers_all),
-    ("te4_2018_data_fast", data_fast, new_resolvers_all),
+    ("test_data_not_for_2018_bot_m", test_data_not_for_2018_bot, all_new_resolvers),
+    ("te4_2018_Jobs_data", te4_2018_Jobs_data, all_new_resolvers),
+    ("te4_2018_data_fast", data_fast, all_new_resolvers),
 ]
 
 

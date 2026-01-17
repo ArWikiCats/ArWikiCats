@@ -7,7 +7,7 @@ import re
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import dump_data, logger
-from ...new_resolvers import new_resolvers_all
+from ...new_resolvers import all_new_resolvers
 from ...time_resolvers import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
 from ..ma_bots.country_bot import get_country
@@ -101,7 +101,7 @@ class LabelForStartWithYearOrTypeo:
         cmp = self.year_at_first.strip() + " " + self.country_lower
 
         self.country_label = (
-            new_resolvers_all(self.country_lower)
+            all_new_resolvers(self.country_lower)
             or get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
             or ""
         )

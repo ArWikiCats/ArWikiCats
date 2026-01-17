@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.year_job_origin_resolver import (
+from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import (
     multi_bot_v4,
     resolve_year_job_from_countries,
 )
@@ -101,7 +101,7 @@ class TestAllParts:
     @pytest.mark.parametrize("category,expected", deaths_data.items(), ids=deaths_data.keys())
     def test_deaths_data(self, category: str, expected: str) -> None:
         """
-        pytest tests/translations_resolvers_v3i/test_resolve_v3i.py::TestAllParts::test_deaths_data
+        pytest tests/time_and_jobs_resolvers/test_resolve_v3i.py::TestAllParts::test_deaths_data
         """
         result = resolve_year_job_from_countries(category)
         assert result == expected

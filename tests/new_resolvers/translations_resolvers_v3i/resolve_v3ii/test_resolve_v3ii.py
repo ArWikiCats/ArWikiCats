@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.year_job_resolver import resolve_year_job_countries
+from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_resolver import resolve_year_job_countries
 
 test_data = {
     "18th-century princes": "أمراء في القرن 18",
@@ -18,7 +18,7 @@ test_data = {
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_resolve_v3ii(category: str, expected: str) -> None:
     """
-    pytest tests/translations_resolvers_v3i/test_resolve_v3ii.py::test_data
+    pytest tests/time_and_jobs_resolvers/test_resolve_v3ii.py::test_data
     """
     result = resolve_year_job_countries(category)
     assert result == expected

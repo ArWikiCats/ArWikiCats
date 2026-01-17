@@ -9,7 +9,7 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import logger
-from ..new_resolvers import new_resolvers_all
+from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
@@ -43,7 +43,7 @@ def _resolve_label(label: str) -> str:
         Resolved Arabic label or empty string
     """
     resolved_label = (
-        new_resolvers_all(label)
+        all_new_resolvers(label)
         or get_from_pf_keys2(label)
         or get_pop_All_18(label)
         or resolve_languages_labels_with_time(label)

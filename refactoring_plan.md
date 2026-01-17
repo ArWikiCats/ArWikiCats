@@ -56,7 +56,7 @@ The system attempts resolvers in a specific order, stopping at the first success
 ```
 1. labs_years_bot.lab_from_year()           # Year/decade/century patterns
         ↓ (if no match)
-2. new_resolvers_all()                       # New resolver chain
+2. all_new_resolvers()                       # New resolver chain
         ↓ (if no match)
 3. resolve_country_time_pattern()            # Country + time patterns
         ↓ (if no match)
@@ -218,7 +218,7 @@ from ArWikiCats.config import app_settings, print_settings
        │                    │                     │                     │
        │ [If no year match] │                     │                     │
        │                    │                     │                     │
-       │ new_resolvers_all()│                     │                     │
+       │ all_new_resolvers()│                     │                     │
        │──────────────────────────────────────────────────────────────>│
        │<─────────────────────────────────────────────────────────────-│
        │ (translation or "")│                     │                     │
@@ -423,7 +423,7 @@ Input: "Category:2015 in Yemen"
                 ▼
 ┌───────────────────────────────────────┐
 │          RESOLVER CHAIN                │
-│  • new_resolvers_all()                 │
+│  • all_new_resolvers()                 │
 │  • resolve_country_time_pattern()      │
 │  • resolve_nat_men_pattern_new()       │
 │  • Dictionary lookups                  │

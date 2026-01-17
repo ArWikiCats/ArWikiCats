@@ -296,7 +296,7 @@ jobs_womens_data = {
 # في ArWikiCats/new_resolvers/reslove_all.py
 from .your_resolver import resolve_your_category
 
-def new_resolvers_all(category: str) -> str:
+def all_new_resolvers(category: str) -> str:
     category_lab = (
         resolve_jobs_main(category) or
         resolve_your_category(category) or  # المحلل الجديد
@@ -369,7 +369,7 @@ ArWikiCats/
 │   ├── sports_resolvers/    # محللات الرياضات والفرق
 │   ├── nationalities_resolvers/  # محللات الجنسيات
 │   ├── countries_names_resolvers/ # محللات أسماء البلدان
-│   └── translations_resolvers_v3i/ # محللات الترجمة المتقدمة
+│   └── time_and_jobs_resolvers/ # محللات الترجمة المتقدمة
 │
 ├── patterns_resolvers/      # محللات الأنماط المركبة
 │   ├── country_time_pattern.py

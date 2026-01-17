@@ -11,7 +11,7 @@ import functools
 import re
 
 from ...helps import dump_data, logger
-from ...new_resolvers import new_resolvers_all
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -84,7 +84,7 @@ def make_new_by_label(category: str) -> str:
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = (
-            new_resolvers_all(candidate) or resolve_languages_labels_with_time(candidate) or People_key.get(candidate)
+            all_new_resolvers(candidate) or resolve_languages_labels_with_time(candidate) or People_key.get(candidate)
         )
         if film_label:
             resolved = f"بواسطة {film_label}"
