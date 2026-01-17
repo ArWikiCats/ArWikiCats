@@ -16,9 +16,9 @@ test_data = {
 
 
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
-def test_resolve_v3ii(category: str, expected: str) -> None:
+def test_year_job_resolver(category: str, expected: str) -> None:
     """
-    pytest tests/time_and_jobs_resolvers/test_resolve_v3ii.py::test_data
+    pytest tests/time_and_jobs_resolvers/test_year_job_resolver.py::test_data
     """
     result = resolve_year_job_countries(category)
     assert result == expected

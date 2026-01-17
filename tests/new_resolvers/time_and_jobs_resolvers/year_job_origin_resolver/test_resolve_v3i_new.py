@@ -586,7 +586,7 @@ test_data_standard = {
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.slow
-def test_resolve_v3i_new_1(category: str, expected: str) -> None:
+def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
@@ -596,7 +596,7 @@ def test_resolve_v3i_new_1(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_resolve_v3i_new_1", test_data_standard, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_1", test_data_standard, resolve_year_job_from_countries),
 ]
 
 

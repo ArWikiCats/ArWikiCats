@@ -340,7 +340,7 @@ test_data_2 = {
 
 @pytest.mark.parametrize("category,expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
-def test_resolve_v3i_extended_1(category: str, expected: str) -> None:
+def test_year_job_origin_resolver_extended_1(category: str, expected: str) -> None:
     """
     Test
     """
@@ -350,7 +350,7 @@ def test_resolve_v3i_extended_1(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
 @pytest.mark.fast
-def test_resolve_v3i_extended_2(category: str, expected: str) -> None:
+def test_year_job_origin_resolver_extended_2(category: str, expected: str) -> None:
     """
     Test
     """
@@ -359,9 +359,9 @@ def test_resolve_v3i_extended_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    # ("test_resolve_v3i_extended_0", test_0),
-    ("test_resolve_v3i_extended_1", test_data_1),
-    ("test_resolve_v3i_extended_2", test_data_2),
+    # ("test_year_job_origin_resolver_extended_0", test_0),
+    ("test_year_job_origin_resolver_extended_1", test_data_1),
+    ("test_year_job_origin_resolver_extended_2", test_data_2),
 ]
 
 
