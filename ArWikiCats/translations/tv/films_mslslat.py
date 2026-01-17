@@ -258,7 +258,7 @@ def _build_series_and_nat_keys(
 
 def _build_television_cao(
     female_keys: Dict[str, str],
-) -> Tuple[Dict[str, str], int]:
+) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
     Build CAO (Characters, Albums, Organizations, etc.) mappings.
 
@@ -266,8 +266,8 @@ def _build_television_cao(
         - films_key_cao: CAO translation mapping
         - count: Number of genre-TV combinations created
     """
+    films_key_cao2 = {}
     films_key_cao = {}
-    count = 0
 
     # Base TV keys with common suffixes
     for ff, label in TELEVISION_KEYS.items():
@@ -312,10 +312,9 @@ def _build_television_cao(
 
         # Combinations with all TV keys
         for fao, base_label in TELEVISION_KEYS.items():
-            count += 1
-            films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
+            films_key_cao2[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 
-    return films_key_cao, count
+    return films_key_cao2, films_key_cao
 
 
 def build_gender_specific_film_maps(
@@ -462,7 +461,7 @@ Films_key_For_nat.update(
 )
 
 # Build television CAO mappings
-Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
+Films_key_CAO, films_key_cao2 = _build_television_cao(film_keys_for_female)
 
 # Build female combination keys
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
@@ -475,7 +474,7 @@ len_print.data_len(
         "TELEVISION_KEYS": TELEVISION_KEYS,
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
-        "ss_Films_key_CAO": ss_Films_key_CAO,
+        "films_key_cao2": films_key_cao2,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
         "film_keys_for_female": film_keys_for_female,
