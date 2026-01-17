@@ -8,9 +8,6 @@ data_0 = {
 }
 
 data_1 = {
-    "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
-    "2010s French-language films": "أفلام باللغة الفرنسية في عقد 2010",
-    "1960s in Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
 }
 
 
