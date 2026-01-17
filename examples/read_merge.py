@@ -6,7 +6,7 @@ from tqdm import tqdm
 dir = Path(__file__).parent
 
 
-json_files = list((dir / "big_data").glob("*.json"))
+json_files = list((dir / "religions_data").glob("*.json"))
 # read all json_files, make big data dict, split them between all files
 all_data = {}
 
@@ -17,7 +17,8 @@ for json_file in tqdm(json_files, desc="Processing JSON files"):
 
 all_data = dict(sorted(all_data.items()))
 
-data_per_file = 1000
+# data_per_file = 1000
+data_per_file = len(all_data) // len(json_files) + 1
 
 print(f"data_per_file: {data_per_file}, total data: {len(all_data)}")
 
