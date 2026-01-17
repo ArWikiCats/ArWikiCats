@@ -650,6 +650,8 @@ Films_key_For_nat.update(
 
 # Build television CAO mappings
 Films_key_CAO, films_key_cao2 = _build_television_cao(film_keys_for_female)
+Films_key_CAO.update(TELEVISION_KEYS)
+Films_key_CAO.update(films_key_cao2)
 
 # Build female combination keys
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
