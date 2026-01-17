@@ -1,3 +1,6 @@
+"""
+New resolvers for Arabic Wikipedia categories.
+"""
 import functools
 
 from ..helps import logger
