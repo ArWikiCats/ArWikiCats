@@ -347,15 +347,13 @@ def build_gender_specific_film_maps(
     Films_keys_male_female: Dict[str, Dict[str, str]],
     Films_key_O_multi: Dict[str, Dict[str, str]],
     films_key_both: Dict[str, Dict[str, str]],
-) -> tuple[dict, dict]:
+) -> dict:
     """
     Build gender-aware film key mappings.
 
     Returns:
-        - Films_key_333: key → {male, female}
         - film_keys_for_female: Key → female label
     """
-    Films_key_333: Dict[str, str] = {}
     # Build gender-specific maps
 
     film_keys_for_female: Dict[str, str] = {
@@ -363,16 +361,9 @@ def build_gender_specific_film_maps(
     }
 
     female_extended_labels = _extend_females_labels(Films_keys_male_female)
-    Films_key_333.update(female_extended_labels)
     film_keys_for_female.update(female_extended_labels)
 
-    # Extend Films_key_333 with female labels from Films_key_O_multi
-    for cd, ff in Films_key_O_multi.items():
-        female_label = ff.get("female", "").strip()
-        if female_label:  # and cd not in Films_key_333:
-            Films_key_333[cd] = female_label
-
-    return Films_key_333, film_keys_for_female
+    return film_keys_for_female
 
 
 # =============================================================================
@@ -402,7 +393,7 @@ film_keys_for_male: Dict[str, str] = {
     x: v.get("male", "").strip() for x, v in Films_key_both.items() if v.get("male", "").strip()
 }
 
-Films_key_333, film_keys_for_female = build_gender_specific_film_maps(
+film_keys_for_female = build_gender_specific_film_maps(
     Films_keys_male_female, Films_key_O_multi, Films_key_both
 )
 
@@ -511,18 +502,16 @@ Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.js
 
 # Legacy aliases
 film_key_women_2 = TELEVISION_BASE_KEYS
-television_keys = TELEVISION_KEYS
 
 # Summary output
 len_print.data_len(
     "films_mslslat.py",
     {
         "Films_key_For_nat_extended": Films_key_For_nat_extended,
-        "television_keys": television_keys,
+        "TELEVISION_KEYS": TELEVISION_KEYS,
         "Films_key_For_nat": Films_key_For_nat,
         "films_mslslat_tab": films_mslslat_tab,
         "ss_Films_key_CAO": ss_Films_key_CAO,
-        "Films_key_333": Films_key_333,
         "Films_key_CAO": Films_key_CAO,
         "Films_keys_both_new_female": Films_keys_both_new_female,
         "film_keys_for_female": film_keys_for_female,
@@ -540,11 +529,9 @@ len_print.data_len(
 # =============================================================================
 
 __all__ = [
-    "television_keys",
     "films_mslslat_tab",
     "film_keys_for_female",
     "film_keys_for_male",
-    "Films_key_333",
     "Films_key_CAO",
     "Films_key_For_nat",
     "Films_key_man",
