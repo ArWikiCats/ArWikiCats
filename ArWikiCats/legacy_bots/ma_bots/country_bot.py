@@ -6,11 +6,11 @@ Country Label Bot Module
 import functools
 import re
 
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import new_resolvers_all
+from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,

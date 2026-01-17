@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import pytest
+
 from ArWikiCats import resolve_label_ar
 
 data_1 = {

@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats import resolve_label_ar
 
 fast_data_drama = {
@@ -16,7 +17,7 @@ fast_data_drama = {
     "non-fiction works about united states air force": "أعمال غير خيالية عن القوات الجوية الأمريكية",
     "non-fiction works about united states navy": "أعمال غير خيالية عن البحرية الأمريكية",
     "non-fiction works": "أعمال غير خيالية",
-    "Clubs in Hong Kong": "أندية في هونغ كونغ"
+    "Clubs in Hong Kong": "أندية في هونغ كونغ",
 }
 
 

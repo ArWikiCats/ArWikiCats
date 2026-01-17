@@ -35,8 +35,8 @@ Example:
     >>> bot.create_label("14th-century writers from Yemen")
     'كتاب من اليمن في القرن 14'
 """
-from typing import Callable, Optional
 import re
+from typing import Callable, Optional
 
 from ..formats_logger import logger
 

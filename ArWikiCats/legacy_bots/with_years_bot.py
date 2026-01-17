@@ -7,10 +7,9 @@ import functools
 import re
 from typing import Pattern
 
-from ..new_resolvers.languages_resolves import resolve_languages_labels
-
 from ..helps import logger
 from ..new_resolvers import new_resolvers_all
+from ..new_resolvers.languages_resolves import resolve_languages_labels
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work
@@ -223,11 +222,7 @@ def Try_With_Years(category: str) -> str:
         logger.info(f" end Try_With_Years: {category=} no match year patterns")
         return ""
 
-    label = (
-        _handle_year_at_start(category)
-        or _handle_year_at_end(category, RE2_compile, RE33_compile)
-        or ""
-    )
+    label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
     logger.info_if_or_debug(f"<<yellow>> end Try_With_Years: {category=}, {label=}", label)
     return label
 

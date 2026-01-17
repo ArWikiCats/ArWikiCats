@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
 """
-from typing import Callable, Optional
 import functools
 import re
+from typing import Callable, Optional
 
 from ..helps import logger
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first

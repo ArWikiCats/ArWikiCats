@@ -6,8 +6,7 @@ import pytest
 
 from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels_with_time
 
-test_data_0 = {
-}
+test_data_0 = {}
 
 test_data = {
     "Cantonese-language singers": "مغنون باللغة الكانتونية",

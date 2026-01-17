@@ -10,10 +10,10 @@ import functools
 
 from ..helps import logger
 from ..new_resolvers import new_resolvers_all
+from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
-from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from .ma_bots import ye_ts_bot
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings

@@ -101,7 +101,6 @@ def _resolve_club_label(club_key: str) -> str:
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
         or new_relations_resolvers(club_key)
-
         or resolve_films_main(club_key)
         or ""
     )
