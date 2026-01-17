@@ -245,18 +245,3 @@ def genders_sports_resolver(category: str) -> str:
     logger.info_if_or_debug(f"<<yellow>> end genders_sports_resolver: {category=}, {result=}", result)
 
     return result
-
-
-@functools.lru_cache(maxsize=10000)
-def resolve_nat_genders_pattern_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nat_genders_pattern_v2: {category=}")
-
-    result = genders_sports_resolver(category) or genders_jobs_resolver(category) or ""
-    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}", result)
-
-    return result
-
-
-__all__ = [
-    "resolve_nat_genders_pattern_v2",
-]
