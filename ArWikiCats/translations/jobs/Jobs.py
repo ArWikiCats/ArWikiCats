@@ -346,18 +346,6 @@ def _add_jobs_people_variants() -> dict[str, GenderedLabel]:
 
 def _add_film_variants() -> dict[str, GenderedLabel]:
     """Create film-related job variants and return the number of generated entries."""
-    """
-    data: dict[str, GenderedLabel] = {}
-    for film_key, film_label in film_keys_for_female.items():
-        lowered_film_key = film_key.lower()
-        for role_key, role_labels in FILM_ROLE_LABELS.items():
-            data[role_key] = {"males": role_labels["males"], "females": role_labels["females"]}
-            combo_key = f"{lowered_film_key} {role_key}"
-            data[combo_key] = {
-                "males": f"{role_labels['males']} {film_label}",
-                "females": f"{role_labels['females']} {film_label}",
-            }
-    """
 
     data = {
         "film directors": {"males": "مخرجو أفلام", "females": "مخرجات أفلام"},
