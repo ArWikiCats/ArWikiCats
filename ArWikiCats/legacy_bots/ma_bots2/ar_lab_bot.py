@@ -10,7 +10,7 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...time_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
+from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...translations import pop_of_without_in
 from ...utils import fix_minor
 from .. import with_years_bot

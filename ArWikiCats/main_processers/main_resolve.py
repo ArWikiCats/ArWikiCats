@@ -8,7 +8,7 @@ import functools
 from dataclasses import dataclass
 import re
 
-from ..time_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
+from ..patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ..helps import logger
 from ..patterns_resolvers import all_patterns_resolvers
 from ..legacy_bots import with_years_bot

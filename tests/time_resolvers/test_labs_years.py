@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.time_resolvers.time_patterns_resolvers import build_labs_years_object
+from ArWikiCats.patterns_resolvers.time_patterns_resolvers import build_labs_years_object
 
 test_data = {
     "12th-century Indian books": "كتب هندية في القرن 12",

@@ -5,7 +5,7 @@ LabsYearsFormat resolver.
 import functools
 
 from ..helps import logger
-from ..patterns_resolvers.categories_patterns.YEAR_PATTERNS import YEAR_DATA
+from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
 from ..translations_formats import LabsYearsFormat
 
 from ..time_resolvers.utils_time import fixing
