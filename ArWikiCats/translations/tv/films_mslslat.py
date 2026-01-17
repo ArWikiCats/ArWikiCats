@@ -32,7 +32,7 @@ SERIES_DEBUTS_ENDINGS = {
 }
 
 # General television/media category base translations
-TELEVISION_BASE_KEYS = {
+TELEVISION_BASE_KEYS_FEMALE = {
     "video games": "ألعاب فيديو",
     "soap opera": "مسلسلات طويلة",
     "television characters": "شخصيات تلفزيونية",
@@ -201,7 +201,7 @@ def _build_series_and_nat_keys(
     _key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
 
     # Build base series keys
-    for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+    for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
         _key_for_nat[tt] = f"{tt_lab} {NAT_PLACEHOLDER}"
         _mslslat_tab[tt] = tt_lab
 
@@ -224,7 +224,7 @@ def _build_series_and_nat_keys(
 
     # Build combinations of female film keys with series keys
     for ke, ke_lab in female_keys.items():
-        for tt, tt_lab in TELEVISION_BASE_KEYS.items():
+        for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
             key_base = f"{ke} {tt}"
 
             # Base combination
@@ -318,34 +318,8 @@ def _build_television_cao(
     return films_key_cao, count
 
 
-def _build_female_combo_keys(
-    filmskeys_male_female: Dict[str, Dict[str, str]],
-) -> Dict[str, str]:
-    """Build all pairwise combinations of female genre labels."""
-    result = {}
-
-    # Extract female labels
-    base_female = {x: v["female"] for x, v in filmskeys_male_female.items() if v.get("female", "").strip()}
-
-    # Generate combinations
-    for en, tab in filmskeys_male_female.items():
-        tab_female = tab.get("female", "").strip()
-        if not tab_female:
-            continue
-
-        for en2, tab2_female in base_female.items():
-            if en == en2:
-                continue
-            new_key = f"{en} {en2}".lower()
-            if tab2_female:
-                result[new_key] = f"{tab_female} {tab2_female}"
-
-    return result
-
-
 def build_gender_specific_film_maps(
     Films_keys_male_female: Dict[str, Dict[str, str]],
-    Films_key_O_multi: Dict[str, Dict[str, str]],
     films_key_both: Dict[str, Dict[str, str]],
 ) -> dict:
     """
@@ -384,19 +358,13 @@ Films_key_O_multi = {
 }
 
 # Build gender-aware mappings
-(
-    Films_key_both,
-    Films_key_man,
-) = _build_gender_key_maps(Films_key_O_multi)
+Films_key_both, Films_key_man = _build_gender_key_maps(Films_key_O_multi)
 
 film_keys_for_male: Dict[str, str] = {
     x: v.get("male", "").strip() for x, v in Films_key_both.items() if v.get("male", "").strip()
 }
 
-film_keys_for_female = build_gender_specific_film_maps(
-    Films_keys_male_female, Films_key_O_multi, Films_key_both
-)
-
+film_keys_for_female = build_gender_specific_film_maps(Films_keys_male_female, Films_key_both)
 
 # Build series and nationality keys
 # films_key_for_nat_extended_org, films_mslslat_tab_base_org = _build_series_and_nat_keys(film_keys_for_female)
@@ -497,11 +465,7 @@ Films_key_For_nat.update(
 Films_key_CAO, ss_Films_key_CAO = _build_television_cao(film_keys_for_female)
 
 # Build female combination keys
-# Films_keys_both_new_female = _build_female_combo_keys(Films_keys_male_female)
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
-
-# Legacy aliases
-film_key_women_2 = TELEVISION_BASE_KEYS
 
 # Summary output
 len_print.data_len(
@@ -517,7 +481,7 @@ len_print.data_len(
         "film_keys_for_female": film_keys_for_female,
         "film_keys_for_male": film_keys_for_male,
         "Films_key_man": Films_key_man,
-        "film_key_women_2": film_key_women_2,
+        "TELEVISION_BASE_KEYS_FEMALE": TELEVISION_BASE_KEYS_FEMALE,
         # "films_key_for_nat_extended_org": films_key_for_nat_extended_org,
         # "films_mslslat_tab_base_org": films_mslslat_tab_base_org,
     },
@@ -536,5 +500,5 @@ __all__ = [
     "Films_key_For_nat",
     "Films_key_man",
     "Films_keys_both_new_female",
-    "film_key_women_2",
+    "TELEVISION_BASE_KEYS_FEMALE",
 ]
