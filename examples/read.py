@@ -9,8 +9,8 @@ f_path = dir / "endings.json"
 
 f_data = {}
 
-json_files = list((dir / "data").glob("*.json"))
-json_files.extend(list((dir / "big_data").glob("*.json")))
+json_files = list((dir / "big_data").glob("*.json"))
+# json_files.extend(list((dir / "data").glob("*.json")))
 
 for file in tqdm(json_files, desc="Processing JSON files"):
     with open(file, "r", encoding="utf-8") as f:
