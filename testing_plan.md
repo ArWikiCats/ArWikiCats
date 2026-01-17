@@ -97,7 +97,6 @@ def test_config():
     return Config(
         print=PrintConfig(noprint=True),
         app=AppConfig(
-            start_tgc_resolver_first=False,
             find_stubs=False,
             makeerr=False,
             save_data_path="",
@@ -145,11 +144,6 @@ def test_config():
 def no_cache(mocker):
     mocker.patch.object(resolve_label, 'cache_clear')
     mocker.patch.object(resolve_label, 'cache_info', return_value=None)
-
-# 2. Mock configuration
-@pytest.fixture
-def mock_settings(mocker):
-    mocker.patch('ArWikiCats.config.app_settings.start_tgc_resolver_first', False)
 
 # 3. Mock resolver chain for unit tests
 @pytest.fixture
@@ -543,7 +537,7 @@ class TestResolverChainIntegration:
 
         Expected flow:
         1. EventProcessor normalizes input
-        2. LabsYears extracts decade (1550s)
+        2. LabsYearsFormat extracts decade (1550s)
         3. Pattern matcher identifies establishment pattern
         4. Translation generates Arabic output
         """

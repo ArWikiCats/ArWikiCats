@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.time_resolvers.labs_years_resolver import resolve_lab_from_years_patterns
+from ArWikiCats.time_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 
 test_data = {
     "16th century music": "الموسيقى في القرن 16",

@@ -133,7 +133,6 @@ def process(self, categories: Iterable[str]) -> EventProcessingResult:
 settings = Config(
     print=PrintConfig(noprint=one_req("NOPRINT")),
     app=AppConfig(
-        start_tgc_resolver_first=one_req("TGC_RESOLVER_FIRST"),
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
@@ -405,7 +404,7 @@ Input: "Category:2015 in Yemen"
                 ▼
 ┌───────────────────────────────────────┐
 │          YEAR EXTRACTION               │
-│  • LabsYears.lab_from_year()           │
+│  • LabsYearsFormat.lab_from_year()     │
 │  • Extract: year, decade, century      │
 │  • Return: (cat_year, from_year)       │
 └───────────────────────────────────────┘
@@ -1032,7 +1031,6 @@ class CacheConfig:
 @dataclass(frozen=True)
 class ResolverConfig:
     """Configuration for resolvers."""
-    start_tgc_resolver_first: bool = False
     enable_pattern_matching: bool = True
     enable_dictionary_lookup: bool = True
     enable_bot_resolution: bool = True
@@ -1066,9 +1064,6 @@ class Config:
             cache=CacheConfig(
                 enabled=_env_bool("ARWIKICATS_CACHE_ENABLED", True),
                 max_size=int(os.getenv("ARWIKICATS_CACHE_MAX_SIZE", "50000")),
-            ),
-            resolver=ResolverConfig(
-                start_tgc_resolver_first=_env_bool("TGC_RESOLVER_FIRST", False),
             ),
             app=AppConfig(
                 find_stubs=_env_bool("-STUBS", False),
