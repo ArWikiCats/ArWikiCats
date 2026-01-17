@@ -8,7 +8,7 @@ from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import dump_data, logger
 from ...new_resolvers.reslove_all import new_resolvers_all
-from ...time_resolvers import time_to_arabic
+from ...time_resolvers import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
 from ..ma_bots.country_bot import get_country
 from ..make_bots.bot_2018 import get_pop_All_18
@@ -100,8 +100,10 @@ class LabelForStartWithYearOrTypeo:
 
         cmp = self.year_at_first.strip() + " " + self.country_lower
 
-        self.country_label = new_resolvers_all(self.country_lower) or get_country_label(
-            self.country_lower, self.country_not_lower, self.cate3, cmp
+        self.country_label = (
+            new_resolvers_all(self.country_lower)
+            or get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
+            or ""
         )
 
         if self.country_label:
@@ -117,7 +119,7 @@ class LabelForStartWithYearOrTypeo:
         if not self.year_at_first:
             return
 
-        self.year_labe = time_to_arabic.convert_time_to_arabic(self.year_at_first)
+        self.year_labe = convert_time_to_arabic(self.year_at_first)
 
         if not self.year_labe:
             logger.info(f"No label for year_at_first({self.year_at_first}), {self.arlabel=}")
@@ -285,11 +287,23 @@ class LabelForStartWithYearOrTypeo:
 
 
 @dump_data(1)
-def label_for_startwith_year_or_typeo(category_r: str) -> str:
+def _label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()
-
-    result = ""
     result = builder.build(category_r).strip()
+    logger.debug(f"::_label_for_startwith_year_or_typeo: {category_r=} => {result=}")
+    return result
+
+
+def label_for_startwith_year_or_typeo(category_r: str) -> str:
+    """Return an Arabic label for categories that begin with years or types."""
+
+    category_r = re.sub(r"category:", "", category_r.lower()).strip()
+
+    if match_time_en_first(category_r):
+        return convert_time_to_arabic(category_r)
+
+    result = _label_for_startwith_year_or_typeo(category_r)
+
     logger.debug(f":: label_for_startwith_year_or_typeo: {category_r=} => {result=}")
     return result
