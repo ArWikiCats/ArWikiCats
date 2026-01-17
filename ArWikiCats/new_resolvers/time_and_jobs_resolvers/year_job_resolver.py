@@ -16,7 +16,7 @@ import functools
 from ...helps import logger
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..jobs_resolvers import resolve_jobs_main
+from ..jobs_resolvers import main_jobs_resolvers
 
 jobs_part_labels = {
     "lgbtq people": "أعلام إل جي بي تي كيو",
@@ -36,7 +36,7 @@ formatted_data = {
 @functools.lru_cache(maxsize=10000)
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
-    result = jobs_part_labels.get(text) or resolve_jobs_main(text) or ""
+    result = jobs_part_labels.get(text) or main_jobs_resolvers(text) or ""
 
     return result
 

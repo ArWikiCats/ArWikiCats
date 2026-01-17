@@ -12,7 +12,7 @@ import functools
 from ...helps import logger
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
-from ..jobs_resolvers import resolve_jobs_main
+from ..jobs_resolvers import main_jobs_resolvers
 
 medalists_data = dict(
     sorted(
@@ -52,9 +52,9 @@ def match_game_key(category_lower: str) -> str:
     return ""
 
 
-def resolve_jobs_main_2(category: str) -> str:
-    """A wrapper around resolve_jobs_main to handle empty results."""
-    logger.debug(f"resolve_jobs_main_2: category: {category}")
+def main_jobs_resolvers_2(category: str) -> str:
+    """A wrapper around main_jobs_resolvers to handle empty results."""
+    logger.debug(f"main_jobs_resolvers_2: category: {category}")
     return ""
 
 
@@ -64,8 +64,8 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         formatted_data=formatted_data,
         key_placeholder="{en_job}",
         value_placeholder="{ar_job}",
-        search_callback=resolve_jobs_main,
-        # search_callback=resolve_jobs_main_2,
+        search_callback=main_jobs_resolvers,
+        # search_callback=main_jobs_resolvers_2,
         match_key_callback=match_key_callback,
     )
     game_bot = FormatDataFrom(

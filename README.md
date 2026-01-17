@@ -298,7 +298,7 @@ from .your_resolver import resolve_your_category
 
 def all_new_resolvers(category: str) -> str:
     category_lab = (
-        resolve_jobs_main(category) or
+        main_jobs_resolvers(category) or
         resolve_your_category(category) or  # المحلل الجديد
         resolve_sports_main(category) or
         ""
