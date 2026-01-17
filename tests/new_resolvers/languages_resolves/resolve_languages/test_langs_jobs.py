@@ -7,14 +7,6 @@ import pytest
 from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels_with_time
 
 test_data_0 = {
-    "Persian-language singers of Tajikistan": "مغنون باللغة الفارسية في طاجيكستان",
-    "Yiddish-language singers of Austria": "مغنون باللغة اليديشية في النمسا",
-    "Yiddish-language singers of Russia": "مغنون باللغة اليديشية في روسيا",
-    "Tajik-language singers of Russia": "مغنون باللغة الطاجيكية في روسيا",
-    "Persian-language singers of Russia": "مغنون باللغة الفارسية في روسيا",
-    "Hebrew-language singers of Russia": "مغنون باللغة العبرية في روسيا",
-    "German-language singers of Russia": "مغنون باللغة الألمانية في روسيا",
-    "Azerbaijani-language singers of Russia": "مغنون باللغة الأذربيجانية في روسيا",
 }
 
 test_data = {

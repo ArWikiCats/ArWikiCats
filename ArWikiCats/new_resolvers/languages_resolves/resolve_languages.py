@@ -14,7 +14,7 @@ from ...translations_formats import FormatDataV2
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
-    "{en}-language comedy films": "أفلام كوميدية باللغة {al_ar}",
+    "{en} language comedy films": "أفلام كوميدية باللغة {al_ar}",
     "{en} language film series": "سلاسل أفلام باللغة {al_ar}",
     "{en} films": "أفلام باللغة {al_ar}",
     "{en} language films": "أفلام باللغة {al_ar}",
@@ -22,10 +22,9 @@ formatted_data = {
 
     "{en} language activists": "ناشطون بلغة {ar}",
 
-    "{en}-language non-fiction writers": "كتاب غير روائيين باللغة {al_ar}",
+    "{en} language non-fiction writers": "كتاب غير روائيين باللغة {al_ar}",
     "{en} language writers": "كتاب باللغة {al_ar}",
-    "{en}-language writers": "كتاب باللغة {al_ar}",
-    "{en}-language singers": "مغنون باللغة {al_ar}",
+    "{en} language singers": "مغنون باللغة {al_ar}",
 
     "romanization of {en}": "رومنة اللغة {al_ar}",
     "{en} language countries": "بلدان اللغة {al_ar}",
@@ -50,7 +49,7 @@ formatted_data = {
     "{en} texts": "نصوص {ar}",
     "{en} prose texts": "نصوص نثرية {ar}",
     "{en} language": "لغة {ar}",
-    "{en}-language": "اللغة {al_ar}",
+    # "{en} language": "اللغة {al_ar}",
     "{en} languages": "اللغات {al_ar}",
     "{en} languages writing system": "نظام كتابة اللغات {al_ar}",
     "{en} languages dialects": "لهجات اللغات {al_ar}",
