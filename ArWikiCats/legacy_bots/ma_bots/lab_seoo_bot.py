@@ -6,7 +6,7 @@
 import functools
 
 from ...helps import logger
-from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers import new_resolvers_all
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import Ambassadors_tab, People_key, get_from_new_p17_final

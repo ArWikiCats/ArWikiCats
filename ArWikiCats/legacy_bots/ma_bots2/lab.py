@@ -8,7 +8,7 @@ import re
 from typing import Tuple
 
 from ...helps import logger
-from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers import new_resolvers_all
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic

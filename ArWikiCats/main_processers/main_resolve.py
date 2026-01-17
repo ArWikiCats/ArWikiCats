@@ -21,7 +21,7 @@ from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
 from ..legacy_bots.matables_bots.bot import cash_2022
-from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers import new_resolvers_all
 from ..fix import fixlabel
 
 

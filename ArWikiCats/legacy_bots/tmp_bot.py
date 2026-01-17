@@ -9,7 +9,7 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import logger
-from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers import new_resolvers_all
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot

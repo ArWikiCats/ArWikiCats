@@ -11,7 +11,7 @@ from ...new_resolvers.languages_resolves import resolve_languages_labels_with_ti
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers import new_resolvers_all
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor

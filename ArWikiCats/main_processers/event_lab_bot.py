@@ -21,7 +21,7 @@ from ..legacy_bots.o_bots.peoples_resolver import work_peoples
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers import new_resolvers_all
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic

@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers import new_resolvers_all
 
 test_data_not_for_2018_bot = {
     "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",

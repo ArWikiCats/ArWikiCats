@@ -10,7 +10,7 @@ from __future__ import annotations
 import functools
 import re
 
-from ...new_resolvers.reslove_all import new_resolvers_all
+from ...new_resolvers import new_resolvers_all
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
