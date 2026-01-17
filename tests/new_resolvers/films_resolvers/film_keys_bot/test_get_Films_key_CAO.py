@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new.resolve_films_bots import resolve_films_main
+from ArWikiCats.new_resolvers.films_resolvers import resolve_films_main
 
 data_0 = {
     "music albums": "ألبومات موسيقية",

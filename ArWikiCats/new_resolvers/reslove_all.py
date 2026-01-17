@@ -1,7 +1,7 @@
 import functools
 
 from ..helps import logger
-from ..new.resolve_films_bots import resolve_films_main
+from .films_resolvers import resolve_films_main
 from .countries_names_resolvers import resolve_countries_names_main
 from .countries_names_with_sports import resolved_names_with_sports
 from .jobs_resolvers import resolve_jobs_main

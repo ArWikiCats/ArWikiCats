@@ -14,8 +14,8 @@ from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_g
 from ArWikiCats.legacy_bots.ma_bots2.year_or_typeo import (
     label_for_startwith_year_or_typeo,
 )
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import _get_films_key_tyty_new
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
+from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import _get_films_key_tyty_new
+from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2

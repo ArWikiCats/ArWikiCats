@@ -6,7 +6,7 @@ Sports team and club category processing.
 import functools
 
 from ..helps import logger
-from ..new.resolve_films_bots import resolve_films_main
+from ..new_resolvers.films_resolvers import resolve_films_main
 from ..new_resolvers.relations_resolver import new_relations_resolvers
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from .o_bots.utils import resolve_suffix_template
