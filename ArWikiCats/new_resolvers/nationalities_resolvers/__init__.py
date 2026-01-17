@@ -9,7 +9,7 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_nationalities_main(normalized_category) -> str:
+def main_nationalities_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
@@ -29,5 +29,5 @@ def resolve_nationalities_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolve_nationalities_main",
+    "main_nationalities_resolvers",
 ]

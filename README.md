@@ -300,7 +300,7 @@ def all_new_resolvers(category: str) -> str:
     category_lab = (
         main_jobs_resolvers(category) or
         resolve_your_category(category) or  # المحلل الجديد
-        resolve_sports_main(category) or
+        main_sports_resolvers(category) or
         ""
     )
     return category_lab

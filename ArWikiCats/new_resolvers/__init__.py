@@ -17,14 +17,14 @@ New resolvers for Arabic Wikipedia categories.
 import functools
 
 from ..helps import logger
-from .countries_names_resolvers import resolve_countries_names_main
-from .countries_names_with_sports import resolved_names_with_sports
-from .films_resolvers import resolve_films_main
+from .countries_names_resolvers import main_countries_names_resolvers
+from .countries_names_with_sports import main_countries_names_with_sports_resolvers
+from .films_resolvers import main_films_resolvers
 from .jobs_resolvers import main_jobs_resolvers
 from .languages_resolves import resolve_languages_labels_with_time
-from .nationalities_resolvers import resolve_nationalities_main
-from .relations_resolver import new_relations_resolvers
-from .sports_resolvers import resolve_sports_main, sport_lab_nat
+from .nationalities_resolvers import main_nationalities_resolvers
+from .relations_resolver import main_relations_resolvers
+from .sports_resolvers import main_sports_resolvers, sport_lab_nat
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 
@@ -37,16 +37,16 @@ def all_new_resolvers(category: str) -> str:
         # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
         main_jobs_resolvers(category)
         or time_and_jobs_resolvers_main(category)
-        or resolve_sports_main(category)
-        # NOTE: resolve_nationalities_main must be before resolve_countries_names_main to avoid conflicts like:
-        # resolve_countries_names_main> [Italy political leader]:  "قادة إيطاليا السياسيون"
-        # resolve_nationalities_main> [Italy political leader]:  "قادة سياسيون إيطاليون"
-        or resolve_nationalities_main(category)
-        or resolve_countries_names_main(category)
-        or resolve_films_main(category)
-        or new_relations_resolvers(category)
+        or main_sports_resolvers(category)
+        # NOTE: main_nationalities_resolvers must be before main_countries_names_resolvers to avoid conflicts like:
+        # main_countries_names_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
+        # main_nationalities_resolvers> [Italy political leader]:  "قادة سياسيون إيطاليون"
+        or main_nationalities_resolvers(category)
+        or main_countries_names_resolvers(category)
+        or main_films_resolvers(category)
+        or main_relations_resolvers(category)
         or sport_lab_nat.sport_lab_nat_load_new(category)
-        or resolved_names_with_sports(category)
+        or main_countries_names_with_sports_resolvers(category)
         or resolve_languages_labels_with_time(category)
         or ""
     )

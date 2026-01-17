@@ -18,7 +18,7 @@ def legacy_label_check(normalized_category):
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_films_main(normalized_category) -> str:
+def main_films_resolvers(normalized_category) -> str:
     """
     Resolve a film nationalities label from a category string.
 
@@ -51,7 +51,7 @@ def resolve_films_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolve_films_main",
+    "main_films_resolvers",
     "get_films_key_tyty_new",
     "get_films_key_tyty_new_and_time",
 ]

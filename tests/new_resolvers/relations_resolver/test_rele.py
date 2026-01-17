@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
+from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 # ======================
 # Basic tests
@@ -9,19 +9,19 @@ from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
 
 def test_unsupported_relation_type() -> None:
     """اختبار نوع علاقة غير مدعومة"""
-    result = new_relations_resolvers("mars–venus space relations")
+    result = main_relations_resolvers("mars–venus space relations")
     assert result == ""
 
 
 def test_empty_input() -> None:
     """اختبار إدخال فارغ"""
-    result = new_relations_resolvers("")
+    result = main_relations_resolvers("")
     assert result == ""
 
 
 def test_numeric_country_codes() -> None:
     """اختبار أكواد دول رقمية (غير مدعومة)"""
-    result = new_relations_resolvers("123–456 relations")
+    result = main_relations_resolvers("123–456 relations")
     assert result == ""
 
 
@@ -33,21 +33,21 @@ def test_numeric_country_codes() -> None:
 def test_female_relations_basic() -> None:
     """Basic female relations with countries in dictionary"""
 
-    result = new_relations_resolvers("canada–burma military relations")
+    result = main_relations_resolvers("canada–burma military relations")
     assert result == "العلاقات البورمية الكندية العسكرية"
 
 
 def test_female_relations_special_nato() -> None:
     """Special NATO case with known country"""
 
-    result = new_relations_resolvers("nato–canada relations")
+    result = main_relations_resolvers("nato–canada relations")
     assert result == "علاقات الناتو وكندا"
 
 
 def test_female_relations_unknown_country() -> None:
     """Unknown country should return empty string"""
 
-    result = new_relations_resolvers("unknown–canada relations")
+    result = main_relations_resolvers("unknown–canada relations")
     assert result == ""
 
 
@@ -59,13 +59,13 @@ def test_female_relations_unknown_country() -> None:
 def test_male_relations_basic() -> None:
     """Basic male relations"""
 
-    result = new_relations_resolvers("german–polish football rivalry")
+    result = main_relations_resolvers("german–polish football rivalry")
     assert result == "التنافس الألماني البولندي في كرة القدم"
 
 
 def test_male_relations_with_en_dash() -> None:
     """Use en-dash instead of hyphen"""
-    result = new_relations_resolvers("afghan–prussian conflict")
+    result = main_relations_resolvers("afghan–prussian conflict")
     assert result == "الصراع الأفغاني البروسي"
 
 
@@ -77,14 +77,14 @@ def test_male_relations_with_en_dash() -> None:
 def test_p17_prefixes_basic() -> None:
     """Basic P17 prefix handling"""
 
-    result = new_relations_resolvers("afghanistan–pakistan proxy conflict")
+    result = main_relations_resolvers("afghanistan–pakistan proxy conflict")
     assert result == "صراع أفغانستان وباكستان بالوكالة"
 
 
 def test_p17_prefixes_unknown_country() -> None:
     """Unknown country in P17 context"""
 
-    result = new_relations_resolvers("unknown–pakistan conflict")
+    result = main_relations_resolvers("unknown–pakistan conflict")
     assert result == ""
 
 
@@ -96,13 +96,13 @@ def test_p17_prefixes_unknown_country() -> None:
 def test_special_nato_case_male() -> None:
     """Male NATO relation handling"""
 
-    result = new_relations_resolvers("nato–germany conflict")
+    result = main_relations_resolvers("nato–germany conflict")
     assert result == "صراع ألمانيا والناتو"
 
 
 def test_missing_separator() -> None:
     """Missing separator should fail"""
-    result = new_relations_resolvers("canadaburma relations")
+    result = main_relations_resolvers("canadaburma relations")
     assert result == ""
 
 
@@ -114,26 +114,26 @@ def test_missing_separator() -> None:
 def test_trailing_whitespace() -> None:
     """Trailing whitespace"""
 
-    result = new_relations_resolvers("canada–burma relations   ")
+    result = main_relations_resolvers("canada–burma relations   ")
     assert result == "العلاقات البورمية الكندية"
 
 
 def test_leading_whitespace() -> None:
     """Leading whitespace"""
 
-    result = new_relations_resolvers("   canada–burma relations")
+    result = main_relations_resolvers("   canada–burma relations")
     assert result == "العلاقات البورمية الكندية"
 
 
 def test_mixed_case_input() -> None:
     """Mixed-case input"""
 
-    result = new_relations_resolvers("CaNaDa–BuRmA ReLaTiOnS")
+    result = main_relations_resolvers("CaNaDa–BuRmA ReLaTiOnS")
     assert result == "العلاقات البورمية الكندية"
 
 
 def test_multiple_dashes() -> None:
     """Multiple separators should fail"""
 
-    result = new_relations_resolvers("canada–burma–india relations")
+    result = main_relations_resolvers("canada–burma–india relations")
     assert result == ""

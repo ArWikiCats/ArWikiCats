@@ -9,7 +9,7 @@ from __future__ import annotations
 import functools
 
 from ..helps import dump_data, logger
-from ..new_resolvers.sports_resolvers import resolve_sports_main
+from ..new_resolvers.sports_resolvers import main_sports_resolvers
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..translations import SPORTS_KEYS_FOR_JOBS
 from . import team_work
@@ -50,7 +50,7 @@ def get_teams_new(team_name: str) -> str:
     # _ = resolve_team_suffix(normalized_team)  # TODO: remove after tests
 
     team_label = (
-        resolve_sports_main(normalized_team)
+        main_sports_resolvers(normalized_team)
         or wrap_team_xo_normal_2025_with_ends(normalized_team)
         or resolve_team_suffix(normalized_team)
         or ""

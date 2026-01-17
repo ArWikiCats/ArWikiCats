@@ -3,7 +3,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
+from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 ireland_test_data = {
     "russia–south sudan relations": "العلاقات الروسية السودانية الجنوبية",
@@ -486,20 +486,20 @@ test_data = {
 @pytest.mark.parametrize("category, expected", ireland_test_data.items(), ids=ireland_test_data.keys())
 @pytest.mark.fast
 def test_ireland_test_data(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = main_relations_resolvers(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_work_relations_new(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = main_relations_resolvers(category)
     assert label == expected
 
 
 TEMPORAL_CASES = [
-    ("test_work_relations_new", test_data, new_relations_resolvers),
-    ("test_work_relations_ireland", ireland_test_data, new_relations_resolvers),
+    ("test_work_relations_new", test_data, main_relations_resolvers),
+    ("test_work_relations_ireland", ireland_test_data, main_relations_resolvers),
 ]
 
 
@@ -507,7 +507,7 @@ TEMPORAL_CASES = [
 @pytest.mark.dump
 def test_dump_all(name: str, data: str, callback: str) -> None:
     expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, f"test_new_relations_resolvers_big_data_{name}")
+    dump_diff(diff_result, f"test_main_relations_resolvers_big_data_{name}")
 
     # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
