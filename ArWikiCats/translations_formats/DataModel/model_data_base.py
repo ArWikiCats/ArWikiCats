@@ -288,10 +288,19 @@ class FormatDataBase:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
+    def prepend_arabic_category_prefix(self, category, result) -> str:
+        if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
+            result = "تصنيف:" + result
+        return result
+
     @functools.lru_cache(maxsize=None)
-    def search_all(self, category: str) -> str:
+    def search_all(self, category: str, add_arabic_category_prefix: bool=False) -> str:
         """Public wrapper around ``_search`` with caching."""
-        return self._search(category)
+        result = self._search(category)
+
+        if add_arabic_category_prefix:
+            result = self.prepend_arabic_category_prefix(category, result)
+        return result
 
     def check_placeholders(self, category: str, result: str) -> str:
         if "{" in result:
@@ -306,8 +315,7 @@ class FormatDataBase:
 
         result = self._search(normalized_category)
 
-        if result and category.lower().startswith("category:"):
-            result = "تصنيف:" + result
+        result = self.prepend_arabic_category_prefix(category, result)
 
         result = self.check_placeholders(category, result)
 

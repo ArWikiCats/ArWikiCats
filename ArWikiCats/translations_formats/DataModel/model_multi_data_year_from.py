@@ -157,9 +157,18 @@ class FormatDataFrom:
         """place holders"""
         return self.search_callback(text)
 
-    def search_all(self, key: str) -> str:
+    def prepend_arabic_category_prefix(self, category, result) -> str:
+        if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
+            result = "تصنيف:" + result
+        return result
+
+    def search_all(self, key: str, add_arabic_category_prefix: bool=False) -> str:
         """place holders"""
-        return self.search(key)
+        result = self.search(key)
+
+        if add_arabic_category_prefix:
+            result = self.prepend_arabic_category_prefix(key, result)
+        return result
 
 
 class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
