@@ -10,7 +10,7 @@ The categories should be like:
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.nat_genders_pattern_multi import (
+from ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import (
     genders_jobs_resolver,
     genders_sports_resolver,
     resolve_nat_genders_pattern_v2,

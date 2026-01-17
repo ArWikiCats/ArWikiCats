@@ -25,7 +25,7 @@ Target examples:
 - "women's softball players"        -> "لاعبات كرة لينة"
 """
 
-from .nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
+from .jobs_and_genders_resolver import resolve_nat_genders_pattern_v2
 
 __all__ = [
     "resolve_nat_genders_pattern_v2",

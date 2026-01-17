@@ -280,7 +280,7 @@ from ArWikiCats.config import app_settings, print_settings
 │                                        │  └── utils_time.py                  │
 │  new_resolvers/                        │                                     │
 │  ├── reslove_all.py                   │  genders_resolvers/                  │
-│  ├── nationalities_resolvers/          │  └── nat_genders_pattern_multi.py  │
+│  ├── nationalities_resolvers/          │  └── jobs_and_genders_resolver.py  │
 │  ├── jobs_resolvers/                   │                                     │
 │  └── sports_resolvers/                │                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
