@@ -2,8 +2,8 @@ import functools
 
 from ...helps import logger
 from . import (
-    resolve_v3i,
     resolve_v3ii,
+    year_job_origin_resolver,
 )
 
 
@@ -14,7 +14,7 @@ def resolve_v3i_main(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying v3i resolvers for: {normalized_category=}")
 
     resolved_label = (
-        resolve_v3i.resolve_year_job_from_countries(normalized_category)
+        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category)
         or resolve_v3ii.resolve_year_job_countries(normalized_category)
         or ""
     )

@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import (
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.year_job_origin_resolver import (
     multi_bot_v4,
     resolve_year_job_from_countries,
 )

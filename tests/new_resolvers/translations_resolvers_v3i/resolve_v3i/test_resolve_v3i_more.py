@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
+from ArWikiCats.new_resolvers.translations_resolvers_v3i.year_job_origin_resolver import resolve_year_job_from_countries
 
 test_deaths_data = {
     "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
