@@ -23,6 +23,11 @@ new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
 formatted_data = {
     "{en}-language comedy films": "أفلام كوميدية باللغة {al_ar}",
+    "{en} language film series": "سلاسل أفلام باللغة {al_ar}",
+    "{en} films": "أفلام باللغة {al_ar}",
+    "{en} language films": "أفلام باللغة {al_ar}",
+    "{en} languages films": "أفلام باللغات {al_ar}",
+
     "{en} language activists": "ناشطون بلغة {ar}",
     "{en}-language singers": "مغنون باللغة {al_ar}",
     "romanization of {en}": "رومنة اللغة {al_ar}",
@@ -52,7 +57,6 @@ formatted_data = {
     "{en} languages": "اللغات {al_ar}",
     "{en} languages writing system": "نظام كتابة اللغات {al_ar}",
     "{en} languages dialects": "لهجات اللغات {al_ar}",
-    "{en} languages films": "أفلام باللغات {al_ar}",
     "{en} languages given names": "أسماء شخصية باللغات {al_ar}",
     "{en} languages grammar": "قواعد اللغات {al_ar}",
     "{en} languages surnames": "ألقاب باللغات {al_ar}",
@@ -70,9 +74,6 @@ formatted_data = {
     "{en} language dictionaries": "قواميس باللغة {al_ar}",
     "{en} language encyclopedias": "موسوعات باللغة {al_ar}",
     "{en} language eps albums": "ألبومات أسطوانة مطولة باللغة {al_ar}",
-    "{en} language film series": "سلاسل أفلام باللغة {al_ar}",
-    "{en} films": "أفلام باللغة {al_ar}",
-    "{en} language films": "أفلام باللغة {al_ar}",
     "{en} language folk albums": "ألبومات فولك باللغة {al_ar}",
     "{en} language folktronica albums": "ألبومات فولكترونيكا باللغة {al_ar}",
     "{en} language graphic novels": "روايات مصورة باللغة {al_ar}",
@@ -190,18 +191,40 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
+def _resolve_languages_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start _resolve_languages_labels: {category=}")
+
+    category = fix_keys(category)
+
+    result = _load_bot().search_all_category(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}", result)
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
+def resolve_films_languages_labels(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_films_languages_labels: {category=}")
+
+    category = fix_keys(category)
+
+    result = _make_bot().search_all_category(category)
+
+    logger.info_if_or_debug(f"<<yellow>> end resolve_films_languages_labels: {category=}, {result=}", result)
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
 def resolve_languages_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_languages_labels: {category=}")
 
     category = fix_keys(category)
 
     result = (
-        _load_bot().search_all_category(category)
-        or _make_bot().search_all_category(category)
+        _resolve_languages_labels(category)
+        or resolve_films_languages_labels(category)
         or ""
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_languages_labels: {category=}, {result=}", result)
     return result
 
 

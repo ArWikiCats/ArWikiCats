@@ -9,6 +9,7 @@ from .nationalities_resolvers import resolve_nationalities_main
 from .relations_resolver import new_relations_resolvers
 from .sports_resolvers import resolve_sports_main, sport_lab_nat
 from .translations_resolvers_v3i import resolve_v3i_main
+from .resolve_languages import resolve_languages_labels
 
 
 @functools.lru_cache(maxsize=None)
@@ -32,6 +33,7 @@ def new_resolvers_all(category: str) -> str:
         or new_relations_resolvers(category)
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or resolved_names_with_sports(category)
+        or resolve_languages_labels(category)
         or ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")
