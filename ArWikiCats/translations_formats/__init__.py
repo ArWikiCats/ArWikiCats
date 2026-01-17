@@ -68,8 +68,10 @@ from .DataModelDouble import (
     MultiDataFormatterDataDouble,
 )
 from .multi_data import format_multi_data, format_multi_data_v2
+from .time_patterns_formats import LabsYearsFormat
 
 __all__ = [
+    "LabsYearsFormat",
     "MultiDataFormatterBaseYear",
     "MultiDataFormatterBaseYearV2",
     "MultiDataFormatterYearAndFrom",
