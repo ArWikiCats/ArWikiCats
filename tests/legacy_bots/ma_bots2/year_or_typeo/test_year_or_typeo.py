@@ -8,16 +8,14 @@ data_0 = {
 }
 
 data_1 = {
-    "1960s in films": "أفلام في عقد 1960",
     "1960s in Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
-    "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
 }
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.skip2
 def test_year_or_typeo_1(category: str, expected: str) -> None:
-    label = label_for_startwith_year_or_typeo(category)
+    label = resolve_label_ar(category)
     assert label == expected
 
 

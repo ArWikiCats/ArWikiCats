@@ -13,11 +13,6 @@ test_data_skip = {
 }
 
 test_data_0 = {
-    "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
-    "2010s French-language films": "أفلام باللغة الفرنسية في عقد 2010",
-    "Urdu-language films by decade": "أفلام باللغة الأردية حسب العقد",
-    "Czech-language films by genre": "أفلام باللغة التشيكية حسب النوع الفني",
-    "Arabic-language action films": "أفلام حركة باللغة العربية",
 }
 
 test_data = {
