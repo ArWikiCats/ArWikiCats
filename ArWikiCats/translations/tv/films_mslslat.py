@@ -302,19 +302,25 @@ def _build_television_cao(
     ]
 
     for ke, ke_lab in female_keys.items():
+        if not ke or not ke_lab:
+            continue
         # Special cases
         films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
         films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
 
         # Standard categories
         for suffix, arabic_base in genre_categories:
+            if not suffix or not arabic_base:
+                continue
             films_key_cao[f"{ke} {suffix}"] = f"{arabic_base} {ke_lab}"
 
         # Combinations with all TV keys
         for fao, base_label in TELEVISION_KEYS.items():
+            if not fao or not base_label:
+                continue
             films_key_cao2[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 
-    return films_key_cao2, films_key_cao
+    return films_key_cao, films_key_cao2
 
 
 def build_gender_specific_film_maps(

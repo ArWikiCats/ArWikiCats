@@ -7,7 +7,6 @@ from ArWikiCats import resolve_label_ar
 
 fast_data_drama = {
     "2010 in animation": "رسوم متحركة في 2010",
-    "2010 rugby union tournaments for clubs": "بطولات اتحاد رجبي في أندية 2010",
     "Non-fiction works about the United States Army": "أعمال غير خيالية عن القوات المسلحة الأمريكية",
     "lists of non-fiction works": "قوائم أعمال غير خيالية",
     "non-fiction works about crime in canada": "أعمال غير خيالية عن جريمة في كندا",
