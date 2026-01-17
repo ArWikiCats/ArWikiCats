@@ -5,8 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new.resolve_films_bots.film_keys_bot import Films
-from ArWikiCats.new.resolve_films_bots.resolve_films_labels import get_films_key_tyty_new
+from ArWikiCats.new.resolve_films_bots import resolve_films_main
 
 fast_data_with_nat0 = {
     "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
@@ -132,14 +131,13 @@ fast_data_no_nat = {
 @pytest.mark.parametrize("category, expected", fast_data_no_nat.items(), ids=fast_data_no_nat.keys())
 @pytest.mark.fast
 def test_resolve_films_no_nat(category: str, expected: str) -> None:
-    label = Films(category)
+    label = resolve_films_main(category)
     assert label == expected
 
 
 to_test = [
-    ("no_nat", fast_data_no_nat, Films),
-    ("with_nat_tyty", fast_data_with_nat, get_films_key_tyty_new),
-    ("no_nat_tyty", fast_data_no_nat, get_films_key_tyty_new),
+    ("with_nat_tyty", fast_data_with_nat, resolve_films_main),
+    ("no_nat_tyty", fast_data_no_nat, resolve_films_main),
 ]
 
 

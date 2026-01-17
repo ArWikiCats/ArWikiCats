@@ -21,7 +21,6 @@ from ...translations import (
     religious_entries,
 )
 from .. import sport_lab_suffixes, team_work, tmp_bot
-from ..films_and_others_bot import te_films
 from ..ma_bots.country_bot import Get_c_t_lab, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
@@ -42,7 +41,8 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or te_films(country2)
+        or resolve_languages_labels(country2)
+        or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
@@ -323,7 +323,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "religious_entries": lambda t: religious_entries.get(t, ""),
         "People_key": lambda t: People_key.get(t, ""),
-        "te_films": te_films,
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
@@ -408,7 +407,6 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
-        "te_films": te_films,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
         "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
@@ -476,6 +474,7 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     label = _lookup_label_from_sources(lookup_chain, country_lower, log_context=f"get_con_lab({country_lower})")
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
+    logger.info(f"?????? get_con_lab: {start_get_country2=}, {country=}, {separator=}")
 
     return label or ""
 

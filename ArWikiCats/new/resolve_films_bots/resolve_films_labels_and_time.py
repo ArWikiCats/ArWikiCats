@@ -8,7 +8,7 @@ import functools
 from ...helps import logger
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from .resolve_films_labels import _get_films_key_tyty_new, get_films_key_tyty_new
+from .resolve_films_labels import get_films_key_tyty_new
 
 formatted_data = {
     "{year1} {en}": "{ar} في {year1}",
@@ -88,3 +88,10 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
 def fetch_films_by_category(category):
     result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
     return result
+
+
+__all__ = [
+    "fetch_films_by_category",
+    "get_films_key_tyty_new_and_time",
+    "get_films_key_tyty_new",
+]

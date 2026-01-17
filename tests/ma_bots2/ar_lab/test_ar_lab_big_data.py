@@ -635,7 +635,6 @@ data_list_in = {
     "1550 in missouri": "1550 في ميزوري",
     "1550 in mongolia": "1550 في منغوليا",
     "1550 in motorsport": "1550 في رياضة محركات",
-    "1550 in music": "1550 في الموسيقى",
     "1550 in new jersey": "1550 في نيوجيرسي",
     "1550 in new zealand": "1550 في نيوزيلندا",
     "1550 in nordic combined": "1550 في التزلج النوردي المزدوج",

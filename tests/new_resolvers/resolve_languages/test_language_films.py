@@ -12,6 +12,27 @@ test_data_0 = {
 }
 
 test_data = {
+    "english-language political drama films": "أفلام سياسية درامية باللغة الإنجليزية",
+    "english-language war drama films": "أفلام حربية درامية باللغة الإنجليزية",
+    "hindi-language drama films": "أفلام درامية باللغة الهندية",
+    "norwegian-language romantic drama films": "أفلام رومانسية درامية باللغة النرويجية",
+    "korean-language historical drama films": "أفلام تاريخية درامية باللغة الكورية",
+    "portuguese-language biographical drama films": "أفلام سير ذاتية درامية باللغة البرتغالية",
+    "russian-language fantasy drama films": "أفلام فانتازيا درامية باللغة الروسية",
+    "spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
+    "czech-language crime films": "أفلام جريمة باللغة التشيكية",
+    "english-language crime action films": "أفلام جريمة حركة باللغة الإنجليزية",
+    "finnish-language erotic films": "أفلام إغرائية باللغة الفنلندية",
+    "french-language films": "أفلام باللغة الفرنسية",
+    "german-language films": "أفلام باللغة الألمانية",
+    "hungarian-language romance films": "أفلام رومانسية باللغة المجرية",
+    "japanese-language horror films": "أفلام رعب باللغة اليابانية",
+    "malayalam-language films": "أفلام باللغة الماليالامية",
+    "russian-language historical comedy films": "أفلام تاريخية كوميدية باللغة الروسية",
+    "spanish-language historical films": "أفلام تاريخية باللغة الإسبانية",
+    "spanish-language sex comedy films": "أفلام جنسية كوميدية باللغة الإسبانية",
+    "swedish-language musical films": "أفلام موسيقية باللغة السويدية",
+    "urdu-language films": "أفلام باللغة الأردية",
     "urdu-language comedy films": "أفلام كوميدية باللغة الأردية",
     "Arabic language activists": "ناشطون بلغة عربية",
     "Arabic-language biographical drama films": "أفلام سير ذاتية درامية باللغة العربية",
@@ -688,6 +709,7 @@ test_data = {
 
 
 to_test = [
+    ("test_language_films_0", test_data_0),
     ("test_language_films", test_data),
 ]
 

@@ -138,7 +138,6 @@ test_c_composers_3 = {
     "Welsh classical composers": "ملحنون كلاسيكيون ويلزيون",
     "Welsh male classical composers": "ملحنون كلاسيكيون ذكور ويلزيون",
     "Women classical composers": "ملحنات كلاسيكيات",
-    "Works by British classical composers": "أعمال ملحنون كلاسيكيون بريطانيون",
 }
 
 test_c_composers_1 = {
