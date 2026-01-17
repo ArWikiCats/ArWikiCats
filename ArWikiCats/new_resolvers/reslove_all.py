@@ -1,7 +1,7 @@
 import functools
 
 from ..helps import logger
-from ..new.resolve_films_bots import resolve_films_main
+from .films_resolvers import resolve_films_main
 from .countries_names_resolvers import resolve_countries_names_main
 from .countries_names_with_sports import resolved_names_with_sports
 from .jobs_resolvers import resolve_jobs_main
@@ -9,6 +9,7 @@ from .nationalities_resolvers import resolve_nationalities_main
 from .relations_resolver import new_relations_resolvers
 from .sports_resolvers import resolve_sports_main, sport_lab_nat
 from .translations_resolvers_v3i import resolve_v3i_main
+from .languages_resolves import resolve_languages_labels_with_time
 
 
 @functools.lru_cache(maxsize=None)
@@ -32,6 +33,7 @@ def new_resolvers_all(category: str) -> str:
         or new_relations_resolvers(category)
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or resolved_names_with_sports(category)
+        or resolve_languages_labels_with_time(category)
         or ""
     )
     logger.debug(f"<< new_resolvers_all: {category} => {category_lab}")

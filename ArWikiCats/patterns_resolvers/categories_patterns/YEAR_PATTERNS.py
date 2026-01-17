@@ -4,6 +4,8 @@
 YEAR_PARAM_NAME = "year1"
 
 YEAR_DATA = {
+    "{year1} competitions": "منافسات {year1}",
+    "{year1} manga": "مانغا {year1}",
     "{year1} establishments": "تأسيسات سنة {year1}",  # 1243
     "{year1}s disestablishments": "انحلالات عقد {year1}",  # 699
     "{year1} disestablishments": "انحلالات سنة {year1}",  # 699

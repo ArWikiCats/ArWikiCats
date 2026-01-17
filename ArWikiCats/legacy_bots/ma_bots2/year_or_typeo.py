@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 """
-Usage:
-from .bot_lab import label_for_startwith_year_or_typeo
-
 """
 
 import re
@@ -15,6 +12,7 @@ from ...time_resolvers import time_to_arabic
 from ...translations import Nat_mens
 from ..ma_bots.country_bot import get_country
 from ..make_bots.bot_2018 import get_pop_All_18
+from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result
 
 
@@ -184,8 +182,43 @@ class LabelForStartWithYearOrTypeo:
             logger.debug("a<<lightblue>>>>>> No country_lower.")
             return
 
-        logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
+        # TODO: delete it
+        if self.country_lower == "x":
+            if self.country_label:
+                self.cat_test, self.arlabel = new_func_mk2(
+                    self.cate,
+                    self.cat_test,
+                    self.year_at_first,
+                    "",
+                    self.In,
+                    self.country_lower,
+                    self.arlabel,
+                    self.year_labe,
+                    self.suf,
+                    self.Add_In,
+                    self.country_label,
+                    self.Add_In_Done,
+                )
+                return
+
+            logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
+            self.NoLab = True
+            return
+
+        logger.info("a<<lightblue>>>>>> No label.")
         self.NoLab = True
+
+    # ----------------------------------------------------
+    # 7 — APPLY FALLBACKS
+    # ----------------------------------------------------
+
+    def apply_fallbacks(self) -> None:
+        """Run backup labeling logic when primary processing fails."""
+        if self.NoLab and self.cat_test == "":
+            if self.country_label and self.year_labe and self.In == "":
+                self.arlabel = f"{self.country_label} {self.year_labe}"
+                if self.arlabel:
+                    self.NoLab = False
 
     # ----------------------------------------------------
     # 8 — FINALIZE
@@ -246,6 +279,7 @@ class LabelForStartWithYearOrTypeo:
         self.handle_year()
         self.handle_relation_mapping()
         self.apply_label_rules()
+        # self.apply_fallbacks()
 
         return self.finalize()
 

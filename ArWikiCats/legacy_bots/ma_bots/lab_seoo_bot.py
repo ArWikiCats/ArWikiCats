@@ -7,7 +7,7 @@ import functools
 
 from ...helps import logger
 from ...new_resolvers.reslove_all import new_resolvers_all
-from ...new_resolvers.resolve_languages import resolve_languages_labels
+from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from .. import team_work, with_years_bot
@@ -56,7 +56,7 @@ def event_label_work(target_category: str) -> str:
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or new_resolvers_all(normalized_target_category)
-        or resolve_languages_labels(normalized_target_category)
+        or resolve_languages_labels_with_time(normalized_target_category)
         or People_key.get(normalized_target_category)
         or ye_ts_bot.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)

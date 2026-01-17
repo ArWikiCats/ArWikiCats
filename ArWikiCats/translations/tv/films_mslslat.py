@@ -264,7 +264,7 @@ def _build_television_cao(
 
     Returns:
         - films_key_cao: CAO translation mapping
-        - count: Number of genre-TV combinations created
+        - films_key_cao2: Extended CAO mapping
     """
     films_key_cao2 = {}
     films_key_cao = {}

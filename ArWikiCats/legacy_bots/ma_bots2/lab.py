@@ -9,7 +9,7 @@ from typing import Tuple
 
 from ...helps import logger
 from ...new_resolvers.reslove_all import new_resolvers_all
-from ...new_resolvers.resolve_languages import resolve_languages_labels
+from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_resolvers import time_to_arabic
 from ...time_resolvers.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -41,7 +41,7 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or resolve_languages_labels(country2)
+        or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
@@ -326,7 +326,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
-        "resolve_languages_labels": resolve_languages_labels,
+        "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
 

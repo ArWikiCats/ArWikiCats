@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Tuple
 
-from ...new_resolvers.resolve_languages import resolve_languages_labels
+from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...new_resolvers.bys_new import resolve_by_labels
@@ -39,7 +39,7 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or resolve_languages_labels(country2)
+        or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
@@ -93,7 +93,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
     part_1_label = (
         get_pop_All_18(cone_1)
-        or resolve_languages_labels(cone_1)
+        or resolve_languages_labels_with_time(cone_1)
         or People_key.get(cone_1)
         or new_resolvers_all(cone_1)
         or sport_lab_suffixes.get_teams_new(cone_1)
@@ -122,7 +122,7 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
     part_2_label = (
         get_pop_All_18(cone_2)
         or bys.get_by_label(cone_2)
-        or resolve_languages_labels(cone_2)
+        or resolve_languages_labels_with_time(cone_2)
         or People_key.get(cone_2)
         or new_resolvers_all(cone_2)
         or sport_lab_suffixes.get_teams_new(cone_2)

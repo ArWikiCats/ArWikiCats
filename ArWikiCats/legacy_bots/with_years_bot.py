@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Pattern
 
-from ..new_resolvers.resolve_languages import resolve_languages_labels
+from ..new_resolvers.languages_resolves import resolve_languages_labels
 
 from ..helps import logger
 from ..new_resolvers.reslove_all import new_resolvers_all
@@ -91,7 +91,13 @@ def _handle_year_at_start(category_text: str) -> str:
     """Handles cases where the year is at the start of the string."""
     label = ""
     year = REGEX_SUB_YEAR.sub(r"\g<1>", category_text)
-    if year == category_text or not year:
+
+    if not year:
+        logger.debug(f">>> _handle_year_at_start: {year=}, no match")
+        return ""
+
+    if year == category_text:
+        logger.debug(f">>> _handle_year_at_start: {year=}, no match (year == category_text)")
         return ""
 
     remainder = category_text[len(year) :].strip().lower()
@@ -125,8 +131,8 @@ def _handle_year_at_start(category_text: str) -> str:
         separator = " في "
 
     label = remainder_label + separator + year
-    logger.debug(f'>>>>>> Try With Years new lab2  "{label}" ')
 
+    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}", label)
     return label
 
 
@@ -160,18 +166,20 @@ def _handle_year_at_end(
         or wrap_lab_for_country2(remainder)
         or ""
     )
+    if not remainder_label:
+        return ""
     if "–present" in formatted_year_label:
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")
 
-    if remainder_label:
-        label = f"{remainder_label} {formatted_year_label}"
-        logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
-        return label
-    return ""
+    label = f"{remainder_label} {formatted_year_label}"
+    logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
+
+    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}", label)
+    return label
 
 
 @functools.lru_cache(maxsize=None)
-def Try_With_Years(category_text: str) -> str:
+def Try_With_Years(category: str) -> str:
     """Retrieve a formatted label for a given country based on its historical
     context.
 
@@ -183,7 +191,7 @@ def Try_With_Years(category_text: str) -> str:
     caches results for efficiency.
 
     Args:
-        category_text (str): The name of the country or a related term that may include year
+        category (str): The name of the country or a related term that may include year
             information.
 
     Returns:
@@ -191,37 +199,36 @@ def Try_With_Years(category_text: str) -> str:
             information,
         or an empty string if no valid information is found.
     """
-    logger.debug(f">>> Try With Years country ({category_text})")
+    logger.debug(f"<<yellow>> start Try_With_Years: {category=}")
     # pop_final_Without_Years
 
     label = ""
-    category_text = category_text.strip()
+    category = category.strip()
 
-    if category_text.isdigit():
-        return category_text
+    if category.isdigit():
+        return category
 
-    category_text = category_text.replace("−", "-")
+    category = category.replace("−", "-")
 
-    if label := _handle_political_terms(category_text):
+    if label := _handle_political_terms(category):
         return label
 
-    year_at_start = RE1_compile.match(category_text)
-    year_at_end = RE2_compile.match(category_text)
+    year_at_start = RE1_compile.match(category)
+    year_at_end = RE2_compile.match(category)
     # Category:American Soccer League (1933–83)
-    year_at_end2 = RE33_compile.match(category_text)
-    # RE4 = RE4_compile.match(category_text)
+    year_at_end2 = RE33_compile.match(category)
+    # RE4 = RE4_compile.match(category)
 
     if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
+        logger.info(f" end Try_With_Years: {category=} no match year patterns")
         return ""
 
-    label = _handle_year_at_start(category_text)
-
-    if not label:
-        label = _handle_year_at_end(category_text, RE2_compile, RE33_compile)
-
-    if label:
-        logger.debug(f'>>>>>> Try With Years lab2 "{label}" ')
-
+    label = (
+        _handle_year_at_start(category)
+        or _handle_year_at_end(category, RE2_compile, RE33_compile)
+        or ""
+    )
+    logger.info_if_or_debug(f"<<yellow>> end Try_With_Years: {category=}, {label=}", label)
     return label
 
 

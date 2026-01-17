@@ -336,8 +336,9 @@ class Fixing:
         logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
         logger.info(">>>> ================ ")
 
-        faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
-            self.separator_stripped.replace("-", " ").strip()
+        faa = (
+            translation_category_relations.get(self.separator_stripped)
+            or translation_category_relations.get(self.separator_stripped.replace("-", " ").strip())
         )
 
         if not ar_separator.strip() and faa:

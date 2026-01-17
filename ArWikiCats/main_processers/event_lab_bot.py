@@ -4,7 +4,7 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
-from ..new_resolvers.resolve_languages import resolve_languages_labels
+from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
@@ -42,7 +42,7 @@ def wrap_lab_for_country2(country: str) -> str:
         new_resolvers_all(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
-        or resolve_languages_labels(country2)
+        or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
         or parties_bot.get_parties_lab(country2)
