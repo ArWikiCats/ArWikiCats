@@ -7,11 +7,35 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.resolve_languages import resolve_languages_labels
 
+test_data_skip = {
+    "Assamese-language remakes of Hindi films": "",
+    "Assamese-language remakes of Malayalam films": "",
+}
+
 test_data_0 = {
+    "1960s Dutch-language films": "أفلام باللغة الهولندية في عقد 1960",
+    "2010s French-language films": "أفلام باللغة الفرنسية في عقد 2010",
+    "Urdu-language films by decade": "أفلام باللغة الأردية حسب العقد",
+    "Czech-language films by genre": "أفلام باللغة التشيكية حسب النوع الفني",
     "Arabic-language action films": "أفلام حركة باللغة العربية",
 }
 
 test_data = {
+    "polish-language films": "أفلام باللغة البولندية",
+    "german-language films": "أفلام باللغة الألمانية",
+    "english-language fantasy adventure films": "أفلام فانتازيا مغامرات باللغة الإنجليزية",
+    "Portuguese-language romance films": "أفلام رومانسية باللغة البرتغالية",
+    "Spanish-language historical drama films": "أفلام تاريخية درامية باللغة الإسبانية",
+    "Spanish-language musical comedy films": "أفلام كوميدية موسيقية باللغة الإسبانية",
+    "Finnish-language drama films": "أفلام درامية باللغة الفنلندية",
+    "Indonesian-language biographical films": "أفلام سير ذاتية باللغة الإندونيسية",
+    "Italian-language adventure films": "أفلام مغامرات باللغة الإيطالية",
+    "Italian-language romance films": "أفلام رومانسية باللغة الإيطالية",
+    "Kannada-language action thriller films": "أفلام إثارة حركة باللغة الكنادية",
+    "English-language musical films": "أفلام موسيقية باللغة الإنجليزية",
+    "Bengali-language comedy horror films": "أفلام كوميدية رعب باللغة البنغالية",
+    "Arabic-language musical drama films": "أفلام موسيقية درامية باللغة العربية",
+    "Arabic-language thriller films": "أفلام إثارة باللغة العربية",
     "english-language political drama films": "أفلام سياسية درامية باللغة الإنجليزية",
     "english-language war drama films": "أفلام حربية درامية باللغة الإنجليزية",
     "hindi-language drama films": "أفلام درامية باللغة الهندية",
@@ -287,6 +311,8 @@ test_data = {
     "French-language independent films": "أفلام مستقلة باللغة الفرنسية",
     "French-language musical films": "أفلام موسيقية باللغة الفرنسية",
     "French-language mystery films": "أفلام غموض باللغة الفرنسية",
+    "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
+    "cantonese-language speculative fiction films": "أفلام خيالية تأملية باللغة الكانتونية",
     "French-language mystery thriller films": "أفلام غموض إثارة باللغة الفرنسية",
     "French-language romance films": "أفلام رومانسية باللغة الفرنسية",
     "French-language sex comedy films": "أفلام جنسية كوميدية باللغة الفرنسية",
@@ -706,6 +732,18 @@ test_data = {
     "Urdu-language musical films": "أفلام موسيقية باللغة الأردية",
     "Urdu-language romance films": "أفلام رومانسية باللغة الأردية",
 }
+
+
+def test_films_pattern_basic() -> None:
+    # "<lang> films" (no suffix)
+    result = resolve_languages_labels("abkhazian-language films")
+    assert result == "أفلام باللغة الأبخازية"
+
+
+def test_sample_films_drama() -> None:
+    # "action drama films": "أفلام حركة درامية {}",
+    result = resolve_languages_labels("abkhazian-language action drama films")
+    assert result == "أفلام حركة درامية باللغة الأبخازية"
 
 
 to_test = [

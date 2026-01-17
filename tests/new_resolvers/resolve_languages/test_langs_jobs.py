@@ -19,8 +19,6 @@ test_data = {
     "Category:German-language singers of Russia": "تصنيف:مغنون باللغة الألمانية في روسيا",
     "Category:Azerbaijani-language singers of Russia": "تصنيف:مغنون باللغة الأذربيجانية في روسيا",
     "category:urdu-language non-fiction writers": "تصنيف:كتاب غير روائيين باللغة الأردية",
-    "bengali-language romantic comedy films": "أفلام كوميدية رومانسية باللغة البنغالية",
-    "cantonese-language speculative fiction films": "أفلام خيالية تأملية باللغة الكانتونية",
     "abkhazian-language writers": "كتاب باللغة الأبخازية",
 }
 

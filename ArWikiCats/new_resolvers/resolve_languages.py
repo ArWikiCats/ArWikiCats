@@ -184,7 +184,7 @@ def _load_bot() -> FormatDataV2:
 
 
 def fix_keys(category: str) -> str:
-    category = category.replace("'", "").lower()
+    category = category.lower().replace("category:", "").replace("'", "")
     category = category.replace("-language ", " language ")
     return category
 
