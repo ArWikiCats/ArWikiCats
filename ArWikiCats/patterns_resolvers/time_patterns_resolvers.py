@@ -8,7 +8,7 @@ from ..helps import logger
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
 from ..translations_formats import LabsYearsFormat
 
-from ..time_resolvers.utils_time import fixing
+from ..time_resolvers.utils_time import standardize_time_phrases
 
 
 @functools.lru_cache(maxsize=1)
@@ -23,7 +23,7 @@ def build_labs_years_object() -> LabsYearsFormat:
         category_templates=category_templates,
         year_param_placeholder="{year1}",
         year_param_name="year1",
-        fixing_callback=fixing,
+        fixing_callback=standardize_time_phrases,
     )
     return labs_years_bot
 
