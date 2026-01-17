@@ -17,7 +17,7 @@ for json_file in tqdm(json_files, desc="Processing JSON files"):
 
 all_data = dict(sorted(all_data.items()))
 
-data_per_file = len(all_data) // len(json_files) + 1
+data_per_file = 1000
 
 print(f"data_per_file: {data_per_file}, total data: {len(all_data)}")
 
