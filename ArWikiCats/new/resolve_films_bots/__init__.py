@@ -2,7 +2,7 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import Films_key_CAO
+from ...translations import Films_key_CAO, TELEVISION_KEYS
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
@@ -38,6 +38,7 @@ def resolve_films_main(normalized_category) -> str:
     resolved_label = (
         legacy_label_check(normalized_category)
         or get_films_key_tyty_new_and_time(normalized_category)
+        or TELEVISION_KEYS.get(normalized_category)
         or Films_key_CAO.get(normalized_category)
         or get_films_key_tyty_new(normalized_category)
         or ""

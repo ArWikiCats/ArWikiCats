@@ -13,6 +13,7 @@ from ..helps import logger
 from ..translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
+    TELEVISION_KEYS,
     Films_key_CAO,
     film_keys_for_female,
 )
@@ -141,6 +142,7 @@ def _make_bot() -> MultiDataFormatterBase:
         "lgbtq-related",
         "upcoming",
     }
+    to_find = TELEVISION_KEYS | Films_key_CAO
 
     data = {x: add_definite_article(v) for x, v in new_data.items()}
     bot = format_films_country_data(
@@ -153,7 +155,7 @@ def _make_bot() -> MultiDataFormatterBase:
         value2_placeholder="{film_ar}",
         text_after="",
         text_before="",
-        data_to_find=Films_key_CAO,
+        data_to_find=to_find,
         # other_formatted_data=other_formatted_data,
     )
 

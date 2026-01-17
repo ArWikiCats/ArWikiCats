@@ -63,6 +63,7 @@ from .sports.Sport_key import (
 )
 from .sports.sub_teams_keys import sub_teams_new
 from .tv.films_mslslat import (
+    TELEVISION_KEYS,
     Films_key_CAO,
     Films_key_For_nat,
     Films_key_man,
@@ -131,6 +132,7 @@ __all__ = [
     "pop_final_5",
     "Clubs_key_2",
     "Films_key_CAO",
+    "TELEVISION_KEYS",
     "Films_key_For_nat",
     "Films_key_man",
     "TELEVISION_BASE_KEYS_FEMALE",
