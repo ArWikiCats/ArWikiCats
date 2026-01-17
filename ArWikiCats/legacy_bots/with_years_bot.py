@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Pattern
 
-from ..new_resolvers.resolve_languages import resolve_languages_labels
+from ..new_resolvers.languages_resolves import resolve_languages_labels
 
 from ..helps import logger
 from ..new_resolvers.reslove_all import new_resolvers_all

@@ -6,14 +6,45 @@ Usage:
 import re
 
 from ...helps import logger
-from ...make_bots.format_bots import ar_lab_before_year_to_add_in, country_before_year
 from ..matables_bots.bot import (
     Films_O_TT,
-    Table_for_frist_word,
 )
+from ..matables_bots.bot import players_new_keys
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
 from ...utils import check_key_in_tables, check_key_in_tables_return_tuple
+
+
+Table_for_frist_word = {
+    "Films_O_TT": Films_O_TT,
+    "New_players": players_new_keys,
+}
+
+ar_lab_before_year_to_add_in = [
+    # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
+    # tab[Category:1900 rugby union tournaments for national teams] = "تصنيف:بطولات اتحاد رجبي للمنتخبات الوطنية 1900"
+    "كتاب بأسماء مستعارة",
+    "بطولات اتحاد رجبي للمنتخبات الوطنية",
+]
+# ---
+country_before_year = [
+    "men's road cycling",
+    "women's road cycling",
+    "track cycling",
+    "motorsport",
+    "pseudonymous writers",
+    "space",
+    "disasters",
+    "spaceflight",
+    "inventions",
+    "sports",
+    "introductions",
+    "discoveries",
+    "comics",
+    "nuclear history",
+    "military history",
+    "military alliances",
+]
 
 
 def check_country_in_tables(country: str) -> bool:

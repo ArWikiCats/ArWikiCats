@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.resolve_languages import resolve_languages_labels
+from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
 
 test_data_skip = {
     "Assamese-language remakes of Hindi films": "",
@@ -16,7 +16,6 @@ test_data_0 = {
 }
 
 test_data = {
-
     "Arabic language activists": "ناشطون بلغة عربية",
     "Arabic-language biographical drama films": "أفلام سير ذاتية درامية باللغة العربية",
     "Arabic-language biographical films": "أفلام سير ذاتية باللغة العربية",

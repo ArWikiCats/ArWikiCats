@@ -1,23 +1,15 @@
 #!/usr/bin/python3
 """
-TODO: use it instead of langs_w.py after adding
-    jobs_mens_data,
-    Films_key_For_nat,
-    Lang_work,
-
 """
 import functools
 import re
 
-from ..helps import logger
-from ..translations import (
+from ...helps import logger
+from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
-    TELEVISION_KEYS,
-    Films_key_CAO,
-    film_keys_for_female,
 )
-from ..translations_formats import FormatDataV2, MultiDataFormatterBase, format_films_country_data
+from ...translations_formats import FormatDataV2
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
@@ -29,7 +21,12 @@ formatted_data = {
     "{en} languages films": "أفلام باللغات {al_ar}",
 
     "{en} language activists": "ناشطون بلغة {ar}",
+
+    "{en}-language non-fiction writers": "كتاب غير روائيين باللغة {al_ar}",
+    "{en} language writers": "كتاب باللغة {al_ar}",
+    "{en}-language writers": "كتاب باللغة {al_ar}",
     "{en}-language singers": "مغنون باللغة {al_ar}",
+
     "romanization of {en}": "رومنة اللغة {al_ar}",
     "{en} language countries": "بلدان اللغة {al_ar}",
     "{en} language culture": "ثقافة اللغة {al_ar}",
@@ -132,40 +129,6 @@ def add_definite_article(label: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def _make_bot() -> MultiDataFormatterBase:
-    formatted_data = {
-        "{lang_en} language {film_en} films": "أفلام {film_ar} باللغة {lang_al}",
-    }
-    put_label_last = {
-        "low-budget",
-        "supernatural",
-        "christmas",
-        "lgbtq-related",
-        "upcoming",
-    }
-    to_find = TELEVISION_KEYS | Films_key_CAO
-
-    data = {x: add_definite_article(v) for x, v in new_data.items()}
-    bot = format_films_country_data(
-        formatted_data=formatted_data,
-        data_list=data,
-        key_placeholder="{lang_en}",
-        value_placeholder="{lang_al}",
-        data_list2=film_keys_for_female,
-        key2_placeholder="{film_en}",
-        value2_placeholder="{film_ar}",
-        text_after="",
-        text_before="",
-        data_to_find=to_find,
-        # other_formatted_data=other_formatted_data,
-    )
-
-    # bot.other_bot.update_put_label_last(put_label_last)
-
-    return bot
-
-
-@functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
     data = {
         x: {
@@ -181,6 +144,7 @@ def _load_bot() -> FormatDataV2:
         key_placeholder="{en}",
         # text_after=" language",
         text_before="",
+        # regex_filter=r"[\w-]"
     )
 
 
@@ -202,32 +166,6 @@ def _resolve_languages_labels(category: str) -> str:
     return result
 
 
-@functools.lru_cache(maxsize=10000)
-def resolve_films_languages_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_films_languages_labels: {category=}")
-
-    category = fix_keys(category)
-
-    result = _make_bot().search_all_category(category)
-
-    logger.info_if_or_debug(f"<<yellow>> end resolve_films_languages_labels: {category=}, {result=}", result)
-    return result
-
-
-@functools.lru_cache(maxsize=10000)
-def resolve_languages_labels(category: str) -> str:
-
-    category = fix_keys(category)
-
-    result = (
-        _resolve_languages_labels(category)
-        or resolve_films_languages_labels(category)
-        or ""
-    )
-
-    return result
-
-
 __all__ = [
-    "resolve_languages_labels",
+    "_resolve_languages_labels",
 ]

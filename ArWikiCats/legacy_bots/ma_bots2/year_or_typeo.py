@@ -188,7 +188,7 @@ class LabelForStartWithYearOrTypeo:
                     self.cate,
                     self.cat_test,
                     self.year_at_first,
-                    self.typeo,
+                    "",
                     self.In,
                     self.country_lower,
                     self.arlabel,

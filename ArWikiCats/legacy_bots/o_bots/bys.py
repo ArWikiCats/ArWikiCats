@@ -11,7 +11,7 @@ import functools
 import re
 
 from ...new_resolvers.reslove_all import new_resolvers_all
-from ...new_resolvers.resolve_languages import resolve_languages_labels
+from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...helps import dump_data, logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -85,7 +85,7 @@ def make_new_by_label(category: str) -> str:
         candidate = normalized[3:]
         film_label = (
             new_resolvers_all(candidate)
-            or resolve_languages_labels(candidate)
+            or resolve_languages_labels_with_time(candidate)
             or People_key.get(candidate)
         )
         if film_label:
