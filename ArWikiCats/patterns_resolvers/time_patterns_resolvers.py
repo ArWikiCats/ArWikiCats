@@ -7,15 +7,8 @@ import functools
 from ..helps import logger
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
 from ..translations_formats import LabsYearsFormat
-import re
 
-
-def standardize_time_phrases(text: str) -> str:
-    """Fix text."""
-    text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
-    text = text.replace("بعقد عقد", "بعقد")
-    text = text.replace("بعقد القرن", "بالقرن")
-    return text
+from ..time_resolvers.utils_time import standardize_time_phrases
 
 
 @functools.lru_cache(maxsize=1)
