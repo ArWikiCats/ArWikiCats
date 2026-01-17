@@ -19,7 +19,7 @@ from ..legacy_bots.ma_bots.country_bot import event2_d2
 from . import event_lab_bot
 from ..time_resolvers.labs_years import LabsYears
 from ..legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
-from ..config import app_settings
+# from ..config import app_settings
 from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
@@ -41,7 +41,7 @@ def build_labs_years_object() -> LabsYears:
     return LabsYears()
 
 
-def retrieve_year_from_category(category):
+def retrieve_year_from_category(category) -> tuple:
     logger.debug(f"<<yellow>> start lab_from_year: {category=}")
 
     labs_years_bot = build_labs_years_object()
