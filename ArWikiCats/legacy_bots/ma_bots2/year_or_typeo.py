@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 """
-Usage:
-from .bot_lab import label_for_startwith_year_or_typeo
-
 """
 
 import re
@@ -188,6 +185,18 @@ class LabelForStartWithYearOrTypeo:
         self.NoLab = True
 
     # ----------------------------------------------------
+    # 7 — APPLY FALLBACKS
+    # ----------------------------------------------------
+
+    def apply_fallbacks(self) -> None:
+        """Run backup labeling logic when primary processing fails."""
+        if self.NoLab and self.cat_test == "":
+            if self.country_label and self.year_labe and self.In == "":
+                self.arlabel = f"{self.country_label} {self.year_labe}"
+                if self.arlabel:
+                    self.NoLab = False
+
+    # ----------------------------------------------------
     # 8 — FINALIZE
     # ----------------------------------------------------
 
@@ -246,6 +255,7 @@ class LabelForStartWithYearOrTypeo:
         self.handle_year()
         self.handle_relation_mapping()
         self.apply_label_rules()
+        # self.apply_fallbacks()
 
         return self.finalize()
 
