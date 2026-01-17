@@ -4,7 +4,7 @@ LabsYearsFormat processing module.
 
 from typing import Callable, Optional
 from ..helps import logger
-from ..time_resolvers.time_to_arabic import (
+from ..time_formats.time_to_arabic import (
     convert_time_to_arabic,
     match_time_ar_first,
     match_time_en_first,

@@ -190,7 +190,7 @@ tests/
 │   │   ├── test_country_time_pattern.py
 │   │   └── test_nat_males_pattern.py
 │   │
-│   ├── time_resolvers/
+│   ├── time_formats/
 │   │   ├── test_labs_years.py
 │   │   ├── test_time_to_arabic.py
 │   │   └── test_utils_time.py
@@ -306,7 +306,7 @@ tests/
 
 ### 4.3 Time Resolvers (P0-P1)
 
-#### `time_resolvers/*.py`
+#### `time_formats/*.py`
 
 | Test Case | Priority |
 |-----------|----------|
@@ -833,7 +833,7 @@ directory = coverage_report
 
 **Deliverables**:
 - tests/unit/patterns_resolvers/
-- tests/unit/time_resolvers/
+- tests/unit/time_formats/
 - tests/unit/new_resolvers/
 - 85%+ coverage on pattern modules
 

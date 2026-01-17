@@ -26,7 +26,7 @@ Note:
 
 import re
 
-from ...time_resolvers import (
+from ...time_formats import (
     convert_time_to_arabic,
     standardize_time_phrases,
     match_time_en_first,

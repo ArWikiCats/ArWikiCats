@@ -15,7 +15,7 @@ TODO: use MultiDataFormatterYearAndFrom2 in workflows.
 import pytest
 
 from ArWikiCats.format_bots.relation_mapping import translation_category_relations
-from ArWikiCats.time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from ArWikiCats.time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom2
 
 

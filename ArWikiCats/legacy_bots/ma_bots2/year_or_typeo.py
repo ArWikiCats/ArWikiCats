@@ -8,7 +8,7 @@ from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import dump_data, logger
 from ...new_resolvers import all_new_resolvers
-from ...time_resolvers import convert_time_to_arabic, match_time_en_first
+from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
 from ..ma_bots.country_bot import get_country
 from ..make_bots.bot_2018 import get_pop_All_18

@@ -274,7 +274,7 @@ from ArWikiCats.config import app_settings, print_settings
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              PATTERN LAYER                                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  patterns_resolvers/                   │  time_resolvers/                    │
+│  patterns_resolvers/                   │  time_formats/                    │
 │  ├── country_time_pattern.py          │  ├──     *.py                        │
 │  └── nat_males_pattern.py               │  ├── time_to_arabic.py              │
 │                                        │  └── utils_time.py                  │
@@ -1111,7 +1111,7 @@ Purpose:
 
 Dependencies:
     - ArWikiCats.translations.geo (country translations)
-    - ArWikiCats.time_resolvers (time conversion)
+    - ArWikiCats.time_formats (time conversion)
 
 Public Functions:
     - resolve_country_time_pattern(category: str) -> str

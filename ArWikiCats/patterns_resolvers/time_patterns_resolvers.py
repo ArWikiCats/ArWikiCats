@@ -8,7 +8,7 @@ from ..helps import logger
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
 from ..translations_formats import LabsYearsFormat
 
-from ..time_resolvers.utils_time import standardize_time_phrases
+from ..time_formats.utils_time import standardize_time_phrases
 
 
 @functools.lru_cache(maxsize=1)
