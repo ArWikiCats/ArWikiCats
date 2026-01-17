@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.patterns_resolvers.nat_men_pattern import resolve_nat_men_pattern_new
+from ArWikiCats.patterns_resolvers.nat_males_pattern import resolve_nat_males_pattern
 
 _mens_data_old = {
     # {en_nat} christians
@@ -385,52 +385,52 @@ test_data_the_female = {}
 @pytest.mark.parametrize("category, expected", test_data_males.items(), ids=test_data_males.keys())
 @pytest.mark.fast
 def test_p_resolve_males(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
 @pytest.mark.fast
 def test_p_resolve_ar(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_the_male.items(), ids=test_data_the_male.keys())
 @pytest.mark.fast
 def test_p_resolve_the_male(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_male.items(), ids=test_data_male.keys())
 @pytest.mark.fast
 def test_p_resolve_male(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_female.items(), ids=test_data_female.keys())
 @pytest.mark.fast
 def test_p_resolve_female(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_the_female.items(), ids=test_data_the_female.keys())
 @pytest.mark.fast
 def test_p_resolve_the_female(category: str, expected: str) -> None:
-    label = resolve_nat_men_pattern_new(category)
+    label = resolve_nat_males_pattern(category)
     assert label == expected
 
 
 to_test = [
-    ("test_p_resolve_males", test_data_males, resolve_nat_men_pattern_new),
-    ("test_p_resolve_ar", test_data_ar, resolve_nat_men_pattern_new),
-    ("test_p_resolve_the_male", test_data_the_male, resolve_nat_men_pattern_new),
-    ("test_p_resolve_male", test_data_male, resolve_nat_men_pattern_new),
-    ("test_p_resolve_female", test_data_female, resolve_nat_men_pattern_new),
-    ("test_p_resolve_the_female", test_data_the_female, resolve_nat_men_pattern_new),
+    ("test_p_resolve_males", test_data_males, resolve_nat_males_pattern),
+    ("test_p_resolve_ar", test_data_ar, resolve_nat_males_pattern),
+    ("test_p_resolve_the_male", test_data_the_male, resolve_nat_males_pattern),
+    ("test_p_resolve_male", test_data_male, resolve_nat_males_pattern),
+    ("test_p_resolve_female", test_data_female, resolve_nat_males_pattern),
+    ("test_p_resolve_the_female", test_data_the_female, resolve_nat_males_pattern),
 ]
 
 

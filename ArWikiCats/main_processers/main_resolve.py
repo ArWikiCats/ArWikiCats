@@ -70,7 +70,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         category_lab = (
             all_patterns_resolvers(changed_cat)
             # resolve_country_time_pattern(changed_cat)
-            # or nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
+            # or nat_males_pattern.resolve_nat_males_pattern(changed_cat)
         )
         from_match = category_lab != ""
 

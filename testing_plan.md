@@ -188,7 +188,7 @@ tests/
 │   │
 │   ├── patterns_resolvers/
 │   │   ├── test_country_time_pattern.py
-│   │   └── test_nat_men_pattern.py
+│   │   └── test_nat_males_pattern.py
 │   │
 │   ├── time_resolvers/
 │   │   ├── test_labs_years.py
@@ -296,7 +296,7 @@ tests/
 | Country + Century | "19th century in Egypt" | P1 |
 | Invalid patterns | "in invalid" | P0 |
 
-#### `patterns_resolvers/nat_men_pattern.py`
+#### `patterns_resolvers/nat_males_pattern.py`
 
 | Test Case | Example | Priority |
 |-----------|---------|----------|
@@ -584,7 +584,7 @@ class TestResolverChainIntegration:
         1. Try time resolvers
         2. Try all_new_resolvers
         3. Try country_time_pattern
-        4. Try nat_men_pattern
+        4. Try nat_males_pattern
         5. Try event2bot
         6. Try event_lab_bot
         7. Try ye_ts_bot
@@ -826,7 +826,7 @@ directory = coverage_report
 
 **Tasks**:
 - [ ] Test country_time_pattern.py
-- [ ] Test nat_men_pattern.py
+- [ ] Test nat_males_pattern.py
 - [ ] Test time resolvers
 - [ ] Test new_resolvers/reslove_all.py
 - [ ] Test nationalities, jobs, sports resolvers

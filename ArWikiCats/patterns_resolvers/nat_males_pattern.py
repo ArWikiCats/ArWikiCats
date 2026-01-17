@@ -8,7 +8,7 @@ bot to handle the translation logic.
 import functools
 import re
 
-from ..helps import dump_data, logger
+from ..helps import logger
 from ..translations import RELIGIOUS_KEYS_PP, All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ..translations_formats import FormatDataV2
 from .categories_patterns.NAT_males import NAT_DATA_MALES
@@ -71,8 +71,8 @@ def _bot_new() -> FormatDataV2:
 
 @functools.lru_cache(maxsize=10000)
 # @dump_data(1)
-def resolve_nat_men_pattern_new(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nat_men_pattern_new: {category=}")
+def resolve_nat_males_pattern(category: str) -> str:
+    logger.debug(f"<<yellow>> start resolve_nat_males_pattern: {category=}")
 
     normalized_category = fix_keys(category)
 
@@ -86,11 +86,11 @@ def resolve_nat_men_pattern_new(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_men_pattern_new: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_males_pattern: {category=}, {result=}", result)
 
     return result or ""
 
 
 __all__ = [
-    "resolve_nat_men_pattern_new",
+    "resolve_nat_males_pattern",
 ]

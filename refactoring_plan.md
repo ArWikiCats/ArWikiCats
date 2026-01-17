@@ -59,7 +59,7 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 3. resolve_country_time_pattern()            # Country + time patterns
         ↓ (if no match)
-4. resolve_nat_men_pattern_new()             # Nationality + gender patterns
+4. resolve_nat_males_pattern()             # Nationality + gender patterns
         ↓ (if no match)
 6. event2_new2()                              # Event2 bot
         ↓ (if no match)
@@ -225,7 +225,7 @@ from ArWikiCats.config import app_settings, print_settings
        │─────────────────────────────────────────>│                     │
        │<────────────────────────────────────────-│                     │
        │                    │                     │                     │
-       │ resolve_nat_men_pattern_new()            │                     │
+       │ resolve_nat_males_pattern()            │                     │
        │─────────────────────────────────────────>│                     │
        │<────────────────────────────────────────-│                     │
        │                    │                     │                     │
@@ -276,7 +276,7 @@ from ArWikiCats.config import app_settings, print_settings
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  patterns_resolvers/                   │  time_resolvers/                    │
 │  ├── country_time_pattern.py          │  ├──     *.py                        │
-│  └── nat_men_pattern.py               │  ├── time_to_arabic.py              │
+│  └── nat_males_pattern.py               │  ├── time_to_arabic.py              │
 │                                        │  └── utils_time.py                  │
 │  new_resolvers/                        │                                     │
 │  ├── reslove_all.py                   │  genders_resolvers/                  │
@@ -415,7 +415,7 @@ Input: "Category:2015 in Yemen"
 │          RESOLVER CHAIN                │
 │  • all_new_resolvers()                 │
 │  • resolve_country_time_pattern()      │
-│  • resolve_nat_men_pattern_new()       │
+│  • resolve_nat_males_pattern()       │
 │  • Dictionary lookups                  │
 │  • Bot translations                    │
 └───────────────────────────────────────┘

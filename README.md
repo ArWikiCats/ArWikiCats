@@ -373,7 +373,7 @@ ArWikiCats/
 │
 ├── patterns_resolvers/      # محللات الأنماط المركبة
 │   ├── country_time_pattern.py
-│   └── nat_men_pattern.py
+│   └── nat_males_pattern.py
 │
 ├── genders_resolvers/       # محللات الجنس (مذكر/مؤنث)
 │

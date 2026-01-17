@@ -1,5 +1,5 @@
 """
-Labs Years processing module.
+LabsYearsFormat processing module.
 """
 
 
@@ -9,7 +9,6 @@ from ..time_resolvers.time_to_arabic import (
     match_time_ar_first,
     match_time_en_first,
 )
-from ..time_resolvers.utils_time import fixing
 
 
 class MatchTimes:
@@ -37,12 +36,14 @@ class LabsYearsFormat(MatchTimes):
         category_templates: dict[str, str],
         year_param_placeholder: str = "{year1}",
         year_param_name: str = "year1",
+        fixing_callback: callable | None = None,
     ) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0
         self.category_templates = category_templates
         self.year_param_name = year_param_name
         self.year_param_placeholder = year_param_placeholder
+        self.fixing_callback = fixing_callback
 
     def lab_from_year(self, category_r: str) -> tuple:
         """
@@ -76,8 +77,11 @@ class LabsYearsFormat(MatchTimes):
         canonical_label = self.category_templates.get(cat_key)
 
         if canonical_label and self.year_param_placeholder in canonical_label and cat_year_ar:
+
             from_year = canonical_label.format_map({self.year_param_name: cat_year_ar})
-            from_year = fixing(from_year)
+            if self.fixing_callback:
+                from_year = self.fixing_callback(from_year)
+
             self.lookup_count += 1
             logger.info(f"<<green>> lab_from_year: {self.lookup_count}, {canonical_label=}")
             logger.info(f"\t<<green>> {category_r=} , {from_year=}")
