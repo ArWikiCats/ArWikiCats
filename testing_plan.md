@@ -306,7 +306,7 @@ tests/
 
 ### 4.3 Time Resolvers (P0-P1)
 
-#### `time_resolvers/labs_years.py`
+#### `time_resolvers/*.py`
 
 | Test Case | Priority |
 |-----------|----------|
@@ -581,7 +581,7 @@ class TestResolverChainIntegration:
         Test that resolvers fall back correctly when patterns don't match.
 
         The resolver chain should:
-        1. Try labs_years
+        1. Try time resolvers
         2. Try all_new_resolvers
         3. Try country_time_pattern
         4. Try nat_men_pattern
@@ -827,7 +827,7 @@ directory = coverage_report
 **Tasks**:
 - [ ] Test country_time_pattern.py
 - [ ] Test nat_men_pattern.py
-- [ ] Test time resolvers (labs_years.py, time_to_arabic.py)
+- [ ] Test time resolvers
 - [ ] Test new_resolvers/reslove_all.py
 - [ ] Test nationalities, jobs, sports resolvers
 

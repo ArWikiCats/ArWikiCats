@@ -43,7 +43,6 @@ The ArWikiCats system processes categories through a multi-stage pipeline:
 | 2. Normalization | `event_processing.py` | `_normalize_category()` | Cleans input |
 | 3. Format | `make_bots/format_bots` | `change_cat()` | Initial transformation |
 | 4. Filter | `make_bots/filter_en` | `filter_cat()` | Validates category |
-| 5. Year Detection | `time_resolvers/labs_years.py` | `lab_from_year()` | Extracts temporal data |
 | 6. Pattern Resolution | Multiple resolvers | Various | Matches patterns |
 | 7. Translation | `main_processers/main_resolve.py` | `resolve_label()` | Core translation |
 | 8. Fix Label | `fix/` | `fixlabel()` | Post-processing |
@@ -203,9 +202,9 @@ from ArWikiCats.config import app_settings, print_settings
 ### 3.2 Resolver Chain Sequence
 
 ```
-┌──────────────┐     ┌─────────────┐     ┌──────────────────┐     ┌────────────┐
-│ main_resolve │     │ labs_years  │     │ pattern_resolvers│     │ make_bots  │
-└──────┬───────┘     └──────┬──────┘     └────────┬─────────┘     └─────┬──────┘
+┌──────────────┐     ┌──────────────┐     ┌──────────────────┐     ┌────────────┐
+│ main_resolve │     │ timeresolvers│     │ pattern_resolvers│     │ make_bots  │
+└──────┬───────┘     └──────┬───────┘     └────────┬─────────┘     └────┬───────┘
        │                    │                     │                     │
        │ lab_from_year()    │                     │                     │
        │───────────────────>│                     │                     │
@@ -276,7 +275,7 @@ from ArWikiCats.config import app_settings, print_settings
 │                              PATTERN LAYER                                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  patterns_resolvers/                   │  time_resolvers/                    │
-│  ├── country_time_pattern.py          │  ├── labs_years.py                  │
+│  ├── country_time_pattern.py          │  ├──     *.py                        │
 │  └── nat_men_pattern.py               │  ├── time_to_arabic.py              │
 │                                        │  └── utils_time.py                  │
 │  new_resolvers/                        │                                     │

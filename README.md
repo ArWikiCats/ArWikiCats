@@ -378,7 +378,6 @@ ArWikiCats/
 ├── genders_resolvers/       # محللات الجنس (مذكر/مؤنث)
 │
 ├── time_resolvers/          # معالجة الأنماط الزمنية
-│   ├── labs_years.py        # استخراج السنوات من التصنيفات
 │   ├── time_to_arabic.py    # تحويل التواريخ للعربية
 │   └── with_years_bot.py    # معالجة التصنيفات مع السنوات
 │
