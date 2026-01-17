@@ -12,7 +12,7 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_sports_main(normalized_category) -> str:
+def main_sports_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
@@ -29,11 +29,11 @@ def resolve_sports_main(normalized_category) -> str:
     )
 
     logger.info_if_or_debug(
-        f"<<yellow>> end resolve_sports_main: {normalized_category=}, {resolved_label=}", resolved_label
+        f"<<yellow>> end main_sports_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
     )
     return resolved_label
 
 
 __all__ = [
-    "resolve_sports_main",
+    "main_sports_resolvers",
 ]

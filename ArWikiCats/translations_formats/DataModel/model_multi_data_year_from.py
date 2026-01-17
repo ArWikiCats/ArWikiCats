@@ -36,6 +36,7 @@ Example:
     'كتاب من اليمن في القرن 14'
 """
 import re
+from typing import Callable, Optional
 
 from ..formats_logger import logger
 
@@ -78,9 +79,9 @@ class FormatDataFrom:
         formatted_data: dict[str, str],
         key_placeholder: str,
         value_placeholder: str,
-        search_callback: callable,
-        match_key_callback: callable,
-        fixing_callback: callable = None,
+        search_callback: Callable,
+        match_key_callback: Callable,
+        fixing_callback: Optional[Callable] = None,
     ) -> None:
         self.search_callback = search_callback
         self.match_key_callback = match_key_callback

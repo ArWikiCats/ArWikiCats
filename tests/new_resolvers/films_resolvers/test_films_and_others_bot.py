@@ -7,8 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-fast_data_drama = {
-}
+fast_data_drama = {}
 
 fast_data = {
     "croatian biographical films": "أفلام سير ذاتية كرواتية",

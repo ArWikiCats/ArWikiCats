@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.films_resolvers import resolve_films_main
+from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
 data_0 = {
     "music albums": "ألبومات موسيقية",
@@ -97,5 +97,5 @@ fast_data_drama_cao = {
 @pytest.mark.parametrize("category, expected", fast_data_drama_cao.items(), ids=fast_data_drama_cao.keys())
 @pytest.mark.fast
 def test_get_films_key_cao(category: str, expected: str) -> None:
-    label = resolve_films_main(category)
+    label = main_films_resolvers(category)
     assert label == expected

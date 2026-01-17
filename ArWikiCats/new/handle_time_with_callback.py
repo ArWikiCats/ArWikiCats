@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
 """
-from typing import Callable
 import functools
 import re
+from typing import Callable, Optional
 
 from ..helps import logger
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic, match_time_en_first
@@ -18,7 +18,7 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def handle_year_at_first(
     category: str,
-    callback: Callable = None,
+    callback: Optional[Callable] = None,
     result_format: str = "{sub_result} في {arabic_time}",
 ) -> str:
     logger.debug(f"<<yellow>> start handle_year_at_first: {category=}")

@@ -1,19 +1,16 @@
 import sys
 from pathlib import Path
+
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from ArWikiCats.legacy_bots.with_years_bot import Try_With_Years
-
-from ArWikiCats.legacy_bots.o_bots.bys import make_by_label
-
-from ArWikiCats.legacy_bots.ma_bots2.lab import get_con_lab
-
 from ArWikiCats import logger, resolve_arabic_category_label
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import resolve_nat_genders_pattern_v2
+from ArWikiCats.legacy_bots.ma_bots2.lab import get_con_lab
 from ArWikiCats.legacy_bots.ma_bots2.year_or_typeo import (
     label_for_startwith_year_or_typeo,
 )
+from ArWikiCats.legacy_bots.o_bots.bys import make_by_label
+from ArWikiCats.legacy_bots.with_years_bot import Try_With_Years
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
@@ -25,11 +22,6 @@ logger.set_level("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))
 
-# print(resolve_nat_genders_pattern_v2("classical composers"))
-# print(resolve_nat_genders_pattern_v2("guitarists"))
-# print(resolve_nat_genders_pattern_v2("male guitarists"))
-# print(resolve_nat_genders_pattern_v2("yemeni male guitarists"))
-# print(resolve_nat_genders_pattern_v2("male yemeni guitarists"))
 # print(get_films_key_tyty_new_and_time("american adult animated television films"))
 # print(get_films_key_tyty_new_and_time("1960s yemeni comedy films"))
 # print("-----"*20)

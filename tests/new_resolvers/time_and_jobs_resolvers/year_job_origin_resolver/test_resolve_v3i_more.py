@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
+from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
 test_deaths_data = {
     "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
@@ -130,7 +130,7 @@ test_data_standard = {
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.fast
-def test_resolve_v3i_more_1(category: str, expected: str) -> None:
+def test_year_job_origin_resolver_more_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
@@ -151,7 +151,7 @@ def test_females_data_1(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_resolve_v3i_more_2", test_data_standard, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_more_2", test_data_standard, resolve_year_job_from_countries),
     ("test_females_data_1", test_females_data, resolve_year_job_from_countries),
 ]
 

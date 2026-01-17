@@ -4,11 +4,9 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
 
-data_0 = {
-}
+data_0 = {}
 
-data_1 = {
-}
+data_1 = {}
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())

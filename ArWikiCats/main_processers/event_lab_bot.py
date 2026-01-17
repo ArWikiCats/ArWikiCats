@@ -4,7 +4,6 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
-from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
@@ -21,7 +20,8 @@ from ..legacy_bots.o_bots.peoples_resolver import work_peoples
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers import all_new_resolvers
+from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_resolvers import time_to_arabic
 from ..time_resolvers.time_to_arabic import convert_time_to_arabic
@@ -39,7 +39,7 @@ def wrap_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        new_resolvers_all(country2)
+        all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
@@ -142,7 +142,7 @@ class EventLabResolver:
         if category_lab:
             return category_lab
 
-        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or new_resolvers_all(category3)
+        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or all_new_resolvers(category3)
         if category_lab:
             return category_lab
 

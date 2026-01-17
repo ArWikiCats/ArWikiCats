@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.new_resolvers.reslove_all import new_resolvers_all
+from ArWikiCats.new_resolvers import all_new_resolvers
 
 test_data_not_for_2018_bot = {
     "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
@@ -157,14 +157,14 @@ wheelchair_data_1 = {
 @pytest.mark.parametrize("category, expected_key", wheelchair_data_1.items(), ids=wheelchair_data_1.keys())
 @pytest.mark.slow
 def test_wheelchair_data(category: str, expected_key: str) -> None:
-    label1 = new_resolvers_all(category)
+    label1 = all_new_resolvers(category)
     assert label1 == expected_key
 
 
 to_test = [
-    ("test_wheelchair_data_1", test_data_not_for_2018_bot, new_resolvers_all),
-    ("test_wheelchair_data_2", wheelchair_data_0, new_resolvers_all),
-    ("test_wheelchair_data_3", wheelchair_data_1, new_resolvers_all),
+    ("test_wheelchair_data_1", test_data_not_for_2018_bot, all_new_resolvers),
+    ("test_wheelchair_data_2", wheelchair_data_0, all_new_resolvers),
+    ("test_wheelchair_data_3", wheelchair_data_1, all_new_resolvers),
 ]
 
 

@@ -13,7 +13,7 @@ This pull request introduces several improvements and refactoring changes to how
 * Moved legacy bot files (`bot_te_4.py`, `prefix_bot.py`) from `make_bots/jobs_bots/` to `old_bots/` and updated import paths across the codebase to reflect this reorganization, improving maintainability and clarity.
 
 **Job Label Resolution Logic**
-* Enhanced job label resolution logic in `jobs_in_multi_sports` to use a prioritized chain of resolvers: `resolve_languages_labels`, `te4_2018_Jobs`, `Lang_work`, and `resolve_jobs_main`, ensuring the most relevant label is selected.
+* Enhanced job label resolution logic in `jobs_in_multi_sports` to use a prioritized chain of resolvers: `resolve_languages_labels`, `te4_2018_Jobs`, `Lang_work`, and `main_jobs_resolvers`, ensuring the most relevant label is selected.
 
 **Job Data Filtering and Formatting**
 * Improved filtering and formatting of job data by using a local copy (`jobs_mens_data_f`) and refining logic to exclude false or irrelevant keys, as well as supporting new label patterns such as "Dutch political artists". (Fc675d55L3R3,
@@ -165,7 +165,7 @@ This pull request introduces several improvements and refactorings to the job, n
 
 ### Label Resolution Logic
 
-* Updated the job label resolution pipeline (`te4_2018_Jobs`) to first try `resolve_jobs_main`, then fall back to religious jobs and nationality prefix label resolvers, improving accuracy and flexibility.
+* Updated the job label resolution pipeline (`te4_2018_Jobs`) to first try `main_jobs_resolvers`, then fall back to religious jobs and nationality prefix label resolvers, improving accuracy and flexibility.
 * In the main film and country name resolvers, clarified and reordered the resolution pipeline to prioritize more accurate or recent resolvers, with explanatory comments.
 
 ### Gendered and Religious Job Handling

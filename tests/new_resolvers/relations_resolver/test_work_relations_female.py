@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.new_resolvers.relations_resolver import new_relations_resolvers
+from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 big_data = {
     "monaco–republic-of-congo relations": "العلاقات الكونغوية الموناكية",
@@ -510,14 +510,14 @@ test_data = {
 @pytest.mark.parametrize("category, expected", big_data.items(), ids=big_data.keys())
 @pytest.mark.slow
 def test_relations_big_data(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = main_relations_resolvers(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_work_relations_female(category: str, expected: str) -> None:
-    label = new_relations_resolvers(category)
+    label = main_relations_resolvers(category)
     assert label == expected
 
 
@@ -525,7 +525,7 @@ def test_work_relations_female(category: str, expected: str) -> None:
 def test_burma_cambodia_relations_from_country_table() -> None:
     """Female 'relations' using countries_nat_en_key women demonyms."""
     value = "burma-cambodia relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     assert result == "العلاقات البورمية الكمبودية"
 
 
@@ -533,7 +533,7 @@ def test_burma_cambodia_relations_from_country_table() -> None:
 def test_burundi_canada_military_relations() -> None:
     """Female 'military relations' with two countries from country table."""
     value = "burundi-canada military relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     # بوروندية + كندية
     assert result == "العلاقات البوروندية الكندية العسكرية"
 
@@ -542,7 +542,7 @@ def test_burundi_canada_military_relations() -> None:
 def test_nat_women_fallback_for_singapore_luxembourg() -> None:
     """Female 'relations' using Nat_women fallback (no entry in main country table)."""
     value = "singapore-luxembourg relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     # سنغافورية + لوكسمبورغية
     assert result == "العلاقات السنغافورية اللوكسمبورغية"
 
@@ -551,7 +551,7 @@ def test_nat_women_fallback_for_singapore_luxembourg() -> None:
 def test_dash_variants_en_dash() -> None:
     """Relations using en dash instead of hyphen."""
     value = "burma–cambodia relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     assert result == "العلاقات البورمية الكمبودية"
 
 
@@ -559,14 +559,14 @@ def test_dash_variants_en_dash() -> None:
 def test_dash_variants_minus_sign() -> None:
     """Relations using minus sign instead of hyphen."""
     value = "burma−cambodia relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     assert result == "العلاقات البورمية الكمبودية"
 
 
 def test_nato_relations_special_case() -> None:
     """Special-case NATO handling for plain 'relations'."""
     value = "nato-afghanistan relations"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     # Uses hard-coded "الناتو" plus country label
     assert result == "علاقات أفغانستان والناتو"
 
@@ -575,5 +575,5 @@ def test_nato_relations_special_case() -> None:
 def test_female_suffix_not_matched_returns_empty() -> None:
     """No recognized female or male suffix should return empty string."""
     value = "burma-cambodia partnership"
-    result = new_relations_resolvers(value)
+    result = main_relations_resolvers(value)
     assert result == ""

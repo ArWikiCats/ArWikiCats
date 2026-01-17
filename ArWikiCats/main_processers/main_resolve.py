@@ -21,7 +21,7 @@ from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
 from ..legacy_bots.matables_bots.bot import cash_2022
-from ..new_resolvers.reslove_all import new_resolvers_all
+from ..new_resolvers import all_new_resolvers
 from ..fix import fixlabel
 
 
@@ -81,7 +81,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         category_lab = (
             # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
             # resolve_nat_genders_pattern_v2(changed_cat) or
-            new_resolvers_all(changed_cat)
+            all_new_resolvers(changed_cat)
             or ""
         )
 

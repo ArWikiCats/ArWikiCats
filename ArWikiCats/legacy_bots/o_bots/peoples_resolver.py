@@ -6,7 +6,7 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import People_key, TELEVISION_BASE_KEYS_FEMALE, nats_to_add
+from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
 from ..matables_bots.bot import Pp_Priffix
 from .utils import resolve_suffix_template
 

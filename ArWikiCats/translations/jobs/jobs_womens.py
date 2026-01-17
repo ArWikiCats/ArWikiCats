@@ -76,9 +76,11 @@ short_womens_jobs = FEMALE_JOBS_BASE | FEMALE_JOBS_BASE_EXTENDED | FEMALE_JOBS_S
 
 FEMALE_JOBS_BASE_EXTENDED.update(FEMALE_JOBS_BASE)
 
-short_womens_jobs.update({
-    "sportswomen": "رياضيات",
-})
+short_womens_jobs.update(
+    {
+        "sportswomen": "رياضيات",
+    }
+)
 
 __all__ = [
     "FEMALE_JOBS_BASE_EXTENDED",

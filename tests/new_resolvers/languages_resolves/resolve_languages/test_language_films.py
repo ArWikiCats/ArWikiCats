@@ -12,8 +12,7 @@ test_data_skip = {
     "Assamese-language remakes of Malayalam films": "",
 }
 
-test_data_0 = {
-}
+test_data_0 = {}
 
 test_data = {
     "Arabic language activists": "ناشطون بلغة عربية",

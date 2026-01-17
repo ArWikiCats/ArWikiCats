@@ -2,7 +2,7 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import Films_key_CAO, TELEVISION_KEYS
+from ...translations import TELEVISION_KEYS, Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
@@ -18,7 +18,7 @@ def legacy_label_check(normalized_category):
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_films_main(normalized_category) -> str:
+def main_films_resolvers(normalized_category) -> str:
     """
     Resolve a film nationalities label from a category string.
 
@@ -51,7 +51,7 @@ def resolve_films_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolve_films_main",
+    "main_films_resolvers",
     "get_films_key_tyty_new",
     "get_films_key_tyty_new_and_time",
 ]

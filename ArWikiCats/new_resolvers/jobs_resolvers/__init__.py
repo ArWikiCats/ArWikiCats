@@ -5,7 +5,7 @@ from . import mens, relegin_jobs_new, womens
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_jobs_main(normalized_category) -> str:
+def main_jobs_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying jobs_resolvers for: {normalized_category=}")
@@ -22,5 +22,5 @@ def resolve_jobs_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolve_jobs_main",
+    "main_jobs_resolvers",
 ]

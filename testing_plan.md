@@ -588,7 +588,7 @@ class TestResolverChainIntegration:
 
         The resolver chain should:
         1. Try labs_years
-        2. Try new_resolvers_all
+        2. Try all_new_resolvers
         3. Try country_time_pattern
         4. Try nat_men_pattern
         5. Try event2bot

@@ -6,8 +6,8 @@ Sports team and club category processing.
 import functools
 
 from ..helps import logger
-from ..new_resolvers.films_resolvers import resolve_films_main  # TODO: use new_resolvers_all
-from ..new_resolvers.relations_resolver import new_relations_resolvers  # TODO: use new_resolvers_all
+from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
+from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from .o_bots.utils import resolve_suffix_template
 
@@ -100,9 +100,8 @@ def _resolve_club_label(club_key: str) -> str:
         Clubs_key_2.get(club_key.lower())
         or pop_of_football_lower.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
-        or new_relations_resolvers(club_key)
-
-        or resolve_films_main(club_key)
+        or main_relations_resolvers(club_key)
+        or main_films_resolvers(club_key)
         or ""
     )
     return club_lab

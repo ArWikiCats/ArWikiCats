@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.translations_resolvers_v3i.resolve_v3i import resolve_year_job_from_countries
+from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
 test_data_standard = {
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
@@ -586,7 +586,7 @@ test_data_standard = {
 
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 @pytest.mark.slow
-def test_resolve_v3i_new_1(category: str, expected: str) -> None:
+def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
     result1 = resolve_year_job_from_countries(category)
     assert result1 == expected
@@ -596,7 +596,7 @@ def test_resolve_v3i_new_1(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_resolve_v3i_new_1", test_data_standard, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_1", test_data_standard, resolve_year_job_from_countries),
 ]
 
 

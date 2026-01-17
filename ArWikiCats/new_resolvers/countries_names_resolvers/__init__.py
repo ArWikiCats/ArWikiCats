@@ -11,7 +11,7 @@ from . import (  # countries_names_double_v2,
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_countries_names_main(normalized_category) -> str:
+def main_countries_names_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying countries_names_resolvers for: {normalized_category=}")
@@ -37,5 +37,5 @@ def resolve_countries_names_main(normalized_category) -> str:
 
 
 __all__ = [
-    "resolve_countries_names_main",
+    "main_countries_names_resolvers",
 ]

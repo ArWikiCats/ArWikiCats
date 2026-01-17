@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import resolve_jobs_main
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 
 main_data = {
     "new zealand emigrants": "نيوزيلنديون مهاجرون",
@@ -16,6 +16,6 @@ main_data = {
 
 @pytest.mark.parametrize("category, expected", main_data.items(), ids=main_data.keys())
 @pytest.mark.fast
-def test_resolve_jobs_main(category: str, expected: str) -> None:
-    label = resolve_jobs_main(category)
+def test_main_jobs_resolvers(category: str, expected: str) -> None:
+    label = main_jobs_resolvers(category)
     assert label == expected

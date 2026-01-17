@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.films_resolvers import resolve_films_main
+from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
 test_data3 = {
     "animated short film comics": "قصص مصورة رسوم متحركة قصيرة",
@@ -53,12 +53,12 @@ test_data3 = {
 @pytest.mark.parametrize("category, expected", test_data3.items(), ids=test_data3.keys())
 @pytest.mark.fast
 def test_get_films_key_tyty_new(category: str, expected: str) -> None:
-    label = resolve_films_main(category)
+    label = main_films_resolvers(category)
     assert label == expected
 
 
 to_test = [
-    ("test_Films_tyty", test_data3, resolve_films_main),
+    ("test_Films_tyty", test_data3, main_films_resolvers),
 ]
 
 
