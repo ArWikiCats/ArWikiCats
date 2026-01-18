@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
 Resolves category labels for religious groups combined with nationalities.
-TODO: write code
 """
 # ...existing code...
-from ArWikiCats.translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
-from ArWikiCats.translations.jobs.jobs_data_basic import PAINTER_ROLE_LABELS
-from ArWikiCats.translations_formats import format_multi_data_v2, FormatData
+from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
+from ...translations.jobs.jobs_data_basic import PAINTER_ROLE_LABELS
+from ...translations_formats import format_multi_data_v2, FormatData
 
 # Prepare consolidated dictionaries with gendered values
 _rel_data = {
