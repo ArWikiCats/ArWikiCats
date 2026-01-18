@@ -64,7 +64,24 @@ class FormatDataDoubleV2(FormatDataBase):
         sort_ar_labels: bool = False,
         log_multi_cache: bool = True,
     ):
-        """Prepare helpers for matching and formatting template-driven labels."""
+        """
+        Initialize FormatDataDoubleV2 and prepare caches, regex patterns, and configuration used for single- and double-key template matching and Arabic label assembly.
+        
+        Parameters:
+            formatted_data: Mapping of English patterns to Arabic templates used for exact and template-based matches.
+            data_list: Mapping of keys to Arabic labels or dicts of attribute-specific Arabic labels.
+            key_placeholder: Placeholder token used inside templates for key substitution.
+            text_after: Text appended to the final generated label.
+            text_before: Text prepended to the final generated label.
+            splitter: Separator expected between two adjacent keys in source categories (used when building double-key regex).
+            ar_joiner: Joiner used to combine two Arabic labels when forming a composite label.
+            sort_ar_labels: If True, sort the two Arabic labels alphabetically before joining.
+            log_multi_cache: If True, enable caching/logging of multi-key composite label lookups.
+        
+        Side effects:
+            - Initializes internal caches: keys_to_split, search_multi_cache, and put_label_last.
+            - Builds regex alternation and compiles single- and double-key matching patterns (pattern, pattern_double).
+        """
         super().__init__(
             formatted_data=formatted_data,
             data_list=data_list,
@@ -90,7 +107,15 @@ class FormatDataDoubleV2(FormatDataBase):
         self.put_label_last = data
 
     def _search(self, category: str) -> str:
-        """End-to-end resolution."""
+        """
+        Resolve a category string to its final formatted label using single- or double-key matching and template substitution.
+        
+        Parameters:
+            category (str): The input category to match against single-key or adjacent double-key patterns.
+        
+        Returns:
+            str: The formatted label produced by applying the matched template to the resolved key label, or an empty string if no matching key, label, or template is found.
+        """
         logger.debug("$$$ start _search(): ")
         logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
 
@@ -234,7 +259,10 @@ class FormatDataDoubleV2(FormatDataBase):
 
     def get_key_label(self, sport_key: str) -> dict[str, str]:
         """
-        Return the Arabic label mapped to the provided key if present.
+        Retrieve the Arabic label mapping for the given key, building or fetching combined labels for two-key entries when necessary.
+        
+        Returns:
+            dict[str, str]: Mapping of attribute keys to Arabic label strings if found; empty string otherwise.
         """
         logger.debug(f"@@ get_key_label: {sport_key=}")
 
@@ -254,7 +282,12 @@ class FormatDataDoubleV2(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
-        """Replace all attribute placeholders in the label with their corresponding values."""
+        """
+        Replace placeholders in a label string with corresponding values from a mapping.
+        
+        @param value: Mapping of placeholder names to replacement strings; keys are placeholder names (without braces). If `value` is not a mapping, the label is returned unchanged.
+        @returns: The label with each `{key}` replaced by its corresponding string from `value`; unchanged if no replacements apply.
+        """
         logger.debug(f"@@ replace_value_placeholder: {label=}, {value=}")
 
         if not isinstance(value, dict):

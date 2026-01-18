@@ -34,13 +34,14 @@ pp_start_with = {
 
 
 def _resolve_label(label: str) -> str:
-    """Try multiple resolution strategies for a label.
-
-    Args:
-        label: The label to resolve
-
+    """
+    Resolve an English category label into Arabic using a sequence of resolver strategies.
+    
+    Parameters:
+        label (str): English category label to resolve.
+    
     Returns:
-        Resolved Arabic label or empty string
+        str: Resolved Arabic label if any strategy matches, otherwise an empty string.
     """
     resolved_label = (
         all_new_resolvers(label)
@@ -64,13 +65,14 @@ def _resolve_label(label: str) -> str:
 
 
 def create_label_from_prefix(input_label):
-    """Create an Arabic label from a prefix template match.
-
-    Args:
-        input_label: The English category label to process
-
+    """
+    Generate an Arabic category label when the English input starts with a known prefix.
+    
+    Parameters:
+        input_label (str): English category label to match against known prefixes; matching is case-insensitive.
+    
     Returns:
-        The corresponding Arabic label if a prefix match is found, otherwise an empty string
+        str: Arabic label formatted from the matching prefix template if a resolved base label is found, otherwise an empty string.
     """
     template_label = ""
 
@@ -90,13 +92,14 @@ def create_label_from_prefix(input_label):
 
 
 def create_label_from_suffix(input_label):
-    """Create an Arabic label from a suffix template match.
-
-    Args:
-        input_label: The English category label to process
-
+    """
+    Create an Arabic category label when the English input ends with a known suffix template.
+    
+    Parameters:
+        input_label (str): English category label to match against known suffix templates.
+    
     Returns:
-        The corresponding Arabic label if a suffix match is found, otherwise an empty string
+        str: The formatted Arabic label if a suffix-based resolution succeeds, otherwise an empty string.
     """
     template_label = ""
 

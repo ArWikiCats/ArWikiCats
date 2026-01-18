@@ -64,7 +64,13 @@ class YearFormatDataLegacy:
         key_placeholder: str,
         value_placeholder: str,
     ) -> None:
-        """Initialize the legacy year formatter with key and value placeholders."""
+        """
+        Configure the legacy year formatter with placeholders for the extracted time key and its replacement value.
+        
+        Parameters:
+            key_placeholder (str): Placeholder inserted into categories where the matched English time expression is removed (e.g., "{year1}").
+            value_placeholder (str): Placeholder used in templates to be replaced with the formatted Arabic time value (e.g., "{value}").
+        """
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
@@ -85,10 +91,13 @@ class YearFormatDataLegacy:
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
-        Normalize nationality placeholders within a category string.
-
-        Example:
-            category:"Yemeni national football teams", result: "natar national football teams"
+        Extract the first English time expression from a category and return it alongside a normalized category where that expression is replaced by the instance's key placeholder.
+        
+        Parameters:
+            category (str): Category text to inspect for a time expression.
+        
+        Returns:
+            tuple[str, str]: `key` is the matched time expression or an empty string if none found; `normalized` is the category with the first occurrence of `key` replaced by the key placeholder, or an empty string when no key was found.
         """
         key = self.match_key(category)
         result = ""
@@ -97,7 +106,16 @@ class YearFormatDataLegacy:
         return key, result
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
-        """Replace the value placeholder in the label and standardize the resulting phrase."""
+        """
+        Replace the configured value placeholder in a label and normalize any time expressions in the result.
+        
+        Parameters:
+            label (str): Template string containing the configured value placeholder.
+            value (str): Replacement text to substitute for the placeholder.
+        
+        Returns:
+            str: The label with the placeholder substituted by `value` and time phrases standardized.
+        """
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)

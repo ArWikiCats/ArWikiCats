@@ -640,13 +640,13 @@ all_formatted_data = (
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
-    """Load and configure the nationality translation bot.
-
-    Creates and configures a FormatDataV2 instance that handles the translation
-    of nationality-related category names using formatted data and nationality mappings.
-
+    """
+    Create and configure a FormatDataV2 instance for translating nationality-related category names.
+    
+    Builds the bot's nationality mapping from All_Nat and augments it with nats_keys_as_country_names. Logs a warning if the 'jewish-american' key is missing from the assembled nationality data.
+    
     Returns:
-        FormatDataV2: Configured bot instance for nationality translation.
+        FormatDataV2: Configured FormatDataV2 instance ready to resolve nationality/category translations.
     """
     nats_data = {
         # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
@@ -668,16 +668,16 @@ def _load_bot() -> FormatDataV2:
 
 
 def fix_keys(category: str) -> str:
-    """Fix known issues in category keys before searching.
-
-    Normalizes category strings by converting to lowercase, removing category prefixes,
-    and cleaning up common formatting issues to ensure consistent matching.
-
-    Args:
-        category (str): The original category key to be normalized.
-
+    """
+    Normalize a category key for consistent matching.
+    
+    Converts the input to lowercase, removes a leading "category:" prefix and single quotes, and trims surrounding whitespace to produce a canonical key.
+    
+    Parameters:
+        category (str): The original category key.
+    
     Returns:
-        str: The cleaned and normalized category string.
+        str: The cleaned category key suitable for lookups and comparisons.
     """
     # Fix specific known issues with category keys
     category = category.lower().replace("category:", "")
@@ -687,17 +687,14 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats(category: str) -> str:
-    """Resolve a nationality category to its Arabic translation.
-
-    Translates English category names that contain nationalities to their Arabic equivalents
-    using the configured translation bot. This function specifically handles nationality-based
-    categories and skips certain country-related categories that should be handled elsewhere.
-
-    Args:
-        category (str): The English category name containing nationality information to be translated.
-
+    """
+    Translate an English category name that contains a nationality into its Arabic equivalent, skipping country keys that are handled elsewhere.
+    
+    Parameters:
+        category (str): English category name containing nationality information.
+    
     Returns:
-        str: The Arabic translation of the category, or an empty string if not found or if skipped.
+        str: Arabic translation of the category, or an empty string if the category is skipped or no translation is found.
     """
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 

@@ -34,10 +34,11 @@ typeTable_7: dict[str, str] = {
 
 
 def _make_players_keys() -> dict:
-    """Create a dictionary of player-related keys for category mapping.
-
+    """
+    Build a mapping of player-related English terms (lowercased) to their Arabic labels for category mapping.
+    
     Returns:
-        Dictionary mapping English player terms to Arabic equivalents
+        dict: Mapping where keys are lowercase English player-related terms and values are Arabic equivalents.
     """
     players_keys = {}
     players_keys["women"] = "المرأة"

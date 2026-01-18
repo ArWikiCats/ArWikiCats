@@ -12,13 +12,14 @@ from . import mens, relegin_jobs_new, womens
 
 @functools.lru_cache(maxsize=None)
 def main_jobs_resolvers(normalized_category) -> str:
-    """Main entry point for jobs resolvers.
-
-    Args:
-        normalized_category (str): The normalized category string.
-
+    """
+    Resolve a job category name to a standardized jobs label.
+    
+    Parameters:
+        normalized_category (str): Category name to resolve. Leading "category:" prefix, surrounding whitespace, and letter case are ignored.
+    
     Returns:
-        str: The resolved jobs category label.
+        str: The resolved jobs category label, or an empty string if no resolver matched.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)

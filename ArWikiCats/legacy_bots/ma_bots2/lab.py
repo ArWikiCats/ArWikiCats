@@ -31,8 +31,12 @@ from ..o_bots.peoples_resolver import make_people_lab, work_peoples
 @functools.lru_cache(maxsize=10000)
 def wrap_lab_for_country2(country: str) -> str:
     """
-    TODO: should be moved to functions directory.
-    Retrieve laboratory information for a specified country.
+    Resolve an Arabic laboratory or related entity label for the given country.
+    
+    Attempts to produce a localized label for the country and returns the resolved Arabic label; returns an empty string if no suitable label is found.
+        
+    Returns:
+        resolved_label (str): The resolved Arabic label for the country, or an empty string if none could be resolved.
     """
 
     country2 = country.lower().strip()
@@ -304,13 +308,14 @@ def _lookup_religious_males(type_lower: str) -> str:
 
 
 def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable]:
-    """Create the lookup chain for type labels.
-
-    Args:
-        normalized_preposition: Normalized separator
-
+    """
+    Constructs an ordered chain of lookup callables for resolving Arabic type labels using the given normalized preposition.
+    
+    Parameters:
+        normalized_preposition (str): Normalized separator/preposition (e.g., "in", "from", "for") supplied to lookups that require context.
+    
     Returns:
-        List of lookup functions to try in order
+        dict[str, callable]: A mapping of descriptive keys to callables; each callable accepts a type string and returns an Arabic label or an empty string when no label is found.
     """
     return {
         # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
@@ -381,15 +386,18 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
 
 
 def _create_country_lookup_chain(separator: str, start_get_country2: bool, country_no_dash: str) -> dict[str, callable]:
-    """Create the lookup chain for country labels.
-
-    Args:
-        separator: The separator/delimiter
-        start_get_country2: Whether to use secondary country lookup
-        country_no_dash: Country string with dashes replaced by spaces
-
+    """
+    Builds an ordered mapping of country lookup functions used to resolve Arabic country labels.
+    
+    Each mapping value is a callable that accepts a country string and returns an Arabic label or an empty string; the keys are identifiers for the lookup step (used for logging/tracing). The chain includes generic resolvers, keyed lookups, dash/space variants, prefix-handling helpers, time-to-Arabic conversion, team/university/work templates, and a wrapper that may start a secondary country lookup.
+    
+    Parameters:
+        separator (str): The category separator (e.g., "in", "for") which may influence certain lookups.
+        start_get_country2 (bool): If true, instructs the fetch_country_term_label wrapper to begin a secondary (get_country2) lookup path.
+        country_no_dash (str): A variant of the input country with dashes replaced by spaces, used by dash/spacevariant lookup helpers.
+    
     Returns:
-        Dictionary of lookup functions to try in order
+        dict[str, callable]: Ordered dictionary of lookup identifiers to callables that take a country string and return an Arabic label (or empty string).
     """
 
     for_table = {

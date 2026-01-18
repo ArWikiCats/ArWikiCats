@@ -24,20 +24,16 @@ from .country_bot import event2_d2
 
 @functools.lru_cache(maxsize=None)
 def event_label_work(target_category: str) -> str:
-    """Retrieve category lab information based on the provided category.
-
-    This function attempts to find the corresponding category lab for a
-    given category string by checking multiple sources in a specific order.
-    It first normalizes the input category string and then queries various
-    data sources to retrieve the relevant information. If no match is found,
-    it attempts to find a wikidata entry based on the category string.
-
-    Args:
-        target_category (str): The category string for which the lab information is sought.
-
+    """
+    Resolve an Arabic label for an event-related category.
+    
+    The function normalizes the input and consults a fixed sequence of resolvers, returning the first non-empty label found. If the normalized category is "people", returns "أشخاص". If no resolver produces a label, returns an empty string.
+    
+    Parameters:
+        target_category (str): Category string to resolve.
+    
     Returns:
-        str: The corresponding category lab information or an empty string if not
-            found.
+        str: The resolved Arabic label for the category, or an empty string if unresolved.
     """
 
     normalized_target_category = target_category.lower().strip()

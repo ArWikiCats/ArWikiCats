@@ -120,11 +120,15 @@ def _build_gender_key_maps(
     Dict[str, str],
 ]:  # films_key_both  # films_key_man
     """
-    Build gender-aware film key mappings from JSON sources.
-
+    Build gender-aware film key mappings from a source mapping of keys to gendered labels.
+    
+    Parameters:
+        films_key_o_multi (Dict[str, Dict[str, str]]): Mapping from English keys to dictionaries containing at least 'male' and/or 'female' labels.
+    
     Returns:
-        - films_key_both: Lowercase key → {male, female}
-        - films_key_man: Key → male label (with animated variants)
+        Tuple[Dict[str, Dict[str, str]], Dict[str, str]]:
+            films_key_both: Mapping of lowercase English keys to the original label dictionaries (contains 'male' and/or 'female' entries).
+            films_key_man: Mapping of English keys to the male Arabic label; also includes animated variants (keys prefixed with "animated ") whose value appends the Arabic "رسوم متحركة" phrase to the male label.
     """
     films_key_both = {}
     films_key_man = {}

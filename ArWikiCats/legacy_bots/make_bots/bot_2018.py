@@ -59,13 +59,14 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 
 @functools.lru_cache(maxsize=10000)
 def _get_from_alias(key: str) -> str:
-    """Get a label from various alias sources.
-
-    Args:
-        key: The key to look up in various alias tables
-
+    """
+    Retrieve an Arabic label for a key by probing multiple alias tables and fallback sources.
+    
+    Parameters:
+        key (str): The lookup key; the function will try the original key and a lowercase variant.
+    
     Returns:
-        The found label or an empty string if not found
+        The label string if found, otherwise an empty string.
     """
     sources = {
         "pf_keys2": lambda k: pf_keys2.get(k),
@@ -91,14 +92,15 @@ def _get_from_alias(key: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
-    """Fetch a population label, falling back to sports team lookups.
-
-    Args:
-        key: The key to look up in population data
-        default: Default value to return if key is not found
-
+    """
+    Lookup an Arabic population or category label for `key` using multiple fallback sources and return `default` if not found.
+    
+    Parameters:
+        key (str): The lookup key; leading "the " is ignored when present.
+        default (str): Value to return if no label is found.
+    
     Returns:
-        The found label or the default value if not found
+        str: The found label if any, otherwise `default`.
     """
     result = first_data.get(key.lower(), "") or ""
 
@@ -134,10 +136,13 @@ def get_pop_All_18(key: str, default: str = "") -> str:
 
 
 def Add_to_pop_All_18(tab: Dict[str, str]) -> None:
-    """Merge additional mappings into the cached 2018 population data.
-
-    Args:
-        tab: Dictionary containing key-value pairs to add to the population data
+    """
+    Add or update mappings in the cached 2018 population label table.
+    
+    Updates the module-level `pop_All_2018` dictionary in place by inserting all key→label pairs from `tab`. Existing keys are overwritten.
+    
+    Parameters:
+        tab (Dict[str, str]): Mapping of keys to labels to merge into the cached population data.
     """
     for key, lab in tab.items():
         pop_All_2018[key] = lab

@@ -69,6 +69,15 @@ USA_PARTY_LABELS = {x.strip(): y.strip() for x, y in _USA_PARTY_LABELS.items() i
 
 
 def _build_party_derived_keys(party_labels: Mapping[str, str]) -> dict[str, str]:
+    """
+    Builds derived English translation keys for US political party names.
+    
+    Parameters:
+        party_labels (Mapping[str, str]): Mapping from party name (English) to its Arabic label. Keys are used as source names and values provide the Arabic translations; entries with empty or whitespace-only translations are ignored.
+    
+    Returns:
+        dict[str, str]: A mapping of generated English keys to Arabic labels. Generated keys use a lowercase normalized form of the input party name and include common variants (e.g., parenthetical " (united states)", plural forms, and several role- or office-specific phrases) that all map to the corresponding Arabic translation.
+    """
     derived_keys: dict[str, str] = {}
 
     for party_name, party_label in party_labels.items():

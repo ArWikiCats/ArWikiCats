@@ -19,13 +19,14 @@ from . import (
 
 @functools.lru_cache(maxsize=None)
 def main_sports_resolvers(normalized_category) -> str:
-    """Main entry point for sports resolvers.
-
-    Args:
-        normalized_category (str): The normalized category string.
-
+    """
+    Resolve a normalized category string into a sports-related label.
+    
+    Parameters:
+        normalized_category (str): Category text (may include a leading "Category:"); this input will be trimmed and lowercased before resolution.
+    
     Returns:
-        str: The resolved sports category label.
+        str: Resolved sports category label, or an empty string if no resolver produced a match.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 

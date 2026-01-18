@@ -14,7 +14,14 @@ from .utils import fix_keys
 
 
 def generate_sports_data_dict() -> dict[str, dict[str, str]]:
-    """Generate a dictionary of sports roles with their Arabic translations."""
+    """
+    Build a mapping of sport keys to their Arabic role labels.
+    
+    Includes entries from SPORT_KEY_RECORDS_BASE where the record provides a non-empty "jobs" value (stored under the "sport_ar" key) and adds explicit Arabic mappings for several sports that are not present or need overrides.
+    
+    Returns:
+        dict[str, dict[str, str]]: A dictionary where each English sport key maps to a dictionary with the key "sport_ar" containing the Arabic translation.
+    """
     sports_data_new = {
         sport: {"sport_ar": record.get("jobs", "")}
         for sport, record in SPORT_KEY_RECORDS_BASE.items()

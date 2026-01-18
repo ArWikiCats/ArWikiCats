@@ -40,13 +40,14 @@ labelSuffixMappings = dict(
 
 @functools.lru_cache(maxsize=None)
 def work_peoples(name: str) -> str:
-    """Return the label for ``name`` based on the population prefixes table.
-
-    Args:
-        name: The category name that may contain a known population suffix.
-
+    """
+    Resolve an Arabic label for a category name by matching its suffix against known population-related templates.
+    
+    Parameters:
+        name (str): Category name that may end with a known population suffix.
+    
     Returns:
-        The resolved Arabic label or an empty string when no mapping exists.
+        str: The resolved Arabic label if a mapping is found, otherwise an empty string.
     """
     logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     person_key = ""
@@ -81,14 +82,14 @@ def work_peoples(name: str) -> str:
 
 
 def make_people_lab(normalized_value: str) -> str:
-    """Return a label for general ``people`` categories.
-
-    Args:
-        value: Category type describing a people group.
-
+    """
+    Return an Arabic label for a general "people" category.
+    
+    Parameters:
+        normalized_value (str): Category name (whitespace-trimmed) that may end with the word "people".
+    
     Returns:
-        The formatted Arabic label or an empty string if the value is not
-        recognised.
+        The formatted Arabic label (e.g., "أعلام <label>") if a mapping for the base category exists, otherwise an empty string.
     """
 
     normalized_value = normalized_value.strip()

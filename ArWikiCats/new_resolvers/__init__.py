@@ -31,13 +31,14 @@ from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 @functools.lru_cache(maxsize=None)
 def all_new_resolvers(category: str) -> str:
-    """Apply all new resolvers to translate a category string.
-
-    Args:
-        category (str): The category string to resolve.
-
+    """
+    Resolve an English Wikipedia category name into its Arabic label by applying a prioritized chain of specialized resolver functions.
+    
+    Parameters:
+        category (str): English-language Wikipedia category name to resolve.
+    
     Returns:
-        str: The resolved category label, or empty string if not resolved.
+        str: The first non-empty resolved label produced by the resolver chain, or an empty string if no resolver produced a result.
     """
     logger.info(f"<<purple>> all_new_resolvers: {category}")
     category_lab = (

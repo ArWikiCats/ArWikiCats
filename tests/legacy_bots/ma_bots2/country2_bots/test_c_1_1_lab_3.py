@@ -145,5 +145,14 @@ fast_data_c_1_1_lab = [
 @pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["key"])
 @pytest.mark.fast
 def test_c_1_1_lab(data) -> None:
+    """
+    Parametrized test that verifies c_1_1_lab produces the expected Arabic label for a given separator and key.
+    
+    Parameters:
+        data (dict): Test case mapping with keys:
+            - 'separator' (str): string used to join components.
+            - 'key' (str): input label/topic to convert.
+            - 'output' (str): expected Arabic label.
+    """
     label = c_1_1_lab(data["separator"], data["key"], with_years=False)
     assert label == data["output"]

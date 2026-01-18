@@ -29,7 +29,19 @@ class CategoryResult:
 
 @functools.lru_cache(maxsize=None)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
-    """Resolve the label using multi-step logic."""
+    """
+    Resolve an English Wikipedia category label to its Arabic equivalent.
+    
+    Parameters:
+        category (str): English category label to resolve.
+        fix_label (bool): If true, apply label fixes before final cleansing.
+    
+    Returns:
+        CategoryResult: dataclass with:
+            - en: the original English category label.
+            - ar: the resolved Arabic label, or an empty string if no resolution or the category was filtered.
+            - from_match: `true` if the label was matched by the pattern-based resolver, `false` otherwise.
+    """
     changed_cat = change_cat(category)
 
     if category.isdigit():

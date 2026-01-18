@@ -71,16 +71,14 @@ def get_lab_for_country2(country: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def Get_country2(country: str) -> str:
-    """Retrieve Arabic label information for a specified country with enhanced processing.
-
-    This function attempts to find the Arabic label for a given country
-    using multiple processing strategies including title work and normalization.
-
-    Args:
-        country: The country name to look up
-
+    """
+    Resolve the Arabic label for a country name using layered resolution and normalization.
+    
+    Parameters:
+        country (str): The country name to resolve.
+    
     Returns:
-        The Arabic label for the country or an empty string if not found
+        str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
     """
 
     normalized_country = country.lower().strip()
@@ -124,13 +122,13 @@ def _resolve_remainder(remainder: str) -> str:
 
 
 def _validate_separators(country: str) -> bool:
-    """Check if the country string contains invalid separators.
-
-    Args:
-        country: The country string to validate
-
+    """
+    Return whether the input contains any disallowed separator phrases.
+    
+    Checks for presence of common separator words/phrases (for example " in ", " of ", or the special "-of ") and returns True only when none are found.
+    
     Returns:
-        True if the string doesn't contain invalid separators, False otherwise
+        True if no disallowed separators are present, False otherwise.
     """
     separators = [
         "based in",
@@ -152,13 +150,16 @@ def _validate_separators(country: str) -> bool:
 
 
 def check_historical_prefixes(country: str) -> str:
-    """Check for historical prefixes in the country string.
-
-    Args:
-        country: The country string to check for historical prefixes
-
+    """
+    Resolve Arabic labels for strings that start with a historical prefix (for example, "defunct national ...").
+    
+    If the input begins with a recognized historical prefix and the remainder resolves to a label, return the prefix-specific formatted Arabic label; otherwise return an empty string.
+    
+    Parameters:
+        country (str): The input string to inspect and resolve.
+    
     Returns:
-        The processed label if a historical prefix is found, otherwise an empty string
+        str: The formatted Arabic label for the historical-prefixed term, or an empty string if no prefix matched or the remainder could not be resolved.
     """
     historical_prefixes = {
         "defunct national": "{} وطنية سابقة",
@@ -191,18 +192,24 @@ class CountryLabelRetriever:
     """
 
     def __init__(self) -> None:
+        """
+        Initialize the CountryLabelRetriever.
+        
+        No runtime initialization is performed; the constructor exists to allow instantiation.
+        """
         pass
 
     @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
-        """Retrieve the Arabic label for a given country name.
-
-        Args:
-            country: The country name to look up
-            start_get_country2: Whether to use the enhanced country lookup
-
+        """
+        Resolve an Arabic label for a country name using layered lookup strategies.
+        
+        Parameters:
+            country (str): Country name to resolve; case is normalized internally.
+            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
+        
         Returns:
-            The Arabic label for the country or an empty string if not found
+            str: The resolved Arabic label, or an empty string if no label is found.
         """
         country = country.lower()
 
@@ -234,13 +241,16 @@ class CountryLabelRetriever:
         return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:
-        """Check basic lookup tables and functions.
-
-        Args:
-            country: The country string to look up in basic tables
-
+        """
+        Lookup a country in simple/local resolver tables and return the first matching label.
+        
+        If the input is a string of digits, it is returned unchanged.
+        
+        Parameters:
+            country: Lowercase country/term as a string to resolve using basic lookup sources.
+        
         Returns:
-            The found label or empty string if not found
+            The first matching label from basic lookup sources, or an empty string if none is found.
         """
         if country.strip().isdigit():
             return country
@@ -256,13 +266,14 @@ class CountryLabelRetriever:
         return label
 
     def _check_prefixes(self, country: str) -> str:
-        """Check for specific prefixes like women's, men's, etc.
-
-        Args:
-            country: The country string to check for prefixes
-
+        """
+        Handle English gender prefixes ("women's ", "men's ") by resolving the remainder and appending the appropriate Arabic gender adjective.
+        
+        Parameters:
+            country: Input string to check for a known English gender prefix.
+        
         Returns:
-            The processed label if a prefix is found, otherwise an empty string
+            The Arabic label formed by resolving the remainder and appending the gender adjective when a known prefix is found, empty string otherwise.
         """
         prefix_labels = {
             "women's ": "نسائية",
@@ -283,13 +294,11 @@ class CountryLabelRetriever:
         return ""
 
     def _check_regex_years(self, country: str) -> str:
-        """Check regex patterns for years.
-
-        Args:
-            country: The country string to check for year patterns
-
+        """
+        Detect year-related patterns in the input string and return a corresponding year-based label.
+        
         Returns:
-            The processed label if year patterns are found, otherwise an empty string
+            The label produced by with_years_bot.Try_With_Years when a year pattern is present, or an empty string if no pattern matches.
         """
         RE1 = RE1_compile.match(country)
         RE2 = RE2_compile.match(country)
@@ -300,13 +309,13 @@ class CountryLabelRetriever:
         return ""
 
     def _check_members(self, country: str) -> str:
-        """Check for 'members of' pattern.
-
-        Args:
-            country: The country string to check for 'members of' pattern
-
+        """
+        Handle inputs that end with " members of" by returning a corresponding Arabic member label.
+        
+        If the input string ends with " members of", the base term before that suffix is looked up in Nat_mens; when a mapping exists, returns the mapped Arabic label followed by " أعضاء في  ". Returns an empty string if the suffix is not present or no mapping is found.
+        
         Returns:
-            The processed label if the pattern is found, otherwise an empty string
+            str: The constructed Arabic label when a mapping exists, otherwise an empty string.
         """
         if country.endswith(" members of"):
             country2 = country.replace(" members of", "")
@@ -320,16 +329,17 @@ class CountryLabelRetriever:
     def get_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
     ) -> str:
-        """Retrieve the corresponding label for a given term.
-
-        Args:
-            term_lower: The lowercase term to look up
-            separator: The separator to use in processing
-            lab_type: The type of label to retrieve
-            start_get_country2: Whether to use enhanced country lookup
-
+        """
+        Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
+        
+        Parameters:
+        	term_lower (str): The input term in lowercase.
+        	separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
+        	lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
+        	start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
+        
         Returns:
-            The processed label or an empty string if not found
+        	str: The resolved Arabic label, or an empty string if no resolution is found.
         """
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
@@ -373,15 +383,18 @@ class CountryLabelRetriever:
         return term_label
 
     def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
-        """Handle logic specific to type_label.
-
-        Args:
-            term_lower: The lowercase term to process
-            separator: The separator to use in processing
-            start_get_country2: Whether to use enhanced country lookup
-
+        """
+        Resolve a label for terms treated as types that end with suffixes like " of", " in", or " at".
+        
+        Attempts to translate the base term (term without the suffix) using job/person mappings, population translations, or country-label lookup and then appends the appropriate Arabic connector ("من" or "في"). If no suffixed form matches, optionally tries a population lookup for "in" separator and finally falls back to a general country-label lookup.
+        
+        Parameters:
+            term_lower (str): Lowercased term to process (may end with " of", " in", or " at").
+            separator (str): Separator context such as "in" that can alter fallback behaviour.
+            start_get_country2 (bool): If true, allow the enhanced country lookup path when resolving base terms.
+        
         Returns:
-            The processed label or an empty string if not found
+            str: The resolved Arabic label for the term, or an empty string if no label is found.
         """
         suffixes = [" of", " in", " at"]
         term_label = ""
@@ -469,16 +482,17 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 def fetch_country_term_label(
     term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
 ) -> str:
-    """Retrieve the corresponding label for a given country or term.
-
-    Args:
-        term_lower: The lowercase term to look up
-        separator: The separator to use in processing
-        lab_type: The type of label to retrieve
-        start_get_country2: Whether to use enhanced country lookup
-
+    """
+    Retrieve an Arabic label for a given term or country name using layered resolution strategies.
+    
+    Parameters:
+        term_lower (str): The lowercase term to look up.
+        separator (str): Context separator used when resolving terms (e.g., "for", "in").
+        lab_type (str): Optional label type that enables special handling (e.g., "type_label").
+        start_get_country2 (bool): If True, enable the enhanced country lookup path before falling back to other resolvers.
+    
     Returns:
-        The processed label or an empty string if not found
+        str: The resolved Arabic label for the term, or an empty string if no label is found.
     """
     return _retriever.get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 

@@ -252,13 +252,14 @@ def add_fee(text: str) -> str:
 
 
 def cleanse_category_label(category_lab):
-    """Cleanse category label by fixing specific Arabic text issues.
-
-    Args:
+    """
+    Fixes a known formatting issue in Arabic category labels.
+    
+    Parameters:
         category_lab (str): The category label to cleanse.
-
+    
     Returns:
-        str: The cleansed category label.
+        str: The cleansed category label with specific formatting corrections applied.
     """
     category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
     return category_lab

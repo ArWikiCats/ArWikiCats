@@ -17,7 +17,15 @@ from .o_bots import university_resolver
 
 @functools.lru_cache(maxsize=None)
 def legacy_resolvers(changed_cat) -> str:
-    """Wrap legacy resolvers to get category label."""
+    """
+    Resolve a category label using the legacy resolver chain in priority order.
+    
+    Parameters:
+        changed_cat (str): Category name or identifier to resolve.
+    
+    Returns:
+        category_label (str): The resolved category label, or an empty string if no legacy resolver produces a value.
+    """
     category_lab = (
         university_resolver.resolve_university_category(changed_cat)
         or event2_d2(changed_cat)

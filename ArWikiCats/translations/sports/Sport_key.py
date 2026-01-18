@@ -57,7 +57,14 @@ def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
 
 
 def _load_base_records() -> dict[str, SportKeyRecord]:
-    """Load sports key definitions from the JSON configuration file."""
+    """
+    Load and parse sport key definitions from the sports/Sports_Keys_New.json file.
+    
+    The function reads the JSON file and converts each top-level mapping entry into a SportKeyRecord. Entries whose value contains an `"ignore"` key are skipped. If the top-level JSON payload is not a mapping, a warning is logged and an empty dict is returned. Malformed entries that are not string->mapping pairs are skipped.
+    
+    Returns:
+        dict[str, SportKeyRecord]: Mapping from sport key to its coerced SportKeyRecord.
+    """
 
     data = open_json_file("sports/Sports_Keys_New.json") or {}
     records: dict[str, SportKeyRecord] = {}

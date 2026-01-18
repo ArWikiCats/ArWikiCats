@@ -217,7 +217,16 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 
 @functools.lru_cache(maxsize=10000)
 def wrap_event2(category: str, separator: str = "") -> str:
-    """Wraps the event2bot.event2 function with caching."""
+    """
+    Attempt to resolve a category label by trying several resolver functions in order.
+    
+    Parameters:
+        category (str): The input category string to resolve.
+        separator (str): Unused; kept for API compatibility.
+    
+    Returns:
+        str: The first non-empty label returned by the resolvers, or an empty string if none match.
+    """
     result = (
         university_resolver.resolve_university_category(category)
         or event2_d2(category)
@@ -281,7 +290,14 @@ class Fixing:
         pass
 
     def determine_separator(self) -> str:
-        """Determines the separator string between labels."""
+        """
+        Choose the Arabic separator to place between the resolved type and country labels.
+        
+        This method selects the appropriate Arabic separator based on the parsed English separator and internal mappings. It may append the preposition " في" to self.type_label when applicable and remove the original English separator from self.cate_test when a mapped Arabic separator is applied. The method also consults translation_category_relations and other heuristics to handle special cases (e.g., "for", "to") and returns the finalized separator string including surrounding spaces when non-empty.
+        
+        Returns:
+            ar_separator (str): The Arabic separator to join type and country labels (may be a single space or a spaced Arabic preposition).
+        """
         ar_separator = " "
         if self.separator_stripped == "in":
             ar_separator = " في "

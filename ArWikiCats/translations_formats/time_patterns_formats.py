@@ -16,6 +16,11 @@ class MatchTimes:
     """Class for matching time patterns in text."""
 
     def __init__(self) -> None:
+        """
+        Initialize a MatchTimes instance.
+        
+        This initializer performs no setup and exists to allow subclasses to define their own initialization behavior.
+        """
         pass
 
     def match_en_time(self, text: str) -> str:

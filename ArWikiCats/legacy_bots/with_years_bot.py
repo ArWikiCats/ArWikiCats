@@ -48,7 +48,13 @@ _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 @functools.lru_cache(maxsize=10000)
 def wrap_lab_for_country2(country: str) -> str:
     """
-    Retrieve laboratory information for a specified country.
+    Resolve an Arabic label for a country or country-like category token by consulting multiple resolver and translation sources.
+    
+    Parameters:
+        country (str): Input token (country or category fragment). Leading/trailing whitespace is ignored and matching is case-insensitive.
+    
+    Returns:
+        str: The resolved Arabic label, or an empty string if no resolver produces a match.
     """
 
     country2 = country.lower().strip()
@@ -182,24 +188,16 @@ def _handle_year_at_end(
 
 @functools.lru_cache(maxsize=None)
 def Try_With_Years(category: str) -> str:
-    """Retrieve a formatted label for a given country based on its historical
-    context.
-
-    This function processes the input country string to extract relevant
-    year information and formats it according to predefined rules. It checks
-    for specific patterns in the input string, such as congressional terms
-    or year ranges, and returns a corresponding label. If the input does not
-    match any known patterns, an empty string is returned. The function also
-    caches results for efficiency.
-
-    Args:
-        category (str): The name of the country or a related term that may include year
-            information.
-
+    """
+    Extracts and formats a year-aware Arabic label from a category string.
+    
+    Processes the input category to detect year patterns (year at start, year or year-range at end, or specific political-term patterns) and returns a composed label combining the resolved remainder and the year when a match is found.
+    
+    Parameters:
+    	category (str): Category text that may contain a year or year-range (e.g., "1990 United States Congress", "American Soccer League (1933–83)").
+    
     Returns:
-        str: A formatted label that includes the country name and associated year
-            information,
-        or an empty string if no valid information is found.
+    	str: The formatted label that includes the resolved remainder and year information, or an empty string if no applicable year pattern is detected.
     """
     logger.debug(f"<<yellow>> start Try_With_Years: {category=}")
     # pop_final_Without_Years
@@ -231,16 +229,14 @@ def Try_With_Years(category: str) -> str:
 
 
 def wrap_try_with_years(category_r) -> str:
-    """Process category names that start with year information.
-
-    This function handles categories that begin with year numbers,
-    extracting and formatting them appropriately for Arabic labels.
-
-    Args:
-        category_r: The raw category name to process
-
+    """
+    Parse a category name that may start with a year and return its Arabic label.
+    
+    Parameters:
+        category_r (str): Raw category name; may include a leading "Category:" prefix and mixed case.
+    
     Returns:
-        The processed Arabic label or empty string if no match is found
+        str: The generated Arabic label when a year-based pattern is recognized, or an empty string if no suitable year-based label is found.
     """
     cat3 = category_r.lower().replace("category:", "").strip()
 
