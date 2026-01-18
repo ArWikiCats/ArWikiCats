@@ -41,6 +41,8 @@ def get_teams_new(team_name: str) -> str:
 
     Returns:
         The resolved Arabic label or an empty string when no mapping exists.
+
+    TODO: to be replaced by ArWikiCats.new_resolvers.sports_resolvers.raw_sports
     """
 
     # إيجاد لاحقات التسميات الرياضية

@@ -191,6 +191,6 @@ YEAR_DATA = {
     "{year1} short stories": "قصص قصيرة {year1}",  # 177
     "{year1} songs": "أغاني {year1}",  # 172
     "{year1} treaties": "معاهدات في {year1}",  # 283
-    "{year1} works": "أعمال في {year1}",  # 945
+    "{year1} works": "أعمال {year1}",  # 945
     "{year1}": "{year1}",  # 2387
 }
