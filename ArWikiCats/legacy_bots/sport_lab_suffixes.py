@@ -8,10 +8,77 @@ from __future__ import annotations
 from ast import dump
 from ..helps import logger
 from ..translations import SPORTS_KEYS_FOR_JOBS
-from . import team_work
+
+Teams_new_end_keys = {
+    "broadcasters": "مذيعو {}",
+    "commentators": "معلقو {}",
+    "commissioners": "مفوضو {}",
+    "trainers": "مدربو {}",
+    "chairmen and investors": "رؤساء ومسيرو {}",
+    "coaches": "مدربو {}",
+    "managers": "مدربو {}",
+    "manager": "مدربو {}",
+    "manager history": "تاريخ مدربو {}",
+    "footballers": "لاعبو {}",
+    "playerss": "لاعبو {}",
+    "players": "لاعبو {}",
+    "fan clubs": "أندية معجبي {}",
+    "owners and executives": "رؤساء تنفيذيون وملاك {}",
+    "personnel": "أفراد {}",
+    "owners": "ملاك {}",
+    "executives": "مدراء {}",
+    "equipment": "معدات {}",
+    "culture": "ثقافة {}",
+    "logos": "شعارات {}",
+    "tactics and skills": "مهارات {}",
+    "media": "إعلام {}",
+    "people": "أعلام {}",
+    "terminology": "مصطلحات {}",
+    "variants": "أشكال {}",
+    "governing bodies": "هيئات تنظيم {}",
+    "bodies": "هيئات {}",
+    "video games": "ألعاب فيديو {}",
+    "comics": "قصص مصورة {}",
+    "cups": "كؤوس {}",
+    "records and statistics": "سجلات وإحصائيات {}",
+    "leagues": "دوريات {}",
+    "leagues seasons": "مواسم دوريات {}",
+    "seasons": "مواسم {}",
+    "competition": "منافسات {}",
+    "competitions": "منافسات {}",
+    "world competitions": "منافسات {} عالمية",
+    "teams": "فرق {}",
+    "television series": "مسلسلات تلفزيونية {}",
+    "films": "أفلام {}",
+    "championships": "بطولات {}",
+    "music": "موسيقى {}",
+    "clubs and teams": "أندية وفرق {}",
+    "clubs": "أندية {}",
+    "referees": "حكام {}",
+    "organizations": "منظمات {}",
+    "non-profit organizations": "منظمات غير ربحية {}",
+    "non-profit publishers": "ناشرون غير ربحيون {}",
+    "stadiums": "ملاعب {}",
+    "lists": "قوائم {}",
+    "awards": "جوائز {}",
+    "songs": "أغاني {}",
+    "non-playing staff": "طاقم {} غير اللاعبين",
+    "umpires": "حكام {}",
+    "cup playoffs": "تصفيات كأس {}",
+    "cup": "كأس {}",
+    "results": "نتائج {}",
+    "matches": "مباريات {}",
+    "rivalries": "دربيات {}",
+    "champions": "أبطال {}",
+}
+
+Teams_new_end_keys = dict(sorted(
+    Teams_new_end_keys.items(),
+    key=lambda k: (-k[0].count(" "), -len(k[0])),
+))
 
 
-def match_suffix_template(name: str, suffixes: dump[str, str]):
+def match_suffix_template(name: str, suffixes: dict[str, str]):
     """
     Find the first suffix template that matches ``name``.
 
@@ -20,15 +87,7 @@ def match_suffix_template(name: str, suffixes: dump[str, str]):
     """
 
     stripped = name.strip()
-    # sorted by len of " " in key
-    sorted_suffixes = dict(
-        sorted(
-            suffixes.items(),
-            key=lambda k: (-k[0].count(" "), -len(k[0])),
-        )
-    )
-
-    for suffix, template in sorted_suffixes.items():
+    for suffix, template in suffixes.items():
         candidates = [suffix]
         if not suffix.startswith(" "):
             candidates.append(f" {suffix}")
@@ -51,7 +110,7 @@ def resolve_team_suffix(normalized_team: str) -> str:
         str: The resolved team suffix.
     """
 
-    match = match_suffix_template(normalized_team, team_work.Teams_new_end_keys)
+    match = match_suffix_template(normalized_team, Teams_new_end_keys)
     if not match:
         return ""
 
@@ -63,7 +122,7 @@ def resolve_team_suffix(normalized_team: str) -> str:
     if not lookup_value:
         return ""
 
-    result = template % lookup_value if "%s" in template else template.format(lookup_value)
+    result = template.format(lookup_value)
     logger.debug(f"resolve_suffix_template: {result=}")
 
     return result
