@@ -13,16 +13,16 @@ from .nationalities_double_v2 import resolve_by_nats_double_v2
 
 @functools.lru_cache(maxsize=None)
 def main_relations_resolvers(category: str) -> str:
-    """Main entry point for relation resolvers.
+    """
+    Resolve a relation-based category string to its Arabic label by trying nationality then country-name resolvers.
 
-    Orchestrates the resolution of relationship-based category names by attempting
-    to match against nationality and country name resolvers in sequence.
+    Attempts nationality-based resolution first; if that yields no result, attempts country-name resolution.
 
-    Args:
-        category (str): The category string to be resolved.
+    Parameters:
+        category (str): Category text to resolve.
 
     Returns:
-        str: The resolved Arabic category label, or an empty string if no match is found.
+        str: The resolved Arabic category label if a match is found, otherwise an empty string.
     """
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying main_relations_resolvers for: {category=}")

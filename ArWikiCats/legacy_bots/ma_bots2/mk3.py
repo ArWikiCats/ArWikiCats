@@ -118,7 +118,26 @@ def added_in_new(
     Add_In: bool,
     arlabel2: str,
 ) -> tuple[str, bool, bool]:
-    """Handle cases where a year prefix needs a linking preposition."""
+    """
+    Decide whether to insert the Arabic preposition "في" between a country label and a year-related label and build the resulting Arabic label.
+
+    This function sets `suf` to " في " when the country requires a linking preposition (determined by the country label form, membership in configured tables, or presence in a new-players list). If `suf` is still empty and the year label equals `arlabel2`, it may also insert " في " for specific country-label patterns (entries listed in `ar_lab_before_year_to_add_in` or labels starting with "أعضاء " that do not contain " حسب "). The final `arlabel` is constructed as `country_label + suf + arlabel2`.
+
+    Parameters:
+        country: Country key used for table membership checks.
+        arlabel: Current Arabic label (unused for logic but part of the calling context).
+        suf: Current suffix/preposition string (may be modified to " في ").
+        year_labe: Year-related label used to compare against `arlabel2`.
+        country_label: Human-readable Arabic country/location label to prepend.
+        Add_In: Flag indicating whether a preposition addition is still allowed; may be cleared by this function.
+        arlabel2: The label part that typically represents the year or right-hand segment to be joined.
+
+    Returns:
+        tuple[str, bool, bool]:
+            arlabel: Updated Arabic label resulting from concatenating `country_label`, `suf`, and `arlabel2`.
+            Add_In: Updated flag; cleared (`false`) if this call performed the insertion that consumes the addition permission.
+            Add_In_Done: `true` if this function added " في ", `false` otherwise.
+    """
     logger.info("a<<lightblue>>>>>> Add year before")
 
     to_check_them_tuble = {

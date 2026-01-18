@@ -129,7 +129,19 @@ STATIC_PLAYER_LABELS: GenderedLabelMap = {
 
 
 def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
-    """Return gendered labels for boxing weight classes."""
+    """
+    Builds gendered Arabic labels for boxing weight-class keys.
+
+    Generates two entries per weight when an Arabic label is provided:
+    - "<weight> boxers": both "males" and "females" Arabic forms.
+    - "world <weight> boxing champions": masculine Arabic form in "males" and an empty string in "females".
+
+    Parameters:
+        weights (Mapping[str, str]): Mapping from English weight-key to Arabic label. Entries with an empty Arabic label are skipped.
+
+    Returns:
+        GenderedLabelMap: Mapping of label keys to dicts with "males" and "females" Arabic strings as described above.
+    """
 
     result: GenderedLabelMap = {}
 
@@ -182,7 +194,21 @@ def _build_team_sport_labels(translations: Mapping[str, str]) -> GenderedLabelMa
 
 
 def _build_jobs_player_variants(players: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Generate derivative labels for the base player dataset."""
+    """
+    Create lowercase keys and scoped variants for a base mapping of player labels.
+
+    Generates a new mapping that includes:
+    - a lowercase-normalized entry for each input key,
+    - an "olympic <key>" variant with gendered Olympic forms,
+    - an "international <key>" variant with gendered international forms.
+    Entries whose male and female labels are both empty are omitted.
+
+    Parameters:
+        players (Mapping[str, GenderedLabel]): Base mapping from English keys to gendered Arabic labels.
+
+    Returns:
+        GenderedLabelMap: A mapping containing lowercase keys and added "olympic" and "international" variants with corresponding gendered labels.
+    """
 
     result: GenderedLabelMap = {}
     for english_key, labels in players.items():

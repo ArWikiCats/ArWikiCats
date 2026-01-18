@@ -32,7 +32,15 @@ def build_labs_years_object() -> LabsYearsFormat:
 
 
 def resolve_lab_from_years_patterns(category: str) -> str:
-    """Resolve the label from year using LabsYearsFormat."""
+    """
+    Resolve a category label that encodes a year, decade, or century pattern into its standardized label.
+
+    Parameters:
+        category (str): The input category string that may contain a year-based temporal pattern.
+
+    Returns:
+        resolved_label (str): The standardized category label for the detected year/decade/century pattern, or an empty string if no year-based pattern could be resolved.
+    """
     logger.debug(f"<<yellow>> start resolve_lab_from_years_patterns: {category=}")
 
     labs_years_bot = build_labs_years_object()
