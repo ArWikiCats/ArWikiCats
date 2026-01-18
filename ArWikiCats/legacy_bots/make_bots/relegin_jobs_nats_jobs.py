@@ -7,9 +7,8 @@ TODO: write code
 import functools
 
 formatted_data = {
-    # "Category:Indonesian women singers": "تصنيف:مغنيات إندونيسيات",
-    "{en} singers": "مغنون {males}",
-    "{en} women singers": "مغنيات {females}",
+    # "American Episcopalians": "أمريكيون أسقفيون",
+    "{en} Episcopalians": "{ar} أسقفيون",
 }
 
 
