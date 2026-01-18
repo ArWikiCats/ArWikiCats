@@ -9,7 +9,7 @@ from ...helps import logger
 from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
 
 
-albumTypePrefixes = {
+labelSuffixMappings = {
     " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
     " administration personnel": "موظفو إدارة {}",
     " albums": "ألبومات {}",
@@ -44,26 +44,35 @@ def work_peoples(name: str) -> str:
         The resolved Arabic label or an empty string when no mapping exists.
     """
     logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
-    PpP_lab = ""
-    person = ""
-    pri = ""
-    for pri_ff in albumTypePrefixes:
-        if not person:
-            if name.endswith(pri_ff):
-                logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
-                pri = pri_ff
-                person = name[: -len(pri_ff)]
-                break
+    person_key = ""
+    prefix_type = ""
 
-    personlab = People_key.get(person, "")
+    for name_end_suffix in labelSuffixMappings:
+        if name.endswith(name_end_suffix):
+            logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
+            prefix_type = name_end_suffix
+            person_key = name[: -len(name_end_suffix)]
+            break
+
+    if not person_key:
+        logger.info(f'>>>><<lightblue>> cant find person_key for:"{name}", prefix_type:"{prefix_type}"')
+        return ""
+
+    if not prefix_type:
+        logger.info(f'>>>><<lightblue>> cant find prefix_type for:"{name}", person_key:"{person_key}"')
+        return ""
+
+    personlab = People_key.get(person_key, "")
+
     if not personlab:
-        logger.info(f'>>>><<lightblue>> cant find personlab for:"{person}"')
+        logger.info(f'>>>><<lightblue>> cant find personlab for:"{person_key}"')
+        return ""
 
-    if person and personlab:
-        logger.info(f">>>><<lightblue>> {person=}, {personlab=}")
-        PpP_lab = albumTypePrefixes[pri].format(personlab)
-        logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
-    return PpP_lab
+    logger.info(f">>>><<lightblue>> {person_key=}, {personlab=}")
+    resolved_label = labelSuffixMappings[prefix_type].format(personlab)
+    logger.info(f'>>>><<lightblue>> name.endswith pri("{prefix_type}"), {resolved_label=}')
+
+    return resolved_label
 
 
 def make_people_lab(normalized_value: str) -> str:
