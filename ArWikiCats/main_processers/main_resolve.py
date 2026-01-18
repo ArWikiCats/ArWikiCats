@@ -68,10 +68,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         from_match = True
 
     if not category_lab:
-        category_lab = (
-            all_new_resolvers(changed_cat)
-            or ""
-        )
+        category_lab = all_new_resolvers(changed_cat) or ""
 
     # if not category_lab:
     #     category_lab = (
@@ -82,7 +79,6 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     #     from_match = category_lab != ""
 
     if not category_lab:
-
         category_lab = (
             univer.te_universities(changed_cat)
             or event2_d2(changed_cat)

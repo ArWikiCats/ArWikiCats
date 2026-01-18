@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""
-"""
+""" """
+
 import functools
 
 from ...helps import logger

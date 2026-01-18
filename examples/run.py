@@ -17,7 +17,6 @@ from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
-
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 
 logger.set_level("DEBUG")

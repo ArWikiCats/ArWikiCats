@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-"""
+""" """
 
 import functools
 
@@ -11,8 +10,8 @@ from ...translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_TEAM,
 )
 from ...translations_formats import FormatData
-from .sport_lab2_data import labels_formatted_data, teams_formatted_data
 from .raw_sports_jobs_key import find_jobs_bot
+from .sport_lab2_data import labels_formatted_data, teams_formatted_data
 
 labels_bot = FormatData(
     labels_formatted_data,

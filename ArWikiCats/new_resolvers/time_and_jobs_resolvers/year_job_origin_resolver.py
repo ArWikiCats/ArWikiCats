@@ -10,6 +10,7 @@ More examples:
     - https://quarry.wmcloud.org/query/100099
 
 """
+
 import functools
 import re
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from .fixtitle import add_fee, fix_it, fixlabel, cleanse_category_label
+from .fixtitle import add_fee, cleanse_category_label, fix_it, fixlabel
 from .mv_years import move_by_in, move_years, move_years_first
 
 __all__ = [

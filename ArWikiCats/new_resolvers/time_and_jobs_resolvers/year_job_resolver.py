@@ -11,6 +11,7 @@ More examples:
     "Category:21st-century New Zealand writers": "تصنيف:كتاب نيوزيلنديون في القرن 21",
 
 """
+
 import functools
 
 from ...helps import logger

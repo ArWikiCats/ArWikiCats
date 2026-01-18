@@ -5,6 +5,7 @@ countries_names.py use only countries names without nationalities
 countries_names_v2.py use countries names with nationalities
 
 """
+
 import functools
 
 from ...helps import logger

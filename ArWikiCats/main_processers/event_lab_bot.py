@@ -1,6 +1,7 @@
 """
 EventLab Bot - A class-based implementation to handle category labeling
 """
+
 import functools
 from typing import Tuple
 

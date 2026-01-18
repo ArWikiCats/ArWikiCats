@@ -198,7 +198,7 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     category_type = _adjust_separator_position(category_type, separator_stripped, is_type=True)
     country = _adjust_separator_position(country, separator_stripped, is_type=False)
 
-    logger.info(f'>xx>>> category_type: "{category_type.strip()}", ' f'country: "{country.strip()}", {separator=}')
+    logger.info(f'>xx>>> category_type: "{category_type.strip()}", country: "{country.strip()}", {separator=}')
 
     # Step 4: Check if regex extraction is needed
     type_regex, country_regex, should_use_regex = _apply_regex_extraction(category, separator, category_type, country)
@@ -208,7 +208,7 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
         return category_type, country
 
     # Step 5: Use regex results with separator adjustments
-    logger.info(f">>>> Using regex extraction: {type_regex=}, " f"{separator=}, {country_regex=}")
+    logger.info(f">>>> Using regex extraction: {type_regex=}, {separator=}, {country_regex=}")
 
     # Apply typo fixes to regex results as well
     type_regex = _fix_typos_in_type(type_regex, separator_stripped)

@@ -166,7 +166,7 @@ males_tests = {
     "Venezuelan Jews": "فنزويليون يهود",
     "Welsh Jews": "ويلزيون يهود",
     "Yemenite Jews": "يمنيون يهود",
-    "Zambian Jews": "زامبيون يهود"
+    "Zambian Jews": "زامبيون يهود",
 }
 
 male_tests = {
