@@ -3,7 +3,7 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.legacy_bots.sport_lab_suffixes import get_teams_new
 
@@ -194,17 +194,5 @@ to_test = [
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, get_teams_new)
     dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-def test_get_teams_new() -> None:
-    # Test with a basic input
-    result = get_teams_new("football team")
-    assert isinstance(result, str)
-
-    result_empty = get_teams_new("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = get_teams_new("basketball team")
-    assert isinstance(result_various, str)

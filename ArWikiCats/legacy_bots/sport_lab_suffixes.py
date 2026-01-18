@@ -49,8 +49,6 @@ def get_teams_new(team_name: str) -> str:
 
     logger.info(f'start get_teams_new team:"{normalized_team}"')
 
-    # _ = resolve_team_suffix(normalized_team)  # TODO: remove after tests
-
     team_label = (
         ""
         or main_sports_resolvers(normalized_team)
