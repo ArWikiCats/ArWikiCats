@@ -3,7 +3,6 @@
 Resolves category labels for religious groups combined with nationalities.
 """
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
-from ...translations.jobs.jobs_data_basic import PAINTER_ROLE_LABELS
 from ...translations_formats import format_multi_data_v2, FormatData
 
 # Prepare consolidated dictionaries with gendered values
@@ -17,6 +16,11 @@ for k, v in Nat_mens.items():
     _nat_data.setdefault(k.lower(), {})["nat_ar"] = v
 for k, v in Nat_Womens.items():
     _nat_data.setdefault(k.lower(), {})["nat_ar_f"] = v
+
+PAINTER_ROLE_LABELS = {
+    "painters": {"males": "رسامون", "females": "رسامات"},
+    "artists": {"males": "فنانون", "females": "فنانات"},
+}
 
 # Extended roles for the test cases
 _jobs_data = {
