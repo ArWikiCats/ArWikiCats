@@ -372,7 +372,7 @@ def event_Lab(cate_r: str) -> str:
 
     resolver = _load_resolver()
 
-    result = resolver.process_category(cate_r, category3) or _handle_cricketer_categories(category3)
+    result = resolver.process_category(category3, cate_r) or _handle_cricketer_categories(category3)
 
     result = _finalize_category_label(result, cate_r)
     return result
