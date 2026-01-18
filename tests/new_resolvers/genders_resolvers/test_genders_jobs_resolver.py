@@ -7,7 +7,7 @@ import re
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.genders_resolvers.nat_genders_pattern_multi import genders_jobs_resolver
+from ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import genders_jobs_resolver
 
 test_job_bot_data = {
     "actors": "ممثلون وممثلات",

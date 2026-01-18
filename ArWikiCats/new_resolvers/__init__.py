@@ -24,13 +24,13 @@ from .jobs_resolvers import main_jobs_resolvers
 from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import main_nationalities_resolvers
 from .relations_resolver import main_relations_resolvers
-from .sports_resolvers import main_sports_resolvers, sport_lab_nat
+from .sports_resolvers import main_sports_resolvers, sport_lab_nat, raw_sports, match_labs
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 
 @functools.lru_cache(maxsize=None)
 def all_new_resolvers(category: str) -> str:
-    logger.debug(f">> all_new_resolvers: {category}")
+    logger.info(f"<<purple>> all_new_resolvers: {category}")
     category_lab = (
         # main_jobs_resolvers before sports, to avoid mis-resolving like:
         # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
@@ -48,7 +48,10 @@ def all_new_resolvers(category: str) -> str:
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or main_countries_names_with_sports_resolvers(category)
         or resolve_languages_labels_with_time(category)
+
+        # or raw_sports.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
+        # or match_labs.find_teams_2025(category)  # NOTE: under test
         or ""
     )
-    logger.debug(f"<< all_new_resolvers: {category} => {category_lab}")
+    logger.info(f"<<purple>> all_new_resolvers: {category} => {category_lab}")
     return category_lab

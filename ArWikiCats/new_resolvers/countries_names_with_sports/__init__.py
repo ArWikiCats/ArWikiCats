@@ -1,3 +1,4 @@
+import functools
 from ...helps import logger
 from . import (
     p17_bot_sport,
@@ -5,6 +6,7 @@ from . import (
 )
 
 
+@functools.lru_cache(maxsize=None)
 def main_countries_names_with_sports_resolvers(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying main_countries_names_with_sports_resolvers for: {normalized_category=}")
     resolved_label = (

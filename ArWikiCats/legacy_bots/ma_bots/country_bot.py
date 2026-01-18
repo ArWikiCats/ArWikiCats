@@ -11,7 +11,7 @@ from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
     Nat_mens,

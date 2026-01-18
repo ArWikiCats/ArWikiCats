@@ -11,7 +11,7 @@ import functools
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
 from .ma_bots import ye_ts_bot

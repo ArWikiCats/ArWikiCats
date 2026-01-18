@@ -11,6 +11,20 @@ and Arabic, and a conversion function to translate English expressions.
 import functools
 import re
 
+MONTH_MAP = {
+    "january": "يناير",
+    "february": "فبراير",
+    "march": "مارس",
+    "april": "أبريل",
+    "may": "مايو",
+    "june": "يونيو",
+    "july": "يوليو",
+    "august": "أغسطس",
+    "september": "سبتمبر",
+    "october": "أكتوبر",
+    "november": "نوفمبر",
+    "december": "ديسمبر",
+}
 century_millennium_regex = r"(\d+)(?:st|nd|rd|th)(?:[−–\- ])(century|millennium)\s*(BCE|BC)?"
 decade_regex = r"(\d{1,4})s\s*(BCE|BC)?"
 
@@ -47,22 +61,7 @@ REG_YEAR_BC_PATTERN = re.compile(r"^(\d+)\s*(BCE|BC)$", re.I)
 REG_YEAR_RANGE_PATTERN = re.compile(r"^\d+[−–\-]\d+$", re.I)
 
 # Month-related patterns
-MONTH_STR = "|".join(
-    [
-        "january",
-        "february",
-        "march",
-        "april",
-        "may",
-        "june",
-        "july",
-        "august",
-        "september",
-        "october",
-        "november",
-        "december",
-    ]
-)
+MONTH_STR = "|".join(MONTH_MAP.keys())
 REG_MONTH_YEAR = re.compile(rf"^({MONTH_STR})\s*(\d+)\s*$", re.I)
 REG_MONTH_YEAR_BC = re.compile(rf"^({MONTH_STR})\s*" + r"(\d{1,4})\s*(BCE|BC)$", re.I)
 REG_DECADE = re.compile(rf"^{decade_regex}$", re.I)
@@ -123,38 +122,24 @@ def convert_time_to_arabic(en_year: str) -> str:
     if en_year.lower().startswith("the "):
         en_year = en_year[4:]
 
-    month_map = {
-        "january": "يناير",
-        "february": "فبراير",
-        "march": "مارس",
-        "april": "أبريل",
-        "may": "مايو",
-        "june": "يونيو",
-        "july": "يوليو",
-        "august": "أغسطس",
-        "september": "سبتمبر",
-        "october": "أكتوبر",
-        "november": "نوفمبر",
-        "december": "ديسمبر",
-    }
     if en_year.isdigit():
         return en_year
 
     # --- Month ---
-    if month_map.get(en_year.lower()):
-        return month_map[en_year.lower()]
+    if MONTH_MAP.get(en_year.lower()):
+        return MONTH_MAP[en_year.lower()]
 
     # --- Month + Year ---
     m = REG_MONTH_YEAR.match(en_year)
     if m:
-        month = month_map[m.group(1).lower()]
+        month = MONTH_MAP[m.group(1).lower()]
         result = f"{month} {m.group(2)}"
         return result
 
     # --- Month + Year + BC ---
     m = REG_MONTH_YEAR_BC.match(en_year)
     if m:
-        month = month_map[m.group(1).lower()]
+        month = MONTH_MAP[m.group(1).lower()]
         bc = " ق م"
         result = f"{month} {m.group(2)}{bc}"
         return result

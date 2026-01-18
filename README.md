@@ -370,15 +370,13 @@ ArWikiCats/
 │   ├── nationalities_resolvers/  # محللات الجنسيات
 │   ├── countries_names_resolvers/ # محللات أسماء البلدان
 │   └── time_and_jobs_resolvers/ # محللات الترجمة المتقدمة
+│   └── genders_resolvers/       # محللات الجنس (مذكر/مؤنث)
 │
 ├── patterns_resolvers/      # محللات الأنماط المركبة
 │   ├── country_time_pattern.py
-│   └── nat_men_pattern.py
+│   └── nat_males_pattern.py
 │
-├── genders_resolvers/       # محللات الجنس (مذكر/مؤنث)
-│
-├── time_resolvers/          # معالجة الأنماط الزمنية
-│   ├── labs_years.py        # استخراج السنوات من التصنيفات
+├── time_formats/          # معالجة الأنماط الزمنية
 │   ├── time_to_arabic.py    # تحويل التواريخ للعربية
 │   └── with_years_bot.py    # معالجة التصنيفات مع السنوات
 │

@@ -23,8 +23,8 @@ from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
-from ..time_resolvers import time_to_arabic
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..time_formats import time_to_arabic
+from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
 from .main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 

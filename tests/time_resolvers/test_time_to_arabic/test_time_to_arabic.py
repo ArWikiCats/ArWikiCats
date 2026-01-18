@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 
-from ArWikiCats.time_resolvers.time_to_arabic import (
+from ArWikiCats.time_formats.time_to_arabic import (
     convert_time_to_arabic,
     match_time_ar,
     match_time_en,

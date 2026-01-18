@@ -97,7 +97,6 @@ def test_config():
     return Config(
         print=PrintConfig(noprint=True),
         app=AppConfig(
-            start_tgc_resolver_first=False,
             find_stubs=False,
             makeerr=False,
             save_data_path="",
@@ -146,11 +145,6 @@ def no_cache(mocker):
     mocker.patch.object(resolve_label, 'cache_clear')
     mocker.patch.object(resolve_label, 'cache_info', return_value=None)
 
-# 2. Mock configuration
-@pytest.fixture
-def mock_settings(mocker):
-    mocker.patch('ArWikiCats.config.app_settings.start_tgc_resolver_first', False)
-
 # 3. Mock resolver chain for unit tests
 @pytest.fixture
 def mock_resolver_chain(mocker):
@@ -194,9 +188,9 @@ tests/
 │   │
 │   ├── patterns_resolvers/
 │   │   ├── test_country_time_pattern.py
-│   │   └── test_nat_men_pattern.py
+│   │   └── test_nat_males_pattern.py
 │   │
-│   ├── time_resolvers/
+│   ├── time_formats/
 │   │   ├── test_labs_years.py
 │   │   ├── test_time_to_arabic.py
 │   │   └── test_utils_time.py
@@ -302,7 +296,7 @@ tests/
 | Country + Century | "19th century in Egypt" | P1 |
 | Invalid patterns | "in invalid" | P0 |
 
-#### `patterns_resolvers/nat_men_pattern.py`
+#### `patterns_resolvers/nat_males_pattern.py`
 
 | Test Case | Example | Priority |
 |-----------|---------|----------|
@@ -312,7 +306,7 @@ tests/
 
 ### 4.3 Time Resolvers (P0-P1)
 
-#### `time_resolvers/labs_years.py`
+#### `time_formats/*.py`
 
 | Test Case | Priority |
 |-----------|----------|
@@ -543,7 +537,7 @@ class TestResolverChainIntegration:
 
         Expected flow:
         1. EventProcessor normalizes input
-        2. LabsYears extracts decade (1550s)
+        2. LabsYearsFormat extracts decade (1550s)
         3. Pattern matcher identifies establishment pattern
         4. Translation generates Arabic output
         """
@@ -587,10 +581,10 @@ class TestResolverChainIntegration:
         Test that resolvers fall back correctly when patterns don't match.
 
         The resolver chain should:
-        1. Try labs_years
+        1. Try time resolvers
         2. Try all_new_resolvers
         3. Try country_time_pattern
-        4. Try nat_men_pattern
+        4. Try nat_males_pattern
         5. Try event2bot
         6. Try event_lab_bot
         7. Try ye_ts_bot
@@ -832,14 +826,14 @@ directory = coverage_report
 
 **Tasks**:
 - [ ] Test country_time_pattern.py
-- [ ] Test nat_men_pattern.py
-- [ ] Test time resolvers (labs_years.py, time_to_arabic.py)
+- [ ] Test nat_males_pattern.py
+- [ ] Test time resolvers
 - [ ] Test new_resolvers/reslove_all.py
 - [ ] Test nationalities, jobs, sports resolvers
 
 **Deliverables**:
 - tests/unit/patterns_resolvers/
-- tests/unit/time_resolvers/
+- tests/unit/time_formats/
 - tests/unit/new_resolvers/
 - 85%+ coverage on pattern modules
 

@@ -3,14 +3,14 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-dir = Path(__file__).parent
+Dir = Path(__file__).parent
 
-f_path = dir / "language.json"
+f_path = Dir / "language.json"
 
 f_data = {}
 
-json_files = list((dir / "big_data").glob("*.json"))
-# json_files.extend(list((dir / "data").glob("*.json")))
+json_files = list((Dir / "big_data").glob("*.json"))
+# json_files.extend(list((Dir / "data").glob("*.json")))
 
 for file in tqdm(json_files, desc="Processing JSON files"):
     with open(file, "r", encoding="utf-8") as f:

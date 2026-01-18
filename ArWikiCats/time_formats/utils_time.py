@@ -1,7 +1,7 @@
 import re
 
 
-def fixing(text: str) -> str:
+def standardize_time_phrases(text: str) -> str:
     """Fix text."""
     text = re.sub(r"(انحلالات|تأسيسات)\s*سنة\s*(عقد|القرن|الألفية)", r"\g<1> \g<2>", text)
     text = text.replace("بعقد عقد", "بعقد")

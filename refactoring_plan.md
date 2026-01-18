@@ -43,7 +43,6 @@ The ArWikiCats system processes categories through a multi-stage pipeline:
 | 2. Normalization | `event_processing.py` | `_normalize_category()` | Cleans input |
 | 3. Format | `make_bots/format_bots` | `change_cat()` | Initial transformation |
 | 4. Filter | `make_bots/filter_en` | `filter_cat()` | Validates category |
-| 5. Year Detection | `time_resolvers/labs_years.py` | `lab_from_year()` | Extracts temporal data |
 | 6. Pattern Resolution | Multiple resolvers | Various | Matches patterns |
 | 7. Translation | `main_processers/main_resolve.py` | `resolve_label()` | Core translation |
 | 8. Fix Label | `fix/` | `fixlabel()` | Post-processing |
@@ -60,9 +59,7 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 3. resolve_country_time_pattern()            # Country + time patterns
         ↓ (if no match)
-4. resolve_nat_men_pattern_new()             # Nationality + gender patterns
-        ↓ (if no match)
-5. cash_2022.get()                           # Dictionary lookup
+4. resolve_nat_males_pattern()             # Nationality + gender patterns
         ↓ (if no match)
 6. event2_new2()                              # Event2 bot
         ↓ (if no match)
@@ -135,7 +132,6 @@ def process(self, categories: Iterable[str]) -> EventProcessingResult:
 settings = Config(
     print=PrintConfig(noprint=one_req("NOPRINT")),
     app=AppConfig(
-        start_tgc_resolver_first=one_req("TGC_RESOLVER_FIRST"),
         find_stubs=one_req("-STUBS"),
         makeerr=one_req("MAKEERR"),
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
@@ -206,9 +202,9 @@ from ArWikiCats.config import app_settings, print_settings
 ### 3.2 Resolver Chain Sequence
 
 ```
-┌──────────────┐     ┌─────────────┐     ┌──────────────────┐     ┌────────────┐
-│ main_resolve │     │ labs_years  │     │ pattern_resolvers│     │ make_bots  │
-└──────┬───────┘     └──────┬──────┘     └────────┬─────────┘     └─────┬──────┘
+┌──────────────┐     ┌──────────────┐     ┌──────────────────┐     ┌────────────┐
+│ main_resolve │     │ timeresolvers│     │ pattern_resolvers│     │ make_bots  │
+└──────┬───────┘     └──────┬───────┘     └────────┬─────────┘     └────┬───────┘
        │                    │                     │                     │
        │ lab_from_year()    │                     │                     │
        │───────────────────>│                     │                     │
@@ -229,15 +225,9 @@ from ArWikiCats.config import app_settings, print_settings
        │─────────────────────────────────────────>│                     │
        │<────────────────────────────────────────-│                     │
        │                    │                     │                     │
-       │ resolve_nat_men_pattern_new()            │                     │
+       │ resolve_nat_males_pattern()            │                     │
        │─────────────────────────────────────────>│                     │
        │<────────────────────────────────────────-│                     │
-       │                    │                     │                     │
-       │ [Fallback to dictionary]                 │                     │
-       │                    │                     │                     │
-       │ cash_2022.get()    │                     │                     │
-       │───────────────────────────────────────────────────────────────>│
-       │<──────────────────────────────────────────────────────────────-│
        │                    │                     │                     │
        │ [Continue chain...]│                     │                     │
 ```
@@ -284,13 +274,13 @@ from ArWikiCats.config import app_settings, print_settings
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              PATTERN LAYER                                   │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  patterns_resolvers/                   │  time_resolvers/                    │
-│  ├── country_time_pattern.py          │  ├── labs_years.py                  │
-│  └── nat_men_pattern.py               │  ├── time_to_arabic.py              │
+│  patterns_resolvers/                   │  time_formats/                    │
+│  ├── country_time_pattern.py          │  ├──     *.py                        │
+│  └── nat_males_pattern.py               │  ├── time_to_arabic.py              │
 │                                        │  └── utils_time.py                  │
 │  new_resolvers/                        │                                     │
 │  ├── reslove_all.py                   │  genders_resolvers/                  │
-│  ├── nationalities_resolvers/          │  └── nat_genders_pattern_multi.py  │
+│  ├── nationalities_resolvers/          │  └── jobs_and_genders_resolver.py  │
 │  ├── jobs_resolvers/                   │                                     │
 │  └── sports_resolvers/                │                                      │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -413,7 +403,7 @@ Input: "Category:2015 in Yemen"
                 ▼
 ┌───────────────────────────────────────┐
 │          YEAR EXTRACTION               │
-│  • LabsYears.lab_from_year()           │
+│  • LabsYearsFormat.lab_from_year()     │
 │  • Extract: year, decade, century      │
 │  • Return: (cat_year, from_year)       │
 └───────────────────────────────────────┘
@@ -425,7 +415,7 @@ Input: "Category:2015 in Yemen"
 │          RESOLVER CHAIN                │
 │  • all_new_resolvers()                 │
 │  • resolve_country_time_pattern()      │
-│  • resolve_nat_men_pattern_new()       │
+│  • resolve_nat_males_pattern()       │
 │  • Dictionary lookups                  │
 │  • Bot translations                    │
 └───────────────────────────────────────┘
@@ -1040,7 +1030,6 @@ class CacheConfig:
 @dataclass(frozen=True)
 class ResolverConfig:
     """Configuration for resolvers."""
-    start_tgc_resolver_first: bool = False
     enable_pattern_matching: bool = True
     enable_dictionary_lookup: bool = True
     enable_bot_resolution: bool = True
@@ -1074,9 +1063,6 @@ class Config:
             cache=CacheConfig(
                 enabled=_env_bool("ARWIKICATS_CACHE_ENABLED", True),
                 max_size=int(os.getenv("ARWIKICATS_CACHE_MAX_SIZE", "50000")),
-            ),
-            resolver=ResolverConfig(
-                start_tgc_resolver_first=_env_bool("TGC_RESOLVER_FIRST", False),
             ),
             app=AppConfig(
                 find_stubs=_env_bool("-STUBS", False),
@@ -1125,7 +1111,7 @@ Purpose:
 
 Dependencies:
     - ArWikiCats.translations.geo (country translations)
-    - ArWikiCats.time_resolvers (time conversion)
+    - ArWikiCats.time_formats (time conversion)
 
 Public Functions:
     - resolve_country_time_pattern(category: str) -> str

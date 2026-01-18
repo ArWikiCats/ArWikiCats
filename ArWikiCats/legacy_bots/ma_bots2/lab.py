@@ -10,8 +10,8 @@ from typing import Tuple
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...time_resolvers import time_to_arabic
-from ...time_resolvers.time_to_arabic import convert_time_to_arabic
+from ...time_formats import time_to_arabic
+from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,

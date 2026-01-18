@@ -10,7 +10,7 @@ from typing import Pattern
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels
-from ..time_resolvers.time_to_arabic import convert_time_to_arabic
+from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work
 from .ma_bots.ye_ts_bot import translate_general_category

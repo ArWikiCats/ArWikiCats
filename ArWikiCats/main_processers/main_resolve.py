@@ -7,20 +7,18 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 import re
+
+from ..patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ..helps import logger
-from ..patterns_resolvers import nat_men_pattern
+from ..patterns_resolvers import all_patterns_resolvers
 from ..legacy_bots import with_years_bot
 from ..legacy_bots.o_bots import univer
 from ..legacy_bots.ma_bots.country_bot import event2_d2
 from . import event_lab_bot
-from ..time_resolvers.labs_years import LabsYears
-from ..patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 from ..legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
-from ..config import app_settings
 from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
-from ..legacy_bots.matables_bots.bot import cash_2022
 from ..new_resolvers import all_new_resolvers
 from ..fix import fixlabel
 
@@ -32,21 +30,6 @@ class CategoryResult:
     en: str
     ar: str
     from_match: str
-
-
-@functools.lru_cache(maxsize=1)
-def build_labs_years_object() -> LabsYears:
-    return LabsYears()
-
-
-def retrieve_year_from_category(category):
-    logger.debug(f"<<yellow>> start lab_from_year: {category=}")
-
-    labs_years_bot = build_labs_years_object()
-    cat_year, from_year = labs_years_bot.lab_from_year(category)
-
-    logger.info_if_or_debug(f"<<yellow>> end lab_from_year: {category=}, {from_year=}", from_year)
-    return cat_year, from_year
 
 
 @functools.lru_cache(maxsize=None)
@@ -70,58 +53,41 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
 
     is_cat_okay = filter_en.filter_cat(category)
 
-    category_lab = ""
+    from_match = False
+    # category_lab = ""
+    category_lab = resolve_lab_from_years_patterns(category)
 
-    cat_year, from_year = retrieve_year_from_category(category)
-
-    if from_year:
-        category_lab = from_year
+    if category_lab:
+        from_match = True
 
     if not category_lab:
         category_lab = (
-            # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
-            # resolve_nat_genders_pattern_v2(changed_cat) or
             all_new_resolvers(changed_cat)
             or ""
         )
 
-    start_ylab = ""
-    from_match = False
     if not category_lab:
-        category_lab = resolve_country_time_pattern(changed_cat)  # or resolve_nat_women_time_pattern(changed_cat)
+        category_lab = (
+            all_patterns_resolvers(changed_cat)
+            # resolve_country_time_pattern(changed_cat)
+            # or nat_males_pattern.resolve_nat_males_pattern(changed_cat)
+        )
         from_match = category_lab != ""
-
-    if not category_lab:
-        category_lab = nat_men_pattern.resolve_nat_men_pattern_new(changed_cat)
-        from_match = category_lab != ""
-
-    start_ylab = ""
-    # if not category_lab: start_ylab = ye_ts_bot.translate_general_category(changed_cat)
 
     if not category_lab and is_cat_okay:
-        category_lower = category.lower()
-        if category_lower != changed_cat:
-            category_lab = cash_2022.get(category_lower, "")
-        if not category_lab:
-            category_lab = cash_2022.get(changed_cat, "")
 
-        if not category_lab and app_settings.start_tgc_resolver_first:
-            category_lab = start_ylab
-
-        if not category_lab:
-            category_lab = (
-                univer.te_universities(changed_cat)
-                or event2_d2(changed_cat)
-                or with_years_bot.Try_With_Years2(changed_cat)
-                or label_for_startwith_year_or_typeo(changed_cat)
-                or ""
-            )
+        category_lab = (
+            univer.te_universities(changed_cat)
+            or event2_d2(changed_cat)
+            or with_years_bot.Try_With_Years2(changed_cat)
+            or label_for_startwith_year_or_typeo(changed_cat)
+            or ""
+        )
 
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
 
     if not category_lab and is_cat_okay:
-        # category_lab = start_ylab
         category_lab = ye_ts_bot.translate_general_category(changed_cat)
 
     if category_lab and fix_label:
@@ -139,7 +105,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     return CategoryResult(
         en=category,
         ar=category_lab,
-        from_match=cat_year or from_match,
+        from_match=from_match,
     )
 
 

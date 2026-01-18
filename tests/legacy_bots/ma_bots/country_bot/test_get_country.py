@@ -9,10 +9,10 @@ from ArWikiCats.legacy_bots.ma_bots.country_bot import get_country
 
 data_1 = {
     "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",
-    "Defunct national football teams": "فرق كرة قدم وطنية سابقة",
+    "Defunct national football teams": "منتخبات كرة قدم وطنية سابقة",
     "Defunct National Hockey League teams": "فرق دوري هوكي وطنية سابقة",
     "Members of defunct national legislatures": "أعضاء هيئات تشريعية وطنية سابقة",
-    "Defunct national sports teams": "فرق رياضية وطنية سابقة",
+    "Defunct national sports teams": "منتخبات رياضية وطنية سابقة",
 }
 
 

@@ -26,9 +26,9 @@ Note:
 
 import re
 
-from ...time_resolvers import (
+from ...time_formats import (
     convert_time_to_arabic,
-    fixing,
+    standardize_time_phrases,
     match_time_en_first,
 )
 from ..formats_logger import logger
@@ -99,7 +99,7 @@ class YearFormatDataLegacy:
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
-        result = fixing(result)
+        result = standardize_time_phrases(result)
         return result
 
     def get_key_label(self, key: str) -> str:
@@ -149,5 +149,5 @@ def YearFormatData(
         value_placeholder=value_placeholder,
         search_callback=convert_time_to_arabic,
         match_key_callback=match_time_en_first,
-        fixing_callback=fixing,
+        fixing_callback=standardize_time_phrases,
     )

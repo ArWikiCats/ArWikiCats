@@ -3,10 +3,10 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-dir = Path(__file__).parent
+Dir = Path(__file__).parent
 
 
-json_files = list((dir / "religions_data").glob("*.json"))
+json_files = list((Dir / "religions_data").glob("*.json"))
 # read all json_files, make big data dict, split them between all files
 all_data = {}
 
