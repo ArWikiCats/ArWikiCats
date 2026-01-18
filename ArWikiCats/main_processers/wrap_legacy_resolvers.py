@@ -14,7 +14,6 @@ from ..legacy_bots.ma_bots import ye_ts_bot
 
 @functools.lru_cache(maxsize=None)
 def legacy_resolvers(changed_cat) -> str:
-
     category_lab = (
         univer.te_universities(changed_cat)
         or event2_d2(changed_cat)
