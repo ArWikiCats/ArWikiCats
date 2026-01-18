@@ -23,7 +23,7 @@ from .matables_bots.data import Add_in_table
 from .matables_bots.table1_bot import get_KAKO
 from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
-from .political_terms import _handle_political_terms
+from .political_terms import handle_political_terms
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
@@ -188,7 +188,7 @@ def Try_With_Years(category: str) -> str:
 
     category = category.replace("−", "-")
 
-    if label := _handle_political_terms(category):
+    if label := handle_political_terms(category):
         return label
 
     year_at_start = RE1_compile.match(category)

@@ -18,7 +18,7 @@ pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 
-def _handle_political_terms(category_text: str) -> str:
+def handle_political_terms(category_text: str) -> str:
     """Handles political terms like 'united states congress'."""
     # كونغرس
     # cs = re.match(r"^(\d+)(th|nd|st|rd) united states congress", category_text)
@@ -40,5 +40,5 @@ def _handle_political_terms(category_text: str) -> str:
 
 
 __all__ = [
-    "_handle_political_terms",
+    "handle_political_terms",
 ]

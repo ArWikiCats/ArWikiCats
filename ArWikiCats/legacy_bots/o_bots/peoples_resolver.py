@@ -1,4 +1,6 @@
-"""Population and people helpers."""
+"""
+Population and people helpers.
+"""
 
 from __future__ import annotations
 
