@@ -139,7 +139,6 @@ data_slow = {
     "centuries in united states": "قرون في الولايات المتحدة",
     "china by month": "الصين حسب الشهر",
     "chinese emigrants to thailand": "صينيون مهاجرون إلى تايلاند",
-    "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
     "churches in france": "كنائس في فرنسا",
     "churches in nicaragua": "كنائس في نيكاراغوا",
     "colombia–united states relations": "العلاقات الأمريكية الكولومبية",

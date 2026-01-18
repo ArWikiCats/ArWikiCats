@@ -11,9 +11,7 @@ from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key
 labelSuffixMappings = {
     "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
     "administration personnel": "موظفو إدارة {ar}",
-    "albums": "ألبومات {ar}",
     "animation albums": "ألبومات رسوم متحركة {ar}",
-    "cabinet": "مجلس وزراء {ar}",
     "comedy albums": "ألبومات كوميدية {ar}",
     "compilation albums": "ألبومات تجميعية {ar}",
     "concept albums": "ألبومات مفاهيمية {ar}",
@@ -23,12 +21,21 @@ labelSuffixMappings = {
     "folktronica albums": "ألبومات فولكترونيكا {ar}",
     "jazz albums": "ألبومات جاز {ar}",
     "live albums": "ألبومات مباشرة {ar}",
-    "memorials": "نصب {ar} التذكارية",
     "mixtape albums": "ألبومات ميكستايب {ar}",
     "remix albums": "ألبومات ريمكس {ar}",
     "surprise albums": "ألبومات مفاجئة {ar}",
     "video albums": "ألبومات فيديو {ar}",
+    "memorials": "نصب {ar} التذكارية",
+    "cabinet": "مجلس وزراء {ar}",
+    "albums": "ألبومات {ar}",
 }
+
+labelSuffixMappings = dict(
+    sorted(
+        labelSuffixMappings.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 @functools.lru_cache(maxsize=None)
