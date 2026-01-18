@@ -18,6 +18,33 @@ from . import (
 
 
 @functools.lru_cache(maxsize=None)
+def _not_main_sports_resolvers(normalized_category) -> str:
+    """
+    """
+    normalized_category = normalized_category.strip().lower().replace("category:", "")
+
+    logger.debug("--" * 20)
+    logger.debug(f"<><><><><><> <<green>> Trying _not_main_sports_resolvers resolvers for: {normalized_category=}")
+
+    resolved_label = (
+        match_labs.find_teams_2025(normalized_category)
+        or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
+        # or raw_sports.wrap_team_xo_normal_2025_with_ends(normalized_category)
+        or ""
+    )
+
+    logger.info_if_or_debug(
+        f"<<yellow>> end _not_main_sports_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
+    )
+    return resolved_label
+
+
+@functools.lru_cache(maxsize=None)
+def sub_main_sports_resolvers(normalized_category) -> str:
+    """placeholder for tests patch"""
+    return ""
+
+
 def main_sports_resolvers(normalized_category) -> str:
     """
     Resolve a normalized category string into a sports-related label.
@@ -40,6 +67,7 @@ def main_sports_resolvers(normalized_category) -> str:
         # or match_labs.find_teams_2025(normalized_category)
         # or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
         # or raw_sports.wrap_team_xo_normal_2025_with_ends(normalized_category)
+        or sub_main_sports_resolvers(normalized_category)
         or ""
     )
 

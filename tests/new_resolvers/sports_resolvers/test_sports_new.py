@@ -4,6 +4,7 @@ Tests
 
 import pytest
 
+from ArWikiCats.new_resolvers.sports_resolvers import _not_main_sports_resolvers
 # from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 from ArWikiCats import resolve_label_ar
 
@@ -51,9 +52,15 @@ data_1 = {
 
 @pytest.mark.parametrize("category, expected_key", data_1.items(), ids=data_1.keys())
 @pytest.mark.skip2
-def test_new_data(category: str, expected_key: str) -> None:
+def test_new_data(monkeypatch: pytest.MonkeyPatch, category: str, expected_key: str) -> None:
     """
     pytest tests/new_resolvers/sports_resolvers/test_sports_new.py -m skip2 --maxfail=1000
     """
+
+    # monkeypatch.setattr(
+    #     "ArWikiCats.new_resolvers.sports_resolvers.sub_main_sports_resolvers",
+    #     _not_main_sports_resolvers,
+    #     raising=True,
+    # )
     label = resolve_label_ar(category)
     assert label == expected_key
