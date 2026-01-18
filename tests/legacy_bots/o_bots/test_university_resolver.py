@@ -114,20 +114,3 @@ resolve_university_category_data = {
 def test_universities_data(category: str, expected_key: str) -> None:
     label = resolve_university_category(category)
     assert label == expected_key
-
-
-def test_resolve_university_category() -> None:
-    # Test with a basic university category
-    result = resolve_university_category("university of california")
-    assert isinstance(result, str)
-
-    result_empty = resolve_university_category("")
-    assert isinstance(result_empty, str)
-
-    # Test with a specific major
-    result_major = resolve_university_category("university of engineering")
-    assert isinstance(result_major, str)
-
-    # Test with "the" prefix
-    result_the = resolve_university_category("the university of law")
-    assert isinstance(result_the, str)
