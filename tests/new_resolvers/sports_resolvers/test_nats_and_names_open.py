@@ -9,30 +9,35 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
-data_nats_1 = {
-    "australian open (tennis)": "بطولة أستراليا المفتوحة للتنس",
-    "australian open tennis": "بطولة أستراليا المفتوحة للتنس",
+data_nats_0 = {
     "barcelona open (tennis)": "بطولة برشلونة للتنس",
-    "canadian open (tennis)": "بطولة كندا للأساتذة",
-    "italian open (tennis)": "روما للماسترز",
-    "mexican open (tennis)": "بطولة أكابولكو للتنس",
     "barcelona open tennis": "بطولة برشلونة للتنس",
-    "canadian open tennis": "بطولة كندا للأساتذة",
-    "italian open tennis": "روما للماسترز",
     "madrid open tennis": "مدريد للماسترز",
-    "mexican open tennis": "بطولة أكابولكو للتنس",
+}
+data_nats_1 = {
+    "australian open (tennis)": "بطولة أستراليا المفتوحة لكرة المضرب",
+    "australian open tennis": "بطولة أستراليا المفتوحة لكرة المضرب",
+    "canadian open (tennis)": "بطولة كندا المفتوحة لكرة المضرب",
+    "italian open (tennis)": "بطولة إيطاليا المفتوحة لكرة المضرب",
+    "mexican open (tennis)": "بطولة المكسيك المفتوحة لكرة المضرب",
+    "canadian open tennis": "بطولة كندا المفتوحة لكرة المضرب",
+    "italian open tennis": "بطولة إيطاليا المفتوحة لكرة المضرب",
+    "mexican open tennis": "بطولة المكسيك المفتوحة لكرة المضرب",
+}
+
+data_names_0 = {
+    "madrid open (tennis)": "مدريد للماسترز",
+    "miami open (tennis)": "ميامي للماسترز",
+    "miami open tennis": "ميامي للماسترز",
 }
 
 data_names_3 = {
-    "chile open (tennis)": "بطولة تشيلي للتنس",
-    "china open (tennis)": "بطولة الصين المفتوحة",
-    "madrid open (tennis)": "مدريد للماسترز",
-    "miami open (tennis)": "ميامي للماسترز",
-    "qatar open (tennis)": "بطولة قطر المفتوحة للتنس",
-    "chile open tennis": "بطولة تشيلي للتنس",
-    "china open tennis": "بطولة الصين المفتوحة",
-    "miami open tennis": "ميامي للماسترز",
-    "qatar open tennis": "بطولة قطر المفتوحة للتنس",
+    "chile open (tennis)": "بطولة تشيلي المفتوحة لكرة المضرب",
+    "china open (tennis)": "بطولة الصين المفتوحة لكرة المضرب",
+    "qatar open (tennis)": "بطولة قطر المفتوحة لكرة المضرب",
+    "chile open tennis": "بطولة تشيلي المفتوحة لكرة المضرب",
+    "china open tennis": "بطولة الصين المفتوحة لكرة المضرب",
+    "qatar open tennis": "بطولة قطر المفتوحة لكرة المضرب",
 }
 
 
