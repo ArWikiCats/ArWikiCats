@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-!
+Event label processing bot.
+
+This module provides functionality for processing event-related categories
+and translating them to Arabic labels.
 """
 
 import functools
