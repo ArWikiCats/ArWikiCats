@@ -5,8 +5,8 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps import logger
-from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key
+from ...helps import dump_data, logger
+from ...translations import People_key
 
 labelSuffixMappings = {
     "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
@@ -51,11 +51,13 @@ def work_peoples(name: str) -> str:
     logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
     person_key = ""
     prefix_type = ""
+    prefix_type_label = ""
 
     for name_end_suffix in labelSuffixMappings:
         if name.endswith(name_end_suffix.strip()):
             logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
             prefix_type = name_end_suffix.strip()
+            prefix_type_label = labelSuffixMappings[prefix_type]
             person_key = name[: -len(name_end_suffix)].strip()
             break
 
@@ -74,7 +76,7 @@ def work_peoples(name: str) -> str:
         return ""
 
     logger.info(f">>>><<lightblue>> {person_key=}, {personlab=}")
-    resolved_label = labelSuffixMappings[prefix_type].format(ar=personlab)
+    resolved_label = prefix_type_label.format(ar=personlab)
     logger.info(f'>>>><<lightblue>> name.endswith pri("{prefix_type}"), {resolved_label=}')
 
     return resolved_label
@@ -90,13 +92,28 @@ def make_people_lab(normalized_value: str) -> str:
         The formatted Arabic label or an empty string if the value is not
         recognised.
     """
-
+    TELEVISION_BASE_KEYS_FEMALE = {
+        "video games": "ألعاب فيديو",
+        "soap opera": "مسلسلات طويلة",
+        "television characters": "شخصيات تلفزيونية",
+        "television programs": "برامج تلفزيونية",
+        "television programmes": "برامج تلفزيونية",
+        "web series": "مسلسلات ويب",
+        "television series": "مسلسلات تلفزيونية",
+        "film series": "سلاسل أفلام",
+        "television episodes": "حلقات تلفزيونية",
+        "television news": "أخبار تلفزيونية",
+        "comics": "قصص مصورة",
+        "television films": "أفلام تلفزيونية",
+        "miniseries": "مسلسلات قصيرة",
+        "television miniseries": "مسلسلات قصيرة تلفزيونية",
+    }
     normalized_value = normalized_value.strip()
 
     new_label = ""
 
     base_value = re.sub(r"people$", "", normalized_value)
-    film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
+    film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value.strip(), "")
 
     if film_label:
         new_label = f"أعلام {film_label}"
