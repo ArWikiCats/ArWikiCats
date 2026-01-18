@@ -3,6 +3,7 @@ LabsYearsFormat processing module.
 """
 
 from typing import Callable, Optional
+
 from ..helps import logger
 from ..time_formats.time_to_arabic import (
     convert_time_to_arabic,
@@ -12,6 +13,8 @@ from ..time_formats.time_to_arabic import (
 
 
 class MatchTimes:
+    """Class for matching time patterns in text."""
+
     def __init__(self) -> None:
         pass
 

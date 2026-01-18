@@ -635,6 +635,14 @@ all_formatted_data = (
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
+    """Load and configure the nationality translation bot.
+
+    Creates and configures a FormatDataV2 instance that handles the translation
+    of nationality-related category names using formatted data and nationality mappings.
+
+    Returns:
+        FormatDataV2: Configured bot instance for nationality translation.
+    """
     nats_data = {
         # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
         x: v
@@ -657,8 +665,14 @@ def _load_bot() -> FormatDataV2:
 def fix_keys(category: str) -> str:
     """Fix known issues in category keys before searching.
 
+    Normalizes category strings by converting to lowercase, removing category prefixes,
+    and cleaning up common formatting issues to ensure consistent matching.
+
     Args:
-        category: The original category key.
+        category (str): The original category key to be normalized.
+
+    Returns:
+        str: The cleaned and normalized category string.
     """
     # Fix specific known issues with category keys
     category = category.lower().replace("category:", "")
@@ -668,6 +682,18 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats(category: str) -> str:
+    """Resolve a nationality category to its Arabic translation.
+
+    Translates English category names that contain nationalities to their Arabic equivalents
+    using the configured translation bot. This function specifically handles nationality-based
+    categories and skips certain country-related categories that should be handled elsewhere.
+
+    Args:
+        category (str): The English category name containing nationality information to be translated.
+
+    Returns:
+        str: The Arabic translation of the category, or an empty string if not found or if skipped.
+    """
     logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:

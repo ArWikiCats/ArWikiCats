@@ -6,6 +6,14 @@ from . import mens, relegin_jobs_new, womens
 
 @functools.lru_cache(maxsize=None)
 def main_jobs_resolvers(normalized_category) -> str:
+    """Main entry point for jobs resolvers.
+
+    Args:
+        normalized_category (str): The normalized category string.
+
+    Returns:
+        str: The resolved jobs category label.
+    """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying jobs_resolvers for: {normalized_category=}")

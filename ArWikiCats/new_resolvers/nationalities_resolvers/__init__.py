@@ -10,6 +10,14 @@ from . import (
 
 @functools.lru_cache(maxsize=None)
 def main_nationalities_resolvers(normalized_category) -> str:
+    """Main entry point for nationalities resolvers.
+
+    Args:
+        normalized_category (str): The normalized category string.
+
+    Returns:
+        str: The resolved nationalities category label.
+    """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)

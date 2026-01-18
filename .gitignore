@@ -29,3 +29,4 @@ examples/compare_no_labels.json
 ArWikiCats/helps/resolve_team_suffix.jsonl
 ArWikiCats/helps/find_teams_2025.jsonl
 _work_files/*.json
+.coverage

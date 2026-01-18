@@ -61,6 +61,15 @@ all_data.update(country_names_and_nats_data)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> FormatDataV2:
+    """Load and configure the country names v2 translation bot.
+
+    Creates and configures a FormatDataV2 instance that handles the translation
+    of country-related category names with nationalities using formatted data
+    and nationality mappings.
+
+    Returns:
+        FormatDataV2: Configured bot instance for country name with nationality translation.
+    """
     nats_data = {x: v for x, v in countries_nat_en_key.items() if v.get("ar")}
     formatted_data = all_data | new_data | formatted_data_en_ar_only
 
@@ -74,6 +83,19 @@ def _load_bot() -> FormatDataV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_countries_names_v2(category: str) -> str:
+    """Resolve a country name category (with nationalities) to its Arabic translation.
+
+    Translates English category names that contain country names with nationalities
+    to their Arabic equivalents using the configured translation bot. This function
+    specifically handles categories that use nationalities (e.g., "French writers"
+    rather than "writers from France").
+
+    Args:
+        category (str): The English category name containing country names with nationalities to be translated.
+
+    Returns:
+        str: The Arabic translation of the category, or an empty string if not found.
+    """
     logger.debug(f"<<yellow>> start resolve_by_countries_names_v2: {category=}")
 
     nat_bot = _load_bot()
