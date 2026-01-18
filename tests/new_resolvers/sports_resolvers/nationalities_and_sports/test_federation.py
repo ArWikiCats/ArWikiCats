@@ -316,7 +316,6 @@ the_male_sport_team_data = {
     "tuvaluan trampolining federation": "الاتحاد التوفالي لجمباز القفز",
     "ugandan triathlon federation": "الاتحاد الأوغندي للسباق الثلاثي",
     "ukrainian triple jump federation": "الاتحاد الأوكراني للقفز الثلاثي",
-    "uruguayan uiiu 22 formula e season racing federation": "الاتحاد الأوروغوياني لسباق موسم فورمولا إي",
     "uzbek underwater hockey federation": "الاتحاد الأوزبكي للهوكي تحت الماء",
     "uzbekistani underwater hockey racing federation": "الاتحاد الأوزبكستاني لسباق هوكي تحت الماء",
     "vanuatuan volleyball federation": "الاتحاد الفانواتي لكرة الطائرة",
