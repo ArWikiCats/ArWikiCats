@@ -9,6 +9,7 @@ import re
 
 from ...helps import dump_data, logger
 from ...translations import People_key
+from ...translations_formats import FormatData
 
 labelSuffixMappings = {
     "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
@@ -82,6 +83,10 @@ def work_peoples(name: str) -> str:
     logger.info(f'>>>><<lightblue>> name.endswith pri("{prefix_type}"), {resolved_label=}')
 
     return resolved_label
+
+
+def work_peoples_formatdata_baesed(name: str) -> str:
+    return work_peoples(name)
 
 
 __all__ = [
