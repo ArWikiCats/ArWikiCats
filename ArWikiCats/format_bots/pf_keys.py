@@ -134,7 +134,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "us open (tennis)": "us open tennis",
     "viceroyalty of": "viceroyalty-of",
     "west coast of united states": "west coast-of-united states",
-    "world championships in athletics": "world championships-in-athletics",
     "world war i": "world-war-i",
     "world war ii": "world-war-ii",
     # " executed by " :" executed-by ",

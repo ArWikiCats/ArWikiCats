@@ -46,7 +46,10 @@ formatted_data = {
     "{en} genres": "أنواع {female}",
     "{en} novels": "روايات {female}",
     "{en} architecture": "عمارة {female}",
+    "{en} plays": "مسرحيات {female}",
     "{en} gangs": "عصابات {female}",
+    # Category:People murdered by Italian-American organized crime
+    "{en} organized crime": "جريمة منظمة {female}",
 }
 
 nats_data = {x: v for x, v in All_Nat.items()}

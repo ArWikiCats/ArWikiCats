@@ -501,7 +501,7 @@ data_3 = {
     "chinese boxing u21 championships": "بطولة الصين للبوكسينغ تحت 21 سنة",
     "chinese boxing u23 championships": "بطولة الصين للبوكسينغ تحت 23 سنة",
     "chinese boxing u24 championships": "بطولة الصين للبوكسينغ تحت 24 سنة",
-    "chinese open boxing": "الصين المفتوحة للبوكسينغ",
+    "chinese open boxing": "بطولة الصين المفتوحة للبوكسينغ",
     "chinese outdoor boxing championship": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese outdoor boxing championships": "بطولة الصين للبوكسينغ في الهواء الطلق",
     "chinese women's boxing championship": "بطولة الصين للبوكسينغ للسيدات",

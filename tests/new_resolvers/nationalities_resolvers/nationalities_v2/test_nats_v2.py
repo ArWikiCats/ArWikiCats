@@ -24,6 +24,10 @@ test_data_males = {
 }
 
 test_data_ar = {
+    "French Open": "بطولة فرنسا المفتوحة",
+    "Australian Open": "بطولة أستراليا المفتوحة",
+    "French Ladies Open": "بطولة فرنسا المفتوحة للسيدات",
+
     "yemeni music groups": "فرق موسيقى يمنية",
     "yemeni rock musical groups": "فرق موسيقى روك يمنية",
     "yemeni alternative rock groups": "فرق روك بديل يمنية",
@@ -256,9 +260,6 @@ test_data_ar = {
     "Yemeni King's Cup": "كأس ملك اليمن",
     "French Grand Prix": "جائزة فرنسا الكبرى",
     "Italian Grand Prix": "جائزة إيطاليا الكبرى",
-    "French Open": "فرنسا المفتوحة",
-    "Australian Open": "أستراليا المفتوحة",
-    "French Ladies Open": "فرنسا المفتوحة للسيدات",
     "Canadian Cup": "كأس كندا",
     "Egyptian Independence": "استقلال مصر",
     "Syrian Independence": "استقلال سوريا",

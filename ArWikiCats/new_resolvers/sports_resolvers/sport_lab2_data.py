@@ -49,6 +49,10 @@ teams_formatted_data = {
     "{en_sport} world junior championship": "بطولة العالم {sport_team} للناشئين",
     "{en_sport} world youth championship": "بطولة العالم {sport_team} للشباب",
     "{en_sport} youth world championship": "بطولة العالم {sport_team} للشباب",
+
+    # world championships in athletics
+    "world championship in {en_sport}": "بطولة العالم {sport_team}",
+    "world championship in {en_sport} athletes": "عداؤو بطولة العالم {sport_team}",
 }
 
 
