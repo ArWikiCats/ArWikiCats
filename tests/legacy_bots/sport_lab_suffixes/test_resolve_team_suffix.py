@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
+from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix, resolve_team_jobs_bot
 
 test_data_1 = {
     "australian rules football owners and executives": "رؤساء تنفيذيون وملاك كرة قدم أسترالية",
@@ -638,7 +638,7 @@ data_2 = {
     "board games songs": "أغاني ألعاب طاولة",
     "field hockey racing trainers": "مدربو سباق هوكي ميدان",
     "powerlifting cups": "كؤوس رياضة قوة",
-    "uiiu 22 formula e season racing music": "موسيقى سباق ",
+    "uiiu 22 formula e season racing music": "موسيقى سباق",
     "pole vault tactics and skills": "مهارات قفز بالزانة",
     "submission wrestling media": "إعلام مصارعة خضوع",
     "equestrian media": "إعلام فروسية",
@@ -980,7 +980,7 @@ data_2 = {
     "formula one manager": "مدربو فورمولا ون",
     "badminton songs": "أغاني تنس ريشة",
     "lawn bowls racing seasons": "مواسم سباق بولينغ عشبي",
-    "uiiu 22 formula e season racing films": "أفلام سباق ",
+    "uiiu 22 formula e season racing films": "أفلام سباق",
     "swimming comics": "قصص مصورة سباحة",
     "wheelchair handball championships": "بطولات كرة يد على كراسي متحركة",
     "triple jump racing logos": "شعارات سباق قفز ثلاثي",
@@ -1063,7 +1063,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_team_suffix)
+    expected, diff_result = one_dump_test(data, resolve_team_jobs_bot)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
