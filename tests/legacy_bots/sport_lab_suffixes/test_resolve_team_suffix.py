@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix, resolve_team_jobs_bot
+from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
 
 test_data_1 = {
     "australian rules football owners and executives": "رؤساء تنفيذيون وملاك كرة قدم أسترالية",
@@ -1061,7 +1061,7 @@ to_test = [
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_team_jobs_bot)
+    expected, diff_result = one_dump_test(data, resolve_team_suffix)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
