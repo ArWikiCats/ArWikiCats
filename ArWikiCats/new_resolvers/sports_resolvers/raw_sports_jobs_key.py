@@ -196,22 +196,26 @@ jobs_formatted_data2 = {
 
 jobs_formatted_data.update(jobs_formatted_data2)
 
-jobs_bot = FormatData(
-    jobs_formatted_data,
-    SPORTS_KEYS_FOR_JOBS,
-    key_placeholder="{en_sport}",
-    value_placeholder="{sport_jobs}",
-)
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> FormatData:
+    return FormatData(
+        jobs_formatted_data,
+        SPORTS_KEYS_FOR_JOBS,
+        key_placeholder="{en_sport}",
+        value_placeholder="{sport_jobs}",
+    )
 
 
 @functools.lru_cache(maxsize=None)
-def find_jobs_bot(category: str, default: str = "") -> str:
+def resolve_sport_label_by_jobs_key(category: str, default: str = "") -> str:
     """Search for a job-related sports label, returning ``default`` when missing."""
+    jobs_bot = _load_bot()
     result = jobs_bot.search(category) or default
-    logger.info_if_or_debug(f"<<yellow>> end find_jobs_bot: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_label_by_jobs_key: {category=}, {result=}", result)
     return result
 
 
 __all__ = [
-    "find_jobs_bot",
+    "resolve_sport_label_by_jobs_key",
 ]

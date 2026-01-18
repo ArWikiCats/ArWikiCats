@@ -10,7 +10,7 @@ from ...translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_TEAM,
 )
 from ...translations_formats import FormatData
-from .raw_sports_jobs_key import find_jobs_bot
+from .raw_sports_jobs_key import resolve_sport_label_by_jobs_key
 from .sport_lab2_data import labels_formatted_data, teams_formatted_data
 
 labels_bot = FormatData(
@@ -86,7 +86,7 @@ def wrap_team_xo_normal_2025(team: str) -> str:
     team = team.lower().replace("category:", "")
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025: {team=}")
 
-    result = find_labels_bot(team) or find_teams_bot(team) or find_jobs_bot(team) or ""
+    result = find_labels_bot(team) or find_teams_bot(team) or resolve_sport_label_by_jobs_key(team) or ""
 
     logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025: {team=}, {result=}", result)
     return result.strip()
@@ -122,6 +122,6 @@ __all__ = [
     "wrap_team_xo_normal_2025",
     "find_labels_bot",
     "find_teams_bot",
-    "find_jobs_bot",
+    "resolve_sport_label_by_jobs_key",
     "wrap_team_xo_normal_2025_with_ends",
 ]
