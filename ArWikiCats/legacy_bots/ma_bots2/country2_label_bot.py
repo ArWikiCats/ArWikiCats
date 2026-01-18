@@ -64,13 +64,16 @@ def wrap_lab_for_country2(country: str) -> str:
 
 
 def time_label(text: str) -> str:
-    """Generate a time-related label based on the provided text.
+    """
+    Return the input `text` when it represents a time-like token (digits possibly accompanied only by dash characters), otherwise return an empty string.
 
-    Args:
-        text: The text to check for time-related content
+    The function removes all digit characters from the trimmed input and checks the remainder. If the remainder is empty or one of "-", "–", "−", the original `text` is returned; otherwise an empty string is returned.
+
+    Parameters:
+        text (str): Input string to evaluate as a time-like token.
 
     Returns:
-        The original text if it contains only digits, otherwise an empty string
+        str: The original `text` if it is digits possibly with only dash characters, otherwise an empty string.
     """
     tst3 = re.sub(r"\d+", "", text.strip())
     test3_results = ["", "-", "–", "−"]
@@ -80,14 +83,15 @@ def time_label(text: str) -> str:
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
-    """Get a label from the table with 'in' mappings.
+    """
+    Map a composite key of cone_1 and separator to a predefined Arabic label.
 
-    Args:
-        cone_1: The first part of the category
-        separator: The separator between parts
+    Parameters:
+        cone_1 (str): Left-hand token to combine with the separator (e.g., "sport").
+        separator (str): Separator token (e.g., "in").
 
     Returns:
-        The mapped label or an empty string if not found
+        str: The mapped Arabic label for "{cone_1} {separator}", or an empty string if no mapping exists.
     """
     table_with_in = {
         "sport in": "الرياضة في",
@@ -101,15 +105,19 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
-    """Retrieve a label based on the given parameters.
+    """
+    Resolve the Arabic label for the first part of a compound title given its English token and separator.
 
-    Args:
-        separator: The separator between parts
-        cone_1: The first part of the category
-        with_years: Whether to include year processing
+    Parameters:
+        separator (str): The textual separator between parts (e.g., "in", "from", "to"); used to influence resolution for some tokens.
+        cone_1 (str): The first English part to resolve (case-insensitive).
+        with_years (bool): If true, enable label resolution paths that consider year-specific forms.
 
     Returns:
-        The resolved label or an empty string if not found
+        str: The resolved Arabic label for `cone_1`, or an empty string if no mapping is found.
+
+    Notes:
+        - Special-case: when `cone_1` equals "women" and `separator` is "from", returns "نساء".
 
     Example:
         {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
@@ -146,14 +154,15 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
-    """Retrieve a label based on the provided cone identifier.
+    """
+    Resolve an Arabic label for the second component of a compound title or country phrase.
 
-    Args:
-        cone_2: The second part of the category
-        with_years: Whether to include year processing
+    Parameters:
+        cone_2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
+        with_years (bool): If true, prefer resolvers that consider year-specific forms.
 
     Returns:
-        The resolved label or an empty string if not found
+        str: The resolved Arabic label for cone_2, or an empty string if no label could be determined.
     """
 
     cone_2 = cone_2.strip().lower()
@@ -181,15 +190,19 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
-    """Resolve war-related labels to a more appropriate format.
+    """
+    Return a corrected Arabic war label when appropriate.
 
-    Args:
-        resolved_label: The current resolved label
-        part_2_normalized: The normalized second part
-        part_1_normalized: The normalized first part
+    If `part_2_normalized` is a four-digit year and `part_1_normalized` equals `"war of"`,
+    converts `"الحرب في {year}"` to `"حرب {year}"`. Otherwise returns `resolved_label` unchanged.
+
+    Parameters:
+        resolved_label (str): Current resolved Arabic label.
+        part_2_normalized (str): Normalized second part (often a year).
+        part_1_normalized (str): Normalized first part.
 
     Returns:
-        The possibly modified label
+        str: The possibly modified label.
     """
     maren = re.match(r"\d\d\d\d", part_2_normalized)
     if maren:
@@ -209,19 +222,28 @@ def make_cnt_lab(
     part_2_normalized: str,
     ar_separator: str,
 ) -> str:
-    """Construct a formatted string based on various input parameters.
+    """
+    Builds a final Arabic label by combining part_1_label and part_2_label and applying contextual adjustments and normalizations.
 
-    Args:
-        separator: The separator between parts
-        country: The country name
-        part_2_label: The label for the second part
-        part_1_label: The label for the first part
-        part_1_normalized: The normalized first part
-        part_2_normalized: The normalized second part
-        ar_separator: The Arabic separator
+    Parameters:
+        separator (str): English separator token between parts (informational; not directly used in formatting).
+        country (str): Original country string used to record mappings when applicable.
+        part_2_label (str): Resolved label for the second part (right-hand side).
+        part_1_label (str): Resolved label for the first part (left-hand side).
+        part_1_normalized (str): Normalized form of the first part used to decide special formatting rules.
+        part_2_normalized (str): Normalized form of the second part used to decide recording and war-related rewrites.
+        ar_separator (str): Arabic separator to join the two parts (e.g., " في ", " إلى ", " لدى ").
+
+    Description:
+        - Concatenates part_1_label, ar_separator, and part_2_label to form an initial label.
+        - For entries flagged as "new players" (checked via part_1_normalized), conditionally inserts "من " before part_2_label when it starts with "أصل ", otherwise appends " في" if not already present; and records the computed label for the country unless the part_2_normalized exists in the main resolver.
+        - Applies predefined format mappings for specific part_1_normalized keys (e.g., politics/military patterns).
+        - Collapses duplicated " في في " sequences and normalizes whitespace.
+        - Calls internal war-resolution logic to rewrite phrases like "الحرب في {year}" to "حرب {year}" when applicable.
+        - Removes a trailing " في " if present.
 
     Returns:
-        The constructed Arabic label
+        str: The final, normalized Arabic label.
     """
     country2 = country.lower().strip()
 
@@ -271,13 +293,14 @@ def make_cnt_lab(
 
 
 def separator_arabic_resolve(separator: str) -> str:
-    """Generate an Arabic separator based on the input separator.
+    """
+    Map an English separator token to its Arabic equivalent, including surrounding spaces when appropriate.
 
-    Args:
-        separator: The English separator string
+    Parameters:
+        separator (str): English separator token to map (e.g., "to", "on", "about", "based in").
 
     Returns:
-        The corresponding Arabic separator
+        str: Arabic separator string (defaults to a single space if no mapping exists).
     """
     ar_separator = " "
     separator = separator.strip()
@@ -298,16 +321,19 @@ def separator_arabic_resolve(separator: str) -> str:
 
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
-    """Create labels for two parts of a category.
+    """
+    Resolve Arabic labels for two text parts and return them as a pair.
 
-    Args:
-        part_1: The first part of the category
-        part_2: The second part of the category
-        separator: The separator between parts
-        with_years: Whether to include year processing
+    Attempts to derive each part's Arabic label from several resolvers and fallbacks; if either label cannot be resolved, returns two empty strings. When resolved, normalizes inputs and, depending on the English separator or trailing tokens, appends the Arabic preposition " في" to the first label for "in" contexts or prepends "من " to the second label for "from" contexts.
+
+    Parameters:
+        part_1 (str): The first text fragment to resolve (e.g., a role or type).
+        part_2 (str): The second text fragment to resolve (e.g., a place or entity).
+        separator (str): The English separator token between parts (affects Arabic preposition handling).
+        with_years (bool): If true, allow an additional "with years" resolver when resolving part_2.
 
     Returns:
-        A tuple containing the labels for both parts
+        Tuple[str, str]: (part_1_label, part_2_label) with resolved Arabic labels, or ("", "") if either could not be resolved.
     """
     part_2_label = (
         all_new_resolvers(part_2)

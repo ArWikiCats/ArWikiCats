@@ -24,13 +24,13 @@ from ...translations_formats import (
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
     """
-    Build translation mappings for CAO-related film and television keys.
+    Construct two translation mapping dictionaries for television and film category keys: one that includes nationality placeholders and one without.
 
-    Creates two dictionaries: one containing patterns that include nationality placeholders and film-key placeholders for generating localized Arabic labels, and another containing equivalent mappings that omit nationality placeholders.
+    The first dictionary maps English pattern keys (which may include `{nat_en}` and `{film_key}`) to Arabic translation templates (which may include `{nat_ar}` and `{film_ar}`). The second dictionary provides equivalent mappings that omit nationality placeholders and may include `{film_ar}` in templates.
 
     Returns:
-        films_key_cao (dict): Mapping of English pattern keys (may include `{nat_en}` and `{film_key}`) to Arabic translation templates (may include `{nat_ar}` and `{film_ar}`).
-        data_no_nats (dict): Mapping of English pattern keys (without nationality placeholders) to Arabic translation templates (may include `{film_ar}`).
+        films_key_cao (Dict[str, str]): Mapping of English pattern keys with optional `{nat_en}`/`{film_key}` to Arabic templates containing optional `{nat_ar}`/`{film_ar}`.
+        data_no_nats (Dict[str, str]): Mapping of English pattern keys without nationality placeholders to Arabic templates that may include `{film_ar}`.
     """
     data = {}
     data_no_nats = {}

@@ -35,13 +35,17 @@ KAKO: Dict[str, Dict[str, str]] = {
 
 @functools.lru_cache(maxsize=None)
 def _get_KAKO(text: str) -> tuple[str, str]:
-    """Look up the Arabic label for a term across several mapping tables.
+    """
+    Look up the Arabic label for a term using resolve_by_labels and then the configured mapping tables.
 
-    Args:
-        text: The text to look up in the mapping tables
+    Parameters:
+        text (str): Key to search for in the label resolvers and mapping tables.
 
     Returns:
-        A tuple containing the table name and the found label, or empty strings if not found
+        tuple: A pair (resolver_name, label) where `resolver_name` is the name of the resolver or table that produced `label` (empty string if none found), and `label` is the found Arabic label (empty string if none found).
+
+    Raises:
+        TypeError: If a resolver returns a non-string value for a found label.
     """
     resolved_label = resolve_by_labels(text)
     if resolved_label:
@@ -67,13 +71,14 @@ def _get_KAKO(text: str) -> tuple[str, str]:
 
 @functools.lru_cache(maxsize=10000)
 def get_KAKO(text: str) -> str:
-    """Get the Arabic label for a term from multiple mapping tables.
+    """
+    Return the Arabic label for a given term by consulting multiple mapping tables.
 
-    Args:
-        text: The text to look up in the mapping tables
+    Parameters:
+        text (str): The term to look up.
 
     Returns:
-        The found Arabic label or an empty string if not found
+        str: The Arabic label if found, otherwise an empty string.
     """
     _, label = _get_KAKO(text)
     return label

@@ -29,13 +29,14 @@ def check_key_new_players_n(key: str) -> bool:
 
 
 def check_key_new_players(key: str) -> bool:
-    """Return True if the key exists in any player or job mapping table.
+    """
+    Check whether a key exists in any player or job mapping table.
 
-    Args:
-        key: The key to check in the mapping tables
+    Parameters:
+        key (str): The key to look up; lookup is case-insensitive (the key is checked as provided and in lowercase).
 
     Returns:
-        True if the key exists in any table, False otherwise
+        bool: True if the key is present in any table, False otherwise.
     """
     key_lower = key.lower()
     result = any(key in table or key_lower in table for table in set_tables)
@@ -44,12 +45,13 @@ def check_key_new_players(key: str) -> bool:
 
 
 def add_key_new_players(key: str, value: str, file: str) -> None:
-    """Add a new key-value pair to the players mapping table.
+    """
+    Add a mapping from key to value in the players_new_keys table, storing the key in lowercase.
 
-    Args:
-        key: The key to add
-        value: The value to associate with the key
-        file: The file where the addition is happening (for logging)
+    Parameters:
+        key (str): Key to add; will be normalized to lowercase before storage.
+        value (str): Value to associate with the key.
+        file (str): Context file name included in the informational log entry.
     """
     players_new_keys[key.lower()] = value
     logger.info(f"add to New_players[{key}] = {value} in {file}")

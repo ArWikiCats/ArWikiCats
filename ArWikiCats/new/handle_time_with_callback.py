@@ -14,13 +14,14 @@ from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_
 
 
 def fix_keys(category: str) -> str:
-    """Normalize category keys for language processing.
+    """
+    Normalize a category key for language processing.
 
-    Args:
-        category: The raw category string.
+    Parameters:
+        category (str): Raw category string that may include the prefix "category:", single quotes, or the substring "-language ".
 
     Returns:
-        The normalized category string.
+        str: Normalized category string in lowercase with the "category:" prefix and single quotes removed, and "-language " replaced by " language ".
     """
     category = category.lower().replace("category:", "").replace("'", "")
     category = category.replace("-language ", " language ")

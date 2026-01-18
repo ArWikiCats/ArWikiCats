@@ -16,6 +16,12 @@ KeyValueTransform = Callable[[str, str], tuple[str, str]]
 
 
 def _DEFAULT_SANITISER(key, value):
+    """
+    Return the input key and value unchanged.
+
+    Returns:
+        tuple[str, str]: A tuple (key, value) containing the original inputs.
+    """
     return (key, value)
 
 

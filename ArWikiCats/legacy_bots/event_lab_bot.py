@@ -35,6 +35,15 @@ def wrap_lab_for_country2(country: str) -> str:
     """
     TODO: should be moved to functions directory.
     Retrieve laboratory information for a specified country.
+    Resolve a country-specific label for the given country key.
+
+    The input country string is normalized (trimmed and lowercased) and multiple resolver sources and translators are consulted in order; returns the first non-empty label found or an empty string when no label can be resolved. The returned label is intended for use as a localized (Arabic) category or list label.
+
+    Parameters:
+        country (str): Country name or key to resolve; whitespace and case are ignored.
+
+    Returns:
+        str: The resolved country-specific label, or an empty string if none is found.
     """
 
     country2 = country.lower().strip()
@@ -99,14 +108,14 @@ class EventLabResolver:
 
     def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> Tuple[str, str]:
         """
-        Get country-based labels for specific categories like basketball players.
+        Resolve a country-specific Arabic label when the category represents players from a country and adjust the list marker accordingly.
 
-        Args:
-            original_category3 (str): The original category string
-            list_of_cat (str): Current list of category value
+        Parameters:
+            original_category3 (str): The original, unmodified category string used to derive a country-based label.
+            list_of_cat (str): Current list template (e.g., "لاعبو {}") indicating a list form that may be replaced.
 
         Returns:
-            Tuple[str, str]: Updated category label and list of category
+            Tuple[str, str]: A tuple of (category_lab, list_of_cat) where `category_lab` is the resolved Arabic label or an empty string, and `list_of_cat` is the possibly-updated list template (cleared when a country-based label is produced).
         """
         category_lab: str = ""
 
@@ -128,13 +137,15 @@ class EventLabResolver:
 
     def _apply_general_label_functions(self, category3: str) -> str:
         """
-        Apply various general label functions in sequence.
+        Apply a series of general label resolvers to produce an Arabic label for a category.
 
-        Args:
-            category3 (str): The category string to process
+        Attempts resolution in a prioritized sequence (university, time expressions, team/organization patterns, population-style labels, general translations, then country-specific/title fallbacks) and returns the first non-empty label found.
+
+        Parameters:
+            category3 (str): Category name to resolve (normalized text, typically without the "category:" prefix).
 
         Returns:
-            str: The processed category label or empty string
+            str: Resolved Arabic label, or an empty string if no resolver produced a label.
         """
         # Try different label functions in sequence
         category_lab: str = university_resolver.resolve_university_category(category3)
@@ -218,13 +229,14 @@ class EventLabResolver:
 
     def process_category(self, category3: str, cate_r: str) -> str:
         """
-        Main method to process a category and return its Arabic label.
+        Compute the Arabic label for a category string by applying special-case handlers, country-specific resolution, suffix/list processing, event/template resolvers, and general translation fallbacks.
 
-        Args:
-            cate_r (str): The raw category string to process
+        Parameters:
+            category3 (str): The (possibly normalized) category string to resolve.
+            cate_r (str): The original/raw category string used as context for list formatting and error messages.
 
         Returns:
-            str: The Arabic label for the category
+            str: The resolved Arabic label for the category, or an empty string if no label could be determined.
         """
         original_category3 = category3
 
@@ -284,20 +296,27 @@ class EventLabResolver:
 
 @functools.lru_cache(maxsize=1)
 def _load_resolver() -> EventLabResolver:
+    """
+    Provide a cached EventLabResolver instance.
+
+    Returns:
+        EventLabResolver: The resolver instance (cached for reuse).
+    """
     resolver = EventLabResolver()
     return resolver
 
 
 def _finalize_category_label(category_lab: str, cate_r: str) -> str:
     """
-    Finalize the category label by applying final formatting.
+    Format a resolved category label for final output.
 
-    Args:
-        category_lab (str): The current category label
-        cate_r (str): Original category string
+    Uses the original category string `cate_r` as context when fixing the label's title, prefixes the result with "تصنيف:", and returns an empty string if the final result is just the prefix.
+
+    Parameters:
+        cate_r (str): Original category string used as context for title fixing.
 
     Returns:
-        str: The final formatted category label
+        str: The finalized category label prefixed with "تصنيف:", or an empty string if no label remains.
     """
     if category_lab:
         # Apply final formatting and prefix
@@ -312,13 +331,15 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
 
 def _handle_cricketer_categories(category3: str) -> str:
     """
-    Handle special cricket player categories.
+    Produce an Arabic label for cricket-related category names.
 
-    Args:
-        category3 (str): The lowercase category string
+    Recognizes input strings that end with " cricketers" or " cricket captains", extracts the base name, and returns a formatted Arabic label using the translated base name when available.
+
+    Parameters:
+        category3 (str): The lowercase category string to inspect (may end with the recognized suffixes).
 
     Returns:
-        str: The processed category label or empty string
+        str: Formatted Arabic label (e.g., "لاعبو كريكت من <X>" or "قادة كريكت من <X>") if a translation for the base name is found, otherwise an empty string.
     """
     category32: str = ""
     list_of_cat2: str = ""

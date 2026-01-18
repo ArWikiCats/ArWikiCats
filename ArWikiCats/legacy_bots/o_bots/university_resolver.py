@@ -69,7 +69,12 @@ def _normalise_category(category: str) -> str:
 
 
 def _resolve(normalized_category: str) -> str:
-    """Resolve a university-related category to its Arabic label."""
+    """
+    Resolve a normalized university-related category into its Arabic university label.
+
+    Returns:
+        str: The Arabic university label formatted with the resolved city name, or an empty string if no mapping is found.
+    """
     logger.info(
         f"<<lightblue>>>> vvvvvvvvvvvv resolve_university_category start, (category:{normalized_category}) vvvvvvvvvvvv "
     )
@@ -120,13 +125,14 @@ def _resolve(normalized_category: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def resolve_university_category(category: str) -> str:
-    """Return the Arabic label for university-related categories.
+    """
+    Resolve a university-related category into its Arabic label.
 
-    Args:
-        category: Category representing a university or faculty.
+    Parameters:
+        category (str): A category string describing a university or faculty.
 
     Returns:
-        The resolved Arabic label or an empty string when no mapping exists.
+        The resolved Arabic label, or an empty string if no mapping exists.
     """
 
     normalized_category = _normalise_category(category)

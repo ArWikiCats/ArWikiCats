@@ -86,7 +86,16 @@ class FormatData(FormatDataBase):
 
     @functools.lru_cache(maxsize=None)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
-        """Replace value placeholder once template is chosen."""
+        """
+        Format the given template by replacing the instance of the value placeholder with the provided value.
+
+        Parameters:
+            template_label (str): Template string expected to contain `self.value_placeholder`.
+            sport_label (str): Replacement text to substitute for the value placeholder.
+
+        Returns:
+            str: The formatted label with the placeholder replaced and surrounding whitespace trimmed if the placeholder was successfully removed; an empty string if the placeholder still remains.
+        """
         final_label = template_label.replace(self.value_placeholder, sport_label)
 
         if self.value_placeholder not in final_label:
@@ -95,7 +104,16 @@ class FormatData(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
-        """Replace the value placeholder in the given label with the provided value."""
+        """
+        Replace the instance's configured value placeholder in a label with the provided value.
+
+        Parameters:
+            label (str): The text containing the value placeholder to be replaced.
+            value (str): The string to substitute for the value placeholder.
+
+        Returns:
+            str: The label with the value placeholder replaced by `value`.
+        """
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         # Replace placeholder
         return label.replace(self.value_placeholder, value)

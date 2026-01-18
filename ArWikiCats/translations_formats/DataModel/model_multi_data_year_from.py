@@ -84,7 +84,17 @@ class FormatDataFrom:
         match_key_callback: Callable,
         fixing_callback: Optional[Callable] = None,
     ) -> None:
-        """Initialize the formatter with patterns, placeholders, and logic callbacks."""
+        """
+        Create a FormatDataFrom instance configured with templates, placeholders, and lookup/matching callbacks.
+
+        Parameters:
+            formatted_data (dict[str, str]): Mapping of template keys to their Arabic label templates.
+            key_placeholder (str): Placeholder string used to replace matched keys in category templates (e.g., "{country1}").
+            value_placeholder (str): Placeholder in Arabic templates to be replaced with the translated key value.
+            search_callback (Callable): Function that takes a key string and returns its translated label.
+            match_key_callback (Callable): Function that extracts the key from a category string; returns the matched substring or None.
+            fixing_callback (Optional[Callable]): Optional post-processing function applied to final labels; receives the label and value and returns a fixed string.
+        """
         self.search_callback = search_callback
         self.match_key_callback = match_key_callback
 
@@ -112,10 +122,15 @@ class FormatDataFrom:
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
         """
-        Normalize nationality placeholders within a category string.
+        Extract the key from a category and return the key plus the category with that key replaced by the key placeholder.
 
-        Example:
-            category:"Yemeni national football teams", result: "natar national football teams"
+        Parameters:
+            category (str): Category string to analyze and normalize.
+
+        Returns:
+            tuple[str, str]: A tuple where the first element is the extracted key (empty string if none),
+            and the second element is the category with the key replaced by the key placeholder
+            (empty string if no key was found).
         """
         key = self.match_key(category)
         result = ""
@@ -124,7 +139,16 @@ class FormatDataFrom:
         return key, result
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
-        """Replace the value placeholder and optionally apply a fixing callback."""
+        """
+        Substitutes the instance's value placeholder in a label with the provided value and applies an optional post-processing callback.
+
+        Parameters:
+            label (str): Template string that may contain the instance's value placeholder.
+            value (str): Text to replace the value placeholder with.
+
+        Returns:
+            str: The label with the placeholder replaced; if a fixing callback is configured, its output is returned.
+        """
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
@@ -133,7 +157,15 @@ class FormatDataFrom:
         return result
 
     def get_template_ar(self, template_key: str) -> str:
-        """Lookup template in a case-insensitive dict."""
+        """
+        Retrieve the Arabic template for a template key using a case-insensitive lookup and optional "category:" prefix handling.
+
+        Parameters:
+            template_key (str): Template key to look up; may include or omit the "category:" prefix.
+
+        Returns:
+            str: The matched Arabic template, or an empty string if no template is found.
+        """
         # Case-insensitive key lookup
         template_key = template_key.lower()
         logger.debug(f"get_template_ar: {template_key=}")
@@ -150,24 +182,54 @@ class FormatDataFrom:
         return result
 
     def get_key_label(self, key: str) -> str:
-        """Translate the extracted key into its Arabic label."""
+        """
+        Return the Arabic label for a matched key extracted from a category.
+
+        Parameters:
+            key (str): The extracted key (e.g., a country or year token) to translate.
+
+        Returns:
+            str: The Arabic label for `key`, or an empty string if `key` is empty.
+        """
         if not key:
             return ""
         logger.debug(f"get_key_label: {key=}")
         return self.search(key)
 
     def search(self, text: str) -> str:
-        """Translate the given text using the search callback."""
+        """
+        Translate the given text using the configured search callback.
+
+        @returns The translated text produced by the search callback.
+        """
         return self.search_callback(text)
 
     def prepend_arabic_category_prefix(self, category: str, result: str) -> str:
-        """Add the Arabic category prefix if the original category had it."""
+        """
+        Ensure the Arabic prefix "تصنيف:" is present on `result` when `category` begins with "category:".
+
+        Parameters:
+            category (str): The original category string to check (case-insensitive).
+            result (str): The label that may require the Arabic "تصنيف:" prefix.
+
+        Returns:
+            str: `result` with "تصنيف:" prepended if `category` started with "category:" and `result` did not already start with "تصنيف:", otherwise `result` unchanged.
+        """
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
         return result
 
     def search_all(self, key: str, add_arabic_category_prefix: bool = False) -> str:
-        """Perform a full search for the key, optionally adding the category prefix."""
+        """
+        Translate the provided key and optionally ensure the Arabic category prefix is present.
+
+        Parameters:
+            key (str): The category or token to translate.
+            add_arabic_category_prefix (bool): If True, prefix the result with the Arabic category marker "تصنيف:" when appropriate.
+
+        Returns:
+            str: The translated label for the key (empty string if not found); possibly prefixed with "تصنيف:" when requested and applicable.
+        """
         result = self.search(key)
 
         if add_arabic_category_prefix:

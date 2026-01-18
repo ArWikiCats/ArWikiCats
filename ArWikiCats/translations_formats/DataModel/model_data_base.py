@@ -285,18 +285,27 @@ class FormatDataBase:
 
     @functools.lru_cache(maxsize=None)
     def create_label(self, category: str) -> str:
-        """Public wrapper around ``_search`` with caching."""
+        """
+        Produce the translated label for a category string.
+
+        Parameters:
+            category (str): The input category to translate.
+
+        Returns:
+            str: The translated Arabic label for the category, or an empty string if no translation is available.
+        """
         return self._search(category)
 
     def prepend_arabic_category_prefix(self, category, result) -> str:
-        """Prepend Arabic category prefix if needed.
+        """
+        Prepend the Arabic category prefix "تصنيف:" to `result` when `category` begins with "category:" and `result` is not already prefixed.
 
-        Args:
-            category (str): The original category string.
+        Parameters:
+            category (str): The original category string; checked case-insensitively for the "category:" prefix.
             result (str): The result string to modify.
 
         Returns:
-            str: The result with prefix prepended if applicable.
+            str: `result` with "تصنيف:" prepended when applicable, otherwise the original `result`.
         """
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
@@ -304,7 +313,16 @@ class FormatDataBase:
 
     @functools.lru_cache(maxsize=None)
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
-        """Public wrapper around ``_search`` with caching."""
+        """
+        Compute the Arabic translation for a category and optionally prepend the Arabic "تصنيف:" prefix.
+
+        Parameters:
+            category (str): The input category to translate; may include a "category:" prefix.
+            add_arabic_category_prefix (bool): If True and the input starts with "category:", ensure the returned label is prefixed with "تصنيف:" when the translation does not already start with that prefix.
+
+        Returns:
+            str: The translated Arabic label for the category, or an empty string if no translation is found.
+        """
         result = self._search(category)
 
         if add_arabic_category_prefix:
@@ -312,14 +330,17 @@ class FormatDataBase:
         return result
 
     def check_placeholders(self, category: str, result: str) -> str:
-        """Check for unprocessed placeholders in the result.
+        """
+        Validate that the translated result contains no unprocessed placeholders.
 
-        Args:
-            category (str): The category string.
-            result (str): The result string to check.
+        If the result contains a literal "{" character, a warning is logged (including the original category) and an empty string is returned; otherwise the original result is returned.
+
+        Parameters:
+            category (str): Original category string used for context in warnings.
+            result (str): Translated/processed string to check for unprocessed placeholders.
 
         Returns:
-            str: The result if no placeholders, otherwise empty string.
+            str: The original `result` if it contains no "{", otherwise an empty string.
         """
         if "{" in result:
             logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
@@ -327,13 +348,13 @@ class FormatDataBase:
         return result
 
     def search_all_category(self, category: str) -> str:
-        """Search for category translation with full processing.
+        """
+        Translate a category string through full normalization, Arabic prefix handling, and placeholder validation.
 
-        Args:
-            category (str): The category string to translate.
+        Normalizes the input by lowercasing and removing a leading "category:" prefix, performs the translation lookup, prepends the Arabic prefix "تصنيف:" when the original input started with "category:" and the result does not already start with that prefix, and returns an empty string if translation fails or unprocessed placeholders remain.
 
         Returns:
-            str: The translated category label.
+            str: Final translated label, or an empty string if no valid translation is found or placeholders are unprocessed.
         """
         logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
