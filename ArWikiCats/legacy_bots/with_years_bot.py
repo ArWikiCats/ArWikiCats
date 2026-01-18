@@ -23,16 +23,10 @@ from .matables_bots.data import Add_in_table
 from .matables_bots.table1_bot import get_KAKO
 from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
+from .political_terms import _handle_political_terms
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
-
-known_bodies = {
-    # "term of the Iranian Majlis" : "المجلس الإيراني",
-    "iranian majlis": "المجلس الإيراني",
-    "united states congress": "الكونغرس الأمريكي",
-}
-
 
 arabic_labels_preceding_year = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
@@ -40,9 +34,6 @@ arabic_labels_preceding_year = [
     "كتاب بأسماء مستعارة",
     "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
-
-pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
-_political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -72,27 +63,6 @@ def wrap_lab_for_country2(country: str) -> str:
     logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
 
     return resolved_label
-
-
-def _handle_political_terms(category_text: str) -> str:
-    """Handles political terms like 'united states congress'."""
-    # كونغرس
-    # cs = re.match(r"^(\d+)(th|nd|st|rd) united states congress", category_text)
-    match = _political_terms_pattern.match(category_text.lower())
-    if not match:
-        return ""
-    ordinal_number = match.group(1)
-    body_key = match.group(3)
-
-    body_label = known_bodies.get(body_key, "")
-    if not body_label:
-        return ""
-
-    ordinal_label = change_numb_to_word.get(ordinal_number, f"الـ{ordinal_number}")
-
-    label = f"{body_label} {ordinal_label}"
-    logger.debug(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
-    return label
 
 
 def _handle_year_at_start(category_text: str) -> str:
