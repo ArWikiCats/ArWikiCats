@@ -481,6 +481,7 @@ All_Nat: AllNatDict = {k.lower(): v for k, v in nationalities_data.items()}
 
 American_nat = build_american_forms(nationalities_data)
 All_Nat.update(American_nat)
+
 result_tables = build_lookup_tables(All_Nat)
 
 Nat_men: LookupTable = result_tables["Nat_men"]
