@@ -5,10 +5,7 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 """
 
 from ...helps import len_print
-from ...translations import (
-    ALBUMS_TYPE,
-    Jobs_new,
-)
+from ...translations import Jobs_new
 
 typeTable_7: dict[str, str] = {
     "air force": "قوات جوية",
@@ -36,31 +33,6 @@ typeTable_7: dict[str, str] = {
 }
 
 
-def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
-    """Create prefix mappings for album-related categories.
-
-    Args:
-        albums_typies: Dictionary mapping album types to their descriptions
-
-    Returns:
-        Dictionary of prefix mappings for album categories
-    """
-    Pp_Priffix = {
-        " memorials": "نصب {} التذكارية",
-        " video albums": "ألبومات فيديو {}",
-        " albums": "ألبومات {}",
-        " cabinet": "مجلس وزراء {}",
-        " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
-        " administration personnel": "موظفو إدارة {}",
-        " executive office": "مكتب {} التنفيذي",
-    }
-
-    for io in albums_typies:
-        Pp_Priffix[f"{io} albums"] = "ألبومات %s {}" % albums_typies[io]
-
-    return Pp_Priffix
-
-
 def _make_players_keys() -> dict:
     """Create a dictionary of player-related keys for category mapping.
 
@@ -81,8 +53,6 @@ def _make_players_keys() -> dict:
 
 
 players_new_keys = _make_players_keys()
-
-Pp_Priffix = _create_pp_prefix(ALBUMS_TYPE)
 
 All_P17 = {}
 Films_O_TT = {}
@@ -124,5 +94,4 @@ __all__ = [
     "add_to_new_players",
     "add_to_Films_O_TT",
     "All_P17",
-    "Pp_Priffix",
 ]

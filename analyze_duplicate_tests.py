@@ -158,7 +158,7 @@ class DuplicateTestAnalyzer:
             print(f"\n{idx}. تكرر {len(locations)} مرة:")
             print(f"   المفتاح: {key}")
             print(f"   القيمة: {value}")
-            print(f"   المواقع:")
+            print("   المواقع:")
 
             for file_path, dict_name, line_num in locations:
                 rel_path = Path(file_path).relative_to(self.base_path.parent)

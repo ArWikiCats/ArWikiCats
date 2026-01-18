@@ -41,7 +41,7 @@ arabic_labels_preceding_year = [
     "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
 
-pattern_str = r"^(\d+)(th|nd|st|rd) (%s)$" % "|".join(known_bodies.keys())
+pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 

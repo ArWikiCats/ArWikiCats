@@ -6,9 +6,36 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
-from ..matables_bots.bot import Pp_Priffix
+from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add, ALBUMS_TYPE
 from .utils import resolve_suffix_template
+
+
+def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
+    """Create prefix mappings for album-related categories.
+
+    Args:
+        albums_typies: Dictionary mapping album types to their descriptions
+
+    Returns:
+        Dictionary of prefix mappings for album categories
+    """
+    data = {
+        " memorials": "نصب {} التذكارية",
+        " video albums": "ألبومات فيديو {}",
+        " albums": "ألبومات {}",
+        " cabinet": "مجلس وزراء {}",
+        " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
+        " administration personnel": "موظفو إدارة {}",
+        " executive office": "مكتب {} التنفيذي",
+    }
+
+    for io in albums_typies:
+        data[f"{io} albums"] = f"ألبومات {albums_typies[io]} {{}}"
+
+    return data
+
+
+albumTypePrefixes = _create_pp_prefix(ALBUMS_TYPE)
 
 
 def work_peoples_old(name: str) -> str:
@@ -24,7 +51,7 @@ def work_peoples_old(name: str) -> str:
     PpP_lab = ""
     person = ""
     pri = ""
-    for pri_ff in Pp_Priffix:
+    for pri_ff in albumTypePrefixes:
         if not person:
             if name.endswith(pri_ff):
                 logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
@@ -38,7 +65,7 @@ def work_peoples_old(name: str) -> str:
 
     if person and personlab:
         logger.info(f">>>><<lightblue>> {person=}, {personlab=}")
-        PpP_lab = Pp_Priffix[pri].format(personlab)
+        PpP_lab = albumTypePrefixes[pri].format(personlab)
         logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
     return PpP_lab
 
@@ -60,7 +87,7 @@ def work_peoples(name: str) -> str:
         """Fetch a people label using the given prefix key."""
         return People_key.get(prefix, "")
 
-    label = resolve_suffix_template(name, Pp_Priffix, _lookup)
+    label = resolve_suffix_template(name, albumTypePrefixes, _lookup)
     if label:
         logger.debug(f"Resolved work_peoples: {name=}, {label=}")
     else:

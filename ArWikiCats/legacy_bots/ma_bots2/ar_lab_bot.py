@@ -325,7 +325,7 @@ class Fixing:
                     tatl = ""
 
                 ar_separator = f" {tatl} "
-                logger.info("ar_separator:%s" % ar_separator)
+                logger.info(f"ar_separator:{ar_separator}")
                 self.cate_test = self.cate_test.replace(self.separator, "")
 
         # in_tables_1 = check_key_new_players(self.country_lower)
