@@ -34,18 +34,7 @@ from . import general_resolver
 
 @functools.lru_cache(maxsize=10000)
 def get_lab_for_country2(country: str) -> str:
-    """Retrieve Arabic label information for a specified country.
-
-    This function attempts to find the Arabic label for a given country
-    by querying multiple data sources in sequence.
-
-    Args:
-        country: The country name to look up
-
-    Returns:
-        The Arabic label for the country or an empty string if not found
-    """
-
+    """Retrieve Arabic label information for a specified country."""
     country2 = country.lower().strip()
 
     resolved_label = (
@@ -61,26 +50,15 @@ def get_lab_for_country2(country: str) -> str:
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
         or ""
     )
     logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
-
     return resolved_label
 
 
 @functools.lru_cache(maxsize=None)
 def Get_country2(country: str) -> str:
-    """
-    Resolve the Arabic label for a country name using layered resolution and normalization.
-
-    Parameters:
-        country (str): The country name to resolve.
-
-    Returns:
-        str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
-    """
-
+    """Resolve the Arabic label for a country name using layered resolution."""
     normalized_country = country.lower().strip()
     logger.info(f'>> Get_country2 "{normalized_country}":')
 
@@ -88,37 +66,26 @@ def Get_country2(country: str) -> str:
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
         or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
-        or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
 
     if resolved_label:
         resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
-
-    resolved_label = " ".join(resolved_label.strip().split())
+        resolved_label = " ".join(resolved_label.strip().split())
 
     logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
-
     return resolved_label
 
 
 @functools.lru_cache(maxsize=10000)
 def _resolve_remainder(remainder: str) -> str:
-    """Helper to resolve the label for the remainder of a string.
-
-    Args:
-        remainder: The remaining part of the string to process
-
-    Returns:
-        The resolved Arabic label or an empty string if not found
-    """
-    label = (
+    """Helper to resolve the label for the remainder of a string."""
+    return (
         Get_country2(remainder)
         or get_lab_for_country2(remainder)
         or general_resolver.translate_general_category(remainder, fix_title=False)
         or ""
     )
-    return label
 
 
 def _validate_separators(country: str) -> bool:
@@ -201,41 +168,29 @@ class CountryLabelRetriever:
 
     @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
-        """
-        Resolve an Arabic label for a country name using layered lookup strategies.
+        """Resolve an Arabic label for a country name using layered lookup strategies."""
+        country = country.lower().strip()
 
-        Parameters:
-            country (str): Country name to resolve; case is normalized internally.
-            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
-
-        Returns:
-            str: The resolved Arabic label, or an empty string if no label is found.
-        """
-        country = country.lower()
-
-        logger.debug(">> ----------------- get_country start ----------------- ")
         logger.debug(f"<<yellow>> start get_country_label: {country=}")
 
         resolved_label = self._check_basic_lookups(country)
 
-        if resolved_label == "" and start_get_country2:
+        if not resolved_label and start_get_country2:
             resolved_label = Get_country2(country)
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country)
-                or self._check_prefixes(country)
+                self._check_prefixes(country)
                 or check_historical_prefixes(country)
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
                 or SPORTS_KEYS_FOR_LABEL.get(country, "")
-                or ""
+                or _resolve_remainder(country)
             )
 
-        if resolved_label:
-            if "سنوات في القرن" in resolved_label:
-                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
+        if resolved_label and "سنوات في القرن" in resolved_label:
+            resolved_label = resolved_label.replace("سنوات في القرن", "سنوات القرن")
 
         logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
@@ -329,48 +284,31 @@ class CountryLabelRetriever:
     def get_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
     ) -> str:
-        """
-        Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
-
-        Parameters:
-        	term_lower (str): The input term in lowercase.
-        	separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
-        	lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
-        	start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
-
-        Returns:
-        	str: The resolved Arabic label, or an empty string if no resolution is found.
-        """
+        """Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks."""
+        term_lower = term_lower.strip()
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
 
         # Check for numeric/empty terms
-        test_numeric = re.sub(r"\d+", "", term_lower.strip())
-        if test_numeric in ["", "-", "–", "−"]:
+        if not re.search(r"[a-z]", term_lower):
             return term_lower
 
-        term_label = New_female_keys.get(term_lower, "") or religious_entries.get(term_lower, "")
-        if not term_label:
-            term_label = convert_time_to_arabic(term_lower)
+        term_label = (
+            New_female_keys.get(term_lower, "")
+            or religious_entries.get(term_lower, "")
+            or convert_time_to_arabic(term_lower)
+        )
 
-        if term_label == "" and lab_type != "type_label":
+        if not term_label:
             if term_lower.startswith("the "):
-                logger.info(f'>>>> {term_lower=} startswith("the ")')
-                term_without_the = term_lower[len("the ") :]
-                term_label = get_pop_All_18(term_without_the, "")
-                if not term_label:
-                    term_label = self.get_country_label(term_without_the, start_get_country2=start_get_country2)
-
-        if not term_label:
-            if re.sub(r"\d+", "", term_lower) == "":
-                term_label = term_lower
+                term_without_the = term_lower[4:]
+                term_label = get_pop_All_18(term_without_the, "") or self.get_country_label(
+                    term_without_the, start_get_country2=start_get_country2
+                )
             else:
-                term_label = convert_time_to_arabic(term_lower)
-
-        if term_label == "":
-            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
+                term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
         if not term_label and lab_type == "type_label":
             term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
@@ -378,62 +316,34 @@ class CountryLabelRetriever:
         if term_label:
             logger.info(f"get_term_label {term_label=} ")
         elif separator.strip() == "for" and term_lower.startswith("for "):
-            return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
+            return self.get_term_label(term_lower[4:], "", lab_type=lab_type, start_get_country2=start_get_country2)
 
         return term_label
 
     def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
-        """
-        Resolve a label for terms treated as types that end with suffixes like " of", " in", or " at".
-
-        Attempts to translate the base term (term without the suffix) using job/person mappings, population translations, or country-label lookup and then appends the appropriate Arabic connector ("من" or "في"). If no suffixed form matches, optionally tries a population lookup for "in" separator and finally falls back to a general country-label lookup.
-
-        Parameters:
-            term_lower (str): Lowercased term to process (may end with " of", " in", or " at").
-            separator (str): Separator context such as "in" that can alter fallback behaviour.
-            start_get_country2 (bool): If true, allow the enhanced country lookup path when resolving base terms.
-
-        Returns:
-            str: The resolved Arabic label for the term, or an empty string if no label is found.
-        """
-        suffixes = [" of", " in", " at"]
-        term_label = ""
-
-        for suffix in suffixes:
+        """Resolve a label for terms treated as types that end with specific suffixes."""
+        for suffix, connector in [(" of", " من "), (" in", " في "), (" at", " في ")]:
             if not term_lower.endswith(suffix):
                 continue
 
             base_term = term_lower[: -len(suffix)]
-            translated_base = jobs_mens_data.get(base_term, "")
+            translated_base = (
+                jobs_mens_data.get(base_term, "")
+                or get_pop_All_18(base_term, "")
+                or self.get_country_label(base_term, start_get_country2=start_get_country2)
+            )
 
-            logger.info(f" {base_term=}, {translated_base=}, {term_lower=} ")
-
-            if term_label == "" and translated_base:
-                term_label = f"{translated_base} من "
-                logger.info(f"jobs_mens_data:: add من to {term_label=}, line:1583.")
-
-            if not translated_base:
-                translated_base = get_pop_All_18(base_term, "")
-
-            if not translated_base:
-                translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
-
-            if term_label == "" and translated_base:
+            if translated_base:
                 if term_lower in pop_of_without_in:
-                    term_label = translated_base
-                    logger.info("skip add في to pop_of_without_in")
-                else:
-                    term_label = f"{translated_base} في "
-                    logger.info(f"XX add في to {term_label=}, line:1596.")
-                return term_label  # Return immediately if found
+                    return translated_base
+                return f"{translated_base}{connector}".strip()
 
-        if term_label == "" and separator.strip() == "in":
+        if separator.strip() == "in":
             term_label = get_pop_All_18(f"{term_lower} in", "")
+            if term_label:
+                return term_label
 
-        if not term_label:
-            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
-
-        return term_label
+        return self.get_country_label(term_lower, start_get_country2=start_get_country2)
 
 
 # Instantiate the retriever
