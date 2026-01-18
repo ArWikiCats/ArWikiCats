@@ -29,6 +29,16 @@
         "en": "afghanistan",
         "ar": "أفغانستان"
     },
+    "african-american": {
+        "male": "أمريكي إفريقي",
+        "males": "أمريكيون أفارقة",
+        "female": "أمريكية إفريقية",
+        "females": "أمريكيات إفريقيات",
+        "the_male": "الأمريكي الإفريقي",
+        "the_female": "الأمريكية الإفريقية",
+        "en": "african americans",
+        "ar": "أمريكيون أفارقة"
+    },
     "africanamerican": {
         "male": "أمريكي إفريقي",
         "males": "أمريكيون أفارقة",
