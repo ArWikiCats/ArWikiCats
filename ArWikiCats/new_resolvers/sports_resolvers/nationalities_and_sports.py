@@ -17,6 +17,7 @@ from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
 from .utils import fix_keys
+from .formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 
 
 @functools.lru_cache(maxsize=1)
@@ -130,8 +131,7 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} mens {en_sport} national team": "منتخب {ar} {sport_team} للرجال",
         "{en} mens u23 national {en_sport} team": "منتخب {ar} {sport_team} تحت 23 سنة للرجال",
         "{en} {en_sport} national team": "منتخب {ar} {sport_team}",
-        "{en} open ({en_sport})": "{ar} المفتوحة {sport_team}",
-        "{en} open {en_sport}": "{ar} المفتوحة {sport_team}",
+
         "first league of {en}": "دوري {ar} الممتاز",
         "{en}-american coaches of canadian-football": "مدربو كرة قدم كندية أمريكيون {males}",
         # "yemeni men's basketball players" : "لاعبو كرة سلة رجالية يمنيون",
@@ -284,6 +284,7 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} rugby league": "الدوري {the_male} للرجبي",
     }
 
+    sports_formatted_data.update(SPORTS_FORMATTED_DATA_NATS_AND_NAMES)
     sports_formatted_data.update(_levels_data())
     sports_formatted_data.update(sports_formatted_data_for_jobs)
 

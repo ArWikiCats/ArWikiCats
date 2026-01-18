@@ -13,10 +13,10 @@ from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_
 from ..countries_names_resolvers.countries_names_data import formatted_data_en_ar_only
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys
+from .formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 # NOTE: patterns with only en-ar-time should be in COUNTRY_YEAR_DATA to handle countries-time without gender details
-
 
 @functools.lru_cache(maxsize=1)
 def _load_sports_formatted_data() -> dict[str, str]:
@@ -134,6 +134,7 @@ def _load_sports_formatted_data() -> dict[str, str]:
         if "womens national" in x
     }
 
+    sports_formatted_data.update(SPORTS_FORMATTED_DATA_NATS_AND_NAMES)
     sports_formatted_data.update(WOMENS_NATIONAL_DATA)
     sports_formatted_data.update(formatted_data_en_ar_only)  # NOTE: should not be here!
     return sports_formatted_data
