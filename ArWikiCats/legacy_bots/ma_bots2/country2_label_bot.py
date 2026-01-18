@@ -28,9 +28,16 @@ from .utils import split_text_by_separator
 
 @functools.lru_cache(maxsize=10000)
 def wrap_lab_for_country2(country: str) -> str:
-    """
-    TODO: should be moved to functions directory.
-    Retrieve laboratory information for a specified country.
+    """Retrieve Arabic label information for a specified country.
+
+    This function attempts to find the Arabic label for a given country
+    by querying multiple data sources in sequence.
+
+    Args:
+        country: The country name to look up
+
+    Returns:
+        The Arabic label for the country or an empty string if not found
     """
 
     country2 = country.lower().strip()
@@ -57,7 +64,14 @@ def wrap_lab_for_country2(country: str) -> str:
 
 
 def time_label(text: str) -> str:
-    """Generate a time-related label based on the provided text."""
+    """Generate a time-related label based on the provided text.
+
+    Args:
+        text: The text to check for time-related content
+
+    Returns:
+        The original text if it contains only digits, otherwise an empty string
+    """
     tst3 = re.sub(r"\d+", "", text.strip())
     test3_results = ["", "-", "–", "−"]
     if tst3 in test3_results:
@@ -66,6 +80,15 @@ def time_label(text: str) -> str:
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
+    """Get a label from the table with 'in' mappings.
+
+    Args:
+        cone_1: The first part of the category
+        separator: The separator between parts
+
+    Returns:
+        The mapped label or an empty string if not found
+    """
     table_with_in = {
         "sport in": "الرياضة في",
     }
@@ -78,8 +101,16 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
-    """
-    Retrieve a label based on the given parameters.
+    """Retrieve a label based on the given parameters.
+
+    Args:
+        separator: The separator between parts
+        cone_1: The first part of the category
+        with_years: Whether to include year processing
+
+    Returns:
+        The resolved label or an empty string if not found
+
     Example:
         {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     """
@@ -115,7 +146,15 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
-    """Retrieve a label based on the provided cone identifier."""
+    """Retrieve a label based on the provided cone identifier.
+
+    Args:
+        cone_2: The second part of the category
+        with_years: Whether to include year processing
+
+    Returns:
+        The resolved label or an empty string if not found
+    """
 
     cone_2 = cone_2.strip().lower()
 
