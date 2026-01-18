@@ -20,7 +20,7 @@ from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
 from ..new_resolvers import all_new_resolvers
-from ..fix import fixlabel
+from ..fix import fixlabel, cleanse_category_label
 
 
 @dataclass
@@ -52,10 +52,17 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         )
 
     is_cat_okay = filter_en.filter_cat(category)
+    if not is_cat_okay:
+        logger.debug(f"Category filtered out: {category}")
+        return CategoryResult(
+            en=category,
+            ar="",
+            from_match=False,
+        )
 
     from_match = False
     # category_lab = ""
-    category_lab = resolve_lab_from_years_patterns(category)
+    category_lab = all_patterns_resolvers(category)
 
     if category_lab:
         from_match = True
@@ -66,15 +73,15 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             or ""
         )
 
-    if not category_lab:
-        category_lab = (
-            all_patterns_resolvers(changed_cat)
-            # resolve_country_time_pattern(changed_cat)
-            # or nat_males_pattern.resolve_nat_males_pattern(changed_cat)
-        )
-        from_match = category_lab != ""
+    # if not category_lab:
+    #     category_lab = (
+    #         all_patterns_resolvers(changed_cat)
+    #         # resolve_country_time_pattern(changed_cat)
+    #         # or nat_males_pattern.resolve_nat_males_pattern(changed_cat)
+    #     )
+    #     from_match = category_lab != ""
 
-    if not category_lab and is_cat_okay:
+    if not category_lab:
 
         category_lab = (
             univer.te_universities(changed_cat)
@@ -87,7 +94,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
         if not category_lab:
             category_lab = event_lab_bot.event_Lab(changed_cat)
 
-    if not category_lab and is_cat_okay:
+    if not category_lab:
         category_lab = ye_ts_bot.translate_general_category(changed_cat)
 
     if category_lab and fix_label:
@@ -100,7 +107,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     # if not from_year and cat_year:
     # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
 
-    category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
+    category_lab = cleanse_category_label(category_lab)
 
     return CategoryResult(
         en=category,

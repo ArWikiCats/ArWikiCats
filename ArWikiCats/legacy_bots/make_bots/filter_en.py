@@ -60,15 +60,18 @@ def filter_cat(cat: str) -> bool:
         if blocked_fragment in normalized_category:
             logger.info(f"<<lightred>> find ({blocked_fragment}) in cat")
             return False
+
     normalized_category = normalized_category.replace("category:", "")
     for blocked_prefix in CATEGORY_PREFIX_BLACKLIST:
         if normalized_category.startswith(blocked_prefix.lower()):
             logger.info(f"<<lightred>> cat.startswith({blocked_prefix})")
             return False
+
     for month_name in MONTH_NAMES:
         # match the end of cat like month \d+
         matt = rf"^.*? from {month_name.lower()} \d+$"
         if re.match(matt, normalized_category):
             logger.info(f"<<lightred>> cat.match({matt})")
             return False
+
     return True

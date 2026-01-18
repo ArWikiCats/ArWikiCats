@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from .fixtitle import add_fee, fix_it, fixlabel
+from .fixtitle import add_fee, fix_it, fixlabel, cleanse_category_label
 from .mv_years import move_by_in, move_years, move_years_first
 
 __all__ = [
+    "cleanse_category_label",
     "add_fee",
     "fix_it",
     "fixlabel",
