@@ -22,7 +22,7 @@ from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_
 from .matables_bots.data import Add_in_table
 from .matables_bots.table1_bot import get_KAKO
 from .o_bots import parties_resolver, university_resolver
-from .o_bots.peoples_resolver import work_peoples
+from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
 from .political_terms import handle_political_terms
 
 # Precompiled Regex Patterns

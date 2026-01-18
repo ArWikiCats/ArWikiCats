@@ -17,7 +17,7 @@ from .. import team_work, with_years_bot
 from ..ma_bots2 import year_or_typeo
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..o_bots import university_resolver
-from ..o_bots.peoples_resolver import work_peoples
+from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
 from . import general_resolver
 from .country_bot import event2_d2
 

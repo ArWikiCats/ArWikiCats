@@ -25,7 +25,7 @@ from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import bys, parties_resolver, university_resolver
-from ..o_bots.peoples_resolver import work_peoples
+from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
 
 
 @functools.lru_cache(maxsize=10000)
