@@ -64,13 +64,6 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)
 
-    # NOTE: causing some issues with years and decades
-    # [Category:1930s Japanese novels] : "تصنيف:روايات يابانية في عقد 1930",
-    # [Category:1930s Japanese novels] : "تصنيف:روايات يابانية في عقد 1930",
-
-    # if not from_year and cat_year:
-    # labs_years_bot.lab_from_year_add(category, category_lab, en_year=cat_year)
-
     category_lab = cleanse_category_label(category_lab)
 
     return CategoryResult(
