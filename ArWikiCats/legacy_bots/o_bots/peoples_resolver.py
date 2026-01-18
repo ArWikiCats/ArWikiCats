@@ -6,30 +6,29 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
+from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key
 
 
 labelSuffixMappings = {
-    " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
-    " administration personnel": "موظفو إدارة {}",
-    " albums": "ألبومات {}",
-    " cabinet": "مجلس وزراء {}",
-    " executive office": "مكتب {} التنفيذي",
-    " memorials": "نصب {} التذكارية",
-    " video albums": "ألبومات فيديو {}",
-    "animation albums": "ألبومات رسوم متحركة {}",
-    "comedy albums": "ألبومات كوميدية {}",
-    "compilation albums": "ألبومات تجميعية {}",
-    "concept albums": "ألبومات مفاهيمية {}",
-    "eps albums": "ألبومات أسطوانة مطولة {}",
-    "folk albums": "ألبومات فولك {}",
-    "folktronica albums": "ألبومات فولكترونيكا {}",
-    "jazz albums": "ألبومات جاز {}",
-    "live albums": "ألبومات مباشرة {}",
-    "mixtape albums": "ألبومات ميكستايب {}",
-    "remix albums": "ألبومات ريمكس {}",
-    "surprise albums": "ألبومات مفاجئة {}",
-    "video albums": "ألبومات فيديو {}"
+    "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
+    "administration personnel": "موظفو إدارة {ar}",
+    "albums": "ألبومات {ar}",
+    "animation albums": "ألبومات رسوم متحركة {ar}",
+    "cabinet": "مجلس وزراء {ar}",
+    "comedy albums": "ألبومات كوميدية {ar}",
+    "compilation albums": "ألبومات تجميعية {ar}",
+    "concept albums": "ألبومات مفاهيمية {ar}",
+    "eps albums": "ألبومات أسطوانة مطولة {ar}",
+    "executive office": "مكتب {ar} التنفيذي",
+    "folk albums": "ألبومات فولك {ar}",
+    "folktronica albums": "ألبومات فولكترونيكا {ar}",
+    "jazz albums": "ألبومات جاز {ar}",
+    "live albums": "ألبومات مباشرة {ar}",
+    "memorials": "نصب {ar} التذكارية",
+    "mixtape albums": "ألبومات ميكستايب {ar}",
+    "remix albums": "ألبومات ريمكس {ar}",
+    "surprise albums": "ألبومات مفاجئة {ar}",
+    "video albums": "ألبومات فيديو {ar}",
 }
 
 
@@ -48,10 +47,10 @@ def work_peoples(name: str) -> str:
     prefix_type = ""
 
     for name_end_suffix in labelSuffixMappings:
-        if name.endswith(name_end_suffix):
+        if name.endswith(name_end_suffix.strip()):
             logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
-            prefix_type = name_end_suffix
-            person_key = name[: -len(name_end_suffix)]
+            prefix_type = name_end_suffix.strip()
+            person_key = name[: -len(name_end_suffix)].strip()
             break
 
     if not person_key:
@@ -69,7 +68,7 @@ def work_peoples(name: str) -> str:
         return ""
 
     logger.info(f">>>><<lightblue>> {person_key=}, {personlab=}")
-    resolved_label = labelSuffixMappings[prefix_type].format(personlab)
+    resolved_label = labelSuffixMappings[prefix_type].format(ar=personlab)
     logger.info(f'>>>><<lightblue>> name.endswith pri("{prefix_type}"), {resolved_label=}')
 
     return resolved_label
@@ -88,17 +87,15 @@ def make_people_lab(normalized_value: str) -> str:
 
     normalized_value = normalized_value.strip()
 
-    new_label = nats_to_add.get(normalized_value, "")
+    new_label = ""
 
-    if not new_label:
-        base_value = re.sub(r"people$", "", normalized_value)
-        film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
-        if film_label:
-            new_label = f"أعلام {film_label}"
+    base_value = re.sub(r"people$", "", normalized_value)
+    film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
 
-    if new_label:
-        logger.debug(">>>>>>>>>>>>")
-        logger.debug(f">> make_people_lab {normalized_value=}, {new_label=}")
+    if film_label:
+        new_label = f"أعلام {film_label}"
+
+    logger.info_if_or_debug(f">> make_people_lab {normalized_value=}, {new_label=}", new_label)
 
     return new_label
 

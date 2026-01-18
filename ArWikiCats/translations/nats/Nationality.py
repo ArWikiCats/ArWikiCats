@@ -502,8 +502,6 @@ countries_nat_en_key: Dict[str, NationalityEntry] = result_tables["countries_nat
 
 en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 
-nats_to_add = {}
-
 all_nat_sorted = dict(
     sorted(
         All_Nat.items(),

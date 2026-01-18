@@ -53,7 +53,6 @@ from .nats.Nationality import (
     countries_from_nat,
     countries_nat_en_key,
     en_nats_to_ar_label,
-    nats_to_add,
     raw_nats_as_en_key,
 )
 from .numbers1 import change_numb_to_word
@@ -118,7 +117,6 @@ __all__ = [
     "Nat_Womens",
     "Nat_men",
     "ar_Nat_men",
-    "nats_to_add",
     "SPORT_KEY_RECORDS",
     "SPORT_KEY_RECORDS_BASE",
     "SPORTS_KEYS_FOR_TEAM",
