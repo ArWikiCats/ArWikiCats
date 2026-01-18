@@ -6,39 +6,35 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add, ALBUMS_TYPE
-from .utils import resolve_suffix_template
+from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
 
 
-def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
-    """Create prefix mappings for album-related categories.
-
-    Args:
-        albums_typies: Dictionary mapping album types to their descriptions
-
-    Returns:
-        Dictionary of prefix mappings for album categories
-    """
-    data = {
-        " memorials": "نصب {} التذكارية",
-        " video albums": "ألبومات فيديو {}",
-        " albums": "ألبومات {}",
-        " cabinet": "مجلس وزراء {}",
-        " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
-        " administration personnel": "موظفو إدارة {}",
-        " executive office": "مكتب {} التنفيذي",
-    }
-
-    for io in albums_typies:
-        data[f"{io} albums"] = f"ألبومات {albums_typies[io]} {{}}"
-
-    return data
-
-
-albumTypePrefixes = _create_pp_prefix(ALBUMS_TYPE)
+albumTypePrefixes = {
+    " administration cabinet members": "أعضاء مجلس وزراء إدارة {}",
+    " administration personnel": "موظفو إدارة {}",
+    " albums": "ألبومات {}",
+    " cabinet": "مجلس وزراء {}",
+    " executive office": "مكتب {} التنفيذي",
+    " memorials": "نصب {} التذكارية",
+    " video albums": "ألبومات فيديو {}",
+    "animation albums": "ألبومات رسوم متحركة {}",
+    "comedy albums": "ألبومات كوميدية {}",
+    "compilation albums": "ألبومات تجميعية {}",
+    "concept albums": "ألبومات مفاهيمية {}",
+    "eps albums": "ألبومات أسطوانة مطولة {}",
+    "folk albums": "ألبومات فولك {}",
+    "folktronica albums": "ألبومات فولكترونيكا {}",
+    "jazz albums": "ألبومات جاز {}",
+    "live albums": "ألبومات مباشرة {}",
+    "mixtape albums": "ألبومات ميكستايب {}",
+    "remix albums": "ألبومات ريمكس {}",
+    "surprise albums": "ألبومات مفاجئة {}",
+    "video albums": "ألبومات فيديو {}"
+}
 
 
-def work_peoples_old(name: str) -> str:
+@functools.lru_cache(maxsize=None)
+def work_peoples(name: str) -> str:
     """Return the label for ``name`` based on the population prefixes table.
 
     Args:
@@ -68,31 +64,6 @@ def work_peoples_old(name: str) -> str:
         PpP_lab = albumTypePrefixes[pri].format(personlab)
         logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
     return PpP_lab
-
-
-@functools.lru_cache(maxsize=None)
-def work_peoples(name: str) -> str:
-    """Return the label for ``name`` based on the population prefixes table.
-
-    Args:
-        name: The category name that may contain a known population suffix.
-
-    Returns:
-        The resolved Arabic label or an empty string when no mapping exists.
-    """
-
-    logger.info(f"<<lightpurple>> work_peoples lookup for '{name}'")
-
-    def _lookup(prefix: str) -> str:
-        """Fetch a people label using the given prefix key."""
-        return People_key.get(prefix, "")
-
-    label = resolve_suffix_template(name, albumTypePrefixes, _lookup)
-    if label:
-        logger.debug(f"Resolved work_peoples: {name=}, {label=}")
-    else:
-        logger.debug(f"Failed to resolve work_peoples: {name=}")
-    return label
 
 
 def make_people_lab(normalized_value: str) -> str:

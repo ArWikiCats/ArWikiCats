@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.o_bots.peoples_resolver import make_people_lab, work_peoples, work_peoples_old
+from ArWikiCats.legacy_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
 
 fast_data = {
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",
@@ -52,9 +52,6 @@ fast_data = {
 def test_fast_data(category: str, expected: str) -> None:
     label = work_peoples(category)
     assert label == expected
-
-    label2 = work_peoples_old(category)
-    assert label == label2
 
 
 def test_work_peoples() -> None:
