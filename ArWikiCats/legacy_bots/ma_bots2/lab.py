@@ -21,10 +21,10 @@ from ...translations import (
     religious_entries,
 )
 from .. import sport_lab_suffixes, team_work, tmp_bot
-from ..ma_bots.country_bot import Get_c_t_lab, get_country
+from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys, parties_bot, univer
+from ..o_bots import bys, parties_resolver, university_resolver
 from ..o_bots.peoples_resolver import make_people_lab, work_peoples
 
 
@@ -44,9 +44,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -325,7 +325,9 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "People_key": lambda t: People_key.get(t, ""),
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-        "Get_c_t_lab": lambda t: Get_c_t_lab(t, normalized_preposition, lab_type="type_label"),
+        "fetch_country_term_label": lambda t: fetch_country_term_label(
+            t, normalized_preposition, lab_type="type_label"
+        ),
         "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
@@ -408,7 +410,9 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
-        "Get_c_t_lab": lambda c: Get_c_t_lab(c, separator, start_get_country2=start_get_country2),
+        "fetch_country_term_label": lambda c: fetch_country_term_label(
+            c, separator, start_get_country2=start_get_country2
+        ),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }

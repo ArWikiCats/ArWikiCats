@@ -1,3 +1,7 @@
+"""
+ArWikiCats: A package for processing and resolving Arabic Wikipedia category labels.
+"""
+
 # -*- coding: utf-8 -*-
 from .config import all_params as config_all_params
 from .event_processing import (

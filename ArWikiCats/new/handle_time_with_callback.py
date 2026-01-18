@@ -1,5 +1,9 @@
-#!/usr/bin/python3
-""" """
+"""
+Utility for handling time components in categories using callbacks.
+This module provides functions to extract time components (like years)
+from the beginning of a category string and process the remainder
+using a provided callback function.
+"""
 
 import functools
 import re
@@ -10,6 +14,14 @@ from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_
 
 
 def fix_keys(category: str) -> str:
+    """Normalize category keys for language processing.
+
+    Args:
+        category: The raw category string.
+
+    Returns:
+        The normalized category string.
+    """
     category = category.lower().replace("category:", "").replace("'", "")
     category = category.replace("-language ", " language ")
     return category

@@ -18,6 +18,14 @@ from .o_bots.utils import resolve_suffix_template
 
 # @dump_data(1)
 def resolve_team_suffix(normalized_team) -> str:
+    """Resolve team suffix for sports categories.
+
+    Args:
+        normalized_team (str): The normalized team name.
+
+    Returns:
+        str: The resolved team suffix.
+    """
     return resolve_suffix_template(
         normalized_team,
         team_work.Teams_new_end_keys,

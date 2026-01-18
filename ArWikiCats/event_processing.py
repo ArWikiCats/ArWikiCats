@@ -1,3 +1,9 @@
+"""
+Module for processing category events and resolving labels.
+This module provides classes and functions to normalize category names and
+resolve their corresponding Arabic labels using internal processors.
+"""
+
 #
 from __future__ import annotations
 

@@ -4,35 +4,36 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.o_bots.peoples_resolver import make_people_lab, work_peoples, work_peoples_old
+from ArWikiCats.legacy_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
 
 fast_data = {
+    "adele video albums": "ألبومات فيديو أديل",
+    "alanis morissette video albums": "ألبومات فيديو ألانيس موريسيت",
+    "james taylor video albums": "ألبومات فيديو جيمس تايلور",
+    "janet jackson video albums": "ألبومات فيديو جانيت جاكسون",
+    "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
+
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",
     "andrew johnson administration personnel": "موظفو إدارة أندرو جونسون",
     "william henry harrison administration cabinet members": "أعضاء مجلس وزراء إدارة ويليام هنري هاريسون",
     "william henry harrison administration personnel": "موظفو إدارة ويليام هنري هاريسون",
     "woodrow wilson administration cabinet members": "أعضاء مجلس وزراء إدارة وودرو ويلسون",
     "woodrow wilson administration personnel": "موظفو إدارة وودرو ويلسون",
-    "adele video albums": "ألبومات فيديو أديل",
     "adriano celentano albums": "ألبومات أدريانو تشيلنتانو",
     "ai weiwei albums": "ألبومات آي ويوي",
     "akon albums": "ألبومات إيكون",
     "alanis morissette albums": "ألبومات ألانيس موريسيت",
-    "alanis morissette video albums": "ألبومات فيديو ألانيس موريسيت",
     "aldous huxley albums": "ألبومات ألدوس هكسلي",
     "alexandra stan albums": "ألبومات ألكسندرا ستان",
     "alice cooper albums": "ألبومات أليس كوبر",
     "james brown albums": "ألبومات جيمس براون",
     "james taylor albums": "ألبومات جيمس تايلور",
-    "james taylor video albums": "ألبومات فيديو جيمس تايلور",
     "jamie foxx albums": "ألبومات جيمي فوكس",
     "janet jackson albums": "ألبومات جانيت جاكسون",
-    "janet jackson video albums": "ألبومات فيديو جانيت جاكسون",
     "janis joplin albums": "ألبومات جانيس جوبلين",
     "jason derulo albums": "ألبومات جيسون ديرولو",
     "jason mraz albums": "ألبومات جيسون مراز",
     "alicia keys albums": "ألبومات أليشيا كيز",
-    "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
     "ed sheeran albums": "ألبومات إد شيران",
     "a. r. rahman albums": "ألبومات أي.أر. رحمان",
     "george h. w. bush administration cabinet members": "أعضاء مجلس وزراء إدارة جورج بوش الأب",
@@ -52,9 +53,6 @@ fast_data = {
 def test_fast_data(category: str, expected: str) -> None:
     label = work_peoples(category)
     assert label == expected
-
-    label2 = work_peoples_old(category)
-    assert label == label2
 
 
 def test_work_peoples() -> None:

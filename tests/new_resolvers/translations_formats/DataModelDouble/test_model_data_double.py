@@ -7,6 +7,7 @@ TODO: write tests for the parameters:
         splitter: str = " ",
         sort_ar_labels: bool = False,
 """
+
 import pytest
 
 from ArWikiCats.translations_formats import FormatDataDouble

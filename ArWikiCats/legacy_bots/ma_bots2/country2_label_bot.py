@@ -21,16 +21,23 @@ from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys, parties_bot, univer
+from ..o_bots import bys, parties_resolver, university_resolver
 from ..o_bots.peoples_resolver import work_peoples
 from .utils import split_text_by_separator
 
 
 @functools.lru_cache(maxsize=10000)
 def wrap_lab_for_country2(country: str) -> str:
-    """
-    TODO: should be moved to functions directory.
-    Retrieve laboratory information for a specified country.
+    """Retrieve Arabic label information for a specified country.
+
+    This function attempts to find the Arabic label for a given country
+    by querying multiple data sources in sequence.
+
+    Args:
+        country: The country name to look up
+
+    Returns:
+        The Arabic label for the country or an empty string if not found
     """
 
     country2 = country.lower().strip()
@@ -42,9 +49,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -57,7 +64,14 @@ def wrap_lab_for_country2(country: str) -> str:
 
 
 def time_label(text: str) -> str:
-    """Generate a time-related label based on the provided text."""
+    """Generate a time-related label based on the provided text.
+
+    Args:
+        text: The text to check for time-related content
+
+    Returns:
+        The original text if it contains only digits, otherwise an empty string
+    """
     tst3 = re.sub(r"\d+", "", text.strip())
     test3_results = ["", "-", "–", "−"]
     if tst3 in test3_results:
@@ -66,6 +80,15 @@ def time_label(text: str) -> str:
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
+    """Get a label from the table with 'in' mappings.
+
+    Args:
+        cone_1: The first part of the category
+        separator: The separator between parts
+
+    Returns:
+        The mapped label or an empty string if not found
+    """
     table_with_in = {
         "sport in": "الرياضة في",
     }
@@ -78,8 +101,16 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
-    """
-    Retrieve a label based on the given parameters.
+    """Retrieve a label based on the given parameters.
+
+    Args:
+        separator: The separator between parts
+        cone_1: The first part of the category
+        with_years: Whether to include year processing
+
+    Returns:
+        The resolved label or an empty string if not found
+
     Example:
         {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     """
@@ -97,7 +128,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or People_key.get(cone_1)
         or all_new_resolvers(cone_1)
         or sport_lab_suffixes.get_teams_new(cone_1)
-        or parties_bot.get_parties_lab(cone_1)
+        or parties_resolver.get_parties_lab(cone_1)
         or team_work.Get_team_work_Club(cone_1)
         or get_table_with_in(cone_1, separator)
         or convert_time_to_arabic(cone_1)
@@ -115,7 +146,15 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
-    """Retrieve a label based on the provided cone identifier."""
+    """Retrieve a label based on the provided cone identifier.
+
+    Args:
+        cone_2: The second part of the category
+        with_years: Whether to include year processing
+
+    Returns:
+        The resolved label or an empty string if not found
+    """
 
     cone_2 = cone_2.strip().lower()
 
@@ -126,7 +165,7 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
         or People_key.get(cone_2)
         or all_new_resolvers(cone_2)
         or sport_lab_suffixes.get_teams_new(cone_2)
-        or parties_bot.get_parties_lab(cone_2)
+        or parties_resolver.get_parties_lab(cone_2)
         or bys.get_and_label(cone_2)
         or team_work.Get_team_work_Club(cone_2)
         or get_from_pf_keys2(cone_2.strip().lower())
@@ -142,6 +181,16 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
+    """Resolve war-related labels to a more appropriate format.
+
+    Args:
+        resolved_label: The current resolved label
+        part_2_normalized: The normalized second part
+        part_1_normalized: The normalized first part
+
+    Returns:
+        The possibly modified label
+    """
     maren = re.match(r"\d\d\d\d", part_2_normalized)
     if maren:
         if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
@@ -160,8 +209,19 @@ def make_cnt_lab(
     part_2_normalized: str,
     ar_separator: str,
 ) -> str:
-    """
-    Construct a formatted string based on various input parameters.
+    """Construct a formatted string based on various input parameters.
+
+    Args:
+        separator: The separator between parts
+        country: The country name
+        part_2_label: The label for the second part
+        part_1_label: The label for the first part
+        part_1_normalized: The normalized first part
+        part_2_normalized: The normalized second part
+        ar_separator: The Arabic separator
+
+    Returns:
+        The constructed Arabic label
     """
     country2 = country.lower().strip()
 
@@ -211,9 +271,13 @@ def make_cnt_lab(
 
 
 def separator_arabic_resolve(separator: str) -> str:
-    """
-    Generate a specific string based on input parameters.
-    TODO: need refactoring
+    """Generate an Arabic separator based on the input separator.
+
+    Args:
+        separator: The English separator string
+
+    Returns:
+        The corresponding Arabic separator
     """
     ar_separator = " "
     separator = separator.strip()
@@ -234,10 +298,21 @@ def separator_arabic_resolve(separator: str) -> str:
 
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
+    """Create labels for two parts of a category.
+
+    Args:
+        part_1: The first part of the category
+        part_2: The second part of the category
+        separator: The separator between parts
+        with_years: Whether to include year processing
+
+    Returns:
+        A tuple containing the labels for both parts
+    """
     part_2_label = (
         all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
-        or country_bot.Get_c_t_lab(part_2, "")
+        or country_bot.fetch_country_term_label(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
         or ""
     )
@@ -245,7 +320,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     part_1_label = (
         all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1, with_years=with_years)
-        or country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
+        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""
     )
 
@@ -268,6 +343,14 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
 
 
 def get_separator(country: str) -> str:
+    """Get the separator from a country string.
+
+    Args:
+        country: The country string to check for separators
+
+    Returns:
+        The found separator or an empty string if none found
+    """
     title_separators = [
         "based in",
         "in",

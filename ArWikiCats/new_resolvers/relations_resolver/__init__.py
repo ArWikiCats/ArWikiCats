@@ -1,3 +1,9 @@
+"""
+Package for resolving categories with complex relational structures.
+This package provides resolvers for categories that involve multiple
+nationalities or country names in complex relationships.
+"""
+
 import functools
 
 from ...helps import logger
@@ -7,6 +13,17 @@ from .nationalities_double_v2 import resolve_by_nats_double_v2
 
 @functools.lru_cache(maxsize=None)
 def main_relations_resolvers(category: str) -> str:
+    """Main entry point for relation resolvers.
+
+    Orchestrates the resolution of relationship-based category names by attempting
+    to match against nationality and country name resolvers in sequence.
+
+    Args:
+        category (str): The category string to be resolved.
+
+    Returns:
+        str: The resolved Arabic category label, or an empty string if no match is found.
+    """
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying main_relations_resolvers for: {category=}")
 

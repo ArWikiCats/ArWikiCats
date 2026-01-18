@@ -1,3 +1,9 @@
+"""
+Utility for checking keys in various data tables.
+This module provides functions to verify if a key exists in one or more
+lookup tables and retrieve its associated value.
+"""
+
 from typing import Dict, List, Set
 
 

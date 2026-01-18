@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-!
+Event label processing bot.
+
+This module provides functionality for processing event-related categories
+and translating them to Arabic labels.
 """
 
 import functools
@@ -13,9 +16,9 @@ from ...translations import Ambassadors_tab, People_key, get_from_new_p17_final
 from .. import team_work, with_years_bot
 from ..ma_bots2 import year_or_typeo
 from ..make_bots.bot_2018 import get_pop_All_18
-from ..o_bots import univer
+from ..o_bots import university_resolver
 from ..o_bots.peoples_resolver import work_peoples
-from . import ye_ts_bot
+from . import general_resolver
 from .country_bot import event2_d2
 
 
@@ -49,16 +52,16 @@ def event_label_work(target_category: str) -> str:
         get_from_new_p17_final(normalized_target_category, "")
         or Ambassadors_tab.get(normalized_target_category, "")
         or team_work.Get_team_work_Club(normalized_target_category)
-        or univer.te_universities(normalized_target_category)
+        or university_resolver.resolve_university_category(normalized_target_category)
         or event2_d2(normalized_target_category)
-        or with_years_bot.Try_With_Years2(normalized_target_category)
+        or with_years_bot.wrap_try_with_years(normalized_target_category)
         or year_or_typeo.label_for_startwith_year_or_typeo(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)
         or all_new_resolvers(normalized_target_category)
         or resolve_languages_labels_with_time(normalized_target_category)
         or People_key.get(normalized_target_category)
-        or ye_ts_bot.translate_general_category(normalized_target_category)
+        or general_resolver.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
         or ""
     )

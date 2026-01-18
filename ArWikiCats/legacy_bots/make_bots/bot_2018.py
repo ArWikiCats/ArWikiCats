@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-"""
-!
+"""Bot module for population and label lookups from 2018 data.
+
+This module provides functionality to look up Arabic labels for categories
+using population data from 2018 and other mapping tables.
 """
 
 import functools
@@ -57,6 +59,14 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
 
 @functools.lru_cache(maxsize=10000)
 def _get_from_alias(key: str) -> str:
+    """Get a label from various alias sources.
+
+    Args:
+        key: The key to look up in various alias tables
+
+    Returns:
+        The found label or an empty string if not found
+    """
     sources = {
         "pf_keys2": lambda k: pf_keys2.get(k),
         "Jobs_new": lambda k: Jobs_new.get(k),
@@ -81,7 +91,15 @@ def _get_from_alias(key: str) -> str:
 
 @functools.lru_cache(maxsize=None)
 def get_pop_All_18(key: str, default: str = "") -> str:
-    """Fetch a population label, falling back to sports team lookups."""
+    """Fetch a population label, falling back to sports team lookups.
+
+    Args:
+        key: The key to look up in population data
+        default: Default value to return if key is not found
+
+    Returns:
+        The found label or the default value if not found
+    """
     result = first_data.get(key.lower(), "") or ""
 
     if result:
@@ -116,7 +134,11 @@ def get_pop_All_18(key: str, default: str = "") -> str:
 
 
 def Add_to_pop_All_18(tab: Dict[str, str]) -> None:
-    """Merge additional mappings into the cached 2018 population data."""
+    """Merge additional mappings into the cached 2018 population data.
+
+    Args:
+        tab: Dictionary containing key-value pairs to add to the population data
+    """
     for key, lab in tab.items():
         pop_All_2018[key] = lab
 

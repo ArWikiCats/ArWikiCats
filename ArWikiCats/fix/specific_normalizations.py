@@ -1,3 +1,10 @@
+"""
+Specific normalization rules for Arabic category labels.
+This module provides functions for applying context-dependent and
+pattern-based fixes to Arabic category names, addressing issues like
+misleading prepositions or awkward phrasing.
+"""
+
 import re
 
 

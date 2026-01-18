@@ -1,4 +1,8 @@
-""" """
+"""
+Utility functions for category label formatting.
+This module provides helper functions to wrap Arabic labels in common
+list-style templates (e.g., "لاعبو {}") with special handling for sports.
+"""
 
 from typing import Tuple
 

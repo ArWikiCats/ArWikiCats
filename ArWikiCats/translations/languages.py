@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" """
+"""
+Language translation mappings for the ArWikiCats project.
+This module defines translations for language names and provides formatting
+templates for language-related categories like grammar, literature, and media.
+"""
 
 from ..helps import len_print
 

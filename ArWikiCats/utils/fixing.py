@@ -1,3 +1,9 @@
+"""
+Text fixing utilities for the ArWikiCats project.
+This module provides functions for cleaning up and normalizing Arabic
+category labels, such as removing duplicate spaces or prepositions.
+"""
+
 import re
 
 from ..helps import logger

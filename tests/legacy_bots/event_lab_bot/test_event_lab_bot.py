@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.main_processers.event_lab_bot import event_Lab
+from ArWikiCats.legacy_bots.event_lab_bot import event_Lab
 
 data = {
     "category:air force navigational boxes": "تصنيف:صناديق تصفح قوات جوية",
@@ -103,7 +103,7 @@ def test_event_lab_footballers_country_special_case() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 5) General translation fallback via ye_ts_bot.translate_general_category
+# 5) General translation fallback via general_resolver.translate_general_category
 # ---------------------------------------------------------------------------
 
 

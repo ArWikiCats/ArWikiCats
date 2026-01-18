@@ -15,19 +15,19 @@ suffix_pase_data = [
         "basketball - kannada",
         " - kannada",
         "كرة السلة",
-        "{} - كنادي".format("كرة السلة"),
+        "كرة السلة - كنادي",
     ),
     (
         "football – mixed doubles",
         " – mixed doubles",
         "كرة القدم",
-        "{} – زوجي مختلط".format("كرة القدم"),
+        "كرة القدم – زوجي مختلط",
     ),
     (
         "tennis - women's qualification",
         " - women's qualification",
         "كرة المضرب",
-        "{} - تصفيات السيدات".format("كرة المضرب"),
+        "كرة المضرب - تصفيات السيدات",
     ),
 ]
 
@@ -84,17 +84,17 @@ pp_start_data = [
     (
         "wikipedia categories named after egypt",
         "مصر",
-        "تصنيفات سميت بأسماء {}".format("مصر"),
+        "تصنيفات سميت بأسماء مصر",
     ),
     (
         "candidates for president of france",
         "فرنسا",
-        "مرشحو رئاسة {}".format("فرنسا"),
+        "مرشحو رئاسة فرنسا",
     ),
     (
         "scheduled qatar",
         "قطر",
-        "{} مقررة".format("قطر"),
+        "قطر مقررة",
     ),
 ]
 

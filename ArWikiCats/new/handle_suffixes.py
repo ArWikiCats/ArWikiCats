@@ -1,5 +1,8 @@
-#!/usr/bin/python3
-""" """
+"""
+Utility for handling category suffixes and gendered labels.
+This module provides functions to resolve categories by identifying suffixes
+(like "players" or "coaches") and applying gender-specific Arabic translations.
+"""
 
 from typing import Dict, TypedDict
 
@@ -14,6 +17,14 @@ class GenderedLabel(TypedDict):
 
 
 def normalize_text(text: str) -> str:
+    """Normalize category text by removing namespace and common words.
+
+    Args:
+        text: The raw category string.
+
+    Returns:
+        The normalized category string.
+    """
     text = text.lower().replace("category:", "")
     # text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")

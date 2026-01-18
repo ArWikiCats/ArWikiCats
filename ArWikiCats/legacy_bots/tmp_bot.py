@@ -14,11 +14,11 @@ from ..new_resolvers.languages_resolves import resolve_languages_labels_with_tim
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
-from .ma_bots import ye_ts_bot
+from .ma_bots import general_resolver
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_bot, univer
+from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
 
 pp_start_with = {
@@ -49,21 +49,29 @@ def _resolve_label(label: str) -> str:
         or resolve_languages_labels_with_time(label)
         or People_key.get(label)
         or sport_lab_suffixes.get_teams_new(label)
-        or parties_bot.get_parties_lab(label)
+        or parties_resolver.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)
-        or univer.te_universities(label)
+        or university_resolver.resolve_university_category(label)
         or work_peoples(label)
         or get_KAKO(label)
         or convert_time_to_arabic(label)
         or get_pop_All_18(label)
         or with_years_bot.Try_With_Years(label)
-        or ye_ts_bot.translate_general_category(label, fix_title=False)
+        or general_resolver.translate_general_category(label, fix_title=False)
         or ""
     )
     return resolved_label
 
 
 def create_label_from_prefix(input_label):
+    """Create an Arabic label from a prefix template match.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a prefix match is found, otherwise an empty string
+    """
     template_label = ""
 
     for prefix, format_template in pp_start_with.items():
@@ -82,6 +90,14 @@ def create_label_from_prefix(input_label):
 
 
 def create_label_from_suffix(input_label):
+    """Create an Arabic label from a suffix template match.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a suffix match is found, otherwise an empty string
+    """
     template_label = ""
 
     # Try suffix matching - more efficient iteration
@@ -104,7 +120,17 @@ def create_label_from_suffix(input_label):
 
 @functools.lru_cache(maxsize=10000)
 def Work_Templates(input_label: str) -> str:
-    """ """
+    """Generate Arabic category labels using template-based matching.
+
+    This function attempts to match input labels against predefined templates
+    based on known prefixes and suffixes to generate appropriate Arabic labels.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a match is found, otherwise an empty string
+    """
     input_label = input_label.lower().strip()
     logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
     data = {

@@ -1,3 +1,9 @@
+"""Suffix mappings for category label generation.
+
+This module contains dictionaries for mapping English category suffixes
+to Arabic equivalents for various types of categories.
+"""
+
 from ...helps import len_print
 
 # --- Tour de

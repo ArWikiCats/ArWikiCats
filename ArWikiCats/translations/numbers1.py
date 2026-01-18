@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 
 
-""" """
+"""
+Number translations for the ArWikiCats project.
+This module provides mappings for translating numeric values and ordinal numbers
+into their Arabic word equivalents, including support for hundreds.
+"""
 
 # from .numbers1 import change_numb_to_word, change_numb
 # ---

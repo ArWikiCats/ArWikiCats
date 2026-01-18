@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-!
+Year-based category label processing.
+
+This module handles categories that contain year information, extracting and
+formatting them appropriately for Arabic labels.
 """
 
 import functools
@@ -13,12 +16,12 @@ from ..new_resolvers.languages_resolves import resolve_languages_labels
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work
-from .ma_bots.ye_ts_bot import translate_general_category
+from .ma_bots.general_resolver import translate_general_category
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 from .matables_bots.data import Add_in_table
 from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_bot, univer
+from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
 
 # Precompiled Regex Patterns
@@ -38,7 +41,7 @@ arabic_labels_preceding_year = [
     "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
 
-pattern_str = r"^(\d+)(th|nd|st|rd) (%s)$" % "|".join(known_bodies.keys())
+pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 
@@ -57,9 +60,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -227,8 +230,18 @@ def Try_With_Years(category: str) -> str:
     return label
 
 
-def Try_With_Years2(category_r) -> str:
-    """ """
+def wrap_try_with_years(category_r) -> str:
+    """Process category names that start with year information.
+
+    This function handles categories that begin with year numbers,
+    extracting and formatting them appropriately for Arabic labels.
+
+    Args:
+        category_r: The raw category name to process
+
+    Returns:
+        The processed Arabic label or empty string if no match is found
+    """
     cat3 = category_r.lower().replace("category:", "").strip()
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')

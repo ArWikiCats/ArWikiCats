@@ -1,3 +1,9 @@
+"""
+Package for resolving film and television related categories.
+This package provides specialized resolvers for film genres, production years,
+and television series, often combined with geographic elements.
+"""
+
 import functools
 import re
 
@@ -7,7 +13,15 @@ from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 
-def legacy_label_check(normalized_category):
+def legacy_label_check(normalized_category: str) -> str:
+    """Check for legacy labels or simple numeric categories.
+
+    Args:
+        normalized_category: The normalized category string.
+
+    Returns:
+        The resolved Arabic label or an empty string.
+    """
     label = ""
     if re.match(r"^\d+$", normalized_category.strip()):
         label = normalized_category.strip()

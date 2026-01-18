@@ -393,7 +393,7 @@ ArWikiCats/
 │
 ├── ma_bots/                 # بوتات المعالجة الأساسية
 │   ├── country_bot.py
-│   └── ye_ts_bot.py
+│   └── general_resolver.py
 │
 ├── ma_bots2/                # بوتات المعالجة المتقدمة
 │   ├── ar_lab/

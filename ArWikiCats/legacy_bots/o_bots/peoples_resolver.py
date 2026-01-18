@@ -6,41 +6,36 @@ import functools
 import re
 
 from ...helps import logger
-from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key, nats_to_add
-from ..matables_bots.bot import Pp_Priffix
-from .utils import resolve_suffix_template
+from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key
 
+labelSuffixMappings = {
+    "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
+    "administration personnel": "موظفو إدارة {ar}",
+    "animation albums": "ألبومات رسوم متحركة {ar}",
+    "comedy albums": "ألبومات كوميدية {ar}",
+    "compilation albums": "ألبومات تجميعية {ar}",
+    "concept albums": "ألبومات مفاهيمية {ar}",
+    "eps albums": "ألبومات أسطوانة مطولة {ar}",
+    "executive office": "مكتب {ar} التنفيذي",
+    "folk albums": "ألبومات فولك {ar}",
+    "folktronica albums": "ألبومات فولكترونيكا {ar}",
+    "jazz albums": "ألبومات جاز {ar}",
+    "live albums": "ألبومات مباشرة {ar}",
+    "mixtape albums": "ألبومات ميكستايب {ar}",
+    "remix albums": "ألبومات ريمكس {ar}",
+    "surprise albums": "ألبومات مفاجئة {ar}",
+    "video albums": "ألبومات فيديو {ar}",
+    "memorials": "نصب {ar} التذكارية",
+    "cabinet": "مجلس وزراء {ar}",
+    "albums": "ألبومات {ar}",
+}
 
-def work_peoples_old(name: str) -> str:
-    """Return the label for ``name`` based on the population prefixes table.
-
-    Args:
-        name: The category name that may contain a known population suffix.
-
-    Returns:
-        The resolved Arabic label or an empty string when no mapping exists.
-    """
-    logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
-    PpP_lab = ""
-    person = ""
-    pri = ""
-    for pri_ff in Pp_Priffix:
-        if not person:
-            if name.endswith(pri_ff):
-                logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
-                pri = pri_ff
-                person = name[: -len(pri_ff)]
-                break
-
-    personlab = People_key.get(person, "")
-    if not personlab:
-        logger.info(f'>>>><<lightblue>> cant find personlab for:"{person}"')
-
-    if person and personlab:
-        logger.info(f">>>><<lightblue>> {person=}, {personlab=}")
-        PpP_lab = Pp_Priffix[pri].format(personlab)
-        logger.info(f'>>>><<lightblue>> name.endswith pri("{pri}"), {PpP_lab=}')
-    return PpP_lab
+labelSuffixMappings = dict(
+    sorted(
+        labelSuffixMappings.items(),
+        key=lambda k: (-k[0].count(" "), -len(k[0])),
+    )
+)
 
 
 @functools.lru_cache(maxsize=None)
@@ -53,19 +48,36 @@ def work_peoples(name: str) -> str:
     Returns:
         The resolved Arabic label or an empty string when no mapping exists.
     """
+    logger.info(f"<<lightpurple>> >work_peoples:> len People_key: {len(People_key)} ")
+    person_key = ""
+    prefix_type = ""
 
-    logger.info(f"<<lightpurple>> work_peoples lookup for '{name}'")
+    for name_end_suffix in labelSuffixMappings:
+        if name.endswith(name_end_suffix.strip()):
+            logger.info(f'>>>><<lightblue>> work_peoples :"{name}"')
+            prefix_type = name_end_suffix.strip()
+            person_key = name[: -len(name_end_suffix)].strip()
+            break
 
-    def _lookup(prefix: str) -> str:
-        """Fetch a people label using the given prefix key."""
-        return People_key.get(prefix, "")
+    if not person_key:
+        logger.info(f'>>>><<lightblue>> cant find person_key for:"{name}", prefix_type:"{prefix_type}"')
+        return ""
 
-    label = resolve_suffix_template(name, Pp_Priffix, _lookup)
-    if label:
-        logger.debug(f"Resolved work_peoples: {name=}, {label=}")
-    else:
-        logger.debug(f"Failed to resolve work_peoples: {name=}")
-    return label
+    if not prefix_type:
+        logger.info(f'>>>><<lightblue>> cant find prefix_type for:"{name}", person_key:"{person_key}"')
+        return ""
+
+    personlab = People_key.get(person_key, "")
+
+    if not personlab:
+        logger.info(f'>>>><<lightblue>> cant find personlab for:"{person_key}"')
+        return ""
+
+    logger.info(f">>>><<lightblue>> {person_key=}, {personlab=}")
+    resolved_label = labelSuffixMappings[prefix_type].format(ar=personlab)
+    logger.info(f'>>>><<lightblue>> name.endswith pri("{prefix_type}"), {resolved_label=}')
+
+    return resolved_label
 
 
 def make_people_lab(normalized_value: str) -> str:
@@ -81,17 +93,15 @@ def make_people_lab(normalized_value: str) -> str:
 
     normalized_value = normalized_value.strip()
 
-    new_label = nats_to_add.get(normalized_value, "")
+    new_label = ""
 
-    if not new_label:
-        base_value = re.sub(r"people$", "", normalized_value)
-        film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
-        if film_label:
-            new_label = f"أعلام {film_label}"
+    base_value = re.sub(r"people$", "", normalized_value)
+    film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value, "")
 
-    if new_label:
-        logger.debug(">>>>>>>>>>>>")
-        logger.debug(f">> make_people_lab {normalized_value=}, {new_label=}")
+    if film_label:
+        new_label = f"أعلام {film_label}"
+
+    logger.info_if_or_debug(f">> make_people_lab {normalized_value=}, {new_label=}", new_label)
 
     return new_label
 

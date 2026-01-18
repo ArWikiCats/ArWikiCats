@@ -1,8 +1,17 @@
-""" """
+"""
+Data translations and mappings for the ArWikiCats project.
+This package aggregates translation data for various categories including
+geography, jobs, languages, nationalities, sports, and media.
+"""
 
 from .companies import COMPANY_TYPE_TRANSLATIONS
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import COUNTRY_LABEL_OVERRIDES, US_STATES, get_from_new_p17_final, raw_region_overrides
+from .geo.labels_country import (
+    COUNTRY_LABEL_OVERRIDES,
+    US_STATES,
+    get_from_new_p17_final,
+    raw_region_overrides,
+)
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
@@ -48,7 +57,6 @@ from .nats.Nationality import (
     countries_from_nat,
     countries_nat_en_key,
     en_nats_to_ar_label,
-    nats_to_add,
     raw_nats_as_en_key,
 )
 from .numbers1 import change_numb_to_word
@@ -113,7 +121,6 @@ __all__ = [
     "Nat_Womens",
     "Nat_men",
     "ar_Nat_men",
-    "nats_to_add",
     "SPORT_KEY_RECORDS",
     "SPORT_KEY_RECORDS_BASE",
     "SPORTS_KEYS_FOR_TEAM",

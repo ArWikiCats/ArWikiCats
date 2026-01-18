@@ -1,5 +1,8 @@
-#!/usr/bin/python3
-""" """
+"""
+Double-key template-driven translation model (v2).
+This module provides the FormatDataDoubleV2 class, which handles categories
+where two adjacent keys from a data list appear together.
+"""
 
 import functools
 import re
@@ -83,6 +86,7 @@ class FormatDataDoubleV2(FormatDataBase):
         self.pattern_double = self.keys_to_pattern_double()
 
     def update_put_label_last(self, data: list[str] | set[str]) -> None:
+        """Update the set of keys whose labels should be placed last in combinations."""
         self.put_label_last = data
 
     def _search(self, category: str) -> str:
@@ -250,7 +254,7 @@ class FormatDataDoubleV2(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
-        """ """
+        """Replace all attribute placeholders in the label with their corresponding values."""
         logger.debug(f"@@ replace_value_placeholder: {label=}, {value=}")
 
         if not isinstance(value, dict):

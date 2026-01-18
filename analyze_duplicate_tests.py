@@ -133,7 +133,7 @@ class DuplicateTestAnalyzer:
         print(f"عدد الأزواج المكررة: {duplicate_pairs:,}")
         print(f"إجمالي التكرارات: {total_occurrences:,}")
         if total_pairs > 0:
-            print(f"نسبة التكرار: {(duplicate_pairs/total_pairs*100):.2f}%")
+            print(f"نسبة التكرار: {(duplicate_pairs / total_pairs * 100):.2f}%")
         print("=" * 80 + "\n")
 
     def print_duplicates(self, limit: int = 20) -> None:
@@ -158,7 +158,7 @@ class DuplicateTestAnalyzer:
             print(f"\n{idx}. تكرر {len(locations)} مرة:")
             print(f"   المفتاح: {key}")
             print(f"   القيمة: {value}")
-            print(f"   المواقع:")
+            print("   المواقع:")
 
             for file_path, dict_name, line_num in locations:
                 rel_path = Path(file_path).relative_to(self.base_path.parent)
@@ -192,7 +192,11 @@ class DuplicateTestAnalyzer:
                     "value": value,
                     "count": len(locations),
                     "locations": [
-                        {"file": str(Path(fp).relative_to(self.base_path.parent)), "dict_name": dn, "line": ln}
+                        {
+                            "file": str(Path(fp).relative_to(self.base_path.parent)),
+                            "dict_name": dn,
+                            "line": ln,
+                        }
                         for fp, dn, ln in locations
                     ],
                 }

@@ -5,6 +5,7 @@ D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.js
 إضافة لكل مدخلة مفتاح جديد باسم
 
 """
+
 import json
 from pathlib import Path
 

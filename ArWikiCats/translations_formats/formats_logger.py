@@ -1,3 +1,9 @@
+"""
+Specialized logger for translation formats.
+This module provides a logger instance configured specifically for
+formatting-related messages, allowing them to be suppressed independently.
+"""
+
 from ..config import print_settings
 from ..helps.log import LoggerWrap
 

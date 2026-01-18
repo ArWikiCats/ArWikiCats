@@ -6,7 +6,6 @@ from ...helps import len_print
 
 POP_FINAL6_BASE: dict[str, str] = {
     "gulf war": "حرب الخليج الثانية",
-    "robert award": "جائزة روبرت",
     "emmy award": "جائزة إيمي",
     "grammy award": "جائزة غرامي",
     "golden globe award": "جائزة غولدن غلوب",

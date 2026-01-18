@@ -289,12 +289,21 @@ class FormatDataBase:
         return self._search(category)
 
     def prepend_arabic_category_prefix(self, category, result) -> str:
+        """Prepend Arabic category prefix if needed.
+
+        Args:
+            category (str): The original category string.
+            result (str): The result string to modify.
+
+        Returns:
+            str: The result with prefix prepended if applicable.
+        """
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
         return result
 
     @functools.lru_cache(maxsize=None)
-    def search_all(self, category: str, add_arabic_category_prefix: bool=False) -> str:
+    def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
         """Public wrapper around ``_search`` with caching."""
         result = self._search(category)
 
@@ -303,12 +312,29 @@ class FormatDataBase:
         return result
 
     def check_placeholders(self, category: str, result: str) -> str:
+        """Check for unprocessed placeholders in the result.
+
+        Args:
+            category (str): The category string.
+            result (str): The result string to check.
+
+        Returns:
+            str: The result if no placeholders, otherwise empty string.
+        """
         if "{" in result:
             logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
             return ""
         return result
 
     def search_all_category(self, category: str) -> str:
+        """Search for category translation with full processing.
+
+        Args:
+            category (str): The category string to translate.
+
+        Returns:
+            str: The translated category label.
+        """
         logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
         normalized_category = category.lower().replace("category:", "")

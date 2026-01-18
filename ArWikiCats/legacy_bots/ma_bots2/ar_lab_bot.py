@@ -18,7 +18,7 @@ from ..ma_bots.country_bot import event2_d2
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.data import Keep_it_frist, Keep_it_last
-from ..o_bots import univer
+from ..o_bots import university_resolver
 from .lab import (
     get_con_lab,
     get_type_country,
@@ -219,9 +219,9 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
 def wrap_event2(category: str, separator: str = "") -> str:
     """Wraps the event2bot.event2 function with caching."""
     result = (
-        univer.te_universities(category)
+        university_resolver.resolve_university_category(category)
         or event2_d2(category)
-        or with_years_bot.Try_With_Years2(category)
+        or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""
     )
@@ -325,7 +325,7 @@ class Fixing:
                     tatl = ""
 
                 ar_separator = f" {tatl} "
-                logger.info("ar_separator:%s" % ar_separator)
+                logger.info(f"ar_separator:{ar_separator}")
                 self.cate_test = self.cate_test.replace(self.separator, "")
 
         # in_tables_1 = check_key_new_players(self.country_lower)

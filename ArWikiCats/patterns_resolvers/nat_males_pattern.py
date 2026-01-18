@@ -9,7 +9,12 @@ import functools
 import re
 
 from ..helps import logger
-from ..translations import RELIGIOUS_KEYS_PP, All_Nat, all_country_with_nat, countries_en_as_nationality_keys
+from ..translations import (
+    RELIGIOUS_KEYS_PP,
+    All_Nat,
+    all_country_with_nat,
+    countries_en_as_nationality_keys,
+)
 from ..translations_formats import FormatDataV2
 from .categories_patterns.NAT_males import NAT_DATA_MALES
 

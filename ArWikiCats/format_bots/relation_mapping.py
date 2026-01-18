@@ -1,6 +1,7 @@
-#!/usr/bin/python3
 """
-!
+Mappings for category relationship words.
+This module defines translations for prepositions and relation phrases
+(e.g., "based on", "directed by", "in") used in category titles.
 """
 
 translation_category_relations = {

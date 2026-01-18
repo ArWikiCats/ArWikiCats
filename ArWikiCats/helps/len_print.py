@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-!
+Utility for tracking and saving data size statistics.
+This module provides functions to calculate the size and count of data structures
+used by various bots and optionally save this data to JSON files.
 """
 
 import json

@@ -13,7 +13,10 @@ from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass, field
 
 KeyValueTransform = Callable[[str, str], tuple[str, str]]
-_DEFAULT_SANITISER: KeyValueTransform = lambda key, value: (key, value)
+
+
+def _DEFAULT_SANITISER(key, value):
+    return (key, value)
 
 
 @dataclass(slots=True)

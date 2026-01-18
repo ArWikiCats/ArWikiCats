@@ -1,3 +1,9 @@
+"""
+Utility functions for gender-related category resolution.
+This module provides functions to normalize and standardize gender-specific
+terms in category keys before they are matched by resolvers.
+"""
+
 import functools
 import re
 

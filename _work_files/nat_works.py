@@ -15,6 +15,7 @@ the_female
 "female": "جنوب إفريقية",
 "the_female": "الجنوب الإفريقية",
 """
+
 import json
 from pathlib import Path
 

@@ -9,15 +9,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
-from ..legacy_bots import sport_lab_suffixes, team_work, tmp_bot
-from ..legacy_bots.ma_bots import ye_ts_bot
-from ..legacy_bots.ma_bots2.country2_label_bot import country_2_title_work
-from ..legacy_bots.ma_bots.lab_seoo_bot import event_label_work
-from ..legacy_bots.make_bots.bot_2018 import get_pop_All_18
-from ..legacy_bots.make_bots.ends_keys import combined_suffix_mappings
-from ..legacy_bots.matables_bots.table1_bot import get_KAKO
-from ..legacy_bots.o_bots import parties_bot, univer
-from ..legacy_bots.o_bots.peoples_resolver import work_peoples
+from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
@@ -27,7 +19,15 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_formats import time_to_arabic
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
-from .main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
+from . import sport_lab_suffixes, team_work, tmp_bot
+from .ma_bots import general_resolver
+from .ma_bots2.country2_label_bot import country_2_title_work
+from .ma_bots.lab_seoo_bot import event_label_work
+from .make_bots.bot_2018 import get_pop_All_18
+from .make_bots.ends_keys import combined_suffix_mappings
+from .matables_bots.table1_bot import get_KAKO
+from .o_bots import parties_resolver, university_resolver
+from .o_bots.peoples_resolver import work_peoples
 
 
 @functools.lru_cache(maxsize=10000)
@@ -46,9 +46,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -115,7 +115,9 @@ class EventLabResolver:
             category_lab = (
                 country_2_title_work(original_category3)
                 or wrap_lab_for_country2(original_category3)
-                or ye_ts_bot.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
+                or general_resolver.translate_general_category(
+                    original_category3, start_get_country2=False, fix_title=False
+                )
                 or get_pop_All_18(original_category3.lower(), "")
                 or ""
             )
@@ -135,7 +137,7 @@ class EventLabResolver:
             str: The processed category label or empty string
         """
         # Try different label functions in sequence
-        category_lab: str = univer.te_universities(category3)
+        category_lab: str = university_resolver.resolve_university_category(category3)
         if category_lab:
             return category_lab
 
@@ -153,7 +155,7 @@ class EventLabResolver:
 
         # If no label found yet, try general translation
         if not category_lab:
-            category_lab = ye_ts_bot.translate_general_category(f"category:{category3}", fix_title=False)
+            category_lab = general_resolver.translate_general_category(f"category:{category3}", fix_title=False)
 
         if category_lab:
             return category_lab
@@ -161,7 +163,7 @@ class EventLabResolver:
         category_lab = (
             country_2_title_work(category3)
             or wrap_lab_for_country2(category3)
-            or ye_ts_bot.translate_general_category(category3, start_get_country2=False, fix_title=False)
+            or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
             or get_pop_All_18(category3.lower(), "")
             or ""
         )
@@ -275,15 +277,15 @@ class EventLabResolver:
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = ye_ts_bot.translate_general_category(original_category3, fix_title=False)
+            category_lab = general_resolver.translate_general_category(original_category3, fix_title=False)
 
         return category_lab
 
 
-# Create global instance for backward compatibility
-
-
-resolver = EventLabResolver()
+@functools.lru_cache(maxsize=1)
+def _load_resolver() -> EventLabResolver:
+    resolver = EventLabResolver()
+    return resolver
 
 
 def _finalize_category_label(category_lab: str, cate_r: str) -> str:
@@ -301,6 +303,9 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
         # Apply final formatting and prefix
         fixed = fixtitle.fixlabel(category_lab, en=cate_r)
         category_lab = f"تصنيف:{fixed}"
+
+    if category_lab.strip() == "تصنيف:":
+        return ""
 
     return category_lab
 
@@ -321,6 +326,7 @@ def _handle_cricketer_categories(category3: str) -> str:
     if category3.endswith(" cricketers"):
         list_of_cat2 = "لاعبو كريكت من {}"
         category32 = category3[: -len(" cricketers")]
+
     elif category3.endswith(" cricket captains"):
         list_of_cat2 = "قادة كريكت من {}"
         category32 = category3[: -len(" cricket captains")]
@@ -364,20 +370,9 @@ def event_Lab(cate_r: str) -> str:
     cate_r = cate_r.lower().replace("_", " ")
     category3: str = _process_category_formatting(cate_r)
 
-    result = ""
+    resolver = _load_resolver()
 
-    if not result:
-        result = resolver.process_category(cate_r, category3)
-
-    # Handle cricket player categories
-    if not result:
-        result = _handle_cricketer_categories(category3)
-
-    if not result:
-        return ""
+    result = resolver.process_category(cate_r, category3) or _handle_cricketer_categories(category3)
 
     result = _finalize_category_label(result, cate_r)
-    if result == "تصنيف:":
-        return ""
-
     return result

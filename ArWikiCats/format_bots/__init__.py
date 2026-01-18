@@ -1,6 +1,7 @@
-#!/usr/bin/python3
 """
-!
+Category normalization and formatting utilities.
+This package provides functions to transform and normalize English Wikipedia
+category names before they are processed by the resolvers.
 """
 
 import re

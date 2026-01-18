@@ -5,6 +5,7 @@ D:/categories_bot/make2_new/ArWikiCats/jsons/geography/popopo.json
 
 كود بايثون لقراءة الملفين وازالة اي مدخلة موجودة في popopo اذا كانت موجودة في all_country_ar
 """
+
 import json
 
 with open("D:/categories_bot/len_data/nationality.py/all_country_ar.json", "r", encoding="utf-8") as f:

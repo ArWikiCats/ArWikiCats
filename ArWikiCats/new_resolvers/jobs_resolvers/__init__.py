@@ -1,3 +1,9 @@
+"""
+Package for resolving job titles and occupations in category names.
+This package provides specialized resolvers for male and female job titles,
+as well as religious occupations.
+"""
+
 import functools
 
 from ...helps import logger
@@ -6,6 +12,14 @@ from . import mens, relegin_jobs_new, womens
 
 @functools.lru_cache(maxsize=None)
 def main_jobs_resolvers(normalized_category) -> str:
+    """Main entry point for jobs resolvers.
+
+    Args:
+        normalized_category (str): The normalized category string.
+
+    Returns:
+        str: The resolved jobs category label.
+    """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying jobs_resolvers for: {normalized_category=}")

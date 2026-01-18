@@ -3,6 +3,7 @@
 TODO: use it to replace get_and_label, get_by_label functions in bys.py
 
 """
+
 import functools
 import re
 
@@ -26,6 +27,15 @@ CONTEXT_FIELD_LABELS = {
 
 
 def build_yearly_category_translation():
+    """Builds a dictionary of yearly category translations for competitions.
+
+    Creates mappings between English competition category labels and their Arabic translations,
+    combining competition types (e.g., girls, boys, mixed) with tournament stages (e.g., singles, doubles).
+
+    Returns:
+        dict: A dictionary mapping English category keys to Arabic translation labels.
+              Example: {"by year - girls singles": "حسب السنة - فردي فتيات"}
+    """
     COMPETITION_CATEGORY_LABELS = {
         "girls": "فتيات",
         "mixed": "مختلط",
@@ -57,7 +67,17 @@ def build_yearly_category_translation():
 
 
 def fix_keys(label: str) -> str:
-    """Fix common issues in keys before processing."""
+    """Fix common issues in category keys before processing.
+
+    Replaces spaces with hyphens in certain context phrases to normalize the format
+    for consistent matching in the translation process.
+
+    Args:
+        label (str): The category label to be processed and fixed.
+
+    Returns:
+        str: The processed label with normalized formatting.
+    """
 
     context_keys = "|".join(CONTEXT_FIELD_LABELS.keys())
     label = re.sub(f"({context_keys}) of", r"\g<1>-of", label, flags=re.I)
@@ -67,6 +87,16 @@ def fix_keys(label: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict[str, str]:
+    """Load and return formatted data for category translations.
+
+    Creates a dictionary of formatted category patterns with placeholders that map
+    English category structures to their Arabic equivalents. This includes patterns
+    for combinations of different context fields like city, date, country, etc.
+
+    Returns:
+        dict: Dictionary mapping English formatted category patterns to Arabic translations
+              with placeholders for dynamic content substitution.
+    """
     formatted_data = {
         "by {en} and city of setting": "حسب {ar} ومدينة الأحداث",
         "by {en} by city-of {en2}": "حسب {ar} حسب مدينة {ar2}",
@@ -112,6 +142,15 @@ def _load_formatted_data() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_data_to_find() -> dict[str, str]:
+    """Load and return a dictionary of specific category translations to find.
+
+    Builds a comprehensive dictionary of specific category translations that need
+    to be matched exactly, including team names, competition categories, and other
+    specific terms that don't follow general patterns.
+
+    Returns:
+        dict: Dictionary mapping specific English category names to their Arabic translations.
+    """
     by_keys_under = {
         "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
         "by men's under-17 national team": "حسب المنتخب الوطني للرجال تحت 17 سنة",
@@ -196,6 +235,16 @@ data_to_find = _load_data_to_find()
 
 @functools.lru_cache(maxsize=1)
 def _load_by_data_new() -> dict[str, str]:
+    """Load and return a comprehensive dictionary of 'by' category translations.
+
+    Creates a mapping of various English category terms (such as occupations,
+    locations, characteristics) to their Arabic equivalents. This includes terms
+    related to country of origin, academic disciplines, sports, government roles,
+    and many other categories.
+
+    Returns:
+        dict: Dictionary mapping English terms to Arabic translations.
+    """
     _to_review = {
         "guillotine": "بالمقصلة",
         "hanging": "بالشنق",
@@ -502,6 +551,14 @@ def _load_by_data_new() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
+    """Load and configure the category translation bot.
+
+    Creates and configures a MultiDataFormatterBase instance that handles
+    the translation of category names using formatted data and lookup tables.
+
+    Returns:
+        MultiDataFormatterBase: Configured bot instance for category translation.
+    """
     formatted_data = _load_formatted_data()
     by_data_new = _load_by_data_new()
 
@@ -525,6 +582,18 @@ def _load_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_labels(category: str) -> str:
+    """Resolve a category label to its Arabic translation.
+
+    Attempts to find an Arabic translation for the given English category name.
+    First checks for direct matches in the data_to_find dictionary, then uses
+    the translation bot to process more complex category patterns.
+
+    Args:
+        category (str): The English category name to be translated.
+
+    Returns:
+        str: The Arabic translation of the category, or an empty string if not found.
+    """
     # if formatted_data.get(category): return formatted_data[category]
     normalized_category = fix_keys(category)
     label = data_to_find.get(category) or data_to_find.get(normalized_category)

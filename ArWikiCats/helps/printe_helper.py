@@ -1,4 +1,8 @@
-""" """
+"""
+Helper module for colorized console output.
+This module provides utilities to format strings with ANSI color codes
+using a simple tag-based syntax.
+"""
 
 import re
 

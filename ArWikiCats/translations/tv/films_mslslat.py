@@ -115,7 +115,10 @@ TELEVISION_KEYS = {
 
 def _build_gender_key_maps(
     films_key_o_multi: Dict[str, Dict[str, str]],
-) -> Tuple[Dict[str, Dict[str, str]], Dict[str, str],]:  # films_key_both  # films_key_man
+) -> Tuple[
+    Dict[str, Dict[str, str]],
+    Dict[str, str],
+]:  # films_key_both  # films_key_man
     """
     Build gender-aware film key mappings from JSON sources.
 

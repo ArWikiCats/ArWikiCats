@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Integration tests for format_year_country_data and """
+"""Integration tests for format_year_country_data and"""
 
 import pytest
 

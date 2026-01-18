@@ -1,3 +1,9 @@
+"""
+Package for resolving sports-related categories.
+This package provides resolvers for sports teams, athletes, and competitions,
+often combined with geographic or nationality elements.
+"""
+
 import functools
 
 from ...helps import logger
@@ -13,6 +19,14 @@ from . import (
 
 @functools.lru_cache(maxsize=None)
 def main_sports_resolvers(normalized_category) -> str:
+    """Main entry point for sports resolvers.
+
+    Args:
+        normalized_category (str): The normalized category string.
+
+    Returns:
+        str: The resolved sports category label.
+    """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)

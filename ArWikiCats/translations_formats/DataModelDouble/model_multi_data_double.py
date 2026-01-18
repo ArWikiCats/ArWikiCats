@@ -1,5 +1,8 @@
-#!/usr/bin/python3
-""" """
+"""
+Multi-data formatter for double-key patterns.
+This module provides MultiDataFormatterDataDouble, which combines a standard
+FormatData instance with a FormatDataDouble instance for complex categories.
+"""
 
 from typing import Dict
 
