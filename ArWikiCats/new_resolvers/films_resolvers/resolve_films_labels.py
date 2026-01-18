@@ -15,7 +15,11 @@ from ...translations import (
     Nat_women,
     film_keys_for_female,
 )
-from ...translations_formats import MultiDataFormatterBase, format_films_country_data, format_multi_data
+from ...translations_formats import (
+    MultiDataFormatterBase,
+    format_films_country_data,
+    format_multi_data,
+)
 
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:

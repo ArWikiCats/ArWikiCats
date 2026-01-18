@@ -192,7 +192,11 @@ class DuplicateTestAnalyzer:
                     "value": value,
                     "count": len(locations),
                     "locations": [
-                        {"file": str(Path(fp).relative_to(self.base_path.parent)), "dict_name": dn, "line": ln}
+                        {
+                            "file": str(Path(fp).relative_to(self.base_path.parent)),
+                            "dict_name": dn,
+                            "line": ln,
+                        }
                         for fp, dn, ln in locations
                     ],
                 }

@@ -6,7 +6,10 @@ TODO: merge with sports_resolvers/raw_sports.py
 import functools
 
 from ...helps import dump_data, logger
-from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping, resolve_suffix_with_mapping_genders
+from ...new.handle_suffixes import (
+    resolve_sport_category_suffix_with_mapping,
+    resolve_suffix_with_mapping_genders,
+)
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 
