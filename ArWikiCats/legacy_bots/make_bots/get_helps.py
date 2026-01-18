@@ -122,7 +122,7 @@ def _try_match_prefix(
     if not suffix:
         return None
 
-    logger.debug(f"<<lightyellow>>>>>> get_suffix {prefix=}, " f"category_suffix={suffix}, country_prefix={key}")
+    logger.debug(f"<<lightyellow>>>>>> get_suffix {prefix=}, category_suffix={suffix}, country_prefix={key}")
 
     return PrefixMatch(country_prefix=key, category_suffix=suffix)
 

@@ -251,6 +251,11 @@ def add_fee(text: str) -> str:
     return text
 
 
+def cleanse_category_label(category_lab):
+    category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
+    return category_lab
+
+
 def fixlabel(label_old: str, en: str = "") -> str:
     """Return a normalized Arabic label suitable for publication.
 

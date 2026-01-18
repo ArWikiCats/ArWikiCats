@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
+""" """
 
-"""
 from typing import Dict
 
 from ...helps import len_print

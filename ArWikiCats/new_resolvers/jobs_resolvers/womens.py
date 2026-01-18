@@ -1,6 +1,7 @@
 """
 This module provides functionality to translate category titles
 """
+
 import functools
 
 from ...helps import len_print, logger

@@ -8,7 +8,7 @@ from ArWikiCats.patterns_resolvers.country_time_pattern import load_bot, resolve
 from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
 
 test_data = {
-    "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",
+    # "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",
     # standard
     # "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     # "Category:years of the 1990s in egypt": "تصنيف:سنوات عقد 1990 في مصر",

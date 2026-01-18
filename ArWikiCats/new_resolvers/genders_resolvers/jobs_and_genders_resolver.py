@@ -123,6 +123,7 @@ def genders_jobs_resolver(category: str) -> str:
 
     return result
 
+
 __all__ = [
     "genders_jobs_resolver",
 ]

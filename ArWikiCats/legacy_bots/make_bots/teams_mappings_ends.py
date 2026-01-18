@@ -1,7 +1,4 @@
-"""
-
-
-"""
+""" """
 
 teams_label_mappings_ends = {
     "champions": "أبطال",

@@ -3,6 +3,7 @@
 Resolve geo names categories translations
 NOTE: planned to replace pop_format in format_bots/__init__.py
 """
+
 import functools
 from typing import Dict
 

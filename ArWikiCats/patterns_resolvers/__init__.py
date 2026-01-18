@@ -1,12 +1,11 @@
-"""
-"""
+""" """
+
 import functools
 
 from ..helps import logger
-
 from . import (
-    nat_males_pattern,
     country_time_pattern,
+    nat_males_pattern,
     time_patterns_resolvers,
 )
 

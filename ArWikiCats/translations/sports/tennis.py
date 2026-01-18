@@ -68,7 +68,6 @@ OPEN_KEYS = {
     "madrid open (tennis)": "مدريد للماسترز",
     "miami open (tennis)": "ميامي للماسترز",
     "miami open tennis": "ميامي للماسترز",
-
     "citi open": "بطولة واشنطن المفتوحة",
     "french open": "دورة رولان غاروس الدولية",
     "chennai open": "بطولة تشيناي المفتوحة للتنس",

@@ -24,7 +24,9 @@ Target examples:
 - "yemeni women's softball players" -> "لاعبات كرة لينة يمنيات"
 - "women's softball players"        -> "لاعبات كرة لينة"
 """
+
 import functools
+
 from ...helps import logger
 from .jobs_and_genders_resolver import genders_jobs_resolver
 from .sports_and_genders_resolver import genders_sports_resolver

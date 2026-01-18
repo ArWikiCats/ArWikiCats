@@ -9,8 +9,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
-data_nats_0 = {
-}
+data_nats_0 = {}
 data_nats_1 = {
     "australian open (tennis)": "بطولة أستراليا المفتوحة لكرة المضرب",
     "australian open tennis": "بطولة أستراليا المفتوحة لكرة المضرب",
@@ -22,8 +21,7 @@ data_nats_1 = {
     "mexican open tennis": "بطولة المكسيك المفتوحة لكرة المضرب",
 }
 
-data_names_0 = {
-}
+data_names_0 = {}
 
 data_names_3 = {
     "chile open (tennis)": "بطولة تشيلي المفتوحة لكرة المضرب",

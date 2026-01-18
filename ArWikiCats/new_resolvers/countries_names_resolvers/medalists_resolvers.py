@@ -2,6 +2,7 @@
 """
 Resolve medalists categories translations
 """
+
 import functools
 from typing import Dict
 

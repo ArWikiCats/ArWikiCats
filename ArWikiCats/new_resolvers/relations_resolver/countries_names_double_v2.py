@@ -4,6 +4,7 @@ This resolver uses two different formatting data sets to resolve
 categories that mention relations/conflicts between two countries.
 
 """
+
 import functools
 
 from ...helps import logger

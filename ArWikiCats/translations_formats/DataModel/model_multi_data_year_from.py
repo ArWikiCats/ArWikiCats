@@ -35,6 +35,7 @@ Example:
     >>> bot.create_label("14th-century writers from Yemen")
     'كتاب من اليمن في القرن 14'
 """
+
 import re
 from typing import Callable, Optional
 
@@ -162,7 +163,7 @@ class FormatDataFrom:
             result = "تصنيف:" + result
         return result
 
-    def search_all(self, key: str, add_arabic_category_prefix: bool=False) -> str:
+    def search_all(self, key: str, add_arabic_category_prefix: bool = False) -> str:
         """place holders"""
         result = self.search(key)
 

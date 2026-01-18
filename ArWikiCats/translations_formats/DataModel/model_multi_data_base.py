@@ -240,12 +240,9 @@ class MultiDataFormatterBaseHelpers:
             result = "تصنيف:" + result
         return result
 
-    def search_all(self, category: str, add_arabic_category_prefix: bool=False) -> str:
+    def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
         result = (
-            self.create_label(category)
-            or self.country_bot.search(category)
-            or self.other_bot.search(category)
-            or ""
+            self.create_label(category) or self.country_bot.search(category) or self.other_bot.search(category) or ""
         )
         if add_arabic_category_prefix:
             result = self.prepend_arabic_category_prefix(category, result)
@@ -253,10 +250,7 @@ class MultiDataFormatterBaseHelpers:
 
     def search_all_other_first(self, category: str) -> str:
         result = (
-            self.other_bot.search(category)
-            or self.country_bot.search(category)
-            or self.create_label(category)
-            or ""
+            self.other_bot.search(category) or self.country_bot.search(category) or self.create_label(category) or ""
         )
 
         return self.check_placeholders(category, result)

@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-"""
+"""Data module containing lists for table-related configurations."""
 
 add_in_to_country = [
     "solar eclipses",

@@ -27,7 +27,6 @@ test_data_ar = {
     "French Open": "بطولة فرنسا المفتوحة",
     "Australian Open": "بطولة أستراليا المفتوحة",
     "French Ladies Open": "بطولة فرنسا المفتوحة للسيدات",
-
     "yemeni music groups": "فرق موسيقى يمنية",
     "yemeni rock musical groups": "فرق موسيقى روك يمنية",
     "yemeni alternative rock groups": "فرق روك بديل يمنية",

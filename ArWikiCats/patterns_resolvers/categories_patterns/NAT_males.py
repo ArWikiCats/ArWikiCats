@@ -4,6 +4,7 @@
 NAT_PARAMS = ["{males}"]
 
 NAT_DATA_to_check = {
+    "{en_nat} martial artists": "ممارسو وممارسات فنون قتالية {males}",  # 120
     "{en_nat} singers": "مغنون ومغنيات {males}",  # 84
     "{en_nat} actors": "ممثلون وممثلات {males}",  # 90
     "{en_nat} boxers": "ملاكمون وملاكمات {males}",  # 136
@@ -58,12 +59,11 @@ NAT_DATA_MALES = {
     "{en_nat} people by century": "{males} حسب القرن",  # 121
     "{en_nat} people by political orientation": "{males} حسب التوجه السياسي",  # 156
     "{en_nat} political people": "ساسة {males}",  # 160
-    "{en_nat} military personnel": "عسكريون {males}",  # 106
+    "{en_nat} military personnel": "أفراد عسكريون {males}",  # 106
     "{en_nat} activists": "ناشطون {males}",  # 159
     "{en_nat} lawyers": "محامون {males}",  # 158
     "{en_nat} athletes": "لاعبو قوى {males}",  # 79
     "{en_nat} football managers": "مدربو كرة قدم {males}",  # 154
-    "{en_nat} martial artists": "ممارسو وممارسات فنون قتالية {males}",  # 120
     "{en_nat} prisoners and detainees": "سجناء ومعتقلون {males}",  # 153
     "{en_nat} scientists": "علماء {males}",  # 151
     "{en_nat} artists": "فنانون {males}",  # 129
@@ -133,4 +133,5 @@ NAT_DATA_MALES = {
     "{en_nat} male singers": "مغنون ذكور {males}",  # 85
     "{en_nat} male writers": "كتاب ذكور {males}",  # 86
     "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
+    "{en_nat} martial artists": "ممارسو فنون قتالية {males}",  # 120
 }

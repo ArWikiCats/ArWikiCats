@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-"""
+""" """
 
 import functools
 
@@ -53,12 +52,10 @@ jobs_formatted_data = {
     "amateur {en_sport}": "{sport_jobs} للهواة",
     "college {en_sport}": "{sport_jobs} الكليات",
     "current {en_sport} seasons": "مواسم {sport_jobs} حالية",
-
     "defunct outdoor {en_sport} leagues": "دوريات {sport_jobs} في الهواء الطلق سابقة",
     "defunct outdoor {en_sport}": "{sport_jobs} في الهواء الطلق سابقة",
     "defunct {en_sport} teams": "فرق {sport_jobs} سابقة",
     "defunct {en_sport}": "{sport_jobs} سابقة",
-
     "fictional {en_sport}": "{sport_jobs} خيالية",
     "fifth level {en_sport} league": "دوريات {sport_jobs} من الدرجة الخامسة",
     "fifth level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الخامسة",
@@ -107,19 +104,15 @@ jobs_formatted_data = {
     "national junior mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
     "national junior {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
     "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية رجالية",
-
     "national reserve {en_sport} teams": "منتخبات {sport_jobs} وطنية احتياطية",
     "national womens {en_sport} teams": "منتخبات {sport_jobs} وطنية نسائية",
     "national {en_sport} champions": "أبطال بطولات {sport_jobs} وطنية",
     "national {en_sport} championships": "بطولات {sport_jobs} وطنية",
     "national {en_sport} league": "دوريات {sport_jobs} وطنية",
-
     "defunct national {en_sport} leagues": "دوريات {sport_jobs} وطنية سابقة",
     "national {en_sport} leagues": "دوريات {sport_jobs} وطنية",
-
     "defunct national {en_sport} teams": "منتخبات {sport_jobs} وطنية سابقة",
     "national {en_sport} teams": "منتخبات {sport_jobs} وطنية",
-
     "national {en_sport} team results": "نتائج منتخبات {sport_jobs} وطنية",
     "national youth {en_sport} teams": "منتخبات {sport_jobs} وطنية شبابية",
     "outdoor {en_sport} leagues": "دوريات {sport_jobs} في الهواء الطلق",
@@ -147,17 +140,14 @@ jobs_formatted_data = {
     "top level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الأولى",
     "womens international {en_sport} players": "لاعبات {sport_jobs} دوليات",
     "womens international {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
-
     "womens international {en_sport}": "{sport_jobs} دولية للسيدات",
     "womens {en_sport} teams": "فرق {sport_jobs} نسائية",
     "womens {en_sport}": "{sport_jobs} نسائية",
     "{en_sport} chairmen and investors": "رؤساء ومسيرو {sport_jobs}",
     "{en_sport} league teams": "فرق دوري {sport_jobs}",
     "{en_sport} league": "دوري {sport_jobs}",
-
     "{en_sport} leagues": "دوريات {sport_jobs}",
     "defunct {en_sport} leagues": "دوريات {sport_jobs} سابقة",
-
     "{en_sport} olympic bronze medalists": "ميداليات {sport_jobs} برونزية أولمبية",
     "{en_sport} olympic gold medalists": "ميداليات {sport_jobs} ذهبية أولمبية",
     "{en_sport} olympic silver medalists": "ميداليات {sport_jobs} فضية أولمبية",
@@ -177,11 +167,9 @@ jobs_formatted_data2 = {
     # "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
     # "national {en_sport}": "منتخبات {sport_jobs} وطنية",
     # "national womens {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
-
     "national mens {en_sport}": "{sport_jobs} وطنية للرجال",
     "national {en_sport}": "{sport_jobs} وطنية",
     "national womens {en_sport}": "{sport_jobs} وطنية للسيدات",
-
     # "national under-13 {en_sport}": "منتخبات {sport_jobs} تحت 13 سنة",
     # "national under-14 {en_sport}": "منتخبات {sport_jobs} تحت 14 سنة",
     # "national under-15 {en_sport}": "منتخبات {sport_jobs} تحت 15 سنة",
@@ -193,7 +181,6 @@ jobs_formatted_data2 = {
     # "national under-21 {en_sport}": "منتخبات {sport_jobs} تحت 21 سنة",
     # "national under-23 {en_sport}": "منتخبات {sport_jobs} تحت 23 سنة",
     # "national under-24 {en_sport}": "منتخبات {sport_jobs} تحت 24 سنة",
-
     "national under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "national under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
     "national under-15 {en_sport}": "{sport_jobs} تحت 15 سنة",

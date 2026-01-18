@@ -5,20 +5,21 @@ LabsYearsFormat resolver.
 import functools
 
 from ..helps import logger
-from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
-from ..translations_formats import LabsYearsFormat
-
 from ..time_formats.utils_time import standardize_time_phrases
+from ..translations_formats import LabsYearsFormat
+from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
 
 
 @functools.lru_cache(maxsize=1)
 def build_labs_years_object() -> LabsYearsFormat:
     category_templates = dict(YEAR_DATA)
-    category_templates.update({
-        "{year1}": "{year1}",
-        "films in {year1}": "أفلام في {year1}",
-        "{year1} films": "أفلام إنتاج {year1}",
-    })
+    category_templates.update(
+        {
+            "{year1}": "{year1}",
+            "films in {year1}": "أفلام في {year1}",
+            "{year1} films": "أفلام إنتاج {year1}",
+        }
+    )
     labs_years_bot = LabsYearsFormat(
         category_templates=category_templates,
         key_param_placeholder="{year1}",
