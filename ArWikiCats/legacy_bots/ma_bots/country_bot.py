@@ -322,7 +322,7 @@ class CountryLabelRetriever:
 
     def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
         """Resolve a label for terms treated as types that end with specific suffixes."""
-        for suffix, connector in [(" of", " من "), (" in", " في "), (" at", " في ")]:
+        for suffix, connector in [(" of", " في "), (" in", " في "), (" at", " في ")]:
             if not term_lower.endswith(suffix):
                 continue
 
