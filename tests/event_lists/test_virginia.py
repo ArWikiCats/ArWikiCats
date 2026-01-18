@@ -4,6 +4,15 @@ from load_one_data import dump_diff, one_dump_test  # , dump_same_and_not_same
 
 from ArWikiCats import resolve_arabic_category_label
 
+data_virginia_0 = {
+    "Category:Lists of West Virginia politicians": "تصنيف:قوائم سياسيو فرجينيا الغربية",
+    "Category:West Virginia politicians by century": "تصنيف:سياسيو فرجينيا الغربية حسب القرن",
+    "Category:West Virginia politicians by party": "تصنيف:سياسيو فرجينيا الغربية حسب الحزب",
+    "Category:21st-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 21",
+    "Category:20th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 20",
+    "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",
+}
+
 data_virginia_1 = {
     "Category:Baseball in West Virginia": "تصنيف:كرة القاعدة في فرجينيا الغربية",
     "Category:Baseball players from Alexandria, Virginia": "تصنيف:لاعبو كرة قاعدة من الإسكندرية (فرجينيا)",
@@ -66,7 +75,6 @@ data_virginia_2 = {
     "Category:19th-century mayors of places in West Virginia": "تصنيف:رؤساء بلديات في فرجينيا الغربية في القرن 19",
     "Category:19th-century members of the West Virginia Legislature": "تصنيف:أعضاء هيئة فرجينيا الغربية التشريعية في القرن 19",
     "Category:19th-century people from West Virginia": "تصنيف:أشخاص من فرجينيا الغربية في القرن 19",
-    "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",
     "Category:2007 establishments in Virginia": "تصنيف:تأسيسات سنة 2007 في فرجينيا",
     "Category:2010s disestablishments in West Virginia": "تصنيف:انحلالات عقد 2010 في فرجينيا الغربية",
     "Category:2012 in Virginia": "تصنيف:فرجينيا في 2012",
@@ -76,12 +84,10 @@ data_virginia_2 = {
     "Category:20th-century mayors of places in West Virginia": "تصنيف:رؤساء بلديات في فرجينيا الغربية في القرن 20",
     "Category:20th-century members of the West Virginia Legislature": "تصنيف:أعضاء هيئة فرجينيا الغربية التشريعية في القرن 20",
     "Category:20th-century people from West Virginia": "تصنيف:أشخاص من فرجينيا الغربية في القرن 20",
-    "Category:20th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 20",
     "Category:21st-century disestablishments in West Virginia": "تصنيف:انحلالات القرن 21 في فرجينيا الغربية",
     "Category:21st-century establishments in West Virginia": "تصنيف:تأسيسات القرن 21 في فرجينيا الغربية",
     "Category:21st-century members of the West Virginia Legislature": "تصنيف:أعضاء هيئة فرجينيا الغربية التشريعية في القرن 21",
     "Category:21st-century people from West Virginia": "تصنيف:أشخاص من فرجينيا الغربية في القرن 21",
-    "Category:21st-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 21",
     "Category:3rd-millennium disestablishments in West Virginia": "تصنيف:انحلالات الألفية 3 في فرجينيا الغربية",
     "Category:3rd-millennium establishments in West Virginia": "تصنيف:تأسيسات الألفية 3 في فرجينيا الغربية",
     "Category:Academics from Bluefield, West Virginia": "تصنيف:أكاديميون من بلوفيلد (فرجينيا الغربية)",
@@ -384,7 +390,6 @@ data_virginia_2 = {
     "Category:Lincoln County, West Virginia": "تصنيف:مقاطعة لينكون (فرجينيا الغربية)",
     "Category:Lists of mayors of places in West Virginia": "تصنيف:قوائم رؤساء بلديات في فرجينيا الغربية",
     "Category:Lists of people from West Virginia": "تصنيف:قوائم أشخاص من فرجينيا الغربية",
-    "Category:Lists of West Virginia politicians": "تصنيف:قوائم سياسيو فرجينيا الغربية",
     "Category:Loudoun County, Virginia": "تصنيف:مقاطعة لودون (فرجينيا)",
     "Category:Louisa, Virginia": "تصنيف:لوييسا (فرجينيا)",
     "Category:Louisa County, Virginia": "تصنيف:مقاطعة لويزا (فرجينيا)",
@@ -822,8 +827,6 @@ data_virginia_2 = {
     "Category:West Virginia Democrats": "تصنيف:ديمقراطيون من ولاية فرجينيا الغربية",
     "Category:West Virginia Greenbacks": "تصنيف:أعضاء حزب الدولار الأمريكي في فرجينيا الغربية",
     "Category:West Virginia independents": "تصنيف:مستقلون من ولاية فرجينيا الغربية",
-    "Category:West Virginia politicians by century": "تصنيف:سياسيو فرجينيا الغربية حسب القرن",
-    "Category:West Virginia politicians by party": "تصنيف:سياسيو فرجينيا الغربية حسب الحزب",
     "Category:West Virginia politics-related lists": "تصنيف:قوائم متعلقة بسياسة فرجينيا الغربية",
     "Category:West Virginia Senate": "تصنيف:مجلس شيوخ ولاية فرجينيا الغربية",
     "Category:West Virginia socialists": "تصنيف:أعضاء الحزب الاشتراكي في فرجينيا الغربية",

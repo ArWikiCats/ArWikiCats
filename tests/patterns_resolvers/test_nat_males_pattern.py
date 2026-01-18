@@ -144,8 +144,8 @@ test_data_males = {
     "central american people by political orientation": "أمريكيون أوسطيون حسب التوجه السياسي",
     "central asian people by political orientation": "آسيويون أوسطيون حسب التوجه السياسي",
     # {en_nat} military personnel
-    "east timorese military personnel": "عسكريون تيموريون شرقيون",
-    "federated states-of micronesia military personnel": "عسكريون ميكرونيزيون",
+    "east timorese military personnel": "أفراد عسكريون تيموريون شرقيون",
+    "federated states-of micronesia military personnel": "أفراد عسكريون ميكرونيزيون",
     # {en_nat} activists
     "bissau-guinean activists": "ناشطون غينيون بيساويون",
     "anglo-irish activists": "ناشطون أنجلو إيرلنديون",
@@ -159,8 +159,8 @@ test_data_males = {
     "democratic-republic-of-congo football managers": "مدربو كرة قدم كونغويون ديمقراطيون",
     "dominican republic football managers": "مدربو كرة قدم دومينيكانيون",
     # {en_nat} martial artists
-    "eastern asian martial artists": "ممارسو وممارسات فنون قتالية آسيويون شرقيون",
-    "equatoguinean martial artists": "ممارسو وممارسات فنون قتالية غينيون استوائيون",
+    "eastern asian martial artists": "ممارسو فنون قتالية آسيويون شرقيون",
+    "equatoguinean martial artists": "ممارسو فنون قتالية غينيون استوائيون",
     # {en_nat} prisoners and detainees
     "central african republic prisoners and detainees": "سجناء ومعتقلون أفارقة أوسطيون",
     "equatorial guinean prisoners and detainees": "سجناء ومعتقلون غينيون استوائيون",

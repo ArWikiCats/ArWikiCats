@@ -133,4 +133,5 @@ NAT_DATA_MALES = {
     "{en_nat} male singers": "مغنون ذكور {males}",  # 85
     "{en_nat} male writers": "كتاب ذكور {males}",  # 86
     "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
+    "{en_nat} martial artists": "ممارسو فنون قتالية {males}",  # 120
 }
