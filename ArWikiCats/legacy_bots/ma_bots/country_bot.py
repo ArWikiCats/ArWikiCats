@@ -28,7 +28,7 @@ from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import parties_resolver, university_resolver
-from ..o_bots.peoples_resolver import work_peoples
+from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
 from . import general_resolver
 
 

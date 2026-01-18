@@ -24,7 +24,7 @@ class CategoryResult:
 
     en: str
     ar: str
-    from_match: str
+    from_match: bool
 
 
 @functools.lru_cache(maxsize=None)

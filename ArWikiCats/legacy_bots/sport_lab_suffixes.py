@@ -16,7 +16,6 @@ from . import team_work
 from .o_bots.utils import resolve_suffix_template
 
 
-# @dump_data(1)
 def resolve_team_suffix(normalized_team) -> str:
     """Resolve team suffix for sports categories.
 
@@ -42,6 +41,8 @@ def get_teams_new(team_name: str) -> str:
 
     Returns:
         The resolved Arabic label or an empty string when no mapping exists.
+
+    TODO: to be replaced by ArWikiCats.new_resolvers.sports_resolvers.raw_sports
     """
 
     # إيجاد لاحقات التسميات الرياضية

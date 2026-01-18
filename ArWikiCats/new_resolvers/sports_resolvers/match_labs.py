@@ -193,7 +193,6 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-# @dump_data(1)
 def find_teams_2025(category) -> str:
     category = fix_keys(category)
 

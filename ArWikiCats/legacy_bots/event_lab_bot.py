@@ -27,7 +27,7 @@ from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .matables_bots.table1_bot import get_KAKO
 from .o_bots import parties_resolver, university_resolver
-from .o_bots.peoples_resolver import work_peoples
+from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
 
 
 @functools.lru_cache(maxsize=10000)
@@ -372,7 +372,7 @@ def event_Lab(cate_r: str) -> str:
 
     resolver = _load_resolver()
 
-    result = resolver.process_category(cate_r, category3) or _handle_cricketer_categories(category3)
+    result = resolver.process_category(category3, cate_r) or _handle_cricketer_categories(category3)
 
     result = _finalize_category_label(result, cate_r)
     return result

@@ -22,7 +22,7 @@ from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import bys, parties_resolver, university_resolver
-from ..o_bots.peoples_resolver import work_peoples
+from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
 from .utils import split_text_by_separator
 
 
