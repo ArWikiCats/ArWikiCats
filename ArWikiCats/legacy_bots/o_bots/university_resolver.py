@@ -6,7 +6,57 @@ import functools
 from typing import Dict
 
 from ...helps import logger
-from ...translations import CITY_TRANSLATIONS_LOWER
+from ...translations import CITY_TRANSLATIONS_LOWER as CITY_TRANSLATIONS_LOWER_EXTERNAL
+
+CITY_TRANSLATIONS_LOWER = {
+    "chandler, oklahoma": "تشاندلر (أوكلاهوما)",
+    "changchun": "تشانغتشون",
+    "changde": "تشانغده",
+    "changhua county": "مقاطعة تشانغوا",
+    "changning, hunan": "تشانغ نينغ، هونان",
+    "changnyeong county": "محافظة تشانغنيونغ",
+    "changsha": "تشانغشا",
+    "changzhi": "تشانغ تشى",
+    "changzhou": "تشانغتشو",
+    "chanhassen, minnesota": "تشانهاسين (منيسوتا)",
+    "chania": "خانية",
+    "channahon, illinois": "تشاناهون (إلينوي)",
+    "chaohu": "شاوهو",
+    "chaoyang, liaoning": "تشاويانغ",
+    "chaozhou": "شاوزو",
+    "chapayevsk": "تشاباييفسك",
+    "chapin, south carolina": "تشابين (كارولاينا الجنوبية)",
+    "chaplin, connecticut": "تشابين (كونيتيكت)",
+    "chapmanville, west virginia": "تشامبانفيل (فرجينيا الغربية)",
+    "chardon, ohio": "تشاردن",
+    "port townsend, washington": "بورت تاونسند",
+    "portage": "بورتج",
+    "portage la prairie": "بورتاج لابريري",
+    "portage, indiana": "بورتاغ",
+    "portage, wisconsin": "بورتاغ (ويسكونسن)",
+    "portalegre, portugal": "بورتاليغري (البرتغال)",
+    "portales, new mexico": "بورتاليس",
+    "porter": "بورتر",
+    "porterville, california": "بورتيرفيل (كاليفورنيا)",
+    "portland, maine": "بورتلاند (مين)",
+    "portland, oregon": "بورتلاند (أوريغن)",
+    "porto": "بورتو",
+    "porto alegre": "بورتو أليغري",
+    "porto-novo": "بورتو نوفو",
+    "portola valley, california": "بورتولا فالي (كاليفورنيا)",
+    "portorož": "بورتوروز",
+    "portsmouth, new hampshire": "بورتسموث (نيوهامشير)",
+    "portsmouth, ohio": "بورتسموث (أوهايو)",
+    "portsmouth, rhode island": "بورتسموث (رود آيلاند)",
+    "portsmouth, virginia": "بورتسموث (فرجينيا)",
+    "portuguese malacca": "ملقا البرتغالية",
+    "porvoo": "بورفو",
+    "posadas, misiones": "بوساداس (ميسيونيس)",
+    "posey": "بوسي",
+    "potenza": "بوتنسا",
+}
+
+CITY_TRANSLATIONS_LOWER.update(CITY_TRANSLATIONS_LOWER_EXTERNAL)
 
 MAJORS: Dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
