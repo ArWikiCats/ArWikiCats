@@ -18,6 +18,8 @@ from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import re
 from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
+
 logger.set_level("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))
@@ -38,7 +40,8 @@ logger.set_level("DEBUG")
 # print(resolve_by_nats_double_v2("jewish german surnames"))
 # print(get_con_lab("by", "by danish artists", True))
 # print(make_by_label("by danish artists"))
-print(Try_With_Years("2020s Dutch-language films"))
+# print(Try_With_Years("2020s Dutch-language films"))
+print(wrap_team_xo_normal_2025("national football"))
 # print(resolve_by_nats_double_v2("jewish history"))
 
 # python3 D:/categories_bot/make2_new/examples/run.py
