@@ -25,7 +25,7 @@ from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import bys, parties_resolver, university_resolver
-from ..o_bots.peoples_resolver import make_people_lab, work_peoples
+from ..o_bots.peoples_resolver import work_peoples
 
 
 @functools.lru_cache(maxsize=10000)
@@ -291,13 +291,6 @@ def _lookup_type_without_article(type_lower: str) -> str:
     return ""
 
 
-def _lookup_people_type(type_lower: str) -> str:
-    """Try to find label for types ending with ' people'."""
-    if type_lower.strip().endswith(" people"):
-        return make_people_lab(type_lower)
-    return ""
-
-
 def _lookup_religious_males(type_lower: str) -> str:
     """Look up religious keys for males."""
     return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
@@ -318,7 +311,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "get_from_new_p17_final": lambda t: get_from_new_p17_final(t),
         "all_new_resolvers": lambda t: all_new_resolvers(t),
         "_lookup_type_without_article": _lookup_type_without_article,
-        "_lookup_people_type": _lookup_people_type,
         "_lookup_religious_males": _lookup_religious_males,
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "religious_entries": lambda t: religious_entries.get(t, ""),

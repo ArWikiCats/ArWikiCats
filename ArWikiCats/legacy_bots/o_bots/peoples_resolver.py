@@ -82,48 +82,6 @@ def work_peoples(name: str) -> str:
     return resolved_label
 
 
-def make_people_lab(normalized_value: str) -> str:
-    """Return a label for general ``people`` categories.
-
-    Args:
-        value: Category type describing a people group.
-
-    Returns:
-        The formatted Arabic label or an empty string if the value is not
-        recognised.
-    """
-    TELEVISION_BASE_KEYS_FEMALE = {
-        "video games": "ألعاب فيديو",
-        "soap opera": "مسلسلات طويلة",
-        "television characters": "شخصيات تلفزيونية",
-        "television programs": "برامج تلفزيونية",
-        "television programmes": "برامج تلفزيونية",
-        "web series": "مسلسلات ويب",
-        "television series": "مسلسلات تلفزيونية",
-        "film series": "سلاسل أفلام",
-        "television episodes": "حلقات تلفزيونية",
-        "television news": "أخبار تلفزيونية",
-        "comics": "قصص مصورة",
-        "television films": "أفلام تلفزيونية",
-        "miniseries": "مسلسلات قصيرة",
-        "television miniseries": "مسلسلات قصيرة تلفزيونية",
-    }
-    normalized_value = normalized_value.strip()
-
-    new_label = ""
-
-    base_value = re.sub(r"people$", "", normalized_value)
-    film_label = TELEVISION_BASE_KEYS_FEMALE.get(base_value.strip(), "")
-
-    if film_label:
-        new_label = f"أعلام {film_label}"
-
-    logger.info_if_or_debug(f">> make_people_lab {normalized_value=}, {new_label=}", new_label)
-
-    return new_label
-
-
 __all__ = [
     "work_peoples",
-    "make_people_lab",
 ]
