@@ -3,10 +3,10 @@ Helpers for resolving sports teams and language categories.
 
 TODO: compare this file with ArWikiCats/new/handle_suffixes.py
 """
-
 from __future__ import annotations
-from ast import dump
+import functools
 from ..helps import logger
+from ..translations_formats import FormatData
 from ..translations import SPORTS_KEYS_FOR_JOBS
 
 Teams_new_end_keys = {
@@ -128,6 +128,14 @@ def resolve_team_suffix(normalized_team: str) -> str:
     return result
 
 
+@functools.lru_cache(maxsize=None)
+def resolve_team_jobs_bot(category: str, default: str = "") -> str:
+    """Search for a job-related sports label, returning ``default`` when missing."""
+    result = resolve_team_suffix(category) or default
+    return result
+
+
 __all__ = [
     "resolve_team_suffix",
+    "resolve_team_jobs_bot",
 ]
