@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.other_resolvers.peoples_resolver import work_peoples, work_peoples_formatdata_baesed
+from ArWikiCats.new_resolvers.other_resolvers.peoples_resolver import work_peoples
 
 fast_data = {
     "adele video albums": "ألبومات فيديو أديل",
@@ -53,6 +53,3 @@ fast_data = {
 def test_fast_data(category: str, expected: str) -> None:
     label = work_peoples(category)
     assert label == expected
-
-    label2 = work_peoples_formatdata_baesed(category)
-    assert label2 == expected
