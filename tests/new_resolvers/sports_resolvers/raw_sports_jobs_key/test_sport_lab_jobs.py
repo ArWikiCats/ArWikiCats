@@ -6,7 +6,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import find_jobs_bot, wrap_team_xo_normal_2025_with_ends
 
-test_find_jobs_bot_data_with_additional = {
+test_data_with_additional = {
     "women's national youth association football teams": "منتخبات كرة قدم وطنية للشابات",
     "women's national ice hockey teams": "منتخبات هوكي جليد وطنية للسيدات",
     "national under-18 ice hockey teams": "منتخبات هوكي جليد وطنية تحت 18 سنة",
@@ -41,7 +41,7 @@ test_find_jobs_bot_data_with_additional = {
     "wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
 }
 
-test_find_jobs_bot_data_0 = {
+test_data_0 = {
     # "college football": "كرة قدم الكليات",
     "baseball competitions": "منافسات كرة قاعدة",
     "national football manager history": "تاريخ مدربو منتخبات كرة قدم وطنية",
@@ -49,7 +49,7 @@ test_find_jobs_bot_data_0 = {
     "swimming competitions": "منافسات سباحة",
 }
 
-test_find_jobs_bot_data = {
+test_data_1 = {
     "amateur wrestling": "مصارعة للهواة",
     "international women's wrestling competitions": "منافسات مصارعة دولية للسيدات",
     "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
@@ -388,7 +388,7 @@ def wrap_callback(category: str) -> str:
     return wrap_team_xo_normal_2025_with_ends(category, callback=find_jobs_bot)
 
 
-@pytest.mark.parametrize("category, expected", test_find_jobs_bot_data.items(), ids=test_find_jobs_bot_data.keys())
+@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     label1 = wrap_callback(category)
@@ -396,7 +396,7 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
     assert label1 == expected
 
 
-@pytest.mark.parametrize("category, expected", test_find_jobs_bot_data_0.items(), ids=test_find_jobs_bot_data_0.keys())
+@pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
 @pytest.mark.fast
 def test_test_find_jobs_bot_data_0(category: str, expected: str) -> None:
     label1 = wrap_callback(category)
@@ -405,8 +405,9 @@ def test_test_find_jobs_bot_data_0(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_find_jobs_bot", test_find_jobs_bot_data, wrap_callback),
-    # ("test_find_jobs_bot_with_additional", test_find_jobs_bot_data_with_additional, wrap_callback),
+    ("test_find_jobs_bot_1", test_data_1, wrap_callback),
+    ("test_find_jobs_bot_0", test_data_0, wrap_callback),
+    # ("test_find_jobs_bot_with_additional", test_data_with_additional, wrap_callback),
 ]
 
 

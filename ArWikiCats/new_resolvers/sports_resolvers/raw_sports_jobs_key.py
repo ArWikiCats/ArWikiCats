@@ -106,28 +106,15 @@ jobs_formatted_data = {
     "national junior mens {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
     "national junior {en_sport} teams": "منتخبات {sport_jobs} وطنية للناشئين",
     "national mens {en_sport} teams": "منتخبات {sport_jobs} وطنية رجالية",
-    "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
+
     "national reserve {en_sport} teams": "منتخبات {sport_jobs} وطنية احتياطية",
-    "national under-13 {en_sport}": "منتخبات {sport_jobs} تحت 13 سنة",
-    "national under-14 {en_sport}": "منتخبات {sport_jobs} تحت 14 سنة",
-    "national under-15 {en_sport}": "منتخبات {sport_jobs} تحت 15 سنة",
-    "national under-16 {en_sport}": "منتخبات {sport_jobs} تحت 16 سنة",
-    "national under-17 {en_sport}": "منتخبات {sport_jobs} تحت 17 سنة",
-    "national under-18 {en_sport}": "منتخبات {sport_jobs} تحت 18 سنة",
-    "national under-19 {en_sport}": "منتخبات {sport_jobs} تحت 19 سنة",
-    "national under-20 {en_sport}": "منتخبات {sport_jobs} تحت 20 سنة",
-    "national under-21 {en_sport}": "منتخبات {sport_jobs} تحت 21 سنة",
-    "national under-23 {en_sport}": "منتخبات {sport_jobs} تحت 23 سنة",
-    "national under-24 {en_sport}": "منتخبات {sport_jobs} تحت 24 سنة",
     "national womens {en_sport} teams": "منتخبات {sport_jobs} وطنية نسائية",
-    "national womens {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
     "national {en_sport} champions": "أبطال بطولات {sport_jobs} وطنية",
     "national {en_sport} championships": "بطولات {sport_jobs} وطنية",
     "national {en_sport} league": "دوريات {sport_jobs} وطنية",
     "national {en_sport} leagues": "دوريات {sport_jobs} وطنية",
     "national {en_sport} team results": "نتائج منتخبات {sport_jobs} وطنية",
     "national {en_sport} teams": "منتخبات {sport_jobs} وطنية",
-    "national {en_sport}": "منتخبات {sport_jobs} وطنية",
     "national youth {en_sport} teams": "منتخبات {sport_jobs} وطنية شبابية",
     "outdoor {en_sport} leagues": "دوريات {sport_jobs} في الهواء الطلق",
     "outdoor {en_sport}": "{sport_jobs} في الهواء الطلق",
@@ -175,6 +162,42 @@ jobs_formatted_data = {
 }
 
 jobs_formatted_data.update(jobs_formatted_data_shared)
+
+jobs_formatted_data2 = {
+    # "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
+    # "national {en_sport}": "منتخبات {sport_jobs} وطنية",
+    # "national womens {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
+
+    "national mens {en_sport}": "{sport_jobs} وطنية للرجال",
+    "national {en_sport}": "{sport_jobs} وطنية",
+    "national womens {en_sport}": "{sport_jobs} وطنية للسيدات",
+
+    # "national under-13 {en_sport}": "منتخبات {sport_jobs} تحت 13 سنة",
+    # "national under-14 {en_sport}": "منتخبات {sport_jobs} تحت 14 سنة",
+    # "national under-15 {en_sport}": "منتخبات {sport_jobs} تحت 15 سنة",
+    # "national under-16 {en_sport}": "منتخبات {sport_jobs} تحت 16 سنة",
+    # "national under-17 {en_sport}": "منتخبات {sport_jobs} تحت 17 سنة",
+    # "national under-18 {en_sport}": "منتخبات {sport_jobs} تحت 18 سنة",
+    # "national under-19 {en_sport}": "منتخبات {sport_jobs} تحت 19 سنة",
+    # "national under-20 {en_sport}": "منتخبات {sport_jobs} تحت 20 سنة",
+    # "national under-21 {en_sport}": "منتخبات {sport_jobs} تحت 21 سنة",
+    # "national under-23 {en_sport}": "منتخبات {sport_jobs} تحت 23 سنة",
+    # "national under-24 {en_sport}": "منتخبات {sport_jobs} تحت 24 سنة",
+
+    "national under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
+    "national under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
+    "national under-15 {en_sport}": "{sport_jobs} تحت 15 سنة",
+    "national under-16 {en_sport}": "{sport_jobs} تحت 16 سنة",
+    "national under-17 {en_sport}": "{sport_jobs} تحت 17 سنة",
+    "national under-18 {en_sport}": "{sport_jobs} تحت 18 سنة",
+    "national under-19 {en_sport}": "{sport_jobs} تحت 19 سنة",
+    "national under-20 {en_sport}": "{sport_jobs} تحت 20 سنة",
+    "national under-21 {en_sport}": "{sport_jobs} تحت 21 سنة",
+    "national under-23 {en_sport}": "{sport_jobs} تحت 23 سنة",
+    "national under-24 {en_sport}": "{sport_jobs} تحت 24 سنة",
+}
+
+jobs_formatted_data.update(jobs_formatted_data2)
 
 jobs_bot = FormatData(
     jobs_formatted_data,
