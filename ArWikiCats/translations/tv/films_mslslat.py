@@ -674,7 +674,6 @@ len_print.data_len(
         "film_keys_for_female": film_keys_for_female,
         "film_keys_for_male": film_keys_for_male,
         "Films_key_man": Films_key_man,
-        "TELEVISION_BASE_KEYS_FEMALE": TELEVISION_BASE_KEYS_FEMALE,
         # "films_key_for_nat_extended_org": films_key_for_nat_extended_org,
         # "films_mslslat_tab_base_org": films_mslslat_tab_base_org,
     },
@@ -693,5 +692,4 @@ __all__ = [
     "Films_key_For_nat",
     "Films_key_man",
     "Films_keys_both_new_female",
-    "TELEVISION_BASE_KEYS_FEMALE",
 ]

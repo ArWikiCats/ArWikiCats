@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.o_bots.peoples_resolver import make_people_lab, work_peoples
+from ArWikiCats.legacy_bots.o_bots.peoples_resolver import work_peoples
 
 fast_data = {
     "adele video albums": "ألبومات فيديو أديل",
@@ -53,29 +53,3 @@ fast_data = {
 def test_fast_data(category: str, expected: str) -> None:
     label = work_peoples(category)
     assert label == expected
-
-
-def test_work_peoples() -> None:
-    # Test with a basic input
-    result = work_peoples("test people")
-    assert isinstance(result, str)
-
-    result_empty = work_peoples("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = work_peoples("some suffix")
-    assert isinstance(result_various, str)
-
-
-def test_make_people_lab() -> None:
-    # Test with a basic input
-    result = make_people_lab("people")
-    assert isinstance(result, str)
-
-    result_empty = make_people_lab("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = make_people_lab("actors")
-    assert isinstance(result_various, str)
