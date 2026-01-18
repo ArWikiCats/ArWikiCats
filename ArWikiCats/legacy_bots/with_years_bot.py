@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-!
+Year-based category label processing.
+
+This module handles categories that contain year information, extracting and
+formatting them appropriately for Arabic labels.
 """
 
 import functools
@@ -228,7 +231,17 @@ def Try_With_Years(category: str) -> str:
 
 
 def Try_With_Years2(category_r) -> str:
-    """ """
+    """Process category names that start with year information.
+
+    This function handles categories that begin with year numbers,
+    extracting and formatting them appropriately for Arabic labels.
+
+    Args:
+        category_r: The raw category name to process
+
+    Returns:
+        The processed Arabic label or empty string if no match is found
+    """
     cat3 = category_r.lower().replace("category:", "").strip()
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')

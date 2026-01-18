@@ -64,6 +64,14 @@ def _resolve_label(label: str) -> str:
 
 
 def create_label_from_prefix(input_label):
+    """Create an Arabic label from a prefix template match.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a prefix match is found, otherwise an empty string
+    """
     template_label = ""
 
     for prefix, format_template in pp_start_with.items():
@@ -82,6 +90,14 @@ def create_label_from_prefix(input_label):
 
 
 def create_label_from_suffix(input_label):
+    """Create an Arabic label from a suffix template match.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a suffix match is found, otherwise an empty string
+    """
     template_label = ""
 
     # Try suffix matching - more efficient iteration
@@ -104,7 +120,17 @@ def create_label_from_suffix(input_label):
 
 @functools.lru_cache(maxsize=10000)
 def Work_Templates(input_label: str) -> str:
-    """ """
+    """Generate Arabic category labels using template-based matching.
+
+    This function attempts to match input labels against predefined templates
+    based on known prefixes and suffixes to generate appropriate Arabic labels.
+
+    Args:
+        input_label: The English category label to process
+
+    Returns:
+        The corresponding Arabic label if a match is found, otherwise an empty string
+    """
     input_label = input_label.lower().strip()
     logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
     data = {
