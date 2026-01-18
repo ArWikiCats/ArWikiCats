@@ -25,7 +25,6 @@ data_virginia2_3 = {
     "Category:African-American people in West Virginia politics": "تصنيف:أمريكيون أفارقة في سياسة فرجينيا الغربية",
     "Category:Alumni by university or college in Virginia": "تصنيف:خريجون حسب الجامعة أو الكلية في فرجينيا",
     "Category:Architecture in West Virginia": "تصنيف:هندسة معمارية في فرجينيا الغربية",
-    "Category:Coaches of American football from West Virginia": "تصنيف:مدربو كرة قدم أمريكية من فرجينيا الغربية",
     "Category:Demographics of Virginia": "تصنيف:التركيبة السكانية في فرجينيا",
     "Category:Education in Williamsburg, Virginia": "تصنيف:التعليم في ويليامزبرغ (فرجينيا)",
     "Category:Jews from West Virginia": "تصنيف:يهود من فرجينيا الغربية",
