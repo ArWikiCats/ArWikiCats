@@ -52,12 +52,6 @@ def match_game_key(category_lower: str) -> str:
     return ""
 
 
-def main_jobs_resolvers_2(category: str) -> str:
-    """A wrapper around main_jobs_resolvers to handle empty results."""
-    logger.debug(f"main_jobs_resolvers_2: category: {category}")
-    return ""
-
-
 @functools.lru_cache(maxsize=1)
 def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
     country_bot = FormatDataFrom(
@@ -65,7 +59,6 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         key_placeholder="{en_job}",
         value_placeholder="{ar_job}",
         search_callback=main_jobs_resolvers,
-        # search_callback=main_jobs_resolvers_2,
         match_key_callback=match_key_callback,
     )
     game_bot = FormatDataFrom(
