@@ -8,8 +8,10 @@ on suffixes and prefixes.
 
 import functools
 
+from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ..helps import logger
-from ..new_resolvers import all_new_resolvers
+from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
@@ -49,7 +51,11 @@ def _resolve_label(label: str) -> str:
         or get_pop_All_18(label)
         or resolve_languages_labels_with_time(label)
         or People_key.get(label)
-        or sport_lab_suffixes.get_teams_new(label)
+
+        or main_sports_resolvers(label)
+        or wrap_team_xo_normal_2025_with_ends(label)
+        or sport_lab_suffixes.resolve_team_suffix(label)
+
         or parties_resolver.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)
         or university_resolver.resolve_university_category(label)

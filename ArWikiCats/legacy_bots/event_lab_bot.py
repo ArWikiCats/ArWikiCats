@@ -13,7 +13,7 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers import all_new_resolvers
+from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_formats import time_to_arabic
@@ -54,7 +54,11 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-        or sport_lab_suffixes.get_teams_new(country2)
+
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or sport_lab_suffixes.resolve_team_suffix(country2)
+
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)

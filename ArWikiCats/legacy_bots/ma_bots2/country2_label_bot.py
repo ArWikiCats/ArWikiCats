@@ -7,9 +7,11 @@ import functools
 import re
 from typing import Tuple
 
+from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers
+from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_formats.time_to_arabic import convert_time_to_arabic
@@ -48,7 +50,11 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-        or sport_lab_suffixes.get_teams_new(country2)
+
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or sport_lab_suffixes.resolve_team_suffix(country2)
+
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
@@ -135,7 +141,11 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or resolve_languages_labels_with_time(cone_1)
         or People_key.get(cone_1)
         or all_new_resolvers(cone_1)
-        or sport_lab_suffixes.get_teams_new(cone_1)
+
+        or main_sports_resolvers(cone_1)
+        or wrap_team_xo_normal_2025_with_ends(cone_1)
+        or sport_lab_suffixes.resolve_team_suffix(cone_1)
+
         or parties_resolver.get_parties_lab(cone_1)
         or team_work.Get_team_work_Club(cone_1)
         or get_table_with_in(cone_1, separator)
@@ -173,7 +183,11 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
         or resolve_languages_labels_with_time(cone_2)
         or People_key.get(cone_2)
         or all_new_resolvers(cone_2)
-        or sport_lab_suffixes.get_teams_new(cone_2)
+
+        or main_sports_resolvers(cone_2)
+        or wrap_team_xo_normal_2025_with_ends(cone_2)
+        or sport_lab_suffixes.resolve_team_suffix(cone_2)
+
         or parties_resolver.get_parties_lab(cone_2)
         or bys.get_and_label(cone_2)
         or team_work.Get_team_work_Club(cone_2)

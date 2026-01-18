@@ -6,10 +6,12 @@ Country Label Bot Module
 import functools
 import re
 
+from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers
+from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -54,7 +56,11 @@ def get_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-        or sport_lab_suffixes.get_teams_new(country2)
+
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or sport_lab_suffixes.resolve_team_suffix(country2)
+
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
