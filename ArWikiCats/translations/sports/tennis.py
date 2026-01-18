@@ -82,8 +82,6 @@ TENNIS_KEYS: dict[str, str] = {
 }
 
 OPEN_KEYS = {
-
-    "chennai open": "بطولة تشيناي المفتوحة للتنس",
     "australian open (tennis)": "بطولة أستراليا المفتوحة للتنس",
     "australian open tennis": "بطولة أستراليا المفتوحة للتنس",
     "barcelona open (tennis)": "بطولة برشلونة للتنس",
@@ -104,8 +102,10 @@ OPEN_KEYS = {
     "mexican open tennis": "بطولة أكابولكو للتنس",
     "miami open tennis": "ميامي للماسترز",
     "qatar open tennis": "بطولة قطر المفتوحة للتنس",
+
     "citi open": "بطولة واشنطن المفتوحة",
     "french open": "دورة رولان غاروس الدولية",
+    "chennai open": "بطولة تشيناي المفتوحة للتنس",
     "geneva open": "بطولة جنيف المفتوحة",
     "gerry weber open": "بطولة هالي المفتوحة",
     "istanbul open": "بطولة إسطنبول المفتوحة",

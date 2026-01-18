@@ -49,8 +49,9 @@ ar_data = {
     "{en} kings cup": "كأس ملك {ar}",  # Bahraini King's Cup
     "{en} cup": "كأس {ar}",
     "{en} independence": "استقلال {ar}",
-    "{en} open": "{ar} المفتوحة",
-    "{en} ladies open": "{ar} المفتوحة للسيدات",
+    "{en} open": "بطولة {ar} المفتوحة",
+    "{en} ladies open": "بطولة {ar} المفتوحة للسيدات",
+    "womens {en} open": "بطولة {ar} المفتوحة للسيدات",
     "{en} national university": "جامعة {ar} الوطنية",
     "{en} national university alumni": "خريجو جامعة {ar} الوطنية",
     "{en} national womens motorsports racing team": "منتخب {ar} لسباق رياضة المحركات للسيدات",
