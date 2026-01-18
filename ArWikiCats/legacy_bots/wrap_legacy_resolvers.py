@@ -1,16 +1,16 @@
 """
-# isort:skip_file
+
 """
 
 from __future__ import annotations
+
 import functools
 
-from . import with_years_bot
-from .o_bots import univer
-from .ma_bots.country_bot import event2_d2
-from . import event_lab_bot
-from .ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
+from . import event_lab_bot, with_years_bot
 from .ma_bots import ye_ts_bot
+from .ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
+from .ma_bots.country_bot import event2_d2
+from .o_bots import univer
 
 
 @functools.lru_cache(maxsize=None)

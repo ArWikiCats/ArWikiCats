@@ -8,7 +8,6 @@ import re
 from ...helps import logger
 from ...translations import TELEVISION_BASE_KEYS_FEMALE, People_key
 
-
 labelSuffixMappings = {
     "administration cabinet members": "أعضاء مجلس وزراء إدارة {ar}",
     "administration personnel": "موظفو إدارة {ar}",
