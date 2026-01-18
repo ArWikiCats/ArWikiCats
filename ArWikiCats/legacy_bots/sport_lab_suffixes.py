@@ -1,12 +1,10 @@
 """
 Helpers for resolving sports teams and language categories.
 
-TODO: compare this file with ArWikiCats/new/handle_suffixes.py
 """
 from __future__ import annotations
 import functools
 from ..helps import logger
-from ..translations_formats import FormatData
 from ..translations import SPORTS_KEYS_FOR_JOBS
 
 Teams_new_end_keys = {
