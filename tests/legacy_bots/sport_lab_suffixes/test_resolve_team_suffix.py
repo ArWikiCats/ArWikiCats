@@ -7,7 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
 
-resolve_team_suffix_data = {
+test_data_1 = {
     "australian rules football awards": "جوائز كرة قدم أسترالية",
     "baseball commissioners": "مفوضو كرة قاعدة",
     "baseball music": "موسيقى كرة قاعدة",
@@ -35,18 +35,25 @@ resolve_team_suffix_data = {
     "wheelchair basketball terminology": "مصطلحات كرة سلة على كراسي متحركة",
 }
 
+data_2 = {}
 
-@pytest.mark.parametrize(
-    "category, expected_key", resolve_team_suffix_data.items(), ids=resolve_team_suffix_data.keys()
-)
+
+@pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
-def test_resolve_team_suffix_data(category: str, expected_key: str) -> None:
+def test_resolve_team_suffix_1(category: str, expected_key: str) -> None:
+    label = resolve_team_suffix(category)
+    assert label == expected_key
+
+
+@pytest.mark.parametrize("category, expected_key", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_resolve_team_suffix_2(category: str, expected_key: str) -> None:
     label = resolve_team_suffix(category)
     assert label == expected_key
 
 
 to_test = [
-    ("test_resolve_team_suffix_data", resolve_team_suffix_data),
+    ("test_resolve_team_suffix_data", data_2),
 ]
 
 
