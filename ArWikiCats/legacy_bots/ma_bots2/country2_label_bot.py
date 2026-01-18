@@ -312,7 +312,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     part_2_label = (
         all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
-        or country_bot.Get_c_t_lab(part_2, "")
+        or country_bot.fetch_country_term_label(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
         or ""
     )
@@ -320,7 +320,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     part_1_label = (
         all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1, with_years=with_years)
-        or country_bot.Get_c_t_lab(part_1, "", lab_type="type_label")
+        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""
     )
 
