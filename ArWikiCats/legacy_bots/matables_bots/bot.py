@@ -37,6 +37,14 @@ typeTable_7: dict[str, str] = {
 
 
 def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
+    """Create prefix mappings for album-related categories.
+
+    Args:
+        albums_typies: Dictionary mapping album types to their descriptions
+
+    Returns:
+        Dictionary of prefix mappings for album categories
+    """
     Pp_Priffix = {
         " memorials": "نصب {} التذكارية",
         " video albums": "ألبومات فيديو {}",
@@ -54,6 +62,11 @@ def _create_pp_prefix(albums_typies: dict[str, str]) -> dict[str, str]:
 
 
 def _make_players_keys() -> dict:
+    """Create a dictionary of player-related keys for category mapping.
+
+    Returns:
+        Dictionary mapping English player terms to Arabic equivalents
+    """
     players_keys = {}
     players_keys["women"] = "المرأة"
 

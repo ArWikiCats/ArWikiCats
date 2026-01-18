@@ -283,7 +283,14 @@ class CountryLabelRetriever:
         return ""
 
     def _check_regex_years(self, country: str) -> str:
-        """Check regex patterns for years."""
+        """Check regex patterns for years.
+
+        Args:
+            country: The country string to check for year patterns
+
+        Returns:
+            The processed label if year patterns are found, otherwise an empty string
+        """
         RE1 = RE1_compile.match(country)
         RE2 = RE2_compile.match(country)
         RE3 = RE3_compile.match(country)
@@ -293,7 +300,14 @@ class CountryLabelRetriever:
         return ""
 
     def _check_members(self, country: str) -> str:
-        """Check for 'members of' pattern."""
+        """Check for 'members of' pattern.
+
+        Args:
+            country: The country string to check for 'members of' pattern
+
+        Returns:
+            The processed label if the pattern is found, otherwise an empty string
+        """
         if country.endswith(" members of"):
             country2 = country.replace(" members of", "")
             resolved_label = Nat_mens.get(country2, "")
@@ -306,7 +320,17 @@ class CountryLabelRetriever:
     def get_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
     ) -> str:
-        """Retrieve the corresponding label for a given term."""
+        """Retrieve the corresponding label for a given term.
+
+        Args:
+            term_lower: The lowercase term to look up
+            separator: The separator to use in processing
+            lab_type: The type of label to retrieve
+            start_get_country2: Whether to use enhanced country lookup
+
+        Returns:
+            The processed label or an empty string if not found
+        """
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
@@ -349,7 +373,16 @@ class CountryLabelRetriever:
         return term_label
 
     def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
-        """Handle logic specific to type_label."""
+        """Handle logic specific to type_label.
+
+        Args:
+            term_lower: The lowercase term to process
+            separator: The separator to use in processing
+            start_get_country2: Whether to use enhanced country lookup
+
+        Returns:
+            The processed label or an empty string if not found
+        """
         suffixes = [" of", " in", " at"]
         term_label = ""
 
@@ -395,8 +428,13 @@ _retriever = CountryLabelRetriever()
 
 
 def event2_d2(category_r) -> str:
-    """
-    Determine the category label based on the input string.
+    """Determine the category label based on the input string.
+
+    Args:
+        category_r: The raw category string to process
+
+    Returns:
+        The processed category label or an empty string if not found
     """
     cat3 = category_r.lower().replace("category:", "").strip()
 
@@ -416,12 +454,30 @@ def event2_d2(category_r) -> str:
 
 
 def get_country(country: str, start_get_country2: bool = True) -> str:
-    """Retrieve the label for a given country name."""
+    """Retrieve the Arabic label for a given country name.
+
+    Args:
+        country: The country name to look up
+        start_get_country2: Whether to use enhanced country lookup
+
+    Returns:
+        The Arabic label for the country or an empty string if not found
+    """
     return _retriever.get_country_label(country, start_get_country2)
 
 
 def Get_c_t_lab(term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
-    """Retrieve the corresponding label for a given country or term."""
+    """Retrieve the corresponding label for a given country or term.
+
+    Args:
+        term_lower: The lowercase term to look up
+        separator: The separator to use in processing
+        lab_type: The type of label to retrieve
+        start_get_country2: Whether to use enhanced country lookup
+
+    Returns:
+        The processed label or an empty string if not found
+    """
     return _retriever.get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
 

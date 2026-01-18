@@ -1,4 +1,7 @@
-"""
+"""Table-based lookup bot for Arabic category labels.
+
+This module provides functionality to look up Arabic labels for categories
+using multiple mapping tables.
 
 Usage:
 from ...matables_bots.table1_bot import table1get, get_KAKO
@@ -33,7 +36,14 @@ KAKO: Dict[str, Dict[str, str]] = {
 @functools.lru_cache(maxsize=None)
 # @dump_data(1)
 def _get_KAKO(text: str) -> str:
-    """Look up the Arabic label for a term across several mapping tables."""
+    """Look up the Arabic label for a term across several mapping tables.
+
+    Args:
+        text: The text to look up in the mapping tables
+
+    Returns:
+        A tuple containing the table name and the found label, or empty strings if not found
+    """
     resolved_label = resolve_by_labels(text)
     if resolved_label:
         return "resolve_by_labels", resolved_label
@@ -58,6 +68,14 @@ def _get_KAKO(text: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def get_KAKO(text: str) -> str:
+    """Get the Arabic label for a term from multiple mapping tables.
+
+    Args:
+        text: The text to look up in the mapping tables
+
+    Returns:
+        The found Arabic label or an empty string if not found
+    """
     _, label = _get_KAKO(text)
     return label
 
