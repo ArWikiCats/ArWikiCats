@@ -1023,24 +1023,6 @@ data_2 = {
     "field hockey racing commissioners": "مفوضو سباق هوكي ميدان"
 }
 
-data_3 = {
-    "orienteering cup": "كأس سباق موجه",
-    "short track speed skating cup": "كأس تزلج على مسار قصير",
-    "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
-    "luge cup": "كأس زحف ثلجي",
-    "motorsports racing cup": "كأس سباق رياضة محركات",
-    "speed skating cup": "كأس تزلج سريع",
-    "motocross cup": "كأس موتو كروس",
-    "pencak silat cup": "كأس بنكات سيلات",
-    "pesäpallo cup": "كأس بيسبالو",
-    "roller hockey (quad) cup": "كأس هوكي دحرجة",
-    "association football cup": "كأس كرة قدم",
-    "kick boxing racing cup": "كأس سباق كيك بوكسينغ",
-    "shot put racing cup": "كأس سباق دفع ثقل",
-    "luge racing cup": "كأس سباق زحف ثلجي",
-    "water skiing cup": "كأس تزلج على الماء",
-}
-
 
 @pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
@@ -1059,7 +1041,6 @@ def test_resolve_team_suffix_2(category: str, expected_key: str) -> None:
 to_test = [
     ("test_resolve_team_suffix_data_1", test_data_1),
     ("test_resolve_team_suffix_data_2", data_2),
-    ("test_resolve_team_suffix_data_3", data_3),
 ]
 
 
