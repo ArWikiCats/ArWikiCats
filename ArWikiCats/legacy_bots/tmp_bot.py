@@ -18,7 +18,7 @@ from .ma_bots import ye_ts_bot
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_bot, univer
+from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
 
 pp_start_with = {
@@ -49,9 +49,9 @@ def _resolve_label(label: str) -> str:
         or resolve_languages_labels_with_time(label)
         or People_key.get(label)
         or sport_lab_suffixes.get_teams_new(label)
-        or parties_bot.get_parties_lab(label)
+        or parties_resolver.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)
-        or univer.te_universities(label)
+        or university_resolver.resolve_university_category(label)
         or work_peoples(label)
         or get_KAKO(label)
         or convert_time_to_arabic(label)

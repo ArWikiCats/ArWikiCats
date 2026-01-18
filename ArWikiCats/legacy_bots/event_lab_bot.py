@@ -26,7 +26,7 @@ from .ma_bots.lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_bot, univer
+from .o_bots import parties_resolver, university_resolver
 from .o_bots.peoples_resolver import work_peoples
 
 
@@ -46,9 +46,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -135,7 +135,7 @@ class EventLabResolver:
             str: The processed category label or empty string
         """
         # Try different label functions in sequence
-        category_lab: str = univer.te_universities(category3)
+        category_lab: str = university_resolver.resolve_university_category(category3)
         if category_lab:
             return category_lab
 

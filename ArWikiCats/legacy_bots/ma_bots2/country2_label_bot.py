@@ -21,7 +21,7 @@ from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys, parties_bot, univer
+from ..o_bots import bys, parties_resolver, university_resolver
 from ..o_bots.peoples_resolver import work_peoples
 from .utils import split_text_by_separator
 
@@ -49,9 +49,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or sport_lab_suffixes.get_teams_new(country2)
-        or parties_bot.get_parties_lab(country2)
+        or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
-        or univer.te_universities(country2)
+        or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
@@ -128,7 +128,7 @@ def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
         or People_key.get(cone_1)
         or all_new_resolvers(cone_1)
         or sport_lab_suffixes.get_teams_new(cone_1)
-        or parties_bot.get_parties_lab(cone_1)
+        or parties_resolver.get_parties_lab(cone_1)
         or team_work.Get_team_work_Club(cone_1)
         or get_table_with_in(cone_1, separator)
         or convert_time_to_arabic(cone_1)
@@ -165,7 +165,7 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
         or People_key.get(cone_2)
         or all_new_resolvers(cone_2)
         or sport_lab_suffixes.get_teams_new(cone_2)
-        or parties_bot.get_parties_lab(cone_2)
+        or parties_resolver.get_parties_lab(cone_2)
         or bys.get_and_label(cone_2)
         or team_work.Get_team_work_Club(cone_2)
         or get_from_pf_keys2(cone_2.strip().lower())

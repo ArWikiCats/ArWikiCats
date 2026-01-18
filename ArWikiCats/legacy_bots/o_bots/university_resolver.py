@@ -70,7 +70,7 @@ def _normalise_category(category: str) -> str:
 
 def _resolve(normalized_category: str) -> str:
     """Resolve a university-related category to its Arabic label."""
-    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv te_universities start, (category:{normalized_category}) vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv resolve_university_category start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     city_key = ""
     university_template = ""
@@ -108,16 +108,16 @@ def _resolve(normalized_category: str) -> str:
     city_label = CITY_TRANSLATIONS_LOWER.get(city_key, "") if city_key else ""
     if city_label and university_template:
         university_label = university_template.format(city_label)
-        logger.info(f"<<lightblue>>>>>> te_universities: new {university_label=} ")
-        logger.info("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
+        logger.info(f"<<lightblue>>>>>> resolve_university_category: new {university_label=} ")
+        logger.info("<<lightblue>>>> ^^^^^^^^^ resolve_university_category end ^^^^^^^^^ ")
         return university_label
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ te_universities end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ resolve_university_category end ^^^^^^^^^ ")
     return ""
 
 
 @functools.lru_cache(maxsize=None)
-def te_universities(category: str) -> str:
+def resolve_university_category(category: str) -> str:
     """Return the Arabic label for university-related categories.
 
     Args:
@@ -132,4 +132,4 @@ def te_universities(category: str) -> str:
     return _resolve(normalized_category)
 
 
-__all__ = ["te_universities"]
+__all__ = ["resolve_university_category"]

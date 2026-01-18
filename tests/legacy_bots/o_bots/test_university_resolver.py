@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.o_bots.univer import te_universities
+from ArWikiCats.legacy_bots.o_bots.university_resolver import resolve_university_category
 
-te_universities_data = {
+resolve_university_category_data = {
     "seoul national university": "جامعة سول الوطنية",
     "i̇zmir university of economics": "جامعة إزمير للاقتصاد",
     "shandong university of science and technology": "جامعة شاندونغ للعلوم والتكنولوجيا",
@@ -76,25 +76,25 @@ te_universities_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", te_universities_data.items(), ids=te_universities_data.keys())
+@pytest.mark.parametrize("category, expected_key", resolve_university_category_data.items(), ids=resolve_university_category_data.keys())
 @pytest.mark.fast
 def test_universities_data(category: str, expected_key: str) -> None:
-    label = te_universities(category)
+    label = resolve_university_category(category)
     assert label == expected_key
 
 
-def test_te_universities() -> None:
+def test_resolve_university_category() -> None:
     # Test with a basic university category
-    result = te_universities("university of california")
+    result = resolve_university_category("university of california")
     assert isinstance(result, str)
 
-    result_empty = te_universities("")
+    result_empty = resolve_university_category("")
     assert isinstance(result_empty, str)
 
     # Test with a specific major
-    result_major = te_universities("university of engineering")
+    result_major = resolve_university_category("university of engineering")
     assert isinstance(result_major, str)
 
     # Test with "the" prefix
-    result_the = te_universities("the university of law")
+    result_the = resolve_university_category("the university of law")
     assert isinstance(result_the, str)

@@ -8,14 +8,14 @@ from . import event_lab_bot, with_years_bot
 from .ma_bots import ye_ts_bot
 from .ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
 from .ma_bots.country_bot import event2_d2
-from .o_bots import univer
+from .o_bots import university_resolver
 
 
 @functools.lru_cache(maxsize=None)
 def legacy_resolvers(changed_cat) -> str:
     """Wrap legacy resolvers to get category label."""
     category_lab = (
-        univer.te_universities(changed_cat)
+        university_resolver.resolve_university_category(changed_cat)
         or event2_d2(changed_cat)
         or with_years_bot.Try_With_Years2(changed_cat)
         or label_for_startwith_year_or_typeo(changed_cat)
