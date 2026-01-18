@@ -9,15 +9,15 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
-from ..legacy_bots import sport_lab_suffixes, team_work, tmp_bot
-from ..legacy_bots.ma_bots import ye_ts_bot
-from ..legacy_bots.ma_bots2.country2_label_bot import country_2_title_work
-from ..legacy_bots.ma_bots.lab_seoo_bot import event_label_work
-from ..legacy_bots.make_bots.bot_2018 import get_pop_All_18
-from ..legacy_bots.make_bots.ends_keys import combined_suffix_mappings
-from ..legacy_bots.matables_bots.table1_bot import get_KAKO
-from ..legacy_bots.o_bots import parties_bot, univer
-from ..legacy_bots.o_bots.peoples_resolver import work_peoples
+from . import sport_lab_suffixes, team_work, tmp_bot
+from .ma_bots import ye_ts_bot
+from .ma_bots2.country2_label_bot import country_2_title_work
+from .ma_bots.lab_seoo_bot import event_label_work
+from .make_bots.bot_2018 import get_pop_All_18
+from .make_bots.ends_keys import combined_suffix_mappings
+from .matables_bots.table1_bot import get_KAKO
+from .o_bots import parties_bot, univer
+from .o_bots.peoples_resolver import work_peoples
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
@@ -27,7 +27,7 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_formats import time_to_arabic
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
-from .main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
+from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 
 
 @functools.lru_cache(maxsize=10000)
