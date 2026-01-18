@@ -10,9 +10,6 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 data_nats_0 = {
-    "barcelona open (tennis)": "بطولة برشلونة للتنس",
-    "barcelona open tennis": "بطولة برشلونة للتنس",
-    "madrid open tennis": "مدريد للماسترز",
 }
 data_nats_1 = {
     "australian open (tennis)": "بطولة أستراليا المفتوحة لكرة المضرب",
@@ -26,9 +23,6 @@ data_nats_1 = {
 }
 
 data_names_0 = {
-    "madrid open (tennis)": "مدريد للماسترز",
-    "miami open (tennis)": "ميامي للماسترز",
-    "miami open tennis": "ميامي للماسترز",
 }
 
 data_names_3 = {
