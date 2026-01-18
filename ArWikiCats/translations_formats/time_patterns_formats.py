@@ -98,9 +98,10 @@ class LabsYearsFormat(MatchTimes):
         Parameters:
             category_r (str): The category from which to update the year.
             category_lab (str): The category from which to update the year.
-            cat_year (str): The year to update in the categories.
+            en_year (str): The English year to update in the categories.
+            ar_year (str): The Arabic year (optional, derived if not provided).
         Returns:
-            None
+            bool: True if the template was added successfully, False otherwise.
         """
         logger.debug(f"start lab_from_year_add: category_r={category_r}, category_lab={category_lab}")
         category_r = category_r.lower().replace("category:", "").strip()
