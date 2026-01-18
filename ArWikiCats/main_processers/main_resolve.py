@@ -6,21 +6,20 @@ from __future__ import annotations
 
 import functools
 from dataclasses import dataclass
-import re
-
-from ..patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ..helps import logger
 from ..patterns_resolvers import all_patterns_resolvers
+from ..legacy_bots.make_bots import filter_en
+from ..format_bots import change_cat
+from ..new_resolvers import all_new_resolvers
+from ..fix import fixlabel, cleanse_category_label
+from .wrap_legacy_resolvers import legacy_resolvers
+
 from ..legacy_bots import with_years_bot
 from ..legacy_bots.o_bots import univer
 from ..legacy_bots.ma_bots.country_bot import event2_d2
-from . import event_lab_bot
+from ..legacy_bots import event_lab_bot
 from ..legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
-from ..legacy_bots.make_bots import filter_en
-from ..format_bots import change_cat
 from ..legacy_bots.ma_bots import ye_ts_bot
-from ..new_resolvers import all_new_resolvers
-from ..fix import fixlabel, cleanse_category_label
 
 
 @dataclass
@@ -60,38 +59,14 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             from_match=False,
         )
 
-    from_match = False
-    # category_lab = ""
     category_lab = all_patterns_resolvers(changed_cat)
-
-    if category_lab:
-        from_match = True
+    from_match = bool(category_lab)
 
     if not category_lab:
         category_lab = all_new_resolvers(changed_cat) or ""
 
-    # if not category_lab:
-    #     category_lab = (
-    #         all_patterns_resolvers(changed_cat)
-    #         # resolve_country_time_pattern(changed_cat)
-    #         # or nat_males_pattern.resolve_nat_males_pattern(changed_cat)
-    #     )
-    #     from_match = category_lab != ""
-
     if not category_lab:
-        category_lab = (
-            univer.te_universities(changed_cat)
-            or event2_d2(changed_cat)
-            or with_years_bot.Try_With_Years2(changed_cat)
-            or label_for_startwith_year_or_typeo(changed_cat)
-            or ""
-        )
-
-        if not category_lab:
-            category_lab = event_lab_bot.event_Lab(changed_cat)
-
-    if not category_lab:
-        category_lab = ye_ts_bot.translate_general_category(changed_cat)
+        category_lab = legacy_resolvers(changed_cat)
 
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)
