@@ -181,6 +181,16 @@ def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
+    """Resolve war-related labels to a more appropriate format.
+
+    Args:
+        resolved_label: The current resolved label
+        part_2_normalized: The normalized second part
+        part_1_normalized: The normalized first part
+
+    Returns:
+        The possibly modified label
+    """
     maren = re.match(r"\d\d\d\d", part_2_normalized)
     if maren:
         if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
@@ -199,8 +209,19 @@ def make_cnt_lab(
     part_2_normalized: str,
     ar_separator: str,
 ) -> str:
-    """
-    Construct a formatted string based on various input parameters.
+    """Construct a formatted string based on various input parameters.
+
+    Args:
+        separator: The separator between parts
+        country: The country name
+        part_2_label: The label for the second part
+        part_1_label: The label for the first part
+        part_1_normalized: The normalized first part
+        part_2_normalized: The normalized second part
+        ar_separator: The Arabic separator
+
+    Returns:
+        The constructed Arabic label
     """
     country2 = country.lower().strip()
 
@@ -250,9 +271,13 @@ def make_cnt_lab(
 
 
 def separator_arabic_resolve(separator: str) -> str:
-    """
-    Generate a specific string based on input parameters.
-    TODO: need refactoring
+    """Generate an Arabic separator based on the input separator.
+
+    Args:
+        separator: The English separator string
+
+    Returns:
+        The corresponding Arabic separator
     """
     ar_separator = " "
     separator = separator.strip()
@@ -273,6 +298,17 @@ def separator_arabic_resolve(separator: str) -> str:
 
 # @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
+    """Create labels for two parts of a category.
+
+    Args:
+        part_1: The first part of the category
+        part_2: The second part of the category
+        separator: The separator between parts
+        with_years: Whether to include year processing
+
+    Returns:
+        A tuple containing the labels for both parts
+    """
     part_2_label = (
         all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
@@ -307,6 +343,14 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
 
 
 def get_separator(country: str) -> str:
+    """Get the separator from a country string.
+
+    Args:
+        country: The country string to check for separators
+
+    Returns:
+        The found separator or an empty string if none found
+    """
     title_separators = [
         "based in",
         "in",
