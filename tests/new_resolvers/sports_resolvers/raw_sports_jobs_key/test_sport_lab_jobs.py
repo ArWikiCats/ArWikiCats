@@ -6,6 +6,11 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import find_jobs_bot, wrap_team_xo_normal_2025_with_ends
 
+
+def wrap_callback(category: str) -> str:
+    return wrap_team_xo_normal_2025_with_ends(category, callback=find_jobs_bot)
+
+
 test_data_with_additional = {
     "women's national youth association football teams": "منتخبات كرة قدم وطنية للشابات",
     "women's national ice hockey teams": "منتخبات هوكي جليد وطنية للسيدات",
@@ -310,10 +315,6 @@ test_data_1 = {
     "youth wrestling competitions": "منافسات مصارعة شبابية",
     "youth wrestling": "مصارعة شبابية",
 }
-
-
-def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=find_jobs_bot)
 
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
