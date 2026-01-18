@@ -2,6 +2,7 @@
 """
 !
 """
+
 import functools
 import re
 from typing import Dict
@@ -189,6 +190,14 @@ CHANGE_KEY_SECONDARY_REGEX = {
 
 @functools.lru_cache(maxsize=10000)
 def change_key_mappings_replacements(category):
+    """Apply primary key mappings replacements to the category string.
+
+    Args:
+        category (str): The category string to process.
+
+    Returns:
+        str: The category string with primary mappings applied.
+    """
     category = category.replace("’", "'")
     # Apply CHANGE_KEY_MAPPINGS regex patterns (cached)
     for chk, chk_lab in CHANGE_KEY_MAPPINGS.items():
@@ -208,6 +217,14 @@ def change_key_mappings_replacements(category):
 # @dump_data(1)
 @functools.lru_cache(maxsize=10000)
 def change_key_secondary_replacements(category):
+    """Apply secondary key mappings replacements to the category string.
+
+    Args:
+        category (str): The category string to process.
+
+    Returns:
+        str: The category string with secondary mappings applied.
+    """
     category = category.replace("’", "'")
 
     # Apply CHANGE_KEY_SECONDARY regex patterns (cached)
