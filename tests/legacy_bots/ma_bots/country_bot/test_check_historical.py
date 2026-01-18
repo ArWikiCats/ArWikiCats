@@ -9,7 +9,7 @@ from ArWikiCats.legacy_bots.ma_bots.country_bot import check_historical_prefixes
 
 historical_data = {
     "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",
-    "Defunct national football teams": "فرق كرة قدم وطنية سابقة",
+    "Defunct national football teams": "منتخبات كرة قدم وطنية سابقة",
     "Defunct National Hockey League teams": "فرق دوري هوكي وطنية سابقة",
     "defunct national basketball league teams": "فرق دوري كرة سلة وطنية سابقة",
 }

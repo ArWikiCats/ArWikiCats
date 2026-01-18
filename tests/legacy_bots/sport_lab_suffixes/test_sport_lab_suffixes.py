@@ -7,19 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.sport_lab_suffixes import get_teams_new
 
-get_teams_new_data = {
-    "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
-    "sports cup competitions": "منافسات كؤوس رياضية",
-    "international men's football competitions": "منافسات كرة قدم دولية للرجال",
-    "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
-    "international women's cricket competitions": "منافسات كريكت دولية للسيدات",
-    "international women's field hockey competitions": "منافسات هوكي ميدان دولية للسيدات",
-    "international women's football competitions": "منافسات كرة قدم دولية للسيدات",
-    "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
-    "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
-    "soccer cup competitions": "منافسات كؤوس كرة قدم",
-    "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
-    "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
+test_data_1 = {
     "australian rules football awards": "جوائز كرة قدم أسترالية",
     "badminton world cup": "كأس العالم لتنس الريشة",
     "baseball commissioners": "مفوضو كرة قاعدة",
@@ -92,6 +80,7 @@ get_teams_new_data = {
     "international basketball competitions": "منافسات كرة سلة دولية",
     "international boxing competitions": "منافسات بوكسينغ دولية",
     "international cricket competitions": "منافسات كريكت دولية",
+    "international cricket records and statistics": "سجلات وإحصائيات كريكت دولية",
     "international cycle races": "سباقات دراجات دولية",
     "international fencing competitions": "منافسات مبارزة سيف شيش دولية",
     "international field hockey competitions": "منافسات هوكي ميدان دولية",
@@ -103,6 +92,7 @@ get_teams_new_data = {
     "international ice hockey competitions": "منافسات هوكي جليد دولية",
     "international karate competitions": "منافسات كاراتيه دولية",
     "international kickboxing competitions": "منافسات كيك بوكسينغ دولية",
+    "international men's football competitions": "منافسات كرة قدم دولية للرجال",
     "international netball players": "لاعبو كرة شبكة دوليون",
     "international roller hockey competitions": "منافسات هوكي دحرجة دولية",
     "international rugby league competitions": "منافسات دوري رجبي دولية",
@@ -113,6 +103,10 @@ get_teams_new_data = {
     "international volleyball competitions": "منافسات كرة طائرة دولية",
     "international water polo competitions": "منافسات كرة ماء دولية",
     "international weightlifting competitions": "منافسات رفع أثقال دولية",
+    "international women's basketball competitions": "منافسات كرة سلة دولية للسيدات",
+    "international women's cricket competitions": "منافسات كريكت دولية للسيدات",
+    "international women's field hockey competitions": "منافسات هوكي ميدان دولية للسيدات",
+    "international women's football competitions": "منافسات كرة قدم دولية للسيدات",
     "international wrestling competitions": "منافسات مصارعة دولية",
     "international youth basketball competitions": "منافسات كرة سلة شبابية دولية",
     "international youth football competitions": "منافسات كرة قدم شبابية دولية",
@@ -124,7 +118,7 @@ get_teams_new_data = {
     "multi-national basketball leagues": "دوريات كرة سلة متعددة الجنسيات",
     "national basketball team results": "نتائج منتخبات كرة سلة وطنية",
     "national cycling champions": "أبطال بطولات سباق دراجات هوائية وطنية",
-    "national equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية",
+    "national equestrian manager history": "تاريخ مدربو فروسية وطنية",
     "national football team results": "نتائج منتخبات كرة قدم وطنية",
     "national ice hockey teams": "منتخبات هوكي جليد وطنية",
     "national junior football teams": "منتخبات كرة قدم وطنية للناشئين",
@@ -139,6 +133,8 @@ get_teams_new_data = {
     "national under-14 equestrian manager history": "تاريخ مدربو منتخبات فروسية تحت 14 سنة",
     "national water polo teams": "منتخبات كرة ماء وطنية",
     "national women's equestrian manager history": "تاريخ مدربو منتخبات فروسية وطنية للسيدات",
+    "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
+    "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
     "netball world cup": "كأس العالم لكرة الشبكة",
     "outdoor equestrian": "فروسية في الهواء الطلق",
     "outdoor ice hockey": "هوكي جليد في الهواء الطلق",
@@ -152,11 +148,15 @@ get_teams_new_data = {
     "rugby league world cup": "كأس العالم لدوري الرجبي",
     "shooting sports equipment": "معدات رماية",
     "snooker terminology": "مصطلحات سنوكر",
+    "soccer cup competitions": "منافسات كؤوس كرة قدم",
+    "sports cup competitions": "منافسات كؤوس رياضية",
     "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
     "tennis logos": "شعارات كرة مضرب",
+    "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
     "under-13 equestrian": "فروسية تحت 13 سنة",
+    "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
     "under-14 equestrian": "فروسية تحت 14 سنة",
     "under-16 basketball": "كرة سلة تحت 16 سنة",
     "under-19 basketball": "كرة سلة تحت 19 سنة",
@@ -177,7 +177,7 @@ get_teams_new_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", get_teams_new_data.items(), ids=get_teams_new_data.keys())
+@pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_get_teams_new_data(category: str, expected_key: str) -> None:
     label = get_teams_new(category)
@@ -185,7 +185,7 @@ def test_get_teams_new_data(category: str, expected_key: str) -> None:
 
 
 to_test = [
-    ("test_get_teams_new_data", get_teams_new_data),
+    ("test_get_teams_new_data", test_data_1),
 ]
 
 
