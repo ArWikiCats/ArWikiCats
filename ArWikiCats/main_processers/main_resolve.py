@@ -1,18 +1,19 @@
 """
-# isort:skip_file
+
 """
 
 from __future__ import annotations
 
 import functools
 from dataclasses import dataclass
-from ..helps import logger
-from ..patterns_resolvers import all_patterns_resolvers
-from ..legacy_bots.make_bots import filter_en
+
+from ..fix import cleanse_category_label, fixlabel
 from ..format_bots import change_cat
-from ..new_resolvers import all_new_resolvers
-from ..fix import fixlabel, cleanse_category_label
+from ..helps import logger
+from ..legacy_bots.make_bots import filter_en
 from ..legacy_bots.wrap_legacy_resolvers import legacy_resolvers
+from ..new_resolvers import all_new_resolvers
+from ..patterns_resolvers import all_patterns_resolvers
 
 
 @dataclass
