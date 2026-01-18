@@ -122,8 +122,6 @@ data2 = {
 }
 
 data3 = {
-    "Category:Documentary films about women's sports": "تصنيف:أفلام وثائقية عن رياضات نسائية",
-    "Category:History of women's sports": "تصنيف:تاريخ رياضات نسائية",
     "Category:Women's sports by dependent territory": "تصنيف:رياضات نسائية حسب الأقاليم التابعة",
     "Category:Women's sports by populated place": "تصنيف:رياضات نسائية حسب المكان المأهول",
     "Category:Women's sports by sport and country": "تصنيف:رياضات نسائية حسب الرياضة والبلد",
@@ -187,12 +185,10 @@ data3 = {
     "Category:Women's sports in Texas": "تصنيف:رياضات نسائية في تكساس",
     "Category:Women's sports in the Philippines": "تصنيف:رياضات نسائية في الفلبين",
     "Category:Women's sports in the United States": "تصنيف:رياضات نسائية في الولايات المتحدة",
-    "Category:Women's sports in the United States by state": "تصنيف:رياضات نسائية في الولايات المتحدة حسب الولاية",
     "Category:Women's sports in Utah": "تصنيف:رياضات نسائية في يوتا",
     "Category:Women's sports in Vancouver": "تصنيف:رياضات نسائية في فانكوفر",
     "Category:Women's sports in West Germany": "تصنيف:رياضات نسائية في ألمانيا الغربية",
     "Category:Women's sports in Wisconsin": "تصنيف:رياضات نسائية في ويسكونسن",
-    "Category:Works about women's sports": "تصنيف:أعمال عن رياضات نسائية",
     "Category:1884 in women's sport": "تصنيف:رياضة نسائية في 1884",
     "Category:1885 in women's sport": "تصنيف:رياضة نسائية في 1885",
     "Category:1886 in women's sport": "تصنيف:رياضة نسائية في 1886",
