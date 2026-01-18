@@ -1,5 +1,9 @@
-#!/usr/bin/python3
 """
+Package for resolving language-related categories.
+This package provides resolvers for categories involving languages,
+including films and books in specific languages, with optional time components.
+
+
 TODO: use it instead of langs_w.py after adding
     jobs_mens_data,
     Films_key_For_nat,
@@ -16,6 +20,14 @@ from .resolve_languages_films import resolve_films_languages_labels
 
 
 def fix_keys(category: str) -> str:
+    """Normalize language-related category keys by lowercasing and standardizing suffixes.
+
+    Args:
+        category: The raw category string.
+
+    Returns:
+        The normalized category string.
+    """
     category = category.lower().replace("category:", "").replace("'", "")
     category = category.replace("-language ", " language ")
     return category

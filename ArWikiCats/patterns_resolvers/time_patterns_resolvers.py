@@ -1,5 +1,7 @@
 """
-LabsYearsFormat resolver.
+Time pattern resolver using LabsYearsFormat.
+This module provides functionality to resolve category labels that follow
+complex temporal patterns (years, decades, centuries) using predefined templates.
 """
 
 import functools

@@ -1,3 +1,9 @@
+"""
+Package for resolving categories with complex relational structures.
+This package provides resolvers for categories that involve multiple
+nationalities or country names in complex relationships.
+"""
+
 import functools
 
 from ...helps import logger

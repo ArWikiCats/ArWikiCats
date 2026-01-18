@@ -1,4 +1,8 @@
 """
+Package for resolving gender-specific category labels.
+This package provides specialized resolvers to handle masculine and feminine
+forms of job titles and sports roles, ensuring idiomatic Arabic translations.
+
 Translation strategy for category labels (current vs. target with `genders_resolvers`)
 
 Goal:

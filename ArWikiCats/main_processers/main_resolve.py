@@ -1,4 +1,8 @@
-""" """
+"""
+Main resolution logic for category labels.
+This module coordinates different resolvers (pattern-based, new, and legacy)
+to translate and normalize Wikipedia category labels into Arabic.
+"""
 
 from __future__ import annotations
 

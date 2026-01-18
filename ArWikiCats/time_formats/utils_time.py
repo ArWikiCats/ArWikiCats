@@ -1,3 +1,9 @@
+"""
+Time-related utility functions for the ArWikiCats project.
+This module provides functions for post-processing and standardizing
+Arabic time expressions in category labels.
+"""
+
 import re
 
 

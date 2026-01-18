@@ -1,3 +1,9 @@
+"""
+Package for resolving sports-related categories.
+This package provides resolvers for sports teams, athletes, and competitions,
+often combined with geographic or nationality elements.
+"""
+
 import functools
 
 from ...helps import logger

@@ -1,5 +1,9 @@
-#!/usr/bin/python3
-""" """
+"""
+Data mappings for country name category translations.
+This module provides comprehensive dictionaries of template patterns and
+Arabic translations for categories involving country names and their
+geographic or political attributes.
+"""
 
 from typing import Dict
 

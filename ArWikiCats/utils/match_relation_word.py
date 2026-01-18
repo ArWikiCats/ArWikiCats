@@ -1,5 +1,10 @@
-#
+"""
+Utility for matching relationship words in category names.
+This module provides functions to identify prepositions and other relation
+tokens in English category strings and map them to their Arabic equivalents.
+"""
 
+#
 
 def get_relation_word_new(category: str, data: dict[str, str]) -> tuple[str, str]:
     """Find the first relation token present in ``category`` using comprehension."""

@@ -1,4 +1,8 @@
-""" """
+"""
+Pattern-based category resolvers for the ArWikiCats project.
+This package provides resolvers that use complex regex patterns to match
+and translate categories with structured temporal or nationality components.
+"""
 
 import functools
 

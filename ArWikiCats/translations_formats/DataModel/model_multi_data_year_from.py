@@ -84,6 +84,7 @@ class FormatDataFrom:
         match_key_callback: Callable,
         fixing_callback: Optional[Callable] = None,
     ) -> None:
+        """Initialize the formatter with patterns, placeholders, and logic callbacks."""
         self.search_callback = search_callback
         self.match_key_callback = match_key_callback
 
@@ -123,6 +124,7 @@ class FormatDataFrom:
         return key, result
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
+        """Replace the value placeholder and optionally apply a fixing callback."""
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
@@ -148,23 +150,24 @@ class FormatDataFrom:
         return result
 
     def get_key_label(self, key: str) -> str:
-        """place holders"""
+        """Translate the extracted key into its Arabic label."""
         if not key:
             return ""
         logger.debug(f"get_key_label: {key=}")
         return self.search(key)
 
     def search(self, text: str) -> str:
-        """place holders"""
+        """Translate the given text using the search callback."""
         return self.search_callback(text)
 
-    def prepend_arabic_category_prefix(self, category, result) -> str:
+    def prepend_arabic_category_prefix(self, category: str, result: str) -> str:
+        """Add the Arabic category prefix if the original category had it."""
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
         return result
 
     def search_all(self, key: str, add_arabic_category_prefix: bool = False) -> str:
-        """place holders"""
+        """Perform a full search for the key, optionally adding the category prefix."""
         result = self.search(key)
 
         if add_arabic_category_prefix:

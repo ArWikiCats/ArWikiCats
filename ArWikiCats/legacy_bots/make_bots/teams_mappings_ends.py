@@ -1,4 +1,8 @@
-""" """
+"""
+Mappings for sports teams and organization suffixes.
+This module provides Arabic translations for common English suffixes
+related to sports clubs, competitions, and roles.
+"""
 
 teams_label_mappings_ends = {
     "champions": "أبطال",

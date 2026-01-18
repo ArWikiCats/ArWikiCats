@@ -1,3 +1,9 @@
+"""
+Configuration module for the ArWikiCats project.
+This module handles environment variables and command-line arguments to configure
+the application's behavior, including printing and application-specific settings.
+"""
+
 import os
 import sys
 from dataclasses import dataclass

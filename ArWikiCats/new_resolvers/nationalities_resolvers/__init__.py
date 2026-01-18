@@ -1,3 +1,9 @@
+"""
+Package for resolving nationality-related categories.
+This package provides specialized resolvers for matching and translating
+nationalities, often combined with occupations or time periods.
+"""
+
 import functools
 
 from ...helps import logger

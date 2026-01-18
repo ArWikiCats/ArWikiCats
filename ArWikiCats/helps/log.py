@@ -1,3 +1,9 @@
+"""
+Logging utility for the ArWikiCats project.
+This module provides a LoggerWrap class that simplifies logging with
+colorized output and text diffing capabilities.
+"""
+
 import difflib
 import logging
 from typing import Union

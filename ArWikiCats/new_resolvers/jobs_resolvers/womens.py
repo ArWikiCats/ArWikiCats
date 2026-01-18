@@ -1,5 +1,7 @@
 """
-This module provides functionality to translate category titles
+Resolver for female-specific job and occupation category labels.
+This module provides functionality to translate categories combining jobs,
+nationalities, and descriptors for women into idiomatic Arabic.
 """
 
 import functools

@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-!
+Utility for dumping data to JSONL files.
+This module provides a decorator to automatically save function arguments
+and return values to a JSONL file for debugging or data collection.
 """
 
 import functools

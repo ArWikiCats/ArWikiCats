@@ -64,6 +64,7 @@ class YearFormatDataLegacy:
         key_placeholder: str,
         value_placeholder: str,
     ) -> None:
+        """Initialize the legacy year formatter with key and value placeholders."""
         self.key_placeholder = key_placeholder
         self.value_placeholder = value_placeholder
 
@@ -96,6 +97,7 @@ class YearFormatDataLegacy:
         return key, result
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
+        """Replace the value placeholder in the label and standardize the resulting phrase."""
         # Replace placeholder
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)

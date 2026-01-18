@@ -1,4 +1,8 @@
-""" """
+"""
+Wrapper for legacy category resolvers.
+This module coordinates several older resolution strategies to provide
+backward compatibility for category translation logic.
+"""
 
 from __future__ import annotations
 

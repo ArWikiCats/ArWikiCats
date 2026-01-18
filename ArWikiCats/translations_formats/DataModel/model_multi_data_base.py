@@ -103,6 +103,7 @@ class MultiDataFormatterBaseHelpers:
     """
 
     def __init__(self) -> None:
+        """Initialize the base multi-formatter with default values."""
         self.data_to_find = None
 
     # ------------------------------------------------------
@@ -173,9 +174,11 @@ class MultiDataFormatterBaseHelpers:
         return template_key
 
     def create_nat_label(self, category: str) -> str:
+        """Create a nationality label for the given category using country_bot."""
         return self.country_bot.search(category)
 
     def replace_placeholders(self, template_ar: str, country_ar: str, other_ar: str) -> str:
+        """Replace both country and other placeholders in the Arabic template."""
         label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
         label = self.other_bot.replace_value_placeholder(label, other_ar)
 
@@ -227,20 +230,24 @@ class MultiDataFormatterBaseHelpers:
         return label
 
     def search(self, category: str) -> str:
+        """Alias for create_label."""
         return self.create_label(category)
 
     def check_placeholders(self, category: str, result: str) -> str:
+        """Verify that the result doesn't contain any unprocessed placeholders."""
         if "{" in result:
             logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
             return ""
         return result
 
-    def prepend_arabic_category_prefix(self, category, result) -> str:
+    def prepend_arabic_category_prefix(self, category: str, result: str) -> str:
+        """Add the Arabic category prefix if the original category had it."""
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
         return result
 
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
+        """Try creating a combined label, then fall back to individual bots."""
         result = (
             self.create_label(category) or self.country_bot.search(category) or self.other_bot.search(category) or ""
         )
@@ -249,6 +256,7 @@ class MultiDataFormatterBaseHelpers:
         return result
 
     def search_all_other_first(self, category: str) -> str:
+        """Try searching with other_bot first, then country_bot, then combined."""
         result = (
             self.other_bot.search(category) or self.country_bot.search(category) or self.create_label(category) or ""
         )
@@ -256,6 +264,7 @@ class MultiDataFormatterBaseHelpers:
         return self.check_placeholders(category, result)
 
     def search_all_category(self, category: str) -> str:
+        """Perform a full search including prefix handling and placeholder checking."""
         logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
 

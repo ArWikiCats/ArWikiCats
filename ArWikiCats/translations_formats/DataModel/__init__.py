@@ -1,3 +1,9 @@
+"""
+Core data models for translation formatting.
+This package contains the base classes and structures used for representing
+and processing different translation patterns.
+"""
+
 from .model_data import FormatData
 from .model_data_time import YearFormatData
 from .model_data_v2 import FormatDataV2, MultiDataFormatterBaseV2

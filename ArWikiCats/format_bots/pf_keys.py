@@ -1,6 +1,7 @@
-#!/usr/bin/python3
 """
-!
+Key mappings and transformations for category normalization.
+This module defines comprehensive mappings to normalize common English
+phrases and entities in category titles, making them easier to match.
 """
 
 import functools

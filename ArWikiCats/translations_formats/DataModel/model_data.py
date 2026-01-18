@@ -95,6 +95,7 @@ class FormatData(FormatDataBase):
         return ""
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
+        """Replace the value placeholder in the given label with the provided value."""
         logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
         # Replace placeholder
         return label.replace(self.value_placeholder, value)

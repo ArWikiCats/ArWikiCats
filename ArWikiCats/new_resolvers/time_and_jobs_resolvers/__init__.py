@@ -1,3 +1,9 @@
+"""
+Package for resolving categories that combine time periods with jobs.
+This package provides specialized resolvers for categories like
+"14th-century writers" or "21st-century politicians from Yemen".
+"""
+
 import functools
 
 from ...helps import logger

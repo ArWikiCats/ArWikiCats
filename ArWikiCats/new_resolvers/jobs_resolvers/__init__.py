@@ -1,3 +1,9 @@
+"""
+Package for resolving job titles and occupations in category names.
+This package provides specialized resolvers for male and female job titles,
+as well as religious occupations.
+"""
+
 import functools
 
 from ...helps import logger

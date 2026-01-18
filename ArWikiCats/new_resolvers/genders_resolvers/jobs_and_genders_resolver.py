@@ -1,6 +1,7 @@
 """
-Module to resolve nationality gender patterns in Arabic categories.
-
+Resolver for job-related category labels with gender-specific logic.
+This module provides functions to translate categories combining jobs,
+nationalities, and genders into idiomatic Arabic.
 """
 
 import functools
@@ -13,9 +14,7 @@ from .utils import fix_keys
 
 
 def generate_jobs_data_dict() -> dict[str, dict[str, str]]:
-    """
-    Generate jobs data dictionary.
-    """
+    """Generate a dictionary of job titles with masculine, feminine, and inclusive forms."""
     # "[ا-ي]+ون* و[ا-ي]+ات"
     jobs_data_new = {
         "bobsledders": {
@@ -54,6 +53,7 @@ def generate_jobs_data_dict() -> dict[str, dict[str, str]]:
 
 @functools.lru_cache(maxsize=1)
 def generate_formatted_data() -> dict[str, str]:
+    """Generate a dictionary of template patterns for job-related category translations."""
     formatted_data = {
         "actresses": "ممثلات",
         "{en_nat} actresses": "ممثلات {females}",

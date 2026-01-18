@@ -1,6 +1,7 @@
 """
-Module to resolve nationality gender patterns in Arabic categories.
-
+Resolver for sports-related category labels with gender-specific logic.
+This module provides functions to translate categories combining sports roles,
+nationalities, and genders into idiomatic Arabic.
 """
 
 import functools
@@ -13,9 +14,7 @@ from .utils import fix_keys
 
 
 def generate_sports_data_dict() -> dict[str, dict[str, str]]:
-    """
-    Generate sports data dictionary.
-    """
+    """Generate a dictionary of sports roles with their Arabic translations."""
     sports_data_new = {
         sport: {"sport_ar": record.get("jobs", "")}
         for sport, record in SPORT_KEY_RECORDS_BASE.items()
