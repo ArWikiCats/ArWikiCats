@@ -17,7 +17,7 @@ def legacy_resolvers(changed_cat) -> str:
     category_lab = (
         university_resolver.resolve_university_category(changed_cat)
         or event2_d2(changed_cat)
-        or with_years_bot.Try_With_Years2(changed_cat)
+        or with_years_bot.wrap_try_with_years(changed_cat)
         or label_for_startwith_year_or_typeo(changed_cat)
         or event_lab_bot.event_Lab(changed_cat)
         or ye_ts_bot.translate_general_category(changed_cat)

@@ -54,7 +54,7 @@ def event_label_work(target_category: str) -> str:
         or team_work.Get_team_work_Club(normalized_target_category)
         or university_resolver.resolve_university_category(normalized_target_category)
         or event2_d2(normalized_target_category)
-        or with_years_bot.Try_With_Years2(normalized_target_category)
+        or with_years_bot.wrap_try_with_years(normalized_target_category)
         or year_or_typeo.label_for_startwith_year_or_typeo(normalized_target_category)
         or get_pop_All_18(normalized_target_category, "")
         or convert_time_to_arabic(normalized_target_category)

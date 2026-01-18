@@ -230,7 +230,7 @@ def Try_With_Years(category: str) -> str:
     return label
 
 
-def Try_With_Years2(category_r) -> str:
+def wrap_try_with_years(category_r) -> str:
     """Process category names that start with year information.
 
     This function handles categories that begin with year numbers,

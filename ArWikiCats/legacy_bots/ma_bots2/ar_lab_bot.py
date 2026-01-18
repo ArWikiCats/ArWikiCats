@@ -221,7 +221,7 @@ def wrap_event2(category: str, separator: str = "") -> str:
     result = (
         university_resolver.resolve_university_category(category)
         or event2_d2(category)
-        or with_years_bot.Try_With_Years2(category)
+        or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""
     )
