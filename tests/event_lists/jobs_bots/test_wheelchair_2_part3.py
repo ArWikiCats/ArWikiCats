@@ -79,8 +79,6 @@ wheelchair_basketball = {
 
 
 wheelchair_sports = {
-    "Category:Wheelchair basketball leagues in Australia": "تصنيف:دوريات كرة السلة على الكراسي المتحركة في أستراليا",
-    "Category:Wheelchair basketball leagues in Europe": "تصنيف:دوريات كرة السلة على الكراسي المتحركة في أوروبا",
     "Category:Wheelchair basketball leagues": "تصنيف:دوريات كرة سلة على كراسي متحركة",
     "Category:Wheelchair basketball players at the 2020 Parapan American Games": "تصنيف:لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair basketball players at the 2020 Summer Paralympics": "تصنيف:لاعبو كرة سلة على كراسي متحركة في الألعاب البارالمبية الصيفية 2020",
@@ -137,7 +135,6 @@ wheelchair_sports = {
     "Category:Wheelchair tennis players at the 2020 Parapan American Games": "تصنيف:لاعبو كرة مضرب على كراسي متحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair tennis players at the 2020 Summer Paralympics": "تصنيف:لاعبو كرة مضرب على كراسي متحركة في الألعاب البارالمبية الصيفية 2020",
     "Category:Wheelchair tennis players": "تصنيف:لاعبو كرة مضرب على كراسي متحركة",
-    "Category:Wheelchair tennis tournaments": "تصنيف:بطولات كرة مضرب على كراسي متحركة",
     "Category:Wheelchair tennis": "تصنيف:كرة المضرب على الكراسي المتحركة",
     "Category:Women's wheelchair basketball players by nationality": "تصنيف:لاعبات كرة سلة على كراسي متحركة حسب الجنسية",
     "Category:Women's wheelchair basketball players": "تصنيف:لاعبات كرة سلة على كراسي متحركة",
