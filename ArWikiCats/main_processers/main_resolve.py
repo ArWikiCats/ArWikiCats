@@ -54,7 +54,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     is_cat_okay = filter_en.filter_cat(category)
 
     from_match = False
-
+    # category_lab = ""
     category_lab = resolve_lab_from_years_patterns(category)
 
     if category_lab:

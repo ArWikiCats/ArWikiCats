@@ -105,7 +105,7 @@ def resolve_sport_category_suffix_with_mapping(
     logger.debug(f"<<yellow>> start resolve_sport_category_suffix_with_mapping: {category=}")
 
     result = ""
-
+    key = ""
     # category = normalize_text(category)
     for key, value in data.items():
         if category.endswith(key):
@@ -121,7 +121,7 @@ def resolve_sport_category_suffix_with_mapping(
         result = callback(category)
 
     logger.info_if_or_debug(
-        f"<<yellow>> end resolve_sport_category_suffix_with_mapping: {category=}, {result=}", result
+        f"<<yellow>> end resolve_sport_category_suffix_with_mapping({key=}), {category=}, {result=})", result
     )
     return result
 
