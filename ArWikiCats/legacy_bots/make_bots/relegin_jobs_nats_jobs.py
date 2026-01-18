@@ -25,6 +25,7 @@ _extra_nats = {
     "turkish cypriot": "قبرصيون شماليون",
     "arab": "عرب",
     "asian": "آسيويون",
+    "yemeni": "يمنيون",
 }
 
 # 1. Male Nationality + Religion: {nat} {rel} -> {nat_ar} {rel_ar}
@@ -34,6 +35,8 @@ _nat_rel_bot_m = format_multi_data(
         "{rel} {nat}": "{nat_ar} {rel_ar}",
         "{nat} {rel} male": "{nat_ar} {rel_ar} ذكور",
         "{rel} {nat} male": "{nat_ar} {rel_ar} ذكور",
+        "{nat} male {rel}": "{rel_ar} ذكور {nat_ar}",
+        "{nat} people {rel}": "{nat_ar} {rel_ar}",
     },
     data_list={**Nat_mens, **_extra_nats},
     data_list2=_rel_males,
@@ -102,7 +105,7 @@ _job_rel_bot_f = format_multi_data(
 )
 
 # 5. Simple Plurals (No combination)
-_simple_m_bot = FormatData(formatted_data={"{rel}": "{rel_ar}"}, data_list=_rel_males)
+_simple_m_bot = FormatData(formatted_data={"{rel}": "{rel_ar}"}, data_list=_rel_males, key_placeholder="{rel}", value_placeholder="{rel_ar}")
 _simple_f_bot = FormatData(
     formatted_data={
         "female {rel}": "{rel_ar}",
@@ -111,6 +114,8 @@ _simple_f_bot = FormatData(
         "{rel} women's": "{rel_ar}",
     },
     data_list=_rel_females,
+    key_placeholder="{rel}",
+    value_placeholder="{rel_ar}",
 )
 
 
@@ -133,10 +138,6 @@ def resolve_nats_jobs(category: str) -> str:
         return res
     if res := _job_rel_bot_m.search(category_lower):
         return res
-    if res := _simple_f_bot.search(category_lower):
-        return res
-    if res := _simple_m_bot.search(category_lower):
-        return res
 
     # Check for direct matches in RELIGIOUS_KEYS_PP as a fallback
     # Some religious group combinations might already be defined in the dict
@@ -146,5 +147,10 @@ def resolve_nats_jobs(category: str) -> str:
             if any(w in category_lower for w in ["female", "women's"]):
                 return labels.get("females", "")
             return labels.get("males", "")
+
+    if res := _simple_f_bot.search(category_lower):
+        return res
+    if res := _simple_m_bot.search(category_lower):
+        return res
 
     return ""
