@@ -86,9 +86,20 @@ def work_peoples(name: str) -> str:
 
 
 def work_peoples_formatdata_baesed(name: str) -> str:
-    return work_peoples(name)
+    """
+    Return the label for ``name`` using FormatData.
+    """
+    formatted_data = {f"{{person_key}} {k}": v.replace("{ar}", "{person_label}") for k, v in labelSuffixMappings.items()}
+    bot = FormatData(
+        formatted_data=formatted_data,
+        data_list=People_key,
+        key_placeholder="{person_key}",
+        value_placeholder="{person_label}",
+    )
+    return bot.search(name)
 
 
 __all__ = [
     "work_peoples",
+    "work_peoples_formatdata_baesed",
 ]
