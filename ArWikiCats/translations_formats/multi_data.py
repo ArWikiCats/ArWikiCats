@@ -76,9 +76,7 @@ def get_other_data(
         ...     "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
         ...     "{sport} coaches": "مدربو {sport_ar}",
         ... }
-        >>> other_data = get_other_data(
-        ...     formatted_data, "{nat}", "{nat_ar}", "{sport}", "{sport_ar}"
-        ... )
+        >>> other_data = get_other_data(formatted_data, "{nat}", "{nat_ar}", "{sport}", "{sport_ar}")
         >>> other_data
         {'{sport} coaches': 'مدربو {sport_ar}'}
     """

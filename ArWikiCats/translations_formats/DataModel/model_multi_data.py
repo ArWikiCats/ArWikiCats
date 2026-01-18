@@ -15,7 +15,7 @@ Classes:
 Example:
     >>> from ArWikiCats.translations_formats.DataModel import MultiDataFormatterBase, FormatData
     >>> country_bot = FormatData(...)  # nationality formatter
-    >>> sport_bot = FormatData(...)    # sport formatter
+    >>> sport_bot = FormatData(...)  # sport formatter
     >>> bot = MultiDataFormatterBase(country_bot, sport_bot)
     >>> bot.create_label("british football players")
     'لاعبو كرة القدم بريطانيون'
