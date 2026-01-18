@@ -7,7 +7,15 @@ import pytest
 # from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 from ArWikiCats import resolve_label_ar
 
-test_new = {
+data_0 = {
+    "1520 in men's football": "1520 في كرة القدم للرجال",
+    "1550s in cycle racing": "عقد 1550 في سباق دراجات",
+    "1550 in motorsport": "1550 في رياضة محركات",
+    "1520 in youth football": "1520 في كرة القدم للشباب",
+    "Coaches of American football from West Virginia": "مدربو كرة قدم أمريكية من فرجينيا الغربية",
+}
+
+data_1 = {
     "Wheelchair basketball leagues in Australia": "دوريات كرة السلة على الكراسي المتحركة في أستراليا",
     "Wheelchair basketball leagues in Europe": "دوريات كرة السلة على الكراسي المتحركة في أوروبا",
     "Wheelchair tennis tournaments": "بطولات كرة مضرب على كراسي متحركة",
@@ -20,9 +28,6 @@ test_new = {
     "Women's cricket in Antigua and Barbuda": "الكريكت للسيدات في أنتيغوا وباربودا",
     "Youth athletics": "ألعاب القوى للشباب",
     "Table tennis clubs": "أندية كرة طاولة",
-    "1520 in men's football": "1520 في كرة القدم للرجال",
-    "1520 in youth football": "1520 في كرة القدم للشباب",
-    "Coaches of American football from West Virginia": "مدربو كرة قدم أمريكية من فرجينيا الغربية",
     "Women's sports seasons by continent": "مواسم رياضات نسائية حسب القارة",
     "Documentary films about women's sports": "أفلام وثائقية عن رياضات نسائية",
     "History of women's sports": "تاريخ رياضات نسائية",
@@ -41,12 +46,10 @@ test_new = {
     "tennis tournaments in serbia-and-montenegro": "بطولات كرة مضرب في صربيا والجبل الأسود",
     "men's football leagues in algeria": "دوريات كرة القدم للرجال في الجزائر",
     "basketball leagues in oceania": "دوريات كرة السلة في أوقيانوسيا",
-    "1550s in cycle racing": "عقد 1550 في سباق دراجات",
-    "1550 in motorsport": "1550 في رياضة محركات",
 }
 
 
-@pytest.mark.parametrize("category, expected_key", test_new.items(), ids=test_new.keys())
+@pytest.mark.parametrize("category, expected_key", data_1.items(), ids=data_1.keys())
 @pytest.mark.skip2
 def test_new_data(category: str, expected_key: str) -> None:
     """
