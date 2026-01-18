@@ -13,7 +13,6 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "cone_1": "amphibious warfare vessels", "output": "سفن حربية برمائية"},
     {"separator": " by ", "cone_1": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
     {"separator": " by ", "cone_1": "anime and manga", "output": "أنمي ومانغا"},
-    {"separator": " by ", "cone_1": "australian open tennis", "output": "بطولة أستراليا المفتوحة للتنس"},
     {"separator": " by ", "cone_1": "australian rules football clubs", "output": "أندية كرة قدم أسترالية"},
     {"separator": " by ", "cone_1": "australian rules football", "output": "كرة القدم الأسترالية"},
     {"separator": " by ", "cone_1": "buildings and structures demolished", "output": "مبان ومنشآت هدمت"},

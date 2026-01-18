@@ -7,6 +7,7 @@ from typing import Dict
 from ...helps import len_print
 
 formatted_data_of_no_in: Dict[str, str] = {
+    "governments": "حكومات",
     "history": "تاريخ",
     "secretaries": "وزراء",
     "banks": "بنوك",
