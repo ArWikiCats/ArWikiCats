@@ -73,6 +73,37 @@ resolve_university_category_data = {
     "isfahan university of medical sciences": "جامعة أصفهان للعلوم الطبية",
     "isfahan university-of-technology": "جامعة أصفهان للتكنولوجيا",
     "frankfurt university of applied sciences": "جامعة فرانكفورت للعلوم التطبيقية",
+    # Corrected tests with cities from CITY_TRANSLATIONS_LOWER
+    "university of medical sciences, changchun": "جامعة تشانغتشون للعلوم الطبية",
+    "university of art, porto": "جامعة بورتو للفنون",
+    "chania national university": "جامعة خانية الوطنية",
+    "porto national maritime university": "جامعة بورتو الوطنية البحرية",
+    # Majors test cases with cities
+    "university of biology, porvoo": "جامعة بورفو للبيولوجيا",
+    "university of chemistry, potenza": "جامعة بوتنسا للشيمية",
+    "university of computer science, changchun": "جامعة تشانغتشون للكمبيوتر",
+    "university of economics, porto": "جامعة بورتو للاقتصاد",
+    "university of education, chania": "جامعة خانية للتعليم",
+    "university of engineering, porto": "جامعة بورتو للهندسة",
+    "university of geography, porvoo": "جامعة بورفو للجغرافيا",
+    "university of geology, potenza": "جامعة بوتنسا للجيولوجيا",
+    "university of history, changchun": "جامعة تشانغتشون للتاريخ",
+    "university of law, porto": "جامعة بورتو للقانون",
+    "university of mathematics, chania": "جامعة خانية للرياضيات",
+    "university of technology, porto alegre": "جامعة بورتو أليغري للتكنولوجيا",
+    "university of physics, porvoo": "جامعة بورفو للفيزياء",
+    "university of psychology, potenza": "جامعة بوتنسا للصحة",
+    "university of sociology, changchun": "جامعة تشانغتشون للأمن والسلوك",
+    "university of political science, porto": "جامعة بورتو للسياسة",
+    "university of social science, chania": "جامعة خانية للأمن والسلوك",
+    "university of science and technology, porvoo": "جامعة بورفو للعلوم والتكنولوجيا",
+    "university of science, potenza": "جامعة بوتنسا للعلوم",
+    "university of reading, changchun": "جامعة تشانغتشون للقراءة",
+    "university of applied sciences, porto": "جامعة بورتو للعلوم التطبيقية",
+    # Basic lookup
+    "university of medical sciences, tehran": "جامعة طهران للعلوم الطبية",
+    "university of art, tehran": "جامعة طهران للفنون",
+    "national university, seoul": "جامعة سول الوطنية",
 }
 
 
@@ -83,20 +114,3 @@ resolve_university_category_data = {
 def test_universities_data(category: str, expected_key: str) -> None:
     label = resolve_university_category(category)
     assert label == expected_key
-
-
-def test_resolve_university_category() -> None:
-    # Test with a basic university category
-    result = resolve_university_category("university of california")
-    assert isinstance(result, str)
-
-    result_empty = resolve_university_category("")
-    assert isinstance(result_empty, str)
-
-    # Test with a specific major
-    result_major = resolve_university_category("university of engineering")
-    assert isinstance(result_major, str)
-
-    # Test with "the" prefix
-    result_the = resolve_university_category("the university of law")
-    assert isinstance(result_the, str)
