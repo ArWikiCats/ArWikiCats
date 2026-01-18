@@ -4,12 +4,12 @@
 from __future__ import annotations
 import functools
 
-from ..legacy_bots import with_years_bot
-from ..legacy_bots.o_bots import univer
-from ..legacy_bots.ma_bots.country_bot import event2_d2
-from ..legacy_bots import event_lab_bot
-from ..legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
-from ..legacy_bots.ma_bots import ye_ts_bot
+from . import with_years_bot
+from .o_bots import univer
+from .ma_bots.country_bot import event2_d2
+from . import event_lab_bot
+from .ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
+from .ma_bots import ye_ts_bot
 
 
 @functools.lru_cache(maxsize=None)

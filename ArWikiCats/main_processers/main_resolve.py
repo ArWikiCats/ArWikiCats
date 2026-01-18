@@ -12,7 +12,7 @@ from ..legacy_bots.make_bots import filter_en
 from ..format_bots import change_cat
 from ..new_resolvers import all_new_resolvers
 from ..fix import fixlabel, cleanse_category_label
-from .wrap_legacy_resolvers import legacy_resolvers
+from ..legacy_bots.wrap_legacy_resolvers import legacy_resolvers
 
 
 @dataclass
