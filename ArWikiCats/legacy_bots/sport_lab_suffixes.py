@@ -45,13 +45,6 @@ def get_teams_new(team_name: str) -> str:
     TODO: to be replaced by ArWikiCats.new_resolvers.sports_resolvers.raw_sports
     """
 
-    # إيجاد لاحقات التسميات الرياضية
-
-    # قبل تطبيق الوظيفة
-    # sports.py: len:"Teams new":  685955
-    # بعد تطبيق الوظيفة
-    # sports.py: len:"Teams new":  114691
-
     normalized_team = team_name.strip()
 
     logger.info(f'start get_teams_new team:"{normalized_team}"')

@@ -4,17 +4,24 @@ from __future__ import annotations
 
 from ...helps import logger
 from ...translations import PARTIES
-from .utils import resolve_suffix_template
+from ...translations_formats import FormatData
 
-PARTY_ROLE_SUFFIXES = {
-    "candidates for member of parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates for member-of-parliament": "مرشحو %s لعضوية البرلمان",
-    "candidates": "مرشحو %s",
-    "leaders": "قادة %s",
-    "politicians": "سياسيو %s",
-    "members": "أعضاء %s",
-    "state governors": "حكام ولايات من %s",
+formatted_data = {
+    "{party_key} candidates for member of parliament": "مرشحو {party_label} لعضوية البرلمان",
+    "{party_key} candidates for member-of-parliament": "مرشحو {party_label} لعضوية البرلمان",
+    "{party_key} candidates": "مرشحو {party_label}",
+    "{party_key} leaders": "قادة {party_label}",
+    "{party_key} politicians": "سياسيو {party_label}",
+    "{party_key} members": "أعضاء {party_label}",
+    "{party_key} state governors": "حكام ولايات من {party_label}",
 }
+
+_parties_bot = FormatData(
+    formatted_data=formatted_data,
+    data_list=PARTIES,
+    key_placeholder="{party_key}",
+    value_placeholder="{party_label}",
+)
 
 
 def get_parties_lab(party: str) -> str:
@@ -30,16 +37,11 @@ def get_parties_lab(party: str) -> str:
     normalized_party = party.strip()
     logger.debug(f"get_parties_lab {party=}")
 
-    def _lookup(prefix: str) -> str:
-        """Retrieve a party label by suffix prefix key."""
-        return PARTIES.get(prefix, "")
+    # Try FormatData first
+    label = _parties_bot.search(normalized_party)
+    logger.info(f"get_parties_lab {party=}, {label=}")
 
-    party_label = resolve_suffix_template(normalized_party, PARTY_ROLE_SUFFIXES, _lookup)
-
-    if party_label:
-        logger.info(f"get_parties_lab {party=}, {party_label=}")
-
-    return party_label
+    return label
 
 
 __all__ = ["get_parties_lab"]

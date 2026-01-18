@@ -4,7 +4,7 @@ TODO: write code relegin_jobs_nats_jobs.py
 
 import pytest
 
-from ArWikiCats.legacy_bots.make_bots.relegin_jobs_nats_jobs import resolve_nats_jobs
+from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import resolve_nats_jobs
 
 # from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix as resolve_nats_jobs
 # from ArWikiCats.new_resolvers.reslove_all import all_new_resolvers as resolve_nats_jobs
@@ -154,35 +154,30 @@ test_religions_female_data = {
 
 
 @pytest.mark.parametrize("input_text,expected", test_data_error.items(), ids=test_data_error.keys())
-@pytest.mark.skip2
 def test_relegin_jobs(input_text: str, expected: str) -> None:
     result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("input_text,expected", data_without_nats.items(), ids=data_without_nats.keys())
-@pytest.mark.skip2
 def test_data_without_nats(input_text: str, expected: str) -> None:
     result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
-@pytest.mark.skip2
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
     result = resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-@pytest.mark.skip2
 def test_religions_jobs_1(category: str, expected: str) -> None:
     result = resolve_nats_jobs(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", test_religions_female_data.items(), ids=test_religions_female_data.keys())
-@pytest.mark.skip2
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = resolve_nats_jobs(category)
