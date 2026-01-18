@@ -642,7 +642,8 @@ def _load_bot() -> FormatDataV2:
     nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})  # if v.get("ar")
 
     if "jewish-american" not in nats_data:
-        print(nats_data.keys())
+        logger.warning("<<red>> 'jewish-american' not in nats_data keys")
+        # print(nats_data.keys())
 
     return FormatDataV2(
         formatted_data=all_formatted_data,
