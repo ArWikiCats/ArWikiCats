@@ -292,7 +292,7 @@ from ArWikiCats.config import app_settings, print_settings
 │  make_bots/                            │  ma_bots/                           │
 │  ├── format_bots/                      │  ├── country_bot.py                │
 │  ├── date_bots/                        │  ├──                               │
-│  ├── jobs_bots/                        │  └── ye_ts_bot.py                  │
+│  ├── jobs_bots/                        │  └── general_resolver.py                  │
 │  ├── sports_bots/                      │  ma_bots2/                          │
 │  └── matables_bots/                    │  └── ...                            │
 └─────────────────────────────────────────────────────────────────────────────┘

@@ -18,7 +18,7 @@ from ..ma_bots2 import year_or_typeo
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..o_bots import university_resolver
 from ..o_bots.peoples_resolver import work_peoples
-from . import ye_ts_bot
+from . import general_resolver
 from .country_bot import event2_d2
 
 
@@ -61,7 +61,7 @@ def event_label_work(target_category: str) -> str:
         or all_new_resolvers(normalized_target_category)
         or resolve_languages_labels_with_time(normalized_target_category)
         or People_key.get(normalized_target_category)
-        or ye_ts_bot.translate_general_category(normalized_target_category)
+        or general_resolver.translate_general_category(normalized_target_category)
         or work_peoples(normalized_target_category)
         or ""
     )

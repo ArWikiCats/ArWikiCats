@@ -14,7 +14,7 @@ from ..new_resolvers.languages_resolves import resolve_languages_labels_with_tim
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, with_years_bot
-from .ma_bots import ye_ts_bot
+from .ma_bots import general_resolver
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .matables_bots.table1_bot import get_KAKO
@@ -57,7 +57,7 @@ def _resolve_label(label: str) -> str:
         or convert_time_to_arabic(label)
         or get_pop_All_18(label)
         or with_years_bot.Try_With_Years(label)
-        or ye_ts_bot.translate_general_category(label, fix_title=False)
+        or general_resolver.translate_general_category(label, fix_title=False)
         or ""
     )
     return resolved_label

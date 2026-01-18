@@ -16,7 +16,7 @@ from ..new_resolvers.languages_resolves import resolve_languages_labels
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work
-from .ma_bots.ye_ts_bot import translate_general_category
+from .ma_bots.general_resolver import translate_general_category
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 from .matables_bots.data import Add_in_table

@@ -20,7 +20,7 @@ from ..time_formats import time_to_arabic
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
 from . import sport_lab_suffixes, team_work, tmp_bot
-from .ma_bots import ye_ts_bot
+from .ma_bots import general_resolver
 from .ma_bots2.country2_label_bot import country_2_title_work
 from .ma_bots.lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
@@ -115,7 +115,7 @@ class EventLabResolver:
             category_lab = (
                 country_2_title_work(original_category3)
                 or wrap_lab_for_country2(original_category3)
-                or ye_ts_bot.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
+                or general_resolver.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
                 or get_pop_All_18(original_category3.lower(), "")
                 or ""
             )
@@ -153,7 +153,7 @@ class EventLabResolver:
 
         # If no label found yet, try general translation
         if not category_lab:
-            category_lab = ye_ts_bot.translate_general_category(f"category:{category3}", fix_title=False)
+            category_lab = general_resolver.translate_general_category(f"category:{category3}", fix_title=False)
 
         if category_lab:
             return category_lab
@@ -161,7 +161,7 @@ class EventLabResolver:
         category_lab = (
             country_2_title_work(category3)
             or wrap_lab_for_country2(category3)
-            or ye_ts_bot.translate_general_category(category3, start_get_country2=False, fix_title=False)
+            or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
             or get_pop_All_18(category3.lower(), "")
             or ""
         )
@@ -275,7 +275,7 @@ class EventLabResolver:
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = ye_ts_bot.translate_general_category(original_category3, fix_title=False)
+            category_lab = general_resolver.translate_general_category(original_category3, fix_title=False)
 
         return category_lab
 

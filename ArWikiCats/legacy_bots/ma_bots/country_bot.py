@@ -29,7 +29,7 @@ from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import parties_resolver, university_resolver
 from ..o_bots.peoples_resolver import work_peoples
-from . import ye_ts_bot
+from . import general_resolver
 
 
 @functools.lru_cache(maxsize=10000)
@@ -89,7 +89,7 @@ def Get_country2(country: str) -> str:
     resolved_label = (
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
-        or ye_ts_bot.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
@@ -117,7 +117,7 @@ def _resolve_remainder(remainder: str) -> str:
     label = (
         Get_country2(remainder)
         or get_lab_for_country2(remainder)
-        or ye_ts_bot.translate_general_category(remainder, fix_title=False)
+        or general_resolver.translate_general_category(remainder, fix_title=False)
         or ""
     )
     return label

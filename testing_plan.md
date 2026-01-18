@@ -587,7 +587,7 @@ class TestResolverChainIntegration:
         4. Try nat_males_pattern
         5. Try event2bot
         6. Try event_lab_bot
-        7. Try ye_ts_bot
+        7. Try general_resolver
         """
         # A category that should trigger fallback
         result = resolve_arabic_category_label("Unknown Category Type")

@@ -103,7 +103,7 @@ def test_event_lab_footballers_country_special_case() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 5) General translation fallback via ye_ts_bot.translate_general_category
+# 5) General translation fallback via general_resolver.translate_general_category
 # ---------------------------------------------------------------------------
 
 

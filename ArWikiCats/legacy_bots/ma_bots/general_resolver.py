@@ -8,11 +8,9 @@ into Arabic labels by applying various resolution strategies.
 
 import functools
 import re
-from typing import Optional
-
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import dump_data, logger
+from ...helps import logger
 from ...time_formats import time_to_arabic
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_relation_word, get_value_from_any_table
