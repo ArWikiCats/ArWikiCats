@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Integration tests for format_multi_data and """
+"""Integration tests for format_multi_data and"""
 
 import pytest
 

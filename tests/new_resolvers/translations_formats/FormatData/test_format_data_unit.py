@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Integration tests """
+"""Integration tests"""
 
 import re
 

@@ -133,7 +133,7 @@ class DuplicateTestAnalyzer:
         print(f"عدد الأزواج المكررة: {duplicate_pairs:,}")
         print(f"إجمالي التكرارات: {total_occurrences:,}")
         if total_pairs > 0:
-            print(f"نسبة التكرار: {(duplicate_pairs/total_pairs*100):.2f}%")
+            print(f"نسبة التكرار: {(duplicate_pairs / total_pairs * 100):.2f}%")
         print("=" * 80 + "\n")
 
     def print_duplicates(self, limit: int = 20) -> None:

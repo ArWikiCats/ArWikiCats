@@ -1,5 +1,5 @@
-"""
-"""
+""" """
+
 import pytest
 
 from ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements

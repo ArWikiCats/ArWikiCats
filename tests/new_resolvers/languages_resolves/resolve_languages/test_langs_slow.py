@@ -23,9 +23,7 @@ def testlang_key_m_patterns(suffix: str, template: str) -> None:
     # expected formatting
     expected = template.format(BASE_LANG_OUTPUT)
 
-    assert result == expected, (
-        f"LANGUAGE_TOPIC_FORMATS mismatch for '{category}'\n" f" {expected=}\n" f"Got:      {result}"
-    )
+    assert result == expected, f"LANGUAGE_TOPIC_FORMATS mismatch for '{category}'\n {expected=}\nGot:      {result}"
 
 
 def test_sample_direct_language() -> None:
