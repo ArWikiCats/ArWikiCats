@@ -38,7 +38,6 @@ from .mixed.all_keys3 import (
 from .mixed.all_keys4 import INTER_FEDS_LOWER
 from .mixed.all_keys5 import Clubs_key_2, pop_final_5
 from .mixed.female_keys import New_female_keys, religious_entries
-from .mixed.keys2 import PARTIES
 from .nats.Nationality import (
     All_Nat,
     Nat_men,
@@ -145,7 +144,6 @@ __all__ = [
     "film_keys_for_female",
     "Films_keys_both_new_female",
     "RELIGIOUS_KEYS_PP",
-    "PARTIES",
     "PRIMARY_LANGUAGE_TRANSLATIONS",
     "COMPLEX_LANGUAGE_TRANSLATIONS",
     "language_key_translations",
