@@ -7,20 +7,20 @@ import pytest
 from ArWikiCats.legacy_bots.o_bots.parties_resolver import get_parties_lab
 
 fast_data = {
-    # Basic party lookups (if applicable via FormatData or fallback)
-    # Note: currently get_parties_lab only uses .search() which matches patterns.
-    # If the pattern is just {party_key}, it might match.
-    # Let's check if there is a pattern for just the party name.
-
-    # Based on formatted_data in parties_resolver.py:
-    "libertarian party of canada candidates": "مرشحو الحزب التحرري الكندي",
-    "libertarian party-of-canada candidates": "مرشحو الحزب التحرري الكندي",
-    "new labour leaders": "قادة حزب العمال الجديد",
-    "pakistan peoples party politicians": "سياسيو حزب الشعب الباكستاني",
-    "party for freedom members": "أعضاء حزب من أجل الحرية",
-    "green party of the united states state governors": "حكام ولايات من حزب الخضر الأمريكي",
+    # {party_key} candidates for member of parliament
     "republican party of armenia candidates for member of parliament": "مرشحو حزب أرمينيا الجمهوري لعضوية البرلمان",
-
+    # {party_key} candidates for member-of-parliament
+    "republican party of armenia candidates for member-of-parliament": "مرشحو حزب أرمينيا الجمهوري لعضوية البرلمان",
+    # {party_key} candidates
+    "libertarian party of canada candidates": "مرشحو الحزب التحرري الكندي",
+    # {party_key} leaders
+    "new labour leaders": "قادة حزب العمال الجديد",
+    # {party_key} politicians
+    "pakistan peoples party politicians": "سياسيو حزب الشعب الباكستاني",
+    # {party_key} members
+    "party for freedom members": "أعضاء حزب من أجل الحرية",
+    # {party_key} state governors
+    "green party of the united states state governors": "حكام ولايات من حزب الخضر الأمريكي",
     # More variations
     "workers' party of korea members": "أعضاء حزب العمال الكوري",
     "scottish national party leaders": "قادة الحزب القومي الإسكتلندي",
