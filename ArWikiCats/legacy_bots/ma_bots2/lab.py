@@ -325,7 +325,9 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "People_key": lambda t: People_key.get(t, ""),
         "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-        "fetch_country_term_label": lambda t: fetch_country_term_label(t, normalized_preposition, lab_type="type_label"),
+        "fetch_country_term_label": lambda t: fetch_country_term_label(
+            t, normalized_preposition, lab_type="type_label"
+        ),
         "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }
@@ -408,7 +410,9 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
-        "fetch_country_term_label": lambda c: fetch_country_term_label(c, separator, start_get_country2=start_get_country2),
+        "fetch_country_term_label": lambda c: fetch_country_term_label(
+            c, separator, start_get_country2=start_get_country2
+        ),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "wrap_lab_for_country2": wrap_lab_for_country2,
     }

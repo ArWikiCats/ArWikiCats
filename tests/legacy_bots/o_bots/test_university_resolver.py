@@ -76,7 +76,9 @@ resolve_university_category_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", resolve_university_category_data.items(), ids=resolve_university_category_data.keys())
+@pytest.mark.parametrize(
+    "category, expected_key", resolve_university_category_data.items(), ids=resolve_university_category_data.keys()
+)
 @pytest.mark.fast
 def test_universities_data(category: str, expected_key: str) -> None:
     label = resolve_university_category(category)

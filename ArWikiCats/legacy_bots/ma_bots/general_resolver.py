@@ -8,6 +8,7 @@ into Arabic labels by applying various resolution strategies.
 
 import functools
 import re
+
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger

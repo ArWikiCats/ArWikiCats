@@ -466,7 +466,9 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
     return _retriever.get_country_label(country, start_get_country2)
 
 
-def fetch_country_term_label(term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
+def fetch_country_term_label(
+    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+) -> str:
     """Retrieve the corresponding label for a given country or term.
 
     Args:

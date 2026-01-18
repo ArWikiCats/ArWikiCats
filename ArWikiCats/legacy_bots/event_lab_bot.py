@@ -115,7 +115,9 @@ class EventLabResolver:
             category_lab = (
                 country_2_title_work(original_category3)
                 or wrap_lab_for_country2(original_category3)
-                or general_resolver.translate_general_category(original_category3, start_get_country2=False, fix_title=False)
+                or general_resolver.translate_general_category(
+                    original_category3, start_get_country2=False, fix_title=False
+                )
                 or get_pop_All_18(original_category3.lower(), "")
                 or ""
             )
