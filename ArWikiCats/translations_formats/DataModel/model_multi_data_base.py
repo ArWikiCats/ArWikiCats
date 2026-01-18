@@ -160,10 +160,12 @@ class MultiDataFormatterBaseHelpers:
 
     def normalize_both(self, category: str) -> str:
         """
-        Normalize both nationality and sport tokens in the category.
+        Normalize both dynamic elements in a category and return the final template key.
 
-        Example:
-            input: "british softball championships", output: "natar xoxo championships"
+        Strips extra spaces from the input, then applies country normalization followed by the other element normalization.
+
+        Returns:
+            template_key (str): The template string after normalizing the nationality and the other element.
         """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
@@ -174,11 +176,26 @@ class MultiDataFormatterBaseHelpers:
         return template_key
 
     def create_nat_label(self, category: str) -> str:
-        """Create a nationality label for the given category using country_bot."""
+        """
+        Create a nationality label for the given category.
+
+        Returns:
+            The nationality label string for the category, or an empty string if no label is found.
+        """
         return self.country_bot.search(category)
 
     def replace_placeholders(self, template_ar: str, country_ar: str, other_ar: str) -> str:
-        """Replace both country and other placeholders in the Arabic template."""
+        """
+        Replace country and other placeholders in an Arabic template and return the trimmed label.
+
+        Parameters:
+            template_ar (str): Arabic template containing placeholders for country and the other element.
+            country_ar (str): Arabic text to replace the country placeholder.
+            other_ar (str): Arabic text to replace the other-element placeholder.
+
+        Returns:
+            str: Arabic label with both placeholders replaced and surrounding whitespace removed.
+        """
         label = self.country_bot.replace_value_placeholder(template_ar, country_ar)
         label = self.other_bot.replace_value_placeholder(label, other_ar)
 
@@ -187,10 +204,15 @@ class MultiDataFormatterBaseHelpers:
     @functools.lru_cache(maxsize=1000)
     def create_label(self, category: str) -> str:
         """
-        Create a localized label by combining nationality and sport templates.
+        Create a localized Arabic label by combining the normalized country and other-element templates for the given category.
 
-        Example:
-            category: "ladies british softball tour", output: "بطولة المملكة المتحدة للكرة اللينة للسيدات"
+        If a cached mapping exists in self.data_to_find for the category, that value is returned. Otherwise the method normalizes the category to obtain country and other keys, retrieves the corresponding Arabic templates and key labels, replaces placeholders with the Arabic key labels, and returns the final Arabic label. Returns an empty string when normalization fails, required templates or key labels are missing, or placeholders remain unresolved.
+
+        Parameters:
+                category (str): The multi-element category to translate (e.g., "ladies british softball tour").
+
+        Returns:
+                str: The final Arabic label with placeholders replaced, or an empty string if no valid translation can be produced.
         """
         if self.data_to_find and self.data_to_find.get(category):
             return self.data_to_find[category]
@@ -230,24 +252,58 @@ class MultiDataFormatterBaseHelpers:
         return label
 
     def search(self, category: str) -> str:
-        """Alias for create_label."""
+        """
+        Create a localized label for the given multi-element category.
+
+        Returns:
+            str: The localized label for the category, or an empty string if no translation is available.
+        """
         return self.create_label(category)
 
     def check_placeholders(self, category: str, result: str) -> str:
-        """Verify that the result doesn't contain any unprocessed placeholders."""
+        """
+        Ensure the produced label contains no unprocessed placeholder characters.
+
+        Logs a warning if unprocessed placeholders (`{`) are found in `result`, using `category` for context.
+
+        Parameters:
+            category (str): Original category string used in the warning message.
+            result (str): The generated label to check for placeholders.
+
+        Returns:
+            str: The original `result` if it contains no `{` characters, otherwise an empty string.
+        """
         if "{" in result:
             logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
             return ""
         return result
 
     def prepend_arabic_category_prefix(self, category: str, result: str) -> str:
-        """Add the Arabic category prefix if the original category had it."""
+        """
+        Prepend the Arabic category prefix "تصنيف:" to the result when the original category started with "category:" and the result lacks that prefix.
+
+        Parameters:
+            category (str): The original category string to inspect for the English "category:" prefix.
+            result (str): The generated Arabic label that may require the Arabic category prefix.
+
+        Returns:
+            str: The possibly modified `result` with "تصنيف:" prepended when `category` starts with "category:" (case-insensitive) and `result` is non-empty and does not already start with "تصنيف:".
+        """
         if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
             result = "تصنيف:" + result
         return result
 
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
-        """Try creating a combined label, then fall back to individual bots."""
+        """
+        Attempt to build a combined Arabic label for a two-element category, falling back to individual bot searches.
+
+        Parameters:
+            category (str): The category key to resolve.
+            add_arabic_category_prefix (bool): If True, prepend the Arabic category prefix when appropriate.
+
+        Returns:
+            str: The resolved label, or an empty string if no label is found.
+        """
         result = (
             self.create_label(category) or self.country_bot.search(category) or self.other_bot.search(category) or ""
         )
@@ -256,7 +312,12 @@ class MultiDataFormatterBaseHelpers:
         return result
 
     def search_all_other_first(self, category: str) -> str:
-        """Try searching with other_bot first, then country_bot, then combined."""
+        """
+        Attempt to find a translation by querying the other bot first, then the country bot, then the combined label.
+
+        Returns:
+            str: The found translation with unprocessed placeholders removed; empty string if no translation is found or if placeholders remain.
+        """
         result = (
             self.other_bot.search(category) or self.country_bot.search(category) or self.create_label(category) or ""
         )
@@ -264,7 +325,15 @@ class MultiDataFormatterBaseHelpers:
         return self.check_placeholders(category, result)
 
     def search_all_category(self, category: str) -> str:
-        """Perform a full search including prefix handling and placeholder checking."""
+        """
+        Perform a comprehensive lookup for a category label, applying normalization, Arabic-prefix handling, and placeholder validation.
+
+        Parameters:
+            category (str): The original category string; may include a leading "category:" prefix.
+
+        Returns:
+            str: The localized label for the category, or an empty string if no valid label is found or placeholder tokens remain.
+        """
         logger.debug("--" * 5)
         logger.debug(">> search_all_category start")
 
