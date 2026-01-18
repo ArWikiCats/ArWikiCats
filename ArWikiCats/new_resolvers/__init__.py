@@ -27,6 +27,7 @@ from .nationalities_resolvers import main_nationalities_resolvers
 from .relations_resolver import main_relations_resolvers
 from .sports_resolvers import main_sports_resolvers, match_labs, raw_sports, sport_lab_nat
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
+from .other_resolvers import main_other_resolvers
 
 
 @functools.lru_cache(maxsize=None)
@@ -59,6 +60,8 @@ def all_new_resolvers(category: str) -> str:
         or resolve_languages_labels_with_time(category)
         # or raw_sports.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
         # or match_labs.find_teams_2025(category)  # NOTE: under test
+
+        or main_other_resolvers(category)
         or ""
     )
     logger.info(f"<<purple>> all_new_resolvers: {category} => {category_lab}")
