@@ -108,6 +108,14 @@ _simple_m_bot = FormatData(
     value_placeholder="{rel_ar}",
 )
 
+# 4. Simple Fallback Bot for (Female)
+_simple_f_bot = FormatData(
+    formatted_data={"female {rel}": "{rel_ar_f}", "women's {rel}": "{rel_ar_f}"},
+    data_list={k: v.get("females") for k, v in RELIGIOUS_KEYS_PP.items() if v.get("females")},
+    key_placeholder="{rel}",
+    value_placeholder="{rel_ar_f}",
+)
+
 
 def resolve_nats_jobs(category: str) -> str:
     """
@@ -132,6 +140,9 @@ def resolve_nats_jobs(category: str) -> str:
             return labels.get("males", "")
 
     if res := _simple_m_bot.search(category_lower):
+        return res
+
+    if res := _simple_f_bot.search(category_lower):
         return res
 
     return ""
