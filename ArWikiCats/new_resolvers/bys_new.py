@@ -67,16 +67,16 @@ def build_yearly_category_translation():
 
 
 def fix_keys(label: str) -> str:
-    """Fix common issues in category keys before processing.
+    """
+    Normalize category keys by converting context phrases like "X of" to "X-of".
 
-    Replaces spaces with hyphens in certain context phrases to normalize the format
-    for consistent matching in the translation process.
+    Converts occurrences of any context field name followed by " of" into "X-of" (case-insensitive) to standardize keys for matching.
 
-    Args:
-        label (str): The category label to be processed and fixed.
+    Parameters:
+        label (str): Category label to normalize.
 
     Returns:
-        str: The processed label with normalized formatting.
+        str: The normalized label.
     """
 
     context_keys = "|".join(CONTEXT_FIELD_LABELS.keys())
@@ -142,14 +142,13 @@ def _load_formatted_data() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=1)
 def _load_data_to_find() -> dict[str, str]:
-    """Load and return a dictionary of specific category translations to find.
+    """
+    Builds a mapping of specific English category phrases to their Arabic translations for exact-match lookup.
 
-    Builds a comprehensive dictionary of specific category translations that need
-    to be matched exactly, including team names, competition categories, and other
-    specific terms that don't follow general patterns.
+    Includes age-group national team phrases, yearly competition category entries, and various domain-specific "by ..." phrases (including sensitive/violent terms) that should be matched exactly rather than by pattern.
 
     Returns:
-        dict: Dictionary mapping specific English category names to their Arabic translations.
+        dict[str, str]: Mapping from English category phrase to Arabic translation.
     """
     by_keys_under = {
         "by men's under-16 national team": "حسب المنتخب الوطني للرجال تحت 16 سنة",
@@ -235,15 +234,13 @@ data_to_find = _load_data_to_find()
 
 @functools.lru_cache(maxsize=1)
 def _load_by_data_new() -> dict[str, str]:
-    """Load and return a comprehensive dictionary of 'by' category translations.
+    """
+    Load a comprehensive mapping of English category keys used with "by" to their Arabic translations.
 
-    Creates a mapping of various English category terms (such as occupations,
-    locations, characteristics) to their Arabic equivalents. This includes terms
-    related to country of origin, academic disciplines, sports, government roles,
-    and many other categories.
+    The returned mapping covers many domains (locations, occupations, institutions, sports, weapons, events, etc.) and has its keys normalized through fix_keys before being returned.
 
     Returns:
-        dict: Dictionary mapping English terms to Arabic translations.
+        dict[str, str]: Mapping of normalized English category keys to their Arabic translation strings.
     """
     _to_review = {
         "guillotine": "بالمقصلة",

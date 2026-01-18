@@ -14,7 +14,14 @@ from .utils import fix_keys
 
 
 def generate_jobs_data_dict() -> dict[str, dict[str, str]]:
-    """Generate a dictionary of job titles with masculine, feminine, and inclusive forms."""
+    """
+    Map English job identifiers to Arabic masculine, feminine, and inclusive labels.
+
+    Each mapping value is a dictionary with keys `job_males`, `job_females`, and `both_jobs`, each holding the corresponding Arabic string for that job category.
+
+    Returns:
+        jobs_data (dict[str, dict[str, str]]): Mapping from an English job identifier (e.g., "actors") to a dict with Arabic forms under `job_males`, `job_females`, and `both_jobs`.
+    """
     # "[ا-ي]+ون* و[ا-ي]+ات"
     jobs_data_new = {
         "bobsledders": {
@@ -53,7 +60,12 @@ def generate_jobs_data_dict() -> dict[str, dict[str, str]]:
 
 @functools.lru_cache(maxsize=1)
 def generate_formatted_data() -> dict[str, str]:
-    """Generate a dictionary of template patterns for job-related category translations."""
+    """
+    Provide a mapping from English category patterns to Arabic template strings for gendered job and nationality phrases.
+
+    Returns:
+        dict[str, str]: Mapping where keys are English patterns containing placeholders (e.g., `{en_nat}`, `{job_en}`) and values are Arabic template strings using placeholders such as `{males}`, `{females}`, `{job_males}`, `{job_females}`, and `{both_jobs}`.
+    """
     formatted_data = {
         "actresses": "ممثلات",
         "{en_nat} actresses": "ممثلات {females}",
