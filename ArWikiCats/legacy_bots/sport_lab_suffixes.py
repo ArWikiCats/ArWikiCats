@@ -16,7 +16,6 @@ from . import team_work
 from .o_bots.utils import resolve_suffix_template
 
 
-# @dump_data(1)
 def resolve_team_suffix(normalized_team) -> str:
     """Resolve team suffix for sports categories.
 

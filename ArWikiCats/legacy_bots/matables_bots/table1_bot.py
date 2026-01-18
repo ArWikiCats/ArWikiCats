@@ -34,8 +34,7 @@ KAKO: Dict[str, Dict[str, str]] = {
 
 
 @functools.lru_cache(maxsize=None)
-# @dump_data(1)
-def _get_KAKO(text: str) -> str:
+def _get_KAKO(text: str) -> tuple[str, str]:
     """Look up the Arabic label for a term across several mapping tables.
 
     Args:
