@@ -18,6 +18,7 @@ COUNTRY_YEAR_DATA_TO_CHECK = {
 
 # 18th-century people of Dutch Empire
 COUNTRY_YEAR_DATA = {
+    # "{year1} {country1} politicians": "سياسيو {country1} في {year1}",  # 88
     "{year1} disestablishments in {country1}": "انحلالات سنة {year1} في {country1}",  # 4600
     "{year1} disestablishments in {country1} (state)": "انحلالات سنة {year1} في ولاية {country1}",  # 71
     "{year1} establishments in {country1}": "تأسيسات سنة {year1} في {country1}",  # 19853
@@ -72,7 +73,6 @@ COUNTRY_YEAR_DATA = {
     "{year1} executions by {country1}": "إعدامات في {country1} في {year1}",  # 96
     "{year1} people from {country1}": "أشخاص من {country1} في {year1}",  # 115
     "{year1} fires in {country1}": "حرائق في {country1} في {year1}",  # 120
-    "{year1} {country1} politicians": "سياسيو {country1} في {year1}",  # 88
     "{year1} in {country1} by province or territory": "{country1} في {year1} حسب المقاطعة أو الإقليم",  # 137
     "{year1} mass murder in {country1}": "قتل جماعي في {country1} في {year1}",  # 84
     "{year1} roman catholic archbishops in {country1}": "رؤساء أساقفة رومان كاثوليك في {country1} في {year1}",  # 129

@@ -62,7 +62,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
 
     from_match = False
     # category_lab = ""
-    category_lab = all_patterns_resolvers(category)
+    category_lab = all_patterns_resolvers(changed_cat)
 
     if category_lab:
         from_match = True

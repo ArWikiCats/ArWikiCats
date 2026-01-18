@@ -441,7 +441,7 @@ data_1 = {
     "Antigua and Barbuda hurdlers": "لاعبو قفز الحواجز أنتيغويون وبربوديون",
     "Antigua and Barbuda illustrators": "رسامون توضيحيون أنتيغويون وبربوديون",
     "Antigua and Barbuda in World War II": "أنتيغوا وباربودا في الحرب العالمية الثانية",
-    "Antigua and Barbuda Jews": "أنتيغويون وبربوديون يهود",
+    "Antigua and Barbuda Jews": "يهود أنتيغويون وبربوديون",
     "Antigua and Barbuda judges": "قضاة أنتيغويون وبربوديون",
     "Antigua and Barbuda judges of international courts and tribunals": "قضاة أنتيغويون وبربوديون في محاكم وهيئات قضائية دولية",
     "Antigua and Barbuda jurists": "حقوقيون أنتيغويون وبربوديون",
