@@ -8,7 +8,7 @@ on suffixes and prefixes.
 
 import functools
 
-from ..new_resolvers.sports_resolvers.legacy_sports_bots import sport_lab_suffixes, team_work
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import sport_jobs_keys_suffixes, team_work
 
 from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 
@@ -56,7 +56,7 @@ def _resolve_label(label: str) -> str:
 
         or main_sports_resolvers(label)
         or wrap_team_xo_normal_2025_with_ends(label)
-        or sport_lab_suffixes.resolve_sport_jobs_keys_and_suffix(label)
+        or sport_jobs_keys_suffixes.resolve_sport_jobs_keys_and_suffix(label)
 
         or parties_resolver.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)

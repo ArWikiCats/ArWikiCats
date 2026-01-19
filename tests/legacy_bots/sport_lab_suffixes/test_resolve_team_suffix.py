@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.sport_lab_suffixes import resolve_sport_jobs_keys_and_suffix
+from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.sport_jobs_keys_suffixes import resolve_sport_jobs_keys_and_suffix
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 test_data_1 = {
