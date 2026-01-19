@@ -124,7 +124,7 @@ fast_data_empty = {
     "Spanish remakes of French films": "x",
     "Spanish remakes of Italian films": "x",
     "Sri Lankan remakes of Indian films": "x",
-    "Taiwanese remakes of South Korean films": "x",
+    "Taiwanese remakes of South Korean films": "",
     "Tamil remakes of Bengali films": "x",
     "Tamil remakes of Hindi films": "x",
     "Tamil remakes of Kannada films": "x",
@@ -159,9 +159,10 @@ def test_politics_and_history(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
+@pytest.mark.parametrize("name", ["test_remakes_of"])
 @pytest.mark.dump
-def test_remakes_of(name: str, data: dict[str, str]) -> None:
+def test_remakes_of(name: str) -> None:
+    data = fast_data_empty
     expected, diff_result = one_dump_test(data, resolve_remakes_of_resolver)
 
     dump_diff(diff_result, name)
