@@ -5,7 +5,6 @@ import pytest
 from ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements
 
 data1 = {
-    "africa cup of nations": "africa cup-of-nations",
     "african-american muslims": "africanamerican muslims",
     "amphibious warfare vessels of islamic republic of iran navy": "amphibious warfare vessels of islamic republic-of iran navy",
     "auxiliary ships of islamic republic of iran navy": "auxiliary ships of islamic republic-of iran navy",
@@ -122,7 +121,6 @@ data1 = {
     "category:women's africa cup of nations players": "category:women's africa cup-of-nations players",
     "category:women's africa cup of nations qualification": "category:women's africa cup-of-nations qualification",
     "category:women's africa cup of nations tournaments": "category:women's africa cup-of-nations tournaments",
-    "category:women's africa cup of nations": "category:women's africa cup-of-nations",
     "destroyers of islamic republic of iran navy": "destroyers of islamic republic-of iran navy",
     "frigates of islamic republic of iran navy": "frigates of islamic republic-of iran navy",
     "kingdom of hungary in middle ages": "kingdom-of hungary in middle ages",

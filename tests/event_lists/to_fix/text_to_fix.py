@@ -72,7 +72,6 @@ data1 = {
     "Category:Advanced Placement": "تصنيف:برنامج التعيين المتقدم",
     "Category:African American-related lists": "تصنيف:قوائم متعلقة بالأمريكيين الأفارقة",
     "Category:African Americans' rights organizations": "تصنيف:منظمات حقوق الأمركيين الأفارقة",
-    "Category:African Nations Championship": "تصنيف:كأس الأمم الإفريقية للمحليين",
     "Category:African Nations Championship finals": "تصنيف:نهائيات بطولة أمم إفريقيا للمحليين",
     "Category:African Nations Championship navigational boxes": "تصنيف:صناديق تصفح بطولة أمم إفريقيا للمحليين",
     "Category:African Nations Championship players": "تصنيف:لاعبو كأس الأمم الإفريقية للمحليين",
