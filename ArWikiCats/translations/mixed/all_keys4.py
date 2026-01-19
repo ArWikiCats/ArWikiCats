@@ -143,11 +143,27 @@ INTER_FEDS_LOWER: dict[str, str] = {key.lower(): value for key, value in INTER_F
 
 new2019: dict[str, str] = build_new2019(INTER_FEDS_LOWER)
 
-__all__ = ["new2019", "INTER_FEDS_LOWER"]
+clubs = open_json_file("sports/Clubs_key.json") or {}
+
+clubs_index: dict[str, str] = {}
+for club, label in clubs.items():
+    if not club or not label:
+        continue
+    club_lower = club.lower()
+    clubs_index[club_lower] = label
+
+Clubs_key_2 = clubs_index
+
+__all__ = [
+    "new2019",
+    "INTER_FEDS_LOWER",
+    "Clubs_key_2",
+]
 
 len_print.data_len(
     "all_keys4.py",
     {
+        "Clubs_key_2": Clubs_key_2,
         "INTER_FEDS_LOWER": INTER_FEDS_LOWER,
         "new2019": new2019,
     },

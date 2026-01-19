@@ -35,8 +35,8 @@ from .mixed.all_keys3 import (
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
 )
-from .mixed.all_keys4 import INTER_FEDS_LOWER
-from .mixed.all_keys5 import Clubs_key_2, pop_final_5
+from .mixed.all_keys4 import INTER_FEDS_LOWER, Clubs_key_2
+from .mixed.all_keys5 import pop_final_5
 from .mixed.female_keys import New_female_keys, religious_entries
 from .mixed.keys2 import PARTIES
 from .nats.Nationality import (

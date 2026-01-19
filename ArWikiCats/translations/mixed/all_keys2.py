@@ -616,10 +616,9 @@ def build_pf_keys2(ctl_keys, keys_of_without_in, keys_of_with_in) -> dict[str, s
     return data
 
 
-def wrap_build_pf_keys2(keys_of_without_in: dict[str, str]) -> tuple[dict[str, str], dict[str, str]]:
+def wrap_build_pf_keys2(ctl_data: dict[str, str], keys_of_without_in: dict[str, str]) -> dict[str, str]:
     """Wrap the ``build_pf_keys2`` function with additional data loading."""
 
-    ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
     pf_keys2: dict[str, str] = build_pf_keys2(ctl_data, keys_of_without_in, keys_of_with_in)
@@ -627,9 +626,7 @@ def wrap_build_pf_keys2(keys_of_without_in: dict[str, str]) -> tuple[dict[str, s
     _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
     _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
 
-    clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
-
-    return pf_keys2, clubs_teams_leagues
+    return pf_keys2
 
 
 def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
@@ -832,7 +829,10 @@ keys_of_without_in = {
     "years": "سنوات"
 }
 
-pf_keys2, clubs_teams_leagues = wrap_build_pf_keys2(keys_of_without_in)
+ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
+clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
+
+pf_keys2 = wrap_build_pf_keys2(ctl_data, keys_of_without_in)
 
 no_the = _handle_the_prefix(pf_keys2)
 pf_keys2.update(no_the)
