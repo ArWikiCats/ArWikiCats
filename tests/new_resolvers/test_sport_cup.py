@@ -10,9 +10,25 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
+from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.sport_lab_suffixes import resolve_sport_jobs_keys_and_suffix
 
 resolve_team_suffix_test_data = {
+
+    "short track speed skating cup": "كأس تزلج على مسار قصير",
+    "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
+    "luge cup": "كأس زحف ثلجي",
+    "motorsports racing cup": "كأس سباق رياضة محركات",
+    "speed skating cup": "كأس تزلج سريع",
+    "motocross cup": "كأس موتو كروس",
+    "pencak silat cup": "كأس بنكات سيلات",
+    "pesäpallo cup": "كأس بيسبالو",
+    "roller hockey (quad) cup": "كأس هوكي دحرجة",
+    "association football cup": "كأس كرة قدم",
+    "kick boxing racing cup": "كأس سباق كيك بوكسينغ",
+    "shot put racing cup": "كأس سباق دفع ثقل",
+    "luge racing cup": "كأس سباق زحف ثلجي",
+    "water skiing cup": "كأس تزلج على الماء",
+
     "fifa world cup racing records and statistics": "سجلات وإحصائيات سباق كأس العالم لكرة القدم",
     "davis cup racing music": "موسيقى سباق كأس ديفيز",
     "davis cup racing songs": "أغاني سباق كأس ديفيز",
@@ -180,7 +196,7 @@ to_test = [
 @pytest.mark.parametrize("category, expected", resolve_team_suffix_test_data.items(), ids=resolve_team_suffix_test_data.keys())
 @pytest.mark.fast
 def test_resolve_team_suffix(category: str, expected: str) -> None:
-    label1 = resolve_team_suffix(category)
+    label1 = resolve_sport_jobs_keys_and_suffix(category)
     assert label1 == expected
 
 

@@ -5,9 +5,9 @@ TODO: compare this file with ArWikiCats/new/handle_suffixes.py
 """
 from __future__ import annotations
 import functools
-from ..helps import logger
-from ..translations import SPORTS_KEYS_FOR_JOBS
-from ..translations_formats import FormatData
+from ....helps import logger
+from ....translations import SPORTS_KEYS_FOR_JOBS
+from ....translations_formats import FormatData
 
 
 def _load_bot() -> FormatData:
@@ -83,14 +83,14 @@ def _load_bot() -> FormatData:
 
 
 @functools.lru_cache(maxsize=None)
-def resolve_team_suffix(category: str, default: str = "") -> str:
+def resolve_sport_jobs_keys_and_suffix(category: str, default: str = "") -> str:
     """Search for a job-related sports label, returning ``default`` when missing."""
     jobs_bot = _load_bot()
     result = jobs_bot.search(category) or default
-    logger.info_if_or_debug(f"<<yellow>> end resolve_team_suffix: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_jobs_keys_and_suffix: {category=}, {result=}", result)
     return result
 
 
 __all__ = [
-    "resolve_team_suffix",
+    "resolve_sport_jobs_keys_and_suffix",
 ]

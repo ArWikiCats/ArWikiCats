@@ -5,27 +5,10 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025, resolve_sport_label_by_jobs_key
+from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.sport_lab_suffixes import resolve_sport_jobs_keys_and_suffix
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key  # wrap_team_xo_normal_2025
 
-by_jobs_key_test_data = {
-    "short track speed skating cup": "كؤوس تزلج على مسار قصير",
-    "wheelchair basketball cup": "كؤوس كرة سلة على كراسي متحركة",
-    "luge cup": "كؤوس زحف ثلجي",
-    "motorsports racing cup": "كؤوس سباق رياضة محركات",
-    "speed skating cup": "كؤوس تزلج سريع",
-    "motocross cup": "كؤوس موتو كروس",
-    "pencak silat cup": "كؤوس بنكات سيلات",
-    "pesäpallo cup": "كؤوس بيسبالو",
-    "roller hockey (quad) cup": "كؤوس هوكي دحرجة",
-    "association football cup": "كؤوس كرة قدم",
-    "kick boxing racing cup": "كؤوس سباق كيك بوكسينغ",
-    "shot put racing cup": "كؤوس سباق دفع ثقل",
-    "luge racing cup": "كؤوس سباق زحف ثلجي",
-    "water skiing cup": "كؤوس تزلج على الماء"
-}
-
-team_suffix_test_data = {
+test_data = {
     "short track speed skating cup": "كأس تزلج على مسار قصير",
     "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
     "luge cup": "كأس زحف ثلجي",
@@ -43,14 +26,14 @@ team_suffix_test_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", team_suffix_test_data.items(), ids=team_suffix_test_data.keys())
+@pytest.mark.parametrize("category, expected_key", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_resolve_team_suffix(category: str, expected_key: str) -> None:
-    label = resolve_team_suffix(category)
+    label = resolve_sport_jobs_keys_and_suffix(category)
     assert label == expected_key
 
 
-@pytest.mark.parametrize("category, expected_key", by_jobs_key_test_data.items(), ids=by_jobs_key_test_data.keys())
+@pytest.mark.parametrize("category, expected_key", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_resolve_sport_label_by_jobs_key(category: str, expected_key: str) -> None:
     label = resolve_sport_label_by_jobs_key(category)
@@ -58,8 +41,8 @@ def test_resolve_sport_label_by_jobs_key(category: str, expected_key: str) -> No
 
 
 to_test = [
-    ("test_resolve_team_suffix", team_suffix_test_data, resolve_team_suffix),
-    ("test_resolve_sport_label_by_jobs_key", by_jobs_key_test_data, resolve_sport_label_by_jobs_key),
+    ("test_resolve_team_suffix", test_data, resolve_sport_jobs_keys_and_suffix),
+    ("test_resolve_sport_label_by_jobs_key", test_data, resolve_sport_label_by_jobs_key),
 ]
 
 

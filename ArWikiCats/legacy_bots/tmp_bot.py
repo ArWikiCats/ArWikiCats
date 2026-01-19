@@ -8,6 +8,8 @@ on suffixes and prefixes.
 
 import functools
 
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import sport_lab_suffixes, team_work
+
 from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 
 from ..helps import logger
@@ -15,7 +17,7 @@ from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
-from . import sport_lab_suffixes, team_work, with_years_bot
+from . import with_years_bot
 from .ma_bots import general_resolver
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
@@ -54,7 +56,7 @@ def _resolve_label(label: str) -> str:
 
         or main_sports_resolvers(label)
         or wrap_team_xo_normal_2025_with_ends(label)
-        or sport_lab_suffixes.resolve_team_suffix(label)
+        or sport_lab_suffixes.resolve_sport_jobs_keys_and_suffix(label)
 
         or parties_resolver.get_parties_lab(label)
         or team_work.Get_team_work_Club(label)

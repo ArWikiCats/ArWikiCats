@@ -10,6 +10,8 @@ import functools
 import re
 from typing import Pattern
 
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import sport_lab_suffixes
+
 from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 
 from ..helps import logger
@@ -17,7 +19,7 @@ from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import WORD_AFTER_YEARS, People_key, change_numb_to_word, get_from_pf_keys2
-from . import sport_lab_suffixes, team_work
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
 from .ma_bots.general_resolver import translate_general_category
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
@@ -55,7 +57,7 @@ def wrap_lab_for_country2(country: str) -> str:
 
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
-        or sport_lab_suffixes.resolve_team_suffix(country2)
+        or sport_lab_suffixes.resolve_sport_jobs_keys_and_suffix(country2)
 
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)

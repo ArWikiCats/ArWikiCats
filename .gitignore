@@ -26,7 +26,7 @@ ArWikiCats/make_bots/jobs_bots/jobs_mainbot_example.py
 examples/diff.json
 examples/compare_diff.json
 examples/compare_no_labels.json
-ArWikiCats/helps/resolve_team_suffix.jsonl
+ArWikiCats/helps/resolve_sport_jobs_keys_and_suffix.jsonl
 ArWikiCats/helps/find_teams_2025.jsonl
 _work_files/*.json
 .coverage

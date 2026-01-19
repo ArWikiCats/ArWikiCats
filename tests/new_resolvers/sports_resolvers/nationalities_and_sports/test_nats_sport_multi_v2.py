@@ -10,6 +10,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 the_female_data = {
+    "new zealand rugby league chairmen and investors": "رؤساء ومسيرو الدوري النيوزيلندي للرجبي",
     "welsh rugby league": "الدوري الويلزي للرجبي",
     "welsh rugby league chairmen and investors": "رؤساء ومسيرو الدوري الويلزي للرجبي",
     "welsh rugby union": "اتحاد الرجبي الويلزي",

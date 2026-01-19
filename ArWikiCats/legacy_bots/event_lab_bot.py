@@ -5,6 +5,8 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import sport_lab_suffixes, team_work
+
 from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
@@ -19,7 +21,7 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_formats import time_to_arabic
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
-from . import sport_lab_suffixes, team_work, tmp_bot
+from . import tmp_bot
 from .ma_bots import general_resolver
 from .ma_bots2.country2_label_bot import country_2_title_work
 from .ma_bots.lab_seoo_bot import event_label_work
@@ -57,7 +59,7 @@ def wrap_lab_for_country2(country: str) -> str:
 
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
-        or sport_lab_suffixes.resolve_team_suffix(country2)
+        or sport_lab_suffixes.resolve_sport_jobs_keys_and_suffix(country2)
 
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)

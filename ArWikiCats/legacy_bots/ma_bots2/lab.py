@@ -7,6 +7,8 @@ import functools
 import re
 from typing import Tuple
 
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import sport_lab_suffixes, team_work
+
 from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 
 from ...helps import logger
@@ -22,7 +24,7 @@ from ...translations import (
     get_from_pf_keys2,
     religious_entries,
 )
-from .. import sport_lab_suffixes, team_work, tmp_bot
+from .. import tmp_bot
 from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
@@ -53,7 +55,7 @@ def wrap_lab_for_country2(country: str) -> str:
 
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
-        or sport_lab_suffixes.resolve_team_suffix(country2)
+        or sport_lab_suffixes.resolve_sport_jobs_keys_and_suffix(country2)
 
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
