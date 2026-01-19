@@ -40,7 +40,7 @@ CAMBRIDGE_COLLEGES: dict[str, str] = {
     "wolfson": "وولفسون",
 }
 
-INTER_FEDERATIONS: dict[str, str] = open_json_file("inter_federations.json")
+INTER_FEDERATIONS: dict[str, str] = open_json_file("sports/inter_federations.json")
 
 BATTLESHIP_CATEGORIES: dict[str, str] = {
     "aircraft carriers": "حاملات طائرات",
