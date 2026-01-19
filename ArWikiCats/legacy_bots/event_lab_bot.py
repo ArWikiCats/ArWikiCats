@@ -9,7 +9,7 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
-from ..legacy_bots.common_resolver_chain import get_lab_for_country2
+from .common_resolver_chain import get_lab_for_country2
 from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -19,12 +19,36 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_formats import time_to_arabic
 from ..translations import get_from_new_p17_final
 from . import tmp_bot
-from .lab_seoo_bot import event_label_work
 from .ma_bots import general_resolver
 from .ma_bots2 import country2_label_bot
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .o_bots import university_resolver
+
+from ..translations import Ambassadors_tab
+from . import with_years_bot
+from .ma_bots import country_bot
+from .ma_bots2 import year_or_typeo
+
+
+@functools.lru_cache(maxsize=10000)
+def event_label_work(country: str) -> str:
+    country2 = country.lower().strip()
+
+    if country2 == "people":
+        return "أشخاص"
+
+    resolved_label = (
+        ""
+        or get_lab_for_country2(country2)
+        or get_from_new_p17_final(country2, "")
+        or Ambassadors_tab.get(country2, "")
+        or country_bot.event2_d2(country2)
+        or with_years_bot.wrap_try_with_years(country2)
+        or year_or_typeo.label_for_startwith_year_or_typeo(country2)
+        or general_resolver.translate_general_category(country2)
+    )
+    return resolved_label
 
 
 class EventLabResolver:
