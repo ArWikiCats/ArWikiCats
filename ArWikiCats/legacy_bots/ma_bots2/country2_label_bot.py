@@ -9,12 +9,14 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-from ...new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
+from ...new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_jobs_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor

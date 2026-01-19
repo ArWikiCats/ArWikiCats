@@ -9,7 +9,6 @@ from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
-from .common_resolver_chain import get_lab_for_country2
 from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -17,18 +16,14 @@ from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_formats import time_to_arabic
-from ..translations import get_from_new_p17_final
-from . import tmp_bot
-from .ma_bots import general_resolver
-from .ma_bots2 import country2_label_bot
+from ..translations import Ambassadors_tab, get_from_new_p17_final
+from . import tmp_bot, with_years_bot
+from .common_resolver_chain import get_lab_for_country2
+from .ma_bots import country_bot, general_resolver
+from .ma_bots2 import country2_label_bot, year_or_typeo
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .o_bots import university_resolver
-
-from ..translations import Ambassadors_tab
-from . import with_years_bot
-from .ma_bots import country_bot
-from .ma_bots2 import year_or_typeo
 
 
 @functools.lru_cache(maxsize=10000)
