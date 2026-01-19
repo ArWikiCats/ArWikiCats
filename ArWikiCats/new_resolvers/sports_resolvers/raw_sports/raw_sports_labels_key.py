@@ -8,20 +8,7 @@ from ....translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
 )
 from ....translations_formats import FormatData
-
-labels_formatted_data = {
-    "{en_sport}": "{sport_label}",
-    "{en_sport} finals": "نهائيات {sport_label}",
-    "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
-    "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
-    "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
-    "{en_sport} league": "دوري {sport_label}",
-    "{en_sport} champions": "أبطال {sport_label}",
-    "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
-    "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
-    "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
-}
-
+from .data import labels_formatted_data
 
 @functools.lru_cache(maxsize=1)
 def _load_labels_bot() -> FormatData:
