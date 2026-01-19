@@ -5,7 +5,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_by_teams_key,
+    resolve_sport_label_unified,
     wrap_team_xo_normal_2025_with_ends,
 )
 
@@ -91,7 +91,7 @@ test_find_teams_bot_data = {
 
 
 def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_by_teams_key)
+    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_unified)
 
 
 @pytest.mark.parametrize("category, expected", test_find_teams_bot_data.items(), ids=test_find_teams_bot_data.keys())

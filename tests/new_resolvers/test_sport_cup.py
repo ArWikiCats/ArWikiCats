@@ -9,7 +9,7 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
 )
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_by_jobs_key,
+    resolve_sport_label_unified,
     wrap_team_xo_normal_2025_with_ends,
 )
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
@@ -204,7 +204,7 @@ to_test = [
 )
 @pytest.mark.fast
 def test_resolve_team_suffix(category: str, expected: str) -> None:
-    label1 = resolve_sport_label_by_jobs_key(category)
+    label1 = resolve_sport_label_unified(category)
     assert label1 == expected
 
 

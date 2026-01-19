@@ -5,13 +5,13 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_by_jobs_key,
+    resolve_sport_label_unified,
     wrap_team_xo_normal_2025_with_ends,
 )
 
 
 def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_by_jobs_key)
+    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_unified)
 
 
 test_data_with_additional = {

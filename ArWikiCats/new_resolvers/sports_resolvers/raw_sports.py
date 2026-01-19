@@ -10,6 +10,7 @@ from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 
 
+@functools.lru_cache(maxsize=1)
 def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
     """
     Build a unified dictionary mapping sport names to their translation values.
@@ -37,6 +38,7 @@ def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
     return unified
 
 
+@functools.lru_cache(maxsize=1)
 def _build_unified_formatted_data() -> dict[str, str]:
     """
     Combine all formatted data dictionaries into a single dictionary.
@@ -343,6 +345,11 @@ def _load_unified_bot() -> FormatDataV2:
     Returns:
         FormatDataV2: Configured bot for all sports translations.
     """
+
+    UNIFIED_FORMATTED_DATA: Final[dict[str, str]] = _build_unified_formatted_data()
+
+    UNIFIED_SPORT_KEYS: Final[dict[str, dict[str, str]]] = _build_unified_sport_keys()
+
     return FormatDataV2(
         formatted_data=UNIFIED_FORMATTED_DATA,
         data_list=UNIFIED_SPORT_KEYS,
@@ -356,7 +363,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
     Search for a sports label using the unified bot.
 
     This function combines the functionality of:
-    - resolve_sport_label_by_jobs_key
+    - resolve_sport_label_unified
     - resolve_sport_label_by_teams_key
     - resolve_sport_label_by_labels_key
 
@@ -419,14 +426,7 @@ def wrap_team_xo_normal_2025(team: str) -> str:
     team = team.lower().replace("category:", "")
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025: {team=}")
 
-    result = (
-        ""
-        or resolve_sport_label_unified(team)
-        # or resolve_sport_label_by_labels_key(team)
-        # or resolve_sport_label_by_teams_key(team)
-        # or resolve_sport_label_by_jobs_key(team)
-        or ""
-    )
+    result = resolve_sport_label_unified(team)
 
     logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025: {team=}, {result=}", result)
     return result.strip()
@@ -458,21 +458,8 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
     return result
 
 
-UNIFIED_FORMATTED_DATA: Final[dict[str, str]] = _build_unified_formatted_data()
-
-
-resolve_sport_label_by_labels_key = resolve_sport_label_unified
-resolve_sport_label_by_jobs_key = resolve_sport_label_unified
-resolve_sport_label_by_teams_key = resolve_sport_label_unified
-
-
-UNIFIED_SPORT_KEYS: Final[dict[str, dict[str, str]]] = _build_unified_sport_keys()
-
 __all__ = [
     "wrap_team_xo_normal_2025",
-    "resolve_sport_label_by_labels_key",
-    "resolve_sport_label_by_teams_key",
-    "resolve_sport_label_by_jobs_key",
     "resolve_sport_label_unified",
     "wrap_team_xo_normal_2025_with_ends",
 ]
