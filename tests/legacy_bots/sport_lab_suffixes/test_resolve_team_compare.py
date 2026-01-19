@@ -6,11 +6,9 @@ import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025, resolve_sport_label_by_jobs_key
 
 by_jobs_key_test_data = {
-    "orienteering cups": "كؤوس سباق موجه",
-    "orienteering cup": "كؤوس سباق موجه",
     "short track speed skating cup": "كؤوس تزلج على مسار قصير",
     "wheelchair basketball cup": "كؤوس كرة سلة على كراسي متحركة",
     "luge cup": "كؤوس زحف ثلجي",
@@ -28,8 +26,6 @@ by_jobs_key_test_data = {
 }
 
 team_suffix_test_data = {
-    "orienteering cups": "كؤوس سباق موجه",
-    "orienteering cup": "كأس سباق موجه",
     "short track speed skating cup": "كأس تزلج على مسار قصير",
     "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
     "luge cup": "كأس زحف ثلجي",

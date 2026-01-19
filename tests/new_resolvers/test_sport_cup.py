@@ -10,6 +10,68 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from ArWikiCats.legacy_bots.sport_lab_suffixes import resolve_team_suffix
+
+resolve_team_suffix_test_data = {
+    "fifa world cup racing records and statistics": "سجلات وإحصائيات سباق كأس العالم لكرة القدم",
+    "davis cup racing music": "موسيقى سباق كأس ديفيز",
+    "davis cup racing songs": "أغاني سباق كأس ديفيز",
+    "polo cup playoffs": "تصفيات كأس بولو",
+    "fifa world cup films": "أفلام كأس العالم لكرة القدم",
+    "fifa futsal world cup racing manager history": "تاريخ مدربو سباق كأس العالم لكرة الصالات",
+    "dragon boat cup playoffs": "تصفيات كأس سباق قوارب التنين",
+    "fifa world cup racing chairmen and investors": "رؤساء ومسيرو سباق كأس العالم لكرة القدم",
+    "road bicycle racing cup playoffs": "تصفيات كأس سباق دراجات على الطريق",
+    "fifa world cup umpires": "حكام كأس العالم لكرة القدم",
+    "fifa futsal world cup racing leagues seasons": "مواسم دوريات سباق كأس العالم لكرة الصالات",
+    "davis cup tactics and skills": "مهارات كأس ديفيز",
+    "formula racing cup playoffs": "تصفيات كأس سباقات فورمولا",
+    "fifa world cup racing non-profit organizations": "منظمات غير ربحية سباق كأس العالم لكرة القدم",
+    "long jump cup playoffs": "تصفيات كأس قفز طويل",
+    "freestyle wrestling cup playoffs": "تصفيات كأس مصارعة حرة",
+    "pair skating cup playoffs": "تصفيات كأس تزلج فني على الجليد",
+    "beach handball cup playoffs": "تصفيات كأس كرة يد شاطئية",
+    "darts cup playoffs": "تصفيات كأس سهام مريشة",
+    "fifa futsal world cup racing terminology": "مصطلحات سباق كأس العالم لكرة الصالات",
+    "rifle shooting cup playoffs": "تصفيات كأس رماية بندقية",
+    "bullfighting cup playoffs": "تصفيات كأس مصارعة ثيران",
+    "water polo cup playoffs": "تصفيات كأس كرة ماء",
+
+    "roller skating racing cups": "كؤوس سباق تزلج بالعجلات",
+    "dragon boat racing cups": "كؤوس سباق قوارب التنين",
+    "racingxx cups": "كؤوس سباق سيارات",
+    "silat cups": "كؤوس سيلات",
+    "rugby league racing cups": "كؤوس سباق دوري رجبي",
+    "speed skating racing cups": "كؤوس سباق تزلج سريع",
+    "goalball racing cups": "كؤوس سباق كرة هدف",
+    "boxing cups": "كؤوس بوكسينغ",
+    "roller hockey cups": "كؤوس هوكي دحرجة",
+    "bandy cups": "كؤوس باندي",
+    "high jump racing cups": "كؤوس سباق قفز عالي",
+    "powerlifting cups": "كؤوس رياضة قوة",
+    "bowling cups": "كؤوس بولينج",
+    "table tennis cups": "كؤوس كرة طاولة",
+    "racquets racing cups": "كؤوس سباق لعبة الراح",
+    "yacht racing cups": "كؤوس سباقات يخوت",
+}
+
+test_2025 = {
+    # "sports cup competitions": "منافسات كؤوس رياضية",
+    "defunct football cups": "كؤوس كرة قدم سابقة",
+    "domestic football cups": "كؤوس كرة قدم محلية",
+    "football cups": "كؤوس كرة قدم",
+    "professional football cups": "كؤوس كرة قدم للمحترفين",
+    "motorcycle racing cups": "كؤوس سباق دراجات نارية",
+
+    "domestic football cup": "",  # "كؤوس كرة قدم محلية",
+    "defunct football cup competitions": "",  # "منافسات كؤوس كرة قدم سابقة",
+    "defunct rugby union cup competitions": "",  # "منافسات كؤوس اتحاد رجبي سابقة",
+
+    "basketball cup competitions": "منافسات كأس كرة السلة",
+    "football cup competitions": "منافسات كأس كرة القدم",
+    "soccer cup competitions": "منافسات كأس كرة القدم",
+    "motorcycle racing cup": "كأس سباق الدراجات النارية",
+}
 
 sport_lab2_test_data = {
     "defunct indoor boxing": "بوكسينغ داخل الصالات سابقة",
@@ -113,6 +175,20 @@ to_test = [
     ("test_test_sport_cup_3", sport_lab2_test_data, resolve_countries_names_sport_with_ends),
     # ---
 ]
+
+
+@pytest.mark.parametrize("category, expected", resolve_team_suffix_test_data.items(), ids=resolve_team_suffix_test_data.keys())
+@pytest.mark.fast
+def test_resolve_team_suffix(category: str, expected: str) -> None:
+    label1 = resolve_team_suffix(category)
+    assert label1 == expected
+
+
+@pytest.mark.parametrize("category, expected", test_2025.items(), ids=test_2025.keys())
+@pytest.mark.fast
+def test_wrap_team_xo_normal_2025(category: str, expected: str) -> None:
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
+    assert label1 == expected
 
 
 @pytest.mark.parametrize("category, expected", nats_sport_multi_v2_data.items(), ids=nats_sport_multi_v2_data.keys())

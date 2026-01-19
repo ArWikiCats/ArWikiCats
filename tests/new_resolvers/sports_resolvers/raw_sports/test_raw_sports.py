@@ -9,7 +9,11 @@ from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_no
 data_0 = {}
 
 data_1 = {
-    "basketball cup competitions": "منافسات كؤوس كرة سلة",
+    "defunct sports clubs": "أندية رياضية سابقة",
+    "defunct sports competitions": "منافسات رياضية سابقة",
+    "defunct sports leagues": "دوريات رياضية سابقة",
+    "professional sports leagues": "دوريات رياضية للمحترفين",
+
     "basketball league": "دوري كرة السلة",
     "current football seasons": "مواسم كرة قدم حالية",
     "cycling races": "سباقات سباق دراجات هوائية",
@@ -22,8 +26,6 @@ data_1 = {
     "defunct esports competitions": "منافسات رياضة إلكترونية سابقة",
     "defunct football clubs": "أندية كرة قدم سابقة",
     "defunct football competitions": "منافسات كرة قدم سابقة",
-    "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
-    "defunct football cups": "كؤوس كرة قدم سابقة",
     "defunct football leagues": "دوريات كرة قدم سابقة",
     "defunct gaelic football competitions": "منافسات كرة قدم غالية سابقة",
     "defunct hockey competitions": "منافسات هوكي سابقة",
@@ -32,26 +34,18 @@ data_1 = {
     "defunct indoor soccer leagues": "دوريات كرة قدم داخل الصالات سابقة",
     "defunct netball leagues": "دوريات كرة شبكة سابقة",
     "defunct rugby league teams": "فرق دوري رجبي سابقة",
-    "defunct rugby union cup competitions": "منافسات كؤوس اتحاد رجبي سابقة",
     "defunct rugby union leagues": "دوريات اتحاد رجبي سابقة",
     "defunct rugby union teams": "فرق اتحاد رجبي سابقة",
     "defunct soccer clubs": "أندية كرة قدم سابقة",
-    "defunct sports clubs": "أندية رياضية سابقة",
-    "defunct sports competitions": "منافسات رياضية سابقة",
-    "defunct sports leagues": "دوريات رياضية سابقة",
     "defunct water polo clubs": "أندية كرة ماء سابقة",
     "defunct water polo competitions": "منافسات كرة ماء سابقة",
     "domestic cricket competitions": "منافسات كريكت محلية",
-    "domestic football cup": "كؤوس كرة قدم محلية",
-    "domestic football cups": "كؤوس كرة قدم محلية",
     "domestic football leagues": "دوريات كرة قدم محلية",
     "domestic football": "كرة قدم محلية",
     "domestic handball leagues": "دوريات كرة يد محلية",
     "domestic women's football leagues": "دوريات كرة قدم محلية للسيدات",
     "first-class cricket": "كريكت من الدرجة الأولى",
     "football chairmen and investors": "رؤساء ومسيرو كرة قدم",
-    "football cup competitions": "منافسات كؤوس كرة قدم",
-    "football cups": "كؤوس كرة قدم",
     "football league": "دوري كرة القدم",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey": "هوكي داخل الصالات",
@@ -119,12 +113,8 @@ data_1 = {
     "outdoor equestrian": "فروسية في الهواء الطلق",
     "outdoor ice hockey": "هوكي جليد في الهواء الطلق",
     "premier lacrosse league": "دوريات لاكروس من الدرجة الممتازة",
-    "professional football cups": "كؤوس كرة قدم للمحترفين",
     "professional ice hockey leagues": "دوريات هوكي جليد للمحترفين",
-    "professional sports leagues": "دوريات رياضية للمحترفين",
     "rugby league chairmen and investors": "رؤساء ومسيرو دوري رجبي",
-    "soccer cup competitions": "منافسات كؤوس كرة قدم",
-    "sports cup competitions": "منافسات كؤوس رياضية",
     "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
@@ -143,6 +133,17 @@ data_1 = {
     "world rowing championships medalists": "فائزون بميداليات بطولة العالم للتجديف",
     "world taekwondo championships": "بطولة العالم للتايكوندو"
 }
+
+
+test_2025 = {
+}
+
+
+@pytest.mark.parametrize("category, expected_key", test_2025.items(), ids=test_2025.keys())
+@pytest.mark.fast
+def test_wrap_team_xo_normal_2025(category: str, expected_key: str) -> None:
+    label = wrap_team_xo_normal_2025_with_ends(category)
+    assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
