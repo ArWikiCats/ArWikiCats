@@ -2,7 +2,7 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import (
     resolve_countries_names_sport_with_ends,
@@ -24,20 +24,20 @@ data_0 = {
 }
 
 resolve_team_suffix_test_data = {
-    "short track speed skating cup": "كأس تزلج على مسار قصير",
-    "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
-    "luge cup": "كأس زحف ثلجي",
-    "motorsports racing cup": "كأس سباق رياضة محركات",
-    "speed skating cup": "كأس تزلج سريع",
+    "short track speed skating cup": "كأس التزلج على مسار قصير",
+    "wheelchair basketball cup": "كأس كرة السلة على الكراسي المتحركة",
+    "luge cup": "كأس الزحف الثلجي",
+    "motorsports racing cup": "كأس سباق رياضة المحركات",
+    "speed skating cup": "كأس التزلج السريع",
+    "roller hockey (quad) cup": "كأس هوكي الدحرجة",
+    "association football cup": "كأس كرة القدم",
+    "kick boxing racing cup": "كأس سباق الكيك بوكسينغ",
+    "shot put racing cup": "كأس سباق دفع الثقل",
+    "luge racing cup": "كأس سباق الزحف الثلجي",
+    "water skiing cup": "كأس التزلج على الماء",
     "motocross cup": "كأس موتو كروس",
     "pencak silat cup": "كأس بنكات سيلات",
     "pesäpallo cup": "كأس بيسبالو",
-    "roller hockey (quad) cup": "كأس هوكي دحرجة",
-    "association football cup": "كأس كرة قدم",
-    "kick boxing racing cup": "كأس سباق كيك بوكسينغ",
-    "shot put racing cup": "كأس سباق دفع ثقل",
-    "luge racing cup": "كأس سباق زحف ثلجي",
-    "water skiing cup": "كأس تزلج على الماء",
     "fifa world cup racing records and statistics": "سجلات وإحصائيات سباق كأس العالم لكرة القدم",
     "davis cup racing music": "موسيقى سباق كأس ديفيز",
     "davis cup racing songs": "أغاني سباق كأس ديفيز",
@@ -76,7 +76,7 @@ resolve_team_suffix_test_data = {
     "bowling cups": "كؤوس بولينج",
     "table tennis cups": "كؤوس كرة طاولة",
     "racquets racing cups": "كؤوس سباق لعبة الراح",
-    "yacht racing cups": "كؤوس سباقات يخوت",
+    "yacht racing cups": "كؤوس سباقات يخوت"
 }
 
 test_2025 = {
@@ -195,6 +195,7 @@ to_test = [
     ("test_test_sport_cup_1", sport_lab2_test_data, resolve_nats_sport_multi_v2),
     ("test_test_sport_cup_2", sport_lab2_test_data, sport_lab_nat_load_new),
     ("test_test_sport_cup_3", sport_lab2_test_data, resolve_countries_names_sport_with_ends),
+    ("test_resolve_sport_label_unified", resolve_team_suffix_test_data, resolve_sport_label_unified),
     # ---
 ]
 
@@ -255,6 +256,5 @@ def test_dump_it(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
 
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_add")
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
