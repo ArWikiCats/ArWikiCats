@@ -619,7 +619,7 @@ def build_pf_keys2(ctl_keys, keys_of_without_in, keys_of_with_in) -> dict[str, s
 def wrap_build_pf_keys2(keys_of_without_in: dict[str, str]) -> tuple[dict[str, str], dict[str, str]]:
     """Wrap the ``build_pf_keys2`` function with additional data loading."""
 
-    ctl_data = open_json_file("population/clubs_teams_leagues.json") or {}
+    ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
     pf_keys2: dict[str, str] = build_pf_keys2(ctl_data, keys_of_without_in, keys_of_with_in)
