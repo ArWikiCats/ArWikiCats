@@ -37,9 +37,15 @@ new_for_nat_female_xo_team_2 = {
     "{en} youth {en_sport} cup": "كأس {female} {sport_jobs} للشباب",
     "{en} mens {en_sport} cup": "كأس {female} {sport_jobs} للرجال",
     "{en} womens {en_sport} cup": "كأس {female} {sport_jobs} للسيدات",
+
+    # "{en} defunct {en_sport} cups": "كؤوس {sport_jobs} {female} سابقة",
+    # "{en} {en_sport} cups": "كؤوس {sport_jobs} {female}",
+    # "{en} domestic {en_sport} cups": "كؤوس {sport_jobs} {female} محلية",
+
     "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
     "{en} {en_sport} cup": "كؤوس {sport_jobs} {female}",
     "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
+
     "{en} {en_sport} teams": "فرق {sport_jobs} {female}",
     "{en} {en_sport} national teams": "منتخبات {sport_jobs} {female}",
     # tab[Category:Canadian domestic Soccer: "تصنيف:كرة قدم كندية محلية"

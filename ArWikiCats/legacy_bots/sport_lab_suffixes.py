@@ -12,6 +12,9 @@ from ..translations_formats import FormatData
 
 def _load_bot() -> FormatData:
     jobs_formatted_data = {
+        "{en_sport} cup playoffs": "تصفيات كأس {sport_jobs}",
+        "{en_sport} cup": "كأس {sport_jobs}",
+
         "{en_sport} broadcasters": "مذيعو {sport_jobs}",
         "{en_sport} commentators": "معلقو {sport_jobs}",
         "{en_sport} commissioners": "مفوضو {sport_jobs}",
@@ -66,8 +69,6 @@ def _load_bot() -> FormatData:
         "{en_sport} songs": "أغاني {sport_jobs}",
         "{en_sport} non-playing staff": "طاقم {sport_jobs} غير اللاعبين",
         "{en_sport} umpires": "حكام {sport_jobs}",
-        "{en_sport} cup playoffs": "تصفيات كأس {sport_jobs}",
-        "{en_sport} cup": "كأس {sport_jobs}",
         "{en_sport} results": "نتائج {sport_jobs}",
         "{en_sport} matches": "مباريات {sport_jobs}",
         "{en_sport} rivalries": "دربيات {sport_jobs}",

@@ -3,39 +3,41 @@
 
 import functools
 
-from ...helps import logger
-from ...translations.sports.Sport_key import (
+from ....helps import logger
+from ....translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_JOBS,
 )
-from ...translations_formats import FormatData
+from ....translations_formats import FormatData
 
-jobs_formatted_data_shared = {
+jobs_formatted_data = {
+    # "{en_sport}": "{sport_jobs}",
+
+    "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
+    "indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات",
+    "outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق",
+    "professional {en_sport} cups": "كؤوس {sport_jobs} للمحترفين",
+
+    # "{en_sport} cup": "كؤوس {sport_jobs}",
+    # "defunct {en_sport} cup": "كؤوس {sport_jobs} سابقة",
+    # "domestic {en_sport} cup": "كؤوس {sport_jobs} محلية",
+
+    "{en_sport} cups": "كؤوس {sport_jobs}",
+    "defunct outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق سابقة",
+    "defunct {en_sport} cups": "كؤوس {sport_jobs} سابقة",
+    "domestic womens {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
+    "domestic {en_sport} cups": "كؤوس {sport_jobs} محلية",
+
     "{en_sport} competitions": "منافسات {sport_jobs}",
     "domestic {en_sport}": "{sport_jobs} محلية",
     "professional {en_sport}": "{sport_jobs} للمحترفين",
     "indoor {en_sport}": "{sport_jobs} داخل الصالات",
     "defunct indoor {en_sport}": "{sport_jobs} داخل الصالات سابقة",
-    "{en_sport} cup": "كؤوس {sport_jobs}",
-    "{en_sport} cups": "كؤوس {sport_jobs}",
-    "defunct outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق سابقة",
-    "defunct {en_sport} cup": "كؤوس {sport_jobs} سابقة",
-    "defunct {en_sport} cups": "كؤوس {sport_jobs} سابقة",
-    "domestic womens {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
-    "domestic {en_sport} cup": "كؤوس {sport_jobs} محلية",
-    "domestic {en_sport} cups": "كؤوس {sport_jobs} محلية",
-}
 
-jobs_formatted_data = {
-    # "{en_sport}": "{sport_jobs}",
     "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
     "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
     "domestic {en_sport} leagues": "دوريات {sport_jobs} محلية",
-    "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
-    "indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات",
     "indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات",
     "defunct indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات سابقة",
-    "outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق",
-    "professional {en_sport} cups": "كؤوس {sport_jobs} للمحترفين",
     "professional {en_sport} leagues": "دوريات {sport_jobs} للمحترفين",
     "under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
@@ -160,8 +162,6 @@ jobs_formatted_data = {
     # Category:National junior women's goalball teams
     "national junior womens {en_sport} teams": "منتخبات {sport_jobs} للناشئات",
 }
-
-jobs_formatted_data.update(jobs_formatted_data_shared)
 
 jobs_formatted_data2 = {
     # "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",

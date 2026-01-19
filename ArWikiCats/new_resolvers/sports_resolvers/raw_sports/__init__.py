@@ -3,15 +3,15 @@
 
 import functools
 
-from ...helps import logger
-from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations.sports.Sport_key import (
+from ....helps import logger
+from ....new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ....translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )
-from ...translations_formats import FormatData
+from ....translations_formats import FormatData
 from .raw_sports_jobs_key import resolve_sport_label_by_jobs_key
-from .sport_lab2_data import labels_formatted_data, teams_formatted_data
+from ..sport_lab2_data import labels_formatted_data, teams_formatted_data
 
 labels_bot = FormatData(
     labels_formatted_data,
