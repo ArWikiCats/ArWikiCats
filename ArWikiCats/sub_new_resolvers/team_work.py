@@ -107,7 +107,7 @@ def _resolve_club_label(club_key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def Get_team_work_Club(category: str) -> str:
+def resolve_clubs_teams_leagues(category: str) -> str:
     """Return the Arabic label for ``category`` using known suffixes.
 
     Args:
@@ -128,6 +128,5 @@ def Get_team_work_Club(category: str) -> str:
 
 
 __all__ = [
-    "Teams_new_end_keys",
-    "Get_team_work_Club",
+    "resolve_clubs_teams_leagues",
 ]

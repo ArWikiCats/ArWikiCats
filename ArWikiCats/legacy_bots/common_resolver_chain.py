@@ -49,7 +49,7 @@ def get_lab_for_country2(country: str) -> str:
         or wrap_team_xo_normal_2025_with_ends(country2)
         or resolve_sport_label_by_jobs_key(country2)
         or parties_resolver.get_parties_lab(country2)
-        or team_work.Get_team_work_Club(country2)
+        or team_work.resolve_clubs_teams_leagues(country2)
         or university_resolver.resolve_university_category(country2)
         or work_peoples(country2)
         or get_KAKO(country2)

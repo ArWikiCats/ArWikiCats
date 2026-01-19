@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
-from ArWikiCats.sub_new_resolvers.team_work import Get_team_work_Club
+from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
 from ArWikiCats import resolve_label_ar
 
 fast_data = {
@@ -105,7 +105,7 @@ fast_data_not_same = {
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_fast_data_1(category: str, expected: str) -> None:
-    label = Get_team_work_Club(category)
+    label = resolve_clubs_teams_leagues(category)
     assert label == expected
 
 
@@ -117,7 +117,7 @@ def test_fast_data_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    # ("test_fast_data_1", fast_data, Get_team_work_Club),
+    # ("test_fast_data_1", fast_data, resolve_clubs_teams_leagues),
     ("test_fast_data_2", fast_data, resolve_label_ar),
 ]
 

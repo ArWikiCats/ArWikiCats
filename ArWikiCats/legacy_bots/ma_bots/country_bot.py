@@ -222,7 +222,7 @@ class CountryLabelRetriever:
             or resolve_languages_labels_with_time(country)
             or People_key.get(country)
             or all_new_resolvers(country)
-            or team_work.Get_team_work_Club(country)
+            or team_work.resolve_clubs_teams_leagues(country)
         )
         return label
 
