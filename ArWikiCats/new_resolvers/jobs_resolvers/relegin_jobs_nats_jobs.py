@@ -3,7 +3,7 @@
 Resolves category labels for religious groups combined with nationalities.
 """
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
-from ...translations_formats import format_multi_data_v2, FormatData
+from ...translations_formats import FormatData, format_multi_data_v2
 
 # Prepare consolidated dictionaries with gendered values
 _rel_data = {k: {"rel_ar": v.get("males"), "rel_ar_f": v.get("females")} for k, v in RELIGIOUS_KEYS_PP.items()}

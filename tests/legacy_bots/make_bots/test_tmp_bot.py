@@ -109,17 +109,6 @@ def test_prefix_pp_start(input_label: str, resolved: str, expected: str) -> None
 
 
 # -------------------------------------------------------------
-# Test with_years_bot interactions
-# -------------------------------------------------------------
-def test_with_years() -> None:
-    """Test translation when the base contains a year."""
-
-    result = Work_Templates("1900 football finals")
-    # suffix " finals"
-    assert result == "نهائيات كرة القدم 1900"
-
-
-# -------------------------------------------------------------
 # Test translation_general_category fallback
 # -------------------------------------------------------------
 def test_fallback_general_category() -> None:

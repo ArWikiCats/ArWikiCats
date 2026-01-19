@@ -6,8 +6,8 @@ import functools
 from ....helps import logger
 from ....new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from .raw_sports_jobs_key import resolve_sport_label_by_jobs_key
-from .raw_sports_teams_key import resolve_sport_label_by_teams_key
 from .raw_sports_labels_key import resolve_sport_label_by_labels_key
+from .raw_sports_teams_key import resolve_sport_label_by_teams_key
 
 
 @functools.lru_cache(maxsize=1)

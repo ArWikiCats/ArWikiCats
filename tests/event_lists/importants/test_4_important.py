@@ -5,6 +5,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 data0 = {
+    "Leaders of Jewish organizations in United States": "قادة منظمات يهودية في الولايات المتحدة",
     "permanent representatives of bahrain": "مندوبو البحرين الدائمون",
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",
     "permanent representatives of kyrgyzstan": "مندوبو قيرغيزستان الدائمون",

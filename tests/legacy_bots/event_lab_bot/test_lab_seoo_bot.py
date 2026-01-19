@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.legacy_bots.ma_bots.lab_seoo_bot import event_label_work
+from ArWikiCats.legacy_bots.lab_seoo_bot import event_label_work
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",

@@ -4,10 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers import _not_main_sports_resolvers
-
 # from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.new_resolvers.sports_resolvers import _not_main_sports_resolvers
 
 data_0 = {
     "1520 in men's football": "1520 في كرة القدم للرجال",

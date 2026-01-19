@@ -7,16 +7,12 @@ import functools
 import re
 from typing import Tuple
 
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-from ...new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
-
-from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
-
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers, main_sports_resolvers
+from ...legacy_bots.common_resolver_chain import get_lab_for_country2
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
 from ...time_formats import time_to_arabic
-from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
@@ -28,49 +24,9 @@ from ...translations import (
 from .. import tmp_bot
 from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys, parties_resolver, university_resolver
-from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
-
-
-@functools.lru_cache(maxsize=10000)
-def wrap_lab_for_country2(country: str) -> str:
-    """
-    Resolve an Arabic laboratory or related entity label for the given country.
-
-    Attempts to produce a localized label for the country and returns the resolved Arabic label; returns an empty string if no suitable label is found.
-
-    Returns:
-        resolved_label (str): The resolved Arabic label for the country, or an empty string if none could be resolved.
-    TODO: should be moved to functions directory.
-    """
-
-    country2 = country.lower().strip()
-
-    resolved_label = (
-        all_new_resolvers(country2)
-        or get_from_pf_keys2(country2)
-        or get_pop_All_18(country2)
-        or resolve_languages_labels_with_time(country2)
-        or People_key.get(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_by_jobs_key(country2)
-        or parties_resolver.get_parties_lab(country2)
-        or team_work.Get_team_work_Club(country2)
-        or university_resolver.resolve_university_category(country2)
-        or work_peoples(country2)
-        or get_KAKO(country2)
-        or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
-        or ""
-    )
-    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
-
-    return resolved_label
-
 
 # from ....genders_processers import resolve_nat_genders_pattern_v2
+from ..o_bots import bys
 
 
 @functools.lru_cache(maxsize=10000)
@@ -334,7 +290,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
             t, normalized_preposition, lab_type="type_label"
         ),
         "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
-        "wrap_lab_for_country2": wrap_lab_for_country2,
+        "get_lab_for_country2": get_lab_for_country2,
     }
 
 
@@ -377,7 +333,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     country_label = get_country(inner_country)
 
     if not country_label:
-        country_label = wrap_lab_for_country2(inner_country)
+        country_label = get_lab_for_country2(inner_country)
 
     if country_label:
         return f"في {country_label}"
@@ -422,7 +378,7 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
             c, separator, start_get_country2=start_get_country2
         ),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-        "wrap_lab_for_country2": wrap_lab_for_country2,
+        "get_lab_for_country2": get_lab_for_country2,
     }
 
 
