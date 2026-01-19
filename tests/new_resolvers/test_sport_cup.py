@@ -14,6 +14,15 @@ from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
 )
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
+data_0 = {
+    "Association football cup competitions": "منافسات كأس كرة القدم",
+    "Football cup competitions in United Arab Emirates": "منافسات كأس كرة القدم في الإمارات العربية المتحدة",
+    "Managers of baseball teams in Japan": "مدربو فرق كرة قاعدة في اليابان",
+    "Men's football cup competitions in France": "منافسات كأس كرة القدم رجالية في فرنسا",
+    "Men's football cup competitions in Scotland": "منافسات كأس كرة القدم رجالية في إسكتلندا",
+    "Sports cup competitions": "منافسات كؤوس رياضية",
+}
+
 resolve_team_suffix_test_data = {
     "short track speed skating cup": "كأس تزلج على مسار قصير",
     "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
