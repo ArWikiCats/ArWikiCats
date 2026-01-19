@@ -984,6 +984,15 @@ data_2 = {
     "field hockey racing commissioners": "مفوضو سباق هوكي ميدان"
 }
 
+data_3 = {
+    "rugby league chairmen and investors": "رؤساء ومسيرو دوري رجبي",
+    "rugby union chairmen and investors": "رؤساء ومسيرو اتحاد رجبي",
+    "association football chairmen and investors by country and club": "رؤساء ومسيرو كرة قدم حسب البلد والنادي",
+    "association football chairmen and investors by nationality": "رؤساء ومسيرو كرة قدم حسب الجنسية",
+    "association football chairmen and investors": "رؤساء ومسيرو كرة قدم",
+    "football chairmen and investors from georgia (country)": "رؤساء ومسيرو كرة قدم من جورجيا",
+    "new zealand rugby league chairmen and investors": "رؤساء ومسيرو الدوري النيوزيلندي للرجبي",
+}
 
 @pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
@@ -1002,6 +1011,7 @@ def test_resolve_team_suffix_2(category: str, expected_key: str) -> None:
 to_test = [
     ("test_resolve_team_suffix_data_1", test_data_1),
     ("test_resolve_team_suffix_data_2", data_2),
+    ("test_resolve_team_suffix_data_3", data_3),
 ]
 
 
