@@ -21,7 +21,7 @@ from ..translations import get_from_new_p17_final
 from . import tmp_bot
 from .ma_bots import general_resolver
 from .ma_bots2 import country2_label_bot
-from .ma_bots.lab_seoo_bot import event_label_work
+from .lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .o_bots import university_resolver

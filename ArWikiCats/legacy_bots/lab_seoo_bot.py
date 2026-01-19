@@ -8,19 +8,19 @@ and translating them to Arabic labels.
 
 import functools
 
-from ...helps import logger
-from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-from ...time_formats.time_to_arabic import convert_time_to_arabic
-from ...translations import Ambassadors_tab, People_key, get_from_new_p17_final
-from .. import with_years_bot
-from ..ma_bots2 import year_or_typeo
-from ..make_bots.bot_2018 import get_pop_All_18
-from ..o_bots import university_resolver
-from . import general_resolver
-from . import country_bot
+from ..helps import logger
+from ..new_resolvers import all_new_resolvers
+from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ..time_formats.time_to_arabic import convert_time_to_arabic
+from ..translations import Ambassadors_tab, People_key, get_from_new_p17_final
+from . import with_years_bot
+from .ma_bots2 import year_or_typeo
+from .make_bots.bot_2018 import get_pop_All_18
+from .o_bots import university_resolver
+from .ma_bots import general_resolver
+from .ma_bots import country_bot
 
 
 @functools.lru_cache(maxsize=None)
