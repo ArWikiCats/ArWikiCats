@@ -111,14 +111,13 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(separator: str, country2: str, with_years: bool = False) -> str:
+def c_1_1_lab(separator: str, country2: str) -> str:
     """
     Resolve the Arabic label for the first part of a compound title given its English token and separator.
 
     Parameters:
         separator (str): The textual separator between parts (e.g., "in", "from", "to"); used to influence resolution for some tokens.
         country2 (str): The first English part to resolve (case-insensitive).
-        with_years (bool): If true, enable label resolution paths that consider year-specific forms.
 
     Returns:
         str: The resolved Arabic label for `country2`, or an empty string if no mapping is found.
@@ -162,13 +161,12 @@ def c_1_1_lab(separator: str, country2: str, with_years: bool = False) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_2_1_lab(country2: str, with_years: bool = False) -> str:
+def c_2_1_lab(country2: str) -> str:
     """
     Resolve an Arabic label for the second component of a compound title or country phrase.
 
     Parameters:
         country2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
-        with_years (bool): If true, prefer resolvers that consider year-specific forms.
 
     Returns:
         str: The resolved Arabic label for country2, or an empty string if no label could be determined.
@@ -356,7 +354,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
 
     part_1_label = (
         all_new_resolvers(part_1)
-        or c_1_1_lab(separator, part_1, with_years=with_years)
+        or c_1_1_lab(separator, part_1)
         or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""
     )

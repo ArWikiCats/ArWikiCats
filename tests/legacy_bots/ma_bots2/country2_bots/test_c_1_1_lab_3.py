@@ -154,5 +154,5 @@ def test_c_1_1_lab(data) -> None:
             - 'key' (str): input label/topic to convert.
             - 'output' (str): expected Arabic label.
     """
-    label = c_1_1_lab(data["separator"], data["key"], with_years=False)
+    label = c_1_1_lab(data["separator"], data["key"])
     assert label == data["output"]

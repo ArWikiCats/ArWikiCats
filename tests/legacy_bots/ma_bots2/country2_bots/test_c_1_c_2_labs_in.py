@@ -78,5 +78,5 @@ test_data = {
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_c_1_1_lab_3(category: str, expected: str) -> None:
-    label = c_1_1_lab(" in ", category, with_years=False)
+    label = c_1_1_lab(" in ", category)
     assert label == expected
