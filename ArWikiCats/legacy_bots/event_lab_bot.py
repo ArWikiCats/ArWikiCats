@@ -4,10 +4,6 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 import functools
 from typing import Tuple
-
-from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-from ..new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
-
 from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
@@ -16,62 +12,18 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers import all_new_resolvers, main_sports_resolvers
-from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_formats import time_to_arabic
-from ..time_formats.time_to_arabic import convert_time_to_arabic
-from ..translations import People_key, get_from_new_p17_final, get_from_pf_keys2
+from ..translations import get_from_new_p17_final
 from . import tmp_bot
 from .ma_bots import general_resolver
 from .ma_bots2.country2_label_bot import country_2_title_work
 from .ma_bots.lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
-from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_resolver, university_resolver
-from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
-
-
-@functools.lru_cache(maxsize=10000)
-def wrap_lab_for_country2(country: str) -> str:
-    """
-    TODO: should be moved to functions directory.
-    Retrieve laboratory information for a specified country.
-    Resolve a country-specific label for the given country key.
-
-    The input country string is normalized (trimmed and lowercased) and multiple resolver sources and translators are consulted in order; returns the first non-empty label found or an empty string when no label can be resolved. The returned label is intended for use as a localized (Arabic) category or list label.
-
-    Parameters:
-        country (str): Country name or key to resolve; whitespace and case are ignored.
-
-    Returns:
-        str: The resolved country-specific label, or an empty string if none is found.
-    """
-
-    country2 = country.lower().strip()
-
-    resolved_label = (
-        all_new_resolvers(country2)
-        or get_from_pf_keys2(country2)
-        or get_pop_All_18(country2)
-        or resolve_languages_labels_with_time(country2)
-        or People_key.get(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_by_jobs_key(country2)
-        or parties_resolver.get_parties_lab(country2)
-        or team_work.Get_team_work_Club(country2)
-        or university_resolver.resolve_university_category(country2)
-        or work_peoples(country2)
-        or get_KAKO(country2)
-        or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
-        or ""
-    )
-    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
-
-    return resolved_label
+from .o_bots import university_resolver
+from ..legacy_bots.common_resolver_chain import get_lab_for_country2
 
 
 class EventLabResolver:
@@ -128,7 +80,7 @@ class EventLabResolver:
         if list_of_cat == "لاعبو {}":
             category_lab = (
                 country_2_title_work(original_category3)
-                or wrap_lab_for_country2(original_category3)
+                or get_lab_for_country2(original_category3)
                 or general_resolver.translate_general_category(
                     original_category3, start_get_country2=False, fix_title=False
                 )
@@ -178,7 +130,7 @@ class EventLabResolver:
 
         category_lab = (
             country_2_title_work(category3)
-            or wrap_lab_for_country2(category3)
+            or get_lab_for_country2(category3)
             or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
             or get_pop_All_18(category3.lower(), "")
             or ""

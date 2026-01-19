@@ -8,23 +8,9 @@ on suffixes and prefixes.
 
 import functools
 
-from ..new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
-from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-
-from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
-
 from ..helps import logger
-from ..new_resolvers import all_new_resolvers, main_sports_resolvers
-from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ..time_formats.time_to_arabic import convert_time_to_arabic
-from ..translations import People_key, get_from_pf_keys2
-from . import with_years_bot
-from .ma_bots import general_resolver
-from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
-from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_resolver, university_resolver
-from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
+from ..legacy_bots.common_resolver_chain import get_lab_for_country2
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
@@ -36,39 +22,6 @@ pp_start_with = {
     "scheduled": "{} مقررة",
     # "defunct" : "{} سابقة",
 }
-
-
-def _resolve_label(country2: str) -> str:
-    """
-    Resolve an English category label into Arabic using a sequence of resolver strategies.
-
-    Parameters:
-        country2 (str): English category country2 to resolve.
-
-    Returns:
-        str: Resolved Arabic label if any strategy matches, otherwise an empty string.
-    """
-    resolved_label = (
-        all_new_resolvers(country2)
-        or get_from_pf_keys2(country2)
-        or get_pop_All_18(country2)
-        or resolve_languages_labels_with_time(country2)
-        or People_key.get(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_by_jobs_key(country2)
-        or parties_resolver.get_parties_lab(country2)
-        or team_work.Get_team_work_Club(country2)
-        or university_resolver.resolve_university_category(country2)
-        or work_peoples(country2)
-        or get_KAKO(country2)
-        or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
-        or with_years_bot.Try_With_Years(country2)
-        or general_resolver.translate_general_category(country2, fix_title=False)
-        or ""
-    )
-    return resolved_label
 
 
 def create_label_from_prefix(input_label):
@@ -87,7 +40,7 @@ def create_label_from_prefix(input_label):
         if input_label.startswith(prefix.lower()):
             remaining_label = input_label[len(prefix) :]
 
-            resolved_label = _resolve_label(remaining_label)
+            resolved_label = get_lab_for_country2(remaining_label)
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
 
             if resolved_label:
@@ -116,7 +69,7 @@ def create_label_from_suffix(input_label):
             base_label = input_label[: -len(suffix)]
             logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {base_label=}')
 
-            resolved_label = _resolve_label(base_label)
+            resolved_label = get_lab_for_country2(base_label)
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {base_label=}')
 
             if resolved_label:

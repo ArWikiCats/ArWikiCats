@@ -26,48 +26,13 @@ from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys, parties_resolver, university_resolver
-from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
+from ..o_bots import bys, parties_resolver
 from .utils import split_text_by_separator
+from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 
 
-@functools.lru_cache(maxsize=10000)
 def wrap_lab_for_country2(country: str) -> str:
-    """Retrieve Arabic label information for a specified country.
-
-    This function attempts to find the Arabic label for a given country
-    by querying multiple data sources in sequence.
-
-    Args:
-        country: The country name to look up
-
-    Returns:
-        The Arabic label for the country or an empty string if not found
-    """
-
-    country2 = country.lower().strip()
-
-    resolved_label = (
-        all_new_resolvers(country2)
-        or get_from_pf_keys2(country2)
-        or get_pop_All_18(country2)
-        or resolve_languages_labels_with_time(country2)
-        or People_key.get(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_by_jobs_key(country2)
-        or parties_resolver.get_parties_lab(country2)
-        or team_work.Get_team_work_Club(country2)
-        or university_resolver.resolve_university_category(country2)
-        or work_peoples(country2)
-        or get_KAKO(country2)
-        or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
-        or ""
-    )
-    logger.info(f'>> wrap_lab_for_country2 "{country2}": label: {resolved_label}')
-
-    return resolved_label
+    return get_lab_for_country2(country)
 
 
 def time_label(text: str) -> str:
