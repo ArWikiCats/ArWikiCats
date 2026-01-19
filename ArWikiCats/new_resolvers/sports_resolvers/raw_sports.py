@@ -4,10 +4,10 @@
 import functools
 
 from typing import Final
-from ....helps import logger
-from ....new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ....translations.sports.Sport_key import SPORT_KEY_RECORDS
-from ....translations_formats import FormatDataV2
+from ...helps import logger
+from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
+from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations_formats import FormatDataV2
 
 
 def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
