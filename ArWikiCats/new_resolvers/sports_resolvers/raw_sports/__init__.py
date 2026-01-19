@@ -12,6 +12,7 @@ from .raw_sports_labels_key import resolve_sport_label_by_labels_key
 
 @functools.lru_cache(maxsize=1)
 def _get_sorted_teams_labels() -> dict[str, str]:
+    # (records and statistics|finals|matches|manager history|tournaments|leagues|coaches|clubs and teams|clubs|competitions|chairmen and investors|cups)
     mappings_data = {
         "records and statistics": "سجلات وإحصائيات",
         "finals": "نهائيات",
@@ -92,7 +93,7 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
 
 __all__ = [
     "wrap_team_xo_normal_2025",
-    "find_labels_bot",
+    "resolve_sport_label_by_labels_key",
     "resolve_sport_label_by_teams_key",
     "resolve_sport_label_by_jobs_key",
     "wrap_team_xo_normal_2025_with_ends",
