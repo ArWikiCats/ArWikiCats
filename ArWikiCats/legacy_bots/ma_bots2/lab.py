@@ -6,10 +6,12 @@ Arabic Label Builder Module
 import functools
 import re
 from typing import Tuple
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+
 from ...helps import logger
+from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
 from ...time_formats import time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
@@ -22,7 +24,7 @@ from ...translations import (
 from .. import tmp_bot
 from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
-from ...legacy_bots.common_resolver_chain import get_lab_for_country2
+
 # from ....genders_processers import resolve_nat_genders_pattern_v2
 from ..o_bots import bys
 

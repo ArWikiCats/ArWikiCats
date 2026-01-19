@@ -6,10 +6,10 @@ Sports team and club category processing.
 import functools
 
 from ....helps import logger
+from ....legacy_bots.o_bots.utils import resolve_suffix_template
+from ....translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
 from ...films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
 from ...relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
-from ....translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ....legacy_bots.o_bots.utils import resolve_suffix_template
 
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",

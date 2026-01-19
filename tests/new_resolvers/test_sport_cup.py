@@ -8,9 +8,11 @@ from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import
     resolve_countries_names_sport_with_ends,
 )
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_jobs_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 resolve_team_suffix_test_data = {
     "short track speed skating cup": "كأس تزلج على مسار قصير",

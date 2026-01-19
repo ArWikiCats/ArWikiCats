@@ -4,10 +4,12 @@ EventLab Bot - A class-based implementation to handle category labeling
 
 import functools
 from typing import Tuple
+
 from ..config import app_settings
 from ..fix import fixtitle
 from ..format_bots import change_cat
 from ..helps import logger
+from ..legacy_bots.common_resolver_chain import get_lab_for_country2
 from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
@@ -23,7 +25,6 @@ from .ma_bots.lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .o_bots import university_resolver
-from ..legacy_bots.common_resolver_chain import get_lab_for_country2
 
 
 class EventLabResolver:

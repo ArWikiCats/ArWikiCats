@@ -9,15 +9,16 @@ formatting them appropriately for Arabic labels.
 import functools
 import re
 from typing import Pattern
+
 from ..helps import logger
+from ..legacy_bots.common_resolver_chain import get_lab_for_country2
+from ..new_resolvers import all_new_resolvers
 from ..translations import WORD_AFTER_YEARS, get_from_pf_keys2
 from .ma_bots.general_resolver import translate_general_category
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 from .matables_bots.data import Add_in_table
 from .matables_bots.table1_bot import get_KAKO
 from .political_terms import handle_political_terms
-from ..legacy_bots.common_resolver_chain import get_lab_for_country2
-from ..new_resolvers import all_new_resolvers
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

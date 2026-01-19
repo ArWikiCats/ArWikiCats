@@ -5,8 +5,8 @@ Public interface for the :mod:`make_bots.o_bots` package.
 
 from __future__ import annotations
 
-from .parties_resolver import get_parties_lab
 from ...new_resolvers.other_resolvers.peoples_resolver import work_peoples
+from .parties_resolver import get_parties_lab
 from .university_resolver import resolve_university_category
 
 __all__ = [

@@ -5,6 +5,7 @@ Population and people helpers.
 from __future__ import annotations
 
 import functools
+
 from ...helps import logger
 from ...translations import People_key
 from ...translations_formats import FormatData

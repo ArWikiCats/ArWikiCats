@@ -6,14 +6,13 @@ often combined with geographic or nationality elements.
 
 import functools
 
-from . import raw_sports
-
 from ...helps import logger
 from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
     match_labs,
     nationalities_and_sports,
+    raw_sports,
     sport_lab_nat,
 )
 

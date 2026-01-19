@@ -7,18 +7,20 @@ from __future__ import annotations
 
 import functools
 
-from ..new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key, wrap_team_xo_normal_2025_with_ends
-from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
-
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ..new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_jobs_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from .make_bots.bot_2018 import get_pop_All_18
 from .matables_bots.table1_bot import get_KAKO
 from .o_bots import parties_resolver, university_resolver
-from ..new_resolvers.other_resolvers.peoples_resolver import work_peoples
 
 
 @functools.lru_cache(maxsize=10000)
