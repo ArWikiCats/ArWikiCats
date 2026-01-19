@@ -19,9 +19,9 @@ from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025
 from ..time_formats import time_to_arabic
 from ..translations import get_from_new_p17_final
 from . import tmp_bot
+from .lab_seoo_bot import event_label_work
 from .ma_bots import general_resolver
 from .ma_bots2 import country2_label_bot
-from .lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 from .o_bots import university_resolver
