@@ -9,7 +9,7 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+from ...new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
