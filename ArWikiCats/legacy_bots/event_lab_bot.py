@@ -14,11 +14,11 @@ from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers import all_new_resolvers
-from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+# from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 from ..time_formats import time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import tmp_bot, with_years_bot
-from .common_resolver_chain import get_lab_for_country2
+from .common_resolver_chain import get_lab_for_country2, wrap_team_xo_normal_2025_with_ends
 from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
 from .make_bots.bot_2018 import get_pop_All_18

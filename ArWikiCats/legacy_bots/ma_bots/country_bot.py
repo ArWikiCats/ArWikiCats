@@ -12,7 +12,7 @@ from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,

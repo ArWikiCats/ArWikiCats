@@ -6,9 +6,9 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import logger
-from ...translations import People_key
-from ...translations_formats import FormatData
+from ..helps import logger
+from ..translations import People_key
+from ..translations_formats import FormatData
 
 formatted_data = {
     "{person_key} administration cabinet members": "أعضاء مجلس وزراء إدارة {person_label}",
