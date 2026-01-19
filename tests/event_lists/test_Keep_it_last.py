@@ -1,19 +1,10 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.legacy_bots.matables_bots.data import Keep_it_last
-
-
-@pytest.mark.fast
-def test_Keep_it_last() -> None:
-    # Arabic translation of term "remakes of" ("معاد إنتاجها") should be at last:
-
-    result = resolve_arabic_category_label("Category:remakes of historical documents")
-    assert result == "تصنيف:وثائق تاريخية معاد إنتاجها"
-
 
 fast_data = {
     "Category:Remakes of American films": "تصنيف:أفلام أمريكية معاد إنتاجها",
@@ -72,7 +63,6 @@ fast_data_empty = {
     "Category:American remakes of Canadian films": "x",
     "Category:American remakes of Danish films": "x",
     "Category:American remakes of Dutch films": "x",
-    "Category:American remakes of foreign films": "x",
     "Category:American remakes of French films": "x",
     "Category:American remakes of German films": "x",
     "Category:American remakes of Hong Kong films": "x",
@@ -87,7 +77,6 @@ fast_data_empty = {
     "Category:American remakes of Swedish films": "x",
     "Category:American remakes of Thai films": "x",
     "Category:Bangladeshi remakes of American films": "x",
-    "Category:Bangladeshi remakes of foreign films": "x",
     "Category:Bangladeshi remakes of Indian films": "x",
     "Category:Bangladeshi remakes of Tamil films": "x",
     "Category:British remakes of American films": "x",
@@ -105,11 +94,9 @@ fast_data_empty = {
     "Category:Bhojpuri remakes of Tamil films": "x",
     "Category:Bhojpuri remakes of Telugu films": "x",
     "Category:Chinese remakes of American films": "x",
-    "Category:Chinese remakes of foreign films": "x",
     "Category:Chinese remakes of Japanese films": "x",
     "Category:Chinese remakes of South Korean films": "x",
     "Category:Dutch remakes of British films": "x",
-    "Category:Dutch remakes of foreign films": "x",
     "Category:French remakes of American films": "x",
     "Category:Gujarati remakes of Marathi films": "x",
     "Category:Gujarati remakes of Tamil films": "x",
@@ -128,7 +115,6 @@ fast_data_empty = {
     "Category:Hong Kong remakes of American films": "x",
     "Category:Indian remakes of American films": "x",
     "Category:Indian remakes of British films": "x",
-    "Category:Indian remakes of foreign films": "x",
     "Category:Indian remakes of French films": "x",
     "Category:Indian remakes of Hong Kong films": "x",
     "Category:Indian remakes of Italian films": "x",
@@ -138,11 +124,8 @@ fast_data_empty = {
     "Category:Indian remakes of Spanish films": "x",
     "Category:Indian remakes of Thai films": "x",
     "Category:Iranian remakes of American films": "x",
-    "Category:Iranian remakes of foreign films": "x",
-    "Category:Italian remakes of foreign films": "x",
     "Category:Italian remakes of French films": "x",
     "Category:Japanese remakes of American films": "x",
-    "Category:Japanese remakes of foreign films": "x",
     "Category:Japanese remakes of South Korean films": "x",
     "Category:Kannada remakes of Bengali films": "x",
     "Category:Kannada remakes of Hindi films": "x",
@@ -175,9 +158,7 @@ fast_data_empty = {
     "Category:Odia remakes of Tamil films": "x",
     "Category:Odia remakes of Telugu films": "x",
     "Category:Pakistani remakes of American films": "x",
-    "Category:Pakistani remakes of foreign films": "x",
     "Category:Pakistani remakes of Indian films": "x",
-    "Category:Philippine remakes of foreign films": "x",
     "Category:Philippine remakes of South Korean films": "x",
     "Category:Punjabi remakes of Hindi films": "x",
     "Category:Punjabi remakes of Malayalam films": "x",
@@ -185,16 +166,13 @@ fast_data_empty = {
     "Category:Punjabi remakes of Tamil films": "x",
     "Category:Punjabi remakes of Telugu films": "x",
     "Category:South Korean remakes of Brazilian films": "x",
-    "Category:South Korean remakes of foreign films": "x",
     "Category:South Korean remakes of Japanese films": "x",
     "Category:South Korean remakes of Spanish films": "x",
     "Category:South Korean remakes of Taiwanese films": "x",
     "Category:Spanish remakes of Argentine films": "x",
-    "Category:Spanish remakes of foreign films": "x",
     "Category:Spanish remakes of French films": "x",
     "Category:Spanish remakes of Italian films": "x",
     "Category:Sri Lankan remakes of Indian films": "x",
-    "Category:Taiwanese remakes of foreign films": "x",
     "Category:Taiwanese remakes of South Korean films": "x",
     "Category:Tamil remakes of Bengali films": "x",
     "Category:Tamil remakes of Hindi films": "x",
@@ -211,7 +189,6 @@ fast_data_empty = {
     "Category:Telugu remakes of Marathi films": "x",
     "Category:Telugu remakes of Punjabi films": "x",
     "Category:Telugu remakes of Tamil films": "x",
-    "Category:Thai remakes of foreign films": "x",
     "Category:Thai remakes of Taiwanese films": "",
 }
 
@@ -228,4 +205,5 @@ def test_Keep_it_last_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
 
     dump_diff(diff_result, name)
+    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

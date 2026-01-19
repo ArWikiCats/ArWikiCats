@@ -169,16 +169,23 @@ def _make_bot() -> MultiDataFormatterBase:
     formatted_data = {
         # "{nat_en} films": "أفلام {nat_ar}", #  [2000s American films] : "تصنيف:أفلام أمريكية في عقد 2000",
         "{nat_en} films": "أفلام {nat_ar}",
+        "remakes of {nat_en} films": "أفلام {nat_ar} معاد إنتاجها",
         # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
+
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
+        "remakes of {nat_en} television series": "مسلسلات تلفزيونية {nat_ar} معاد إنتاجها",
+
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
         "{nat_en} television seasons": "مواسم تلفزيونية {nat_ar}",
         "{nat_en} {film_key} television-seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television series": "مسلسلات تلفزيونية {film_ar} {nat_ar}",
+
         "{nat_en} {film_key} filmszz": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
+        "remakes of {nat_en} {film_key} films": "أفلام {film_ar} {nat_ar} معاد إنتاجها",
+
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
         # TODO: move this to jobs bot?
         # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
@@ -192,6 +199,7 @@ def _make_bot() -> MultiDataFormatterBase:
 
     other_formatted_data = {
         "{film_key} films": "أفلام {film_ar}",
+        "remakes of {film_key} films": "أفلام {film_ar} معاد إنتاجها",
         # "Category:action Teen superhero films" : "تصنيف:أفلام حركة مراهقة أبطال خارقين",
         "{film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar}",
         "animated television films": "أفلام رسوم متحركة تلفزيونية",

@@ -302,6 +302,8 @@ female_data_music = {
 }
 
 female_data = {
+    # American remakes of foreign films
+    "{en} remakes of foreign films": "أفلام {female} مأخوذة من أفلام أجنبية",
     "{en} miniseries": "مسلسلات قصيرة {female}",
     "{en} tennis commentators": "معلقو كرة مضرب {female}",
     "{en} international schools": "مدارس دولية {female}",
