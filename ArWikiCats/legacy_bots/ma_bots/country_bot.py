@@ -6,7 +6,8 @@ Country Label Bot Module
 import functools
 import re
 
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import sport_jobs_keys_suffixes, team_work
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 
@@ -61,7 +62,7 @@ def get_lab_for_country2(country: str) -> str:
 
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
-        or sport_jobs_keys_suffixes.resolve_sport_jobs_keys_and_suffix(country2)
+        or resolve_sport_label_by_jobs_key(country2)
 
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)

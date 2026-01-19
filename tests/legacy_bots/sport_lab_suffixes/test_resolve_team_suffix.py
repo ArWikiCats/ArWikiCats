@@ -5,7 +5,6 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
 
-from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.sport_jobs_keys_suffixes import resolve_sport_jobs_keys_and_suffix
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 test_data_1 = {
@@ -995,21 +994,21 @@ data_3 = {
 @pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_resolve_team_suffix_1(category: str, expected_key: str) -> None:
-    label = resolve_sport_jobs_keys_and_suffix(category)
+    label = resolve_sport_label_by_jobs_key(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_2.items(), ids=data_2.keys())
 @pytest.mark.fast
 def test_resolve_team_suffix_2(category: str, expected_key: str) -> None:
-    label = resolve_sport_jobs_keys_and_suffix(category)
+    label = resolve_sport_label_by_jobs_key(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_3.items(), ids=data_3.keys())
 @pytest.mark.fast
 def test_resolve_team_suffix_3(category: str, expected_key: str) -> None:
-    label = resolve_sport_jobs_keys_and_suffix(category)
+    label = resolve_sport_label_by_jobs_key(category)
     assert label == expected_key
 
 
@@ -1017,7 +1016,6 @@ all_test_data = test_data_1 | data_2 | data_3
 
 to_test = [
     ("test_resolve_sport_label_by_jobs_key", all_test_data, resolve_sport_label_by_jobs_key),
-    ("test_resolve_sport_jobs_keys_and_suffix", all_test_data, resolve_sport_jobs_keys_and_suffix),
 ]
 
 
