@@ -10,19 +10,20 @@ nationality) needs to be replaced with its Arabic equivalent.
 Classes:
     FormatData: Handles single-placeholder template-driven category translations.
 
-Example:
-    >>> from ArWikiCats.translations_formats.DataModel import FormatData
-    >>> formatted_data = {
-    ...     "{sport} players": "لاعبو {sport_label}",
-    ...     "{sport} coaches": "مدربو {sport_label}",
-    ... }
-    >>> data_list = {
-    ...     "football": "كرة القدم",
-    ...     "basketball": "كرة السلة",
-    ... }
-    >>> bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
-    >>> bot.search("football players")
-    'لاعبو كرة القدم'
+Real world example:
+
+formatted_data = {
+    "{sport} players": "لاعبو {sport_label}",
+    "{sport} coaches": "مدربو {sport_label}",
+}
+data_list = {
+    "football": "كرة القدم",
+    "basketball": "كرة السلة",
+}
+bot = FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
+result = bot.search("football players")
+assert result == "لاعبو كرة القدم"
+
 """
 
 import functools
