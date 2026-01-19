@@ -7,24 +7,37 @@ from ....helps import logger
 from ....new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ....translations.sports.Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
-    SPORTS_KEYS_FOR_TEAM,
 )
 from ....translations_formats import FormatData
 from .raw_sports_jobs_key import resolve_sport_label_by_jobs_key
-from ..sport_lab2_data import labels_formatted_data, teams_formatted_data
+from .raw_sports_teams_key import resolve_sport_label_by_teams_key
 
-labels_bot = FormatData(
-    labels_formatted_data,
-    SPORTS_KEYS_FOR_LABEL,
-    key_placeholder="{en_sport}",
-    value_placeholder="{sport_label}",
-)
-teams_bot = FormatData(
-    teams_formatted_data,
-    SPORTS_KEYS_FOR_TEAM,
-    key_placeholder="{en_sport}",
-    value_placeholder="{sport_team}",
-)
+
+def _load_labels_bot() -> FormatData:
+    labels_formatted_data = {
+        "{en_sport}": "{sport_label}",
+        "{en_sport} finals": "نهائيات {sport_label}",
+        "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
+        "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
+        "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
+        "{en_sport} league": "دوري {sport_label}",
+        "{en_sport} champions": "أبطال {sport_label}",
+        "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
+        "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
+        "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
+    }
+
+    labels_bot = FormatData(
+        labels_formatted_data,
+        SPORTS_KEYS_FOR_LABEL,
+        key_placeholder="{en_sport}",
+        value_placeholder="{sport_label}",
+    )
+
+    return labels_bot
+
+
+labels_bot = _load_labels_bot()
 
 
 @functools.lru_cache(maxsize=1)
@@ -72,21 +85,12 @@ def find_labels_bot(category: str, default: str = "") -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def find_teams_bot(category: str, default: str = "") -> str:
-    """Search for a team-related label, returning ``default`` when missing."""
-    category = category.replace("championships", "championship")
-    result = teams_bot.search(category) or default
-    logger.info_if_or_debug(f"<<yellow>> end find_teams_bot: {category=}, {result=}", result)
-    return result
-
-
-@functools.lru_cache(maxsize=None)
 def wrap_team_xo_normal_2025(team: str) -> str:
     """Normalize a team string and resolve it via the available sports bots."""
     team = team.lower().replace("category:", "")
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025: {team=}")
 
-    result = find_labels_bot(team) or find_teams_bot(team) or resolve_sport_label_by_jobs_key(team) or ""
+    result = find_labels_bot(team) or resolve_sport_label_by_teams_key(team) or resolve_sport_label_by_jobs_key(team) or ""
 
     logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025: {team=}, {result=}", result)
     return result.strip()
@@ -121,7 +125,7 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
 __all__ = [
     "wrap_team_xo_normal_2025",
     "find_labels_bot",
-    "find_teams_bot",
+    "resolve_sport_label_by_teams_key",
     "resolve_sport_label_by_jobs_key",
     "wrap_team_xo_normal_2025_with_ends",
 ]
