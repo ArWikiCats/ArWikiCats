@@ -461,29 +461,29 @@ def _build_cinema_entries(data) -> None:
         data[f"{key} shot"] = f"{label} مصورة"
 
 
-def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[str, str]:
+def build_pf_keys2(ctl_keys, keys_of_without_in, keys_of_with_in) -> dict[str, str]:
     """Build the master mapping used across the ``translations`` package."""
 
     data = {}
 
-    data.update(pop_of_football)
+    data.update(ctl_keys)
 
-    for competition_key, competition_label in pop_of_football.items():
+    for competition_key, competition_label in ctl_keys.items():
         data[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
 
     data.update(keys2_py)
     data.update(BASE_LABELS)
     data.update(_build_direction_region_entries())
-    data.update(pop_of_with_in)
-    pop_of_without_in = dict(pop_of_without_in)
+    data.update(keys_of_with_in)
+    keys_of_without_in = dict(keys_of_without_in)
 
-    pop_of_without_in_del = {"explorers": "مستكشفون", "historians": "مؤرخون"}
-    for key in pop_of_without_in_del:
-        pop_of_without_in.pop(key, None)
+    keys_of_without_in_del = {"explorers": "مستكشفون", "historians": "مؤرخون"}
+    for key in keys_of_without_in_del:
+        keys_of_without_in.pop(key, None)
 
-    _update_lowercase(data, [pop_of_without_in], skip_existing=True)
+    _update_lowercase(data, [keys_of_without_in], skip_existing=True)
 
-    _build_of_variants(data, [pop_of_without_in], [pop_of_with_in])
+    _build_of_variants(data, [keys_of_without_in], [keys_of_with_in])
 
     for school_category, school_template in SCHOOL_LABELS.items():
         data[f"private {school_category}"] = school_template.format("خاصة")
@@ -616,21 +616,20 @@ def build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in) -> dict[s
     return data
 
 
-def wrap_build_pf_keys2() -> tuple[dict[str, str], dict[str, str], dict[str, str]]:
+def wrap_build_pf_keys2(keys_of_without_in: dict[str, str]) -> tuple[dict[str, str], dict[str, str]]:
     """Wrap the ``build_pf_keys2`` function with additional data loading."""
 
-    pop_of_football = open_json_file("population/pop_of_football.json") or {}
-    pop_of_without_in = open_json_file("population/pop_of_without_in.json") or {}
-    pop_of_with_in = open_json_file("population/pop_of_with_in.json") or {}
+    ctl_data = open_json_file("population/clubs_teams_leagues.json") or {}
+    keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-    pf_keys2: dict[str, str] = build_pf_keys2(pop_of_football, pop_of_without_in, pop_of_with_in)
+    pf_keys2: dict[str, str] = build_pf_keys2(ctl_data, keys_of_without_in, keys_of_with_in)
 
     _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
     _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
 
-    pop_of_football_lower = {key.lower(): value for key, value in pop_of_football.items()}
+    clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
-    return pf_keys2, pop_of_without_in, pop_of_football_lower
+    return pf_keys2, clubs_teams_leagues
 
 
 def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
@@ -649,7 +648,191 @@ def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
     return new_keys
 
 
-pf_keys2, pop_of_without_in, pop_of_football_lower = wrap_build_pf_keys2()
+keys_of_without_in = {
+    "explorers": "مستكشفو",
+    "historians": "مؤرخو",
+    "activities": "أنشطة",
+    "adaptations": "تكييفات",
+    "adaptations-of-works": "أعمال مقتبسة عن أعمال",
+    "aftermath": "ما بعد",
+    "ambushes": "كمائن",
+    "appellate courts": "محاكم استئناف ولايات",
+    "archipelagoes": "أرخبيلات",
+    "armies": "جيوش",
+    "arrondissements": "دوائر",
+    "assassination": "اغتيال",
+    "bank": "بنك",
+    "basins": "أحواض",
+    "battles and operations": "معارك وعمليات",
+    "battles": "معارك",
+    "bays": "خلجان",
+    "beaches": "شواطئ",
+    "bibliographies": "ببليوجرافيات",
+    "bilateral military relations": "علاقات ثنائية عسكرية",
+    "bilateral relations": "علاقات ثنائية",
+    "biota": "حيويات",
+    "birds": "طيور",
+    "borders": "حدود",
+    "burial sites": "مواقع دفن",
+    "cabinet secretaries": "أعضاء مجلس وزراء",
+    "cabinet": "مجلس وزراء",
+    "campaigns": "حملات",
+    "campuses": "حرم",
+    "cantons": "كانتونات",
+    "capitals": "عواصم",
+    "caves": "كهوف",
+    "chief justices": "رؤساء قضاء",
+    "cities": "مدن",
+    "city": "مدينة",
+    "cliffs": "منحدرات",
+    "climate": "مناخ",
+    "coastline": "ساحل",
+    "coasts": "سواحل",
+    "colleges": "كليات",
+    "communes": "بلديات",
+    "consequences": "عواقب",
+    "court systems": "أنظمة محاكم",
+    "culture": "ثقافة",
+    "daughters": "بنات",
+    "death": "موت",
+    "depressions": "منخفضات",
+    "deserts": "صحاري",
+    "dukes": "دوقات",
+    "economies": "اقتصادات",
+    "economy": "اقتصاد",
+    "encyclopedias": "موسوعات",
+    "environment": "بيئة",
+    "executions": "إعدامات",
+    "families": "عائلات",
+    "fauna": "حيوانات",
+    "fellows": "زملاء",
+    "finances": "مالية",
+    "flags": "أعلام",
+    "flora": "نباتات",
+    "foreign relations": "علاقات خارجية",
+    "forests and woodlands": "غابات",
+    "forests": "غابات",
+    "forms": "أشكال",
+    "generals": "جنرالات",
+    "genres": "أجناس",
+    "geography": "جغرافيا",
+    "geology": "جيولوجيا",
+    "government": "حكومة",
+    "gulfs": "خلجان",
+    "harbours": "مرافئ",
+    "heads of state": "قادة",
+    "heads": "قادة",
+    "heraldry": "نبالة",
+    "hills": "تلال",
+    "historiography": "تأريخ",
+    "history": "تاريخ",
+    "impact": "تأثيرات",
+    "impacts": "آثار",
+    "incidents": "حوادث",
+    "independence": "استقلال",
+    "institution": "مؤسسة",
+    "internment": "اعتقال",
+    "islands": "جزر",
+    "judiciary": "النظام القضائي",
+    "kings": "ملوك",
+    "lakes": "بحيرات",
+    "landform": "تضاريس",
+    "landforms": "تضاريس",
+    "laws": "قوانين",
+    "leaders": "قادة",
+    "lieutenant governors": "نواب حكام",
+    "lists": "قوائم",
+    "lords": "لوردات",
+    "maritime incidents": "حوادث بحرية",
+    "masters": "أساتذة",
+    "mayors": "عمدات",
+    "members": "أعضاء",
+    "mistresses": "عشيقات",
+    "mountains": "جبال",
+    "municipalities": "بلديات",
+    "music": "موسيقى",
+    "national symbols": "رموز وطنية",
+    "naval battles": "معارك بحرية",
+    "occupation": "احتلال",
+    "order": "وسام",
+    "parishes": "أبرشيات",
+    "parliament": "برلمان",
+    "party chairs": "رؤساء أحزاب",
+    "peoples": "شعوب",
+    "persecution": "اضطهاد",
+    "personalities": "شخصيات",
+    "plains": "سهول",
+    "plateaus": "هضاب",
+    "politics": "سياسة",
+    "ports and harbours": "مرافئ وموانئ",
+    "ports": "موانئ",
+    "presidencies": "رئاسات",
+    "presidency": "رئاسة",
+    "president": "رئيس",
+    "presidents": "رؤساء",
+    "princesses": "أميرات",
+    "provinces": "مقاطعات",
+    "rectors": "عمدات",
+    "reefs": "شعاب",
+    "regions": "مناطق",
+    "rivers": "أنهار",
+    "romanization": "رومنة",
+    "rornadoes": "أعاصير",
+    "royal families": "عائلات ملكية",
+    "rulers": "حكام",
+    "seas": "بحار",
+    "secretaries of state": "وزراء خارجية",
+    "secretaries-of state": "وزراء خارجية",
+    "series": "سلسلات",
+    "sieges": "حصارات",
+    "society": "مجتمع",
+    "speakers": "رؤساء",
+    "spillover": "امتدادات",
+    "sports culture": "ثقافة رياضية",
+    "spouses": "قرينات",
+    "springs": "ينابيع",
+    "sports-culture": "ثقافة رياضية",
+    "stadiums": "ملاعب",
+    "state appellate courts": "محاكم استئناف ولايات",
+    "state cabinet secretaries": "أعضاء مجلس وزراء",
+    "state superior courts": "محاكم عليا",
+    "state treasurers": "أمناء خزينة ولاية",
+    "straits": "مضائق",
+    "streams": "جداول",
+    "subdivisions": "تقسيمات",
+    "submarines": "غواصات",
+    "suburbs": "ضواحي",
+    "sultans": "سلاطين",
+    "superintendents of public instruction": "مدراء تعليم عام",
+    "superior courts": "محاكم عليا",
+    "symbols": "رموز",
+    "terminology": "مصطلحات",
+    "terms": "فترات",
+    "the-university": "جامعة",
+    "tour": "طواف",
+    "treasurers": "أمناء خزينة",
+    "tribes": "قبائل",
+    "typhoons": "تيفونات",
+    "umpires": "حكام",
+    "underground culture": "ثقافة باطنية",
+    "university": "جامعة",
+    "valleys": "أودية",
+    "variants": "أشكال",
+    "variations": "أشكال",
+    "vehicles": "مركبات",
+    "venues": "ملاعب",
+    "vice presidents": "نواب رؤساء",
+    "vice-presidents": "نواب رؤساء",
+    "victims": "ضحايا",
+    "volcanoes": "براكين",
+    "wadis": "وديان",
+    "waterfalls": "شلالات",
+    "wives": "زوجات",
+    "works": "أعمال",
+    "years": "سنوات"
+}
+
+pf_keys2, clubs_teams_leagues = wrap_build_pf_keys2(keys_of_without_in)
 
 no_the = _handle_the_prefix(pf_keys2)
 pf_keys2.update(no_the)
@@ -667,8 +850,8 @@ len_print.data_len(
     {
         "People_key": People_key,
         "pf_keys2": pf_keys2,
-        "pop_of_without_in": pop_of_without_in,
-        "pop_of_football_lower": pop_of_football_lower,
+        "keys_of_without_in": keys_of_without_in,
+        "clubs_teams_leagues": clubs_teams_leagues,
         "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
         "BOOK_CATEGORIES": BOOK_CATEGORIES,
         "BOOK_TYPES": BOOK_TYPES,
@@ -678,8 +861,8 @@ len_print.data_len(
 __all__ = [
     "get_from_pf_keys2",
     "pf_keys2",
-    "pop_of_without_in",
-    "pop_of_football_lower",
+    "keys_of_without_in",
+    "clubs_teams_leagues",
     "WORD_AFTER_YEARS",
     "BOOK_CATEGORIES",
 ]

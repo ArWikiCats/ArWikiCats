@@ -27,8 +27,8 @@ from .mixed.all_keys2 import (
     People_key,
     get_from_pf_keys2,
     pf_keys2,
-    pop_of_football_lower,
-    pop_of_without_in,
+    clubs_teams_leagues,
+    keys_of_without_in,
 )
 from .mixed.all_keys3 import (
     ALBUMS_TYPE,
@@ -127,8 +127,8 @@ __all__ = [
     "SPORTS_KEYS_FOR_JOBS",
     "get_from_pf_keys2",
     "pf_keys2",
-    "pop_of_without_in",
-    "pop_of_football_lower",
+    "keys_of_without_in",
+    "clubs_teams_leagues",
     "WORD_AFTER_YEARS",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",

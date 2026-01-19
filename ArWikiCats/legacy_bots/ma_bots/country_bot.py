@@ -20,7 +20,7 @@ from ...translations import (
     New_female_keys,
     People_key,
     jobs_mens_data,
-    pop_of_without_in,
+    keys_of_without_in,
     religious_entries,
 )
 from .. import with_years_bot
@@ -380,9 +380,9 @@ class CountryLabelRetriever:
                 translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
 
             if term_label == "" and translated_base:
-                if term_lower in pop_of_without_in:
+                if term_lower in keys_of_without_in:
                     term_label = translated_base
-                    logger.info("skip add في to pop_of_without_in")
+                    logger.info("skip add في to keys_of_without_in")
                 else:
                     term_label = f"{translated_base} في "
                     logger.info(f"XX add في to {term_label=}, line:1596.")

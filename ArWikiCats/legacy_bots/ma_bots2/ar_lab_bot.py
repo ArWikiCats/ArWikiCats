@@ -11,7 +11,7 @@ from typing import Tuple
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
-from ...translations import pop_of_without_in
+from ...translations import keys_of_without_in
 from ...utils import fix_minor
 from .. import with_years_bot
 from ..ma_bots.country_bot import event2_d2
@@ -60,7 +60,7 @@ def _handle_in_separator(type_label: str, separator_stripped: str, type_lower: s
         str: The modified type label.
     """
     # Skip if type is in exception list
-    if type_lower in pop_of_without_in:
+    if type_lower in keys_of_without_in:
         logger.info(f'>>-- Skip add في to {type_label=}, "{type_lower}"')
         return type_label
 
@@ -159,7 +159,7 @@ def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str
     if type_label in skip_in:
         return False
 
-    if pop_of_without_in.get(type_lower) or pop_of_without_in.get(type_lower_prefix):
+    if keys_of_without_in.get(type_lower) or keys_of_without_in.get(type_lower_prefix):
         return False
 
     if " في" in type_label:
