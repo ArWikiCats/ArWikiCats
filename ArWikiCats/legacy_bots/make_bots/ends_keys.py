@@ -106,7 +106,7 @@ pp_ends_with = {
     " nonprofits": "منظمات غير ربحية {}",
     " organizations": "منظمات {}",
     " owners": "ملاك {}",
-    " owners and executives": "رؤساء تنفيذيون وملاك {} {}",
+    " owners and executives": "رؤساء تنفيذيون وملاك {}",
     " playoffs": "تصفيات {}",
     " presidential elections": "انتخابات رئاسية {}",
     " presidential primaries": "انتخابات رئاسية تمهيدية {}",
