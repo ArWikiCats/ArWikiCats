@@ -192,7 +192,6 @@ jobs_formatted_data = {
     "national under-24 {en_sport}": "{sport_jobs} تحت 24 سنة",
 }
 
-
 teams_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
@@ -244,6 +243,10 @@ labels_formatted_data = {
     "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
     "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
     "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
+
+    # spicial cases
+    "rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي",
+    "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",
 }
 
 __all__ = [

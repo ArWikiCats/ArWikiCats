@@ -60,7 +60,7 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "clubs": "أندية",
         "clubs and teams": "أندية وفرق",
         "competitions": "منافسات",
-        "chairmen and investors": "رؤساء ومسيرو",
+        # "chairmen and investors": "رؤساء ومسيرو",
         "cups": "كؤوس",
     }
 
@@ -274,17 +274,26 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
         # "yemeni football": "كرة قدم يمنية",
         # "{en} {en_sport}": "{sport_jobs} {female}",
-        "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
+        # Category:American_basketball
+        "{en} {en_sport}": "{sport_label} {the_female}",
+        # german football chairmen and investors
+        "{en} {en_sport} chairmen and investors": "رؤساء ومسيرو {sport_label} {the_female}",
+
         "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
         "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
         "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
         "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
         "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
         "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
+
         "{en} rugby union": "اتحاد الرجبي {the_male}",
         "{en} rugby league": "الدوري {the_male} للرجبي",
-    }
 
+        # spicial cases
+        "{en} rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي {the_male}",
+        "{en} rugby league chairmen and investors": "رؤساء ومسيرو الدوري {the_male} للرجبي",
+
+    }
     sports_formatted_data.update(SPORTS_FORMATTED_DATA_NATS_AND_NAMES)
     sports_formatted_data.update(_levels_data())
     sports_formatted_data.update(sports_formatted_data_for_jobs)
