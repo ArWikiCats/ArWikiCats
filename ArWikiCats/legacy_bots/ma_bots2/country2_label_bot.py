@@ -53,11 +53,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
         or resolve_sport_label_by_jobs_key(country2)
-
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
@@ -113,95 +111,91 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(separator: str, cone_1: str, with_years: bool = False) -> str:
+def c_1_1_lab(separator: str, country2: str, with_years: bool = False) -> str:
     """
     Resolve the Arabic label for the first part of a compound title given its English token and separator.
 
     Parameters:
         separator (str): The textual separator between parts (e.g., "in", "from", "to"); used to influence resolution for some tokens.
-        cone_1 (str): The first English part to resolve (case-insensitive).
+        country2 (str): The first English part to resolve (case-insensitive).
         with_years (bool): If true, enable label resolution paths that consider year-specific forms.
 
     Returns:
-        str: The resolved Arabic label for `cone_1`, or an empty string if no mapping is found.
+        str: The resolved Arabic label for `country2`, or an empty string if no mapping is found.
 
     Notes:
-        - Special-case: when `cone_1` equals "women" and `separator` is "from", returns "نساء".
+        - Special-case: when `country2` equals "women" and `separator` is "from", returns "نساء".
 
     Example:
-        {"separator": " in ", "cone_1": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
+        {"separator": " in ", "country2": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     """
 
-    cone_1 = cone_1.strip().lower()
+    country2 = country2.strip().lower()
 
-    if cone_1 == "women" and separator.strip() == "from":
+    if country2 == "women" and separator.strip() == "from":
         part_1_label = "نساء"
-        logger.debug(f">> >> >> Make {cone_1=}.")
+        logger.debug(f">> >> >> Make {country2=}.")
         return part_1_label
 
     part_1_label = (
-        get_pop_All_18(cone_1)
-        or resolve_languages_labels_with_time(cone_1)
-        or People_key.get(cone_1)
-        or all_new_resolvers(cone_1)
-
-        or main_sports_resolvers(cone_1)
-        or wrap_team_xo_normal_2025_with_ends(cone_1)
-        or resolve_sport_label_by_jobs_key(cone_1)
-
-        or parties_resolver.get_parties_lab(cone_1)
-        or team_work.Get_team_work_Club(cone_1)
-        or get_table_with_in(cone_1, separator)
-        or convert_time_to_arabic(cone_1)
-        or time_label(cone_1)
-        or get_from_pf_keys2(cone_1)
-        or get_KAKO(cone_1)
+        get_pop_All_18(country2)
+        or resolve_languages_labels_with_time(country2)
+        or People_key.get(country2)
+        or all_new_resolvers(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
+        or parties_resolver.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or get_table_with_in(country2, separator)
+        or convert_time_to_arabic(country2)
+        or time_label(country2)
+        or get_from_pf_keys2(country2)
+        or get_KAKO(country2)
         or ""
     )
 
     if not part_1_label:
-        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" {cone_1=}')
+        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" {country2=}')
 
     return part_1_label
 
 
 @functools.lru_cache(maxsize=10000)
-def c_2_1_lab(cone_2: str, with_years: bool = False) -> str:
+def c_2_1_lab(country2: str, with_years: bool = False) -> str:
     """
     Resolve an Arabic label for the second component of a compound title or country phrase.
 
     Parameters:
-        cone_2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
+        country2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
         with_years (bool): If true, prefer resolvers that consider year-specific forms.
 
     Returns:
-        str: The resolved Arabic label for cone_2, or an empty string if no label could be determined.
+        str: The resolved Arabic label for country2, or an empty string if no label could be determined.
     """
 
-    cone_2 = cone_2.strip().lower()
+    country2 = country2.strip().lower()
 
     part_2_label = (
-        get_pop_All_18(cone_2)
-        or bys.get_by_label(cone_2)
-        or resolve_languages_labels_with_time(cone_2)
-        or People_key.get(cone_2)
-        or all_new_resolvers(cone_2)
-
-        or main_sports_resolvers(cone_2)
-        or wrap_team_xo_normal_2025_with_ends(cone_2)
-        or resolve_sport_label_by_jobs_key(cone_2)
-
-        or parties_resolver.get_parties_lab(cone_2)
-        or bys.get_and_label(cone_2)
-        or team_work.Get_team_work_Club(cone_2)
-        or get_from_pf_keys2(cone_2.strip().lower())
-        or get_KAKO(cone_2)
-        or time_label(cone_2)
-        or convert_time_to_arabic(cone_2)
+        get_pop_All_18(country2)
+        or bys.get_by_label(country2)
+        or resolve_languages_labels_with_time(country2)
+        or People_key.get(country2)
+        or all_new_resolvers(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
+        or parties_resolver.get_parties_lab(country2)
+        or bys.get_and_label(country2)
+        or team_work.Get_team_work_Club(country2)
+        or get_from_pf_keys2(country2.strip().lower())
+        or get_KAKO(country2)
+        or time_label(country2)
+        or convert_time_to_arabic(country2)
         or ""
     )
 
-    logger.debug(f"{cone_2=} -> {part_2_label=}")
+    logger.debug(f"{country2=} -> {part_2_label=}")
 
     return part_2_label
 

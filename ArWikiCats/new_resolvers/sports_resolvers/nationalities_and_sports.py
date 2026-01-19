@@ -134,7 +134,6 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
         "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
         "{en} federation cup": "كأس الاتحاد {the_male}",
-
         "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
         "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
         "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
@@ -278,21 +277,17 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} {en_sport}": "{sport_label} {the_female}",
         # german football chairmen and investors
         "{en} {en_sport} chairmen and investors": "رؤساء ومسيرو {sport_label} {the_female}",
-
         "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
         "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
         "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
         "{en} defunct {en_sport}": "{sport_jobs} {female} سابقة",
         "{en} defunct outdoor {en_sport}": "{sport_jobs} {female} في الهواء الطلق سابقة",
         "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
-
         "{en} rugby union": "اتحاد الرجبي {the_male}",
         "{en} rugby league": "الدوري {the_male} للرجبي",
-
         # spicial cases
         "{en} rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي {the_male}",
         "{en} rugby league chairmen and investors": "رؤساء ومسيرو الدوري {the_male} للرجبي",
-
     }
     sports_formatted_data.update(SPORTS_FORMATTED_DATA_NATS_AND_NAMES)
     sports_formatted_data.update(_levels_data())

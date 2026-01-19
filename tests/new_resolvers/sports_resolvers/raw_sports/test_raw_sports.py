@@ -13,7 +13,6 @@ data_1 = {
     "defunct sports competitions": "منافسات رياضية سابقة",
     "defunct sports leagues": "دوريات رياضية سابقة",
     "professional sports leagues": "دوريات رياضية للمحترفين",
-
     "basketball league": "دوري كرة السلة",
     "current football seasons": "مواسم كرة قدم حالية",
     "cycling races": "سباقات سباق دراجات هوائية",
@@ -131,12 +130,11 @@ data_1 = {
     "world netball championship": "بطولة العالم لكرة الشبكة",
     "world netball championships": "بطولة العالم لكرة الشبكة",
     "world rowing championships medalists": "فائزون بميداليات بطولة العالم للتجديف",
-    "world taekwondo championships": "بطولة العالم للتايكوندو"
+    "world taekwondo championships": "بطولة العالم للتايكوندو",
 }
 
 
-test_2025 = {
-}
+test_2025 = {}
 
 
 @pytest.mark.parametrize("category, expected_key", test_2025.items(), ids=test_2025.keys())

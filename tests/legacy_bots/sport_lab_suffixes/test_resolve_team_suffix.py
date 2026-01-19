@@ -980,7 +980,7 @@ data_2 = {
     "freestyle wrestling racing comics": "قصص مصورة سباق مصارعة حرة",
     "boccia racing managers": "مدربو سباق بوتشيا",
     "pesäpallo racing manager": "مدربو سباق بيسبالو",
-    "field hockey racing commissioners": "مفوضو سباق هوكي ميدان"
+    "field hockey racing commissioners": "مفوضو سباق هوكي ميدان",
 }
 
 data_3 = {

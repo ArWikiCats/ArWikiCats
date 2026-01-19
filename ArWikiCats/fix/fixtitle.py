@@ -254,10 +254,10 @@ def add_fee(text: str) -> str:
 def cleanse_category_label(category_lab):
     """
     Fixes a known formatting issue in Arabic category labels.
-    
+
     Parameters:
         category_lab (str): The category label to cleanse.
-    
+
     Returns:
         str: The cleansed category label with specific formatting corrections applied.
     """

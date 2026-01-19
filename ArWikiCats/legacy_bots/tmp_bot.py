@@ -38,36 +38,34 @@ pp_start_with = {
 }
 
 
-def _resolve_label(label: str) -> str:
+def _resolve_label(country2: str) -> str:
     """
     Resolve an English category label into Arabic using a sequence of resolver strategies.
 
     Parameters:
-        label (str): English category label to resolve.
+        country2 (str): English category country2 to resolve.
 
     Returns:
         str: Resolved Arabic label if any strategy matches, otherwise an empty string.
     """
     resolved_label = (
-        all_new_resolvers(label)
-        or get_from_pf_keys2(label)
-        or get_pop_All_18(label)
-        or resolve_languages_labels_with_time(label)
-        or People_key.get(label)
-
-        or main_sports_resolvers(label)
-        or wrap_team_xo_normal_2025_with_ends(label)
-        or resolve_sport_label_by_jobs_key(label)
-
-        or parties_resolver.get_parties_lab(label)
-        or team_work.Get_team_work_Club(label)
-        or university_resolver.resolve_university_category(label)
-        or work_peoples(label)
-        or get_KAKO(label)
-        or convert_time_to_arabic(label)
-        or get_pop_All_18(label)
-        or with_years_bot.Try_With_Years(label)
-        or general_resolver.translate_general_category(label, fix_title=False)
+        all_new_resolvers(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or resolve_languages_labels_with_time(country2)
+        or People_key.get(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
+        or parties_resolver.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or university_resolver.resolve_university_category(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or with_years_bot.Try_With_Years(country2)
+        or general_resolver.translate_general_category(country2, fix_title=False)
         or ""
     )
     return resolved_label

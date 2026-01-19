@@ -59,11 +59,9 @@ def get_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
         or resolve_sport_label_by_jobs_key(country2)
-
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
@@ -342,13 +340,13 @@ class CountryLabelRetriever:
         Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
 
         Parameters:
-        	term_lower (str): The input term in lowercase.
-        	separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
-        	lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
-        	start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
+                term_lower (str): The input term in lowercase.
+                separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
+                lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
+                start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
 
         Returns:
-        	str: The resolved Arabic label, or an empty string if no resolution is found.
+                str: The resolved Arabic label, or an empty string if no resolution is found.
         """
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 

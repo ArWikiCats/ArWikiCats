@@ -20,8 +20,7 @@ from . import (
 
 @functools.lru_cache(maxsize=None)
 def _not_main_sports_resolvers(normalized_category) -> str:
-    """
-    """
+    """ """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)

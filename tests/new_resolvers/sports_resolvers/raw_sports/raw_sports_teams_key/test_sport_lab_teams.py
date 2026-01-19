@@ -4,7 +4,10 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_teams_key, wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_teams_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
 
 test_find_teams_bot_data_0 = {}
 

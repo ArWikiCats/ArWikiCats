@@ -6,8 +6,7 @@ import pytest
 
 from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 
-data_0 = {
-}
+data_0 = {}
 
 data_1 = {
     "badminton world cup": "كأس العالم لتنس الريشة",
@@ -20,7 +19,7 @@ data_1 = {
     "women's cricket world cup": "كأس العالم للكريكت للسيدات",
     "women's hockey world cup": "كأس العالم للهوكي للسيدات",
     "women's softball world cup": "كأس العالم للكرة اللينة للسيدات",
-    "wrestling world cup": "كأس العالم للمصارعة"
+    "wrestling world cup": "كأس العالم للمصارعة",
 }
 
 

@@ -48,13 +48,13 @@ def work_peoples(name: str) -> str:
     """
     Return the label for ``name`` using FormatData.
     """
-    logger.debug(f'<<yellow>> work_peoples {name=}')
+    logger.debug(f"<<yellow>> work_peoples {name=}")
 
     _peoples_bot = _load_bot()
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info_if_or_debug(f'<<yellow>> end work_peoples {name=}, {resolved_label=}', resolved_label)
+    logger.info_if_or_debug(f"<<yellow>> end work_peoples {name=}, {resolved_label=}", resolved_label)
     return resolved_label
 
 

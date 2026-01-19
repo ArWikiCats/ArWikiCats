@@ -13,7 +13,6 @@ from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_na
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 resolve_team_suffix_test_data = {
-
     "short track speed skating cup": "كأس تزلج على مسار قصير",
     "wheelchair basketball cup": "كأس كرة سلة على كراسي متحركة",
     "luge cup": "كأس زحف ثلجي",
@@ -28,7 +27,6 @@ resolve_team_suffix_test_data = {
     "shot put racing cup": "كأس سباق دفع ثقل",
     "luge racing cup": "كأس سباق زحف ثلجي",
     "water skiing cup": "كأس تزلج على الماء",
-
     "fifa world cup racing records and statistics": "سجلات وإحصائيات سباق كأس العالم لكرة القدم",
     "davis cup racing music": "موسيقى سباق كأس ديفيز",
     "davis cup racing songs": "أغاني سباق كأس ديفيز",
@@ -52,7 +50,6 @@ resolve_team_suffix_test_data = {
     "rifle shooting cup playoffs": "تصفيات كأس رماية بندقية",
     "bullfighting cup playoffs": "تصفيات كأس مصارعة ثيران",
     "water polo cup playoffs": "تصفيات كأس كرة ماء",
-
     "roller skating racing cups": "كؤوس سباق تزلج بالعجلات",
     "dragon boat racing cups": "كؤوس سباق قوارب التنين",
     "racingxx cups": "كؤوس سباق سيارات",
@@ -78,11 +75,9 @@ test_2025 = {
     "football cups": "كؤوس كرة قدم",
     "professional football cups": "كؤوس كرة قدم للمحترفين",
     "motorcycle racing cups": "كؤوس سباق دراجات نارية",
-
     "domestic football cup": "",  # "كؤوس كرة قدم محلية",
     "defunct football cup competitions": "",  # "منافسات كؤوس كرة قدم سابقة",
     "defunct rugby union cup competitions": "",  # "منافسات كؤوس اتحاد رجبي سابقة",
-
     "basketball cup competitions": "منافسات كأس كرة السلة",
     "football cup competitions": "منافسات كأس كرة القدم",
     "soccer cup competitions": "منافسات كأس كرة القدم",
@@ -193,7 +188,9 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", resolve_team_suffix_test_data.items(), ids=resolve_team_suffix_test_data.keys())
+@pytest.mark.parametrize(
+    "category, expected", resolve_team_suffix_test_data.items(), ids=resolve_team_suffix_test_data.keys()
+)
 @pytest.mark.fast
 def test_resolve_team_suffix(category: str, expected: str) -> None:
     label1 = resolve_sport_label_by_jobs_key(category)

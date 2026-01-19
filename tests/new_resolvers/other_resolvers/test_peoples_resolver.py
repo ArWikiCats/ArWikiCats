@@ -12,7 +12,6 @@ fast_data = {
     "james taylor video albums": "ألبومات فيديو جيمس تايلور",
     "janet jackson video albums": "ألبومات فيديو جانيت جاكسون",
     "christina aguilera video albums": "ألبومات فيديو كريستينا أغيليرا",
-
     "andrew johnson administration cabinet members": "أعضاء مجلس وزراء إدارة أندرو جونسون",
     "andrew johnson administration personnel": "موظفو إدارة أندرو جونسون",
     "william henry harrison administration cabinet members": "أعضاء مجلس وزراء إدارة ويليام هنري هاريسون",

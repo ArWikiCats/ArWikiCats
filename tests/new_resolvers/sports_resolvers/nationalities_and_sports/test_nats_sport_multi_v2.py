@@ -17,7 +17,6 @@ the_female_data = {
     "welsh rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي الويلزي",
     "english rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي الإنجليزي",
     "french rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي الفرنسي",
-
     "lithuanian basketball chairmen and investors": "رؤساء ومسيرو كرة السلة الليتوانية",
     "greek volleyball chairmen and investors": "رؤساء ومسيرو كرة الطائرة اليونانية",
     "greek basketball chairmen and investors": "رؤساء ومسيرو كرة السلة اليونانية",

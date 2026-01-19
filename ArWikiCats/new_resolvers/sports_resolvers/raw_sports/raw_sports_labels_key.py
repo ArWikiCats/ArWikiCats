@@ -10,6 +10,7 @@ from ....translations.sports.Sport_key import (
 from ....translations_formats import FormatData
 from .data import labels_formatted_data
 
+
 @functools.lru_cache(maxsize=1)
 def _load_labels_bot() -> FormatData:
     return FormatData(

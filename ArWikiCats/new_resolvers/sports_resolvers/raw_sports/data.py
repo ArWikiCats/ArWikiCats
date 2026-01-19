@@ -1,5 +1,3 @@
-
-
 jobs_formatted_data = {
     "{en_sport} cup playoffs": "تصفيات كأس {sport_jobs}",
     "{en_sport} cup": "كأس {sport_jobs}",
@@ -58,42 +56,33 @@ jobs_formatted_data = {
     "{en_sport} rivalries": "دربيات {sport_jobs}",
     "{en_sport} champions": "أبطال {sport_jobs}",
     "{en_sport} chairmen and investors": "رؤساء ومسيرو {sport_jobs}",
-
     # "{en_sport}": "{sport_jobs}",
-
     "defunct indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات سابقة",
     "indoor {en_sport} cups": "كؤوس {sport_jobs} داخل الصالات",
     "outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق",
     "professional {en_sport} cups": "كؤوس {sport_jobs} للمحترفين",
-
     # NOTE: see test_sport_cup.py
     # "{en_sport} cup": "كؤوس {sport_jobs}",
     # "defunct {en_sport} cup": "كؤوس {sport_jobs} سابقة",
     # "domestic {en_sport} cup": "كؤوس {sport_jobs} محلية",
-
     "{en_sport} cups": "كؤوس {sport_jobs}",
     "defunct outdoor {en_sport} cups": "كؤوس {sport_jobs} في الهواء الطلق سابقة",
     "defunct {en_sport} cups": "كؤوس {sport_jobs} سابقة",
     "domestic womens {en_sport} cups": "كؤوس {sport_jobs} محلية للسيدات",
     "domestic {en_sport} cups": "كؤوس {sport_jobs} محلية",
-
     "{en_sport} competitions": "منافسات {sport_jobs}",
     "grand slam ({en_sport}) tournaments": "بطولات {sport_jobs} كبرى",
     "International {en_sport} competitions": "منافسات {sport_jobs} دولية",
-
     "domestic womens {en_sport} leagues": "دوريات {sport_jobs} محلية للسيدات",
     "domestic {en_sport} leagues": "دوريات {sport_jobs} محلية",
     "indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات",
     "defunct indoor {en_sport} leagues": "دوريات {sport_jobs} داخل الصالات سابقة",
     "professional {en_sport} leagues": "دوريات {sport_jobs} للمحترفين",
-
     "domestic {en_sport}": "{sport_jobs} محلية",
     "professional {en_sport}": "{sport_jobs} للمحترفين",
     "indoor {en_sport}": "{sport_jobs} داخل الصالات",
     "defunct indoor {en_sport}": "{sport_jobs} داخل الصالات سابقة",
-
     "domestic womens {en_sport}": "{sport_jobs} محلية للسيدات",
-
     "under-13 {en_sport}": "{sport_jobs} تحت 13 سنة",
     "under-14 {en_sport}": "{sport_jobs} تحت 14 سنة",
     "under-15 {en_sport}": "{sport_jobs} تحت 15 سنة",
@@ -163,12 +152,10 @@ jobs_formatted_data = {
     "national {en_sport} champions": "أبطال بطولات {sport_jobs} وطنية",
     "national {en_sport} championships": "بطولات {sport_jobs} وطنية",
     "national {en_sport} league": "دوريات {sport_jobs} وطنية",
-
     "multi-national {en_sport} leagues": "دوريات {sport_jobs} متعددة الجنسيات",
     "defunct national {en_sport} leagues": "دوريات {sport_jobs} وطنية سابقة",
     "national {en_sport} leagues": "دوريات {sport_jobs} وطنية",
     "outdoor {en_sport} leagues": "دوريات {sport_jobs} في الهواء الطلق",
-
     "defunct national {en_sport} teams": "منتخبات {sport_jobs} وطنية سابقة",
     "national {en_sport} teams": "منتخبات {sport_jobs} وطنية",
     "national {en_sport} team results": "نتائج منتخبات {sport_jobs} وطنية",
@@ -201,9 +188,7 @@ jobs_formatted_data = {
     "womens {en_sport} teams": "فرق {sport_jobs} نسائية",
     "womens {en_sport}": "{sport_jobs} نسائية",
     "{en_sport} league teams": "فرق دوري {sport_jobs}",
-
     # "{en_sport} league": "دوري {sport_jobs}",
-
     "{en_sport} leagues": "دوريات {sport_jobs}",
     "defunct {en_sport} leagues": "دوريات {sport_jobs} سابقة",
     "{en_sport} olympic bronze medalists": "ميداليات {sport_jobs} برونزية أولمبية",
@@ -217,7 +202,6 @@ jobs_formatted_data = {
     "multi-national womens {en_sport} leagues": "دوريات {sport_jobs} نسائية متعددة الجنسيات",
     # Category:National junior women's goalball teams
     "national junior womens {en_sport} teams": "منتخبات {sport_jobs} للناشئات",
-
     # "national mens {en_sport}": "منتخبات {sport_jobs} وطنية للرجال",
     # "national {en_sport}": "منتخبات {sport_jobs} وطنية",
     # "national womens {en_sport}": "منتخبات {sport_jobs} وطنية للسيدات",
@@ -254,7 +238,6 @@ teams_formatted_data = {
     "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
     "{en_sport} world cup": "كأس العالم {sport_team}",
     "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
-
     "international {en_sport} council": "المجلس الدولي {sport_team}",
     "mens {en_sport} championship": "بطولة {sport_team} للرجال",
     "mens {en_sport} world championship": "بطولة العالم {sport_team} للرجال",
@@ -288,7 +271,6 @@ teams_formatted_data = {
 
 labels_formatted_data = {
     "{en_sport} finals": "نهائيات {sport_label}",
-
     "{en_sport}": "{sport_label}",
     "{en_sport} cup": "كأس {sport_label}",
     "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
@@ -299,7 +281,6 @@ labels_formatted_data = {
     "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
     "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
     "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
-
     # spicial cases
     "rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي",
     "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",

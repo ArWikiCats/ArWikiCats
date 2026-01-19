@@ -57,11 +57,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
         or resolve_sport_label_by_jobs_key(country2)
-
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
