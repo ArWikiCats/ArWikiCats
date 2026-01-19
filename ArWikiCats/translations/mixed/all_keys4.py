@@ -40,8 +40,6 @@ CAMBRIDGE_COLLEGES: dict[str, str] = {
     "wolfson": "وولفسون",
 }
 
-INTER_FEDERATIONS: dict[str, str] = open_json_file("sports/inter_federations.json")
-
 BATTLESHIP_CATEGORIES: dict[str, str] = {
     "aircraft carriers": "حاملات طائرات",
     "aircrafts": "طائرات",
@@ -99,10 +97,8 @@ UNITED_STATES_POLITICAL: dict[str, str] = {
     "vice-presidential": "نائب الرئيس",
 }
 
-INTER_FEDS_LOWER: dict[str, str] = {key.lower(): value for key, value in INTER_FEDERATIONS.items()}
 
-
-def build_new2019() -> dict[str, str]:
+def build_new2019(INTER_FEDS_LOWER) -> dict[str, str]:
     """Assemble the 2019 key mapping including sports and political data."""
 
     data = dict(new_2019)
@@ -142,7 +138,10 @@ def build_new2019() -> dict[str, str]:
     return data
 
 
-new2019: dict[str, str] = build_new2019()
+INTER_FEDERATIONS: dict[str, str] = open_json_file("sports/inter_federations.json")
+INTER_FEDS_LOWER: dict[str, str] = {key.lower(): value for key, value in INTER_FEDERATIONS.items()}
+
+new2019: dict[str, str] = build_new2019(INTER_FEDS_LOWER)
 
 __all__ = ["new2019", "INTER_FEDS_LOWER"]
 
