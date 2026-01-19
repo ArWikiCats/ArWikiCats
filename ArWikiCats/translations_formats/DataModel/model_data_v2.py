@@ -10,18 +10,19 @@ Classes:
     FormatDataV2: Handles dictionary-based template-driven category translations.
     MultiDataFormatterBaseV2: Combines two FormatDataV2 instances for complex translations.
 
-Example:
-    >>> from ArWikiCats.translations_formats.DataModel import FormatDataV2
-    >>> formatted_data = {
-    ...     "{country} people": "{demonym} أشخاص",
-    ... }
-    >>> data_list = {
-    ...     "yemen": {"demonym": "يمنيون", "country_ar": "اليمن"},
-    ...     "egypt": {"demonym": "مصريون", "country_ar": "مصر"},
-    ... }
-    >>> bot = FormatDataV2(formatted_data, data_list, key_placeholder="{country}")
-    >>> bot.search("yemen people")
-    'يمنيون أشخاص'
+Real world example:
+
+from ArWikiCats.translations_formats.DataModel import FormatDataV2
+formatted_data = {
+    "{country} writers": "كتاب {demonym}",
+}
+data_list = {
+    "yemeni": {"demonym": "يمنيون", "country_ar": "اليمن"},
+    "egyptian": {"demonym": "مصريون", "country_ar": "مصر"},
+}
+bot = FormatDataV2(formatted_data, data_list, key_placeholder="{country}")
+result = bot.search("yemeni writers")
+assert result == "كتاب يمنيون"
 """
 
 import re

@@ -133,16 +133,6 @@ football_keys_players = dict(
     )
 )
 
-PPP_Keys = {
-    "": "",
-    "mens": "رجالية",
-    "womens": "نسائية",
-    "youth": "شبابية",
-    "mens youth": "للشباب",
-    "womens youth": "للشابات",
-    "amateur": "للهواة",
-}
-
 
 @functools.lru_cache(maxsize=1)
 def load_v2() -> FormatDataV2:
