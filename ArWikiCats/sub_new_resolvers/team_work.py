@@ -117,13 +117,11 @@ def resolve_clubs_teams_leagues(category: str) -> str:
         The resolved Arabic label or an empty string if the suffix is unknown.
     """
     normalized = category.strip()
-    logger.debug(f"get_parties_lab {category=}")
+    logger.debug(f"<<yellow>> start resolve_clubs_teams_leagues: {category=}")
 
     category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
-    if category_label:
-        logger.info(f"get_parties_lab {category=}, {category_label=}")
-
+    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues: {category=}, {category_label=}", category_label)
     return category_label
 
 
