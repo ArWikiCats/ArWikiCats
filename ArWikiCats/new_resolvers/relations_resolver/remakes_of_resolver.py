@@ -3,6 +3,8 @@
 
 import functools
 
+from ArWikiCats.translations_formats.DataModel.model_data_v2 import MultiDataFormatterBaseV2
+
 from ...helps import logger
 from ...translations import All_Nat
 from ...translations_formats import format_multi_data_v2
@@ -20,7 +22,7 @@ nats_data_2 = {x: {"female_2": v["female"]} for x, v in All_Nat.items()}
 
 
 @functools.lru_cache(maxsize=1)
-def _load_bot() -> format_multi_data_v2:
+def _load_bot() -> MultiDataFormatterBaseV2:
     _bot = format_multi_data_v2(
         formatted_data=formatted_data,
         data_list=nats_data_1,
@@ -30,18 +32,6 @@ def _load_bot() -> format_multi_data_v2:
     )
 
     return _bot
-
-
-@functools.lru_cache(maxsize=1)
-def _load_remakes_of_bot():
-    """Load the remakes of bot using All_Nat and format_multi_data_v2."""
-    return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data_1,
-        key_placeholder="{en_1}",
-        data_list2=nats_data_2,
-        key2_placeholder="{en_2}",
-    )
 
 
 def fix_keys(category: str) -> str:
