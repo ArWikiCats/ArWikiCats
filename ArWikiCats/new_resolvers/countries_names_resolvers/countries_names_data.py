@@ -123,7 +123,7 @@ formatted_data_en_ar_only.update(
 )
 
 # TODO: add data from pop_format
-pop_of_without_in_data = {
+keys_of_without_in_data = {
     "air defence units and formations of {en}": "وحدات وتشكيلات دفاع جوي في {ar}",
     "archipelagoes of {en}": "أرخبيلات {ar}",
     "armies of {en}": "جيوش {ar}",
@@ -287,7 +287,7 @@ pop_of_without_in_data = {
     "years of {en}": "سنوات {ar}",
 }
 
-formatted_data_en_ar_only.update(pop_of_without_in_data)
+formatted_data_en_ar_only.update(keys_of_without_in_data)
 
 # TODO: add from_russia_data to formatted_data_en_ar_only
 from_russia_data = {
@@ -495,7 +495,7 @@ __all__ = [
 len_print.data_len(
     "countries_names_data.py",
     {
-        "pop_of_without_in_data": pop_of_without_in_data,
+        "keys_of_without_in_data": keys_of_without_in_data,
         "from_russia_data": from_russia_data,
     },
 )

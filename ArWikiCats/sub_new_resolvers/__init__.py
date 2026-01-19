@@ -2,7 +2,7 @@
 
 import functools
 
-from ...helps import logger
+from ..helps import logger
 from . import peoples_resolver
 
 

@@ -21,7 +21,6 @@ data_not_ready = {
     "Category:18th-century people of the Dutch Empire": "تصنيف:أشخاص من الإمبراطورية الهولندية القرن 18",
     "Category:20th-century presidents of Russia": "تصنيف:رؤساء روسيا القرن 20",
     "Category:Attacks on diplomatic missions of Russia": "تصنيف:هجمات على بعثات دبلوماسية روسيا",
-    "Category:waba champions cup": "تصنيف:كأس دوري غرب آسيا لكرة السلة",
     "Category:Italian defectors to the Soviet Union": "تصنيف:إيطاليون منشقون إلى الاتحاد السوفيتي",
     "Category:Lists of organisations based in Papua New Guinea": "تصنيف:قوائم منظمات مقرها في بابوا غينيا الجديدة",
     "Category:COVID-19 pandemic in Papua New Guinea templates": "تصنيف:قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",

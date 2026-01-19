@@ -262,36 +262,15 @@ RESOURCE_LABELS: dict[str, str] = {
     "wind power": "طاقة الرياح",
 }
 
+pop_final_5 = BASE_POP_FINAL_5 | RESOURCE_LABELS
 
-def build_pop_final_5() -> Tuple[dict[str, str], dict[str, str]]:
-    """Build the club and miscellaneous concept mappings."""
-
-    registry = dict(BASE_POP_FINAL_5)
-    clubs = open_json_file("sports/Clubs_key.json") or {}
-
-    clubs_index: dict[str, str] = {}
-    for club, label in clubs.items():
-        if not club or not label:
-            continue
-        club_lower = club.lower()
-        registry[club_lower] = label
-        clubs_index[club_lower] = label
-
-    for key, label in RESOURCE_LABELS.items():
-        registry[key.lower()] = label
-
-    # registry.update(New_male_keys)
-    return registry, clubs_index
-
-
-pop_final_5, Clubs_key_2 = build_pop_final_5()
-
-__all__ = ["pop_final_5", "Clubs_key_2"]
+__all__ = [
+    "pop_final_5",
+]
 
 len_print.data_len(
     "all_keys5.py",
     {
         "pop_final_5": pop_final_5,
-        "Clubs_key_2": Clubs_key_2,
     },
 )

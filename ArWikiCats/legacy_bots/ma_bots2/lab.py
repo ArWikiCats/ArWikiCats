@@ -11,7 +11,7 @@ from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...sub_new_resolvers import team_work
 from ...time_formats import time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
@@ -284,7 +284,7 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "religious_entries": lambda t: religious_entries.get(t, ""),
         "People_key": lambda t: People_key.get(t, ""),
-        "team_work.Get_team_work_Club": team_work.Get_team_work_Club,
+        "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "fetch_country_term_label": lambda t: fetch_country_term_label(
             t, normalized_preposition, lab_type="type_label"
@@ -373,7 +373,7 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
-        "team_work.Get_team_work_Club": lambda c: team_work.Get_team_work_Club(c.strip()),
+        "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
         "fetch_country_term_label": lambda c: fetch_country_term_label(
             c, separator, start_get_country2=start_get_country2
         ),

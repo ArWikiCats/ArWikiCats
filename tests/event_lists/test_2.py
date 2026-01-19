@@ -4,7 +4,10 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-fast_data = {
+slow_data = {
+    "luxembourgian european commissioners": "مفوضو أوروبيون لوكسمبورغيون",
+    "webcomic logos": "شعارات ويب كومكس",
+    "music managers": "مدربو موسيقى",
     "yemeni sports": "ألعاب رياضية يمنية",
     "yemeni sport": "رياضة يمنية",
     "yemeni buildings": "مباني يمنية",
@@ -841,14 +844,14 @@ data_list_bad = {
 
 to_test = [
     ("test_2_test_1", data1),
-    ("test_2_fast_data", fast_data),
+    ("test_2_fast_data", slow_data),
     ("test_2_test_2", data_test2),
     ("test_2_new_bug_check", data_list_bad),
 ]
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
-@pytest.mark.fast
+@pytest.mark.parametrize("category, expected", slow_data.items(), ids=slow_data.keys())
+@pytest.mark.slow
 def test_2_fast_data(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected

@@ -12,7 +12,7 @@ from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
@@ -20,7 +20,7 @@ from ...translations import (
     New_female_keys,
     People_key,
     jobs_mens_data,
-    pop_of_without_in,
+    keys_of_without_in,
     religious_entries,
 )
 from .. import with_years_bot
@@ -222,7 +222,7 @@ class CountryLabelRetriever:
             or resolve_languages_labels_with_time(country)
             or People_key.get(country)
             or all_new_resolvers(country)
-            or team_work.Get_team_work_Club(country)
+            or team_work.resolve_clubs_teams_leagues(country)
         )
         return label
 
@@ -380,9 +380,9 @@ class CountryLabelRetriever:
                 translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
 
             if term_label == "" and translated_base:
-                if term_lower in pop_of_without_in:
+                if term_lower in keys_of_without_in:
                     term_label = translated_base
-                    logger.info("skip add في to pop_of_without_in")
+                    logger.info("skip add في to keys_of_without_in")
                 else:
                     term_label = f"{translated_base} في "
                     logger.info(f"XX add في to {term_label=}, line:1596.")

@@ -47,7 +47,7 @@ test_find_teams_bot_data = {
     "world amateur handball championship": "بطولة العالم لكرة اليد للهواة",
     "world aquatics championships competitors": "منافسو بطولة العالم للرياضات المائية",
     "world archery championships": "بطولة العالم للنبالة",
-    "world athletics championships ": "بطولة العالم لألعاب القوى",
+    "world athletics championships": "بطولة العالم لألعاب القوى",
     "world athletics championships medalists": "فائزون بميداليات بطولة العالم لألعاب القوى",
     "world athletics championships": "بطولة العالم لألعاب القوى",
     "world boxing championships": "بطولة العالم للبوكسينغ",

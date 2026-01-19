@@ -5,11 +5,11 @@ Sports team and club category processing.
 
 import functools
 
-from ....helps import logger
-from ....legacy_bots.o_bots.utils import resolve_suffix_template
-from ....translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ...films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
-from ...relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
+from ..helps import logger
+from ..legacy_bots.o_bots.utils import resolve_suffix_template
+from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
+# from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
+# from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
 
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",
@@ -97,18 +97,17 @@ def _resolve_club_label(club_key: str) -> str:
     """
     club_key = club_key.lower().strip()
     club_lab = (
-        Clubs_key_2.get(club_key.lower())
-        or pop_of_football_lower.get(club_key)
+        ""
+        or Clubs_key_2.get(club_key.lower())
+        or clubs_teams_leagues.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
-        or main_relations_resolvers(club_key)
-        or main_films_resolvers(club_key)
         or ""
     )
     return club_lab
 
 
 @functools.lru_cache(maxsize=None)
-def Get_team_work_Club(category: str) -> str:
+def resolve_clubs_teams_leagues(category: str) -> str:
     """Return the Arabic label for ``category`` using known suffixes.
 
     Args:
@@ -117,19 +116,15 @@ def Get_team_work_Club(category: str) -> str:
     Returns:
         The resolved Arabic label or an empty string if the suffix is unknown.
     """
-
     normalized = category.strip()
-    logger.debug(f"get_parties_lab {category=}")
+    logger.debug(f"<<yellow>> start resolve_clubs_teams_leagues: {category=}")
 
     category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
-    if category_label:
-        logger.info(f"get_parties_lab {category=}, {category_label=}")
-
+    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues: {category=}, {category_label=}", category_label)
     return category_label
 
 
 __all__ = [
-    "Teams_new_end_keys",
-    "Get_team_work_Club",
+    "resolve_clubs_teams_leagues",
 ]

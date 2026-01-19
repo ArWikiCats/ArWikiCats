@@ -27,16 +27,16 @@ from .mixed.all_keys2 import (
     People_key,
     get_from_pf_keys2,
     pf_keys2,
-    pop_of_football_lower,
-    pop_of_without_in,
+    clubs_teams_leagues,
+    keys_of_without_in,
 )
 from .mixed.all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
     Ambassadors_tab,
 )
-from .mixed.all_keys4 import INTER_FEDS_LOWER
-from .mixed.all_keys5 import Clubs_key_2, pop_final_5
+from .mixed.all_keys4 import INTER_FEDS_LOWER, Clubs_key_2
+from .mixed.all_keys5 import pop_final_5
 from .mixed.female_keys import New_female_keys, religious_entries
 from .mixed.keys2 import PARTIES
 from .nats.Nationality import (
@@ -127,8 +127,8 @@ __all__ = [
     "SPORTS_KEYS_FOR_JOBS",
     "get_from_pf_keys2",
     "pf_keys2",
-    "pop_of_without_in",
-    "pop_of_football_lower",
+    "keys_of_without_in",
+    "clubs_teams_leagues",
     "WORD_AFTER_YEARS",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",

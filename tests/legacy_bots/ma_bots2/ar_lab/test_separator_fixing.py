@@ -62,9 +62,9 @@ class TestSeparatorListsFixing:
         assert result == "تاريخ"
 
     def test_skip_in_for_exception_types(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        """Test that 'في' is not added for types in pop_of_without_in."""
+        """Test that 'في' is not added for types in keys_of_without_in."""
         monkeypatch.setattr(
-            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.pop_of_without_in",
+            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.keys_of_without_in",
             ["populations"],
             raising=False,
         )
@@ -202,7 +202,7 @@ class TestHelperFunctions:
     def test_handle_in_separator_adds_في(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator adds 'في' when conditions are met."""
         monkeypatch.setattr(
-            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.pop_of_without_in",
+            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.keys_of_without_in",
             [],
             raising=False,
         )
@@ -213,7 +213,7 @@ class TestHelperFunctions:
     def test_handle_in_separator_skips_for_exceptions(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator skips adding 'في' for exception types."""
         monkeypatch.setattr(
-            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.pop_of_without_in",
+            "ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot.keys_of_without_in",
             ["military installations in"],
             raising=False,
         )
