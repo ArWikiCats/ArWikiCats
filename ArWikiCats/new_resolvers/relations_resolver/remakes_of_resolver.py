@@ -31,12 +31,13 @@ def _load_remakes_of_bot():
 
     # Prepare data_list from All_Nat for the first element {en}
     # We use 'female' for the nationality to match "أفلام أمريكية" or "مسلسلات تلفزيونية أمريكية"
+    # Filter out empty strings to avoid partial matches
     data_list = {
         k: {
             "female": v["female"],
         }
         for k, v in All_Nat.items()
-        if v.get("female")
+        if v.get("female") and v["female"].strip()
     }
 
     # Prepare data_list2 from All_Nat for the second element {en2}
@@ -46,8 +47,11 @@ def _load_remakes_of_bot():
             "female2": v["female"],
         }
         for k, v in All_Nat.items()
-        if v.get("female")
+        if v.get("female") and v["female"].strip()
     }
+
+    # Add "silent" to data_list2
+    data_list2["silent"] = {"female2": "صامتة"}
 
     return format_multi_data_v2(
         formatted_data=formatted_data,
