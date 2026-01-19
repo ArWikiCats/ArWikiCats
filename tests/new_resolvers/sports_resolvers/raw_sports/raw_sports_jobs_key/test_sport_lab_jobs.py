@@ -300,7 +300,7 @@ test_data_1 = {
     "women's wrestling": "مصارعة نسائية",
     "wrestling chairmen and investors": "رؤساء ومسيرو مصارعة",
     "wrestling competitions": "منافسات مصارعة",
-    "wrestling cup competitions": "منافسات كأس مصارعة",
+    "wrestling cup competitions": "منافسات كأس المصارعة",
     "wrestling cups": "كؤوس مصارعة",
     "wrestling league teams": "فرق دوري مصارعة",
     "wrestling leagues": "دوريات مصارعة",

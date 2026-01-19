@@ -49,7 +49,6 @@ test_find_teams_bot_data = {
     "world archery championships": "بطولة العالم للنبالة",
     "world athletics championships": "بطولة العالم لألعاب القوى",
     "world athletics championships medalists": "فائزون بميداليات بطولة العالم لألعاب القوى",
-    "world athletics championships": "بطولة العالم لألعاب القوى",
     "world boxing championships": "بطولة العالم للبوكسينغ",
     "world champion national handball teams": "أبطال بطولة العالم لكرة اليد",
     "world fencing championships medalists": "فائزون بميداليات بطولة العالم لمبارزة سيف الشيش",

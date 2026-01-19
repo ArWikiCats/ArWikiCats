@@ -19,10 +19,10 @@ test_find_labels_bot_data_0 = {
     "basketball": "كرة السلة",
     "chess": "الشطرنج",
     "field hockey": "هوكي الميدان",
-    "professional wrestling clubs": "أندية مصارعة المحترفين",
-    "professional wrestling coaches": "مدربو مصارعة المحترفين",
-    "wrestling clubs": "أندية المصارعة",
-    "wrestling coaches": "مدربو المصارعة",
+    "professional wrestling clubs": "أندية مصارعة محترفين",
+    "professional wrestling coaches": "مدربو مصارعة محترفين",
+    "wrestling clubs": "أندية مصارعة",
+    "wrestling coaches": "مدربو مصارعة",
 }
 
 test_find_labels_bot_data = {

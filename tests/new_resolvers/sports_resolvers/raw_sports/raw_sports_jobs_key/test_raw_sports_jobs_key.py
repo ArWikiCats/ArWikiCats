@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports.raw_sports_jobs_key import resolve_sport_label_by_jobs_key
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
 
 jobs_data_only = {
     "defunct national football teams": "منتخبات كرة قدم وطنية سابقة",

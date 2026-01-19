@@ -13,6 +13,7 @@ data_1 = {
     "defunct sports competitions": "منافسات رياضية سابقة",
     "defunct sports leagues": "دوريات رياضية سابقة",
     "professional sports leagues": "دوريات رياضية للمحترفين",
+
     "basketball league": "دوري كرة السلة",
     "current football seasons": "مواسم كرة قدم حالية",
     "cycling races": "سباقات سباق دراجات هوائية",
