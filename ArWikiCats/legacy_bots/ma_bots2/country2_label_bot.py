@@ -9,7 +9,6 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
 from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
@@ -27,10 +26,6 @@ from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import bys, parties_resolver
 from .utils import split_text_by_separator
-
-
-def wrap_lab_for_country2(country: str) -> str:
-    return get_lab_for_country2(country)
 
 
 def time_label(text: str) -> str:

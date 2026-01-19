@@ -20,7 +20,7 @@ from ..time_formats import time_to_arabic
 from ..translations import get_from_new_p17_final
 from . import tmp_bot
 from .ma_bots import general_resolver
-from .ma_bots2.country2_label_bot import country_2_title_work
+from .ma_bots2 import country2_label_bot
 from .ma_bots.lab_seoo_bot import event_label_work
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
@@ -80,7 +80,7 @@ class EventLabResolver:
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
         if list_of_cat == "لاعبو {}":
             category_lab = (
-                country_2_title_work(original_category3)
+                country2_label_bot.country_2_title_work(original_category3)
                 or get_lab_for_country2(original_category3)
                 or general_resolver.translate_general_category(
                     original_category3, start_get_country2=False, fix_title=False
@@ -130,7 +130,7 @@ class EventLabResolver:
             return category_lab
 
         category_lab = (
-            country_2_title_work(category3)
+            country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
             or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
             or get_pop_All_18(category3.lower(), "")
