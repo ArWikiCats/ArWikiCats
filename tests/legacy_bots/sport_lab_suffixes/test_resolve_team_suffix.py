@@ -1013,17 +1013,18 @@ def test_resolve_team_suffix_3(category: str, expected_key: str) -> None:
     assert label == expected_key
 
 
+all_test_data = test_data_1 | data_2 | data_3
+
 to_test = [
-    ("test_resolve_team_suffix_data_1", test_data_1),
-    ("test_resolve_team_suffix_data_2", data_2),
-    ("test_resolve_team_suffix_data_3", data_3),
+    ("test_resolve_sport_label_by_jobs_key", all_test_data, resolve_sport_label_by_jobs_key),
+    ("test_resolve_sport_jobs_keys_and_suffix", all_test_data, resolve_sport_jobs_keys_and_suffix),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", to_test)
 @pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_sport_label_by_jobs_key)
+def test_dump_all(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
