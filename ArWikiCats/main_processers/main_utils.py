@@ -18,6 +18,7 @@ def list_of_cat_func_new(category_r: str, category_lab: str, list_of_cat: str) -
 
     if not category_lab.startswith(list_of_cat_x) or list_of_cat_x == "":
         category_lab = list_of_cat.format(category_lab)
+    # SystemExit: Error in list_of_cat_func_new: Replacement index 1 out of range for positional args tuple, category_r='major league baseball owners and executives', category_lab='دوري كرة القاعدة الرئيسي', list_of_cat='رؤساء تنفيذيون وملاك {} {}'
 
     logger.info(f"<<lightblue>> list_of_cat_func_new add {category_lab=}, {category_lab_or=}, {category_r=} ")
 
