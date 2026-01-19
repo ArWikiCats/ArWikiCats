@@ -5,14 +5,19 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_unified,
     wrap_team_xo_normal_2025_with_ends,
 )
 
-
-def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_unified)
-
+test_data_0 = {
+    "Winter Olympics sports templates": "قوالب رياضات الألعاب الأولمبية الشتوية",
+    "winter olympics football templates": "قوالب كرة القدم في الألعاب الأولمبية الشتوية",
+    "winter olympics football": "كرة القدم في الألعاب الأولمبية الشتوية",
+    # "college football": "كرة قدم الكليات",
+    "baseball competitions": "منافسات كرة قاعدة",
+    "national football manager history": "تاريخ مدربو كرة قدم وطنية",
+    "national under-20 football manager history": "تاريخ مدربو كرة قدم تحت 20 سنة",
+    "swimming competitions": "منافسات سباحة",
+}
 
 test_data_with_additional = {
     "women's national youth association football teams": "منتخبات كرة قدم وطنية للشابات",
@@ -47,14 +52,6 @@ test_data_with_additional = {
     "under-13 baseball teams tournaments": "بطولات فرق كرة قاعدة تحت 13 سنة",
     "wheelchair rugby league teams": "فرق دوري رجبي على كراسي متحركة",
     "wheelchair rugby teams": "فرق رجبي على كراسي متحركة",
-}
-
-test_data_0 = {
-    # "college football": "كرة قدم الكليات",
-    "baseball competitions": "منافسات كرة قاعدة",
-    "national football manager history": "تاريخ مدربو كرة قدم وطنية",
-    "national under-20 football manager history": "تاريخ مدربو كرة قدم تحت 20 سنة",
-    "swimming competitions": "منافسات سباحة",
 }
 
 test_data_1 = {
@@ -319,7 +316,7 @@ test_data_1 = {
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category: str, expected: str) -> None:
-    label1 = wrap_callback(category)
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
@@ -327,15 +324,15 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
 @pytest.mark.parametrize("category, expected", test_data_0.items(), ids=test_data_0.keys())
 @pytest.mark.fast
 def test_test_find_jobs_bot_data_0(category: str, expected: str) -> None:
-    label1 = wrap_callback(category)
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
 
 TEMPORAL_CASES = [
-    ("test_find_jobs_bot_1", test_data_1, wrap_callback),
-    ("test_find_jobs_bot_0", test_data_0, wrap_callback),
-    # ("test_find_jobs_bot_with_additional", test_data_with_additional, wrap_callback),
+    ("test_find_jobs_bot_1", test_data_1, wrap_team_xo_normal_2025_with_ends),
+    ("test_find_jobs_bot_0", test_data_0, wrap_team_xo_normal_2025_with_ends),
+    # ("test_find_jobs_bot_with_additional", test_data_with_additional, wrap_team_xo_normal_2025_with_ends),
 ]
 
 

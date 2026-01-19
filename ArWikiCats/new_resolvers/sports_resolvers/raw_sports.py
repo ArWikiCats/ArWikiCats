@@ -32,7 +32,7 @@ def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
         "sports": {
             "sport_jobs": "رياضية",
             "sport_team": "",
-            "sport_label": "",
+            "sport_label": "رياضات",
         }
     })
     return unified
@@ -320,10 +320,16 @@ def _build_unified_formatted_data() -> dict[str, str]:
         "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
         "{en_sport} league": "دوري {sport_label}",
         "{en_sport} champions": "أبطال {sport_label}",
+
         "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
         "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
         "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
+
         # spicial cases
+        "olympics sports": "رياضات الألعاب الأولمبية",
+        "summer olympics sports": "رياضات الألعاب الأولمبية الصيفية",
+        "winter olympics sports": "رياضات الألعاب الأولمبية الشتوية",
+
         "rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي",
         "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",
 
@@ -389,6 +395,7 @@ def _get_sorted_teams_labels() -> dict[str, str]:
     mappings_data = {
         "records and statistics": "سجلات وإحصائيات",
         "finals": "نهائيات",
+        "templates": "قوالب",
         "matches": "مباريات",
         "manager history": "تاريخ مدربو",
         "tournaments": "بطولات",
