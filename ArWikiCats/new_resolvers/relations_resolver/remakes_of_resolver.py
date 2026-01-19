@@ -7,6 +7,42 @@ from ...helps import logger
 from ...translations import All_Nat
 from ...translations_formats import format_multi_data_v2
 
+formatted_data = {
+    # American remakes of Argentine films
+    "{en_1} remakes of {en_2} films": "أفلام {female_1} مأخوذة من أفلام {female_2}",
+    "{en_1} remakes of {en_2} television series": "مسلسلات تلفزيونية {female_1} مأخوذة من مسلسلات تلفزيونية {female_2}",
+    "television remakes of films": "مسلسلات تلفزيونية مأخوذة من أفلام",
+}
+
+
+nats_data_1 = {x: {"female_1": v["female"]} for x, v in All_Nat.items()}
+nats_data_2 = {x: {"female_2": v["female"]} for x, v in All_Nat.items()}
+
+
+@functools.lru_cache(maxsize=1)
+def _load_bot() -> format_multi_data_v2:
+    _bot = format_multi_data_v2(
+        formatted_data=formatted_data,
+        data_list=nats_data_1,
+        data_list2=nats_data_2,
+        key_placeholder="{en_1}",
+        key2_placeholder="{en_2}",
+    )
+
+    return _bot
+
+
+@functools.lru_cache(maxsize=1)
+def _load_remakes_of_bot():
+    """Load the remakes of bot using All_Nat and format_multi_data_v2."""
+    return format_multi_data_v2(
+        formatted_data=formatted_data,
+        data_list=nats_data_1,
+        key_placeholder="{en_1}",
+        data_list2=nats_data_2,
+        key2_placeholder="{en_2}",
+    )
+
 
 def fix_keys(category: str) -> str:
     """Fix known issues in category keys before searching.
@@ -20,48 +56,6 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-@functools.lru_cache(maxsize=1)
-def _load_remakes_of_bot():
-    """Load the remakes of bot using All_Nat and format_multi_data_v2."""
-    formatted_data = {
-        "{en} remakes of {en2} films": "أفلام {female} مأخوذة من أفلام {female2}",
-        "{en} remakes of {en2} television series": "مسلسلات تلفزيونية {female} مأخوذة من مسلسلات تلفزيونية {female2}",
-        "television remakes of films": "مسلسلات تلفزيونية مأخوذة من أفلام",
-    }
-
-    # Prepare data_list from All_Nat for the first element {en}
-    # We use 'female' for the nationality to match "أفلام أمريكية" or "مسلسلات تلفزيونية أمريكية"
-    # Filter out empty strings to avoid partial matches
-    data_list = {
-        k: {
-            "female": v["female"],
-        }
-        for k, v in All_Nat.items()
-        if v.get("female") and v["female"].strip()
-    }
-
-    # Prepare data_list2 from All_Nat for the second element {en2}
-    # This element represents the original film/series nationality
-    data_list2 = {
-        k: {
-            "female2": v["female"],
-        }
-        for k, v in All_Nat.items()
-        if v.get("female") and v["female"].strip()
-    }
-
-    # Add "silent" to data_list2
-    data_list2["silent"] = {"female2": "صامتة"}
-
-    return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder="{en}",
-        data_list2=data_list2,
-        key2_placeholder="{en2}",
-    )
-
-
 @functools.lru_cache(maxsize=10000)
 def resolve_remakes_of_resolver(category: str) -> str:
     category = fix_keys(category)
@@ -71,12 +65,10 @@ def resolve_remakes_of_resolver(category: str) -> str:
     if category == "television remakes of films":
         return "مسلسلات تلفزيونية مأخوذة من أفلام"
 
-    bot = _load_remakes_of_bot()
-    result = bot.search(category)
-    if result:
-        return result
-
-    return ""
+    nat_bot = _load_bot()
+    result = nat_bot.search_all_category(category)
+    logger.info_if_or_debug(f"<<yellow>> end resolve_remakes_of_resolver: {category=}, {result=}", result)
+    return result
 
 
 __all__ = [
