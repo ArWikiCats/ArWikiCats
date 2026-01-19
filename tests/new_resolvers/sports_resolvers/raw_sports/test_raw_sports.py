@@ -113,7 +113,7 @@ data_1 = {
     "outdoor ice hockey": "هوكي جليد في الهواء الطلق",
     "premier lacrosse league": "دوريات لاكروس من الدرجة الممتازة",
     "professional ice hockey leagues": "دوريات هوكي جليد للمحترفين",
-    "rugby league chairmen and investors": "رؤساء ومسيرو دوري رجبي",
+    "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",
     "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
