@@ -8,12 +8,17 @@ on suffixes and prefixes.
 
 import functools
 
+from ..new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
+from ..new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+
+from ..legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ..helps import logger
-from ..new_resolvers import all_new_resolvers
+from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
-from . import sport_lab_suffixes, team_work, with_years_bot
+from . import with_years_bot
 from .ma_bots import general_resolver
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
@@ -33,32 +38,34 @@ pp_start_with = {
 }
 
 
-def _resolve_label(label: str) -> str:
+def _resolve_label(country2: str) -> str:
     """
     Resolve an English category label into Arabic using a sequence of resolver strategies.
 
     Parameters:
-        label (str): English category label to resolve.
+        country2 (str): English category country2 to resolve.
 
     Returns:
         str: Resolved Arabic label if any strategy matches, otherwise an empty string.
     """
     resolved_label = (
-        all_new_resolvers(label)
-        or get_from_pf_keys2(label)
-        or get_pop_All_18(label)
-        or resolve_languages_labels_with_time(label)
-        or People_key.get(label)
-        or sport_lab_suffixes.get_teams_new(label)
-        or parties_resolver.get_parties_lab(label)
-        or team_work.Get_team_work_Club(label)
-        or university_resolver.resolve_university_category(label)
-        or work_peoples(label)
-        or get_KAKO(label)
-        or convert_time_to_arabic(label)
-        or get_pop_All_18(label)
-        or with_years_bot.Try_With_Years(label)
-        or general_resolver.translate_general_category(label, fix_title=False)
+        all_new_resolvers(country2)
+        or get_from_pf_keys2(country2)
+        or get_pop_All_18(country2)
+        or resolve_languages_labels_with_time(country2)
+        or People_key.get(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
+        or parties_resolver.get_parties_lab(country2)
+        or team_work.Get_team_work_Club(country2)
+        or university_resolver.resolve_university_category(country2)
+        or work_peoples(country2)
+        or get_KAKO(country2)
+        or convert_time_to_arabic(country2)
+        or get_pop_All_18(country2)
+        or with_years_bot.Try_With_Years(country2)
+        or general_resolver.translate_general_category(country2, fix_title=False)
         or ""
     )
     return resolved_label

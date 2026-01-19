@@ -5,7 +5,10 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import find_labels_bot, wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_labels_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
 
 test_find_labels_bot_data_0 = {
     "wheelchair rugby league": "دوري الرجبي على الكراسي المتحركة",
@@ -52,7 +55,7 @@ test_find_labels_bot_data = {
 
 
 def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=find_labels_bot)
+    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_by_labels_key)
 
 
 @pytest.mark.parametrize("category, expected", test_find_labels_bot_data.items(), ids=test_find_labels_bot_data.keys())

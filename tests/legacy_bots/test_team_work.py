@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.team_work import Get_team_work_Club
+from ArWikiCats.new_resolvers.sports_resolvers.legacy_sports_bots.team_work import Get_team_work_Club
 
 fast_data = {
     # "baseball world cup players": "لاعبو كأس العالم لكرة القاعدة",

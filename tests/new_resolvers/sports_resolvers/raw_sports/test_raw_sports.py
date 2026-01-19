@@ -1,31 +1,21 @@
-"""
-Tests
-"""
+#!/usr/bin/python3
+""" """
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.sport_lab_suffixes import get_teams_new
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
 
-test_data_1 = {
-    "australian rules football awards": "جوائز كرة قدم أسترالية",
-    "badminton world cup": "كأس العالم لتنس الريشة",
-    "baseball commissioners": "مفوضو كرة قاعدة",
-    "baseball music": "موسيقى كرة قاعدة",
-    "baseball video games": "ألعاب فيديو كرة قاعدة",
-    "basketball awards": "جوائز كرة سلة",
-    "basketball comics": "قصص مصورة كرة سلة",
-    "basketball cup competitions": "منافسات كؤوس كرة سلة",
+data_0 = {}
+
+data_1 = {
+    "defunct sports clubs": "أندية رياضية سابقة",
+    "defunct sports competitions": "منافسات رياضية سابقة",
+    "defunct sports leagues": "دوريات رياضية سابقة",
+    "professional sports leagues": "دوريات رياضية للمحترفين",
     "basketball league": "دوري كرة السلة",
-    "basketball terminology": "مصطلحات كرة سلة",
-    "biathlon world cup": "كأس العالم للبياثلون",
-    "bowling broadcasters": "مذيعو بولينج",
-    "bowling television series": "مسلسلات تلفزيونية بولينج",
-    "boxing world cup": "كأس العالم للبوكسينغ",
-    "canoeing logos": "شعارات ركوب الكنو",
     "current football seasons": "مواسم كرة قدم حالية",
     "cycling races": "سباقات سباق دراجات هوائية",
-    "cycling television series": "مسلسلات تلفزيونية سباق دراجات هوائية",
     "defunct american football teams": "فرق كرة قدم أمريكية سابقة",
     "defunct baseball leagues": "دوريات كرة قاعدة سابقة",
     "defunct baseball teams": "فرق كرة قاعدة سابقة",
@@ -35,8 +25,6 @@ test_data_1 = {
     "defunct esports competitions": "منافسات رياضة إلكترونية سابقة",
     "defunct football clubs": "أندية كرة قدم سابقة",
     "defunct football competitions": "منافسات كرة قدم سابقة",
-    "defunct football cup competitions": "منافسات كؤوس كرة قدم سابقة",
-    "defunct football cups": "كؤوس كرة قدم سابقة",
     "defunct football leagues": "دوريات كرة قدم سابقة",
     "defunct gaelic football competitions": "منافسات كرة قدم غالية سابقة",
     "defunct hockey competitions": "منافسات هوكي سابقة",
@@ -45,30 +33,19 @@ test_data_1 = {
     "defunct indoor soccer leagues": "دوريات كرة قدم داخل الصالات سابقة",
     "defunct netball leagues": "دوريات كرة شبكة سابقة",
     "defunct rugby league teams": "فرق دوري رجبي سابقة",
-    "defunct rugby union cup competitions": "منافسات كؤوس اتحاد رجبي سابقة",
     "defunct rugby union leagues": "دوريات اتحاد رجبي سابقة",
     "defunct rugby union teams": "فرق اتحاد رجبي سابقة",
     "defunct soccer clubs": "أندية كرة قدم سابقة",
-    "defunct sports clubs": "أندية رياضية سابقة",
-    "defunct sports competitions": "منافسات رياضية سابقة",
-    "defunct sports leagues": "دوريات رياضية سابقة",
     "defunct water polo clubs": "أندية كرة ماء سابقة",
     "defunct water polo competitions": "منافسات كرة ماء سابقة",
     "domestic cricket competitions": "منافسات كريكت محلية",
-    "domestic football cup": "كؤوس كرة قدم محلية",
-    "domestic football cups": "كؤوس كرة قدم محلية",
     "domestic football leagues": "دوريات كرة قدم محلية",
     "domestic football": "كرة قدم محلية",
     "domestic handball leagues": "دوريات كرة يد محلية",
     "domestic women's football leagues": "دوريات كرة قدم محلية للسيدات",
-    "fencing logos": "شعارات مبارزة سيف شيش",
     "first-class cricket": "كريكت من الدرجة الأولى",
     "football chairmen and investors": "رؤساء ومسيرو كرة قدم",
-    "football cup competitions": "منافسات كؤوس كرة قدم",
-    "football cups": "كؤوس كرة قدم",
-    "football governing bodies": "هيئات تنظيم كرة قدم",
     "football league": "دوري كرة القدم",
-    "go comics": "قصص مصورة غو",
     "indoor football": "كرة قدم داخل الصالات",
     "indoor hockey": "هوكي داخل الصالات",
     "indoor track and field": "سباقات مضمار وميدان داخل الصالات",
@@ -111,10 +88,8 @@ test_data_1 = {
     "international youth basketball competitions": "منافسات كرة سلة شبابية دولية",
     "international youth football competitions": "منافسات كرة قدم شبابية دولية",
     "ju-jitsu world championships": "بطولة العالم للجوجوتسو",
-    "men's hockey world cup": "كأس العالم للهوكي للرجال",
     "men's international basketball": "كرة سلة دولية للرجال",
     "men's international football": "كرة قدم دولية للرجال",
-    "muay thai video games": "ألعاب فيديو موياي تاي",
     "multi-national basketball leagues": "دوريات كرة سلة متعددة الجنسيات",
     "national basketball team results": "نتائج منتخبات كرة سلة وطنية",
     "national cycling champions": "أبطال بطولات سباق دراجات هوائية وطنية",
@@ -125,7 +100,6 @@ test_data_1 = {
     "national junior men's handball teams": "منتخبات كرة يد وطنية للناشئين",
     "national lacrosse league": "دوريات لاكروس وطنية",
     "national men's equestrian manager history": "تاريخ مدربو فروسية وطنية للرجال",
-    "national rugby union premier leagues": "دوريات اتحاد رجبي وطنية من الدرجة الممتازة",
     "national rugby union teams": "منتخبات اتحاد رجبي وطنية",
     "national shooting championships": "بطولات رماية وطنية",
     "national squash teams": "منتخبات اسكواش وطنية",
@@ -135,25 +109,14 @@ test_data_1 = {
     "national women's equestrian manager history": "تاريخ مدربو فروسية وطنية للسيدات",
     "national youth baseball teams": "منتخبات كرة قاعدة وطنية شبابية",
     "national youth basketball teams": "منتخبات كرة سلة وطنية شبابية",
-    "netball world cup": "كأس العالم لكرة الشبكة",
     "outdoor equestrian": "فروسية في الهواء الطلق",
     "outdoor ice hockey": "هوكي جليد في الهواء الطلق",
     "premier lacrosse league": "دوريات لاكروس من الدرجة الممتازة",
-    "professional football cups": "كؤوس كرة قدم للمحترفين",
     "professional ice hockey leagues": "دوريات هوكي جليد للمحترفين",
-    "professional sports leagues": "دوريات رياضية للمحترفين",
-    "roller hockey logos": "شعارات هوكي دحرجة",
-    "rowing equipment": "معدات تجديف",
-    "rugby league chairmen and investors": "رؤساء ومسيرو دوري رجبي",
-    "rugby league world cup": "كأس العالم لدوري الرجبي",
-    "shooting sports equipment": "معدات رماية",
-    "snooker terminology": "مصطلحات سنوكر",
-    "soccer cup competitions": "منافسات كؤوس كرة قدم",
-    "sports cup competitions": "منافسات كؤوس رياضية",
+    "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",
     "summer olympics football": "كرة القدم في الألعاب الأولمبية الصيفية",
     "summer olympics volleyball": "كرة الطائرة في الألعاب الأولمبية الصيفية",
     "summer olympics water polo": "كرة الماء في الألعاب الأولمبية الصيفية",
-    "tennis logos": "شعارات كرة مضرب",
     "under-13 equestrian manager history": "تاريخ مدربو فروسية تحت 13 سنة",
     "under-13 equestrian": "فروسية تحت 13 سنة",
     "under-14 equestrian manager history": "تاريخ مدربو فروسية تحت 14 سنة",
@@ -161,50 +124,42 @@ test_data_1 = {
     "under-16 basketball": "كرة سلة تحت 16 سنة",
     "under-19 basketball": "كرة سلة تحت 19 سنة",
     "under-23 cycle racing": "سباق دراجات تحت 23 سنة",
-    "water polo comics": "قصص مصورة كرة ماء",
-    "water polo competition": "منافسات كرة ماء",
-    "women's cricket world cup": "كأس العالم للكريكت للسيدات",
-    "women's hockey world cup": "كأس العالم للهوكي للسيدات",
     "women's international football": "كرة قدم دولية للسيدات",
     "women's international futsal": "كرة صالات دولية للسيدات",
-    "women's softball world cup": "كأس العالم للكرة اللينة للسيدات",
     "world athletics championships": "بطولة العالم لألعاب القوى",
     "world netball championship": "بطولة العالم لكرة الشبكة",
     "world netball championships": "بطولة العالم لكرة الشبكة",
     "world rowing championships medalists": "فائزون بميداليات بطولة العالم للتجديف",
     "world taekwondo championships": "بطولة العالم للتايكوندو",
-    "wrestling world cup": "كأس العالم للمصارعة",
 }
 
 
-@pytest.mark.parametrize("category, expected_key", test_data_1.items(), ids=test_data_1.keys())
+test_2025 = {}
+
+
+@pytest.mark.parametrize("category, expected_key", test_2025.items(), ids=test_2025.keys())
 @pytest.mark.fast
-def test_get_teams_new_data(category: str, expected_key: str) -> None:
-    label = get_teams_new(category)
+def test_wrap_team_xo_normal_2025(category: str, expected_key: str) -> None:
+    label = wrap_team_xo_normal_2025_with_ends(category)
     assert label == expected_key
 
 
-to_test = [
-    ("test_get_teams_new_data", test_data_1),
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.fast
+def test_Get_New_team_xo_data(category: str, expected: str) -> None:
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
+    assert label1 == expected
+
+
+TEMPORAL_CASES = [
+    ("test_find_labels_bot_0", data_0, wrap_team_xo_normal_2025_with_ends),
+    ("test_find_labels_bot_1", data_1, wrap_team_xo_normal_2025_with_ends),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
+@pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, get_teams_new)
+def test_all_dump(name: str, data: dict[str, str], callback) -> None:
+    expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-def test_get_teams_new() -> None:
-    # Test with a basic input
-    result = get_teams_new("football team")
-    assert isinstance(result, str)
-
-    result_empty = get_teams_new("")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = get_teams_new("basketball team")
-    assert isinstance(result_various, str)

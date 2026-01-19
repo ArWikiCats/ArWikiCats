@@ -390,7 +390,6 @@ en_is_nat_ar_is_P17_data = {
     "yemeni women's triathlon cup": "كأس اليمن للسباق الثلاثي للسيدات",
     "yemeni women's triple jump cup": "كأس اليمن للقفز الثلاثي للسيدات",
     "yemeni women's triple jump racing cup": "كأس اليمن لسباق القفز الثلاثي للسيدات",
-    "yemeni women's uiiu 22 formula e season racing cup": "كأس اليمن لسباق موسم فورمولا إي للسيدات",
     "yemeni women's underwater hockey cup": "كأس اليمن للهوكي تحت الماء للسيدات",
     "yemeni women's underwater hockey racing cup": "كأس اليمن لسباق هوكي تحت الماء للسيدات",
     "yemeni women's volleyball cup": "كأس اليمن لكرة الطائرة للسيدات",

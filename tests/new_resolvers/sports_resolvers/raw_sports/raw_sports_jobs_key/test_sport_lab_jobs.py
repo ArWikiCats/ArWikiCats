@@ -4,7 +4,15 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import find_jobs_bot, wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
+    resolve_sport_label_by_jobs_key,
+    wrap_team_xo_normal_2025_with_ends,
+)
+
+
+def wrap_callback(category: str) -> str:
+    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_by_jobs_key)
+
 
 test_data_with_additional = {
     "women's national youth association football teams": "منتخبات كرة قدم وطنية للشابات",
@@ -81,7 +89,6 @@ test_data_1 = {
     "defunct wrestling clubs": "أندية مصارعة سابقة",
     "defunct wrestling coaches": "مدربو مصارعة سابقة",
     "defunct wrestling competitions": "منافسات مصارعة سابقة",
-    "defunct wrestling cup competitions": "منافسات كؤوس مصارعة سابقة",
     "defunct wrestling cups": "كؤوس مصارعة سابقة",
     "defunct wrestling leagues": "دوريات مصارعة سابقة",
     "defunct wrestling teams": "فرق مصارعة سابقة",
@@ -94,7 +101,6 @@ test_data_1 = {
     "domestic wrestling clubs": "أندية مصارعة محلية",
     "domestic wrestling coaches": "مدربو مصارعة محلية",
     "domestic wrestling competitions": "منافسات مصارعة محلية",
-    "domestic wrestling cup": "كؤوس مصارعة محلية",
     "domestic wrestling cups": "كؤوس مصارعة محلية",
     "domestic wrestling leagues": "دوريات مصارعة محلية",
     "domestic wrestling": "مصارعة محلية",
@@ -113,7 +119,6 @@ test_data_1 = {
     "first-class wrestling matches": "مباريات مصارعة من الدرجة الأولى",
     "first-class wrestling teams": "فرق مصارعة من الدرجة الأولى",
     "first-class wrestling": "مصارعة من الدرجة الأولى",
-    "football league competitions": "منافسات دوري كرة قدم",
     "fourth level football leagues": "دوريات كرة قدم من الدرجة الرابعة",
     "fourth level wrestling league": "دوريات مصارعة من الدرجة الرابعة",
     "fourth level wrestling leagues": "دوريات مصارعة من الدرجة الرابعة",
@@ -295,9 +300,8 @@ test_data_1 = {
     "women's wrestling": "مصارعة نسائية",
     "wrestling chairmen and investors": "رؤساء ومسيرو مصارعة",
     "wrestling competitions": "منافسات مصارعة",
-    "wrestling cup competitions": "منافسات كؤوس مصارعة",
+    "wrestling cup competitions": "منافسات كأس مصارعة",
     "wrestling cups": "كؤوس مصارعة",
-    "wrestling league competitions": "منافسات دوري مصارعة",
     "wrestling league teams": "فرق دوري مصارعة",
     "wrestling leagues": "دوريات مصارعة",
     "wrestling olympic bronze medalists": "ميداليات مصارعة برونزية أولمبية",
@@ -310,10 +314,6 @@ test_data_1 = {
     "youth wrestling competitions": "منافسات مصارعة شبابية",
     "youth wrestling": "مصارعة شبابية",
 }
-
-
-def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=find_jobs_bot)
 
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())

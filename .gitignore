@@ -16,7 +16,6 @@ monkey.py
 *.backup
 /.claude
 **/old/**
-ArWikiCats/make_bots/ma_bots/year_or_typeo/work_2019_examples.jsonl
 ArWikiCats/main_processers/event_lab_bot_backup.py
 *.prof
 profile.html
@@ -26,7 +25,5 @@ ArWikiCats/make_bots/jobs_bots/jobs_mainbot_example.py
 examples/diff.json
 examples/compare_diff.json
 examples/compare_no_labels.json
-ArWikiCats/helps/resolve_team_suffix.jsonl
-ArWikiCats/helps/find_teams_2025.jsonl
 _work_files/*.json
 .coverage

@@ -6,10 +6,7 @@ from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
 from ...translations_formats import format_multi_data_v2, FormatData
 
 # Prepare consolidated dictionaries with gendered values
-_rel_data = {
-    k: {"rel_ar": v.get("males"), "rel_ar_f": v.get("females")}
-    for k, v in RELIGIOUS_KEYS_PP.items()
-}
+_rel_data = {k: {"rel_ar": v.get("males"), "rel_ar_f": v.get("females")} for k, v in RELIGIOUS_KEYS_PP.items()}
 
 _nat_data = {}
 for k, v in Nat_mens.items():
@@ -23,10 +20,7 @@ PAINTER_ROLE_LABELS = {
 }
 
 # Extended roles for the test cases
-_jobs_data = {
-    k: {"job_ar": v.get("males"), "job_ar_f": v.get("females")}
-    for k, v in PAINTER_ROLE_LABELS.items()
-}
+_jobs_data = {k: {"job_ar": v.get("males"), "job_ar_f": v.get("females")} for k, v in PAINTER_ROLE_LABELS.items()}
 
 # Additional nats from test failures
 _extra_nats = {
@@ -49,7 +43,6 @@ _combined_templates = {
     "{rel} {nat} male": "{nat_ar} {rel_ar} ذكور",
     "{nat} male {rel}": "{rel_ar} ذكور {nat_ar}",
     "{nat} people {rel}": "{nat_ar} {rel_ar}",
-
     # Job + Religion (Male/General)
     "{job} {rel}": "{job_ar} {rel_ar}",
     "{rel} {job}": "{job_ar} {rel_ar}",
@@ -57,7 +50,6 @@ _combined_templates = {
     "{job} {rel} male": "{job_ar} ذكور {rel_ar}",
     "{rel} {job} male": "{job_ar} ذكور {rel_ar}",
     "male {job} {rel}": "{job_ar} ذكور {rel_ar}",
-
     # Nationality + Religion (Female)
     "female {nat} {rel}": "{rel_ar_f} {nat_ar_f}",
     "women's {nat} {rel}": "{rel_ar_f} {nat_ar_f}",
@@ -67,7 +59,6 @@ _combined_templates = {
     "{nat} {rel} women's": "{rel_ar_f} {nat_ar_f}",
     "female {rel} {nat}": "{rel_ar_f} {nat_ar_f}",
     "women's {rel} {nat}": "{rel_ar_f} {nat_ar_f}",
-
     # Job + Religion (Female)
     "female {job} {rel}": "{job_ar_f} {rel_ar_f}",
     "women's {job} {rel}": "{job_ar_f} {rel_ar_f}",
@@ -77,7 +68,6 @@ _combined_templates = {
     "{job} {rel} women's": "{job_ar_f} {rel_ar_f}",
     "female {rel} {job}": "{job_ar_f} {rel_ar_f}",
     "women's {rel} {job}": "{job_ar_f} {rel_ar_f}",
-
     # Simple religious labels (Female)
     "female {rel}": "{rel_ar_f}",
     "women's {rel}": "{rel_ar_f}",

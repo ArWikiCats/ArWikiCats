@@ -7,8 +7,13 @@ import functools
 import re
 from typing import Tuple
 
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
+
+from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers
+from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_formats import time_to_arabic
 from ...time_formats.time_to_arabic import convert_time_to_arabic
@@ -20,7 +25,7 @@ from ...translations import (
     get_from_pf_keys2,
     religious_entries,
 )
-from .. import sport_lab_suffixes, team_work, tmp_bot
+from .. import tmp_bot
 from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.table1_bot import get_KAKO
@@ -48,7 +53,9 @@ def wrap_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-        or sport_lab_suffixes.get_teams_new(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)

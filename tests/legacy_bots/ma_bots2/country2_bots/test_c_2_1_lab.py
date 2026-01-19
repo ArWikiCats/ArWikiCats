@@ -214,7 +214,7 @@ fast_data_c_2_1_lab = {
 @pytest.mark.parametrize("category, expected", fast_data_c_2_1_lab.items(), ids=fast_data_c_2_1_lab.keys())
 @pytest.mark.fast
 def test_c_2_1_lab(category: str, expected: str) -> None:
-    label = c_2_1_lab(category, with_years=True)
+    label = c_2_1_lab(category)
     assert label == expected
 
 

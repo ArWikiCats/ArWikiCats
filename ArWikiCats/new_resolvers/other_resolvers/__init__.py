@@ -1,5 +1,4 @@
-"""
-"""
+""" """
 
 import functools
 
@@ -9,8 +8,7 @@ from . import peoples_resolver
 
 @functools.lru_cache(maxsize=None)
 def main_other_resolvers(category: str) -> str:
-    """
-    """
+    """ """
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying main_other_resolvers for: {category=}")
 

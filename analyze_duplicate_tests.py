@@ -120,7 +120,7 @@ class DuplicateTestAnalyzer:
     def print_statistics(self) -> None:
         """
         Print analysis statistics summarizing extracted key-value pairs and duplicates.
-        
+
         Prints the total number of unique pairs, the number of pairs that appear in more than one location, the total duplicate occurrences across all files, and the percentage of unique pairs that are duplicated.
         """
         duplicates = self.get_duplicates()
@@ -174,9 +174,9 @@ class DuplicateTestAnalyzer:
     def save_report(self, output_file: str = "duplicate_tests_report.json") -> None:
         """
         Write a JSON report of duplicate key–value pairs and their locations to a file.
-        
-        The report contains a "summary" with total unique pairs, number of duplicate pairs, and total occurrences, and a "duplicates" list where each entry includes the key, value, occurrence count, and a list of locations (file path relative to the analyzer's parent base path, dictionary name, and line number). 
-        
+
+        The report contains a "summary" with total unique pairs, number of duplicate pairs, and total occurrences, and a "duplicates" list where each entry includes the key, value, occurrence count, and a list of locations (file path relative to the analyzer's parent base path, dictionary name, and line number).
+
         Parameters:
             output_file (str): Path to the output JSON file (default: "duplicate_tests_report.json").
         """

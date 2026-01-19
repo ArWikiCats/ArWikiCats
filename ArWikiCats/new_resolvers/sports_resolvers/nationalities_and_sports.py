@@ -60,7 +60,7 @@ def _get_sorted_teams_labels() -> dict[str, str]:
         "clubs": "أندية",
         "clubs and teams": "أندية وفرق",
         "competitions": "منافسات",
-        "chairmen and investors": "رؤساء ومسيرو",
+        # "chairmen and investors": "رؤساء ومسيرو",
         "cups": "كؤوس",
     }
 
@@ -126,6 +126,14 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "womens {en_sport} world cup": "كأس العالم {sport_team} للسيدات",
         "{en_sport} world cup": "كأس العالم {sport_team}",
         "youth {en_sport} world cup": "كأس العالم {sport_team} للشباب",
+        "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
+        "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
+        "{en} {en_sport} cup": "كأس {ar} {sport_team}",
+        # NAT_P17_OIOI_TO_CHECK data
+        # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
+        "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
+        "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
+        "{en} federation cup": "كأس الاتحاد {the_male}",
         "olympic gold medalists in {en_sport}": "فائزون بميداليات ذهبية أولمبية في {sport_label}",
         "olympic silver medalists in {en_sport}": "فائزون بميداليات فضية أولمبية في {sport_label}",
         "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
@@ -260,20 +268,15 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} womens {en_sport} championships": "بطولة {ar} {sport_team} للسيدات",
         "{en} youth {en_sport} championship": "بطولة {ar} {sport_team} للشباب",
         "{en} youth {en_sport} championships": "بطولة {ar} {sport_team} للشباب",
-        "{en} mens {en_sport} cup": "كأس {ar} {sport_team} للرجال",
-        "{en} womens {en_sport} cup": "كأس {ar} {sport_team} للسيدات",
-        "{en} {en_sport} cup": "كأس {ar} {sport_team}",
-        # NAT_P17_OIOI_TO_CHECK data
-        # "yemeni defunct basketball cup": "كؤوس كرة سلة يمنية سابقة",
-        "{en} defunct {en_sport} cup": "كؤوس {sport_jobs} {female} سابقة",
-        "{en} domestic {en_sport} cup": "كؤوس {sport_jobs} {female} محلية",
         # "yemeni domestic basketball": "كرة سلة يمنية محلية",
         "{en} domestic {en_sport}": "{sport_jobs} {female} محلية",
         "{en} domestic womens {en_sport}": "{sport_jobs} {female} محلية للسيدات",
         # "yemeni football": "كرة قدم يمنية",
         # "{en} {en_sport}": "{sport_jobs} {female}",
-        "{en} federation cup": "كأس الاتحاد {the_male}",
-        "{en} {en_sport}": "{sport_label} {the_female}",  # Category:American_basketball
+        # Category:American_basketball
+        "{en} {en_sport}": "{sport_label} {the_female}",
+        # german football chairmen and investors
+        "{en} {en_sport} chairmen and investors": "رؤساء ومسيرو {sport_label} {the_female}",
         "{en} current {en_sport} seasons": "مواسم {sport_jobs} {female} حالية",
         "{en} reserve {en_sport}": "{sport_jobs} {female} احتياطية",
         "{en} defunct indoor {en_sport}": "{sport_jobs} {female} داخل الصالات سابقة",
@@ -282,8 +285,10 @@ def _load_sports_formatted_data() -> dict[str, str]:
         "{en} professional {en_sport}": "{sport_jobs} {female} للمحترفين",
         "{en} rugby union": "اتحاد الرجبي {the_male}",
         "{en} rugby league": "الدوري {the_male} للرجبي",
+        # spicial cases
+        "{en} rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي {the_male}",
+        "{en} rugby league chairmen and investors": "رؤساء ومسيرو الدوري {the_male} للرجبي",
     }
-
     sports_formatted_data.update(SPORTS_FORMATTED_DATA_NATS_AND_NAMES)
     sports_formatted_data.update(_levels_data())
     sports_formatted_data.update(sports_formatted_data_for_jobs)

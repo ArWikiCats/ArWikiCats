@@ -6,10 +6,15 @@ Country Label Bot Module
 import functools
 import re
 
+from ...new_resolvers.sports_resolvers.legacy_sports_bots import team_work
+from ...new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_by_jobs_key
+
+from ...legacy_bots.event_lab_bot import wrap_team_xo_normal_2025_with_ends
+
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers
+from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
@@ -22,7 +27,7 @@ from ...translations import (
     pop_of_without_in,
     religious_entries,
 )
-from .. import sport_lab_suffixes, team_work, with_years_bot
+from .. import with_years_bot
 from ..ma_bots2.country2_label_bot import country_2_title_work
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
@@ -54,7 +59,9 @@ def get_lab_for_country2(country: str) -> str:
         or get_pop_All_18(country2)
         or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
-        or sport_lab_suffixes.get_teams_new(country2)
+        or main_sports_resolvers(country2)
+        or wrap_team_xo_normal_2025_with_ends(country2)
+        or resolve_sport_label_by_jobs_key(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.Get_team_work_Club(country2)
         or university_resolver.resolve_university_category(country2)
@@ -333,13 +340,13 @@ class CountryLabelRetriever:
         Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
 
         Parameters:
-        	term_lower (str): The input term in lowercase.
-        	separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
-        	lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
-        	start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
+                term_lower (str): The input term in lowercase.
+                separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
+                lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
+                start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
 
         Returns:
-        	str: The resolved Arabic label, or an empty string if no resolution is found.
+                str: The resolved Arabic label, or an empty string if no resolution is found.
         """
         logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
