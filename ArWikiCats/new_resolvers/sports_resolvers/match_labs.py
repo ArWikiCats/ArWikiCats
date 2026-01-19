@@ -183,21 +183,23 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-def find_teams_2025(category) -> str:
+def find_teams_2025(category, callback=_find_teams_2025) -> str:
     category = fix_keys(category)
+    if not callback:
+        callback = _find_teams_2025
 
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
 
     if SPORT_KEY_RECORDS.get(category):
         return SPORT_KEY_RECORDS[category].get("label", "")
 
-    result = _find_teams_2025(category)
+    result = callback(category)
 
     if not result:
         result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=mappings_data,
-            callback=_find_teams_2025,
+            callback=callback,
             fix_result_callable=fix_result_callable,
         )
 
@@ -205,7 +207,7 @@ def find_teams_2025(category) -> str:
         result = resolve_suffix_with_mapping_genders(
             category=category,
             data=football_keys_players,
-            callback=_find_teams_2025,
+            callback=callback,
             fix_result_callable=fix_result_callable,
         )
 
