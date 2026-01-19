@@ -7,9 +7,9 @@ import functools
 
 from ..helps import logger
 from ..legacy_bots.o_bots.utils import resolve_suffix_template
-from ..translations import INTER_FEDS_LOWER, Clubs_key_2, pop_of_football_lower
-from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
-from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
+from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
+# from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
+# from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
 
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",
@@ -97,11 +97,10 @@ def _resolve_club_label(club_key: str) -> str:
     """
     club_key = club_key.lower().strip()
     club_lab = (
-        Clubs_key_2.get(club_key.lower())
-        or pop_of_football_lower.get(club_key)
+        ""
+        or Clubs_key_2.get(club_key.lower())
+        or clubs_teams_leagues.get(club_key)
         or INTER_FEDS_LOWER.get(club_key)
-        or main_relations_resolvers(club_key)
-        or main_films_resolvers(club_key)
         or ""
     )
     return club_lab
@@ -117,7 +116,6 @@ def Get_team_work_Club(category: str) -> str:
     Returns:
         The resolved Arabic label or an empty string if the suffix is unknown.
     """
-
     normalized = category.strip()
     logger.debug(f"get_parties_lab {category=}")
 
