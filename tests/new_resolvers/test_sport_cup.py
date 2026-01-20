@@ -20,7 +20,18 @@ data_0 = {
     "Managers of baseball teams in Japan": "مدربو فرق كرة قاعدة في اليابان",
     "Men's football cup competitions in France": "منافسات كأس كرة القدم رجالية في فرنسا",
     "Men's football cup competitions in Scotland": "منافسات كأس كرة القدم رجالية في إسكتلندا",
-    "Sports cup competitions": "منافسات كؤوس رياضية",
+    "beach volleyball racing teams": "فرق سباق كرة الطائرة الشاطئية",
+    "football teams": "فرق كرة القدم",
+    "canadian-football teams": "فرق كرة القدم الكندية",
+    "trampolining teams": "فرق جمباز القفز",
+    "tennis racing teams": "فرق سباق كرة المضرب",
+    "javelin throw racing teams": "فرق سباق رمي الرمح",
+    "freestyle wrestling teams": "فرق المصارعة الحرة",
+    "beach soccer racing teams": "فرق سباق كرة القدم الشاطئية",
+    "ice sledge hockey teams": "فرق هوكي المزلجة على الجليد",
+    "motorboat teams": "فرق الزوارق النارية",
+    "long jump teams": "فرق القفز الطويل",
+    "beach handball racing teams": "فرق سباق كرة اليد الشاطئية"
 }
 
 resolve_team_suffix_test_data = {
