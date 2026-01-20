@@ -25,7 +25,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install pytest
-        run: pip install pytest
+        run: pip install -r requirements-test.in
 
       - name: Install test dependencies
         run: pip install -r requirements.in

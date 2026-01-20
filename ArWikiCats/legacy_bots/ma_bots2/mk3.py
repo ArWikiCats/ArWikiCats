@@ -25,7 +25,7 @@ ar_lab_before_year_to_add_in = [
     "كتاب بأسماء مستعارة",
     "بطولات اتحاد رجبي للمنتخبات الوطنية",
 ]
-# ---
+
 country_before_year = [
     "men's road cycling",
     "women's road cycling",
