@@ -16,7 +16,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "youth {en_sport}": "{sport_jobs} شبابية",
     "mens youth {en_sport}": "{sport_jobs} للشباب",
     "womens youth {en_sport}": "{sport_jobs} للشابات",
-
     "{en_sport} cup playoffs": "تصفيات كأس {sport_jobs}",
     # "{en_sport} cup": "كأس {sport_jobs}",
     "{en_sport} broadcasters": "مذيعو {sport_jobs}",
@@ -234,7 +233,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "national under-21 {en_sport}": "{sport_jobs} تحت 21 سنة",
     "national under-23 {en_sport}": "{sport_jobs} تحت 23 سنة",
     "national under-24 {en_sport}": "{sport_jobs} تحت 24 سنة",
-
     # teams_formatted_data = {
     "amateur {en_sport} world cup": "كأس العالم {sport_team} للهواة",
     "mens {en_sport} world cup": "كأس العالم {sport_team} للرجال",
@@ -270,7 +268,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     # world championships in athletics
     "world championship in {en_sport}": "بطولة العالم {sport_team}",
     "world championship in {en_sport} athletes": "عداؤو بطولة العالم {sport_team}",
-
     # labels_formatted_data = {
     "{en_sport} finals": "نهائيات {sport_label}",
     "{en_sport}": "{sport_label}",
@@ -280,20 +277,15 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "olympic bronze medalists in {en_sport}": "فائزون بميداليات برونزية أولمبية في {sport_label}",
     "{en_sport} league": "دوري {sport_label}",
     "{en_sport} champions": "أبطال {sport_label}",
-
     "olympics {en_sport}": "{sport_label} في الألعاب الأولمبية",
     "summer olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الصيفية",
     "winter olympics {en_sport}": "{sport_label} في الألعاب الأولمبية الشتوية",
-
     # spicial cases
     "olympics sports": "رياضات الألعاب الأولمبية",
     "summer olympics sports": "رياضات الألعاب الأولمبية الصيفية",
     "winter olympics sports": "رياضات الألعاب الأولمبية الشتوية",
-
     "rugby union chairmen and investors": "رؤساء ومسيرو اتحاد الرجبي",
     "rugby league chairmen and investors": "رؤساء ومسيرو دوري الرجبي",
-
-
     "multi-national {en_sport} championships": "بطولات {sport_jobs} متعددة الجنسيات",
     "national {en_sport} championships": "بطولات {sport_jobs} وطنية",
     "{en_sport} championships": "بطولات {sport_jobs}",
@@ -319,13 +311,15 @@ def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
             "sport_team": record.get("team", ""),
             "sport_label": record.get("label", ""),
         }
-    unified.update({
-        "sports": {
-            "sport_jobs": "رياضية",
-            "sport_team": "",
-            "sport_label": "رياضات",
+    unified.update(
+        {
+            "sports": {
+                "sport_jobs": "رياضية",
+                "sport_team": "",
+                "sport_label": "رياضات",
+            }
         }
-    })
+    )
     return unified
 
 

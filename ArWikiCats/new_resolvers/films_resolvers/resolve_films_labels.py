@@ -172,20 +172,16 @@ def _make_bot() -> MultiDataFormatterBase:
         "remakes of {nat_en} films": "أفلام {nat_ar} معاد إنتاجها",
         # "Category:yemeni action Teen superhero films" : "تصنيف:أفلام حركة مراهقة يمنية أبطال خارقين",
         "{nat_en} television episodes": "حلقات تلفزيونية {nat_ar}",
-
         "{nat_en} television series": "مسلسلات تلفزيونية {nat_ar}",
         "remakes of {nat_en} television series": "مسلسلات تلفزيونية {nat_ar} معاد إنتاجها",
-
         "{nat_en} television-seasons": "مواسم تلفزيونية {nat_ar}",
         "{nat_en} television seasons": "مواسم تلفزيونية {nat_ar}",
         "{nat_en} {film_key} television-seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television seasons": "مواسم تلفزيونية {film_ar} {nat_ar}",
         "{nat_en} {film_key} television series": "مسلسلات تلفزيونية {film_ar} {nat_ar}",
-
         "{nat_en} {film_key} filmszz": "أفلام {film_ar} {nat_ar}",
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "remakes of {nat_en} {film_key} films": "أفلام {film_ar} {nat_ar} معاد إنتاجها",
-
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
         # TODO: move this to jobs bot?
         # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",

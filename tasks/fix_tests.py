@@ -7,6 +7,7 @@ and search for any item like this:
 replace it with:
     "20th century members of maine legislature": "أعضاء هيئة مين التشريعية في القرن 20",
 """
+
 import os
 import re
 from pathlib import Path
@@ -31,7 +32,11 @@ def fix_imports(content: str) -> tuple[str, int]:
     new_content = content.replace(old_import, new_import)
     new_content = new_content.replace("resolve_arabic_category_label", "resolve_label_ar")
 
-    count = content.count(old_import) + content.count("resolve_arabic_category_label") - new_content.count("resolve_arabic_category_label")
+    count = (
+        content.count(old_import)
+        + content.count("resolve_arabic_category_label")
+        - new_content.count("resolve_arabic_category_label")
+    )
     return new_content, count
 
 

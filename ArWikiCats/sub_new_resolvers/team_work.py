@@ -8,6 +8,7 @@ import functools
 from ..helps import logger
 from ..legacy_bots.o_bots.utils import resolve_suffix_template
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
+
 # from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
 # from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
 
@@ -121,7 +122,9 @@ def resolve_clubs_teams_leagues(category: str) -> str:
 
     category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues: {category=}, {category_label=}", category_label)
+    logger.info_if_or_debug(
+        f"<<yellow>> end resolve_clubs_teams_leagues: {category=}, {category_label=}", category_label
+    )
     return category_label
 
 

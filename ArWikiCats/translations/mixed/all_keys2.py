@@ -826,7 +826,7 @@ keys_of_without_in = {
     "waterfalls": "شلالات",
     "wives": "زوجات",
     "works": "أعمال",
-    "years": "سنوات"
+    "years": "سنوات",
 }
 
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}

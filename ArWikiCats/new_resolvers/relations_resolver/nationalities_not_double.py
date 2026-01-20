@@ -14,30 +14,24 @@ result: `مسلسلات تلفزيونية غير أرجنتينية مبنية 
 
 import functools
 
-from ...translations_formats.DataModel.model_data_v2 import MultiDataFormatterBaseV2
-
 from ...helps import logger
 from ...translations import All_Nat
 from ...translations_formats import format_multi_data_v2
+from ...translations_formats.DataModel.model_data_v2 import MultiDataFormatterBaseV2
 
 formatted_data_tv_or_films = {
     "{en_1} {tv_or_film} based on {en_2} {tv_or_film}": "{tv_or_film} {female_1} مبنية على {tv_or_film} {female_2}",
-
     # Bulgarian television series based on South Korean television series
     # "{en_1} films based on {en_2} films": "أفلام {female_1} مبنية على أفلام {female_2}",
     # "{en_1} television series based on {en_2} television series": "مسلسلات تلفزيونية {female_1} مبنية على مسلسلات تلفزيونية {female_2}",
-
     # Mexican television series based on non-Mexican television series
     # "{en_1} television series based on non-{en_2} television series": "مسلسلات تلفزيونية {female_1} مبنية على مسلسلات تلفزيونية غير {female_2}",
     # "{en_1} films based on non-{en_2} films": "أفلام {female_1} مبنية على أفلام غير {female_2}",
-
     "{en_1} {tv_or_film} based on non-{en_2} {tv_or_film}": "{tv_or_film} {female_1} مبنية على {tv_or_film} غير {female_2}",
-
     # Non-Argentine television series based on Argentine television series
     # "non-{en_1} television series based on {en_2} television series": "مسلسلات تلفزيونية غير {female_1} مبنية على مسلسلات تلفزيونية {female_2}",
     # "non-{en_1} films based on {en_2} films": "أفلام غير {female_1} مبنية على أفلام {female_2}",
     "non-{en_1} {tv_or_film} based on {en_2} {tv_or_film}": "{tv_or_film} غير {female_1} مبنية على {tv_or_film} {female_2}",
-
     # American remakes of Argentine films
     # "{en_1} remakes of {en_2} films": "أفلام {female_1} مأخوذة من أفلام {female_2}",
     # "{en_1} remakes of {en_2} television series": "مسلسلات تلفزيونية {female_1} مأخوذة من مسلسلات تلفزيونية {female_2}",
@@ -49,19 +43,13 @@ formatted_data = {
 }
 for key, value in formatted_data_tv_or_films.items():
     formatted_data[key.replace("{tv_or_film}", "films")] = value.replace("{tv_or_film}", "أفلام")
-    formatted_data[key.replace("{tv_or_film}", "television series")] = value.replace("{tv_or_film}", "مسلسلات تلفزيونية")
+    formatted_data[key.replace("{tv_or_film}", "television series")] = value.replace(
+        "{tv_or_film}", "مسلسلات تلفزيونية"
+    )
 
-formatted_data.update({
-    x.replace("based on", "basedon"): v
-    for x, v in formatted_data.items()
-    if "based on" in x
-})
+formatted_data.update({x.replace("based on", "basedon"): v for x, v in formatted_data.items() if "based on" in x})
 
-formatted_data.update({
-    x.replace("non-", "non "): v
-    for x, v in formatted_data.items()
-    if "non-" in x
-})
+formatted_data.update({x.replace("non-", "non "): v for x, v in formatted_data.items() if "non-" in x})
 
 nats_data_1 = {x: {"female_1": v["female"]} for x, v in All_Nat.items()}
 nats_data_2 = {x: {"female_2": v["female"]} for x, v in All_Nat.items()}
@@ -90,6 +78,7 @@ def fix_keys(category: str) -> str:
     category = category.lower().replace("category:", "")
     category = category.replace("'", "")
     return category.strip()
+
 
 #
 

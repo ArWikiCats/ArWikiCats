@@ -6,12 +6,12 @@ import functools
 from ...helps import logger
 from ...legacy_bots.make_bots.teams_mappings_ends import teams_label_mappings_ends
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations import all_country_with_nat_ar, SPORT_KEY_RECORDS
+from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..countries_names_resolvers.countries_names_data import formatted_data_en_ar_only
 from ..nats_as_country_names import nats_keys_as_country_names
-from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 from .utils import fix_keys
+from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 # NOTE: patterns with only en-ar-time should be in COUNTRY_YEAR_DATA to handle countries-time without gender details

@@ -18,13 +18,13 @@ New resolvers for Arabic Wikipedia categories.
 import functools
 
 from ..helps import logger
+from ..sub_new_resolvers import main_other_resolvers
 from .countries_names_resolvers import main_countries_names_resolvers
 from .countries_names_with_sports import main_countries_names_with_sports_resolvers
 from .films_resolvers import main_films_resolvers
 from .jobs_resolvers import main_jobs_resolvers
 from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import main_nationalities_resolvers
-from ..sub_new_resolvers import main_other_resolvers
 from .relations_resolver import main_relations_resolvers
 from .sports_resolvers import main_sports_resolvers, raw_sports, raw_sports_with_suffixes, sport_lab_nat
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main

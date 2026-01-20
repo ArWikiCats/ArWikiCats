@@ -10,12 +10,12 @@ import functools
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ..sub_new_resolvers.peoples_resolver import work_peoples
-from ..sub_new_resolvers import team_work
-from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ..new_resolvers.sports_resolvers.raw_sports import (
     resolve_sport_label_unified,
 )
+from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
+from ..sub_new_resolvers import team_work
+from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..time_formats.time_to_arabic import convert_time_to_arabic
 from ..translations import People_key, get_from_pf_keys2
 from .make_bots.bot_2018 import get_pop_All_18
