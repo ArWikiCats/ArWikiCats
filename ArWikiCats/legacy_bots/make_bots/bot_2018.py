@@ -10,7 +10,7 @@ from typing import Dict
 
 from ...helps import len_print, logger
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.sports_resolvers.match_labs import wrap_team_xo_normal_2025_with_ends
+from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,

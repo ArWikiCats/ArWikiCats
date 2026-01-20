@@ -12,7 +12,7 @@ from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
     resolve_sport_label_unified,
 )
 
-from ArWikiCats.new_resolvers.sports_resolvers.match_labs import wrap_team_xo_normal_2025_with_ends
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {

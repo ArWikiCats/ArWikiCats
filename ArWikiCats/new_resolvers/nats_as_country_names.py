@@ -12,7 +12,7 @@ Reference:
 """
 
 from ..helps import len_print
-from ..translations.nats.Nationality import raw_nats_as_en_key
+from ..translations import raw_nats_as_en_key
 
 nats_keys_as_country_names = {
     "ireland": {

@@ -12,7 +12,7 @@ from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..sub_new_resolvers import team_work
-from ..new_resolvers.sports_resolvers.match_labs import wrap_team_xo_normal_2025_with_ends
+from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ..new_resolvers.sports_resolvers.raw_sports import (
     resolve_sport_label_unified,
 )

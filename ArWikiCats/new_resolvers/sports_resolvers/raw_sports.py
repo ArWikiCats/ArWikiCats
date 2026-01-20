@@ -3,10 +3,8 @@
 
 import functools
 
-from typing import Final
 from ...helps import logger
-from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 
 UNIFIED_FORMATTED_DATA: dict[str, str] = {
@@ -338,7 +336,7 @@ def _load_unified_bot() -> FormatDataV2:
         FormatDataV2: Configured bot for all sports translations.
     """
 
-    UNIFIED_SPORT_KEYS: Final[dict[str, dict[str, str]]] = _build_unified_sport_keys()
+    UNIFIED_SPORT_KEYS: dict[str, dict[str, str]] = _build_unified_sport_keys()
 
     return FormatDataV2(
         formatted_data=UNIFIED_FORMATTED_DATA,
