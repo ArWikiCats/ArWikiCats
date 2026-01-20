@@ -11,37 +11,10 @@ from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
     nationalities_and_sports,
-    raw_sports,
     raw_sports_with_suffixes,
+    raw_sports,
     sport_lab_nat,
 )
-
-
-@functools.lru_cache(maxsize=None)
-def _not_main_sports_resolvers(normalized_category) -> str:
-    """ """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
-
-    logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying _not_main_sports_resolvers resolvers for: {normalized_category=}")
-
-    resolved_label = (
-        raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
-        or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
-        or ""
-    )
-
-    logger.info_if_or_debug(
-        f"<<yellow>> end _not_main_sports_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
-    )
-    return resolved_label
-
-
-@functools.lru_cache(maxsize=None)
-def sub_main_sports_resolvers(normalized_category) -> str:
-    """placeholder for tests patch"""
-    return ""
 
 
 def main_sports_resolvers(normalized_category) -> str:
@@ -63,10 +36,9 @@ def main_sports_resolvers(normalized_category) -> str:
         countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category)
         or nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category)
         or jobs_multi_sports_reslover.jobs_in_multi_sports(normalized_category)
-        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
-        # or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
-        or sub_main_sports_resolvers(normalized_category)
+        or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
+        or raw_sports.resolve_sport_label_unified(normalized_category)
+        or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
         or ""
     )
 

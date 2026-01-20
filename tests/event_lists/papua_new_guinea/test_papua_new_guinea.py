@@ -903,7 +903,7 @@ data_1 = {
     "Roman Catholic church buildings in Papua New Guinea": "مبان كنائس رومانية كاثوليكية في بابوا غينيا الجديدة",
     "Rugby league in Papua New Guinea": "دوري الرجبي في بابوا غينيا الجديدة",
     "Rugby league players in Papua New Guinea by team": "لاعبو دوري رجبي في بابوا غينيا الجديدة حسب الفريق",
-    "Rugby league stadiums in Papua New Guinea": "استادات دوري الرجبي في بابوا غينيا الجديدة",
+    "Rugby league stadiums in Papua New Guinea": "ملاعب دوري رجبي في بابوا غينيا الجديدة",
     "Rugby league teams in Papua New Guinea": "فرق دوري الرجبي في بابوا غينيا الجديدة",
     "Rugby union in Papua New Guinea": "اتحاد الرجبي في بابوا غينيا الجديدة",
     "Running in Papua New Guinea": "ركض في بابوا غينيا الجديدة",

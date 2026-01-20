@@ -20,7 +20,6 @@ KeysDataType = Union[dict, list, Iterable[str]]
 CATEGORY_TYPE_REGISTRY: dict[str, KeysDataType] = {
     "nat": All_Nat,
     "Nat_women": Nat_women,
-    "All_P17": {},
     "countries_from_nat": countries_from_nat,
     "religions": list(RELIGIOUS_KEYS_PP.keys()),
 }

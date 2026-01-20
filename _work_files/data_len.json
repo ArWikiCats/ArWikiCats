@@ -1,5 +1,5 @@
 {
-    "pf_keys2": "33,658",
+    "pf_keys2": "33,657",
     "NEW_P17_FINAL": "24,479",
     "Films_key_CAO": "13,146",
     "films_key_cao2": "11,178",
@@ -22,7 +22,7 @@
     "INDIA_REGION_TRANSLATIONS": "1,424",
     "PLAYERS_TO_MEN_WOMENS_JOBS": "1,342",
     "pop_final_3": "1,308",
-    "keys2_py": "1,220",
+    "keys2_py": "1,218",
     "jobs_pp": "1,012",
     "players_new_keys": "910",
     "Films_keys_both_new_female": "897",
@@ -148,6 +148,5 @@
     "SKATING_LABELS": "4",
     "LANGUAGE_SUFFIX_FORMATS": "2",
     "PAINTER_ROLE_LABELS": "2",
-    "Ambassadors_tab": "0",
-    "All_P17": "0"
+    "Ambassadors_tab": "0"
 }

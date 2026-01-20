@@ -11,11 +11,10 @@ from ...fix import fixtitle
 from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
-    SPORTS_KEYS_FOR_LABEL,
+    # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
     People_key,
@@ -190,7 +189,7 @@ class CountryLabelRetriever:
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
-                or SPORTS_KEYS_FOR_LABEL.get(country, "")
+                # or SPORTS_KEYS_FOR_LABEL.get(country, "")
                 or ""
             )
 
@@ -219,7 +218,6 @@ class CountryLabelRetriever:
         label = (
             New_female_keys.get(country, "")
             or religious_entries.get(country, "")
-            or resolve_languages_labels_with_time(country)
             or People_key.get(country)
             or all_new_resolvers(country)
             or team_work.resolve_clubs_teams_leagues(country)

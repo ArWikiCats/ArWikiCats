@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import c_1_1_lab
 
 fast_data_c_1_1_lab = [
-    {"separator": " by ", "key": "american football teams", "output": "فرق كرة قدم أمريكية"},
     {"separator": " by ", "key": "american rock musicians", "output": "موسيقيو روك أمريكيون"},
     {"separator": " by ", "key": "amphibious warfare vessels", "output": "سفن حربية برمائية"},
     {"separator": " by ", "key": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
@@ -17,7 +16,6 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "key": "australian rules football", "output": "كرة القدم الأسترالية"},
     {"separator": " by ", "key": "buildings and structures demolished", "output": "مبان ومنشآت هدمت"},
     {"separator": " by ", "key": "buildings and structures", "output": "مبان ومنشآت"},
-    {"separator": " by ", "key": "canadian football teams", "output": "فرق كرة قدم كندية"},
     {"separator": " by ", "key": "christian buildings and structures", "output": "مبان ومنشآت مسيحية"},
     {"separator": " by ", "key": "christian music albums", "output": "ألبومات موسيقى مسيحية"},
     {"separator": " by ", "key": "christian universities and colleges", "output": "جامعات وكليات مسيحية"},
@@ -31,7 +29,7 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "key": "hardcore punk albums", "output": "ألبومات هاردكور بانك"},
     {"separator": " by ", "key": "heavy metal albums", "output": "ألبومات هيفي ميتال"},
     {"separator": " by ", "key": "ice hockey leagues", "output": "دوريات هوكي جليد"},
-    {"separator": " by ", "key": "ice hockey teams", "output": "فرق هوكي على الجليد"},
+    {"separator": " by ", "key": "ice hockey teams", "output": "فرق هوكي الجليد"},
     {"separator": " by ", "key": "indie pop albums", "output": "ألبومات إيندي بوب"},
     {"separator": " by ", "key": "indie rock albums", "output": "ألبومات إيندي روك"},
     {"separator": " by ", "key": "international baseball competitions", "output": "منافسات كرة قاعدة دولية"},
@@ -39,7 +37,7 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "key": "law enforcement operations", "output": "عمليات تطبيق القانون"},
     {"separator": " by ", "key": "major league baseball players", "output": "لاعبو دوري كرة القاعدة الرئيسي"},
     {"separator": " by ", "key": "noise music albums", "output": "ألبومات موسيقى نويز"},
-    {"separator": " by ", "key": "olympic games bids", "output": "عروض الألعاب الأوليمبية"},
+    {"separator": " by ", "key": "olympic games bids", "output": "عروض الألعاب الأولمبية"},
     {"separator": " by ", "key": "palestinian people imprisoned", "output": "فلسطينيون مسجونون"},
     {"separator": " by ", "key": "pop punk albums", "output": "ألبومات بوب بانك"},
     {"separator": " by ", "key": "ports and harbours", "output": "مرافئ وموانئ"},

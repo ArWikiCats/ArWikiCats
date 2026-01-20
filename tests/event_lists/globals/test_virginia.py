@@ -736,7 +736,7 @@ data_virginia_2 = {
     "Sports in Martinsburg, West Virginia": "ألعاب رياضية في مرتينسبورغ (فرجينيا الغربية)",
     "Sports in Parkersburg, West Virginia": "ألعاب رياضية في باركرسبورغ (فرجينيا الغربية)",
     "Sports in Roanoke, Virginia": "ألعاب رياضية في روانوك (فرجينيا)",
-    "Sports in West Virginia by sport": "الرياضة في فرجينيا الغربية حسب الرياضة",
+    "Sports in West Virginia by sport": "رياضات في فرجينيا الغربية حسب الرياضة",
     "Sports in Williamsburg, Virginia": "ألعاب رياضية في ويليامزبرغ (فرجينيا)",
     "Sportspeople from Alexandria, Virginia": "رياضيون من الإسكندرية (فرجينيا)",
     "Sportspeople from Arlington County, Virginia": "رياضيون من مقاطعة أرلنغتون (فرجينيا)",

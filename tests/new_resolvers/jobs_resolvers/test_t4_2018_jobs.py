@@ -451,18 +451,12 @@ def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
     label1 = all_new_resolvers(category)
     assert label1 == expected_key
 
-    # label2 = all_new_resolvers(category)
-    # assert label2 == expected_key
-
 
 @pytest.mark.parametrize("category, expected_key", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
 def test_data_fast(category: str, expected_key: str) -> None:
     label1 = all_new_resolvers(category)
     assert label1 == expected_key
-
-    # label2 = all_new_resolvers(category)
-    # assert label2 == expected_key
 
 
 to_test = [

@@ -5,9 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-
-fix_title_all = False
-
+from utils.dump_runner import make_dump_test_name_data
 
 test_historic = {
     "railway stations on national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
@@ -28,6 +26,8 @@ test_historic = {
 }
 
 data_fast = {
+    "1330 in men's football": "كرة قدم رجالية في 1330",
+    "1330 in youth football": "كرة قدم شبابية في 1330",
     "kingdom-of italy": "مملكة إيطاليا",
     "11th century": "القرن 11",
     "12th century": "القرن 12",
@@ -36,7 +36,6 @@ data_fast = {
     "1330 in canada": "كندا في 1330",
     "1330 in china": "الصين في 1330",
     "1330 in football": "كرة القدم في 1330",
-    "1330 in men's football": "كرة القدم للرجال في 1330",
     "1330 in north america": "أمريكا الشمالية في 1330",
     "1330 in rugby union": "اتحاد الرجبي في 1330",
     "1330 in south american football": "كرة القدم الأمريكية الجنوبية في 1330",
@@ -45,7 +44,6 @@ data_fast = {
     "1330 in television": "التلفاز في 1330",
     "1330 in united states": "الولايات المتحدة في 1330",
     "1330 in yemen": "اليمن في 1330",
-    "1330 in youth football": "كرة القدم للشباب في 1330",
     "1330s in united states": "الولايات المتحدة في عقد 1330",
     "24th century": "القرن 24",
     "actors by religion": "ممثلون حسب الدين",
@@ -84,6 +82,18 @@ data_fast = {
 }
 
 data_slow = {
+    "men's basketball": "كرة سلة رجالية",
+    "men's football by continent": "كرة قدم رجالية حسب القارة",
+    "men's football": "كرة قدم رجالية",
+    "men's soccer": "كرة قدم رجالية",
+    "women's bmx": "سباق بي إم إكس نسائية",
+    "women's football by country": "كرة قدم نسائية حسب البلد",
+    "women's football": "كرة قدم نسائية",
+    "women's volleyball": "كرة طائرة نسائية",
+    "youth athletics": "ألعاب قوى شبابية",
+    "youth football by continent": "كرة قدم شبابية حسب القارة",
+    "youth football": "كرة قدم شبابية",
+
     "people from santa fe province": "أشخاص من محافظة سانتا في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",
@@ -340,13 +350,9 @@ data_slow = {
     "medley swimming": "سباحة متنوعة",
     "members of pan-african parliament": "أعضاء البرلمان الإفريقي",
     "men in united states": "رجال في الولايات المتحدة",
-    "men's basketball": "كرة السلة للرجال",
-    "men's football by continent": "كرة القدم للرجال حسب القارة",
     "men's football competitions": "منافسات كرة قدم رجالية",
-    "men's football": "كرة القدم للرجال",
     "men's footballers in djibouti": "لاعبو كرة قدم في جيبوتي",
     "men's footballers in montenegro": "لاعبو كرة قدم في الجبل الأسود",
-    "men's soccer": "كرة القدم للرجال",
     "michigan legislature": "هيئة ميشيغان التشريعية",
     "michigan territory": "إقليم ميشيغان",
     "mike & molly": "مايك ومولي",
@@ -523,7 +529,7 @@ data_slow = {
     "speed skating": "التزلج السريع",
     "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",
     "sports clubs and teams": "أندية وفرق رياضية",
-    "sports teams": "فرق رياضية",
+    "sports teams": "فرق رياضات",
     "sports-people from saxony": "رياضيون من ساكسونيا",
     "squares in london": "ساحات في لندن",
     "sri lankan emigrants to india": "سريلانكيون مهاجرون إلى الهند",
@@ -599,10 +605,6 @@ data_slow = {
     "wheelchair basketball competitions": "منافسات كرة سلة على كراسي متحركة",
     "wheelchair basketball leagues": "دوريات كرة سلة على كراسي متحركة",
     "wisconsin territory": "إقليم ويسكونسن",
-    "women's bmx": "سباق البي إم إكس للسيدات",
-    "women's football by country": "كرة القدم للسيدات حسب البلد",
-    "women's football": "كرة القدم للسيدات",
-    "women's volleyball": "كرة الطائرة للسيدات",
     "works about automobiles": "أعمال عن سيارات",
     "works about countries": "أعمال عن بلدان",
     "works about guinea-bissau": "أعمال عن غينيا بيساو",
@@ -616,16 +618,22 @@ data_slow = {
     "years of 20th century": "سنوات القرن 20",
     "years of 21st century": "سنوات القرن 21",
     "youth athletics competitions": "منافسات ألعاب قوى شبابية",
-    "youth athletics": "ألعاب القوى للشباب",
-    "youth football by continent": "كرة القدم للشباب حسب القارة",
     "youth football competitions": "منافسات كرة قدم شبابية",
-    "youth football": "كرة القدم للشباب",
     "youth olympic gold medalists for turkey": "فائزون بميداليات ذهبية في الألعاب الأولمبية الشبابية من تركيا",
     "youth olympic gold medalists": "فائزون بميداليات ذهبية في الألعاب الأولمبية الشبابية",
     "youth sports competitions": "منافسات رياضية شبابية",
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد",
     "zürich eprix": "زيورخ إي بريكس",
 }
+
+
+to_test = [
+    ("test_country2_bot_historic_1", test_historic),
+    ("test_country2_bot_data_fast", data_fast),
+    ("test_country2_bot_data_slow", data_slow),
+]
+
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
 
 
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=data_fast.keys())

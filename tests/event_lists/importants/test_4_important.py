@@ -5,7 +5,22 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
+data0_skip = {
+    "Lists of fictional presidents of the United States": "قوائم رؤساء الولايات المتحدة الخياليون",
+    "Lists of military units and formations of the United States": "قوائم وحدات وتشكيلات الولايات المتحدة العسكرية",
+}
+
 data0 = {
+    "Mine warfare vessels of Islamic Republic of Iran Navy": "سفن حرب ألغام في البحرية الإيرانية",
+    "Missile boats of Islamic Republic of Iran Navy": "قوارب صواريخ في البحرية الإيرانية",
+    "Amphibious warfare vessels of Islamic Republic of Iran Navy": "سفن حربية برمائية في البحرية الإيرانية",
+    "Ship classes of Islamic Republic of Iran Navy": "فئات سفن في البحرية الإيرانية",
+    "Ships of Islamic Republic of Iran Navy": "سفن البحرية الإيرانية",
+    "Submarines of Islamic Republic of Iran Navy": "غواصات البحرية الإيرانية",
+    "Auxiliary ships of Islamic Republic of Iran Navy": "سفن مساعدة في البحرية الإيرانية",
+    "Destroyers of Islamic Republic of Iran Navy": "مدمرات في البحرية الإيرانية",
+    "Frigates of Islamic Republic of Iran Navy": "فرقاطات في البحرية الإيرانية",
+
     "Leaders of Jewish organizations in United States": "قادة منظمات يهودية في الولايات المتحدة",
     "permanent representatives of bahrain": "مندوبو البحرين الدائمون",
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",
@@ -42,15 +57,6 @@ data0 = {
     "Academic staff of World Islamic Sciences and Education University": "أعضاء هيئة تدريس جامعة العلوم الإسلامية العالمية",
     "World Islamic Sciences and Education University alumni": "خريجو جامعة العلوم الإسلامية العالمية",
     "World Islamic Sciences and Education University": "جامعة العلوم الإسلامية العالمية",
-    "Mine warfare vessels of Islamic Republic of Iran Navy": "سفن حرب ألغام في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Missile boats of Islamic Republic of Iran Navy": "قوارب صواريخ في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Amphibious warfare vessels of Islamic Republic of Iran Navy": "سفن حربية برمائية في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Ship classes of Islamic Republic of Iran Navy": "فئات سفن في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Ships of Islamic Republic of Iran Navy": "سفن القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Submarines of Islamic Republic of Iran Navy": "غواصات القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Auxiliary ships of Islamic Republic of Iran Navy": "سفن مساعدة في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Destroyers of Islamic Republic of Iran Navy": "مدمرات في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
-    "Frigates of Islamic Republic of Iran Navy": "فرقاطات في القوة البحرية لجيش الجمهورية الإسلامية الإيرانية",
 }
 
 data1 = {

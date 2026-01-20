@@ -55,7 +55,6 @@ def _make_players_keys() -> dict:
 
 players_new_keys = _make_players_keys()
 
-All_P17 = {}
 Films_O_TT = {}
 
 
@@ -85,7 +84,6 @@ len_print.data_len(
     "make_bots.matables_bots/bot.py",
     {
         "players_new_keys": players_new_keys,  # 99517
-        "All_P17": All_P17,
     },
 )
 
@@ -94,5 +92,4 @@ __all__ = [
     "players_new_keys",
     "add_to_new_players",
     "add_to_Films_O_TT",
-    "All_P17",
 ]

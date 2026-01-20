@@ -9,8 +9,13 @@ from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import w
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
+    "american football teams": "فرق كرة القدم الأمريكية",
+    "basketball teams": "فرق كرة السلة",
+    "canadian football teams": "فرق كرة القدم الكندية",
+    "rugby union teams": "فرق اتحاد الرجبي",
+    "wheelchair basketball teams": "فرق كرة السلة على الكراسي المتحركة",
+    "football teams": "فرق كرة القدم",
     "amateur football competitions": "منافسات كرة قدم للهواة",
-    "american football teams": "فرق كرة قدم أمريكية",
     "athletics competitions": "منافسات ألعاب قوى",
     "australian rules football clubs": "أندية كرة قدم أسترالية",
     "baseball playerss": "لاعبو كرة قاعدة",
@@ -18,9 +23,7 @@ data_1 = {
     "basketball leagues": "دوريات كرة سلة",
     "basketball people": "أعلام كرة سلة",
     "basketball playerss": "لاعبو كرة سلة",
-    "basketball teams": "فرق كرة سلة",
     "boxing competitions": "منافسات بوكسينغ",
-    "canadian football teams": "فرق كرة قدم كندية",
     "canoeing and kayaking competitions": "منافسات كانو-كاياك",
     "cricket clubs": "أندية كريكت",
     "cycling clubs": "أندية سباق دراجات هوائية",
@@ -45,7 +48,6 @@ data_1 = {
     "rowing clubs": "أندية تجديف",
     "rugby league playerss": "لاعبو دوري رجبي",
     "rugby union competitions": "منافسات اتحاد رجبي",
-    "rugby union teams": "فرق اتحاد رجبي",
     "shooting competitions": "منافسات رماية",
     "soccer matches": "مباريات كرة قدم",
     "table tennis clubs": "أندية كرة طاولة",
@@ -56,7 +58,6 @@ data_1 = {
     "wheelchair basketball competitions": "منافسات كرة سلة على كراسي متحركة",
     "wheelchair basketball leagues": "دوريات كرة سلة على كراسي متحركة",
     "wheelchair basketball playerss": "لاعبو كرة سلة على كراسي متحركة",
-    "wheelchair basketball teams": "فرق كرة سلة على كراسي متحركة",
     "wheelchair handball competitions": "منافسات كرة يد على كراسي متحركة",
     "wheelchair rugby competitions": "منافسات رجبي على كراسي متحركة",
     "wheelchair rugby people": "أعلام رجبي على كراسي متحركة",
@@ -383,9 +384,8 @@ data_1 = {
     "football referees": "حكام كرة قدم",
     "football results": "نتائج كرة قدم",
     "football rivalries": "دربيات كرة قدم",
-    "football teams": "فرق كرة قدم",
     "football trainers": "مدربو كرة قدم",
-    "football umpires": "حكام كرة قدم",
+    "football umpires": "حكام كرة قدم"
 }
 
 data_2 = {

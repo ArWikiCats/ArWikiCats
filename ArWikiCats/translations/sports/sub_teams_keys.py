@@ -2,7 +2,7 @@
 """ """
 
 from ...helps import len_print
-from ..sports.Sport_key import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_OLYMPIC
+from ..sports.Sport_key import SPORT_KEY_RECORDS
 
 sub_teams_new = {
     "current seasons": "مواسم حالية",
@@ -51,13 +51,18 @@ sport_starts = {
     "youth": "للشباب",
 }
 # ---
-for sport, sport_label in SPORTS_KEYS_FOR_LABEL.items():
+# for sport, sport_label in SPORTS_KEYS_FOR_LABEL.items():
+for sport, sport_tab in SPORT_KEY_RECORDS.items():
+    sport_label = sport_tab["label"]
     sub_teams_new[f"youth {sport}"] = f"{sport_label} للشباب"
     sub_teams_new[f"{sport} mass media"] = f"إعلام {sport_label}"
     sub_teams_new[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
+
     for modifier, modifier_label in sport_starts.items():
         sub_teams_new[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
-    olympic_label = SPORTS_KEYS_FOR_OLYMPIC.get(sport, f"{sport_label} أولمبية")
+
+    olympic_label = sport_tab["olympic"] or f"{sport_label} أولمبية"
+
     sub_teams_new[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
     sub_teams_new[f"{sport} olympics"] = olympic_label
     sub_teams_new[f"{sport} olympic"] = olympic_label

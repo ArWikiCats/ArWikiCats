@@ -10,11 +10,9 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps import dump_data, logger
+from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from ...translations import People_key, get_from_new_p17_final
 from ..make_bots.bot_2018 import get_pop_All_18
 
@@ -82,17 +80,13 @@ def make_new_by_label(category: str) -> str:
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = (
-            all_new_resolvers(candidate) or resolve_languages_labels_with_time(candidate) or People_key.get(candidate)
+            ""
+            or all_new_resolvers(candidate)
+            or People_key.get(candidate)
         )
         if film_label:
             resolved = f"بواسطة {film_label}"
             logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")
-
-        if not resolved:
-            nationality_label = sport_lab_nat_load_new(candidate)
-            if nationality_label:
-                resolved = f"بواسطة {nationality_label}"
-                logger.debug(f"Matched nationality label, category: {normalized}, label: {resolved}")
 
     if not resolved:
         resolved = find_dual_by_keys(normalized)

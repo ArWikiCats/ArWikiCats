@@ -150,4 +150,4 @@ def test_combined_complex() -> None:
     """Example: Ending with '- related lists' with multi-word base."""
 
     result = Work_Templates("association football-related lists")
-    assert result == "قوائم متعلقة بكرة قدم"
+    assert result == "قوائم متعلقة بكرة القدم"

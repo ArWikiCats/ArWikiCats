@@ -9,15 +9,9 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...new_resolvers import all_new_resolvers, main_sports_resolvers
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ...new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_unified,
-)
-from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...sub_new_resolvers import team_work
-from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor
 from .. import with_years_bot
@@ -98,16 +92,11 @@ def c_1_1_lab(separator: str, country2: str) -> str:
 
     part_1_label = (
         get_pop_All_18(country2)
-        or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or all_new_resolvers(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_unified(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_table_with_in(country2, separator)
-        or convert_time_to_arabic(country2)
         or time_label(country2)
         or get_from_pf_keys2(country2)
         or get_KAKO(country2)
@@ -137,19 +126,14 @@ def c_2_1_lab(country2: str) -> str:
     part_2_label = (
         get_pop_All_18(country2)
         or bys.get_by_label(country2)
-        or resolve_languages_labels_with_time(country2)
         or People_key.get(country2)
         or all_new_resolvers(country2)
-        or main_sports_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_unified(country2)
         or parties_resolver.get_parties_lab(country2)
         or bys.get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_from_pf_keys2(country2.strip().lower())
         or get_KAKO(country2)
         or time_label(country2)
-        or convert_time_to_arabic(country2)
         or ""
     )
 
@@ -305,7 +289,8 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         Tuple[str, str]: (part_1_label, part_2_label) with resolved Arabic labels, or ("", "") if either could not be resolved.
     """
     part_2_label = (
-        all_new_resolvers(part_2)
+        ""
+        or all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
         or country_bot.fetch_country_term_label(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
@@ -313,7 +298,8 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     )
 
     part_1_label = (
-        all_new_resolvers(part_1)
+        ""
+        or all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1)
         or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""

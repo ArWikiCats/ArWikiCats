@@ -10,7 +10,6 @@ from typing import Tuple
 from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...sub_new_resolvers import team_work
 from ...time_formats import time_to_arabic
 from ...translations import (
@@ -289,7 +288,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "fetch_country_term_label": lambda t: fetch_country_term_label(
             t, normalized_preposition, lab_type="type_label"
         ),
-        "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
         "get_lab_for_country2": get_lab_for_country2,
     }
 
@@ -372,7 +370,6 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "_lookup_country_with_by": _lookup_country_with_by,
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
-        "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
         "fetch_country_term_label": lambda c: fetch_country_term_label(
             c, separator, start_get_country2=start_get_country2
