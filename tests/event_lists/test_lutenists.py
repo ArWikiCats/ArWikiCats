@@ -5,19 +5,19 @@ from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one
 from ArWikiCats import resolve_label_ar
 
 test_lutenists_1 = {
-    "Category:Lutenists": "عازفو آلات وترية",
-    "Category:German lutenists": "عازفو آلات وترية ألمان",
-    "Category:American lutenists": "عازفو آلات وترية أمريكيون",
-    "Category:Spanish lutenists": "عازفو آلات وترية إسبان",
-    "Category:English lutenists": "عازفو آلات وترية إنجليز",
-    "Category:Portuguese lutenists": "عازفو آلات وترية برتغاليون",
-    "Category:British lutenists": "عازفو آلات وترية بريطانيون",
-    "Category:Polish lutenists": "عازفو آلات وترية بولنديون",
-    "Category:Lutenists by nationality": "عازفو آلات وترية حسب الجنسية",
-    "Category:Danish lutenists": "عازفو آلات وترية دنماركيون",
-    "Category:Russian lutenists": "عازفو آلات وترية روس",
-    "Category:French lutenists": "عازفو آلات وترية فرنسيون",
-    "Category:Dutch lutenists": "عازفو آلات وترية هولنديون",
+    "Lutenists": "عازفو آلات وترية",
+    "German lutenists": "عازفو آلات وترية ألمان",
+    "American lutenists": "عازفو آلات وترية أمريكيون",
+    "Spanish lutenists": "عازفو آلات وترية إسبان",
+    "English lutenists": "عازفو آلات وترية إنجليز",
+    "Portuguese lutenists": "عازفو آلات وترية برتغاليون",
+    "British lutenists": "عازفو آلات وترية بريطانيون",
+    "Polish lutenists": "عازفو آلات وترية بولنديون",
+    "Lutenists by nationality": "عازفو آلات وترية حسب الجنسية",
+    "Danish lutenists": "عازفو آلات وترية دنماركيون",
+    "Russian lutenists": "عازفو آلات وترية روس",
+    "French lutenists": "عازفو آلات وترية فرنسيون",
+    "Dutch lutenists": "عازفو آلات وترية هولنديون",
 }
 to_test = [
     ("test_lutenists_1", test_lutenists_1),

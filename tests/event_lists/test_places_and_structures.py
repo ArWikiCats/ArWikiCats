@@ -1,24 +1,24 @@
 #
 import pytest
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data = {
-    "Category:Bridges in Wales by type": "تصنيف:جسور في ويلز حسب الفئة",
-    "Category:British Rail": "تصنيف:السكك الحديدية البريطانية",
-    "Category:History of British Rail": "تصنيف:تاريخ السكك الحديدية البريطانية",
-    "Category:design companies disestablished in 1905": "تصنيف:شركات تصميم انحلت في 1905",
-    "Category:landmarks in Yemen": "تصنيف:معالم في اليمن",
-    "Category:parks in the Roman Empire": "تصنيف:متنزهات في الإمبراطورية الرومانية",
-    "Category:Airlines established in 1968": "تصنيف:شركات طيران أسست في 1968",
-    "Category:Airlines of Afghanistan": "تصنيف:شركات طيران في أفغانستان",
-    "Category:Cargo airlines of the Philippines": "تصنيف:شحن جوي في الفلبين",
-    "Category:Vehicle manufacturing companies disestablished in 1904": "تصنيف:شركات تصنيع المركبات انحلت في 1904",
+    "Bridges in Wales by type": "جسور في ويلز حسب الفئة",
+    "British Rail": "السكك الحديدية البريطانية",
+    "History of British Rail": "تاريخ السكك الحديدية البريطانية",
+    "design companies disestablished in 1905": "شركات تصميم انحلت في 1905",
+    "landmarks in Yemen": "معالم في اليمن",
+    "parks in the Roman Empire": "متنزهات في الإمبراطورية الرومانية",
+    "Airlines established in 1968": "شركات طيران أسست في 1968",
+    "Airlines of Afghanistan": "شركات طيران في أفغانستان",
+    "Cargo airlines of the Philippines": "شحن جوي في الفلبين",
+    "Vehicle manufacturing companies disestablished in 1904": "شركات تصنيع المركبات انحلت في 1904",
 }
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
 @pytest.mark.fast
 def test_places_and_structures(category: str, expected: str) -> None:
-    label = resolve_arabic_category_label(category)
+    label = resolve_label_ar(category)
     assert label == expected

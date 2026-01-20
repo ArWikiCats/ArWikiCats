@@ -54,11 +54,11 @@ data0 = {
 data_1 = {}
 
 data_2 = {
-    "Category:17th-century_establishments_in_Närke_and_Värmland_County": "تأسيسات القرن 17 في مقاطعة ناركه وفارملاند",
-    "Category:17th_century_in_Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند في القرن 17",
-    "Category:Centuries_in_Närke_and_Värmland_County": "قرون في مقاطعة ناركه وفارملاند",
-    "Category:Establishments_in_Närke_and_Värmland_County_by_century": "تأسيسات في مقاطعة ناركه وفارملاند حسب القرن",
-    "Category:Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند",
+    "17th-century_establishments_in_Närke_and_Värmland_County": "تأسيسات القرن 17 في مقاطعة ناركه وفارملاند",
+    "17th_century_in_Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند في القرن 17",
+    "Centuries_in_Närke_and_Värmland_County": "قرون في مقاطعة ناركه وفارملاند",
+    "Establishments_in_Närke_and_Värmland_County_by_century": "تأسيسات في مقاطعة ناركه وفارملاند حسب القرن",
+    "Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند",
 }
 
 data_3 = {}

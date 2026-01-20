@@ -4,11 +4,11 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 data0_no_label = {
-    "Defunct Christian organizations based in United States": "تصنيف:منظمات مسيحية سابقة مقرها في الولايات المتحدة",
-    "Defunct Christian schools in Canada": "تصنيف:مدارس مسيحية سابقة في كندا",
-    "Defunct Christian schools in United States": "تصنيف:مدارس مسيحية سابقة في الولايات المتحدة",
-    "Defunct Islamic organizations based in United States": "تصنيف:منظمات إسلامية سابقة مقرها في الولايات المتحدة",
-    "Defunct Jewish organizations based in United States": "تصنيف:منظمات يهودية سابقة مقرها في الولايات المتحدة",
+    "Defunct Christian organizations based in United States": "منظمات مسيحية سابقة مقرها في الولايات المتحدة",
+    "Defunct Christian schools in Canada": "مدارس مسيحية سابقة في كندا",
+    "Defunct Christian schools in United States": "مدارس مسيحية سابقة في الولايات المتحدة",
+    "Defunct Islamic organizations based in United States": "منظمات إسلامية سابقة مقرها في الولايات المتحدة",
+    "Defunct Jewish organizations based in United States": "منظمات يهودية سابقة مقرها في الولايات المتحدة",
     "Defunct national sports teams by country": "فرق رياضية وطنية سابقة حسب البلد",
     "defunct american football venues": "ملاعب كرة قدم أمريكية سابقة",
     "defunct amusement parks": "متنزهات ملاهي سابقة",
