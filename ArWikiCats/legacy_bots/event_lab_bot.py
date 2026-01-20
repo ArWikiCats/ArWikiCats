@@ -13,9 +13,6 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..new_resolvers import all_new_resolvers
-from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
-from ..time_formats import time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import tmp_bot, with_years_bot
 from .common_resolver_chain import get_lab_for_country2
@@ -23,7 +20,6 @@ from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
 from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
-from .o_bots import university_resolver
 
 
 @functools.lru_cache(maxsize=10000)
@@ -83,12 +79,12 @@ class EventLabResolver:
 
         return list_of_cat, category3
 
-    def _get_country_based_label(self, original_category3: str, list_of_cat: str) -> Tuple[str, str]:
+    def _get_country_based_label(self, original_cat3: str, list_of_cat: str) -> Tuple[str, str]:
         """
         Resolve a country-specific Arabic label when the category represents players from a country and adjust the list marker accordingly.
 
         Parameters:
-            original_category3 (str): The original, unmodified category string used to derive a country-based label.
+            original_cat3 (str): The original, unmodified category string used to derive a country-based label.
             list_of_cat (str): Current list template (e.g., "لاعبو {}") indicating a list form that may be replaced.
 
         Returns:
@@ -99,13 +95,11 @@ class EventLabResolver:
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
         if list_of_cat == "لاعبو {}":
             category_lab = (
-                country2_label_bot.country_2_title_work(original_category3)
-                or get_lab_for_country2(original_category3)
-                or general_resolver.translate_general_category(
-                    original_category3, start_get_country2=False, fix_title=False
-                )
-                or get_pop_All_18(original_category3.lower(), "")
-                or ""
+                ""
+                or country2_label_bot.country_2_title_work(original_cat3)
+                or get_lab_for_country2(original_cat3)
+                or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
+                or get_pop_All_18(original_cat3.lower(), "")
             )
             if category_lab:
                 list_of_cat = ""
@@ -127,15 +121,9 @@ class EventLabResolver:
         # Try different label functions in sequence
         category_lab: str = (
             ""
-            or university_resolver.resolve_university_category(category3)
-            or time_to_arabic.convert_time_to_arabic(category3)
-            or wrap_team_xo_normal_2025_with_ends(category3)
-            or all_new_resolvers(category3)
-            or get_pop_All_18(category3, "")
             or general_resolver.translate_general_category(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
-            or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
         )
         return category_lab
 
@@ -194,7 +182,7 @@ class EventLabResolver:
         Returns:
             str: The resolved Arabic label for the category, or an empty string if no label could be determined.
         """
-        original_category3 = category3
+        original_cat3 = category3
 
         # First, try to get squad-related labels
         category_lab = ""
@@ -209,7 +197,7 @@ class EventLabResolver:
 
         # Handle country-based labels (e.g., basketball players from a country)
         if not category_lab and list_of_cat:
-            country_lab, list_of_cat = self._get_country_based_label(original_category3, list_of_cat)
+            country_lab, list_of_cat = self._get_country_based_label(original_cat3, list_of_cat)
             if country_lab:
                 category_lab = country_lab
 
@@ -240,15 +228,15 @@ class EventLabResolver:
         # Handle case where list exists but no label
         if list_of_cat and not category_lab:
             list_of_cat = ""
-            category_lab = event_label_work(original_category3)
+            category_lab = event_label_work(original_cat3)
 
         # Try template processing if no label yet
         if not category_lab:
-            category_lab = tmp_bot.Work_Templates(original_category3)
+            category_lab = tmp_bot.Work_Templates(original_cat3)
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = general_resolver.translate_general_category(original_category3, fix_title=False)
+            category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
 
         return category_lab
 
