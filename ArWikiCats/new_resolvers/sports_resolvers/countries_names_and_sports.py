@@ -10,7 +10,7 @@ from ...translations import all_country_with_nat_ar, SPORT_KEY_RECORDS
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..countries_names_resolvers.countries_names_data import formatted_data_en_ar_only
 from ..nats_as_country_names import nats_keys_as_country_names
-from .formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
+from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 from .utils import fix_keys
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
