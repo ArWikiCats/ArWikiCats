@@ -19,7 +19,6 @@ from ..ma_bots import country_bot
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
-from ..matables_bots.table1_bot import get_KAKO
 from ..o_bots import bys, parties_resolver
 from .utils import split_text_by_separator
 
@@ -99,7 +98,6 @@ def c_1_1_lab(separator: str, country2: str) -> str:
         or get_table_with_in(country2, separator)
         or time_label(country2)
         or get_from_pf_keys2(country2)
-        # or get_KAKO(country2)
         or ""
     )
 
@@ -132,7 +130,6 @@ def c_2_1_lab(country2: str) -> str:
         or bys.get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_from_pf_keys2(country2.strip().lower())
-        # or get_KAKO(country2)
         or time_label(country2)
         or ""
     )
