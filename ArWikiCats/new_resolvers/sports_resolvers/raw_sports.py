@@ -8,6 +8,8 @@ from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 
 UNIFIED_FORMATTED_DATA: dict[str, str] = {
+    # "{en_sport} teams": "فرق {sport_jobs}",
+    "{en_sport} teams": "فرق {sport_label}",
     # rugby union tournaments for national teams
     "{en_sport} tournaments for national teams": "بطولات {sport_label} للمنتخبات الوطنية",
     "amateur {en_sport}": "{sport_jobs} للهواة",
@@ -50,7 +52,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "{en_sport} seasons": "مواسم {sport_jobs}",
     "{en_sport} competition": "منافسات {sport_jobs}",
     "{en_sport} world competitions": "منافسات {sport_jobs} عالمية",
-    "{en_sport} teams": "فرق {sport_jobs}",
     "{en_sport} television series": "مسلسلات تلفزيونية {sport_jobs}",
     "{en_sport} films": "أفلام {sport_jobs}",
     "{en_sport} music": "موسيقى {sport_jobs}",
