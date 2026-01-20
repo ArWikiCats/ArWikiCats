@@ -73,12 +73,5 @@ def test_yy2_non_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_add")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

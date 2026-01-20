@@ -127,9 +127,5 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, get_job_label)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, get_job_label, run_same=False)

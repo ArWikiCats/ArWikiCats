@@ -208,16 +208,5 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, sport_lab_nat_load_new)
-    dump_diff(diff_result, name)
-
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_empty")
-
-    # add_result2 = {x: v for x, v in data.items() if x not in add_result}
-    # dump_diff(add_result2, f"{name}_not_empty")
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, sport_lab_nat_load_new, run_same=False)

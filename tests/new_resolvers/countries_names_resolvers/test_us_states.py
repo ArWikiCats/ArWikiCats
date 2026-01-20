@@ -31,18 +31,6 @@ for en, ar in US_STATES.items():  # ~150 per state
     if len(all_test_data) > 360:
         break
 
-to_test = [
-    ("test_resolve_us_states", all_test_data, resolve_us_states),
-]
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
 
 @pytest.mark.parametrize("category, expected_key", all_test_data.items(), ids=all_test_data.keys())
 @pytest.mark.slow
@@ -237,3 +225,11 @@ fast_data = {
 def test_fast_data(category: str, expected_key: str) -> None:
     label = resolve_us_states(category)
     assert label == expected_key
+
+
+to_test = [
+    ("test_resolve_us_states", all_test_data, resolve_us_states),
+]
+
+from utils.dump_runner import make_dump_test_name_data_callback
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

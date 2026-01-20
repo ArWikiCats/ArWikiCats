@@ -56,19 +56,5 @@ def test_songs_1(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
-def test_peoples(name: str, data: dict[str, str]) -> None:
-    """
-    Run a dumped comparison of resolved Arabic labels for a dataset and assert there are no differences.
-
-    Parameters:
-        name (str): Identifier used when writing the diff output.
-        data (dict[str, str]): Mapping from English category strings to expected Arabic label strings.
-
-    Raises:
-        AssertionError: If the computed diff does not match the expected result.
-    """
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

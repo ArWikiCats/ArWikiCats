@@ -173,13 +173,5 @@ def test_superhero_data_2(category: str, expected: str) -> None:
 def test_superhero_data_3(category: str, expected: str) -> None:
     result = fetch_films_by_category(category)
     assert result == expected
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-
-    # dump_diff_text (expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data_callback
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

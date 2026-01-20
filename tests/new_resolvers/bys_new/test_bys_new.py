@@ -517,9 +517,5 @@ def test_by_of_fields(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_by_labels)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, resolve_by_labels, run_same=False)

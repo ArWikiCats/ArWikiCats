@@ -49,11 +49,5 @@ to_test = [
     ("test_nas_open_1", data_nats_1, resolve_nats_sport_multi_v2),
     ("test_nas_open_3", data_names_3, resolve_countries_names_sport),
 ]
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data_callback
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)
