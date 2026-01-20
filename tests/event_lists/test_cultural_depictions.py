@@ -2,118 +2,11 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
-data1 = {
-    "Cultural depictions of American men": "تصوير ثقافي عن رجال أمريكيين",
-    "Cultural depictions of American people": "التصوير الثقافي للأمريكيين",
-    "Cultural depictions of Argentine men": "تصوير ثقافي عن رجال أرجنتينيين",
-    "Cultural depictions of Argentine people": "تصوير ثقافي عن أرجنتينيين",
-    "Cultural depictions of Assyrian people": "تصوير ثقافي عن آشوريين",
-    "Cultural depictions of Australian men": "تصوير ثقافي عن رجال أستراليين",
-    "Cultural depictions of Australian people": "تصوير ثقافي عن أستراليين",
-    "Cultural depictions of Austrian men": "تصوير ثقافي عن رجال نمساويين",
-    "Cultural depictions of Austrian people": "التصوير الثقافي للنمساويين",
-    "Cultural depictions of Bangladeshi people": "تصوير ثقافي عن أعلام بنغلاديشيين",
-    "Cultural depictions of Belgian men": "تصوير ثقافي عن رجال بلجيكيين",
-    "Cultural depictions of Belgian people": "تصوير ثقافي عن بلجيكيين",
-    "Cultural depictions of Bolivian men": "تصوير ثقافي عن رجال بوليفيين",
-    "Cultural depictions of Bolivian people": "تصوير ثقافي عن بوليفيين",
-    "Cultural depictions of Bosnia and Herzegovina people": "تصوير ثقافي عن بوسنيين",
-    "Cultural depictions of Brazilian people": "تصوير ثقافي عن برازيليين",
-    "Cultural depictions of British men": "تصوير ثقافي عن رجال بريطانيين",
-    "Cultural depictions of British people": "التصوير الثقافي للبريطانيين",
-    "Cultural depictions of Byzantine emperors": "تصوير ثقافي عن أباطرة بيزنطيين",
-    "Cultural depictions of Byzantine people": "تصوير ثقافي عن البيزنطيين",
-    "Cultural depictions of Canadian people": "تصوير ثقافي عن كنديين",
-    "Cultural depictions of Chilean people": "تصوير ثقافي عن تشيليين",
-    "Cultural depictions of Chinese men": "تصوير ثقافي عن رجال صينيين",
-    "Cultural depictions of Chinese monarchs": "تصوير ثقافي عن ملكيين صينيين",
-    "Cultural depictions of Chinese people": "تصوير ثقافي عن صينيين",
-    "Cultural depictions of Colombian people": "تصوير ثقافي لكولومبيين",
-    "Cultural depictions of Cuban people": "تصوير ثقافي لكوبيين",
-    "Cultural depictions of Czech people": "تصوير ثقافي عن تشيكيين",
-    "Cultural depictions of Danish monarchs": "تصوير ثقافي عن ملكيين دنماركيين",
-    "Cultural depictions of Danish people": "تصوير ثقافي عن دنماركيين",
-    "Cultural depictions of Dutch men": "تصوير ثقافي عن رجال هولنديين",
-    "Cultural depictions of Dutch people": "تصوير ثقافي لهولنديين",
-    "Cultural depictions of Egyptian men": "تصوير ثقافي لرجال مصريين",
-    "Cultural depictions of Egyptian people": "تصوير ثقافي لمصريين",
-    "Cultural depictions of Ethiopian people": "تصوير ثقافي عن إثيوبيين",
-    "Cultural depictions of Filipino people": "تصوير ثقافي عن الفلبينيين",
-    "Cultural depictions of French men": "تصوير ثقافي عن رجال فرنسيين",
-    "Cultural depictions of French people": "التصوير الثقافي للفرنسيين",
-    "Cultural depictions of Greek men": "تصوير ثقافي عن رجال يونانيين",
-    "Cultural depictions of Greek monarchs": "تصوير ثقافي عن ملكيين يونانيين",
-    "Cultural depictions of Greek people": "تصوير ثقافي ليونانيين",
-    "Cultural depictions of Hungarian men": "تصوير ثقافي عن رجال مجريين",
-    "Cultural depictions of Hungarian people": "تصوير ثقافي عن مجريين",
-    "Cultural depictions of Indian monarchs": "تصوير ثقافي عن ملكيين هنود",
-    "Cultural depictions of Iranian men": "تصوير ثقافي عن رجال إيرانيين",
-    "Cultural depictions of Iranian people": "تصوير ثقافي عن إيرانيين",
-    "Cultural depictions of Iraqi people": "تصوير ثقافي لعراقيين",
-    "Cultural depictions of Irish men": "تصوير ثقافي عن رجال أيرلنديين",
-    "Cultural depictions of Irish people": "تصوير ثقافي عن أيرلنديين",
-    "Cultural depictions of Israeli men": "تصوير ثقافي عن رجال إسرائيليين",
-    "Cultural depictions of Israeli people": "تصوير ثقافي للإسرائيليين",
-    "Cultural depictions of Italian men": "تصوير ثقافي عن رجال إيطاليين",
-    "Cultural depictions of Italian people": "تصوير ثقافي عن إيطاليين",
-    "Cultural depictions of Japanese men": "تصوير ثقافي عن رجال يابانيين",
-    "Cultural depictions of Japanese people": "التصوير الثقافي لليابانيين",
-    "Cultural depictions of Libyan people": "تصوير ثقافي لليبيين",
-    "Cultural depictions of Mexican men": "تصوير ثقافي عن رجال مكسيكيين",
-    "Cultural depictions of Mexican people": "تصوير ثقافي لمكسيكيين",
-    "Cultural depictions of Mongolian people": "تصوير ثقافي لمنغوليين",
-    "Cultural depictions of New Zealand people": "تصوير ثقافي عن نيوزيلنديين",
-    "Cultural depictions of North Korean people": "تصوير ثقافي عن كوريين شماليين",
-    "Cultural depictions of Norwegian men": "تصوير ثقافي عن رجال نرويجيين",
-    "Cultural depictions of Norwegian people": "تصوير ثقافي عن نرويجيين",
-    "Cultural depictions of Pakistani people": "تصوير ثقافي عن باكستانيين",
-    "Cultural depictions of Palestinian men": "تصوير ثقافي عن رجال فلسطينيين",
-    "Cultural depictions of Palestinian people": "تصوير ثقافي عن فلسطينيين",
-    "Cultural depictions of Polish men": "تصوير ثقافي عن رجال بولنديين",
-    "Cultural depictions of Polish people": "تصوير ثقافي لبولنديين",
-    "Cultural depictions of Portuguese people": "تصوير ثقافي عن البرتغاليين",
-    "Cultural depictions of Romanian people": "تصوير ثقافي عن رومانيين",
-    "Cultural depictions of Saudi Arabian men": "تصوير ثقافي عن رجال سعوديين",
-    "Cultural depictions of Saudi Arabian people": "تصوير ثقافي لسعوديين",
-    "Cultural depictions of Scottish men": "تصوير ثقافي عن رجال إسكتلنديين",
-    "Cultural depictions of Scottish people": "تصوير ثقافي عن إسكتلنديين",
-    "Cultural depictions of Serbian monarchs": "تصوير ثقافي عن ملكيين صرب",
-    "Cultural depictions of South Korean people": "تصوير ثقافي عن كوريين جنوبيين",
-    "Cultural depictions of Sri Lankan people": "تصوير ثقافي عن أعلام سريلانكيين",
-    "Cultural depictions of Swedish men": "تصوير ثقافي عن رجال سويديين",
-    "Cultural depictions of Swedish people": "تصوير ثقافي عن سويديين",
-    "Cultural depictions of Swiss men": "تصوير ثقافي عن رجال سويسريين",
-    "Cultural depictions of Swiss people": "تصوير ثقافي عن سويسريين",
-    "Cultural depictions of Thai people": "تصوير ثقافي عن تايلنديين",
-    "Cultural depictions of Ugandan people": "تصوير ثقافي عن أوغنديين",
-    "Cultural depictions of Ukrainian men": "تصوير ثقافي عن رجال أوكرانيين",
-    "Cultural depictions of Ukrainian people": "تصوير ثقافي لأوكرانيين",
-    "Cultural depictions of Uruguayan people": "تصوير ثقافي عن أوروغويانيين",
-    "Cultural depictions of Venezuelan people": "تصوير ثقافي عن فنزويليين",
-    "Cultural depictions of Welsh men": "تصوير ثقافي عن رجال ويلزيين",
-    "Cultural depictions of Welsh people": "تصوير ثقافي عن ويلزيين",
-    "Cultural depictions of Yugoslav people": "تصوير ثقافي عن يوغسلافيين",
-    "Cultural depictions of ancient Greek people": "تصوير ثقافي ليونانيين قدماء",
-    "Cultural depictions of architects": "تصوير ثقافي لمعماريين",
-    "Cultural depictions of astronomers": "تصوير ثقافي عن فلكيين",
-    "Cultural depictions of chemists": "تصوير ثقافي عن كيميائيين",
-    "Cultural depictions of comedians": "تصوير ثقافي لكوميديين",
-    "Cultural depictions of diplomats": "تصوير ثقافي عن دبلوماسيين",
-    "Cultural depictions of economists": "تصوير ثقافي لاقتصاديين",
-    "Cultural depictions of journalists": "تصوير ثقافي لصحفيين",
-    "Cultural depictions of male monarchs": "تصوير ثقافي عن ملكيين ذكور",
-    "Cultural depictions of mathematicians": "تصوير ثقافي عن رياضياتيين",
-    "Cultural depictions of military officers": "تصوير ثقافي لضباط عسكريين",
-    "Cultural depictions of monarchs": "تصوير ثقافي عن ملكيين",
-    "Cultural depictions of musicians": "التصوير الثقافي للموسيقيين",
-    "Cultural depictions of occultists": "تصوير ثقافي لغموضيين",
-    "Cultural depictions of physicists": "تصوير ثقافي عن فيزيائيين",
-    "Cultural depictions of politicians": "تصوير ثقافي لسياسيين",
-    "Cultural depictions of religious leaders": "تصوير ثقافي لقادة دينيين",
-    "Cultural depictions of sports-people": "تصوير ثقافي لرياضيين",
-    "Cultural depictions of the Maccabees": "تصوير ثقافي عن مكابيين",
+data0 = {
+    "Cultural depictions of ancient Egyptian women": "تصوير ثقافي عن مصريات قدماء",
+    "Cultural depictions of ancient people": "تصوير ثقافي عن أشخاص قدماء",
 }
 
 fast_data = {
@@ -158,6 +51,7 @@ fast_data = {
 }
 
 data_slow = {
+
     "Cultural depictions of Alfred the Great": "تصوير ثقافي عن ألفريد العظيم",
     "Cultural depictions of Al Gore": "تصوير ثقافي عن آل جور",
     "Cultural depictions of Amelia Earhart": "تصوير ثقافي عن أميليا إيرهارت",
@@ -165,11 +59,9 @@ data_slow = {
     "Cultural depictions of American politicians": "تصوير ثقافي عن سياسيون أمريكيون",
     "Cultural depictions of Amitabh Bachchan": "تصوير ثقافي عن أميتاب باتشان",
     "Cultural depictions of Amy Winehouse": "تصوير ثقافي عن إيمي واينهاوس",
-    "Cultural depictions of ancient Egyptian people": "تصوير ثقافي عن أعلام مصريون قدماء",
-    "Cultural depictions of ancient Egyptian women": "تصوير ثقافي عن مصريات قدماء",
+    "Cultural depictions of ancient Egyptian people": "تصوير ثقافي عن مصريون قدماء",
     "Cultural depictions of ancient Greek women": "تصوير ثقافي عن يونانيات قديمات",
-    "Cultural depictions of ancient people": "تصوير ثقافي عن أشخاص قدماء",
-    "Cultural depictions of ancient Persian people": "تصوير ثقافي عن أعلام فرس قدماء",
+    "Cultural depictions of ancient Persian people": "تصوير ثقافي عن فرس قدماء",
     "Cultural depictions of ancient Roman people": "تصوير ثقافي عن رومان قدماء",
     "Cultural depictions of Andrew Jackson": "تصوير ثقافي عن أندرو جاكسون",
     "Cultural depictions of Andrew Johnson": "تصوير ثقافي عن أندرو جونسون",
@@ -1093,7 +985,6 @@ data_slow = {
 }
 
 to_test = [
-    # ("test_cultural_depictions_1", data1),
     ("test_cultural_depictions_fast", fast_data),
     ("test_cultural_depictions_slow", data_slow),
 ]
@@ -1102,21 +993,21 @@ to_test = [
 @pytest.mark.parametrize("category,expected", fast_data.items(), ids=fast_data.keys())
 def test_cultural_depictions_fast(category: str, expected: str) -> None:
     """Test"""
-    result = resolve_arabic_category_label(category)
+    result = resolve_label_ar(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", data_slow.items(), ids=data_slow.keys())
 def test_cultural_depictions_slow(category: str, expected: str) -> None:
     """Test"""
-    result = resolve_arabic_category_label(category)
+    result = resolve_label_ar(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
 

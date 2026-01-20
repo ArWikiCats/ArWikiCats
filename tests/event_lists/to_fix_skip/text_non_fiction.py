@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data_1 = {
     "Non-fiction books about Indigenous peoples of the Americas": "كتب غير خيالية عن شعوب الأمريكتين الأصليين",
@@ -315,7 +315,7 @@ to_test = [
 @pytest.mark.skip2
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     diff_result2 = {x: v for x, v in diff_result.items() if v}
     # dump_diff(diff_result2, name)

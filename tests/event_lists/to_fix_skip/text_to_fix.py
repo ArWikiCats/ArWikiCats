@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data1 = {
     "Persecution of LGBT people": "اضطهاد الأشخاص المثليين",
@@ -2751,6 +2751,7 @@ data2 = {
     "Works by ancient Latin writers": "أعمال كتاب لاتينيين قدماء",
     "Works by writers from the Ottoman Empire": "أعمال عثمانيين",
 }
+
 to_test = [
     ("text_to_fix_1", data1),
     ("text_to_fix_2", data2),
@@ -2761,7 +2762,7 @@ to_test = [
 @pytest.mark.skip2
 @pytest.mark.dump
 def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     diff_result2 = {x: v for x, v in diff_result.items() if v}
     # dump_diff(diff_result2, name)

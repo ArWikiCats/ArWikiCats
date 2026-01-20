@@ -15,7 +15,7 @@ from ArWikiCats import resolve_arabic_category_label
 def load_json_data(request):
     file_path = request.param
     if not file_path.exists():
-        return {}  # أو pytest.skip(f"File {file_path} not found")
+        return {}  # or pytest.skip(f"File {file_path} not found")
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
