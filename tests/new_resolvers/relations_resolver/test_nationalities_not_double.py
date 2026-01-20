@@ -397,8 +397,10 @@ fast_data_2 = {
     "Vietnamese television series based on South Korean television series": "x",
 }
 
+
 TEMPORAL_CASES = [
-    ("test_remakes_of", resolve_label_ar),
+    ("test_fast_data_1", fast_data_1),
+    ("test_fast_data_2", fast_data_2),
 ]
 
 
@@ -416,12 +418,9 @@ def test_politics_and_history2(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name", ["test_remakes_of"])
+@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_remakes_of(name: str) -> None:
-    data = fast_data_1
+def test_all_dump(name: str, data: str) -> None:
     expected, diff_result = one_dump_test(data, two_nationalities_but_not_double_resolver)
-
     dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
