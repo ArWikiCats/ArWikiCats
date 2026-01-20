@@ -20,12 +20,11 @@ from ...translations import (
     Films_key_man,
 )
 from ..make_bots.bot_2018 import pop_All_2018
-from .bot import All_P17, Films_O_TT, players_new_keys
+from .bot import Films_O_TT, players_new_keys
 
 KAKO: Dict[str, Dict[str, str]] = {
     "pop_All_2018": pop_All_2018,  # 161
     "Films_key_man": Films_key_man,  # 74
-    "All_P17": All_P17,  # 0
     "Films_O_TT": Films_O_TT,  # 0
     "players_new_keys": players_new_keys,  # 1,719
     "jobs_mens_data": jobs_mens_data,  # 96,552
