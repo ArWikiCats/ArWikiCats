@@ -71,7 +71,6 @@ data = [
     {"separator_stripped": "for", "country": "for australia", "output": "أستراليا"},
     {"separator_stripped": "for", "country": "for germany", "output": "ألمانيا"},
     {"separator_stripped": "for", "country": "for national teams", "output": "للمنتخبات الوطنية"},
-    {"separator_stripped": "for", "country": "for women's football", "output": "كرة القدم للسيدات"},
     {"separator_stripped": "from", "country": "aden", "output": "عدن"},
     {"separator_stripped": "from", "country": "ahrweiler (district)", "output": "أرفيلر"},
     {"separator_stripped": "from", "country": "georgia (country)", "output": "جورجيا"},

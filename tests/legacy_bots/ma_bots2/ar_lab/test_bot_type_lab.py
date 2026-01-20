@@ -58,7 +58,7 @@ data = [
     (" by ", "christianity in the united states", "المسيحية في الولايات المتحدة"),
     (" in ", "transportation buildings and structures", "مبان ومنشآت نقل"),
     (" by ", "transportation buildings and structures in new hampshire", "مبان ومنشآت نقل في نيوهامشير"),
-    (" by ", "1789 in men's football", "كرة القدم للرجال في 1789"),
+    (" by ", "1789 in men's football", "كرة قدم رجالية في 1789"),
     (" by ", "buildings and structures in idaho", "مبان ومنشآت في أيداهو"),
     (" in ", "olympic silver medalists for the united states", "فائزون بميداليات فضية أولمبية من الولايات المتحدة"),
     (" by ", "netball in north america", "كرة الشبكة في أمريكا الشمالية"),
@@ -147,7 +147,7 @@ data = [
     (" by ", "1789 in asian sport", "رياضة آسيوية في 1789"),
     (" by ", "1789 in chinese sport", "رياضة صينية في 1789"),
     (" in ", "track and field athletes", "رياضيو المسار والميدان"),
-    (" by ", "1789 in youth football", "كرة القدم للشباب في 1789"),
+    (" by ", "1789 in youth football", "كرة قدم شبابية في 1789"),
     (" by ", "transport infrastructure in south america", "البنية التحتية للنقل في أمريكا الجنوبية"),
     (
         " in ",

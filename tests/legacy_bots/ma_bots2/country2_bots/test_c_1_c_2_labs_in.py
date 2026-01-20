@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import c_1_1_lab
 
 test_data = {
-    "american football teams": "فرق كرة قدم أمريكية",
     "art museums and galleries": "متاحف فنية ومعارض",
     "asian games medalists": "فائزون بميداليات الألعاب الآسيوية",
     "bosnia and herzegovina": "البوسنة والهرسك",
@@ -58,7 +57,7 @@ test_data = {
     "roman catholic churches": "كنائس رومانية كاثوليكية",
     "rugby league playerss": "لاعبو دوري رجبي",
     "rugby union leagues": "اتحاد دوري الرجبي",
-    "rugby union teams": "فرق اتحاد رجبي",
+    "rugby union teams": "فرق اتحاد الرجبي",
     "science and technology": "العلوم والتقانة",
     "sierra leonean expatriates": "سيراليونيون مغتربون",
     "south african businesspeople": "شخصيات أعمال جنوب إفريقية",

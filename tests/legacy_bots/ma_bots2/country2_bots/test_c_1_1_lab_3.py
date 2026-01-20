@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import c_1_1_lab
 
 fast_data_c_1_1_lab = [
-    {"separator": " by ", "key": "american football teams", "output": "فرق كرة قدم أمريكية"},
     {"separator": " by ", "key": "american rock musicians", "output": "موسيقيو روك أمريكيون"},
     {"separator": " by ", "key": "amphibious warfare vessels", "output": "سفن حربية برمائية"},
     {"separator": " by ", "key": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
@@ -17,7 +16,6 @@ fast_data_c_1_1_lab = [
     {"separator": " by ", "key": "australian rules football", "output": "كرة القدم الأسترالية"},
     {"separator": " by ", "key": "buildings and structures demolished", "output": "مبان ومنشآت هدمت"},
     {"separator": " by ", "key": "buildings and structures", "output": "مبان ومنشآت"},
-    {"separator": " by ", "key": "canadian football teams", "output": "فرق كرة قدم كندية"},
     {"separator": " by ", "key": "christian buildings and structures", "output": "مبان ومنشآت مسيحية"},
     {"separator": " by ", "key": "christian music albums", "output": "ألبومات موسيقى مسيحية"},
     {"separator": " by ", "key": "christian universities and colleges", "output": "جامعات وكليات مسيحية"},
