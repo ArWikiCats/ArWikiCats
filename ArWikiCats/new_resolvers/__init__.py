@@ -26,7 +26,7 @@ from .jobs_resolvers import main_jobs_resolvers
 from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import main_nationalities_resolvers
 from .relations_resolver import main_relations_resolvers
-from .sports_resolvers import main_sports_resolvers, raw_sports, raw_sports_with_suffixes, sport_lab_nat
+from .sports_resolvers import main_sports_resolvers, raw_sports_with_suffixes, sport_lab_nat
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 

@@ -11,7 +11,6 @@ from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
     nationalities_and_sports,
-    raw_sports,
     raw_sports_with_suffixes,
     sport_lab_nat,
 )
@@ -65,7 +64,6 @@ def main_sports_resolvers(normalized_category) -> str:
         or jobs_multi_sports_reslover.jobs_in_multi_sports(normalized_category)
         # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
         # or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
         or sub_main_sports_resolvers(normalized_category)
         or ""
     )
