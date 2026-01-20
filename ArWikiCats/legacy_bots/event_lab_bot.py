@@ -246,6 +246,9 @@ class EventLabResolver:
         if not category_lab:
             category_lab = event_label_work(category3)
 
+        if list_of_cat and category3.lower().strip() == "sports events":
+            category_lab = "أحداث رياضية"
+
         # Process list categories if both exist
         if list_of_cat and category_lab:
             # Debug before calling list_of_cat_func_new

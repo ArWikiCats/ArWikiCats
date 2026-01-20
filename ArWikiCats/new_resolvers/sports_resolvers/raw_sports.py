@@ -380,6 +380,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
         str: The translated Arabic label or the default value.
     """
     logger.debug(f"<<yellow>> start resolve_sport_label_unified: {category=}")
+    category = fix_keys(category)
 
     if SPORT_KEY_RECORDS.get(category):
         return SPORT_KEY_RECORDS[category].get("label", "")
