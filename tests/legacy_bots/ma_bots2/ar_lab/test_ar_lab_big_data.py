@@ -787,7 +787,7 @@ data_list_in = {
     "covid-19 pandemic in hawaii": "جائحة فيروس كورونا في هاواي",
     "crimes in peru": "جرائم في بيرو",
     "culture in lugano": "ثقافة في لوغانو",
-    "cycling events in australia": "أحداث سباق دراجات هوائية في أستراليا",
+    "cycling events in australia": "أحداث سباق الدراجات الهوائية في أستراليا",
     "death in byzantine empire": "الموت في الإمبراطورية البيزنطية",
     "deaths from pneumonia in oklahoma": "وفيات الالتهاب الرئوي في أوكلاهوما",
     "deaths in british virgin islands": "وفيات في جزر العذراء البريطانية",

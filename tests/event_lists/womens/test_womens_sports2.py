@@ -34,6 +34,9 @@ data1 = {
 }
 
 data2 = {
+    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح رياضات الألعاب الأولمبية الصيفية",
+    "Category:Winter Olympics sports navigational boxes": "تصنيف:صناديق تصفح رياضات الألعاب الأولمبية الشتوية",
+
     "Category:Former Olympic sports": "تصنيف:رياضات أولمبية سابقة",
     "Category:Ancient Olympic sports": "تصنيف:رياضات أولمبية قديمة",
     "Category:Olympic sports": "تصنيف:رياضات ألعاب أولمبية",
@@ -42,11 +45,9 @@ data2 = {
     "Category:Summer Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الصيفية",
     "Category:Winter Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الشتوية",
     "Category:Summer Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
-    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الصيفية",
     "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
     "Category:Azerbaijan sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في أذربيجان",
     "Category:Austria sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في النمسا",
-    "Category:Winter Olympics sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية الشتوية",
     "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
     "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
     "Category:sports by country": "تصنيف:ألعاب رياضية حسب البلد",

@@ -27,7 +27,7 @@ data6 = {
     "american football teams": "فرق كرة قدم أمريكية",
     "american football venues": "ملاعب كرة قدم أمريكية",
     "athletics competitions": "منافسات ألعاب قوى",
-    "athletics navigational boxes": "صناديق تصفح ألعاب قوى",
+    "athletics navigational boxes": "صناديق تصفح ألعاب القوى",
     "athletics venues": "ملاعب ألعاب قوى",
     "australian rules football clubs": "أندية كرة قدم أسترالية",
     "badminton venues": "ملاعب تنس ريشة",

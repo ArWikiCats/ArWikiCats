@@ -34,6 +34,9 @@ fast_data_2 = {}
 
 fast_data_3 = {
     "Lists of sports events": "قوائم أحداث رياضية",
+    "Sports events navigational boxes": "صناديق تصفح أحداث رياضية",
+    "Sports events templates": "قوالب أحداث رياضية",
+
     "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
     "Lists of American sports events": "قوائم أحداث رياضية أمريكية",
     "Lists of announcers of American sports events": "قوائم مذيعون من أحداث رياضية أمريكية",
@@ -47,8 +50,6 @@ fast_data_3 = {
     "Men's sports events": "أحداث رياضية رجالية",
     "Sports events by continent": "أحداث رياضية حسب القارة",
     "Sports events by sport": "أحداث رياضية حسب الرياضة",
-    "Sports events navigational boxes": "صناديق تصفح أحداث رياضية",
-    "Sports events templates": "قوالب أحداث رياضية",
     "Sports events": "أحداث رياضية",
     "Women's sports events by continent": "أحداث رياضية نسائية حسب القارة",
     "Women's sports events in Africa": "أحداث رياضية نسائية في إفريقيا",

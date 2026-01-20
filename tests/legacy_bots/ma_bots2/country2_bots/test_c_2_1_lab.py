@@ -63,7 +63,7 @@ fast_data_c_2_1_lab = {
     "archelaus of macedon": "أرخيلاوس الأول المقدوني",
     "asian football confederation": "الاتحاد الآسيوي لكرة القدم",
     "asian tennis federation": "الاتحاد الآسيوي لكرة المضرب",
-    "athletics navigational boxes": "صناديق تصفح ألعاب قوى",
+    "athletics navigational boxes": "صناديق تصفح ألعاب القوى",
     "australian capital territory": "إقليم العاصمة الأسترالية",
     "australian national university": "جامعة أستراليا الوطنية",
     "australian royal air force": "القوات الجوية الملكية الأسترالية",

@@ -79,6 +79,9 @@ wheelchair_basketball = {
 
 
 wheelchair_sports = {
+
+    "Category:Wheelchair basketball templates": "تصنيف:قوالب كرة السلة على الكراسي المتحركة",
+    "Category:Wheelchair rugby templates": "تصنيف:قوالب الرجبي على الكراسي المتحركة",
     "Category:Wheelchair basketball leagues": "تصنيف:دوريات كرة سلة على كراسي متحركة",
     "Category:Wheelchair basketball players at the 2020 Parapan American Games": "تصنيف:لاعبو كرة سلة على كراسي متحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair basketball players at the 2020 Summer Paralympics": "تصنيف:لاعبو كرة سلة على كراسي متحركة في الألعاب البارالمبية الصيفية 2020",
@@ -90,7 +93,6 @@ wheelchair_sports = {
     "Category:Wheelchair basketball teams in Spain": "تصنيف:فرق كرة السلة على الكراسي المتحركة في إسبانيا",
     "Category:Wheelchair basketball teams in Turkey": "تصنيف:فرق كرة السلة على الكراسي المتحركة في تركيا",
     "Category:Wheelchair basketball teams": "تصنيف:فرق كرة سلة على كراسي متحركة",
-    "Category:Wheelchair basketball templates": "تصنيف:قوالب كرة سلة على كراسي متحركة",
     "Category:Wheelchair basketball terminology": "تصنيف:مصطلحات كرة سلة على كراسي متحركة",
     "Category:Wheelchair basketball venues in Turkey": "تصنيف:ملاعب كرة السلة على الكراسي المتحركة في تركيا",
     "Category:Wheelchair Basketball World Championship": "تصنيف:بطولة العالم لكرة السلة على الكراسي المتحركة",
@@ -123,7 +125,6 @@ wheelchair_sports = {
     "Category:Wheelchair rugby players at the 2020 Summer Paralympics": "تصنيف:لاعبو رجبي على كراسي متحركة في الألعاب البارالمبية الصيفية 2020",
     "Category:Wheelchair rugby players by nationality": "تصنيف:لاعبو رجبي على كراسي متحركة حسب الجنسية",
     "Category:Wheelchair rugby players": "تصنيف:لاعبو رجبي على كراسي متحركة",
-    "Category:Wheelchair rugby templates": "تصنيف:قوالب رجبي على كراسي متحركة",
     "Category:Wheelchair rugby": "تصنيف:الرجبي على الكراسي المتحركة",
     "Category:Wheelchair tennis at the 2020 Parapan American Games": "تصنيف:كرة المضرب على الكراسي المتحركة في ألعاب بارابان الأمريكية 2020",
     "Category:Wheelchair tennis at the 2020 Summer Paralympics": "تصنيف:كرة المضرب على الكراسي المتحركة في الألعاب البارالمبية الصيفية 2020",

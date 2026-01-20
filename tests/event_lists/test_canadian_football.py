@@ -9,6 +9,9 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 data1 = {
+    "Category:Canadian football venues": "تصنيف:ملاعب كرة القدم الكندية",
+    "Category:Canadian football templates": "تصنيف:قوالب كرة القدم الكندية",
+
     "Category:African-American coaches of Canadian football": "تصنيف:مدربو كرة قدم كندية أمريكيون أفارقة",
     "Category:American players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية أمريكيون حسب المكان المأهول",
     "Category:American players of Canadian football by state": "تصنيف:لاعبو كرة قدم كندية أمريكيون حسب الولاية",
@@ -16,8 +19,7 @@ data1 = {
     "Category:Australian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية أستراليون",
     "Category:Bahamian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية بهاميون",
     "Category:Cameroonian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كاميرونيون",
-    "Category:Canadian football venues": "تصنيف:ملاعب كرة قدم كندية",
-    "Category:Canadian football templates": "تصنيف:قوالب كرة قدم كندية",
+
     "Category:Canadian players of Canadian football by populated place": "تصنيف:لاعبو كرة قدم كندية كنديون حسب المكان المأهول",
     "Category:Coaches of Canadian football": "تصنيف:مدربو كرة قدم كندية",
     "Category:Cuban players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كوبيون",
@@ -250,7 +252,6 @@ def test_canadian_football_3(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    # dump_diff(diff_result, name)
+    dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
