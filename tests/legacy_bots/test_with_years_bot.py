@@ -89,7 +89,7 @@ def test_year_at_start_ar_lab_before_year_to_add_in() -> None:
     # remainder_label in ar_label_before_year_to_add_in -> " في "
 
     result = Try_With_Years("1900 rugby union tournaments for national teams")
-    assert result == "بطولات اتحاد رجبي في للمنتخبات الوطنية 1900"
+    assert result == "بطولات اتحاد الرجبي للمنتخبات الوطنية 1900"
 
 
 @pytest.mark.fast
