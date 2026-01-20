@@ -5,9 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-
-fix_title_all = False
-
+from utils.dump_runner import make_dump_test_name_data
 
 test_historic = {
     "railway stations on national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
@@ -626,6 +624,15 @@ data_slow = {
     "zambian emigrants to sweden": "زامبيون مهاجرون إلى السويد",
     "zürich eprix": "زيورخ إي بريكس",
 }
+
+
+to_test = [
+    ("test_country2_bot_historic_1", test_historic),
+    ("test_country2_bot_data_fast", data_fast),
+    ("test_country2_bot_data_slow", data_slow),
+]
+
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
 
 
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=data_fast.keys())
