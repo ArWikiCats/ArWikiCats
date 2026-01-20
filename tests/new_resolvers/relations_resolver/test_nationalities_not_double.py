@@ -4,9 +4,11 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.relations_resolver.remakes_of_resolver import resolve_remakes_of_resolver
+from ArWikiCats.new_resolvers.relations_resolver.nationalities_not_double import two_nationalities_but_not_double_resolver
 
-fast_data_empty = {
+fast_data_1 = {
+    "Mexican television series based on non-Mexican television series": "مسلسلات تلفزيونية مكسيكية مبنية على مسلسلات تلفزيونية غير مكسيكية",
+    "Non-Argentine television series based on Argentine television series": "مسلسلات تلفزيونية غير أرجنتينية مبنية على مسلسلات تلفزيونية أرجنتينية",
     "American remakes of Argentine films": "أفلام أمريكية مأخوذة من أفلام أرجنتينية",
     "American remakes of Belgian films": "أفلام أمريكية مأخوذة من أفلام بلجيكية",
     "American remakes of Brazilian films": "أفلام أمريكية مأخوذة من أفلام برازيلية",
@@ -80,7 +82,7 @@ fast_data_empty = {
     "Thai remakes of Taiwanese films": "أفلام تايلندية مأخوذة من أفلام تايوانية",
 }
 
-fast_data = {
+fast_data_2 = {
     "American remakes of Argentine films": "أفلام أمريكية مأخوذة من أفلام أرجنتينية",
 }
 
@@ -89,24 +91,25 @@ TEMPORAL_CASES = [
 ]
 
 
-@pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
+@pytest.mark.parametrize("category, expected", fast_data_2.items(), ids=fast_data_2.keys())
 @pytest.mark.fast
 def test_politics_and_history(category: str, expected: str) -> None:
-    label = resolve_remakes_of_resolver(category)
+    label = two_nationalities_but_not_double_resolver(category)
     assert label == expected
 
-@pytest.mark.parametrize("category, expected", fast_data_empty.items(), ids=fast_data_empty.keys())
+
+@pytest.mark.parametrize("category, expected", fast_data_1.items(), ids=fast_data_1.keys())
 @pytest.mark.fast
 def test_politics_and_history2(category: str, expected: str) -> None:
-    label = resolve_remakes_of_resolver(category)
+    label = two_nationalities_but_not_double_resolver(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("name", ["test_remakes_of"])
 @pytest.mark.dump
 def test_remakes_of(name: str) -> None:
-    data = fast_data_empty
-    expected, diff_result = one_dump_test(data, resolve_remakes_of_resolver)
+    data = fast_data_1
+    expected, diff_result = one_dump_test(data, two_nationalities_but_not_double_resolver)
 
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
