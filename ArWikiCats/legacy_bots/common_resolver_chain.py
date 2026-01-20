@@ -50,7 +50,6 @@ def get_lab_for_country2(country: str) -> str:
         or work_peoples(country2)
         or get_KAKO(country2)
         or convert_time_to_arabic(country2)
-        or get_pop_All_18(country2)
         or ""
     )
     logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
