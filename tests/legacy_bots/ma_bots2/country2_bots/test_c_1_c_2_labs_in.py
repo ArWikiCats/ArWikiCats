@@ -56,7 +56,7 @@ test_data = {
     "roman catholic bishops": "أساقفة كاثوليك رومان",
     "roman catholic churches": "كنائس رومانية كاثوليكية",
     "rugby league playerss": "لاعبو دوري رجبي",
-    "rugby union leagues": "اتحاد دوري الرجبي",
+    "rugby union leagues": "دوريات اتحاد رجبي",
     "rugby union teams": "فرق اتحاد الرجبي",
     "science and technology": "العلوم والتقانة",
     "sierra leonean expatriates": "سيراليونيون مغتربون",
