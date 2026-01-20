@@ -2,57 +2,57 @@
 import pytest
 from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data0 = {
-    "Category:Women's sports clubs and teams in Afghanistan": "تصنيف:أندية وفرق رياضية نسائية في أفغانستان",
-    "Category:Women's sports seasons": "تصنيف:مواسم رياضات نسائية",
+    "Women's sports clubs and teams in Afghanistan": "أندية وفرق رياضية نسائية في أفغانستان",
+    "Women's sports seasons": "مواسم رياضات نسائية",
 }
 
 data1 = {
-    "Category:American women's sports": "تصنيف:رياضات نسائية أمريكية",
-    "Category:Women's sports by dependent territory": "تصنيف:رياضات نسائية حسب الأقاليم التابعة",
-    "Category:women's sports clubs": "تصنيف:أندية رياضية نسائية",
-    "Category:women's sports competitions": "تصنيف:منافسات رياضية نسائية",
-    "Category:women's sports leagues": "تصنيف:دوريات رياضية نسائية",
-    "Category:women's sports organizations": "تصنيف:منظمات رياضية نسائية",
-    "Category:women's sports teams": "تصنيف:فرق رياضية نسائية",
-    "Category:national women's sports teams": "تصنيف:منتخبات رياضية وطنية نسائية",
-    "Category:college women's sports teams in united states": "تصنيف:فرق رياضات الكليات للسيدات في الولايات المتحدة",
-    "Category:mexican women's sports": "تصنيف:رياضات نسائية مكسيكية",
-    "Category:canadian women's sports": "تصنيف:رياضات نسائية كندية",
-    "Category:american women's sports": "تصنيف:رياضات نسائية أمريكية",
-    "Category:2026 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 2026",
-    "Category:1964 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1964",
-    "Category:1972 in American women's sports": "تصنيف:رياضات نسائية أمريكية في 1972",
-    "Category:2003 in Canadian women's sports": "تصنيف:رياضات نسائية كندية في 2003",
-    "Category:Defunct women's sports clubs and teams": "",
-    "Category:Women's sport by continent and period": "تصنيف:رياضة نسائية حسب القارة والحقبة",
-    "Category:Women's sport by period": "تصنيف:رياضة نسائية حسب الحقبة",
-    "Category:Women's sport in Mexico City": "تصنيف:رياضة نسائية في مدينة مكسيكو",
-    "Category:Women's sport in Oceania by period": "تصنيف:رياضة نسائية في أوقيانوسيا حسب الحقبة",
+    "American women's sports": "رياضات نسائية أمريكية",
+    "Women's sports by dependent territory": "رياضات نسائية حسب الأقاليم التابعة",
+    "women's sports clubs": "أندية رياضية نسائية",
+    "women's sports competitions": "منافسات رياضية نسائية",
+    "women's sports leagues": "دوريات رياضية نسائية",
+    "women's sports organizations": "منظمات رياضية نسائية",
+    "women's sports teams": "فرق رياضية نسائية",
+    "national women's sports teams": "منتخبات رياضية وطنية نسائية",
+    "college women's sports teams in united states": "فرق رياضات الكليات للسيدات في الولايات المتحدة",
+    "mexican women's sports": "رياضات نسائية مكسيكية",
+    "canadian women's sports": "رياضات نسائية كندية",
+    "american women's sports": "رياضات نسائية أمريكية",
+    "2026 in American women's sports": "رياضات نسائية أمريكية في 2026",
+    "1964 in American women's sports": "رياضات نسائية أمريكية في 1964",
+    "1972 in American women's sports": "رياضات نسائية أمريكية في 1972",
+    "2003 in Canadian women's sports": "رياضات نسائية كندية في 2003",
+    "Defunct women's sports clubs and teams": "",
+    "Women's sport by continent and period": "رياضة نسائية حسب القارة والحقبة",
+    "Women's sport by period": "رياضة نسائية حسب الحقبة",
+    "Women's sport in Mexico City": "رياضة نسائية في مدينة مكسيكو",
+    "Women's sport in Oceania by period": "رياضة نسائية في أوقيانوسيا حسب الحقبة",
 }
 
 data2 = {
-    "Category:Summer Olympics sports navigational boxes": "تصنيف:صناديق تصفح رياضات الألعاب الأولمبية الصيفية",
-    "Category:Winter Olympics sports navigational boxes": "تصنيف:صناديق تصفح رياضات الألعاب الأولمبية الشتوية",
+    "Summer Olympics sports navigational boxes": "صناديق تصفح رياضات الألعاب الأولمبية الصيفية",
+    "Winter Olympics sports navigational boxes": "صناديق تصفح رياضات الألعاب الأولمبية الشتوية",
 
-    "Category:Former Olympic sports": "تصنيف:رياضات أولمبية سابقة",
-    "Category:Ancient Olympic sports": "تصنيف:رياضات أولمبية قديمة",
-    "Category:Olympic sports": "تصنيف:رياضات ألعاب أولمبية",
-    "Category:Summer Olympic sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
-    "Category:Winter Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الشتوية",
-    "Category:Summer Olympics sports templates": "تصنيف:قوالب رياضات الألعاب الأولمبية الصيفية",
-    "Category:Winter Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الشتوية",
-    "Category:Summer Olympics sports": "تصنيف:رياضات الألعاب الأولمبية الصيفية",
-    "Category:Olympic sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في الألعاب الأولمبية",
-    "Category:Azerbaijan sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في أذربيجان",
-    "Category:Austria sports navigational boxes": "تصنيف:صناديق تصفح الرياضة في النمسا",
-    "Category:wheelchair sports": "تصنيف:ألعاب رياضية على الكراسي المتحركة",
-    "Category:Sports at the Summer Universiade": "تصنيف:ألعاب رياضية في الألعاب الجامعية الصيفية",
-    "Category:sports by country": "تصنيف:ألعاب رياضية حسب البلد",
-    "Category:sports by month": "تصنيف:ألعاب رياضية حسب الشهر",
-    "Category:Sports in Westchester County, New York": "تصنيف:ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
+    "Former Olympic sports": "رياضات أولمبية سابقة",
+    "Ancient Olympic sports": "رياضات أولمبية قديمة",
+    "Olympic sports": "رياضات ألعاب أولمبية",
+    "Summer Olympic sports": "رياضات الألعاب الأولمبية الصيفية",
+    "Winter Olympics sports templates": "قوالب رياضات الألعاب الأولمبية الشتوية",
+    "Summer Olympics sports templates": "قوالب رياضات الألعاب الأولمبية الصيفية",
+    "Winter Olympics sports": "رياضات الألعاب الأولمبية الشتوية",
+    "Summer Olympics sports": "رياضات الألعاب الأولمبية الصيفية",
+    "Olympic sports navigational boxes": "صناديق تصفح الرياضة في الألعاب الأولمبية",
+    "Azerbaijan sports navigational boxes": "صناديق تصفح الرياضة في أذربيجان",
+    "Austria sports navigational boxes": "صناديق تصفح الرياضة في النمسا",
+    "wheelchair sports": "ألعاب رياضية على الكراسي المتحركة",
+    "Sports at the Summer Universiade": "ألعاب رياضية في الألعاب الجامعية الصيفية",
+    "sports by country": "ألعاب رياضية حسب البلد",
+    "sports by month": "ألعاب رياضية حسب الشهر",
+    "Sports in Westchester County, New York": "ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
 }
 
 to_test = [
@@ -68,25 +68,25 @@ def test_sports2_data_0(category: str, expected: str) -> None:
     """
     pytest tests/event_lists/womens/test_womens_sports2.py::test_sports2_data_0
     """
-    assert resolve_arabic_category_label(category) == expected
+    assert resolve_label_ar(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
 @pytest.mark.fast
 def test_sports2_data_1(category: str, expected: str) -> None:
-    assert resolve_arabic_category_label(category) == expected
+    assert resolve_label_ar(category) == expected
 
 
 @pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
 @pytest.mark.fast
 def test_sports2_data_2(category: str, expected: str) -> None:
-    assert resolve_arabic_category_label(category) == expected
+    assert resolve_label_ar(category) == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.dump
 def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
     dump_diff(diff_result, name)
     # dump_same_and_not_same(data, diff_result, name, True)
     # dump_diff_text (expected, diff_result, name)
