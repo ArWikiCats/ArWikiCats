@@ -8,6 +8,22 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 
+data4 = {
+    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة القدم الكندية",
+    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة القدم الكندية",
+    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة القدم الكندية",
+    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة القدم الكندية",
+    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة القدم الكندية",
+    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة القدم الكندية",
+    "Category:Canadian football placekickers": "تصنيف:مسددو كرة القدم الكندية",
+    "Category:Canadian football scouts": "تصنيف:كشافة كرة القدم الكندية",
+    "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة القدم الكندية",
+    "Category:Canadian football tackles": "تصنيف:مصطدمو كرة القدم الكندية",
+    "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة القدم الكندية",
+    "Category:Canadian football guards": "تصنيف:حراس كرة القدم الكندية",
+    "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة القدم الكندية"
+}
+
 data1 = {
     "Category:Canadian football venues": "تصنيف:ملاعب كرة القدم الكندية",
     "Category:Canadian football templates": "تصنيف:قوالب كرة القدم الكندية",
@@ -210,26 +226,14 @@ data3 = {
     "Category:Canadian football venues in Quebec": "تصنيف:ملاعب كرة القدم الكندية في كيبك",
     "Category:Canadian football venues in the United States": "تصنيف:ملاعب كرة القدم الكندية في الولايات المتحدة",
     "Category:Canadian football": "تصنيف:كرة القدم الكندية",
-    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كنديون",
-    "Category:Canadian football running backs": "تصنيف:راكضون للخلف كرة قدم كندية",
-    "Category:Canadian football linebackers": "تصنيف:أظهرة كرة قدم كندية",
-    "Category:Canadian football centres": "تصنيف:لاعبو وسط كرة قدم كندية",
-    "Category:Canadian football defensive linemen": "تصنيف:مدافعو خط كرة قدم كندية",
-    "Category:Canadian football defensive backs": "تصنيف:مدافعون خلفيون كرة قدم كندية",
-    "Category:Canadian football fullbacks": "تصنيف:مدافعو كرة قدم كندية",
-    "Category:Canadian football placekickers": "تصنيف:مسددو كرة قدم كندية",
-    "Category:Canadian football scouts": "تصنيف:كشافة كرة قدم كندية",
-    "Category:Canadian football offensive linemen": "تصنيف:مهاجمو خط كرة قدم كندية",
-    "Category:Canadian football tackles": "تصنيف:مصطدمو كرة قدم كندية",
-    "Category:Canadian football wide receivers": "تصنيف:مستقبلون واسعون كرة قدم كندية",
-    "Category:Canadian football guards": "تصنيف:حراس كرة قدم كندية",
-    "Category:Canadian football quarterbacks": "تصنيف:أظهرة رباعيون كرة قدم كندية",
+    "Category:Canadian players of Canadian football": "تصنيف:لاعبو كرة قدم كندية كنديون"
 }
 
 to_test = [
     ("test_canadian_football_1", data1),
     ("test_canadian_football_2", data2),
     ("test_canadian_football_3", data3),
+    ("test_canadian_football_4", data4),
 ]
 
 
@@ -245,6 +249,11 @@ def test_canadian_football_2(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("category, expected", data3.items(), ids=data3.keys())
 def test_canadian_football_3(category: str, expected: str) -> None:
+    assert resolve_arabic_category_label(category) == expected
+
+
+@pytest.mark.parametrize("category, expected", data4.items(), ids=data4.keys())
+def test_canadian_football_4(category: str, expected: str) -> None:
     assert resolve_arabic_category_label(category) == expected
 
 
