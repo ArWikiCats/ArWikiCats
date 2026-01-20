@@ -82,7 +82,8 @@ def make_new_by_label(category: str) -> str:
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
         film_label = (
-            all_new_resolvers(candidate) or resolve_languages_labels_with_time(candidate) or People_key.get(candidate)
+            all_new_resolvers(candidate)
+            or People_key.get(candidate)
         )
         if film_label:
             resolved = f"بواسطة {film_label}"

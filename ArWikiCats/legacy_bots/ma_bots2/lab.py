@@ -10,7 +10,6 @@ from typing import Tuple
 from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...sub_new_resolvers import team_work
 from ...time_formats import time_to_arabic
 from ...translations import (
@@ -289,7 +288,6 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "fetch_country_term_label": lambda t: fetch_country_term_label(
             t, normalized_preposition, lab_type="type_label"
         ),
-        "resolve_languages_labels_with_time": resolve_languages_labels_with_time,
         "get_lab_for_country2": get_lab_for_country2,
     }
 
