@@ -4,9 +4,9 @@
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data4 = {
     "Canadian football running backs": "راكضون للخلف كرة القدم الكندية",
