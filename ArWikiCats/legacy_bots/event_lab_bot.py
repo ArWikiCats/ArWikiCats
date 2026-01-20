@@ -14,7 +14,7 @@ from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..translations import Ambassadors_tab, get_from_new_p17_final
-from . import tmp_bot, with_years_bot
+from . import with_years_bot
 from .common_resolver_chain import get_lab_for_country2
 from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
@@ -31,7 +31,7 @@ def event_label_work(country: str) -> str:
     resolved_label = (
         ""
         or get_lab_for_country2(country2)
-        or get_from_new_p17_final(country2, "")
+        # or get_from_new_p17_final(country2, "")
         or Ambassadors_tab.get(country2, "")
         or country_bot.event2_d2(country2)
         or with_years_bot.wrap_try_with_years(country2)
@@ -226,10 +226,6 @@ class EventLabResolver:
         if list_of_cat and not category_lab:
             list_of_cat = ""
             category_lab = event_label_work(original_cat3)
-
-        # Try template processing if no label yet
-        # if not category_lab:
-        #     category_lab = tmp_bot.Work_Templates(original_cat3)
 
         return category_lab
 
