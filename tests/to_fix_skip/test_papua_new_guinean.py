@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data_0 = {}
 
@@ -419,14 +419,14 @@ to_test = [
 @pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.skip2
 def test_papua_new_guinean_1(category: str, expected: str) -> None:
-    label = resolve_arabic_category_label(category)
+    label = resolve_label_ar(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)
 @pytest.mark.skip2
 def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

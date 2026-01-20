@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 data1 = {
     "animation directors": "x",
@@ -213,7 +213,7 @@ TEMPORAL_CASES = [
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.skip2
 def test_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(data, resolve_label_ar)
 
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

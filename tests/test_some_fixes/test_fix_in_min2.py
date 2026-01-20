@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from ArWikiCats.main_processers.main_resolve import resolve_label_ar
+from ArWikiCats import resolve_label_ar
 
 data_2 = {
     # NEED FIXING
