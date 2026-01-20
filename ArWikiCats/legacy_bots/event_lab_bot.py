@@ -264,38 +264,6 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
 
     return category_lab
 
-
-def _handle_cricketer_categories(category3: str) -> str:
-    """
-    Produce an Arabic label for cricket-related category names.
-
-    Recognizes input strings that end with " cricketers" or " cricket captains", extracts the base name, and returns a formatted Arabic label using the translated base name when available.
-
-    Parameters:
-        category3 (str): The lowercase category string to inspect (may end with the recognized suffixes).
-
-    Returns:
-        str: Formatted Arabic label (e.g., "لاعبو كريكت من <X>" or "قادة كريكت من <X>") if a translation for the base name is found, otherwise an empty string.
-    """
-    category32: str = ""
-    list_of_cat2: str = ""
-
-    if category3.endswith(" cricketers"):
-        list_of_cat2 = "لاعبو كريكت من {}"
-        category32 = category3[: -len(" cricketers")]
-
-    elif category3.endswith(" cricket captains"):
-        list_of_cat2 = "قادة كريكت من {}"
-        category32 = category3[: -len(" cricket captains")]
-
-    if list_of_cat2 and category32:
-        category3_lab = get_from_new_p17_final(category32)
-        if category3_lab:
-            return list_of_cat2.format(category3_lab)
-
-    return ""
-
-
 def _process_category_formatting(category: str) -> str:
     """
     Process and format the input category string.
@@ -329,7 +297,7 @@ def event_Lab(cate_r: str) -> str:
 
     resolver = _load_resolver()
 
-    result = resolver.process_category(category3, cate_r) or _handle_cricketer_categories(category3)
+    result = resolver.process_category(category3, cate_r)
 
     result = _finalize_category_label(result, cate_r)
     return result
