@@ -11,20 +11,8 @@ from ...new.handle_suffixes import (
     resolve_suffix_with_mapping_genders,
 )
 from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
-from ...translations_formats import FormatDataV2
+from .raw_sports import resolve_sport_label_unified
 
-teams_2025_sample = {
-    "{sport} people": "أعلام {sport_jobs}",
-    "{sport} squads": "تشكيلات {sport_jobs}",
-    "{sport} finals": "نهائيات {sport_jobs}",
-    "{sport} positions": "مراكز {sport_jobs}",
-    "{sport} tournaments": "بطولات {sport_jobs}",
-    "{sport} films": "أفلام {sport_jobs}",
-    "{sport} teams": "فرق {sport_jobs}",
-    "{sport} venues": "ملاعب {sport_jobs}",
-    "{sport} clubs": "أندية {sport_jobs}",
-    "{sport} organizations": "منظمات {sport_jobs}",
-}
 
 mappings_data: dict[str, str] = {
     "squads": "تشكيلات",
@@ -63,17 +51,6 @@ mappings_data: dict[str, str] = {
     "umpires": "حكام",
     "referees": "حكام",
     "directors": "مدراء",
-}
-
-teams_2025 = {
-    "{sport}": "{sport_jobs}",
-    # "{sport}": "{sport_label}",
-    "amateur {sport}": "{sport_jobs} للهواة",
-    "mens youth {sport}": "{sport_jobs} للشباب",
-    "mens {sport}": "{sport_jobs} رجالية",
-    "womens youth {sport}": "{sport_jobs} للشابات",
-    "womens {sport}": "{sport_jobs} نسائية",
-    "youth {sport}": "{sport_jobs} شبابية",
 }
 
 FOOTBALL_KEYS_PLAYERS = {
@@ -134,29 +111,6 @@ football_keys_players = dict(
 )
 
 
-@functools.lru_cache(maxsize=1)
-def load_v2() -> FormatDataV2:
-    """Load and cache the formatter used for 2025 team categories."""
-
-    sports_data = {
-        x: {
-            "sport_label": v.get("label", ""),
-            "sport_team": v.get("team", ""),
-            "sport_jobs": v.get("jobs", ""),
-        }
-        for x, v in SPORT_KEY_RECORDS.items()
-        if v.get("jobs")
-    }
-    sports_data.pop("sports", None)
-    bot = FormatDataV2(
-        formatted_data=teams_2025,
-        data_list=sports_data,
-        key_placeholder="{sport}",
-    )
-
-    return bot
-
-
 def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
     if result.startswith("لاعبو ") and "للسيدات" in result:
         result = result.replace("لاعبو ", "لاعبات ")
@@ -165,13 +119,6 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
         result = result.replace("فرق ", "منتخبات ")
 
     return result
-
-
-@functools.lru_cache(maxsize=None)
-def _find_teams_2025(category: str, default: str = "") -> str:
-    """Search for a 2025 team label, falling back to ``default`` when absent."""
-    bot = load_v2()
-    return bot.search_all_category(category) or default
 
 
 @functools.lru_cache(maxsize=10000)
@@ -183,23 +130,17 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-def find_teams_2025(category, callback=_find_teams_2025) -> str:
+def find_teams_2025(category) -> str:
     category = fix_keys(category)
-    if not callback:
-        callback = _find_teams_2025
-
     logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
 
-    if SPORT_KEY_RECORDS.get(category):
-        return SPORT_KEY_RECORDS[category].get("label", "")
-
-    result = callback(category)
+    result = resolve_sport_label_unified(category)
 
     if not result:
         result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=mappings_data,
-            callback=callback,
+            callback=resolve_sport_label_unified,
             fix_result_callable=fix_result_callable,
         )
 
@@ -207,7 +148,7 @@ def find_teams_2025(category, callback=_find_teams_2025) -> str:
         result = resolve_suffix_with_mapping_genders(
             category=category,
             data=football_keys_players,
-            callback=callback,
+            callback=resolve_sport_label_unified,
             fix_result_callable=fix_result_callable,
         )
 

@@ -5,13 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 from ArWikiCats.new_resolvers.sports_resolvers.match_labs import find_teams_2025
-
-
-def wrap_find_teams_2025(category):
-    return find_teams_2025(category, resolve_sport_label_unified)
-
 
 data_1 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",
@@ -622,28 +616,28 @@ data_3 = {
 @pytest.mark.parametrize("category, expected_key", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_find_teams_2025_1(category: str, expected_key: str) -> None:
-    label = wrap_find_teams_2025(category)
+    label = find_teams_2025(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_2.items(), ids=data_2.keys())
 @pytest.mark.fast
 def test_find_teams_2025_2(category: str, expected_key: str) -> None:
-    label = wrap_find_teams_2025(category)
+    label = find_teams_2025(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data_3.items(), ids=data_3.keys())
 @pytest.mark.fast
 def test_find_teams_2025_3(category: str, expected_key: str) -> None:
-    label = wrap_find_teams_2025(category)
+    label = find_teams_2025(category)
     assert label == expected_key
 
 
 to_test = [
-    ("test_find_teams_2025_1", data_1, wrap_find_teams_2025),
-    ("test_find_teams_2025_2", data_2, wrap_find_teams_2025),
-    ("test_find_teams_2025_3", data_3, wrap_find_teams_2025),
+    ("test_find_teams_2025_1", data_1, find_teams_2025),
+    ("test_find_teams_2025_2", data_2, find_teams_2025),
+    ("test_find_teams_2025_3", data_3, find_teams_2025),
 ]
 
 

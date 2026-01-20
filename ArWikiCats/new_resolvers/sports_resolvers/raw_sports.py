@@ -28,7 +28,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "{en_sport} manager": "مدربو {sport_jobs}",
     "{en_sport} manager history": "تاريخ مدربو {sport_jobs}",
     "{en_sport} footballers": "لاعبو {sport_jobs}",
-    "{en_sport} playerss": "لاعبو {sport_jobs}",
     "{en_sport} players": "لاعبو {sport_jobs}",
     "{en_sport} fan clubs": "أندية معجبي {sport_jobs}",
     "{en_sport} owners and executives": "رؤساء تنفيذيون وملاك {sport_jobs}",
@@ -135,20 +134,16 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "grand slam ({en_sport}) tournament champions": "أبطال بطولات {sport_jobs} كبرى",
     "grand slam ({en_sport})": "بطولات {sport_jobs} كبرى",
     "international mens {en_sport} players": "لاعبو {sport_jobs} دوليون",
-    "international mens {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
     "international mens {en_sport}": "{sport_jobs} دولية للرجال",
     "international womens {en_sport} players": "لاعبات {sport_jobs} دوليات",
-    "international womens {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
     "international womens {en_sport}": "{sport_jobs} دولية للسيدات",
     "International {en_sport} competition": "منافسات {sport_jobs} دولية",
     "international {en_sport} managers": "مدربو {sport_jobs} دوليون",
     "international {en_sport} players": "لاعبو {sport_jobs} دوليون",
-    "international {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
     "International {en_sport} races": "سباقات {sport_jobs} دولية",
     "International {en_sport}": "{sport_jobs} دولية",
     "international youth {en_sport}": "{sport_jobs} شبابية دولية",
     "mens international {en_sport} players": "لاعبو {sport_jobs} دوليون",
-    "mens international {en_sport} playerss": "لاعبو {sport_jobs} دوليون",
     "mens international {en_sport}": "{sport_jobs} دولية للرجال",
     "mens {en_sport} teams": "فرق {sport_jobs} رجالية",
     "military {en_sport}": "{sport_jobs} عسكرية",
@@ -195,7 +190,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "top level {en_sport} league": "دوريات {sport_jobs} من الدرجة الأولى",
     "top level {en_sport} leagues": "دوريات {sport_jobs} من الدرجة الأولى",
     "womens international {en_sport} players": "لاعبات {sport_jobs} دوليات",
-    "womens international {en_sport} playerss": "لاعبات {sport_jobs} دوليات",
     "womens international {en_sport}": "{sport_jobs} دولية للسيدات",
     "womens {en_sport} teams": "فرق {sport_jobs} نسائية",
     "{en_sport} league teams": "فرق دوري {sport_jobs}",
@@ -432,7 +426,7 @@ def wrap_team_xo_normal_2025(team: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def fix_keys(category: str) -> str:
     category = category.replace("'", "").lower().replace("category:", "")
-
+    category = category.replace("playerss", "players")
     return category.strip()
 
 
@@ -440,6 +434,12 @@ def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_20
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
+
+    if not callback:
+        callback = wrap_team_xo_normal_2025
+
+    if SPORT_KEY_RECORDS.get(category):
+        return SPORT_KEY_RECORDS[category].get("label", "")
 
     result = callback(category)
 
