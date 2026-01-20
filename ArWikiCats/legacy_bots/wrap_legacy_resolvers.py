@@ -9,7 +9,7 @@ from __future__ import annotations
 import functools
 
 from . import event_lab_bot, with_years_bot
-from .ma_bots import country_bot, general_resolver
+from .ma_bots import country_bot
 from .ma_bots2 import year_or_typeo
 from .o_bots import university_resolver
 
@@ -31,7 +31,6 @@ def legacy_resolvers(changed_cat) -> str:
         or with_years_bot.wrap_try_with_years(changed_cat)
         or year_or_typeo.label_for_startwith_year_or_typeo(changed_cat)
         or event_lab_bot.event_Lab(changed_cat)
-        or general_resolver.translate_general_category(changed_cat)
         or ""
     )
 
