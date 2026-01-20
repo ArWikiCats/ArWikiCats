@@ -53,7 +53,8 @@ def _handle_year_at_start(category_text: str) -> str:
 
     if not remainder_label:
         remainder_label = (
-            all_new_resolvers(remainder)
+            ""
+            or all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
             or get_KAKO(remainder)
             or general_resolver.translate_general_category(remainder, fix_title=False)
@@ -105,7 +106,8 @@ def _handle_year_at_end(
     remainder = category_text[: -len(year_at_end_label)]
 
     remainder_label = (
-        all_new_resolvers(remainder)
+        ""
+        or all_new_resolvers(remainder)
         or general_resolver.translate_general_category(remainder, fix_title=False)
         or get_lab_for_country2(remainder)
         or ""

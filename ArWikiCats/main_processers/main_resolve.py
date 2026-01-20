@@ -71,10 +71,12 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     from_match = bool(category_lab)
 
     if not category_lab:
-        category_lab = all_new_resolvers(changed_cat) or ""
-
-    if not category_lab:
-        category_lab = legacy_resolvers(changed_cat)
+        category_lab = (
+            ""
+            or all_new_resolvers(changed_cat)
+            or legacy_resolvers(changed_cat)
+            or ""
+        )
 
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)

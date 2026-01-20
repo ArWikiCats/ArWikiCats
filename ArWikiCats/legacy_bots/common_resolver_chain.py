@@ -34,7 +34,8 @@ def get_lab_for_country2(country: str) -> str:
     country2 = country.lower().strip()
 
     resolved_label = (
-        all_new_resolvers(country2)
+        ""
+        or all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
         or get_pop_All_18(country2)
         or People_key.get(country2)

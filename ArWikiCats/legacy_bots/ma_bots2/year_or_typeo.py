@@ -100,7 +100,8 @@ class LabelForStartWithYearOrTypeo:
         cmp = self.year_at_first.strip() + " " + self.country_lower
 
         self.country_label = (
-            all_new_resolvers(self.country_lower)
+            ""
+            or all_new_resolvers(self.country_lower)
             or get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
             or ""
         )
