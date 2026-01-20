@@ -2,9 +2,8 @@
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from utils.dump_runner import make_dump_test_name_data
-
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_skip = {
     "January 2021 in Antigua and Barbuda": "أنتيغوا وباربودا في يناير 2021",
