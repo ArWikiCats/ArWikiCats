@@ -14,7 +14,7 @@ from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
-    SPORTS_KEYS_FOR_LABEL,
+    # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
     People_key,
@@ -189,7 +189,7 @@ class CountryLabelRetriever:
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
-                or SPORTS_KEYS_FOR_LABEL.get(country, "")
+                # or SPORTS_KEYS_FOR_LABEL.get(country, "")
                 or ""
             )
 
