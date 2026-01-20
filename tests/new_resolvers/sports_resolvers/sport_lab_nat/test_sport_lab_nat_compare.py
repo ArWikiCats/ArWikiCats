@@ -2,7 +2,6 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
-
 from utils.dump_runner import make_dump_test_name_data
 
 data_0 = {

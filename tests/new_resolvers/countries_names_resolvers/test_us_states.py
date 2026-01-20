@@ -7,15 +7,14 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-
-from ArWikiCats.translations import US_STATES
-from utils.dump_runner import make_dump_test_name_data_callback
-
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
     normalize_state,
     resolve_us_states,
     us_states_new_keys,
 )
+from ArWikiCats.translations import US_STATES
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data = {
     "{en} in the War of 1812": "{ar} في حرب 1812",
     "{en} democrats": "ديمقراطيون من ولاية {ar}",
