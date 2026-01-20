@@ -246,7 +246,7 @@ test_2 = {}
 
 data_2 = {
     "sport in ottoman empire": "الرياضة في الدولة العثمانية",
-    "sports in ottoman empire": "الرياضة في الدولة العثمانية",
+    "sports in ottoman empire": "رياضات في الدولة العثمانية",
 }
 
 

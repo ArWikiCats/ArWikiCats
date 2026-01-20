@@ -322,7 +322,7 @@ data_womens = {
 
 data_2 = {
     "russian football teams": "فرق كرة قدم روسية",
-    "american football teams": "فرق كرة القدم الأمريكية",
+    "american football teams": "فرق كرة قدم أمريكية",
     "american football competitions": "منافسات كرة قدم أمريكية",
     "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
     "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",

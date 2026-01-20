@@ -529,7 +529,7 @@ data_slow = {
     "speed skating": "التزلج السريع",
     "sports clubs and teams in brazil": "أندية وفرق رياضية في البرازيل",
     "sports clubs and teams": "أندية وفرق رياضية",
-    "sports teams": "فرق رياضية",
+    "sports teams": "فرق رياضات",
     "sports-people from saxony": "رياضيون من ساكسونيا",
     "squares in london": "ساحات في لندن",
     "sri lankan emigrants to india": "سريلانكيون مهاجرون إلى الهند",
