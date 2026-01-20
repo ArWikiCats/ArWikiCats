@@ -91,7 +91,7 @@ wheelchair_sports = {
     "Wheelchair basketball teams in Greece": "فرق كرة السلة على الكراسي المتحركة في اليونان",
     "Wheelchair basketball teams in Spain": "فرق كرة السلة على الكراسي المتحركة في إسبانيا",
     "Wheelchair basketball teams in Turkey": "فرق كرة السلة على الكراسي المتحركة في تركيا",
-    "Wheelchair basketball teams": "فرق كرة سلة على كراسي متحركة",
+    "Wheelchair basketball teams": "فرق كرة السلة على الكراسي المتحركة",
     "Wheelchair basketball terminology": "مصطلحات كرة سلة على كراسي متحركة",
     "Wheelchair basketball venues in Turkey": "ملاعب كرة السلة على الكراسي المتحركة في تركيا",
     "Wheelchair Basketball World Championship": "بطولة العالم لكرة السلة على الكراسي المتحركة",
