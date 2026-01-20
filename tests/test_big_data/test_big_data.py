@@ -19,7 +19,7 @@ def example_data(request: pytest.FixtureRequest):
 
 
 DATA_DIR = Path(__file__).parent.parent.parent / "examples/big_data"
-FILE_PATHS = list(DATA_DIR.glob("*.json"))
+FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
 
 
 @pytest.mark.dumpbig

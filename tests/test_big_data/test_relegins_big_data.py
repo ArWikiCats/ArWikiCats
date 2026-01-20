@@ -32,7 +32,7 @@ def run_dump_logic(name, data):
 
 def JSON_FILES():
     base_path = Path(__file__).parent.parent.parent / "examples/religions_data"
-    return list(base_path.glob("*.json"))
+    return sorted(base_path.glob("*.json"))
 
 
 @pytest.mark.dumpbig

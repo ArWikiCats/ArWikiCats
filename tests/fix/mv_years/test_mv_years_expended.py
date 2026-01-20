@@ -25,7 +25,7 @@ from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
         ("200 ق.م في مصر", "مصر في 200 ق م"),
         ("عقد 1990 في الفنون", "الفنون في عقد 1990"),
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+
 )
 def test_move_years_first_o(text: str, expected: str) -> None:
     """Test move_years_first for all expected patterns."""
@@ -46,7 +46,7 @@ def test_move_years_first_o(text: str, expected: str) -> None:
         # --- No match ---
         ("اتحاد الرجبي في 1989 حسب البلد", "اتحاد الرجبي في 1989 حسب البلد"),
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+
 )
 def test_move_by_in(text: str, expected: str) -> None:
     """Test move_by_in for year and century reordering."""
@@ -67,7 +67,7 @@ def test_move_by_in(text: str, expected: str) -> None:
         # --- Fallback from first to by_in ---
         ("تصنيف:كرة القدم حسب الموسم في 2020", "تصنيف:كرة القدم في 2020 حسب الموسم"),
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+
 )
 def test_move_years_with_category_namespace(text: str, expected: str) -> None:
     """Test category namespace preservation."""
@@ -86,7 +86,7 @@ def test_move_years_with_category_namespace(text: str, expected: str) -> None:
         # --- Complex BCE and underscore ---
         ("تصنيف:200 ق.م في الإمبراطورية_الرومانية", "تصنيف:الإمبراطورية الرومانية في 200 ق م"),
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+
 )
 def test_move_years_combined(text: str, expected: str) -> None:
     """Full integration tests combining both functions."""
@@ -102,7 +102,7 @@ def test_move_years_combined(text: str, expected: str) -> None:
         "في 2020 فقط",
         "حسب الموسم فقط",
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
+
 )
 def test_no_modifications(text) -> None:
     """Ensure unrelated strings remain unchanged."""
