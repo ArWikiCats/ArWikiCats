@@ -34,8 +34,8 @@ def fix_imports(content: str) -> tuple[str, int]:
 
 
 def fix_category_items(content: str) -> tuple[str, int]:
-    """Replace Category: prefixed keys with non-prefixed versions."""
-    pattern = r'"Category:([^"]+)":\s*"([^"]+)"'
+    """Replace Category: prefixed keys and تصنيف: prefixed values with non-prefixed versions."""
+    pattern = r'"Category:([^"]+)":\s*"تصنيف:([^"]+)"'
     replacement = r'"\1": "\2"'
 
     new_content = re.sub(pattern, replacement, content)
