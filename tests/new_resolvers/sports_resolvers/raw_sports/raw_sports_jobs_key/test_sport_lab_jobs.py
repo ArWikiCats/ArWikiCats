@@ -4,9 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    wrap_team_xo_normal_2025_with_ends,
-)
+from ArWikiCats.new_resolvers.sports_resolvers.match_labs import wrap_team_xo_normal_2025_with_ends
 
 test_data_0 = {
     "Winter Olympics sports templates": "قوالب رياضات الألعاب الأولمبية الشتوية",

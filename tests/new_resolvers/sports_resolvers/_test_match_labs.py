@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
-from ArWikiCats.new_resolvers.sports_resolvers.match_labs import find_teams_2025
+from ArWikiCats.new_resolvers.sports_resolvers.match_labs import wrap_team_xo_normal_2025_with_ends
 
 test_new = {
     "Women's sports": "رياضات نسائية",
@@ -17,7 +17,7 @@ test_new = {
 @pytest.mark.parametrize("category, expected_key", test_new.items(), ids=test_new.keys())
 @pytest.mark.fast
 def test_new_data(category: str, expected_key: str) -> None:
-    label = find_teams_2025(category)
+    label = wrap_team_xo_normal_2025_with_ends(category)
     assert label == ""  # expected_key
 
 
@@ -636,19 +636,19 @@ teams_2025_data = {
 @pytest.mark.parametrize("category, expected_key", teams_2025_data.items(), ids=teams_2025_data.keys())
 @pytest.mark.fast
 def test_teams_2025_data(category: str, expected_key: str) -> None:
-    label = find_teams_2025(category)
+    label = wrap_team_xo_normal_2025_with_ends(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", teams_2025_data_womens.items(), ids=teams_2025_data_womens.keys())
 @pytest.mark.fast
 def test_teams_2025_data_womens(category: str, expected_key: str) -> None:
-    label = find_teams_2025(category)
+    label = wrap_team_xo_normal_2025_with_ends(category)
     assert label == expected_key
 
 
 @pytest.mark.parametrize("category, expected_key", data6.items(), ids=data6.keys())
 @pytest.mark.fast
 def test_find_teams_2025(category: str, expected_key: str) -> None:
-    label = find_teams_2025(category)
+    label = wrap_team_xo_normal_2025_with_ends(category)
     assert label == expected_key
