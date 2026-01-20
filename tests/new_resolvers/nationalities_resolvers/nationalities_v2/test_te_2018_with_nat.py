@@ -22,7 +22,6 @@ nat_match_data = {
     "Dutch remakes of foreign films": "أفلام هولندية مأخوذة من أفلام أجنبية",
     "Bangladeshi remakes of foreign films": "أفلام بنغلاديشية مأخوذة من أفلام أجنبية",
     "American remakes of foreign films": "أفلام أمريكية مأخوذة من أفلام أجنبية",
-
     "anti-haitian sentiment": "مشاعر معادية للهايتيون",
     "anti-palestinian sentiment": "مشاعر معادية للفلسطينيون",
     "anti-turkish sentiment": "مشاعر معادية للأتراك",

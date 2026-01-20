@@ -1,7 +1,7 @@
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "People in arts occupations by nationality": "أشخاص في مهن فنية حسب الجنسية",
@@ -81,5 +81,6 @@ def test_people_3(category: str, expected: str) -> None:
 def test_people_4(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
+
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

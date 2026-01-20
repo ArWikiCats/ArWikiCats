@@ -365,4 +365,5 @@ to_test = [
 ]
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_year_job_from_countries, run_same=False)

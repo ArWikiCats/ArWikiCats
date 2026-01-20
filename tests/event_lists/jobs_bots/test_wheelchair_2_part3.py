@@ -79,7 +79,6 @@ wheelchair_basketball = {
 
 
 wheelchair_sports = {
-
     "Wheelchair basketball templates": "قوالب كرة السلة على الكراسي المتحركة",
     "Wheelchair rugby templates": "قوالب الرجبي على الكراسي المتحركة",
     "Wheelchair basketball leagues": "دوريات كرة سلة على كراسي متحركة",

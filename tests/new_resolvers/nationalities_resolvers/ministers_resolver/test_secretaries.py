@@ -237,4 +237,5 @@ def test_secretaries_1(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

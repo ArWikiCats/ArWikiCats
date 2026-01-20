@@ -36,7 +36,6 @@ data1 = {
 data2 = {
     "Summer Olympics sports navigational boxes": "صناديق تصفح رياضات الألعاب الأولمبية الصيفية",
     "Winter Olympics sports navigational boxes": "صناديق تصفح رياضات الألعاب الأولمبية الشتوية",
-
     "Former Olympic sports": "رياضات أولمبية سابقة",
     "Ancient Olympic sports": "رياضات أولمبية قديمة",
     "Olympic sports": "رياضات ألعاب أولمبية",
@@ -84,4 +83,5 @@ def test_sports2_data_2(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

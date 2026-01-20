@@ -173,5 +173,8 @@ def test_superhero_data_2(category: str, expected: str) -> None:
 def test_superhero_data_3(category: str, expected: str) -> None:
     result = fetch_films_by_category(category)
     assert result == expected
+
+
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

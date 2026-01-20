@@ -8,7 +8,6 @@ fast_data_1 = {
     "Shooting sports events": "أحداث الرماية",
     "International sports events": "أحداث رياضية دولية",
     "Scheduled sports events": "أحداث رياضية مقررة",
-
     "April 2020 sports events France": "",
     "ASEAN sports events": "",
     "Cancelled sports events": "",
@@ -48,7 +47,6 @@ fast_data_3 = {
     "Lists of sports events": "قوائم أحداث رياضية",
     "Sports events navigational boxes": "صناديق تصفح أحداث رياضية",
     "Sports events templates": "قوالب أحداث رياضية",
-
     "Lists of sports events in Australia": "قوائم أحداث رياضية في أستراليا",
     "Lists of American sports events": "قوائم أحداث رياضية أمريكية",
     "Lists of announcers of American sports events": "قوائم مذيعون من أحداث رياضية أمريكية",
@@ -101,4 +99,5 @@ def test_fast_data_3(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

@@ -1,8 +1,8 @@
 #
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 slow_data = {
     "luxembourgian european commissioners": "مفوضو أوروبيون لوكسمبورغيون",

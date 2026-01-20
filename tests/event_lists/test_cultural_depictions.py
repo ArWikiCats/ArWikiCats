@@ -51,7 +51,6 @@ fast_data = {
 }
 
 data_slow = {
-
     "Cultural depictions of Alfred the Great": "تصوير ثقافي عن ألفريد العظيم",
     "Cultural depictions of Al Gore": "تصوير ثقافي عن آل جور",
     "Cultural depictions of Amelia Earhart": "تصوير ثقافي عن أميليا إيرهارت",
@@ -1005,4 +1004,5 @@ def test_cultural_depictions_slow(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

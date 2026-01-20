@@ -1,9 +1,11 @@
 """Test configuration for the test-suite."""
+
 import os
 import random
-import pytest
 import sys
 from pathlib import Path
+
+import pytest
 
 # Add the ArWikiCats directory to the python path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))

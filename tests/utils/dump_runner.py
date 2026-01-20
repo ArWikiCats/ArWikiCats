@@ -25,15 +25,14 @@ def _run_dump_case(name: str, data: dict[str, str], callback: callable, run_same
     if run_same:
         dump_same_and_not_same(data, diff_result, name)
 
-    assert diff_result == expected, (
-        f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-    )
+    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 def make_dump_test_name_data(to_test: ToTest, callback, run_same=False):
     """
     Create a parametrized pytest test function.
     """
+
     @pytest.mark.parametrize("name,data", list(to_test))
     @pytest.mark.dump
     def test_dump_all(name: str, data: dict[str, str]) -> None:
@@ -46,6 +45,7 @@ def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False):
     """
     Create a parametrized pytest test function.
     """
+
     @pytest.mark.parametrize("name,data,callback", list(to_test))
     @pytest.mark.dump
     def test_dump_all(name: str, data: dict[str, str], callback) -> None:

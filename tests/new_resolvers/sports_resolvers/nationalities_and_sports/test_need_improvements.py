@@ -84,5 +84,8 @@ def test_need_improvements_2(category: str, expected: str) -> None:
 def test_need_improvements_3(category: str, expected: str) -> None:
     label2 = resolve_nats_sport_multi_v2(category)
     assert label2 == expected
+
+
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

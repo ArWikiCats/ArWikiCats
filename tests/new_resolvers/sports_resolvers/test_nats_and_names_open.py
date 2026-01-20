@@ -50,4 +50,5 @@ to_test = [
     ("test_nas_open_3", data_names_3, resolve_countries_names_sport),
 ]
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

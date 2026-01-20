@@ -2,7 +2,7 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import (
     resolve_countries_names_sport_with_ends,
@@ -11,7 +11,6 @@ from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import r
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
     resolve_sport_label_unified,
 )
-
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
@@ -77,7 +76,7 @@ resolve_team_suffix_test_data = {
     "bowling cups": "كؤوس بولينج",
     "table tennis cups": "كؤوس كرة طاولة",
     "racquets racing cups": "كؤوس سباق لعبة الراح",
-    "yacht racing cups": "كؤوس سباقات يخوت"
+    "yacht racing cups": "كؤوس سباقات يخوت",
 }
 
 test_2025 = {

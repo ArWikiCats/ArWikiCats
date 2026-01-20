@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_fast = {
     "bulgarian cup": "كأس بلغاريا",

@@ -21,13 +21,12 @@ data4 = {
     "Canadian football tackles": "مصطدمو كرة القدم الكندية",
     "Canadian football wide receivers": "مستقبلون واسعون كرة القدم الكندية",
     "Canadian football guards": "حراس كرة القدم الكندية",
-    "Canadian football quarterbacks": "أظهرة رباعيون كرة القدم الكندية"
+    "Canadian football quarterbacks": "أظهرة رباعيون كرة القدم الكندية",
 }
 
 data1 = {
     "Canadian football venues": "ملاعب كرة القدم الكندية",
     "Canadian football templates": "قوالب كرة القدم الكندية",
-
     "African-American coaches of Canadian football": "مدربو كرة قدم كندية أمريكيون أفارقة",
     "American players of Canadian football by populated place": "لاعبو كرة قدم كندية أمريكيون حسب المكان المأهول",
     "American players of Canadian football by state": "لاعبو كرة قدم كندية أمريكيون حسب الولاية",
@@ -35,7 +34,6 @@ data1 = {
     "Australian players of Canadian football": "لاعبو كرة قدم كندية أستراليون",
     "Bahamian players of Canadian football": "لاعبو كرة قدم كندية بهاميون",
     "Cameroonian players of Canadian football": "لاعبو كرة قدم كندية كاميرونيون",
-
     "Canadian players of Canadian football by populated place": "لاعبو كرة قدم كندية كنديون حسب المكان المأهول",
     "Coaches of Canadian football": "مدربو كرة قدم كندية",
     "Cuban players of Canadian football": "لاعبو كرة قدم كندية كوبيون",
@@ -226,7 +224,7 @@ data3 = {
     "Canadian football venues in Quebec": "ملاعب كرة القدم الكندية في كيبك",
     "Canadian football venues in the United States": "ملاعب كرة القدم الكندية في الولايات المتحدة",
     "Canadian football": "كرة القدم الكندية",
-    "Canadian players of Canadian football": "لاعبو كرة قدم كندية كنديون"
+    "Canadian players of Canadian football": "لاعبو كرة قدم كندية كنديون",
 }
 
 to_test = [
@@ -258,4 +256,5 @@ def test_canadian_football_4(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

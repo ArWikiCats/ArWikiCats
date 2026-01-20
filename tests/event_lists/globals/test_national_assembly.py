@@ -1,8 +1,8 @@
 #
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data0 = {
     "Deputies of the 10th National Assembly of the French Fifth Republic": "نواب الجمعية الوطنية العاشرة للجمهورية الفرنسية الخامسة",

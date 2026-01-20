@@ -384,7 +384,7 @@ data_1 = {
     "football rivalries": "دربيات كرة قدم",
     "football teams": "فرق كرة قدم",
     "football trainers": "مدربو كرة قدم",
-    "football umpires": "حكام كرة قدم"
+    "football umpires": "حكام كرة قدم",
 }
 
 data_2 = {
@@ -641,4 +641,5 @@ to_test = [
 ]
 
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

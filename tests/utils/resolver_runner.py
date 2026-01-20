@@ -36,10 +36,7 @@ def make_resolver_test(
 
 
 def make_resolver_fast_test(
-    *,
-    resolver: Callable[[str], str],
-    data: Mapping[str, str],
-    test_name: str = "test_resolver_data"
+    *, resolver: Callable[[str], str], data: Mapping[str, str], test_name: str = "test_resolver_data"
 ):
     return make_resolver_test(
         resolver=resolver,

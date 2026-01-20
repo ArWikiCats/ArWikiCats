@@ -44,4 +44,5 @@ def test_fix_in_min_2(category: str, expected: str) -> None:
 
 
 from utils.dump_runner import make_dump_test_name_data
+
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

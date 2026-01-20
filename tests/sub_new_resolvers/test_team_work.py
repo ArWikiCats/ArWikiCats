@@ -3,19 +3,18 @@ Tests
 """
 
 import pytest
+from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
-from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
+
 test_data_0 = {
     "Category:waba champions cup": "تصنيف:كأس دوري غرب آسيا لكرة السلة",
     "west bank premier league": "الدوري الفلسطيني الممتاز للضفة الغربية",
     "Category:African Nations Championship": "تصنيف:كأس الأمم الإفريقية للمحليين",
-
 }
 fast_data = {
     "major league baseball owners and executives": "رؤساء تنفيذيون وملاك دوري كرة القاعدة الرئيسي",
-
     "wta tour seasons": "مواسم رابطة محترفات التنس",
     "ad alcorcón seasons": "مواسم نادي ألكوركون",
     "aj auxerre seasons": "مواسم نادي أوكسير",
@@ -103,7 +102,7 @@ fast_data_not_same = {
     "rosario central matches": "مباريات روزاريو سنترال",
     "toronto argonauts lists": "قوائم تورونتو أرغونتس",
     "uae president's cup matches": "مباريات كأس رئيس دولة الإمارات",
-    "vegalta sendai matches": "مباريات فيغالتا سنداي"
+    "vegalta sendai matches": "مباريات فيغالتا سنداي",
 }
 
 
@@ -127,4 +126,5 @@ to_test = [
 ]
 
 from utils.dump_runner import make_dump_test_name_data_callback
+
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

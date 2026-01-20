@@ -1,8 +1,8 @@
 #
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_empty = {
     "lists of 20th millennium women's olympic table tennis players films by city": "قوائم أفلام لاعبات كرة طاولة أولمبيات الألفية 20 حسب المدينة",
