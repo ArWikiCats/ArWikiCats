@@ -153,12 +153,20 @@ fast_data_3 = {
 
 to_test = [
     ("test_based_on_1", slow_data),
+    ("test_based_on_2", fast_data_3),
 ]
 
 
 @pytest.mark.parametrize("category, expected", slow_data.items(), ids=slow_data.keys())
 @pytest.mark.slow
 def test_based_on_1(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", fast_data_3.items(), ids=fast_data_3.keys())
+@pytest.mark.slow
+def test_based_on_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
