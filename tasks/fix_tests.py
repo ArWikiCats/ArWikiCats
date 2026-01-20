@@ -40,8 +40,8 @@ def fix_category_items(content: str) -> tuple[str, int]:
     pattern = r'"Category:([^"]+)":\s*"تصنيف:([^"]+)"'
     replacement = r'"\1": "\2"'
 
-    new_content = re.sub(pattern, replacement, content)
-    count = len(re.findall(pattern, content))
+    new_content = re.sub(pattern, replacement, content, flags=re.I)
+    count = len(re.findall(pattern, content, flags=re.I))
     return new_content, count
 
 
