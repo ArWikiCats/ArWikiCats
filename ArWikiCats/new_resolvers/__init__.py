@@ -26,7 +26,7 @@ from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import main_nationalities_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from .relations_resolver import main_relations_resolvers
-from .sports_resolvers import main_sports_resolvers, match_labs, raw_sports, sport_lab_nat
+from .sports_resolvers import main_sports_resolvers, raw_sports, raw_sports_with_suffixes, sport_lab_nat
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 
@@ -58,8 +58,8 @@ def all_new_resolvers(category: str) -> str:
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or main_countries_names_with_sports_resolvers(category)
         or resolve_languages_labels_with_time(category)
-        # or raw_sports.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
-        # or match_labs.find_teams_2025(category)  # NOTE: under test
+        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
+        # or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
         or main_other_resolvers(category)
         or ""
     )

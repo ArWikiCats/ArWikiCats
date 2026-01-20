@@ -74,7 +74,7 @@ data_fast = {
     "australia by century": "أستراليا حسب القرن",
     "australian rules football clubs": "أندية كرة قدم أسترالية",
     "austria by decade": "النمسا حسب العقد",
-    "badminton venues": "ملاعب تنس ريشة",
+    "badminton venues": "ملاعب تنس الريشة",
     "bahamas–ivory coast relations": "العلاقات الإيفوارية البهامية",
     "bahrain–netherlands relations": "العلاقات البحرينية الهولندية",
     "balakan district": "مقاطعة بالاكن",

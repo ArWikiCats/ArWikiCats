@@ -13,9 +13,9 @@ from ...new_resolvers import all_new_resolvers, main_sports_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...new_resolvers.languages_resolves import resolve_languages_labels_with_time
 from ...sub_new_resolvers import team_work
+from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...new_resolvers.sports_resolvers.raw_sports import (
     resolve_sport_label_unified,
-    wrap_team_xo_normal_2025_with_ends,
 )
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2

@@ -14,11 +14,11 @@ from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..new_resolvers import all_new_resolvers
-# from ..new_resolvers.sports_resolvers.raw_sports import wrap_team_xo_normal_2025_with_ends
+from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ..time_formats import time_to_arabic
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import tmp_bot, with_years_bot
-from .common_resolver_chain import get_lab_for_country2, wrap_team_xo_normal_2025_with_ends
+from .common_resolver_chain import get_lab_for_country2
 from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
 from .make_bots.bot_2018 import get_pop_All_18
@@ -245,6 +245,9 @@ class EventLabResolver:
         # Process with event_label_work if no label found yet
         if not category_lab:
             category_lab = event_label_work(category3)
+
+        if list_of_cat and category3.lower().strip() == "sports events":
+            category_lab = "أحداث رياضية"
 
         # Process list categories if both exist
         if list_of_cat and category_lab:

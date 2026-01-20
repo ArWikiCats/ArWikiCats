@@ -13,11 +13,10 @@ import functools
 
 from ...helps import logger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations.nats.Nationality import all_country_with_nat_ar
-from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
+from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
-from .formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
+from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 from .utils import fix_keys
 
 

@@ -2,8 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
-from ArWikiCats.main_processers.main_resolve import resolve_label_ar
+from ArWikiCats import resolve_label_ar
 
 data_1 = {
     "senate of canada": "مجلس شيوخ كندا",

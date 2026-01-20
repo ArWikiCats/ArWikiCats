@@ -10,7 +10,7 @@ from typing import Dict
 
 from ...helps import len_print, logger
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.sports_resolvers.match_labs import find_teams_2025
+from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,
@@ -113,7 +113,7 @@ def get_pop_All_18(key: str, default: str = "") -> str:
     call_ables = {
         "_get_pop_All_18": _get_pop_All_18,
         "_get_from_alias": _get_from_alias,
-        "find_teams_2025": find_teams_2025,
+        "wrap_team_xo_normal_2025_with_ends": wrap_team_xo_normal_2025_with_ends,
     }
 
     for name, func in call_ables.items():

@@ -4,10 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_unified,
-    wrap_team_xo_normal_2025_with_ends,
-)
+from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 
 test_find_teams_bot_data_0 = {}
 
@@ -90,14 +87,10 @@ test_find_teams_bot_data = {
 }
 
 
-def wrap_callback(category: str) -> str:
-    return wrap_team_xo_normal_2025_with_ends(category, callback=resolve_sport_label_unified)
-
-
 @pytest.mark.parametrize("category, expected", test_find_teams_bot_data.items(), ids=test_find_teams_bot_data.keys())
 @pytest.mark.fast
 def test_Get_New_team_xo_data(category: str, expected: str) -> None:
-    label1 = wrap_callback(category)
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
@@ -107,14 +100,14 @@ def test_Get_New_team_xo_data(category: str, expected: str) -> None:
 )
 @pytest.mark.fast
 def test_test_find_teams_bot_data_0(category: str, expected: str) -> None:
-    label1 = wrap_callback(category)
+    label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected
 
 
 TEMPORAL_CASES = [
-    ("test_find_teams_bot", test_find_teams_bot_data, wrap_callback),
-    # ("test_find_teams_bot_with_additional", test_find_teams_bot_data_with_additional, wrap_callback),
+    ("test_find_teams_bot", test_find_teams_bot_data, wrap_team_xo_normal_2025_with_ends),
+    # ("test_find_teams_bot_with_additional", test_find_teams_bot_data_with_additional, wrap_team_xo_normal_2025_with_ends),
 ]
 
 

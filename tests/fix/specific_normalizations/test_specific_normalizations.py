@@ -236,7 +236,6 @@ def test_attacks_on_context_changes_preposition() -> None:
         ("قصص قصيرة 1613", "short stories 1613", "قصص قصيرة كتبت سنة 1613"),
         ("ردود فعل إلى القرار", "reactions to", "ردود فعل على القرار"),
     ],
-    ids=lambda val: None if isinstance(val, tuple) else f"case_{hash(val) % 10000}",
 )
 def test_apply_category_specific_normalizations(ar_label: str, en_label: str, expected: str) -> None:
     assert apply_category_specific_normalizations(ar_label, en_label) == expected

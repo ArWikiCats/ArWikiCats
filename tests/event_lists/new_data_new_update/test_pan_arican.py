@@ -2,54 +2,54 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_arabic_category_label
+from ArWikiCats import resolve_label_ar
 
 pan_arican = {
-    "Category:Members of the Pan-African Parliament": "تصنيف:أعضاء البرلمان الإفريقي",
-    "Category:Members of the Pan-African Parliament from Algeria": "تصنيف:أعضاء البرلمان الإفريقي من الجزائر",
-    "Category:Members of the Pan-African Parliament from Angola": "تصنيف:أعضاء البرلمان الإفريقي من أنغولا",
-    "Category:Members of the Pan-African Parliament from Benin": "تصنيف:أعضاء البرلمان الإفريقي من بنين",
-    "Category:Members of the Pan-African Parliament from Botswana": "تصنيف:أعضاء البرلمان الإفريقي من بوتسوانا",
-    "Category:Members of the Pan-African Parliament from Burkina Faso": "تصنيف:أعضاء البرلمان الإفريقي من بوركينا فاسو",
-    "Category:Members of the Pan-African Parliament from Burundi": "تصنيف:أعضاء البرلمان الإفريقي من بوروندي",
-    "Category:Members of the Pan-African Parliament from Cameroon": "تصنيف:أعضاء البرلمان الإفريقي من الكاميرون",
-    "Category:Members of the Pan-African Parliament from Cape Verde": "تصنيف:أعضاء البرلمان الإفريقي من الرأس الأخضر",
-    "Category:Members of the Pan-African Parliament from Chad": "تصنيف:أعضاء البرلمان الإفريقي من تشاد",
-    "Category:Members of the Pan-African Parliament from Djibouti": "تصنيف:أعضاء البرلمان الإفريقي من جيبوتي",
-    "Category:Members of the Pan-African Parliament from Egypt": "تصنيف:أعضاء البرلمان الإفريقي من مصر",
-    "Category:Members of the Pan-African Parliament from Equatorial Guinea": "تصنيف:أعضاء البرلمان الإفريقي من غينيا الاستوائية",
-    "Category:Members of the Pan-African Parliament from Eswatini": "تصنيف:أعضاء البرلمان الإفريقي من إسواتيني",
-    "Category:Members of the Pan-African Parliament from Gabon": "تصنيف:أعضاء البرلمان الإفريقي من الغابون",
-    "Category:Members of the Pan-African Parliament from Ghana": "تصنيف:أعضاء البرلمان الإفريقي من غانا",
-    "Category:Members of the Pan-African Parliament from Lesotho": "تصنيف:أعضاء البرلمان الإفريقي من ليسوتو",
-    "Category:Members of the Pan-African Parliament from Libya": "تصنيف:أعضاء البرلمان الإفريقي من ليبيا",
-    "Category:Members of the Pan-African Parliament from Mali": "تصنيف:أعضاء البرلمان الإفريقي من مالي",
-    "Category:Members of the Pan-African Parliament from Mozambique": "تصنيف:أعضاء البرلمان الإفريقي من موزمبيق",
-    "Category:Members of the Pan-African Parliament from Namibia": "تصنيف:أعضاء البرلمان الإفريقي من ناميبيا",
-    "Category:Members of the Pan-African Parliament from Niger": "تصنيف:أعضاء البرلمان الإفريقي من النيجر",
-    "Category:Members of the Pan-African Parliament from Nigeria": "تصنيف:أعضاء البرلمان الإفريقي من نيجيريا",
-    "Category:Members of the Pan-African Parliament from Rwanda": "تصنيف:أعضاء البرلمان الإفريقي من رواندا",
-    "Category:Members of the Pan-African Parliament from Senegal": "تصنيف:أعضاء البرلمان الإفريقي من السنغال",
-    "Category:Members of the Pan-African Parliament from Sierra Leone": "تصنيف:أعضاء البرلمان الإفريقي من سيراليون",
-    "Category:Members of the Pan-African Parliament from South Africa": "تصنيف:أعضاء البرلمان الإفريقي من جنوب إفريقيا",
-    "Category:Members of the Pan-African Parliament from South Sudan": "تصنيف:أعضاء البرلمان الإفريقي من جنوب السودان",
-    "Category:Members of the Pan-African Parliament from Sudan": "تصنيف:أعضاء البرلمان الإفريقي من السودان",
-    "Category:Members of the Pan-African Parliament from Tanzania": "تصنيف:أعضاء البرلمان الإفريقي من تنزانيا",
-    "Category:Members of the Pan-African Parliament from the Central African Republic": "تصنيف:أعضاء البرلمان الإفريقي من جمهورية إفريقيا الوسطى",
-    "Category:Members of the Pan-African Parliament from the Gambia": "تصنيف:أعضاء البرلمان الإفريقي من غامبيا",
-    "Category:Members of the Pan-African Parliament from republic of congo": "تصنيف:أعضاء البرلمان الإفريقي من جمهورية الكونغو",
-    "Category:Members of the Pan-African Parliament from the Sahrawi Arab Democratic Republic": "تصنيف:أعضاء البرلمان الإفريقي من الجمهورية العربية الصحراوية الديمقراطية",
-    "Category:Members of the Pan-African Parliament from Togo": "تصنيف:أعضاء البرلمان الإفريقي من توغو",
-    "Category:Members of the Pan-African Parliament from Tunisia": "تصنيف:أعضاء البرلمان الإفريقي من تونس",
-    "Category:Members of the Pan-African Parliament from Uganda": "تصنيف:أعضاء البرلمان الإفريقي من أوغندا",
-    "Category:Members of the Pan-African Parliament from Zambia": "تصنيف:أعضاء البرلمان الإفريقي من زامبيا",
-    "Category:Members of the Pan-African Parliament from Zimbabwe": "تصنيف:أعضاء البرلمان الإفريقي من زيمبابوي",
+    "Members of the Pan-African Parliament": "أعضاء البرلمان الإفريقي",
+    "Members of the Pan-African Parliament from Algeria": "أعضاء البرلمان الإفريقي من الجزائر",
+    "Members of the Pan-African Parliament from Angola": "أعضاء البرلمان الإفريقي من أنغولا",
+    "Members of the Pan-African Parliament from Benin": "أعضاء البرلمان الإفريقي من بنين",
+    "Members of the Pan-African Parliament from Botswana": "أعضاء البرلمان الإفريقي من بوتسوانا",
+    "Members of the Pan-African Parliament from Burkina Faso": "أعضاء البرلمان الإفريقي من بوركينا فاسو",
+    "Members of the Pan-African Parliament from Burundi": "أعضاء البرلمان الإفريقي من بوروندي",
+    "Members of the Pan-African Parliament from Cameroon": "أعضاء البرلمان الإفريقي من الكاميرون",
+    "Members of the Pan-African Parliament from Cape Verde": "أعضاء البرلمان الإفريقي من الرأس الأخضر",
+    "Members of the Pan-African Parliament from Chad": "أعضاء البرلمان الإفريقي من تشاد",
+    "Members of the Pan-African Parliament from Djibouti": "أعضاء البرلمان الإفريقي من جيبوتي",
+    "Members of the Pan-African Parliament from Egypt": "أعضاء البرلمان الإفريقي من مصر",
+    "Members of the Pan-African Parliament from Equatorial Guinea": "أعضاء البرلمان الإفريقي من غينيا الاستوائية",
+    "Members of the Pan-African Parliament from Eswatini": "أعضاء البرلمان الإفريقي من إسواتيني",
+    "Members of the Pan-African Parliament from Gabon": "أعضاء البرلمان الإفريقي من الغابون",
+    "Members of the Pan-African Parliament from Ghana": "أعضاء البرلمان الإفريقي من غانا",
+    "Members of the Pan-African Parliament from Lesotho": "أعضاء البرلمان الإفريقي من ليسوتو",
+    "Members of the Pan-African Parliament from Libya": "أعضاء البرلمان الإفريقي من ليبيا",
+    "Members of the Pan-African Parliament from Mali": "أعضاء البرلمان الإفريقي من مالي",
+    "Members of the Pan-African Parliament from Mozambique": "أعضاء البرلمان الإفريقي من موزمبيق",
+    "Members of the Pan-African Parliament from Namibia": "أعضاء البرلمان الإفريقي من ناميبيا",
+    "Members of the Pan-African Parliament from Niger": "أعضاء البرلمان الإفريقي من النيجر",
+    "Members of the Pan-African Parliament from Nigeria": "أعضاء البرلمان الإفريقي من نيجيريا",
+    "Members of the Pan-African Parliament from Rwanda": "أعضاء البرلمان الإفريقي من رواندا",
+    "Members of the Pan-African Parliament from Senegal": "أعضاء البرلمان الإفريقي من السنغال",
+    "Members of the Pan-African Parliament from Sierra Leone": "أعضاء البرلمان الإفريقي من سيراليون",
+    "Members of the Pan-African Parliament from South Africa": "أعضاء البرلمان الإفريقي من جنوب إفريقيا",
+    "Members of the Pan-African Parliament from South Sudan": "أعضاء البرلمان الإفريقي من جنوب السودان",
+    "Members of the Pan-African Parliament from Sudan": "أعضاء البرلمان الإفريقي من السودان",
+    "Members of the Pan-African Parliament from Tanzania": "أعضاء البرلمان الإفريقي من تنزانيا",
+    "Members of the Pan-African Parliament from the Central African Republic": "أعضاء البرلمان الإفريقي من جمهورية إفريقيا الوسطى",
+    "Members of the Pan-African Parliament from the Gambia": "أعضاء البرلمان الإفريقي من غامبيا",
+    "Members of the Pan-African Parliament from republic of congo": "أعضاء البرلمان الإفريقي من جمهورية الكونغو",
+    "Members of the Pan-African Parliament from the Sahrawi Arab Democratic Republic": "أعضاء البرلمان الإفريقي من الجمهورية العربية الصحراوية الديمقراطية",
+    "Members of the Pan-African Parliament from Togo": "أعضاء البرلمان الإفريقي من توغو",
+    "Members of the Pan-African Parliament from Tunisia": "أعضاء البرلمان الإفريقي من تونس",
+    "Members of the Pan-African Parliament from Uganda": "أعضاء البرلمان الإفريقي من أوغندا",
+    "Members of the Pan-African Parliament from Zambia": "أعضاء البرلمان الإفريقي من زامبيا",
+    "Members of the Pan-African Parliament from Zimbabwe": "أعضاء البرلمان الإفريقي من زيمبابوي",
 }
 
 
 @pytest.mark.dump
 def test_pan_arican() -> None:
-    expected, diff_result = one_dump_test(pan_arican, resolve_arabic_category_label)
+    expected, diff_result = one_dump_test(pan_arican, resolve_label_ar)
 
     dump_diff(diff_result, "test_pan_arican")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(pan_arican):,}"
@@ -58,5 +58,5 @@ def test_pan_arican() -> None:
 @pytest.mark.parametrize("category, expected", pan_arican.items(), ids=pan_arican.keys())
 @pytest.mark.slow
 def test_pan_arican_dump(category: str, expected: str) -> None:
-    label = resolve_arabic_category_label(category)
+    label = resolve_label_ar(category)
     assert label == expected
