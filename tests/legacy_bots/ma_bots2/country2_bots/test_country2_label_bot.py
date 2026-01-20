@@ -203,7 +203,7 @@ title_work_tests_data = {
     "shopping malls in ukraine": "مراكز تسوق في أوكرانيا",
     "skyscrapers in united arab emirates": "ناطحات سحاب في الإمارات العربية المتحدة",
     "sports governing bodies in north america": "هيئات تنظيم رياضية في أمريكا الشمالية",
-    "sports venues in australia": "ملاعب رياضية في أستراليا",
+    "sports venues in australia": "ملاعب رياضات في أستراليا",
     "synagogues in switzerland": "كنس في سويسرا",
     "tanks of united states": "دبابات الولايات المتحدة",
     "tourism in republic-of ireland": "سياحة في جمهورية أيرلندا",

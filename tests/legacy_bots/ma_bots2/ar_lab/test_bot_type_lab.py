@@ -52,7 +52,6 @@ data = [
     (" to ", "ambassadors of south africa", "سفراء جنوب إفريقيا"),
     (" by ", "welsh rugby union players", "لاعبو اتحاد رجبي ويلزيون"),
     (" closed in ", "railway stations in northern-ireland", "محطات السكك الحديدية في أيرلندا الشمالية"),
-    (" by ", "sports venues in australia", "ملاعب رياضية في أستراليا"),
     (" closed in ", "railway stations in albania", "محطات السكك الحديدية في ألبانيا"),
     (" in ", "swiss expatriate basketball people", "أعلام كرة سلة سويسريون مغتربون"),
     (" in ", "roman catholic church buildings", "مبان كنائس رومانية كاثوليكية"),
