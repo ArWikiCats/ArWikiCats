@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-# from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
+from utils.dump_runner import make_dump_test_name_data_callback
 from ArWikiCats import resolve_label_ar
 
 data_0 = {
@@ -58,3 +58,10 @@ def test_new_data(category: str, expected_key: str) -> None:
 
     label = resolve_label_ar(category)
     assert label == expected_key
+
+
+to_test = [
+    ("test_sports_new_1", data_0, resolve_label_ar),
+    ("test_sports_new_2", data_1, resolve_label_ar),
+]
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)
