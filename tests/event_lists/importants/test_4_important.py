@@ -208,7 +208,7 @@ data_3 = {
     "Bodies of water of Germany by state": "مسطحات مائية في ألمانيا حسب الولاية",
     "Bodies of water of Carmarthenshire": "مسطحات مائية في كرمرثنشير",
     "2023 in dependent territories of United Kingdom": "أقاليم ما وراء البحار البريطانية في 2023",
-    "Battles involving al-Qaeda in Arabian Peninsula": "معارك تشمل تنظيم القاعدة في جزيرة العرب",
+    "Battles involving al-Qaeda in Arabian Peninsula": "معارك تشمل تنظيم القاعدة في شبه الجزيرة العربية",
     "Film set at Metropolitan Museum of Art": "أفلام تقع أحداثها في متحف المتروبوليتان للفنون",
     "Halo (franchise) players": "لاعبو هيلو (سلسلة)",
     "Lists of members of Parliament of Syria": "قوائم أعضاء برلمان سوريا",
