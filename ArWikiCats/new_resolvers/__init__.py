@@ -48,6 +48,10 @@ def all_new_resolvers(category: str) -> str:
         # main_jobs_resolvers before sports, to avoid mis-resolving like:
         # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
         # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
+        # while this technique make issues like:
+        # incorrect:    "american football executives": "تصنيف:مسيرو كرة قدم أمريكيون",
+        # correct:      "american football executives": "تصنيف:مسيرو كرة قدم أمريكية",
+        #
         or main_jobs_resolvers(category)
         or time_and_jobs_resolvers_main(category)
         or main_sports_resolvers(category)

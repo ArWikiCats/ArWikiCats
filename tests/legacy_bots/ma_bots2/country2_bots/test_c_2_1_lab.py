@@ -43,6 +43,11 @@ fast_and_data = {
 }
 
 fast_data_c_2_1_lab = {
+    "american football executives": "مسيرو كرة قدم أمريكيون",
+    "american football players": "لاعبو كرة قدم أمريكيون",
+    # "american football executives": "مسيرو كرة قدم أمريكية",
+    # "american football players": "لاعبو كرة قدم أمريكية",
+
     "australian royal navy": "البحرية الملكية الأسترالية",
     "swedish royal navy": "البحرية الملكية السويدية",
     "thai royal navy": "البحرية الملكية التايلندية",
@@ -54,8 +59,6 @@ fast_data_c_2_1_lab = {
     "algerian civil war": "الحرب الأهلية الجزائرية",
     "amazonas (brazilian state)": "الأمازون (ولاية)",
     "american civil war": "الحرب الأهلية الأمريكية",
-    "american football executives": "مسيرو كرة قدم أمريكية",
-    "american football players": "لاعبو كرة قدم أمريكية",
     "american revolution": "الثورة الأمريكية",
     "andorra la vella": "أندورا لا فيلا",
     "ang thong province": "محافظة أنغ ثونغ",
