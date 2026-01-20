@@ -21,8 +21,6 @@ from ...translations import (
 from .. import tmp_bot
 from ..ma_bots.country_bot import fetch_country_term_label, get_country
 from ..make_bots.bot_2018 import get_pop_All_18
-
-# from ....genders_processers import resolve_nat_genders_pattern_v2
 from ..o_bots import bys
 
 
@@ -223,17 +221,6 @@ def _handle_special_type_cases(type_lower: str, normalized_preposition: str) -> 
     return "", True
 
 
-def _lookup_type_without_article(type_lower: str) -> str:
-    """Try to find label for type after removing 'the ' prefix."""
-    if type_lower.startswith("the "):
-        type_no_article = type_lower[len("the ") :]
-        label = get_from_new_p17_final(type_no_article)
-        if label:
-            logger.debug(f"Found label without article: {type_no_article=}, {label=}")
-            return label
-    return ""
-
-
 def _lookup_religious_males(type_lower: str) -> str:
     """Look up religious keys for males."""
     return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
@@ -295,11 +282,8 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     # If no special case matched, proceed with lookup chain
     if not label:
         lookup_chain = {
-            # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
-            # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
             "get_from_new_p17_final": get_from_new_p17_final,
             "all_new_resolvers": all_new_resolvers,
-            "_lookup_type_without_article": _lookup_type_without_article,
             "_lookup_religious_males": _lookup_religious_males,
             "New_female_keys": lambda t: New_female_keys.get(t, ""),
             "religious_entries": lambda t: religious_entries.get(t, ""),
