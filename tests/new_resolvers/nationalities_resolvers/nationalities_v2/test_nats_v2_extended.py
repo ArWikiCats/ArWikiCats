@@ -85,11 +85,5 @@ to_test = [
     ("test_with_resolve_label_ar", all_test_data_integrated, resolve_label_ar),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_non_dump(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data_callback
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

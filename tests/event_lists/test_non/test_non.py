@@ -906,6 +906,5 @@ def test_data_series(category: str, expected: str) -> None:
 @pytest.mark.dump
 def test_non_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
-
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
