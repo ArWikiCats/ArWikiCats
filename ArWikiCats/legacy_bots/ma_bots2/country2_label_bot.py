@@ -12,7 +12,7 @@ from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import team_work
-from ...translations import People_key, get_from_pf_keys2
+from ...translations import get_from_pf_keys2
 from ...utils import fix_minor
 from .. import with_years_bot
 from ..ma_bots import country_bot
@@ -91,7 +91,6 @@ def c_1_1_lab(separator: str, country2: str) -> str:
 
     part_1_label = (
         get_pop_All_18(country2)
-        or People_key.get(country2)
         or all_new_resolvers(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
@@ -124,7 +123,6 @@ def c_2_1_lab(country2: str) -> str:
     part_2_label = (
         get_pop_All_18(country2)
         or bys.get_by_label(country2)
-        or People_key.get(country2)
         or all_new_resolvers(country2)
         or parties_resolver.get_parties_lab(country2)
         or bys.get_and_label(country2)

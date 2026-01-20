@@ -11,11 +11,9 @@ from ...helps import logger
 from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
-from ...time_formats import time_to_arabic
 from ...translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
-    People_key,
     get_from_new_p17_final,
     get_from_pf_keys2,
     religious_entries,
@@ -263,12 +261,12 @@ def _lookup_religious_males(type_lower: str) -> str:
     return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
-def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable]:
+def _create_type_lookup_chain(preposition: str) -> dict[str, callable]:
     """
     Constructs an ordered chain of lookup callables for resolving Arabic type labels using the given normalized preposition.
 
     Parameters:
-        normalized_preposition (str): Normalized separator/preposition (e.g., "in", "from", "for") supplied to lookups that require context.
+        preposition (str): Normalized separator/preposition (e.g., "in", "from", "for") supplied to lookups that require context.
 
     Returns:
         dict[str, callable]: A mapping of descriptive keys to callables; each callable accepts a type string and returns an Arabic label or an empty string when no label is found.
@@ -282,12 +280,9 @@ def _create_type_lookup_chain(normalized_preposition: str) -> dict[str, callable
         "_lookup_religious_males": _lookup_religious_males,
         "New_female_keys": lambda t: New_female_keys.get(t, ""),
         "religious_entries": lambda t: religious_entries.get(t, ""),
-        "People_key": lambda t: People_key.get(t, ""),
         "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-        "fetch_country_term_label": lambda t: fetch_country_term_label(
-            t, normalized_preposition, lab_type="type_label"
-        ),
+        "fetch_country_term_label": lambda t: fetch_country_term_label(t, preposition, lab_type="type_label"),
         "get_lab_for_country2": get_lab_for_country2,
     }
 
