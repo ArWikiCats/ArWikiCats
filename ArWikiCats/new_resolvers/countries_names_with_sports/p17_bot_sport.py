@@ -7,7 +7,7 @@ TODO: merge with countries_names_sport_multi_v2.py
 import functools
 
 from ...helps import dump_data, logger
-from ...legacy_bots.make_bots.teams_mappings_ends import teams_label_mappings_ends
+from ..teams_mappings_ends import teams_label_mappings_ends
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     SPORTS_KEYS_FOR_TEAM,
