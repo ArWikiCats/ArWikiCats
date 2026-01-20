@@ -371,7 +371,4 @@ def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_year_job_from_countries)
 
     dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
-
-    # dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

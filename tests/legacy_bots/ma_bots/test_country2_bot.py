@@ -486,7 +486,7 @@ data_slow = {
     "rugby league in england": "دوري الرجبي في إنجلترا",
     "rugby union by country": "اتحاد الرجبي حسب البلد",
     "rugby union competitions": "منافسات اتحاد رجبي",
-    "rugby union tournaments": "بطولات اتحاد رجبي",
+    "rugby union tournaments": "بطولات اتحاد الرجبي",
     "russia–sri lanka relations": "العلاقات الروسية السريلانكية",
     "rwanda–tanzania relations": "العلاقات التنزانية الرواندية",
     "sailing for puerto rico": "الإبحار في بورتوريكو",

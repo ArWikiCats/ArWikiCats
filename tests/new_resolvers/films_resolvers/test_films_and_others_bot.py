@@ -71,6 +71,5 @@ to_test = [
 @pytest.mark.dump
 def test_peoples(name: str, data: dict[str, str], callback) -> None:
     expected, diff_result = one_dump_test(data, callback)
-
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

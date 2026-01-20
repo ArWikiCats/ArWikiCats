@@ -82,11 +82,5 @@ to_test = [
     ("test_lab_seoo_bot_1", event_Lab_seoo_data),
 ]
 
-
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_peoples(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, event_label_work)
-    dump_same_and_not_same(data, diff_result, name)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+from utils.dump_runner import make_dump_test_name_data
+test_dump_all = make_dump_test_name_data(to_test, event_label_work, run_same=True)

@@ -1,6 +1,6 @@
-#
-import pytest
-from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test
+
+from utils.dump_runner import make_dump_test_name_data_callback
+from utils.resolver_runner import make_resolver_fast_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
@@ -51,28 +51,27 @@ to_test = [
     ("test_mans_data_4", data_4, resolve_nats_sport_multi_v2),
 ]
 
+test_mans_data_0 = make_resolver_fast_test(
+    resolver=resolve_label_ar,
+    data=data0,
+    test_name="test_mans_data_0",
+)
 
-@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
-def test_mans_data_0(category: str, expected: str) -> None:
-    assert resolve_label_ar(category) == expected
+test_mans_data_1 = make_resolver_fast_test(
+    resolver=resolve_nats_sport_multi_v2,
+    data=data1,
+    test_name="test_mans_data_1",
+)
 
+test_mans_data_3 = make_resolver_fast_test(
+    resolver=resolve_nats_sport_multi_v2,
+    data=data_3,
+    test_name="test_mans_data_3",
+)
+test_mans_data_4 = make_resolver_fast_test(
+    resolver=resolve_nats_sport_multi_v2,
+    data=data_4,
+    test_name="test_mans_data_4",
+)
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
-def test_mans_data_1(category: str, expected: str) -> None:
-    assert resolve_nats_sport_multi_v2(category) == expected
-
-
-@pytest.mark.parametrize("category, expected", data_3.items(), ids=data_3.keys())
-def test_mans_data_3(category: str, expected: str) -> None:
-    assert resolve_nats_sport_multi_v2(category) == expected
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-
-    # dump_diff_text (expected, diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

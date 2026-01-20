@@ -33,7 +33,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None:
     """
     Dump diff data as text file for easy copy-paste to wiki.
 
-    # dump_diff_text(expected, diff_result, name)
+    #  dump_diff_text(expected, diff_result, name)
     """
     if not expected or not diff_result:
         return

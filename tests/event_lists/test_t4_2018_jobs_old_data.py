@@ -3,7 +3,7 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
 
@@ -46,12 +46,4 @@ to_test = [
     ("te4_2018_data_fast", data_fast),
 ]
 
-
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-
-    # dump_diff_text(expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)
