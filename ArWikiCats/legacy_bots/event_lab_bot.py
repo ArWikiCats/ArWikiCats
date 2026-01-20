@@ -233,8 +233,8 @@ class EventLabResolver:
             category_lab = tmp_bot.Work_Templates(original_cat3)
 
         # Try general translation again if still no label
-        if not category_lab:
-            category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
+        # if not category_lab:
+        #     category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
 
         return category_lab
 
