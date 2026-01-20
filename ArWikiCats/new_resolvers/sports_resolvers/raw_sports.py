@@ -347,6 +347,23 @@ def _load_unified_bot() -> FormatDataV2:
     )
 
 
+def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
+    if result.startswith("لاعبو ") and "للسيدات" in result:
+        result = result.replace("لاعبو ", "لاعبات ")
+
+    if key == "teams" and "national" in category:
+        result = result.replace("فرق ", "منتخبات ")
+
+    return result
+
+
+@functools.lru_cache(maxsize=10000)
+def fix_keys(category: str) -> str:
+    category = category.replace("'", "").lower().replace("category:", "")
+    category = category.replace("playerss", "players")
+    return category.strip()
+
+
 @functools.lru_cache(maxsize=None)
 def resolve_sport_label_unified(category: str, default: str = "") -> str:
     """
@@ -364,99 +381,22 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
     Returns:
         str: The translated Arabic label or the default value.
     """
-    if "world" in category:
-        category = category.replace("championships", "championship")
-
-    unified_bot = _load_unified_bot()
-    result = unified_bot.search(category) or default
-    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_label_unified: {category=}, {result=}", result)
-    return result
-
-
-@functools.lru_cache(maxsize=1)
-def _get_sorted_teams_labels() -> dict[str, str]:
-    # (records and statistics|finals|matches|manager history|tournaments|leagues|coaches|clubs and teams|clubs|competitions|chairmen and investors|cups)
-    mappings_data = {
-        "records and statistics": "سجلات وإحصائيات",
-        "finals": "نهائيات",
-        "templates": "قوالب",
-        "matches": "مباريات",
-        "manager history": "تاريخ مدربو",
-        "tournaments": "بطولات",
-        "leagues": "دوريات",
-        "coaches": "مدربو",
-        "clubs and teams": "أندية وفرق",
-        "clubs": "أندية",
-        "competitions": "منافسات",
-        "chairmen and investors": "رؤساء ومسيرو",
-        "cups": "كؤوس",
-    }
-
-    mappings_data = dict(
-        sorted(
-            mappings_data.items(),
-            key=lambda k: (-k[0].count(" "), -len(k[0])),
-        )
-    )
-    return mappings_data
-
-
-def fix_result_callable(result: str, category: str, key: str, value: str) -> str:
-    if result.startswith("لاعبو ") and "للسيدات" in result:
-        result = result.replace("لاعبو ", "لاعبات ")
-
-    if key == "teams" and "national" in category:
-        result = result.replace("فرق ", "منتخبات ")
-
-    return result
-
-
-@functools.lru_cache(maxsize=None)
-def wrap_team_xo_normal_2025(team: str) -> str:
-    """Normalize a team string and resolve it via the available sports bots."""
-    team = team.lower().replace("category:", "")
-    logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025: {team=}")
-
-    result = resolve_sport_label_unified(team)
-
-    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025: {team=}, {result=}", result)
-    return result.strip()
-
-
-@functools.lru_cache(maxsize=10000)
-def fix_keys(category: str) -> str:
-    category = category.replace("'", "").lower().replace("category:", "")
-    category = category.replace("playerss", "players")
-    return category.strip()
-
-
-def wrap_team_xo_normal_2025_with_ends(category, callback=wrap_team_xo_normal_2025) -> str:
-    category = fix_keys(category)
-    logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
-    teams_label_mappings_ends = _get_sorted_teams_labels()
-
-    if not callback:
-        callback = wrap_team_xo_normal_2025
+    logger.debug(f"<<yellow>> start resolve_sport_label_unified: {category=}")
 
     if SPORT_KEY_RECORDS.get(category):
         return SPORT_KEY_RECORDS[category].get("label", "")
 
-    result = callback(category)
+    unified_bot = _load_unified_bot()
+    result = unified_bot.search(category)
 
-    if not result:
-        result = resolve_sport_category_suffix_with_mapping(
-            category=category,
-            data=teams_label_mappings_ends,
-            callback=callback,
-            fix_result_callable=fix_result_callable,
-        )
+    if not result and "world" in category:
+        category2 = category.replace("championships", "championship")
+        result = unified_bot.search(category2)
 
-    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}", result)
-    return result
+    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_label_unified: {category=}, {result=}", result)
+    return result or default
 
 
 __all__ = [
-    "wrap_team_xo_normal_2025",
     "resolve_sport_label_unified",
-    "wrap_team_xo_normal_2025_with_ends",
 ]

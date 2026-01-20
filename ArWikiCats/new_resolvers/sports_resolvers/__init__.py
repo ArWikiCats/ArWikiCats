@@ -26,9 +26,9 @@ def _not_main_sports_resolvers(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> Trying _not_main_sports_resolvers resolvers for: {normalized_category=}")
 
     resolved_label = (
-        match_labs.find_teams_2025(normalized_category)
+        match_labs.wrap_team_xo_normal_2025_with_ends(normalized_category)
         or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        # or raw_sports.wrap_team_xo_normal_2025_with_ends(normalized_category)
+        # or match_labs.wrap_team_xo_normal_2025_with_ends(normalized_category)
         or ""
     )
 
@@ -63,9 +63,9 @@ def main_sports_resolvers(normalized_category) -> str:
         countries_names_and_sports.resolve_countries_names_sport_with_ends(normalized_category)
         or nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category)
         or jobs_multi_sports_reslover.jobs_in_multi_sports(normalized_category)
-        # or match_labs.find_teams_2025(normalized_category)
+        # or match_labs.wrap_team_xo_normal_2025_with_ends(normalized_category)
         # or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        # or raw_sports.wrap_team_xo_normal_2025_with_ends(normalized_category)
+        # or match_labs.wrap_team_xo_normal_2025_with_ends(normalized_category)
         or sub_main_sports_resolvers(normalized_category)
         or ""
     )

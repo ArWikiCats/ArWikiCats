@@ -58,8 +58,8 @@ def all_new_resolvers(category: str) -> str:
         or sport_lab_nat.sport_lab_nat_load_new(category)
         or main_countries_names_with_sports_resolvers(category)
         or resolve_languages_labels_with_time(category)
-        # or raw_sports.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
-        # or match_labs.find_teams_2025(category)  # NOTE: under test
+        # or match_labs.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
+        # or match_labs.wrap_team_xo_normal_2025_with_ends(category)  # NOTE: under test
         or main_other_resolvers(category)
         or ""
     )

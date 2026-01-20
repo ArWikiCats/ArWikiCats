@@ -1,18 +1,15 @@
 #!/usr/bin/python3
 """
-TODO: merge with sports_resolvers/raw_sports.py
 """
 
 import functools
 
-from ...helps import dump_data, logger
+from ...helps import logger
 from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,
 )
-from ...translations.sports.Sport_key import SPORT_KEY_RECORDS
 from .raw_sports import resolve_sport_label_unified
-
 
 mappings_data: dict[str, str] = {
     "squads": "تشكيلات",
@@ -51,6 +48,8 @@ mappings_data: dict[str, str] = {
     "umpires": "حكام",
     "referees": "حكام",
     "directors": "مدراء",
+    "chairmen and investors": "رؤساء ومسيرو",
+    "cups": "كؤوس",
 }
 
 FOOTBALL_KEYS_PLAYERS = {
@@ -130,9 +129,9 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-def find_teams_2025(category) -> str:
+def wrap_team_xo_normal_2025_with_ends(category) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start find_teams_2025: {category=}")
+    logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
 
     result = resolve_sport_label_unified(category)
 
@@ -152,10 +151,10 @@ def find_teams_2025(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info_if_or_debug(f"<<yellow>> end find_teams_2025: {category=}, {result=}", result)
+    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}", result)
     return result
 
 
 __all__ = [
-    "find_teams_2025",
+    "wrap_team_xo_normal_2025_with_ends",
 ]
