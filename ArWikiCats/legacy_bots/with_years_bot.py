@@ -56,7 +56,7 @@ def _handle_year_at_start(category_text: str) -> str:
             ""
             or all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
-            or get_KAKO(remainder)
+            # or get_KAKO(remainder)
             or general_resolver.translate_general_category(remainder, fix_title=False)
             or get_lab_for_country2(remainder)
             or ""

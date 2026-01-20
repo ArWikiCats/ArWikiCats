@@ -99,7 +99,7 @@ def c_1_1_lab(separator: str, country2: str) -> str:
         or get_table_with_in(country2, separator)
         or time_label(country2)
         or get_from_pf_keys2(country2)
-        or get_KAKO(country2)
+        # or get_KAKO(country2)
         or ""
     )
 
@@ -132,7 +132,7 @@ def c_2_1_lab(country2: str) -> str:
         or bys.get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_from_pf_keys2(country2.strip().lower())
-        or get_KAKO(country2)
+        # or get_KAKO(country2)
         or time_label(country2)
         or ""
     )
