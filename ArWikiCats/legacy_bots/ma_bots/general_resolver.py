@@ -35,17 +35,13 @@ def find_lab(category: str, category_r: str) -> str:
     """
     cate_low = category.lower()
 
-    _lab = Films_O_TT.get(cate_low, "")
-
-    if not _lab:
-        _lab = get_pop_All_18(cate_low, "")
-
-    if not _lab:
-        _lab = get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
-
-    if not _lab:
-        _lab = time_to_arabic.convert_time_to_arabic(cate_low)
-
+    _lab = (
+        ""
+        or Films_O_TT.get(cate_low, "")
+        or get_pop_All_18(cate_low, "")
+        or get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
+        or time_to_arabic.convert_time_to_arabic(cate_low)
+    )
     if _lab:
         logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", {_lab=}')
         logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", {_lab=}')

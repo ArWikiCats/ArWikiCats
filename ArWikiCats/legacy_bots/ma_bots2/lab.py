@@ -370,7 +370,6 @@ def _create_country_lookup_chain(separator: str, start_get_country2: bool, count
         "_lookup_country_with_by": _lookup_country_with_by,
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
-        "convert_time_to_arabic": time_to_arabic.convert_time_to_arabic,
         "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
         "fetch_country_term_label": lambda c: fetch_country_term_label(
             c, separator, start_get_country2=start_get_country2

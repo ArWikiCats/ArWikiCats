@@ -11,9 +11,7 @@ from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...sub_new_resolvers import team_work
-from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor
 from .. import with_years_bot
@@ -96,11 +94,9 @@ def c_1_1_lab(separator: str, country2: str) -> str:
         get_pop_All_18(country2)
         or People_key.get(country2)
         or all_new_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_table_with_in(country2, separator)
-        or convert_time_to_arabic(country2)
         or time_label(country2)
         or get_from_pf_keys2(country2)
         or get_KAKO(country2)
@@ -132,14 +128,12 @@ def c_2_1_lab(country2: str) -> str:
         or bys.get_by_label(country2)
         or People_key.get(country2)
         or all_new_resolvers(country2)
-        or wrap_team_xo_normal_2025_with_ends(country2)
         or parties_resolver.get_parties_lab(country2)
         or bys.get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_from_pf_keys2(country2.strip().lower())
         or get_KAKO(country2)
         or time_label(country2)
-        or convert_time_to_arabic(country2)
         or ""
     )
 

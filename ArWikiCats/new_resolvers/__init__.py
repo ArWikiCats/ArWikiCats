@@ -17,6 +17,8 @@ New resolvers for Arabic Wikipedia categories.
 
 import functools
 
+from ..time_formats import convert_time_to_arabic
+
 from ..helps import logger
 from ..sub_new_resolvers import main_other_resolvers
 from .countries_names_resolvers import main_countries_names_resolvers
@@ -42,10 +44,11 @@ def all_new_resolvers(category: str) -> str:
     """
     logger.info(f"<<purple>> all_new_resolvers: {category}")
     category_lab = (
+        convert_time_to_arabic(category)
         # main_jobs_resolvers before sports, to avoid mis-resolving like:
         # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
         # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
-        main_jobs_resolvers(category)
+        or main_jobs_resolvers(category)
         or time_and_jobs_resolvers_main(category)
         or main_sports_resolvers(category)
         # NOTE: main_nationalities_resolvers must be before main_countries_names_resolvers to avoid conflicts like:
