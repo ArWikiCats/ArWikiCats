@@ -97,7 +97,6 @@ class EventLabResolver:
                 ""
                 or country2_label_bot.country_2_title_work(original_cat3)
                 or get_lab_for_country2(original_cat3)
-                or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
             )
             if category_lab:
                 list_of_cat = ""
@@ -231,10 +230,6 @@ class EventLabResolver:
         # Try template processing if no label yet
         if not category_lab:
             category_lab = tmp_bot.Work_Templates(original_cat3)
-
-        # Try general translation again if still no label
-        # if not category_lab:
-        #     category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
 
         return category_lab
 
