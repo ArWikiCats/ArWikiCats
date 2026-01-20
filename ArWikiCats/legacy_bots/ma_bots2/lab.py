@@ -239,25 +239,6 @@ def _lookup_religious_males(type_lower: str) -> str:
     return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
-def _lookup_country_with_dash_variants(country_lower: str, country_no_dash: str) -> str:
-    """Try country lookups with dash variants."""
-    if "-" not in country_lower:
-        return ""
-
-    label = get_pop_All_18(country_no_dash, "")
-    if label:
-        return label
-
-    label = New_female_keys.get(country_no_dash, "") or religious_entries.get(country_no_dash, "")
-    if label:
-        return label
-
-    if "kingdom-of" in country_lower:
-        return get_pop_All_18(country_lower.replace("kingdom-of", "kingdom of"), "")
-
-    return ""
-
-
 def _lookup_country_with_by(country_lower: str) -> str:
     """Handle country labels with 'by' prefix or infix."""
     if country_lower.startswith("by "):
@@ -357,7 +338,6 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     country_lower = country.strip().lower()
     country_no_dash = country_lower.replace("-", " ")
 
-    # def _create_country_lookup_chain(separator: str, start_get_country2: bool, country_no_dash: str)
     for_table = {
         "for national teams": "للمنتخبات الوطنية",
         "for member-of-parliament": "لعضوية البرلمان",
@@ -371,7 +351,6 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
         "get_pop_All_18_no_dash": lambda c: get_pop_All_18(country_no_dash, ""),
-        # "_lookup_country_with_dash_variants": lambda c: _lookup_country_with_dash_variants(c, country_no_dash),
         "_lookup_country_with_by": _lookup_country_with_by,
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
@@ -382,17 +361,18 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "get_lab_for_country2": get_lab_for_country2,
     }
+    label = ""
 
     for name, lookup_func in lookup_chain.items():
         label = lookup_func(country_lower)
         if label:
             logger.debug(f"get_con_lab({country_lower}): Found label '{label}' via {name}")
-            return label
+            break
 
     logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
     logger.info(f"?????? get_con_lab: {start_get_country2=}, {country=}, {separator=}")
 
-    return label or ""
+    return label
 
 
 __all__ = [
