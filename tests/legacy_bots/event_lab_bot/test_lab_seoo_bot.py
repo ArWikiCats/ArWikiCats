@@ -6,6 +6,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.legacy_bots.event_lab_bot import event_label_work
+from utils.dump_runner import make_dump_test_name_data
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",
@@ -82,11 +83,4 @@ to_test = [
     ("test_lab_seoo_bot_1", event_Lab_seoo_data),
 ]
 
-
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_peoples(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, event_label_work)
-    dump_same_and_not_same(data, diff_result, name)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, event_label_work, run_same=True)

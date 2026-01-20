@@ -6,6 +6,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",
@@ -384,7 +385,7 @@ data_1 = {
     "football rivalries": "دربيات كرة قدم",
     "football teams": "فرق كرة قدم",
     "football trainers": "مدربو كرة قدم",
-    "football umpires": "حكام كرة قدم"
+    "football umpires": "حكام كرة قدم",
 }
 
 data_2 = {
@@ -640,11 +641,4 @@ to_test = [
     ("test_find_teams_2025_3", data_3, wrap_team_xo_normal_2025_with_ends),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

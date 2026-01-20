@@ -6,6 +6,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_nats_0 = {}
 data_nats_1 = {
@@ -49,11 +50,4 @@ to_test = [
     ("test_nas_open_1", data_nats_1, resolve_nats_sport_multi_v2),
     ("test_nas_open_3", data_names_3, resolve_countries_names_sport),
 ]
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

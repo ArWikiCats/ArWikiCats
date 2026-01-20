@@ -2,6 +2,7 @@
 """
 Resolves category labels for religious groups combined with nationalities.
 """
+
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
 from ...translations_formats import FormatData, format_multi_data_v2
 

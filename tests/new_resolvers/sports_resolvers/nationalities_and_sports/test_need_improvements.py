@@ -7,6 +7,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "yemeni domestic basketball": "كرة سلة يمنية محلية",
@@ -86,12 +87,4 @@ def test_need_improvements_3(category: str, expected: str) -> None:
     assert label2 == expected
 
 
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-
-    # add_result = {x: v for x, v in data.items() if x in diff_result and "" == diff_result.get(x)}
-    # dump_diff(add_result, f"{name}_add")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

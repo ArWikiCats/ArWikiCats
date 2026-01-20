@@ -5,6 +5,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_job_label
+from utils.dump_runner import make_dump_test_name_data
 
 test_0 = {}
 
@@ -127,10 +128,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, get_job_label)
-    dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, get_job_label, run_same=False)

@@ -3,6 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_1 = {
     "Deaths by American airstrikes during the Syrian civil war": "وفيات بضربات جوية أمريكية خلال الحرب الأهلية السورية",
@@ -895,12 +896,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-
-    # same_data = {x: v for x, v in data.items() if x not in diff_result}
-    # dump_diff(same_data, f"{name}_same")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

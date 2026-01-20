@@ -43,11 +43,9 @@ medical_keys = {
     "respiratory disease": "أمراض الجهاز التنفسي",
     "skin disease": "مرض جلدي",
     "urologic disease": "أمراض الجهاز البولي",
-
     "deaths by airstrike": "وفيات بضربات جوية",
     "deaths by airstrikes": "وفيات بضربات جوية",
     "deaths by firearm": "وفيات بسلاح ناري",
-
     "deaths from amyloidosis": "وفيات داء نشواني",
     "deaths from autoimmune disease": "وفيات أمراض المناعة الذاتية",
     "deaths from blood disease": "وفيات أمراض الدم",

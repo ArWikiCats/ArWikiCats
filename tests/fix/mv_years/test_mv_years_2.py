@@ -4,6 +4,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.fix.mv_years import move_by_in, move_years_first
+from utils.dump_runner import make_dump_test_name_data_callback
 
 move_years_first_data = {
     "عقد 1910 في بابوا غينيا الجديدة": "بابوا غينيا الجديدة في عقد 1910",
@@ -345,10 +346,4 @@ def test_move_by_in(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

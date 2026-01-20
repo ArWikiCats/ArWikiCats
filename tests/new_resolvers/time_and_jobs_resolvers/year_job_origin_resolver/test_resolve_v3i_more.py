@@ -6,6 +6,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
+from utils.dump_runner import make_dump_test_name_data_callback
 
 test_deaths_data = {
     "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
@@ -155,15 +156,4 @@ to_test = [
     ("test_females_data_1", test_females_data, resolve_year_job_from_countries),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-
-    dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
-
-    # same_data = {x: v for x, v in data.items() if x not in diff_result}
-    # dump_diff(same_data, f"{name}_same")
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

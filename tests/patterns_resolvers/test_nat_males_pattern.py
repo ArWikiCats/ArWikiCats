@@ -6,6 +6,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.patterns_resolvers.nat_males_pattern import resolve_nat_males_pattern
+from utils.dump_runner import make_dump_test_name_data_callback
 
 _mens_data_old = {
     # {en_nat} christians
@@ -433,10 +434,4 @@ to_test = [
     ("test_p_resolve_the_female", test_data_the_female, resolve_nat_males_pattern),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

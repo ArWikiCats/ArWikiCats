@@ -4,6 +4,7 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time import fetch_films_by_category
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_0 = {
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
@@ -175,11 +176,4 @@ def test_superhero_data_3(category: str, expected: str) -> None:
     assert result == expected
 
 
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-
-    # dump_diff_text (expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

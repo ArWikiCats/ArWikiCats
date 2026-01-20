@@ -2,6 +2,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
+from utils.dump_runner import make_dump_test_name_data
 
 data_0 = {
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",
@@ -381,10 +382,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, sport_lab_nat_load_new)
-    dump_diff(diff_result, name)
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, sport_lab_nat_load_new, run_same=False)

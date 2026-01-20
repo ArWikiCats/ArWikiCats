@@ -1,8 +1,8 @@
 #
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 fast_data_1 = {
     "April 2020 sports events in Africa": "أحداث أبريل 2020 الرياضية في إفريقيا",
@@ -810,11 +810,4 @@ def test_2_fast_data_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar)

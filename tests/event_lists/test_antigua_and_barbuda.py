@@ -3,6 +3,7 @@ import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_skip = {
     "January 2021 in Antigua and Barbuda": "أنتيغوا وباربودا في يناير 2021",
@@ -805,19 +806,12 @@ def test_antigua_and_barbuda_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
 @pytest.mark.parametrize("name,data", [("test_antigua_and_barbuda_data_skip", data_skip)])
 @pytest.mark.skip2
 def test_dump_it_skip2(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
     dump_diff(diff_result, name)
-    # dump_diff_text(expected, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+
+
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

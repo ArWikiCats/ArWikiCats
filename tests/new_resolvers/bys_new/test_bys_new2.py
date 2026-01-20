@@ -8,6 +8,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
+from utils.dump_runner import make_dump_test_name_data
 
 _by_and_fields = {
     "by bank and behavior": "حسب البنك والسلوك",
@@ -1313,13 +1314,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_by_labels)
-    dump_diff(diff_result, name)
-
-    expected2 = {x: v for x, v in expected.items() if v and x in diff_result}
-    dump_diff(expected2, f"{name}_expected")
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_by_labels, run_same=False)

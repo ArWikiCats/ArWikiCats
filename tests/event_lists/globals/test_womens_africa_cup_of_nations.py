@@ -1,8 +1,8 @@
 #
 import pytest
-from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "2016 Women's Africa Cup of Nations squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الإفريقية للسيدات 2016",
@@ -38,11 +38,4 @@ def test_womens_africa_cup_of_nations_1(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-
-    # dump_diff_text(expected, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

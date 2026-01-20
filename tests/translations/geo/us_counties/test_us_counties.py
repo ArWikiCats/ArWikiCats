@@ -5,6 +5,7 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
 from ArWikiCats.translations import US_STATES
+from utils.dump_runner import make_dump_test_name_data
 
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
@@ -57,23 +58,6 @@ for en in data_1.keys():
         test_one = {f"{x.format(en=en)}": f"{normalize_state(v.format(ar=ar))}" for x, v in test_data_keys.items()}
         data_1[en] = test_one
         all_test_data.update(test_one)
-
-
-to_test = [
-    # (f"test_us_counties_{x}", v) for x, v in data_1.items()
-    ("test_us_counties_iowa", data_1["iowa"])
-]
-
-to_test.append(("test_all_test_data", all_test_data))
-
-
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.parametrize("input_text,expected", all_test_data.items(), ids=all_test_data.keys())
@@ -147,3 +131,14 @@ def test_us_counties_empty() -> None:
 
     dump_diff(diff_result, "test_us_counties_empty")
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(empty_data):,}"
+
+
+to_test = [
+    # (f"test_us_counties_{x}", v) for x, v in data_1.items()
+    ("test_us_counties_iowa", data_1["iowa"])
+]
+
+to_test.append(("test_all_test_data", all_test_data))
+
+
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

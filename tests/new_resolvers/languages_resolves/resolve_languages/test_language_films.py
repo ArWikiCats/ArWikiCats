@@ -6,6 +6,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
+from utils.dump_runner import make_dump_test_name_data
 
 test_data_skip = {
     "Assamese-language remakes of Hindi films": "",
@@ -751,11 +752,4 @@ def test_language_films(category: str, expected: str) -> None:
     assert label2 == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_languages_labels)
-    dump_diff(diff_result, name)
-
-    # dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_languages_labels, run_same=False)

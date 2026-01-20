@@ -7,6 +7,7 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import country_2_title_work
+from utils.dump_runner import make_dump_test_name_data_callback
 
 title_work_tests_data = {
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
@@ -268,12 +269,4 @@ to_test = [
     ("test_2", test_2, country_2_title_work),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

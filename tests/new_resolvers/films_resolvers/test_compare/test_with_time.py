@@ -181,7 +181,6 @@ def test_dump_2nd(monkeypatch: pytest.MonkeyPatch, name: str, data: dict[str, st
     No return value. The test records differences and same/not-same items, and asserts that the produced diff equals the expected result.
     """
     expected, diff_result = one_dump_test(data, callback)
-
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"

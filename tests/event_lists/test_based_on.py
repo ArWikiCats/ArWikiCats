@@ -1,8 +1,8 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_0 = {
     "organized crime films based on actual events": "",
@@ -12,13 +12,12 @@ data_0 = {
     "ballets based on actual events": "",
     "australian radio dramas based on actual events": "",
     "american civil war films based on actual events": "",
-    "world war i films based on actual events": ""
+    "world war i films based on actual events": "",
 }
 
 slow_data = {
     "art based on actual events": "الفن مبنية على أحداث حقيقية",
     "music based on actual events": "الموسيقى مبنية على أحداث حقيقية",
-
     "musical drama films based on actual events": "أفلام موسيقية درامية مبنية على أحداث حقيقية",
     "lgbtq-related films based on actual events": "أفلام متعلقة بإل جي بي تي كيو مبنية على أحداث حقيقية",
     "literature based on actual events": "أدب مبنية على أحداث حقيقية",
@@ -171,10 +170,4 @@ def test_based_on_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_peoples(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)
