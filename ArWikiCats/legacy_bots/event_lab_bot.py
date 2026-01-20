@@ -13,7 +13,7 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import Ambassadors_tab, get_from_new_p17_final
+from ..translations import Ambassadors_tab
 from . import with_years_bot
 from .common_resolver_chain import get_lab_for_country2
 from .ma_bots import country_bot, general_resolver
@@ -32,7 +32,7 @@ def event_label_work(country: str) -> str:
         ""
         or get_lab_for_country2(country2)
         # or get_from_new_p17_final(country2, "")
-        or Ambassadors_tab.get(country2, "")
+        # or Ambassadors_tab.get(country2, "")
         or country_bot.event2_d2(country2)
         or with_years_bot.wrap_try_with_years(country2)
         or year_or_typeo.label_for_startwith_year_or_typeo(country2)
@@ -120,7 +120,7 @@ class EventLabResolver:
             ""
             or general_resolver.translate_general_category(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
-            or get_lab_for_country2(category3)
+            # or get_lab_for_country2(category3)
         )
         return category_lab
 
