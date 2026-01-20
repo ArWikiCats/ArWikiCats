@@ -18,7 +18,6 @@ from . import tmp_bot, with_years_bot
 from .common_resolver_chain import get_lab_for_country2
 from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
-from .make_bots.bot_2018 import get_pop_All_18
 from .make_bots.ends_keys import combined_suffix_mappings
 
 
@@ -99,7 +98,6 @@ class EventLabResolver:
                 or country2_label_bot.country_2_title_work(original_cat3)
                 or get_lab_for_country2(original_cat3)
                 or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
-                or get_pop_All_18(original_cat3.lower(), "")
             )
             if category_lab:
                 list_of_cat = ""
