@@ -7,6 +7,8 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 data_nats_0 = {}
 data_nats_1 = {
     "australian open (tennis)": "بطولة أستراليا المفتوحة لكرة المضرب",
@@ -49,6 +51,4 @@ to_test = [
     ("test_nas_open_1", data_nats_1, resolve_nats_sport_multi_v2),
     ("test_nas_open_3", data_names_3, resolve_countries_names_sport),
 ]
-from utils.dump_runner import make_dump_test_name_data_callback
-
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

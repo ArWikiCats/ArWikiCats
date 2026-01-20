@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_1 = {
     "Deaths by American airstrikes during the Syrian civil war": "وفيات بضربات جوية أمريكية خلال الحرب الأهلية السورية",
     "Deaths by American airstrikes during World War II": "وفيات بضربات جوية أمريكية خلال الحرب العالمية الثانية",
@@ -894,7 +896,5 @@ to_test = [
     ("test_deaths_data_2", data_2),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

@@ -8,6 +8,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data_0 = {
     "Category:waba champions cup": "تصنيف:كأس دوري غرب آسيا لكرة السلة",
     "west bank premier league": "الدوري الفلسطيني الممتاز للضفة الغربية",
@@ -124,7 +126,5 @@ to_test = [
     # ("test_fast_data_1", fast_data, resolve_clubs_teams_leagues),
     ("test_fast_data_2", fast_data, resolve_label_ar),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

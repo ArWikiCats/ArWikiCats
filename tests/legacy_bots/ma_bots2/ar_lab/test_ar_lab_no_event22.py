@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_list_2 = {
     "1450s disasters in kazakhstan": "كوارث في كازاخستان في عقد 1450",
     "1450s disasters in kyrgyzstan": "كوارث في قيرغيزستان في عقد 1450",
@@ -53,7 +55,5 @@ def test_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

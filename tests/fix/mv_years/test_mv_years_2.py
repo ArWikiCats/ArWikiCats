@@ -5,6 +5,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.fix.mv_years import move_by_in, move_years_first
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 move_years_first_data = {
     "عقد 1910 في بابوا غينيا الجديدة": "بابوا غينيا الجديدة في عقد 1910",
     "2016 في بابوا غينيا الجديدة حسب الشهر": "بابوا غينيا الجديدة في 2016 حسب الشهر",
@@ -344,7 +346,5 @@ def test_move_by_in(category: str, expected: str) -> None:
     label = move_by_in(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

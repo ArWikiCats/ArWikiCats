@@ -5,6 +5,8 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time import fetch_films_by_category
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 data_0 = {
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
     "DC Comics superhero teams": "فرق أبطال دي سي كومكس",
@@ -174,7 +176,5 @@ def test_superhero_data_3(category: str, expected: str) -> None:
     result = fetch_films_by_category(category)
     assert result == expected
 
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

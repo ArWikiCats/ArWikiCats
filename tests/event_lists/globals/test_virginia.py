@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test  # , dump_same_and_not_same
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_virginia_0 = {
     "Lists of West Virginia politicians": "قوائم سياسيو فرجينيا الغربية",
     "West Virginia politicians by century": "سياسيو فرجينيا الغربية حسب القرن",
@@ -899,7 +901,5 @@ def test_virginia_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

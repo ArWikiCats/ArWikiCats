@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 test_jesuits_1 = {
     "16th-century Austrian Jesuits": "يسوعيون نمساويون في القرن 16",
     "16th-century Dutch Jesuits": "يسوعيون هولنديون في القرن 16",
@@ -157,7 +159,5 @@ def test_data_jesuits_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

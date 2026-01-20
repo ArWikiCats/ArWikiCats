@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data0 = {
     "North African American culture": "",
     "North African Cup of Champions": "",
@@ -61,7 +63,5 @@ to_test = [
 def test_fix_nationalities_data_2(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

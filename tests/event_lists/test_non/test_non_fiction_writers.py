@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 non_fiction_data_by = {
     "Turkish non-fiction writers by century": "كتاب غير روائيين أتراك حسب القرن",
     "Australian non-fiction writers by century": "كتاب غير روائيين أستراليون حسب القرن",
@@ -168,7 +170,5 @@ def test_non_fiction_writers(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

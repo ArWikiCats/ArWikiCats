@@ -7,6 +7,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
+from utils.dump_runner import make_dump_test_name_data
+
 _by_of_fields = {
     "by century of completion": "حسب قرن الانتهاء",
     "by century of developer": "حسب قرن التطوير",
@@ -516,7 +518,5 @@ def test_by_of_fields(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected, f"Failed for category: {category}"
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_by_labels, run_same=False)

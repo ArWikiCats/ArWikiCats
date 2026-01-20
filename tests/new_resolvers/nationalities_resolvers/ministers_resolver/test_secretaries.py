@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 new = {
     "British Secretaries of State for the Environment": "وزراء خارجية بريطانيون في البيئة",
     "British Secretaries of State for Education": "وزراء خارجية بريطانيون في التعليم",
@@ -235,7 +237,5 @@ def test_secretaries_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

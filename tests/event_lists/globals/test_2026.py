@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_not_ready = {
     "20th century members of maine legislature": "أعضاء هيئة مين التشريعية في القرن 20",
     "Wheelchair basketball at the Summer Paralympics navigational boxes": "صناديق تصفح كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
@@ -220,7 +222,5 @@ to_test = [
 def test_2026_data_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

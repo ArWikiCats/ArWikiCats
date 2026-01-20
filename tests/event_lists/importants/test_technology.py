@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_0 = {
     "American science and technology awards": "",
     "Appropriate technology": "",
@@ -285,7 +287,5 @@ def test_technology_1(category: str, expected: str) -> None:
 def test_technology_slow(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 fast_data_with_nat0 = {
     "mexican television series-endings": "مسلسلات تلفزيونية مكسيكية انتهت في",
     "austrian television series-endings": "مسلسلات تلفزيونية نمساوية انتهت في",
@@ -139,7 +141,5 @@ to_test = [
     ("with_nat_tyty", fast_data_with_nat, main_films_resolvers),
     ("no_nat_tyty", fast_data_no_nat, main_films_resolvers),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

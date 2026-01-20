@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_virginia2_1 = {
     "Baptists from West Virginia": "معمدانيون من فرجينيا الغربية",
     "Defunct private universities and colleges in West Virginia": "جامعات وكليات خاصة سابقة في فرجينيا الغربية",
@@ -81,7 +83,5 @@ def test_virginia2_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import get_films_key_tyty_new
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data = {
     "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",
     "christian apocalyptic films": "أفلام نهاية العالم مسيحية",
@@ -159,7 +161,5 @@ test_data3 = test_data
 to_test = [
     ("test_resolve_films_with_nat_tyty", test_data3, get_films_key_tyty_new),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

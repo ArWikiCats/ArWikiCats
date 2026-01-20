@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data0 = {}
 
 data_1 = {
@@ -261,7 +263,5 @@ def test_northern_ireland_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

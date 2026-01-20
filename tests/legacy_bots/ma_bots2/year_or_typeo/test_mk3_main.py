@@ -3,6 +3,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data0 = {
     "15th-century Buddhist temples in China": "معابد بوذية في الصين القرن 15",
     "18th-century Buddhist temples in China": "معابد بوذية في الصين القرن 18",
@@ -225,7 +227,5 @@ to_test = [
     ("test_2_skip2_2", data1),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

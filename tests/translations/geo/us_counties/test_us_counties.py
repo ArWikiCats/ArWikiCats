@@ -6,6 +6,8 @@ from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
 from ArWikiCats.translations import US_STATES
 
+from utils.dump_runner import make_dump_test_name_data
+
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
     "{en} counties": "مقاطعات {ar}",
@@ -139,7 +141,5 @@ to_test = [
 
 to_test.append(("test_all_test_data", all_test_data))
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

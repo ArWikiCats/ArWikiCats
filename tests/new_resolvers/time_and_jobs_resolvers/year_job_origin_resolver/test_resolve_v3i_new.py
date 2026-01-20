@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data_standard = {
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
     "10th-century historians from the Fatimid Caliphate": "مؤرخون من الدولة الفاطمية في القرن 10",
@@ -598,7 +600,5 @@ def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
 to_test = [
     ("test_year_job_origin_resolver_new_1", test_data_standard, resolve_year_job_from_countries),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

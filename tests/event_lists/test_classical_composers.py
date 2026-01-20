@@ -3,6 +3,8 @@ import pytest
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 test_c_composers_0 = {
     "LGBTQ classical composers": "ملحنون كلاسيكيون مثليون",
     "Italian classical composers of church music": "ملحنو كلاسيكية إيطاليون في موسيقى مسيحية",
@@ -318,7 +320,5 @@ def test_classical_composers_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

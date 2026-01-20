@@ -9,6 +9,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 data_0 = {
     "Jewish music genres": "أنواع موسيقى يهودية",
     "christian music genres": "أنواع موسيقى مسيحية",
@@ -998,7 +1000,5 @@ to_test = [
     ("male_tests", male_tests, resolve_label_ar),
     ("data_2", data_2, resolve_label_ar),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

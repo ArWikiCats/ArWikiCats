@@ -3,6 +3,8 @@ import pytest
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 test_lutenists_1 = {
     "Lutenists": "عازفو آلات وترية",
     "German lutenists": "عازفو آلات وترية ألمان",
@@ -29,7 +31,5 @@ def test_data_lutenists_1(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

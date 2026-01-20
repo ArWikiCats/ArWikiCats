@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data3 = {
     "animated short film comics": "قصص مصورة رسوم متحركة قصيرة",
     "animated short film film series": "سلاسل أفلام رسوم متحركة قصيرة",
@@ -60,7 +62,5 @@ def test_get_films_key_tyty_new(category: str, expected: str) -> None:
 to_test = [
     ("test_Films_tyty", test_data3, main_films_resolvers),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

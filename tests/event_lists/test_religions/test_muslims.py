@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 religions_data = {
     "Albanian Sunni Muslim scholars of Islam": "باحثون عن الإسلام مسلمون سنة ألبان",
     "Algerian Sunni Muslim scholars of Islam": "باحثون عن الإسلام مسلمون سنة جزائريون",
@@ -237,7 +239,5 @@ to_test = [
     ("test_muslims_1", religions_data),
     # ("test_muslims_2", data2),
 ]
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

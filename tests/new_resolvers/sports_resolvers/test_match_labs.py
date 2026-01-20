@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 data_1 = {
     "amateur football competitions": "منافسات كرة قدم للهواة",
     "american football teams": "فرق كرة قدم أمريكية",
@@ -639,7 +641,5 @@ to_test = [
     ("test_find_teams_2025_2", data_2, wrap_team_xo_normal_2025_with_ends),
     ("test_find_teams_2025_3", data_3, wrap_team_xo_normal_2025_with_ends),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

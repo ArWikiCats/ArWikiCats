@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 fast_data_1 = {
     "Shooting sports events": "أحداث الرماية",
     "International sports events": "أحداث رياضية دولية",
@@ -97,7 +99,5 @@ def test_fast_data_3(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

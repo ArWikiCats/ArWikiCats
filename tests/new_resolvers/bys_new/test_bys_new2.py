@@ -9,6 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
+from utils.dump_runner import make_dump_test_name_data
+
 _by_and_fields = {
     "by bank and behavior": "حسب البنك والسلوك",
     "by bank and branch": "حسب البنك والفرع",
@@ -1312,7 +1314,5 @@ to_test = [
     ("test_music_by_table", _by_music_table_base),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_by_labels, run_same=False)

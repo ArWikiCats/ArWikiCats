@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 males_tests = {
     # "Jewish diaspora": "",
     # "Coptic diaspora": "",
@@ -735,7 +737,5 @@ to_test = [
     ("test_female_tests", female_tests, resolve_by_nats_double_v2),
     ("test_data_fast", test_data_fast, resolve_by_nats_double_v2),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

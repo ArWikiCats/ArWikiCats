@@ -7,6 +7,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data = {
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
     "3d film series": "سلاسل أفلام ثلاثية الأبعاد",
@@ -2343,7 +2345,5 @@ test_data4 = test_data2 | test_data
 to_test = [
     ("test_Films", test_data4, main_films_resolvers),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

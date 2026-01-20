@@ -6,6 +6,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 en_is_nat_ar_is_P17_data = {
     "yemeni acrobatic gymnastics cup": "كأس اليمن للجمباز الاكروباتيكي",
     "yemeni acrobatic gymnastics racing cup": "كأس اليمن لسباق الجمباز الاكروباتيكي",
@@ -528,7 +530,5 @@ to_test = [
     ("oioioi_wheelchair_data_0", wheelchair_data_0, resolve_nats_sport_multi_v2),
     ("test_en_is_nat_ar_is_P17", en_is_nat_ar_is_P17_data, resolve_nats_sport_multi_v2),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

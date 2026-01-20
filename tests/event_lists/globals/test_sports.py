@@ -3,6 +3,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data1 = {
     "Irish association football managers": "مدربو كرة قدم أيرلنديون",
     "Lists of association football players by national team": "قوائم لاعبو كرة قدم حسب المنتخب الوطني",
@@ -126,7 +128,5 @@ def test_sports_3(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

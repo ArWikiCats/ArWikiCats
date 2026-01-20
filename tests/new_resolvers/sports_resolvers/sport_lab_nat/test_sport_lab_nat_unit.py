@@ -3,6 +3,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
+from utils.dump_runner import make_dump_test_name_data
+
 new_for_nat_female_xo_team_2_data = {
     "yemeni": "",
     "trinidad and tobago amateur basketball cup": "كأس ترنيدادية كرة سلة للهواة",
@@ -207,7 +209,5 @@ to_test = [
     ("test_additional_keys_data", additional_keys_data),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, sport_lab_nat_load_new, run_same=False)

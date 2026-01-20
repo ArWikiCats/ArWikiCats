@@ -6,6 +6,8 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_job_label
 
+from utils.dump_runner import make_dump_test_name_data
+
 test_0 = {}
 
 test_data_standard = {
@@ -126,7 +128,5 @@ to_test = [
     ("test_get_job_label_1", test_data_standard),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, get_job_label, run_same=False)

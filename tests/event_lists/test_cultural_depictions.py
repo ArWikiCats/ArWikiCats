@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data0 = {
     "Cultural depictions of ancient Egyptian women": "تصوير ثقافي عن مصريات قدماء",
     "Cultural depictions of ancient people": "تصوير ثقافي عن أشخاص قدماء",
@@ -1002,7 +1004,5 @@ def test_cultural_depictions_slow(category: str, expected: str) -> None:
     result = resolve_label_ar(category)
     assert result == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

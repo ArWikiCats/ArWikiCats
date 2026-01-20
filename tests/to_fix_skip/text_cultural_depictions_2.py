@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 data1 = {
     "Cultural depictions of American men": "تصوير ثقافي عن رجال أمريكيين",
     "Cultural depictions of American people": "التصوير الثقافي للأمريكيين",
@@ -128,7 +130,5 @@ def test_cultural_depictions_data1(category: str, expected: str) -> None:
     result = resolve_label_ar(category)
     assert result == expected
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

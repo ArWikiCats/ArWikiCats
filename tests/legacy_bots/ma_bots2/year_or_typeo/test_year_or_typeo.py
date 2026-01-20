@@ -4,6 +4,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.ma_bots2.year_or_typeo import label_for_startwith_year_or_typeo
 
+from utils.dump_runner import make_dump_test_name_data
+
 data_0 = {}
 
 data_1 = {}
@@ -19,7 +21,5 @@ to_test = [
     ("test_year_or_typeo_1", data_1),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

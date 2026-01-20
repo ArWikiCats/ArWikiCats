@@ -9,6 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 test_data_ar = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",
     "yemeni men's softball players": "لاعبو كرة لينة يمنيون",
@@ -53,7 +55,5 @@ to_test = [
     ("test_nat_genders_pattern_1", test_data_ar, resolve_nat_genders_pattern_v2),
     ("test_nat_genders_pattern_2", test_data_2, resolve_nat_genders_pattern_v2),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

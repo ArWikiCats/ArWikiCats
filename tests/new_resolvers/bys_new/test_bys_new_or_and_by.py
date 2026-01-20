@@ -9,6 +9,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
+from utils.dump_runner import make_dump_test_name_data
+
 BY_TABLE_BASED = {
     # all keys with " and "
     "by state and year": "حسب الولاية والسنة",
@@ -376,7 +378,5 @@ to_test = [
     ("test_bys_new_or_and_by", test_data),
 ]
 
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_by_labels, run_same=False)

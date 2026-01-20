@@ -3,6 +3,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
+from utils.dump_runner import make_dump_test_name_data
+
 fast_data = {
     "1650s crimes": "جرائم عقد 1650",
     "1650s disasters": "كوارث عقد 1650",
@@ -36,7 +38,5 @@ def test_event2_fast(category: str, expected: str) -> None:
 to_test = [
     ("fast_data", fast_data),
 ]
-
-from utils.dump_runner import make_dump_test_name_data
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

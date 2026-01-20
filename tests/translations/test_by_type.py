@@ -4,6 +4,8 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 data0 = {
     "by year": "حسب السنة",
     "decade": "العقد",
@@ -193,7 +195,5 @@ def test_dump_it(name: str, data: dict[str, str], callback) -> None:
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

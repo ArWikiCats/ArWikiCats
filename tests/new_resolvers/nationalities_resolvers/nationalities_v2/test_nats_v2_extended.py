@@ -8,6 +8,8 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
+from utils.dump_runner import make_dump_test_name_data_callback
+
 all_test_data_integrated = {
     "Non-American television series based on American television series": "مسلسلات تلفزيونية غير أمريكية مبنية على مسلسلات تلفزيونية أمريكية",
     "American television series based on non-American television series": "مسلسلات تلفزيونية أمريكية مبنية على مسلسلات تلفزيونية غير أمريكية",
@@ -84,7 +86,5 @@ def test_with_resolve_label_ar(category: str, expected_key: str) -> None:
 to_test = [
     ("test_with_resolve_label_ar", all_test_data_integrated, resolve_label_ar),
 ]
-
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)
