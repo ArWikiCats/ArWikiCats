@@ -60,7 +60,7 @@ def process_file(file_path: Path) -> dict:
         result["categories_fixed"] = categories_count
 
         # Write back if modifications were made
-        if imports_count > 0 or categories_count > 0:
+        if imports_count > 0 and categories_count > 0:
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(content)
             result["modified"] = True
