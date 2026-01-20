@@ -125,39 +125,18 @@ class EventLabResolver:
             str: Resolved Arabic label, or an empty string if no resolver produced a label.
         """
         # Try different label functions in sequence
-        category_lab: str = university_resolver.resolve_university_category(category3)
-        if category_lab:
-            return category_lab
-
-        category_lab = time_to_arabic.convert_time_to_arabic(category3)
-        if category_lab:
-            return category_lab
-
-        category_lab = wrap_team_xo_normal_2025_with_ends(category3) or all_new_resolvers(category3)
-        if category_lab:
-            return category_lab
-
-        category_lab = get_pop_All_18(category3, "")
-        if category_lab:
-            return category_lab
-
-        # If no label found yet, try general translation
-        if not category_lab:
-            category_lab = general_resolver.translate_general_category(f"category:{category3}", fix_title=False)
-
-        if category_lab:
-            return category_lab
-
-        category_lab = (
-            country2_label_bot.country_2_title_work(category3)
+        category_lab: str = (
+            ""
+            or university_resolver.resolve_university_category(category3)
+            or time_to_arabic.convert_time_to_arabic(category3)
+            or wrap_team_xo_normal_2025_with_ends(category3)
+            or all_new_resolvers(category3)
+            or get_pop_All_18(category3, "")
+            or general_resolver.translate_general_category(category3, fix_title=False)
+            or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
             or general_resolver.translate_general_category(category3, start_get_country2=False, fix_title=False)
-            or get_pop_All_18(category3.lower(), "")
-            or ""
         )
-        if category_lab:
-            return category_lab
-
         return category_lab
 
     def _handle_suffix_patterns(self, category3: str) -> Tuple[str, str]:

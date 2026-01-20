@@ -10,9 +10,6 @@ import functools
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers, main_sports_resolvers
 from ..new_resolvers.languages_resolves import resolve_languages_labels_with_time
-from ..new_resolvers.sports_resolvers.raw_sports import (
-    resolve_sport_label_unified,
-)
 from ..new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ..sub_new_resolvers import team_work
 from ..sub_new_resolvers.peoples_resolver import work_peoples
@@ -47,7 +44,6 @@ def get_lab_for_country2(country: str) -> str:
         or People_key.get(country2)
         or main_sports_resolvers(country2)
         or wrap_team_xo_normal_2025_with_ends(country2)
-        or resolve_sport_label_unified(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or university_resolver.resolve_university_category(country2)
