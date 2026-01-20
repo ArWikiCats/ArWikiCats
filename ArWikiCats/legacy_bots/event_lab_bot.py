@@ -228,8 +228,8 @@ class EventLabResolver:
             category_lab = event_label_work(original_cat3)
 
         # Try template processing if no label yet
-        if not category_lab:
-            category_lab = tmp_bot.Work_Templates(original_cat3)
+        # if not category_lab:
+        #     category_lab = tmp_bot.Work_Templates(original_cat3)
 
         return category_lab
 
