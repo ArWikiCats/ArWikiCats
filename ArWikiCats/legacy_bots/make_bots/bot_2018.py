@@ -9,8 +9,8 @@ import functools
 from typing import Dict
 
 from ...helps import len_print, logger
+from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 from ...translations import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,
@@ -111,9 +111,9 @@ def get_pop_All_18(key: str, default: str = "") -> str:
         key = key[len("the ") :]
 
     call_ables = {
+        "all_new_resolvers": all_new_resolvers,
         "_get_pop_All_18": _get_pop_All_18,
         "_get_from_alias": _get_from_alias,
-        "wrap_team_xo_normal_2025_with_ends": wrap_team_xo_normal_2025_with_ends,
     }
 
     for name, func in call_ables.items():

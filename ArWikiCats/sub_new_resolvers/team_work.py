@@ -9,9 +9,6 @@ from ..helps import logger
 from ..legacy_bots.o_bots.utils import resolve_suffix_template
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
 
-# from ..new_resolvers.films_resolvers import main_films_resolvers  # TODO: use all_new_resolvers
-# from ..new_resolvers.relations_resolver import main_relations_resolvers  # TODO: use all_new_resolvers
-
 Teams_new_end_keys = {
     "broadcasters": "مذيعو {}",
     "commentators": "معلقو {}",
