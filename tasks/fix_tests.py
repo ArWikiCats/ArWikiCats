@@ -24,12 +24,14 @@ def find_test_files(root_dir: Path) -> list[Path]:
 
 
 def fix_imports(content: str) -> tuple[str, int]:
-    """Replace old import with new import."""
+    """Replace old import and function name with new ones."""
     old_import = "from ArWikiCats import resolve_arabic_category_label"
     new_import = "from ArWikiCats import resolve_label_ar"
 
-    count = content.count(old_import)
     new_content = content.replace(old_import, new_import)
+    new_content = new_content.replace("resolve_arabic_category_label", "resolve_label_ar")
+
+    count = content.count(old_import) + content.count("resolve_arabic_category_label") - new_content.count("resolve_arabic_category_label")
     return new_content, count
 
 
@@ -50,6 +52,9 @@ def process_file(file_path: Path) -> dict:
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
+
+        if "from ArWikiCats import resolve_arabic_category_label" not in content:
+            return result  # No changes needed
 
         # Fix imports
         content, imports_count = fix_imports(content)
