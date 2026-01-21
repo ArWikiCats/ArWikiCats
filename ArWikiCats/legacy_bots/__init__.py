@@ -7,10 +7,9 @@ backward compatibility for category translation logic.
 from __future__ import annotations
 
 import functools
+import re
 
 from ..helps import logger
-from ..sub_new_resolvers import university_resolver
-from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
 
 
 class LegacyBotsResolver:
@@ -83,8 +82,10 @@ class LegacyBotsResolver:
         Returns:
             Arabic university label or empty string if no match
         """
+        from ..sub_new_resolvers import university_resolver
+
         logger.debug(f"LegacyBotsResolver: Trying university resolver for '{text}'")
-        result = university_resolver.resolve_university_category(text)
+        result = university_resolver._university_bot.search(university_resolver._normalise_category(text))
         if result:
             logger.info(f"LegacyBotsResolver: University resolver found: {result}")
         return result
@@ -102,11 +103,24 @@ class LegacyBotsResolver:
         Returns:
             Arabic country/event label or empty string if no match
         """
+        from .legacy_resolvers_bots.country_bot import _retriever
+
         logger.debug(f"LegacyBotsResolver: Trying country event resolver for '{text}'")
-        result = country_bot.event2_d2(text)
-        if result:
-            logger.info(f"LegacyBotsResolver: Country event resolver found: {result}")
-        return result
+        cat3 = text.lower().replace("category:", "").strip()
+        logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
+
+        # Reject strings that contain common English prepositions
+        blocked = ("in", "of", "from", "by", "at")
+        if any(f" {word} " in cat3.lower() for word in blocked):
+            return ""
+
+        category_lab = ""
+        if re.sub(r"^\d", "", cat3) == cat3:
+            category_lab = _retriever.get_country_label(cat3)
+
+        if category_lab:
+            logger.info(f"LegacyBotsResolver: Country event resolver found: {category_lab}")
+        return category_lab
 
     def _resolve_with_years(self, text: str) -> str:
         """
@@ -121,11 +135,24 @@ class LegacyBotsResolver:
         Returns:
             Arabic year-based label or empty string if no match
         """
+        from .legacy_resolvers_bots.with_years_bot import Try_With_Years
+
         logger.debug(f"LegacyBotsResolver: Trying with_years resolver for '{text}'")
-        result = with_years_bot.wrap_try_with_years(text)
-        if result:
-            logger.info(f"LegacyBotsResolver: With_years resolver found: {result}")
-        return result
+        cat3 = text.lower().replace("category:", "").strip()
+        logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
+
+        # Reject strings that contain common English prepositions
+        blocked = ("in", "of", "from", "by", "at")
+        if any(f" {word} " in cat3.lower() for word in blocked):
+            return ""
+
+        category_lab = ""
+        if re.sub(r"^\d", "", cat3) != cat3:
+            category_lab = Try_With_Years(cat3)
+
+        if category_lab:
+            logger.info(f"LegacyBotsResolver: With_years resolver found: {category_lab}")
+        return category_lab
 
     def _resolve_year_or_typeo(self, text: str) -> str:
         """
@@ -140,8 +167,17 @@ class LegacyBotsResolver:
         Returns:
             Arabic year/type label or empty string if no match
         """
+        from .legacy_resolvers_bots.year_or_typeo import _label_for_startwith_year_or_typeo
+        from ..time_formats import match_time_en_first, convert_time_to_arabic
+
         logger.debug(f"LegacyBotsResolver: Trying year_or_typeo resolver for '{text}'")
-        result = year_or_typeo.label_for_startwith_year_or_typeo(text)
+        category_r = re.sub(r"category:", "", text.lower()).strip()
+
+        if match_time_en_first(category_r):
+            result = convert_time_to_arabic(category_r)
+        else:
+            result = _label_for_startwith_year_or_typeo(category_r)
+
         if result:
             logger.info(f"LegacyBotsResolver: Year_or_typeo resolver found: {result}")
         return result
@@ -159,13 +195,21 @@ class LegacyBotsResolver:
         Returns:
             Arabic event label or empty string if no match
         """
+        from .legacy_resolvers_bots.event_lab_bot import _load_resolver, _process_category_formatting, _finalize_category_label
+
         logger.debug(f"LegacyBotsResolver: Trying event_lab resolver for '{text}'")
-        result = event_lab_bot.event_Lab(text)
+        cate_r = text.lower().replace("_", " ")
+        category3 = _process_category_formatting(cate_r)
+
+        resolver = _load_resolver()
+        result = resolver.process_category(category3, cate_r)
+        result = _finalize_category_label(result, cate_r)
+
         if result:
             logger.info(f"LegacyBotsResolver: Event_lab resolver found: {result}")
         return result
 
-    def _resolve_general_category(self, text: str) -> str:
+    def _resolve_general_category(self, text: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
         """
         Resolve general category translation (catch-all).
 
@@ -174,15 +218,34 @@ class LegacyBotsResolver:
 
         Args:
             text: Category text to resolve
+            start_get_country2: Whether to enable enhanced country lookup
+            fix_title: Whether to apply title fixing to the result
 
         Returns:
             Arabic general label or empty string if no match
         """
+        from .legacy_resolvers_bots.general_resolver import _translate_general_category
+        from ..fix import fixtitle
+
         logger.debug(f"LegacyBotsResolver: Trying general resolver for '{text}'")
-        result = general_resolver.translate_general_category(text)
-        if result:
-            logger.info(f"LegacyBotsResolver: General resolver found: {result}")
-        return result
+        category = text.replace("_", " ")
+        category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
+
+        logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
+        logger.debug(f"<<lightyellow>>>>>> category_r={text}, {start_get_country2=}, {fix_title=}")
+
+        arlabel = _translate_general_category(text, category, start_get_country2)
+
+        if arlabel and fix_title:
+            arlabel = fixtitle.fixlabel(arlabel, en=text)
+            logger.info(f'>>>>>> <<green>>test: cat "{text}", {arlabel=}')
+
+        if arlabel:
+            logger.debug(f"<<lightyellow>>>> translate_general_category {arlabel=}  ")
+            logger.info(f"LegacyBotsResolver: General resolver found: {arlabel}")
+
+        logger.debug("<<lightyellow>>>> ^^^^^^^^^ translate_general_category end ^^^^^^^^^ ")
+        return arlabel
 
     @functools.lru_cache(maxsize=None)
     def resolve(self, text: str) -> str:

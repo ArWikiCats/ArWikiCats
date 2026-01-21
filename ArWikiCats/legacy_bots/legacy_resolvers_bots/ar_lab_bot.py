@@ -11,7 +11,6 @@ from typing import Tuple
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
-from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
@@ -22,7 +21,6 @@ from .con2_lab import (
     get_type_country,
     get_type_lab,
 )
-from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [
     "in",
@@ -225,11 +223,13 @@ def wrap_event2(category: str, separator: str = "") -> str:
     Returns:
         str: The first non-empty label returned by the resolvers, or an empty string if none match.
     """
+    from .. import _resolver_instance
+
     result = (
-        university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
-        or with_years_bot.wrap_try_with_years(category)
-        or label_for_startwith_year_or_typeo(category)
+        _resolver_instance._resolve_university_category(category)
+        or _resolver_instance._resolve_country_event(category)
+        or _resolver_instance._resolve_with_years(category)
+        or _resolver_instance._resolve_year_or_typeo(category)
         or ""
     )
     return result

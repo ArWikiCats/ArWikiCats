@@ -137,6 +137,7 @@ def resolve_university_category(category: str) -> str:
     Returns:
         str: The Arabic university label formatted with the resolved city name, or an empty string if no mapping is found.
     """
+    from ..legacy_bots import _resolver_instance
 
     normalized_category = _normalise_category(category)
 
@@ -144,7 +145,7 @@ def resolve_university_category(category: str) -> str:
         f"<<lightblue>>>> vvvvvvvvvvvv resolve_university_category start, (category:{normalized_category}) vvvvvvvvvvvv "
     )
 
-    university_label = _university_bot.search(normalized_category)
+    university_label = _resolver_instance._resolve_university_category(category)
 
     if university_label:
         logger.info(f"<<lightblue>>>>>> resolve_university_category: new {university_label=} ")

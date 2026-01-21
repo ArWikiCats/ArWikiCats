@@ -296,13 +296,6 @@ def _label_for_startwith_year_or_typeo(category_r: str) -> str:
 
 def label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
+    from .. import _resolver_instance
 
-    category_r = re.sub(r"category:", "", category_r.lower()).strip()
-
-    if match_time_en_first(category_r):
-        return convert_time_to_arabic(category_r)
-
-    result = _label_for_startwith_year_or_typeo(category_r)
-
-    logger.debug(f":: label_for_startwith_year_or_typeo: {category_r=} => {result=}")
-    return result
+    return _resolver_instance._resolve_year_or_typeo(category_r)

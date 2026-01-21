@@ -16,7 +16,7 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from ..make_bots import get_KAKO
-from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
+from . import country2_label_bot, country_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
 
@@ -27,6 +27,8 @@ def event_label_work(country: str) -> str:
     if country2 == "people":
         return "أشخاص"
 
+    from .. import _resolver_instance
+
     resolved_label = (
         ""
         or get_lab_for_country2(country2)
@@ -34,10 +36,10 @@ def event_label_work(country: str) -> str:
         or get_pop_All_18(country2)
         or get_from_new_p17_final(country2, "")
         or Ambassadors_tab.get(country2, "")
-        or country_bot.event2_d2(country2)
-        or with_years_bot.wrap_try_with_years(country2)
-        or year_or_typeo.label_for_startwith_year_or_typeo(country2)
-        or general_resolver.translate_general_category(country2)
+        or _resolver_instance._resolve_country_event(country2)
+        or _resolver_instance._resolve_with_years(country2)
+        or _resolver_instance._resolve_year_or_typeo(country2)
+        or _resolver_instance._resolve_general_category(country2)
     )
     return resolved_label
 
@@ -90,6 +92,8 @@ class EventLabResolver:
         Returns:
             Tuple[str, str]: A tuple of (category_lab, list_of_cat) where `category_lab` is the resolved Arabic label or an empty string, and `list_of_cat` is the possibly-updated list template (cleared when a country-based label is produced).
         """
+        from .. import _resolver_instance
+
         category_lab: str = ""
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
@@ -100,7 +104,7 @@ class EventLabResolver:
                 or get_lab_for_country2(original_cat3)
                 or get_KAKO(original_cat3)
                 or get_pop_All_18(original_cat3)
-                or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
+                or _resolver_instance._resolve_general_category(original_cat3, start_get_country2=False, fix_title=False)
             )
             if category_lab:
                 list_of_cat = ""
@@ -119,10 +123,12 @@ class EventLabResolver:
         Returns:
             str: Resolved Arabic label, or an empty string if no resolver produced a label.
         """
+        from .. import _resolver_instance
+
         # Try different label functions in sequence
         category_lab: str = (
             ""
-            or general_resolver.translate_general_category(category3, fix_title=False)
+            or _resolver_instance._resolve_general_category(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
             or get_KAKO(category3)
@@ -239,7 +245,8 @@ class EventLabResolver:
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
+            from .. import _resolver_instance
+            category_lab = _resolver_instance._resolve_general_category(original_cat3, fix_title=False)
 
         return category_lab
 
@@ -307,12 +314,6 @@ def event_Lab(cate_r: str) -> str:
     Returns:
         str: The Arabic label for the category
     """
-    cate_r = cate_r.lower().replace("_", " ")
-    category3: str = _process_category_formatting(cate_r)
+    from .. import _resolver_instance
 
-    resolver = _load_resolver()
-
-    result = resolver.process_category(category3, cate_r)
-
-    result = _finalize_category_label(result, cate_r)
-    return result
+    return _resolver_instance._resolve_event_lab(cate_r)

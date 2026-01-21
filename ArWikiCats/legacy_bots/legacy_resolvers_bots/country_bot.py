@@ -25,7 +25,6 @@ from ..legacy_utils import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots import get_KAKO
 from . import with_years_bot
 from .bot_2018 import get_pop_All_18
-from .country2_label_bot import country_2_title_work
 
 
 @functools.lru_cache(maxsize=None)
@@ -39,6 +38,7 @@ def Get_country2(country: str) -> str:
     Returns:
         str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
     """
+    from .country2_label_bot import country_2_title_work
 
     normalized_country = country.lower().strip()
     logger.info(f'>> Get_country2 "{normalized_country}":')
@@ -413,21 +413,9 @@ def event2_d2(category_r) -> str:
     Returns:
         The processed category label or an empty string if not found
     """
-    cat3 = category_r.lower().replace("category:", "").strip()
+    from .. import _resolver_instance
 
-    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
-
-    # TODO: THIS NEED REVIEW
-    # Reject strings that contain common English prepositions
-    blocked = ("in", "of", "from", "by", "at")
-    if any(f" {word} " in cat3.lower() for word in blocked):
-        return ""
-
-    category_lab = ""
-    if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = get_country(cat3)
-
-    return category_lab
+    return _resolver_instance._resolve_country_event(category_r)
 
 
 def get_country(country: str, start_get_country2: bool = True) -> str:

@@ -18,7 +18,6 @@ from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
 from ..make_bots import get_KAKO
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
-from . import general_resolver
 from .bot_2018 import get_pop_All_18
 
 arabic_labels_preceding_year = [
@@ -82,11 +81,12 @@ def _handle_year_at_start(category_text: str) -> str:
         remainder_label = WORD_AFTER_YEARS[remainder]
 
     if not remainder_label:
+        from .. import _resolver_instance
         remainder_label = (
             ""
             or all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
-            or general_resolver.translate_general_category(remainder, fix_title=False)
+            or _resolver_instance._resolve_general_category(remainder, fix_title=False)
             or get_lab_for_country2(remainder)
             or get_KAKO(remainder)
             or get_pop_All_18(remainder)
@@ -136,10 +136,11 @@ def _handle_year_at_end(
     logger.debug(f">>> _handle_year_at_end: year2:{year_at_end_label}")
     remainder = category_text[: -len(year_at_end_label)]
 
+    from .. import _resolver_instance
     remainder_label = (
         ""
         or all_new_resolvers(remainder)
-        or general_resolver.translate_general_category(remainder, fix_title=False)
+        or _resolver_instance._resolve_general_category(remainder, fix_title=False)
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)
@@ -209,18 +210,6 @@ def wrap_try_with_years(category_r) -> str:
     Returns:
         str: The generated Arabic label when a year-based pattern is recognized, or an empty string if no suitable year-based label is found.
     """
-    cat3 = category_r.lower().replace("category:", "").strip()
+    from .. import _resolver_instance
 
-    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
-
-    # TODO: THIS NEED REVIEW
-    # Reject strings that contain common English prepositions
-    blocked = ("in", "of", "from", "by", "at")
-    if any(f" {word} " in cat3.lower() for word in blocked):
-        return ""
-
-    category_lab = ""
-    if re.sub(r"^\d", "", cat3) != cat3:
-        category_lab = Try_With_Years(cat3)
-
-    return category_lab
+    return _resolver_instance._resolve_with_years(category_r)

@@ -121,21 +121,6 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
     "Category:21st-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
     """
-    category = category_r.replace("_", " ")
-    category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
+    from .. import _resolver_instance
 
-    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
-    logger.debug(f"<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}")
-
-    arlabel = _translate_general_category(category_r, category, start_get_country2)
-
-    if arlabel and fix_title:
-        arlabel = fixtitle.fixlabel(arlabel, en=category_r)
-        logger.info(f'>>>>>> <<green>>test: cat "{category_r}", {arlabel=}')
-
-    if arlabel:
-        logger.debug(f"<<lightyellow>>>> translate_general_category {arlabel=}  ")
-
-    logger.debug("<<lightyellow>>>> ^^^^^^^^^ translate_general_category end ^^^^^^^^^ ")
-
-    return arlabel
+    return _resolver_instance._resolve_general_category(category_r)
