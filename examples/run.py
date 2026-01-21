@@ -6,7 +6,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import logger, resolve_arabic_category_label
 from ArWikiCats.legacy_bots.bys import make_by_label
-from ArWikiCats.legacy_bots.lab import get_con_lab
+from ArWikiCats.legacy_bots.con2_lab import get_con_lab
 from ArWikiCats.legacy_bots.with_years_bot import Try_With_Years
 from ArWikiCats.legacy_bots.year_or_typeo import (
     label_for_startwith_year_or_typeo,

@@ -16,7 +16,7 @@ from ..translations import keys_of_without_in
 from . import with_years_bot
 from .bot_2018 import get_pop_All_18
 from .country_bot import event2_d2
-from .lab import (
+from .con2_lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
