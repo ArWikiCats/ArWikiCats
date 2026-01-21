@@ -59,7 +59,6 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
     raw_nats_as_en_key,
 )
-from .numbers1 import change_numb_to_word
 from .politics.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.Sport_key import (
@@ -154,6 +153,5 @@ __all__ = [
     "New_female_keys",
     "COMPANY_TYPE_TRANSLATIONS",
     "ministers_keys",
-    "change_numb_to_word",
     "People_key",
 ]
