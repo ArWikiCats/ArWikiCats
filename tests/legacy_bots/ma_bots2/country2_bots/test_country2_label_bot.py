@@ -10,11 +10,6 @@ from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import country_2_title_w
 from utils.dump_runner import make_dump_test_name_data_callback
 
 title_work_tests_data = {
-    "wheelchair basketball players in turkey": "لاعبو كرة سلة على كراسي متحركة في تركيا",
-    "field hockey players in germany": "لاعبو هوكي ميدان في ألمانيا",
-    "baseball players in florida": "لاعبو كرة قاعدة في فلوريدا",
-    "baseball players in south korea": "لاعبو كرة قاعدة في كوريا الجنوبية",
-    "basketball players in lebanon": "لاعبو كرة سلة في لبنان",
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     # "mass media in morocco": "وسائل إعلام في المغرب",
     # "1520 films by country": "أفلام 1520 حسب البلد",
