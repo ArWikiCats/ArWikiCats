@@ -13,7 +13,6 @@ from ..helps import logger
 from ..patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ..sub_new_resolvers import university_resolver
 from ..translations import keys_of_without_in
-from .legacy_utils.fixing import fix_minor
 from . import with_years_bot
 from .bot_2018 import get_pop_All_18
 from .country_bot import event2_d2
@@ -23,6 +22,7 @@ from .lab import (
     get_type_lab,
 )
 from .legacy_utils.data import Keep_it_frist, Keep_it_last
+from .legacy_utils.fixing import fix_minor
 from .make_bots.check_bot import check_key_new_players
 from .year_or_typeo import label_for_startwith_year_or_typeo
 
