@@ -14,11 +14,8 @@ from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import People_key, get_from_new_p17_final
+from ..utils.regex_hub import AND_PATTERN, BY_MATCH_PATTERN, DUAL_BY_PATTERN
 from .bot_2018 import get_pop_All_18
-
-DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)
-BY_MATCH_PATTERN = re.compile(r"^(.*?) (by .*)$", flags=re.IGNORECASE)
-AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
 
 
 def find_dual_by_keys(normalized: str) -> str:

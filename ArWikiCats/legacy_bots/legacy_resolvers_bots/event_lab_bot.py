@@ -13,8 +13,8 @@ from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of
 from ...translations import Ambassadors_tab, get_from_new_p17_final
 from .. import tmp_bot
 from ..common_resolver_chain import get_lab_for_country2
+from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
-from ..legacy_utils import combined_suffix_mappings
 from ..make_bots import get_KAKO
 from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18

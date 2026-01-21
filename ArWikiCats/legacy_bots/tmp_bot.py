@@ -10,20 +10,9 @@ import functools
 
 from ..helps import logger
 from .common_resolver_chain import get_lab_for_country2
+from .data.mappings import combined_suffix_mappings, pp_start_with
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from .legacy_utils import combined_suffix_mappings
 from .make_bots import get_KAKO
-
-pp_start_with = {
-    "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
-    "candidates for president of": "مرشحو رئاسة {}",
-    # "candidates in president of" : "مرشحو رئاسة {}",
-    "candidates-for": "مرشحو {}",
-    # "candidates for" : "مرشحو {}",
-    "categories named afters": "تصنيفات سميت بأسماء {}",
-    "scheduled": "{} مقررة",
-    # "defunct" : "{} سابقة",
-}
 
 
 def create_label_from_prefix(input_label):

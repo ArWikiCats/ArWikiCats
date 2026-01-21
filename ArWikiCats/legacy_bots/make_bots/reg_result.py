@@ -3,6 +3,7 @@ import re
 from dataclasses import dataclass
 
 from ...format_bots.relation_mapping import translation_category_relations
+from ..utils.regex_hub import REGEX_SUB_CATEGORY_LOWERCASE, REGEX_SUB_MILLENNIUM_CENTURY
 
 
 @functools.lru_cache(maxsize=1)
@@ -32,10 +33,6 @@ def _load_pattern() -> re.Pattern:
 
 
 REGEX_SEARCH_REG_LINE_1 = _load_pattern()
-
-# Precompiled Regex Patterns
-REGEX_SUB_MILLENNIUM_CENTURY = re.compile(r"[−–\-](millennium|century)", re.I)
-REGEX_SUB_CATEGORY_LOWERCASE = re.compile(r"category:", re.IGNORECASE)
 
 
 @dataclass
