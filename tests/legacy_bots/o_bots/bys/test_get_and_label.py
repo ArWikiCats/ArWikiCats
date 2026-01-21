@@ -1,4 +1,4 @@
-"""Tests for :mod:`make_bots.o_bots.bys`."""
+"""Tests for :mod:`make_bots.ma_bots.bys`."""
 
 from __future__ import annotations
 

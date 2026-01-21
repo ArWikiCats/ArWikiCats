@@ -386,7 +386,6 @@ ArWikiCats/
 │   ├── media_bots/          # بوتات الأفلام والتلفزيون
 │   ├── sports_bots/         # بوتات الرياضة
 │   ├── format_bots/         # بوتات التنسيق
-│   ├── o_bots/              # بوتات متنوعة (جامعات وغيرها)
 │   ├── languages_bot/       # بوتات اللغات
 │   ├── lazy_data_bots/      # بوتات التحميل الكسول
 │   └── matables_bots/       # بوتات الجداول

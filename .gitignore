@@ -7,7 +7,6 @@ make_tests
 /.codex
 categories.json
 /tests/event_lists/diff_data
-ArWikiCats/make_bots/o_bots/save.py
 _start.py
 *.sqlite3
 monkey.py
