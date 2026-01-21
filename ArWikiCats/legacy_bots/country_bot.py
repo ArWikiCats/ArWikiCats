@@ -24,7 +24,7 @@ from . import general_resolver, with_years_bot
 from .bot_2018 import get_pop_All_18
 from .common_resolver_chain import get_lab_for_country2
 from .country2_label_bot import country_2_title_work
-from .make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
+from .legacy_utils.reg_lines import RE1_compile, RE2_compile, RE3_compile
 
 
 @functools.lru_cache(maxsize=None)

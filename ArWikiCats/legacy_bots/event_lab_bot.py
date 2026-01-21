@@ -16,7 +16,7 @@ from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import country2_label_bot, country_bot, general_resolver, tmp_bot, with_years_bot, year_or_typeo
 from .common_resolver_chain import get_lab_for_country2
-from .make_bots.ends_keys import combined_suffix_mappings
+from .legacy_utils.ends_keys import combined_suffix_mappings
 
 
 @functools.lru_cache(maxsize=10000)
