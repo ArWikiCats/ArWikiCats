@@ -43,7 +43,7 @@ def _make_players_keys() -> dict:
     players_keys = {}
     players_keys["women"] = "المرأة"
 
-    players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
+    # players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 
     players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
 

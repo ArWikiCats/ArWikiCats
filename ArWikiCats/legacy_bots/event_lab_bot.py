@@ -13,8 +13,8 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
-from ..translations import Ambassadors_tab
-from . import with_years_bot
+from ..translations import Ambassadors_tab, get_from_new_p17_final
+from . import tmp_bot, with_years_bot
 from .common_resolver_chain import get_lab_for_country2
 from .ma_bots import country_bot, general_resolver
 from .ma_bots2 import country2_label_bot, year_or_typeo
@@ -31,8 +31,8 @@ def event_label_work(country: str) -> str:
     resolved_label = (
         ""
         or get_lab_for_country2(country2)
-        # or get_from_new_p17_final(country2, "")
-        # or Ambassadors_tab.get(country2, "")
+        or get_from_new_p17_final(country2, "")
+        or Ambassadors_tab.get(country2, "")
         or country_bot.event2_d2(country2)
         or with_years_bot.wrap_try_with_years(country2)
         or year_or_typeo.label_for_startwith_year_or_typeo(country2)
@@ -97,6 +97,7 @@ class EventLabResolver:
                 ""
                 or country2_label_bot.country_2_title_work(original_cat3)
                 or get_lab_for_country2(original_cat3)
+                or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
             )
             if category_lab:
                 list_of_cat = ""
@@ -120,7 +121,7 @@ class EventLabResolver:
             ""
             or general_resolver.translate_general_category(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
-            # or get_lab_for_country2(category3)
+            or get_lab_for_country2(category3)
         )
         return category_lab
 
@@ -227,6 +228,14 @@ class EventLabResolver:
             list_of_cat = ""
             category_lab = event_label_work(original_cat3)
 
+        # Try template processing if no label yet
+        if not category_lab:
+            category_lab = tmp_bot.Work_Templates(original_cat3)
+
+        # Try general translation again if still no label
+        if not category_lab:
+            category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
+
         return category_lab
 
 
@@ -263,6 +272,7 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
         return ""
 
     return category_lab
+
 
 def _process_category_formatting(category: str) -> str:
     """

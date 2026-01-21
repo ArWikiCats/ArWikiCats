@@ -14,8 +14,10 @@ from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
+    # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
+    People_key,
     jobs_mens_data,
     keys_of_without_in,
     religious_entries,
@@ -216,6 +218,7 @@ class CountryLabelRetriever:
         label = (
             New_female_keys.get(country, "")
             or religious_entries.get(country, "")
+            or People_key.get(country)
             or all_new_resolvers(country)
             or team_work.resolve_clubs_teams_leagues(country)
         )

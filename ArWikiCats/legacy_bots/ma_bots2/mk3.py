@@ -5,6 +5,7 @@ Usage:
 
 import re
 
+from ...translations import Jobs_new
 from ...helps import logger
 from ...utils import check_key_in_tables_return_tuple
 from ..matables_bots.bot import (
@@ -17,6 +18,7 @@ from ..matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
 Table_for_frist_word = {
     "Films_O_TT": Films_O_TT,
     "New_players": players_new_keys,
+    "Jobs_new": Jobs_new,
 }
 
 ar_lab_before_year_to_add_in = [
