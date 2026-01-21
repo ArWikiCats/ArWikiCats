@@ -6,7 +6,6 @@ This module provides functions for processing and generating labels for country 
 import functools
 import re
 from typing import Tuple
-
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
@@ -15,8 +14,12 @@ from ...sub_new_resolvers import parties_resolver, team_work
 from ...translations import People_key, get_from_pf_keys2
 from ..legacy_utils import fix_minor, split_text_by_separator
 from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
-from . import bys, country_bot, with_years_bot
+from . import bys
 from .bot_2018 import get_pop_All_18
+
+from .. import _resolver
+Try_With_Years = _resolver._try_with_years_logic
+fetch_country_term_label = _resolver._get_term_label_logic
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
@@ -265,8 +268,8 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         ""
         or all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
-        or country_bot.fetch_country_term_label(part_2, "")
-        or (with_years_bot.Try_With_Years(part_2) if with_years else "")
+        or fetch_country_term_label(part_2, "")
+        or (Try_With_Years(part_2) if with_years else "")
         or ""
     )
 
@@ -274,7 +277,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         ""
         or all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1)
-        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
+        or fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""
     )
 

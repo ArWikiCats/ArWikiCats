@@ -4,9 +4,11 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import Try_With_Years
+from ArWikiCats.legacy_bots import _resolver
 
 # from ArWikiCats.make_bots.date_bots import with_years_bot
+
+Try_With_Years = _resolver._try_with_years_logic
 
 
 @pytest.mark.fast

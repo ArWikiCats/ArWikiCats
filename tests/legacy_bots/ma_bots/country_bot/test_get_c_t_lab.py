@@ -4,7 +4,8 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country_bot import fetch_country_term_label
+from ArWikiCats.legacy_bots import _resolver
+fetch_country_term_label = _resolver._get_term_label_logic
 
 
 def test_fetch_country_term_label() -> None:

@@ -15,15 +15,19 @@ from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
-from . import country_bot, with_years_bot
+from .. import country_bot
 from .bot_2018 import get_pop_All_18
 from .con2_lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
+
 from .. import _resolver
 label_for_startwith_year_or_typeo = _resolver._resolve_year_or_typo
+wrap_try_with_years = _resolver._try_with_years_logic
+event2_d2 = _resolver._resolve_country_event
+
 
 separators_lists_raw = [
     "in",
@@ -228,8 +232,8 @@ def wrap_event2(category: str, separator: str = "") -> str:
     """
     result = (
         university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
-        or with_years_bot.wrap_try_with_years(category)
+        or event2_d2(category)
+        or wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""
     )

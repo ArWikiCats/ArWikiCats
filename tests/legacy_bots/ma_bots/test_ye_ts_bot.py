@@ -4,11 +4,10 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.general_resolver import (
-    find_lab,
-    translate_general_category,
-    work_separator_names,
-)
+from ArWikiCats.legacy_bots import _resolver
+find_lab = _resolver._find_lab
+work_separator_names = _resolver._work_separator_names
+translate_general_category = _resolver._resolve_general_logic
 
 fast_data = {}
 

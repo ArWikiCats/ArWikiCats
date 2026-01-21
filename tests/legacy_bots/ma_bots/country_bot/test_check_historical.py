@@ -5,7 +5,9 @@ TODO: write tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country_bot import check_historical_prefixes
+from ArWikiCats.legacy_bots import _resolver
+
+check_historical_prefixes = _resolver._check_historical_prefixes
 
 historical_data = {
     "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",
