@@ -35,7 +35,7 @@ def fix_keys(category: str) -> str:
     category = re.sub(r"\s+", " ", category)
 
     replacements = {
-        "expatriates": "expatriate",
+        # "expatriates": "expatriate",
     }
 
     for old, new in replacements.items():
