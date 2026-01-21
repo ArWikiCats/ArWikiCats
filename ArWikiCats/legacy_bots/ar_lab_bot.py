@@ -13,7 +13,7 @@ from ..helps import logger
 from ..patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ..sub_new_resolvers import university_resolver
 from ..translations import keys_of_without_in
-from ..utils import fix_minor
+from .legacy_utils.fixing import fix_minor
 from . import with_years_bot
 from .bot_2018 import get_pop_All_18
 from .country_bot import event2_d2

@@ -3,9 +3,3 @@
 This package contains various utilities for processing and transforming
 Wikipedia category names from English to Arabic.
 """
-
-from ...format_bots import change_cat
-
-__all__ = [
-    "change_cat",
-]
