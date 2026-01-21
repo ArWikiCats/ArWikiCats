@@ -5,6 +5,11 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 fast_data_1 = {
+    "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
+    "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
+    "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
+    "Women's national sports teams of the United States": "منتخبات رياضية وطنية نسائية الولايات المتحدة",
+    "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية الولايات المتحدة",
     "Members of the Riksdag 2010–2010": "أعضاء البرلمان السويدي 2010–2010",
     "wheelchair basketball players in turkey": "لاعبو كرة سلة على كراسي متحركة في تركيا",
     "field hockey players in germany": "لاعبو هوكي ميدان في ألمانيا",
