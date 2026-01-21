@@ -11,18 +11,16 @@ from typing import Tuple
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
-from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
+from ..core.shared_resolvers import wrap_event2
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
-from . import country_bot, with_years_bot
 from .bot_2018 import get_pop_All_18
 from .con2_lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
-from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [
     "in",
@@ -211,28 +209,6 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
         return f"{type_label} من "
 
     return type_label
-
-
-@functools.lru_cache(maxsize=10000)
-def wrap_event2(category: str, separator: str = "") -> str:
-    """
-    Attempt to resolve a category label by trying several resolver functions in order.
-
-    Parameters:
-        category (str): The input category string to resolve.
-        separator (str): Unused; kept for API compatibility.
-
-    Returns:
-        str: The first non-empty label returned by the resolvers, or an empty string if none match.
-    """
-    result = (
-        university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
-        or with_years_bot.wrap_try_with_years(category)
-        or label_for_startwith_year_or_typeo(category)
-        or ""
-    )
-    return result
 
 
 @dataclass

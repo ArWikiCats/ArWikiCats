@@ -11,6 +11,7 @@ This pull request refactors the `legacy_bots` module to resolve circular imports
   * Utility patterns (`REGEX_SUB_MILLENNIUM_CENTURY`, `REGEX_SUB_CATEGORY_LOWERCASE`)
 * `legacy_bots/core/` - New directory for base resolver functions
   * `base_resolver.py` - Contains pure functions `fix_minor` and `get_cats`
+  * `shared_resolvers.py` - Contains `wrap_event2` to break circular imports between `ar_lab_bot` and `country_bot`
 * `RESOLVER_PIPELINE` - Exported list of resolver functions for extensibility
 
 ### Changed
