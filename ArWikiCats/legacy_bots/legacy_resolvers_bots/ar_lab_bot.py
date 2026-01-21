@@ -22,7 +22,8 @@ from .con2_lab import (
     get_type_country,
     get_type_lab,
 )
-from .year_or_typeo import label_for_startwith_year_or_typeo
+from .. import _resolver
+label_for_startwith_year_or_typeo = _resolver._resolve_year_or_typo
 
 separators_lists_raw = [
     "in",

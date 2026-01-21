@@ -8,9 +8,7 @@ from ArWikiCats import logger, resolve_arabic_category_label
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import make_by_label
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_con_lab
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import Try_With_Years
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
-    label_for_startwith_year_or_typeo,
-)
+
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import _get_films_key_tyty_new
 from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
