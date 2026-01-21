@@ -1,31 +1,20 @@
 """
 
-Group of regex expressions used in the bot for later improvements
+Regex patterns for category label processing.
+
+This module now re-exports from the centralized regex_hub for backward compatibility.
+The actual patterns are defined in legacy_bots/legacy_utils/regex_hub.py.
 
 """
 
-import re
-
-YEARS_REGEX_AR = (
-    r"\d+[−–\-]\d+"
-    # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
-    r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+from .regex_hub import (
+    YEARS_REGEX_AR,
+    RE1_compile,
+    RE2_compile,
+    RE3_compile,
+    RE33_compile,
+    re_sub_year,
 )
-
-RE1_compile = re.compile(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d).*", re.I)
-RE2_compile = re.compile(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)$", re.I)
-RE3_compile = re.compile(r"^.*?\s*\((\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+|\d\d\d\d)\)$", re.I)
-
-# ----------------------------
-
-re_sub_year = r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d)\s.*$"
-
-# Category:American Soccer League (1933–83)
-RE33_compile = re.compile(r"^.*?\s*(\((?:\d\d\d\d|\d+\-\d+|\d+\–\d+|\d+\–present|\d+\−\d+)\))$", re.I)
-# RE4_compile = re.compile(r"^.*?\s*(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d) season$", re.I)
-
-# ----------------------------
-
 
 __all__ = [
     "YEARS_REGEX_AR",
