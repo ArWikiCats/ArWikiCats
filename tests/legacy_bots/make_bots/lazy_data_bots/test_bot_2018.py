@@ -2,7 +2,7 @@
 Tests
 """
 
-from ArWikiCats.legacy_bots.ma_bots.bot_2018 import (
+from ArWikiCats.legacy_bots.bot_2018 import (
     Add_to_pop_All_18,
     get_pop_All_18,
 )

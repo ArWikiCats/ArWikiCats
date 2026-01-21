@@ -10,10 +10,10 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps import logger
-from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...translations import People_key, get_from_new_p17_final
+from ..helps import logger
+from ..new_resolvers import all_new_resolvers
+from ..new_resolvers.bys_new import resolve_by_labels
+from ..translations import People_key, get_from_new_p17_final
 from .bot_2018 import get_pop_All_18
 
 DUAL_BY_PATTERN = re.compile(r"^by (.*?) and (.*?)$", flags=re.IGNORECASE)

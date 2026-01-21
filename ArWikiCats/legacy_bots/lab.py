@@ -7,20 +7,19 @@ import functools
 import re
 from typing import Tuple
 
-from ...helps import logger
-from ...new_resolvers import all_new_resolvers
-from ...sub_new_resolvers import team_work
-from ...translations import (
+from ..helps import logger
+from ..new_resolvers import all_new_resolvers
+from ..sub_new_resolvers import team_work
+from ..translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
     get_from_new_p17_final,
     get_from_pf_keys2,
     religious_entries,
 )
-from .. import tmp_bot
-from ..common_resolver_chain import get_lab_for_country2
-from . import bys
+from . import bys, tmp_bot
 from .bot_2018 import get_pop_All_18
+from .common_resolver_chain import get_lab_for_country2
 from .country_bot import fetch_country_term_label, get_country
 
 

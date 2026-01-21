@@ -5,7 +5,7 @@ TODO: write tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.ma_bots.country_bot import get_country
+from ArWikiCats.legacy_bots.country_bot import get_country
 
 data_1 = {
     "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",

@@ -8,10 +8,10 @@ using population data from 2018 and other mapping tables.
 import functools
 from typing import Dict
 
-from ...helps import len_print, logger
-from ...new_resolvers import all_new_resolvers
-from ...new_resolvers.bys_new import resolve_by_labels
-from ...translations import (
+from ..helps import len_print, logger
+from ..new_resolvers import all_new_resolvers
+from ..new_resolvers.bys_new import resolve_by_labels
+from ..translations import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,
     Jobs_new,
