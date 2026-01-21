@@ -13,7 +13,7 @@ from ..sub_new_resolvers import parties_resolver, team_work, university_resolver
 from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..translations import People_key, get_from_pf_keys2
 from .bot_2018 import get_pop_All_18
-from .matables_bots.table1_bot import get_KAKO
+from .make_bots.table1_bot import get_KAKO
 
 
 @functools.lru_cache(maxsize=10000)
