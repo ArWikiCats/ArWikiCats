@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Module containing country and language processing bots.
+"""Extended bots module for Arabic Wikipedia categories processing.
 
-This module provides functionality for processing country-related categories
-and translating them to Arabic.
+This package contains additional bots and utilities for processing and translating
+Wikipedia category names from English to Arabic.
 """

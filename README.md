@@ -390,11 +390,11 @@ ArWikiCats/
 │   ├── lazy_data_bots/      # بوتات التحميل الكسول
 │   └── matables_bots/       # بوتات الجداول
 │
-├── ma_bots2/                 # بوتات المعالجة الأساسية
+├── ma_bots/                 # بوتات المعالجة الأساسية
 │   ├── country_bot.py
 │   └── general_resolver.py
 │
-├── ma_bots2/                # بوتات المعالجة المتقدمة
+├── ma_bots/                # بوتات المعالجة المتقدمة
 │   ├── ar_lab/
 │   ├── country2_bots/
 │   └── year_or_typeo/
