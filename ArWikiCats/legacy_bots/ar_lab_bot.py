@@ -21,7 +21,7 @@ from .con2_lab import (
     get_type_lab,
 )
 from .legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
-from .make_bots.check_bot import check_key_new_players
+from .make_bots import check_key_new_players
 from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [

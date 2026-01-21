@@ -11,7 +11,7 @@ from ..time_formats import convert_time_to_arabic, match_time_en_first
 from ..translations import Nat_mens
 from . import country_bot
 from .bot_2018 import get_pop_All_18
-from .make_bots.reg_result import get_cats, get_reg_result
+from .make_bots import get_cats, get_reg_result
 from .mk3 import new_func_mk2
 
 

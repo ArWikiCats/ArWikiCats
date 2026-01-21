@@ -16,7 +16,7 @@ from ..translations import WORD_AFTER_YEARS, get_from_pf_keys2
 from . import general_resolver
 from .common_resolver_chain import get_lab_for_country2
 from .legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, re_sub_year
-from .make_bots.political_terms import handle_political_terms
+from .make_bots import handle_political_terms
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
