@@ -9,7 +9,7 @@ import re
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
-from ...legacy_bots.common_resolver_chain import get_lab_for_country2
+from ..common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
@@ -22,7 +22,7 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     religious_entries,
 )
 from .. import with_years_bot
-from ..ma_bots2.country2_label_bot import country_2_title_work
+from .country2_label_bot import country_2_title_work
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from . import general_resolver

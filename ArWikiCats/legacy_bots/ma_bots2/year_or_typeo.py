@@ -9,7 +9,7 @@ from ...helps import dump_data, logger
 from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
-from ..ma_bots import country_bot
+from . import country_bot
 from ..make_bots.bot_2018 import get_pop_All_18
 from .mk3 import new_func_mk2
 from .reg_result import get_cats, get_reg_result

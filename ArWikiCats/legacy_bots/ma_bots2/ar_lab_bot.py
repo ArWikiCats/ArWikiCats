@@ -15,7 +15,7 @@ from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ...utils import fix_minor
 from .. import with_years_bot
-from ..ma_bots.country_bot import event2_d2
+from .country_bot import event2_d2
 from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.data import Keep_it_frist, Keep_it_last

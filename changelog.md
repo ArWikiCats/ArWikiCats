@@ -2623,7 +2623,7 @@ This update improves label processing accuracy and restructures the test archite
 ### Changed
 
 - Refactored multiple Python files to utilize centralized and precompiled regex patterns.
-- Simplified the event labeling flow in `ArWikiCats/make_bots/ma_bots/year_or_typeo/bot_lab.py` and `ArWikiCats/make_bots/ma_bots/event2bot.py` by using centralized regex definitions.
+- Simplified the event labeling flow in `ArWikiCats/make_bots/ma_bots2/year_or_typeo/bot_lab.py` and `ArWikiCats/make_bots/ma_bots2/event2bot.py` by using centralized regex definitions.
 
 ---
 

@@ -1,11 +1,11 @@
-"""Tests for :mod:`make_bots.ma_bots.bys`."""
+"""Tests for :mod:`make_bots.ma_bots2.bys`."""
 
 from __future__ import annotations
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.ma_bots.bys import get_by_label
+from ArWikiCats.legacy_bots.ma_bots2.bys import get_by_label
 
 data_0 = {
     "12th iranian majlis": "المجلس الإيراني الثاني عشر",

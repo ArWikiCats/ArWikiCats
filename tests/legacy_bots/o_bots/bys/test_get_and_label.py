@@ -1,11 +1,11 @@
-"""Tests for :mod:`make_bots.ma_bots.bys`."""
+"""Tests for :mod:`make_bots.ma_bots2.bys`."""
 
 from __future__ import annotations
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.ma_bots.bys import get_and_label
+from ArWikiCats.legacy_bots.ma_bots2.bys import get_and_label
 
 # TODO: need to fix results by_and_data_true_result, by_and_data
 

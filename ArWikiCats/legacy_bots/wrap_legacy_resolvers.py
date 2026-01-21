@@ -10,8 +10,8 @@ import functools
 
 from ..sub_new_resolvers import university_resolver
 from . import event_lab_bot, with_years_bot
-from .ma_bots import country_bot, general_resolver
-from .ma_bots2 import year_or_typeo
+from .ma_bots2 import country_bot
+from .ma_bots2 import general_resolver, year_or_typeo
 
 
 @functools.lru_cache(maxsize=None)

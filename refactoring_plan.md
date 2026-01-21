@@ -289,7 +289,7 @@ from ArWikiCats.config import app_settings, print_settings
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                              BOT LAYER                                       │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│  make_bots/                            │  ma_bots/                           │
+│  make_bots/                            │  ma_bots2/                           │
 │  ├── format_bots/                      │  ├── country_bot.py                │
 │  ├── date_bots/                        │  ├──                               │
 │  ├── jobs_bots/                        │  └── general_resolver.py                  │
