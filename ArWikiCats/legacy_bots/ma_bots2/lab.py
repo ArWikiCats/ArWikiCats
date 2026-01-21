@@ -258,6 +258,8 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
     if type_lower == "people":
         return "أشخاص", False
 
+    should_append_in_label = True
+    label = ""
     # Handle special cases first
     label, should_append_in_label = _handle_special_type_cases(type_lower, normalized_preposition)
 
