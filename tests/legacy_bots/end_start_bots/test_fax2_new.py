@@ -1,7 +1,7 @@
 # test_fax2_get_list_of_and_cat3.py
 import pytest
 
-from ArWikiCats.new.end_start_bots import fax2
+from ArWikiCats.legacy_bots.end_start_bots import fax2
 
 # ---------------------------------------------------------------------------
 # 1) Patterns handled by to_get_startswith عبر get_from_starts_dict
