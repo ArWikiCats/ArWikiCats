@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from ...helps import logger
-from ...translations import PARTIES
-from ...translations_formats import FormatData
+from ..helps import logger
+from ..translations import PARTIES
+from ..translations_formats import FormatData
 
 formatted_data = {
     "{party_key} candidates for member of parliament": "مرشحو {party_label} لعضوية البرلمان",

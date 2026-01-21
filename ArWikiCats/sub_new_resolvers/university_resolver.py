@@ -5,9 +5,9 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ...helps import logger
-from ...translations import CITY_TRANSLATIONS_LOWER
-from ...translations_formats import FormatData
+from ..helps import logger
+from ..translations import CITY_TRANSLATIONS_LOWER
+from ..translations_formats import FormatData
 
 CITY_LOWER = {
     "chandler, oklahoma": "تشاندلر (أوكلاهوما)",

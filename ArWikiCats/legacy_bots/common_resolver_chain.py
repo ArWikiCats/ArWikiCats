@@ -9,12 +9,11 @@ import functools
 
 from ..helps import logger
 from ..new_resolvers import all_new_resolvers
-from ..sub_new_resolvers import team_work
+from ..sub_new_resolvers import parties_resolver, team_work, university_resolver
 from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..translations import People_key, get_from_pf_keys2
 from .make_bots.bot_2018 import get_pop_All_18
 from .matables_bots.table1_bot import get_KAKO
-from .o_bots import parties_resolver, university_resolver
 
 
 @functools.lru_cache(maxsize=10000)

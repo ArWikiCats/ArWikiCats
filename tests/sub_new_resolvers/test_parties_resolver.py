@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.o_bots.parties_resolver import get_parties_lab
+from ArWikiCats.sub_new_resolvers.parties_resolver import get_parties_lab
 
 fast_data = {
     # {party_key} candidates for member of parliament
