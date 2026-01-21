@@ -6,123 +6,97 @@ Sports team and club category processing.
 import functools
 
 from ..helps import logger
-from ..legacy_bots.o_bots.utils import resolve_suffix_template
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
+from ..translations_formats import FormatData
 
 Teams_new_end_keys = {
-    "broadcasters": "مذيعو {}",
-    "commentators": "معلقو {}",
-    "commissioners": "مفوضو {}",
-    "trainers": "مدربو {}",
-    "chairmen and investors": "رؤساء ومسيرو {}",
-    "coaches": "مدربو {}",
-    "managers": "مدربو {}",  # "مدراء {}"
-    "manager": "مدربو {}",
-    "manager history": "تاريخ مدربو {}",
-    "footballers": "لاعبو {}",
-    "playerss": "لاعبو {}",
-    "players": "لاعبو {}",
-    "fan clubs": "أندية معجبي {}",
-    "owners and executives": "رؤساء تنفيذيون وملاك {}",
-    "personnel": "أفراد {}",
-    "owners": "ملاك {}",
-    "executives": "مدراء {}",
-    "equipment": "معدات {}",
-    "culture": "ثقافة {}",
-    "logos": "شعارات {}",
-    "tactics and skills": "مهارات {}",
-    "media": "إعلام {}",
-    "people": "أعلام {}",
-    "terminology": "مصطلحات {}",
-    # "religious occupations": "مهن دينية {}",
-    # "occupations": "مهن {}",
-    "variants": "أشكال {}",
-    "governing bodies": "هيئات تنظيم {}",
-    "bodies": "هيئات {}",
-    "video games": "ألعاب فيديو {}",
-    "comics": "قصص مصورة {}",
-    "cups": "كؤوس {}",
-    "records and statistics": "سجلات وإحصائيات {}",
-    "leagues": "دوريات {}",
-    "leagues seasons": "مواسم دوريات {}",
-    "seasons": "مواسم {}",
-    "competition": "منافسات {}",
-    "competitions": "منافسات {}",
-    "world competitions": "منافسات {} عالمية",
-    "teams": "فرق {}",
-    "television series": "مسلسلات تلفزيونية {}",
-    "films": "أفلام {}",
-    "championships": "بطولات {}",
-    "music": "موسيقى {}",
-    "clubs and teams": "أندية وفرق {}",
-    "clubs": "أندية {}",
-    "referees": "حكام {}",
-    "organizations": "منظمات {}",
-    "non-profit organizations": "منظمات غير ربحية {}",
-    "non-profit publishers": "ناشرون غير ربحيون {}",
-    "stadiums": "ملاعب {}",
-    "lists": "قوائم {}",
-    "awards": "جوائز {}",
-    "songs": "أغاني {}",
-    "non-playing staff": "طاقم {} غير اللاعبين",
-    "umpires": "حكام {}",
-    "cup playoffs": "تصفيات كأس {}",
-    "cup": "كأس {}",
-    "results": "نتائج {}",
-    "matches": "مباريات {}",
-    "rivalries": "دربيات {}",
-    "champions": "أبطال {}",
+    "{team_key} broadcasters": "مذيعو {team_label}",
+    "{team_key} commentators": "معلقو {team_label}",
+    "{team_key} commissioners": "مفوضو {team_label}",
+    "{team_key} trainers": "مدربو {team_label}",
+    "{team_key} chairmen and investors": "رؤساء ومسيرو {team_label}",
+    "{team_key} coaches": "مدربو {team_label}",
+    "{team_key} managers": "مدربو {team_label}",  # "مدراء {team_label}"
+    "{team_key} manager": "مدربو {team_label}",
+    "{team_key} manager history": "تاريخ مدربو {team_label}",
+    "{team_key} footballers": "لاعبو {team_label}",
+    "{team_key} playerss": "لاعبو {team_label}",
+    "{team_key} players": "لاعبو {team_label}",
+    "{team_key} fan clubs": "أندية معجبي {team_label}",
+    "{team_key} owners and executives": "رؤساء تنفيذيون وملاك {team_label}",
+    "{team_key} personnel": "أفراد {team_label}",
+    "{team_key} owners": "ملاك {team_label}",
+    "{team_key} executives": "مدراء {team_label}",
+    "{team_key} equipment": "معدات {team_label}",
+    "{team_key} culture": "ثقافة {team_label}",
+    "{team_key} logos": "شعارات {team_label}",
+    "{team_key} tactics and skills": "مهارات {team_label}",
+    "{team_key} media": "إعلام {team_label}",
+    "{team_key} people": "أعلام {team_label}",
+    "{team_key} terminology": "مصطلحات {team_label}",
+    # "{team_key} religious occupations": "مهن دينية {team_label}",
+    # "{team_key} occupations": "مهن {team_label}",
+    "{team_key} variants": "أشكال {team_label}",
+    "{team_key} governing bodies": "هيئات تنظيم {team_label}",
+    "{team_key} bodies": "هيئات {team_label}",
+    "{team_key} video games": "ألعاب فيديو {team_label}",
+    "{team_key} comics": "قصص مصورة {team_label}",
+    "{team_key} cups": "كؤوس {team_label}",
+    "{team_key} records and statistics": "سجلات وإحصائيات {team_label}",
+    "{team_key} leagues": "دوريات {team_label}",
+    "{team_key} leagues seasons": "مواسم دوريات {team_label}",
+    "{team_key} seasons": "مواسم {team_label}",
+    "{team_key} competition": "منافسات {team_label}",
+    "{team_key} competitions": "منافسات {team_label}",
+    "{team_key} world competitions": "منافسات {team_label} عالمية",
+    "{team_key} teams": "فرق {team_label}",
+    "{team_key} television series": "مسلسلات تلفزيونية {team_label}",
+    "{team_key} films": "أفلام {team_label}",
+    "{team_key} championships": "بطولات {team_label}",
+    "{team_key} music": "موسيقى {team_label}",
+    "{team_key} clubs and teams": "أندية وفرق {team_label}",
+    "{team_key} clubs": "أندية {team_label}",
+    "{team_key} referees": "حكام {team_label}",
+    "{team_key} organizations": "منظمات {team_label}",
+    "{team_key} non-profit organizations": "منظمات غير ربحية {team_label}",
+    "{team_key} non-profit publishers": "ناشرون غير ربحيون {team_label}",
+    "{team_key} stadiums": "ملاعب {team_label}",
+    "{team_key} lists": "قوائم {team_label}",
+    "{team_key} awards": "جوائز {team_label}",
+    "{team_key} songs": "أغاني {team_label}",
+    "{team_key} non-playing staff": "طاقم {team_label} غير اللاعبين",
+    "{team_key} umpires": "حكام {team_label}",
+    "{team_key} cup playoffs": "تصفيات كأس {team_label}",
+    "{team_key} cup": "كأس {team_label}",
+    "{team_key} results": "نتائج {team_label}",
+    "{team_key} matches": "مباريات {team_label}",
+    "{team_key} rivalries": "دربيات {team_label}",
+    "{team_key} champions": "أبطال {team_label}",
 }
 
-# sorted by len of " " in key
-Teams_new_end_keys = dict(
-    sorted(
-        Teams_new_end_keys.items(),
-        key=lambda k: (-k[0].count(" "), -len(k[0])),
+
+def _load_bot() -> FormatData:
+    data_list = Clubs_key_2 | clubs_teams_leagues | INTER_FEDS_LOWER
+    _peoples_bot = FormatData(
+        formatted_data=Teams_new_end_keys,
+        data_list=data_list,
+        key_placeholder="{team_key}",
+        value_placeholder="{team_label}",
     )
-)
+
+    return _peoples_bot
 
 
-def _resolve_club_label(club_key: str) -> str:
-    """
-    Resolve the Arabic label for a club key by checking configured lookup sources.
+@functools.lru_cache(maxsize=2048)
+def resolve_clubs_teams_leagues(name: str) -> str:
+    logger.debug(f"<<yellow>> resolve_clubs_teams_leagues {name=}")
 
-    Parameters:
-        club_key (str): Key identifying the club or entity to resolve.
+    _peoples_bot = _load_bot()
 
-    Returns:
-        str: The resolved Arabic label for the given club_key, or an empty string if no match is found.
-    """
-    club_key = club_key.lower().strip()
-    club_lab = (
-        ""
-        or Clubs_key_2.get(club_key.lower())
-        or clubs_teams_leagues.get(club_key)
-        or INTER_FEDS_LOWER.get(club_key)
-        or ""
-    )
-    return club_lab
+    resolved_label = _peoples_bot.search(name)
 
-
-@functools.lru_cache(maxsize=None)
-def resolve_clubs_teams_leagues(category: str) -> str:
-    """Return the Arabic label for ``category`` using known suffixes.
-
-    Args:
-        category: The category name to resolve.
-
-    Returns:
-        The resolved Arabic label or an empty string if the suffix is unknown.
-    """
-    normalized = category.strip()
-    logger.debug(f"<<yellow>> start resolve_clubs_teams_leagues: {category=}")
-
-    category_label = resolve_suffix_template(normalized, Teams_new_end_keys, _resolve_club_label)
-
-    logger.info_if_or_debug(
-        f"<<yellow>> end resolve_clubs_teams_leagues: {category=}, {category_label=}", category_label
-    )
-    return category_label
+    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues {name=}, {resolved_label=}", resolved_label)
+    return resolved_label
 
 
 __all__ = [
