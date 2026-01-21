@@ -19,7 +19,6 @@ from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver,
 # The resolvers are tried in the order listed below. The first resolver to return
 # a non-empty string wins. This ordering is significant:
 #
-# 1. university_resolver - Specialized resolver for university categories (highest priority)
 # 2. country_bot.event2_d2 - Country and event-based resolution
 # 3. with_years_bot.wrap_try_with_years - Year-based category resolution
 # 4. year_or_typeo.label_for_startwith_year_or_typeo - Year prefix patterns and typo handling

@@ -10,7 +10,6 @@ import functools
 from dataclasses import dataclass
 
 from ..sub_new_resolvers import university_resolver
-
 from ..fix import cleanse_category_label, filter_en, fixlabel
 from ..format_bots import change_cat
 from ..helps import logger
