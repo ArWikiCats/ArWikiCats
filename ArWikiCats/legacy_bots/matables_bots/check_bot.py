@@ -8,12 +8,20 @@ from ..matables_bots.check_bot import check_key_new_players
 check_key_new_players(key)
 """
 
+from typing import Dict, List, Set
 from ...helps import logger
 from ...translations import Jobs_new, jobs_mens_data
-from ...utils import check_key_in_tables
 from .bot import players_new_keys
 
 set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
+
+
+def check_key_in_tables(key: str, tables: List[Dict[str, str] | List[str] | Set[str]]) -> bool:
+    """Return True if ``key`` exists in any container within ``tables``."""
+    for table in tables:
+        if key in table or key.lower() in table:
+            return True
+    return False
 
 
 def check_key_new_players_n(key: str) -> bool:
