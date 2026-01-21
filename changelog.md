@@ -10,8 +10,8 @@ This pull request refactors the `legacy_bots` module to resolve circular imports
   * "By" patterns (`DUAL_BY_PATTERN`, `BY_MATCH_PATTERN`, `AND_PATTERN`)
   * Utility patterns (`REGEX_SUB_MILLENNIUM_CENTURY`, `REGEX_SUB_CATEGORY_LOWERCASE`)
 * `legacy_bots/core/` - New directory for base resolver functions
-  * `base_resolver.py` - Contains pure functions `fix_minor` and `get_cats`
-  * `shared_resolvers.py` - Contains `wrap_event2` to break circular imports between `ar_lab_bot` and `country_bot`
+  * `base_resolver.py` - Contains `get_cats` function
+  * `shared_resolvers.py` - Contains `translate_general_category`, `wrap_event2` and helpers to break circular imports
 * `RESOLVER_PIPELINE` - Exported list of resolver functions for extensibility
 
 ### Changed
@@ -19,15 +19,19 @@ This pull request refactors the `legacy_bots` module to resolve circular imports
 * `legacy_utils/numbers1.py` - Now re-exports from `data_store.mappings`
 * `legacy_utils/reg_lines.py` - Now re-exports from `regex_hub`
 * `legacy_utils/ends_keys.py` - Now re-exports from `data_store.mappings`
-* `legacy_utils/fixing.py` - Now re-exports from `core.base_resolver`
 * `make_bots/bot.py` - Now imports `typeTable_7` from `data_store`
 * `make_bots/reg_result.py` - Now imports `get_cats` from `core.base_resolver`
 * `tmp_bot.py` - Now imports `pp_start_with` from `data_store`
 * `legacy_resolvers_bots/with_years_bot.py` - Uses centralized regex patterns
 * `legacy_resolvers_bots/bys.py` - Uses centralized regex patterns
+* `legacy_resolvers_bots/general_resolver.py` - Now re-exports from `core.shared_resolvers` for backward compatibility
+* `legacy_resolvers_bots/country_bot.py` - Imports `translate_general_category` from `core.shared_resolvers` instead of `general_resolver`
 
 ### Fixed
-* Resolved potential circular import issues by centralizing shared data and regex patterns
+* **Resolved circular import chain**: `ar_lab_bot` → `country_bot` → `general_resolver` → `ar_lab_bot`
+  * Moved `translate_general_category` and helpers from `general_resolver.py` to `core/shared_resolvers.py`
+  * `country_bot.py` now imports from `shared_resolvers` directly
+  * `general_resolver.py` re-exports for backward compatibility
 * Improved code organization and maintainability
 
 ## [#314](https://github.com/MrIbrahem/ArWikiCats/pull/314) - 2026-01-07

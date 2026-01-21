@@ -21,9 +21,10 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     religious_entries,
 )
 from ..common_resolver_chain import get_lab_for_country2
+from ..core.shared_resolvers import translate_general_category
 from ..legacy_utils import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots import get_KAKO
-from . import general_resolver, with_years_bot
+from . import with_years_bot
 from .bot_2018 import get_pop_All_18
 from .country2_label_bot import country_2_title_work
 
@@ -48,7 +49,7 @@ def Get_country2(country: str) -> str:
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
@@ -78,7 +79,7 @@ def _resolve_remainder(remainder: str) -> str:
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)
-        or general_resolver.translate_general_category(remainder, fix_title=False)
+        or translate_general_category(remainder, fix_title=False)
         or ""
     )
     return label
