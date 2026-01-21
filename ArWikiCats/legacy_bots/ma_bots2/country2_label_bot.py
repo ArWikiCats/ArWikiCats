@@ -20,7 +20,7 @@ from ..make_bots.bot_2018 import get_pop_All_18
 from ..matables_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
-from ..o_bots import bys
+from ..ma_bots import bys
 from .utils import split_text_by_separator
 
 
