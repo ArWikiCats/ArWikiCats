@@ -12,7 +12,6 @@ import re
 from typing import Iterable, Mapping
 
 from ..helps import logger
-from ..legacy_bots.make_bots.reg_lines import YEARS_REGEX_AR
 from .fixlists import (
     ENDING_REPLACEMENTS,
     REPLACEMENTS,
@@ -21,6 +20,12 @@ from .fixlists import (
 )
 from .mv_years import move_years
 from .specific_normalizations import apply_category_specific_normalizations
+
+YEARS_REGEX_AR = (
+    r"\d+[−–\-]\d+"
+    # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+    r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+)
 
 
 def _apply_regex_replacements(text: str, replacements: Mapping[str, str]) -> str:
