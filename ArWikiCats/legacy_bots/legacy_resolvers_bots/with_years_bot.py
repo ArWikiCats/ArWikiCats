@@ -14,13 +14,11 @@ from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, change_numb_to_word, re_sub_year
+from ..legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, change_numb_to_word
 from ..make_bots import get_KAKO
+from ..utils.regex_hub import REGEX_SUB_YEAR
 from . import general_resolver
 from .bot_2018 import get_pop_All_18
-
-# Precompiled Regex Patterns
-REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)
 
 arabic_labels_preceding_year = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
