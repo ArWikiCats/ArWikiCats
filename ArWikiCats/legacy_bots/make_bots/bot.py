@@ -4,30 +4,8 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 
 """
 
-typeTable_7: dict[str, str] = {
-    "air force": "قوات جوية",
-    "airlines accidents": "حوادث طيران",
-    "aviation accident": "حوادث طيران",
-    "aviation accidents": "حوادث طيران",
-    "design institutions": "مؤسسات تصميم",
-    "distance education institutions": "مؤسسات تعليم عن بعد",
-    "executed-burning": "أعدموا شنقاً",
-    "executed-decapitation": "أعدموا بقطع الرأس",
-    "executed-firearm": "أعدموا بسلاح ناري",
-    "executed-hanging": "أعدموا حرقاً",
-    "executions": "إعدامات",
-    "people executed by": "أشخاص أعدموا من قبل",
-    "people executed-by-burning": "أشخاص أعدموا شنقاً",
-    "people executed-by-decapitation": "أشخاص أعدموا بقطع الرأس",
-    "people executed-by-firearm": "أشخاص أعدموا بسلاح ناري",
-    "people executed-by-hanging": "أشخاص أعدموا حرقاً",
-    "railway accident": "حوادث سكك حديد",
-    "railway accidents": "حوادث سكك حديد",
-    "road accidents": "حوادث طرق",
-    "transport accident": "حوادث نقل",
-    "transport accidents": "حوادث نقل",
-    "transport disasters": "كوارث نقل",
-}
+# Import typeTable_7 from centralized data module
+from ..data.mappings import typeTable_7
 
 
 def _make_players_keys() -> dict:
