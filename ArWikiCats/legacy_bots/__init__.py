@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import functools
 
-from ..sub_new_resolvers import university_resolver
 from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
 
 
@@ -24,8 +23,7 @@ def legacy_resolvers(changed_cat) -> str:
         category_label (str): The resolved category label, or an empty string if no legacy resolver produces a value.
     """
     category_lab = (
-        university_resolver.resolve_university_category(changed_cat)
-        or country_bot.event2_d2(changed_cat)
+        country_bot.event2_d2(changed_cat)
         or with_years_bot.wrap_try_with_years(changed_cat)
         or year_or_typeo.label_for_startwith_year_or_typeo(changed_cat)
         or event_lab_bot.event_Lab(changed_cat)
