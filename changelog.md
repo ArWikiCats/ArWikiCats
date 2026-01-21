@@ -1,3 +1,33 @@
+## [Refactor legacy_bots Module] - 2026-01-21
+
+This pull request refactors the `legacy_bots` module to resolve circular imports, separate data from logic, and centralize utilities while maintaining the functionality of the main entry point `legacy_resolvers`.
+
+### Added
+* `legacy_bots/data_store/` - New directory for centralized static data mappings
+  * `mappings.py` - Contains `typeTable_7`, `pp_start_with`, `pp_ends_with_pase`, `change_numb`, `change_numb_to_word`, and `combined_suffix_mappings`
+* `legacy_bots/legacy_utils/regex_hub.py` - Centralized regex patterns including:
+  * Year patterns (`RE1_YEAR_AT_START`, `RE2_YEAR_AT_END`, `RE3_YEAR_IN_PARENS`, etc.)
+  * "By" patterns (`DUAL_BY_PATTERN`, `BY_MATCH_PATTERN`, `AND_PATTERN`)
+  * Utility patterns (`REGEX_SUB_MILLENNIUM_CENTURY`, `REGEX_SUB_CATEGORY_LOWERCASE`)
+* `legacy_bots/core/` - New directory for base resolver functions
+  * `base_resolver.py` - Contains pure functions `fix_minor` and `get_cats`
+* `RESOLVER_PIPELINE` - Exported list of resolver functions for extensibility
+
+### Changed
+* `legacy_bots/__init__.py` - Refactored to use Pipeline pattern with `_run_pipeline()` helper
+* `legacy_utils/numbers1.py` - Now re-exports from `data_store.mappings`
+* `legacy_utils/reg_lines.py` - Now re-exports from `regex_hub`
+* `legacy_utils/ends_keys.py` - Now re-exports from `data_store.mappings`
+* `legacy_utils/fixing.py` - Now re-exports from `core.base_resolver`
+* `make_bots/bot.py` - Now imports `typeTable_7` from `data_store`
+* `make_bots/reg_result.py` - Now imports `get_cats` from `core.base_resolver`
+* `tmp_bot.py` - Now imports `pp_start_with` from `data_store`
+* `legacy_resolvers_bots/with_years_bot.py` - Uses centralized regex patterns
+* `legacy_resolvers_bots/bys.py` - Uses centralized regex patterns
+
+### Fixed
+* Resolved potential circular import issues by centralizing shared data and regex patterns
+* Improved code organization and maintainability
 
 ## [#314](https://github.com/MrIbrahem/ArWikiCats/pull/314) - 2026-01-07
 This pull request introduces several improvements and refactoring changes to how job, language, and nationality labels are resolved and formatted across the codebase. The main themes are: expanding language and job label resolution, updating data sources for nationality mappings, and reorganizing legacy bot files for clarity. These changes enhance the flexibility and accuracy of label generation in various bots and resolvers.
