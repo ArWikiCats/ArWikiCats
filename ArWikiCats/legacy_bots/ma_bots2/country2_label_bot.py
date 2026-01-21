@@ -23,25 +23,6 @@ from ..o_bots import bys, parties_resolver
 from .utils import split_text_by_separator
 
 
-def time_label(text: str) -> str:
-    """
-    Return the input `text` when it represents a time-like token (digits possibly accompanied only by dash characters), otherwise return an empty string.
-
-    The function removes all digit characters from the trimmed input and checks the remainder. If the remainder is empty or one of "-", "–", "−", the original `text` is returned; otherwise an empty string is returned.
-
-    Parameters:
-        text (str): Input string to evaluate as a time-like token.
-
-    Returns:
-        str: The original `text` if it is digits possibly with only dash characters, otherwise an empty string.
-    """
-    tst3 = re.sub(r"\d+", "", text.strip())
-    test3_results = ["", "-", "–", "−"]
-    if tst3 in test3_results:
-        return text
-    return ""
-
-
 def get_table_with_in(cone_1: str, separator: str) -> str:
     """
     Map a composite key of cone_1 and separator to a predefined Arabic label.
@@ -95,7 +76,6 @@ def c_1_1_lab(separator: str, country2: str) -> str:
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_table_with_in(country2, separator)
-        or time_label(country2)
         or get_from_pf_keys2(country2)
         or ""
     )
@@ -128,7 +108,6 @@ def c_2_1_lab(country2: str) -> str:
         or bys.get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_from_pf_keys2(country2.strip().lower())
-        or time_label(country2)
         or ""
     )
 
