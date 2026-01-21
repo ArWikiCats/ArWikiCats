@@ -191,8 +191,7 @@ data1 = {
     "Counties of England by date of disestablishment": "مقاطعات في إنجلترا حسب تاريخ الانحلال",
     "Counties of Gyeonggi Province": "مقاطعات في مقاطعة غيونغي",
     "Counties of Iran": "مقاطعات في إيران",
-    # TODO: Fix this test after refactoring circular dependencies - it now fails
-    # "Members of Parliament for Gers": "أعضاء برلمان في جارس (إقليم فرنسي)",
+    "Members of Parliament for Gers": "أعضاء برلمان في جارس (إقليم فرنسي)",
     "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
     "1000s disestablishments in Asia": "انحلالات عقد 1000 في آسيا",
     "13th century establishments in the Roman Empire": "تأسيسات القرن 13 في الإمبراطورية الرومانية",

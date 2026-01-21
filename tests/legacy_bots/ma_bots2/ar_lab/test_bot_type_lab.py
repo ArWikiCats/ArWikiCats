@@ -26,8 +26,7 @@ data = [
     (" in ", "lithuanian expatriate basketball people", "أعلام كرة سلة ليتوانيون مغتربون"),
     (" in ", "years of 21st century", "سنوات القرن 21"),
     (" in ", "by university or college", "حسب الجامعة أو الكلية"),
-    # TODO: Fix this test after refactoring circular dependencies - it now fails
-    # (" in ", "buildings and structures under construction", "مبان ومنشآت تحت بناء"),
+    (" in ", "buildings and structures under construction", "مبان ومنشآت تحت بناء"),
     (" in ", "lists of buildings and structures", "قوائم مبان ومنشآت"),
     (" in ", "years of 18th century", "سنوات القرن 18"),
     (" in ", "senegalese expatriate basketball people", "أعلام كرة سلة سنغاليون مغتربون"),

@@ -9,7 +9,6 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from ..sub_new_resolvers import university_resolver
 from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order
@@ -37,7 +36,6 @@ from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver,
 # 2. Update this docstring to reflect the new order
 #
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
-    university_resolver.resolve_university_category,
     country_bot.event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
@@ -72,5 +70,4 @@ def legacy_resolvers(changed_cat: str) -> str:
 
 __all__ = [
     "legacy_resolvers",
-    "RESOLVER_PIPELINE",
 ]

@@ -103,8 +103,7 @@ title_work_tests_data = {
     "ethnic groups in china": "مجموعات عرقية في الصين",
     "fauna of vermont": "حيوانات فيرمونت",
     "federalist party members of united states house-of-representatives": "أعضاء الحزب الفيدرالي الأمريكي في مجلس النواب الأمريكي",
-    # TODO: Fix this test after refactoring circular dependencies - it now fails
-    # "films basedon non-fiction books about organized crime": "أفلام مبنية على كتب غير خيالية عن جريمة منظمة",
+    "films basedon non-fiction books about organized crime": "أفلام مبنية على كتب غير خيالية عن جريمة منظمة",
     "fishes of europe": "أسماك أوروبا",
     "food and drink in europe": "أطعمة ومشروبات في أوروبا",
     "french invasion of egypt and syria": "الغزو الفرنسي في مصر وسوريا",

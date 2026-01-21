@@ -29,8 +29,7 @@ data_1 = {
     "Indie rock albums by Manx artists": "ألبومات إيندي روك بواسطة فنانون مانكسيون",
     "Indie rock albums by South African artists": "ألبومات إيندي روك بواسطة فنانون جنوب إفريقيون",
     "Pop albums by Czech artists": "ألبومات بوب بواسطة فنانون تشيكيون",
-    # TODO: Fix this test after refactoring circular dependencies - it now fails
-    # "Prisoners sentenced to death by Papua New Guinea": "مسجونون حكم عليهم بالإعدام بواسطة بابوا غينيا الجديدة",
+    "Prisoners sentenced to death by Papua New Guinea": "مسجونون حكم عليهم بالإعدام بواسطة بابوا غينيا الجديدة",
     "Synth-pop albums by Danish artists": "ألبومات سينثبوب بواسطة فنانون دنماركيون",
     "Thrash metal albums by English artists": "ألبومات ثراش ميتال بواسطة فنانون إنجليز",
     "Video albums by Welsh artists": "ألبومات فيديو بواسطة فنانون ويلزيون",
