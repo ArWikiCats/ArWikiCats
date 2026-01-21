@@ -13,9 +13,9 @@ from typing import Pattern
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
-from . import general_resolver
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, re_sub_year, change_numb_to_word
+from ..legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, change_numb_to_word, re_sub_year
+from . import general_resolver
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

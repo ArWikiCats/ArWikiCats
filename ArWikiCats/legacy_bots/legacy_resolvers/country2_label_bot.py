@@ -7,18 +7,16 @@ import functools
 import re
 from typing import Tuple
 
-from . import bys, country_bot
-
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
 from ...translations import People_key, get_from_pf_keys2
-from . import with_years_bot
-from .bot_2018 import get_pop_All_18
 from ..legacy_utils import fix_minor, split_text_by_separator
 from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
+from . import bys, country_bot, with_years_bot
+from .bot_2018 import get_pop_All_18
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:

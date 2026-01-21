@@ -8,22 +8,20 @@ import re
 from dataclasses import dataclass
 from typing import Tuple
 
-from . import country_bot
-
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
-from . import with_years_bot
+from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
+from ..make_bots import check_key_new_players
+from . import country_bot, with_years_bot
 from .bot_2018 import get_pop_All_18
 from .con2_lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
-from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
-from ..make_bots import check_key_new_players
 from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [
