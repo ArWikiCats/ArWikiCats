@@ -58,7 +58,6 @@ male_tests = {
     "Men in Dutch Caribbean": "رجال في كاريبيون هولنديون",
     "Peruvian people of Hungarian-Jewish descent": "بيرويون من أصل مجري يهودي",
     "Sports competitions in Dutch Caribbean": "منافسات رياضية في كاريبيون هولنديون",
-    "Women from Dutch Caribbean": "نساء من كاريبيون هولنديون",
     "Women in Dutch Caribbean": "المرأة في كاريبيون هولنديون",
     "Romanian people of Hungarian-Jewish descent": "رومان من أصل مجري يهودي",
     "Churches in Dutch Caribbean": "كنائس في كاريبيون هولنديون",
