@@ -55,8 +55,6 @@ class LegacyBotsResolver:
 
     def __init__(self) -> None:
         """Initialize the resolver pipeline in priority order."""
-        # Initialize specialized bots
-        self._university_bot = self._init_university_bot()
 
         # Define the pipeline as a list of bound methods
         self._pipeline: list[Callable[[str], str]] = [
@@ -66,113 +64,6 @@ class LegacyBotsResolver:
             self._resolve_event_lab,
             self._resolve_general,
         ]
-
-    def _init_university_bot(self) -> FormatData:
-        """Initialize the university-specific FormatData bot."""
-        city_lower = {
-            "chandler, oklahoma": "تشاندلر (أوكلاهوما)",
-            "changchun": "تشانغتشون",
-            "changde": "تشانغده",
-            "changhua county": "مقاطعة تشانغوا",
-            "changning, hunan": "تشانغ نينغ، هونان",
-            "changnyeong county": "محافظة تشانغنيونغ",
-            "changsha": "تشانغشا",
-            "changzhi": "تشانغ تشى",
-            "changzhou": "تشانغتشو",
-            "chanhassen, minnesota": "تشانهاسين (منيسوتا)",
-            "chania": "خانية",
-            "channahon, illinois": "تشاناهون (إلينوي)",
-            "chaohu": "شاوهو",
-            "chaoyang, liaoning": "تشاويانغ",
-            "chaozhou": "شاوزو",
-            "chapayevsk": "تشاباييفسك",
-            "chapin, south carolina": "تشابين (كارولاينا الجنوبية)",
-            "chaplin, connecticut": "تشابين (كونيتيكت)",
-            "chapmanville, west virginia": "تشامبانفيل (فرجينيا الغربية)",
-            "chardon, ohio": "تشاردن",
-            "port townsend, washington": "بورت تاونسند",
-            "portage": "بورتج",
-            "portage la prairie": "بورتاج لابريري",
-            "portage, indiana": "بورتاغ",
-            "portage, wisconsin": "بورتاغ (ويسكونسن)",
-            "portalegre, portugal": "بورتاليغري (البرتغال)",
-            "portales, new mexico": "بورتاليس",
-            "porter": "بورتر",
-            "porterville, california": "بورتيرفيل (كاليفورنيا)",
-            "portland, maine": "بورتلاند (مين)",
-            "portland, oregon": "بورتلاند (أوريغن)",
-            "porto": "بورتو",
-            "porto alegre": "بورتو أليغري",
-            "porto-novo": "بورتو نوفو",
-            "portola valley, california": "بورتولا فالي (كاليفورنيا)",
-            "portorož": "بورتوروز",
-            "portsmouth, new hampshire": "بورتسموث (نيوهامشير)",
-            "portsmouth, ohio": "بورتسموث (أوهايو)",
-            "portsmouth, rhode island": "بورتسموث (رود آيلاند)",
-            "portsmouth, virginia": "بورتسموث (فرجينيا)",
-            "portuguese malacca": "ملقا البرتغالية",
-            "porvoo": "بورفو",
-            "posadas, misiones": "بوساداس (ميسيونيس)",
-            "posey": "بوسي",
-            "potenza": "بوتنسا",
-        }
-        city_lower.update(CITY_TRANSLATIONS_LOWER)
-
-        majors = {
-            "medical sciences": "للعلوم الطبية",
-            "international university": "الدولية",
-            "art": "للفنون",
-            "arts": "للفنون",
-            "biology": "للبيولوجيا",
-            "chemistry": "للشيمية",
-            "computer science": "للكمبيوتر",
-            "economics": "للاقتصاد",
-            "education": "للتعليم",
-            "engineering": "للهندسة",
-            "geography": "للجغرافيا",
-            "geology": "للجيولوجيا",
-            "history": "للتاريخ",
-            "law": "للقانون",
-            "mathematics": "للرياضيات",
-            "technology": "للتكنولوجيا",
-            "physics": "للفيزياء",
-            "psychology": "للصحة",
-            "sociology": "للأمن والسلوك",
-            "political science": "للسياسة",
-            "social science": "للأمن والسلوك",
-            "social sciences": "للأمن والسلوك",
-            "science and technology": "للعلوم والتكنولوجيا",
-            "science": "للعلوم",
-            "reading": "للقراءة",
-            "applied sciences": "للعلوم التطبيقية",
-        }
-
-        universities_tables = {
-            "national maritime university": "جامعة {} الوطنية البحرية",
-            "national university": "جامعة {} الوطنية",
-        }
-
-        for major, arabic_label in majors.items():
-            normalized_major = major.lower()
-            template = f"جامعة {{}} {arabic_label}"
-            universities_tables[f"university of {normalized_major}"] = template
-            universities_tables[f"university-of-{normalized_major}"] = template
-            universities_tables[f"university of the {normalized_major}"] = template
-            universities_tables[f"university-of-the-{normalized_major}"] = template
-
-        formatted_university_data = {}
-        for key, template in universities_tables.items():
-            ar_template = template.replace("{}", "{city_ar}")
-            formatted_university_data[f"{{city}} {key}"] = ar_template
-            formatted_university_data[f"{key}, {{city}}"] = ar_template
-            formatted_university_data[f"{key} {{city}}"] = ar_template
-
-        return FormatData(
-            formatted_data=formatted_university_data,
-            data_list=city_lower,
-            key_placeholder="{city}",
-            value_placeholder="{city_ar}",
-        )
 
     def _normalize(self, text: str) -> str:
         """Standard normalization for category strings."""
