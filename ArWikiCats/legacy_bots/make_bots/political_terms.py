@@ -3,8 +3,8 @@
 
 import re
 
-from ..helps import logger
-from ..translations import change_numb_to_word
+from ...helps import logger
+from ...translations import change_numb_to_word
 
 known_bodies = {
     # "term of the Iranian Majlis" : "المجلس الإيراني",

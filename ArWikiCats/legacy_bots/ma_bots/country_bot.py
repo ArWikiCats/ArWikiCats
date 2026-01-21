@@ -21,9 +21,9 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     keys_of_without_in,
     religious_entries,
 )
-from .. import with_years_bot
+from . import with_years_bot
 from .country2_label_bot import country_2_title_work
-from ..make_bots.bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_All_18
 from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE3_compile
 from . import general_resolver
 

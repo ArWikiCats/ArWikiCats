@@ -8,12 +8,12 @@ import re
 from ...helps import logger
 from ...translations import Jobs_new
 from ...utils import check_key_in_tables_return_tuple
-from ..matables_bots.bot import (
+from ..make_bots.bot import (
     Films_O_TT,
     players_new_keys,
 )
 from ..matables_bots.check_bot import check_key_new_players
-from ..matables_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
+from ..make_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
 
 Table_for_frist_word = {
     "Films_O_TT": Films_O_TT,

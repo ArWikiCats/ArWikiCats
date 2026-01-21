@@ -9,7 +9,7 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import logger
-from ..legacy_bots.common_resolver_chain import get_lab_for_country2
+from .common_resolver_chain import get_lab_for_country2
 from .make_bots.ends_keys import combined_suffix_mappings
 
 pp_start_with = {

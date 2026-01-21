@@ -5,7 +5,6 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 """
 
 from ...helps import len_print
-from ...translations import Jobs_new
 
 typeTable_7: dict[str, str] = {
     "air force": "قوات جوية",

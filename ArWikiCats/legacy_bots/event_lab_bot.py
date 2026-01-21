@@ -14,9 +14,9 @@ from ..new.end_start_bots.fax2 import get_list_of_and_cat3
 from ..new.end_start_bots.fax2_episodes import get_episodes
 from ..new.end_start_bots.fax2_temp import get_templates_fo
 from ..translations import Ambassadors_tab, get_from_new_p17_final
-from . import tmp_bot, with_years_bot
+from . import tmp_bot
 from .common_resolver_chain import get_lab_for_country2
-from .ma_bots import country_bot
+from .ma_bots import country_bot, with_years_bot
 from .ma_bots import country2_label_bot, general_resolver, year_or_typeo
 from .make_bots.ends_keys import combined_suffix_mappings
 

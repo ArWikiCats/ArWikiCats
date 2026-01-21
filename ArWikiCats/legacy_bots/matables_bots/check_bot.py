@@ -11,7 +11,7 @@ check_key_new_players(key)
 from typing import Dict, List, Set
 from ...helps import logger
 from ...translations import Jobs_new, jobs_mens_data
-from .bot import players_new_keys
+from ..make_bots.bot import players_new_keys
 
 set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
 

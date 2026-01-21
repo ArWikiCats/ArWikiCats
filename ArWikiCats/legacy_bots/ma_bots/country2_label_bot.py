@@ -14,14 +14,14 @@ from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
 from ...translations import People_key, get_from_pf_keys2
 from ...utils import fix_minor
-from .. import with_years_bot
+from . import with_years_bot
 from . import country_bot
-from ..make_bots.bot_2018 import get_pop_All_18
-from ..matables_bots.bot import add_to_Films_O_TT
+from .bot_2018 import get_pop_All_18
+from ..make_bots.bot import add_to_Films_O_TT
 from ..matables_bots.check_bot import check_key_new_players
 from ..matables_bots.table1_bot import get_KAKO
 from . import bys
-from .utils import split_text_by_separator
+from ..make_bots.utils import split_text_by_separator
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
