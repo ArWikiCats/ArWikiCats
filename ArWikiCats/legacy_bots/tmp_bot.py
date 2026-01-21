@@ -12,6 +12,7 @@ from ..helps import logger
 from .common_resolver_chain import get_lab_for_country2
 from .legacy_resolvers.bot_2018 import get_pop_All_18
 from .legacy_utils import combined_suffix_mappings
+from .make_bots import get_KAKO
 
 pp_start_with = {
     "wikipedia categories named after": "تصنيفات سميت بأسماء {}",
@@ -41,7 +42,9 @@ def create_label_from_prefix(input_label):
         if input_label.startswith(prefix.lower()):
             remaining_label = input_label[len(prefix) :]
 
-            resolved_label = get_lab_for_country2(remaining_label) or get_pop_All_18(remaining_label)
+            resolved_label = (
+                get_lab_for_country2(remaining_label) or get_pop_All_18(remaining_label) or get_KAKO(remaining_label)
+            )
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
 
             if resolved_label:
@@ -70,7 +73,7 @@ def create_label_from_suffix(input_label):
             base_label = input_label[: -len(suffix)]
             logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {base_label=}')
 
-            resolved_label = get_lab_for_country2(base_label) or get_pop_All_18(base_label)
+            resolved_label = get_lab_for_country2(base_label) or get_pop_All_18(base_label) or get_KAKO(base_label)
             logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {base_label=}')
 
             if resolved_label:

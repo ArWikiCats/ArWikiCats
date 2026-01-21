@@ -15,6 +15,7 @@ from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
 from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE33_compile, change_numb_to_word, re_sub_year
+from ..make_bots import get_KAKO
 from . import general_resolver
 from .bot_2018 import get_pop_All_18
 
@@ -88,6 +89,7 @@ def _handle_year_at_start(category_text: str) -> str:
             or get_from_pf_keys2(remainder)
             or general_resolver.translate_general_category(remainder, fix_title=False)
             or get_lab_for_country2(remainder)
+            or get_KAKO(remainder)
             or get_pop_All_18(remainder)
             or ""
         )
@@ -140,6 +142,7 @@ def _handle_year_at_end(
         or all_new_resolvers(remainder)
         or general_resolver.translate_general_category(remainder, fix_title=False)
         or get_lab_for_country2(remainder)
+        or get_KAKO(remainder)
         or get_pop_All_18(remainder)
         or ""
     )
