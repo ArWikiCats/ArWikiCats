@@ -46,22 +46,6 @@ def _split_category_by_separator(category: str, separator: str) -> Tuple[str, st
     return category_type, country.lower()
 
 
-@functools.lru_cache(maxsize=10000)
-def _fix_typos_in_type(category_type: str, separator_stripped: str) -> str:
-    """Fix known typos in the category type.
-
-    Args:
-        category_type: The category type string
-        separator_stripped: The stripped separator
-
-    Returns:
-        Corrected category type
-    """
-    if separator_stripped == "in" and category_type.endswith(" playerss"):
-        return category_type.replace(" playerss", " players")
-    return category_type
-
-
 def _adjust_separator_position(text: str, separator_stripped: str, is_type: bool) -> str:
     """Adjust separator position for type or country based on separator value.
 
@@ -80,8 +64,8 @@ def _adjust_separator_position(text: str, separator_stripped: str, is_type: bool
         # Adjustments for type (separator should be at the end)
         if separator_stripped == "of" and not text.endswith(separator_ends):
             return f"{text} of"
-        elif separator_stripped == "spies for" and not text.endswith(" spies"):
-            return f"{text} spies"
+        # elif separator_stripped == "spies for" and not text.endswith(" spies"):
+        #     return f"{text} spies"
     else:
         # Adjustments for country (separator should be at the start)
         if separator_stripped == "by" and not text.startswith(separator_starts):
@@ -155,7 +139,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
 
     # Step 2: Fix known typos
     separator_stripped = separator.strip()
-    category_type = _fix_typos_in_type(category_type, separator_stripped)
 
     # Step 3: Apply initial separator adjustments
     category_type = _adjust_separator_position(category_type, separator_stripped, is_type=True)
@@ -174,7 +157,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     logger.info(f">>>> Using regex extraction: {type_regex=}, {separator=}, {country_regex=}")
 
     # Apply typo fixes to regex results as well
-    type_regex = _fix_typos_in_type(type_regex, separator_stripped)
 
     type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
     country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
