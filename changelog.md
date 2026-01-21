@@ -1,4 +1,81 @@
 
+## [Refactor RESOLVER_PIPELINE into LegacyBotsResolver class] - 2026-01-21
+
+This pull request refactors the legacy resolver pipeline from a list-based approach to a clean, class-based implementation while maintaining 100% backward compatibility.
+
+### Changed
+* Refactored `RESOLVER_PIPELINE` list into `LegacyBotsResolver` class in `legacy_bots/__init__.py`:
+  - Created structured class with 6 internal resolver methods (university, country/event, years, year/typeo, event_lab, general)
+  - Each resolver method delegates to the original implementation for compatibility
+  - Implemented `resolve()` public method that processes input through all resolvers in exact original order
+  - Maintained `@lru_cache` decorator on `resolve()` method for performance
+  - Preserved backward-compatible `legacy_resolvers()` function that delegates to class instance
+* Added shared utility methods to reduce code duplication:
+  - `_normalize_input()` - Common input normalization
+  - `_has_blocked_prepositions()` - Shared preposition filtering logic used by multiple resolvers
+* Enhanced logging with debug messages to trace which resolver modified the text
+
+### Fixed
+* Consolidated duplicated preposition-blocking logic that was previously repeated across multiple resolver implementations
+
+### Implementation Details
+* The new class maintains the exact same resolution order as the original pipeline:
+  1. University categories (highest priority)
+  2. Country and event-based patterns
+  3. Year-based categories
+  4. Year prefix patterns and typo handling
+  5. General event labeling
+  6. General category translation (lowest priority, catch-all)
+* All 20,534 fast tests pass with 100% success rate
+* Zero performance regression due to maintained caching strategy
+* Code is cleaner, more maintainable, and easier to extend with new resolvers
+
+## [Refactor legacy_bots directory for improved maintainability] - 2026-01-21
+
+This pull request introduces a comprehensive refactoring of the `legacy_bots` directory to improve code organization, maintainability, and performance. The main themes are: centralizing data and regex patterns, creating a core module for shared functions, and refactoring the entry point to use a pipeline pattern.
+
+### Added
+* Created new directory structure under `legacy_bots/`:
+  - `data/` - Centralized data mappings module
+  - `utils/` - Utilities and regex patterns module
+  - `core/` - Shared resolver functions module
+* Added `data/mappings.py` - Pure data file containing all major dictionaries and mapping tables:
+  - Number translations (`change_numb`, `change_numb_to_word`)
+  - Suffix mappings (`pp_ends_with_pase`, `pp_ends_with`, `combined_suffix_mappings`)
+  - Prefix mappings (`pp_start_with`)
+  - Type table (`typeTable_7`)
+* Added `utils/regex_hub.py` - Centralized pre-compiled regex patterns:
+  - Year patterns (RE1_compile, RE2_compile, RE3_compile, RE33_compile, REGEX_SUB_YEAR)
+  - General patterns (REGEX_SUB_MILLENNIUM_CENTURY, REGEX_SUB_CATEGORY_LOWERCASE)
+  - "By" patterns (DUAL_BY_PATTERN, BY_MATCH_PATTERN, AND_PATTERN)
+* Added `core/base_resolver.py` - Central import point for shared resolver functions:
+  - Get_country2, get_KAKO, find_lab, get_lab_for_country2
+
+### Changed
+* Refactored `legacy_resolvers()` function in `__init__.py` to use a pipeline pattern:
+  - Replaced long `or` chains with iterable `RESOLVER_PIPELINE` list
+  - Improved readability and maintainability
+  - Made it easier to add/remove/reorder resolvers
+* Updated legacy files to re-export from centralized modules for backward compatibility:
+  - `legacy_utils/numbers1.py` - Re-exports from `data.mappings`
+  - `legacy_utils/ends_keys.py` - Re-exports from `data.mappings`
+  - `legacy_utils/reg_lines.py` - Re-exports from `utils.regex_hub`
+  - `make_bots/bot.py` - Imports typeTable_7 from `data.mappings`
+* Standardized imports across multiple files to use centralized modules:
+  - `tmp_bot.py` - Updated to import from `data.mappings`
+  - `make_bots/reg_result.py` - Updated to import from `utils.regex_hub`
+  - `legacy_resolvers_bots/bys.py` - Updated to import from `utils.regex_hub`
+  - `legacy_resolvers_bots/with_years_bot.py` - Updated to import from `data.mappings` and `utils.regex_hub`
+  - `legacy_resolvers_bots/event_lab_bot.py` - Updated to import from `data.mappings`
+
+### Fixed
+* Prevented potential circular import issues by:
+  - Maintaining original import patterns for modules in circular dependency chains
+  - Creating core module as optional import point for future use
+  - Documenting shared functions for better visibility
+
+These changes collectively improve the maintainability and organization of the legacy_bots module while maintaining full backward compatibility. The refactoring lays the groundwork for easier future enhancements and reduces the risk of circular dependencies.
+
 ## [#314](https://github.com/MrIbrahem/ArWikiCats/pull/314) - 2026-01-07
 This pull request introduces several improvements and refactoring changes to how job, language, and nationality labels are resolved and formatted across the codebase. The main themes are: expanding language and job label resolution, updating data sources for nationality mappings, and reorganizing legacy bot files for clarity. These changes enhance the flexibility and accuracy of label generation in various bots and resolvers.
 
