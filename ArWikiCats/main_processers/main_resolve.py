@@ -9,6 +9,7 @@ from __future__ import annotations
 import functools
 from dataclasses import dataclass
 
+from ..sub_new_resolvers import university_resolver
 from ..fix import cleanse_category_label, filter_en, fixlabel
 from ..format_bots import change_cat
 from ..helps import logger
@@ -70,7 +71,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     from_match = bool(category_lab)
 
     if not category_lab:
-        category_lab = "" or all_new_resolvers(changed_cat) or legacy_resolvers(changed_cat) or ""
+        category_lab = "" or all_new_resolvers(changed_cat) or university_resolver.resolve_university_category(changed_cat) or legacy_resolvers(changed_cat) or ""
 
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)

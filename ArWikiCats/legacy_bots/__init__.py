@@ -41,7 +41,8 @@ from .legacy_resolvers_bots import (
     bot_2018,
     country2_label_bot,
 )
-from .legacy_utils import Add_in_table, RE1_compile, RE2_compile, RE3_compile
+from .legacy_utils import Add_in_table
+from .utils import RE1_compile, RE2_compile, RE3_compile
 from .make_bots import get_cats, get_reg_result, get_KAKO
 from .utils.regex_hub import REGEX_SUB_YEAR, RE33_compile
 
