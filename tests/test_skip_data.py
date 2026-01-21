@@ -5,6 +5,7 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 fast_data_1 = {
+    "Members of the Riksdag 2010–2010": "أعضاء البرلمان السويدي 2010–2010",
     "wheelchair basketball players in turkey": "لاعبو كرة سلة على كراسي متحركة في تركيا",
     "field hockey players in germany": "لاعبو هوكي ميدان في ألمانيا",
     "baseball players in florida": "لاعبو كرة قاعدة في فلوريدا",
