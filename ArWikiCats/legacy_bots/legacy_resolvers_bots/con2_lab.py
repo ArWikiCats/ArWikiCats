@@ -18,7 +18,8 @@ from ...translations import (
     religious_entries,
 )
 from .. import tmp_bot
-from ..core import get_KAKO, get_lab_for_country2
+from ..common_resolver_chain import get_lab_for_country2
+from ..make_bots import get_KAKO
 from . import bys, country_bot
 from .bot_2018 import get_pop_All_18
 

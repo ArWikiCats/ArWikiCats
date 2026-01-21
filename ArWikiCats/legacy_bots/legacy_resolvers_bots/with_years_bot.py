@@ -13,10 +13,11 @@ from typing import Pattern
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
-from ..core import get_KAKO, get_lab_for_country2
+from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
-from ..utils.regex_hub import RE1_compile, RE2_compile, RE33_compile, REGEX_SUB_YEAR
 from ..legacy_utils import Add_in_table
+from ..make_bots import get_KAKO
+from ..utils.regex_hub import RE1_compile, RE2_compile, RE33_compile, REGEX_SUB_YEAR
 from . import general_resolver
 from .bot_2018 import get_pop_All_18
 
