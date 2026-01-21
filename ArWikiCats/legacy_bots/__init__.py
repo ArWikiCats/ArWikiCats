@@ -59,7 +59,6 @@ class LegacyBotsResolver:
 
         # Define the pipeline as a list of bound methods
         self._pipeline: list[Callable[[str], str]] = [
-            self._resolve_university,
             self._resolve_country_event,
             self._resolve_with_years,
             self._resolve_year_or_typo,
@@ -382,12 +381,6 @@ class LegacyBotsResolver:
             return ""
         fixed = fixtitle.fixlabel(label, en=en_context)
         return " ".join(fixed.strip().split())
-
-    def _resolve_university(self, text: str) -> str:
-        """1. Specialized resolver for university categories (highest priority)."""
-        normalized = self._normalize(text)
-        university_label = self._university_bot.search(normalized)
-        return university_label or ""
 
     def _resolve_country_event(self, text: str) -> str:
         """2. Country and event-based resolution."""
