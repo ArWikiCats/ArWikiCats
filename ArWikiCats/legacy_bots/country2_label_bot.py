@@ -15,8 +15,7 @@ from ..sub_new_resolvers import parties_resolver, team_work
 from ..translations import People_key, get_from_pf_keys2
 from . import bys, country_bot, with_years_bot
 from .bot_2018 import get_pop_All_18
-from .legacy_utils.fixing import fix_minor
-from .legacy_utils.utils import split_text_by_separator
+from .legacy_utils import fix_minor, split_text_by_separator
 from .make_bots.bot import add_to_Films_O_TT
 from .make_bots.check_bot import check_key_new_players
 from .make_bots.table1_bot import get_KAKO

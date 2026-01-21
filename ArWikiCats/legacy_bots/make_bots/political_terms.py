@@ -4,7 +4,7 @@
 import re
 
 from ...helps import logger
-from ..legacy_utils.numbers1 import change_numb_to_word
+from ..legacy_utils import change_numb_to_word
 
 known_bodies = {
     # "term of the Iranian Majlis" : "المجلس الإيراني",

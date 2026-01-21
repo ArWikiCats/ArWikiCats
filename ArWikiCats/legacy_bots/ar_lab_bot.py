@@ -20,8 +20,7 @@ from .con2_lab import (
     get_type_country,
     get_type_lab,
 )
-from .legacy_utils.data import Keep_it_frist, Keep_it_last
-from .legacy_utils.fixing import fix_minor
+from .legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from .make_bots.check_bot import check_key_new_players
 from .year_or_typeo import label_for_startwith_year_or_typeo
 
