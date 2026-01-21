@@ -13,8 +13,8 @@ from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_
 from ..translations import Ambassadors_tab, get_from_new_p17_final
 from . import country2_label_bot, country_bot, general_resolver, tmp_bot, with_years_bot, year_or_typeo
 from .common_resolver_chain import get_lab_for_country2
+from .end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from .legacy_utils.ends_keys import combined_suffix_mappings
-from .end_start_bots import get_list_of_and_cat3, get_episodes, get_templates_fo
 
 
 @functools.lru_cache(maxsize=10000)

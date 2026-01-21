@@ -15,12 +15,12 @@ from ..sub_new_resolvers import university_resolver
 from ..translations import keys_of_without_in
 from . import with_years_bot
 from .bot_2018 import get_pop_All_18
-from .country_bot import event2_d2
 from .con2_lab import (
     get_con_lab,
     get_type_country,
     get_type_lab,
 )
+from .country_bot import event2_d2
 from .legacy_utils.data import Keep_it_frist, Keep_it_last
 from .legacy_utils.fixing import fix_minor
 from .make_bots.check_bot import check_key_new_players
