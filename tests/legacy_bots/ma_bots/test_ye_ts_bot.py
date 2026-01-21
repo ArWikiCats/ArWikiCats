@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.general_resolver import (
+from ArWikiCats.legacy_bots.legacy_resolvers.general_resolver import (
     find_lab,
     translate_general_category,
     work_separator_names,

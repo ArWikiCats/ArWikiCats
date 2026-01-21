@@ -5,16 +5,18 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
-from ..config import app_settings
-from ..fix import fixtitle
-from ..format_bots import change_cat
-from ..helps import logger
-from ..main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
-from ..translations import Ambassadors_tab, get_from_new_p17_final
-from . import country2_label_bot, country_bot, general_resolver, tmp_bot, with_years_bot, year_or_typeo
-from .common_resolver_chain import get_lab_for_country2
-from .end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
-from .legacy_utils import combined_suffix_mappings
+from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
+
+from ...config import app_settings
+from ...fix import fixtitle
+from ...format_bots import change_cat
+from ...helps import logger
+from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
+from ...translations import Ambassadors_tab, get_from_new_p17_final
+from .. import tmp_bot
+from ..common_resolver_chain import get_lab_for_country2
+from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
+from ..legacy_utils import combined_suffix_mappings
 
 
 @functools.lru_cache(maxsize=10000)

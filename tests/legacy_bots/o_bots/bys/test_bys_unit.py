@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.legacy_bots import bys
+from ArWikiCats.legacy_bots.legacy_resolvers import bys
 
 
 @pytest.mark.unit

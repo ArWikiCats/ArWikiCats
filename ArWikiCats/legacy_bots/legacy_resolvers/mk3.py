@@ -5,11 +5,11 @@ Usage:
 
 import re
 
-from ..helps import logger
-from ..translations import Jobs_new
-from ..utils import check_key_in_tables_return_tuple
-from .legacy_utils import Add_in_table, Keep_it_frist, add_in_to_country
-from .make_bots import (
+from ...helps import logger
+from ...translations import Jobs_new
+from ...utils import check_key_in_tables_return_tuple
+from ..legacy_utils import Add_in_table, Keep_it_frist, add_in_to_country
+from ..make_bots import (
     Films_O_TT,
     check_key_new_players,
     players_new_keys,

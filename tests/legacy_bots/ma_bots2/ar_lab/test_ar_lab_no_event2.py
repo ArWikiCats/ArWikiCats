@@ -6,8 +6,8 @@ import pytest
 from load_one_data import dump_diff
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.ar_lab_bot import find_ar_label
-from ArWikiCats.legacy_bots.general_resolver import translate_general_category
+from ArWikiCats.legacy_bots.legacy_resolvers.ar_lab_bot import find_ar_label
+from ArWikiCats.legacy_bots.legacy_resolvers.general_resolver import translate_general_category
 
 fast_data_list = [
     {

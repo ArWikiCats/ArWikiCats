@@ -15,7 +15,7 @@ from ...translations import jobs_mens_data  # to be  removed from players_new_ke
 from ...translations import (
     Films_key_man,
 )
-from ..bot_2018 import pop_All_2018
+from ..legacy_resolvers.bot_2018 import pop_All_2018
 from .bot import Films_O_TT, players_new_keys
 
 KAKO: Dict[str, Dict[str, str]] = {

@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.country2_label_bot import c_1_1_lab
+from ArWikiCats.legacy_bots.legacy_resolvers.country2_label_bot import c_1_1_lab
 
 fast_data_c_1_1_lab = [
     {"separator": " by ", "key": "american rock musicians", "output": "موسيقيو روك أمريكيون"},
