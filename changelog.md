@@ -1,35 +1,4 @@
 
-## [Refactor RESOLVER_PIPELINE into LegacyBotsResolver class] - 2026-01-21
-
-This pull request refactors the legacy resolver pipeline from a list-based approach to a clean, class-based implementation while maintaining 100% backward compatibility.
-
-### Changed
-* Refactored `RESOLVER_PIPELINE` list into `LegacyBotsResolver` class in `legacy_bots/__init__.py`:
-  - Created structured class with 6 internal resolver methods (university, country/event, years, year/typeo, event_lab, general)
-  - Each resolver method delegates to the original implementation for compatibility
-  - Implemented `resolve()` public method that processes input through all resolvers in exact original order
-  - Maintained `@lru_cache` decorator on `resolve()` method for performance
-  - Preserved backward-compatible `legacy_resolvers()` function that delegates to class instance
-* Added shared utility methods to reduce code duplication:
-  - `_normalize_input()` - Common input normalization
-  - `_has_blocked_prepositions()` - Shared preposition filtering logic used by multiple resolvers
-* Enhanced logging with debug messages to trace which resolver modified the text
-
-### Fixed
-* Consolidated duplicated preposition-blocking logic that was previously repeated across multiple resolver implementations
-
-### Implementation Details
-* The new class maintains the exact same resolution order as the original pipeline:
-  1. University categories (highest priority)
-  2. Country and event-based patterns
-  3. Year-based categories
-  4. Year prefix patterns and typo handling
-  5. General event labeling
-  6. General category translation (lowest priority, catch-all)
-* All 20,534 fast tests pass with 100% success rate
-* Zero performance regression due to maintained caching strategy
-* Code is cleaner, more maintainable, and easier to extend with new resolvers
-
 ## [Refactor legacy_bots directory for improved maintainability] - 2026-01-21
 
 This pull request introduces a comprehensive refactoring of the `legacy_bots` directory to improve code organization, maintainability, and performance. The main themes are: centralizing data and regex patterns, creating a core module for shared functions, and refactoring the entry point to use a pipeline pattern.
