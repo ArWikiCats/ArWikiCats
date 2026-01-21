@@ -22,8 +22,8 @@ from .lab import (
     get_type_country,
     get_type_lab,
 )
-from .make_bots.check_bot import check_key_new_players
 from .legacy_utils.data import Keep_it_frist, Keep_it_last
+from .make_bots.check_bot import check_key_new_players
 from .year_or_typeo import label_for_startwith_year_or_typeo
 
 separators_lists_raw = [
