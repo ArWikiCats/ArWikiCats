@@ -15,9 +15,9 @@ import re
 # YEAR PATTERNS (from legacy_utils/reg_lines.py)
 # ============================================================================
 
+# Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
 YEARS_REGEX_AR = (
     r"\d+[−–\-]\d+"
-    # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
     r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
 )
 

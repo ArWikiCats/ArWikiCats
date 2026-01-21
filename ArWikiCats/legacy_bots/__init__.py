@@ -14,6 +14,28 @@ from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver,
 
 # Define the resolver pipeline in priority order
 # Each resolver is a callable that takes a category string and returns a label or empty string
+#
+# RESOLVER_PIPELINE: Ordered list of resolver functions
+#
+# The resolvers are tried in the order listed below. The first resolver to return
+# a non-empty string wins. This ordering is significant:
+#
+# 1. university_resolver - Specialized resolver for university categories (highest priority)
+# 2. country_bot.event2_d2 - Country and event-based resolution
+# 3. with_years_bot.wrap_try_with_years - Year-based category resolution
+# 4. year_or_typeo.label_for_startwith_year_or_typeo - Year prefix patterns and typo handling
+# 5. event_lab_bot.event_Lab - General event labeling
+# 6. general_resolver.translate_general_category - Catch-all general resolution (lowest priority)
+#
+# To add a new resolver:
+# 1. Import the resolver function at the top of this file
+# 2. Insert it into RESOLVER_PIPELINE at the appropriate priority position
+# 3. Document its purpose in this docstring
+#
+# To modify priority:
+# 1. Reorder entries in the list
+# 2. Update this docstring to reflect the new order
+#
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     university_resolver.resolve_university_category,
     country_bot.event2_d2,
