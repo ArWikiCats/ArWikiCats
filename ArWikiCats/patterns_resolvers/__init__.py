@@ -8,10 +8,10 @@ import functools
 
 from ..helps import logger
 from . import (
+    country_nat_pattern,
     country_time_pattern,
     nat_males_pattern,
     time_patterns_resolvers,
-    country_nat_pattern,
 )
 
 

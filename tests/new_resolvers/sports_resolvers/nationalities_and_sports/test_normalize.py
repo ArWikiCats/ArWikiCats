@@ -15,7 +15,7 @@ data = {
     "wheelchair basketball in 2020 parapan american games": "{en_sport} in 2020 parapan {en} games",
     "wheelchair basketball in the asian para games": "{en_sport} in {en} para games",
     "wheelchair basketball in the parapan american games": "{en_sport} in the parapan {en} games",
-    "wheelchair basketball playerss in 2020 parapan american games": "{en_sport} playerss in 2020 parapan {en} games",
+    "wheelchair basketball players in 2020 parapan american games": "{en_sport} players in 2020 parapan {en} games",
     "Yemeni football championships": "{en} {en_sport} championships",
     "Yemeni national football teams": "{en} national {en_sport} teams",
 }

@@ -386,7 +386,6 @@ ArWikiCats/
 │   ├── media_bots/          # بوتات الأفلام والتلفزيون
 │   ├── sports_bots/         # بوتات الرياضة
 │   ├── format_bots/         # بوتات التنسيق
-│   ├── o_bots/              # بوتات متنوعة (جامعات وغيرها)
 │   ├── languages_bot/       # بوتات اللغات
 │   ├── lazy_data_bots/      # بوتات التحميل الكسول
 │   └── matables_bots/       # بوتات الجداول
@@ -395,7 +394,7 @@ ArWikiCats/
 │   ├── country_bot.py
 │   └── general_resolver.py
 │
-├── ma_bots2/                # بوتات المعالجة المتقدمة
+├── ma_bots/                # بوتات المعالجة المتقدمة
 │   ├── ar_lab/
 │   ├── country2_bots/
 │   └── year_or_typeo/

@@ -13,7 +13,7 @@ from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import r
 data_main = {
     "Spies for Federal Republic of Germany": "جواسيس لصالح جمهورية ألمانيا الاتحادية",
     "Spies for Soviet Union by nationality": "جواسيس لصالح الاتحاد السوفيتي حسب الجنسية",
-    "World War I spies for Russian Empire": "جواسيس الحرب العالمية الأولى لصالح الإمبراطورية الروسية"
+    "World War I spies for Russian Empire": "جواسيس الحرب العالمية الأولى لصالح الإمبراطورية الروسية",
 }
 
 political_data_v1 = {

@@ -5,18 +5,18 @@ import pytest
 from ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements
 
 data0_skip = {
-    "category:canadian football players in edmonton": "category:canadian-football playerss in edmonton",
-    "category:expatriate women's futsal players in kuwait": "category:expatriate women's futsal playerss in kuwait",
-    "category:expatriate women's futsal players in maldives": "category:expatriate women's futsal playerss in maldives",
-    "category:female handball players in turkey by club": "category:female handball playerss in turkey by club",
-    "category:wheelchair basketball players in 2020 parapan american games": "category:wheelchair basketball playerss in 2020 parapan american games",
-    "category:wheelchair basketball players in 2020 summer paralympics": "category:wheelchair basketball playerss in 2020 summer paralympics",
-    "category:wheelchair basketball players in turkey by team": "category:wheelchair basketball playerss in turkey by team",
-    "category:wheelchair rugby players in 2020 parapan american games": "category:wheelchair rugby playerss in 2020 parapan american games",
-    "category:wheelchair rugby players in 2020 summer paralympics": "category:wheelchair rugby playerss in 2020 summer paralympics",
-    "category:wheelchair tennis players in 2020 asian para games": "category:wheelchair tennis playerss in 2020 asian para games",
-    "category:wheelchair tennis players in 2020 parapan american games": "category:wheelchair tennis playerss in 2020 parapan american games",
-    "category:wheelchair tennis players in 2020 summer paralympics": "category:wheelchair tennis playerss in 2020 summer paralympics",
+    "category:canadian football players in edmonton": "category:canadian-football players in edmonton",
+    "category:expatriate women's futsal players in kuwait": "category:expatriate women's futsal players in kuwait",
+    "category:expatriate women's futsal players in maldives": "category:expatriate women's futsal players in maldives",
+    "category:female handball players in turkey by club": "category:female handball players in turkey by club",
+    "category:wheelchair basketball players in 2020 parapan american games": "category:wheelchair basketball players in 2020 parapan american games",
+    "category:wheelchair basketball players in 2020 summer paralympics": "category:wheelchair basketball players in 2020 summer paralympics",
+    "category:wheelchair basketball players in turkey by team": "category:wheelchair basketball players in turkey by team",
+    "category:wheelchair rugby players in 2020 parapan american games": "category:wheelchair rugby players in 2020 parapan american games",
+    "category:wheelchair rugby players in 2020 summer paralympics": "category:wheelchair rugby players in 2020 summer paralympics",
+    "category:wheelchair tennis players in 2020 asian para games": "category:wheelchair tennis players in 2020 asian para games",
+    "category:wheelchair tennis players in 2020 parapan american games": "category:wheelchair tennis players in 2020 parapan american games",
+    "category:wheelchair tennis players in 2020 summer paralympics": "category:wheelchair tennis players in 2020 summer paralympics",
 }
 
 data1 = {

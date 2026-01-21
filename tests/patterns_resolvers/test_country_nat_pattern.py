@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.patterns_resolvers.country_nat_pattern import resolve_country_nat_pattern
 from utils.dump_runner import make_dump_test_name_data_callback
-
 
 test_data_1 = {
     "Polish spies for Nazi Germany": "جواسيس بولنديون لصالح ألمانيا النازية",

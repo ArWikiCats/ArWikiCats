@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.ma_bots2.reg_result import get_reg_result
+from ArWikiCats.legacy_bots.make_bots.reg_result import get_reg_result
 
 
 def test_get_reg_result_1() -> None:

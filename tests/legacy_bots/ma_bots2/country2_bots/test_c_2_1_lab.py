@@ -6,7 +6,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import c_2_1_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import c_2_1_lab
 
 test_data = {
     "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
@@ -47,7 +47,6 @@ fast_data_c_2_1_lab = {
     "american football players": "لاعبو كرة قدم أمريكيون",
     # "american football executives": "مسيرو كرة قدم أمريكية",
     # "american football players": "لاعبو كرة قدم أمريكية",
-
     "australian royal navy": "البحرية الملكية الأسترالية",
     "swedish royal navy": "البحرية الملكية السويدية",
     "thai royal navy": "البحرية الملكية التايلندية",

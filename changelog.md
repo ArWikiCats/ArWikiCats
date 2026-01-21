@@ -38,12 +38,12 @@ This pull request includes a mix of data updates, refactoring, and performance i
 
 ### Performance and Code Quality Enhancements
 
-* Introduced `functools.lru_cache` to cache results of functions that load static data, improving performance for repeated lookups in multiple modules. (`ArWikiCats/ma_bots2/year_or_typeo/reg_result.py`, `ArWikiCats/make_bots/reslove_relations/rele.py`, `ArWikiCats/new_resolvers/bys_new.py`)
+* Introduced `functools.lru_cache` to cache results of functions that load static data, improving performance for repeated lookups in multiple modules. (`ArWikiCats/ma_bots/year_or_typeo/reg_result.py`, `ArWikiCats/make_bots/reslove_relations/rele.py`, `ArWikiCats/new_resolvers/bys_new.py`)
 * Renamed debug output keys in `bys_new.py` for clarity. (`ArWikiCats/new_resolvers/bys_new.py`)
 
 ### Minor Fixes and Cleanups
 
-* Removed obsolete or redundant code, such as legacy data lookups and unused imports, to streamline the codebase. (`ArWikiCats/ma_bots2/ar_lab/lab.py`, [ArWikiCats/ma_bots2/ar_lab/lab.pyL320-L326](diffhunk://#diff-8896f6af8a78eac3d9c1663d38f82a01bda9e696b6a3e71c635264dbf0cd1793L320-L326))
+* Removed obsolete or redundant code, such as legacy data lookups and unused imports, to streamline the codebase. (`ArWikiCats/ma_bots/ar_lab/lab.py`, [ArWikiCats/ma_bots/ar_lab/lab.pyL320-L326](diffhunk://#diff-8896f6af8a78eac3d9c1663d38f82a01bda9e696b6a3e71c635264dbf0cd1793L320-L326))
 * Improved logging in `fixlabel` for better tracking of label transformations. (`ArWikiCats/fix/fixtitle.py`)
 
 These changes collectively improve the maintainability, accuracy, and performance of the job and category label resolution logic in the project.
@@ -2323,7 +2323,7 @@ These changes collectively improve the robustness, maintainability, and correctn
   - Updated regex patterns for consistent dash character handling
   - Improved category normalization logic
 
-- **Refactors [bot_lab.py](ArWikiCats/ma_bots2/year_or_typeo/bot_lab.py)**
+- **Refactors [bot_lab.py](ArWikiCats/ma_bots/year_or_typeo/bot_lab.py)**
 
   - Refactored event labeling into modular helper functions
   - Simplified category normalization

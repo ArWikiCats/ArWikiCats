@@ -4,7 +4,7 @@ Tests for matables_bots.bot module functions.
 
 import pytest
 
-from ArWikiCats.legacy_bots.matables_bots.bot import Films_O_TT, add_to_Films_O_TT, add_to_new_players, players_new_keys
+from ArWikiCats.legacy_bots.make_bots.bot import Films_O_TT, add_to_Films_O_TT, add_to_new_players, players_new_keys
 
 
 @pytest.mark.fast

@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.legacy_bots.o_bots.bys import by_people_bot
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import by_people_bot
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 data_0 = {"by football team": "حسب فريق كرة القدم"}

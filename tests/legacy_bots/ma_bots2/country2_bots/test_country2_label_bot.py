@@ -6,7 +6,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import country_2_title_work
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from utils.dump_runner import make_dump_test_name_data_callback
 
 title_work_tests_data = {
@@ -61,9 +61,6 @@ title_work_tests_data = {
     "archaeology of europe": "علم الآثار في أوروبا",
     "arizona in fiction": "أريزونا في الخيال",
     "attacks on military installations": "هجمات على منشآت عسكرية",
-    "baseball playerss in florida": "لاعبو كرة قاعدة في فلوريدا",
-    "baseball playerss in south korea": "لاعبو كرة قاعدة في كوريا الجنوبية",
-    "basketball playerss in lebanon": "لاعبو كرة سلة في لبنان",
     "battles of napoleonic wars": "معارك الحروب النابليونية",
     "battles of vietnam war": "معارك حرب فيتنام",
     "bridges in france": "جسور في فرنسا",
@@ -106,7 +103,6 @@ title_work_tests_data = {
     "ethnic groups in china": "مجموعات عرقية في الصين",
     "fauna of vermont": "حيوانات فيرمونت",
     "federalist party members of united states house-of-representatives": "أعضاء الحزب الفيدرالي الأمريكي في مجلس النواب الأمريكي",
-    "field hockey playerss in germany": "لاعبو هوكي ميدان في ألمانيا",
     "films basedon non-fiction books about organized crime": "أفلام مبنية على كتب غير خيالية عن جريمة منظمة",
     "fishes of europe": "أسماك أوروبا",
     "food and drink in europe": "أطعمة ومشروبات في أوروبا",
@@ -232,7 +228,6 @@ title_work_tests_data = {
     "water of matale district": "مياه في مديرية ماتال",
     "water of novosibirsk oblast": "مياه في نوفوسيبيرسك أوبلاست",
     "water of wilkes land": "مياه في ويلكس لاند",
-    "wheelchair basketball playerss in turkey": "لاعبو كرة سلة على كراسي متحركة في تركيا",
     "whig party members of united states house-of-representatives": "أعضاء حزب اليمين في مجلس النواب الأمريكي",
     "wisconsin in fiction": "ويسكونسن في الخيال",
     "women's footballers in ireland": "لاعبات كرة قدم في أيرلندا",

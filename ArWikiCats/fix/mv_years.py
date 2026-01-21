@@ -6,7 +6,12 @@ import functools
 import re
 
 from ..helps import dump_data, logger
-from ..legacy_bots.make_bots.reg_lines import YEARS_REGEX_AR
+
+YEARS_REGEX_AR = (
+    r"\d+[−–\-]\d+"
+    # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+    r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+)
 
 # Precompiled Regex Patterns
 REGEX_WHITESPACE = re.compile(r"\s+", re.IGNORECASE)

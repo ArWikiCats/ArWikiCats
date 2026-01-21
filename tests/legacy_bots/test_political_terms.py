@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.political_terms import handle_political_terms
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import handle_political_terms
 
 
 @pytest.mark.parametrize(

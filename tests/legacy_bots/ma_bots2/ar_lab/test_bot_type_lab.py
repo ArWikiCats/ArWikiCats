@@ -4,14 +4,14 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.ma_bots2.lab import get_type_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_type_lab
 
 data = [
     (" of ", "forests and woodlands of", "غابات"),
     (" of ", "ports and harbours of", "مرافئ وموانئ"),
     (" of ", " university of", "جامعة"),
     ("in", "arizona territory", "إقليم أريزونا"),
-    (" by ", "basketball playerss in lebanon", "لاعبو كرة سلة في لبنان"),
+    (" by ", "basketball players in lebanon", "لاعبو كرة سلة في لبنان"),
     (" in ", "former buildings and structures", "مبان ومنشآت سابقة"),
     (" opened in ", "railway stations in south korea", "محطات السكك الحديدية في كوريا الجنوبية"),
     (" in ", "tunisian expatriate basketball people", "أعلام كرة سلة تونسيون مغتربون"),
@@ -225,7 +225,7 @@ data = [
         "military operations of war in afghanistan (1789–1789)",
         "عمليات عسكرية في الحرب في أفغانستان (1789–1789)",
     ),
-    (" by ", "field hockey playerss in germany", "لاعبو هوكي ميدان في ألمانيا"),
+    (" by ", "field hockey players in germany", "لاعبو هوكي ميدان في ألمانيا"),
     (" in ", "history of petroleum industry", "تاريخ صناعة بترولية"),
     (" in ", "private universities and colleges", "جامعات وكليات خاصة"),
     (" in ", "croatian expatriate basketball people", "أعلام كرة سلة كروات مغتربون"),

@@ -13,7 +13,7 @@ formatted_data = {
     "{sport} managers": "مدربو {sport_label}",
     "{sport} coaches": "مدربو {sport_label}",
     "{sport} people": "أعلام {sport_label}",
-    "{sport} playerss": "لاعبو {sport_label}",
+    "{sport} players": "لاعبو {sport_label}",
     "{sport} players": "لاعبو {sport_label}",
     "{sport} referees": "حكام {sport_label}",
     "{sport} squads": "تشكيلات {sport_label}",

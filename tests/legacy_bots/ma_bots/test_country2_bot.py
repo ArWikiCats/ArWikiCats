@@ -93,7 +93,6 @@ data_slow = {
     "youth athletics": "ألعاب قوى شبابية",
     "youth football by continent": "كرة قدم شبابية حسب القارة",
     "youth football": "كرة قدم شبابية",
-
     "people from santa fe province": "أشخاص من محافظة سانتا في",
     # "presidents of greece": "رؤساء اليونان",
     # "presidents of maldives": "رؤساء جزر المالديف",

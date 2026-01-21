@@ -4,7 +4,7 @@ Extended tests for split_text_by_separator function covering additional edge cas
 
 import pytest
 
-from ArWikiCats.legacy_bots.ma_bots2.country2_label_bot import (
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import (
     split_text_by_separator,
 )
 
@@ -252,9 +252,9 @@ data_in = {
     "1994–95 in european rugby union": ("1994–95", "european rugby union"),
     "20th century in iraq": ("20th century", "iraq"),
     "anglican bishops in asia": ("anglican bishops", "asia"),
-    "baseball playerss in florida": ("baseball playerss", "florida"),
-    "baseball playerss in south korea": ("baseball playerss", "south korea"),
-    "basketball playerss in lebanon": ("basketball playerss", "lebanon"),
+    "baseball players in florida": ("baseball players", "florida"),
+    "baseball players in south korea": ("baseball players", "south korea"),
+    "basketball players in lebanon": ("basketball players", "lebanon"),
     "bridges in france": ("bridges", "france"),
     "bridges in wales": ("bridges", "wales"),
     "buildings and structures in africa": ("buildings and structures", "africa"),
@@ -294,7 +294,7 @@ data_in = {
     "establishments in guernsey": ("establishments", "guernsey"),
     "establishments in southeast asia": ("establishments", "southeast asia"),
     "ethnic groups in china": ("ethnic groups", "china"),
-    "field hockey playerss in germany": ("field hockey playerss", "germany"),
+    "field hockey players in germany": ("field hockey players", "germany"),
     "food and drink in europe": ("food and drink", "europe"),
     "forts in the united states": ("forts", "the united states"),
     "health in the united states": ("health", "the united states"),
@@ -368,7 +368,7 @@ data_in = {
     "volleyball competitions in asia": ("volleyball competitions", "asia"),
     "wheelchair basketball in 2020 asean para games": ("wheelchair basketball", "2020 asean para games"),
     "wheelchair basketball in the asean para games": ("wheelchair basketball", "the asean para games"),
-    "wheelchair basketball playerss in turkey": ("wheelchair basketball playerss", "turkey"),
+    "wheelchair basketball players in turkey": ("wheelchair basketball players", "turkey"),
     "wheelchair fencing in 2020 asean para games": ("wheelchair fencing", "2020 asean para games"),
     "wheelchair fencing in the asean para games": ("wheelchair fencing", "the asean para games"),
     "wheelchair tennis in 2020 asean para games": ("wheelchair tennis", "2020 asean para games"),

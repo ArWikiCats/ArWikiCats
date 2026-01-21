@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.make_bots.filter_en import filter_cat
+from ArWikiCats.fix.filter_en import filter_cat
 
 
 def test_filter_cat() -> None:

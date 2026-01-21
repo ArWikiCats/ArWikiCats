@@ -31,7 +31,7 @@ data_0 = {
     "ice sledge hockey teams": "فرق هوكي المزلجة على الجليد",
     "motorboat teams": "فرق الزوارق النارية",
     "long jump teams": "فرق القفز الطويل",
-    "beach handball racing teams": "فرق سباق كرة اليد الشاطئية"
+    "beach handball racing teams": "فرق سباق كرة اليد الشاطئية",
 }
 
 resolve_team_suffix_test_data = {
