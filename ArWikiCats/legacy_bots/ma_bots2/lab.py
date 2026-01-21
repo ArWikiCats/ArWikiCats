@@ -273,7 +273,9 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
             "religious_entries": lambda t: religious_entries.get(t, ""),
             "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
             "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-            "fetch_country_term_label": lambda t: fetch_country_term_label(t, normalized_preposition, lab_type="type_label"),
+            "fetch_country_term_label": lambda t: fetch_country_term_label(
+                t, normalized_preposition, lab_type="type_label"
+            ),
             "get_lab_for_country2": get_lab_for_country2,
         }
 

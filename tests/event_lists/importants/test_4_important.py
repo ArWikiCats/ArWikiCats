@@ -20,7 +20,6 @@ data0 = {
     "Auxiliary ships of Islamic Republic of Iran Navy": "سفن مساعدة في البحرية الإيرانية",
     "Destroyers of Islamic Republic of Iran Navy": "مدمرات في البحرية الإيرانية",
     "Frigates of Islamic Republic of Iran Navy": "فرقاطات في البحرية الإيرانية",
-
     "Leaders of Jewish organizations in United States": "قادة منظمات يهودية في الولايات المتحدة",
     "permanent representatives of bahrain": "مندوبو البحرين الدائمون",
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",

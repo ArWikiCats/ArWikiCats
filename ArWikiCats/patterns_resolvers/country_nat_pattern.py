@@ -1,22 +1,20 @@
-"""
-"""
+""" """
 
 import functools
 import re
 
 from ..helps import logger
 from ..translations import (
-    All_Nat,
-    countries_from_nat,
     COUNTRY_LABEL_OVERRIDES,
+    All_Nat,
     all_country_with_nat,
     countries_en_as_nationality_keys,
+    countries_from_nat,
 )
 from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_NAT.json
 COUNTRY_NAT_DATA = {
-
     # Afghan people imprisoned in the United States
     "{en_nat} people imprisoned-in {country}": "{males} مسجونون في {country_ar}",
     "{en_nat} people imprisoned in {country}": "{males} مسجونون في {country_ar}",
@@ -48,10 +46,7 @@ def fix_keys(category: str) -> str:
 def _load_bot() -> MultiDataFormatterBaseV2:
     countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
     countries_data = {x: {"country_ar": v} for x, v in countries_from_nat_data.items()}
-    nat_data = {
-        x: v
-        for x, v in All_Nat.items()
-    }
+    nat_data = {x: v for x, v in All_Nat.items()}
     both_bot = format_multi_data_v2(
         formatted_data=COUNTRY_NAT_DATA,
         data_list=nat_data,

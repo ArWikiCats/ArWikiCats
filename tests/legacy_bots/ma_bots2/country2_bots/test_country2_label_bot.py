@@ -15,7 +15,6 @@ title_work_tests_data = {
     "baseball players in florida": "لاعبو كرة قاعدة في فلوريدا",
     "baseball players in south korea": "لاعبو كرة قاعدة في كوريا الجنوبية",
     "basketball players in lebanon": "لاعبو كرة سلة في لبنان",
-
     # "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     # "mass media in morocco": "وسائل إعلام في المغرب",
     # "1520 films by country": "أفلام 1520 حسب البلد",

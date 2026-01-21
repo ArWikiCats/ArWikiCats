@@ -999,7 +999,7 @@ data_2 = {
     "kick boxing racing champions": "أبطال سباق الكيك بوكسينغ",
     "speed skating champions": "أبطال التزلج السريع",
     "karate champions": "أبطال الكاراتيه",
-    "wheelchair fencing champions": "أبطال مبارزة سيف الشيش على الكراسي المتحركة"
+    "wheelchair fencing champions": "أبطال مبارزة سيف الشيش على الكراسي المتحركة",
 }
 
 data_3 = {

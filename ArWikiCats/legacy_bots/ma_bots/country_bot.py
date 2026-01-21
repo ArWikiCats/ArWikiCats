@@ -13,8 +13,7 @@ from ...legacy_bots.common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
-from ...translations import (
-    # SPORTS_KEYS_FOR_LABEL,
+from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
     People_key,

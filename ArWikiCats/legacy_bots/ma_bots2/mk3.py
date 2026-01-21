@@ -5,8 +5,8 @@ Usage:
 
 import re
 
-from ...translations import Jobs_new
 from ...helps import logger
+from ...translations import Jobs_new
 from ...utils import check_key_in_tables_return_tuple
 from ..matables_bots.bot import (
     Films_O_TT,

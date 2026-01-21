@@ -385,7 +385,7 @@ data_1 = {
     "football results": "نتائج كرة قدم",
     "football rivalries": "دربيات كرة قدم",
     "football trainers": "مدربو كرة قدم",
-    "football umpires": "حكام كرة قدم"
+    "football umpires": "حكام كرة قدم",
 }
 
 data_2 = {

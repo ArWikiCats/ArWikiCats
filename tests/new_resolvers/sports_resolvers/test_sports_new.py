@@ -4,15 +4,15 @@ Tests
 
 import pytest
 
-from utils.dump_runner import make_dump_test_name_data_callback
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_0 = {
     "1520 in men's football": "كرة قدم رجالية في 1520",
     "1550s in cycle racing": "سباق الدراجات في عقد 1550",
     "1550 in motorsport": "رياضة المحركات في 1550",
     "1520 in youth football": "كرة قدم شبابية في 1520",
-    "Coaches of American football from West Virginia": "مدربو كرة القدم الأمريكية من فرجينيا الغربية"
+    "Coaches of American football from West Virginia": "مدربو كرة القدم الأمريكية من فرجينيا الغربية",
 }
 
 data_1 = {
@@ -45,7 +45,7 @@ data_1 = {
     "women's futsal in bolivia": "كرة صالات نسائية في بوليفيا",
     "tennis tournaments in serbia-and-montenegro": "بطولات كرة المضرب في صربيا والجبل الأسود",
     "men's football leagues in algeria": "دوريات كرة قدم رجالية في الجزائر",
-    "basketball leagues in oceania": "دوريات كرة سلة في أوقيانوسيا"
+    "basketball leagues in oceania": "دوريات كرة سلة في أوقيانوسيا",
 }
 
 

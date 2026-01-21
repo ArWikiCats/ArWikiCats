@@ -11,8 +11,8 @@ from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
     nationalities_and_sports,
-    raw_sports_with_suffixes,
     raw_sports,
+    raw_sports_with_suffixes,
     sport_lab_nat,
 )
 
