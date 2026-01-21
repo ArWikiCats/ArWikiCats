@@ -14,7 +14,7 @@ from .helps.log import LoggerWrap, logger
 from .helps.memory import print_memory
 from .main_processers.main_resolve import resolve_label_ar
 
-__version__ = "0.1.0b4"
+__version__ = "0.1.0b5"
 
 __all__ = [
     "logger",

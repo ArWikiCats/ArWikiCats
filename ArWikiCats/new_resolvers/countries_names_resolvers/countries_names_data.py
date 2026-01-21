@@ -19,6 +19,13 @@ formatted_data_of_no_in: Dict[str, str] = {
 
 # NOTE: formatted_data_en_ar_only used in other resolver
 formatted_data_en_ar_only: Dict[str, str] = {
+    "spies for {en}": "جواسيس لصالح {ar}",
+
+    "world-war-i spies for {en}": "جواسيس الحرب العالمية الأولى لصالح {ar}",
+    "world war i spies for {en}": "جواسيس الحرب العالمية الأولى لصالح {ar}",
+    "world-war-ii spies for {en}": "جواسيس الحرب العالمية الثانية لصالح {ar}",
+    "world war ii spies for {en}": "جواسيس الحرب العالمية الثانية لصالح {ar}",
+
     "warm springs of {en}": "ينابيع دائفة في {ar}",
     "hot springs of {en}": "ينابيع حارة في {ar}",
     "acting presidents of {en}": "رؤساء {ar} بالإنابة",

@@ -5,6 +5,7 @@ This module defines translations for prepositions and relation phrases
 """
 
 translation_category_relations = {
+    # "spies for": "لصالح",
     "for-deaf": "للصم",
     "for-deafblind": "للصم وللمكفوفون",
     "for-blind": "للمكفوفون",
@@ -30,7 +31,6 @@ translation_category_relations = {
     "caused by": "بسبب",
     "who defected to": "انشقوا إلى",
     "regarding": "عن",
-    "spies for": "لصالح",
     "concerning": "بشأن",
     "shot dead-by-law enforcement officers in": "قتلوا برصاص ضباط إنفاذ القانون في",
     "with physical disabilities": "بإعاقات جسدية",

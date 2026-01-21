@@ -17,7 +17,6 @@ from ..translations import WORD_AFTER_YEARS, get_from_pf_keys2
 from .ma_bots import general_resolver
 from .make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
 from .matables_bots.data import Add_in_table
-from .matables_bots.table1_bot import get_KAKO
 from .political_terms import handle_political_terms
 
 # Precompiled Regex Patterns
@@ -56,7 +55,6 @@ def _handle_year_at_start(category_text: str) -> str:
             ""
             or all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
-            or get_KAKO(remainder)
             or general_resolver.translate_general_category(remainder, fix_title=False)
             or get_lab_for_country2(remainder)
             or ""

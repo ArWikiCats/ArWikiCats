@@ -7,9 +7,37 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import resolve_by_countries_names
 
+data_main = {
+    "Spies for Federal Republic of Germany": "جواسيس لصالح جمهورية ألمانيا الاتحادية",
+    "Spies for Soviet Union by nationality": "جواسيس لصالح الاتحاد السوفيتي حسب الجنسية",
+    "World War I spies for Russian Empire": "جواسيس الحرب العالمية الأولى لصالح الإمبراطورية الروسية"
+}
+
 political_data_v1 = {
+    "Spies for China": "جواسيس لصالح الصين",
+    "Spies for Germany": "جواسيس لصالح ألمانيا",
+    "Spies for Israel": "جواسيس لصالح إسرائيل",
+    "Spies for Russia": "جواسيس لصالح روسيا",
+    "Spies for Taiwan": "جواسيس لصالح تايوان",
+    "Spies for Soviet Union": "جواسيس لصالح الاتحاد السوفيتي",
+    "Spies for United Kingdom": "جواسيس لصالح المملكة المتحدة",
+    "Spies for United States": "جواسيس لصالح الولايات المتحدة",
+    "World War I spies for France": "جواسيس الحرب العالمية الأولى لصالح فرنسا",
+    "World War I spies for Germany": "جواسيس الحرب العالمية الأولى لصالح ألمانيا",
+    "World War I spies for United Kingdom": "جواسيس الحرب العالمية الأولى لصالح المملكة المتحدة",
+    "World War I spies for United States": "جواسيس الحرب العالمية الأولى لصالح الولايات المتحدة",
+    "World War II spies for France": "جواسيس الحرب العالمية الثانية لصالح فرنسا",
+    "World War II spies for Germany": "جواسيس الحرب العالمية الثانية لصالح ألمانيا",
+    "World War II spies for Italy": "جواسيس الحرب العالمية الثانية لصالح إيطاليا",
+    "World War II spies for Japan": "جواسيس الحرب العالمية الثانية لصالح اليابان",
+    "World War II spies for Poland": "جواسيس الحرب العالمية الثانية لصالح بولندا",
+    "World War II spies for Sweden": "جواسيس الحرب العالمية الثانية لصالح السويد",
+    "World War II spies for Soviet Union": "جواسيس الحرب العالمية الثانية لصالح الاتحاد السوفيتي",
+    "World War II spies for United Kingdom": "جواسيس الحرب العالمية الثانية لصالح المملكة المتحدة",
+    "World War II spies for United States": "جواسيس الحرب العالمية الثانية لصالح الولايات المتحدة",
     "west india political leader": "قادة الهند الغربية السياسيون",
     "australia political leader": "قادة أستراليا السياسيون",
     "japan political leader": "قادة اليابان السياسيون",
@@ -20,7 +48,7 @@ political_data_v1 = {
     "tunisia political leader": "قادة تونس السياسيون",
 }
 
-main_data = {
+test_data_1 = {
     "uzbekistan afc asian cup squad": "تشكيلات أوزبكستان في كأس آسيا",
     "china afc women's asian cup squad": "تشكيلات الصين في كأس آسيا للسيدات",
     "democratic-republic-of-congo winter olympics squad": "تشكيلات جمهورية الكونغو الديمقراطية في الألعاب الأولمبية الشتوية",
@@ -66,7 +94,14 @@ main_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", main_data.items(), ids=main_data.keys())
+@pytest.mark.parametrize("category, expected", data_main.items(), ids=data_main.keys())
+@pytest.mark.fast
+def test_resolve_main(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
 def test_resolve_by_countries_names(category: str, expected: str) -> None:
     label = resolve_by_countries_names(category)
@@ -81,7 +116,7 @@ def test_political_data_v1(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_resolve_by_countries_names", main_data, resolve_by_countries_names),
+    ("test_resolve_by_countries_names", test_data_1, resolve_by_countries_names),
     ("test_political_data_v1", political_data_v1, resolve_by_countries_names),
 ]
 
