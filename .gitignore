@@ -27,3 +27,4 @@ examples/compare_no_labels.json
 _work_files/*.json
 .coverage
 *.svg
+*.pyc*
