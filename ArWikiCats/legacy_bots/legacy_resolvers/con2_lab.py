@@ -227,7 +227,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     country_label = country_bot.get_country(inner_country)
 
     if not country_label:
-        country_label = get_lab_for_country2(inner_country)
+        country_label = get_lab_for_country2(inner_country) or get_pop_All_18(inner_country)
 
     if country_label:
         return f"في {country_label}"
@@ -276,6 +276,7 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
                 t, normalized_preposition, lab_type="type_label"
             ),
             "get_lab_for_country2": get_lab_for_country2,
+            "get_pop_All_18": get_pop_All_18,
         }
 
         for name, lookup_func in lookup_chain.items():
@@ -330,6 +331,7 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         ),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "get_lab_for_country2": get_lab_for_country2,
+        "get_pop_All_18": get_pop_All_18,
     }
     label = ""
 

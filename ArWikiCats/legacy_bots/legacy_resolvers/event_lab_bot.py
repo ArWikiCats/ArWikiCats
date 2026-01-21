@@ -16,6 +16,7 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from ..legacy_utils import combined_suffix_mappings
 from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
+from .bot_2018 import get_pop_All_18
 
 
 @functools.lru_cache(maxsize=10000)
@@ -28,6 +29,7 @@ def event_label_work(country: str) -> str:
     resolved_label = (
         ""
         or get_lab_for_country2(country2)
+        or get_pop_All_18(country2)
         or get_from_new_p17_final(country2, "")
         or Ambassadors_tab.get(country2, "")
         or country_bot.event2_d2(country2)
@@ -94,6 +96,7 @@ class EventLabResolver:
                 ""
                 or country2_label_bot.country_2_title_work(original_cat3)
                 or get_lab_for_country2(original_cat3)
+                or get_pop_All_18(original_cat3)
                 or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
             )
             if category_lab:
@@ -119,6 +122,7 @@ class EventLabResolver:
             or general_resolver.translate_general_category(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
+            or get_pop_All_18(category3)
         )
         return category_lab
 
