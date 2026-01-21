@@ -10,6 +10,7 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
+from ...sub_new_resolvers import university_resolver
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...translations import keys_of_without_in
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
@@ -226,7 +227,7 @@ def wrap_event2(category: str, separator: str = "") -> str:
     from .. import _resolver_instance
 
     result = (
-        _resolver_instance._resolve_university_category(category)
+        university_resolver.resolve_university_category(category)
         or _resolver_instance._resolve_country_event(category)
         or _resolver_instance._resolve_with_years(category)
         or _resolver_instance._resolve_year_or_typeo(category)
