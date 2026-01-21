@@ -309,14 +309,15 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "for member-of-parliament": "لعضوية البرلمان",
     }
 
+    label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country_lower, "")
+    if label:
+        logger.info(f"?????? get_con_lab early return: {country_lower=}, {label=}")
+        return label
+
     lookup_chain = {
-        # NOTE: resolve_nat_genders_pattern_v2 IN TESTING HERE ONLY
-        # "resolve_nat_genders_pattern_v2" : lambda t: resolve_nat_genders_pattern_v2(t),
         "all_new_resolvers": lambda t: all_new_resolvers(t),
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
-        "get_pop_All_18": lambda c: get_pop_All_18(c, ""),
-        "get_pop_All_18_no_dash": lambda c: get_pop_All_18(country_no_dash, ""),
         "_lookup_country_with_by": _lookup_country_with_by,
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,

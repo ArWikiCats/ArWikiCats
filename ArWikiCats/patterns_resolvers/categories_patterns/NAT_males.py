@@ -26,6 +26,9 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA_MALES = {
+    # Afghan officials of the United Nations
+    "{en_nat} officials of the United Nations": "مسؤولون {males} في الأمم المتحدة",
+
     # 17th-century Hindu philosophers and theologians
     "{en_nat} philosophers and theologians": "فلاسفة ولاهوتيون {males}",
     "{en_nat} men's basketball players": "لاعبو كرة سلة {males}",  # 64

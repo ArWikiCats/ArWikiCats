@@ -22,7 +22,7 @@ countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get
 
 
 def fix_keys(category: str) -> str:
-    category = category.replace("category:", "").replace("'", "").lower()
+    category = category.lower().replace("category:", "").replace("'", "")
     category = re.sub(r"\bthe\b", "", category)
     category = re.sub(r"\s+", " ", category)
 

@@ -16,15 +16,21 @@ from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v
 
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_NAT.json
 COUNTRY_NAT_DATA = {
+
+    # Afghan people imprisoned in the United States
+    "{en_nat} people imprisoned-in {country}": "{males} مسجونون في {country_ar}",
+    "{en_nat} people imprisoned in {country}": "{males} مسجونون في {country_ar}",
     # American spies for Nazi Germany > "جواسيس أمريكيون لصالح ألمانيا النازية"
     "{en_nat} spies for {country}": "جواسيس {males} لصالح {country_ar}",
+    "{en_nat} expatriates in {country}": "{males} مغتربون في {country_ar}",
+    "{en_nat} emigrants to {country}": "{males} مهاجرون إلى {country_ar}",
 }
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 
 def fix_keys(category: str) -> str:
-    category = category.replace("category:", "").replace("'", "").lower()
+    category = category.lower().replace("category:", "").replace("'", "")
     category = re.sub(r"\bthe\b", "", category)
     category = re.sub(r"\s+", " ", category)
 
