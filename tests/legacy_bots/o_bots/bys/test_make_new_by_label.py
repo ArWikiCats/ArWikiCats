@@ -5,7 +5,7 @@ from __future__ import annotations
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.legacy_resolvers.bys import make_new_by_label
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import make_new_by_label
 
 make_new_by_label_data = {
     "by ali khamenei": "بواسطة علي خامنئي",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers.con2_lab import get_type_country
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_type_country
 
 data = [
     ("1450s disestablishments in arizona territory", "in", ("1450s disestablishments ", " arizona territory")),

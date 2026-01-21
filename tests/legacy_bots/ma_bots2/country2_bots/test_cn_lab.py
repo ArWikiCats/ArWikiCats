@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers.country2_label_bot import make_cnt_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import make_cnt_lab
 
 make_cnt_lab_data = {
     "jerusalem": "القدس",

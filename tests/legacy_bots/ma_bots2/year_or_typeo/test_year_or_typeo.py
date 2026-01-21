@@ -2,7 +2,7 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.legacy_resolvers.year_or_typeo import label_for_startwith_year_or_typeo
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from utils.dump_runner import make_dump_test_name_data
 
 data_0 = {}

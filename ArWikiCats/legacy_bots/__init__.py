@@ -9,7 +9,7 @@ from __future__ import annotations
 import functools
 
 from ..sub_new_resolvers import university_resolver
-from .legacy_resolvers import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
+from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
 
 
 @functools.lru_cache(maxsize=None)
@@ -37,5 +37,5 @@ def legacy_resolvers(changed_cat) -> str:
 
 
 __all__ = [
-    "legacy_resolvers",
+    "legacy_resolvers_bots",
 ]

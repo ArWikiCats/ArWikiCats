@@ -10,7 +10,7 @@ import functools
 
 from ..helps import logger
 from .common_resolver_chain import get_lab_for_country2
-from .legacy_resolvers.bot_2018 import get_pop_All_18
+from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .legacy_utils import combined_suffix_mappings
 from .make_bots import get_KAKO
 
