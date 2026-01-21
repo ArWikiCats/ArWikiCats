@@ -13,9 +13,10 @@ from ...helps import logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
+from ..core.shared_resolvers import event2_d2
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
-from . import country_bot, with_years_bot
+from . import with_years_bot
 from .bot_2018 import get_pop_All_18
 from .con2_lab import (
     get_con_lab,
@@ -227,7 +228,7 @@ def wrap_event2(category: str, separator: str = "") -> str:
     """
     result = (
         university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
+        or event2_d2(category)
         or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""
