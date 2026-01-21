@@ -8,7 +8,6 @@ import re
 from typing import Tuple
 
 from ...helps import logger
-from ..common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...translations import (
@@ -19,9 +18,10 @@ from ...translations import (
     religious_entries,
 )
 from .. import tmp_bot
-from .country_bot import fetch_country_term_label, get_country
-from .bot_2018 import get_pop_All_18
+from ..common_resolver_chain import get_lab_for_country2
 from . import bys
+from .bot_2018 import get_pop_All_18
+from .country_bot import fetch_country_term_label, get_country
 
 
 @functools.lru_cache(maxsize=10000)

@@ -9,6 +9,7 @@ check_key_new_players(key)
 """
 
 from typing import Dict, List, Set
+
 from ...helps import logger
 from ...translations import Jobs_new, jobs_mens_data
 from ..make_bots.bot import players_new_keys

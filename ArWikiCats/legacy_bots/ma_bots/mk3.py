@@ -12,8 +12,8 @@ from ..make_bots.bot import (
     Films_O_TT,
     players_new_keys,
 )
-from ..matables_bots.check_bot import check_key_new_players
 from ..make_bots.data import Add_in_table, Keep_it_frist, add_in_to_country
+from ..matables_bots.check_bot import check_key_new_players
 
 Table_for_frist_word = {
     "Films_O_TT": Films_O_TT,

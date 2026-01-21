@@ -85,7 +85,7 @@
 <!-- make2_new_ArWikiCats_legacy_bots_tmp_bot -->
 <g id="node25" class="node">
 <title>make2_new_ArWikiCats_legacy_bots_tmp_bot</title><style>.edge>path:hover{stroke-width:8}</style>
-<ellipse fill="#a83838" stroke="black" cx="318.19" cy="-410.64" rx="50.56" ry="39.6"/>
+<ellipse fill="#b03a3a" stroke="black" cx="318.19" cy="-410.64" rx="50.56" ry="39.6"/>
 <text xml:space="preserve" text-anchor="middle" x="318.19" y="-425.14" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">make2_new.</text>
 <text xml:space="preserve" text-anchor="middle" x="318.19" y="-413.14" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">ArWikiCats.</text>
 <text xml:space="preserve" text-anchor="middle" x="318.19" y="-401.14" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#ffffff">legacy_bots.</text>
@@ -746,14 +746,14 @@
 <g id="edge80" class="edge">
 <title>make2_new_ArWikiCats_legacy_bots_tmp_bot&#45;&gt;make2_new_ArWikiCats_legacy_bots_event_lab_bot</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M435.19,-277.48C424.22,-257.75 433.39,-244.99 416.19,-230.39 376.35,-196.58 233.31,-173.95 148.21,-163.14"/>
-<polygon fill="#a83838" stroke="black" points="148.71,-159.68 138.35,-161.91 147.84,-166.62 148.71,-159.68"/>
+<polygon fill="#b03a3a" stroke="black" points="148.71,-159.68 138.35,-161.91 147.84,-166.62 148.71,-159.68"/>
 <path fill="none" stroke="black" d="M356.08,-384.4C376.11,-369.5 399.86,-349.16 416.19,-326.56 429.4,-308.27 446.15,-299.2 435.19,-279.48"/>
 </g>
 <!-- make2_new_ArWikiCats_legacy_bots_tmp_bot&#45;&gt;make2_new_ArWikiCats_legacy_bots_ma_bots_lab -->
 <g id="edge81" class="edge">
 <title>make2_new_ArWikiCats_legacy_bots_tmp_bot&#45;&gt;make2_new_ArWikiCats_legacy_bots_ma_bots_lab</title><style>.edge>path:hover{stroke-width:8}</style>
 <path fill="none" stroke="black" d="M333.23,-372.69C339.51,-357.28 346.84,-339.25 353.39,-323.19"/>
-<polygon fill="#a83838" stroke="black" points="356.45,-324.94 356.98,-314.36 349.97,-322.3 356.45,-324.94"/>
+<polygon fill="#b03a3a" stroke="black" points="356.45,-324.94 356.98,-314.36 349.97,-322.3 356.45,-324.94"/>
 </g>
 </g>
 </svg>

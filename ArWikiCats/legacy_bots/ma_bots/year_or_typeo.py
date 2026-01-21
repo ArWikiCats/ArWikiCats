@@ -9,10 +9,10 @@ from ...helps import dump_data, logger
 from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
+from ..make_bots.reg_result import get_cats, get_reg_result
 from . import country_bot
 from .bot_2018 import get_pop_All_18
 from .mk3 import new_func_mk2
-from ..make_bots.reg_result import get_cats, get_reg_result
 
 
 def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:

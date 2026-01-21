@@ -11,13 +11,13 @@ import re
 from typing import Pattern
 
 from ...helps import logger
-from ..common_resolver_chain import get_lab_for_country2
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
-from . import general_resolver
-from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
+from ..common_resolver_chain import get_lab_for_country2
 from ..make_bots.data import Add_in_table
 from ..make_bots.political_terms import handle_political_terms
+from ..make_bots.reg_lines import RE1_compile, RE2_compile, RE33_compile, re_sub_year
+from . import general_resolver
 
 # Precompiled Regex Patterns
 REGEX_SUB_YEAR = re.compile(re_sub_year, re.IGNORECASE)

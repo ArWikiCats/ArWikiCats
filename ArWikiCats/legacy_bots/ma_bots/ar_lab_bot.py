@@ -14,11 +14,11 @@ from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ...utils import fix_minor
-from . import with_years_bot
-from .country_bot import event2_d2
-from .bot_2018 import get_pop_All_18
-from ..matables_bots.check_bot import check_key_new_players
 from ..make_bots.data import Keep_it_frist, Keep_it_last
+from ..matables_bots.check_bot import check_key_new_players
+from . import with_years_bot
+from .bot_2018 import get_pop_All_18
+from .country_bot import event2_d2
 from .lab import (
     get_con_lab,
     get_type_country,
