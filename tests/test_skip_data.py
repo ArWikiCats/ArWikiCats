@@ -4,6 +4,8 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 fast_data_1 = {
+    "People executed by hanging by country": "أشخاص أعدموا حرقاً حسب البلد",
+    "Cultural depictions of sportspeople": "تصوير ثقافي عن رياضيون",
     "Scheduled sports events": "أحداث رياضية مقررة",
 }
 

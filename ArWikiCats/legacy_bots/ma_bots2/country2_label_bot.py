@@ -351,6 +351,7 @@ def get_separator(country: str) -> str:
 
 
 def country_2_title_work(country: str, with_years: bool = True) -> str:
+    country = country.replace("players in", "playerss in")
     separator = get_separator(country)
 
     if not separator:

@@ -862,7 +862,6 @@ data_slow = {
     "Cultural depictions of Spanish people": "تصوير ثقافي عن إسبان",
     "Cultural depictions of Spartacus": "تصوير ثقافي عن سبارتاكوس",
     "Cultural depictions of spies": "تصوير ثقافي عن جواسيس",
-    "Cultural depictions of sportspeople": "تصوير ثقافي عن رياضيون",
     "Cultural depictions of Stan Lee": "تصوير ثقافي عن ستان لي",
     "Cultural depictions of Stanley Baldwin": "تصوير ثقافي عن ستانلي بلدوين",
     "Cultural depictions of Stanley Kubrick": "تصوير ثقافي عن ستانلي كوبريك",

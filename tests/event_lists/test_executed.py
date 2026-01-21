@@ -639,7 +639,6 @@ data_3 = {
     "People executed by Haiti by firearm": "أشخاص أعدموا من قبل هايتي بسلاح ناري",
     "People executed by Haiti by firing squad": "أشخاص أعدموا من قبل هايتي رميا بالرصاص",
     "People executed by Haiti": "أشخاص أعدموا من قبل هايتي",
-    "People executed by hanging by country": "أشخاص أعدموا حرقاً من قبل كانتري",
     "People executed by Hawaii by hanging": "أشخاص أعدموا من قبل هاواي بالشنق",
     "People executed by Hawaii": "أشخاص أعدموا من قبل هاواي",
     "People executed by Honduras by firing squad": "أشخاص أعدموا من قبل هندوراس رميا بالرصاص",
