@@ -4,8 +4,6 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 
 """
 
-from ...helps import len_print
-
 typeTable_7: dict[str, str] = {
     "air force": "قوات جوية",
     "airlines accidents": "حوادث طيران",
@@ -78,13 +76,6 @@ def add_to_Films_O_TT(en: str, ar: str) -> None:
 
     Films_O_TT[en] = ar
 
-
-len_print.data_len(
-    "make_bots.matables_bots/bot.py",
-    {
-        "players_new_keys": players_new_keys,  # 99517
-    },
-)
 
 __all__ = [
     "Films_O_TT",

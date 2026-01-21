@@ -5,7 +5,7 @@ import re
 
 from ..fix import fixtitle
 from ..format_bots.relation_mapping import translation_category_relations
-from ..helps import dump_data, logger
+from ..helps import logger
 from ..new_resolvers import all_new_resolvers
 from ..time_formats import convert_time_to_arabic, match_time_en_first
 from ..translations import Nat_mens
@@ -286,7 +286,6 @@ class LabelForStartWithYearOrTypeo:
         return self.finalize()
 
 
-@dump_data(1)
 def _label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()

@@ -4,11 +4,6 @@ This module contains dictionaries for mapping English category suffixes
 to Arabic equivalents for various types of categories.
 """
 
-from ...helps import len_print
-
-# --- Tour de
-
-# ---
 pp_ends_with_pase = {
     " - telugu": "{} - تيلوغوي",
     " - boys doubles": "{} - زوجي فتيان",
@@ -135,10 +130,3 @@ combined_suffix_mappings = {**pp_ends_with_pase, **pp_ends_with}
 __all__ = [
     "combined_suffix_mappings",
 ]
-
-len_print.data_len(
-    "ends_keys.py",
-    {
-        "combined_suffix_mappings": combined_suffix_mappings,
-    },
-)

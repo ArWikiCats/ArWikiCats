@@ -249,7 +249,6 @@ def separator_arabic_resolve(separator: str) -> str:
     return ar_separator
 
 
-# @dump_data()
 def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     """
     Resolve Arabic labels for two text parts and return them as a pair.

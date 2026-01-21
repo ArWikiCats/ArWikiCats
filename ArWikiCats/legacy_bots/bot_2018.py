@@ -8,7 +8,7 @@ using population data from 2018 and other mapping tables.
 import functools
 from typing import Dict
 
-from ..helps import len_print, logger
+from ..helps import logger
 from ..new_resolvers import all_new_resolvers
 from ..new_resolvers.bys_new import resolve_by_labels
 from ..translations import (
@@ -146,12 +146,3 @@ def Add_to_pop_All_18(tab: Dict[str, str]) -> None:
     """
     for key, lab in tab.items():
         pop_All_2018[key] = lab
-
-
-len_print.data_len(
-    "make_bots.matables_bots/bot_2018.py",
-    {
-        # "pop_All_2018" : 524266
-        "pop_All_2018": pop_All_2018
-    },
-)
