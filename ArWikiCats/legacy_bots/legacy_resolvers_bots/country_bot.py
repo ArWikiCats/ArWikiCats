@@ -21,7 +21,7 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     religious_entries,
 )
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_utils import RE1_compile, RE2_compile, RE3_compile
+from ..utils import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots import get_KAKO
 from . import general_resolver, with_years_bot
 from .bot_2018 import get_pop_All_18
