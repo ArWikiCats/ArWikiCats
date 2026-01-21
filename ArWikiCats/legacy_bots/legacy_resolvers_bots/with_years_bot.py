@@ -17,7 +17,7 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
 from ..make_bots import get_KAKO
-from ..utils.regex_hub import RE1_compile, RE2_compile, RE33_compile, REGEX_SUB_YEAR
+from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
 from . import general_resolver
 from .bot_2018 import get_pop_All_18
 

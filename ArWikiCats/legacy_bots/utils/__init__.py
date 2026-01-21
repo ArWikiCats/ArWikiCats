@@ -9,14 +9,14 @@ from .regex_hub import (
     AND_PATTERN,
     BY_MATCH_PATTERN,
     DUAL_BY_PATTERN,
-    RE1_compile,
-    RE2_compile,
-    RE3_compile,
-    RE33_compile,
     REGEX_SUB_CATEGORY_LOWERCASE,
     REGEX_SUB_MILLENNIUM_CENTURY,
     REGEX_SUB_YEAR,
     YEARS_REGEX_AR,
+    RE1_compile,
+    RE2_compile,
+    RE3_compile,
+    RE33_compile,
     re_sub_year,
 )
 
