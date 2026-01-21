@@ -69,27 +69,6 @@ class LegacyBotsResolver:
         text_lower = text.lower()
         return any(f" {word} " in text_lower for word in self._COMMON_BLOCKED_WORDS)
 
-    def _resolve_university_category(self, text: str) -> str:
-        """
-        Resolve university-related categories.
-
-        This resolver handles specialized university category patterns,
-        including university names with cities and academic subjects.
-
-        Args:
-            text: Category text to resolve
-
-        Returns:
-            Arabic university label or empty string if no match
-        """
-        from ..sub_new_resolvers import university_resolver
-
-        logger.debug(f"LegacyBotsResolver: Trying university resolver for '{text}'")
-        result = university_resolver._university_bot.search(university_resolver._normalise_category(text))
-        if result:
-            logger.info(f"LegacyBotsResolver: University resolver found: {result}")
-        return result
-
     def _resolve_country_event(self, text: str) -> str:
         """
         Resolve country and event-based categories.
@@ -270,7 +249,6 @@ class LegacyBotsResolver:
 
         # Try each resolver in sequence (priority order)
         resolvers = [
-            self._resolve_university_category,
             self._resolve_country_event,
             self._resolve_with_years,
             self._resolve_year_or_typeo,
