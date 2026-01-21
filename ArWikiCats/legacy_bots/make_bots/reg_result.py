@@ -3,7 +3,8 @@ import re
 from dataclasses import dataclass
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ..legacy_utils.regex_hub import REGEX_SUB_CATEGORY_LOWERCASE, REGEX_SUB_MILLENNIUM_CENTURY
+from ..core.base_resolver import get_cats
+from ..legacy_utils.regex_hub import REGEX_SUB_CATEGORY_LOWERCASE
 
 
 @functools.lru_cache(maxsize=1)
@@ -42,13 +43,6 @@ class TypiesResult:
     In: str
     country: str
     cat_test: str
-
-
-def get_cats(category_r: str) -> tuple[str, str]:
-    """Normalize category strings and return raw and lowercase variants."""
-    cate = REGEX_SUB_MILLENNIUM_CENTURY.sub(r"-\g<1>", category_r)
-    cate3 = REGEX_SUB_CATEGORY_LOWERCASE.sub("", cate.lower())
-    return cate, cate3
 
 
 def get_reg_result(category_r: str) -> TypiesResult:

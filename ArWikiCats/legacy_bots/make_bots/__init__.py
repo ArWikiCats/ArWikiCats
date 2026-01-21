@@ -4,9 +4,10 @@ This package contains various utilities for processing and transforming
 Wikipedia category names from English to Arabic.
 """
 
+from ..core.base_resolver import get_cats
 from .bot import Films_O_TT, add_to_Films_O_TT, players_new_keys
 from .check_bot import check_key_new_players
-from .reg_result import get_cats, get_reg_result
+from .reg_result import get_reg_result
 from .table1_bot import get_KAKO
 
 __all__ = [
