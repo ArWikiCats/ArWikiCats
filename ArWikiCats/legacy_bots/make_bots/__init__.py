@@ -6,7 +6,6 @@ Wikipedia category names from English to Arabic.
 
 from .bot import Films_O_TT, add_to_Films_O_TT, players_new_keys
 from .check_bot import check_key_new_players
-from .political_terms import handle_political_terms
 from .reg_result import get_cats, get_reg_result
 from .table1_bot import get_KAKO
 
@@ -16,7 +15,6 @@ __all__ = [
     "Films_O_TT",
     "players_new_keys",
     "add_to_Films_O_TT",
-    "handle_political_terms",
     "get_cats",
     "get_reg_result",
 ]
