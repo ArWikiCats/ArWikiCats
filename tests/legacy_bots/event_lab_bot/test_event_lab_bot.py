@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_Lab
+from ArWikiCats.legacy_bots import _resolver
+event_Lab = _resolver._resolve_event_lab
 
 data = {
     "category:air force navigational boxes": "تصنيف:صناديق تصفح قوات جوية",
