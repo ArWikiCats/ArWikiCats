@@ -85,7 +85,7 @@ def test_get_list_of_and_cat3_footballers_variants(category3: str, expected_labe
 
 
 # ---------------------------------------------------------------------------
-# 4) players / playerss branches
+# 4) players / players branches
 # ---------------------------------------------------------------------------
 
 
@@ -98,10 +98,10 @@ def test_get_list_of_and_cat3_footballers_variants(category3: str, expected_labe
             "Spanish handball players",
             "Spanish handball",
         ),
-        # Simple playerss
+        # Simple players
         (
-            "Spanish handball playerss",
-            "Spanish handball playerss",
+            "Spanish handball players",
+            "Spanish handball players",
             "Spanish handball",
         ),
         # c. players
@@ -110,10 +110,10 @@ def test_get_list_of_and_cat3_footballers_variants(category3: str, expected_labe
             "Heartland F.C. players",
             "Heartland F.C.",
         ),
-        # c. playerss
+        # c. players
         (
-            "Heartland F.C. playerss",
-            "Heartland F.C. playerss",
+            "Heartland F.C. players",
+            "Heartland F.C. players",
             "Heartland F.C.",
         ),
         # category3_nolower empty: should fall back to category3
@@ -126,7 +126,7 @@ def test_get_list_of_and_cat3_footballers_variants(category3: str, expected_labe
 )
 @pytest.mark.fast
 def test_get_list_of_and_cat3_players_variants(category3: str, category3_nolower: str, expected_rest: str) -> None:
-    """All 'players' / 'playerss' endings should set label and strip suffix correctly."""
+    """All 'players' / 'players' endings should set label and strip suffix correctly."""
     list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower)
 
     assert list_of_cat == "لاعبو {}"
