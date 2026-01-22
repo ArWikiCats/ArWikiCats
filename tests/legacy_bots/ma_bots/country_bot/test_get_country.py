@@ -8,11 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.legacy_bots.circular_dependency.country_bot import get_country
 
 data_1 = {
-    "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",
-    "Defunct national football teams": "منتخبات كرة قدم وطنية سابقة",
-    "Defunct National Hockey League teams": "فرق دوري هوكي وطنية سابقة",
-    "Members of defunct national legislatures": "أعضاء هيئات تشريعية وطنية سابقة",
-    "Defunct national sports teams": "منتخبات رياضية وطنية سابقة",
 }
 
 
