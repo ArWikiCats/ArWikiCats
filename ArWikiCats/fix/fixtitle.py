@@ -21,11 +21,55 @@ from .fixlists import (
 from .mv_years import move_years
 from .specific_normalizations import apply_category_specific_normalizations
 
+# Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
 YEARS_REGEX_AR = (
     r"\d+[−–\-]\d+"
     # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
     r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
 )
+
+categories = [
+    "الآلة",
+    "البلد",
+    "البوابة",
+    "الجنسية والمجموعة العرقية",
+    "المجموعة العرقية",
+    "الجنسية والمهنة",
+    "الدين والجنسية",
+    "المهنة والجنسية",
+    "البلد أو اللغة",
+    "النوع الفني",
+    "الجنسية",
+    "الحرب",
+    "الدين",
+    "السنة",
+    "العقد",
+    "القارة",
+    "اللغة",
+    "المدينة",
+    "المنظمة",
+    "المهنة",
+    "الموقع",
+    "النزاع",
+    "الولاية",
+]
+
+categories_expression = "|".join(categories)
+REGEX_COMPATTERN = re.compile(rf" حسب\s({categories_expression}) ({YEARS_REGEX_AR})$")
+
+
+def add_fee(text: str) -> str:
+    """Ensure the preposition ``في`` precedes years in certain categories.
+
+    Args:
+        text: The label text that should be inspected.
+
+    Returns:
+        A label with normalized year phrasing.
+    """
+
+    text = REGEX_COMPATTERN.sub(r" حسب \1 في \2", text)
+    return text
 
 
 def _apply_regex_replacements(text: str, replacements: Mapping[str, str]) -> str:
@@ -214,46 +258,6 @@ def fix_it(ar_label: str, en_label: str) -> str:
 
     ar_label = ar_label.strip()
     return ar_label
-
-
-def add_fee(text: str) -> str:
-    """Ensure the preposition ``في`` precedes years in certain categories.
-
-    Args:
-        text: The label text that should be inspected.
-
-    Returns:
-        A label with normalized year phrasing.
-    """
-
-    categories = [
-        "الآلة",
-        "البلد",
-        "البوابة",
-        "الجنسية والمجموعة العرقية",
-        "المجموعة العرقية",
-        "الجنسية والمهنة",
-        "الدين والجنسية",
-        "المهنة والجنسية",
-        "البلد أو اللغة",
-        "النوع الفني",
-        "الجنسية",
-        "الحرب",
-        "الدين",
-        "السنة",
-        "العقد",
-        "القارة",
-        "اللغة",
-        "المدينة",
-        "المنظمة",
-        "المهنة",
-        "الموقع",
-        "النزاع",
-        "الولاية",
-    ]
-    categories_expression = "|".join(categories)
-    text = re.sub(rf" حسب\s({categories_expression}) ({YEARS_REGEX_AR})$", r" حسب \1 في \2", text)
-    return text
 
 
 def cleanse_category_label(category_lab):

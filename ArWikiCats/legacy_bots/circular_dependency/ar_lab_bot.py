@@ -16,10 +16,10 @@ from ...translations import keys_of_without_in
 from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.con2_lab import (
-    get_con_lab,
     get_type_country,
     get_type_lab,
 )
+from ..legacy_resolvers_bots.get_con_lab_bot import get_con_label
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
@@ -32,6 +32,30 @@ separators_lists_raw = [
     "by",
     "of",
 ]
+
+
+class CountryResolver:
+    """Resolves country-related information for category labeling."""
+
+    @staticmethod
+    @functools.lru_cache(maxsize=10000)
+    def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
+        """Resolve the country label."""
+
+        for_table = {
+            "for national teams": "للمنتخبات الوطنية",
+            "for member-of-parliament": "لعضوية البرلمان",
+        }
+
+        result = for_table.get(country, "") if preposition.lower() == "for" else ""
+
+        if not result:
+            result = (
+                get_pop_All_18(country)
+                or country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
+                or get_con_label(country)
+            )
+        return result
 
 
 def _should_add_preposition_fe(type_label: str, type_lower: str) -> bool:
@@ -244,16 +268,6 @@ class ParsedCategory:
     separator: str
     type_value: str
     country: str
-
-
-class CountryResolver:
-    """Resolves country-related information for category labeling."""
-
-    @staticmethod
-    @functools.lru_cache(maxsize=10000)
-    def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
-        """Resolve the country label."""
-        return get_con_lab(preposition, country, start_get_country2)
 
 
 class TypeResolver:

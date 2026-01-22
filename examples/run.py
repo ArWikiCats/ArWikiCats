@@ -6,7 +6,7 @@ if _Dir := Path(__file__).parent.parent:
 
 from ArWikiCats import logger, resolve_arabic_category_label
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import make_by_label
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_con_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import get_con_lab
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import Try_With_Years
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
     label_for_startwith_year_or_typeo,
@@ -37,7 +37,7 @@ logger.set_level("DEBUG")
 # print(mens_resolver_labels("men writers"))
 # print(jobs_in_multi_sports("paralympic sailors"))
 # print(resolve_by_nats_double_v2("jewish german surnames"))
-# print(get_con_lab("by", "by danish artists", True))
+# print(get_con_label("by danish artists"))
 # print(make_by_label("by danish artists"))
 # print(Try_With_Years("2020s Dutch-language films"))
 print(resolve_sport_label_unified("national football"))

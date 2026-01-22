@@ -7,6 +7,7 @@ import re
 
 from ..helps import dump_data, logger
 
+# Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
 YEARS_REGEX_AR = (
     r"\d+[−–\-]\d+"
     # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"

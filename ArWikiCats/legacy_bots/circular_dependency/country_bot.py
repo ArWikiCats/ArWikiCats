@@ -383,7 +383,10 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 
 
 def fetch_country_term_label(
-    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+    term_lower: str,
+    separator: str,
+    lab_type: str = "",
+    start_get_country2: bool = True
 ) -> str:
     """
     Retrieve an Arabic label for a given term or country name using layered resolution strategies.

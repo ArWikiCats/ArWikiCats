@@ -12,7 +12,6 @@ from .regex_hub import (
     REGEX_SUB_CATEGORY_LOWERCASE,
     REGEX_SUB_MILLENNIUM_CENTURY,
     REGEX_SUB_YEAR,
-    YEARS_REGEX_AR,
     RE1_compile,
     RE2_compile,
     RE3_compile,
@@ -22,7 +21,6 @@ from .regex_hub import (
 
 __all__ = [
     # Year patterns
-    "YEARS_REGEX_AR",
     "RE1_compile",
     "RE2_compile",
     "RE3_compile",

@@ -78,7 +78,7 @@ class CountryLabelAndTermParent:
             str: The constructed Arabic label when a mapping exists, otherwise an empty string.
         """
         if country.endswith(" members of"):
-            country2 = country.replace(" members of", "")
+            country2 = country.removesuffix(" members of").strip()
             resolved_label = Nat_mens.get(country2, "")
             if resolved_label:
                 resolved_label = f"{resolved_label} أعضاء في  "
