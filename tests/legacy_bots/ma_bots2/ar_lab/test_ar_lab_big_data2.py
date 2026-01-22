@@ -3,11 +3,12 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
+from utils.dump_runner import make_dump_test_name_data_callback
 
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 
-data_list_in = {
+data_1 = {
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
     "1550 in chinese motorsport": "1550 في رياضة المحركات الصينية",
     "1550 in english cricket": "1550 في الكريكت الإنجليزية",
@@ -20,7 +21,6 @@ data_list_in = {
     "nordic skiing competitions in slovakia": "منافسات التزلج النوردية في سلوفاكيا",
     "railway stations in dordogne": "محطات السكك الحديدية في دوردونيي (إقليم فرنسي)",
     "seasons in asian football leagues": "مواسم في دوريات كرة القدم الآسيوية",
-    "1550 awards in united states": "جوائز 1550 في الولايات المتحدة",
     "1550 crimes in brazil": "جرائم 1550 في البرازيل",
     "1550 crimes in israel": "جرائم 1550 في إسرائيل",
     "1550 crimes in madagascar": "جرائم 1550 في مدغشقر",
@@ -300,14 +300,10 @@ data_list_in = {
     "churches in nigeria": "كنائس في نيجيريا",
     "cities and towns in gandhinagar district": "مدن وبلدات في مقاطعة غانديناغار",
     "clock towers in africa": "أبراج ساعة في إفريقيا",
-    "clubhouses on the-national-register-of-historic-places in maine": "نوادي في السجل الوطني للأماكن التاريخية في مين",
     "communes in bié province": "بلديات في مقاطعة بيي",
     "communism in oman": "شيوعية في سلطنة عمان",
     "conspiracy theories in lebanon": "نظريات مؤامرة في لبنان",
     "courthouses in france": "محاكم في فرنسا",
-    "courthouses on the-national-register-of-historic-places in illinois": "محاكم في السجل الوطني للأماكن التاريخية في إلينوي",
-    "courthouses on the-national-register-of-historic-places in maryland": "محاكم في السجل الوطني للأماكن التاريخية في ماريلند",
-    "courthouses on the-national-register-of-historic-places in new york city": "محاكم في السجل الوطني للأماكن التاريخية في مدينة نيويورك",
     "covid-19 pandemic in hawaii": "جائحة فيروس كورونا في هاواي",
     "crimes in peru": "جرائم في بيرو",
     "culture in lugano": "ثقافة في لوغانو",
@@ -360,7 +356,6 @@ data_list_in = {
     "guinean expatriate sports-people in romania": "رياضيون غينيون مغتربون في رومانيا",
     "haitian expatriates in romania": "هايتيون مغتربون في رومانيا",
     "handball in 1550 summer youth olympics": "كرة اليد في الألعاب الأولمبية الشبابية الصيفية 1550",
-    "heads of universities and colleges in zimbabwe": "قادة جامعات وكليات في زيمبابوي",
     "health in british columbia": "الصحة في كولومبيا البريطانية",
     "high schools in india": "مدارس ثانوية في الهند",
     "hotels in italy": "فنادق في إيطاليا",
@@ -376,10 +371,6 @@ data_list_in = {
     "june 1550 in united states": "يونيو 1550 في الولايات المتحدة",
     "kurdish diaspora in united states": "شتات كردي في الولايات المتحدة",
     "legislators in india": "مشرعون في الهند",
-    "lists of buildings and structures in california": "قوائم مبان ومنشآت في كاليفورنيا",
-    "lists of legislators in india": "قوائم مشرعون في الهند",
-    "lists of mayors of places in nova scotia": "قوائم رؤساء بلديات في نوفا سكوشا",
-    "lists of roads in united kingdom": "قوائم طرقات في المملكة المتحدة",
     "lithuanian expatriate sports-people in australia": "رياضيون ليتوانيون مغتربون في أستراليا",
     "local politicians in united kingdom": "سياسيون محليون في المملكة المتحدة",
     "local-elections in india": "انتخابات محلية في الهند",
@@ -393,8 +384,6 @@ data_list_in = {
     "mayors of places in nova scotia": "رؤساء بلديات في نوفا سكوشا",
     "mexican expatriates in belarus": "مكسيكيون مغتربون في روسيا البيضاء",
     "military and war museums in tennessee": "متاحف عسكرية وحربية في تينيسي",
-    "military facilities on the-national-register-of-historic-places in indiana": "مرافق عسكرية في السجل الوطني للأماكن التاريخية في إنديانا",
-    "military operations of american civil war in north dakota": "عمليات عسكرية في الحرب الأهلية الأمريكية في داكوتا الشمالية",
     "millennia in peru": "ألفيات في بيرو",
     "mines in devon": "مناجم في ديفون",
     "montserratian expatriates in england": "مونتسراتيون مغتربون في إنجلترا",
@@ -416,7 +405,6 @@ data_list_in = {
     "october 1550 in canada": "أكتوبر 1550 في كندا",
     "october 1550 in europe": "أكتوبر 1550 في أوروبا",
     "october 1550 in japan": "أكتوبر 1550 في اليابان",
-    "opera houses on the-national-register-of-historic-places in minnesota": "دور أوبرا في السجل الوطني للأماكن التاريخية في منيسوتا",
     "paintings in ireland": "لوحات في أيرلندا",
     "paleontology in connecticut": "علم الأحياء القديمة في كونيتيكت",
     "parks in county waterford": "متنزهات في مقاطعة وترفورد",
@@ -500,7 +488,6 @@ data_list_in = {
     "unincorporated communities in united states": "مجتمعات فردية في الولايات المتحدة",
     "universities and colleges in isabela (province)": "جامعات وكليات في ايزابلا (محافظة)",
     "universities and colleges in montpellier": "جامعات وكليات في مونبلييه",
-    "victims of aviation accidents or incidents in dominican republic": "ضحايا حوادث طيران في جمهورية الدومينيكان",
     "vietnamese diaspora in canada": "شتات فيتنامي في كندا",
     "villages in datia district": "قرى في مقاطعة داتيا",
     "villages in north macedonia": "قرى في مقدونيا الشمالية",
@@ -511,28 +498,45 @@ data_list_in = {
     "waste management in brazil": "إدارة المخلفات في البرازيل",
     "water sports in tanzania": "رياضات مائية في تنزانيا",
     "years in curaçao": "سنوات في كوراساو",
-    "years of 20th century in australia": "سنوات القرن 20 في أستراليا",
-    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية",
+    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية"
 }
 
+data_2 = {
+    "1550 awards in united states": "جوائز 1550 في الولايات المتحدة",
+    "clubhouses on the-national-register-of-historic-places in maine": "نوادي في السجل الوطني للأماكن التاريخية في مين",
+    "courthouses on the-national-register-of-historic-places in illinois": "محاكم في السجل الوطني للأماكن التاريخية في إلينوي",
+    "courthouses on the-national-register-of-historic-places in maryland": "محاكم في السجل الوطني للأماكن التاريخية في ماريلند",
+    "courthouses on the-national-register-of-historic-places in new york city": "محاكم في السجل الوطني للأماكن التاريخية في مدينة نيويورك",
+    "heads of universities and colleges in zimbabwe": "قادة جامعات وكليات في زيمبابوي",
+    "lists of buildings and structures in california": "قوائم مبان ومنشآت في كاليفورنيا",
+    "lists of legislators in india": "قوائم مشرعون في الهند",
+    "lists of mayors of places in nova scotia": "قوائم رؤساء بلديات في نوفا سكوشا",
+    "lists of roads in united kingdom": "قوائم طرقات في المملكة المتحدة",
+    "military facilities on the-national-register-of-historic-places in indiana": "مرافق عسكرية في السجل الوطني للأماكن التاريخية في إنديانا",
+    "military operations of american civil war in north dakota": "عمليات عسكرية في الحرب الأهلية الأمريكية في داكوتا الشمالية",
+    "opera houses on the-national-register-of-historic-places in minnesota": "دور أوبرا في السجل الوطني للأماكن التاريخية في منيسوتا",
+    "victims of aviation accidents or incidents in dominican republic": "ضحايا حوادث طيران في جمهورية الدومينيكان",
+    "years of 20th century in australia": "سنوات القرن 20 في أستراليا"
+}
 
 to_test = [
-    ("test_data_list_in", data_list_in),
+    ("test_data_list_in_1", data_1, lambda cat: find_ar_label(cat, " in ", use_event2=False)),
+    ("test_data_list_in_2", data_2, resolve_label_ar),
 ]
 
 
-@pytest.mark.parametrize("category, output", data_list_in.items(), ids=data_list_in.keys())
+@pytest.mark.parametrize("category, output", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
-def test_data_list_in(category: str, output: str) -> None:
+def test_data_list_in_1(category: str, output: str) -> None:
     label = find_ar_label(category, " in ", use_event2=False)
     assert label == output
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, lambda k: find_ar_label(k, " in ", use_event2=False), name)
-    dump_diff(diff_result, name)
+@pytest.mark.parametrize("category, output", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_data_list_in_2(category: str, output: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == output
 
-    dump_same_and_not_same(data, expected, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)
