@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from utils.dump_runner import make_dump_test_name_data_dumpskip
+from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
 
 covid_pandemic_data = {
@@ -430,4 +430,4 @@ def test_airstrikes_data(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_dump_all = make_dump_test_name_data_dumpskip(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
