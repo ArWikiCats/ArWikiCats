@@ -28,6 +28,7 @@ from ..make_bots import get_KAKO
 from ..utils import RE1_compile, RE2_compile, RE3_compile
 
 from . import general_resolver
+# from .country_bot import LabelsRetriever
 
 
 @functools.lru_cache(maxsize=None)
@@ -81,34 +82,6 @@ def _resolve_remainder(remainder: str) -> str:
         or ""
     )
     return label
-
-
-def _validate_separators(country: str) -> bool:
-    """
-    Return whether the input contains any disallowed separator phrases.
-
-    Checks for presence of common separator words/phrases (for example " in ", " of ", or the special "-of ") and returns True only when none are found.
-
-    Returns:
-        True if no disallowed separators are present, False otherwise.
-    """
-    separators = [
-        "based in",
-        "in",
-        "by",
-        "about",
-        "to",
-        "of",
-        "-of ",  # special case
-        "from",
-        "at",
-        "on",
-    ]
-    separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
-    for sep in separators:
-        if sep in country:
-            return False
-    return True
 
 
 class LabelsRetriever:
