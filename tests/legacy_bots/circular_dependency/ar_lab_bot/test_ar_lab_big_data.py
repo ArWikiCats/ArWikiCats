@@ -343,7 +343,7 @@ data_list = [
 
 @pytest.mark.parametrize("category, separator, output", data_list, ids=[x[0] for x in data_list])
 @pytest.mark.fast
-def test_simple_2(category: str, separator: str, output: str) -> None:
+def test_simple_1(category: str, separator: str, output: str) -> None:
     label = find_ar_label(category, separator, use_event2=False)
     assert label == output
 
@@ -351,12 +351,13 @@ def test_simple_2(category: str, separator: str, output: str) -> None:
 test_data = {x[0]: x[2] for x in data_list}
 
 
-def resolve_label_ar_wrap(category: str) -> str:
-    if resolve_label_ar(category) == test_data.get(category):
-        return ""
-    return resolve_label_ar(category)
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_simple_2(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
 
 
 test_dump_all = make_dump_test_name_data_callback(
-    [("test_data", test_data, resolve_label_ar_wrap)], run_same=True, just_dump=True
+    [("test_data", test_data, resolve_label_ar)], run_same=True, just_dump=True
 )
