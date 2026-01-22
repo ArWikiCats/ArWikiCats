@@ -52,16 +52,3 @@ def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False, j
         _run_dump_case(name, data, callback, run_same=run_same, just_dump=just_dump)
 
     return test_dump_all
-
-
-def make_dump_test_name_data_dumpskip(to_test: ToTest, callback, run_same=False, just_dump=True):
-    """
-    Create a parametrized pytest test function.
-    """
-
-    @pytest.mark.parametrize("name,data", list(to_test))
-    @pytest.mark.dumpskip
-    def test_dump_all(name: str, data: dict[str, str]) -> None:
-        _run_dump_case(name, data, callback, run_same=run_same, just_dump=just_dump)
-
-    return test_dump_all
