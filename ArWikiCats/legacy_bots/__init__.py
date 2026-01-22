@@ -9,7 +9,9 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
+from .circular_dependency import country_bot, general_resolver
+
+from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order
 # Each resolver is a callable that takes a category string and returns a label or empty string

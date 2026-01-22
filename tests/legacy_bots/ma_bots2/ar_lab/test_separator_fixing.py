@@ -7,7 +7,7 @@ and edge cases.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.ar_lab_bot import (
+from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import (
     _handle_at_separator,
     _handle_in_separator,
     _should_add_min_for_from_separator,

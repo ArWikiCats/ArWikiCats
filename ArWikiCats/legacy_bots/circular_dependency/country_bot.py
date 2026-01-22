@@ -6,6 +6,8 @@ Country Label Bot Module
 import functools
 import re
 
+from . import general_resolver
+
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
@@ -23,9 +25,9 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
 from ..common_resolver_chain import get_lab_for_country2
 from ..utils import RE1_compile, RE2_compile, RE3_compile
 from ..make_bots import get_KAKO
-from . import general_resolver, with_years_bot
-from .bot_2018 import get_pop_All_18
-from .country2_label_bot import country_2_title_work
+from ..legacy_resolvers_bots import with_years_bot
+from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 
 
 @functools.lru_cache(maxsize=None)

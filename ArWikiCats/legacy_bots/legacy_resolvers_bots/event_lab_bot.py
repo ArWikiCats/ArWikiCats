@@ -5,6 +5,8 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
+from ..circular_dependency import country_bot, general_resolver
+
 from ...config import app_settings
 from ...fix import fixtitle
 from ...format_bots import change_cat
@@ -16,7 +18,7 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from ..make_bots import get_KAKO
-from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
+from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
 

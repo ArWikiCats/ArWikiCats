@@ -10,7 +10,7 @@ from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
 from ..make_bots import get_cats, get_reg_result
-from . import country_bot
+from ..circular_dependency import country_bot
 from .bot_2018 import get_pop_All_18
 from .mk3 import new_func_mk2
 
