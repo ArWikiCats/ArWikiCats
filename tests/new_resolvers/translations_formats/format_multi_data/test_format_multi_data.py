@@ -310,7 +310,6 @@ class TestEdgeCases:
         result = multi_bot.create_label("football")
         assert result == ""
 
-    @pytest.mark.skip2
     def test_case_insensitive_matching(self, multi_bot: MultiDataFormatterBase) -> None:
         """Test that matching is case-insensitive."""
         result1 = multi_bot.create_label("Yemeni Football Teams")
