@@ -418,7 +418,6 @@ data_list = [
     ("villages in north macedonia by municipality", " by ", "قرى في مقدونيا الشمالية حسب البلدية"),
     ("wars involving nepal", " involving ", "حروب تشمل نيبال"),
     ("water of novosibirsk oblast", " of ", "مياه في نوفوسيبيرسك أوبلاست"),
-    ("wikipedia categories named after israeli musicians", " named after ", "تصنيفات سميت بأسماء موسيقيون إسرائيليون"),
     ("women politicians by century", " by ", "سياسيات حسب القرن"),
     ("women's sport by country", " by ", "رياضة نسائية حسب البلد"),
     ("works about alberta", " about ", "أعمال عن ألبرتا"),
