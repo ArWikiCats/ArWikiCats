@@ -15,8 +15,8 @@ from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..legacy_resolvers_bots.get_con_lab_bot import get_con_lab
 from ..legacy_resolvers_bots.con2_lab import (
-    get_con_lab,
     get_type_country,
     get_type_lab,
 )
