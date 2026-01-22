@@ -12,7 +12,7 @@ from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
-from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
+from ...translations import (
     New_female_keys,
     People_key,
     jobs_mens_data,
@@ -48,48 +48,26 @@ def Get_country2(country: str) -> str:
         str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
     """
 
-    normalized_country = country.lower().strip()
-    logger.info(f'>> Get_country2 "{normalized_country}":')
+    country = country.lower().strip()
+    logger.info(f'>> Get_country2 "{country}":')
 
     resolved_label = (
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or translate_general_category_wrap(normalized_country, start_get_country2=False)
-        or get_pop_All_18(normalized_country.lower(), "")
+        or translate_general_category_wrap(country, start_get_country2=False)
         or ""
     )
 
     if resolved_label:
-        resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
+        resolved_label = fixtitle.fixlabel(resolved_label, en=country)
 
     resolved_label = " ".join(resolved_label.strip().split())
 
-    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
+    logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
 
     return resolved_label
-
-
-@functools.lru_cache(maxsize=10000)
-def _resolve_remainder(remainder: str) -> str:
-    """Helper to resolve the label for the remainder of a string.
-
-    Args:
-        remainder: The remaining part of the string to process
-
-    Returns:
-        The resolved Arabic label or an empty string if not found
-    """
-    label = (
-        Get_country2(remainder)
-        or get_lab_for_country2(remainder)
-        or get_KAKO(remainder)
-        or get_pop_All_18(remainder)
-        or translate_general_category_wrap(remainder)
-        or ""
-    )
-    return label
 
 
 def _validate_separators(country: str) -> bool:
@@ -143,7 +121,7 @@ def check_historical_prefixes(country: str) -> str:
         if country.startswith(f"{prefix} "):
             logger.debug(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :].strip()
-            remainder_label = _resolve_remainder(remainder)
+            remainder_label = Get_country2(remainder)
 
             if remainder_label:
                 resolved_label = prefix_template.format(remainder_label)
@@ -168,7 +146,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         No runtime initialization is performed; the constructor exists to allow instantiation.
         """
-        super().__init__(_resolve_callable=_resolve_remainder)
+        super().__init__(_resolve_callable=Get_country2)
 
     @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
@@ -194,7 +172,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country)
+                Get_country2(country)
                 or self._check_prefixes(country)
                 or check_historical_prefixes(country)
                 or all_new_resolvers(country)
