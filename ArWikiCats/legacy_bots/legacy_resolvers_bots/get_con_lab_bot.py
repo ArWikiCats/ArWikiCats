@@ -3,7 +3,7 @@
 
 import functools
 
-from ...helps import dump_data, logger
+from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...translations import (
@@ -11,7 +11,6 @@ from ...translations import (
     get_from_pf_keys2,
 )
 from .. import tmp_bot
-from ..circular_dependency import country_bot
 from ..common_resolver_chain import get_lab_for_country2
 from ..make_bots import get_KAKO
 from . import bys
@@ -28,7 +27,7 @@ def _lookup_country_with_by(country: str) -> str:
 
     return ""
 
-@dump_data(1)
+
 def _lookup_country_with_in_prefix(country: str) -> str:
     """Handle country labels with 'in ' prefix."""
     if not country.strip().startswith("in "):
@@ -37,7 +36,6 @@ def _lookup_country_with_in_prefix(country: str) -> str:
     inner_country = country.strip()[len("in ") :].strip()
     country_label = (
         ""
-        or country_bot.get_country(inner_country)
         or get_lab_for_country2(inner_country)
         or get_pop_All_18(inner_country)
         or get_KAKO(inner_country)
@@ -59,6 +57,8 @@ def get_con_label(country: str) -> str:
         The Arabic label for the country.
     """
     country = country.strip().lower()
+    country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the")
+
     country_no_dash = country.replace("-", " ")
 
     label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
