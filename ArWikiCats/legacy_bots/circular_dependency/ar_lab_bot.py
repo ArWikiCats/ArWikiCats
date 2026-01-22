@@ -10,19 +10,15 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
-from ...utils import get_relation_word
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from ..legacy_resolvers_bots.con2_lab import (
-    get_type_country,
-    get_type_lab,
-)
+from ..legacy_resolvers_bots.con2_lab import get_type_lab
 from ..legacy_resolvers_bots.get_con_lab_bot import get_con_label
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
-from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
+from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
 from . import country_bot
 
@@ -412,6 +408,8 @@ class LabelPipeline(Fixing):
     def extract_components(self) -> None:
         """Extracts type and country components."""
         self.category_type, self.country = get_type_country(self.category, self.separator)
+        # self.category_type, self.country = split_text_by_separator(self.separator, self.category)
+
         self.type_lower = self.category_type.strip().lower()
         self.country_lower = self.country.strip().lower()
 
@@ -567,31 +565,6 @@ def find_ar_label(
         use_event2=use_event2,
     )
     return builder.build()
-
-
-@functools.lru_cache(maxsize=10000)
-def _work_separator_names(
-    category: str,
-    start_get_country2: bool = False,
-) -> str:
-    separator, separator_name = get_relation_word(category, translation_category_relations)
-
-    if not separator:
-        return ""
-
-    logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
-    arlabel = find_ar_label(category, separator, cate_test=category, start_get_country2=start_get_country2)
-
-    if not arlabel:
-        return ""
-
-    # Check if the result contains Arabic characters
-    if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", arlabel, flags=re.IGNORECASE) != arlabel:
-        arlabel = ""
-
-    logger.info(f">>>> <<lightyellow>> {arlabel=}")
-
-    return arlabel
 
 
 __all__ = [
