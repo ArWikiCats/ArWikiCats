@@ -7,8 +7,6 @@ import functools
 import re
 from typing import Tuple
 
-from ..circular_dependency import country_bot
-
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
@@ -20,6 +18,7 @@ from ...translations import (
     religious_entries,
 )
 from .. import tmp_bot
+from ..circular_dependency import country_bot
 from ..common_resolver_chain import get_lab_for_country2
 from ..make_bots import get_KAKO
 from . import bys

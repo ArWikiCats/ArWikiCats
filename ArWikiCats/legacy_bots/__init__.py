@@ -10,7 +10,6 @@ import functools
 from typing import Callable
 
 from .circular_dependency import country_bot, general_resolver
-
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order

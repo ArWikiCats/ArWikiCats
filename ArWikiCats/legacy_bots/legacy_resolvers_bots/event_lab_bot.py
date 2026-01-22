@@ -5,8 +5,6 @@ EventLab Bot - A class-based implementation to handle category labeling
 import functools
 from typing import Tuple
 
-from ..circular_dependency import country_bot, general_resolver
-
 from ...config import app_settings
 from ...fix import fixtitle
 from ...format_bots import change_cat
@@ -14,6 +12,7 @@ from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ...translations import Ambassadors_tab, get_from_new_p17_final
 from .. import tmp_bot
+from ..circular_dependency import country_bot, general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
