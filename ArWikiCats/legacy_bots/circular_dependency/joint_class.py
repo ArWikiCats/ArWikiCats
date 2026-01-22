@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 
 from typing import Callable
+
 from ...helps import logger
 from ...translations import (
     Nat_mens,
@@ -13,8 +12,7 @@ from ..utils import RE1_compile, RE2_compile, RE3_compile
 
 
 class CountryLabelAndTermParent:
-    """
-    """
+    """ """
 
     def __init__(self, _resolve_callable: Callable = None) -> None:
         """

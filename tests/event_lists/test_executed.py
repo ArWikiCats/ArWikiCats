@@ -1170,7 +1170,7 @@ data_3 = {
     "Uzbekistani people executed by the Soviet Union": "أوزبكستانيون أعدموا من قبل الاتحاد السوفيتي",
     "Yugoslav people executed abroad": "يوغسلافيون أعدموا في الخارج",
     "Yugoslav people executed by Nazi Germany": "يوغسلافيون أعدموا من قبل ألمانيا النازية",
-    "Yugoslav people executed by the Soviet Union": "يوغسلافيون أعدموا من قبل الاتحاد السوفيتي"
+    "Yugoslav people executed by the Soviet Union": "يوغسلافيون أعدموا من قبل الاتحاد السوفيتي",
 }
 
 data_4 = {

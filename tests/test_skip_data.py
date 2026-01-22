@@ -40,7 +40,7 @@ executed_data_1 = {
     "People from Saxony executed by Nazi Germany": "أشخاص من ساكسونيا أعدموا من قبل ألمانيا النازية",
     "People from Saxony-Anhalt executed by Nazi Germany": "أشخاص من ساكسونيا أنهالت أعدموا من قبل ألمانيا النازية",
     "People from Schleswig-Holstein executed by Nazi Germany": "أشخاص من شليسفيغ هولشتاين أعدموا من قبل ألمانيا النازية",
-    "People from Thuringia executed by Nazi Germany": "أشخاص من تورينغن أعدموا من قبل ألمانيا النازية"
+    "People from Thuringia executed by Nazi Germany": "أشخاص من تورينغن أعدموا من قبل ألمانيا النازية",
 }
 
 fast_data_1 = {

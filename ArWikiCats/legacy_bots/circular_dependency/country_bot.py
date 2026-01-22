@@ -5,23 +5,20 @@ Country Label Bot Module
 
 import functools
 import re
+
 from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...translations import (
-    Nat_mens,
     New_female_keys,
     People_key,
     religious_entries,
 )
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_resolvers_bots import with_years_bot
+from ..legacy_resolvers_bots import country2_label_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..make_bots import get_KAKO
-from ..utils import RE1_compile, RE2_compile, RE3_compile
-
 from . import general_resolver
 from .joint_class import CountryLabelAndTermParent
 
@@ -42,7 +39,7 @@ def Get_country2(country: str) -> str:
     logger.info(f'>> Get_country2 "{normalized_country}":')
 
     resolved_label = (
-        country_2_title_work(country, with_years=True)
+        country2_label_bot.country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)

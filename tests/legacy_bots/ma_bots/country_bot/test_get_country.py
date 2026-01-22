@@ -7,8 +7,7 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.circular_dependency.country_bot import get_country
 
-data_1 = {
-}
+data_1 = {}
 
 
 data_2 = {}

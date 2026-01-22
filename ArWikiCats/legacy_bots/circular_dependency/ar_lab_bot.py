@@ -23,7 +23,6 @@ from ..legacy_resolvers_bots.con2_lab import (
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
-
 from . import country_bot
 
 separators_lists_raw = [
