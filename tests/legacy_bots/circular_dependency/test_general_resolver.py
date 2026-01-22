@@ -6,7 +6,6 @@ import pytest
 
 from ArWikiCats.fix import fixtitle
 from ArWikiCats.legacy_bots.circular_dependency.general_resolver import (
-    find_lab,
     translate_general_category,
     work_separator_names,
 )
@@ -28,19 +27,6 @@ def translate_general_category_wrap(category: str) -> str:
 def test_fast_data(category: str, expected: str) -> None:
     label = translate_general_category_wrap(category)
     assert label == expected
-
-
-def test_find_lab() -> None:
-    # Test with a basic input
-    result = find_lab("test category", "test_category")
-    assert isinstance(result, str)
-
-    result_empty = find_lab("", "")
-    assert isinstance(result_empty, str)
-
-    # Test with various inputs
-    result_various = find_lab("sports category", "sports_category")
-    assert isinstance(result_various, str)
 
 
 def test_work_separator_names() -> None:

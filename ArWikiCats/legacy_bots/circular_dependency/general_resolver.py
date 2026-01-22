@@ -22,33 +22,6 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
 
 @functools.lru_cache(maxsize=10000)
-def find_lab(category: str, category_r: str) -> str:
-    """Find a label for the given category using multiple data sources.
-
-    Args:
-        category: The normalized category string to look up
-        category_r: The original category string for logging
-
-    Returns:
-        The found Arabic label or empty string if not found
-    """
-    cate_low = category.lower()
-
-    _lab = (
-        ""
-        or Films_O_TT.get(cate_low, "")
-        or get_pop_All_18(cate_low, "")
-        or get_value_from_any_table(cate_low, [players_new_keys, jobs_mens_data, Jobs_new])
-        or time_to_arabic.convert_time_to_arabic(cate_low)
-    )
-    if _lab:
-        logger.info(f'>>>> <<lightyellow>>test: cat "{category_r}", {_lab=}')
-        logger.info(f'>>>> <<lightyellow>> cat:"{category_r}", {_lab=}')
-
-    return _lab
-
-
-@functools.lru_cache(maxsize=10000)
 def work_separator_names(
     category: str,
     cate_test: str = "",
@@ -87,49 +60,30 @@ def work_separator_names(
     return arlabel
 
 
-def _translate_general_category(category_r: str, category: str, start_get_country2: bool = True) -> str:
-    """Translate an English category to Arabic label.
-
-    This function processes a category string by normalizing the format
-    and applying various strategies to find an appropriate Arabic label.
-
-    Args:
-        category_r: The input category string that needs to be processed
-        start_get_country2: A flag indicating whether to retrieve country-related data.
-            Defaults to True.
-
-    Returns:
-        The processed Arabic label associated with the input category.
-    """
-    cate_test = category.lower()
-
-    arlabel = get_pop_All_18(category, "")
-
-    if not arlabel:
-        arlabel = find_lab(category, category_r)
-
-    if not arlabel:
-        arlabel = work_separator_names(category, cate_test, start_get_country2=start_get_country2)
-
-    return arlabel
-
-
 @functools.lru_cache(maxsize=10000)
 def translate_general_category(category_r: str, start_get_country2: bool = True, fix_title: bool = True) -> str:
     """
     "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
     "Category:21st-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
     """
-    category = category_r.replace("_", " ")
+    category = category_r.replace("_", " ").lower()
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
     logger.info(f"<<lightyellow>>>> ^^^^^^^^^ translate_general_category start ^^^^^^^^^ ({category}) ")
     logger.debug(f"<<lightyellow>>>>>> {category_r=}, {start_get_country2=}, {fix_title=}")
 
-    arlabel = _translate_general_category(category_r, category, start_get_country2)
+    arlabel = (
+        ""
+        or get_pop_All_18(category, "")
+        or Films_O_TT.get(category, "")
+        or get_value_from_any_table(category, [players_new_keys, jobs_mens_data, Jobs_new])
+        or time_to_arabic.convert_time_to_arabic(category)
+    )
+
+    if not arlabel:
+        arlabel = work_separator_names(category, category, start_get_country2=start_get_country2)
 
     if arlabel and fix_title:
-        # arlabel = fixtitle.fixlabel(arlabel, en=category_r)
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", {arlabel=}')
 
     if arlabel:
