@@ -27,6 +27,35 @@ YEARS_REGEX_AR = (
     r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
 )
 
+categories = [
+    "الآلة",
+    "البلد",
+    "البوابة",
+    "الجنسية والمجموعة العرقية",
+    "المجموعة العرقية",
+    "الجنسية والمهنة",
+    "الدين والجنسية",
+    "المهنة والجنسية",
+    "البلد أو اللغة",
+    "النوع الفني",
+    "الجنسية",
+    "الحرب",
+    "الدين",
+    "السنة",
+    "العقد",
+    "القارة",
+    "اللغة",
+    "المدينة",
+    "المنظمة",
+    "المهنة",
+    "الموقع",
+    "النزاع",
+    "الولاية",
+]
+
+categories_expression = "|".join(categories)
+REGEX_COMPATTERN = re.compile(rf" حسب\s({categories_expression}) ({YEARS_REGEX_AR})$")
+
 
 def add_fee(text: str) -> str:
     """Ensure the preposition ``في`` precedes years in certain categories.
@@ -38,33 +67,7 @@ def add_fee(text: str) -> str:
         A label with normalized year phrasing.
     """
 
-    categories = [
-        "الآلة",
-        "البلد",
-        "البوابة",
-        "الجنسية والمجموعة العرقية",
-        "المجموعة العرقية",
-        "الجنسية والمهنة",
-        "الدين والجنسية",
-        "المهنة والجنسية",
-        "البلد أو اللغة",
-        "النوع الفني",
-        "الجنسية",
-        "الحرب",
-        "الدين",
-        "السنة",
-        "العقد",
-        "القارة",
-        "اللغة",
-        "المدينة",
-        "المنظمة",
-        "المهنة",
-        "الموقع",
-        "النزاع",
-        "الولاية",
-    ]
-    categories_expression = "|".join(categories)
-    text = re.sub(rf" حسب\s({categories_expression}) ({YEARS_REGEX_AR})$", r" حسب \1 في \2", text)
+    text = REGEX_COMPATTERN.sub(r" حسب \1 في \2", text)
     return text
 
 
