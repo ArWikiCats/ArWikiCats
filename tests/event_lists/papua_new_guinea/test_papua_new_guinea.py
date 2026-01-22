@@ -765,7 +765,7 @@ data_1 = {
     "Museums in Papua New Guinea": "متاحف في بابوا غينيا الجديدة",
     "Music festivals in Papua New Guinea": "مهرجانات موسيقية في بابوا غينيا الجديدة",
     "Music of Papua New Guinea": "موسيقى بابوا غينيا الجديدة",
-    "National sports teams of Papua New Guinea": "منتخبات رياضية وطنية من بابوا غينيا الجديدة",
+    "National sports teams of Papua New Guinea": "منتخبات رياضية وطنية في بابوا غينيا الجديدة",
     "Natural disasters in Papua New Guinea": "كوارث طبيعية في بابوا غينيا الجديدة",
     "Natural gas fields in Papua New Guinea": "حقول غاز طبيعي في بابوا غينيا الجديدة",
     "Natural gas in Papua New Guinea": "غاز طبيعي في بابوا غينيا الجديدة",
