@@ -31,6 +31,18 @@ data_0 = {
 }
 
 data_1 = {
+    "January 2021 in Antigua and Barbuda": "يناير 2021 في أنتيغوا وباربودا",
+    "November 2018 in Antigua and Barbuda": "نوفمبر 2018 في أنتيغوا وباربودا",
+    "October 2023 in Antigua and Barbuda": "أكتوبر 2023 في أنتيغوا وباربودا",
+    "March 2018 in Antigua and Barbuda": "مارس 2018 في أنتيغوا وباربودا",
+    "March 2021 in Antigua and Barbuda": "مارس 2021 في أنتيغوا وباربودا",
+    "March 2023 in Antigua and Barbuda": "مارس 2023 في أنتيغوا وباربودا",
+    "Antigua and Barbuda cricket people": "أعلام الكريكت الأنتيغوية والبربودية",
+    "Antigua and Barbuda fiction": "خيال أنتيغوي وبربودي",
+    "Antigua and Barbuda Football Association competitions": "منافسات الرابطة الأنتيغوية والبربودية لكرة القدم",
+    "Dominican Republic expatriate sportspeople in Antigua and Barbuda": "رياضيون دومينيكانيون مغتربون في أنتيغوا وباربودا",
+    "High commissioners to Antigua and Barbuda": "مندوبون ساميون لدى أنتيغوا وباربودا",
+    "Olympic sailors for Antigua and Barbuda": "بحارة في الألعاب الأولمبية في أنتيغوا وباربودا",
     "21st-century Antigua and Barbuda politicians": "سياسيون أنتيغويون وبربوديون في القرن 21",
     "21st-century Antigua and Barbuda people": "أنتيغويون وبربوديون في القرن 21",
     "New Zealand emigrants to Antigua and Barbuda": "نيوزيلنديون مهاجرون إلى أنتيغوا وباربودا",
