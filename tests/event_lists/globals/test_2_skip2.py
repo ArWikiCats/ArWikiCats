@@ -552,6 +552,53 @@ data_0 = {
     "Singapore history and events templates": "تاريخ سنغافوري وقوالب أحداث",
 }
 
+
+data0_no_label = {
+    "Defunct Christian organizations based in United States": "منظمات مسيحية سابقة مقرها في الولايات المتحدة",
+    "Defunct Christian schools in Canada": "مدارس مسيحية سابقة في كندا",
+    "Defunct Christian schools in United States": "مدارس مسيحية سابقة في الولايات المتحدة",
+    "Defunct Islamic organizations based in United States": "منظمات إسلامية سابقة مقرها في الولايات المتحدة",
+    "Defunct Jewish organizations based in United States": "منظمات يهودية سابقة مقرها في الولايات المتحدة",
+    "defunct amusement parks": "متنزهات ملاهي سابقة",
+    "defunct art museums and galleries": "متاحف فنية ومعارض سابقة",
+    "defunct asian restaurants": "مطاعم آسيوية سابقة",
+    "defunct clubs and societies": "أندية وجمعيات سابقة",
+    "defunct comedy clubs": "أندية كوميدية سابقة",
+    "defunct communist parties": "أحزاب شيوعية سابقة",
+    "defunct cycling races": "سباقات سباق دراجات هوائية سابقة",
+    "defunct elementary schools": "مدارس إبتدائية سابقة",
+    "defunct european restaurants": "مطاعم أوروبية سابقة",
+    "defunct far-right political parties": "أحزاب اليمين المتطرف سابقة",
+    "defunct feminist organizations": "منظمات نسوية سابقة",
+    "defunct french restaurants": "مطاعم فرنسية سابقة",
+    "defunct high schools": "مدارس ثانوية سابقة",
+    "defunct italian restaurants": "مطاعم إيطالية سابقة",
+    "defunct japanese restaurants": "مطاعم يابانية سابقة",
+    "defunct liberal parties": "أحزاب ليبرالية سابقة",
+    "defunct lower houses": "المجالس الدنيا سابقة",
+    "defunct mexican restaurants": "مطاعم مكسيكية سابقة",
+    "defunct middle schools": "مدارس إعدادية سابقة",
+    "defunct multi-national basketball leagues": "دوريات كرة سلة متعددة الجنسيات سابقة",
+    "defunct private schools": "مدارس خاصة سابقة",
+    "defunct professional sports leagues": "دوريات رياضية للمحترفين سابقة",
+    "defunct public high schools": "مدارس ثانوية عامة سابقة",
+    "defunct radio networks": "شبكات مذياع سابقة",
+    "defunct radio stations": "محطات إذاعية سابقة",
+    "defunct railway stations": "محطات السكك الحديدية سابقة",
+    "defunct right-wing parties": "أحزاب يمينية سابقة",
+    "defunct socialist parties": "أحزاب اشتراكية سابقة",
+    "defunct sports governing bodies": "هيئات تنظيم رياضية سابقة",
+    "defunct television channels": "قنوات تلفزيونية سابقة",
+    "defunct television networks": "شبكات تلفزيونية سابقة",
+    "defunct tourist attractions": "مواقع جذب سياحي سابقة",
+    "defunct trade unions": "نقابات عمالية سابقة",
+    "defunct women's basketball competitions": "منافسات كرة سلة نسائية سابقة",
+    "defunct women's basketball leagues": "دوريات كرة سلة نسائية سابقة",
+    "defunct women's football clubs": "أندية كرة قدم نسائية سابقة",
+    "defunct women's soccer leagues": "دوريات كرة قدم نسائية سابقة"
+}
+
+
 to_test = [
     ("test_2_skip2_0", data0),
     ("test_2_skip2_2", data1),

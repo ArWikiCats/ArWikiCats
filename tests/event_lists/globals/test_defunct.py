@@ -24,57 +24,12 @@ data_1 = {
     "defunct tennis tournaments": "بطولات كرة مضرب سابقة"
 }
 
-data0_no_label = {
-    "Defunct Christian organizations based in United States": "منظمات مسيحية سابقة مقرها في الولايات المتحدة",
-    "Defunct Christian schools in Canada": "مدارس مسيحية سابقة في كندا",
-    "Defunct Christian schools in United States": "مدارس مسيحية سابقة في الولايات المتحدة",
-    "Defunct Islamic organizations based in United States": "منظمات إسلامية سابقة مقرها في الولايات المتحدة",
-    "Defunct Jewish organizations based in United States": "منظمات يهودية سابقة مقرها في الولايات المتحدة",
-    "defunct amusement parks": "متنزهات ملاهي سابقة",
-    "defunct art museums and galleries": "متاحف فنية ومعارض سابقة",
-    "defunct asian restaurants": "مطاعم آسيوية سابقة",
-    "defunct clubs and societies": "أندية وجمعيات سابقة",
-    "defunct comedy clubs": "أندية كوميدية سابقة",
-    "defunct communist parties": "أحزاب شيوعية سابقة",
-    "defunct cycling races": "سباقات سباق دراجات هوائية سابقة",
-    "defunct elementary schools": "مدارس إبتدائية سابقة",
-    "defunct european restaurants": "مطاعم أوروبية سابقة",
-    "defunct far-right political parties": "أحزاب اليمين المتطرف سابقة",
-    "defunct feminist organizations": "منظمات نسوية سابقة",
-    "defunct french restaurants": "مطاعم فرنسية سابقة",
-    "defunct high schools": "مدارس ثانوية سابقة",
-    "defunct italian restaurants": "مطاعم إيطالية سابقة",
-    "defunct japanese restaurants": "مطاعم يابانية سابقة",
-    "defunct liberal parties": "أحزاب ليبرالية سابقة",
-    "defunct lower houses": "المجالس الدنيا سابقة",
-    "defunct mexican restaurants": "مطاعم مكسيكية سابقة",
-    "defunct middle schools": "مدارس إعدادية سابقة",
-    "defunct multi-national basketball leagues": "دوريات كرة سلة متعددة الجنسيات سابقة",
-    "defunct private schools": "مدارس خاصة سابقة",
-    "defunct professional sports leagues": "دوريات رياضية للمحترفين سابقة",
-    "defunct public high schools": "مدارس ثانوية عامة سابقة",
-    "defunct radio networks": "شبكات مذياع سابقة",
-    "defunct radio stations": "محطات إذاعية سابقة",
-    "defunct railway stations": "محطات السكك الحديدية سابقة",
-    "defunct right-wing parties": "أحزاب يمينية سابقة",
-    "defunct socialist parties": "أحزاب اشتراكية سابقة",
-    "defunct sports governing bodies": "هيئات تنظيم رياضية سابقة",
-    "defunct television channels": "قنوات تلفزيونية سابقة",
-    "defunct television networks": "شبكات تلفزيونية سابقة",
-    "defunct tourist attractions": "مواقع جذب سياحي سابقة",
-    "defunct trade unions": "نقابات عمالية سابقة",
-    "defunct women's basketball competitions": "منافسات كرة سلة نسائية سابقة",
-    "defunct women's basketball leagues": "دوريات كرة سلة نسائية سابقة",
-    "defunct women's football clubs": "أندية كرة قدم نسائية سابقة",
-    "defunct women's soccer leagues": "دوريات كرة قدم نسائية سابقة"
-}
 
-
-@pytest.mark.parametrize("category, expected", data0_no_label.items(), ids=data0_no_label.keys())
-@pytest.mark.skip2
-def test_2_skip2_2(category: str, expected: str) -> None:
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
+@pytest.mark.fast
+def test_2_fast_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
 
-test_dump_all = make_dump_test_name_data([("data0_no_label", data0_no_label)], resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data([("data_1", data_1)], resolve_label_ar, run_same=True)
