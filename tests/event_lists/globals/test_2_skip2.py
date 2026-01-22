@@ -6,6 +6,7 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data0_no_label = {
+    "Deaths by dehydration": "وفيات بسبب جفاف",
     "1st-millennium architecture": "عمارة الألفية 1",
     "10th-century BC architecture": "عمارة القرن 10 ق م",
     "1st-century architecture": "عمارة القرن 1",
