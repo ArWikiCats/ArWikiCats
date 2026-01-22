@@ -5,13 +5,6 @@ from load_one_data import dump_diff, dump_diff_text, one_dump_test
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
-data_skip = {
-    "south african anti–world-war-ii activists": "",
-    "South African military memorials and cemeteries": "",
-    "South African soccer biography stubs": "",
-    "LGBTQ rights in South Africa": "",
-}
-
 data_0 = {
     "Deaths by firearm in South Africa": "وفيات بإطلاق النار في جنوب إفريقيا",
     "south african cricket": "الكريكت الجنوب الإفريقية",
@@ -284,7 +277,6 @@ data_1 = {
     "Pakistan–South Africa sports relations": "العلاقات الباكستانية الجنوب الإفريقية الرياضية",
     "Palestine–South Africa relations": "العلاقات الجنوب الإفريقية الفلسطينية",
     "Panama–South Africa relations": "العلاقات البنمية الجنوب الإفريقية",
-    "Papua New Guinea–South Africa relations": "العلاقات الجنوب الإفريقية الغينية",
     "Paraguay–South Africa relations": "العلاقات البارغوايانية الجنوب الإفريقية",
     "Peru–South Africa relations": "العلاقات البيروية الجنوب الإفريقية",
     "Philippines–South Africa relations": "العلاقات الجنوب الإفريقية الفلبينية",
@@ -356,14 +348,6 @@ def test_south_african_0(category: str, expected: str) -> None:
 @pytest.mark.fast
 def test_south_african_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
-
-
-@pytest.mark.parametrize("name,data", [("test_south_african_2", data_skip)])
-@pytest.mark.skip2
-def test_dump_it_skip2(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

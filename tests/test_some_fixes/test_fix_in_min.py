@@ -38,7 +38,7 @@ def test_fix_in_min_1(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_fix_in_min_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected

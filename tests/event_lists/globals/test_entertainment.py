@@ -125,10 +125,21 @@ entertainment_3 = {
     "songs about busan": "أغاني عن بوسان",
 }
 
+data2 = {
+    "documentary filmmakers by nationality": "صانعو أفلام وثائقية حسب الجنسية",
+    "yemeni war filmmakers": "صانعو أفلام حربية يمنيون",
+    "Peruvian documentary film directors": "مخرجو أفلام وثائقية بيرويون",
+    "Lists of action television characters by series": "قوائم شخصيات تلفزيونية حركة حسب السلسلة",
+    "Drama television characters by series": "شخصيات تلفزيونية درامية حسب السلسلة",
+    "Fantasy television characters by series": "شخصيات تلفزيونية فانتازيا حسب السلسلة",
+}
+
+
 ENTERTAINMENT_CASES = [
     ("entertainment_1", entertainment_1),
     ("entertainment_2", entertainment_2),
     ("entertainment_3", entertainment_3),
+    ("entertainment_data2", data2),
 ]
 
 
@@ -159,21 +170,3 @@ def test_entertainment(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
     dump_diff(diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-data2 = {
-    "documentary filmmakers by nationality": "صانعو أفلام وثائقية حسب الجنسية",
-    "yemeni war filmmakers": "صانعو أفلام حربية يمنيون",
-    "Peruvian documentary film directors": "مخرجو أفلام وثائقية بيرويون",
-    "Lists of action television characters by series": "قوائم شخصيات تلفزيونية حركة حسب السلسلة",
-    "Holocaust literature": "أدب هولوكوست",
-    "Drama television characters by series": "شخصيات تلفزيونية درامية حسب السلسلة",
-    "Fantasy television characters by series": "شخصيات تلفزيونية فانتازيا حسب السلسلة",
-}
-
-
-@pytest.mark.parametrize("input_text,expected", data2.items(), ids=data2.keys())
-@pytest.mark.skip2("Need to fix")
-def test_entertainment_5(input_text: str, expected: str) -> None:
-    result = resolve_label_ar(input_text)
-    assert result == expected

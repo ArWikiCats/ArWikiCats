@@ -19,19 +19,6 @@ TEMPORAL_CASES = [
     ("temporal_1", examples),
 ]
 
-
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.skip2
-def test_temporal_add_in(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
-
-
-@pytest.mark.parametrize(
-    "category, expected",
-    examples.items(),
-    ids=[k for k in examples],
-)
+@pytest.mark.parametrize("category, expected", examples.items(), ids=examples.keys())
 def test_add_in(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected

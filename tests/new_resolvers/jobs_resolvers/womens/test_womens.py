@@ -49,21 +49,19 @@ def test_nat_pattern_multi(category: str, expected: str) -> None:
     assert result == expected
 
 
-@pytest.mark.skip2
 def test_must_be_empty() -> None:
     result = womens_resolver_labels("Yemeni singers")
     assert result == ""
 
 
-@pytest.mark.skip2
 def test_must_not_be_empty() -> None:
     result = womens_resolver_labels("Yemeni actresses")
     assert result == "ممثلات يمنيات"
 
 
 test_religions_data_2 = {
-    "Category:Pakistani expatriate female actors": "تصنيف:ممثلات باكستانيات مغتربات",
-    "Category:expatriate female actors": "تصنيف:ممثلات مغتربات",
+    "Pakistani expatriate female actors": "ممثلات باكستانيات مغتربات",
+    "expatriate female actors": "ممثلات مغتربات",
     "women's guitarists": "عازفات قيثارة",
     "women educators": "معلمات",
     "women medical doctors": "طبيبات",
@@ -73,7 +71,6 @@ test_religions_data_2 = {
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data_2.items(), ids=test_religions_data_2.keys())
-@pytest.mark.skip2
 def test_religions_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
     result = womens_resolver_labels(category)

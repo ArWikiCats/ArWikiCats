@@ -4,8 +4,6 @@ from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 
-data_0 = {}
-
 data_1 = {
     "1960s in Papua New Guinean sport": "x",
     "1962 in Papua New Guinean sport": "x",
@@ -411,16 +409,8 @@ data_1 = {
     "Works by Papua New Guinean people": "x",
 }
 to_test = [
-    ("test_papua_new_guinean_0", data_0),
     ("test_papua_new_guinean_1", data_1),
 ]
-
-
-@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
-@pytest.mark.skip2
-def test_papua_new_guinean_1(category: str, expected: str) -> None:
-    label = resolve_label_ar(category)
-    assert label == expected
 
 
 @pytest.mark.parametrize("name,data", to_test)

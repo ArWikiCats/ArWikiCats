@@ -272,15 +272,6 @@ class TestCreateLabel:
         expected = "منتخبات اليمن لكرة القدم"
         assert result == expected
 
-    @pytest.mark.skip2
-    def test_create_label_ladies_tour(self, multi_bot: MultiDataFormatterBase) -> None:
-        """Test creating label for ladies tour pattern."""
-        category = "ladies british softball tour"
-        result = multi_bot.create_label(category)
-
-        expected = "بطولة المملكة المتحدة للكرة اللينة للسيدات"
-        assert result == expected
-
     def test_create_label_caching(self, multi_bot: MultiDataFormatterBase) -> None:
         """Test that create_label uses LRU cache."""
         category = "yemeni football teams"
@@ -310,7 +301,6 @@ class TestEdgeCases:
         result = multi_bot.create_label("football")
         assert result == ""
 
-    @pytest.mark.skip2
     def test_case_insensitive_matching(self, multi_bot: MultiDataFormatterBase) -> None:
         """Test that matching is case-insensitive."""
         result1 = multi_bot.create_label("Yemeni Football Teams")
@@ -325,50 +315,6 @@ class TestEdgeCases:
         """Test handling of extra spaces in category."""
         result = multi_bot.create_label("yemeni  football  teams")
         # Should still work despite extra spaces
-        assert result == "فرق كرة القدم اليمن"
-
-
-class TestWithTextAfterAndBefore:
-    """Tests for format_multi_data with text_after and text_before parameters."""
-
-    @pytest.mark.skip2
-    def test_with_text_after(self) -> None:
-        """Test format_multi_data with text_after parameter."""
-        bot = format_multi_data(
-            formatted_data={"{nat_en} sports {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
-            data_list={"yemeni": "اليمن"},
-            key_placeholder="{nat_en}",
-            value_placeholder="{nat_ar}",
-            data_list2={"football": "كرة القدم"},
-            key2_placeholder="{en_sport}",
-            value2_placeholder="{sport_ar}",
-            text_before="",
-            text_after=" sports",
-        )
-
-        category = "yemenian football teams"
-        result = bot.create_label(category)
-
-        assert result == "فرق كرة القدم اليمن"
-
-    @pytest.mark.skip2
-    def test_with_text_before(self) -> None:
-        """Test format_multi_data with text_before parameter."""
-        bot = format_multi_data(
-            formatted_data={"{nat_en} the {en_sport} teams": "فرق {sport_ar} {nat_ar}"},
-            data_list={"yemeni": "اليمن"},
-            key_placeholder="{nat_en}",
-            value_placeholder="{nat_ar}",
-            data_list2={"football": "كرة القدم"},
-            key2_placeholder="{en_sport}",
-            value2_placeholder="{sport_ar}",
-            text_before="the ",
-            text_after="",
-        )
-
-        category = "the yemeni football teams"
-        result = bot.create_label(category)
-
         assert result == "فرق كرة القدم اليمن"
 
 

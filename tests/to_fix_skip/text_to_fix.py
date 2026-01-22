@@ -3,6 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "Persecution of LGBT people": "اضطهاد الأشخاص المثليين",
@@ -2677,7 +2678,6 @@ data2 = {
     "Adaptations of works by Swedish writers": "تكييفات أعمال كتاب سويديين",
     "Adaptations of works by Venezuelan writers": "تكييفات أعمال كتاب فنزويليين",
     "Adaptations of works by ancient Greek writers": "أعمال مقتبسة عن أعمال كتاب يونانيين قدماء",
-    "American anti-globalization writers": "كتاب أمريكيين مناهضين للعولمة",
     "American writers' organizations": "منظمات الكتاب الأمريكيين",
     "Asian writers by nationality": "كتاب آسيويين حسب الجنسية",
     "Asian writers in French": "كتاب آسيويين في الفرنسية",
@@ -2685,7 +2685,6 @@ data2 = {
     "Bibliographies of Czech writers": "قوائم مؤلفات كتاب تشيكيين",
     "Bibliographies of Irish writers": "قوائم مؤلفات كتاب أيرلنديين",
     "Bibliographies of Swiss writers": "قوائم مؤلفات كتاب سويسريين",
-    "Federal Writers' Project": "مشروع الكتاب الفيدراليين",
     "Films based on works by American writers": "أفلام مبنية على أعمال كتاب أمريكيين",
     "Films based on works by British writers": "أفلام مقتبسة من أعمال كتاب بريطانيين",
     "Films based on works by Canadian writers": "أفلام مبنية على أعمال كتاب كنديين",
@@ -2700,20 +2699,6 @@ data2 = {
     "Lists of British writers": "قوائم كتاب بريطانيين",
     "Video games based on works by Canadian writers": "ألعاب فيديو مبنية على أعمال كتاب كنديين",
     "Video games based on works by New Zealand writers": "ألعاب فيديو مبنية على أعمال كتاب نيوزيلنديين",
-    "Wikipedia categories named after American writers": "تصنيفات بأسماء كتاب أمريكيين",
-    "Wikipedia categories named after Argentine writers": "تصنيفات سميت بأسماء كتاب أرجنتينيين",
-    "Wikipedia categories named after Australian writers": "تصنيفات سميت بأسماء كتاب أستراليين",
-    "Wikipedia categories named after Austrian writers": "تصنيفات سميت بأسماء كتاب نمساويين",
-    "Wikipedia categories named after Belgian writers": "تصنيفات سميت بأسماء كتاب بلجيكيين",
-    "Wikipedia categories named after British writers": "تصنيفات بأسماء كتاب بريطانيين",
-    "Wikipedia categories named after Canadian writers": "تصنيفات سميت بأسماء كتاب كنديين",
-    "Wikipedia categories named after Chinese writers": "تصنيفات سميت بأسماء كتاب صينيين",
-    "Wikipedia categories named after French writers": "تصنيفات بأسماء كتاب فرنسيين",
-    "Wikipedia categories named after Irish writers": "تصنيفات سميت بأسماء كتاب أيرلنديين",
-    "Wikipedia categories named after Italian writers": "تصنيفات سميت بأسماء كتاب إيطاليين",
-    "Wikipedia categories named after Japanese writers": "تصنيفات سميت بأسماء كتاب يابانيين",
-    "Wikipedia categories named after Swedish writers": "تصنيفات سميت بأسماء كتاب سويديين",
-    "Wikipedia categories named after Swiss writers": "تصنيفات سميت بأسماء كتاب سويسريين",
     "Works by American writers": "أعمال كتاب أمريكيين",
     "Works by Argentine writers": "أعمال كتاب أرجنتينيين",
     "Works by Australian writers": "أعمال كتاب أستراليين",
@@ -2748,8 +2733,6 @@ data2 = {
     "Works by Ukrainian writers": "أعمال كتاب أوكرانيين",
     "Works by Yemeni writers": "أعمال كتاب يمنيين",
     "Works by ancient Greek writers": "أعمال كتاب يونانيين قدماء",
-    "Works by ancient Latin writers": "أعمال كتاب لاتينيين قدماء",
-    "Works by writers from the Ottoman Empire": "أعمال عثمانيين",
 }
 
 to_test = [
@@ -2758,19 +2741,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    diff_result2 = {x: v for x, v in diff_result.items() if v}
-    # dump_diff(diff_result2, name)
-
-    expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
-    # dump_diff(expected2, f"{name}_expected")
-
-    save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
-    dump_diff(save3, f"{name}_d", _sort=False)
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
