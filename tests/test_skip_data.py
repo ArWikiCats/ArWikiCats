@@ -5,6 +5,10 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 fast_data_1 = {
+    "People executed in British North America by hanging": "أشخاص أعدموا في أمريكا الشمالية البريطانية بالشنق",
+    "People executed in the Holy Roman Empire by burning": "أشخاص أعدموا في الإمبراطورية الرومانية المقدسة بالحرق",
+    "People executed in the Holy Roman Empire by decapitation": "أشخاص أعدموا في الإمبراطورية الرومانية المقدسة بقطع الرأس",
+
     "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
     "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
     "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
