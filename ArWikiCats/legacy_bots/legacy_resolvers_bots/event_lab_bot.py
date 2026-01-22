@@ -21,8 +21,10 @@ from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
 
-def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
-    return general_resolver.translate_general_category(category, *args, **kwargs)
+def translate_general_category_wrap(category: str, start_get_country2=False) -> str:
+    arlabel = general_resolver.translate_general_category(category, start_get_country2=start_get_country2)
+
+    return arlabel
 
 
 @functools.lru_cache(maxsize=10000)
@@ -105,7 +107,7 @@ class EventLabResolver:
                 or get_lab_for_country2(original_cat3)
                 or get_KAKO(original_cat3)
                 or get_pop_All_18(original_cat3)
-                or translate_general_category_wrap(original_cat3, start_get_country2=False, fix_title=False)
+                or translate_general_category_wrap(original_cat3, start_get_country2=False)
             )
             if category_lab:
                 list_of_cat = ""
@@ -127,7 +129,7 @@ class EventLabResolver:
         # Try different label functions in sequence
         category_lab: str = (
             ""
-            or translate_general_category_wrap(category3, fix_title=False)
+            or translate_general_category_wrap(category3)
             or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
             or get_KAKO(category3)
@@ -244,7 +246,7 @@ class EventLabResolver:
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = translate_general_category_wrap(original_cat3, fix_title=False)
+            category_lab = translate_general_category_wrap(original_cat3)
 
         return category_lab
 

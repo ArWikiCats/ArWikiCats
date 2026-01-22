@@ -27,8 +27,9 @@ from . import general_resolver
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
 
 
-def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
-    return general_resolver.translate_general_category(category, *args, **kwargs)
+def translate_general_category_wrap(category, start_get_country2=False) -> str:
+    arlabel = general_resolver.translate_general_category(category, start_get_country2=start_get_country2)
+    return arlabel
 
 
 @functools.lru_cache(maxsize=None)
@@ -51,7 +52,7 @@ def Get_country2(country: str) -> str:
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or translate_general_category_wrap(normalized_country, start_get_country2=False, fix_title=False)
+        or translate_general_category_wrap(normalized_country, start_get_country2=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
@@ -81,7 +82,7 @@ def _resolve_remainder(remainder: str) -> str:
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)
-        or translate_general_category_wrap(remainder, fix_title=False)
+        or translate_general_category_wrap(remainder)
         or ""
     )
     return label
