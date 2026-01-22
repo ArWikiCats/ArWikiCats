@@ -6,6 +6,8 @@ nationalities, and descriptors for women into idiomatic Arabic.
 
 import functools
 
+from .mens import mens_resolver_labels
+
 from ...helps import len_print, logger
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
@@ -301,6 +303,10 @@ def _womens_jobs_resolver(category: str) -> str:
 def womens_resolver_labels(category: str) -> str:
     # logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
+
+    if mens_resolver_labels(category):
+        logger.info(f"<<yellow>> skip womens_resolver_labels mens found: {category=}, [result=]")
+        return ""
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip womens_resolver_labels: {category=}, [result=]")

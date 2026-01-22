@@ -16,6 +16,102 @@ data_0 = {
     "central american national rugby union teams": "منتخبات اتحاد رجبي وطنية أمريكية أوسطية",
 }
 
+data_womens = {
+    "european national womens volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "european national womens volleyball teams players": "لاعبات منتخبات كرة طائرة وطنية أوروبية للسيدات",
+    "african women's football": "كرة قدم إفريقية نسائية",
+    "algerian women's football": "كرة قدم جزائرية نسائية",
+    "american women's basketball": "كرة سلة أمريكية نسائية",
+    "american women's ice hockey": "هوكي جليد أمريكية نسائية",
+    "american women's soccer": "كرة قدم أمريكية نسائية",
+    "asian women's football": "كرة قدم آسيوية نسائية",
+    "australian women's field hockey": "هوكي ميدان أسترالية نسائية",
+    "australian women's soccer": "كرة قدم أسترالية نسائية",
+    "belarusian women's football": "كرة قدم بيلاروسية نسائية",
+    "belgian women's football": "كرة قدم بلجيكية نسائية",
+    "brazilian women's football": "كرة قدم برازيلية نسائية",
+    "bulgarian women's football": "كرة قدم بلغارية نسائية",
+    "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
+    "canadian women's ice hockey": "هوكي جليد كندية نسائية",
+    "canadian women's soccer": "كرة قدم كندية نسائية",
+    "chinese women's football": "كرة قدم صينية نسائية",
+    "croatian women's football": "كرة قدم كرواتية نسائية",
+    "czech women's football": "كرة قدم تشيكية نسائية",
+    "danish women's football": "كرة قدم دنماركية نسائية",
+    "dutch women's football": "كرة قدم هولندية نسائية",
+    "english women's football": "كرة قدم إنجليزية نسائية",
+    "estonian women's football": "كرة قدم إستونية نسائية",
+    "european women's basketball": "كرة سلة أوروبية نسائية",
+    "european women's football": "كرة قدم أوروبية نسائية",
+    "finnish women's football": "كرة قدم فنلندية نسائية",
+    "french women's football": "كرة قدم فرنسية نسائية",
+    "german women's football": "كرة قدم ألمانية نسائية",
+    "indian women's cricket": "كريكت هندية نسائية",
+    "indian women's football": "كرة قدم هندية نسائية",
+    "israeli women's football": "كرة قدم إسرائيلية نسائية",
+    "italian women's football": "كرة قدم إيطالية نسائية",
+    "japanese women's football": "كرة قدم يابانية نسائية",
+    "jordanian women's football": "كرة قدم أردنية نسائية",
+    "north american women's football": "كرة قدم أمريكية شمالية نسائية",
+    "norwegian women's football": "كرة قدم نرويجية نسائية",
+    "oceanian women's football": "كرة قدم أوقيانوسية نسائية",
+    "portuguese women's football": "كرة قدم برتغالية نسائية",
+    "romanian women's football": "كرة قدم رومانية نسائية",
+    "samoan women's football": "كرة قدم ساموية نسائية",
+    "scottish women's football": "كرة قدم إسكتلندية نسائية",
+    "spanish women's football": "كرة قدم إسبانية نسائية",
+    "swedish women's football": "كرة قدم سويدية نسائية",
+    "swiss women's football": "كرة قدم سويسرية نسائية",
+    "turkish women's football": "كرة قدم تركية نسائية",
+    "west german women's football": "كرة قدم ألمانية غربية نسائية",
+}
+
+data_2 = {
+    "russian football teams": "فرق كرة قدم روسية",
+    "american football teams": "فرق كرة قدم أمريكية",
+    "american football competitions": "منافسات كرة قدم أمريكية",
+    "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
+    "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",
+    "south american football leagues": "دوريات كرة قدم أمريكية جنوبية",
+}
+
+
+@pytest.mark.parametrize("key,expected", data_0.items(), ids=data_0.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_0(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_womens.items(), ids=data_womens.keys())
+@pytest.mark.fast
+def test_sport_lab_nat_load_3(key: str, expected: str) -> None:
+    result2 = sport_lab_nat_load_new(key)
+    assert result2 == expected
+
+
+@pytest.mark.parametrize("key,expected", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_compare(key: str, expected: str) -> None:
+    """
+    Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
+    """
+
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result2 == expected
+
+
+@pytest.mark.fast
+def test_the_compare() -> None:
+    key = "the yemeni people under-13 baseball teams"
+    expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
+
+    result2 = sport_lab_nat_load_new(key)
+
+    assert result2 == expected, f"Error: {result2=}, {expected=}"
+
+
 data_1 = {
     "central american under-13 football": "كرة قدم أمريكية أوسطية تحت 13 سنة",
     "central american football": "كرة قدم أمريكية أوسطية",
@@ -270,72 +366,6 @@ data_1 = {
     "zimbabwean cricket": "كريكت زيمبابوية",
 }
 
-data_womens = {
-    "european national womens volleyball teams": "منتخبات كرة طائرة وطنية أوروبية للسيدات",
-    "european national womens volleyball teams players": "لاعبات منتخبات كرة طائرة وطنية أوروبية للسيدات",
-    "african women's football": "كرة قدم إفريقية نسائية",
-    "algerian women's football": "كرة قدم جزائرية نسائية",
-    "american women's basketball": "كرة سلة أمريكية نسائية",
-    "american women's ice hockey": "هوكي جليد أمريكية نسائية",
-    "american women's soccer": "كرة قدم أمريكية نسائية",
-    "asian women's football": "كرة قدم آسيوية نسائية",
-    "australian women's field hockey": "هوكي ميدان أسترالية نسائية",
-    "australian women's soccer": "كرة قدم أسترالية نسائية",
-    "belarusian women's football": "كرة قدم بيلاروسية نسائية",
-    "belgian women's football": "كرة قدم بلجيكية نسائية",
-    "brazilian women's football": "كرة قدم برازيلية نسائية",
-    "bulgarian women's football": "كرة قدم بلغارية نسائية",
-    "Canadian women's ice hockey": "هوكي جليد كندية نسائية",
-    "canadian women's ice hockey": "هوكي جليد كندية نسائية",
-    "canadian women's soccer": "كرة قدم كندية نسائية",
-    "chinese women's football": "كرة قدم صينية نسائية",
-    "croatian women's football": "كرة قدم كرواتية نسائية",
-    "czech women's football": "كرة قدم تشيكية نسائية",
-    "danish women's football": "كرة قدم دنماركية نسائية",
-    "dutch women's football": "كرة قدم هولندية نسائية",
-    "english women's football": "كرة قدم إنجليزية نسائية",
-    "estonian women's football": "كرة قدم إستونية نسائية",
-    "european women's basketball": "كرة سلة أوروبية نسائية",
-    "european women's football": "كرة قدم أوروبية نسائية",
-    "finnish women's football": "كرة قدم فنلندية نسائية",
-    "french women's football": "كرة قدم فرنسية نسائية",
-    "german women's football": "كرة قدم ألمانية نسائية",
-    "indian women's cricket": "كريكت هندية نسائية",
-    "indian women's football": "كرة قدم هندية نسائية",
-    "israeli women's football": "كرة قدم إسرائيلية نسائية",
-    "italian women's football": "كرة قدم إيطالية نسائية",
-    "japanese women's football": "كرة قدم يابانية نسائية",
-    "jordanian women's football": "كرة قدم أردنية نسائية",
-    "north american women's football": "كرة قدم أمريكية شمالية نسائية",
-    "norwegian women's football": "كرة قدم نرويجية نسائية",
-    "oceanian women's football": "كرة قدم أوقيانوسية نسائية",
-    "portuguese women's football": "كرة قدم برتغالية نسائية",
-    "romanian women's football": "كرة قدم رومانية نسائية",
-    "samoan women's football": "كرة قدم ساموية نسائية",
-    "scottish women's football": "كرة قدم إسكتلندية نسائية",
-    "spanish women's football": "كرة قدم إسبانية نسائية",
-    "swedish women's football": "كرة قدم سويدية نسائية",
-    "swiss women's football": "كرة قدم سويسرية نسائية",
-    "turkish women's football": "كرة قدم تركية نسائية",
-    "west german women's football": "كرة قدم ألمانية غربية نسائية",
-}
-
-data_2 = {
-    "russian football teams": "فرق كرة قدم روسية",
-    "american football teams": "فرق كرة قدم أمريكية",
-    "american football competitions": "منافسات كرة قدم أمريكية",
-    "north american football leagues": "دوريات كرة قدم أمريكية شمالية",
-    "central american football leagues": "دوريات كرة قدم أمريكية أوسطية",
-    "south american football leagues": "دوريات كرة قدم أمريكية جنوبية",
-}
-
-
-@pytest.mark.parametrize("key,expected", data_0.items(), ids=data_0.keys())
-@pytest.mark.fast
-def test_sport_lab_nat_load_0(key: str, expected: str) -> None:
-    result2 = sport_lab_nat_load_new(key)
-    assert result2 == expected
-
 
 @pytest.mark.parametrize("key,expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.skip2
@@ -344,42 +374,12 @@ def test_sport_lab_nat_load_1(key: str, expected: str) -> None:
     assert result2 == expected
 
 
-@pytest.mark.parametrize("key,expected", data_womens.items(), ids=data_womens.keys())
-@pytest.mark.fast
-def test_sport_lab_nat_load_3(key: str, expected: str) -> None:
-    result2 = sport_lab_nat_load_new(key)
-    assert result2 == expected
-
-
-@pytest.mark.parametrize("key,expected", data_2.items(), ids=data_2.keys())
-@pytest.mark.fast
-def test_compare(key: str, expected: str) -> None:
-    """
-    Important because keys like: (canadian football, american football) are in both Nationality and SPORTS_KEYS
-    """
-    # pytest tests/translations/sports_formats_teams/test_sport_lab_nat_compare.py -m skip2
-
-    result2 = sport_lab_nat_load_new(key)
-
-    assert result2 == expected
-
-
-@pytest.mark.fast
-def test_the_compare() -> None:
-    key = "the yemeni people under-13 baseball teams"
-    expected = "فرق كرة قاعدة يمنية تحت 13 سنة"
-
-    result2 = sport_lab_nat_load_new(key)
-
-    assert result2 == expected, f"Error: {result2=}, {expected=}"
-
-
 to_test = [
     ("test_sport_lab_nat_load_0", data_0),
-    # ("test_sport_lab_nat_load_1", data_1),
+    ("test_sport_lab_nat_load_1", data_1),
     ("test_sport_lab_nat_load_2", data_2),
     ("test_sport_lab_nat_load_3", data_womens),
 ]
 
 
-test_dump_all = make_dump_test_name_data(to_test, sport_lab_nat_load_new, run_same=False)
+test_dump_all = make_dump_test_name_data(to_test, sport_lab_nat_load_new, run_same=False, just_dump=True)
