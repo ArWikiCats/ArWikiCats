@@ -5,10 +5,13 @@ Country Label Bot Module
 
 import functools
 import re
+
+from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
+from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
