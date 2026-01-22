@@ -12,7 +12,7 @@ from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ...translations import Ambassadors_tab, get_from_new_p17_final
 from .. import tmp_bot
-from ..circular_dependency import country_bot, general_resolver
+from ..circular_dependency import country_bot, general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
@@ -22,8 +22,11 @@ from .bot_2018 import get_pop_All_18
 
 
 def translate_general_category_wrap(category: str, start_get_country2=False) -> str:
-    arlabel = general_resolver.translate_general_category(category, start_get_country2=start_get_country2)
-
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category, start_get_country2=start_get_country2)
+    )
     return arlabel
 
 

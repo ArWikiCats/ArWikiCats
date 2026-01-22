@@ -5,7 +5,6 @@ Country Label Bot Module
 
 import functools
 import re
-
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
@@ -23,12 +22,16 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..make_bots import get_KAKO
-from . import general_resolver
+from . import general_resolver, sub_general_resolver
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
 
 
 def translate_general_category_wrap(category, start_get_country2=False) -> str:
-    arlabel = general_resolver.translate_general_category(category, start_get_country2=start_get_country2)
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category, start_get_country2=start_get_country2)
+    )
     return arlabel
 
 

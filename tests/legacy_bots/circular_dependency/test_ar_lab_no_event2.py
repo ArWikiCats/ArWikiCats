@@ -8,12 +8,17 @@ from ArWikiCats.fix import fixtitle
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
-from ArWikiCats.legacy_bots.circular_dependency.general_resolver import translate_general_category
+from ArWikiCats.legacy_bots.circular_dependency.sub_general_resolver import sub_translate_general_category
+from ArWikiCats.legacy_bots.circular_dependency.general_resolver import work_separator_names
 
 
 def translate_general_category_wrap(category: str) -> str:
-    arlabel = translate_general_category(category)
 
+    arlabel = (
+        ""
+        or sub_translate_general_category(category)
+        or work_separator_names(category)
+    )
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
 

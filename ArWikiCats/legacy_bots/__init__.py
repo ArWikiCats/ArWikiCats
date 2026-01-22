@@ -9,8 +9,9 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
+
 from ..fix import fixtitle
-from .circular_dependency import country_bot, general_resolver
+from .circular_dependency import country_bot, general_resolver, sub_general_resolver
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order
@@ -38,8 +39,11 @@ from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 
 def translate_general_category_wrap(category: str) -> str:
-    arlabel = general_resolver.translate_general_category(category)
-
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category)
+    )
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
 

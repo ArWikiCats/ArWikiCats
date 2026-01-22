@@ -13,7 +13,7 @@ from typing import Pattern
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
-from ..circular_dependency import general_resolver
+from ..circular_dependency import general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
@@ -41,8 +41,11 @@ _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 
 def translate_general_category_wrap(category: str) -> str:
-    arlabel = general_resolver.translate_general_category(category, fix_title=False)
-
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category)
+    )
     return arlabel
 
 
