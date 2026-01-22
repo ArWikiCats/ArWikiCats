@@ -4,11 +4,9 @@ import pytest
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
-data0 = {
+data_0 = {
     "construction and architecture": "بناء وهندسة معمارية",
     "novels and short stories": "روايات وقصص قصيرة",
-    "Women's universities and colleges in India": "جامعات نسائية وكليات في الهند",
-    "women's universities and colleges": "جامعات نسائية وكليات",
     "qatar and united nations": "قطر والأمم المتحدة",
     "villages and municipalities": "قرى وبلديات",
     "Films about Olympic swimming and diving": "أفلام عن سباحة أولمبية والغطس",
@@ -21,8 +19,6 @@ data0 = {
     "Russia and Soviet Union political leader navigational boxes": "روسيا وصناديق تصفح قادة سياسيون سوفيت",
     "Papua New Guinea and the United Nations": "بابوا غينيا الجديدة والأمم المتحدة",
     "Christian theology and politics": "اللاهوت المسيحي وسياسة",
-    "Christian universities and colleges templates": "جامعات مسيحية وقوالب كليات",
-    "Hindu philosophers and theologians": "فلاسفة هندوس ولاهوتيون",
     "Jewish Persian and Iranian history": "فرس يهود وتاريخ إيراني",
     "Jewish Russian and Soviet history": "روس يهود وتاريخ سوفيتي",
     "Jewish universities and colleges by country": "جامعات يهودية وكليات حسب البلد",
@@ -51,9 +47,11 @@ data0 = {
     "Singapore history and events templates": "تاريخ سنغافوري وقوالب أحداث",
 }
 
-data_1 = {}
-
-data_2 = {
+data_1 = {
+    "Women's universities and colleges in India": "جامعات وكليات نسائية في الهند",
+    "women's universities and colleges": "جامعات وكليات نسائية",
+    "Christian universities and colleges templates": "قوالب جامعات وكليات مسيحية",
+    "Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس",
     "17th-century_establishments_in_Närke_and_Värmland_County": "تأسيسات القرن 17 في مقاطعة ناركه وفارملاند",
     "17th_century_in_Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند في القرن 17",
     "Centuries_in_Närke_and_Värmland_County": "قرون في مقاطعة ناركه وفارملاند",
@@ -61,28 +59,25 @@ data_2 = {
     "Närke_and_Värmland_County": "مقاطعة ناركه وفارملاند",
 }
 
-data_3 = {}
 
-
-@pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
+@pytest.mark.parametrize("category, expected", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
 
-to_test = [
-    # ("test_1", data_1),
-    # ("test_2", data_2),
-    ("test_3", data_3),
-]
-
-
-@pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
+@pytest.mark.parametrize("category, expected", data_0.items(), ids=data_0.keys())
 @pytest.mark.skip2
 def test_0(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
+
+
+to_test = [
+    ("test_0", data_0),
+    ("test_1", data_1),
+]
 
 
 test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)
