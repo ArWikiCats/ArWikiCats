@@ -1378,14 +1378,6 @@ test_rele_many_data = {
     "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية",
 }
 
-
-to_test = [
-    ("test_2_skip2_0", data0),
-    ("test_2_skip2_2", data1),
-    ("test_2_skip2_3", data3),
-]
-
-
 by_and_data_true_result = {
     "architecture and technology": "الهندسة المعمارية والتقانة",
     "art and design": "الفن والتصميم",
@@ -1396,6 +1388,16 @@ by_and_data_true_result = {
     "science and engineering": "العلم والهندسة",
     "theatre and film": "المسرح والأفلام",
 }
+
+data_10_skip = {
+    "Non-fiction writers about the French Connection": "كتاب غير روائيين عن الرابط الفرنسي",
+}
+
+to_test = [
+    ("test_2_skip2_0", data0),
+    ("test_2_skip2_2", data1),
+    ("test_2_skip2_3", data3),
+]
 
 
 @pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())

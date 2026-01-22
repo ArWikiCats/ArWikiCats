@@ -3,6 +3,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "Persecution of LGBT people": "اضطهاد الأشخاص المثليين",
@@ -2758,19 +2759,4 @@ to_test = [
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    diff_result2 = {x: v for x, v in diff_result.items() if v}
-    # dump_diff(diff_result2, name)
-
-    expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
-    # dump_diff(expected2, f"{name}_expected")
-
-    save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
-    dump_diff(save3, f"{name}_d", _sort=False)
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

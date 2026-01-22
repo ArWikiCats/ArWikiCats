@@ -3,9 +3,22 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_1 = {
-    "Non-fiction books about Indigenous peoples of the Americas": "كتب غير خيالية عن شعوب الأمريكتين الأصليين",
+    "Non-fiction books about Indigenous peoples of the Americas": "كتب غير خيالية عن شعوب أصلية في الأمريكتين",
+    "19th-century non-fiction writers by nationality": "كتاب غير روائيين في القرن 19 حسب الجنسية",
+    "19th-century non-fiction writers from the Russian Empire": "كتاب غير روائيين من الإمبراطورية الروسية في القرن 19",
+    "20th-century non-fiction writers by nationality": "كتاب غير روائيين في القرن 20 حسب الجنسية",
+    "21st-century non-fiction writers by nationality": "كتاب غير روائيين في القرن 21 حسب الجنسية",
+    "African-American non-fiction writers": "كتاب غير روائيين أمريكيون أفارقة",
+    "Cameroonian non-fiction writers": "كتاب غير روائيين كاميرونيون",
+    "Canadian non-fiction writers in French": "كتاب غير روائيين كنديون في فرنسيون",
+    "Non-fiction writers about organized crime in Italy": "كتاب غير روائيين عن جريمة منظمة في إيطاليا",
+    "Non-fiction writers about organized crime in the United States": "كتاب غير روائيين عن جريمة منظمة في الولايات المتحدة",
+    "Paraguayan non-fiction writers": "كتاب غير روائيين بارغوايانيون",
+    "Togolese non-fiction writers": "كتاب غير روائيين توغويون",
+
     "Zimbabwean non-fiction writers": "كتاب غير روائيين زيمبابويون",
     "10th-century non-fiction writers": "كتاب غير روائيين في القرن 10",
     "11th-century Indian non-fiction writers": "كتاب غير روائيين هنود في القرن 11",
@@ -43,8 +56,6 @@ data_1 = {
     "19th-century Indian non-fiction writers": "كتاب غير روائيين هنود في القرن 19",
     "19th-century Irish non-fiction writers": "كتاب غير روائيين أيرلنديون في القرن 19",
     "19th-century non-fiction writers": "كتاب غير روائيين في القرن 19",
-    "19th-century non-fiction writers by nationality": "كتاب غير روائيين حسب الجنسية في القرن 19",
-    "19th-century non-fiction writers from the Russian Empire": "كتاب غير روائيين روس في القرن 19",
     "20th-century American non-fiction writers": "كتاب غير روائيين أمريكيون في القرن 20",
     "20th-century Australian non-fiction writers": "كتاب غير روائيين أستراليون في القرن 20",
     "20th-century Belgian non-fiction writers": "كتاب غير روائيين بلجيكيون في القرن 20",
@@ -68,7 +79,6 @@ data_1 = {
     "20th-century Swedish non-fiction writers": "كتاب غير روائيين سويديون في القرن 20",
     "20th-century Swiss non-fiction writers": "كتاب غير روائيين سويسريون في القرن 20",
     "20th-century non-fiction writers": "كتاب غير روائيين في القرن 20",
-    "20th-century non-fiction writers by nationality": "كتاب غير روائيين حسب الجنسية في القرن 20",
     "21st-century American non-fiction writers": "كتاب غير روائيين أمريكيون في القرن 21",
     "21st-century Australian non-fiction writers": "كتاب غير روائيين أستراليون في القرن 21",
     "21st-century Belgian non-fiction writers": "كتاب غير روائيين بلجيكيون في القرن 21",
@@ -92,7 +102,6 @@ data_1 = {
     "21st-century Spanish non-fiction writers": "كتاب غير روائيين إسبان في القرن 21",
     "21st-century Swiss non-fiction writers": "كتاب غير روائيين سويسريون في القرن 21",
     "21st-century non-fiction writers": "كتاب غير روائيين في القرن 21",
-    "21st-century non-fiction writers by nationality": "كتاب غير روائيين حسب الجنسية في القرن 21",
     "21st-century non-fiction writers from Northern Ireland": "كتاب غير روائيين من أيرلندا الشمالية في القرن 21",
     "2nd-century Indian non-fiction writers": "كتاب غير روائيين هنود في القرن 2",
     "2nd-century non-fiction writers": "كتاب غير روائيين في القرن 2",
@@ -110,7 +119,6 @@ data_1 = {
     "8th-century non-fiction writers": "كتاب غير روائيين في القرن 8",
     "9th-century Indian non-fiction writers": "كتاب غير روائيين هنود في القرن 9",
     "9th-century non-fiction writers": "كتاب غير روائيين في القرن 9",
-    "African-American non-fiction writers": "كتاب غير روائيين أفارقة أمريكيون",
     "Albanian non-fiction writers": "كتاب غير روائيين ألبان",
     "American male non-fiction writers": "كتاب غير روائيين ذكور أمريكيون",
     "American non-fiction crime writers": "كتاب جريمة غير روائيين أمريكيون",
@@ -144,11 +152,9 @@ data_1 = {
     "Burkinabe non-fiction writers": "كتاب غير روائيين بوركينابيون",
     "Burkinabé non-fiction writers": "كتاب غير روائيين بوركينابيون",
     "Burmese non-fiction writers": "كتاب غير روائيين بورميون",
-    "Cameroonian non-fiction writers": "كتاب كاميرونيون غير روائيين",
     "Canadian male non-fiction writers": "كتاب غير روائيين ذكور كنديون",
     "Canadian non-fiction writers": "كتاب غير روائيين كنديون",
     "Canadian non-fiction writers by century": "كتاب غير روائيين كنديون حسب القرن",
-    "Canadian non-fiction writers in French": "كتاب غير روائيين كنديون في الفرنسية",
     "Central African Republic non-fiction writers": "كتاب غير روائيين أفارقة أوسطيون",
     "Chadian non-fiction writers": "كتاب غير روائيين تشاديون",
     "Chilean non-fiction writers": "كتاب غير روائيين تشيليون",
@@ -236,9 +242,6 @@ data_1 = {
     "Non-fiction crime writers": "كتاب جريمة غير روائيين",
     "Non-fiction environmental writers": "كتاب بيئة غير روائيين",
     "Non-fiction writers": "كتاب غير روائيين",
-    "Non-fiction writers about organized crime in Italy": "كتاب غير روائيين عن الجريمة المنظمة في إيطاليا",
-    "Non-fiction writers about organized crime in the United States": "كتاب غير روائيين عن الجريمة المنظمة في الولايات المتحدة",
-    "Non-fiction writers about the French Connection": "كتاب غير روائيين عن الرابط الفرنسي",
     "Non-fiction writers by century": "كتاب غير روائيين حسب القرن",
     "Non-fiction writers by century and nationality": "كتاب غير روائيين حسب القرن والجنسية",
     "Non-fiction writers by nationality": "كتاب غير روائيين حسب الجنسية",
@@ -253,7 +256,6 @@ data_1 = {
     "Pakistani non-fiction writers": "كتاب غير روائيين باكستانيون",
     "Pakistani non-fiction writers by century": "كتاب غير روائيين باكستانيون حسب القرن",
     "Palestinian non-fiction writers": "كتاب غير روائيين فلسطينيون",
-    "Paraguayan non-fiction writers": "كتاب غير روائيين باراغوايانيون",
     "Peruvian non-fiction writers": "كتاب غير روائيين بيرويون",
     "Polish male non-fiction writers": "كتاب غير روائيين ذكور بولنديون",
     "Polish non-fiction writers": "كتاب غير روائيين بولنديون",
@@ -292,7 +294,6 @@ data_1 = {
     "Tajikistani non-fiction writers": "كتاب غير روائيين طاجيك",
     "Tanzanian non-fiction writers": "كتاب غير روائيين تنزانيون",
     "Thai non-fiction writers": "كتاب غير روائيين تايلنديون",
-    "Togolese non-fiction writers": "كتاب توغويون غير روائيين",
     "Trinidad and Tobago non-fiction writers": "كتاب غير روائيين ترنيداديون",
     "Tunisian non-fiction writers": "كتاب غير روائيين تونسيون",
     "Turkish Cypriot non-fiction writers": "كتاب غير روائيين قبرصيون شماليون",
@@ -306,24 +307,10 @@ data_1 = {
     "Yugoslav non-fiction writers": "كتاب غير روائيين يوغسلافيون",
     "Zambian non-fiction writers": "كتاب غير روائيين زامبيون",
 }
+
 to_test = [
     ("text_non_fiction", data_1),
 ]
 
 
-@pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-
-    diff_result2 = {x: v for x, v in diff_result.items() if v}
-    # dump_diff(diff_result2, name)
-
-    expected2 = {x: v for x, v in expected.items() if v and x in diff_result2}
-    # dump_diff(expected2, f"{name}_expected")
-
-    save3 = [f"* [[:{v}]]>[[:{diff_result2[x]}]]" for x, v in expected.items() if v and x in diff_result2]
-    dump_diff(save3, f"{name}_d", _sort=False)
-
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
