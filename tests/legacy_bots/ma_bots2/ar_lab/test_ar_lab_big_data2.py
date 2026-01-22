@@ -525,9 +525,45 @@ data_2 = {
     "years of 20th century in australia": "سنوات القرن 20 في أستراليا"
 }
 
+data_3 = {
+    "1550 mass shootings in oceania": "إطلاق نار عشوائي في أوقيانوسيا في 1550",
+    "argentine people of american descent": "أرجنتينيون من أصل أمريكي",
+    "1550s in rugby union": "اتحاد الرجبي في عقد 1550",
+    "1550 in sarawak": "ساراواك في 1550",
+    "1550 in-sports-in alberta": "الرياضة في ألبرتا في 1550",
+    "1550 in-sports-in arizona": "الرياضة في أريزونا في 1550",
+    "1550 in-sports-in british columbia": "الرياضة في كولومبيا البريطانية في 1550",
+    "1550 in-sports-in mississippi": "الرياضة في مسيسيبي في 1550",
+    "1550 in-sports-in nebraska": "الرياضة في نبراسكا في 1550",
+    "1550 in-sports-in new york (state)": "الرياضة في ولاية نيويورك في 1550",
+    "1550 in-sports-in ohio": "الرياضة في أوهايو في 1550",
+    "ambassadors to guinea-bissau": "سفراء لدى غينيا بيساو",
+    "ambassadors to south sudan": "سفراء لدى جنوب السودان",
+    "armenian people of ukrainian descent": "أرمن من أصل أوكراني",
+    "bahraini people of ethiopian descent": "بحرينيون من أصل إثيوبي",
+    "black metal albums by french artists": "ألبومات بلاك ميتال بواسطة فنانون فرنسيون",
+    "cabinets of british columbia navigational boxes": "صناديق تصفح مجالس وزراء في كولومبيا البريطانية",
+    "dutch people of hungarian descent": "هولنديون من أصل مجري",
+    "ecuadorian television series-endings by decade": "مسلسلات تلفزيونية إكوادورية حسب عقد انتهاء العرض",
+    "emirati people of tunisian descent": "إماراتيون من أصل تونسي",
+    "ethiopian people of armenian descent": "إثيوبيون من أصل أرميني",
+    "fiction set in 1550": "أعمال خيالية في 1550",
+    "films by japanese directors": "أفلام مخرجون يابانيون",
+    "ghanaian people of nigerien descent": "غانيون من أصل نيجري",
+    "hard rock albums by south korean artists": "ألبومات هارد روك بواسطة فنانون كوريون جنوبيون",
+    "lists of ambassadors to south sudan": "قوائم سفراء لدى جنوب السودان",
+    "lists of organizations by dependent territory": "قوائم منظمات حسب الأقاليم التابعة",
+    "nigerian people of hungarian descent": "نيجيريون من أصل مجري",
+    "sudanese people of hungarian descent": "سودانيون من أصل مجري",
+    "turkish people of georgian descent": "أتراك من أصل جورجي",
+    "welsh people of singaporean descent": "ويلزيون من أصل سنغافوري",
+    "works by austrian filmmakers": "أعمال صانعو أفلام نمساويون",
+}
+
 to_test = [
     ("test_data_list_in_1", data_1, lambda cat: find_ar_label(cat, " in ", use_event2=False)),
     ("test_data_list_in_2", data_2, resolve_label_ar),
+    ("test_data_list_in_3", data_3, resolve_label_ar),
 ]
 
 
@@ -541,6 +577,13 @@ def test_data_list_in_1(category: str, output: str) -> None:
 @pytest.mark.parametrize("category, output", data_2.items(), ids=data_2.keys())
 @pytest.mark.fast
 def test_data_list_in_2(category: str, output: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == output
+
+
+@pytest.mark.parametrize("category, output", data_3.items(), ids=data_3.keys())
+@pytest.mark.fast
+def test_data_list_in_3(category: str, output: str) -> None:
     label = resolve_label_ar(category)
     assert label == output
 

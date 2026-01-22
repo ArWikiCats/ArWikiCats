@@ -3,18 +3,14 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test, dump_same_and_not_same
-
+from utils.dump_runner import make_dump_test_name_data_callback
+from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 
 simple_list = [
-    ("1550 mass shootings in oceania", " in ", "إطلاق نار عشوائي 1550 في أوقيانوسيا"),
     ("mass shootings in oceania", " in ", "إطلاق نار عشوائي في أوقيانوسيا"),
     ("1550 elections in sweden", " in ", "انتخابات 1550 في السويد"),
-    ("argentine people of american descent", " of ", "أرجنتينيون في أصل أمريكي"),
     ("bermudian people of world-war-ii", " of ", "برموديون في الحرب العالمية الثانية"),
-    ("1550s in rugby union", " in ", "عقد 1550 في اتحاد الرجبي"),
-    ("1550 in sarawak", " in ", "1550 في ساراواك"),
     ("montserratian expatriates in england", " in ", "مونتسراتيون مغتربون في إنجلترا"),
 ]
 
@@ -33,13 +29,6 @@ data_list = [
     ("1550 in sports by country", " by ", "ألعاب رياضية في 1550 حسب البلد"),
     ("1550 in thailand by month", " by ", "تايلاند في 1550 حسب الشهر"),
     ("1550 in women's sport by country", " by ", "رياضة نسائية في 1550 حسب البلد"),
-    ("1550 in-sports-in alberta", " in-sports-in ", "1550 في الرياضة في ألبرتا"),
-    ("1550 in-sports-in arizona", " in-sports-in ", "1550 في الرياضة في أريزونا"),
-    ("1550 in-sports-in british columbia", " in-sports-in ", "1550 في الرياضة في كولومبيا البريطانية"),
-    ("1550 in-sports-in mississippi", " in-sports-in ", "1550 في الرياضة في مسيسيبي"),
-    ("1550 in-sports-in nebraska", " in-sports-in ", "1550 في الرياضة في نبراسكا"),
-    ("1550 in-sports-in new york (state)", " in-sports-in ", "1550 في الرياضة في ولاية نيويورك"),
-    ("1550 in-sports-in ohio", " in-sports-in ", "1550 في الرياضة في أوهايو"),
     ("1550s in asia by city", " by ", "آسيا في عقد 1550 حسب المدينة"),
     ("20th century in iraq by city", " by ", "العراق في القرن 20 حسب المدينة"),
     ("academics from tuscany", " from ", "أكاديميون من توسكانا"),
@@ -70,14 +59,10 @@ data_list = [
     ("ambassadors of japan", " of ", "سفراء اليابان"),
     ("ambassadors of palau to japan", " to ", "سفراء بالاو لدى اليابان"),
     ("ambassadors of palau", " of ", "سفراء بالاو"),
-    ("ambassadors to guinea-bissau", " to ", "سفراء إلى غينيا بيساو"),
-    ("ambassadors to south sudan", " to ", "سفراء إلى جنوب السودان"),
     ("amusement park attractions introduced in 1550", " introduced in ", "متنزهات ملاهي جاذبة عرضت في 1550"),
     ("animated films about mammals", " about ", "أفلام رسوم متحركة عن ثدييات"),
     ("antigua and barbuda by month", " by ", "أنتيغوا وباربودا حسب الشهر"),
     ("april 1550 by country", " by ", "أبريل 1550 حسب البلد"),
-    ("argentine people of american descent", " of ", "أرجنتينيون في أصل أمريكي"),
-    ("armenian people of ukrainian descent", " of ", "أرمن في أصل أوكراني"),
     ("artists from novi sad", " from ", "فنانون من نوفي ساد"),
     ("artists from zurich", " from ", "فنانون من زيورخ"),
     ("asia by city", " by ", "آسيا حسب المدينة"),
@@ -86,19 +71,16 @@ data_list = [
     ("austrian artists by century", " by ", "فنانون نمساويون حسب القرن"),
     ("azerbaijani emigrants to united kingdom", " to ", "أذربيجانيون مهاجرون إلى المملكة المتحدة"),
     ("bahraini emigrants to united states", " to ", "بحرينيون مهاجرون إلى الولايات المتحدة"),
-    ("bahraini people of ethiopian descent", " of ", "بحرينيون في أصل إثيوبي"),
     ("banks based in tennessee", " based in ", "بنوك مقرها في تينيسي"),
     ("baseball players in florida by team", " by ", "لاعبو كرة قاعدة في فلوريدا حسب الفريق"),
     ("baseball players in south korea by team", " by ", "لاعبو كرة قاعدة في كوريا الجنوبية حسب الفريق"),
     ("bermudian people of world-war-ii", " of ", "برموديون في الحرب العالمية الثانية"),
     ("biologists from xinjiang", " from ", "علماء أحياء من سنجان"),
     ("biota of libya", " of ", "حيويات ليبيا"),
-    ("black metal albums by french artists", " by ", "ألبومات بلاك ميتال حسب بواسطة فنانون فرنسيون"),
     ("blues musicians from tennessee", " from ", "موسيقيو بلوز من تينيسي"),
     ("bolivian artists by century", " by ", "فنانون بوليفيون حسب القرن"),
     ("bridges in france by material", " by ", "جسور في فرنسا حسب المادة"),
     ("cabinets of british columbia ", " of ", "مجالس وزراء في كولومبيا البريطانية"),
-    ("cabinets of british columbia navigational boxes", " of ", "مجالس وزراء في صناديق تصفح كولومبيا البريطانية"),
     ("cantons of marseille", " of ", "كانتونات مارسيليا"),
     ("chemical companies established in 1550", " established in ", "شركات كيميائية أسست في 1550"),
     ("christians from ohio", " from ", "مسيحيون من أوهايو"),
@@ -130,25 +112,19 @@ data_list = [
     ("dog breeds originating in japan", " originating in ", "سلالات كلاب نشأت في اليابان"),
     ("donkey breeds originating in portugal", " originating in ", "سلالات حمير نشأت في البرتغال"),
     ("dutch companies established in 1550", " established in ", "شركات هولندية أسست في 1550"),
-    ("dutch people of hungarian descent", " of ", "هولنديون في أصل مجري"),
     ("echinoderms described in 20th century", " described in ", "شوكيات الجلد وصفت في القرن 20"),
     ("economy of burundi", " of ", "اقتصاد بوروندي"),
     ("economy of kwazulu-natal", " of ", "اقتصاد كوازولو ناتال"),
     ("economy of renfrewshire", " of ", "اقتصاد رينفروشاير"),
     ("ecuador by decade", " by ", "الإكوادور حسب العقد"),
-    ("ecuadorian television series-endings by decade", " by ", "مسلسلات تلفزيونية إكوادورية انتهت في حسب العقد"),
     ("educators from meghalaya", " from ", "معلمون من ميغالايا"),
-    ("emirati people of tunisian descent", " of ", "إماراتيون في أصل تونسي"),
     ("energy companies established in 1550", " established in ", "شركات طاقة أسست في 1550"),
     ("environment of essex", " of ", "بيئة إسكس"),
     ("establishments in guernsey by decade", " by ", "تأسيسات في غيرنزي حسب العقد"),
-    ("ethiopian people of armenian descent", " of ", "إثيوبيون في أصل أرميني"),
     ("european football by country", " by ", "كرة القدم الأوروبية حسب البلد"),
     ("fauna of vermont", " of ", "حيوانات فيرمونت"),
-    ("fiction set in 1550", " set in ", "الخيال تقع أحداثها في 1550"),
     ("films about royal air force", " about ", "أفلام عن القوات الجوية الملكية"),
     ("films basedon works", " basedon ", "أفلام مبنية على أعمال"),
-    ("films by japanese directors", " by ", "أفلام حسب بواسطة مخرجون يابانيون"),
     ("films set in 1550s", " set in ", "أفلام تقع أحداثها في عقد 1550"),
     ("films set in copenhagen", " set in ", "أفلام تقع أحداثها في كوبنهاغن"),
     ("films shot in islamabad", " shot in ", "أفلام مصورة في إسلام آباد"),
@@ -167,7 +143,6 @@ data_list = [
     ("french companies disestablished in 1550", " disestablished in ", "شركات فرنسية انحلت في 1550"),
     ("geography of kansas by populated place", " by ", "جغرافيا كانساس حسب المكان المأهول"),
     ("geography of kansas", " of ", "جغرافيا كانساس"),
-    ("ghanaian people of nigerien descent", " of ", "غانيون في أصل نيجري"),
     ("government ministers of northern cyprus", " of ", "وزراء قبرص الشمالية"),
     ("government of chicago", " of ", "حكومة شيكاغو"),
     ("government of la rioja", " of ", "حكومة منطقة لا ريوخا"),
@@ -177,7 +152,6 @@ data_list = [
     ("greenlandic emigrants to canada", " to ", "جرينلانديون مهاجرون إلى كندا"),
     ("guatemalan people by religion", " by ", "غواتيماليون حسب الدين"),
     ("guernsey by decade", " by ", "غيرنزي حسب العقد"),
-    ("hard rock albums by south korean artists", " by ", "ألبومات هارد روك حسب بواسطة فنانون كوريون جنوبيون"),
     ("heads of universities and colleges", " of ", "قادة جامعات وكليات"),
     (
         "high schools in india by state or union territory",
@@ -208,7 +182,6 @@ data_list = [
     ("laws regarding rape", " regarding ", "قوانين عن الاغتصاب"),
     ("lawyers from new orleans", " from ", "محامون من نيو أورلينز"),
     ("liberian sport by decade", " by ", "رياضة ليبيرية حسب العقد"),
-    ("lists of ambassadors to south sudan", " to ", "قوائم سفراء إلى جنوب السودان"),
     ("lists of ambassadors", " of ", "قوائم سفراء"),
     ("lists of buildings and structures", " of ", "قوائم مبان ومنشآت"),
     ("lists of faroese politicians", " of ", "قوائم سياسيون فارويون"),
@@ -216,7 +189,6 @@ data_list = [
     ("lists of fishes of europe", " of ", "قوائم أسماك أوروبا"),
     ("lists of legislators", " of ", "قوائم مشرعون"),
     ("lists of mayors of places", " of ", "قوائم رؤساء بلديات"),
-    ("lists of organizations by dependent territory", " by ", "منظمات قوائم حسب الأقاليم التابعة"),
     ("lists of roads", " of ", "قوائم طرقات"),
     ("literary characters introduced in 1550", " introduced in ", "شخصيات أدبية عرضت في 1550"),
     ("local politicians in united kingdom by party", " by ", "سياسيون محليون في المملكة المتحدة حسب الحزب"),
@@ -260,7 +232,6 @@ data_list = [
     ("musicals set in barcelona", " set in ", "مسرحيات غنائية تقع أحداثها في برشلونة"),
     ("mystery films by language", " by ", "أفلام غموض حسب اللغة"),
     ("newspaper people by newspaper in california", " by ", "شخصيات صحف حسب الصحيفة في كاليفورنيا"),
-    ("nigerian people of hungarian descent", " of ", "نيجيريون في أصل مجري"),
     ("norwegian drummers by century", " by ", "طبالون نرويجيون حسب القرن"),
     ("novels by continent of setting", " by ", "روايات حسب قارة الأحداث"),
     ("october 1550 by country", " by ", "أكتوبر 1550 حسب البلد"),
@@ -414,7 +385,6 @@ data_list = [
     ("sportswomen from new south wales", " from ", "رياضيات من نيوساوث ويلز"),
     ("states and territories disestablished in 1550", " disestablished in ", "دول وأقاليم انحلت في 1550"),
     ("states and territories established in 1550", " established in ", "دول وأقاليم أسست في 1550"),
-    ("sudanese people of hungarian descent", " of ", "سودانيون في أصل مجري"),
     ("suicides by-firearm-in nevada", " by-firearm-in ", "منتحرون بإطلاق النار في نيفادا"),
     ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
     ("swedish emigrants to jordan", " to ", "سويديون مهاجرون إلى الأردن"),
@@ -430,7 +400,6 @@ data_list = [
     ("trade unionists from missouri", " from ", "نقابيون من ميزوري"),
     ("transport organizations based in bahamas", " based in ", "منظمات نقل مقرها في باهاماس"),
     ("transport organizations based in norway", " based in ", "منظمات نقل مقرها في النرويج"),
-    ("turkish people of georgian descent", " of ", "أتراك في أصل جورجي"),
     (
         "united nations security council resolutions concerning angola",
         " concerning ",
@@ -449,12 +418,10 @@ data_list = [
     ("villages in north macedonia by municipality", " by ", "قرى في مقدونيا الشمالية حسب البلدية"),
     ("wars involving nepal", " involving ", "حروب تشمل نيبال"),
     ("water of novosibirsk oblast", " of ", "مياه في نوفوسيبيرسك أوبلاست"),
-    ("welsh people of singaporean descent", " of ", "ويلزيون في أصل سنغافوري"),
     ("wikipedia categories named after israeli musicians", " named after ", "تصنيفات سميت بأسماء موسيقيون إسرائيليون"),
     ("women politicians by century", " by ", "سياسيات حسب القرن"),
     ("women's sport by country", " by ", "رياضة نسائية حسب البلد"),
     ("works about alberta", " about ", "أعمال عن ألبرتا"),
-    ("works by austrian filmmakers", " by ", "أعمال حسب بواسطة صانعو أفلام نمساويون"),
     ("works set in guinea-bissau", " set in ", "أعمال تقع أحداثها في غينيا بيساو"),
     ("writers from abruzzo", " from ", "كتاب من أبروتسو"),
     ("writers from al-andalus", " from ", "كتاب من الأندلس"),
@@ -479,3 +446,11 @@ def test_simple(category: str, separator: str, output: str) -> None:
 def test_simple_2(category: str, separator: str, output: str) -> None:
     label = find_ar_label(category, separator, use_event2=False)
     assert label == output
+
+
+test_data = {
+    x[0]: x[2] for x in simple_list + data_list
+}
+
+
+test_dump_all = make_dump_test_name_data_callback([("test_data", test_data, resolve_label_ar)], run_same=True)
