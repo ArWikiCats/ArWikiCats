@@ -1,5 +1,4 @@
 """
-TODO: write tests
 """
 
 import pytest
