@@ -1353,6 +1353,32 @@ data_0 = {
     "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
 }
 
+
+test_rele_many_data = {
+    "africanamerican–asian-american relations": "العلاقات الأمريكية الآسيوية الأمريكية الإفريقية",
+    "africanamerican–jewish relations": "العلاقات الأمريكية الإفريقية اليهودية",
+    "african–native american relations": "العلاقات الأمريكية الأصلية الإفريقية",
+    "arab–american relations": "العلاقات الأمريكية العربية",
+    "canada–oceanian relations": "العلاقات الأوقيانوسية الكندية",
+    "democratic-republic-of-congo–republic-of ireland relations": "العلاقات الأيرلندية الكونغوية الديمقراطية",
+    "german–romania military relations": "العلاقات الألمانية الرومانية العسكرية",
+    "native american–jewish relations": "العلاقات الأمريكية الأصلية اليهودية",
+    "republic-of ireland–united kingdom border crossings": "معابر الحدود الأيرلندية البريطانية",
+    "republic-of ireland–united kingdom border": "الحدود الأيرلندية البريطانية",
+    "roman–iranian relations": "العلاقات الإيرانية الرومانية",
+    "united kingdom–asian relations": "العلاقات الآسيوية البريطانية",
+    "united kingdom–middle eastern relations": "العلاقات البريطانية الشرقية الأوسطية",
+    "united kingdom–oceanian relations": "العلاقات الأوقيانوسية البريطانية",
+    "united states–asian relations": "العلاقات الآسيوية الأمريكية",
+    "united states–central american relations": "العلاقات الأمريكية الأمريكية الأوسطية",
+    "united states–european relations": "العلاقات الأمريكية الأوروبية",
+    "united states–middle eastern relations": "العلاقات الأمريكية الشرقية الأوسطية",
+    "united states–north american relations": "العلاقات الأمريكية الأمريكية الشمالية",
+    "united states–oceanian relations": "العلاقات الأمريكية الأوقيانوسية",
+    "united states–south american relations": "العلاقات الأمريكية الأمريكية الجنوبية",
+}
+
+
 to_test = [
     ("test_2_skip2_0", data0),
     ("test_2_skip2_2", data1),
