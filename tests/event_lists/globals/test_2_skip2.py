@@ -1360,6 +1360,18 @@ to_test = [
 ]
 
 
+by_and_data_true_result = {
+    "architecture and technology": "الهندسة المعمارية والتقانة",
+    "art and design": "الفن والتصميم",
+    "arts and architecture": "الفنون والهندسة المعمارية",
+    "arts and design": "الفنون والتصميم",
+    "arts and sciences": "الفنون والعلوم",
+    "business and economics": "الأعمال والاقتصاد",
+    "science and engineering": "العلم والهندسة",
+    "theatre and film": "المسرح والأفلام",
+}
+
+
 @pytest.mark.parametrize("category, expected", data0.items(), ids=data0.keys())
 @pytest.mark.skip2
 def test_2_skip2_0(category: str, expected: str) -> None:
