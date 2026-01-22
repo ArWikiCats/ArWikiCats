@@ -9,7 +9,7 @@ general_resolver.py imports:
 
 ar_lab_bot.py imports:
     from . import country_bot
-    from ..legacy_resolvers_bots.con2_lab import ( get_con_lab, get_type_country, get_type_lab, )
+    from ..legacy_resolvers_bots.con2_lab import ( get_type_country, get_type_lab, )
 
 con2_lab.py imports:
     from ..circular_dependency import country_bot

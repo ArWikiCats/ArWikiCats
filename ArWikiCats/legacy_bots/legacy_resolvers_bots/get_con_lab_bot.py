@@ -49,24 +49,21 @@ def _lookup_country_with_in_prefix(country: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_con_lab(separator: str, country: str, start_get_country2: bool = False) -> str:
+def get_con_label(country: str) -> str:
     """Retrieve the corresponding label for a given country.
 
     Args:
-        separator: The separator/delimiter.
         country: The country part of the category.
-        start_get_country2: Whether to use the secondary country lookup.
 
     Returns:
         The Arabic label for the country.
     """
-    separator = separator.strip()
     country = country.strip().lower()
     country_no_dash = country.replace("-", " ")
 
     label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
     if label:
-        logger.info(f"?????? get_con_lab early return: {country=}, {label=}")
+        logger.info(f"?????? get_con_label early return: {country=}, {label=}")
         return label
 
     lookup_chain = {
@@ -86,21 +83,14 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     for name, lookup_func in lookup_chain.items():
         label = lookup_func(country)
         if label:
-            logger.debug(f"get_con_lab({country}): Found label '{label}' via {name}")
+            logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
             break
 
-    logger.info(f"?????? get_con_lab: {country=}, {label=}")
-    logger.info(f"?????? get_con_lab: {start_get_country2=}, {country=}, {separator=}")
+    logger.info(f"?????? get_con_label: {country=}, {label=}")
 
     return label
 
 
-def get_con_label(country: str) -> str:
-    """Alias for get_con_lab to maintain backward compatibility."""
-    return get_con_lab("", country)
-
-
 __all__ = [
     "get_con_label",
-    "get_con_lab",
 ]
