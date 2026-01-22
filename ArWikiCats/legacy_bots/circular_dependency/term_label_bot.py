@@ -3,88 +3,25 @@
 Country Label Bot Module
 """
 
-import functools
 import re
 
 from ...config import app_settings
-from ...fix import fixtitle
 from ...helps import logger
+from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
-from ...time_formats.time_to_arabic import convert_time_to_arabic
-from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
-    Nat_mens,
+from ...translations import (
     New_female_keys,
     People_key,
     jobs_mens_data,
     keys_of_without_in,
     religious_entries,
 )
-from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
-from ..make_bots import get_KAKO
-from ..utils import RE1_compile, RE2_compile, RE3_compile
-
-from . import general_resolver
-# from .country_bot import LabelsRetriever
+from .joint_class import CountryLabelAndTermParent
 
 
-@functools.lru_cache(maxsize=None)
-def Get_country2(country: str) -> str:
-    """
-    Resolve the Arabic label for a country name using layered resolution and normalization.
-
-    Parameters:
-        country (str): The country name to resolve.
-
-    Returns:
-        str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
-    """
-
-    normalized_country = country.lower().strip()
-    logger.info(f'>> Get_country2 "{normalized_country}":')
-
-    resolved_label = (
-        country_2_title_work(country, with_years=True)
-        or get_lab_for_country2(country)
-        or get_KAKO(country)
-        or get_pop_All_18(country)
-        or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
-        or get_pop_All_18(normalized_country.lower(), "")
-        or ""
-    )
-
-    if resolved_label:
-        resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
-    resolved_label = " ".join(resolved_label.strip().split())
-    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
-    return resolved_label
-
-
-@functools.lru_cache(maxsize=10000)
-def _resolve_remainder(remainder: str) -> str:
-    """Helper to resolve the label for the remainder of a string.
-
-    Args:
-        remainder: The remaining part of the string to process
-
-    Returns:
-        The resolved Arabic label or an empty string if not found
-    """
-    label = (
-        Get_country2(remainder)
-        or get_lab_for_country2(remainder)
-        or get_KAKO(remainder)
-        or get_pop_All_18(remainder)
-        or general_resolver.translate_general_category(remainder, fix_title=False)
-        or ""
-    )
-    return label
-
-
-class LabelsRetriever:
+class LabelsRetriever(CountryLabelAndTermParent):
     """A class to handle the retrieval of country labels and related terms.
 
     This class provides methods to look up and process country names,
@@ -94,11 +31,13 @@ class LabelsRetriever:
 
     def __init__(self) -> None:
         """
-        Initialize the CountryLabelRetriever.
+        Initialize the LabelsRetriever.
 
         No runtime initialization is performed; the constructor exists to allow instantiation.
         """
-        pass
+        super().__init__(_resolve_callable=None)
+        # from . import country_bot
+        # self.get_country_label = country_bot._retriever.get_country_label
 
     def _check_basic_lookups(self, country: str) -> str:
         """
@@ -124,68 +63,6 @@ class LabelsRetriever:
         )
         return label
 
-    def _check_prefixes(self, country: str) -> str:
-        """
-        Handle English gender prefixes ("women's ", "men's ") by resolving the remainder and appending the appropriate Arabic gender adjective.
-
-        Parameters:
-            country: Input string to check for a known English gender prefix.
-
-        Returns:
-            The Arabic label formed by resolving the remainder and appending the gender adjective when a known prefix is found, empty string otherwise.
-        """
-        prefix_labels = {
-            "women's ": "نسائية",
-            "men's ": "رجالية",
-        }
-
-        for prefix, prefix_label in prefix_labels.items():
-            if country.startswith(prefix):
-                logger.debug(f">>> country.startswith({prefix})")
-                remainder = country[len(prefix) :]
-                remainder_label = _resolve_remainder(remainder)
-
-                if remainder_label:
-                    new_label = f"{remainder_label} {prefix_label}"
-                    logger.info(f'>>>>>> xxx new cnt_la  "{new_label}" ')
-                    return new_label
-
-        return ""
-
-    def _check_regex_years(self, country: str) -> str:
-        """
-        Detect year-related patterns in the input string and return a corresponding year-based label.
-
-        Returns:
-            The label produced by with_years_bot.Try_With_Years when a year pattern is present, or an empty string if no pattern matches.
-        """
-        RE1 = RE1_compile.match(country)
-        RE2 = RE2_compile.match(country)
-        RE3 = RE3_compile.match(country)
-
-        if RE1 or RE2 or RE3:
-            return with_years_bot.Try_With_Years(country)
-        return ""
-
-    def _check_members(self, country: str) -> str:
-        """
-        Handle inputs that end with " members of" by returning a corresponding Arabic member label.
-
-        If the input string ends with " members of", the base term before that suffix is looked up in Nat_mens; when a mapping exists, returns the mapped Arabic label followed by " أعضاء في  ". Returns an empty string if the suffix is not present or no mapping is found.
-
-        Returns:
-            str: The constructed Arabic label when a mapping exists, otherwise an empty string.
-        """
-        if country.endswith(" members of"):
-            country2 = country.replace(" members of", "")
-            resolved_label = Nat_mens.get(country2, "")
-            if resolved_label:
-                resolved_label = f"{resolved_label} أعضاء في  "
-                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
-                return resolved_label
-        return ""
-
-    @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
         """
         Resolve an Arabic label for a country name using layered lookup strategies.
@@ -204,17 +81,15 @@ class LabelsRetriever:
 
         resolved_label = self._check_basic_lookups(country)
 
-        if resolved_label == "" and start_get_country2:
-            resolved_label = Get_country2(country)
+        # if resolved_label == "" and start_get_country2: resolved_label = Get_country2(country)
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country)
+                ""
                 or self._check_prefixes(country)
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
-                # or SPORTS_KEYS_FOR_LABEL.get(country, "")
                 or ""
             )
 
@@ -224,23 +99,6 @@ class LabelsRetriever:
 
         logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
-
-
-class CountryLabelRetriever(LabelsRetriever):
-    """A class to handle the retrieval of country labels and related terms.
-
-    This class provides methods to look up and process country names,
-    applying various transformations and resolution strategies to generate
-    appropriate Arabic labels.
-    """
-
-    def __init__(self) -> None:
-        """
-        Initialize the CountryLabelRetriever.
-
-        No runtime initialization is performed; the constructor exists to allow instantiation.
-        """
-        pass
 
     def get_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
@@ -352,10 +210,6 @@ class CountryLabelRetriever(LabelsRetriever):
         return term_label
 
 
-# Instantiate the retriever
-_retriever = CountryLabelRetriever()
-
-
 def fetch_country_term_label(
     term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
 ) -> str:
@@ -371,6 +225,10 @@ def fetch_country_term_label(
     Returns:
         str: The resolved Arabic label for the term, or an empty string if no label is found.
     """
+
+    # Instantiate the retriever
+    _retriever = LabelsRetriever()
+
     return _retriever.get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
 
