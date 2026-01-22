@@ -30,10 +30,11 @@ data_0 = {
 }
 
 fast_data_1 = {
-    "Soviet Jews in military": "تصنيف:يهود سوفيت في عسكرية",
-    "Russian Jews in military": "تصنيف:يهود روس في عسكرية",
+    "Soviet Jews in military": "يهود سوفيت في عسكرية",
+    "Russian Jews in military": "يهود روس في عسكرية",
 
 }
+
 to_test = [
     ("test_sports_events_1", fast_data_1),
 ]
