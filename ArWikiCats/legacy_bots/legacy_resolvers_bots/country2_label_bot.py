@@ -262,22 +262,15 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     Returns:
         Tuple[str, str]: (part_1_label, part_2_label) with resolved Arabic labels, or ("", "") if either could not be resolved.
     """
-    part_2_label = (
-        ""
-        or all_new_resolvers(part_2)
-        or c_2_1_lab(part_2)
-        or country_bot.fetch_country_term_label(part_2, "")
-        or (with_years_bot.Try_With_Years(part_2) if with_years else "")
-        or ""
-    )
+    part_2_label = resolve_part_2_label(part_2, with_years)
 
-    part_1_label = (
-        ""
-        or all_new_resolvers(part_1)
-        or c_1_1_lab(separator, part_1)
-        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
-        or ""
-    )
+    if part_2_label == "" and "-" in part_2:
+        part_2_label = resolve_part_2_label(part_2.replace("-", " "), with_years)
+
+    part_1_label = resolve_part_1_label(part_1, separator)
+
+    if part_1_label == "" and "-" in part_1:
+        part_1_label = resolve_part_1_label(part_1.replace("-", " "), separator)
 
     if part_2_label == "" or part_1_label == "":
         logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
@@ -295,6 +288,31 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         part_2_label = f"من {part_2_label}"
 
     return part_1_label, part_2_label
+
+
+def resolve_part_1_label(part_1, separator):
+    part_1_label = (
+        ""
+        or all_new_resolvers(part_1)
+        or c_1_1_lab(separator, part_1)
+        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
+        or ""
+    )
+
+    return part_1_label
+
+
+def resolve_part_2_label(part_2, with_years):
+    part_2_label = (
+        ""
+        or all_new_resolvers(part_2)
+        or c_2_1_lab(part_2)
+        or country_bot.fetch_country_term_label(part_2, "")
+        or (with_years_bot.Try_With_Years(part_2) if with_years else "")
+        or ""
+    )
+
+    return part_2_label
 
 
 def get_separator(country: str) -> str:

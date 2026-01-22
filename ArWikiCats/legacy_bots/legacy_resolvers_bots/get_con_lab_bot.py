@@ -81,7 +81,7 @@ def get_con_label(country: str) -> str:
     label = ""
 
     for name, lookup_func in lookup_chain.items():
-        label = lookup_func(country)
+        label = lookup_func(country) or lookup_func(country_no_dash)
         if label:
             logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
             break
