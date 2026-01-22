@@ -19,23 +19,23 @@ from . import bys
 from .bot_2018 import get_pop_All_18
 
 
-def _lookup_country_with_by(country_lower: str) -> str:
+def _lookup_country_with_by(country: str) -> str:
     """Handle country labels with 'by' prefix or infix."""
-    if country_lower.startswith("by "):
-        return bys.make_by_label(country_lower)
+    if country.startswith("by "):
+        return bys.make_by_label(country)
 
-    if " by " in country_lower:
-        return bys.get_by_label(country_lower)
+    if " by " in country:
+        return bys.get_by_label(country)
 
     return ""
 
 
-def _lookup_country_with_in_prefix(country_lower: str) -> str:
+def _lookup_country_with_in_prefix(country: str) -> str:
     """Handle country labels with 'in ' prefix."""
-    if not country_lower.strip().startswith("in "):
+    if not country.strip().startswith("in "):
         return ""
 
-    inner_country = country_lower.strip()[len("in ") :].strip()
+    inner_country = country.strip()[len("in ") :].strip()
     country_label = (
         ""
         or country_bot.get_country(inner_country)
@@ -62,17 +62,12 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         The Arabic label for the country.
     """
     separator = separator.strip()
-    country_lower = country.strip().lower()
-    country_no_dash = country_lower.replace("-", " ")
+    country = country.strip().lower()
+    country_no_dash = country.replace("-", " ")
 
-    for_table = {
-        "for national teams": "للمنتخبات الوطنية",
-        "for member-of-parliament": "لعضوية البرلمان",
-    }
-
-    label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country_lower, "")
+    label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
     if label:
-        logger.info(f"?????? get_con_lab early return: {country_lower=}, {label=}")
+        logger.info(f"?????? get_con_lab early return: {country=}, {label=}")
         return label
 
     lookup_chain = {
@@ -80,12 +75,9 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
         "pf_keys2": lambda c: get_from_pf_keys2(c),
         "_lookup_country_with_by": _lookup_country_with_by,
-        "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
-        "term_label": lambda c: country_bot.fetch_country_term_label(
-            c, separator, start_get_country2=start_get_country2
-        ),
+        # "term_label": lambda c: country_bot.fetch_country_term_label(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "get_lab_for_country2": get_lab_for_country2,
         "get_pop_All_18": get_pop_All_18,
@@ -94,17 +86,23 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
     label = ""
 
     for name, lookup_func in lookup_chain.items():
-        label = lookup_func(country_lower)
+        label = lookup_func(country)
         if label:
-            logger.debug(f"get_con_lab({country_lower}): Found label '{label}' via {name}")
+            logger.debug(f"get_con_lab({country}): Found label '{label}' via {name}")
             break
 
-    logger.info(f"?????? get_con_lab: {country_lower=}, {label=}")
+    logger.info(f"?????? get_con_lab: {country=}, {label=}")
     logger.info(f"?????? get_con_lab: {start_get_country2=}, {country=}, {separator=}")
 
     return label
 
 
+def get_con_label(country: str) -> str:
+    """Alias for get_con_lab to maintain backward compatibility."""
+    return get_con_lab("", country)
+
+
 __all__ = [
+    "get_con_label",
     "get_con_lab",
 ]
