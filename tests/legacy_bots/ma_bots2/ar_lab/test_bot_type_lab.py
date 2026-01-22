@@ -84,6 +84,12 @@ data_1 = {
 }
 
 data_2 = {
+    "military operations of war in afghanistan (1789–1789)": "عمليات عسكرية في الحرب في أفغانستان (1789–1789)",
+    "buildings and structures in georgia (u.s. state)": "مبان ومنشآت في ولاية جورجيا",
+    "burials in washington (state)": "مدفونون في ولاية واشنطن",
+    "disestablishments in georgia (u.s. state)": "انحلالات في ولاية جورجيا",
+    "male actors from the west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
+    "protected areas of georgia (u.s. state)": "مناطق محمية في ولاية جورجيا",
     "national-register-of-historic-places in north carolina": "السجل الوطني للأماكن التاريخية في كارولاينا الشمالية",
     "federalist party members of united states house-of-representatives": "أعضاء الحزب الفيدرالي الأمريكي في مجلس النواب الأمريكي",
     "know-nothing members of united states house-of-representatives": "أعضاء حزب لا أدري في مجلس النواب الأمريكي",
@@ -92,7 +98,6 @@ data_2 = {
     "bank buildings on the-national-register-of-historic-places": "مباني بنوك في السجل الوطني للأماكن التاريخية",
     "buildings and structures on the-national-register-of-historic-places": "مبان ومنشآت في السجل الوطني للأماكن التاريخية",
     "railway stations on the-national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
-    "military operations of war in afghanistan (1789–1789": "عمليات عسكرية في الحرب في أفغانستان (1789–1789",
     "1789 crimes in africa": "جرائم 1789 في إفريقيا",
     "1789 elections in the united states": "انتخابات 1789 في الولايات المتحدة",
     "1789 establishments in india": "تأسيسات سنة 1789 في الهند",
@@ -108,12 +113,9 @@ data_2 = {
     "1789 in youth football": "كرة قدم شبابية في 1789",
     "anglican bishops in asia": "أساقفة أنجليكيون في آسيا",
     "basketball players in lebanon": "لاعبو كرة سلة في لبنان",
-    "buildings and structures in georgia (u.s. state": "مبان ومنشآت في ولاية جورجيا",
     "buildings and structures in idaho": "مبان ومنشآت في أيداهو",
     "buildings and structures in prince edward island": "مبان ومنشآت في جزيرة الأمير إدوارد",
-    "burials in washington (state": "مدفونون في ولاية واشنطن",
     "christianity in the united states": "المسيحية في الولايات المتحدة",
-    "disestablishments in georgia (u.s. state": "انحلالات في ولاية جورجيا",
     "establishments in southeast asia": "تأسيسات في جنوب شرق آسيا",
     "ethnic groups in china": "مجموعات عرقية في الصين",
     "field hockey players in germany": "لاعبو هوكي ميدان في ألمانيا",
@@ -122,12 +124,10 @@ data_2 = {
     "history of nova scotia": "تاريخ نوفا سكوشا",
     "lists of bosnia and herzegovina people": "قوائم بوسنيون",
     "lists of country subdivisions": "قوائم تقسيمات البلد",
-    "male actors from the west midlands (county": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "nations in the summer olympics": "بلدان في الألعاب الأولمبية الصيفية",
     "netball in north america": "كرة الشبكة في أمريكا الشمالية",
     "parks in south america": "متنزهات في أمريكا الجنوبية",
     "people from west sumatra": "أشخاص من سومطرة الغربية",
-    "protected areas of georgia (u.s. state": "مناطق محمية في ولاية جورجيا",
     "railway stations in romania": "محطات السكك الحديدية في رومانيا",
     "railway stations in the philippines": "محطات السكك الحديدية في الفلبين",
     "road incident deaths in the united states": "وفيات حوادث الطرق في الولايات المتحدة",
@@ -203,6 +203,13 @@ data_2 = {
 def test_get_type_lab_data(category: str, output: str) -> None:
     label = get_type_lab(category)
     assert label.strip() == output.strip()
+
+
+@pytest.mark.parametrize("category, output", data_2.items(), ids=data_2.keys())
+@pytest.mark.fast
+def test_get_type_lab_data_2(category: str, output: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == output
 
 
 to_test = [
