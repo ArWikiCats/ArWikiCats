@@ -6,7 +6,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import get_by_label
-from utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data_callback
 
 
 by_label_data = {
@@ -94,4 +94,4 @@ def test_get_by_label(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-test_dump_all = make_dump_test_name_data(to_test, get_by_label, run_same=True)
+test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)
