@@ -28,7 +28,7 @@ def _run_dump_case(name: str, data: dict[str, str], callback: callable, run_same
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-def make_dump_test_name_data(to_test: ToTest, callback, run_same=False, just_dump=False, mark_skip2=False):
+def make_dump_test_name_data(to_test: ToTest, callback, run_same=False, just_dump=False):
     """
     Create a parametrized pytest test function.
     """
@@ -38,13 +38,10 @@ def make_dump_test_name_data(to_test: ToTest, callback, run_same=False, just_dum
     def test_dump_all(name: str, data: dict[str, str]) -> None:
         _run_dump_case(name, data, callback, run_same=run_same, just_dump=just_dump)
 
-    if mark_skip2:
-        test_dump_all = pytest.mark.skip2(test_dump_all)
-
     return test_dump_all
 
 
-def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False, just_dump=False, mark_skip2=False):
+def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False, just_dump=False):
     """
     Create a parametrized pytest test function.
     """
@@ -54,7 +51,17 @@ def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False, j
     def test_dump_all(name: str, data: dict[str, str], callback) -> None:
         _run_dump_case(name, data, callback, run_same=run_same, just_dump=just_dump)
 
-    if mark_skip2:
-        test_dump_all = pytest.mark.skip2(test_dump_all)
+    return test_dump_all
+
+
+def make_dump_test_name_data_dumpskip(to_test: ToTest, callback, run_same=False, just_dump=False):
+    """
+    Create a parametrized pytest test function.
+    """
+
+    @pytest.mark.parametrize("name,data", list(to_test))
+    @pytest.mark.dumpskip
+    def test_dump_all(name: str, data: dict[str, str]) -> None:
+        _run_dump_case(name, data, callback, run_same=run_same, just_dump=just_dump)
 
     return test_dump_all
