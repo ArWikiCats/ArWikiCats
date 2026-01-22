@@ -21,6 +21,7 @@ from .fixlists import (
 from .mv_years import move_years
 from .specific_normalizations import apply_category_specific_normalizations
 
+# Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
 YEARS_REGEX_AR = (
     r"\d+[−–\-]\d+"
     # r"|\d+\s*(ق[\s\.]م|قبل الميلاد)*"
