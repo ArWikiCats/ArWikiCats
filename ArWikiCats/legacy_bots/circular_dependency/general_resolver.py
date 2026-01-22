@@ -17,6 +17,7 @@ from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_relation_word, get_value_from_any_table
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..make_bots import Films_O_TT, players_new_keys
+
 from .ar_lab_bot import find_ar_label
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"

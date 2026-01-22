@@ -26,6 +26,7 @@ from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..make_bots import get_KAKO
 from ..utils import RE1_compile, RE2_compile, RE3_compile
+
 from . import general_resolver
 
 
@@ -56,11 +57,8 @@ def Get_country2(country: str) -> str:
 
     if resolved_label:
         resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
-
     resolved_label = " ".join(resolved_label.strip().split())
-
     logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
-
     return resolved_label
 
 
