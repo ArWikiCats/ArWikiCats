@@ -304,8 +304,8 @@ def womens_resolver_labels(category: str) -> str:
     # logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
-    if mens_resolver_labels(category):
-        logger.info(f"<<yellow>> skip womens_resolver_labels mens found: {category=}, [result=]")
+    if mens_label := mens_resolver_labels(category):
+        logger.info(f"<<yellow>> skip womens_resolver_labels mens found: {category=}, {mens_label=}")
         return ""
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
