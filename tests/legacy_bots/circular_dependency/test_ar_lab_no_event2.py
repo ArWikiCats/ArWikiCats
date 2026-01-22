@@ -4,10 +4,21 @@ Tests
 
 import pytest
 from load_one_data import dump_diff
+from ArWikiCats.fix import fixtitle
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 from ArWikiCats.legacy_bots.circular_dependency.general_resolver import translate_general_category
+
+
+def translate_general_category_wrap(category: str) -> str:
+    arlabel = translate_general_category(category)
+
+    if arlabel:
+        arlabel = fixtitle.fixlabel(arlabel, en=category)
+
+    return arlabel
+
 
 fast_data_list = [
     {
@@ -163,7 +174,7 @@ def test_1(category: str, expected: str) -> None:
 @pytest.mark.parametrize("tab", fast_data_list, ids=lambda x: x["category"])
 @pytest.mark.fast
 def test_translate_general_category_event2_fast(tab) -> None:
-    label = translate_general_category(tab["category"])
+    label = translate_general_category_wrap(tab["category"])
     # ---
     assert label == tab["output"]
 

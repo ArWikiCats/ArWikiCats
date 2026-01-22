@@ -9,7 +9,6 @@ into Arabic labels by applying various resolution strategies.
 import functools
 import re
 
-from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...time_formats import time_to_arabic
@@ -130,7 +129,7 @@ def translate_general_category(category_r: str, start_get_country2: bool = True,
     arlabel = _translate_general_category(category_r, category, start_get_country2)
 
     if arlabel and fix_title:
-        arlabel = fixtitle.fixlabel(arlabel, en=category_r)
+        # arlabel = fixtitle.fixlabel(arlabel, en=category_r)
         logger.info(f'>>>>>> <<green>>test: cat "{category_r}", {arlabel=}')
 
     if arlabel:
