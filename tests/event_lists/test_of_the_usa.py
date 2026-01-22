@@ -63,7 +63,7 @@ data_2 = {
     "Works about presidents of the United States": "أعمال عن رؤساء الولايات المتحدة",
     "Works about the military of the United States": "أعمال عن عسكرية الولايات المتحدة",
     "Works by presidents of the United States": "أعمال رؤساء الولايات المتحدة",
-    "National sports teams of the United States": "منتخبات رياضية وطنية من الولايات المتحدة",
+    "National sports teams of the United States": "منتخبات رياضية وطنية في الولايات المتحدة",
     "Biographical films about presidents of the United States": "أفلام سير ذاتية عن رؤساء الولايات المتحدة",
     "Documentary films about presidents of the United States": "أفلام وثائقية عن رؤساء الولايات المتحدة",
     "Films about fictional presidents of the United States": "أفلام عن رؤساء خياليون الولايات المتحدة",
