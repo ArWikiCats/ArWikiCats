@@ -8,6 +8,21 @@ from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
 
 data_1 = {
+    "Persecution of Christians by Hindus": "تصنيف:اضطهاد مسيحيون بواسطة هندوس",
+    "Persecution of Christians by Jews": "تصنيف:اضطهاد مسيحيون بواسطة يهود",
+    "Persecution of Christians by Muslims": "تصنيف:اضطهاد مسيحيون بواسطة مسلمون",
+    "Persecution of Hindus by Muslims": "تصنيف:اضطهاد هندوس بواسطة مسلمون",
+    "Persecution of Muslims by Christians": "تصنيف:اضطهاد مسلمون بواسطة مسيحيون",
+    "Persecution of Muslims by Jews": "تصنيف:اضطهاد مسلمون بواسطة يهود",
+    "Persecution of Yazidis by Muslims": "تصنيف:اضطهاد يزيديون بواسطة مسلمون",
+    "Suicides by Jews during Holocaust": "تصنيف:منتحرون بواسطة يهود خلال هولوكوست",
+    "Category:Water resource management in Netherlands": "تصنيف:إدارة الموارد المائية في هولندا",
+    "Category:Sports ministers of Comoros": "تصنيف:وزراء رياضة جزر القمر",
+    "Category:Sports ministers of Nauru": "تصنيف:وزراء رياضة ناورو",
+    "Category:Sports ministers of Sri Lanka": "تصنيف:وزراء رياضة سريلانكا",
+    "Category:National sports teams of Saint Helena": "تصنيف:منتخبات رياضية وطنية من سانت هيلانة",
+    "Category:November 2010 crimes": "تصنيف:جرائم نوفمبر 2010",
+    "Category:October 2010 crimes": "تصنيف:جرائم أكتوبر 2010",
     "Category:July 2010 crimes": "تصنيف:جرائم يوليو 2010",
     "Category:June 2010 crimes": "تصنيف:جرائم يونيو 2010",
     "Category:March 2010 crimes": "تصنيف:جرائم مارس 2010",
