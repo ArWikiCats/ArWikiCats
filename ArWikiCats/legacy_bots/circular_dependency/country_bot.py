@@ -5,13 +5,10 @@ Country Label Bot Module
 
 import functools
 import re
-
-from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
-from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     Nat_mens,
     New_female_keys,
@@ -109,40 +106,6 @@ def _validate_separators(country: str) -> bool:
         if sep in country:
             return False
     return True
-
-
-def check_historical_prefixes(country: str) -> str:
-    """
-    Resolve Arabic labels for strings that start with a historical prefix (for example, "defunct national ...").
-
-    If the input begins with a recognized historical prefix and the remainder resolves to a label, return the prefix-specific formatted Arabic label; otherwise return an empty string.
-
-    Parameters:
-        country (str): The input string to inspect and resolve.
-
-    Returns:
-        str: The formatted Arabic label for the historical-prefixed term, or an empty string if no prefix matched or the remainder could not be resolved.
-    """
-    historical_prefixes = {
-        "defunct national": "{} وطنية سابقة",
-    }
-    country = country.lower().strip()
-    if not _validate_separators(country):
-        return ""
-
-    for prefix, prefix_template in historical_prefixes.items():
-        if country.startswith(f"{prefix} "):
-            logger.debug(f">>> country.startswith({prefix})")
-            remainder = country[len(prefix) :].strip()
-            remainder_label = _resolve_remainder(remainder)
-
-            if remainder_label:
-                resolved_label = prefix_template.format(remainder_label)
-                if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
-                    resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
-                return resolved_label
-    return ""
 
 
 class LabelsRetriever:
@@ -272,7 +235,6 @@ class LabelsRetriever:
             resolved_label = (
                 _resolve_remainder(country)
                 or self._check_prefixes(country)
-                or check_historical_prefixes(country)
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
                 or self._check_members(country)
@@ -476,6 +438,7 @@ def fetch_country_term_label(
 
 
 __all__ = [
-    "fetch_country_term_label",
     "get_country",
+    "event2_d2",
+    "fetch_country_term_label",
 ]
