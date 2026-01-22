@@ -3,7 +3,7 @@
 
 import functools
 
-from ...helps import logger
+from ...helps import dump_data, logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...translations import (
@@ -28,7 +28,7 @@ def _lookup_country_with_by(country: str) -> str:
 
     return ""
 
-
+@dump_data(1)
 def _lookup_country_with_in_prefix(country: str) -> str:
     """Handle country labels with 'in ' prefix."""
     if not country.strip().startswith("in "):
