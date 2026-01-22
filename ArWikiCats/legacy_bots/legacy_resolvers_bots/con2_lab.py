@@ -113,6 +113,11 @@ def _apply_regex_extraction(category: str, separator: str, category_type: str, c
     return type_regex, country_regex, should_use_regex
 
 
+def _lookup_religious_males(type_lower: str) -> str:
+    """Look up religious keys for males."""
+    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
+
+
 @functools.lru_cache(maxsize=10000)
 def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     """Extract the type and country from a given category string.
@@ -163,11 +168,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     logger.info(f">>>> get_type_country: {type_regex=}, {country_regex=}")
 
     return type_regex, country_regex
-
-
-def _lookup_religious_males(type_lower: str) -> str:
-    """Look up religious keys for males."""
-    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
 @functools.lru_cache(maxsize=10000)

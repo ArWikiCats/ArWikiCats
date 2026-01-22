@@ -76,7 +76,6 @@ to_test = [
     ("test_sports_events_2", fast_data_1),
 ]
 
-
 @pytest.mark.parametrize("category, expected", fast_data_1.items(), ids=fast_data_1.keys())
 @pytest.mark.skip2
 def test_fast_data_1(category: str, expected: str) -> None:

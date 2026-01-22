@@ -5,6 +5,10 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 slow_data = {
+    "Lists of people executed in Texas": "قوائم أشخاص أعدموا في تكساس",
+    "Lists of people executed in the United States": "قوائم أشخاص أعدموا في الولايات المتحدة",
+    "People executed in Charles Town, West Virginia": "أشخاص أعدموا في تشارلز تاون",
+    "Schools for deaf in New York (state)": "مدارس للصم في ولاية نيويورك",
     "luxembourgian european commissioners": "مفوضو أوروبيون لوكسمبورغيون",
     "webcomic logos": "شعارات ويب كومكس",
     "music managers": "مدربو موسيقى",
@@ -795,7 +799,6 @@ data1 = {
 }
 
 data_test2 = {
-    "Schools for deaf in New York (state)": "مدارس للصم في ولاية نيويورك",
     "Cabinets involving Liberal Party (Norway)": "",
     "Television plays directed by William Sterling (director)": "",
     "Television plays filmed in Brisbane": "مسرحيات تلفزيونية صورت في بريزبان",
