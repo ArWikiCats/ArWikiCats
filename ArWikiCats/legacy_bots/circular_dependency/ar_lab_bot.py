@@ -285,7 +285,10 @@ class TypeResolver:
         if type_label:
             return type_label, True
 
-        type_label, add_in_lab = get_type_lab(preposition, type_value)
+        if type_lower == "people":
+            return "أشخاص", False
+
+        type_label = get_type_lab(type_value)
 
         # Special handling for sport and by
         if type_lower == "sport" and country_lower.startswith("by "):
@@ -295,7 +298,7 @@ class TypeResolver:
         if not type_label and use_event2:
             type_label = wrap_event2(type_lower, preposition)
 
-        return type_label, add_in_lab
+        return type_label, True
 
 
 class Fixing:
@@ -544,7 +547,6 @@ class LabelPipeline(Fixing):
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
 def find_ar_label(
     category: str,
     separator: str,

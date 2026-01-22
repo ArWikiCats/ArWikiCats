@@ -7,7 +7,7 @@ import functools
 import re
 from typing import Tuple
 
-from ...helps import logger
+from ...helps import dump_data, logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...translations import (
@@ -170,28 +170,23 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
+@dump_data(1)
+def get_type_lab(type_value: str) -> str:
     """Determine the type label based on input parameters.
 
     Args:
-        separator: The separator/delimiter (preposition).
         type_value: The type part of the category.
 
     Returns:
-        Tuple of (label, should_append_in_label)
-            - label: The Arabic label for the type
-            - should_append_in_label: Whether 'in' preposition should be appended
+        - label: The Arabic label for the type
     """
-    logger.debug(f"get_type_lab, {separator=}, {type_value=}")
-    # get_type_lab, separator='by', type_value='new zealand non-fiction writers'
+    logger.debug(f"get_type_lab, {type_value=}")
 
-    separator = separator.strip()
     type_lower = type_value.lower()
 
     if type_lower == "people":
-        return "أشخاص", False
+        return "أشخاص"
 
-    should_append_in_label = True
     label = ""
     lookup_chain = {
         "get_from_new_p17_final": get_from_new_p17_final,
@@ -216,7 +211,7 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
 
     logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
 
-    return label, should_append_in_label
+    return label
 
 
 __all__ = [
