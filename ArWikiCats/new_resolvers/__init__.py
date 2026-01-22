@@ -17,6 +17,8 @@ New resolvers for Arabic Wikipedia categories.
 
 import functools
 
+from ..patterns_resolvers import all_patterns_resolvers
+
 from ..helps import logger
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic
@@ -51,6 +53,7 @@ def all_new_resolvers(category: str) -> str:
         # incorrect:    "american football executives": "تصنيف:مسيرو كرة قدم أمريكيون",
         # correct:      "american football executives": "تصنيف:مسيرو كرة قدم أمريكية",
         #
+        or all_patterns_resolvers(category)
         or main_jobs_resolvers(category)
         or time_and_jobs_resolvers_main(category)
         or main_sports_resolvers(category)

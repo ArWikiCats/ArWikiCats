@@ -44,6 +44,7 @@ executed_data_1 = {
 }
 
 fast_data_1 = {
+    "2010s crimes in Europe by city": "جرائم عقد 2010 في أوروبا حسب المدينة",
     "Jews and Judaism in Kingdom of Jerusalem": "اليهود واليهودية في مملكة بيت المقدس",
     "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
     "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",

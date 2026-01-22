@@ -29,6 +29,13 @@ data1 = {
 }
 
 data2 = {
+    "Coptic diaspora by country": "شتات قبطي حسب البلد",
+    "Coptic diaspora in Africa": "شتات قبطي في إفريقيا",
+    "Coptic diaspora in Australia": "شتات قبطي في أستراليا",
+    "Coptic diaspora in Canada": "شتات قبطي في كندا",
+    "Coptic diaspora in Europe": "شتات قبطي في أوروبا",
+    "Coptic diaspora in North America": "شتات قبطي في أمريكا الشمالية",
+    "Coptic diaspora in United States": "شتات قبطي في الولايات المتحدة",
     "History of the United States by period by state": "تاريخ الولايات المتحدة حسب الحقبة حسب الولاية",
     "History of the United States by state": "تاريخ الولايات المتحدة حسب الولاية",
     "Images of the United States by state": "صور من الولايات المتحدة حسب الولاية",

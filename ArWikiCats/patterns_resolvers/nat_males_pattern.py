@@ -62,6 +62,7 @@ def _bot_new() -> FormatDataV2:
                 "females": v["females"],
             }
             for x, v in RELIGIOUS_KEYS_PP.items()
+            if x not in nats_data and v.get("males")
         }
     )
 
