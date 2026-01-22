@@ -16,7 +16,10 @@ import re
 # ============================================================================
 
 # Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
-YEARS_REGEX_AR = r"\d+[−–\-]\d+" r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+YEARS_REGEX_AR = (
+    r"\d+[−–\-]\d+"
+    r"|(?:عقد|القرن|الألفية)*\s*\d+\s*(ق[\s\.]م|قبل الميلاد)*"
+)
 
 # Match categories starting with year (e.g., "1900 in sports")
 RE1_compile = re.compile(r"^(\d+\-\d+|\d+\–\d+|\d+\−\d+|\d\d\d\d).*", re.I)
