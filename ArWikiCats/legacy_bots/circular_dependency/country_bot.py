@@ -231,6 +231,24 @@ class LabelsRetriever:
             return with_years_bot.Try_With_Years(country)
         return ""
 
+    def _check_members(self, country: str) -> str:
+        """
+        Handle inputs that end with " members of" by returning a corresponding Arabic member label.
+
+        If the input string ends with " members of", the base term before that suffix is looked up in Nat_mens; when a mapping exists, returns the mapped Arabic label followed by " أعضاء في  ". Returns an empty string if the suffix is not present or no mapping is found.
+
+        Returns:
+            str: The constructed Arabic label when a mapping exists, otherwise an empty string.
+        """
+        if country.endswith(" members of"):
+            country2 = country.replace(" members of", "")
+            resolved_label = Nat_mens.get(country2, "")
+            if resolved_label:
+                resolved_label = f"{resolved_label} أعضاء في  "
+                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
+                return resolved_label
+        return ""
+
     @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
         """
@@ -271,24 +289,6 @@ class LabelsRetriever:
 
         logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
         return resolved_label
-
-    def _check_members(self, country: str) -> str:
-        """
-        Handle inputs that end with " members of" by returning a corresponding Arabic member label.
-
-        If the input string ends with " members of", the base term before that suffix is looked up in Nat_mens; when a mapping exists, returns the mapped Arabic label followed by " أعضاء في  ". Returns an empty string if the suffix is not present or no mapping is found.
-
-        Returns:
-            str: The constructed Arabic label when a mapping exists, otherwise an empty string.
-        """
-        if country.endswith(" members of"):
-            country2 = country.replace(" members of", "")
-            resolved_label = Nat_mens.get(country2, "")
-            if resolved_label:
-                resolved_label = f"{resolved_label} أعضاء في  "
-                logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
-                return resolved_label
-        return ""
 
 
 class CountryLabelRetriever(LabelsRetriever):
