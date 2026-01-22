@@ -510,6 +510,7 @@ data3 = {
 }
 
 data_0 = {
+    "Holocaust literature": "أدب هولوكوست",
     "construction and architecture": "بناء وهندسة معمارية",
     "novels and short stories": "روايات وقصص قصيرة",
     "qatar and united nations": "قطر والأمم المتحدة",

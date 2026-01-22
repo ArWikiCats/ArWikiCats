@@ -13,13 +13,6 @@ data = {
 }
 
 
-@pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
-@pytest.mark.fast
-def test_institutions(category: str, expected: str) -> None:
-    label = resolve_label_ar(category)
-    assert label == expected
-
-
 data_2 = {
     "Indonesian women singers by century": "مغنيات إندونيسيات حسب القرن",
     "Iranian women singers by century": "مغنيات إيرانيات حسب القرن",
@@ -49,8 +42,15 @@ data_2 = {
 }
 
 
+@pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
+@pytest.mark.fast
+def test_institutions(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
+
+
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_women_singers(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
