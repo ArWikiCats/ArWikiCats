@@ -13,7 +13,7 @@ from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
 from ...translations import People_key, get_from_pf_keys2
-from ..circular_dependency import term_label_bot
+from ..circular_dependency import country_bot
 from ..legacy_utils import fix_minor, split_text_by_separator
 from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
 from . import bys, with_years_bot
@@ -266,7 +266,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         ""
         or all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
-        or term_label_bot.fetch_country_term_label(part_2, "")
+        or country_bot.fetch_country_term_label(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
         or ""
     )
@@ -275,7 +275,7 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         ""
         or all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1)
-        or term_label_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
+        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
         or ""
     )
 

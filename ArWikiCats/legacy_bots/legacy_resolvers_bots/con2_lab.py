@@ -18,7 +18,7 @@ from ...translations import (
     religious_entries,
 )
 from .. import tmp_bot
-from ..circular_dependency import term_label_bot
+from ..circular_dependency import country_bot
 from ..common_resolver_chain import get_lab_for_country2
 from ..make_bots import get_KAKO
 from . import bys
@@ -228,6 +228,7 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     inner_country = country_lower.strip()[len("in ") :].strip()
     country_label = (
         ""
+        or country_bot.get_country(inner_country)
         or get_lab_for_country2(inner_country)
         or get_pop_All_18(inner_country)
         or get_KAKO(inner_country)
@@ -275,7 +276,9 @@ def get_type_lab(separator: str, type_value: str) -> Tuple[str, bool]:
             "religious_entries": lambda t: religious_entries.get(t, ""),
             "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
             "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
-            "term_label": lambda t: term_label_bot.fetch_country_term_label(t, normalized_preposition, lab_type="type_label"),
+            "term_label": lambda t: country_bot.fetch_country_term_label(
+                t, normalized_preposition, lab_type="type_label"
+            ),
             "get_lab_for_country2": get_lab_for_country2,
             "get_pop_All_18": get_pop_All_18,
             "get_KAKO": get_KAKO,
@@ -328,7 +331,9 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "for_table": lambda c: for_table.get(c, "") if separator.lower() == "for" else "",
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
-        "term_label": lambda c: term_label_bot.fetch_country_term_label(c, separator, start_get_country2=start_get_country2),
+        "term_label": lambda c: country_bot.fetch_country_term_label(
+            c, separator, start_get_country2=start_get_country2
+        ),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "get_lab_for_country2": get_lab_for_country2,
         "get_pop_All_18": get_pop_All_18,
