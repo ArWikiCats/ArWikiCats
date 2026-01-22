@@ -44,6 +44,13 @@ executed_data_1 = {
 }
 
 fast_data_1 = {
+    "Coptic diaspora by country": "",
+    "Coptic diaspora in Africa": "",
+    "Coptic diaspora in Australia": "",
+    "Coptic diaspora in Canada": "",
+    "Coptic diaspora in Europe": "",
+    "Coptic diaspora in North America": "",
+    "Coptic diaspora in United States": "",
     "2010s crimes in Europe by city": "جرائم عقد 2010 في أوروبا حسب المدينة",
     "Jews and Judaism in Kingdom of Jerusalem": "اليهود واليهودية في مملكة بيت المقدس",
     "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
