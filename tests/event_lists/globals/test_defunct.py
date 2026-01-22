@@ -2,7 +2,7 @@
 import pytest
 
 from ArWikiCats import resolve_label_ar
-
+from utils.dump_runner import make_dump_test_name_data
 data0_no_label = {
     "Defunct Christian organizations based in United States": "منظمات مسيحية سابقة مقرها في الولايات المتحدة",
     "Defunct Christian schools in Canada": "مدارس مسيحية سابقة في كندا",
@@ -71,3 +71,6 @@ data0_no_label = {
 def test_2_skip2_2(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
+
+
+test_dump_all = make_dump_test_name_data([("data0_no_label", data0_no_label)], resolve_label_ar, run_same=True)
