@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import CountryResolver
 
 
@@ -61,7 +62,11 @@ data_1 = [
     ("of", "indigenous peoples of americas", "شعوب أصلية في الأمريكتين"),
     ("of", "parliament of england 1789", "برلمان إنجلترا 1789"),
     ("of", "parliament of northern ireland 1789–1789", "برلمان أيرلندا الشمالية 1789–1789"),
-    ("of", "verkhovna rada of ukrainian soviet socialist republic", "المجلس الأعلى الأوكراني في جمهورية أوكرانيا السوفيتية الاشتراكية"),
+    (
+        "of",
+        "verkhovna rada of ukrainian soviet socialist republic",
+        "المجلس الأعلى الأوكراني في جمهورية أوكرانيا السوفيتية الاشتراكية",
+    ),
     ("of", "water of coquimbo region", "مياه في إقليم كوكيمبو"),
     ("of", "water of hambantota district", "مياه في مديرية هامبانتوتا"),
     ("of", "water of matale district", "مياه في مديرية ماتال"),

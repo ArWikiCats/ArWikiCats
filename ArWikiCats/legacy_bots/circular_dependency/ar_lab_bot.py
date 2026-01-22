@@ -15,11 +15,11 @@ from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from ..legacy_resolvers_bots.get_con_lab_bot import get_con_label
 from ..legacy_resolvers_bots.con2_lab import (
     get_type_country,
     get_type_lab,
 )
+from ..legacy_resolvers_bots.get_con_lab_bot import get_con_label
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor
 from ..make_bots import check_key_new_players
@@ -260,7 +260,9 @@ class CountryResolver:
         }
 
         result = (
-            for_table.get(country, "") if preposition.lower() == "for" else ""
+            for_table.get(country, "")
+            if preposition.lower() == "for"
+            else ""
             or country_bot.fetch_country_term_label(country, preposition, start_get_country2=start_get_country2)
             or get_con_label(country)
         )

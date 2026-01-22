@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-"""
-
-"""
+""" """
 
 import functools
+
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
@@ -77,7 +76,6 @@ def get_con_lab(separator: str, country: str, start_get_country2: bool = False) 
         "_lookup_country_with_by": _lookup_country_with_by,
         "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
         "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
-        # "term_label": lambda c: country_bot.fetch_country_term_label(c, separator, start_get_country2=start_get_country2),
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
         "get_lab_for_country2": get_lab_for_country2,
         "get_pop_All_18": get_pop_All_18,

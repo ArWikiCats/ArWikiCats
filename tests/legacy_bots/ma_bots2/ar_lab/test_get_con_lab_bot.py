@@ -3,8 +3,9 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data
+
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import get_con_label
+from utils.dump_runner import make_dump_test_name_data
 
 join_data_same = {
     "busan": "بوسان",
@@ -189,7 +190,7 @@ join_data_same = {
     "united states air force": "القوات الجوية الأمريكية",
     "united states gubernatorial elections": "انتخابات حكام الولايات المتحدة",
     "saint kitts and nevis": "سانت كيتس ونيفيس",
-    "parliament of united kingdom": "برلمان المملكة المتحدة"
+    "parliament of united kingdom": "برلمان المملكة المتحدة",
 }
 
 
