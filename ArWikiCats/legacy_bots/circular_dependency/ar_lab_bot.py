@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import dump_data, logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -285,7 +285,10 @@ class TypeResolver:
         if type_label:
             return type_label, True
 
-        type_label, add_in_lab = get_type_lab(preposition, type_value)
+        if type_lower == "people":
+            return "أشخاص", False
+
+        type_label = get_type_lab(type_value)
 
         # Special handling for sport and by
         if type_lower == "sport" and country_lower.startswith("by "):
@@ -295,7 +298,7 @@ class TypeResolver:
         if not type_label and use_event2:
             type_label = wrap_event2(type_lower, preposition)
 
-        return type_label, add_in_lab
+        return type_label, True
 
 
 class Fixing:

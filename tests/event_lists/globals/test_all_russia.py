@@ -425,6 +425,12 @@ empty_data = {
 }
 
 data1 = {
+    "National youth sports teams of Russia": "منتخبات رياضية وطنية شبابية في روسيا",
+    "National sports teams of Russia": "منتخبات رياضية وطنية في روسيا",
+    "Women's national sports teams of Russia": "منتخبات رياضية وطنية نسائية في روسيا",
+    "Works about the French invasion of Russia": "أعمال عن الغزو الفرنسي لروسيا",
+    "Films about the French invasion of Russia": "أفلام عن الغزو الفرنسي لروسيا",
+
     "Agriculture ministers of Russia": "وزراء زراعة روسيا",
     "Culture ministers of Russia": "وزراء ثقافة روسيا",
     "Economy ministers of Russia": "وزراء اقتصاد روسيا",
@@ -695,15 +701,10 @@ data1 = {
     "Waterfalls of Russia": "شلالات روسيا",
     "Wetlands of Russia": "مناطق رطبة في روسيا",
     "Women government ministers of Russia": "وزيرات روسيات",
-    "National youth sports teams of Russia": "منتخبات رياضية وطنية شبابية روسيا",
-    "National sports teams of Russia": "منتخبات رياضية وطنية من روسيا",
     "Members of learned societies of Russia": "أعضاء جمعيات علمية في روسيا",
     "Members of legislatures of the federal subjects of Russia": "أعضاء هيئات تشريعية في كيانات روسيا الاتحادية",
     "Men's national sports teams of Russia": "منتخبات رياضية وطنية رجالية روسيا",
-    "Women's national sports teams of Russia": "منتخبات رياضية وطنية نسائية روسيا",
-    "Works about the French invasion of Russia": "أعمال عن الغزو الفرنسي في روسيا",
     "History books about the Tsardom of Russia": "كتب تاريخ عن روسيا القيصرية",
-    "Films about the French invasion of Russia": "أفلام عن الغزو الفرنسي في روسيا",
     "Books about presidents of Russia": "كتب عن رؤساء روسيا",
     "Mass media by language of Russia": "وسائل إعلام حسب لغة روسيا",
     "Categories by language of Russia": "تصنيفات حسب لغة روسيا",

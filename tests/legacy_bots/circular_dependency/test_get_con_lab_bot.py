@@ -4,8 +4,16 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import get_con_label
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import get_con_label, _lookup_country_with_in_prefix
 from utils.dump_runner import make_dump_test_name_data
+
+data_in = {
+    "in New York (state)": "في ولاية نيويورك",
+    "in Texas": "في تكساس",
+    "in the United States": "في الولايات المتحدة",
+    "in Charles Town, West Virginia": "في تشارلز تاون",
+    "in the united kingdom": "في المملكة المتحدة",
+}
 
 join_data_same = {
     "busan": "بوسان",
@@ -37,7 +45,6 @@ join_data_same = {
     "by athletic event": "حسب حدث ألعاب القوى",
     "by under-20 national team": "حسب المنتخب الوطني تحت 20 سنة",
     "by year templates": "قوالب حسب السنة",
-    "in the united kingdom": "في المملكة المتحدة",
     "1420": "1420",
     "20th century": "القرن 20",
     "1420s": "عقد 1420",
@@ -198,6 +205,13 @@ join_data_same = {
 @pytest.mark.fast
 def test_2(category: str, expected: str) -> None:
     label = get_con_label(category)
+    assert label == expected
+
+
+@pytest.mark.parametrize("category, expected", data_in.items(), ids=data_in.keys())
+@pytest.mark.fast
+def test_data_in(category: str, expected: str) -> None:
+    label = _lookup_country_with_in_prefix(category)
     assert label == expected
 
 

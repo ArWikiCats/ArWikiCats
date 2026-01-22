@@ -91,7 +91,7 @@ def _get_from_alias(key: str) -> str:
 
 
 @functools.lru_cache(maxsize=None)
-def get_pop_All_18(key: str, default: str = "") -> str:
+def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     """
     Lookup an Arabic population or category label for `key` using multiple fallback sources and return `default` if not found.
 
@@ -133,6 +133,16 @@ def get_pop_All_18(key: str, default: str = "") -> str:
             return result
 
     return default
+
+
+@functools.lru_cache(maxsize=None)
+def get_pop_All_18(key: str, default: str = "") -> str:
+    result = get_pop_all_18_wrap(key, default)
+
+    if not result and "-" in key:
+        result = get_pop_all_18_wrap(key.replace("-", " "), default)
+
+    return result
 
 
 def Add_to_pop_All_18(tab: Dict[str, str]) -> None:

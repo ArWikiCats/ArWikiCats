@@ -13,7 +13,6 @@ from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
-    Nat_mens,
     New_female_keys,
     People_key,
     jobs_mens_data,
@@ -21,13 +20,15 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
     religious_entries,
 )
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_resolvers_bots import with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..make_bots import get_KAKO
-from ..utils import RE1_compile, RE2_compile, RE3_compile
 from . import general_resolver
-from .joint_class import CountryLabelAndTermParent
+from ..legacy_utils.joint_class import CountryLabelAndTermParent
+
+
+def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
+    return general_resolver.translate_general_category(category, *args, **kwargs)
 
 
 @functools.lru_cache(maxsize=None)
@@ -50,7 +51,7 @@ def Get_country2(country: str) -> str:
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
+        or translate_general_category_wrap(normalized_country, start_get_country2=False, fix_title=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
@@ -80,7 +81,7 @@ def _resolve_remainder(remainder: str) -> str:
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)
-        or general_resolver.translate_general_category(remainder, fix_title=False)
+        or translate_general_category_wrap(remainder, fix_title=False)
         or ""
     )
     return label

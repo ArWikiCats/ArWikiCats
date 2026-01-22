@@ -6,6 +6,8 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data0_skip = {
+    "Military units and formations of Islamic Emirate of Afghanistan": "وحدات وتشكيلات عسكرية في إمارة أفغانستان الإسلامية",
+    "College sports coaches in the United States by sport by state": "مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",
     "Lists of fictional presidents of the United States": "قوائم رؤساء الولايات المتحدة الخياليون",
     "Lists of military units and formations of the United States": "قوائم وحدات وتشكيلات الولايات المتحدة العسكرية",
 }
@@ -27,7 +29,6 @@ data0 = {
     "permanent representatives of luxembourg": "مندوبو لوكسمبورغ الدائمون",
     "bilateral relations of united kingdom": "علاقات المملكة المتحدة الثنائية",
     "permanent representatives of barbados": "مندوبو بربادوس الدائمون",
-    "Military units and formations of Islamic Emirate of Afghanistan": "وحدات وتشكيلات عسكرية في إمارة أفغانستان الإسلامية",
     "Military units and formations of World War I": "وحدات وتشكيلات عسكرية في الحرب العالمية الأولى",
     # "1697 meteorology": "الأرصاد الجوية في 1697",
     # "1680s meteorology": "الأرصاد الجوية في عقد 1680",
@@ -172,7 +173,6 @@ data1 = {
     "women's korean basketball league": "الدوري الكوري لكرة السلة للسيدات",
     "world games": "دورة الألعاب العالمية",
     "yemeni unity cup": "كأس الوحدة اليمنية",
-    "College sports coaches in the United States by sport by state": "مدربو رياضات الكليات في الولايات المتحدة حسب الرياضة حسب الولاية",
     "national university of singapore": "جامعة سنغافورة الوطنية",
     "sri lankan civil war by decade": "الحرب الأهلية السريلانكية حسب العقد",
     "church of jesus christ of latter-day saints": "كنيسة يسوع المسيح لقديسي الأيام الأخيرة",

@@ -118,6 +118,12 @@ data_0 = {
 
 
 data_1 = {
+    "Competitors at multi-sport events by country": "منافسون في أحداث رياضية متعددة حسب البلد",
+    "Competitors at multi-sport events by sport": "منافسون في أحداث رياضية متعددة حسب الرياضة",
+    "Competitors at multi-sport events by year": "منافسون في أحداث رياضية متعددة حسب السنة",
+    "Medalists at multi-sport events by year": "فائزون بميداليات في أحداث رياضية متعددة حسب السنة",
+    "Nations at multi-sport events by country": "بلدان في أحداث رياضية متعددة حسب البلد",
+
     "Albania at winter multi-sport events": "ألبانيا في أحداث رياضية متعددة شتوية",
     "Algeria at winter multi-sport events": "الجزائر في أحداث رياضية متعددة شتوية",
     "American Samoa at winter multi-sport events": "ساموا الأمريكية في أحداث رياضية متعددة شتوية",
@@ -302,9 +308,6 @@ data_1 = {
     "Chess at multi-sport events": "الشطرنج في الأحداث الرياضية المتعددة",
     "Comoros at multi-sport events": "جزر القمر في الأحداث الرياضية المتعددة",
     "Competitors at multi-sport events": "منافسون في الأحداث الرياضية المتعددة",
-    "Competitors at multi-sport events by country": "منافسون في الأحداث الرياضية المتعددة حسب البلد",
-    "Competitors at multi-sport events by sport": "منافسون في الأحداث الرياضية المتعددة حسب الرياضة",
-    "Competitors at multi-sport events by year": "منافسون في الأحداث الرياضية المتعددة حسب السنة",
     "Czech Republic at multi-sport events": "التشيك في الأحداث الرياضية المتعددة",
     "Dependent territories of the United Kingdom at multi-sport events": "أقاليم ما وراء البحار البريطانية في الأحداث الرياضية المتعددة",
     "Djibouti at multi-sport events": "جيبوتي في الأحداث الرياضية المتعددة",
@@ -342,7 +345,6 @@ data_1 = {
     "Marshall Islands at multi-sport events": "جزر مارشال في الأحداث الرياضية المتعددة",
     "Mauritania at multi-sport events": "موريتانيا في الأحداث الرياضية المتعددة",
     "Mauritius at multi-sport events": "موريشيوس في الأحداث الرياضية المتعددة",
-    "Medalists at multi-sport events by year": "فائزون بميداليات في الأحداث الرياضية المتعددة حسب السنة",
     "Modern pentathlon at multi-sport events": "الخماسي الحديث في الأحداث الرياضية المتعددة",
     "Moldova at multi-sport events": "مولدوفا في الأحداث الرياضية المتعددة",
     "Morocco at multi-sport events": "المغرب في الأحداث الرياضية المتعددة",
@@ -356,7 +358,6 @@ data_1 = {
     "Multi-sport events navigational boxes": "صناديق تصفح أحداث رياضية متعددة",
     "Namibia at multi-sport events": "ناميبيا في الأحداث الرياضية المتعددة",
     "Nations at multi-sport events": "بلدان في الأحداث الرياضية المتعددة",
-    "Nations at multi-sport events by country": "بلدان في الأحداث الرياضية المتعددة حسب البلد",
     "Netherlands Antilles at multi-sport events": "جزر الأنتيل الهولندية في الأحداث الرياضية المتعددة",
     "North Macedonia at multi-sport events": "مقدونيا الشمالية في الأحداث الرياضية المتعددة",
     "Palestine at multi-sport events": "فلسطين في الأحداث الرياضية المتعددة",
