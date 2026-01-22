@@ -51,7 +51,8 @@ class CountryResolver:
 
         if not result:
             result = (
-                country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
+                get_pop_All_18(country)
+                or country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
                 or get_con_label(country)
             )
         return result
