@@ -34,7 +34,7 @@ from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 # To modify priority:
 # 1. Reorder entries in the list
 # 2. Update this docstring to reflect the new order
-#
+
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     country_bot.event2_d2,
     with_years_bot.wrap_try_with_years,
