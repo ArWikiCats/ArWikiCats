@@ -227,11 +227,13 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
         return ""
 
     inner_country = country_lower.strip()[len("in ") :].strip()
-    country_label = country_bot.get_country(inner_country)
-
-    if not country_label:
-        country_label = get_lab_for_country2(inner_country) or get_pop_All_18(inner_country) or get_KAKO(inner_country)
-
+    country_label = (
+        ""
+        # or country_bot.get_country(inner_country)
+        or get_lab_for_country2(inner_country)
+        or get_pop_All_18(inner_country)
+        or get_KAKO(inner_country)
+    )
     if country_label:
         return f"في {country_label}"
 
