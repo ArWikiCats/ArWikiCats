@@ -39,7 +39,7 @@ class CountryLabelAndTermParent:
             "men's ": "رجالية",
         }
         if not self._resolve_callable:
-            logger.error(">>> Error: _resolve_remainder method is not defined.")
+            logger.error(">>> Error: _resolve_callable method is not defined.")
             return ""
 
         for prefix, prefix_label in prefix_labels.items():
