@@ -18,22 +18,6 @@ simple_list = [
     ("montserratian expatriates in england", " in ", "مونتسراتيون مغتربون في إنجلترا"),
 ]
 
-
-@pytest.mark.parametrize("category, separator, output", simple_list, ids=[x[0] for x in simple_list])
-@pytest.mark.fast
-def test_simple(category: str, separator: str, output: str) -> None:
-    label = find_ar_label(category, separator, use_event2=False)
-    assert label == output
-
-
-mass_media_list = [
-    ("mass media in bosnia and herzegovina by medium", " by ", "وسائل الإعلام في البوسنة والهرسك حسب الوسط"),
-    ("mass media in bosnia and herzegovina", " in ", "وسائل الإعلام في البوسنة والهرسك"),
-    ("1550 in mass media", " in ", "1550 في وسائل إعلام"),
-    ("sports mass media in united arab emirates", " in ", "إعلام ألعاب رياضية في الإمارات العربية المتحدة"),
-    ("defunct mass media in new jersey", " in ", "وسائل إعلام سابقة في نيوجيرسي"),
-]
-
 data_list = [
     (" university of annaba", " of ", "جامعة عنابة"),
     ("1550 by city", " by ", "1550 حسب المدينة"),
@@ -481,6 +465,13 @@ data_list = [
     ("yugoslavia by year", " by ", "يوغسلافيا حسب السنة"),
     ("zoologists from austrian empire", " from ", "علماء حيوانات من الإمبراطورية النمساوية"),
 ]
+
+
+@pytest.mark.parametrize("category, separator, output", simple_list, ids=[x[0] for x in simple_list])
+@pytest.mark.fast
+def test_simple(category: str, separator: str, output: str) -> None:
+    label = find_ar_label(category, separator, use_event2=False)
+    assert label == output
 
 
 @pytest.mark.parametrize("category, separator, output", data_list, ids=[x[0] for x in data_list])
