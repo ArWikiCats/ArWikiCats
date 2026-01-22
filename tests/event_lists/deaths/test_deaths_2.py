@@ -617,9 +617,10 @@ data_test_2 = {
 }
 
 to_test = [
-    # ("test_airstrikes_data", airstrikes_data),
     ("test_deaths_2_data_1", data_test_1),
     ("test_deaths_2_data_2", data_test_2),
+    ("test_deaths_2_data_covid_pandemic_data", covid_pandemic_data),
+    ("test_deaths_2_data_airstrikes_data", airstrikes_data),
 ]
 
 
@@ -631,7 +632,7 @@ def test_airstrikes_data(category: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("name,data", to_test)
-@pytest.mark.skip2
+@pytest.mark.dump
 def test_dump_all(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
     dump_diff(diff_result, name)

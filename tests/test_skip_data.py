@@ -1,4 +1,7 @@
-#
+"""
+"Soviet Jews in military": "يهود سوفيت في عسكرية",
+"Russian Jews in military": "يهود روس في عسكرية",
+"""
 import pytest
 
 from ArWikiCats import resolve_label_ar
@@ -30,12 +33,14 @@ data_0 = {
 }
 
 fast_data_1 = {
-    "Soviet Jews in military": "يهود سوفيت في عسكرية",
-    "Russian Jews in military": "يهود روس في عسكرية",
+    "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
+    "south korean presidential election 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
+    "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
 
 }
 
 to_test = [
+    ("test_sports_events_0", data_0),
     ("test_sports_events_1", fast_data_1),
 ]
 

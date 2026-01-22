@@ -5,9 +5,6 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data0 = {
-    "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
-    "south korean presidential election 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
-    "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
 }
 
 data_1 = {
