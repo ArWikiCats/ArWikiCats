@@ -257,7 +257,7 @@ RESOURCE_LABELS: dict[str, str] = {
     "solid fuel": "وقود صلب",
     "solid fuels": "وقود صلب",
     "trucking": "النقل بالشاحنات",
-    "water resource management in": "إدارة الموارد المائية في",
+    "water resource management": "إدارة الموارد المائية",
     "water transportation": "النقل المائي",
     "wind power": "طاقة الرياح",
 }
