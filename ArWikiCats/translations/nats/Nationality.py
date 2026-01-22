@@ -308,14 +308,13 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
                 print(f"Alias({alias}) target ({target}) not found in nationality data")
 
     # NOTE: "papua new guinean" has same values as "guinean"
-    # all_nat_o["papua new guinean x"] = {
-    _papua_new_guinean = {
-        "male": "غيني",
-        "males": "غينيون",
-        "female": "غينية",
-        "females": "غينيات",
-        "the_male": "الغيني",
-        "the_female": "الغينية",
+    all_nat_o["papua_new_guinean!"] = {
+        "male": "",  # غيني
+        "males": "",  # غينيون
+        "female": "",  # غينية
+        "females": "",  # غينيات
+        "the_male": "",  # الغيني
+        "the_female": "",   # الغينية
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
     }
