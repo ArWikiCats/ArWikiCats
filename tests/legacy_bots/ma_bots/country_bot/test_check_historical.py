@@ -7,15 +7,15 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats import resolve_label_ar
 
 test_0 = {
-    "Defunct national football teams": "منتخبات كرة قدم وطنية سابقة",
-    "Defunct national sports teams": "منتخبات رياضية وطنية سابقة",
-}
-
-test_1 = {
     "Defunct national legislatures": "هيئات تشريعية وطنية سابقة",
     "Defunct National Hockey League teams": "فرق دوري هوكي وطنية سابقة",
     "Members of defunct national legislatures": "أعضاء هيئات تشريعية وطنية سابقة",
     "defunct national basketball league teams": "فرق دوري كرة سلة وطنية سابقة",
+}
+
+test_1 = {
+    "Defunct national football teams": "منتخبات كرة قدم وطنية سابقة",
+    "Defunct national sports teams": "منتخبات رياضية وطنية سابقة",
 }
 
 
