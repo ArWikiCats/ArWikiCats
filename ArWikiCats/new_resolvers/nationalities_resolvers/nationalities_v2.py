@@ -38,7 +38,6 @@ peoples_nats_not_jobs_males = {
     # "Category:Indonesian women singers": "تصنيف:مغنيات إندونيسيات",
     "{en} singers": "مغنون {males}",
     "{en} women singers": "مغنيات {females}",
-
     # American women in politics by descent
     "{en} women in politics": "{females} في السياسة",
 }
@@ -305,7 +304,6 @@ female_data_music = {
 }
 
 female_data = {
-
     # American remakes of foreign films
     "{en} remakes of foreign films": "أفلام {female} مأخوذة من أفلام أجنبية",
     "{en} miniseries": "مسلسلات قصيرة {female}",

@@ -9,7 +9,8 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import dump_data, logger
+from ...helps import logger
+from ...utils import get_relation_word
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -566,6 +567,31 @@ def find_ar_label(
         use_event2=use_event2,
     )
     return builder.build()
+
+
+@functools.lru_cache(maxsize=10000)
+def _work_separator_names(
+    category: str,
+    start_get_country2: bool = False,
+) -> str:
+    separator, separator_name = get_relation_word(category, translation_category_relations)
+
+    if not separator:
+        return ""
+
+    logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
+    arlabel = find_ar_label(category, separator, cate_test=category, start_get_country2=start_get_country2)
+
+    if not arlabel:
+        return ""
+
+    # Check if the result contains Arabic characters
+    if re.sub("[abcdefghijklmnopqrstuvwxyz]", "", arlabel, flags=re.IGNORECASE) != arlabel:
+        arlabel = ""
+
+    logger.info(f">>>> <<lightyellow>> {arlabel=}")
+
+    return arlabel
 
 
 __all__ = [

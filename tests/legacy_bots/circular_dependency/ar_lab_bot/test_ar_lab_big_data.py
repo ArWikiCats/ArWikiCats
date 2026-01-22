@@ -3,9 +3,10 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data_callback
+
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_list = [
     ("university of annaba", " of ", "جامعة عنابة"),
@@ -161,13 +162,25 @@ data_list = [
     ("members of maine legislature", " of ", "أعضاء هيئة مين التشريعية"),
     ("mexico by month", " by ", "المكسيك حسب الشهر"),
     ("military campaigns involving denmark", " involving ", "حملات عسكرية تشمل الدنمارك"),
-    ("military facilities on the-national-register-of-historic-places", " on ", "مرافق عسكرية في السجل الوطني للأماكن التاريخية"),
+    (
+        "military facilities on the-national-register-of-historic-places",
+        " on ",
+        "مرافق عسكرية في السجل الوطني للأماكن التاريخية",
+    ),
     ("military installations established in 1550s", " established in ", "منشآت عسكرية أسست في عقد 1550"),
     ("military of second bulgarian empire", " of ", "عسكرية الإمبراطورية البلغارية الثانية"),
-    ("military operations involving soviet union by war", " involving ", "عمليات عسكرية تشمل الاتحاد السوفيتي حسب الحرب"),
+    (
+        "military operations involving soviet union by war",
+        " involving ",
+        "عمليات عسكرية تشمل الاتحاد السوفيتي حسب الحرب",
+    ),
     ("military operations of american civil war", " of ", "عمليات عسكرية في الحرب الأهلية الأمريكية"),
     ("military personnel from ross and cromarty", " from ", "أفراد عسكريون من روس وكرومارتي"),
-    ("military units and formations disestablished in 1550", " disestablished in ", "وحدات وتشكيلات عسكرية انحلت في 1550"),
+    (
+        "military units and formations disestablished in 1550",
+        " disestablished in ",
+        "وحدات وتشكيلات عسكرية انحلت في 1550",
+    ),
     ("models from essex", " from ", "عارضو أزياء من إسكس"),
     ("monarchs by country", " by ", "ملكيون حسب البلد"),
     ("montserratian expatriates in england", " in ", "مونتسراتيون مغتربون في إنجلترا"),
@@ -196,7 +209,11 @@ data_list = [
     ("paintings of queen victoria", " of ", "لوحات عن الملكة فيكتوريا"),
     ("pakistani companies established in 1550", " established in ", "شركات باكستانية أسست في 1550"),
     ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
-    ("paralympic wheelchair curlers by year", " by ", "لاعبو كيرلنغ على الكراسي المتحركة في الألعاب البارالمبية حسب السنة"),
+    (
+        "paralympic wheelchair curlers by year",
+        " by ",
+        "لاعبو كيرلنغ على الكراسي المتحركة في الألعاب البارالمبية حسب السنة",
+    ),
     ("parliament of barbados", " of ", "برلمان بربادوس"),
     ("parliament of ireland 1550", " of ", "برلمان أيرلندا 1550"),
     ("people from al-andalus", " from ", "أشخاص من الأندلس"),
@@ -221,7 +238,11 @@ data_list = [
     ("peruvian people by occupation and century", " by ", "بيرويون حسب المهنة والقرن"),
     ("pharmaceutical companies of taiwan", " of ", "شركات أدوية في تايوان"),
     ("political organizations based in barbados", " based in ", "منظمات سياسية مقرها في بربادوس"),
-    ("political organizations based in oceania by country", " based in ", "منظمات سياسية مقرها في أوقيانوسيا حسب البلد"),
+    (
+        "political organizations based in oceania by country",
+        " based in ",
+        "منظمات سياسية مقرها في أوقيانوسيا حسب البلد",
+    ),
     ("politics of bhagalpur district", " of ", "سياسة مقاطعة بهاغالبور"),
     ("politics of second polish republic", " of ", "سياسة الجمهورية البولندية الثانية"),
     ("populated places disestablished in 20th century bc", " disestablished in ", "أماكن مأهولة انحلت في القرن 20 ق م"),
@@ -288,8 +309,16 @@ data_list = [
     ("trade unionists from missouri", " from ", "نقابيون من ميزوري"),
     ("transport organizations based in bahamas", " based in ", "منظمات نقل مقرها في باهاماس"),
     ("transport organizations based in norway", " based in ", "منظمات نقل مقرها في النرويج"),
-    ("united nations security council resolutions concerning angola", " concerning ", "قرارات مجلس الأمن التابع للأمم المتحدة بشأن أنغولا"),
-    ("united nations security council resolutions concerning turkmenistan", " concerning ", "قرارات مجلس الأمن التابع للأمم المتحدة بشأن تركمانستان"),
+    (
+        "united nations security council resolutions concerning angola",
+        " concerning ",
+        "قرارات مجلس الأمن التابع للأمم المتحدة بشأن أنغولا",
+    ),
+    (
+        "united nations security council resolutions concerning turkmenistan",
+        " concerning ",
+        "قرارات مجلس الأمن التابع للأمم المتحدة بشأن تركمانستان",
+    ),
     ("university of annaba", " of ", "جامعة عنابة"),
     ("university of sheffield", " of ", "جامعة شفيلد"),
     ("uzbekistani emigrants to australia", " to ", "أوزبكستانيون مهاجرون إلى أستراليا"),
@@ -314,20 +343,21 @@ data_list = [
 
 @pytest.mark.parametrize("category, separator, output", data_list, ids=[x[0] for x in data_list])
 @pytest.mark.fast
-def test_simple_2(category: str, separator: str, output: str) -> None:
+def test_simple_1(category: str, separator: str, output: str) -> None:
     label = find_ar_label(category, separator, use_event2=False)
     assert label == output
 
 
-test_data = {
-    x[0]: x[2] for x in data_list
-}
+test_data = {x[0]: x[2] for x in data_list}
 
 
-def resolve_label_ar_wrap(category: str) -> str:
-    if resolve_label_ar(category) == test_data.get(category):
-        return ""
-    return resolve_label_ar(category)
+@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.fast
+def test_simple_2(category: str, expected: str) -> None:
+    label = resolve_label_ar(category)
+    assert label == expected
 
 
-test_dump_all = make_dump_test_name_data_callback([("test_data", test_data, resolve_label_ar_wrap)], run_same=True, just_dump=True)
+test_dump_all = make_dump_test_name_data_callback(
+    [("test_data", test_data, resolve_label_ar)], run_same=True, just_dump=True
+)

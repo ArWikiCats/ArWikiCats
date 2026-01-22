@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import get_con_label, _lookup_country_with_in_prefix
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.get_con_lab_bot import _lookup_country_with_in_prefix, get_con_label
 from utils.dump_runner import make_dump_test_name_data
 
 data_in = {

@@ -22,13 +22,18 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
 from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
-from ..make_bots import get_KAKO
-from . import general_resolver
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
+from ..make_bots import get_KAKO
+from . import general_resolver, sub_general_resolver
 
 
-def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
-    return general_resolver.translate_general_category(category, *args, **kwargs)
+def translate_general_category_wrap(category, start_get_country2=False) -> str:
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category, start_get_country2=start_get_country2)
+    )
+    return arlabel
 
 
 @functools.lru_cache(maxsize=None)
@@ -51,7 +56,7 @@ def Get_country2(country: str) -> str:
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or translate_general_category_wrap(normalized_country, start_get_country2=False, fix_title=False)
+        or translate_general_category_wrap(normalized_country, start_get_country2=False)
         or get_pop_All_18(normalized_country.lower(), "")
         or ""
     )
@@ -81,7 +86,7 @@ def _resolve_remainder(remainder: str) -> str:
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)
-        or translate_general_category_wrap(remainder, fix_title=False)
+        or translate_general_category_wrap(remainder)
         or ""
     )
     return label
@@ -384,10 +389,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 
 
 def fetch_country_term_label(
-    term_lower: str,
-    separator: str,
-    lab_type: str = "",
-    start_get_country2: bool = True
+    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
 ) -> str:
     """
     Retrieve an Arabic label for a given term or country name using layered resolution strategies.

@@ -3,10 +3,10 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data_callback
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
@@ -498,16 +498,15 @@ data_1 = {
     "waste management in brazil": "إدارة المخلفات في البرازيل",
     "water sports in tanzania": "رياضات مائية في تنزانيا",
     "years in curaçao": "سنوات في كوراساو",
-    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية"
+    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية",
 }
 
 data_2 = {
     # "sports mass media in united arab emirates" : "إعلام ألعاب رياضية في الإمارات العربية المتحدة",
-
     "mass media in bosnia and herzegovina by medium": "وسائل إعلام في البوسنة والهرسك حسب الوسط",
     "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
     "1550 in mass media": "وسائل الإعلام في 1550",
-    "defunct mass media in new jersey" : "وسائل إعلام سابقة في نيوجيرسي",
+    "defunct mass media in new jersey": "وسائل إعلام سابقة في نيوجيرسي",
     "1550 awards in united states": "جوائز 1550 في الولايات المتحدة",
     "clubhouses on the-national-register-of-historic-places in maine": "نوادي في السجل الوطني للأماكن التاريخية في مين",
     "courthouses on the-national-register-of-historic-places in illinois": "محاكم في السجل الوطني للأماكن التاريخية في إلينوي",
@@ -522,7 +521,7 @@ data_2 = {
     "military operations of american civil war in north dakota": "عمليات عسكرية في الحرب الأهلية الأمريكية في داكوتا الشمالية",
     "opera houses on the-national-register-of-historic-places in minnesota": "دور أوبرا في السجل الوطني للأماكن التاريخية في منيسوتا",
     "victims of aviation accidents or incidents in dominican republic": "ضحايا حوادث طيران في جمهورية الدومينيكان",
-    "years of 20th century in australia": "سنوات القرن 20 في أستراليا"
+    "years of 20th century in australia": "سنوات القرن 20 في أستراليا",
 }
 
 data_3 = {

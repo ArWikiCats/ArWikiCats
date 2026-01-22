@@ -62,7 +62,6 @@ def test_year_at_start_uses_get_kako() -> None:
 
 @pytest.mark.fast
 def test_year_at_start_uses_translate_general_category() -> None:
-    # Force get_KAKO to return empty so translate_general_category is used
 
     result = Try_With_Years("1900 protests")
     assert result == "احتجاجات 1900"
@@ -70,7 +69,6 @@ def test_year_at_start_uses_translate_general_category() -> None:
 
 @pytest.mark.fast
 def test_year_at_start_uses_country2_lab() -> None:
-    # get_KAKO and translate_general_category both empty
 
     result = Try_With_Years("1900 events in Yemen")
     assert result == "أحداث في اليمن 1900"

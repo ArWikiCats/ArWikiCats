@@ -9,7 +9,8 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from .circular_dependency import country_bot, general_resolver
+from ..fix import fixtitle
+from .circular_dependency import country_bot, general_resolver, sub_general_resolver
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order
@@ -35,12 +36,25 @@ from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 # 1. Reorder entries in the list
 # 2. Update this docstring to reflect the new order
 
+
+def translate_general_category_wrap(category: str) -> str:
+    arlabel = (
+        ""
+        or sub_general_resolver.sub_translate_general_category(category)
+        or general_resolver.work_separator_names(category)
+    )
+    if arlabel:
+        arlabel = fixtitle.fixlabel(arlabel, en=category)
+
+    return arlabel
+
+
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     country_bot.event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
     event_lab_bot.event_Lab,
-    general_resolver.translate_general_category,
+    translate_general_category_wrap,
 ]
 
 

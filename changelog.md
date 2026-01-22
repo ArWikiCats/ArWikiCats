@@ -49,7 +49,7 @@ This pull request introduces a comprehensive refactoring of the `legacy_bots` di
   - General patterns (REGEX_SUB_MILLENNIUM_CENTURY, REGEX_SUB_CATEGORY_LOWERCASE)
   - "By" patterns (DUAL_BY_PATTERN, BY_MATCH_PATTERN, AND_PATTERN)
 * Added `core/base_resolver.py` - Central import point for shared resolver functions:
-  - Get_country2, get_KAKO, find_lab, get_lab_for_country2
+  - Get_country2, get_KAKO, get_lab_for_country2
 
 ### Changed
 * Refactored `legacy_resolvers()` function in `__init__.py` to use a pipeline pattern:
