@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import dump_data, logger
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -544,6 +544,7 @@ class LabelPipeline(Fixing):
 
 
 @functools.lru_cache(maxsize=10000)
+@dump_data(1)
 def find_ar_label(
     category: str,
     separator: str,
