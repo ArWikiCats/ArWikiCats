@@ -34,6 +34,29 @@ separators_lists_raw = [
 ]
 
 
+class CountryResolver:
+    """Resolves country-related information for category labeling."""
+
+    @staticmethod
+    @functools.lru_cache(maxsize=10000)
+    def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
+        """Resolve the country label."""
+
+        for_table = {
+            "for national teams": "للمنتخبات الوطنية",
+            "for member-of-parliament": "لعضوية البرلمان",
+        }
+
+        result = for_table.get(country, "") if preposition.lower() == "for" else ""
+
+        if not result:
+            result = (
+                country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
+                or get_con_label(country)
+            )
+        return result
+
+
 def _should_add_preposition_fe(type_label: str, type_lower: str) -> bool:
     """Check if 'في' should be added to the label.
 
@@ -244,29 +267,6 @@ class ParsedCategory:
     separator: str
     type_value: str
     country: str
-
-
-class CountryResolver:
-    """Resolves country-related information for category labeling."""
-
-    @staticmethod
-    @functools.lru_cache(maxsize=10000)
-    def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
-        """Resolve the country label."""
-
-        for_table = {
-            "for national teams": "للمنتخبات الوطنية",
-            "for member-of-parliament": "لعضوية البرلمان",
-        }
-
-        result = (
-            for_table.get(country, "")
-            if preposition.lower() == "for"
-            else ""
-            or country_bot.fetch_country_term_label(country, preposition, start_get_country2=start_get_country2)
-            or get_con_label(country)
-        )
-        return result
 
 
 class TypeResolver:
