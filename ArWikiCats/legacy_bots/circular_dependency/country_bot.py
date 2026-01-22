@@ -35,23 +35,22 @@ def Get_country2(country: str) -> str:
         str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
     """
 
-    normalized_country = country.lower().strip()
-    logger.info(f'>> Get_country2 "{normalized_country}":')
+    country = country.lower().strip()
+    logger.info(f'>> Get_country2 "{country}":')
 
     resolved_label = (
         country2_label_bot.country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
         or get_KAKO(country)
         or get_pop_All_18(country)
-        or general_resolver.translate_general_category(normalized_country, start_get_country2=False, fix_title=False)
-        or get_pop_All_18(normalized_country.lower(), "")
+        or general_resolver.translate_general_category(country, start_get_country2=False, fix_title=False)
         or ""
     )
 
     if resolved_label:
-        resolved_label = fixtitle.fixlabel(resolved_label, en=normalized_country)
+        resolved_label = fixtitle.fixlabel(resolved_label, en=country)
     resolved_label = " ".join(resolved_label.strip().split())
-    logger.info(f'>> Get_country2 "{normalized_country}": cnt_la: {resolved_label}')
+    logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
     return resolved_label
 
 
@@ -140,7 +139,8 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         if not resolved_label:
             resolved_label = (
-                _resolve_remainder(country)
+                ""
+                or _resolve_remainder(country)
                 or self._check_prefixes(country)
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)

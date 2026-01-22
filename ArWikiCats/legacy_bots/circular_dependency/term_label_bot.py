@@ -3,13 +3,15 @@
 Country Label Bot Module
 """
 
+import functools
 import re
 
 from ...config import app_settings
+from ...fix import fixtitle
 from ...helps import logger
-from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
+from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     New_female_keys,
     People_key,
@@ -17,8 +19,38 @@ from ...translations import (
     keys_of_without_in,
     religious_entries,
 )
+from ..common_resolver_chain import get_lab_for_country2
+from ..legacy_resolvers_bots import country2_label_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..make_bots import get_KAKO
+from . import general_resolver
 from .joint_class import CountryLabelAndTermParent
+
+
+def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
+    return general_resolver.translate_general_category(category, *args, **kwargs)
+
+
+@functools.lru_cache(maxsize=10000)
+def _resolve_remainder(remainder: str) -> str:
+    """Helper to resolve the label for the remainder of a string.
+
+    Args:
+        remainder: The remaining part of the string to process
+
+    Returns:
+        The resolved Arabic label or an empty string if not found
+    """
+    label = (
+        ""
+        or country2_label_bot.country_2_title_work(remainder, with_years=True)
+        or get_pop_All_18(remainder)
+        or translate_general_category_wrap(remainder, start_get_country2=False, fix_title=False)
+        or get_lab_for_country2(remainder)
+        or get_KAKO(remainder)
+        or ""
+    )
+    return label
 
 
 class LabelsRetriever(CountryLabelAndTermParent):
@@ -35,7 +67,7 @@ class LabelsRetriever(CountryLabelAndTermParent):
 
         No runtime initialization is performed; the constructor exists to allow instantiation.
         """
-        super().__init__(_resolve_callable=None)
+        super().__init__(_resolve_callable=_resolve_remainder)
         # from . import country_bot
         # self.get_country_label = country_bot._retriever.get_country_label
 
@@ -69,7 +101,7 @@ class LabelsRetriever(CountryLabelAndTermParent):
 
         Parameters:
             country (str): Country name to resolve; case is normalized internally.
-            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
+            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get country2) as a fallback.
 
         Returns:
             str: The resolved Arabic label, or an empty string if no label is found.
@@ -81,11 +113,10 @@ class LabelsRetriever(CountryLabelAndTermParent):
 
         resolved_label = self._check_basic_lookups(country)
 
-        # if resolved_label == "" and start_get_country2: resolved_label = Get_country2(country)
-
         if not resolved_label:
             resolved_label = (
                 ""
+                or _resolve_remainder(country)
                 or self._check_prefixes(country)
                 or all_new_resolvers(country)
                 or self._check_regex_years(country)
