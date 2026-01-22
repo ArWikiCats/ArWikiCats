@@ -148,7 +148,7 @@ def check_historical_prefixes(country: str) -> str:
     return ""
 
 
-class CountryLabelRetriever:
+class LabelsRetriever:
     """A class to handle the retrieval of country labels and related terms.
 
     This class provides methods to look up and process country names,
@@ -163,47 +163,6 @@ class CountryLabelRetriever:
         No runtime initialization is performed; the constructor exists to allow instantiation.
         """
         pass
-
-    @functools.lru_cache(maxsize=1024)
-    def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
-        """
-        Resolve an Arabic label for a country name using layered lookup strategies.
-
-        Parameters:
-            country (str): Country name to resolve; case is normalized internally.
-            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
-
-        Returns:
-            str: The resolved Arabic label, or an empty string if no label is found.
-        """
-        country = country.lower()
-
-        logger.debug(">> ----------------- get_country start ----------------- ")
-        logger.debug(f"<<yellow>> start get_country_label: {country=}")
-
-        resolved_label = self._check_basic_lookups(country)
-
-        if resolved_label == "" and start_get_country2:
-            resolved_label = Get_country2(country)
-
-        if not resolved_label:
-            resolved_label = (
-                _resolve_remainder(country)
-                or self._check_prefixes(country)
-                or check_historical_prefixes(country)
-                or all_new_resolvers(country)
-                or self._check_regex_years(country)
-                or self._check_members(country)
-                # or SPORTS_KEYS_FOR_LABEL.get(country, "")
-                or ""
-            )
-
-        if resolved_label:
-            if "سنوات في القرن" in resolved_label:
-                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
-
-        logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
-        return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:
         """
@@ -272,6 +231,47 @@ class CountryLabelRetriever:
             return with_years_bot.Try_With_Years(country)
         return ""
 
+    @functools.lru_cache(maxsize=1024)
+    def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
+        """
+        Resolve an Arabic label for a country name using layered lookup strategies.
+
+        Parameters:
+            country (str): Country name to resolve; case is normalized internally.
+            start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
+
+        Returns:
+            str: The resolved Arabic label, or an empty string if no label is found.
+        """
+        country = country.lower()
+
+        logger.debug(">> ----------------- get_country start ----------------- ")
+        logger.debug(f"<<yellow>> start get_country_label: {country=}")
+
+        resolved_label = self._check_basic_lookups(country)
+
+        if resolved_label == "" and start_get_country2:
+            resolved_label = Get_country2(country)
+
+        if not resolved_label:
+            resolved_label = (
+                _resolve_remainder(country)
+                or self._check_prefixes(country)
+                or check_historical_prefixes(country)
+                or all_new_resolvers(country)
+                or self._check_regex_years(country)
+                or self._check_members(country)
+                # or SPORTS_KEYS_FOR_LABEL.get(country, "")
+                or ""
+            )
+
+        if resolved_label:
+            if "سنوات في القرن" in resolved_label:
+                resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
+
+        logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
+        return resolved_label
+
     def _check_members(self, country: str) -> str:
         """
         Handle inputs that end with " members of" by returning a corresponding Arabic member label.
@@ -289,6 +289,23 @@ class CountryLabelRetriever:
                 logger.info(f"a<<lightblue>>>2021 get_country lab = {resolved_label}")
                 return resolved_label
         return ""
+
+
+class CountryLabelRetriever(LabelsRetriever):
+    """A class to handle the retrieval of country labels and related terms.
+
+    This class provides methods to look up and process country names,
+    applying various transformations and resolution strategies to generate
+    appropriate Arabic labels.
+    """
+
+    def __init__(self) -> None:
+        """
+        Initialize the CountryLabelRetriever.
+
+        No runtime initialization is performed; the constructor exists to allow instantiation.
+        """
+        pass
 
     def get_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True

@@ -15,7 +15,7 @@ from .bot_2018 import get_pop_All_18
 from .mk3 import new_func_mk2
 
 
-def get_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:
+def resolve_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:
     """Resolve a country label using population tables and fallbacks."""
     country_label = ""
 
@@ -102,7 +102,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_label = (
             ""
             or all_new_resolvers(self.country_lower)
-            or get_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
+            or resolve_country_label(self.country_lower, self.country_not_lower, self.cate3, cmp)
             or ""
         )
 
