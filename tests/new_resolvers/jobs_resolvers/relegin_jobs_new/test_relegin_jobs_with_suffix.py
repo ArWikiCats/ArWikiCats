@@ -395,7 +395,7 @@ def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> Non
 
 
 @pytest.mark.parametrize("input_text,expected", expatriates_data.items(), ids=expatriates_data.keys())
-@pytest.mark.skip2
+@pytest.mark.fast
 def test_with_suffix_expatriates(input_text: str, expected: str) -> None:
     result2 = new_religions_jobs_with_suffix(input_text)
 
