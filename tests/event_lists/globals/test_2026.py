@@ -11,7 +11,6 @@ data_0 = {
     "1880s in film by country": "الأفلام في عقد 1880 حسب البلد",
     "18th-century people of the Dutch Empire": "أشخاص في القرن 18 في الإمبراطورية الهولندية",
     "20th-century presidents of Russia": "رؤساء في القرن 20 في روسيا",
-    "20th-century executions by Papua New Guinea": "إعدامات في القرن 20 في بابوا غينيا الجديدة",
     "20th century members of maine legislature": "أعضاء هيئة مين التشريعية في القرن 20",
     "Wheelchair basketball at the Summer Paralympics navigational boxes": "صناديق تصفح كرة السلة على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
     "Wheelchair fencing at the Summer Paralympics navigational boxes": "صناديق تصفح مبارزة سيف الشيش على الكراسي المتحركة في الألعاب البارالمبية الصيفية",
@@ -24,8 +23,6 @@ data_0 = {
     "Canadian football on television": "كرة القدم الكندية على التلفاز",
     "Attacks on diplomatic missions of Russia": "هجمات على بعثات دبلوماسية روسيا",
     "Italian defectors to the Soviet Union": "إيطاليون منشقون إلى الاتحاد السوفيتي",
-    "Lists of organisations based in Papua New Guinea": "قوائم منظمات مقرها في بابوا غينيا الجديدة",
-    "COVID-19 pandemic in Papua New Guinea templates": "قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",
     "Works by Antigua and Barbuda people": "أعمال أنتيغويون وبربوديون",
 }
 
@@ -75,9 +72,11 @@ to_test = [
     ("test_2026_data_2", data2),
 ]
 
+test_data_all = data1 | data_0 | data2
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
-@pytest.mark.skip2
+
+@pytest.mark.parametrize("category, expected", test_data_all.items(), ids=test_data_all.keys())
+@pytest.mark.fast
 def test_2026_data_1(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected
 

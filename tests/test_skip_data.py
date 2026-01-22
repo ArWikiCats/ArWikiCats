@@ -1419,6 +1419,9 @@ data_00 = {
 }
 
 fast_data_1 = {
+    "20th-century executions by Papua New Guinea": "إعدامات في القرن 20 في بابوا غينيا الجديدة",
+    "Lists of organisations based in Papua New Guinea": "قوائم منظمات مقرها في بابوا غينيا الجديدة",
+    "COVID-19 pandemic in Papua New Guinea templates": "قوالب جائحة فيروس كورونا في بابوا غينيا الجديدة",
     "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
     "south korean presidential election 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
     "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
