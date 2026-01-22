@@ -9,7 +9,8 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver, with_years_bot, year_or_typeo
+from .circular_dependency import country_bot, general_resolver
+from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Define the resolver pipeline in priority order
 # Each resolver is a callable that takes a category string and returns a label or empty string
@@ -19,7 +20,6 @@ from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver,
 # The resolvers are tried in the order listed below. The first resolver to return
 # a non-empty string wins. This ordering is significant:
 #
-# 1. university_resolver - Specialized resolver for university categories (highest priority)
 # 2. country_bot.event2_d2 - Country and event-based resolution
 # 3. with_years_bot.wrap_try_with_years - Year-based category resolution
 # 4. year_or_typeo.label_for_startwith_year_or_typeo - Year prefix patterns and typo handling
@@ -34,7 +34,7 @@ from .legacy_resolvers_bots import country_bot, event_lab_bot, general_resolver,
 # To modify priority:
 # 1. Reorder entries in the list
 # 2. Update this docstring to reflect the new order
-#
+
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     country_bot.event2_d2,
     with_years_bot.wrap_try_with_years,

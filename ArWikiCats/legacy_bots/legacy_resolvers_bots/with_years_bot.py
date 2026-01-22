@@ -13,12 +13,12 @@ from typing import Pattern
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
+from ..circular_dependency import general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
 from ..make_bots import get_KAKO
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
-from . import general_resolver
 from .bot_2018 import get_pop_All_18
 
 arabic_labels_preceding_year = [
@@ -38,6 +38,10 @@ known_bodies = {
 
 pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
+
+
+def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
+    return general_resolver.translate_general_category(category, *args, **kwargs)
 
 
 def handle_political_terms(category_text: str) -> str:
@@ -86,7 +90,7 @@ def _handle_year_at_start(category_text: str) -> str:
             ""
             or all_new_resolvers(remainder)
             or get_from_pf_keys2(remainder)
-            or general_resolver.translate_general_category(remainder, fix_title=False)
+            or translate_general_category_wrap(remainder, fix_title=False)
             or get_lab_for_country2(remainder)
             or get_KAKO(remainder)
             or get_pop_All_18(remainder)
@@ -139,7 +143,7 @@ def _handle_year_at_end(
     remainder_label = (
         ""
         or all_new_resolvers(remainder)
-        or general_resolver.translate_general_category(remainder, fix_title=False)
+        or translate_general_category_wrap(remainder, fix_title=False)
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
         or get_pop_All_18(remainder)

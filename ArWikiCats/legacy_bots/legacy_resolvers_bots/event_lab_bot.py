@@ -12,12 +12,17 @@ from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ...translations import Ambassadors_tab, get_from_new_p17_final
 from .. import tmp_bot
+from ..circular_dependency import country_bot, general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from ..make_bots import get_KAKO
-from . import country2_label_bot, country_bot, general_resolver, with_years_bot, year_or_typeo
+from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
+
+
+def translate_general_category_wrap(category: str, *args, **kwargs) -> str:
+    return general_resolver.translate_general_category(category, *args, **kwargs)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -37,7 +42,7 @@ def event_label_work(country: str) -> str:
         or country_bot.event2_d2(country2)
         or with_years_bot.wrap_try_with_years(country2)
         or year_or_typeo.label_for_startwith_year_or_typeo(country2)
-        or general_resolver.translate_general_category(country2)
+        or translate_general_category_wrap(country2)
     )
     return resolved_label
 
@@ -100,7 +105,7 @@ class EventLabResolver:
                 or get_lab_for_country2(original_cat3)
                 or get_KAKO(original_cat3)
                 or get_pop_All_18(original_cat3)
-                or general_resolver.translate_general_category(original_cat3, start_get_country2=False, fix_title=False)
+                or translate_general_category_wrap(original_cat3, start_get_country2=False, fix_title=False)
             )
             if category_lab:
                 list_of_cat = ""
@@ -122,7 +127,7 @@ class EventLabResolver:
         # Try different label functions in sequence
         category_lab: str = (
             ""
-            or general_resolver.translate_general_category(category3, fix_title=False)
+            or translate_general_category_wrap(category3, fix_title=False)
             or country2_label_bot.country_2_title_work(category3)
             or get_lab_for_country2(category3)
             or get_KAKO(category3)
@@ -239,7 +244,7 @@ class EventLabResolver:
 
         # Try general translation again if still no label
         if not category_lab:
-            category_lab = general_resolver.translate_general_category(original_cat3, fix_title=False)
+            category_lab = translate_general_category_wrap(original_cat3, fix_title=False)
 
         return category_lab
 

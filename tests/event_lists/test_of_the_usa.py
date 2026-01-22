@@ -57,18 +57,13 @@ data_1 = {
 }
 
 data_2 = {
-    "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
     "Bilateral military relations of the United States": "علاقات الولايات المتحدة الثنائية العسكرية",
     "Bilateral relations of the United States": "علاقات الولايات المتحدة الثنائية",
-    "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
     "Works about military history of the United States": "أعمال عن التاريخ العسكري الولايات المتحدة",
     "Works about presidents of the United States": "أعمال عن رؤساء الولايات المتحدة",
     "Works about the military of the United States": "أعمال عن عسكرية الولايات المتحدة",
     "Works by presidents of the United States": "أعمال رؤساء الولايات المتحدة",
-    "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية الولايات المتحدة",
     "National sports teams of the United States": "منتخبات رياضية وطنية من الولايات المتحدة",
-    "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
-    "Women's national sports teams of the United States": "منتخبات رياضية وطنية نسائية الولايات المتحدة",
     "Biographical films about presidents of the United States": "أفلام سير ذاتية عن رؤساء الولايات المتحدة",
     "Documentary films about presidents of the United States": "أفلام وثائقية عن رؤساء الولايات المتحدة",
     "Films about fictional presidents of the United States": "أفلام عن رؤساء خياليون الولايات المتحدة",

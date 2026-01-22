@@ -7,7 +7,7 @@ and actual data dependencies.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.ar_lab_bot import (
+from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import (
     add_in_tab,
     separator_lists_fixing,
 )
