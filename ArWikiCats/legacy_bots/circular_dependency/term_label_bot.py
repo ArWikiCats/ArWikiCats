@@ -44,10 +44,10 @@ def _resolve_remainder(remainder: str) -> str:
     label = (
         ""
         or country2_label_bot.country_2_title_work(remainder, with_years=True)
-        or get_pop_All_18(remainder)
-        or translate_general_category_wrap(remainder, start_get_country2=False, fix_title=False)
         or get_lab_for_country2(remainder)
         or get_KAKO(remainder)
+        or get_pop_All_18(remainder)
+        or general_resolver.translate_general_category(remainder, start_get_country2=True, fix_title=False)
         or ""
     )
     return label
