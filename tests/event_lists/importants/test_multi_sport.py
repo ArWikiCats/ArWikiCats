@@ -123,7 +123,6 @@ data_1 = {
     "Competitors at multi-sport events by year": "منافسون في أحداث رياضية متعددة حسب السنة",
     "Medalists at multi-sport events by year": "فائزون بميداليات في أحداث رياضية متعددة حسب السنة",
     "Nations at multi-sport events by country": "بلدان في أحداث رياضية متعددة حسب البلد",
-
     "Albania at winter multi-sport events": "ألبانيا في أحداث رياضية متعددة شتوية",
     "Algeria at winter multi-sport events": "الجزائر في أحداث رياضية متعددة شتوية",
     "American Samoa at winter multi-sport events": "ساموا الأمريكية في أحداث رياضية متعددة شتوية",

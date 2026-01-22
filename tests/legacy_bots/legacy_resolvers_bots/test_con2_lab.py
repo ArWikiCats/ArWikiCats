@@ -3,9 +3,10 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data_callback
+
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_type_lab
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "medical and health organizations": "منظمات طبية وصحية",
@@ -80,7 +81,7 @@ data_1 = {
     "permanent representatives of jamaica": "مندوبو جامايكا الدائمون",
     "permanent representatives of kazakhstan": "مندوبو كازاخستان الدائمون",
     "permanent representatives of kyrgyzstan": "مندوبو قيرغيزستان الدائمون",
-    "trinidad and tobago emigrants": "ترنيداديون مهاجرون"
+    "trinidad and tobago emigrants": "ترنيداديون مهاجرون",
 }
 
 data_2 = {
@@ -194,7 +195,7 @@ data_2 = {
     "ambassadors of federated states-of micronesia": "سفراء ولايات ميكرونيسيا المتحدة",
     "ambassadors of south africa": "سفراء جنوب إفريقيا",
     "ambassadors of united states": "سفراء الولايات المتحدة",
-    "emigrants from the russian empire": "مهاجرون من الإمبراطورية الروسية"
+    "emigrants from the russian empire": "مهاجرون من الإمبراطورية الروسية",
 }
 
 

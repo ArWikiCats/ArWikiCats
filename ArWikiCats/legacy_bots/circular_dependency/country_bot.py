@@ -5,6 +5,7 @@ Country Label Bot Module
 
 import functools
 import re
+
 from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
@@ -21,9 +22,9 @@ from ...translations import (  # SPORTS_KEYS_FOR_LABEL,
 from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
+from ..legacy_utils.joint_class import CountryLabelAndTermParent
 from ..make_bots import get_KAKO
 from . import general_resolver, sub_general_resolver
-from ..legacy_utils.joint_class import CountryLabelAndTermParent
 
 
 def translate_general_category_wrap(category, start_get_country2=False) -> str:
@@ -388,10 +389,7 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 
 
 def fetch_country_term_label(
-    term_lower: str,
-    separator: str,
-    lab_type: str = "",
-    start_get_country2: bool = True
+    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
 ) -> str:
     """
     Retrieve an Arabic label for a given term or country name using layered resolution strategies.

@@ -9,7 +9,6 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-
 from ..fix import fixtitle
 from .circular_dependency import country_bot, general_resolver, sub_general_resolver
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
 
-    arlabel = (
-        ""
-        or sub_general_resolver.sub_translate_general_category(category)
-        or general_resolver.work_separator_names(category)
-    )
+arlabel = (
+    ""
+    or sub_general_resolver.sub_translate_general_category(category)
+    or general_resolver.work_separator_names(category)
+)
 """
 
 import functools

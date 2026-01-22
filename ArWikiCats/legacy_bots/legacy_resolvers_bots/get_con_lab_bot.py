@@ -35,10 +35,7 @@ def _lookup_country_with_in_prefix(country: str) -> str:
 
     inner_country = country.strip()[len("in ") :].strip()
     country_label = (
-        ""
-        or get_lab_for_country2(inner_country)
-        or get_pop_All_18(inner_country)
-        or get_KAKO(inner_country)
+        "" or get_lab_for_country2(inner_country) or get_pop_All_18(inner_country) or get_KAKO(inner_country)
     )
     if country_label:
         return f"في {country_label}"

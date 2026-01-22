@@ -4,21 +4,17 @@ Tests
 
 import pytest
 from load_one_data import dump_diff
-from ArWikiCats.fix import fixtitle
 
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.fix import fixtitle
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
-from ArWikiCats.legacy_bots.circular_dependency.sub_general_resolver import sub_translate_general_category
 from ArWikiCats.legacy_bots.circular_dependency.general_resolver import work_separator_names
+from ArWikiCats.legacy_bots.circular_dependency.sub_general_resolver import sub_translate_general_category
 
 
 def translate_general_category_wrap(category: str) -> str:
 
-    arlabel = (
-        ""
-        or sub_translate_general_category(category)
-        or work_separator_names(category)
-    )
+    arlabel = "" or sub_translate_general_category(category) or work_separator_names(category)
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
 

@@ -15,7 +15,7 @@ data_1_list = [
     ),
     (
         "lists of Yugoslav non-fiction writers people executed in Nazi concentration camps by city and year",
-        "قوائم كتاب غير روائيين يوغسلافيون أعدموا في معسكرات الاعتقال النازية حسب المدينة والسنة"
+        "قوائم كتاب غير روائيين يوغسلافيون أعدموا في معسكرات الاعتقال النازية حسب المدينة والسنة",
     ),
     (
         "lists of Yugoslav non-fiction writers people executed in Nazi concentration camps by city and year templates",
