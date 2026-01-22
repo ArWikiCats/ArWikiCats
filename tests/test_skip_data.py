@@ -44,6 +44,8 @@ executed_data_1 = {
 }
 
 fast_data_1 = {
+
+    "Jews and Judaism in Kingdom of Jerusalem": "اليهود واليهودية في مملكة بيت المقدس",
     "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
     "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
     "National youth sports teams of the United States": "منتخبات رياضية وطنية شبابية الولايات المتحدة",
