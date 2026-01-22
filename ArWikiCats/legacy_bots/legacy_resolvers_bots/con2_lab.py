@@ -18,7 +18,6 @@ from ...translations import (
     religious_entries,
 )
 from .. import tmp_bot
-from ..circular_dependency import country_bot
 from ..circular_dependency import term_label_bot
 from ..common_resolver_chain import get_lab_for_country2
 from ..make_bots import get_KAKO
@@ -229,7 +228,6 @@ def _lookup_country_with_in_prefix(country_lower: str) -> str:
     inner_country = country_lower.strip()[len("in ") :].strip()
     country_label = (
         ""
-        # or country_bot.get_country(inner_country)
         or get_lab_for_country2(inner_country)
         or get_pop_All_18(inner_country)
         or get_KAKO(inner_country)
