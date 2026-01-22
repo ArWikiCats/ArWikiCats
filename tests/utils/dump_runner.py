@@ -54,7 +54,7 @@ def make_dump_test_name_data_callback(to_test: ToTestCallback, run_same=False, j
     return test_dump_all
 
 
-def make_dump_test_name_data_dumpskip(to_test: ToTest, callback, run_same=False, just_dump=False):
+def make_dump_test_name_data_dumpskip(to_test: ToTest, callback, run_same=False, just_dump=True):
     """
     Create a parametrized pytest test function.
     """
