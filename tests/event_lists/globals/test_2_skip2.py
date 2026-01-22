@@ -1331,6 +1331,28 @@ non_fiction_empty = {
     "Writers by non-fiction subject area": "",
 }
 
+data_0 = {
+    "12th iranian majlis": "المجلس الإيراني الثاني عشر",
+    "13th iranian majlis": "المجلس الإيراني الثالث عشر",
+    "15th iranian majlis": "المجلس الإيراني الخامس عشر",
+    "1866 asian winter games": "الألعاب الآسيوية الشتوية 1866",
+    "1866 european games": "الألعاب الأوروبية 1866",
+    "1866 indian general election": "الانتخابات العامة الهندية 1866",
+    "1866 pan american games": "دورة الألعاب الأمريكية 1866",
+    "1866 parapan american games": "ألعاب بارابان الأمريكية 1866",
+    "1866 presidential candidates": "مرشحون رئاسيون 1866",
+    "1866 sea games": "ألعاب البحر 1866",
+    "1866 summer olympics": "الألعاب الأولمبية الصيفية 1866",
+    "1866 summer paralympics": "الألعاب البارالمبية الصيفية 1866",
+    "1866 united states elections": "انتخابات الولايات المتحدة 1866",
+    "1866 united states": "الولايات المتحدة 1866",
+    "war in iraq (1866–1866)": "الحرب في العراق (1866–1866)",
+    "united kingdom (1866–1866)": "المملكة المتحدة (1866–1866)",
+    "uefa euro 1866": "بطولة أمم أوروبا 1866",
+    "second polish republic (1866–1866)": "الجمهورية البولندية الثانية (1866–1866)",
+    "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
+}
+
 to_test = [
     ("test_2_skip2_0", data0),
     ("test_2_skip2_2", data1),

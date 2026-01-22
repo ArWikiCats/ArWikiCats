@@ -6,28 +6,8 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import get_by_label
+from utils.dump_runner import make_dump_test_name_data
 
-data_0 = {
-    "12th iranian majlis": "المجلس الإيراني الثاني عشر",
-    "13th iranian majlis": "المجلس الإيراني الثالث عشر",
-    "15th iranian majlis": "المجلس الإيراني الخامس عشر",
-    "1866 asian winter games": "الألعاب الآسيوية الشتوية 1866",
-    "1866 european games": "الألعاب الأوروبية 1866",
-    "1866 indian general election": "الانتخابات العامة الهندية 1866",
-    "1866 pan american games": "دورة الألعاب الأمريكية 1866",
-    "1866 parapan american games": "ألعاب بارابان الأمريكية 1866",
-    "1866 presidential candidates": "مرشحون رئاسيون 1866",
-    "1866 sea games": "ألعاب البحر 1866",
-    "1866 summer olympics": "الألعاب الأولمبية الصيفية 1866",
-    "1866 summer paralympics": "الألعاب البارالمبية الصيفية 1866",
-    "1866 united states elections": "انتخابات الولايات المتحدة 1866",
-    "1866 united states": "الولايات المتحدة 1866",
-    "war in iraq (1866–1866)": "الحرب في العراق (1866–1866)",
-    "united kingdom (1866–1866)": "المملكة المتحدة (1866–1866)",
-    "uefa euro 1866": "بطولة أمم أوروبا 1866",
-    "second polish republic (1866–1866)": "الجمهورية البولندية الثانية (1866–1866)",
-    "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
-}
 
 by_label_data = {
     "africa by country": "إفريقيا حسب البلد",
@@ -103,7 +83,6 @@ by_label_data = {
 }
 
 to_test = [
-    ("test_get_by_label_0", data_0, get_by_label),
     ("test_get_by_label", by_label_data, get_by_label),
 ]
 
@@ -115,9 +94,4 @@ def test_get_by_label(category: str, expected: str) -> None:
     assert label == expected, f"Failed for category: {category}"
 
 
-@pytest.mark.parametrize("name,data, callback", to_test)
-@pytest.mark.skip2
-def test_dump_all(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(to_test, get_by_label, run_same=True)
