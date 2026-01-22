@@ -103,6 +103,7 @@ by_label_data = {
 }
 
 to_test = [
+    ("test_get_by_label_0", data_0, get_by_label),
     ("test_get_by_label", by_label_data, get_by_label),
 ]
 
