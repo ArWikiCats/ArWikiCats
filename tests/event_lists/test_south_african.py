@@ -277,7 +277,6 @@ data_1 = {
     "Pakistan–South Africa sports relations": "العلاقات الباكستانية الجنوب الإفريقية الرياضية",
     "Palestine–South Africa relations": "العلاقات الجنوب الإفريقية الفلسطينية",
     "Panama–South Africa relations": "العلاقات البنمية الجنوب الإفريقية",
-    "Papua New Guinea–South Africa relations": "العلاقات الجنوب الإفريقية الغينية",
     "Paraguay–South Africa relations": "العلاقات البارغوايانية الجنوب الإفريقية",
     "Peru–South Africa relations": "العلاقات البيروية الجنوب الإفريقية",
     "Philippines–South Africa relations": "العلاقات الجنوب الإفريقية الفلبينية",

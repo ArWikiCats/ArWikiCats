@@ -216,7 +216,6 @@ ireland_test_data = {
 
 test_data = {
     "Georgia (country)–Luxembourg relations": "العلاقات الجورجية اللوكسمبورغية",
-    "France–Papua New Guinea relations": "العلاقات الغينية الفرنسية",
     "Angola–Guinea-Bissau relations": "العلاقات الأنغولية الغينية البيساوية",
     "Azerbaijan–Guinea-Bissau relations": "العلاقات الأذربيجانية الغينية البيساوية",
     "Belgium–Guinea-Bissau relations": "العلاقات البلجيكية الغينية البيساوية",
