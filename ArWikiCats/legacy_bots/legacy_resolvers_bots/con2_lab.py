@@ -170,7 +170,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
 
 
 @functools.lru_cache(maxsize=10000)
-@dump_data(1)
 def get_type_lab(type_value: str) -> str:
     """Determine the type label based on input parameters.
 
