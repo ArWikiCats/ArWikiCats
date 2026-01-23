@@ -6,8 +6,6 @@ nationalities, and descriptors for women into idiomatic Arabic.
 
 import functools
 
-from .mens import mens_resolver_labels
-
 from ...helps import len_print, logger
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
@@ -20,6 +18,7 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
+from .mens import mens_resolver_labels
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]

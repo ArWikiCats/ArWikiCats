@@ -12,16 +12,15 @@ from ..new_resolvers import all_new_resolvers
 from ..sub_new_resolvers import parties_resolver, team_work, university_resolver
 from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..translations import (
-    People_key,
-    get_from_pf_keys2,
     RELIGIOUS_KEYS_PP,
     New_female_keys,
+    People_key,
     get_from_new_p17_final,
+    get_from_pf_keys2,
     religious_entries,
 )
-
-from .make_bots import get_KAKO
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from .make_bots import get_KAKO
 
 
 def _lookup_country_with_in_prefix(country: str) -> str:

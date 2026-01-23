@@ -8,8 +8,8 @@ from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,
 )
-from .raw_sports import resolve_sport_label_unified
 from .pre_defined import pre_defined_results
+from .raw_sports import resolve_sport_label_unified
 
 mappings_data: dict[str, str] = {
     "squads": "تشكيلات",
