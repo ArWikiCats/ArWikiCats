@@ -381,10 +381,13 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
     category = fix_keys(category)
 
     if pre_defined_results.get(category):
+        logger.info(f"<<yellow>> end resolve_sport_label_unified (pre_defined): {category=}, {pre_defined_results[category]=}")
         return pre_defined_results[category]
 
     if SPORT_KEY_RECORDS.get(category):
-        return SPORT_KEY_RECORDS[category].get("label", "")
+        label = SPORT_KEY_RECORDS[category].get("label", "")
+        logger.info(f"<<yellow>> end resolve_sport_label_unified (SPORT_KEY_RECORDS): {category=}, {label=}")
+        return label
 
     unified_bot = _load_unified_bot()
     result = unified_bot.search(category)
