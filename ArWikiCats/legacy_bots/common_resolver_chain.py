@@ -14,13 +14,15 @@ from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
-    People_key,
     get_from_new_p17_final,
     get_from_pf_keys2,
     religious_entries,
 )
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
+
+type_lookup_chain = {}
+con_lookup_chain = {}
 
 
 def _lookup_country_with_in_prefix(country: str) -> str:
@@ -58,19 +60,9 @@ def get_con_label(country: str) -> str:
         logger.info(f"?????? get_con_label early return: {country=}, {label=}")
         return label
 
-    lookup_chain = {
-        "all_new_resolvers": lambda t: all_new_resolvers(t),
-        "get_from_new_p17_final": lambda c: get_from_new_p17_final(c),
-        "pf_keys2": lambda c: get_from_pf_keys2(c),
-        "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
-        "team_work.resolve_clubs_teams_leagues": lambda c: team_work.resolve_clubs_teams_leagues(c.strip()),
-        "get_lab_for_country2": get_lab_for_country2,
-        "get_pop_All_18": get_pop_All_18,
-        "get_KAKO": get_KAKO,
-    }
     label = ""
 
-    for name, lookup_func in lookup_chain.items():
+    for name, lookup_func in con_lookup_chain.items():
         label = lookup_func(country) or lookup_func(country_no_dash)
         if label:
             logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
@@ -104,19 +96,8 @@ def get_type_lab(type_value: str) -> str:
         return "أشخاص"
 
     label = ""
-    lookup_chain = {
-        "get_from_new_p17_final": get_from_new_p17_final,
-        "all_new_resolvers": all_new_resolvers,
-        "_lookup_religious_males": _lookup_religious_males,
-        "New_female_keys": lambda t: New_female_keys.get(t, ""),
-        "religious_entries": lambda t: religious_entries.get(t, ""),
-        "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
-        "get_lab_for_country2": get_lab_for_country2,
-        "get_pop_All_18": get_pop_All_18,
-        "get_KAKO": get_KAKO,
-    }
 
-    for name, lookup_func in lookup_chain.items():
+    for name, lookup_func in type_lookup_chain.items():
         label = lookup_func(type_lower)
         if label:
             logger.debug(f"get_type_lab({type_lower}): Found label '{label}' via {name}")
@@ -149,7 +130,6 @@ def get_lab_for_country2(country: str) -> str:
         ""
         or all_new_resolvers(country2)
         or get_from_pf_keys2(country2)
-        or People_key.get(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or university_resolver.resolve_university_category(country2)
@@ -161,6 +141,27 @@ def get_lab_for_country2(country: str) -> str:
     return resolved_label
 
 
+con_lookup_both = {
+    "get_from_new_p17_final": get_from_new_p17_final,
+    "all_new_resolvers": all_new_resolvers,
+    "pf_keys2": get_from_pf_keys2,
+    "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
+    "_lookup_religious_males": _lookup_religious_males,
+    "New_female_keys": lambda t: New_female_keys.get(t, ""),
+    "religious_entries": lambda t: religious_entries.get(t, ""),
+    "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
+    "get_parties_lab": parties_resolver.get_parties_lab,
+    "resolve_university_category": university_resolver.resolve_university_category,
+    "work_peoples": work_peoples,
+    "get_pop_All_18": get_pop_All_18,
+    "get_KAKO": get_KAKO,
+}
+
+con_lookup_chain.update(con_lookup_both)
+type_lookup_chain.update(con_lookup_both)
+
 __all__ = [
     "get_lab_for_country2",
+    "get_con_label",
+    "get_type_lab",
 ]
