@@ -363,7 +363,7 @@ test_data = {x[0]: x[2] for x in data_list}
 
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_simple_2(category: str, expected: str) -> None:
+def test_simple_3(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
