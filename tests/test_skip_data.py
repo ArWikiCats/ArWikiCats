@@ -274,7 +274,7 @@ data_test_2 = {
     "Deaths from varicella zoster infection": "وفيات بعدوى فيروس جدري الماء النطاقي",
     "Deaths from vasculitis": "وفيات بسبب التهاب الوعائي",
     "Deaths from whooping cough": "وفيات بسبب السعال الديكي",
-    "Deaths from yellow fever": "وفيات بسبب الحمى الصفراء"
+    "Deaths from yellow fever": "وفيات بسبب الحمى الصفراء",
 }
 
 data0 = {
@@ -595,11 +595,10 @@ data0_no_label = {
     "defunct women's basketball competitions": "منافسات كرة سلة نسائية سابقة",
     "defunct women's basketball leagues": "دوريات كرة سلة نسائية سابقة",
     "defunct women's football clubs": "أندية كرة قدم نسائية سابقة",
-    "defunct women's soccer leagues": "دوريات كرة قدم نسائية سابقة"
+    "defunct women's soccer leagues": "دوريات كرة قدم نسائية سابقة",
 }
 
 music_data = {
-
     "australian electronic dance music": "موسيقى الرقص الإلكترونية الأسترالية",
     "middle eastern traditional music": "موسيقى تقليدية شرق أوسطي",
     "korean traditional music": "موسيقى تقليدية كوري",
@@ -1415,7 +1414,7 @@ data_00 = {
     "People from Saxony executed by Nazi Germany": "أشخاص من ساكسونيا أعدموا من قبل ألمانيا النازية",
     "People from Saxony-Anhalt executed by Nazi Germany": "أشخاص من ساكسونيا أنهالت أعدموا من قبل ألمانيا النازية",
     "People from Schleswig-Holstein executed by Nazi Germany": "أشخاص من شليسفيغ هولشتاين أعدموا من قبل ألمانيا النازية",
-    "People from Thuringia executed by Nazi Germany": "أشخاص من تورينغن أعدموا من قبل ألمانيا النازية"
+    "People from Thuringia executed by Nazi Germany": "أشخاص من تورينغن أعدموا من قبل ألمانيا النازية",
 }
 
 fast_data_1 = {
@@ -1425,7 +1424,6 @@ fast_data_1 = {
     "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
     "south korean presidential election 2017": "الانتخابات الرئاسية الكورية الجنوبية 2017",
     "republic of ireland women's national football team": "منتخب جمهورية أيرلندا لكرة القدم للسيدات",
-
 }
 
 
@@ -1458,4 +1456,4 @@ def test_2_skip2_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

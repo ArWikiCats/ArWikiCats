@@ -1,10 +1,9 @@
-"""
-"""
+""" """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data_0 = {
     "Suicides by Jews during Holocaust": "منتحرون بواسطة يهود خلال هولوكوست",
@@ -66,7 +65,7 @@ data_1 = {
     "730s births": "مواليد عقد 730",
     "808 births": "مواليد 808",
     "921 births": "مواليد 921",
-    "969 births": "مواليد 969"
+    "969 births": "مواليد 969",
 }
 
 

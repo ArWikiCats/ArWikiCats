@@ -19,6 +19,7 @@ TEMPORAL_CASES = [
     ("temporal_1", examples),
 ]
 
+
 @pytest.mark.parametrize("category, expected", examples.items(), ids=examples.keys())
 def test_add_in(category: str, expected: str) -> None:
     assert resolve_label_ar(category) == expected

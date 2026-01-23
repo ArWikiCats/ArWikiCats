@@ -314,7 +314,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         "female": "",  # غينية
         "females": "",  # غينيات
         "the_male": "",  # الغيني
-        "the_female": "",   # الغينية
+        "the_female": "",  # الغينية
         "en": "papua new guinea",
         "ar": "بابوا غينيا الجديدة",
     }

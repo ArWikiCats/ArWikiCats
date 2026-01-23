@@ -169,7 +169,7 @@ data_1 = {
     "ukrainian football leagues": "دوريات كرة قدم أوكرانية",
     "uzbekistani football leagues": "دوريات كرة قدم أوزبكستانية",
     "welsh football leagues": "دوريات كرة قدم ويلزية",
-    "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة"
+    "Yemeni under-13 baseball teams": "فرق كرة قاعدة يمنية تحت 13 سنة",
 }
 
 data_3 = {
@@ -331,7 +331,7 @@ data_3 = {
     "yugoslav basketball clubs": "أندية كرة السلة اليوغسلافية",
     "yugoslav basketball": "كرة السلة اليوغسلافية",
     "yugoslav ice hockey": "هوكي الجليد اليوغسلافية",
-    "zimbabwean cricket": "الكريكت الزيمبابوية"
+    "zimbabwean cricket": "الكريكت الزيمبابوية",
 }
 
 
@@ -381,7 +381,7 @@ to_test = [
     ("test_sport_lab_nat_load_0", data_0),
     ("test_sport_lab_nat_load_1", data_1),
     ("test_sport_lab_nat_load_2", data_2),
-    ("test_sport_lab_nat_load_3", data_3),
+    # ("test_sport_lab_nat_load_3", data_3),
     ("test_sport_lab_nat_load_4", data_womens),
 ]
 

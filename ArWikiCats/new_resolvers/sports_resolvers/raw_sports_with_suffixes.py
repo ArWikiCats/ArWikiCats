@@ -8,6 +8,7 @@ from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,
 )
+from .pre_defined import pre_defined_results
 from .raw_sports import resolve_sport_label_unified
 
 mappings_data: dict[str, str] = {
@@ -131,11 +132,8 @@ def fix_keys(category: str) -> str:
 def wrap_team_xo_normal_2025_with_ends(category) -> str:
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
-    pre_defined_cats = {
-        "sports events": "أحداث رياضية",
-    }
 
-    result = pre_defined_cats.get(category) or resolve_sport_label_unified(category)
+    result = pre_defined_results.get(category) or resolve_sport_label_unified(category)
 
     if not result:
         result = resolve_sport_category_suffix_with_mapping(

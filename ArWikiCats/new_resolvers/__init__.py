@@ -17,9 +17,8 @@ New resolvers for Arabic Wikipedia categories.
 
 import functools
 
-from ..patterns_resolvers import all_patterns_resolvers
-
 from ..helps import logger
+from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic
 from .countries_names_resolvers import main_countries_names_resolvers

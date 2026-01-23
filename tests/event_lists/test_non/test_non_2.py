@@ -1,8 +1,9 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-from utils.dump_runner import make_dump_test_name_data
+
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 test_1 = {
     "New Zealand women non-fiction writers": "كاتبات غير روائيات نيوزيلنديات",

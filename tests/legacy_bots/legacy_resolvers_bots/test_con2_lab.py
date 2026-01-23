@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.con2_lab import get_type_lab
+from ArWikiCats.legacy_bots.common_resolver_chain import get_type_lab
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {

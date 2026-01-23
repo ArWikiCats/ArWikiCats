@@ -28,3 +28,4 @@ _work_files/*.json
 .coverage
 *.svg
 *.pyc*
+tests/legacy_bots/test_new_ideas.py

@@ -18,7 +18,6 @@ data_1 = {
     "Non-fiction writers about organized crime in the United States": "كتاب غير روائيين عن جريمة منظمة في الولايات المتحدة",
     "Paraguayan non-fiction writers": "كتاب غير روائيين بارغوايانيون",
     "Togolese non-fiction writers": "كتاب غير روائيين توغويون",
-
     "Zimbabwean non-fiction writers": "كتاب غير روائيين زيمبابويون",
     "10th-century non-fiction writers": "كتاب غير روائيين في القرن 10",
     "11th-century Indian non-fiction writers": "كتاب غير روائيين هنود في القرن 11",
