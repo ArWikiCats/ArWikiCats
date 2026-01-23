@@ -9,6 +9,7 @@ from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
+    "rugby union leagues in japan": "دوريات اتحاد رجبي في اليابان",
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
     "1550 in chinese motorsport": "1550 في رياضة المحركات الصينية",
     "1550 in english cricket": "1550 في الكريكت الإنجليزية",
@@ -270,7 +271,7 @@ data_1 = {
     "basketball competitions in north macedonia": "منافسات كرة سلة في مقدونيا الشمالية",
     "basketball in syria": "كرة السلة في سوريا",
     "basketball teams in senegal": "فرق كرة السلة في السنغال",
-    "basketball venues in serbia": "ملاعب كرة سلة في صربيا",
+    "basketball venues in serbia": "ملاعب كرة السلة في صربيا",
     "belarusian expatriate sports-people in austria": "رياضيون بيلاروسيون مغتربون في النمسا",
     "beninese expatriates in sweden": "بنينيون مغتربون في السويد",
     "bissau-guinean expatriates in hungary": "غينيون بيساويون مغتربون في المجر",
@@ -445,7 +446,6 @@ data_1 = {
     "roman catholic archbishops in colombia": "رؤساء أساقفة رومان كاثوليك في كولومبيا",
     "roman catholic churches in umbria": "كنائس رومانية كاثوليكية في أومبريا",
     "rugby league in africa": "دوري الرجبي في إفريقيا",
-    "rugby union leagues in japan": "اتحاد دوري الرجبي في اليابان",
     "russian expatriates in united arab emirates": "روس مغتربون في الإمارات العربية المتحدة",
     "saint kitts and nevis in summer olympics": "سانت كيتس ونيفيس في الألعاب الأولمبية الصيفية",
     "schools in turkey": "مدارس في تركيا",
