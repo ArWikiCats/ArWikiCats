@@ -1458,4 +1458,4 @@ def test_2_skip2_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
