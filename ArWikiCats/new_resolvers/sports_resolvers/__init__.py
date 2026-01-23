@@ -37,8 +37,8 @@ def main_sports_resolvers(normalized_category) -> str:
         or nationalities_and_sports.resolve_nats_sport_multi_v2(normalized_category)
         or jobs_multi_sports_reslover.jobs_in_multi_sports(normalized_category)
         or sport_lab_nat.sport_lab_nat_load_new(normalized_category)
-        or raw_sports.resolve_sport_label_unified(normalized_category)
         or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(normalized_category)
+        or raw_sports.resolve_sport_label_unified(normalized_category)
         or ""
     )
 

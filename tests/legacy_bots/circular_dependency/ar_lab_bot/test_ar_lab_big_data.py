@@ -16,7 +16,7 @@ data_list2 = [
 ]
 
 data_list = [
-    ("sports originating in pakistan", " originating in ", "رياضات نشأت في باكستان"),
+    ("sports originating in pakistan", " originating in ", "ألعاب رياضية نشأت في باكستان"),
     ("sports venues by type", " by ", "ملاعب رياضية حسب الفئة"),
 
     ("university of annaba", " of ", "جامعة عنابة"),

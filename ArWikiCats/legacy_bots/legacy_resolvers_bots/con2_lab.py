@@ -43,7 +43,6 @@ def get_type_lab(type_value: str) -> str:
 
     label = ""
     lookup_chain = {
-        "get_lab_for_country2": get_lab_for_country2,
         "get_from_new_p17_final": get_from_new_p17_final,
         "all_new_resolvers": all_new_resolvers,
         "_lookup_religious_males": _lookup_religious_males,
@@ -51,6 +50,7 @@ def get_type_lab(type_value: str) -> str:
         "religious_entries": lambda t: religious_entries.get(t, ""),
         "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
         "tmp_bot.Work_Templates": tmp_bot.Work_Templates,
+        "get_lab_for_country2": get_lab_for_country2,
         "get_pop_All_18": get_pop_All_18,
         "get_KAKO": get_KAKO,
     }
