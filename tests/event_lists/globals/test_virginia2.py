@@ -30,7 +30,6 @@ data_virginia2_3 = {
     "Education in Williamsburg, Virginia": "التعليم في ويليامزبرغ (فرجينيا)",
     "Jews from West Virginia": "يهود من فرجينيا الغربية",
     "Mayors of Williamsburg, Virginia": "عمدات ويليامزبرغ (فرجينيا)",
-    "Motorsport in West Virginia": "رياضة محركات في فرجينيا الغربية",
     "Musicians from West Virginia by populated place": "موسيقيون من فرجينيا الغربية حسب المكان المأهول",
     "Singer-songwriters from West Virginia": "مغنون وكتاب أغاني من فرجينيا الغربية",
     "Towns in Accomack County, Virginia": "بلدات في مقاطعة أكوماك (فرجينيا)",

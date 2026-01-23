@@ -9,10 +9,6 @@ from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
-    # "rugby union leagues in japan": "دوريات اتحاد رجبي في اليابان",
-    # "basketball venues in serbia": "ملاعب كرة السلة في صربيا",
-    "rugby union leagues in japan": "اتحاد دوري الرجبي في اليابان",
-    "basketball venues in serbia": "ملاعب كرة سلة في صربيا",
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
     "1550 in chinese motorsport": "1550 في رياضة المحركات الصينية",
     "1550 in english cricket": "1550 في الكريكت الإنجليزية",

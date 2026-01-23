@@ -46,7 +46,6 @@ data2 = {
     "Multi-sport clubs by country": "أندية متعددة الرياضات حسب البلد",
     "Mystery films by country": "أفلام غموض حسب البلد",
     "National youth sports teams by country": "منتخبات رياضية وطنية شبابية حسب البلد",
-    "Native American history by state": "تاريخ الأمريكيين الأصليين حسب الولاية",
     "Native American tribes by state": "قبائل أمريكية أصلية حسب الولاية",
     "Olympic figure skaters by country": "متزلجون فنيون أولمبيون حسب البلد",
     "Penal systems by country": "قانون العقوبات حسب البلد",
