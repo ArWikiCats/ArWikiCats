@@ -226,7 +226,7 @@ RESOURCE_LABELS: dict[str, str] = {
     "man-made disasters": "كوارث من صنع الإنسان",
     "mines": "مناجم",
     "mining": "التعدين",
-    "natural gas fields": "خطوط غاز طبيعي",
+    "natural gas fields": "حقول غاز طبيعي",
     "natural gas pipelines": "خطوط أنابيب غاز",
     "natural gas": "غاز طبيعي",
     "natural gas-fired power stations": "محطات توليد الطاقة تعمل بالغاز الطبيعي",
