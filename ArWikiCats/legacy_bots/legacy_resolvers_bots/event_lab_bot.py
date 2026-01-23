@@ -3,7 +3,7 @@ EventLab Bot - A class-based implementation to handle category labeling
 """
 
 import functools
-from typing import Tuple
+from typing import Literal, Tuple
 
 from ...config import app_settings
 from ...fix import fixtitle
@@ -20,6 +20,16 @@ from ..make_bots import get_KAKO
 from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
+# Constants
+SUFFIX_EPISODES: Literal[" episodes"] = " episodes"
+SUFFIX_TEMPLATES: Literal[" templates"] = " templates"
+CATEGORY_PEOPLE: Literal["people"] = "people"
+LABEL_PEOPLE_AR: Literal["أشخاص"] = "أشخاص"
+CATEGORY_SPORTS_EVENTS: Literal["sports events"] = "sports events"
+LABEL_SPORTS_EVENTS_AR: Literal["أحداث رياضية"] = "أحداث رياضية"
+ARABIC_CATEGORY_PREFIX: Literal["تصنيف:"] = "تصنيف:"
+LIST_TEMPLATE_PLAYERS: Literal["لاعبو {}"] = "لاعبو {}"
+
 
 def translate_general_category_wrap(category: str, start_get_country2=False) -> str:
     arlabel = (
@@ -34,8 +44,8 @@ def translate_general_category_wrap(category: str, start_get_country2=False) -> 
 def event_label_work(country: str) -> str:
     country2 = country.lower().strip()
 
-    if country2 == "people":
-        return "أشخاص"
+    if country2 == CATEGORY_PEOPLE:
+        return LABEL_PEOPLE_AR
 
     resolved_label = (
         ""
@@ -75,10 +85,10 @@ class EventLabResolver:
 
         list_of_cat: str = ""
 
-        if category3.endswith(" episodes"):
+        if category3.endswith(SUFFIX_EPISODES):
             list_of_cat, category3 = get_episodes(category3)
 
-        elif category3.endswith(" templates"):
+        elif category3.endswith(SUFFIX_TEMPLATES):
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
@@ -103,7 +113,7 @@ class EventLabResolver:
         category_lab: str = ""
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
-        if list_of_cat == "لاعبو {}":
+        if list_of_cat == LIST_TEMPLATE_PLAYERS:
             category_lab = (
                 ""
                 or country2_label_bot.country_2_title_work(original_cat3)
@@ -226,8 +236,8 @@ class EventLabResolver:
         if not category_lab:
             category_lab = event_label_work(category3)
 
-        if list_of_cat and category3.lower().strip() == "sports events":
-            category_lab = "أحداث رياضية"
+        if list_of_cat and category3.lower().strip() == CATEGORY_SPORTS_EVENTS:
+            category_lab = LABEL_SPORTS_EVENTS_AR
 
         # Process list categories if both exist
         if list_of_cat and category_lab:
@@ -281,9 +291,9 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
     if category_lab:
         # Apply final formatting and prefix
         fixed = fixtitle.fixlabel(category_lab, en=cate_r)
-        category_lab = f"تصنيف:{fixed}"
+        category_lab = f"{ARABIC_CATEGORY_PREFIX}{fixed}"
 
-    if category_lab.strip() == "تصنيف:":
+    if category_lab.strip() == ARABIC_CATEGORY_PREFIX:
         return ""
 
     return category_lab
