@@ -40,6 +40,11 @@ def _lookup_country_with_in_prefix(country: str) -> str:
     return ""
 
 
+def _lookup_religious_males(type_lower: str) -> str:
+    """Look up religious keys for males."""
+    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
+
+
 @functools.lru_cache(maxsize=10000)
 def get_con_label(country: str) -> str:
     """Retrieve the corresponding label for a given country.
@@ -53,6 +58,9 @@ def get_con_label(country: str) -> str:
     country = country.strip().lower()
     country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the")
 
+    if country == "people":
+        return "أشخاص"
+
     country_no_dash = country.replace("-", " ")
 
     label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
@@ -60,22 +68,16 @@ def get_con_label(country: str) -> str:
         logger.info(f"?????? get_con_label early return: {country=}, {label=}")
         return label
 
-    label = ""
-
     for name, lookup_func in con_lookup_chain.items():
         label = lookup_func(country) or lookup_func(country_no_dash)
         if label:
             logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
             break
 
+    # Normalize whitespace in the label
+    label = " ".join(label.strip().split())
     logger.info(f"?????? get_con_label: {country=}, {label=}")
-
     return label
-
-
-def _lookup_religious_males(type_lower: str) -> str:
-    """Look up religious keys for males."""
-    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
 @functools.lru_cache(maxsize=10000)
@@ -102,11 +104,10 @@ def get_type_lab(type_value: str) -> str:
         if label:
             logger.debug(f"get_type_lab({type_lower}): Found label '{label}' via {name}")
             break
+
     # Normalize whitespace in the label
     label = " ".join(label.strip().split())
-
     logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
-
     return label
 
 
