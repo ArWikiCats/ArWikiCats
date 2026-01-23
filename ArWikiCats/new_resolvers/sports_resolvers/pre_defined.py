@@ -1,4 +1,5 @@
 pre_defined_results = {
+    "sports people": "رياضيون",
     "sports events": "أحداث رياضية",
     "sports venues": "ملاعب رياضية",
     "womens sports": "رياضات نسائية",

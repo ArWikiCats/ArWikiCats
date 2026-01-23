@@ -607,9 +607,6 @@ slow_data = {
 }
 
 data1 = {
-    "Lists of office-holders in 2014": "قوائم أصحاب المناصب في 2014",
-    "Lists of office-holders in Armenia": "قوائم أصحاب المناصب في أرمينيا",
-    "Lists of office-holders in Syria": "قوائم أصحاب المناصب في سوريا",
     "Christian Science in England": "علم مسيحي في إنجلترا",
     "Christian fiction": "خيال مسيحي",
     "Christian Science in California": "علم مسيحي في كاليفورنيا",

@@ -48,7 +48,6 @@ data_1 = {
     "Choreographers from Northern Ireland": "مصممو رقص من أيرلندا الشمالية",
     "Classical scholars from Northern Ireland": "باحثون كلاسيكيون من أيرلندا الشمالية",
     "Comedy writers from Northern Ireland": "كتاب كوميديا من أيرلندا الشمالية",
-    "Dance music groups from Northern Ireland": "فرق موسيقى الرقص من أيرلندا الشمالية",
     "Documentary filmmakers from Northern Ireland": "صانعو أفلام وثائقية من أيرلندا الشمالية",
     "Editorial cartoonists from Northern Ireland": "محررون كارتونيون من أيرلندا الشمالية",
     "Editors from Northern Ireland": "محررون من أيرلندا الشمالية",

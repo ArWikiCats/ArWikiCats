@@ -1877,7 +1877,6 @@ data1 = {
     "Native American art": "فنون الأمريكيين الأصليين",
     "Native American history": "تاريخ الأمريكيين الأصليين",
     "Native American history by location": "تاريخ الأمريكيين الأصليين حسب الموقع",
-    "Native American history by state": "تاريخ الأمريكيين الأصليين حسب الولاية",
     "Native American history of Alabama": "تاريخ الأمريكيين الأصليين في ألاباما",
     "Native American history of Alaska": "تاريخ الأمريكيين الأصليين في ألاسكا",
     "Native American history of Arizona": "تاريخ الأمريكيين الأصليين في أريزونا",

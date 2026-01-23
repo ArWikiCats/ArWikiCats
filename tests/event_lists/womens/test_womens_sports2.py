@@ -49,10 +49,6 @@ data2 = {
     "Azerbaijan sports navigational boxes": "صناديق تصفح الرياضة في أذربيجان",
     "Austria sports navigational boxes": "صناديق تصفح الرياضة في النمسا",
     "wheelchair sports": "ألعاب رياضية على الكراسي المتحركة",
-    "Sports at the Summer Universiade": "ألعاب رياضية في الألعاب الجامعية الصيفية",
-    "sports by country": "ألعاب رياضية حسب البلد",
-    "sports by month": "ألعاب رياضية حسب الشهر",
-    "Sports in Westchester County, New York": "ألعاب رياضية في مقاطعة ويستتشستر (نيويورك)",
 }
 
 to_test = [

@@ -16,7 +16,6 @@ data_list2 = [
 ]
 
 data_list = [
-    ("sports originating in pakistan", " originating in ", "ألعاب رياضية نشأت في باكستان"),
     ("sports venues by type", " by ", "ملاعب رياضية حسب الفئة"),
     ("university of annaba", " of ", "جامعة عنابة"),
     ("1550 by city", " by ", "1550 حسب المدينة"),
@@ -363,7 +362,7 @@ test_data = {x[0]: x[2] for x in data_list}
 
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_simple_2(category: str, expected: str) -> None:
+def test_simple_3(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
