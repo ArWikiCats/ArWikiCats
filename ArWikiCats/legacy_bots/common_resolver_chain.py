@@ -92,7 +92,7 @@ def get_type_lab(type_value: str) -> str:
     """
     logger.debug(f"get_type_lab, {type_value=}")
 
-    type_lower = type_value.lower()
+    type_lower = type_value.lower().strip()
 
     if type_lower == "people":
         return "أشخاص"

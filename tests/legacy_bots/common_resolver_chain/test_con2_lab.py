@@ -73,7 +73,7 @@ data_1 = {
     "tunisian expatriate basketball people": "أعلام كرة سلة تونسيون مغتربون",
     "united states air force": "القوات الجوية الأمريكية",
     "united states house-of-representatives elections": "انتخابات مجلس النواب الأمريكي",
-    " university of": "جامعة",
+    "university of": "جامعة",
     "forests and woodlands of": "غابات",
     "ports and harbours of": "مرافئ وموانئ",
     "agricultural buildings and structures": "مبان ومنشآت زراعية",
