@@ -13,7 +13,6 @@ data_1 = {
     # "basketball venues in serbia": "ملاعب كرة السلة في صربيا",
     "rugby union leagues in japan": "اتحاد دوري الرجبي في اليابان",
     "basketball venues in serbia": "ملاعب كرة سلة في صربيا",
-
     "1550 in belgian motorsport": "1550 في رياضة المحركات البلجيكية",
     "1550 in chinese motorsport": "1550 في رياضة المحركات الصينية",
     "1550 in english cricket": "1550 في الكريكت الإنجليزية",

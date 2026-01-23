@@ -940,7 +940,7 @@ data_1 = {
     "Years of the 21st century in Papua New Guinea": "سنوات القرن 21 في بابوا غينيا الجديدة",
     "Youth in Papua New Guinea": "الشباب في بابوا غينيا الجديدة",
     "Youth organisations based in Papua New Guinea": "منظمات شبابية مقرها في بابوا غينيا الجديدة",
-    "Youth sport in Papua New Guinea": "رياضة شبابية في بابوا غينيا الجديدة"
+    "Youth sport in Papua New Guinea": "رياضة شبابية في بابوا غينيا الجديدة",
 }
 
 data_2 = {
@@ -996,7 +996,7 @@ data_2 = {
     "Papua New Guinea diplomacy-related lists": "",
     "Papua New Guinea football navigational boxes": "",
     "Papua New Guinea football templates": "",
-    "Women government ministers of Papua New Guinea": ""
+    "Women government ministers of Papua New Guinea": "",
 }
 
 to_test = [

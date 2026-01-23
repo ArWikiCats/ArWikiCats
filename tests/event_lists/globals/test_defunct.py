@@ -21,7 +21,7 @@ data_1 = {
     "defunct soccer clubs": "أندية كرة قدم سابقة",
     "defunct soccer venues": "ملاعب كرة قدم سابقة",
     "defunct softball venues": "ملاعب كرة لينة سابقة",
-    "defunct tennis tournaments": "بطولات كرة مضرب سابقة"
+    "defunct tennis tournaments": "بطولات كرة مضرب سابقة",
 }
 
 

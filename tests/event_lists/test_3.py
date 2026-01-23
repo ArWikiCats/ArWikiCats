@@ -4,8 +4,7 @@ import pytest
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
-data0 = {
-}
+data0 = {}
 
 data_1 = {
     "People from the Spanish Netherlands executed for witchcraft": "أشخاص من هولندا الإسبانية أعدموا بتهمة السحر",

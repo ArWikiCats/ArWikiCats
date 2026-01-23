@@ -2,8 +2,8 @@
 import pytest
 from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
-from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 covid_pandemic_data = {
     "Deaths from the COVID-19 pandemic by country subdivision": "وفيات من جائحة فيروس كورونا حسب تقسيم البلد",
@@ -110,7 +110,6 @@ covid_pandemic_data = {
     "Deaths from tuberculosis by country subdivision": "وفيات من السل حسب تقسيم البلد",
     "Deaths from tuberculosis by country": "وفيات من السل حسب البلد",
     "Deaths from tuberculosis by former country": "وفيات من السل حسب البلد السابق",
-
     "Deaths from the COVID-19 pandemic by country": "وفيات من جائحة فيروس كورونا حسب البلد",
     "Deaths from the COVID-19 pandemic in Algeria": "وفيات من جائحة فيروس كورونا في الجزائر",
     "Deaths from the COVID-19 pandemic in Argentina": "وفيات من جائحة فيروس كورونا في الأرجنتين",
@@ -208,7 +207,6 @@ data_test_1 = {
     "Deaths by airstrike during the Syrian civil war": "وفيات بضربات جوية خلال الحرب الأهلية السورية",
     "Deaths by airstrike during World War II": "وفيات بضربات جوية خلال الحرب العالمية الثانية",
     "Deaths by airstrike": "وفيات بضربات جوية",
-
     "Deaths by firearm in Minnesota": "وفيات بإطلاق النار في منيسوتا",
     "Deaths by firearm in Oregon": "وفيات بإطلاق النار في أوريغن",
     "Deaths by firearm in Uruguay": "وفيات بإطلاق النار في أوروغواي",
@@ -413,7 +411,7 @@ data_test_1 = {
     "Deaths from skin disease": "وفيات مرض جلدي",
     "Deaths from tuberculosis by century": "وفيات من السل حسب القرن",
     "Deaths from tuberculosis": "وفيات من السل",
-    "Deaths from urologic disease": "وفيات أمراض الجهاز البولي"
+    "Deaths from urologic disease": "وفيات أمراض الجهاز البولي",
 }
 
 to_test = [

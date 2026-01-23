@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
-from ArWikiCats.legacy_bots.legacy_utils import split_text_by_separator, get_type_country
+from ArWikiCats.legacy_bots.legacy_utils import get_type_country, split_text_by_separator
 
 data = [
     ("1450s disestablishments in arizona territory", "in", ("1450s disestablishments ", " arizona territory")),
