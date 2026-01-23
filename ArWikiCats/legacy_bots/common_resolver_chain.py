@@ -26,7 +26,7 @@ con_lookup_both = {
     "all_new_resolvers": all_new_resolvers,
     "pf_keys2": get_from_pf_keys2,
     "_lookup_country_with_in_prefix": None,
-    "_lookup_religious_males": None,
+    "_lookup_religious_males": lambda t: RELIGIOUS_KEYS_PP.get(t, {}).get("males", ""),
     "New_female_keys": lambda t: New_female_keys.get(t, ""),
     "religious_entries": lambda t: religious_entries.get(t, ""),
     "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
@@ -51,11 +51,6 @@ def _lookup_country_with_in_prefix(country: str) -> str:
         return f"في {country_label}"
 
     return ""
-
-
-def _lookup_religious_males(type_lower: str) -> str:
-    """Look up religious keys for males."""
-    return RELIGIOUS_KEYS_PP.get(type_lower, {}).get("males", "")
 
 
 @functools.lru_cache(maxsize=10000)
@@ -94,37 +89,6 @@ def get_con_label(country: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_type_lab(type_value: str) -> str:
-    """Determine the type label based on input parameters.
-
-    Args:
-        type_value: The type part of the category.
-
-    Returns:
-        - label: The Arabic label for the type
-    """
-    logger.debug(f"get_type_lab, {type_value=}")
-
-    type_lower = type_value.lower().strip()
-
-    if type_lower == "people":
-        return "أشخاص"
-
-    label = ""
-
-    for name, lookup_func in con_lookup_both.items():
-        label = lookup_func(type_lower)
-        if label:
-            logger.debug(f"get_type_lab({type_lower}): Found label '{label}' via {name}")
-            break
-
-    # Normalize whitespace in the label
-    label = " ".join(label.strip().split())
-    logger.info(f"?????? get_type_lab: {type_lower=}, {label=}")
-    return label
-
-
-@functools.lru_cache(maxsize=10000)
 def get_lab_for_country2(country: str) -> str:
     """Retrieve Arabic label information for a specified country.
 
@@ -156,7 +120,8 @@ def get_lab_for_country2(country: str) -> str:
 
 
 con_lookup_both["_lookup_country_with_in_prefix"] = _lookup_country_with_in_prefix
-con_lookup_both["_lookup_religious_males"] = _lookup_religious_males
+
+get_type_lab = get_con_label
 
 __all__ = [
     "get_lab_for_country2",
