@@ -8,6 +8,13 @@ from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
+data_list2 = [
+    ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
+    ("african games gold medalists for chad", " for ", "فائزون بميداليات ذهبية في الألعاب الإفريقية من تشاد"),
+    ("olympic silver medalists for finland", " for ", "فائزون بميداليات فضية أولمبية من فنلندا"),
+    ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
+]
+
 data_list = [
     ("university of annaba", " of ", "جامعة عنابة"),
     ("1550 by city", " by ", "1550 حسب المدينة"),
@@ -22,7 +29,6 @@ data_list = [
     ("academics from tuscany", " from ", "أكاديميون من توسكانا"),
     ("actresses from ohio", " from ", "ممثلات من أوهايو"),
     ("acts of parliament of ireland 1550", " of ", "أفعال برلمان أيرلندا 1550"),
-    ("african games gold medalists for chad", " for ", "فائزون بميداليات ذهبية في الألعاب الإفريقية من تشاد"),
     ("algerian companies established in 1550", " established in ", "شركات جزائرية أسست في 1550"),
     ("ambassadors of austria", " of ", "سفراء النمسا"),
     ("ambassadors of brazil", " of ", "سفراء البرازيل"),
@@ -198,7 +204,6 @@ data_list = [
     ("olympic judoka by year", " by ", "لاعبو جودو أولمبيون حسب السنة"),
     ("olympic lugers for estonia", " for ", "زاحفون ثلجيون أولمبيون في إستونيا"),
     ("olympic shooters for iceland", " for ", "رماة أولمبيون في آيسلندا"),
-    ("olympic silver medalists for finland", " for ", "فائزون بميداليات فضية أولمبية من فنلندا"),
     ("olympic skeleton racers for italy", " for ", "متزلجون صدريون أولمبيون في إيطاليا"),
     ("olympic speed skaters for lithuania", " for ", "متزلجو سرعة أولمبيون في ليتوانيا"),
     ("omani expatriate sports-people by country-of-residence", " by ", "رياضيون عمانيون مغتربون حسب بلد الإقامة"),
@@ -208,7 +213,6 @@ data_list = [
     ("organizations by dependent territory", " by ", "منظمات حسب الأقاليم التابعة"),
     ("paintings of queen victoria", " of ", "لوحات عن الملكة فيكتوريا"),
     ("pakistani companies established in 1550", " established in ", "شركات باكستانية أسست في 1550"),
-    ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
     (
         "paralympic wheelchair curlers by year",
         " by ",
@@ -296,7 +300,6 @@ data_list = [
     ("states and territories disestablished in 1550", " disestablished in ", "دول وأقاليم انحلت في 1550"),
     ("states and territories established in 1550", " established in ", "دول وأقاليم أسست في 1550"),
     ("suicides by-firearm-in nevada", " by-firearm-in ", "منتحرون بإطلاق النار في نيفادا"),
-    ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
     ("swedish emigrants to jordan", " to ", "سويديون مهاجرون إلى الأردن"),
     ("swedish male musicians by century", " by ", "موسيقيون ذكور سويديون حسب القرن"),
     ("symbols of nuevo león", " of ", "رموز ولاية نويفو ليون"),
@@ -344,6 +347,13 @@ data_list = [
 @pytest.mark.parametrize("category, separator, output", data_list, ids=[x[0] for x in data_list])
 @pytest.mark.fast
 def test_simple_1(category: str, separator: str, output: str) -> None:
+    label = find_ar_label(category, separator, use_event2=False)
+    assert label == output
+
+
+@pytest.mark.parametrize("category, separator, output", data_list2, ids=[x[0] for x in data_list2])
+@pytest.mark.fast
+def test_simple_2(category: str, separator: str, output: str) -> None:
     label = find_ar_label(category, separator, use_event2=False)
     assert label == output
 

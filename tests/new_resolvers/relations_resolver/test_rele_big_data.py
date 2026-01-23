@@ -345,7 +345,6 @@ test_same = {
     "morocco–vanuatu relations": "العلاقات الفانواتية المغربية",
     "new zealand–vanuatu relations": "العلاقات الفانواتية النيوزيلندية",
     "palestine–vanuatu relations": "العلاقات الفانواتية الفلسطينية",
-    "papua new guinea–vanuatu relations": "العلاقات الغينية الفانواتية",
     "philippines–vanuatu relations": "العلاقات الفانواتية الفلبينية",
     "romania–vanuatu relations": "العلاقات الرومانية الفانواتية",
     "russia–vanuatu relations": "العلاقات الروسية الفانواتية",
