@@ -7,7 +7,7 @@ from . import (
 )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_countries_names_with_sports_resolvers(normalized_category) -> str:
     logger.debug(
         f"<><><><><><> <<green>> Trying main_countries_names_with_sports_resolvers for: {normalized_category=}"

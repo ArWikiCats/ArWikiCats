@@ -166,7 +166,7 @@ def _handle_year_at_end(
     return label
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def Try_With_Years(category: str) -> str:
     """
     Extracts and formats a year-aware Arabic label from a category string.

@@ -85,7 +85,7 @@ class FormatData(FormatDataBase):
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
         """
         Format the given template by replacing the instance of the value placeholder with the provided value.

@@ -275,7 +275,7 @@ def fix_keys(category: str) -> str:
     return category
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def _get_films_key_tyty_new(text: str) -> str:
     """
     Function to generate a films key based on the country identifier.
@@ -293,7 +293,7 @@ def _get_films_key_tyty_new(text: str) -> str:
     return result
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def get_films_key_tyty_new(text: str) -> str:
     """
     Function to generate a films key based on the country identifier.

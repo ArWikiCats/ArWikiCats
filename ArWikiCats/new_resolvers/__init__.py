@@ -32,7 +32,7 @@ from .sports_resolvers import main_sports_resolvers
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=50000)
 def all_new_resolvers(category: str) -> str:
     """Apply all new resolvers to translate a category string.
 

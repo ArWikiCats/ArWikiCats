@@ -15,7 +15,7 @@ from . import (
 )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=50000)
 def all_patterns_resolvers(category: str) -> str:
     logger.debug(f">> all_patterns_resolvers: {category}")
     category_lab = (

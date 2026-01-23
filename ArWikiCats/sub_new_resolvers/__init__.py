@@ -6,7 +6,7 @@ from ..helps import logger
 from . import peoples_resolver
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_other_resolvers(category: str) -> str:
     """ """
     logger.debug("--" * 20)

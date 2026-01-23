@@ -28,7 +28,7 @@ KAKO: Dict[str, Dict[str, str]] = {
 }
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=5000)
 def _get_KAKO(text: str) -> tuple[str, str]:
     """
     Look up the Arabic label for a term using resolve_by_labels and then the configured mapping tables.

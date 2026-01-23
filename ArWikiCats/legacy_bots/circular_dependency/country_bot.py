@@ -36,7 +36,7 @@ def translate_general_category_wrap(category, start_get_country2=False) -> str:
     return arlabel
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def Get_country2(country: str) -> str:
     """
     Resolve the Arabic label for a country name using layered resolution and normalization.

@@ -16,7 +16,7 @@ from . import (  # countries_names_double_v2,
 )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_countries_names_resolvers(normalized_category: str) -> str:
     """Orchestrate country name resolution for a category string.
 

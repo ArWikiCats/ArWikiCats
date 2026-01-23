@@ -276,7 +276,7 @@ def _load_end_key_mappings() -> dict[str, str]:
     return keys_ending
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     both_bot = _load_bot()
