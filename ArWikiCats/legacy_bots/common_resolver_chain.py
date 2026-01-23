@@ -21,8 +21,21 @@ from ..translations import (
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
 
-type_lookup_chain = {}
-con_lookup_chain = {}
+con_lookup_both = {
+    "get_from_new_p17_final": get_from_new_p17_final,
+    "all_new_resolvers": all_new_resolvers,
+    "pf_keys2": get_from_pf_keys2,
+    "_lookup_country_with_in_prefix": None,
+    "_lookup_religious_males": None,
+    "New_female_keys": lambda t: New_female_keys.get(t, ""),
+    "religious_entries": lambda t: religious_entries.get(t, ""),
+    "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
+    "get_parties_lab": parties_resolver.get_parties_lab,
+    "resolve_university_category": university_resolver.resolve_university_category,
+    "work_peoples": work_peoples,
+    "get_pop_All_18": get_pop_All_18,
+    "get_KAKO": get_KAKO,
+}
 
 
 def _lookup_country_with_in_prefix(country: str) -> str:
@@ -68,7 +81,7 @@ def get_con_label(country: str) -> str:
         logger.info(f"?????? get_con_label early return: {country=}, {label=}")
         return label
 
-    for name, lookup_func in con_lookup_chain.items():
+    for name, lookup_func in con_lookup_both.items():
         label = lookup_func(country) or lookup_func(country_no_dash)
         if label:
             logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
@@ -99,7 +112,7 @@ def get_type_lab(type_value: str) -> str:
 
     label = ""
 
-    for name, lookup_func in type_lookup_chain.items():
+    for name, lookup_func in con_lookup_both.items():
         label = lookup_func(type_lower)
         if label:
             logger.debug(f"get_type_lab({type_lower}): Found label '{label}' via {name}")
@@ -142,24 +155,8 @@ def get_lab_for_country2(country: str) -> str:
     return resolved_label
 
 
-con_lookup_both = {
-    "get_from_new_p17_final": get_from_new_p17_final,
-    "all_new_resolvers": all_new_resolvers,
-    "pf_keys2": get_from_pf_keys2,
-    "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
-    "_lookup_religious_males": _lookup_religious_males,
-    "New_female_keys": lambda t: New_female_keys.get(t, ""),
-    "religious_entries": lambda t: religious_entries.get(t, ""),
-    "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
-    "get_parties_lab": parties_resolver.get_parties_lab,
-    "resolve_university_category": university_resolver.resolve_university_category,
-    "work_peoples": work_peoples,
-    "get_pop_All_18": get_pop_All_18,
-    "get_KAKO": get_KAKO,
-}
-
-con_lookup_chain.update(con_lookup_both)
-type_lookup_chain.update(con_lookup_both)
+con_lookup_both["_lookup_country_with_in_prefix"] = _lookup_country_with_in_prefix
+con_lookup_both["_lookup_religious_males"] = _lookup_religious_males
 
 __all__ = [
     "get_lab_for_country2",
