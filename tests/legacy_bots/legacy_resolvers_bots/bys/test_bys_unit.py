@@ -53,14 +53,3 @@ def test_get_by_label_combines_entity_and_suffix(monkeypatch: pytest.MonkeyPatch
 
     result = bys.get_by_label("Artist by birth")
     assert result == "فنان حسب الميلاد"
-
-
-@pytest.mark.unit
-def test_get_and_label_returns_joined_entities(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(
-        "ArWikiCats.legacy_bots.legacy_resolvers_bots.bys.get_from_new_p17_final",
-        lambda name, _: {"artist": "فنان", "painter": "رسام"}.get(name, ""),
-    )
-
-    result = bys.get_and_label("Artist and Painter")
-    assert result == "فنان ورسام"

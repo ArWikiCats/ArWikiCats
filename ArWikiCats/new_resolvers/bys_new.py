@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: use it to replace get_and_label, get_by_label functions in bys.py
+TODO: use it to replace get_by_label functions in bys.py
 
 """
 
