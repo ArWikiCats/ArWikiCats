@@ -13,7 +13,6 @@ monkey.py
 *.old
 *_backup
 *.backup
-/.claude
 **/old/**
 ArWikiCats/main_processers/event_lab_bot_backup.py
 *.prof
