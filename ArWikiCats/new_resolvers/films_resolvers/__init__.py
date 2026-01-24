@@ -14,13 +14,14 @@ from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 
 def legacy_label_check(normalized_category: str) -> str:
-    """Check for legacy labels or simple numeric categories.
-
-    Args:
-        normalized_category: The normalized category string.
-
+    """
+    Resolve legacy labels or return a numeric category string.
+    
+    Parameters:
+        normalized_category (str): Normalized category text to check.
+    
     Returns:
-        The resolved Arabic label or an empty string.
+        str: Arabic label for known legacy terms, the numeric string if the input is all digits, or an empty string if no match.
     """
     label = ""
     if re.match(r"^\d+$", normalized_category.strip()):
@@ -34,15 +35,13 @@ def legacy_label_check(normalized_category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def main_films_resolvers(normalized_category) -> str:
     """
-    Resolve a film nationalities label from a category string.
-
-    Normalizes the input by trimming whitespace, converting to lowercase, and removing a leading "category:" prefix, then queries a sequence of film-label resolvers and returns the first non-empty result.
-
+    Resolve a film or television label from a category string.
+    
     Parameters:
-        normalized_category (str): Category text to resolve; may include a leading "category:" prefix.
-
+        normalized_category (str): Category text to resolve; may include leading "category:" prefix or surrounding whitespace.
+    
     Returns:
-        str: The resolved label if any resolver finds a match, otherwise an empty string.
+        str: The resolved label if a match is found, otherwise an empty string.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 

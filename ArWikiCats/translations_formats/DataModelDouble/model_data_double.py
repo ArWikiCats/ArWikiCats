@@ -114,7 +114,12 @@ class FormatDataDouble(FormatDataBase):
 
     def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
         """
-        Build a case-insensitive regex over lowercased keys of data_list.
+        Create a case-insensitive regex that matches two adjacent keys separated by the configured splitter.
+        
+        The resulting pattern targets whole-word matches of the form `key1{splitter}key2` using lookaround assertions and the class's alternation of lowercased keys. Returns `None` when no keys are available to build the pattern.
+        
+        Returns:
+            re.Pattern[str] | None: Compiled, case-insensitive regex for two-key matches, or `None` if `data_list_ci` is empty.
         """
         if not self.data_list_ci:
             return None
@@ -127,7 +132,14 @@ class FormatDataDouble(FormatDataBase):
 
     @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
-        """Return canonical lowercased key from data_list if found; else empty."""
+        """
+        Determine the canonical lowercase key that corresponds to a given category string.
+        
+        The input is normalized by collapsing consecutive spaces. If an exact case-insensitive key exists it is returned. Otherwise the method attempts to match two adjacent keys (with the configured splitter) and, on success, caches their components in `keys_to_split` and returns the combined key. If that fails it tries a single-key match. If no match is found, an empty string is returned.
+        
+        Returns:
+            str: The matched canonical key in lowercase, or an empty string if no match is found.
+        """
         if not self.pattern:
             return ""
 
@@ -160,7 +172,16 @@ class FormatDataDouble(FormatDataBase):
 
     @functools.lru_cache(maxsize=10000)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
-        """Replace value placeholder once template is chosen."""
+        """
+        Insert the provided sport label into the template by replacing the value placeholder.
+        
+        Parameters:
+            template_label (str): Template string that contains the value placeholder.
+            sport_label (str): String to substitute for the value placeholder.
+        
+        Returns:
+            str: The template with the placeholder replaced and trimmed if no value placeholder remains; otherwise an empty string.
+        """
         final_label = template_label.replace(self.value_placeholder, sport_label)
 
         if self.value_placeholder not in final_label:
@@ -171,8 +192,17 @@ class FormatDataDouble(FormatDataBase):
     @functools.lru_cache(maxsize=5000)
     def create_label_from_keys(self, part1: str, part2: str):
         """
-        if "upcoming" in self.put_label_last we using:
-            "أفلام قادمة رعب يمنية instead of "أفلام رعب قادمة يمنية"
+        Compose an Arabic label by combining the labels for two key parts.
+        
+        Parameters:
+        	part1 (str): The first key whose Arabic label will be looked up.
+        	part2 (str): The second key whose Arabic label will be looked up.
+        
+        Description:
+        	Looks up Arabic labels for `part1` and `part2` and joins them with `self.ar_joiner`. If either key is missing, returns an empty string. The final ordering of the two labels is affected by `self.put_label_last` (which forces a key's label to appear last when applicable) and by `self.sort_ar_labels` (which, when true, sorts the two labels alphabetically before joining). If `self.log_multi_cache` is enabled, the resulting label is stored in `self.search_multi_cache` under the key "`part2 part1`".
+        
+        Returns:
+        	A string containing the composed Arabic label, or an empty string if either key has no label.
         """
 
         first_label = self.data_list_ci.get(part1)

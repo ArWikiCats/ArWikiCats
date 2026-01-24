@@ -18,16 +18,16 @@ from . import (  # countries_names_double_v2,
 
 @functools.lru_cache(maxsize=10000)
 def main_countries_names_resolvers(normalized_category: str) -> str:
-    """Orchestrate country name resolution for a category string.
-
-    This function tries multiple country-related resolvers in a prioritized
-    order to find an Arabic translation for geographic category elements.
-
-    Args:
-        normalized_category: The normalized category string to resolve.
-
+    """
+    Orchestrates resolution of an Arabic label for geographic category strings using a prioritized sequence of resolvers.
+    
+    The input is normalized by stripping whitespace, converting to lowercase, and removing a leading "category:" before resolution.
+    
+    Parameters:
+        normalized_category (str): Category string to resolve; it will be normalized as described above.
+    
     Returns:
-        The resolved Arabic label or an empty string.
+        str: Resolved Arabic label, or an empty string if no resolver produces a match.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)

@@ -56,6 +56,22 @@ country_before_year = [
 
 
 def check_country_in_tables(country: str) -> bool:
+    """
+    Determine whether a country key is present in the configured lookup sources.
+    
+    Returns:
+        True if the country is found in any configured lookup table or the special country-before-year list, False otherwise.
+    """
+    if country in country_before_year:
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+        return True
+
+    in_table, table_name = check_key_in_tables_return_tuple(country, Table_for_frist_word)
+    if in_table:
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
+        return True
+
+    return False
     """Return True when the country appears in any configured lookup table."""
     if country in country_before_year:
         logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
@@ -81,7 +97,24 @@ def add_the_in(
     cat_test: str,
 ) -> tuple[bool, str, str]:
     """
-    Insert location prepositions into labels when table rules require them.
+    Decide whether to insert the Arabic preposition " في " into a label and produce the updated label and category text.
+    
+    Parameters:
+        in_table (bool): True if the country/key is found in configured lookup tables affecting insertion rules.
+        country (str): Raw country/key identifier used for membership checks.
+        arlabel (str): Current Arabic label to be updated.
+        suf (str): Suffix or spacer to place between parts of the label (may be empty or a space-like token).
+        In (str): Detected English preposition token from the original category (e.g., "in", "at"); used to decide removal from cat_test.
+        typeo (str): Category type that can inhibit table-based insertion when present in Keep_it_frist.
+        year_labe (str): Year-related portion of the label; used to determine whether insertion is appropriate.
+        country_label (str): Human-readable country/location label in Arabic to be combined with arlabel.
+        cat_test (str): Category test string from which the matched English preposition may be removed.
+    
+    Returns:
+        tuple:
+            Add_In_Done (bool): `True` if the Arabic preposition was inserted and the category test adjusted, `False` otherwise.
+            arlabel (str): The resulting Arabic label after any insertion and normalization.
+            cat_test (str): The possibly modified category test string with the original English preposition removed when applicable.
     """
     Add_In_Done = False
     arlabel2 = arlabel

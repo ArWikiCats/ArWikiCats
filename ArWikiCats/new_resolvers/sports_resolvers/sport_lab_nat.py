@@ -219,6 +219,16 @@ def _load_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_end_key_mappings() -> dict[str, str]:
+    """
+    Provide a mapping of English end-key phrases to Arabic templates for label substitution.
+    
+    The returned mapping uses the `{lab}` placeholder where a category label will be inserted.
+    Keys are ordered so that phrases with more words and longer length appear first, which helps
+    matching routines prefer longer/multi-word endings before shorter ones.
+    
+    Returns:
+        dict[str, str]: Mapping from English end-key phrase to Arabic template containing `{lab}`.
+    """
     keys_ending = {
         "teams": "فرق {lab}",
         "premier": "{lab} من الدرجة الممتازة",
@@ -278,6 +288,15 @@ def _load_end_key_mappings() -> dict[str, str]:
 
 @functools.lru_cache(maxsize=10000)
 def _sport_lab_nat_load_new(category) -> str:
+    """
+    Format and return the localized label for a sport-related category.
+    
+    Parameters:
+        category (str): The category string to look up and format (e.g., "national teams", "premier league").
+    
+    Returns:
+        str: The localized/formatted label corresponding to the provided category.
+    """
     logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)

@@ -30,17 +30,17 @@ class CategoryResult:
 @functools.lru_cache(maxsize=50000)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     """
-    Resolve an English Wikipedia category label to its Arabic equivalent.
-
+    Translate an English Wikipedia category label into its Arabic equivalent.
+    
     Parameters:
-        category (str): English category label to resolve.
-        fix_label (bool): If true, apply label fixes before final cleansing.
-
+        category (str): The original English category label.
+        fix_label (bool): If true, apply post-resolution label fixes before final cleansing (default True).
+    
     Returns:
         CategoryResult: dataclass with:
             - en: the original English category label.
-            - ar: the resolved Arabic label, or an empty string if no resolution or the category was filtered.
-            - from_match: `true` if the label was matched by the pattern-based resolver, `false` otherwise.
+            - ar: the resolved Arabic label, or an empty string if the category was filtered or no resolution was found.
+            - from_match: `true` if a pattern-based match produced the Arabic label, `false` otherwise.
     """
     changed_cat = change_cat(category)
 

@@ -151,7 +151,10 @@ class FormatDataDoubleV2(FormatDataBase):
 
     def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
         """
-        Build a case-insensitive regex over lowercased keys of data_list.
+        Create a compiled case-insensitive regex that matches two adjacent keys separated by the configured splitter.
+        
+        Returns:
+            re.Pattern[str] | None: A compiled regex that matches "key{splitter}key" (case-insensitive) for keys present in the instance, or `None` if there are no keys to match.
         """
         if not self.data_list_ci:
             return None
@@ -164,7 +167,17 @@ class FormatDataDoubleV2(FormatDataBase):
 
     @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
-        """Return canonical lowercased key from data_list if found; else empty."""
+        """
+        Determine the canonical lowercased key that corresponds to the given category string.
+        
+        Matches the input against known single-key patterns or two-adjacent-key patterns; for two-key matches returns a combined key formed by the two parts and their separator. Leading/trailing and extra interior whitespace are ignored when matching.
+        
+        Parameters:
+        	category (str): Category text to match against known keys.
+        
+        Returns:
+        	matched_key (str): The canonical lowercased key if a match is found, otherwise an empty string.
+        """
         if not self.pattern:
             return ""
 
@@ -196,7 +209,16 @@ class FormatDataDoubleV2(FormatDataBase):
         return result
 
     def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
-        """Replace value placeholder once template is chosen."""
+        """
+        Substitute placeholder tokens in a template with values from a mapping.
+        
+        Parameters:
+        	template_label (str): Template string containing placeholders in the form `{key}`.
+        	sport_label (Union[str, Dict[str, str]]): Mapping of placeholder names to replacement strings; if not a dict the template is returned unchanged.
+        
+        Returns:
+        	str: The template with placeholders replaced by their corresponding values, trimmed of surrounding whitespace.
+        """
         logger.debug(f"[] apply_pattern_replacement: {template_label=}, ")
         logger.debug(f"[] apply_pattern_replacement: {sport_label=}, ")
 
@@ -216,8 +238,13 @@ class FormatDataDoubleV2(FormatDataBase):
     @functools.lru_cache(maxsize=5000)
     def create_label_from_keys(self, part1: str, part2: str):
         """
-        if "upcoming" in self.put_label_last we using:
-            "أفلام قادمة رعب يمنية instead of "أفلام رعب قادمة يمنية"
+        Builds a mapping of Arabic labels for the two-part key combination.
+        
+        Constructs a dict whose keys are the union of subkeys found in both parts and whose values are the combined Arabic label for that subkey. Only subkeys that have labels in both parts are included. The produced label normally follows "first_label + ar_joiner + second_label"; if `part1` is present in `put_label_last` and `part2` is not, the order is switched to "second_label + ar_joiner + first_label". If `sort_ar_labels` is True, the two Arabic labels are alphabetically sorted before joining. When `log_multi_cache` is True, the resulting mapping is cached into `search_multi_cache` under the key "{part2} {part1}".
+        
+        Returns:
+            dict: Mapping from subkey to combined Arabic label when both parts provide dict labels.
+            str: Empty string if either part is missing or does not provide a dict of labels.
         """
 
         first_label = self.data_list_ci.get(part1)

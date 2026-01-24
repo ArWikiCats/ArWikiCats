@@ -72,7 +72,18 @@ class FormatData(FormatDataBase):
         text_before: str = "",
         regex_filter: str = "",
     ) -> None:
-        """Prepare helpers for matching and formatting template-driven labels."""
+        """
+        Initialize a FormatData instance for single-placeholder, template-driven translations.
+        
+        Parameters:
+            formatted_data: Mapping of template keys to Arabic template strings that include the value placeholder.
+            data_list: Mapping of source keys (e.g., English terms) to their replacement labels (e.g., Arabic labels).
+            key_placeholder: Placeholder string used inside template keys to mark the dynamic element to match.
+            value_placeholder: Placeholder string used inside template values to mark where the replacement label will be inserted.
+            text_after: Optional text that must follow the matched key when building match patterns.
+            text_before: Optional text that must precede the matched key when building match patterns.
+            regex_filter: Optional regular expression used to constrain or filter matched keys.
+        """
         super().__init__(
             formatted_data=formatted_data,
             data_list=data_list,
