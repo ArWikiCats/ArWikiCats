@@ -2,18 +2,14 @@
 Data translations and mappings for the ArWikiCats project.
 This package aggregates translation data for various categories including
 geography, jobs, languages, nationalities, sports, and media.
-
-all imports of (get_and_label|apply_pattern_replacements|match_sport_key|get_from_new_p17_final|get_from_pf_keys2) should be changed from `translations` into `translations.funcs`
-
 """
+# NOTE: imports of functions have been moved to funcs.py
 
 from .companies import COMPANY_TYPE_TRANSLATIONS
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import (
     COUNTRY_LABEL_OVERRIDES,
     US_STATES,
-    get_and_label,
-    get_from_new_p17_final,
     raw_region_overrides,
 )
 from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
@@ -30,7 +26,6 @@ from .mixed.all_keys2 import (
     WORD_AFTER_YEARS,
     People_key,
     clubs_teams_leagues,
-    get_from_pf_keys2,
     keys_of_without_in,
     pf_keys2,
 )
@@ -82,9 +77,7 @@ from .tv.films_mslslat import (
     film_keys_for_female,
     films_mslslat_tab,
 )
-from .utils import apply_pattern_replacements
 from .utils.json_dir import open_json_file
-from .utils.match_sport_keys import match_sport_key
 
 __all__ = [
     "open_json_file",
@@ -92,11 +85,8 @@ __all__ = [
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
-    "get_and_label",
     "raw_region_overrides",
     "COUNTRY_LABEL_OVERRIDES",
-    "apply_pattern_replacements",
-    "match_sport_key",
     "en_nats_to_ar_label",
     "CITY_TRANSLATIONS_LOWER",
     "jobs_mens_data",
@@ -106,7 +96,6 @@ __all__ = [
     "NAT_BEFORE_OCC",
     "NAT_BEFORE_OCC_BASE",
     "Jobs_new",
-    "get_from_new_p17_final",
     "NationalityEntry",
     "countries_en_as_nationality_keys",
     "raw_nats_as_en_key",
@@ -129,7 +118,6 @@ __all__ = [
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    "get_from_pf_keys2",
     "pf_keys2",
     "keys_of_without_in",
     "clubs_teams_leagues",
