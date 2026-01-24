@@ -14,13 +14,14 @@ from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
 
 def legacy_label_check(normalized_category: str) -> str:
-    """Check for legacy labels or simple numeric categories.
+    """
+    Resolve legacy labels or return a numeric category string.
 
-    Args:
-        normalized_category: The normalized category string.
+    Parameters:
+        normalized_category (str): Normalized category text to check.
 
     Returns:
-        The resolved Arabic label or an empty string.
+        str: Arabic label for known legacy terms, the numeric string if the input is all digits, or an empty string if no match.
     """
     label = ""
     if re.match(r"^\d+$", normalized_category.strip()):

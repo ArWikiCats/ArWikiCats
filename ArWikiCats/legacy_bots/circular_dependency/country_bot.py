@@ -28,6 +28,16 @@ from . import general_resolver, sub_general_resolver
 
 
 def translate_general_category_wrap(category, start_get_country2=False) -> str:
+    """
+    Resolve an Arabic label for a general category using layered resolvers.
+
+    Parameters:
+        category (str): The input category string to resolve.
+        start_get_country2 (bool): If True, allow the resolver to use country-based fallback during resolution.
+
+    Returns:
+        str: Arabic label for the category, or an empty string if unresolved.
+    """
     arlabel = (
         ""
         or sub_general_resolver.sub_translate_general_category(category)
@@ -39,13 +49,15 @@ def translate_general_category_wrap(category, start_get_country2=False) -> str:
 @functools.lru_cache(maxsize=10000)
 def Get_country2(country: str) -> str:
     """
-    Resolve the Arabic label for a country name using layered resolution and normalization.
+    Resolve a country name to its Arabic label.
+
+    The resolved label is formatted for title consistency and normalized to remove extra whitespace.
 
     Parameters:
-        country (str): The country name to resolve.
+        country (str): Country name to resolve (case-insensitive; will be lower-cased and stripped).
 
     Returns:
-        str: The Arabic label for the country if found, otherwise an empty string. The returned label is post-processed for title fixes and normalized whitespace.
+        str: The Arabic label with title formatting applied and normalized whitespace, or an empty string if unresolved.
     """
 
     country = country.lower().strip()
