@@ -67,17 +67,6 @@ def check_country_in_tables(country: str) -> bool:
         return True
 
     return False
-    """Return True when the country appears in any configured lookup table."""
-    if country in country_before_year:
-        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
-        return True
-
-    in_table, table_name = check_key_in_tables_return_tuple(country, Table_for_frist_word)
-    if in_table:
-        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
-        return True
-
-    return False
 
 
 def add_the_in(
