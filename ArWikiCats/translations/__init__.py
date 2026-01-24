@@ -2,6 +2,9 @@
 Data translations and mappings for the ArWikiCats project.
 This package aggregates translation data for various categories including
 geography, jobs, languages, nationalities, sports, and media.
+
+all imports of (get_and_label|apply_pattern_replacements|match_sport_key|get_from_new_p17_final|get_from_pf_keys2) should be changed from `translations` into `translations.funcs`
+
 """
 
 from .companies import COMPANY_TYPE_TRANSLATIONS
