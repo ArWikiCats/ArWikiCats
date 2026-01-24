@@ -118,7 +118,10 @@ class FormatDataBase:
 
     def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
         """
-        Build a case-insensitive regex over lowercased keys of data_list.
+        Create a compiled, case-insensitive regular expression that matches any key from the case-insensitive data list as a standalone token using the configured word-boundary filter.
+
+        Returns:
+            re.Pattern[str] | None: A compiled regex matching any key bounded by the `regex_filter`, or `None` if `data_list_ci` is empty.
         """
         if not self.data_list_ci:
             return None
@@ -131,7 +134,12 @@ class FormatDataBase:
 
     @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
-        """Return canonical lowercased key from data_list if found; else empty."""
+        """
+        Finds the canonical key present in the given category string.
+
+        Returns:
+                lowercased key from data_list if a matching key is found, otherwise an empty string.
+        """
         if not self.pattern:
             return ""
         # Normalize the category by removing extra spaces
@@ -149,7 +157,15 @@ class FormatDataBase:
         return result
 
     def handle_texts_before_after(self, normalized: str) -> str:
-        """Handle text before and after the key placeholder."""
+        """
+        Normalize a category string by removing configured text_before or text_after surrounding the key placeholder when appropriate.
+
+        Parameters:
+            normalized (str): Input string that may contain the key placeholder.
+
+        Returns:
+            str: The adjusted string where occurrences of `text_before + key_placeholder` or `key_placeholder + text_after` have been replaced by `key_placeholder` when applicable; otherwise the original string.
+        """
         if not self.text_before and not self.text_after:
             return normalized
 
@@ -178,7 +194,16 @@ class FormatDataBase:
 
     @functools.lru_cache(maxsize=10000)
     def normalize_category(self, category: str, sport_key: str) -> str:
-        """Replace the matched sport key with the key placeholder."""
+        """
+        Replace the first occurrence of sport_key in category with the configured key placeholder and apply any configured text_before/text_after adjustments.
+
+        Parameters:
+                category (str): The original category string to normalize.
+                sport_key (str): The key to find and replace; matching is case-insensitive and respects word boundaries as defined by the instance's regex_filter.
+
+        Returns:
+                normalized (str): The resulting string with the first matched sport_key replaced by the key placeholder, surrounding text adjustments applied, and leading/trailing whitespace removed.
+        """
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
@@ -275,12 +300,32 @@ class FormatDataBase:
         raise NotImplementedError("Subclasses must implement apply_pattern_replacement")
 
     def replace_value_placeholder(self, label: str, value: Any) -> str:
-        """Replace placeholder. Override in subclasses if needed."""
+        """
+        Replace the placeholder in a template label with a provided value.
+
+        Parameters:
+            label (str): Template string containing one or more placeholders to be replaced.
+            value (Any): Value to substitute into the placeholder(s); conversion/formatting is implementation-defined.
+
+        Returns:
+            str: The label with the placeholder(s) replaced by the provided value.
+
+        Raises:
+            NotImplementedError: Always raised by the base implementation; subclasses must override this method.
+        """
         raise NotImplementedError("Subclasses must implement replace_value_placeholder")
 
     @functools.lru_cache(maxsize=10000)
     def search(self, category: str) -> str:
-        """Public wrapper around ``_search`` with caching."""
+        """
+        Return a translated label for the given category using a cached lookup.
+
+        Parameters:
+                category (str): The category string to translate.
+
+        Returns:
+                result (str): The translated label, or an empty string if no translation is found.
+        """
         return self._search(category)
 
     @functools.lru_cache(maxsize=10000)

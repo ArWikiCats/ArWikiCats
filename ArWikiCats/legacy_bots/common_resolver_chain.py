@@ -22,7 +22,15 @@ from .make_bots import get_KAKO
 
 
 def _lookup_country_with_in_prefix(country: str) -> str:
-    """Handle country labels with 'in ' prefix."""
+    """
+    Strip a leading "in " from the input and, if the inner term has a resolvable Arabic label, return that label prefixed with "في ".
+
+    Parameters:
+        country (str): Input label; may start with the prefix "in ".
+
+    Returns:
+        str: `"في <label>"` when `country` starts with "in " and the inner term resolves to an Arabic label, otherwise an empty string.
+    """
     if not country.strip().startswith("in "):
         return ""
 
@@ -56,13 +64,16 @@ con_lookup_both = {
 
 @functools.lru_cache(maxsize=10000)
 def get_con_label(country: str) -> str:
-    """Retrieve the corresponding label for a given country.
+    """
+    Resolve the Arabic label for a country or category name.
 
-    Args:
-        country: The country part of the category.
+    The input is normalized and matched against a chain of resolver sources; a special case returns the Arabic label for "people". If no resolver yields a result, an empty string is returned.
+
+    Parameters:
+        country (str): Country or category name to resolve.
 
     Returns:
-        The Arabic label for the country.
+        str: Arabic label for the given country/category, or an empty string if not found.
     """
     country = country.strip().lower()
     country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the")
@@ -91,16 +102,16 @@ def get_con_label(country: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def get_lab_for_country2(country: str) -> str:
-    """Retrieve Arabic label information for a specified country.
+    """
+    Return the Arabic label for a country or category.
 
-    This function attempts to find the Arabic label for a given country
-    by querying multiple data sources in sequence.
+    Lookup is case- and surrounding-whitespace-insensitive. If a label cannot be resolved, returns an empty string.
 
-    Args:
-        country: The country name to look up
+    Parameters:
+        country (str): Country or category name to resolve.
 
     Returns:
-        The Arabic label for the country or an empty string if not found
+        str: The resolved Arabic label, or an empty string if none was found.
     """
 
     country2 = country.lower().strip()
