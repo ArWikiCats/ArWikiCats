@@ -12,7 +12,8 @@ from typing import Pattern
 
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
-from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
+from ...translations import WORD_AFTER_YEARS
+from ...translations.funcs import get_from_pf_keys2
 from ..circular_dependency import general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word

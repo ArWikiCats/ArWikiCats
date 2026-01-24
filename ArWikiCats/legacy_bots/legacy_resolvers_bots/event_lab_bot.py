@@ -12,7 +12,8 @@ from ...fix import fixtitle
 from ...format_bots import change_cat
 from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
-from ...translations import Ambassadors_tab, get_from_new_p17_final
+from ...translations import Ambassadors_tab
+from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot
 from ..circular_dependency import country_bot, general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2

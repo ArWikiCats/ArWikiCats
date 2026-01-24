@@ -14,10 +14,9 @@ from ..sub_new_resolvers.peoples_resolver import work_peoples
 from ..translations import (
     RELIGIOUS_KEYS_PP,
     New_female_keys,
-    get_from_new_p17_final,
-    get_from_pf_keys2,
     religious_entries,
 )
+from ..translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
 
