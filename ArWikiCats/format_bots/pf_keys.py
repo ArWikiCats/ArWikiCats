@@ -21,8 +21,6 @@ _change_key2_compiled = {}
 _change_key3_compiled = {}
 
 CHANGE_KEY_MAPPINGS: Dict[str, str] = {
-    # TODO: find why this used in the code
-    # "players in": "playerss in",
     "diplomatic missions of": "diplomatic-missions-of",
     "fiba world championship for women": "fiba women's world championship",
     "central american and caribbean games": "central-american-and-caribbean-games",
