@@ -377,6 +377,7 @@ def build_pop_final_3() -> dict[str, str]:
 
 pop_final_3: dict[str, str] = build_pop_final_3()
 
+# TODO: delete Ambassadors_tab
 Ambassadors_tab: dict[str, str] = {}
 
 len_print.data_len(
