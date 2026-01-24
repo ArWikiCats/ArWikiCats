@@ -62,6 +62,6 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
         return original.endswith(pattern)
 
     def slice_suffix(original: str, pattern: str, length: int) -> str:
-        return original[: -length]
+        return original[:-length]
 
     return _get_from_dict(category3, data, ends_with, slice_suffix)
