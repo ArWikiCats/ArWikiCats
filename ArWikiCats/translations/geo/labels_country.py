@@ -1,7 +1,8 @@
 """Aggregate translation tables for country and region labels."""
 
 from __future__ import annotations
-
+import functools
+import re
 from collections.abc import Mapping, MutableMapping
 
 from ...helps import len_print, logger
@@ -15,6 +16,9 @@ from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 from .us_counties import US_COUNTY_TRANSLATIONS
+
+# Match "X and Y" patterns
+AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",
@@ -372,9 +376,52 @@ def get_from_new_p17_final(text: str, default: str | None = "") -> str:
     return result or default
 
 
+@functools.lru_cache(maxsize=10000)
+def get_and_label(category: str) -> str:
+    """Return the label for ``<entity> and <entity>`` categories.
+
+    Args:
+        category: Category string that joins two entities with "and".
+
+    Returns:
+        The combined Arabic label or an empty string when either entity is
+        missing from the lookup tables.
+    """
+    if " and " not in category:
+        return ""
+
+    logger.info(f"<<lightyellow>>>>get_and_label {category}")
+    logger.info(f"Resolving get_and_label, {category=}")
+    match = AND_PATTERN.match(category)
+
+    if not match:
+        logger.debug(f"<<lightyellow>>>> No match found for get_and_label: {category}")
+        return ""
+
+    first_part, last_part = match.groups()
+    first_part = first_part.lower()
+    last_part = last_part.lower()
+
+    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
+
+    first_label = get_from_new_p17_final(first_part, None)  # or get_pop_All_18(first_part) or ""
+
+    last_label = get_from_new_p17_final(last_part, None)  # or get_pop_All_18(last_part) or ""
+
+    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
+
+    label = ""
+    if first_label and last_label:
+        label = f"{first_label} و{last_label}"
+        logger.info(f"<<lightyellow>>>>get_and_label lab {label}")
+
+    return label
+
+
 __all__ = [
     "COUNTRY_LABEL_OVERRIDES",
     "get_from_new_p17_final",
+    "get_and_label",
 ]
 
 len_print.data_len(

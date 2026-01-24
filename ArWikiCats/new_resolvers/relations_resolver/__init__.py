@@ -12,7 +12,7 @@ from .nationalities_double_v2 import resolve_by_nats_double_v2
 from .nationalities_not_double import two_nationalities_but_not_double_resolver
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_relations_resolvers(category: str) -> str:
     """
     Resolve a relation-based category string to its Arabic label by trying nationality then country-name resolvers.

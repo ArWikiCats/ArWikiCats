@@ -50,7 +50,7 @@ first_data = {
 }
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def _get_pop_All_18(key: str, default: str = "") -> str:
     """Return the cached population label for the given key or a default."""
     result = pop_All_2018.get(key, default)
@@ -90,7 +90,7 @@ def _get_from_alias(key: str) -> str:
     return result
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     """
     Lookup an Arabic population or category label for `key` using multiple fallback sources and return `default` if not found.
@@ -135,7 +135,7 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     return default
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def get_pop_All_18(key: str, default: str = "") -> str:
     result = get_pop_all_18_wrap(key, default)
 

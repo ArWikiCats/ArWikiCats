@@ -4,18 +4,14 @@ This function orchestrates the resolution process by attempting to match a categ
 against a series of specific resolvers in a predefined priority order to ensure accuracy
 and avoid common linguistic conflicts (e.g., distinguishing between job titles and sports,
 or nationalities and country names).
-Args:
-    category (str): The category name (usually in English) to be resolved into its Arabic equivalent.
-Returns:
-    str: The resolved Arabic category name if any resolver succeeds; otherwise, an empty string.
-Note:
-    - Results are cached using @functools.lru_cache for performance.
-    - The order of execution is critical (e.g., 'jobs' before 'sports', and 'nationalities'
-      before 'countries') to prevent incorrect grammatical or semantic translations.
+
 New resolvers for Arabic Wikipedia categories.
 """
 
+from __future__ import annotations
+
 import functools
+from typing import Callable
 
 from ..helps import logger
 from ..patterns_resolvers import all_patterns_resolvers
@@ -31,10 +27,82 @@ from .relations_resolver import main_relations_resolvers
 from .sports_resolvers import main_sports_resolvers
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
+# Type alias for resolver functions
+ResolverFn = Callable[[str], str]
 
-@functools.lru_cache(maxsize=None)
+# Define resolver chain in priority order
+# Each tuple contains: (name, resolver_function, priority_notes)
+_RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
+    (
+        "Time to Arabic",
+        convert_time_to_arabic,
+        "Highest priority - handles year/century/millennium patterns",
+    ),
+    (
+        "Pattern-based resolvers",
+        all_patterns_resolvers,
+        "Regex patterns for complex category structures",
+    ),
+    (
+        "Jobs resolvers",
+        main_jobs_resolvers,
+        "Must be before sports to avoid mis-resolving job titles as sports",
+    ),
+    (
+        "Time + Jobs resolvers",
+        time_and_jobs_resolvers_main,
+        "Combined time period and job titles",
+    ),
+    (
+        "Sports resolvers",
+        main_sports_resolvers,
+        "Sports-specific category patterns",
+    ),
+    (
+        "Nationalities resolvers",
+        main_nationalities_resolvers,
+        "Must be before countries to avoid conflicts (e.g., 'Italy political leader')",
+    ),
+    (
+        "Countries names resolvers",
+        main_countries_names_resolvers,
+        "Country name patterns",
+    ),
+    (
+        "Films resolvers",
+        main_films_resolvers,
+        "Film and television categories",
+    ),
+    (
+        "Relations resolvers",
+        main_relations_resolvers,
+        "Complex relational categories (e.g., dual nationalities)",
+    ),
+    (
+        "Countries with sports resolvers",
+        main_countries_names_with_sports_resolvers,
+        "Combined country and sport patterns",
+    ),
+    (
+        "Languages resolvers",
+        resolve_languages_labels_with_time,
+        "Language-related categories with time periods",
+    ),
+    (
+        "Other resolvers",
+        main_other_resolvers,
+        "Catch-all for remaining patterns",
+    ),
+]
+
+
+@functools.lru_cache(maxsize=50000)
 def all_new_resolvers(category: str) -> str:
     """Apply all new resolvers to translate a category string.
+
+    The resolution follows a priority-based chain where each resolver is tried
+    in order until one returns a non-empty result. The order is critical for
+    correctness - see _RESOLVER_CHAIN for priority notes.
 
     Args:
         category (str): The category string to resolve.
@@ -43,30 +111,12 @@ def all_new_resolvers(category: str) -> str:
         str: The resolved category label, or empty string if not resolved.
     """
     logger.info(f"<<purple>> all_new_resolvers: {category}")
-    category_lab = (
-        convert_time_to_arabic(category)
-        # main_jobs_resolvers before sports, to avoid mis-resolving like:
-        # incorrect:    "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكية"
-        # correct:      "Category:American basketball coaches": "تصنيف:مدربو كرة سلة أمريكيون"
-        # while this technique make issues like:
-        # incorrect:    "american football executives": "تصنيف:مسيرو كرة قدم أمريكيون",
-        # correct:      "american football executives": "تصنيف:مسيرو كرة قدم أمريكية",
-        #
-        or all_patterns_resolvers(category)
-        or main_jobs_resolvers(category)
-        or time_and_jobs_resolvers_main(category)
-        or main_sports_resolvers(category)
-        # NOTE: main_nationalities_resolvers must be before main_countries_names_resolvers to avoid conflicts like:
-        # main_countries_names_resolvers> [Italy political leader]:  "قادة إيطاليا السياسيون"
-        # main_nationalities_resolvers> [Italy political leader]:  "قادة سياسيون إيطاليون"
-        or main_nationalities_resolvers(category)
-        or main_countries_names_resolvers(category)
-        or main_films_resolvers(category)
-        or main_relations_resolvers(category)
-        or main_countries_names_with_sports_resolvers(category)
-        or resolve_languages_labels_with_time(category)
-        or main_other_resolvers(category)
-        or ""
-    )
-    logger.info(f"<<purple>> all_new_resolvers: {category} => {category_lab}")
-    return category_lab
+
+    for name, resolver, _ in _RESOLVER_CHAIN:
+        result = resolver(category)
+        if result:
+            logger.info(f"<<purple>> all_new_resolvers: {category} => {result} via {name}")
+            return result
+
+    logger.debug(f"<<purple>> all_new_resolvers: {category} => no match")
+    return ""

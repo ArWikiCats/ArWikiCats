@@ -129,7 +129,7 @@ class FormatDataBase:
         data_pattern = rf"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
         return re.compile(data_pattern, re.I)
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
         """Return canonical lowercased key from data_list if found; else empty."""
         if not self.pattern:
@@ -176,7 +176,7 @@ class FormatDataBase:
 
         return normalized
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def normalize_category(self, category: str, sport_key: str) -> str:
         """Replace the matched sport key with the key placeholder."""
         # Normalize the category by removing extra spaces
@@ -278,12 +278,12 @@ class FormatDataBase:
         """Replace placeholder. Override in subclasses if needed."""
         raise NotImplementedError("Subclasses must implement replace_value_placeholder")
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def search(self, category: str) -> str:
         """Public wrapper around ``_search`` with caching."""
         return self._search(category)
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def create_label(self, category: str) -> str:
         """
         Produce the translated label for a category string.
@@ -311,7 +311,7 @@ class FormatDataBase:
             result = "تصنيف:" + result
         return result
 
-    @functools.lru_cache(maxsize=None)
+    @functools.lru_cache(maxsize=10000)
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
         """
         Compute the Arabic translation for a category and optionally prepend the Arabic "تصنيف:" prefix.

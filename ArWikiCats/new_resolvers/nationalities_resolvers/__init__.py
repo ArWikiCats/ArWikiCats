@@ -14,7 +14,7 @@ from . import (
 )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_nationalities_resolvers(normalized_category) -> str:
     """Main entry point for nationalities resolvers.
 

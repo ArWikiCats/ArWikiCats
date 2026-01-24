@@ -31,7 +31,7 @@ def legacy_label_check(normalized_category: str) -> str:
     return label
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_films_resolvers(normalized_category) -> str:
     """
     Resolve a film nationalities label from a category string.

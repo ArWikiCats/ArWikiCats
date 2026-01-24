@@ -13,7 +13,7 @@ from . import (
 )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def time_and_jobs_resolvers_main(normalized_category) -> str:
     """Main entry point for time and jobs resolvers.
 

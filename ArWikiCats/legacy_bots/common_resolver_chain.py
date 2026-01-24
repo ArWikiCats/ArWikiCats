@@ -21,22 +21,6 @@ from ..translations import (
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
 
-con_lookup_both = {
-    "get_from_new_p17_final": get_from_new_p17_final,
-    "all_new_resolvers": all_new_resolvers,
-    "pf_keys2": get_from_pf_keys2,
-    "_lookup_country_with_in_prefix": None,
-    "_lookup_religious_males": lambda t: RELIGIOUS_KEYS_PP.get(t, {}).get("males", ""),
-    "New_female_keys": lambda t: New_female_keys.get(t, ""),
-    "religious_entries": lambda t: religious_entries.get(t, ""),
-    "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
-    "get_parties_lab": parties_resolver.get_parties_lab,
-    "resolve_university_category": university_resolver.resolve_university_category,
-    "work_peoples": work_peoples,
-    "get_pop_All_18": get_pop_All_18,
-    "get_KAKO": get_KAKO,
-}
-
 
 def _lookup_country_with_in_prefix(country: str) -> str:
     """Handle country labels with 'in ' prefix."""
@@ -51,6 +35,24 @@ def _lookup_country_with_in_prefix(country: str) -> str:
         return f"في {country_label}"
 
     return ""
+
+
+# Lookup chain for country labels - defined after all functions are available
+con_lookup_both = {
+    "get_from_new_p17_final": get_from_new_p17_final,
+    "all_new_resolvers": all_new_resolvers,
+    "pf_keys2": get_from_pf_keys2,
+    "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
+    "_lookup_religious_males": lambda t: RELIGIOUS_KEYS_PP.get(t, {}).get("males", ""),
+    "New_female_keys": lambda t: New_female_keys.get(t, ""),
+    "religious_entries": lambda t: religious_entries.get(t, ""),
+    "team_work.resolve_clubs_teams_leagues": team_work.resolve_clubs_teams_leagues,
+    "get_parties_lab": parties_resolver.get_parties_lab,
+    "resolve_university_category": university_resolver.resolve_university_category,
+    "work_peoples": work_peoples,
+    "get_pop_All_18": get_pop_All_18,
+    "get_KAKO": get_KAKO,
+}
 
 
 @functools.lru_cache(maxsize=10000)
@@ -118,8 +120,6 @@ def get_lab_for_country2(country: str) -> str:
 
     return resolved_label
 
-
-con_lookup_both["_lookup_country_with_in_prefix"] = _lookup_country_with_in_prefix
 
 get_type_lab = get_con_label
 

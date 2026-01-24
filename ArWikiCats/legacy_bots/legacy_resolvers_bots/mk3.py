@@ -4,6 +4,7 @@ Usage:
 """
 
 import re
+from typing import Literal
 
 from ...helps import logger
 from ...translations import Jobs_new
@@ -15,6 +16,12 @@ from ..make_bots import (
     players_new_keys,
 )
 
+# Constants for prepositions
+PREPOSITION_IN: Literal["in"] = "in"
+PREPOSITION_AT: Literal["at"] = "at"
+ARABIC_PREPOSITION_FI = " في "
+
+# Lookup tables
 Table_for_frist_word = {
     "Films_O_TT": Films_O_TT,
     "New_players": players_new_keys,
@@ -60,6 +67,17 @@ def check_country_in_tables(country: str) -> bool:
         return True
 
     return False
+    """Return True when the country appears in any configured lookup table."""
+    if country in country_before_year:
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in country_before_year.')
+        return True
+
+    in_table, table_name = check_key_in_tables_return_tuple(country, Table_for_frist_word)
+    if in_table:
+        logger.debug(f'>> >> X:<<lightpurple>> in_table "{country}" in {table_name}.')
+        return True
+
+    return False
 
 
 def add_the_in(
@@ -85,29 +103,28 @@ def add_the_in(
         # ---
         logger.info(f"{in_tables=}")
         if not country_label.startswith("حسب") and year_labe:
-            if (In.strip() == "in" or In.strip() == "at") or in_tables:
-                country_label = f"{country_label} في "
+            if (In.strip() == PREPOSITION_IN or In.strip() == PREPOSITION_AT) or in_tables:
+                country_label = f"{country_label}{ARABIC_PREPOSITION_FI}"
                 Add_In_Done = True
-                logger.info(">>> Add في line: 49")
+                logger.info(">>> Add في in add_the_in")
                 cat_test = cat_test.replace(In, "")
 
         arlabel = country_label + suf + arlabel
         if arlabel.startswith("حسب"):
             arlabel = arlabel2 + suf + country_label
     else:
-        if In.strip() == "in" or In.strip() == "at":
-            country_label = f"في {country_label}"
+        if In.strip() == PREPOSITION_IN or In.strip() == PREPOSITION_AT:
+            country_label = f"{ARABIC_PREPOSITION_FI}{country_label}"
 
             cat_test = cat_test.replace(In, "")
             Add_In_Done = True
-            logger.info(">>> Add في line: 59")
+            logger.info(">>> Add في in else branch")
 
         arlabel = arlabel + suf + country_label
         arlabel = re.sub(r"\s+", " ", arlabel)
-        arlabel = arlabel.replace(" في في ", " في ")
+        arlabel = arlabel.replace(f"{ARABIC_PREPOSITION_FI}{ARABIC_PREPOSITION_FI}", ARABIC_PREPOSITION_FI)
         logger.info(f">3252 {arlabel=}")
 
-        # if (typeo == '" and In == "') and (country and year != ""):
     return Add_In_Done, arlabel, cat_test
 
 
@@ -154,7 +171,7 @@ def added_in_new(
     # ANY CHANGES IN FOLOWING LINE MAY BRAKE THE CODE !
 
     if (suf.strip() == "" and country_label.startswith("ال")) or co_in_tables or check_key_new_players(country.lower()):
-        suf = " في "
+        suf = ARABIC_PREPOSITION_FI
         logger.info("a<<lightblue>>>>>> Add في to suf")
 
     logger.info(f"a<<lightblue>>>>>> {country_label=}, {suf=}:, {arlabel2=}")
@@ -164,13 +181,13 @@ def added_in_new(
     if suf.strip() == "" and year_labe.strip() == arlabel2.strip():
         if Add_In and country_label.strip() in ar_lab_before_year_to_add_in:
             logger.info("ar_lab_before_year_to_add_in Add في to arlabel")
-            suf = " في "
+            suf = ARABIC_PREPOSITION_FI
             Add_In = False
             Add_In_Done = True
 
         elif country_label.strip().startswith("أعضاء ") and country_label.find(" حسب ") == -1:
             logger.info(">354 Add في to arlabel")
-            suf = " في "
+            suf = ARABIC_PREPOSITION_FI
             Add_In = False
             Add_In_Done = True
 

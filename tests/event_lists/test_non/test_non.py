@@ -363,7 +363,6 @@ data1 = {
     "non-fiction books about drugs": "كتب غير خيالية عن عقاقير",
     "non-fiction books about elections": "كتب غير خيالية عن انتخابات",
     "non-fiction books about espionage": "كتب غير خيالية عن التجسس",
-    "non-fiction books about film directors and producers": "كتب غير خيالية عن مخرجو أفلام ومنتجون",
     "non-fiction books about gambling": "كتب غير خيالية عن مقامرة",
     "non-fiction books about gangs": "كتب غير خيالية عن عصابات",
     "non-fiction books about genocide": "كتب غير خيالية عن الإبادة الجماعية",

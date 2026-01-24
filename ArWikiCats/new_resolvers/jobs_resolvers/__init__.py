@@ -10,7 +10,7 @@ from ...helps import logger
 from . import mens, relegin_jobs_new, womens
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def main_jobs_resolvers(normalized_category) -> str:
     """
     Resolve a job category name to a standardized jobs label.

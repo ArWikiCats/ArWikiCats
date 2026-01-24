@@ -360,7 +360,7 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def resolve_sport_label_unified(category: str, default: str = "") -> str:
     """
     Search for a sports label using the unified bot.

@@ -1,58 +1,67 @@
 """ """
 
-from typing import Any, Dict, Tuple
+from typing import Any, Callable, Dict, Tuple
+
+
+def _get_from_dict(
+    category3: str,
+    data: Dict[str, Dict[str, Any]],
+    match_fn: Callable[[str, str], bool],
+    slice_fn: Callable[[str, str, int], str],
+) -> Tuple[str, str]:
+    """
+    Core function to strip matching prefixes or suffixes from category strings.
+
+    Args:
+        category3: The category string to process
+        data: Dictionary mapping patterns to their metadata (lab, remove keys)
+        match_fn: Function that tests if a pattern matches (startswith/endswith)
+        slice_fn: Function that extracts the result (for prefix/suffix removal)
+
+    Returns:
+        Tuple of (modified_category, list_template)
+    """
+    list_of_cat = ""
+    category3_original = category3
+
+    try:
+        sorted_data = sorted(
+            data.items(),
+            key=lambda k: (-k[0].count(" "), -len(k[0])),
+        )
+    except AttributeError:
+        sorted_data = data.items()
+
+    for key, tab in sorted_data:
+        remove_key = tab.get("remove", key)
+
+        if match_fn(category3_original, remove_key):
+            list_of_cat = tab["lab"]
+            category3 = slice_fn(category3_original, remove_key, len(remove_key))
+            break
+
+    return category3, list_of_cat
 
 
 def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str]:
     """Strip matching prefixes from ``category3`` based on provided patterns."""
-    list_of_cat = ""
 
-    category3_original = category3
+    def starts_with(original: str, pattern: str) -> bool:
+        return original.startswith(pattern)
 
-    try:
-        sorted_data = sorted(
-            data.items(),
-            key=lambda k: (-k[0].count(" "), -len(k[0])),
-        )
-    except AttributeError:
-        sorted_data = data.items()
+    def slice_prefix(original: str, pattern: str, length: int) -> str:
+        return original[length:]
 
-    for key, tab in sorted_data:
-        # precise removal
-        remove_key = tab.get("remove", key)
-        if category3_original.startswith(remove_key):
-            list_of_cat = tab["lab"]
-
-            category3 = category3_original[len(remove_key) :]  # .lstrip()
-
-            break
-
-    return category3, list_of_cat
+    return _get_from_dict(category3, data, starts_with, slice_prefix)
 
 
 def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str]:
     """Strip matching suffixes from ``category3`` based on provided patterns."""
-    list_of_cat = ""
 
-    category3_original = category3
+    def ends_with(original: str, pattern: str) -> bool:
+        return original.endswith(pattern)
 
-    try:
-        sorted_data = sorted(
-            data.items(),
-            key=lambda k: (-k[0].count(" "), -len(k[0])),
-        )
-    except AttributeError:
-        sorted_data = data.items()
+    def slice_suffix(original: str, pattern: str, length: int) -> str:
+        return original[: -length]
 
-    for key, tab in sorted_data:
-        if category3_original.endswith(key):
-            list_of_cat = tab["lab"]
-
-            # precise removal
-            remove_key = tab.get("remove", key)
-
-            category3 = category3_original[: -len(remove_key)]  # .strip()
-
-            break
-
-    return category3, list_of_cat
+    return _get_from_dict(category3, data, ends_with, slice_suffix)

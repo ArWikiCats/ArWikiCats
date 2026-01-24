@@ -6,7 +6,6 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 religions_data = {
-    "Children's books about Islam and Muslims": "كتب أطفال عن الإسلام ومسلمون",
     "Conspiracy theories involving Muslims": "نظريات مؤامرة تشمل مسلمون",
     "Discrimination against Muslims": "تمييز ضد مسلمون",
     "Jews and Judaism in Appalachia": "اليهود واليهودية في الأبالاش",

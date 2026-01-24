@@ -27,7 +27,7 @@ class CategoryResult:
     from_match: bool
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=50000)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     """
     Resolve an English Wikipedia category label to its Arabic equivalent.

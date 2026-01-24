@@ -2,8 +2,10 @@
 EventLab Bot - A class-based implementation to handle category labeling
 """
 
+from __future__ import annotations
+
 import functools
-from typing import Tuple
+from typing import Callable, Literal, Tuple
 
 from ...config import app_settings
 from ...fix import fixtitle
@@ -20,8 +22,40 @@ from ..make_bots import get_KAKO
 from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
+# Constants
+SUFFIX_EPISODES: Literal[" episodes"] = " episodes"
+SUFFIX_TEMPLATES: Literal[" templates"] = " templates"
+CATEGORY_PEOPLE: Literal["people"] = "people"
+LABEL_PEOPLE_AR: Literal["أشخاص"] = "أشخاص"
+CATEGORY_SPORTS_EVENTS: Literal["sports events"] = "sports events"
+LABEL_SPORTS_EVENTS_AR: Literal["أحداث رياضية"] = "أحداث رياضية"
+ARABIC_CATEGORY_PREFIX: Literal["تصنيف:"] = "تصنيف:"
+LIST_TEMPLATE_PLAYERS: Literal["لاعبو {}"] = "لاعبو {}"
 
-def translate_general_category_wrap(category: str, start_get_country2=False) -> str:
+# Type alias for resolver functions
+ResolverFn = Callable[[str], str]
+
+
+def _resolve_via_chain(category: str, resolvers: list[ResolverFn]) -> str:
+    """
+    Apply a chain of resolver functions and return the first non-empty result.
+
+    Args:
+        category: The category string to resolve
+        resolvers: List of resolver functions to try in order
+
+    Returns:
+        First non-empty result from the resolver chain, or empty string
+    """
+    for resolver in resolvers:
+        result = resolver(category)
+        if result:
+            return result
+    return ""
+
+
+def translate_general_category_wrap(category: str, start_get_country2: bool = False) -> str:
+    """Wrapper for general category resolution."""
     arlabel = (
         ""
         or sub_general_resolver.sub_translate_general_category(category)
@@ -30,26 +64,34 @@ def translate_general_category_wrap(category: str, start_get_country2=False) -> 
     return arlabel
 
 
+# Standard resolver chain for country-based labels
+_STANDARD_COUNTRY_RESOLVERS: list[ResolverFn] = [
+    get_lab_for_country2,
+    get_KAKO,
+    get_pop_All_18,
+]
+
+
 @functools.lru_cache(maxsize=10000)
 def event_label_work(country: str) -> str:
+    """Resolve country-based labels using the standard resolver chain."""
     country2 = country.lower().strip()
 
-    if country2 == "people":
-        return "أشخاص"
+    if country2 == CATEGORY_PEOPLE:
+        return LABEL_PEOPLE_AR
 
-    resolved_label = (
-        ""
-        or get_lab_for_country2(country2)
-        or get_KAKO(country2)
-        or get_pop_All_18(country2)
-        or get_from_new_p17_final(country2, "")
-        or Ambassadors_tab.get(country2, "")
-        or country_bot.event2_d2(country2)
-        or with_years_bot.wrap_try_with_years(country2)
-        or year_or_typeo.label_for_startwith_year_or_typeo(country2)
-        or translate_general_category_wrap(country2)
-    )
-    return resolved_label
+    # Extended resolver chain for event labels
+    event_resolvers: list[ResolverFn] = [
+        *_STANDARD_COUNTRY_RESOLVERS,
+        lambda c: get_from_new_p17_final(c, ""),
+        lambda c: Ambassadors_tab.get(c, ""),
+        country_bot.event2_d2,
+        with_years_bot.wrap_try_with_years,
+        year_or_typeo.label_for_startwith_year_or_typeo,
+        translate_general_category_wrap,
+    ]
+
+    return _resolve_via_chain(country2, event_resolvers)
 
 
 class EventLabResolver:
@@ -75,10 +117,10 @@ class EventLabResolver:
 
         list_of_cat: str = ""
 
-        if category3.endswith(" episodes"):
+        if category3.endswith(SUFFIX_EPISODES):
             list_of_cat, category3 = get_episodes(category3)
 
-        elif category3.endswith(" templates"):
+        elif category3.endswith(SUFFIX_TEMPLATES):
             list_of_cat, category3 = get_templates_fo(category3)
 
         else:
@@ -103,15 +145,15 @@ class EventLabResolver:
         category_lab: str = ""
 
         # ايجاد تسميات مثل لاعبو  كرة سلة أثيوبيون (Find labels like Ethiopian basketball players)
-        if list_of_cat == "لاعبو {}":
-            category_lab = (
-                ""
-                or country2_label_bot.country_2_title_work(original_cat3)
-                or get_lab_for_country2(original_cat3)
-                or get_KAKO(original_cat3)
-                or get_pop_All_18(original_cat3)
-                or translate_general_category_wrap(original_cat3, start_get_country2=False)
-            )
+        if list_of_cat == LIST_TEMPLATE_PLAYERS:
+            # Extended resolver chain for country-based labels
+            country_resolvers: list[ResolverFn] = [
+                country2_label_bot.country_2_title_work,
+                *_STANDARD_COUNTRY_RESOLVERS,
+                lambda c: translate_general_category_wrap(c, start_get_country2=False),
+            ]
+            category_lab = _resolve_via_chain(original_cat3, country_resolvers)
+
             if category_lab:
                 list_of_cat = ""
 
@@ -121,7 +163,7 @@ class EventLabResolver:
         """
         Apply a series of general label resolvers to produce an Arabic label for a category.
 
-        Attempts resolution in a prioritized sequence (university, time expressions, team/organization patterns, population-style labels, general translations, then country-specific/title fallbacks) and returns the first non-empty label found.
+        Attempts resolution in a prioritized sequence (general translation, country title, country lookup, population data) and returns the first non-empty label found.
 
         Parameters:
             category3 (str): Category name to resolve (normalized text, typically without the "category:" prefix).
@@ -129,16 +171,12 @@ class EventLabResolver:
         Returns:
             str: Resolved Arabic label, or an empty string if no resolver produced a label.
         """
-        # Try different label functions in sequence
-        category_lab: str = (
-            ""
-            or translate_general_category_wrap(category3)
-            or country2_label_bot.country_2_title_work(category3)
-            or get_lab_for_country2(category3)
-            or get_KAKO(category3)
-            or get_pop_All_18(category3)
-        )
-        return category_lab
+        general_resolvers: list[ResolverFn] = [
+            lambda c: translate_general_category_wrap(c),
+            country2_label_bot.country_2_title_work,
+            *_STANDARD_COUNTRY_RESOLVERS,
+        ]
+        return _resolve_via_chain(category3, general_resolvers)
 
     def _handle_suffix_patterns(self, category3: str) -> Tuple[str, str]:
         """
@@ -226,8 +264,8 @@ class EventLabResolver:
         if not category_lab:
             category_lab = event_label_work(category3)
 
-        if list_of_cat and category3.lower().strip() == "sports events":
-            category_lab = "أحداث رياضية"
+        if list_of_cat and category3.lower().strip() == CATEGORY_SPORTS_EVENTS:
+            category_lab = LABEL_SPORTS_EVENTS_AR
 
         # Process list categories if both exist
         if list_of_cat and category_lab:
@@ -281,9 +319,9 @@ def _finalize_category_label(category_lab: str, cate_r: str) -> str:
     if category_lab:
         # Apply final formatting and prefix
         fixed = fixtitle.fixlabel(category_lab, en=cate_r)
-        category_lab = f"تصنيف:{fixed}"
+        category_lab = f"{ARABIC_CATEGORY_PREFIX}{fixed}"
 
-    if category_lab.strip() == "تصنيف:":
+    if category_lab.strip() == ARABIC_CATEGORY_PREFIX:
         return ""
 
     return category_lab

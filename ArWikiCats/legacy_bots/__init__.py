@@ -58,7 +58,7 @@ RESOLVER_PIPELINE: list[Callable[[str], str]] = [
 ]
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=50000)
 def legacy_resolvers(changed_cat: str) -> str:
     """
     Resolve a category label using the legacy resolver chain in priority order.

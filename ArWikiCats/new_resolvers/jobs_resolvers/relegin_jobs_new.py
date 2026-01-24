@@ -121,7 +121,7 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     )
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def womens_result(category: str) -> str:
     """ """
     logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
@@ -130,7 +130,7 @@ def womens_result(category: str) -> str:
     return nat_bot.search_all_category(category)
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def mens_result(category: str) -> str:
     """ """
     logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
@@ -153,7 +153,7 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-@functools.lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=10000)
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
     Resolves jobs for religious groups, handling both male and female variations.

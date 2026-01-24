@@ -9,6 +9,7 @@ from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import (
     COUNTRY_LABEL_OVERRIDES,
     US_STATES,
+    get_and_label,
     get_from_new_p17_final,
     raw_region_overrides,
 )
@@ -88,6 +89,7 @@ __all__ = [
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
+    "get_and_label",
     "raw_region_overrides",
     "COUNTRY_LABEL_OVERRIDES",
     "apply_pattern_replacements",
