@@ -127,7 +127,6 @@ formatted_data_en_ar_only.update(
     }
 )
 
-# TODO: add data from pop_format
 keys_of_without_in_data = {
     "air defence units and formations of {en}": "وحدات وتشكيلات دفاع جوي في {ar}",
     "archipelagoes of {en}": "أرخبيلات {ar}",
@@ -296,7 +295,17 @@ formatted_data_en_ar_only.update(keys_of_without_in_data)
 
 # TODO: add from_russia_data to formatted_data_en_ar_only
 from_russia_data = {
-    "agriculture ministers of {en}": "وزراء زراعة في {ar}",
+    "agriculture ministers of {en}": "وزراء زراعة {ar}",
+    "culture ministers of {en}": "وزراء ثقافة {ar}",
+    "economy ministers of {en}": "وزراء اقتصاد {ar}",
+    "education ministers of {en}": "وزراء تعليم {ar}",
+    "energy ministers of {en}": "وزراء طاقة {ar}",
+    "finance ministers of {en}": "وزراء مالية {ar}",
+    "health ministers of {en}": "وزراء صحة {ar}",
+    "justice ministers of {en}": "وزراء عدل {ar}",
+    "ministers of defence of {en}": "وزراء دفاع {ar}",
+    "ministers of foreign affairs of {en}": "وزراء شؤون خارجية {ar}",
+    "ministers of internal affairs of {en}": "وزراء شؤون داخلية {ar}",
     "aircraft carriers of {en}": "حاملات طائرات في {ar}",
     "airlines of {en}": "شركات طيران في {ar}",
     "ambassadors of {en}": "سفراء {ar}",
@@ -328,7 +337,6 @@ from_russia_data = {
     "cruisers of {en}": "طرادات في {ar}",
     "crustaceans of {en}": "قشريات {ar}",
     "cultural depictions of presidents of {en}": "تصوير ثقافي عن رؤساء {ar}",
-    "culture ministers of {en}": "وزراء ثقافة في {ar}",
     "currencies of {en}": "عملات في {ar}",
     "defence agencies of {en}": "وكالات دفاع في {ar}",
     "defunct airlines of {en}": "شركات طيران سابقة في {ar}",
@@ -341,11 +349,8 @@ from_russia_data = {
     "drainage basins of {en}": "أحواض تصريف في {ar}",
     "drug policy of {en}": "سياسة المخدرات في {ar}",
     "dunes of {en}": "كثبان رملية في {ar}",
-    "economy ministers of {en}": "وزراء اقتصاد في {ar}",
     "ecoregions of {en}": "مناطق بيئية في {ar}",
-    "education ministers of {en}": "وزراء تعليم في {ar}",
     "elizabeth of {en}": "إليزابيث إمبراطورة {ar}",
-    "energy ministers of {en}": "وزراء طاقة في {ar}",
     "escort ships of {en}": "سفن مرافقة في {ar}",
     "fast-food chains of {en}": "سلاسل وجبات سريعة في {ar}",
     "featured pictures of {en}": "صور مميزة عن {ar}",
@@ -353,7 +358,6 @@ from_russia_data = {
     "federal universities of {en}": "جامعات فيدرالية في {ar}",
     "female candidates for president of {en}": "مرشحات لمنصب رئيس {ar}",
     "ferries of {en}": "عبارات في {ar}",
-    "finance ministers of {en}": "وزراء مالية في {ar}",
     "first ladies of {en}": "السيدات الأولى في {ar}",
     "fish of {en}": "أسماك {ar}",
     "flags of the federal subjects of {en}": "أعلام كيانات {ar} الاتحادية",
@@ -369,7 +373,6 @@ from_russia_data = {
     "headlands of {en}": "أراضي رأسية في {ar}",
     "heads of government of {en}": "قادة حكومة {ar}",
     "heads of the federal subjects of {en}": "قادة كيانات {ar} الاتحادية",
-    "health ministers of {en}": "وزراء صحة في {ar}",
     "historians of {en}": "مؤرخو {ar}",
     "history of the foreign relations of {en}": "تاريخ علاقات خارجية {ar}",
     "images of {en}": "صور من {ar}",
@@ -378,7 +381,6 @@ from_russia_data = {
     "internet service providers of {en}": "تزويد خدمة الإنترنت في {ar}",
     "invasions of {en}": "غزوات في {ar}",
     "invertebrates of {en}": "لافقاريات {ar}",
-    "justice ministers of {en}": "وزراء عدل في {ar}",
     "languages of {en}": "لغات {ar}",
     "law enforcement agencies of {en}": "وكالات تطبيق القانون في {ar}",
     "law of {en}": "قانون في {ar}",
@@ -395,9 +397,6 @@ from_russia_data = {
     "military research of {en}": "أبحاث عسكرية في {ar}",
     "mine warfare vessels of {en}": "سفن حرب ألغام في {ar}",
     "minesweepers of {en}": "كاسحات ألغام في {ar}",
-    "ministers of defence of {en}": "وزراء دفاع {ar}",
-    "ministers of foreign affairs of {en}": "وزراء شؤون خارجية {ar}",
-    "ministers of internal affairs of {en}": "وزراء شؤون داخلية {ar}",
     "missile boats of {en}": "قوارب صواريخ في {ar}",
     "motor vehicle manufacturers of {en}": "مصانع السيارات في {ar}",
     "mountain passes of {en}": "ممرات جبلية في {ar}",
@@ -484,6 +483,8 @@ main_data = {
 }
 
 formatted_data_en_ar_only.update(main_data)
+
+formatted_data_en_ar_only.update(from_russia_data)
 
 formatted_data_en_ar_only.update(
     {
