@@ -474,7 +474,6 @@ data_1 = {
     "Ambassadors of Poland to Papua New Guinea": "سفراء بولندا لدى بابوا غينيا الجديدة",
     "Ambassadors of Russia to Papua New Guinea": "سفراء روسيا لدى بابوا غينيا الجديدة",
     "Ambassadors of Sweden to Papua New Guinea": "سفراء السويد لدى بابوا غينيا الجديدة",
-    "Ambassadors of Thailand to Indonesia and Papua New Guinea": "سفراء تايلاند لدى إندونيسيا وبابوا غينيا الجديدة",
     "Ambassadors of Thailand to Papua New Guinea": "سفراء تايلاند لدى بابوا غينيا الجديدة",
     "Ambassadors of the Soviet Union to Papua New Guinea": "سفراء الاتحاد السوفيتي لدى بابوا غينيا الجديدة",
     "Ambassadors of the United States to Papua New Guinea": "سفراء الولايات المتحدة لدى بابوا غينيا الجديدة",

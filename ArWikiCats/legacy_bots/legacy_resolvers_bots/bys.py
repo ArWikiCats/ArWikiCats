@@ -160,9 +160,9 @@ def get_and_label(category: str) -> str:
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
 
-    first_label = get_from_new_p17_final(first_part, None) or get_pop_All_18(first_part) or ""
+    first_label = get_from_new_p17_final(first_part, None)  # or get_pop_All_18(first_part) or ""
 
-    last_label = get_from_new_p17_final(last_part, None) or get_pop_All_18(last_part) or ""
+    last_label = get_from_new_p17_final(last_part, None)  # or get_pop_All_18(last_part) or ""
 
     logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
 

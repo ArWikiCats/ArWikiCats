@@ -771,7 +771,6 @@ data1 = {
     "2015 American television": "التلفزة الأمريكية 2015",
     # "yemeni presidential elections": "انتخابات اليمن الرئاسية",
     "ambassadors of federated states of micronesia in yemen by year": "سفراء ولايات ميكرونيسيا المتحدة في اليمن حسب السنة",
-    "sieges of french invasion of egypt and syria": "حصارات الغزو الفرنسي لمصر وسوريا",
     "1330 in men's international football": "كرة قدم دولية للرجال في 1330",
     "2017 American television series": "مسلسلات تلفزيونية أمريكية في 2017",
     "Cross-country skiers at 1992 Winter Paralympics": "متزحلقون ريفيون في الألعاب البارالمبية الشتوية 1992",

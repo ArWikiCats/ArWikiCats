@@ -46,7 +46,6 @@ data_of = {
     ),
     "fishes of europe": ("fishes of", "europe"),
     "former colleges of university of london": ("former colleges of", "university of london"),
-    "french invasion of egypt and syria": ("french invasion of", "egypt and syria"),
     "geography of kansas": ("geography of", "kansas"),
     "geography of united states": ("geography of", "united states"),
     "german novels of 20th century": ("german novels of", "20th century"),

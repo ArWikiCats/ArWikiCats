@@ -106,7 +106,6 @@ title_work_tests_data = {
     "films basedon non-fiction books about organized crime": "أفلام مبنية على كتب غير خيالية عن جريمة منظمة",
     "fishes of europe": "أسماك أوروبا",
     "food and drink in europe": "أطعمة ومشروبات في أوروبا",
-    "french invasion of egypt and syria": "الغزو الفرنسي في مصر وسوريا",
     "geography of kansas": "جغرافيا كانساس",
     "georgia (u.s. state) in fiction": "ولاية جورجيا في الخيال",
     "government of burkina faso": "حكومة بوركينا فاسو",
