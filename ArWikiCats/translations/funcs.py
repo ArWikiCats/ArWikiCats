@@ -97,7 +97,15 @@ def get_and_label(category: str) -> str:
 
 
 def get_from_pf_keys2(text: str) -> str:
-    """Look up the Arabic label for a term in the ``pf_keys2`` mapping."""
+    """
+    Resolve an Arabic label for a given term using the pf_keys2 mapping.
+
+    Parameters:
+        text (str): The lookup key.
+
+    Returns:
+        label (str): The Arabic label from pf_keys2 if present, otherwise an empty string.
+    """
     label = pf_keys2.get(text, "")
     logger.info(f">> get_from_pf_keys2() Found: {label}")
     return label
@@ -106,13 +114,13 @@ def get_from_pf_keys2(text: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def _get_from_alias(key: str) -> str:
     """
-    Retrieve an Arabic label for a key by probing multiple alias tables and fallback sources.
+    Resolve an Arabic label for a given key by probing multiple alias tables and fallback mappings.
 
     Parameters:
-        key (str): The lookup key; the function will try the original key and a lowercase variant.
+        key (str): Lookup string to resolve; both the original and a lowercase variant are considered.
 
     Returns:
-        The label string if found, otherwise an empty string.
+        str: The resolved Arabic label if found, otherwise an empty string.
     """
     result = ""
     sources = {

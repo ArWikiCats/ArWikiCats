@@ -11,7 +11,17 @@ from ..helps import logger
 
 
 def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
-    """Handle 'the ' prefix in country labels."""
+    """
+    Create entries by removing a leading "the " from keys when the trimmed key is not already present.
+
+    Scans the provided mapping and collects new key/value pairs where a key starts with "the " (case-insensitive) and the corresponding value is truthy; the returned dict maps the trimmed keys (without the leading "the ") to the same values.
+
+    Parameters:
+        label_index (Dict[str, str]): Mapping of original keys to values to inspect.
+
+    Returns:
+        Dict[str, str]: New mappings whose keys are the original keys with the leading "the " removed.
+    """
     new_keys = {}
     for key, value in list(label_index.items()):
         if not key.lower().startswith("the ") or not value:
@@ -27,7 +37,19 @@ def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
 
 
 def _build_of_variants(data, data_list, data_list2) -> Dict[str, str]:
-    """Add "of" variants for categories and map them to Arabic labels."""
+    """
+    Add English "of" variants for keys from the provided mappings and map them to corresponding Arabic labels.
+
+    For each mapping in `data_list`, adds entries with the key lowercased and suffixed by " of" that map to the original value. For each mapping in `data_list2`, adds the same suffixed keys but maps to the original value followed by the Arabic preposition " في". Existing keys and source keys that already end with " of" are not overwritten.
+
+    Parameters:
+        data (Dict[str, str]): Target mapping to be updated in-place and returned.
+        data_list (Iterable[Mapping[str, str]]): Source mappings whose values are used directly for the new "of" keys.
+        data_list2 (Iterable[Mapping[str, str]]): Source mappings whose values are appended with " في" for the new "of" keys.
+
+    Returns:
+        Dict[str, str]: The `data` mapping with the added "of" variants.
+    """
     for tab in data_list:
         for key, value in tab.items():
             new_key = f"{key.lower()} of"
@@ -142,7 +164,15 @@ def _build_literature_area_entries(data, film_keys_for_male, LITERATURE_AREAS) -
 
 
 def _build_cinema_entries(data, CINEMA_CATEGORIES) -> None:
-    """Add mappings for cinema and television related categories."""
+    """
+    Add cinema and television category labels and common phrase variants to the provided mapping.
+
+    This function updates `data` in place by inserting each category key from `CINEMA_CATEGORIES` mapped to its label and by creating common derived keys (e.g., "set", "produced", "filmed", "basedon", "based", "shot") that map to appropriate Arabic phrase variants.
+
+    Parameters:
+        data (dict): Mutable mapping to receive new keys and labels; modified in place.
+        CINEMA_CATEGORIES (Mapping[str, str]): Mapping of category keys to their Arabic labels.
+    """
 
     for key, label in CINEMA_CATEGORIES.items():
         data[key] = label
@@ -156,6 +186,16 @@ def _build_cinema_entries(data, CINEMA_CATEGORIES) -> None:
 
 
 def update_keys_within(keys_of_with_in, keys_of_without_in, data):
+    """
+    Merge and normalize two related key mappings into the main data mapping.
+
+    Updates `data` in place by adding all entries from `keys_of_with_in`, then incorporating normalized entries from `keys_of_without_in` (with keys lowercased and existing keys preserved). Removes the entries for "explorers" and "historians" from `keys_of_without_in` before merging. Also adds "of" variants derived from both sets into `data`.
+
+    Parameters:
+        keys_of_with_in (Mapping[str, str]): Mapping of keys that should be merged into `data` as-is and used to generate "of" variants.
+        keys_of_without_in (Mapping[str, str]): Mapping of keys to normalize (lowercased) and merge into `data`; the keys "explorers" and "historians" are removed from this mapping before processing.
+        data (Dict[str, str]): Target mapping to be updated in place with merged and derived entries.
+    """
     data.update(keys_of_with_in)
     keys_of_without_in = dict(keys_of_without_in)
 
@@ -185,7 +225,14 @@ def build_pf_keys2(
     WEAPON_EVENTS: Dict[str, str],
     WORD_AFTER_YEARS: Dict[str, str],
 ) -> Dict[str, str]:
-    """Build the master mapping used across the ``translations`` package."""
+    """
+    Constructs a consolidated mapping of English label keys to their translated labels.
+
+    Merges the provided label dictionaries, adds generated variants (direction-region combinations, town/community forms, weapon and "of" variants, minister and competition medalist keys, and other normalized lowercase keys), and returns the complete mapping to be used by the translations package.
+
+    Returns:
+        dict: A mapping of normalized English keys (lowercased and variant forms) to their translated labels.
+    """
 
     data = {}
 
