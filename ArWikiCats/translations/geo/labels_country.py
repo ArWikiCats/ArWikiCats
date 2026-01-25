@@ -357,42 +357,10 @@ ALIASES_CHAIN = {
     "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,
 }
 
-
-def get_from_new_p17_aliases(text: str, default: str | None = "") -> str:
-    """Look up the Arabic label for a term in alias mappings."""
-    result = (
-        COMPANY_LABELS_NEW.get(text)
-        or TURKEY_LABELS.get(text)
-        or JAPAN_LABELS.get(text)
-        or US_COUNTY_TRANSLATIONS.get(text)
-        or pf_keys2.get(text)
-        or CITY_LABEL_PATCHES.get(text)
-    )
-    return result or default
-
-
-def get_from_new_p17_final(text: str, default: str | None = "") -> str:
-    """
-    Resolve the Arabic label for a given term using the aggregated label index.
-
-    Parameters:
-        text (str): The term to look up.
-        default (str | None): Value to return if no label is found; defaults to an empty string.
-
-    Returns:
-        str: The Arabic label for `text` if found, otherwise `default`.
-    """
-
-    lower_text = text.lower()
-    # result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
-    result = get_from_new_p17_aliases(lower_text) or NEW_P17_FINAL.get(lower_text)
-
-    return result or default
-
-
 __all__ = [
+    "ALIASES_CHAIN",
     "COUNTRY_LABEL_OVERRIDES",
-    "get_from_new_p17_final",
+    "NEW_P17_FINAL",
 ]
 
 len_print.data_len(

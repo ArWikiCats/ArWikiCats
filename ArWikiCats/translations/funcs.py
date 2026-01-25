@@ -7,12 +7,34 @@ geography, jobs, languages, nationalities, sports, and media.
 import functools
 import re
 from ..helps import logger
-from .geo.labels_country import ALIASES_CHAIN, get_from_new_p17_final
+from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
 from .mixed.all_keys2 import pf_keys2
 from .utils.json_dir import open_json_file
 
 # Match "X and Y" patterns
 AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
+
+
+def get_from_new_p17_final(text: str, default: str | None = "") -> str:
+    """
+    Resolve the Arabic label for a given term using the aggregated label index.
+
+    Parameters:
+        text (str): The term to look up.
+        default (str | None): Value to return if no label is found; defaults to an empty string.
+
+    Returns:
+        str: The Arabic label for `text` if found, otherwise `default`.
+    """
+
+    lower_text = text.lower()
+    for mapping in ALIASES_CHAIN.values():
+        if result := mapping.get(text):
+            return result
+
+    result = NEW_P17_FINAL.get(lower_text)
+
+    return result or default
 
 
 @functools.lru_cache(maxsize=10000)

@@ -9,7 +9,7 @@ import sys
 from typing import Dict, Mapping
 
 from ...helps import len_print
-from ..utils.json_dir import open_json, open_json_file
+from ..utils.json_dir import open_json_file, open_json_file
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 
 # ---------------------------------------------------------------------------
@@ -110,7 +110,7 @@ NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
 # ---------------------------------------------------------------------------
 # Aggregate data assembly
 
-SINGERS_TAB: Dict[str, str] = open_json("jobs/singers_tab.json") or {}
+SINGERS_TAB: Dict[str, str] = open_json_file("jobs/singers_tab.json") or {}
 
 SINGER_CATEGORY_LABELS: Dict[str, str] = SINGERS_TAB
 """Complete mapping of singer categories combining static and JSON sources."""
@@ -122,7 +122,7 @@ for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
 
 """Expanded non-fiction topics covering both static and dynamically generated entries."""
 
-MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json("jobs/jobs_Men_Womens_Singers.json") or {}
+MEN_WOMENS_SINGERS_BASED: GenderedLabelMap = open_json_file("jobs/jobs_Men_Womens_Singers.json") or {}
 
 MEN_WOMENS_SINGERS = open_json_file("MEN_WOMENS_SINGERS_found.json")
 

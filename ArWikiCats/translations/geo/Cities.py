@@ -9,9 +9,9 @@ datasets with compatibility aliases matching the legacy API.
 from __future__ import annotations
 
 from ...helps import len_print
-from ..utils.json_dir import open_json
+from ..utils.json_dir import open_json_file
 
-CITY_TRANSLATIONS_LOWER = open_json("cities/cities_full.json") or {}
+CITY_TRANSLATIONS_LOWER = open_json_file("cities/cities_full.json") or {}
 
 len_print.data_len(
     "Cities.py",

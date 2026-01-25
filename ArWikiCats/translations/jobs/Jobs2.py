@@ -7,11 +7,11 @@ from __future__ import annotations
 from typing import Mapping, Tuple
 
 from ...helps import len_print, logger
-from ..utils.json_dir import open_json
+from ..utils.json_dir import open_json_file
 from .jobs_defs import GenderedLabelMap
 
-jobs_primary = open_json("jobs/Jobs_22.json")
-jobs_additional = open_json("jobs/jobs_3.json")
+jobs_primary = open_json_file("jobs/Jobs_22.json")
+jobs_additional = open_json_file("jobs/jobs_3.json")
 # ---------------------------------------------------------------------------
 # Static configuration
 
