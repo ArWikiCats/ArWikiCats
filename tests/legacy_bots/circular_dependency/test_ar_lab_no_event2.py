@@ -13,7 +13,6 @@ from ArWikiCats.legacy_bots.circular_dependency.sub_general_resolver import sub_
 
 
 def translate_general_category_wrap(category: str) -> str:
-
     arlabel = "" or sub_translate_general_category(category) or work_separator_names(category)
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)

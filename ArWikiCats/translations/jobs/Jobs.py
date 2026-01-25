@@ -6,7 +6,6 @@ from __future__ import annotations
 
 from typing import Mapping
 
-from ..helps import len_print
 from ..data_builders.build_jobs import (
     _build_jobs_new,
     _finalise_jobs_dataset,
@@ -15,6 +14,7 @@ from ..data_builders.jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
 )
+from ..helps import len_print
 from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
 from ..nats import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS

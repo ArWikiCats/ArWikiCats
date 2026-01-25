@@ -76,8 +76,11 @@ for sport, sport_tab in SPORT_KEY_RECORDS.items():
 
 sub_teams_labels = {}
 
-len_print.data_len("sports/sub_teams_keys.py", {
-    "sub_teams_new": sub_teams_new,  # 12,806
-    "sub_teams_labels": sub_teams_labels,
-    "sub_teams_olympics": sub_teams_olympics,
-})
+len_print.data_len(
+    "sports/sub_teams_keys.py",
+    {
+        "sub_teams_new": sub_teams_new,  # 12,806
+        "sub_teams_labels": sub_teams_labels,
+        "sub_teams_olympics": sub_teams_olympics,
+    },
+)

@@ -48,7 +48,6 @@ def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_
 
 
 def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
-
     data = {k.lower(): v for k, v in SWISS_CANTON_LABELS.items()}
 
     for canton, value in SWISS_CANTON_LABELS.items():

@@ -5,7 +5,6 @@ Build lookup tables for translating sport related keys.
 
 from typing import Final, Mapping
 
-from ..helps import len_print
 from ..data_builders.build_sport_keys import (
     SportKeyRecord,
     SportKeyTables,
@@ -13,6 +12,7 @@ from ..data_builders.build_sport_keys import (
     _generate_variants,
     _initialise_tables,
 )
+from ..helps import len_print
 from ..utils import open_json_file
 
 ALIASES: Final[Mapping[str, str]] = {

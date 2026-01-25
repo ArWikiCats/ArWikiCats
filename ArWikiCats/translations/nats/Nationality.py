@@ -8,7 +8,6 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from ..helps import len_print
 from ..data_builders.build_nationalities import (
     NationalityEntry,
     build_american_forms,
@@ -16,6 +15,7 @@ from ..data_builders.build_nationalities import (
     load_sources,
     normalize_aliases,
 )
+from ..helps import len_print
 from ..utils import open_json_file
 
 AllNatDict = Dict[str, NationalityEntry]

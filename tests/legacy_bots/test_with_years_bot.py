@@ -62,14 +62,12 @@ def test_year_at_start_uses_get_kako() -> None:
 
 @pytest.mark.fast
 def test_year_at_start_uses_translate_general_category() -> None:
-
     result = Try_With_Years("1900 protests")
     assert result == "احتجاجات 1900"
 
 
 @pytest.mark.fast
 def test_year_at_start_uses_country2_lab() -> None:
-
     result = Try_With_Years("1900 events in Yemen")
     assert result == "أحداث في اليمن 1900"
 

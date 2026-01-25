@@ -26,7 +26,6 @@ from __future__ import annotations
 
 from typing import Dict
 
-from ..helps import len_print
 from ..data_builders.build_all_keys2 import (
     _build_book_entries,
     _build_cinema_entries,
@@ -35,6 +34,7 @@ from ..data_builders.build_all_keys2 import (
     build_pf_keys2,
     handle_the_prefix,
 )
+from ..helps import len_print
 from ..utils import open_json_file
 
 # from ..jobs import SINGERS_TAB

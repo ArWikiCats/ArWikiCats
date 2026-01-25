@@ -10,7 +10,6 @@ from __future__ import annotations
 
 from typing import Mapping
 
-from ..helps import len_print
 from ..data_builders.build_jobs_players_list import (
     _build_boxing_labels,
     _build_champion_labels,
@@ -22,6 +21,7 @@ from ..data_builders.build_jobs_players_list import (
     _merge_maps,
 )
 from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
+from ..helps import len_print
 from ..sports import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 from ..utils import open_json_file
 

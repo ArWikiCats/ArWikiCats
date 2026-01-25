@@ -2,6 +2,7 @@
 """
 This module provides functions for processing and generating labels for country names based on separators.
 """
+
 import functools
 import re
 from typing import Tuple
