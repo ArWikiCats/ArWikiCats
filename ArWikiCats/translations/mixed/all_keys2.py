@@ -7,7 +7,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from unittest import result
 
-from ...helps import len_print, logger
+from ..helps import len_print, logger
 from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 from ..sports import TENNIS_KEYS

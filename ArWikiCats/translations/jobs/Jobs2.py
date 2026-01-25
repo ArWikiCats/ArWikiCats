@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from typing import Mapping, Tuple
 
-from ...helps import len_print, logger
+from ..helps import len_print, logger
 from ..utils.json_dir import open_json_file
 from .jobs_defs import GenderedLabelMap
 

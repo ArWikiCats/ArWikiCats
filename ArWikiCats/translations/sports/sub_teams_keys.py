@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ """
 
-from ...helps import len_print
+from ..helps import len_print
 from ..sports.Sport_key import SPORT_KEY_RECORDS
 
 sub_teams_new = {

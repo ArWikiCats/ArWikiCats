@@ -8,7 +8,7 @@ from __future__ import annotations
 import sys
 from typing import Dict, Mapping
 
-from ...helps import len_print
+from ..helps import len_print
 from ..utils.json_dir import open_json_file
 from .jobs_defs import GenderedLabel, GenderedLabelMap
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ...helps import len_print
+from ..helps import len_print
 from ..sports.games_labs import SUMMER_WINTER_TABS
 from ..utils.json_dir import open_json_file
 

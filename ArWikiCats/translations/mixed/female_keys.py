@@ -1,6 +1,6 @@
 """Mappings for gender specific mixed keys."""
 
-from ...helps import len_print
+from ..helps import len_print
 from ..companies import companies_data
 
 structures_data = {

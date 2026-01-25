@@ -1,6 +1,6 @@
 """Regional translation helpers for administrative areas."""
 
-from ...helps import len_print
+from ..helps import len_print
 from ..utils.json_dir import open_json_file
 
 COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}

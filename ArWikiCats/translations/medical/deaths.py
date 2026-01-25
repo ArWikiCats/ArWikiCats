@@ -1,6 +1,6 @@
 """ """
 
-from ...helps import len_print
+from ..helps import len_print
 
 deaths_from = {
     "lung cancer": "سرطان الرئة",
