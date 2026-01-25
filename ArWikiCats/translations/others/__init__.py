@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .companies import COMPANY_TYPE_TRANSLATIONS, companies_data
+from .companies import COMPANY_TYPE_TRANSLATIONS
 from .deaths import medical_keys
 from .languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
@@ -14,7 +14,6 @@ from .tax_table import Taxons_table
 
 __all__ = [
     "COMPANY_TYPE_TRANSLATIONS",
-    "companies_data",
     "COMPLEX_LANGUAGE_TRANSLATIONS",
     "LANGUAGE_TOPIC_FORMATS",
     "PRIMARY_LANGUAGE_TRANSLATIONS",
