@@ -27,6 +27,15 @@ LookupTable = Dict[str, str]
 
 
 def build_nationality_structure(val):
+    """
+    Constructs a complete NationalityEntry mapping, ensuring all expected fields are present as strings.
+
+    Parameters:
+        val (Mapping[str, str]): Input mapping that may contain any subset of nationality fields.
+
+    Returns:
+        dict: A mapping with keys "male", "males", "female", "females", "the_female", "the_male", "en", and "ar"; each value is the corresponding string from `val` or an empty string if missing.
+    """
     return {
         "male": val.get("male", ""),
         "males": val.get("males", ""),
@@ -55,9 +64,20 @@ def load_sources(
     raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
 ) -> Dict[str, NationalityEntry]:
     """
-    Load nationality JSON data and merge nationalities_data + sub_nats.
-    Ensures all entries follow the NationalityEntry structure (string values only).
+    Merge and normalize multiple nationality data sources into a consistent mapping of nationality keys to NationalityEntry objects.
 
+    Parameters:
+        raw_all_nat_o: Primary nationality entries keyed by identifier.
+        nationality_directions_mapping: Additional nationality entries to merge into raw_all_nat_o.
+        raw_uu_nats: United Nations or other global-sourced nationality entries to include.
+        raw_sub_nat: Sub-national or regional nationality entries to include.
+        continents: Continent-level entries to include.
+        raw_sub_nat_additional: Extra sub-national entries (raw dict form) to include.
+        countries_en_as_nationality_keys: List of English country names that should also be usable as nationality keys; when an entry's `en` lowercased matches a value here, an alias key is added.
+        raw_nats_as_en_key: Optional raw entries where each entry's English-native name should be used as an additional key; when provided, entries built via build_en_nat_entries(raw_nats_as_en_key) and raw_nats_as_en_key are merged into the sources.
+
+    Returns:
+        Dict[str, NationalityEntry]: A normalized mapping where each key maps to a NationalityEntry with all fields present as strings. Entries whose `en` value matches an item in countries_en_as_nationality_keys will also be available under that English name (lowercased) as an alias.
     """
     data_to_review = {
         "people from jerusalem": {
@@ -108,6 +128,15 @@ def load_sources(
 
 
 def build_en_nat_entries(raw_data: AllNatDict) -> AllNatDict:
+    """
+    Build a dictionary of nationality entries keyed by each entry's `en_nat` value.
+
+    Parameters:
+        raw_data (AllNatDict): Source mapping of nationality records; entries missing `en_nat` are ignored.
+
+    Returns:
+        AllNatDict: A mapping where each key is an entry's `en_nat` string and each value is a complete NationalityEntry. If `raw_data` is empty or contains no `en_nat` values, an empty dict is returned.
+    """
     data: AllNatDict = {}
     if not raw_data:
         return {}
@@ -125,8 +154,14 @@ def build_en_nat_entries(raw_data: AllNatDict) -> AllNatDict:
 
 def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> Dict[str, NationalityEntry]:
     """
-    Apply alias equivalence and one-off corrections.
-    Ensures the resulting dictionary keys all map to NationalityEntry.
+    Add alias keys and apply one-off nationality corrections to the provided nationality mapping.
+
+    Parameters:
+        all_nat_o (Dict[str, NationalityEntry]): Mapping of nationality keys to NationalityEntry objects to augment.
+        _print (bool): If True, print a diagnostic when an alias target is missing.
+
+    Returns:
+        Dict[str, NationalityEntry]: The input mapping augmented with alias keys and special-case entries.
     """
 
     alias_map: Dict[str, str] = {
@@ -217,8 +252,18 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
 
 def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
     """
-    Build '-american' and 'x american' nationality forms.
-    Returns: (updated_all_nat, count_of_added_items)
+    Create American-form nationality variants for entries that define gendered forms.
+
+    Generates new NationalityEntry objects where Arabic gendered forms are prefixed with the Arabic adjectives for "American" and returns a mapping from new keys to those entries. For each input key X that has any of `male`, `males`, `female`, or `females`, a new entry is produced under the key "x-american" (lowercased). The special input key "jewish" also receives an additional alias "jewish american".
+
+    Parameters:
+        all_nat_o (Dict[str, NationalityEntry]): Mapping of existing nationality keys to their entries.
+
+    Returns:
+        AllNatDict: Mapping of generated keys to NationalityEntry objects. Each generated entry has:
+            - Arabic gendered fields (`male`, `males`, `female`, `females`) prefixed with the appropriate Arabic word for "American" when the original field was present, otherwise empty strings.
+            - `the_male` / `the_female` likewise prefixed when present.
+            - `en` and `ar` left as empty strings.
     """
 
     data = {}
@@ -261,7 +306,28 @@ def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
 
 def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     """
-    Build all nationality lookup tables used throughout the system.
+    Constructs lookup tables that map nationality keys and name variants to Arabic labels and full NationalityEntry records.
+
+    Builds and returns a collection of tables including masculine/feminine forms, definite-form variants, English→Arabic country name mappings, and maps from nationality keys or normalized English names to NationalityEntry objects.
+
+    Parameters:
+        all_nat (AllNatDict): Mapping of nationality keys to NationalityEntry objects to index.
+
+    Returns:
+        Dict[str, Any]: A dictionary of lookup tables with the following keys:
+            - "Nat_men": maps nat_key -> male form (Arabic string).
+            - "Nat_mens": maps nat_key -> plural male form (Arabic string).
+            - "Nat_women": maps nat_key -> female form (Arabic string).
+            - "Nat_Womens": maps nat_key -> plural female form (Arabic string).
+            - "ar_Nat_men": maps male Arabic form -> nat_key.
+            - "countries_from_nat": maps normalized English country name -> Arabic country label.
+            - "all_country_ar": maps normalized English country name -> Arabic country label (same as countries_from_nat for entries discovered).
+            - "all_country_with_nat": maps nat_key -> full NationalityEntry for entries that include an English name.
+            - "all_country_with_nat_ar": maps nat_key -> full NationalityEntry for entries that include an Arabic label.
+            - "countries_nat_en_key": maps normalized English country name -> NationalityEntry.
+            - "en_nats_to_ar_label": maps nat_key -> Arabic label (string).
+            - "Nat_the_male": maps nat_key -> definite male form (Arabic string).
+            - "Nat_the_female": maps nat_key -> definite female form (Arabic string).
     """
 
     Nat_men: LookupTable = {}

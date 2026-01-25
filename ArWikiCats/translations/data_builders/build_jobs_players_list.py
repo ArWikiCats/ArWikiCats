@@ -18,17 +18,17 @@ from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 
 def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
     """
-    Builds gendered Arabic labels for boxing weight-class keys.
+    Build gendered Arabic labels for boxing weight-class keys.
 
     Generates two entries per weight when an Arabic label is provided:
     - "<weight> boxers": both "males" and "females" Arabic forms.
     - "world <weight> boxing champions": masculine Arabic form in "males" and an empty string in "females".
 
     Parameters:
-        weights (Mapping[str, str]): Mapping from English weight-key to Arabic label. Entries with an empty Arabic label are skipped.
+        weights (Mapping[str, str]): Mapping from English weight key to its Arabic label; entries with an empty Arabic label are skipped.
 
     Returns:
-        GenderedLabelMap: Mapping of label keys to dicts with "males" and "females" Arabic strings as described above.
+        GenderedLabelMap: Mapping of generated label keys to dictionaries with "males" and "females" Arabic strings.
     """
 
     result: GenderedLabelMap = {}
@@ -49,7 +49,18 @@ def _build_boxing_labels(weights: Mapping[str, str]) -> GenderedLabelMap:
 
 
 def _build_skating_labels(labels: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Create labels for skating and skiing disciplines."""
+    """
+    Generate gendered Arabic labels for skating and skiing disciplines.
+
+    Parameters:
+        labels (Mapping[str, GenderedLabel]): Mapping from a discipline key to its gendered Arabic label
+            pair (`"males"` and `"females"`).
+
+    Returns:
+        GenderedLabelMap: Map where each discipline produces two keys—"<discipline> skaters" and
+        "<discipline> skiers"—each mapped to a `{"males": ..., "females": ...}` dictionary with
+        the appropriate Arabic forms.
+    """
 
     result: GenderedLabelMap = {}
     for discipline_key, discipline_labels in labels.items():
@@ -68,7 +79,15 @@ def _build_skating_labels(labels: Mapping[str, GenderedLabel]) -> GenderedLabelM
 
 
 def _build_team_sport_labels(translations: Mapping[str, str]) -> GenderedLabelMap:
-    """Translate team sport categories into gendered Arabic labels."""
+    """
+    Create gendered Arabic labels for team sport categories.
+
+    Parameters:
+        translations (Mapping[str, str]): Mapping from English sport keys to Arabic sport names; entries with empty Arabic names are skipped.
+
+    Returns:
+        GenderedLabelMap: Mapping where each key is the original English key and the value is a dict with "males" and "females" Arabic labels prefixed with "لاعبو" and "لاعبات" respectively.
+    """
 
     result: GenderedLabelMap = {}
     for english_key, arabic_value in translations.items():
@@ -83,19 +102,15 @@ def _build_team_sport_labels(translations: Mapping[str, str]) -> GenderedLabelMa
 
 def _build_jobs_player_variants(players: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
     """
-    Create lowercase keys and scoped variants for a base mapping of player labels.
-
-    Generates a new mapping that includes:
-    - a lowercase-normalized entry for each input key,
-    - an "olympic <key>" variant with gendered Olympic forms,
-    - an "international <key>" variant with gendered international forms.
-    Entries whose male and female labels are both empty are omitted.
+    Generate lowercase keys and 'olympic' / 'international' scoped gendered label variants for player roles.
 
     Parameters:
-        players (Mapping[str, GenderedLabel]): Base mapping from English keys to gendered Arabic labels.
+        players (Mapping[str, GenderedLabel]): Mapping from English role keys to gendered Arabic labels (with "males" and "females").
 
     Returns:
-        GenderedLabelMap: A mapping containing lowercase keys and added "olympic" and "international" variants with corresponding gendered labels.
+        GenderedLabelMap: A mapping where each input key is added lowercased and also as
+        "olympic <key>" and "international <key>" variants. Each entry is a dict with
+        "males" and "females" Arabic strings; entries with both labels empty are omitted.
     """
 
     result: GenderedLabelMap = {}
@@ -125,7 +140,16 @@ def _build_general_scope_labels(
     roles: Mapping[str, GenderedLabel],
     scopes: Mapping[str, GenderedLabel],
 ) -> GenderedLabelMap:
-    """Combine generic sport roles with scope modifiers (e.g. Olympic)."""
+    """
+    Create composite gendered labels by combining each role with each scope (e.g., "Olympic coach").
+
+    Parameters:
+        roles (Mapping[str, GenderedLabel]): Mapping from role key to a GenderedLabel with "males" and "females" strings.
+        scopes (Mapping[str, GenderedLabel]): Mapping from scope key to a GenderedLabel with "males" and "females" strings.
+
+    Returns:
+        GenderedLabelMap: Mapping of composite lowercase keys "<scope> <role>" to GenderedLabel dictionaries where each gender label is the combination of the corresponding role and scope labels.
+    """
 
     result: GenderedLabelMap = {}
     for role_key, role_labels in roles.items():
@@ -141,7 +165,20 @@ def _build_general_scope_labels(
 
 
 def _build_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
-    """Create champion labels from the sport label mapping."""
+    """
+    Build gendered Arabic "champions" labels for sports.
+
+    For each entry in `labels` with a non-empty Arabic value, adds a key "<sport_key> champions"
+    (lowercased) whose value is a gendered label with the male form "أبطال {arabic_label}" and an empty
+    female form.
+
+    Parameters:
+        labels (Mapping[str, str]): Mapping from sport keys to their Arabic labels.
+
+    Returns:
+        GenderedLabelMap: A mapping from composite keys to dictionaries with "males" and "females"
+        strings; the "males" entry contains the Arabic champion phrase and the "females" entry is empty.
+    """
 
     result: GenderedLabelMap = {}
     for sport_key, arabic_label in labels.items():
@@ -156,7 +193,17 @@ def _build_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
 
 
 def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
-    """Create world champion labels from team descriptors."""
+    """
+    Generate "world <sport> champions" gendered labels from a mapping of sport descriptors to Arabic names.
+
+    Parameters:
+        labels (Mapping[str, str]): Mapping from English sport keys to their Arabic sport names; entries with empty Arabic names are skipped.
+
+    Returns:
+        GenderedLabelMap: A map where each key is "world <sport_key> champions" (lowercased sport_key) and the value is a dict with:
+            - "males": Arabic male-form label "أبطال العالم {arabic_label} "
+            - "females": an empty string
+    """
 
     result: GenderedLabelMap = {}
     for sport_key, arabic_label in labels.items():
@@ -164,7 +211,7 @@ def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
             continue
         composite_key = f"world {sport_key.lower()} champions"
         result[composite_key] = {
-            "males": f"أبطال العالم {arabic_label}",
+            "males": f"أبطال العالم {arabic_label} ",
             "females": "",
         }
     return result
@@ -174,7 +221,16 @@ def _build_sports_job_variants(
     sport_jobs: Mapping[str, str],
     football_roles: Mapping[str, GenderedLabel],
 ) -> tuple[GenderedLabelMap, Dict[str, str]]:
-    """Create commentators, announcers, and other job variants."""
+    """
+    Generate gendered Arabic label variants for sports jobs and combine them with football-role labels.
+
+    Parameters:
+        sport_jobs (Mapping[str, str]): Mapping from job English keys to their Arabic label; entries with an empty Arabic label are skipped.
+        football_roles (Mapping[str, GenderedLabel]): Mapping from football role keys to gendered Arabic labels used to create combined variants.
+
+    Returns:
+        GenderedLabelMap: A mapping where each key is a variant identifier (e.g., "coaches", "olympic coaches goalkeeper") and each value is a dict with `"males"` and `"females"` Arabic label strings (empty string when a gendered form is not provided).
+    """
 
     result: GenderedLabelMap = {}
 
@@ -231,7 +287,14 @@ def _build_sports_job_variants(
 
 
 def _merge_maps(*maps: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Merge multiple :class:`GenderedLabelMap` instances."""
+    """
+    Merge multiple gendered label maps into a single map.
+
+    When the same key appears in multiple inputs, the value from the later map overrides earlier ones.
+
+    Returns:
+        GenderedLabelMap: A map containing all entries from the provided maps.
+    """
 
     merged: GenderedLabelMap = {}
     for source in maps:
