@@ -42,13 +42,17 @@ def _format_category_with_list_template(
     if not category_lab.startswith(list_of_cat_x) or list_of_cat_x == "":
         category_lab = list_of_cat.format(category_lab)
 
-    logger.info(f"<<lightblue>> _format_category_with_list_template add {category_lab=}, {category_lab_or=}, {category_r=}")
+    logger.info(
+        f"<<lightblue>> _format_category_with_list_template add {category_lab=}, {category_lab_or=}, {category_r=}"
+    )
 
     # Football-specific handling: add "football" if not present
     if foot_ballers and FOOTBALL_ARABIC not in category_lab:
         list_of_cat = list_of_cat.replace("{}", FOOTBALL_TEMPLATE)
         category_lab = list_of_cat.format(category_lab_or)
-        logger.info(f"<<lightblue>> _format_category_with_list_template football add {list_of_cat=}, {category_lab=}, {category_r=}")
+        logger.info(
+            f"<<lightblue>> _format_category_with_list_template football add {list_of_cat=}, {category_lab=}, {category_r=}"
+        )
 
     return category_lab
 

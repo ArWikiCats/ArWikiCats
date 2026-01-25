@@ -195,14 +195,14 @@ class FormatDataDouble(FormatDataBase):
         Compose an Arabic label by combining the labels for two key parts.
 
         Parameters:
-        	part1 (str): The first key whose Arabic label will be looked up.
-        	part2 (str): The second key whose Arabic label will be looked up.
+                part1 (str): The first key whose Arabic label will be looked up.
+                part2 (str): The second key whose Arabic label will be looked up.
 
         Description:
-        	Looks up Arabic labels for `part1` and `part2` and joins them with `self.ar_joiner`. If either key is missing, returns an empty string. The final ordering of the two labels is affected by `self.put_label_last` (which forces a key's label to appear last when applicable) and by `self.sort_ar_labels` (which, when true, sorts the two labels alphabetically before joining). If `self.log_multi_cache` is enabled, the resulting label is stored in `self.search_multi_cache` under the key "`part2 part1`".
+                Looks up Arabic labels for `part1` and `part2` and joins them with `self.ar_joiner`. If either key is missing, returns an empty string. The final ordering of the two labels is affected by `self.put_label_last` (which forces a key's label to appear last when applicable) and by `self.sort_ar_labels` (which, when true, sorts the two labels alphabetically before joining). If `self.log_multi_cache` is enabled, the resulting label is stored in `self.search_multi_cache` under the key "`part2 part1`".
 
         Returns:
-        	A string containing the composed Arabic label, or an empty string if either key has no label.
+                A string containing the composed Arabic label, or an empty string if either key has no label.
 
         if "upcoming" in self.put_label_last we using:
             "أفلام قادمة رعب يمنية instead of "أفلام رعب قادمة يمنية"

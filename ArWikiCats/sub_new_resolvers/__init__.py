@@ -12,10 +12,10 @@ def main_other_resolvers(category: str) -> str:
     Determine the resolved label for a category.
 
     Parameters:
-    	category (str): Category identifier to resolve.
+        category (str): Category identifier to resolve.
 
     Returns:
-    	resolved_label (str): The label resolved for the given category.
+        resolved_label (str): The label resolved for the given category.
     """
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> Trying main_other_resolvers for: {category=}")

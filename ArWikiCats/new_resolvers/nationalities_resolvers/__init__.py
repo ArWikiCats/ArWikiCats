@@ -18,10 +18,10 @@ from . import (
 def main_nationalities_resolvers(normalized_category) -> str:
     """
     Resolve a category string into a nationalities category label.
-    
+
     Parameters:
         normalized_category (str): Category string to resolve.
-    
+
     Returns:
         str: Matched nationalities category label, or empty string if no resolver matches.
     """

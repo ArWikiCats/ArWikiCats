@@ -120,6 +120,6 @@ def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> T
         Returns:
             str: `original` with its last `length` characters removed.
         """
-        return original[: -length]
+        return original[:-length]
 
     return _get_from_dict(category3, data, ends_with, slice_suffix)
