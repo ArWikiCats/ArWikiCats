@@ -13,7 +13,7 @@ from ..keys_builders.build_films_mslslat import (
     _build_gender_key_maps,
     _build_television_cao,
 )
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 # =============================================================================
 # Constants

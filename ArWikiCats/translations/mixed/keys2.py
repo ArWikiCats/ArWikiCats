@@ -4,7 +4,7 @@ Helper utilities and datasets for the mixed key collections.
 
 from ..helps import len_print
 from ..others import medical_keys
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",

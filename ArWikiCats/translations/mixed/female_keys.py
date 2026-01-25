@@ -1,7 +1,7 @@
 """Mappings for gender specific mixed keys."""
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 companies_data = open_json_file("keys/companies_data.json") or {}
 

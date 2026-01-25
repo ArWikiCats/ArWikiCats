@@ -23,7 +23,7 @@ from ..keys_builders.build_jobs_players_list import (
 )
 from ..keys_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 from ..sports import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 # ---------------------------------------------------------------------------
 # Static configuration

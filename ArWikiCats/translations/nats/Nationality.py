@@ -16,7 +16,7 @@ from ..keys_builders.build_nationalities import (
     load_sources,
     normalize_aliases,
 )
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 AllNatDict = Dict[str, NationalityEntry]
 LookupTable = Dict[str, str]

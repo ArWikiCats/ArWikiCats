@@ -5,7 +5,7 @@
 """
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 
 def _load_india_region_translations() -> dict[str, str]:

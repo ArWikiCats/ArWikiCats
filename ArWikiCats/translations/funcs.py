@@ -21,7 +21,7 @@ from .build_data import pf_keys2
 from .geo import ALIASES_CHAIN, NEW_P17_FINAL, US_COUNTY_TRANSLATIONS
 
 # from .mixed import pf_keys2
-from .utils.json_dir import open_json_file
+from .utils import open_json_file
 
 ALIASES_CHAIN.update(
     {

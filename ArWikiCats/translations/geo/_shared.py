@@ -13,7 +13,7 @@ from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
 from ..helps import logger
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:

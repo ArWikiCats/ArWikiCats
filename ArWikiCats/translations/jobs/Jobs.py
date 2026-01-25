@@ -18,7 +18,7 @@ from ..keys_builders.jobs_defs import (
 from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
 from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS

@@ -35,7 +35,7 @@ from ..keys_builders.build_all_keys2 import (
     build_pf_keys2,
     handle_the_prefix,
 )
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 # from ..jobs import SINGERS_TAB
 # from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations

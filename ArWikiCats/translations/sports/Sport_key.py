@@ -13,7 +13,7 @@ from ..keys_builders.build_sport_keys import (
     _generate_variants,
     _initialise_tables,
 )
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 ALIASES: Final[Mapping[str, str]] = {
     "kick boxing": "kickboxing",

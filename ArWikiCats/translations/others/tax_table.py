@@ -5,7 +5,7 @@ This module loads and processes taxonomic data to provide Arabic translations
 for biological taxa, including fossil variants.
 """
 
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 Taxons_table = {}
 # ---

@@ -1,7 +1,7 @@
 """Regional translation helpers for administrative areas."""
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 REGION_SUFFIXES_EN = [
     " province",
