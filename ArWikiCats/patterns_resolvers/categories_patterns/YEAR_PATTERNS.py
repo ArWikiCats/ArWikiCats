@@ -55,7 +55,7 @@ YEAR_DATA = {
     "refugee olympic team in {year1} winter olympics": "فريق الرياضيين الأولمبيين اللاجئين في الألعاب الأولمبية الشتوية {year1}",
     "{year1} television series-debuts": "مسلسلات تلفزيونية بدأ عرضها في {year1}",
     "{year1} television series debuts": "مسلسلات تلفزيونية بدأ عرضها في {year1}",
-    "{year1} in mass media": "وسائل الإعلام في {year1}",  # 126
+    "{year1} in mass media": "وسائل إعلام في {year1}",  # 126
     "airlines established in {year1}": "شركات طيران أسست في {year1}",  # 259
     "animals described in {year1}": "حيوانات وصفت في {year1}",  # 266
     "articles containing potentially dated statements from {year1}": "مقالات فيها عبارات متقادمة منذ {year1}",  # 183

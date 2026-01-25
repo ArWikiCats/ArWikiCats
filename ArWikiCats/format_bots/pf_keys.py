@@ -8,7 +8,13 @@ import functools
 import re
 from typing import Dict
 
-from ..translations import COMPANY_TYPE_TRANSLATIONS
+from ..translations.utils.json_dir import open_json_file
+
+COMPANY_TYPE_TRANSLATIONS = open_json_file("keys/COMPANY_TYPE_TRANSLATIONS.json") or {}
+
+# "motor vehicle manufacturers":"تصنيع السيارات",
+# "law":"مؤسسات قانون",
+# "entertainment":"ترفيهية",
 
 # Cache for compiled regex patterns
 _change_key_compiled = {

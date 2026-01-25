@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
-from ArWikiCats.translations.jobs.Jobs import Jobs_new, jobs_mens_data
-from ArWikiCats.translations.jobs.Jobs2 import JOBS_2, JOBS_3333
-from ArWikiCats.translations.jobs.jobs_data_basic import NAT_BEFORE_OCC
+from ArWikiCats.translations.jobs import (
+    JOBS_2,
+    JOBS_3333,
+    NAT_BEFORE_OCC,
+    Jobs_new,
+    jobs_mens_data,
+)
 
 
 def test_jobs_new_contains_female_and_general_entries() -> None:

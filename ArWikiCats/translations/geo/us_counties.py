@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 _USA_PARTY_LABELS = {
     "democratic republican": "الحزب الديمقراطي الجمهوري",

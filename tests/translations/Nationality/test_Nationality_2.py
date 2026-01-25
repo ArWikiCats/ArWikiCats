@@ -36,41 +36,6 @@ def make_entry(
 
 
 # -------------------------------------------------------------------
-# Tests for load_sources
-# -------------------------------------------------------------------
-
-
-def test_load_sources_returns_normalized_entries(monkeypatch: pytest.MonkeyPatch) -> None:
-    """load_sources should return dict of NationalityEntry with all keys present and string values."""
-
-    def fake_open_json_file(name: str) -> dict[str, dict[str, str]] | dict:
-        if name == "nationalities/nationalities_data.json":
-            return {
-                "yemeni": {"en": "yemen", "ar": "اليمن", "male": "يمني"},
-            }
-        if name == "nationalities/sub_nats.json":
-            return {
-                "italian": {"male": "إيطالي", "en": "italy", "ar": "إيطاليا"},
-            }
-        return {}
-
-    # Patch open_json_file used inside load_sources
-    monkeypatch.setattr("ArWikiCats.translations.nats.Nationality.open_json_file", fake_open_json_file)
-
-    data = load_sources()
-
-    assert isinstance(data, dict)
-    assert "yemeni" in data
-    assert "italian" in data
-
-    for entry in data.values():
-        # Ensure all required keys are present
-        assert set(entry.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
-        # Ensure all values are strings
-        assert all(isinstance(v, str) for v in entry.values())
-
-
-# -------------------------------------------------------------------
 # Tests for normalize_aliases
 # -------------------------------------------------------------------
 

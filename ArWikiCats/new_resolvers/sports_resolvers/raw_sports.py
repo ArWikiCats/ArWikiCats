@@ -9,6 +9,14 @@ from ...translations_formats import FormatDataV2
 from .pre_defined import pre_defined_results
 
 UNIFIED_FORMATTED_DATA: dict[str, str] = {
+    "mens a {en_sport}": "{sport_label} للرجال للمحليين",
+    "{en_sport} olympics": "{sport_olympic}",
+    "{en_sport} olympic": "{sport_olympic}",
+    "olympic {en_sport}": "{sport_olympic}",
+    "{en_sport} olympic champions": "أبطال {sport_olympic}",
+
+
+    "{en_sport} mass media": "إعلام {sport_label}",
     # "{en_sport} teams": "فرق {sport_jobs}",
     "{en_sport} teams": "فرق {sport_label}",
     # rugby union tournaments for national teams
@@ -312,6 +320,7 @@ def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
             "sport_jobs": record.get("jobs", ""),
             "sport_team": record.get("team", ""),
             "sport_label": record.get("label", ""),
+            "sport_olympic": record.get("olympic", ""),
         }
     unified.update(
         {

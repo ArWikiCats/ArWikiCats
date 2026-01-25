@@ -7,9 +7,7 @@ documenting the logic used to combine masculine and feminine labels.
 
 from __future__ import annotations
 
-from typing import Any, Dict, Mapping, MutableMapping, TypedDict
-
-from ..utils.json_dir import open_json_file
+from typing import Dict, Mapping, MutableMapping, TypedDict
 
 
 class GenderedLabel(TypedDict):
@@ -42,30 +40,6 @@ def join_terms(*terms: str) -> str:
 
     filtered_terms = [term.strip() for term in terms if term and term.strip()]
     return " ".join(filtered_terms)
-
-
-def load_gendered_label_map(filename: str) -> GenderedLabelMap:
-    """Load a JSON document into a :class:`GenderedLabelMap` instance.
-
-    Args:
-        filename: Basename of the JSON document stored inside ``jsons``.
-
-    Returns:
-        A dictionary keyed by category whose values expose masculine and
-        feminine Arabic text.  Non-string or malformed entries are ignored so
-        downstream consumers receive a consistent mapping structure.
-    """
-
-    raw_data: Any = open_json_file(filename)
-    result: GenderedLabelMap = {}
-    if isinstance(raw_data, Mapping):
-        for raw_key, raw_value in raw_data.items():
-            if not isinstance(raw_key, str) or not isinstance(raw_value, Mapping):
-                continue
-            mens_value = str(raw_value.get("males", ""))
-            womens_value = str(raw_value.get("females", ""))
-            result[raw_key] = {"males": mens_value, "females": womens_value}
-    return result
 
 
 def copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
@@ -136,6 +110,5 @@ __all__ = [
     "copy_gendered_map",
     "ensure_gendered_label",
     "join_terms",
-    "load_gendered_label_map",
     "merge_gendered_maps",
 ]

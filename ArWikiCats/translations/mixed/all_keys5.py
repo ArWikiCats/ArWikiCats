@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Tuple
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 New_male_keys = {
     "agricultural science": "علم زراعي",
@@ -74,7 +74,7 @@ BASE_POP_FINAL_5: dict[str, str] = {
     "military of": "عسكرية",
     "tanks of": "دبابات",
     "relationships": "علاقات",
-    "mass media": "وسائل الإعلام",
+    "mass media": "وسائل إعلام",
     "denominations": "طوائف",
     "equipment of": "معدات",
     "radars of": "رادارات",

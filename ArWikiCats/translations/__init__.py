@@ -5,41 +5,41 @@ geography, jobs, languages, nationalities, sports, and media.
 """
 
 # NOTE: imports of functions have been moved to funcs.py
-
-from .companies import COMPANY_TYPE_TRANSLATIONS
-from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import (
+# (geo|jobs|mixed|nats|others|sports|tv)
+from .geo import (
+    CITY_TRANSLATIONS_LOWER,
     COUNTRY_LABEL_OVERRIDES,
     US_STATES,
     raw_region_overrides,
 )
-from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
-from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
-from .jobs.jobs_womens import FEMALE_JOBS_BASE_EXTENDED, short_womens_jobs
-from .languages import (
-    COMPLEX_LANGUAGE_TRANSLATIONS,
-    LANGUAGE_TOPIC_FORMATS,
-    PRIMARY_LANGUAGE_TRANSLATIONS,
-    language_key_translations,
+from .jobs import (
+    FEMALE_JOBS_BASE_EXTENDED,
+    NAT_BEFORE_OCC,
+    NAT_BEFORE_OCC_BASE,
+    PLAYERS_TO_MEN_WOMENS_JOBS,
+    RELIGIOUS_KEYS_PP,
+    SPORT_JOB_VARIANTS,
+    Jobs_new,
+    jobs_mens_data,
+    jobs_womens_data,
+    short_womens_jobs,
 )
-from .mixed.all_keys2 import (
+from .mixed import (
+    ALBUMS_TYPE,
+    FILM_PRODUCTION_COMPANY,
+    INTER_FEDS_LOWER,
+    PARTIES,
     WORD_AFTER_YEARS,
+    Ambassadors_tab,
+    Clubs_key_2,
+    New_female_keys,
     People_key,
     clubs_teams_leagues,
     keys_of_without_in,
-    pf_keys2,
+    pop_final_5,
+    religious_entries,
 )
-from .mixed.all_keys3 import (
-    ALBUMS_TYPE,
-    FILM_PRODUCTION_COMPANY,
-    Ambassadors_tab,
-)
-from .mixed.all_keys4 import INTER_FEDS_LOWER, Clubs_key_2
-from .mixed.all_keys5 import pop_final_5
-from .mixed.female_keys import New_female_keys, religious_entries
-from .mixed.keys2 import PARTIES
-from .nats.Nationality import (
+from .nats import (
     All_Nat,
     Nat_men,
     Nat_mens,
@@ -59,17 +59,22 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
     raw_nats_as_en_key,
 )
-from .politics.ministers import ministers_keys
-from .sports.games_labs import SUMMER_WINTER_GAMES
-from .sports.Sport_key import (
+from .others import (
+    COMPLEX_LANGUAGE_TRANSLATIONS,
+    LANGUAGE_TOPIC_FORMATS,
+    PRIMARY_LANGUAGE_TRANSLATIONS,
+    language_key_translations,
+    ministers_keys,
+)
+from .sports import (
     SPORT_KEY_RECORDS,
     SPORT_KEY_RECORDS_BASE,
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
+    SUMMER_WINTER_GAMES,
 )
-from .sports.sub_teams_keys import sub_teams_new
-from .tv.films_mslslat import (
+from .tv import (
     TELEVISION_KEYS,
     Films_key_CAO,
     Films_key_For_nat,
@@ -80,7 +85,6 @@ from .tv.films_mslslat import (
 )
 
 __all__ = [
-    "sub_teams_new",
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
@@ -117,7 +121,6 @@ __all__ = [
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    "pf_keys2",
     "keys_of_without_in",
     "clubs_teams_leagues",
     "WORD_AFTER_YEARS",
@@ -143,7 +146,6 @@ __all__ = [
     "LANGUAGE_TOPIC_FORMATS",
     "religious_entries",
     "New_female_keys",
-    "COMPANY_TYPE_TRANSLATIONS",
     "ministers_keys",
     "People_key",
 ]

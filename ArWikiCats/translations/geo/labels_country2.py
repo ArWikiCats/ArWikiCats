@@ -1,10 +1,71 @@
 """Regional translation helpers for administrative areas."""
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
-COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
-ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys.json") or {}
+REGION_SUFFIXES_EN = [
+    " province",
+    " district",
+    " state",
+    " region",
+    " division",
+    " county",
+    " department",
+    " municipality",
+    " governorate",
+    " voivodeship",
+]
+REGION_PREFIXES_AR = [
+    "ولاية ",
+    "الشعبة ",
+    "شعبة ",
+    "القسم ",
+    "قسم ",
+    "منطقة ",
+    "محافظة ",
+    "مقاطعة ",
+    "إدارة ",
+    "بلدية ",
+    "إقليم ",
+    "اقليم ",
+]
+
+
+def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_KEYS):
+    region_suffix_matches = {}
+
+    for cc, lab in ADDITIONAL_REGION_KEYS.items():
+        should_update = True
+        cc2 = cc.lower()
+        for en_k in REGION_SUFFIXES_EN:
+            for ar_k in REGION_PREFIXES_AR:
+                if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
+                    should_update = False
+                    cc3 = cc2[: -len(en_k)]
+                    lab_2 = lab[len(ar_k) :]
+                    region_suffix_matches[cc3] = lab_2
+    return region_suffix_matches
+
+
+def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
+
+    data = {k.lower(): v for k, v in SWISS_CANTON_LABELS.items()}
+
+    for canton, value in SWISS_CANTON_LABELS.items():
+        data[f"canton-of {canton.lower()}"] = f"كانتون {value}"
+    return data
+
+
+def generate_province_labels(PROVINCE_LABELS) -> dict[str, str]:
+    data = {}
+    for city, city_lab in PROVINCE_LABELS.items():
+        city2 = city.lower()
+        if city_lab:
+            data[city2] = city_lab
+            data[f"{city2} province"] = f"مقاطعة {city_lab}"
+            data[f"{city2} (province)"] = f"مقاطعة {city_lab}"
+    return data
+
 
 SWISS_CANTON_LABELS = {
     "aarga": "أرجاو",
@@ -121,33 +182,6 @@ PROVINCE_LABEL_OVERRIDES = {
     "šentjernej municipality": "شينتيرني",
 }
 
-REGION_SUFFIXES_EN = [
-    " province",
-    " district",
-    " state",
-    " region",
-    " division",
-    " county",
-    " department",
-    " municipality",
-    " governorate",
-    " voivodeship",
-]
-REGION_PREFIXES_AR = [
-    "ولاية ",
-    "الشعبة ",
-    "شعبة ",
-    "القسم ",
-    "قسم ",
-    "منطقة ",
-    "محافظة ",
-    "مقاطعة ",
-    "إدارة ",
-    "بلدية ",
-    "إقليم ",
-    "اقليم ",
-]
-
 PROVINCE_LABELS = {
     "antananarivo": "فيانارانتسوا",
     "antsiranana": "أنتسيرانانا",
@@ -192,37 +226,30 @@ PROVINCE_LABELS = {
     "zaire": "زائير",
 }
 
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in SWISS_CANTON_LABELS.items()})
 
-for canton, value in SWISS_CANTON_LABELS.items():
-    COUNTRY_ADMIN_LABELS[f"canton-of {canton.lower()}"] = f"كانتون {value}"
+def generate_complete_label_mapping(
+    ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches
+) -> dict[str, str]:
+    COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
+    canton_labels_mapping = map_canton_labels_to_arabic(SWISS_CANTON_LABELS)
+    province_labels_dictionary = generate_province_labels(PROVINCE_LABELS)
 
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
+    COUNTRY_ADMIN_LABELS.update(canton_labels_mapping)
+    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
+    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
+    COUNTRY_ADMIN_LABELS.update(region_suffix_matches)
+    COUNTRY_ADMIN_LABELS.update(province_labels_dictionary)
 
-COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
+    return COUNTRY_ADMIN_LABELS
 
-region_suffix_matches = {}
 
-for cc, lab in ADDITIONAL_REGION_KEYS.items():
-    should_update = True
-    cc2 = cc.lower()
-    for en_k in REGION_SUFFIXES_EN:
-        for ar_k in REGION_PREFIXES_AR:
-            if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
-                should_update = False
-                cc3 = cc2[: -len(en_k)]
-                lab_2 = lab[len(ar_k) :]
-                region_suffix_matches[cc3] = lab_2
+ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys.json") or {}
 
-COUNTRY_ADMIN_LABELS.update(region_suffix_matches)
+region_suffix_matches = map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_KEYS)
 
-for city, city_lab in PROVINCE_LABELS.items():
-    city2 = city.lower()
-    if city_lab:
-        COUNTRY_ADMIN_LABELS[city2] = city_lab
-        COUNTRY_ADMIN_LABELS[f"{city2} province"] = f"مقاطعة {city_lab}"
-        COUNTRY_ADMIN_LABELS[f"{city2} (province)"] = f"مقاطعة {city_lab}"
-
+COUNTRY_ADMIN_LABELS = generate_complete_label_mapping(
+    ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches
+)
 
 __all__ = [
     "COUNTRY_ADMIN_LABELS",

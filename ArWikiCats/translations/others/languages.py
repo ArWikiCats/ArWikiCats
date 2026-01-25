@@ -5,7 +5,7 @@ This module defines translations for language names and provides formatting
 templates for language-related categories like grammar, literature, and media.
 """
 
-from ..helps import len_print
+from ...helps import len_print
 
 SUPPLEMENTARY_LANGUAGE_TRANSLATIONS = {
     "herero": "هيريرو",

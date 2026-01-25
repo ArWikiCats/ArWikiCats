@@ -702,14 +702,14 @@ data1 = {
     "Women government ministers of Russia": "وزيرات روسيات",
     "Members of learned societies of Russia": "أعضاء جمعيات علمية في روسيا",
     "Members of legislatures of the federal subjects of Russia": "أعضاء هيئات تشريعية في كيانات روسيا الاتحادية",
-    "Men's national sports teams of Russia": "منتخبات رياضية وطنية رجالية روسيا",
+    "Men's national sports teams of Russia": "منتخبات رياضية وطنية رجالية في روسيا",
     "History books about the Tsardom of Russia": "كتب تاريخ عن روسيا القيصرية",
     "Books about presidents of Russia": "كتب عن رؤساء روسيا",
     "Mass media by language of Russia": "وسائل إعلام حسب لغة روسيا",
     "Categories by language of Russia": "تصنيفات حسب لغة روسيا",
 }
 
-companies_data = {
+companies_test_data = {
     "Agriculture companies of Russia": "شركات زراعة في روسيا",
     "Aluminium companies of Russia": "شركات ألومنيوم في روسيا",
     "Automotive companies of Russia": "شركات سيارات في روسيا",
@@ -783,7 +783,7 @@ companies_data = {
 
 to_test = [
     ("test_all_russia", data1),
-    ("test_companies_russia", companies_data),
+    ("test_companies_russia", companies_test_data),
 ]
 
 

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
+from ..utils import open_json_file
 
 
 def load_regions_data(data: dict[str, str]) -> dict[str, str]:

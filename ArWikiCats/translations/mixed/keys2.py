@@ -3,9 +3,8 @@ Helper utilities and datasets for the mixed key collections.
 """
 
 from ..helps import len_print
-from ..geo.us_counties import USA_PARTY_DERIVED_KEYS
-from ..medical.deaths import medical_keys
-from ..utils.json_dir import open_json_file
+from ..others import medical_keys
+from ..utils import open_json_file
 
 PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
@@ -93,8 +92,7 @@ def build_keys2_mapping() -> dict[str, str]:
     data = open_json_file("keys/keys2.json") or {}
     data.update(PARTIES)
 
-    for xg, xg_lab in USA_PARTY_DERIVED_KEYS.items():
-        data[xg.lower()] = xg_lab
+    # for xg, xg_lab in USA_PARTY_DERIVED_KEYS.items(): data[xg.lower()] = xg_lab
 
     return data
 

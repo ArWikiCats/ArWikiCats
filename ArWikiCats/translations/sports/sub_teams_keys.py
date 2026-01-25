@@ -2,7 +2,7 @@
 """ """
 
 from ..helps import len_print
-from ..sports.Sport_key import SPORT_KEY_RECORDS
+from ..sports import SPORT_KEY_RECORDS
 
 sub_teams_new = {
     "current seasons": "مواسم حالية",
@@ -46,31 +46,38 @@ sport_starts = {
     "women's": "للسيدات",
     "men's youth": "للشباب",
     "women's youth": "للشابات",
-    # "professional": "للمحترفين",
     "amateur": "للهواة",
     "youth": "للشباب",
 }
 # ---
-# for sport, sport_label in SPORTS_KEYS_FOR_LABEL.items():
+sub_teams_labels = {}
+sub_teams_olympics = {}
+# ---
 for sport, sport_tab in SPORT_KEY_RECORDS.items():
     sport_label = sport_tab["label"]
-    sub_teams_new[f"youth {sport}"] = f"{sport_label} للشباب"
-    sub_teams_new[f"{sport} mass media"] = f"إعلام {sport_label}"
-    sub_teams_new[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
+    sub_teams_labels[f"{sport} mass media"] = f"إعلام {sport_label}"
+    sub_teams_labels[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
 
     for modifier, modifier_label in sport_starts.items():
-        sub_teams_new[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
+        sub_teams_labels[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
 
+    sub_teams_labels[f"youth {sport}"] = f"{sport_label} شبابية"
     olympic_label = sport_tab["olympic"] or f"{sport_label} أولمبية"
 
-    sub_teams_new[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
-    sub_teams_new[f"{sport} olympics"] = olympic_label
-    sub_teams_new[f"{sport} olympic"] = olympic_label
-    sub_teams_new[f"olympic {sport}"] = olympic_label
-    sub_teams_new[f"olympics mens {sport}"] = olympic_label
-    sub_teams_new[f"international {sport}"] = olympic_label.replace("أولمبي", "دولي")
-    sub_teams_new[f"olympics men's {sport}"] = f"{olympic_label} للرجال"
-    sub_teams_new[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
+    sub_teams_olympics[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
+    sub_teams_olympics[f"{sport} olympics"] = olympic_label
+    sub_teams_olympics[f"{sport} olympic"] = olympic_label
+    sub_teams_olympics[f"olympic {sport}"] = olympic_label
+    sub_teams_olympics[f"olympics mens {sport}"] = olympic_label
+    sub_teams_olympics[f"international {sport}"] = olympic_label.replace("أولمبي", "دولي")
+    sub_teams_olympics[f"olympics men's {sport}"] = f"{olympic_label} للرجال"
+    sub_teams_olympics[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
 
 
-len_print.data_len("sports/sub_teams_keys.py", {"sub_teams_new": sub_teams_new})  # 12,806
+sub_teams_labels = {}
+
+len_print.data_len("sports/sub_teams_keys.py", {
+    "sub_teams_new": sub_teams_new,  # 12,806
+    "sub_teams_labels": sub_teams_labels,
+    "sub_teams_olympics": sub_teams_olympics,
+})

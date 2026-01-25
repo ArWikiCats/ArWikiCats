@@ -9,8 +9,8 @@ import sys
 from typing import Dict, Mapping
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
-from .jobs_defs import GenderedLabel, GenderedLabelMap
+from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
+from ..utils import open_json_file
 
 # ---------------------------------------------------------------------------
 # Helper functions

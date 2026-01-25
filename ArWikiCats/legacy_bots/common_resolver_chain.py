@@ -48,7 +48,7 @@ def _lookup_country_with_in_prefix(country: str) -> str:
 con_lookup_both = {
     "get_from_new_p17_final": get_from_new_p17_final,
     "all_new_resolvers": all_new_resolvers,
-    "pf_keys2": get_from_pf_keys2,
+    "get_from_pf_keys2": get_from_pf_keys2,
     "_lookup_country_with_in_prefix": _lookup_country_with_in_prefix,
     "_lookup_religious_males": lambda t: RELIGIOUS_KEYS_PP.get(t, {}).get("males", ""),
     "New_female_keys": lambda t: New_female_keys.get(t, ""),

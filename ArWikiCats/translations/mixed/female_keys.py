@@ -1,7 +1,9 @@
 """Mappings for gender specific mixed keys."""
 
 from ..helps import len_print
-from ..companies import companies_data
+from ..utils import open_json_file
+
+companies_data = open_json_file("keys/companies_data.json") or {}
 
 structures_data = {
     "energy companies": "شركات طاقة",

@@ -1,22 +1,51 @@
 """
 Key-label mappings for generic mixed categories.
+
+ART_MOVEMENTS,
+BASE_LABELS,
+BOOK_CATEGORIES,
+BOOK_TYPES,
+CINEMA_CATEGORIES,
+clubs_teams_leagues,
+ctl_data,
+DIRECTIONS,
+keys_of_without_in,
+LITERATURE_AREAS,
+People_key,
+REGIONS,
+SCHOOL_LABELS,
+tato_type,
+TOWNS_COMMUNITIES,
+WEAPON_CLASSIFICATIONS,
+WEAPON_EVENTS,
+WORD_AFTER_YEARS,
+
 """
 
 from __future__ import annotations
+
 from typing import Dict
 
 from ..helps import len_print
-from ..jobs.jobs_singers import SINGERS_TAB
-from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
-from ..sports import TENNIS_KEYS
-from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
-from .all_keys3 import ALBUMS_TYPE, pop_final_3
-from .all_keys4 import new2019
-from .keys2 import keys2_py
-from .keys_23 import NEW_2023
-from .Newkey import pop_final6
-from ..utils.json_dir import open_json_file
-from .all_keys2_builder import wrap_build_keys2
+from ..data_builders.build_all_keys2 import (
+    _build_book_entries,
+    _build_cinema_entries,
+    _build_literature_area_entries,
+    _update_lowercase,
+    build_pf_keys2,
+    handle_the_prefix,
+)
+from ..utils import open_json_file
+
+# from ..jobs import SINGERS_TAB
+# from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
+# from ..sports import TENNIS_KEYS
+# from ..tv import film_keys_for_female, film_keys_for_male
+# from .all_keys3 import ALBUMS_TYPE, pop_final_3
+# from .all_keys4 import new2019
+# from .keys2 import keys2_py
+# from .keys_23 import NEW_2023
+# from .Newkey import pop_final6
 
 People_key = open_json_file("people/peoples.json") or {}
 
@@ -610,46 +639,68 @@ tato_type = {
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
 clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
-keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-pf_keys2 = wrap_build_keys2(
-    ALBUMS_TYPE,
-    ART_MOVEMENTS,
-    BASE_LABELS,
-    BOOK_CATEGORIES,
-    BOOK_TYPES,
-    CINEMA_CATEGORIES,
-    ctl_data,
-    DIRECTIONS,
-    film_keys_for_female,
-    film_keys_for_male,
-    keys2_py,
-    keys_of_with_in,
-    keys_of_without_in,
-    language_key_translations,
-    LITERATURE_AREAS,
-    MEDIA_CATEGORY_TRANSLATIONS,
-    new2019,
-    NEW_2023,
-    People_key,
-    pop_final6,
-    pop_final_3,
-    REGIONS,
-    SCHOOL_LABELS,
-    SINGERS_TAB,
-    tato_type,
-    TENNIS_KEYS,
-    TOWNS_COMMUNITIES,
-    WEAPON_CLASSIFICATIONS,
-    WEAPON_EVENTS,
-    WORD_AFTER_YEARS,
-)
+def generate_key_mappings(
+    keys2_py: Dict[str, str],
+    pop_final_3: Dict[str, str],
+    SINGERS_TAB: Dict[str, str],
+    film_keys_for_female: Dict[str, str],
+    ALBUMS_TYPE: Dict[str, str],
+    film_keys_for_male: Dict[str, str],
+    TENNIS_KEYS: Dict[str, str],
+    pop_final6: Dict[str, str],
+    MEDIA_CATEGORY_TRANSLATIONS: Dict[str, str],
+    language_key_translations: Dict[str, str],
+    new2019: Dict[str, str],
+    NEW_2023: Dict[str, str],
+) -> Dict[str, str]:
+    keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
+
+    data: Dict[str, str] = build_pf_keys2(
+        ART_MOVEMENTS,
+        BASE_LABELS,
+        ctl_data,
+        DIRECTIONS,
+        keys2_py,
+        keys_of_with_in,
+        keys_of_without_in,
+        pop_final_3,
+        REGIONS,
+        SCHOOL_LABELS,
+        tato_type,
+        TOWNS_COMMUNITIES,
+        WEAPON_CLASSIFICATIONS,
+        WEAPON_EVENTS,
+        WORD_AFTER_YEARS,
+    )
+
+    _build_book_entries(
+        data,
+        SINGERS_TAB,
+        film_keys_for_female,
+        ALBUMS_TYPE,
+        BOOK_CATEGORIES,
+        BOOK_TYPES,
+    )
+
+    _build_literature_area_entries(data, film_keys_for_male, LITERATURE_AREAS)
+    _build_cinema_entries(data, CINEMA_CATEGORIES)
+
+    _update_lowercase(data, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
+    _update_lowercase(data, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+
+    no_the = handle_the_prefix(data)
+    data.update(no_the)
+    return data
+
+
+# pf_keys2 = generate_key_mappings(keys2_py, pop_final_3, SINGERS_TAB, film_keys_for_female, ALBUMS_TYPE, film_keys_for_male, TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS, language_key_translations, new2019, NEW_2023)
 
 len_print.data_len(
     "all_keys2.py",
     {
         "People_key": People_key,
-        "pf_keys2": pf_keys2,
+        # "pf_keys2": pf_keys2,
         "keys_of_without_in": keys_of_without_in,
         "clubs_teams_leagues": clubs_teams_leagues,
         "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
@@ -659,7 +710,7 @@ len_print.data_len(
 )
 
 __all__ = [
-    "pf_keys2",
+    # "pf_keys2",
     "keys_of_without_in",
     "clubs_teams_leagues",
     "WORD_AFTER_YEARS",

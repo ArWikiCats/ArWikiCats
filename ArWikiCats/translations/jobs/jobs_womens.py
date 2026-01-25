@@ -7,9 +7,9 @@ from __future__ import annotations
 from typing import Dict, Mapping
 
 from ..helps import len_print
-from ..sports.Sport_key import SPORTS_KEYS_FOR_JOBS
+from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
+from ..sports import SPORTS_KEYS_FOR_JOBS
 from .jobs_data_basic import RELIGIOUS_KEYS_PP
-from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 
 FEMALE_JOBS_SPORTS: Dict[str, str] = {}
 
