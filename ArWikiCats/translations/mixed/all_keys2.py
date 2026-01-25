@@ -27,7 +27,7 @@ from __future__ import annotations
 from typing import Dict
 
 from ..helps import len_print
-from ..keys_builders.all_keys2_builder import (
+from ..keys_builders.build_all_keys2 import (
     _build_book_entries,
     _build_cinema_entries,
     _build_literature_area_entries,
