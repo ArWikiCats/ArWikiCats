@@ -3,25 +3,8 @@ import pytest
 from ArWikiCats.translations.nats.Nationality import (
     build_american_forms,
     build_lookup_tables,
-    load_sources,
     normalize_aliases,
 )
-
-
-def test_load_sources_return_type() -> None:
-    data = load_sources()
-    assert isinstance(data, dict)
-    for v in data.values():
-        assert set(v.keys()) == {"male", "males", "female", "females", "en", "ar", "the_male", "the_female"}
-        assert all(isinstance(x, str) for x in v.values())
-
-
-def test_sources_are_merged(monkeypatch) -> None:
-    monkeypatch.setattr(
-        "ArWikiCats.translations.nats.Nationality.open_json_file", lambda name: {"x": {"en": "test", "ar": "اختبار"}}
-    )
-    data = load_sources()
-    assert "x" in data
 
 
 def test_alias_mapping() -> None:
