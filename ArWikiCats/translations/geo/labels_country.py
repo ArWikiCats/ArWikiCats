@@ -2,22 +2,13 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, MutableMapping
-
-from ..helps import len_print, logger
+from ..helps import len_print
 from ..keys_builders.build_labels_country import (
     _build_country_label_index,
     _make_japan_labels,
     _make_turkey_labels,
 )
-from ..mixed import BASE_POP_FINAL_5
-from ..nats.Nationality import all_country_ar
-from ..others import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping
-from .Cities import CITY_TRANSLATIONS_LOWER
-from .labels_country2 import COUNTRY_ADMIN_LABELS
-from .regions import MAIN_REGION_TRANSLATIONS
-from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",
@@ -241,6 +232,7 @@ COUNTRY_LABEL_OVERRIDES = load_json_mapping("geography/P17_2_final_ll.json")
 raw_region_overrides = load_json_mapping("geography/popopo.json")
 
 
+"""
 NEW_P17_FINAL = _build_country_label_index(  # 68,981
     CITY_TRANSLATIONS_LOWER,
     all_country_ar,
@@ -254,6 +246,7 @@ NEW_P17_FINAL = _build_country_label_index(  # 68,981
     TAXON_TABLE,
     BASE_POP_FINAL_5,
 )
+"""
 
 ALIASES_CHAIN = {
     "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,
@@ -263,9 +256,12 @@ ALIASES_CHAIN = {
 }
 
 __all__ = [
+    "_build_country_label_index",
     "ALIASES_CHAIN",
     "COUNTRY_LABEL_OVERRIDES",
-    "NEW_P17_FINAL",
+    "US_STATES",
+    "raw_region_overrides",
+    # "NEW_P17_FINAL",
 ]
 
 len_print.data_len(
@@ -273,6 +269,6 @@ len_print.data_len(
     {
         "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
         "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,  # 5,191
-        "NEW_P17_FINAL": NEW_P17_FINAL,
+        # "NEW_P17_FINAL": NEW_P17_FINAL,
     },
 )

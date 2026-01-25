@@ -16,7 +16,7 @@ from ..keys_builders.jobs_defs import (
     GenderedLabelMap,
 )
 from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
-from ..nats.Nationality import Nat_mens
+from ..nats import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS
 from ..utils import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333

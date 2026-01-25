@@ -17,8 +17,8 @@ from . import (
     pop_final_5,
     sub_teams_new,
 )
-from .build_data import pf_keys2
-from .geo import ALIASES_CHAIN, NEW_P17_FINAL, US_COUNTY_TRANSLATIONS
+from .build_data import NEW_P17_FINAL, pf_keys2
+from .geo import ALIASES_CHAIN, US_COUNTY_TRANSLATIONS
 
 # from .mixed import pf_keys2
 from .utils import open_json_file

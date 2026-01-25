@@ -9,7 +9,7 @@ from .languages import (
     language_key_translations,
 )
 from .ministers import ministers_keys
-from .tax_table import Taxons_table
+from .tax_table import TAXON_TABLE
 
 __all__ = [
     "COMPLEX_LANGUAGE_TRANSLATIONS",
@@ -18,6 +18,6 @@ __all__ = [
     "MEDIA_CATEGORY_TRANSLATIONS",
     "language_key_translations",
     "ministers_keys",
-    "Taxons_table",
+    "TAXON_TABLE",
     "medical_keys",
 ]
