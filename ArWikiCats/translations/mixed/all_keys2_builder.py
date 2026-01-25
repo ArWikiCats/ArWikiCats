@@ -8,6 +8,22 @@ from collections.abc import Mapping
 from ..helps import logger
 
 
+def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
+    """Handle 'the ' prefix in country labels."""
+    new_keys = {}
+    for key, value in list(label_index.items()):
+        if not key.lower().startswith("the ") or not value:
+            continue
+
+        trimmed_key = key[len("the ") :].strip()
+        if trimmed_key in label_index:
+            continue
+        new_keys.setdefault(trimmed_key, value)
+
+    logger.debug(f">> handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    return new_keys
+
+
 def _build_of_variants(data, data_list, data_list2) -> Dict[str, str]:
     """Add "of" variants for categories and map them to Arabic labels."""
     for tab in data_list:
@@ -138,29 +154,29 @@ def _build_cinema_entries(data, CINEMA_CATEGORIES) -> None:
 
 
 def build_pf_keys2(
-    ALBUMS_TYPE,
-    ART_MOVEMENTS,
-    BASE_LABELS,
-    BOOK_CATEGORIES,
-    BOOK_TYPES,
-    CINEMA_CATEGORIES,
-    ctl_data,
-    DIRECTIONS,
-    film_keys_for_female,
-    film_keys_for_male,
-    keys2_py,
-    keys_of_with_in,
-    keys_of_without_in,
-    LITERATURE_AREAS,
-    pop_final_3,
-    REGIONS,
-    SCHOOL_LABELS,
-    SINGERS_TAB,
-    tato_type,
-    TOWNS_COMMUNITIES,
-    WEAPON_CLASSIFICATIONS,
-    WEAPON_EVENTS,
-    WORD_AFTER_YEARS,
+    ALBUMS_TYPE: Dict[str, str],
+    ART_MOVEMENTS: Dict[str, str],
+    BASE_LABELS: Dict[str, str],
+    BOOK_CATEGORIES: Dict[str, str],
+    BOOK_TYPES: Dict[str, str],
+    CINEMA_CATEGORIES: Dict[str, str],
+    ctl_data: Dict[str, str],
+    DIRECTIONS: Dict[str, str],
+    film_keys_for_female: Dict[str, str],
+    film_keys_for_male: Dict[str, str],
+    keys2_py: Dict[str, str],
+    keys_of_with_in: Dict[str, str],
+    keys_of_without_in: Dict[str, str],
+    LITERATURE_AREAS: Dict[str, str],
+    pop_final_3: Dict[str, str],
+    REGIONS: Dict[str, str],
+    SCHOOL_LABELS: Dict[str, str],
+    SINGERS_TAB: Dict[str, str],
+    tato_type: Dict[str, str],
+    TOWNS_COMMUNITIES: Dict[str, str],
+    WEAPON_CLASSIFICATIONS: Dict[str, str],
+    WEAPON_EVENTS: Dict[str, str],
+    WORD_AFTER_YEARS: Dict[str, str],
 ) -> Dict[str, str]:
     """Build the master mapping used across the ``translations`` package."""
 
@@ -235,91 +251,8 @@ def build_pf_keys2(
     return data
 
 
-def _handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
-    """Handle 'the ' prefix in country labels."""
-    new_keys = {}
-    for key, value in list(label_index.items()):
-        if not key.lower().startswith("the ") or not value:
-            continue
-
-        trimmed_key = key[len("the ") :].strip()
-        if trimmed_key in label_index:
-            continue
-        new_keys.setdefault(trimmed_key, value)
-
-    logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
-    return new_keys
-
-
-def wrap_build_keys2(
-    ALBUMS_TYPE: Dict[str, str],
-    ART_MOVEMENTS: Dict[str, str],
-    BASE_LABELS: Dict[str, str],
-    BOOK_CATEGORIES: Dict[str, str],
-    BOOK_TYPES: Dict[str, str],
-    CINEMA_CATEGORIES: Dict[str, str],
-    ctl_data: Dict[str, str],
-    DIRECTIONS: Dict[str, str],
-    film_keys_for_female: Dict[str, str],
-    film_keys_for_male: Dict[str, str],
-    keys2_py: Dict[str, str],
-    keys_of_with_in: Dict[str, str],
-    keys_of_without_in: Dict[str, str],
-    language_key_translations: Dict[str, str],
-    LITERATURE_AREAS: Dict[str, str],
-    MEDIA_CATEGORY_TRANSLATIONS: Dict[str, str],
-    new2019: Dict[str, str],
-    NEW_2023: Dict[str, str],
-    People_key: Dict[str, str],
-    pop_final6: Dict[str, str],
-    pop_final_3: Dict[str, str],
-    REGIONS: Dict[str, str],
-    SCHOOL_LABELS: Dict[str, str],
-    SINGERS_TAB: Dict[str, str],
-    tato_type: Dict[str, str],
-    TENNIS_KEYS: Dict[str, str],
-    TOWNS_COMMUNITIES: Dict[str, str],
-    WEAPON_CLASSIFICATIONS: Dict[str, str],
-    WEAPON_EVENTS: Dict[str, str],
-    WORD_AFTER_YEARS: Dict[str, str],
-) -> Dict[str, str]:
-    """Wrap the ``build_keys2`` function with additional data loading."""
-
-    pf_keys2: Dict[str, str] = build_pf_keys2(
-        ALBUMS_TYPE,
-        ART_MOVEMENTS,
-        BASE_LABELS,
-        BOOK_CATEGORIES,
-        BOOK_TYPES,
-        CINEMA_CATEGORIES,
-        ctl_data,
-        DIRECTIONS,
-        film_keys_for_female,
-        film_keys_for_male,
-        keys2_py,
-        keys_of_with_in,
-        keys_of_without_in,
-        LITERATURE_AREAS,
-        pop_final_3,
-        REGIONS,
-        SCHOOL_LABELS,
-        SINGERS_TAB,
-        tato_type,
-        TOWNS_COMMUNITIES,
-        WEAPON_CLASSIFICATIONS,
-        WEAPON_EVENTS,
-        WORD_AFTER_YEARS,
-    )
-
-    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
-    _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
-
-    no_the = _handle_the_prefix(pf_keys2)
-    pf_keys2.update(no_the)
-
-    return pf_keys2
-
-
 __all__ = [
-    "wrap_build_keys2",
+    "build_pf_keys2",
+    "handle_the_prefix",
+    "_update_lowercase",
 ]

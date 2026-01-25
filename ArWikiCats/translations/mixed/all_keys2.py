@@ -16,7 +16,6 @@ from .keys2 import keys2_py
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
 from ..utils.json_dir import open_json_file
-from .all_keys2_builder import wrap_build_keys2
 
 People_key = open_json_file("people/peoples.json") or {}
 
@@ -612,7 +611,9 @@ clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
 keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-pf_keys2 = wrap_build_keys2(
+from .all_keys2_builder import build_pf_keys2, handle_the_prefix, _update_lowercase
+
+pf_keys2: Dict[str, str] = build_pf_keys2(
     ALBUMS_TYPE,
     ART_MOVEMENTS,
     BASE_LABELS,
@@ -626,24 +627,23 @@ pf_keys2 = wrap_build_keys2(
     keys2_py,
     keys_of_with_in,
     keys_of_without_in,
-    language_key_translations,
     LITERATURE_AREAS,
-    MEDIA_CATEGORY_TRANSLATIONS,
-    new2019,
-    NEW_2023,
-    People_key,
-    pop_final6,
     pop_final_3,
     REGIONS,
     SCHOOL_LABELS,
     SINGERS_TAB,
     tato_type,
-    TENNIS_KEYS,
     TOWNS_COMMUNITIES,
     WEAPON_CLASSIFICATIONS,
     WEAPON_EVENTS,
     WORD_AFTER_YEARS,
 )
+
+_update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
+_update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+
+no_the = handle_the_prefix(pf_keys2)
+pf_keys2.update(no_the)
 
 len_print.data_len(
     "all_keys2.py",
