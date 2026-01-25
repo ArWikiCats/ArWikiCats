@@ -74,7 +74,7 @@ BASE_POP_FINAL_5: dict[str, str] = {
     "military of": "عسكرية",
     "tanks of": "دبابات",
     "relationships": "علاقات",
-    "mass media": "وسائل الإعلام",
+    "mass media": "وسائل إعلام",
     "denominations": "طوائف",
     "equipment of": "معدات",
     "radars of": "رادارات",

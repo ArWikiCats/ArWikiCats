@@ -503,7 +503,7 @@ data_2 = {
     # "sports mass media in united arab emirates" : "إعلام ألعاب رياضية في الإمارات العربية المتحدة",
     "mass media in bosnia and herzegovina by medium": "وسائل إعلام في البوسنة والهرسك حسب الوسط",
     "mass media in bosnia and herzegovina": "وسائل إعلام في البوسنة والهرسك",
-    "1550 in mass media": "وسائل الإعلام في 1550",
+    "1550 in mass media": "وسائل إعلام في 1550",
     "defunct mass media in new jersey": "وسائل إعلام سابقة في نيوجيرسي",
     "1550 awards in united states": "جوائز 1550 في الولايات المتحدة",
     "clubhouses on the-national-register-of-historic-places in maine": "نوادي في السجل الوطني للأماكن التاريخية في مين",

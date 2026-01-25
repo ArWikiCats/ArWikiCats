@@ -538,7 +538,7 @@ data_0 = {
     "Nazi Germany and Protestantism": "ألمانيا النازية والبروتستانتية",
     "1940 shipwrecks and maritime incidents navigational boxes": "حطام سفن وصناديق تصفح حوادث بحرية 1940",
     "Bishops of Ripon and Leeds": "أساقفة من ريبون (شمال يوركشير) وليدز",
-    "Communications and media organizations based in China": "منظمات الاتصالات ووسائل الإعلام مقرها في الصين",
+    "Communications and media organizations based in China": "منظمات الاتصالات ووسائل إعلام مقرها في الصين",
     "Gender and education": "الجنس وتعليم",
     "Gender and religion": "الجنس والدين",
     "Mathematics and art": "الرياضيات والفن",
