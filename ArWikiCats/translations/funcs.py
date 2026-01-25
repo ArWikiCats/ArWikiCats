@@ -8,24 +8,26 @@ import functools
 import re
 
 from ..helps import logger
-from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
-from .mixed.all_keys2 import pf_keys2
-from .utils.json_dir import open_json_file
-from .geo.us_counties import US_COUNTY_TRANSLATIONS
 from . import (
     SPORTS_KEYS_FOR_LABEL,
+    Clubs_key_2,
     Jobs_new,
     films_mslslat_tab,
     jobs_mens_data,
-    sub_teams_new,
-    Clubs_key_2,
     pop_final_5,
+    sub_teams_new,
 )
+from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
+from .geo.us_counties import US_COUNTY_TRANSLATIONS
+from .mixed.all_keys2 import pf_keys2
+from .utils.json_dir import open_json_file
 
-ALIASES_CHAIN.update({
-    "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
-    "pf_keys2": pf_keys2,
-})
+ALIASES_CHAIN.update(
+    {
+        "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
+        "pf_keys2": pf_keys2,
+    }
+)
 
 # Match "X and Y" patterns
 AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)

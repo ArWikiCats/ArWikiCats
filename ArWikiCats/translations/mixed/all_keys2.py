@@ -3,6 +3,7 @@ Key-label mappings for generic mixed categories.
 """
 
 from __future__ import annotations
+
 from typing import Dict
 
 from ..helps import len_print
@@ -10,12 +11,20 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
+from ..utils.json_dir import open_json_file
+from .all_keys2_builder import (
+    _build_book_entries,
+    _build_cinema_entries,
+    _build_literature_area_entries,
+    _update_lowercase,
+    build_pf_keys2,
+    handle_the_prefix,
+)
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
-from ..utils.json_dir import open_json_file
 
 People_key = open_json_file("people/peoples.json") or {}
 
@@ -605,15 +614,6 @@ tato_type = {
     "world war i museums": "متاحف الحرب العالمية الأولى",
     "world war ii museums": "متاحف الحرب العالمية الثانية",
 }
-
-from .all_keys2_builder import (
-    build_pf_keys2,
-    handle_the_prefix,
-    _update_lowercase,
-    _build_book_entries,
-    _build_literature_area_entries,
-    _build_cinema_entries,
-)
 
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
 clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}

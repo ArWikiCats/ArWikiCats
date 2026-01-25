@@ -3,8 +3,10 @@ Key-label mappings for generic mixed categories.
 """
 
 from __future__ import annotations
-from typing import Dict
+
 from collections.abc import Mapping
+from typing import Dict
+
 from ..helps import logger
 
 
