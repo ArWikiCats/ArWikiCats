@@ -5,6 +5,7 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 slow_data = {
+    "Men's national sports teams of Lesotho": "منتخبات رياضية وطنية رجالية في ليسوتو",
     "Lists of people executed in Texas": "قوائم أشخاص أعدموا في تكساس",
     "Lists of people executed in the United States": "قوائم أشخاص أعدموا في الولايات المتحدة",
     "People executed in Charles Town, West Virginia": "أشخاص أعدموا في تشارلز تاون",

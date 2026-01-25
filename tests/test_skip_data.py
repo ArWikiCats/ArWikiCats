@@ -6,6 +6,14 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data0_no_label = {
+    "Romanian football clubs in international competitions": "أندية كرة القدم الرومانية في منافسات دولية",
+    "Association football competitions in Africa for men's national teams": "منافسات كرة قدم في إفريقيا في منتخبات وطنية رجالية",
+    "Association football competitions in Asia for men's national teams": "منافسات كرة قدم في آسيا في منتخبات وطنية رجالية",
+    "Association football competitions in Europe for men's national teams": "منافسات كرة قدم في أوروبا في منتخبات وطنية رجالية",
+    "Association football competitions in North America for men's national teams": "منافسات كرة قدم في أمريكا الشمالية في منتخبات وطنية رجالية",
+    "Association football competitions in North America for national youth teams": "منافسات كرة قدم في أمريكا الشمالية في منتخبات وطنية شبابية",
+    "CONCACAF competitions for men's national teams": "منافسات الكونكاكاف في منتخبات وطنية رجالية",
+    "CONCACAF competitions for national youth teams": "منافسات الكونكاكاف في منتخبات وطنية شبابية",
     "Deaths by dehydration": "وفيات بسبب جفاف",
     "1st-millennium architecture": "عمارة الألفية 1",
     "10th-century BC architecture": "عمارة القرن 10 ق م",
