@@ -3,14 +3,11 @@
 
 import pytest
 
-from ArWikiCats.translations.sports import sub_teams_new
+from ArWikiCats.translations.sports import sub_teams_new, sub_teams_labels, sub_teams_olympics
 
-
-def _get_value(category: str) -> None:
-    return sub_teams_new.get(category)
-
-
-examples = {
+examples_labels = {
+    "figure skating racing non-playing staff": "طاقم سباق التزلج الفني غير اللاعبين",
+    "jujutsu racing non-playing staff": "طاقم سباق جوجوتسو غير اللاعبين",
     "men's a' netball": "كرة الشبكة للرجال للمحليين",
     "men's a' nordic combined racing": "سباق التزلج النوردي المزدوج للرجال للمحليين",
     "youth orienteering": "سباق موجه للشباب",
@@ -18,27 +15,13 @@ examples = {
     "men's a' triathlon": "السباق الثلاثي للرجال للمحليين",
     "men's a' triple jump racing": "سباق القفز الثلاثي للرجال للمحليين",
     "figure skating racing mass media": "إعلام سباق التزلج الفني",
-    "figure skating racing non-playing staff": "طاقم سباق التزلج الفني غير اللاعبين",
 }
-
-
-@pytest.mark.parametrize(
-    "category, expected",
-    examples.items(),
-    ids=[k for k in examples],
-)
-def test_resolves_basic_templates(category: str, expected: str) -> None:
-    """Templates driven by the lightweight map should translate correctly."""
-
-    result = _get_value(category)
-    assert result == expected
 
 
 olympic_examples = {
     "figure skating racing olympic champions": "أبطال سباق تزلج فني أولمبي",
     "figure skating olympic": "تزلج فني أولمبي",
     "figure skating olympics": "تزلج فني أولمبي",
-    "jujutsu racing non-playing staff": "طاقم سباق جوجوتسو غير اللاعبين",
     "jujutsu racing olympic champions": "أبطال سباق جوجوتسو أولمبي",
     "olympic eventing racing": "سباق محاكمة خيول أولمبية",
     "olympic eventing": "محاكمة خيول أولمبية",
@@ -52,13 +35,17 @@ olympic_examples = {
 }
 
 
-@pytest.mark.parametrize(
-    "category, expected",
-    olympic_examples.items(),
-    ids=[k for k in olympic_examples],
-)
+@pytest.mark.parametrize("category, expected", examples_labels.items(), ids=examples_labels.keys())
+def test_resolves_basic_templates(category: str, expected: str) -> None:
+    """Templates driven by the lightweight map should translate correctly."""
+
+    result = sub_teams_labels.get(category)
+    assert result == expected
+
+
+@pytest.mark.parametrize("category, expected", olympic_examples.items(), ids=olympic_examples.keys())
 def test_handles_olympic_variants(category: str, expected: str) -> None:
     """Olympic templates should rely on the shared helper translation."""
 
-    result = _get_value(category)
+    result = sub_teams_olympics.get(category)
     assert result == expected

@@ -16,6 +16,7 @@ from . import (
     jobs_mens_data,
     pop_final_5,
     sub_teams_new,
+    sub_teams_labels,
 )
 from .build_data import NEW_P17_FINAL, pf_keys2
 from .geo import ALIASES_CHAIN, US_COUNTY_TRANSLATIONS
@@ -122,6 +123,7 @@ def _get_from_alias(key: str) -> str:
         "jobs_mens_data": lambda k: jobs_mens_data.get(k),
         "films_mslslat_tab": lambda k: films_mslslat_tab.get(k),
         "sub_teams_new": lambda k: sub_teams_new.get(k),
+        "sub_teams_labels": lambda k: sub_teams_labels.get(k),
         "Clubs_key_2": lambda k: Clubs_key_2.get(k),
         "pop_final_5": lambda k: pop_final_5.get(k),
     }

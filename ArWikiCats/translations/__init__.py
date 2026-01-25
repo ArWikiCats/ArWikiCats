@@ -74,6 +74,7 @@ from .sports import (
     SPORTS_KEYS_FOR_TEAM,
     SUMMER_WINTER_GAMES,
     sub_teams_new,
+    sub_teams_labels,
 )
 from .tv import (
     TELEVISION_KEYS,
@@ -87,6 +88,7 @@ from .tv import (
 
 __all__ = [
     "sub_teams_new",
+    "sub_teams_labels",
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
     "US_STATES",
