@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from ..helps import len_print
-from ..keys_builders.build_labels_country import (
+from ..data_builders.build_labels_country import (
     _build_country_label_index,
     _make_japan_labels,
     _make_turkey_labels,

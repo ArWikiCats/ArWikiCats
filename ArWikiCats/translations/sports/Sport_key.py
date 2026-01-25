@@ -6,7 +6,7 @@ Build lookup tables for translating sport related keys.
 from typing import Final, Mapping
 
 from ..helps import len_print
-from ..keys_builders.build_sport_keys import (
+from ..data_builders.build_sport_keys import (
     SportKeyRecord,
     SportKeyTables,
     _build_tables,

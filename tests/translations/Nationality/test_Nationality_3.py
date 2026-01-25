@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.translations.keys_builders.build_nationalities import build_en_nat_entries
+from ArWikiCats.translations.data_builders.build_nationalities import build_en_nat_entries
 
 # from ArWikiCats.translations.nats.Nationality import build_en_nat_entries
 

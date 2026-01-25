@@ -27,7 +27,7 @@ from __future__ import annotations
 from typing import Dict
 
 from ..helps import len_print
-from ..keys_builders.build_all_keys2 import (
+from ..data_builders.build_all_keys2 import (
     _build_book_entries,
     _build_cinema_entries,
     _build_literature_area_entries,
@@ -656,7 +656,7 @@ def generate_key_mappings(
 ) -> Dict[str, str]:
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-    pf_keys2: Dict[str, str] = build_pf_keys2(
+    data: Dict[str, str] = build_pf_keys2(
         ART_MOVEMENTS,
         BASE_LABELS,
         ctl_data,
@@ -675,7 +675,7 @@ def generate_key_mappings(
     )
 
     _build_book_entries(
-        pf_keys2,
+        data,
         SINGERS_TAB,
         film_keys_for_female,
         ALBUMS_TYPE,
@@ -683,15 +683,15 @@ def generate_key_mappings(
         BOOK_TYPES,
     )
 
-    _build_literature_area_entries(pf_keys2, film_keys_for_male, LITERATURE_AREAS)
-    _build_cinema_entries(pf_keys2, CINEMA_CATEGORIES)
+    _build_literature_area_entries(data, film_keys_for_male, LITERATURE_AREAS)
+    _build_cinema_entries(data, CINEMA_CATEGORIES)
 
-    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
-    _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+    _update_lowercase(data, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
+    _update_lowercase(data, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
 
-    no_the = handle_the_prefix(pf_keys2)
-    pf_keys2.update(no_the)
-    return pf_keys2
+    no_the = handle_the_prefix(data)
+    data.update(no_the)
+    return data
 
 
 # pf_keys2 = generate_key_mappings(keys2_py, pop_final_3, SINGERS_TAB, film_keys_for_female, ALBUMS_TYPE, film_keys_for_male, TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS, language_key_translations, new2019, NEW_2023)

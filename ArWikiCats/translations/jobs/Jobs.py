@@ -7,11 +7,11 @@ from __future__ import annotations
 from typing import Mapping
 
 from ..helps import len_print
-from ..keys_builders.build_jobs import (
+from ..data_builders.build_jobs import (
     _build_jobs_new,
     _finalise_jobs_dataset,
 )
-from ..keys_builders.jobs_defs import (
+from ..data_builders.jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
 )

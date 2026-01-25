@@ -6,7 +6,7 @@ from typing import Any, Mapping
 
 import pytest
 
-from ArWikiCats.translations.keys_builders import jobs_defs
+from ArWikiCats.translations.data_builders import jobs_defs
 
 
 def test_join_terms_trims_and_skips_empty_strings() -> None:

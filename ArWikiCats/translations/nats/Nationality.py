@@ -9,7 +9,7 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from ..helps import len_print
-from ..keys_builders.build_nationalities import (
+from ..data_builders.build_nationalities import (
     NationalityEntry,
     build_american_forms,
     build_lookup_tables,

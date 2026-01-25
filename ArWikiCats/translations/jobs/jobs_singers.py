@@ -9,7 +9,7 @@ import sys
 from typing import Dict, Mapping
 
 from ..helps import len_print
-from ..keys_builders.jobs_defs import GenderedLabel, GenderedLabelMap
+from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 from ..utils import open_json_file
 
 # ---------------------------------------------------------------------------
