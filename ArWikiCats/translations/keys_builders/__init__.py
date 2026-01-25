@@ -1,3 +1,4 @@
+
 from . import (
     all_keys2_builder,
     build_jobs_data_basic,
@@ -5,6 +6,7 @@ from . import (
     jobs_defs,
     nationalities_builder,
     build_jobs_players_list,
+    build_films_mslslat,
 )
 
 __all__ = [
@@ -14,4 +16,5 @@ __all__ = [
     "jobs_defs",
     "build_jobs_data_basic",
     "build_jobs_players_list",
+    "build_films_mslslat",
 ]
