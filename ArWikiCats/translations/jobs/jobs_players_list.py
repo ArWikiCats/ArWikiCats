@@ -11,20 +11,19 @@ from __future__ import annotations
 from typing import Mapping
 
 from ..helps import len_print
+from ..keys_builders.build_jobs_players_list import (
+    _build_boxing_labels,
+    _build_champion_labels,
+    _build_general_scope_labels,
+    _build_jobs_player_variants,
+    _build_skating_labels,
+    _build_team_sport_labels,
+    _build_world_champion_labels,
+    _merge_maps,
+)
 from ..keys_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 from ..sports import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 from ..utils.json_dir import open_json_file
-
-from ..keys_builders.build_jobs_players_list import (
-    _build_boxing_labels,
-    _build_skating_labels,
-    _build_team_sport_labels,
-    _build_jobs_player_variants,
-    _build_general_scope_labels,
-    _build_world_champion_labels,
-    _build_champion_labels,
-    _merge_maps,
-)
 
 # ---------------------------------------------------------------------------
 # Static configuration

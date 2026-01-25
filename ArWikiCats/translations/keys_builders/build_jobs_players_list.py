@@ -12,7 +12,6 @@ from typing import Dict, Mapping
 
 from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 
-
 # ---------------------------------------------------------------------------
 # Builders
 

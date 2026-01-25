@@ -5,6 +5,11 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping
 
 from ..helps import len_print, logger
+from ..keys_builders.build_labels_country import (
+    _build_country_label_index,
+    _make_japan_labels,
+    _make_turkey_labels,
+)
 from ..mixed import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
 from ..others import Taxons_table as TAXON_TABLE
@@ -13,12 +18,6 @@ from .Cities import CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
-
-from ..keys_builders.build_labels_country import (
-    _make_japan_labels,
-    _make_turkey_labels,
-    _build_country_label_index,
-)
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",
