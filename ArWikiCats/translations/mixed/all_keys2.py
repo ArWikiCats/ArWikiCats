@@ -606,44 +606,60 @@ tato_type = {
     "world war ii museums": "متاحف الحرب العالمية الثانية",
 }
 
-from .all_keys2_builder import build_pf_keys2, handle_the_prefix, _update_lowercase
+from .all_keys2_builder import (
+    build_pf_keys2,
+    handle_the_prefix,
+    _update_lowercase,
+    _build_book_entries,
+    _build_literature_area_entries,
+    _build_cinema_entries,
+)
 
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
 clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
-keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-pf_keys2: Dict[str, str] = build_pf_keys2(
-    ALBUMS_TYPE,
-    ART_MOVEMENTS,
-    BASE_LABELS,
-    BOOK_CATEGORIES,
-    BOOK_TYPES,
-    CINEMA_CATEGORIES,
-    ctl_data,
-    DIRECTIONS,
-    film_keys_for_female,
-    film_keys_for_male,
-    keys2_py,
-    keys_of_with_in,
-    keys_of_without_in,
-    LITERATURE_AREAS,
-    pop_final_3,
-    REGIONS,
-    SCHOOL_LABELS,
-    SINGERS_TAB,
-    tato_type,
-    TOWNS_COMMUNITIES,
-    WEAPON_CLASSIFICATIONS,
-    WEAPON_EVENTS,
-    WORD_AFTER_YEARS,
-)
+def generate_key_mappings() -> Dict[str, str]:
+    keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-_update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
-_update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+    pf_keys2: Dict[str, str] = build_pf_keys2(
+        ART_MOVEMENTS,
+        BASE_LABELS,
+        ctl_data,
+        DIRECTIONS,
+        keys2_py,
+        keys_of_with_in,
+        keys_of_without_in,
+        pop_final_3,
+        REGIONS,
+        SCHOOL_LABELS,
+        tato_type,
+        TOWNS_COMMUNITIES,
+        WEAPON_CLASSIFICATIONS,
+        WEAPON_EVENTS,
+        WORD_AFTER_YEARS,
+    )
 
-no_the = handle_the_prefix(pf_keys2)
-pf_keys2.update(no_the)
+    _build_book_entries(
+        pf_keys2,
+        SINGERS_TAB,
+        film_keys_for_female,
+        ALBUMS_TYPE,
+        BOOK_CATEGORIES,
+        BOOK_TYPES,
+    )
+    _build_literature_area_entries(pf_keys2, film_keys_for_male, LITERATURE_AREAS)
+    _build_cinema_entries(pf_keys2, CINEMA_CATEGORIES)
+
+    _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
+    _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+
+    no_the = handle_the_prefix(pf_keys2)
+    pf_keys2.update(no_the)
+    return pf_keys2
+
+
+pf_keys2 = generate_key_mappings()
 
 len_print.data_len(
     "all_keys2.py",

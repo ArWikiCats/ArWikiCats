@@ -153,25 +153,30 @@ def _build_cinema_entries(data, CINEMA_CATEGORIES) -> None:
         data[f"{key} shot"] = f"{label} مصورة"
 
 
+def update_keys_within(keys_of_with_in, keys_of_without_in, data):
+    data.update(keys_of_with_in)
+    keys_of_without_in = dict(keys_of_without_in)
+
+    keys_of_without_in_del = {"explorers": "مستكشفون", "historians": "مؤرخون"}
+    for key in keys_of_without_in_del:
+        keys_of_without_in.pop(key, None)
+
+    _update_lowercase(data, [keys_of_without_in], skip_existing=True)
+
+    _build_of_variants(data, [keys_of_without_in], [keys_of_with_in])
+
+
 def build_pf_keys2(
-    ALBUMS_TYPE: Dict[str, str],
     ART_MOVEMENTS: Dict[str, str],
     BASE_LABELS: Dict[str, str],
-    BOOK_CATEGORIES: Dict[str, str],
-    BOOK_TYPES: Dict[str, str],
-    CINEMA_CATEGORIES: Dict[str, str],
     ctl_data: Dict[str, str],
     DIRECTIONS: Dict[str, str],
-    film_keys_for_female: Dict[str, str],
-    film_keys_for_male: Dict[str, str],
     keys2_py: Dict[str, str],
     keys_of_with_in: Dict[str, str],
     keys_of_without_in: Dict[str, str],
-    LITERATURE_AREAS: Dict[str, str],
     pop_final_3: Dict[str, str],
     REGIONS: Dict[str, str],
     SCHOOL_LABELS: Dict[str, str],
-    SINGERS_TAB: Dict[str, str],
     tato_type: Dict[str, str],
     TOWNS_COMMUNITIES: Dict[str, str],
     WEAPON_CLASSIFICATIONS: Dict[str, str],
@@ -190,16 +195,8 @@ def build_pf_keys2(
     data.update(keys2_py)
     data.update(BASE_LABELS)
     data.update(_build_direction_region_entries(DIRECTIONS, REGIONS))
-    data.update(keys_of_with_in)
-    keys_of_without_in = dict(keys_of_without_in)
 
-    keys_of_without_in_del = {"explorers": "مستكشفون", "historians": "مؤرخون"}
-    for key in keys_of_without_in_del:
-        keys_of_without_in.pop(key, None)
-
-    _update_lowercase(data, [keys_of_without_in], skip_existing=True)
-
-    _build_of_variants(data, [keys_of_without_in], [keys_of_with_in])
+    update_keys_within(keys_of_with_in, keys_of_without_in, data)
 
     for school_category, school_template in SCHOOL_LABELS.items():
         data[f"private {school_category}"] = school_template.format("خاصة")
@@ -237,17 +234,6 @@ def build_pf_keys2(
         if lower_key not in data and value:
             data[lower_key] = value
 
-    _build_book_entries(
-        data,
-        SINGERS_TAB,
-        film_keys_for_female,
-        ALBUMS_TYPE,
-        BOOK_CATEGORIES,
-        BOOK_TYPES,
-    )
-    _build_literature_area_entries(data, film_keys_for_male, LITERATURE_AREAS)
-    _build_cinema_entries(data, CINEMA_CATEGORIES)
-
     return data
 
 
@@ -255,4 +241,7 @@ __all__ = [
     "build_pf_keys2",
     "handle_the_prefix",
     "_update_lowercase",
+    "_build_book_entries",
+    "_build_literature_area_entries",
+    "_build_cinema_entries",
 ]
