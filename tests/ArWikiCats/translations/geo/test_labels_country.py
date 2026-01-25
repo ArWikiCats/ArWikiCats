@@ -34,7 +34,7 @@ test_dump_all = make_dump_test_name_data_callback(
 @pytest.mark.unit
 def test_get_and_label_returns_joined_entities(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "ArWikiCats.translations.geo.labels_country.get_from_new_p17_final",
+        "ArWikiCats.translations.funcs.get_from_new_p17_final",
         lambda name, _: {"artist": "فنان", "painter": "رسام"}.get(name, ""),
     )
 

@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.translations.utils.json_dir import open_json, open_json_file
+from ArWikiCats.translations.utils.json_dir import open_json_file
 
 
 def test_open_json_file_loads_from_nested_folder() -> None:
@@ -12,4 +12,4 @@ def test_open_json_file_loads_from_nested_folder() -> None:
 
 @pytest.mark.parametrize("path", ["people/peoples", "people/peoples.json"])
 def test_open_json_appends_missing_suffix(path) -> None:
-    assert open_json(path)
+    assert open_json_file(path)

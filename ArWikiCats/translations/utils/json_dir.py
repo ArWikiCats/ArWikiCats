@@ -42,8 +42,3 @@ def open_json_file(file_path: str = "") -> Dict[str, Any] | List[Any]:
     except BaseException:
         print(f"cant open {file_path_path.name}")
     return {}
-
-
-def open_json(file_path: str = "") -> dict[str, Any] | list[Any]:
-    """Open a JSON file given a relative path under the ``jsons`` directory."""
-    return open_json_file(file_path)

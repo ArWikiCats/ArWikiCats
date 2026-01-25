@@ -1,6 +1,6 @@
 """Additional mixed keys introduced in 2023."""
 
-from ...helps import len_print
+from ..helps import len_print
 
 BASE_NEW_2023: dict[str, str] = {
     "continental indoor soccer league": "الدوري القاري لكرة القدم داخل الصالات",

@@ -2,7 +2,7 @@
 Utility tables for translating multi-season sporting competitions.
 """
 
-from ...helps import len_print
+from ..helps import len_print
 
 BASE_GAME_LABELS = {
     "african games": "الألعاب الإفريقية",

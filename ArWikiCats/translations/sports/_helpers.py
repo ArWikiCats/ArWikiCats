@@ -12,7 +12,7 @@ from collections.abc import Iterable, Mapping, MutableMapping
 from string import Formatter
 from typing import Any
 
-from ...helps import logger
+from ..helps import logger
 
 # The list of age categories that appear throughout the sports templates.
 # It is referenced from multiple modules, therefore it lives in a single

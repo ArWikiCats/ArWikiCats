@@ -2,7 +2,7 @@
 Derived key mappings shared by the mixed key modules.
 """
 
-from ...helps import len_print
+from ..helps import len_print
 
 POP_FINAL6_BASE: dict[str, str] = {
     "gulf war": "حرب الخليج الثانية",

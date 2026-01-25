@@ -6,7 +6,7 @@ Build lookup tables for translating sport related keys.
 from dataclasses import dataclass
 from typing import Final, Mapping, MutableMapping, TypedDict
 
-from ...helps import len_print, logger
+from ..helps import len_print, logger
 from ..utils.json_dir import open_json_file
 
 

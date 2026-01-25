@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-import functools
-import re
 from collections.abc import Mapping, MutableMapping
 
-from ...helps import len_print, logger
+from ..helps import len_print, logger
 from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
@@ -17,9 +15,6 @@ from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
 from .us_counties import US_COUNTY_TRANSLATIONS
-
-# Match "X and Y" patterns
-AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",
@@ -353,85 +348,19 @@ def _build_country_label_index() -> dict[str, str]:
 
 NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
-
-def get_from_new_p17_aliases(text: str, default: str | None = "") -> str:
-    """Look up the Arabic label for a term in alias mappings."""
-    result = (
-        COMPANY_LABELS_NEW.get(text)
-        or TURKEY_LABELS.get(text)
-        or JAPAN_LABELS.get(text)
-        or US_COUNTY_TRANSLATIONS.get(text)
-        or pf_keys2.get(text)
-        or CITY_LABEL_PATCHES.get(text)
-    )
-    return result or default
-
-
-def get_from_new_p17_final(text: str, default: str | None = "") -> str:
-    """
-    Resolve the Arabic label for a given term using the aggregated label index.
-
-    Parameters:
-        text (str): The term to look up.
-        default (str | None): Value to return if no label is found; defaults to an empty string.
-
-    Returns:
-        str: The Arabic label for `text` if found, otherwise `default`.
-    """
-
-    lower_text = text.lower()
-    # result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
-    result = get_from_new_p17_aliases(lower_text) or NEW_P17_FINAL.get(lower_text)
-
-    return result or default
-
-
-@functools.lru_cache(maxsize=10000)
-def get_and_label(category: str) -> str:
-    """
-    Resolve the Arabic label for a category composed of two entities separated by "and".
-
-    Parameters:
-        category (str): A category string containing two entity names joined by "and" (e.g., "X and Y").
-
-    Returns:
-        str: "`<first_label> و<last_label>`" if both entities map to Arabic labels, empty string otherwise.
-    """
-    if " and " not in category:
-        return ""
-
-    logger.info(f"<<lightyellow>>>>get_and_label {category}")
-    logger.info(f"Resolving get_and_label, {category=}")
-    match = AND_PATTERN.match(category)
-
-    if not match:
-        logger.debug(f"<<lightyellow>>>> No match found for get_and_label: {category}")
-        return ""
-
-    first_part, last_part = match.groups()
-    first_part = first_part.lower()
-    last_part = last_part.lower()
-
-    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_part=}, {last_part=}")
-
-    first_label = get_from_new_p17_final(first_part, None)  # or get_pop_All_18(first_part) or ""
-
-    last_label = get_from_new_p17_final(last_part, None)  # or get_pop_All_18(last_part) or ""
-
-    logger.debug(f"<<lightyellow>>>> get_and_label(): {first_label=}, {last_label=}")
-
-    label = ""
-    if first_label and last_label:
-        label = f"{first_label} و{last_label}"
-        logger.info(f"<<lightyellow>>>>get_and_label lab {label}")
-
-    return label
-
+ALIASES_CHAIN = {
+    "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,
+    "TURKEY_LABELS": TURKEY_LABELS,
+    "JAPAN_LABELS": JAPAN_LABELS,
+    "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
+    "pf_keys2": pf_keys2,
+    "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,
+}
 
 __all__ = [
+    "ALIASES_CHAIN",
     "COUNTRY_LABEL_OVERRIDES",
-    "get_from_new_p17_final",
-    "get_and_label",
+    "NEW_P17_FINAL",
 ]
 
 len_print.data_len(

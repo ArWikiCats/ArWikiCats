@@ -2,7 +2,7 @@
 Static translations used for tennis and tournament related keys.
 """
 
-from ...helps import len_print
+from ..helps import len_print
 
 TENNIS_KEYS: dict[str, str] = {
     "800 metres": "800 متر",
