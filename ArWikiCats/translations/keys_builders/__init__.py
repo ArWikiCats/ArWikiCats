@@ -4,6 +4,7 @@ from . import (
     jobs_builders,
     jobs_defs,
     nationalities_builder,
+    build_jobs_players_list,
 )
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "jobs_builders",
     "jobs_defs",
     "build_jobs_data_basic",
+    "build_jobs_players_list",
 ]
