@@ -7,24 +7,23 @@ from __future__ import annotations
 from typing import Mapping
 
 from ..helps import len_print
+from ..keys_builders.jobs_builders import (
+    _build_jobs_new,
+    _finalise_jobs_dataset,
+)
+from ..keys_builders.jobs_defs import (
+    GenderedLabel,
+    GenderedLabelMap,
+)
 from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS
 from ..utils.json_dir import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
-from .jobs_defs import (
-    GenderedLabel,
-    GenderedLabelMap,
-)
 from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
 from .jobs_womens import short_womens_jobs
-
-from ..keys_builders.jobs_builders import (
-    _build_jobs_new,
-    _finalise_jobs_dataset,
-)
 
 # ---------------------------------------------------------------------------
 # Helper utilities

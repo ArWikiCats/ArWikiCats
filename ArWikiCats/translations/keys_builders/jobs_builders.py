@@ -7,7 +7,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
-from ..jobs.jobs_defs import (
+from .jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,
     copy_gendered_map,
