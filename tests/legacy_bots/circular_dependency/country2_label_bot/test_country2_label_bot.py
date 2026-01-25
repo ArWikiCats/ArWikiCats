@@ -91,7 +91,7 @@ title_work_tests_data = {
     "companies of southeast asia": "شركات في جنوب شرق آسيا",
     "covid-19 pandemic in paraná (state)": "جائحة فيروس كورونا في ولاية بارانا",
     "crimes in peru": "جرائم في بيرو",
-    "croatian war of independence": "حرب الاستقلال الكرواتية",
+    "croatian war of independence": "الحرب الكرواتية في استقلال",
     "disestablishments in ecuador": "انحلالات في الإكوادور",
     "disestablishments in georgia (u.s. state)": "انحلالات في ولاية جورجيا",
     "disestablishments in yugoslavia": "انحلالات في يوغسلافيا",
