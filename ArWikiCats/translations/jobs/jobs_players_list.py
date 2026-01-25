@@ -11,8 +11,7 @@ from __future__ import annotations
 from typing import Dict, Mapping
 
 from ..helps import len_print
-from ..sports.Sport_key import (
-    SPORTS_KEYS_FOR_JOBS,
+from ..sports import (
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )

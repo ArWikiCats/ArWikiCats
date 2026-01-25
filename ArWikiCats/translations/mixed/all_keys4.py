@@ -3,7 +3,7 @@ Supplementary mappings for educational, sporting and political contexts.
 """
 
 from ..helps import len_print
-from ..sports.cycling import CYCLING_TEMPLATES
+from ..sports import CYCLING_TEMPLATES
 from ..utils.json_dir import open_json_file
 from .keys2 import new_2019
 

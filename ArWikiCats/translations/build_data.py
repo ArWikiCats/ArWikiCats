@@ -18,7 +18,7 @@ from .others import (
     language_key_translations,
 )
 from .sports import TENNIS_KEYS
-from .tv.films_mslslat import (
+from .tv import (
     film_keys_for_female,
     film_keys_for_male,
 )

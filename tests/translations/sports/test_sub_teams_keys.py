@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations.sports.sub_teams_keys import sub_teams_new
+from ArWikiCats.translations.sports import sub_teams_new
 
 
 def _get_value(category: str) -> None:

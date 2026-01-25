@@ -40,7 +40,7 @@ from ..utils.json_dir import open_json_file
 # from ..jobs import SINGERS_TAB
 # from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 # from ..sports import TENNIS_KEYS
-# from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
+# from ..tv import film_keys_for_female, film_keys_for_male
 # from .all_keys3 import ALBUMS_TYPE, pop_final_3
 # from .all_keys4 import new2019
 # from .keys2 import keys2_py

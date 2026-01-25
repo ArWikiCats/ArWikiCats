@@ -67,16 +67,16 @@ from .others import (
     language_key_translations,
     ministers_keys,
 )
-from .sports.games_labs import SUMMER_WINTER_GAMES
-from .sports.Sport_key import (
+from .sports import (
     SPORT_KEY_RECORDS,
     SPORT_KEY_RECORDS_BASE,
     SPORTS_KEYS_FOR_JOBS,
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
+    SUMMER_WINTER_GAMES,
+    sub_teams_new,
 )
-from .sports.sub_teams_keys import sub_teams_new
-from .tv.films_mslslat import (
+from .tv import (
     TELEVISION_KEYS,
     Films_key_CAO,
     Films_key_For_nat,

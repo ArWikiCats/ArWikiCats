@@ -2,7 +2,7 @@
 """ """
 
 from ..helps import len_print
-from ..sports.Sport_key import SPORT_KEY_RECORDS
+from ..sports import SPORT_KEY_RECORDS
 
 sub_teams_new = {
     "current seasons": "مواسم حالية",

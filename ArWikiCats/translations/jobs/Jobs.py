@@ -11,7 +11,7 @@ from ..helps import len_print
 from ..mixed.all_keys2 import BOOK_CATEGORIES
 from ..mixed.female_keys import RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
-from ..sports.cycling import BASE_CYCLING_EVENTS
+from ..sports import BASE_CYCLING_EVENTS
 from ..utils.json_dir import open_json_file
 from .Jobs2 import JOBS_2, JOBS_3333
 from .jobs_data_basic import MEN_WOMENS_JOBS_2, NAT_BEFORE_OCC, RELIGIOUS_KEYS_PP
