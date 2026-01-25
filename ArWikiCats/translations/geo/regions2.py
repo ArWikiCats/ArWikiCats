@@ -9,6 +9,15 @@ from ..utils import open_json_file
 
 
 def _load_india_region_translations() -> dict[str, str]:
+    """
+    Builds a mapping from India district names to their localized labels.
+    
+    Returns:
+        dict[str, str]: A dictionary where keys are normalized (lowercase) district names and
+        "<name> district" variants; values are the district label in the source language for
+        the plain name key, and the Arabic prefixed form "مقاطعة {label}" for the
+        "<name> district" key.
+    """
     index_labels: dict[str, str] = {}
 
     india_district_labels = open_json_file("geography/India_dd.json") or {}

@@ -13,16 +13,15 @@ def _build_religious_job_labels(
     religions: Mapping[str, GenderedLabel],
     roles: Mapping[str, GenderedLabel],
 ) -> GenderedLabelMap:
-    """Generate gendered labels for religious roles.
-
-    Args:
-        religions: Mapping of religion identifiers to their gendered labels.
-        roles: Mapping of religious roles to gendered labels.
-
+    """
+    Builds a mapping of gendered labels for every valid combination of religion and religious role.
+    
+    Parameters:
+        religions (Mapping[str, GenderedLabel]): Mapping of religion keys to their gendered labels.
+        roles (Mapping[str, GenderedLabel]): Mapping of religious role keys to their gendered labels.
+    
     Returns:
-        A dictionary keyed by string templates representing the combination of
-        religion and role, matching the original dataset used by downstream
-        modules.
+        GenderedLabelMap: A dictionary whose keys are "{religion} {role}" and whose values are gendered label objects with "males" and "females". Entries are created only for pairs where at least one gender label exists; pairs with empty keys or empty label objects are skipped.
     """
 
     combined_roles: GenderedLabelMap = {}
@@ -49,18 +48,16 @@ def _build_painter_job_labels(
     painter_roles: Mapping[str, GenderedLabel],
     painter_categories: Mapping[str, str],
 ) -> GenderedLabelMap:
-    """Construct gendered labels for painting and artistic roles.
-
-    Args:
-        painter_styles: Mapping of painter descriptors (e.g. ``symbolist``) to
-            their gendered Arabic forms.
-        painter_roles: Mapping of artistic roles associated with painting.
-        painter_categories: Additional label categories that are appended as
-            human-readable Arabic strings.
-
+    """
+    Build gendered label mappings for painter styles, roles, and categories.
+    
+    Parameters:
+        painter_styles (Mapping[str, GenderedLabel]): Mapping of style keys (e.g., "symbolist") to their gendered Arabic labels.
+        painter_roles (Mapping[str, GenderedLabel]): Mapping of role keys to their gendered Arabic labels.
+        painter_categories (Mapping[str, str]): Mapping of category keys to human-readable Arabic category labels.
+    
     Returns:
-        A dictionary containing both base roles and combined painter role
-        variants.
+        GenderedLabelMap: Mapping of composite job keys to gendered labels. Keys include base roles, style keys (except "history"), style+role composites (e.g., "symbolist painter"), and category-based entries like "{category} painters" and "{category} artists". Each value is a dict with "males" and "females" Arabic labels.
     """
     # _build_painter_job_labels(PAINTER_STYLES, PAINTER_ROLE_LABELS, PAINTER_CATEGORY_LABELS)
     combined_data: GenderedLabelMap = {role_key: role_labels for role_key, role_labels in painter_roles.items()}
@@ -97,17 +94,16 @@ def _build_military_job_labels(
     military_roles: Mapping[str, GenderedLabel],
     excluded_prefixes: Iterable[str],
 ) -> GenderedLabelMap:
-    """Construct gendered labels for military related jobs.
-
-    Args:
-        military_prefixes: Base labels that modify the general military roles.
-        military_roles: Roles that can be combined with each prefix.
-        excluded_prefixes: Prefix keys that should not be added directly to the
-            result set but are still used for composite roles.
-
+    """
+    Builds a mapping of military job names (including prefix+role composites) to their gendered labels.
+    
+    Parameters:
+        military_prefixes: Mapping of prefix keys to gendered labels used to modify roles.
+        military_roles: Mapping of role keys to base gendered labels.
+        excluded_prefixes: Iterable of prefix keys that should not be inserted as standalone keys in the result but will still be used to form composite prefix+role entries.
+    
     Returns:
-        A dictionary of gendered labels covering both base roles and composite
-        role names.
+        GenderedLabelMap: A dictionary whose keys are role names or "prefix role" composites and whose values are gendered label objects with "males" and "females" entries.
     """
     excluded = set(excluded_prefixes)
 

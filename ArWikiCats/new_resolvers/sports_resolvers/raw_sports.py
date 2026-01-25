@@ -306,11 +306,16 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
 @functools.lru_cache(maxsize=1)
 def _build_unified_sport_keys() -> dict[str, dict[str, str]]:
     """
-    Build a unified dictionary mapping sport names to their translation values.
-
+    Build a unified mapping from sport names to their Arabic translation components.
+    
+    Each mapped value contains:
+    - sport_jobs: Arabic term for professionals/roles in the sport.
+    - sport_team: Arabic term used for teams (may be empty).
+    - sport_label: Arabic label for the sport.
+    - sport_olympic: Arabic term used in Olympic contexts (may be empty).
+    
     Returns:
-        dict[str, dict[str, str]]: Dictionary where keys are sport names and values
-        are dicts containing 'sport_jobs', 'sport_team', and 'sport_label' keys.
+        dict[str, dict[str, str]]: Mapping from lowercased sport names to their translation component dictionaries.
     """
     unified: dict[str, dict[str, str]] = {}
 

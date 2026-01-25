@@ -62,16 +62,13 @@ def _extend_females_labels(
     films_keys_male_female: Dict[str, Dict[str, str]],
 ) -> Dict[str, str]:
     """
-    Extract female labels from the male/female dictionary with animation aliasing.
-
-    Processes the input dictionary and returns a mapping of original keys to their
-    female labels. Includes special handling to alias "animated" to "animation".
-
-    Args:
-        films_keys_male_female: Dictionary mapping English keys to gender label pairs
-
-     Returns:
-        Dictionary mapping original keys to female labels
+    Build a mapping from English keys to their female Arabic labels, treating "animated" as an alias for "animation".
+    
+    Parameters:
+        films_keys_male_female (Dict[str, Dict[str, str]]): Mapping from English keys to label dictionaries containing at least 'male' and/or 'female' entries.
+    
+    Returns:
+        Dict[str, str]: Mapping of English keys to their female Arabic labels (only keys with a non-empty female label are included).
     """
     data = {}
 
@@ -95,11 +92,18 @@ def _build_series_and_nat_keys(
     DEBUTS_ENDINGS_KEYS: List[str],
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
-    Build nationality-aware and series-based translation mappings.
-
+    Construct nationality-aware and series-based Arabic translation mappings for film and television keys.
+    
+    Parameters:
+        female_keys (Dict[str, str]): Mapping of English film/series keys to their Arabic female labels.
+        SERIES_DEBUTS_ENDINGS (Dict[str, str]): Predefined templates that include a `{}` placeholder for nationality-aware phrases.
+        TELEVISION_BASE_KEYS_FEMALE (Dict[str, str]): Base television-related keys mapped to their Arabic female labels.
+        DEBUTS_ENDINGS_KEYS (List[str]): List of television base keys (lowercased) that should also have dashed `-debuts`/`-endings` variants.
+    
     Returns:
-        - films_key_for_nat: With nationality placeholder {}
-        - films_mslslat_tab: Without nationality placeholder
+        Tuple[Dict[str, str], Dict[str, str]]: 
+            - films_key_for_nat: Mapping of English keys (some containing `{}`) to Arabic templates that include a `{}` placeholder for nationality insertion.
+            - films_mslslat_tab: Mapping of the same English keys to Arabic phrases without the nationality placeholder.
     """
     _mslslat_tab = {}
     _key_for_nat = {}
@@ -171,11 +175,16 @@ def _build_television_cao(
     TELEVISION_KEYS: Dict[str, str],
 ) -> Tuple[Dict[str, str], Dict[str, str]]:
     """
-    Build CAO (Characters, Albums, Organizations, etc.) mappings.
-
+    Build CAO (characters, albums, organizations, etc.) translation mappings by combining female-key labels with television and genre categories.
+    
+    Parameters:
+        female_keys (Dict[str, str]): Mapping from English keys to their Arabic female labels (e.g., "comedy" -> "كوميدية").
+        TELEVISION_KEYS (Dict[str, str]): Mapping of base television-related English keys to Arabic labels (e.g., "title" -> "عنوان").
+    
     Returns:
-        - films_key_cao: CAO translation mapping
-        - films_key_cao2: Extended CAO mapping
+        Tuple[Dict[str, str], Dict[str, str]]: 
+            - films_key_cao: Mapping of combined keys to Arabic CAO phrases (e.g., "comedy characters" -> "شخصيات كوميدية").
+            - films_key_cao2: Extended mappings combining female keys with TELEVISION_KEYS (e.g., "comedy title" -> "عنوان كوميدية").
     """
     films_key_cao2 = {}
     films_key_cao = {}

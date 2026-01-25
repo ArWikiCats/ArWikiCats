@@ -41,12 +41,12 @@ first_data = {
 @functools.lru_cache(maxsize=10000)
 def _get_pop_All_18(key: str, default: str = "") -> str:
     """
-    Lookup a population label in the cached 2018 dataset.
-
+    Retrieve the Arabic label for a key from the in-memory 2018 population mapping.
+    
     Parameters:
-        key (str): Lookup key to search in the in-memory 2018 population mapping.
-        default (str): Value to return if `key` is not present.
-
+        key (str): Lookup key to search in the mapping.
+        default (str): Value to return if the key is not present.
+    
     Returns:
         str: The label mapped to `key`, or `default` if no mapping exists.
     """

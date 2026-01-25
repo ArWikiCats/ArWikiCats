@@ -654,6 +654,26 @@ def generate_key_mappings(
     new2019: Dict[str, str],
     NEW_2023: Dict[str, str],
 ) -> Dict[str, str]:
+    """
+    Assemble a consolidated mapping of English keys to Arabic labels by merging multiple category and external translation sources.
+    
+    Parameters:
+        keys2_py: Primary keys mapping for generic categories.
+        pop_final_3: Population-derived key translations.
+        SINGERS_TAB: Singer-related key translations for book entries.
+        film_keys_for_female: Film keys related to female subjects used for literature/book integration.
+        ALBUMS_TYPE: Album-type key translations used for book entries.
+        film_keys_for_male: Film keys related to male subjects used for literature area integration.
+        TENNIS_KEYS: Tennis-related key translations to include (lowercase update applied with skip_existing=True).
+        pop_final6: Additional population-derived translations to include in lowercase updates.
+        MEDIA_CATEGORY_TRANSLATIONS: Media category translations included in selective lowercase updates.
+        language_key_translations: Language-related key translations included in broader lowercase updates.
+        new2019: External translation set included in broader lowercase updates.
+        NEW_2023: External translation set included in broader lowercase updates.
+    
+    Returns:
+        Dict[str, str]: A consolidated dictionary mapping normalized English key strings to their Arabic label translations.
+    """
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
     data: Dict[str, str] = build_pf_keys2(

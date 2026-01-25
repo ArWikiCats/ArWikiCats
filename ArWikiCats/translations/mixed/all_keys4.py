@@ -99,7 +99,24 @@ UNITED_STATES_POLITICAL: dict[str, str] = {
 
 
 def build_new2019(INTER_FEDS_LOWER, NEW_2019) -> dict[str, str]:
-    """Assemble the 2019 key mapping including sports and political data."""
+    """
+    Builds a consolidated mapping of 2019 keys to Arabic labels for colleges, sports, religious traditions, and US political terms.
+    
+    This extends the provided base 2019 mapping with:
+    - Cambridge college variants (Cambridge/Oxford forms).
+    - Inter-federation entries from a lowercased federation mapping.
+    - Battleship category keys and their "active" variants.
+    - Derived religious institution keys for each tradition (cathedrals, monasteries, orders, eparchies, religious orders/communities) and Catholic-specific variants where applicable.
+    - Cycling template entries.
+    - United States political term variants (electors, election(s), candidates).
+    
+    Parameters:
+        INTER_FEDS_LOWER (dict[str, str]): Lowercased inter-federation name -> Arabic label mapping to merge into the result.
+        NEW_2019 (dict[str, str]): Base 2019 key -> Arabic label mapping to start from.
+    
+    Returns:
+        dict[str, str]: A mapping from normalized English keys to their Arabic labels.
+    """
 
     data = dict(NEW_2019)
 

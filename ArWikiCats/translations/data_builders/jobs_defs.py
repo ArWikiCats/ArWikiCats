@@ -26,16 +26,14 @@ def combine_gender_labels(first_label: str, second_label: str) -> str:
 
 
 def join_terms(*terms: str) -> str:
-    """Join non-empty terms with a single space.
-
-    Args:
-        *terms: Terms that should be concatenated.
-
+    """
+    Join non-empty, whitespace-trimmed terms with a single space.
+    
+    Parameters:
+        *terms (str): Terms to concatenate; each term is stripped of surrounding whitespace and empty or whitespace-only terms are ignored.
+    
     Returns:
-        A single string that concatenates the provided terms while skipping
-        empty values.  The implementation strips whitespace from each term so
-        callers can pass loosely formatted strings without creating duplicate
-        spaces.
+        str: Concatenated string of remaining terms separated by a single space.
     """
 
     filtered_terms = [term.strip() for term in terms if term and term.strip()]
@@ -43,7 +41,17 @@ def join_terms(*terms: str) -> str:
 
 
 def copy_gendered_map(source: Mapping[str, GenderedLabel]) -> GenderedLabelMap:
-    """Return a deep copy of ``source``."""
+    """
+    Create a deep copy of a mapping from keys to gendered Arabic labels.
+    
+    Parameters:
+        source (Mapping[str, GenderedLabel]): Mapping whose entries will be copied.
+    
+    Returns:
+        GenderedLabelMap: A new mapping where each value is a newly constructed dict
+        with the same "males" and "females" strings as the corresponding entry in
+        `source`.
+    """
 
     return {key: {"males": value["males"], "females": value["females"]} for key, value in source.items()}
 

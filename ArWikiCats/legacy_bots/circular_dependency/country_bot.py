@@ -49,15 +49,15 @@ def translate_general_category_wrap(category, start_get_country2=False) -> str:
 @functools.lru_cache(maxsize=10000)
 def Get_country2(country: str) -> str:
     """
-    Resolve a country name to its Arabic label.
-
-    The resolved label is formatted for title consistency and normalized to remove extra whitespace.
-
+    Resolve a country name into its Arabic label.
+    
+    Normalizes the input (lowercase, trimmed), attempts resolution via the module's lookup chain, applies title formatting if a label is found, and collapses extra whitespace.
+    
     Parameters:
-        country (str): Country name to resolve (case-insensitive; will be lower-cased and stripped).
-
+        country (str): Country name to resolve; case-insensitive and will be lowercased and stripped.
+    
     Returns:
-        str: The Arabic label with title formatting applied and normalized whitespace, or an empty string if unresolved.
+        str: The resolved Arabic label with title formatting and normalized whitespace, or an empty string if unresolved.
     """
 
     country = country.lower().strip()

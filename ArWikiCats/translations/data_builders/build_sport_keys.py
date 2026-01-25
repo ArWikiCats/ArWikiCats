@@ -29,7 +29,15 @@ class SportKeyTables:
 
 
 def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
-    """Convert a raw JSON entry into a :class:`SportKeyRecord`."""
+    """
+    Coerce a raw mapping (e.g., parsed JSON) into a SportKeyRecord.
+    
+    Parameters:
+        raw (Mapping[str, object]): Source mapping containing optional keys "label", "jobs", "team", and "olympic".
+    
+    Returns:
+        SportKeyRecord: Record with each field taken from `raw` and converted to a string; missing keys are set to an empty string.
+    """
 
     return SportKeyRecord(
         label=str(raw.get("label", "")),
@@ -41,12 +49,12 @@ def _coerce_record(raw: Mapping[str, object]) -> SportKeyRecord:
 
 def _load_base_records(data) -> dict[str, SportKeyRecord]:
     """
-    Load and parse sport key definitions from the sports/Sports_Keys_New.json file.
-
-    The function reads the JSON file and converts each top-level mapping entry into a SportKeyRecord. Entries whose value contains an `"ignore"` key are skipped. If the top-level JSON payload is not a mapping, a warning is logged and an empty dict is returned. Malformed entries that are not string->mapping pairs are skipped.
-
+    Parse a mapping payload into a dictionary of sport key records.
+    
+    If `data` is not a mapping, an empty dict is returned. Top-level entries where the key is a string and the value is a mapping are converted to `SportKeyRecord` via `_coerce_record`. Entries whose value contains an `"ignore"` key are skipped; entries that are not string->mapping pairs are ignored.
+    
     Returns:
-        dict[str, SportKeyRecord]: Mapping from sport key to its coerced SportKeyRecord.
+        dict[str, SportKeyRecord]: Mapping from sport key to its coerced `SportKeyRecord`.
     """
 
     records: dict[str, SportKeyRecord] = {}
@@ -94,7 +102,17 @@ def _load_base_records(data) -> dict[str, SportKeyRecord]:
 
 
 def _copy_record(record: SportKeyRecord, **overrides: str) -> SportKeyRecord:
-    """Return a shallow copy of ``record`` applying ``overrides``."""
+    """
+    Create a shallow copy of a SportKeyRecord, applying any provided field overrides.
+    
+    Parameters:
+        record (SportKeyRecord): Source record to copy.
+        **overrides (str): Field replacements; for each provided field name, the value
+            replaces the corresponding field in the copy only if the value is non-empty.
+    
+    Returns:
+        SportKeyRecord: A new record containing the original fields with applicable overrides applied.
+    """
 
     updated: SportKeyRecord = SportKeyRecord(
         label=record.get("label", ""),
@@ -111,7 +129,13 @@ def _copy_record(record: SportKeyRecord, **overrides: str) -> SportKeyRecord:
 
 
 def _apply_aliases(records: MutableMapping[str, SportKeyRecord], ALIASES) -> None:
-    """Populate alias keys by copying the values from the canonical entry."""
+    """
+    Populate `records` with alias entries by copying the canonical record for each alias.
+    
+    Parameters:
+        records (MutableMapping[str, SportKeyRecord]): Mapping of sport keys to records; aliases will be added or overwritten in-place.
+        ALIASES (Mapping[str, str]): Mapping from alias key to canonical source key. If a source key is missing, the alias is skipped and a debug message is logged.
+    """
 
     for alias, source in ALIASES.items():
         record = records.get(source)
@@ -122,7 +146,17 @@ def _apply_aliases(records: MutableMapping[str, SportKeyRecord], ALIASES) -> Non
 
 
 def _generate_variants(records: Mapping[str, SportKeyRecord]) -> dict[str, SportKeyRecord]:
-    """Create derived entries such as ``"{sport} racing"`` and wheelchair keys."""
+    """
+    Generate derived sport key records for racing and wheelchair variants.
+    
+    Creates "{sport} racing" variants for sports that are not already racing and creates "wheelchair {sport}" variants for a predefined set of sports. The returned records use copies of the original SportKeyRecord with updated `label`, `team`, `jobs`, and `olympic` fields to reflect the variant.
+    
+    Parameters:
+        records (Mapping[str, SportKeyRecord]): Mapping of canonical sport keys to their SportKeyRecord.
+    
+    Returns:
+        dict[str, SportKeyRecord]: A mapping of generated variant sport keys to their corresponding SportKeyRecord.
+    """
 
     keys_to_wheelchair = [
         "sports",
@@ -165,7 +199,15 @@ def _generate_variants(records: Mapping[str, SportKeyRecord]) -> dict[str, Sport
 
 
 def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
-    """Create lookups for each translation category."""
+    """
+    Build lookup tables mapping lowercased sport keys to their non-empty translation fields.
+    
+    Parameters:
+        records (Mapping[str, SportKeyRecord]): Mapping of sport key names to their translation records.
+    
+    Returns:
+        SportKeyTables: Container with `label`, `team`, `jobs`, and `olympic` dictionaries. Each dictionary maps the sport key in lowercase to the corresponding non-empty translation string.
+    """
 
     tables: dict[str, dict[str, str]] = {
         "label": {},
@@ -189,7 +231,16 @@ def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
 
 
 def _initialise_tables(data, ALIASES) -> dict[str, SportKeyRecord]:
-    """Load data, expand aliases and variants, and build helper tables."""
+    """
+    Load base sport records from the provided data and apply alias mappings.
+    
+    Parameters:
+        data (Mapping | Any): JSON-like structure containing sport key definitions; malformed or non-mapping inputs result in an empty record set.
+        ALIASES (Mapping[str, str]): Mapping of alias key -> canonical key; each alias will be added to the resulting records by copying the canonical record.
+    
+    Returns:
+        dict[str, SportKeyRecord]: Mapping of sport keys (including applied aliases) to their corresponding SportKeyRecord entries.
+    """
 
     records = _load_base_records(data)
     _apply_aliases(records, ALIASES)

@@ -72,7 +72,17 @@ def handle_political_terms(category_text: str) -> str:
 
 
 def _handle_year_at_start(category_text: str) -> str:
-    """Handles cases where the year is at the start of the string."""
+    """
+    Construct an Arabic label when the category starts with a year and a known remainder follows.
+    
+    Examines category_text for a leading year; if found, resolves the trailing remainder into an Arabic label using the module's resolver chain. If a remainder label is obtained, selects a separator (default " " or " في " when the Arabic label or remainder requires precedence) and returns the combined string "<remainder_label><separator><year>". Returns an empty string when no leading year is detected or the remainder cannot be resolved.
+    
+    Parameters:
+        category_text (str): The original category string potentially beginning with a year.
+    
+    Returns:
+        str: The composed Arabic label when a match and remainder label are found, otherwise an empty string.
+    """
     label = ""
     year = REGEX_SUB_YEAR.sub(r"\g<1>", category_text)
 
@@ -128,15 +138,15 @@ def _handle_year_at_end(
     compiled_range_pattern: Pattern[str],
 ) -> str:
     """
-    Create an Arabic label when a year or year-range appears at the end of a category string.
-
+    Builds an Arabic label by combining a resolved remainder label with a trailing year or year-range extracted from the category text.
+    
     Parameters:
-        category_text (str): The category text to analyze; trailing year or year-range is expected.
-        compiled_year_pattern (Pattern[str]): Regex that extracts a trailing year-like substring from the input.
-        compiled_range_pattern (Pattern[str]): Regex that extracts a trailing year-range substring (used to refine the year label).
-
+        category_text (str): Category string that contains a trailing year or year-range to extract.
+        compiled_year_pattern (Pattern[str]): Regex used to extract a trailing year-like substring.
+        compiled_range_pattern (Pattern[str]): Regex used to detect and extract a trailing year-range (refines extraction when present).
+    
     Returns:
-        str: A combined label of the resolved remainder and the formatted year (e.g., "<remainder_label> <year_label>"), or an empty string if no valid remainder label or year extraction is found. The function normalizes "–present" to "–الآن" in the year portion.
+        str: The combined label in the form "<remainder_label> <year_label>" with "–present" normalized to "–الآن", or an empty string if no year is extracted or no remainder label can be resolved.
     """
     year_at_end_label = compiled_year_pattern.sub(r"\g<1>", category_text.strip())
 

@@ -12,7 +12,11 @@ from ArWikiCats.translations.jobs import (
 
 
 def test_jobs_new_contains_female_and_general_entries() -> None:
-    """Flattened mapping should expose lowercase keys for combined datasets."""
+    """
+    Verify flattened job mappings include lowercase female and male-specific keys.
+    
+    Asserts presence of "film actresses" in Jobs_new and "footballers" in jobs_mens_data.
+    """
 
     assert "film actresses" in Jobs_new
     assert "footballers" in jobs_mens_data

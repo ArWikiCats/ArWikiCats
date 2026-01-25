@@ -46,7 +46,13 @@ def test_resolves_basic_templates(category: str, expected: str) -> None:
 
 @pytest.mark.parametrize("category, expected", olympic_examples.items(), ids=olympic_examples.keys())
 def test_handles_olympic_variants(category: str, expected: str) -> None:
-    """Olympic templates should rely on the shared helper translation."""
+    """
+    Verify that Olympic-variant sport label strings are translated to their expected Arabic labels by resolve_sport_label_unified.
+    
+    Parameters:
+        category (str): Input sport label (Olympic variant) to translate.
+        expected (str): Expected Arabic translation of the input label.
+    """
 
     # result = sub_teams_olympics.get(category)
     result2 = resolve_sport_label_unified(category)

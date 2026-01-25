@@ -24,7 +24,20 @@ def make_entry(
     en: str = "",
     ar: str = "",
 ) -> NationalityEntry:
-    """Helper to build a NationalityEntry quickly."""
+    """
+    Create a NationalityEntry dictionary from provided singular/plural gender forms and English/Arabic labels.
+    
+    Parameters:
+        male (str): Masculine singular form.
+        males (str): Masculine plural form.
+        women (str): Feminine singular form (assigned to the `female` key).
+        females (str): Feminine plural form.
+        en (str): English label or canonical English name.
+        ar (str): Arabic label.
+    
+    Returns:
+        NationalityEntry: Dict with keys `"male"`, `"males"`, `"female"`, `"females"`, `"en"`, and `"ar"` populated from the arguments.
+    """
     return {
         "male": male,
         "males": males,

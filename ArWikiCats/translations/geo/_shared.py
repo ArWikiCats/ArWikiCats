@@ -17,20 +17,16 @@ from ..utils import open_json_file
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:
-    """Load a JSON mapping from the configured directory.
-
-    The legacy modules commonly imported :func:`open_json_file` directly and
-    then performed the same defensive logic to guard against ``None`` values or
-    non-string keys.  The helper keeps that behaviour in one place and ensures
-    that all modules return a ``dict[str, str]`` with truthy values.
-
-    Args:
-        file_key: The lookup key used by :func:`open_json_file`.
-
+    """
+    Load and normalize a JSON mapping file into a cleaned mapping.
+    
+    Keys and values are converted to strings and entries with falsy keys or values are omitted.
+    
+    Parameters:
+        file_key (str): Lookup key used to locate the JSON mapping file.
+    
     Returns:
-        A mapping of English labels to Arabic labels.  An empty dictionary is
-        returned when the JSON file does not exist or does not contain mapping
-        data.
+        cleaned_mapping (dict[str, str]): Mapping of labels (source -> target). Returns an empty dict when the file is missing or contains no usable mapping entries.
     """
 
     raw_mapping = open_json_file(file_key) or {}
