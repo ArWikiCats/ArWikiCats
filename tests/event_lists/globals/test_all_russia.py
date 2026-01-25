@@ -702,7 +702,7 @@ data1 = {
     "Women government ministers of Russia": "وزيرات روسيات",
     "Members of learned societies of Russia": "أعضاء جمعيات علمية في روسيا",
     "Members of legislatures of the federal subjects of Russia": "أعضاء هيئات تشريعية في كيانات روسيا الاتحادية",
-    "Men's national sports teams of Russia": "منتخبات رياضية وطنية رجالية روسيا",
+    "Men's national sports teams of Russia": "منتخبات رياضية وطنية رجالية في روسيا",
     "History books about the Tsardom of Russia": "كتب تاريخ عن روسيا القيصرية",
     "Books about presidents of Russia": "كتب عن رؤساء روسيا",
     "Mass media by language of Russia": "وسائل إعلام حسب لغة روسيا",

@@ -32,7 +32,7 @@ data_1 = {
     "Jews and Judaism in Kingdom of Jerusalem": "اليهود واليهودية في مملكة بيت المقدس",
     "Works about foreign relations of the United States": "أعمال عن علاقات خارجية الولايات المتحدة",
     "Books about foreign relations of the United States": "كتب عن علاقات خارجية الولايات المتحدة",
-    "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية الولايات المتحدة",
+    "Men's national sports teams of the United States": "منتخبات رياضية وطنية رجالية في الولايات المتحدة",
     "wheelchair basketball players in turkey": "لاعبو كرة سلة على كراسي متحركة في تركيا",
     "field hockey players in germany": "لاعبو هوكي ميدان في ألمانيا",
     "baseball players in florida": "لاعبو كرة قاعدة في فلوريدا",
