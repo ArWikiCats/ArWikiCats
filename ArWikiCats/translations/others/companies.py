@@ -4,7 +4,7 @@ This module provides Arabic translations for various company types, industries,
 and organization names used in Wikipedia categories.
 """
 
-from ..helps import len_print
+from ...helps import len_print
 
 companies_data = {
     "aviation accidents": "حوادث طيران",

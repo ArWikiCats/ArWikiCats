@@ -7,7 +7,7 @@ from collections.abc import Mapping, MutableMapping
 from ..helps import len_print, logger
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
-from ..tax_table import Taxons_table as TAXON_TABLE
+from ..others.tax_table import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping
 from .Cities import CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS

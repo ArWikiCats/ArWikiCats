@@ -6,7 +6,7 @@ geography, jobs, languages, nationalities, sports, and media.
 
 # NOTE: imports of functions have been moved to funcs.py
 
-from .companies import COMPANY_TYPE_TRANSLATIONS
+from .others.companies import COMPANY_TYPE_TRANSLATIONS
 from .geo.Cities import CITY_TRANSLATIONS_LOWER
 from .geo.labels_country import (
     COUNTRY_LABEL_OVERRIDES,
@@ -17,7 +17,7 @@ from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
 from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
 from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
 from .jobs.jobs_womens import FEMALE_JOBS_BASE_EXTENDED, short_womens_jobs
-from .languages import (
+from .others.languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
@@ -28,7 +28,6 @@ from .mixed.all_keys2 import (
     People_key,
     clubs_teams_leagues,
     keys_of_without_in,
-    pf_keys2,
 )
 from .mixed.all_keys3 import (
     ALBUMS_TYPE,
@@ -59,7 +58,7 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
     raw_nats_as_en_key,
 )
-from .politics.ministers import ministers_keys
+from .others.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.Sport_key import (
     SPORT_KEY_RECORDS,
@@ -78,6 +77,8 @@ from .tv.films_mslslat import (
     film_keys_for_female,
     films_mslslat_tab,
 )
+
+from .build_data import pf_keys2
 
 __all__ = [
     "sub_teams_new",
@@ -117,7 +118,6 @@ __all__ = [
     "SPORTS_KEYS_FOR_TEAM",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    "pf_keys2",
     "keys_of_without_in",
     "clubs_teams_leagues",
     "WORD_AFTER_YEARS",

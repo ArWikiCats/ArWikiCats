@@ -9,6 +9,7 @@ import re
 
 from ..helps import logger
 from . import (
+    pf_keys2,
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,
     Jobs_new,
@@ -19,13 +20,12 @@ from . import (
 )
 from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
 from .geo.us_counties import US_COUNTY_TRANSLATIONS
-from .mixed.all_keys2 import pf_keys2
+# from .mixed.all_keys2 import pf_keys2
 from .utils.json_dir import open_json_file
 
 ALIASES_CHAIN.update(
     {
         "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
-        "pf_keys2": pf_keys2,
     }
 )
 
@@ -50,7 +50,7 @@ def get_from_new_p17_final(text: str, default: str | None = "") -> str:
         if result := mapping.get(text):
             return result
 
-    result = NEW_P17_FINAL.get(lower_text)
+    result = get_from_pf_keys2(lower_text) or NEW_P17_FINAL.get(lower_text)
 
     return result or default
 
