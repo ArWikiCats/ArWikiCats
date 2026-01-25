@@ -2,7 +2,7 @@
 Helper utilities and datasets for the mixed key collections.
 """
 
-from ..geo.us_counties import USA_PARTY_DERIVED_KEYS
+from ..geo import USA_PARTY_DERIVED_KEYS
 from ..helps import len_print
 from ..others.deaths import medical_keys
 from ..utils.json_dir import open_json_file

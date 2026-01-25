@@ -6,9 +6,8 @@ geography, jobs, languages, nationalities, sports, and media.
 
 # NOTE: imports of functions have been moved to funcs.py
 
-from .build_data import pf_keys2
-from .geo.Cities import CITY_TRANSLATIONS_LOWER
-from .geo.labels_country import (
+from .geo import (
+    CITY_TRANSLATIONS_LOWER,
     COUNTRY_LABEL_OVERRIDES,
     US_STATES,
     raw_region_overrides,
