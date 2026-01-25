@@ -12,6 +12,15 @@ from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
 from .mixed.all_keys2 import pf_keys2
 from .utils.json_dir import open_json_file
 from .geo.us_counties import US_COUNTY_TRANSLATIONS
+from . import (
+    SPORTS_KEYS_FOR_LABEL,
+    Jobs_new,
+    films_mslslat_tab,
+    jobs_mens_data,
+    sub_teams_new,
+    Clubs_key_2,
+    pop_final_5,
+)
 
 ALIASES_CHAIN.update({
     "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
@@ -93,9 +102,47 @@ def get_from_pf_keys2(text: str) -> str:
     return label
 
 
+@functools.lru_cache(maxsize=10000)
+def _get_from_alias(key: str) -> str:
+    """
+    Retrieve an Arabic label for a key by probing multiple alias tables and fallback sources.
+
+    Parameters:
+        key (str): The lookup key; the function will try the original key and a lowercase variant.
+
+    Returns:
+        The label string if found, otherwise an empty string.
+    """
+    result = ""
+    sources = {
+        "pf_keys2": lambda k: pf_keys2.get(k),
+        "Jobs_new": lambda k: Jobs_new.get(k),
+        "jobs_mens_data": lambda k: jobs_mens_data.get(k),
+        "films_mslslat_tab": lambda k: films_mslslat_tab.get(k),
+        "sub_teams_new": lambda k: sub_teams_new.get(k),
+        "Clubs_key_2": lambda k: Clubs_key_2.get(k),
+        "pop_final_5": lambda k: pop_final_5.get(k),
+    }
+
+    for x, source in sources.items():
+        result = source(key) or source(key.lower())
+        if result:
+            logger.debug(f"Found key in {x}: {key} -> {result}")
+            break
+
+    if result:
+        return result
+    result = get_from_new_p17_final(key.lower())
+
+    if not result:
+        result = SPORTS_KEYS_FOR_LABEL.get(key) or SPORTS_KEYS_FOR_LABEL.get(key.lower(), "")
+    return result
+
+
 __all__ = [
     "open_json_file",
     "get_and_label",
     "get_from_new_p17_final",
     "get_from_pf_keys2",
+    "_get_from_alias",
 ]
