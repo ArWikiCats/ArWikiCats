@@ -26,6 +26,7 @@ countries_nat_en_key_example = {
 }
 
 new_data: dict[str, str] = {
+    "national assembly of {en}": "الجمعية الوطنية {the_female}",
     # the_female
     "dependent territories of {en}": "أقاليم ما وراء البحار {the_female}",
     "supreme court of {en}": "المحكمة العليا {the_female}",

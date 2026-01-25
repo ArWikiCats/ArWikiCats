@@ -41,7 +41,7 @@ data_2 = {
     "ministry of intelligence": "وزارة الاستخبارات والأمن الوطني (إيران)",
     "ministry of national defense (colombia)": "وزارة الدفاع (كولومبيا)",
     "mitt romney presidential campaign, 2012": "حملة ميت رومني الرئاسية 2012",
-    "national assembly of pakistan": "الجمعية الوطنية في باكستان",
+    "national assembly of pakistan": "الجمعية الوطنية الباكستانية",
     "natural law": "حق طبيعي",
     "o. j. simpson murder case": "قضية جريمة أو جاي سيمبسون",
     "one-child policy": "سياسة الطفل الواحد",
