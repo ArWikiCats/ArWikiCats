@@ -11,9 +11,12 @@
 
 - [x] Read the roadmap
 - [x] Confirm scope limited to `ArWikiCats/legacy_bots/`
-- [ ] Create minimal tracking checklist
-- [ ] Identify first actionable task from Phase 1
+- [x] Create minimal tracking checklist
+- [x] Identify first actionable task from Phase 1
 - [ ] Open draft PR description checklist
+
+### Tracking Checklist (Minimal)
+- [ ] Phase 1: Break circular imports in `circular_dependency/` by extracting `find_ar_label` to a standalone module
 
 ---
 
