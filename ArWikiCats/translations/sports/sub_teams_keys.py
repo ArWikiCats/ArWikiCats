@@ -55,13 +55,13 @@ sub_teams_olympics = {}
 # ---
 for sport, sport_tab in SPORT_KEY_RECORDS.items():
     sport_label = sport_tab["label"]
-    sub_teams_labels[f"youth {sport}"] = f"{sport_label} للشباب"
     sub_teams_labels[f"{sport} mass media"] = f"إعلام {sport_label}"
     sub_teams_labels[f"{sport} non-playing staff"] = f"طاقم {sport_label} غير اللاعبين"
 
     for modifier, modifier_label in sport_starts.items():
         sub_teams_labels[f"{modifier} {sport}"] = f"{sport_label} {modifier_label}"
 
+    sub_teams_labels[f"youth {sport}"] = f"{sport_label} شبابية"
     olympic_label = sport_tab["olympic"] or f"{sport_label} أولمبية"
 
     sub_teams_olympics[f"{sport} olympic champions"] = f"أبطال {olympic_label}"
@@ -72,6 +72,9 @@ for sport, sport_tab in SPORT_KEY_RECORDS.items():
     sub_teams_olympics[f"international {sport}"] = olympic_label.replace("أولمبي", "دولي")
     sub_teams_olympics[f"olympics men's {sport}"] = f"{olympic_label} للرجال"
     sub_teams_olympics[f"olympics women's {sport}"] = f"{olympic_label} للسيدات"
+
+
+sub_teams_labels = {}
 
 len_print.data_len("sports/sub_teams_keys.py", {
     "sub_teams_new": sub_teams_new,  # 12,806

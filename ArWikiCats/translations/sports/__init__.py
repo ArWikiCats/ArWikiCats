@@ -9,7 +9,6 @@ from .Sport_key import (
     SPORTS_KEYS_FOR_LABEL,
     SPORTS_KEYS_FOR_TEAM,
 )
-from .sub_teams_keys import sub_teams_new, sub_teams_labels, sub_teams_olympics
 from .tennis import TENNIS_KEYS
 
 __all__ = [
@@ -21,9 +20,6 @@ __all__ = [
     "SPORT_KEY_RECORDS_BASE",
     "SPORTS_KEYS_FOR_LABEL",
     "SPORTS_KEYS_FOR_JOBS",
-    "sub_teams_new",
-    "sub_teams_labels",
-    "sub_teams_olympics",
     "BASE_CYCLING_EVENTS",
     "CYCLING_TEMPLATES",
 ]
