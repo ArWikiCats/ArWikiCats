@@ -1,6 +1,7 @@
 """Aggregate translation tables for country and region labels."""
 
 from __future__ import annotations
+
 import functools
 import re
 from collections.abc import Mapping, MutableMapping
@@ -367,7 +368,16 @@ def get_from_new_p17_aliases(text: str, default: str | None = "") -> str:
 
 
 def get_from_new_p17_final(text: str, default: str | None = "") -> str:
-    """Look up the Arabic label for a term in the ``NEW_P17_FINAL`` mapping."""
+    """
+    Resolve the Arabic label for a given term using the aggregated label index.
+
+    Parameters:
+        text (str): The term to look up.
+        default (str | None): Value to return if no label is found; defaults to an empty string.
+
+    Returns:
+        str: The Arabic label for `text` if found, otherwise `default`.
+    """
 
     lower_text = text.lower()
     # result = NEW_P17_FINAL.get(lower_text) or get_from_new_p17_aliases(lower_text)
@@ -378,14 +388,14 @@ def get_from_new_p17_final(text: str, default: str | None = "") -> str:
 
 @functools.lru_cache(maxsize=10000)
 def get_and_label(category: str) -> str:
-    """Return the label for ``<entity> and <entity>`` categories.
+    """
+    Resolve the Arabic label for a category composed of two entities separated by "and".
 
-    Args:
-        category: Category string that joins two entities with "and".
+    Parameters:
+        category (str): A category string containing two entity names joined by "and" (e.g., "X and Y").
 
     Returns:
-        The combined Arabic label or an empty string when either entity is
-        missing from the lookup tables.
+        str: "`<first_label> و<last_label>`" if both entities map to Arabic labels, empty string otherwise.
     """
     if " and " not in category:
         return ""

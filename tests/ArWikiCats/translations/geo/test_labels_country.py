@@ -7,7 +7,7 @@ from __future__ import annotations
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.translations import get_and_label
+from ArWikiCats.translations.funcs import get_and_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data = {

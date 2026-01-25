@@ -355,6 +355,15 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 
 @functools.lru_cache(maxsize=10000)
 def fix_keys(category: str) -> str:
+    """
+    Normalize a raw category string by removing quotes and prefixes, fixing common typos, and trimming whitespace.
+
+    Parameters:
+        category (str): Input category text that may contain single quotes, a "category:" prefix, inconsistent casing, or the typo "playerss".
+
+    Returns:
+        str: The cleaned category string in lowercase with the "category:" prefix and single quotes removed, "playerss" corrected to "players", and surrounding whitespace trimmed.
+    """
     category = category.replace("'", "").lower().replace("category:", "")
     category = category.replace("playerss", "players")
     return category.strip()
@@ -363,19 +372,22 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_sport_label_unified(category: str, default: str = "") -> str:
     """
-    Search for a sports label using the unified bot.
+    Resolve the Arabic label for a sport given a category key.
+
+    Normalizes the provided category and attempts to find a matching Arabic sport label; returns the provided default when no match is found.
+
 
     This function combines the functionality of:
     - resolve_sport_label_unified
     - resolve_sport_label_by_teams_key
     - resolve_sport_label_by_labels_key
 
-    Args:
-        category: The category string to search for.
-        default: Default value to return if no match is found.
+    Parameters:
+        category (str): Category key or phrase identifying the sport to resolve.
+        default (str): Value to return if no label can be found.
 
     Returns:
-        str: The translated Arabic label or the default value.
+        str: The resolved Arabic sport label if found, otherwise `default`.
     """
     logger.debug(f"<<yellow>> start resolve_sport_label_unified: {category=}")
     category = fix_keys(category)

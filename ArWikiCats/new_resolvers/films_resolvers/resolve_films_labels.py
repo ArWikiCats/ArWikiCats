@@ -259,7 +259,17 @@ def _make_bot() -> MultiDataFormatterBase:
 
 
 def fix_keys(category: str) -> str:
-    """Fix known issues in category keys."""
+    """
+    Normalize a category key and apply specific known corrections.
+
+    Parameters:
+        category (str): Original category key string (may include a leading "category:" prefix).
+
+    Returns:
+        str: Normalized category key in lowercase with the "category:" prefix removed and specific fixes applied
+        (e.g., "saudi arabian" -> "saudiarabian", "children's animated adventure television" ->
+        "children's-animated-adventure-television").
+    """
     normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
@@ -278,11 +288,13 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def _get_films_key_tyty_new(text: str) -> str:
     """
-    Function to generate a films key based on the country identifier.
-    Args:
-        text (str): The country identifier string to process.
+    Resolve a films category key from free-form category text.
+
+    Parameters:
+        text (str): Free-form category or country identifier text to match against known film/television keys.
+
     Returns:
-        str: The resolved label string, or empty string if no match is found.
+        resolved_key (str): The matched films key, or an empty string if no match is found.
     """
     normalized_text = fix_keys(text)
     logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
@@ -296,11 +308,13 @@ def _get_films_key_tyty_new(text: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def get_films_key_tyty_new(text: str) -> str:
     """
-    Function to generate a films key based on the country identifier.
-    Args:
-        text (str): The country identifier string to process.
+    Resolve a films/television category key from an input text.
+
+    Parameters:
+        text (str): Category or country identifier text to analyze.
+
     Returns:
-        str: The resolved label string, or empty string if no match is found.
+        str: Resolved category key, or an empty string if no match is found.
     """
     # return ""
     return _get_films_key_tyty_new(text)

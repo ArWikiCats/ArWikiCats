@@ -12,7 +12,8 @@ from typing import Pattern
 
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
-from ...translations import WORD_AFTER_YEARS, get_from_pf_keys2
+from ...translations import WORD_AFTER_YEARS
+from ...translations.funcs import get_from_pf_keys2
 from ..circular_dependency import general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
@@ -126,7 +127,17 @@ def _handle_year_at_end(
     compiled_year_pattern: Pattern[str],
     compiled_range_pattern: Pattern[str],
 ) -> str:
-    """Handles cases where the year is at the end of the string."""
+    """
+    Create an Arabic label when a year or year-range appears at the end of a category string.
+
+    Parameters:
+        category_text (str): The category text to analyze; trailing year or year-range is expected.
+        compiled_year_pattern (Pattern[str]): Regex that extracts a trailing year-like substring from the input.
+        compiled_range_pattern (Pattern[str]): Regex that extracts a trailing year-range substring (used to refine the year label).
+
+    Returns:
+        str: A combined label of the resolved remainder and the formatted year (e.g., "<remainder_label> <year_label>"), or an empty string if no valid remainder label or year extraction is found. The function normalizes "–present" to "–الآن" in the year portion.
+    """
     year_at_end_label = compiled_year_pattern.sub(r"\g<1>", category_text.strip())
 
     range_match = compiled_range_pattern.match(category_text)
@@ -169,15 +180,15 @@ def _handle_year_at_end(
 @functools.lru_cache(maxsize=10000)
 def Try_With_Years(category: str) -> str:
     """
-    Extracts and formats a year-aware Arabic label from a category string.
+    Produce an Arabic label combining detected year information with the resolved category remainder.
 
-    Processes the input category to detect year patterns (year at start, year or year-range at end, or specific political-term patterns) and returns a composed label combining the resolved remainder and the year when a match is found.
+    Detects year patterns at the start or end of the category or specific political-term patterns, and composes a label that pairs the resolved remainder with the normalized year (or year-range). Returns an empty string when no applicable year pattern is found.
 
     Parameters:
         category (str): Category text that may contain a year or year-range (e.g., "1990 United States Congress", "American Soccer League (1933–83)").
 
     Returns:
-        str: The formatted label that includes the resolved remainder and year information, or an empty string if no applicable year pattern is detected.
+        str: The formatted Arabic label including the resolved remainder and year, or an empty string if no year pattern is applicable.
     """
     logger.debug(f"<<yellow>> start Try_With_Years: {category=}")
     # pop_final_Without_Years

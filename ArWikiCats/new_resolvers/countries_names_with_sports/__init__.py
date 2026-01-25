@@ -9,6 +9,17 @@ from . import (
 
 @functools.lru_cache(maxsize=10000)
 def main_countries_names_with_sports_resolvers(normalized_category) -> str:
+    """
+    Resolve a target label for a normalized category using sport-related resolver fallbacks.
+
+    Attempts sport-specific resolvers in a defined fallback order and returns the first non-empty label found.
+
+    Parameters:
+        normalized_category (str): Normalized category identifier to resolve.
+
+    Returns:
+        str: Resolved label for the category, or an empty string if no resolver produces a value.
+    """
     logger.debug(
         f"<><><><><><> <<green>> Trying main_countries_names_with_sports_resolvers for: {normalized_category=}"
     )

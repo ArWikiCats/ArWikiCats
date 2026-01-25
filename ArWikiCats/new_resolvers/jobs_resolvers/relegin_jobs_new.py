@@ -69,6 +69,14 @@ def _load_womens_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=1)
 def _load_mens_bot() -> MultiDataFormatterBase:
+    """
+    Builds and returns a MultiDataFormatterBase configured for male-focused religion and job category translations.
+
+    The formatter maps English category patterns that reference male gender or male-specific groupings to their Arabic equivalents, using the module's male religion entries and male job dataset. It includes predefined templates, entries derived from NAT_BEFORE_OCC_BASE when present in the male jobs data, and a small manual extension for philosophers and theologians.
+
+    Returns:
+        MultiDataFormatterBase: Formatter that resolves English male/religion/job category patterns to Arabic strings.
+    """
     religions_data = {x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
 
     formatted_data = {
@@ -123,7 +131,15 @@ def _load_mens_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=10000)
 def womens_result(category: str) -> str:
-    """ """
+    """
+    Resolve a female-focused translation for the given job or religious category.
+
+    Parameters:
+        category (str): Category key to match against the female-oriented job/religion translations.
+
+    Returns:
+        str: The matched translation string, or an empty string if no match is found.
+    """
     logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
@@ -132,7 +148,15 @@ def womens_result(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def mens_result(category: str) -> str:
-    """ """
+    """
+    Resolve a category into its male-gendered job/religion translation using the module's male formatter.
+
+    Parameters:
+        category (str): Category key or label to look up and format.
+
+    Returns:
+        str: The formatted translation for the given category, or an empty string if no match is found.
+    """
     logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
 
     nat_bot = _load_mens_bot()
@@ -140,6 +164,19 @@ def mens_result(category: str) -> str:
 
 
 def fix_keys(category: str) -> str:
+    """
+    Normalize and standardize a category key string.
+
+    Performs normalization by removing single quotes, converting to lowercase,
+    replacing known plural forms and gender variants (e.g., "expatriates" -> "expatriate",
+    "women"/"womens" -> "female"), and trimming surrounding whitespace.
+
+    Parameters:
+        category (str): The raw category key to normalize.
+
+    Returns:
+        str: The normalized category key.
+    """
     category = category.replace("'", "").lower()
 
     replacements = {
@@ -156,14 +193,13 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def new_religions_jobs_with_suffix(category: str) -> str:
     """
-    Resolves jobs for religious groups, handling both male and female variations.
-    This function attempts to find a translation for a given category by checking
-    against male-specific job/religion combinations first, and then female-specific
-    combinations if no male-specific match is found.
-    Args:
-        category: The category string to translate.
+    Resolve a translated Arabic label for a religious job category, preferring male-specific forms before female-specific forms.
+
+    Parameters:
+        category (str): Category key to translate; the input is normalized (lowercased, certain tokens replaced, and whitespace trimmed) before lookup.
+
     Returns:
-        The translated Arabic category string, or an empty string if no match is found.
+        Translated Arabic category string if a match is found, otherwise an empty string.
     """
     category = fix_keys(category)
     logger.debug(f"\t xx start: <<lightred>>new_religions_jobs_with_suffix >> <<lightpurple>> {category=}")

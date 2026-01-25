@@ -15,16 +15,16 @@ from . import (
 
 @functools.lru_cache(maxsize=10000)
 def time_and_jobs_resolvers_main(normalized_category) -> str:
-    """Main entry point for time and jobs resolvers.
+    """
+    Resolve a combined time-period-and-job category string to its Arabic label.
 
-    Orchestrates the resolution of category names that combine time periods with jobs
-    by attempting to match against various time-job resolvers in sequence.
+    Attempts multiple internal resolvers in sequence and returns the first non-empty match.
 
-    Args:
-        normalized_category (str): The normalized category string to be resolved.
+    Parameters:
+        normalized_category (str): Category string to resolve; may include a leading 'Category:' prefix.
 
     Returns:
-        str: The resolved Arabic category label, or an empty string if no match is found.
+        str: The resolved Arabic category label if found, otherwise an empty string.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)

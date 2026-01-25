@@ -12,7 +12,8 @@ from ...fix import fixtitle
 from ...format_bots import change_cat
 from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
-from ...translations import Ambassadors_tab, get_from_new_p17_final
+from ...translations import Ambassadors_tab
+from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot
 from ..circular_dependency import country_bot, general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
@@ -38,14 +39,14 @@ ResolverFn = Callable[[str], str]
 
 def _resolve_via_chain(category: str, resolvers: list[ResolverFn]) -> str:
     """
-    Apply a chain of resolver functions and return the first non-empty result.
+    Resolve a category by trying each resolver in order until one produces a non-empty label.
 
-    Args:
-        category: The category string to resolve
-        resolvers: List of resolver functions to try in order
+    Parameters:
+        category (str): Category string to resolve.
+        resolvers (list[ResolverFn]): Ordered list of resolver callables to try; the first non-empty return value is used.
 
     Returns:
-        First non-empty result from the resolver chain, or empty string
+        str: The first non-empty resolver result, or an empty string if none match.
     """
     for resolver in resolvers:
         result = resolver(category)
@@ -55,7 +56,16 @@ def _resolve_via_chain(category: str, resolvers: list[ResolverFn]) -> str:
 
 
 def translate_general_category_wrap(category: str, start_get_country2: bool = False) -> str:
-    """Wrapper for general category resolution."""
+    """
+    Produce an Arabic label for a general category using available translation strategies.
+
+    Parameters:
+        category (str): Category title to translate.
+        start_get_country2 (bool): If True, enable the resolver variant that prioritizes country-based translations.
+
+    Returns:
+        str: Arabic label if a translation is found, otherwise an empty string.
+    """
     arlabel = (
         ""
         or sub_general_resolver.sub_translate_general_category(category)
@@ -74,7 +84,15 @@ _STANDARD_COUNTRY_RESOLVERS: list[ResolverFn] = [
 
 @functools.lru_cache(maxsize=10000)
 def event_label_work(country: str) -> str:
-    """Resolve country-based labels using the standard resolver chain."""
+    """
+    Resolve an Arabic label for a country or country-like category.
+
+    Parameters:
+        country (str): Country name or category string to resolve; input is normalized (lowercased and stripped) before lookup.
+
+    Returns:
+        str: The resolved Arabic label if found, otherwise an empty string. Special case: if `country` (after normalization) equals "people", returns the people label constant.
+    """
     country2 = country.lower().strip()
 
     if country2 == CATEGORY_PEOPLE:
@@ -106,13 +124,18 @@ class EventLabResolver:
 
     def _handle_special_suffixes(self, category3: str) -> Tuple[str, str, bool]:
         """
-        Handle categories with special suffixes like episodes or templates.
+        Detects and handle special category suffixes and returns a list template marker plus the adjusted category string.
 
-        Args:
-            category3 (str): The lowercase category string
+        Parameters:
+            category3 (str): Category text to examine (expected normalized/lowercase).
 
         Returns:
-            Tuple[str, str, bool]: List of category, updated category3, and whether Wikidata was found
+            tuple[list_of_cat (str), updated_category3 (str)]:
+            - list_of_cat: a list template marker or empty string if none was detected.
+            - updated_category3: the category string with the detected suffix removed when applicable.
+
+        Notes:
+            This method may update self.foot_ballers as a side effect when the category is identified as a list of football players.
         """
 
         list_of_cat: str = ""
@@ -161,12 +184,12 @@ class EventLabResolver:
 
     def _apply_general_label_functions(self, category3: str) -> str:
         """
-        Apply a series of general label resolvers to produce an Arabic label for a category.
+        Resolve a category title into its Arabic label using the module's general resolver chain.
 
-        Attempts resolution in a prioritized sequence (general translation, country title, country lookup, population data) and returns the first non-empty label found.
+        Tries the configured general resolver functions in order and returns the first non-empty label.
 
         Parameters:
-            category3 (str): Category name to resolve (normalized text, typically without the "category:" prefix).
+            category3 (str): Category name to resolve (normalized, typically without the "category:" prefix).
 
         Returns:
             str: Resolved Arabic label, or an empty string if no resolver produced a label.
@@ -180,13 +203,15 @@ class EventLabResolver:
 
     def _handle_suffix_patterns(self, category3: str) -> Tuple[str, str]:
         """
-        Handle categories that match predefined suffix patterns.
+        Match and strip known suffix patterns from a category title.
 
-        Args:
-            category3 (str): The category string to process
+        If the category ends with any configured suffix in combined_suffix_mappings, return the corresponding list template and the category with that suffix removed; otherwise return an empty list template and the original category.
+
+        Parameters:
+            category3 (str): Category title to inspect.
 
         Returns:
-            Tuple[str, str]: List of category and updated category string
+            tuple[str, str]: (list_of_cat, category3) where `list_of_cat` is the matched list template or an empty string, and `category3` is the category with the matched suffix removed and trimmed.
         """
         list_of_cat: str = ""
 
@@ -224,14 +249,14 @@ class EventLabResolver:
 
     def process_category(self, category3: str, cate_r: str) -> str:
         """
-        Compute the Arabic label for a category string by applying special-case handlers, country-specific resolution, suffix/list processing, event/template resolvers, and general translation fallbacks.
+        Resolve a category title into its Arabic label using special-case handlers, country-specific resolution, suffix/list processing, event/template resolvers, and general translation fallbacks.
 
         Parameters:
-            category3 (str): The (possibly normalized) category string to resolve.
-            cate_r (str): The original/raw category string used as context for list formatting and error messages.
+                category3 (str): Normalized category string to resolve.
+                cate_r (str): Original/raw category string used as context for list formatting and logging.
 
         Returns:
-            str: The resolved Arabic label for the category, or an empty string if no label could be determined.
+                category_lab (str): The resolved Arabic label, or an empty string if no label could be determined.
         """
         original_cat3 = category3
 

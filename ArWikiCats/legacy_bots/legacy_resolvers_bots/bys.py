@@ -12,7 +12,8 @@ import functools
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...translations import People_key, get_from_new_p17_final
+from ...translations import People_key
+from ...translations.funcs import get_from_new_p17_final
 from ..utils.regex_hub import BY_MATCH_PATTERN, DUAL_BY_PATTERN
 from .bot_2018 import get_pop_All_18
 
@@ -94,13 +95,14 @@ def make_by_label(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def get_by_label(category: str) -> str:
-    """Return the label for a category in the form ``<entity> by <suffix>``.
+    """
+    Compose an Arabic label for a category that contains a "by" clause.
 
-    Args:
-        category: Full category string that contains a "by" clause.
+    Parameters:
+        category (str): Full category string expected to include " by " separating an entity and a suffix.
 
     Returns:
-        The composed Arabic label or an empty string when the lookup fails.
+        str: The composed Arabic label (e.g., "<entity_label> <by_label>") or an empty string if resolution fails.
     """
     if " by " not in category:
         return ""

@@ -16,13 +16,13 @@ from ...translations import (
     Clubs_key_2,
     Jobs_new,
     films_mslslat_tab,
-    get_from_new_p17_final,
     jobs_mens_data,
     open_json_file,
     pf_keys2,
     pop_final_5,
     sub_teams_new,
 )
+from ...translations.funcs import get_from_new_p17_final
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 
@@ -52,7 +52,16 @@ first_data = {
 
 @functools.lru_cache(maxsize=10000)
 def _get_pop_All_18(key: str, default: str = "") -> str:
-    """Return the cached population label for the given key or a default."""
+    """
+    Lookup a population label in the cached 2018 dataset.
+
+    Parameters:
+        key (str): Lookup key to search in the in-memory 2018 population mapping.
+        default (str): Value to return if `key` is not present.
+
+    Returns:
+        str: The label mapped to `key`, or `default` if no mapping exists.
+    """
     result = pop_All_2018.get(key, default)
     return result
 
@@ -93,14 +102,14 @@ def _get_from_alias(key: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     """
-    Lookup an Arabic population or category label for `key` using multiple fallback sources and return `default` if not found.
+    Resolve an Arabic population or category label for a given key using layered lookup sources.
 
     Parameters:
-        key (str): The lookup key; leading "the " is ignored when present.
-        default (str): Value to return if no label is found.
+        key (str): Lookup key; a leading "the " is ignored.
+        default (str): Value returned when no label is found.
 
     Returns:
-        str: The found label if any, otherwise `default`.
+        str: The found Arabic label, or `default` if no match is found.
     """
     result = first_data.get(key.lower(), "") or ""
 
@@ -137,6 +146,18 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
 
 @functools.lru_cache(maxsize=10000)
 def get_pop_All_18(key: str, default: str = "") -> str:
+    """
+    Lookup an Arabic label for `key` using layered 2018 population and alias sources.
+
+    If no label is found for `key` as given, the function retries once with hyphens replaced by spaces.
+
+    Parameters:
+        key (str): The lookup key or category name.
+        default (str): Value to return when no label is found.
+
+    Returns:
+        str: The resolved label string if found, `default` otherwise.
+    """
     result = get_pop_all_18_wrap(key, default)
 
     if not result and "-" in key:

@@ -16,13 +16,14 @@ from . import (
 
 @functools.lru_cache(maxsize=10000)
 def main_nationalities_resolvers(normalized_category) -> str:
-    """Main entry point for nationalities resolvers.
+    """
+    Resolve a category string into a nationalities category label.
 
-    Args:
-        normalized_category (str): The normalized category string.
+    Parameters:
+        normalized_category (str): Category string to resolve.
 
     Returns:
-        str: The resolved nationalities category label.
+        str: Matched nationalities category label, or empty string if no resolver matches.
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 

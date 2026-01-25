@@ -16,7 +16,7 @@ import re
 
 from ...helps import logger
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
-from ...translations import get_from_new_p17_final, get_from_pf_keys2
+from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
 

@@ -17,6 +17,15 @@ from . import (
 
 @functools.lru_cache(maxsize=50000)
 def all_patterns_resolvers(category: str) -> str:
+    """
+    Resolve a category name into a canonical label using pattern-based rules.
+
+    Parameters:
+        category (str): The category string to be analyzed and mapped.
+
+    Returns:
+        str: The resolved category label, or an empty string if no pattern matches.
+    """
     logger.debug(f">> all_patterns_resolvers: {category}")
     category_lab = (
         country_time_pattern.resolve_country_time_pattern(category)
