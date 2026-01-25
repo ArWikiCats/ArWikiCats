@@ -7,12 +7,8 @@ geography, jobs, languages, nationalities, sports, and media.
 import functools
 import re
 from ..helps import logger
-from .geo.labels_country import (
-    get_from_new_p17_final,
-)
-from .mixed.all_keys2 import (
-    get_from_pf_keys2,
-)
+from .geo.labels_country import get_from_new_p17_final
+from .mixed.all_keys2 import pf_keys2
 from .utils import apply_pattern_replacements
 from .utils.json_dir import open_json_file
 
@@ -59,6 +55,13 @@ def get_and_label(category: str) -> str:
         label = f"{first_label} و{last_label}"
         logger.info(f"<<lightyellow>>>>get_and_label lab {label}")
 
+    return label
+
+
+def get_from_pf_keys2(text: str) -> str:
+    """Look up the Arabic label for a term in the ``pf_keys2`` mapping."""
+    label = pf_keys2.get(text, "")
+    logger.info(f">> get_from_pf_keys2() Found: {label}")
     return label
 
 

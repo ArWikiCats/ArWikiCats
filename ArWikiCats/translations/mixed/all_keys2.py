@@ -837,14 +837,6 @@ pf_keys2 = wrap_build_pf_keys2(ctl_data, keys_of_without_in)
 no_the = _handle_the_prefix(pf_keys2)
 pf_keys2.update(no_the)
 
-
-def get_from_pf_keys2(text: str) -> str:
-    """Look up the Arabic label for a term in the ``pf_keys2`` mapping."""
-    label = pf_keys2.get(text, "")
-    logger.info(f">> get_from_pf_keys2() Found: {label}")
-    return label
-
-
 len_print.data_len(
     "all_keys2.py",
     {
@@ -859,7 +851,6 @@ len_print.data_len(
 )
 
 __all__ = [
-    "get_from_pf_keys2",
     "pf_keys2",
     "keys_of_without_in",
     "clubs_teams_leagues",

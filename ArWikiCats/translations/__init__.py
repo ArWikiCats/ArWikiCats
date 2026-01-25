@@ -78,10 +78,8 @@ from .tv.films_mslslat import (
     film_keys_for_female,
     films_mslslat_tab,
 )
-from .utils.json_dir import open_json_file
 
 __all__ = [
-    "open_json_file",
     "sub_teams_new",
     "SPORT_JOB_VARIANTS",
     "PLAYERS_TO_MEN_WOMENS_JOBS",
