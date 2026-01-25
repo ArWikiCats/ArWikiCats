@@ -119,7 +119,7 @@ data0 = {
     "Speakers of the National Assembly of Zimbabwe": "رؤساء الجمعية الوطنية في زيمبابوي",
     "Women members of the National Assembly (France)": "عضوات الجمعية الوطنية الفرنسية",
     "Women members of the National Assembly of Hungary": "عضوات الجمعية الوطنية في المجر",
-    "Women members of the National Assembly of Pakistan": "عضوات الجمعية الوطنية في باكستان",
+    "Women members of the National Assembly of Pakistan": "عضوات الجمعية الوطنية الباكستانية",
     "Women members of the National Council (Switzerland)": "عضوات المجلس الوطني (سويسرا)",
 }
 
@@ -156,7 +156,7 @@ data_1 = {
     "National Assembly (South Korea)": "الجمعية الوطنية (كوريا الجنوبية)",
     "National Assembly (Tanzania)": "الجمعية الوطنية (تنزانيا)",
     "National Assembly (Vietnam)": "الجمعية الوطنية (فيتنام)",
-    "National Assembly of Pakistan": "الجمعية الوطنية في باكستان",
+    "National Assembly of Pakistan": "الجمعية الوطنية الباكستانية",
     "National Council (Bhutan)": "المجلس الوطني (بوتان)",
     "National Council (Namibia)": "المجلس الوطني (ناميبيا)",
     "Presidents of the National Assembly (Ecuador)": "رؤساء الجمعية الوطنية (الإكوادور)",
