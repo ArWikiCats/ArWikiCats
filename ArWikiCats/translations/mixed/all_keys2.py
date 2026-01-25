@@ -11,12 +11,13 @@ from ..jobs.jobs_singers import SINGERS_TAB
 from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 from ..sports import TENNIS_KEYS
 from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male
-from ..utils.json_dir import open_json_file
 from .all_keys3 import ALBUMS_TYPE, pop_final_3
 from .all_keys4 import new2019
 from .keys2 import keys2_py
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
+
+from ..utils.json_dir import open_json_file
 
 People_key = open_json_file("people/peoples.json") or {}
 
@@ -248,7 +249,6 @@ BOOK_CATEGORIES: Dict[str, str] = {
     "wikis": "ويكيات",
 }
 
-
 BOOK_TYPES: Dict[str, str] = {
     # "pirate":"قراصنة",
     "anti-war": "مناهضة للحرب",
@@ -310,7 +310,6 @@ BOOK_TYPES: Dict[str, str] = {
     # "logistics":"لوجستية",
 }
 
-
 LITERATURE_AREAS: Dict[str, str] = {
     "literature": "أدب",
     "folklore": "فلكور",
@@ -365,6 +364,7 @@ keys_of_without_in = {
     "burial sites": "مواقع دفن",
     "cabinet secretaries": "أعضاء مجلس وزراء",
     "cabinet": "مجلس وزراء",
+    "military campaigns": "حملات عسكرية",
     "campaigns": "حملات",
     "campuses": "حرم",
     "cantons": "كانتونات",
@@ -521,6 +521,93 @@ keys_of_without_in = {
     "years": "سنوات",
 }
 
+tato_type = {
+    "treason": "خيانة",
+    "harassment": "مضايقة",
+    "archaeological parks": "متنزهات أثرية",
+    "architecture museums": "متاحف معمارية",
+    "architecture schools": "مدارس عمارة",
+    "architecture-schools": "مدارس عمارة",
+    "arms trafficking": "الاتجار بالأسلحة",
+    "arson": "إحراق الممتلكات",
+    "assault": "الاعتداء",
+    "attempted murder": "الشروع في القتل",
+    "attempted rape": "محاولة الاغتصاب",
+    "bank buildings": "مباني بنوك",
+    "blackmail": "الابتزاز",
+    "blasphemy": "ازدراء الدين",
+    "bribery": "الرشوة",
+    "building collapses": "انهيارات مباني",
+    "burglary": "السطو",
+    "child pornography offenses": "جرائم استغلال الأطفال في المواد الإباحية",
+    "child sexual abuse": "الاعتداء الجنسي على الأطفال",
+    "commercial buildings": "مبان تجارية",
+    "cruelty to animals": "القسوة على الحيوانات",
+    "culpable homicide": "القتل العمد",
+    "cybercrime": "الجريمة الإلكترونية",
+    "depriving others of their civil rights": "حرمان الآخرين من حقوقهم المدنية",
+    "drama schools": "مدارس درامية",
+    "drug offenses": "جرائم المخدرات",
+    "embezzlement": "الاختلاس",
+    "ethnic groups": "مجموعات عرقية",
+    "financial services": "خدمات مالية",
+    "hate crimes": "جرائم الكراهيه",
+    "historical societies": "جمعيات تاريخية",
+    "history museums": "متاحف تاريخية",
+    "history organizations": "منظمات تاريخ",
+    "holocaust denial offenses": "جرائم إنكار الهولوكوست",
+    "hospital buildings": "مباني مستشفيات",
+    "incest": "زنى المحارم",
+    "independent schools": "مدارس مستقلة",
+    "insider trading": "التجارة من الباطن",
+    "international crimes": "الجرائم الدولية",
+    "international schools": "مدارس دولية",
+    "law schools": "مدارس قانون",
+    "learned societies": "جمعيات علمية",
+    "making false statements": "تقديم بيانات كاذبة",
+    "management consulting": "استشارات إدارية",
+    "manslaughter": "قتل خطأ",
+    "marine art museums": "متاحف فن بحري",
+    "marine art": "فن بحري",
+    "metals": "المعادن",
+    "military academies": "أكاديميات عسكرية",
+    "military and war museums": "متاحف عسكرية وحربية",
+    "military research": "أبحاث عسكرية",
+    "misusing public funds": "إساءة استخدام الأموال العامة",
+    "music schools": "مدارس موسيقى",
+    "naval museums": "متاحف بحرية",
+    "obstruction of justice": "إعاقة سير العدالة",
+    "perverting course of justice": "تحريف مسار العدالة",
+    "police officers": "ضباط شرطة",
+    "private schools": "مدارس خاصة",
+    "professional associations": "جمعيات تخصصية",
+    "public utilities": "مرافق عمومية",
+    "racial hatred offences": "جرائم الكراهية العنصرية",
+    "racketeering": "ابتزاز الأموال",
+    "rape": "الاغتصاب",
+    "real estate services": "خدمات عقارية",
+    "refusing to convert to christianity": "رفض اعتناق المسيحية",
+    "refusing to convert to islam": "رفض اعتناق الإسلام",
+    "robbery": "السرقة",
+    "science museums": "متاحف علمية",
+    "sex crimes": "الجرائم الجنسية",
+    "sex offences": "جرائم جنسية",
+    "sexual assault": "اعتداء جنسي",
+    "soliciting murder": "التماس القتل",
+    "sports museums": "متاحف رياضية",
+    "sports schools": "مدارس رياضية",
+    "stalking": "المطاردة",
+    "tax crimes": "الجرائم الضريبية",
+    "teaching hospitals": "مستشفيات تعليمية",
+    "trade associations": "اتحادات تجارية",
+    "transportation museums": "متاحف النقل",
+    "under construction": "تحت الإنشاء",
+    "video gaming": "ألعاب الفيديو",
+    "witchcraft": "السحر",
+    "world war i museums": "متاحف الحرب العالمية الأولى",
+    "world war ii museums": "متاحف الحرب العالمية الثانية",
+}
+
 
 def _update_lowercase(data: Dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
     """Populate ``data`` with lowercase keys from the provided mappings."""
@@ -541,7 +628,12 @@ def _update_lowercase(data: Dict[str, str], mapping: list[Mapping[str, str]], sk
         )
 
 
-def _build_book_entries(data: Dict[str, str], singers_tab: Dict[str, str]) -> None:
+def _build_book_entries(
+    data: Dict[str, str],
+    singers_tab: Dict[str, str],
+    film_keys_for_female: Dict[str, str],
+    ALBUMS_TYPE: Dict[str, str],
+) -> None:
     """Add literature related entries, including film/tv variants."""
 
     for category_key, category_label in BOOK_CATEGORIES.items():
@@ -621,7 +713,7 @@ def _build_of_variants(data, data_list, data_list2) -> Dict[str, str]:
     return data
 
 
-def _build_literature_area_entries(data) -> None:
+def _build_literature_area_entries(data, film_keys_for_male) -> None:
     """Add entries for literature and arts areas linked with film keys."""
 
     for area, area_label in LITERATURE_AREAS.items():
@@ -651,6 +743,9 @@ def build_pf_keys2(
     keys2_py,
     pop_final_3,
     SINGERS_TAB,
+    film_keys_for_female,
+    film_keys_for_male,
+    ALBUMS_TYPE,
 ) -> Dict[str, str]:
     """Build the master mapping used across the ``translations`` package."""
 
@@ -662,6 +757,7 @@ def build_pf_keys2(
         data[f"{competition_key} medalists"] = f"فائزون بميداليات {competition_label}"
 
     data.update(keys2_py)
+    data.update(BASE_LABELS)
     data.update(_build_direction_region_entries())
     data.update(keys_of_with_in)
     keys_of_without_in = dict(keys_of_without_in)
@@ -683,93 +779,6 @@ def build_pf_keys2(
     _build_towns_entries(data)
 
     data.update({key.lower(): value for key, value in ART_MOVEMENTS.items()})
-
-    tato_type = {
-        "treason": "خيانة",
-        "harassment": "مضايقة",
-        "archaeological parks": "متنزهات أثرية",
-        "architecture museums": "متاحف معمارية",
-        "architecture schools": "مدارس عمارة",
-        "architecture-schools": "مدارس عمارة",
-        "arms trafficking": "الاتجار بالأسلحة",
-        "arson": "إحراق الممتلكات",
-        "assault": "الاعتداء",
-        "attempted murder": "الشروع في القتل",
-        "attempted rape": "محاولة الاغتصاب",
-        "bank buildings": "مباني بنوك",
-        "blackmail": "الابتزاز",
-        "blasphemy": "ازدراء الدين",
-        "bribery": "الرشوة",
-        "building collapses": "انهيارات مباني",
-        "burglary": "السطو",
-        "child pornography offenses": "جرائم استغلال الأطفال في المواد الإباحية",
-        "child sexual abuse": "الاعتداء الجنسي على الأطفال",
-        "commercial buildings": "مبان تجارية",
-        "cruelty to animals": "القسوة على الحيوانات",
-        "culpable homicide": "القتل العمد",
-        "cybercrime": "الجريمة الإلكترونية",
-        "depriving others of their civil rights": "حرمان الآخرين من حقوقهم المدنية",
-        "drama schools": "مدارس درامية",
-        "drug offenses": "جرائم المخدرات",
-        "embezzlement": "الاختلاس",
-        "ethnic groups": "مجموعات عرقية",
-        "financial services": "خدمات مالية",
-        "hate crimes": "جرائم الكراهيه",
-        "historical societies": "جمعيات تاريخية",
-        "history museums": "متاحف تاريخية",
-        "history organizations": "منظمات تاريخ",
-        "holocaust denial offenses": "جرائم إنكار الهولوكوست",
-        "hospital buildings": "مباني مستشفيات",
-        "incest": "زنى المحارم",
-        "independent schools": "مدارس مستقلة",
-        "insider trading": "التجارة من الباطن",
-        "international crimes": "الجرائم الدولية",
-        "international schools": "مدارس دولية",
-        "law schools": "مدارس قانون",
-        "learned societies": "جمعيات علمية",
-        "making false statements": "تقديم بيانات كاذبة",
-        "management consulting": "استشارات إدارية",
-        "manslaughter": "قتل خطأ",
-        "marine art museums": "متاحف فن بحري",
-        "marine art": "فن بحري",
-        "metals": "المعادن",
-        "military academies": "أكاديميات عسكرية",
-        "military and war museums": "متاحف عسكرية وحربية",
-        "military research": "أبحاث عسكرية",
-        "misusing public funds": "إساءة استخدام الأموال العامة",
-        "music schools": "مدارس موسيقى",
-        "naval museums": "متاحف بحرية",
-        "obstruction of justice": "إعاقة سير العدالة",
-        "perverting course of justice": "تحريف مسار العدالة",
-        "police officers": "ضباط شرطة",
-        "private schools": "مدارس خاصة",
-        "professional associations": "جمعيات تخصصية",
-        "public utilities": "مرافق عمومية",
-        "racial hatred offences": "جرائم الكراهية العنصرية",
-        "racketeering": "ابتزاز الأموال",
-        "rape": "الاغتصاب",
-        "real estate services": "خدمات عقارية",
-        "refusing to convert to christianity": "رفض اعتناق المسيحية",
-        "refusing to convert to islam": "رفض اعتناق الإسلام",
-        "robbery": "السرقة",
-        "science museums": "متاحف علمية",
-        "sex crimes": "الجرائم الجنسية",
-        "sex offences": "جرائم جنسية",
-        "sexual assault": "اعتداء جنسي",
-        "soliciting murder": "التماس القتل",
-        "sports museums": "متاحف رياضية",
-        "sports schools": "مدارس رياضية",
-        "stalking": "المطاردة",
-        "tax crimes": "الجرائم الضريبية",
-        "teaching hospitals": "مستشفيات تعليمية",
-        "trade associations": "اتحادات تجارية",
-        "transportation museums": "متاحف النقل",
-        "under construction": "تحت الإنشاء",
-        "video gaming": "ألعاب الفيديو",
-        "witchcraft": "السحر",
-        "world war i museums": "متاحف الحرب العالمية الأولى",
-        "world war ii museums": "متاحف الحرب العالمية الثانية",
-    }
 
     data.update({key.lower(): value for key, value in tato_type.items()})
 
@@ -798,15 +807,30 @@ def build_pf_keys2(
         if lower_key not in data and value:
             data[lower_key] = value
 
-    _build_book_entries(data, SINGERS_TAB)
-    _build_literature_area_entries(data)
+    _build_book_entries(data, SINGERS_TAB, film_keys_for_female, ALBUMS_TYPE)
+    _build_literature_area_entries(data, film_keys_for_male)
     _build_cinema_entries(data)
 
     return data
 
 
-def wrap_build_pf_keys2(ctl_data: Dict[str, str], keys_of_without_in: Dict[str, str]) -> Dict[str, str]:
-    """Wrap the ``build_pf_keys2`` function with additional data loading."""
+def wrap_build_keys2(
+    ctl_data: Dict[str, str],
+    film_keys_for_female: Dict[str, str],
+    film_keys_for_male: Dict[str, str],
+    keys2_py: Dict[str, str],
+    keys_of_without_in: Dict[str, str],
+    language_key_translations: Dict[str, str],
+    MEDIA_CATEGORY_TRANSLATIONS: Dict[str, str],
+    new2019: Dict[str, str],
+    NEW_2023: Dict[str, str],
+    pop_final6: Dict[str, str],
+    pop_final_3: Dict[str, str],
+    SINGERS_TAB: Dict[str, str],
+    TENNIS_KEYS: Dict[str, str],
+    ALBUMS_TYPE: Dict[str, str],
+) -> Dict[str, str]:
+    """Wrap the ``build_keys2`` function with additional data loading."""
 
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
@@ -817,10 +841,16 @@ def wrap_build_pf_keys2(ctl_data: Dict[str, str], keys_of_without_in: Dict[str, 
         keys2_py,
         pop_final_3,
         SINGERS_TAB,
+        film_keys_for_female,
+        film_keys_for_male,
+        ALBUMS_TYPE,
     )
 
     _update_lowercase(pf_keys2, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
     _update_lowercase(pf_keys2, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+
+    no_the = _handle_the_prefix(pf_keys2)
+    pf_keys2.update(no_the)
 
     return pf_keys2
 
@@ -844,10 +874,22 @@ def _handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
 clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
-pf_keys2 = wrap_build_pf_keys2(ctl_data, keys_of_without_in)
-
-no_the = _handle_the_prefix(pf_keys2)
-pf_keys2.update(no_the)
+pf_keys2 = wrap_build_keys2(
+    ctl_data,
+    film_keys_for_female,
+    film_keys_for_male,
+    keys2_py,
+    keys_of_without_in,
+    language_key_translations,
+    MEDIA_CATEGORY_TRANSLATIONS,
+    new2019,
+    NEW_2023,
+    pop_final6,
+    pop_final_3,
+    SINGERS_TAB,
+    TENNIS_KEYS,
+    ALBUMS_TYPE,
+)
 
 len_print.data_len(
     "all_keys2.py",
