@@ -32,6 +32,17 @@ REGION_PREFIXES_AR = [
 
 
 def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_KEYS):
+    """
+    Build a mapping from region base keys to Arabic region labels by matching configured English suffixes with Arabic prefixes.
+
+    Parameters:
+        REGION_SUFFIXES_EN (list[str]): English suffix strings to detect at the end of region keys (e.g., " province", " district").
+        REGION_PREFIXES_AR (list[str]): Arabic prefix strings to detect at the start of labels (e.g., "ولاية ", "محافظة ").
+        ADDITIONAL_REGION_KEYS (dict[str, str]): Mapping of region keys to Arabic labels to scan for suffix/prefix pairs.
+
+    Returns:
+        dict[str, str]: A dictionary where each key is the lowercased region base (original key with a matched English suffix removed) and each value is the Arabic label with the matched Arabic prefix removed. If multiple suffix/prefix combinations match a source entry, only the first match is used.
+    """
     region_suffix_matches = {}
 
     for cc, lab in ADDITIONAL_REGION_KEYS.items():
@@ -48,7 +59,16 @@ def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_
 
 
 def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
+    """
+    Build a mapping of Swiss canton identifiers to Arabic labels, including "canton-of" prefixed keys.
 
+    Parameters:
+        SWISS_CANTON_LABELS (dict[str, str]): Mapping of canton identifiers to their Arabic names.
+
+    Returns:
+        dict[str, str]: A new mapping where each original key is lowercased and each canton also has an entry
+        of the form "canton-of {lowercased_key}" mapped to "كانتون {ArabicName}".
+    """
     data = {k.lower(): v for k, v in SWISS_CANTON_LABELS.items()}
 
     for canton, value in SWISS_CANTON_LABELS.items():
@@ -57,6 +77,17 @@ def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
 
 
 def generate_province_labels(PROVINCE_LABELS) -> dict[str, str]:
+    """
+    Create province-level Arabic label mappings derived from city labels.
+
+    Parameters:
+        PROVINCE_LABELS (dict[str, str]): Mapping of city identifiers to their Arabic labels. Keys may be any case; empty or falsey values are ignored.
+
+    Returns:
+        dict[str, str]: A dictionary whose keys are lowercase forms of the city identifier and two province variants
+        ("{city} province" and "{city} (province)"), each mapped to the appropriate Arabic label (city label or
+        "مقاطعة {city_label}").
+    """
     data = {}
     for city, city_lab in PROVINCE_LABELS.items():
         city2 = city.lower()
@@ -230,6 +261,26 @@ PROVINCE_LABELS = {
 def generate_complete_label_mapping(
     ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches
 ) -> dict[str, str]:
+    """
+    Builds a consolidated mapping of administrative region keys to Arabic labels.
+
+    Combines a base mapping loaded from "geography/P17_PP.json" with:
+    - Arabic canton labels derived from SWISS_CANTON_LABELS,
+    - lowercased entries from ADDITIONAL_REGION_KEYS,
+    - lowercased entries from PROVINCE_LABEL_OVERRIDES,
+    - region entries produced from region_suffix_matches,
+    - generated province-level labels from PROVINCE_LABELS.
+
+    Parameters:
+        ADDITIONAL_REGION_KEYS (dict): Additional region keys and labels (will be added using lowercased keys).
+        SWISS_CANTON_LABELS (dict): Swiss canton identifiers to Arabic names.
+        PROVINCE_LABEL_OVERRIDES (dict): Explicit province label overrides (will be added using lowercased keys).
+        PROVINCE_LABELS (dict): Province/city labels used to generate province-level entries.
+        region_suffix_matches (dict): Mappings derived from suffix/prefix heuristics to add region variants.
+
+    Returns:
+        dict[str, str]: Merged mapping of region keys to Arabic labels. Later sources override earlier ones when keys collide.
+    """
     COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
     canton_labels_mapping = map_canton_labels_to_arabic(SWISS_CANTON_LABELS)
     province_labels_dictionary = generate_province_labels(PROVINCE_LABELS)

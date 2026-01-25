@@ -27,6 +27,7 @@ formatted_data = {
     "{en} war films": "أفلام الحرب {the_female}",
     "{en} families": "عائلات {female}",
     "{en} war": "الحرب {the_female}",
+    "{en} war of independence": "حرب الاستقلال {the_female}",
     "{en} wars": "الحروب {the_female}",
     "{en} television series": "مسلسلات تلفزيونية {female}",
     "{en} literature": "أدب {male}",

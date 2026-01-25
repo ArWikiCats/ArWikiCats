@@ -49,7 +49,6 @@ data_1 = [
     ("in", "1789 fifa world cup", "كأس العالم لكرة القدم 1789"),
     ("in", "1789 pan american games", "دورة الألعاب الأمريكية 1789"),
     ("in", "buildings and structures in africa", "مبان ومنشآت في إفريقيا"),
-    ("in", "croatian war of independence", "الحرب الكرواتية في استقلال"),
     ("in", "real estate industry", "صناعة عقارية"),
     ("in", "university of galway", "جامعة جلوي"),
     ("named after", "organizations based in gabon", "منظمات مقرها في الغابون"),

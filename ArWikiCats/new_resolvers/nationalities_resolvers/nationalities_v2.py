@@ -613,6 +613,7 @@ the_female_data = {
     "{en} television": "التلفزة {the_female}",
     "{en} revolution": "الثورة {the_female}",
     "{en} war": "الحرب {the_female}",
+    "{en} war of independence": "حرب الاستقلال {the_female}",
     "{en} border war": "حرب الحدود {the_female}",
     "{en} detention": "المعتقلات {the_female}",
     "{en} para games": "الألعاب البارالمبية {the_female}",

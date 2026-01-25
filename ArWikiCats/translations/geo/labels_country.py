@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from ..helps import len_print
 from ..data_builders.build_labels_country import (
     _build_country_label_index,
     _make_japan_labels,
     _make_turkey_labels,
 )
+from ..helps import len_print
 from ._shared import load_json_mapping
 
 US_STATES = {

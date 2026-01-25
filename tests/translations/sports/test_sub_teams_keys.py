@@ -37,7 +37,6 @@ olympic_examples = {
 def test_resolves_basic_templates(category: str, expected: str) -> None:
     """Templates driven by the lightweight map should translate correctly."""
 
-    # result = sub_teams_labels.get(category)
     result2 = resolve_sport_label_unified(category)
 
     # assert result == expected
@@ -48,7 +47,6 @@ def test_resolves_basic_templates(category: str, expected: str) -> None:
 def test_handles_olympic_variants(category: str, expected: str) -> None:
     """Olympic templates should rely on the shared helper translation."""
 
-    # result = sub_teams_olympics.get(category)
     result2 = resolve_sport_label_unified(category)
 
     # assert result == expected

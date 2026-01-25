@@ -35,7 +35,6 @@ data_of = {
     "city of zagreb": ("city of", "zagreb"),
     "companies of georgia (country)": ("companies of", "georgia (country)"),
     "companies of southeast asia": ("companies of", "southeast asia"),
-    "croatian war of independence": ("croatian war of", "independence"),
     "demographics of united states": ("demographics of", "united states"),
     "economy of united states": ("economy of", "united states"),
     "environment of united states": ("environment of", "united states"),

@@ -6,13 +6,13 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from ..helps import len_print
 from ..data_builders.build_jobs_data_basic import (
     _build_military_job_labels,
     _build_painter_job_labels,
     _build_religious_job_labels,
 )
 from ..data_builders.jobs_defs import GenderedLabelMap
+from ..helps import len_print
 
 # --- Religious role definitions -------------------------------------------------
 # (?<!\w)(shi'a\ muslims|sunni\ muslims|shia\ muslims|shi'a\ muslim|sunni\ muslim|shia\ muslim|episcopalians|evangelical|christians|protestant|anglicans|christian|methodist|religious|venerated|anglican|buddhist|bahá'ís|yazidis|islamic|muslims|muslim|coptic|hindus|jewish|zaydis|saints|hindu|zaydi|sufis|nazi|jews)(?!\w)

@@ -87,7 +87,12 @@ PARTIES: dict[str, str] = {
 
 
 def build_keys2_mapping() -> dict[str, str]:
-    """Return the base mapping historically stored in ``new_2019``."""
+    """
+    Builds a mapping of English keys to Arabic labels by loading "keys/keys2.json" and merging the module's PARTIES translations.
+
+    Returns:
+        dict[str, str]: Mapping where keys are English identifiers and values are Arabic labels. Entries from PARTIES override or add to any loaded entries.
+    """
 
     data = open_json_file("keys/keys2.json") or {}
     data.update(PARTIES)

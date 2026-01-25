@@ -14,8 +14,6 @@ UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "{en_sport} olympic": "{sport_olympic}",
     "olympic {en_sport}": "{sport_olympic}",
     "{en_sport} olympic champions": "أبطال {sport_olympic}",
-
-
     "{en_sport} mass media": "إعلام {sport_label}",
     # "{en_sport} teams": "فرق {sport_jobs}",
     "{en_sport} teams": "فرق {sport_label}",

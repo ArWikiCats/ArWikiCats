@@ -43,6 +43,7 @@ formatted_data_v2 = {
     "{en} clashes": "الاشتباكات {the_female}",
     "{en} wars": "الحروب {the_female}",
     "{en} war": "الحرب {the_female}",
+    "{en} war of independence": "حرب الاستقلال {the_female}",
     "{en} border war": "حرب الحدود {the_female}",
     "{en} war films": "أفلام الحرب {the_female}",
     "{en} war video games": "ألعاب فيديو الحرب {the_female}",

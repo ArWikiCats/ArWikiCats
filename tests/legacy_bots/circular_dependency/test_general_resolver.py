@@ -12,7 +12,6 @@ fast_data = {}
 
 
 def translate_general_category_wrap(category: str) -> str:
-
     arlabel = "" or sub_translate_general_category(category) or work_separator_names(category)
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)

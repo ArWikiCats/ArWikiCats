@@ -7,6 +7,22 @@ from ..utils import open_json_file
 
 
 def load_regions_data(data: dict[str, str]) -> dict[str, str]:
+    """
+    Builds a consolidated mapping of region names and generated region-type variants to Arabic labels.
+
+    The input `data` is expected to contain region-group mappings (e.g., "PRIMARY_REGION", "PERU_REGION", "SRI_LANKA_DISTRICT", "ALGERIA_PROVINCE", "VENEZUELA_STATE", "ECUADOR_PROVINCE", "LEGACY_UK_COUNTY", "UK_COUNTY"). This function merges primary and UK county entries and augments the mapping with generated keys for specific countries:
+    - Peru: adds "region", "province", and "district" variants.
+    - Sri Lanka: adds "district" variant.
+    - Algeria: adds "province" variant.
+    - Venezuela: adds "(state)" variant.
+    - Ecuador: adds "province" variant.
+
+    Parameters:
+        data (dict[str, dict[str, str]]): Source mapping from region-group names to mappings of region name -> label.
+
+    Returns:
+        dict[str, str]: A mapping where keys are region names or generated region-type variants (for example "Lima province" or "Colombo district") and values are their corresponding Arabic labels.
+    """
     ALGERIA_PROVINCE = data.get("ALGERIA_PROVINCE", {})
     ECUADOR_PROVINCE = data.get("ECUADOR_PROVINCE", {})
     LEGACY_UK_COUNTY = data.get("LEGACY_UK_COUNTY", {})
