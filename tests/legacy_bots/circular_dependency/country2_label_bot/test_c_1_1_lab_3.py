@@ -99,7 +99,6 @@ fast_data_c_1_1_lab = [
     {"separator": " of ", "key": "mountain ranges of", "output": "سلاسل جبلية في"},
     {"separator": " of ", "key": "mountains and hills of", "output": "جبال وتلال"},
     {"separator": " of ", "key": "national parks of", "output": "متنزهات وطنية في"},
-    {"separator": " of ", "key": "national sports teams of", "output": "منتخبات رياضية وطنية في"},
     {"separator": " of ", "key": "native birds of", "output": "طيور محلية في"},
     {"separator": " of ", "key": "naval battles of", "output": "معارك بحرية"},
     {"separator": " of ", "key": "peace treaties of", "output": "معاهدات سلام"},
