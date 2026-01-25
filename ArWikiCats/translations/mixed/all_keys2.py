@@ -27,8 +27,7 @@ from __future__ import annotations
 from typing import Dict
 
 from ..helps import len_print
-from ..utils.json_dir import open_json_file
-from .all_keys2_builder import (
+from ..keys_builders.all_keys2_builder import (
     _build_book_entries,
     _build_cinema_entries,
     _build_literature_area_entries,
@@ -36,6 +35,7 @@ from .all_keys2_builder import (
     build_pf_keys2,
     handle_the_prefix,
 )
+from ..utils.json_dir import open_json_file
 
 # from ..jobs.jobs_singers import SINGERS_TAB
 # from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
