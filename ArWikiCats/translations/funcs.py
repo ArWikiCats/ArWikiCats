@@ -11,6 +11,12 @@ from ..helps import logger
 from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
 from .mixed.all_keys2 import pf_keys2
 from .utils.json_dir import open_json_file
+from .geo.us_counties import US_COUNTY_TRANSLATIONS
+
+ALIASES_CHAIN.update({
+    "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
+    "pf_keys2": pf_keys2,
+})
 
 # Match "X and Y" patterns
 AND_PATTERN = re.compile(r"^(.*?) and (.*)$", flags=re.IGNORECASE)

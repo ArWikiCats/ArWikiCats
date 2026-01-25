@@ -606,12 +606,12 @@ tato_type = {
     "world war ii museums": "متاحف الحرب العالمية الثانية",
 }
 
+from .all_keys2_builder import build_pf_keys2, handle_the_prefix, _update_lowercase
+
 ctl_data = open_json_file("sports/clubs_teams_leagues.json") or {}
 clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
 keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
-
-from .all_keys2_builder import build_pf_keys2, handle_the_prefix, _update_lowercase
 
 pf_keys2: Dict[str, str] = build_pf_keys2(
     ALBUMS_TYPE,

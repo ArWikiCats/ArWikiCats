@@ -5,7 +5,6 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping
 
 from ..helps import len_print, logger
-from ..mixed.all_keys2 import pf_keys2
 from ..mixed.all_keys5 import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
 from ..tax_table import Taxons_table as TAXON_TABLE
@@ -14,7 +13,6 @@ from .Cities import CITY_TRANSLATIONS_LOWER
 from .labels_country2 import COUNTRY_ADMIN_LABELS
 from .regions import MAIN_REGION_TRANSLATIONS
 from .regions2 import INDIA_REGION_TRANSLATIONS, SECONDARY_REGION_TRANSLATIONS
-from .us_counties import US_COUNTY_TRANSLATIONS
 
 US_STATES = {
     "georgia (u.s. state)": "ولاية جورجيا",
@@ -315,12 +313,6 @@ def _build_country_label_index() -> dict[str, str]:
         "raw_region_overrides": raw_region_overrides,  # 1782
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,  # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,  # 1424
-        # "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,                          # 5191
-        # "pf_keys2": pf_keys2,                                              # 35730,
-        # "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,                  # 2998
-        # "JAPAN_LABELS": JAPAN_LABELS,                                      # 162
-        # "TURKEY_LABELS": TURKEY_LABELS,                                    # 243
-        # "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,                          # 10
     }
     for name, mapping in to_update.items():
         logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
@@ -352,8 +344,6 @@ ALIASES_CHAIN = {
     "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,
     "TURKEY_LABELS": TURKEY_LABELS,
     "JAPAN_LABELS": JAPAN_LABELS,
-    "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
-    "pf_keys2": pf_keys2,
     "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,
 }
 
