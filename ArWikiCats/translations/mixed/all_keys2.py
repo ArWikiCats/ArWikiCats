@@ -37,7 +37,7 @@ from ..keys_builders.all_keys2_builder import (
 )
 from ..utils.json_dir import open_json_file
 
-# from ..jobs.jobs_singers import SINGERS_TAB
+# from ..jobs import SINGERS_TAB
 # from ..languages import MEDIA_CATEGORY_TRANSLATIONS, language_key_translations
 # from ..sports import TENNIS_KEYS
 # from ..tv.films_mslslat import film_keys_for_female, film_keys_for_male

@@ -1,7 +1,7 @@
 """ """
 
 from .helps import len_print
-from .jobs.jobs_singers import SINGERS_TAB
+from .jobs import SINGERS_TAB
 from .mixed.all_keys2 import (
     generate_key_mappings,
 )
