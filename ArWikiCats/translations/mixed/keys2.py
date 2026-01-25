@@ -2,7 +2,6 @@
 Helper utilities and datasets for the mixed key collections.
 """
 
-from ..geo import USA_PARTY_DERIVED_KEYS
 from ..helps import len_print
 from ..others import medical_keys
 from ..utils.json_dir import open_json_file
@@ -93,8 +92,7 @@ def build_keys2_mapping() -> dict[str, str]:
     data = open_json_file("keys/keys2.json") or {}
     data.update(PARTIES)
 
-    for xg, xg_lab in USA_PARTY_DERIVED_KEYS.items():
-        data[xg.lower()] = xg_lab
+    # for xg, xg_lab in USA_PARTY_DERIVED_KEYS.items(): data[xg.lower()] = xg_lab
 
     return data
 

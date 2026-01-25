@@ -1,12 +1,4 @@
-"""
-Company-related translations for the ArWikiCats project.
-This module provides Arabic translations for various company types, industries,
-and organization names used in Wikipedia categories.
-"""
-
-from ...helps import len_print
-
-COMPANY_TYPE_TRANSLATIONS = {
+{
     "privately held": "خاصة",
     "airliner": "طائرات",
     "condiment": "توابل",
@@ -55,7 +47,6 @@ COMPANY_TYPE_TRANSLATIONS = {
     "electric power": "طاقة كهربائية",
     "engineering": "هندسية",
     "electrical engineering": "هندسة كهربائية",
-    # "entertainment":"ترفيهية",
     "entertainment": "ترفيه",
     "eyewear": "نظارات",
     "financial": "مالية",
@@ -74,7 +65,6 @@ COMPANY_TYPE_TRANSLATIONS = {
     "internet service providers": "تزويد خدمة الإنترنت",
     "investment": "استثمارية",
     "jewellery": "مجوهرات",
-    # "law":"مؤسسات قانون",
     "management consulting": "استشارات إدارية",
     "manufacturing": "تصنيع",
     "map": "خرائط",
@@ -83,7 +73,6 @@ COMPANY_TYPE_TRANSLATIONS = {
     "metal": "معادن",
     "mining": "تعدين",
     "vehicle manufacturing": "تصنيع مركبات",
-    # "motor vehicle manufacturers":"تصنيع السيارات",
     "motor vehicle manufacturers": "مصانع سيارات",
     "music": "الموسيقى",
     "paint and coatings": "رسم وطلاء",
@@ -139,12 +128,5 @@ COMPANY_TYPE_TRANSLATIONS = {
     "military logistics": "لوجستية عسكرية",
     "wholesalers": "بيع بالجملة",
     "department stores": "متاجر متعددة الأقسام",
-    "clothing retailers": "متاجر ملابس بالتجزئة",
+    "clothing retailers": "متاجر ملابس بالتجزئة"
 }
-
-len_print.data_len(
-    "companies.py",
-    {
-        "COMPANY_TYPE_TRANSLATIONS": COMPANY_TYPE_TRANSLATIONS,
-    },
-)

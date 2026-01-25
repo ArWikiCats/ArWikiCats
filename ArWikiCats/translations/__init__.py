@@ -60,7 +60,6 @@ from .nats.Nationality import (
     raw_nats_as_en_key,
 )
 from .others import (
-    COMPANY_TYPE_TRANSLATIONS,
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
@@ -149,7 +148,6 @@ __all__ = [
     "LANGUAGE_TOPIC_FORMATS",
     "religious_entries",
     "New_female_keys",
-    "COMPANY_TYPE_TRANSLATIONS",
     "ministers_keys",
     "People_key",
 ]

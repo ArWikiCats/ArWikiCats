@@ -1,18 +1,20 @@
 """ """
 
+from .geo import USA_PARTY_DERIVED_KEYS
 from .helps import len_print
 from .jobs import SINGERS_TAB
-from .mixed.all_keys2 import (
-    generate_key_mappings,
-)
-from .mixed.all_keys3 import (
+from .mixed import (
     ALBUMS_TYPE,
+    NEW_2023,
+    generate_key_mappings,
+    keys2_py,
+    new2019,
+    pop_final6,
     pop_final_3,
 )
-from .mixed.all_keys4 import new2019
-from .mixed.keys2 import keys2_py
-from .mixed.keys_23 import NEW_2023
-from .mixed.Newkey import pop_final6
+
+new2019.update(USA_PARTY_DERIVED_KEYS)
+
 from .others import (
     MEDIA_CATEGORY_TRANSLATIONS,
     language_key_translations,
