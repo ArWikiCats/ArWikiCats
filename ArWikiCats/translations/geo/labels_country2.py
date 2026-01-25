@@ -227,7 +227,13 @@ PROVINCE_LABELS = {
 }
 
 
-def generate_complete_label_mapping(ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches):
+def generate_complete_label_mapping(
+    ADDITIONAL_REGION_KEYS,
+    SWISS_CANTON_LABELS,
+    PROVINCE_LABEL_OVERRIDES,
+    PROVINCE_LABELS,
+    region_suffix_matches
+) -> dict[str, str]:
     COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
     canton_labels_mapping = map_canton_labels_to_arabic(SWISS_CANTON_LABELS)
     province_labels_dictionary = generate_province_labels(PROVINCE_LABELS)
@@ -237,16 +243,21 @@ def generate_complete_label_mapping(ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS,
     COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
     COUNTRY_ADMIN_LABELS.update(region_suffix_matches)
     COUNTRY_ADMIN_LABELS.update(province_labels_dictionary)
+
     return COUNTRY_ADMIN_LABELS
 
 
 ADDITIONAL_REGION_KEYS = open_json_file("geography/New_Keys.json") or {}
 
-
 region_suffix_matches = map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_KEYS)
 
-COUNTRY_ADMIN_LABELS = generate_complete_label_mapping(ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches)
-
+COUNTRY_ADMIN_LABELS = generate_complete_label_mapping(
+    ADDITIONAL_REGION_KEYS,
+    SWISS_CANTON_LABELS,
+    PROVINCE_LABEL_OVERRIDES,
+    PROVINCE_LABELS,
+    region_suffix_matches
+)
 
 __all__ = [
     "COUNTRY_ADMIN_LABELS",
