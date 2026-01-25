@@ -164,7 +164,7 @@ def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
             continue
         composite_key = f"world {sport_key.lower()} champions"
         result[composite_key] = {
-            "males": f"أبطال العالم {arabic_label} ",
+            "males": f"أبطال العالم {arabic_label}",
             "females": "",
         }
     return result
