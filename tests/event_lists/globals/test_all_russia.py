@@ -709,7 +709,7 @@ data1 = {
     "Categories by language of Russia": "تصنيفات حسب لغة روسيا",
 }
 
-companies_data = {
+companies_test_data = {
     "Agriculture companies of Russia": "شركات زراعة في روسيا",
     "Aluminium companies of Russia": "شركات ألومنيوم في روسيا",
     "Automotive companies of Russia": "شركات سيارات في روسيا",
@@ -783,7 +783,7 @@ companies_data = {
 
 to_test = [
     ("test_all_russia", data1),
-    ("test_companies_russia", companies_data),
+    ("test_companies_russia", companies_test_data),
 ]
 
 

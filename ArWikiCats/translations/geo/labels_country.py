@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping
 
 from ..helps import len_print, logger
-from ..mixed.all_keys5 import BASE_POP_FINAL_5
+from ..mixed import BASE_POP_FINAL_5
 from ..nats.Nationality import all_country_ar
 from ..others import Taxons_table as TAXON_TABLE
 from ._shared import load_json_mapping

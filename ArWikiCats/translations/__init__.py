@@ -24,21 +24,21 @@ from .jobs import (
     jobs_womens_data,
     short_womens_jobs,
 )
-from .mixed.all_keys2 import (
+from .mixed import (
+    ALBUMS_TYPE,
+    FILM_PRODUCTION_COMPANY,
+    INTER_FEDS_LOWER,
+    PARTIES,
     WORD_AFTER_YEARS,
+    Ambassadors_tab,
+    Clubs_key_2,
+    New_female_keys,
     People_key,
     clubs_teams_leagues,
     keys_of_without_in,
+    pop_final_5,
+    religious_entries,
 )
-from .mixed.all_keys3 import (
-    ALBUMS_TYPE,
-    FILM_PRODUCTION_COMPANY,
-    Ambassadors_tab,
-)
-from .mixed.all_keys4 import INTER_FEDS_LOWER, Clubs_key_2
-from .mixed.all_keys5 import pop_final_5
-from .mixed.female_keys import New_female_keys, religious_entries
-from .mixed.keys2 import PARTIES
 from .nats.Nationality import (
     All_Nat,
     Nat_men,

@@ -8,8 +8,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Mapping, MutableMapping
 
 from ..helps import len_print
-from ..mixed.all_keys2 import BOOK_CATEGORIES
-from ..mixed.female_keys import RELIGIOUS_FEMALE_KEYS
+from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
 from ..nats.Nationality import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS
 from ..utils.json_dir import open_json_file
