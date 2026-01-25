@@ -66,8 +66,8 @@ def Get_country2(country: str) -> str:
     resolved_label = (
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
-        or get_KAKO(country)
         or get_pop_All_18(country)
+        or get_KAKO(country)
         or translate_general_category_wrap(country, start_get_country2=False)
         or ""
     )

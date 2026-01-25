@@ -12,14 +12,10 @@ from ...helps import logger
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys
-from ...translations import (
-    Films_key_man,
-)
-from ..legacy_resolvers_bots.bot_2018 import pop_All_2018
+from ...translations import Films_key_man
 from .bot import Films_O_TT, players_new_keys
 
 KAKO: Dict[str, Dict[str, str]] = {
-    "pop_All_2018": pop_All_2018,  # 161
     "Films_key_man": Films_key_man,  # 74
     "Films_O_TT": Films_O_TT,  # 0
     "players_new_keys": players_new_keys,  # 1,719

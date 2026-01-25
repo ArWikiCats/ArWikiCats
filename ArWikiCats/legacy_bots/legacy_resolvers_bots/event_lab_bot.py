@@ -77,8 +77,8 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
 # Standard resolver chain for country-based labels
 _STANDARD_COUNTRY_RESOLVERS: list[ResolverFn] = [
     get_lab_for_country2,
-    get_KAKO,
     get_pop_All_18,
+    get_KAKO,
 ]
 
 
