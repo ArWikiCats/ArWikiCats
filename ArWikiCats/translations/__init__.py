@@ -12,10 +12,18 @@ from .geo import (
     US_STATES,
     raw_region_overrides,
 )
-from .jobs.Jobs import Jobs_new, jobs_mens_data, jobs_womens_data
-from .jobs.jobs_data_basic import NAT_BEFORE_OCC, NAT_BEFORE_OCC_BASE, RELIGIOUS_KEYS_PP
-from .jobs.jobs_players_list import PLAYERS_TO_MEN_WOMENS_JOBS, SPORT_JOB_VARIANTS
-from .jobs.jobs_womens import FEMALE_JOBS_BASE_EXTENDED, short_womens_jobs
+from .jobs import (
+    FEMALE_JOBS_BASE_EXTENDED,
+    NAT_BEFORE_OCC,
+    NAT_BEFORE_OCC_BASE,
+    PLAYERS_TO_MEN_WOMENS_JOBS,
+    RELIGIOUS_KEYS_PP,
+    SPORT_JOB_VARIANTS,
+    Jobs_new,
+    jobs_mens_data,
+    jobs_womens_data,
+    short_womens_jobs,
+)
 from .mixed.all_keys2 import (
     WORD_AFTER_YEARS,
     People_key,

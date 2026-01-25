@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from ArWikiCats.translations.jobs import (
-    Jobs_new,
-    jobs_mens_data,
     JOBS_2,
     JOBS_3333,
     NAT_BEFORE_OCC,
+    Jobs_new,
+    jobs_mens_data,
 )
 
 
