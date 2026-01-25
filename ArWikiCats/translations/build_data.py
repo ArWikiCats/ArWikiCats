@@ -13,7 +13,7 @@ from .mixed.all_keys4 import new2019
 from .mixed.keys2 import keys2_py
 from .mixed.keys_23 import NEW_2023
 from .mixed.Newkey import pop_final6
-from .others.languages import (
+from .others import (
     MEDIA_CATEGORY_TRANSLATIONS,
     language_key_translations,
 )

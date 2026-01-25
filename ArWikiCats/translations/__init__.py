@@ -59,14 +59,14 @@ from .nats.Nationality import (
     en_nats_to_ar_label,
     raw_nats_as_en_key,
 )
-from .others.companies import COMPANY_TYPE_TRANSLATIONS
-from .others.languages import (
+from .others import (
+    COMPANY_TYPE_TRANSLATIONS,
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
     language_key_translations,
+    ministers_keys,
 )
-from .others.ministers import ministers_keys
 from .sports.games_labs import SUMMER_WINTER_GAMES
 from .sports.Sport_key import (
     SPORT_KEY_RECORDS,
