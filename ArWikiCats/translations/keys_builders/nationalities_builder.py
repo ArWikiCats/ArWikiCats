@@ -43,6 +43,7 @@ def build_nationality_structure(val):
 # Section 1: Load and prepare JSON sources
 # =====================================================================
 
+
 def load_sources(
     raw_all_nat_o: AllNatDict,
     nationality_directions_mapping: AllNatDict,
@@ -220,7 +221,7 @@ def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
     Returns: (updated_all_nat, count_of_added_items)
     """
 
-    American_nat = {}
+    data = {}
 
     for nat_key, entry in all_nat_o.items():
         male = entry["male"]
@@ -244,13 +245,13 @@ def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
         }
 
         key_lower = nat_key.lower()
-        American_nat[f"{key_lower}-american"] = new_entry
+        data[f"{key_lower}-american"] = new_entry
 
         # Special case
         if key_lower == "jewish":
-            American_nat[f"{key_lower} american"] = new_entry
+            data[f"{key_lower} american"] = new_entry
 
-    return American_nat
+    return data
 
 
 # =====================================================================
