@@ -59,7 +59,6 @@ def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_
 
 
 def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
-
     """
     Build a mapping of Swiss canton identifiers to Arabic labels, including "canton-of" prefixed keys.
 
