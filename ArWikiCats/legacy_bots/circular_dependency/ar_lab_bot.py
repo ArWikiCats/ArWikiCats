@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 """
 Arabic Label Builder Module
+
+This module builds Arabic labels from English category strings.
+Uses lazy imports for country_bot to break circular dependency.
 """
 
 import functools
 import re
 from dataclasses import dataclass
-from typing import Tuple
+from typing import TYPE_CHECKING, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
@@ -20,7 +23,11 @@ from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
-from . import country_bot
+from .interfaces import get_country_term_label_resolver, get_event2_d2_resolver
+
+# Type checking imports - these are not executed at runtime
+if TYPE_CHECKING:
+    from . import country_bot
 
 separators_lists_raw = [
     "in",
@@ -58,9 +65,11 @@ class CountryResolver:
         result = for_table.get(country, "") if preposition.lower() == "for" else ""
 
         if not result:
+            # Use lazy import to avoid circular dependency
+            fetch_country_term_label = get_country_term_label_resolver()
             result = (
                 get_pop_All_18(country)
-                or country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
+                or fetch_country_term_label(country, preposition, "", start_get_country2)
                 or get_con_label(country)
                 or tmp_bot.Work_Templates(country)
                 or _lookup_country_with_by(country)
@@ -260,9 +269,11 @@ def wrap_event2(category: str, separator: str = "") -> str:
     Returns:
         str: The first non-empty label returned by the resolvers, or an empty string if none match.
     """
+    # Use lazy import to avoid circular dependency
+    event2_d2 = get_event2_d2_resolver()
     result = (
         university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
+        or event2_d2(category)
         or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""
