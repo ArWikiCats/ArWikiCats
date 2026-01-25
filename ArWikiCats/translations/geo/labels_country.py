@@ -348,6 +348,15 @@ def _build_country_label_index() -> dict[str, str]:
 
 NEW_P17_FINAL = _build_country_label_index()  # 68,981
 
+ALIASES_CHAIN = {
+    "COMPANY_LABELS_NEW": COMPANY_LABELS_NEW,
+    "TURKEY_LABELS": TURKEY_LABELS,
+    "JAPAN_LABELS": JAPAN_LABELS,
+    "US_COUNTY_TRANSLATIONS": US_COUNTY_TRANSLATIONS,
+    "pf_keys2": pf_keys2,
+    "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,
+}
+
 
 def get_from_new_p17_aliases(text: str, default: str | None = "") -> str:
     """Look up the Arabic label for a term in alias mappings."""
