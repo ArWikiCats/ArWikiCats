@@ -6,6 +6,7 @@ geography, jobs, languages, nationalities, sports, and media.
 
 import functools
 import re
+
 from ..helps import logger
 from .geo.labels_country import ALIASES_CHAIN, NEW_P17_FINAL
 from .mixed.all_keys2 import pf_keys2
