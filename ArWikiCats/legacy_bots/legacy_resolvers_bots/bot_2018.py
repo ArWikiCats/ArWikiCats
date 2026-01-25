@@ -17,12 +17,11 @@ from ...translations import (
     Jobs_new,
     films_mslslat_tab,
     jobs_mens_data,
-    open_json_file,
     pf_keys2,
     pop_final_5,
     sub_teams_new,
 )
-from ...translations.funcs import get_from_new_p17_final
+from ...translations.funcs import get_from_new_p17_final, open_json_file
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 
