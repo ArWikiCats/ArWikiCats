@@ -21,7 +21,7 @@ from .jobs_players_list import FOOTBALL_KEYS_PLAYERS, PLAYERS_TO_MEN_WOMENS_JOBS
 from .jobs_singers import MEN_WOMENS_SINGERS, MEN_WOMENS_SINGERS_BASED
 from .jobs_womens import short_womens_jobs
 
-from .jobs_builders import (
+from ..keys_builders.jobs_builders import (
     _build_jobs_new,
     _finalise_jobs_dataset,
 )
