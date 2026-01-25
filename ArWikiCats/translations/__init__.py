@@ -5,7 +5,7 @@ geography, jobs, languages, nationalities, sports, and media.
 """
 
 # NOTE: imports of functions have been moved to funcs.py
-
+# (geo|jobs|mixed|nats|others|sports|tv)
 from .geo import (
     CITY_TRANSLATIONS_LOWER,
     COUNTRY_LABEL_OVERRIDES,
@@ -39,7 +39,7 @@ from .mixed import (
     pop_final_5,
     religious_entries,
 )
-from .nats.Nationality import (
+from .nats import (
     All_Nat,
     Nat_men,
     Nat_mens,

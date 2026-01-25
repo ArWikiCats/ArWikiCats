@@ -11,10 +11,7 @@ from __future__ import annotations
 from typing import Dict, Mapping
 
 from ..helps import len_print
-from ..sports import (
-    SPORTS_KEYS_FOR_LABEL,
-    SPORTS_KEYS_FOR_TEAM,
-)
+from ..sports import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 from ..utils.json_dir import open_json_file
 from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 
@@ -371,8 +368,6 @@ SKATING_LABELS = _build_skating_labels(SKATING_DISCIPLINE_LABELS)
 SKATING_LABELS = {x: v for x, v in SKATING_LABELS.items() if x not in BASE_PLAYER_VARIANTS}
 
 GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SCOPE_ROLES)
-CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
-WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
 
 # SPORT_JOB_VARIANTS = _build_sports_job_variants(SPORTS_KEYS_FOR_JOBS, FOOTBALL_KEYS_PLAYERS)
 SPORT_JOB_VARIANTS = open_json_file("SPORT_JOB_VARIANTS_found.json") or {}
@@ -446,6 +441,11 @@ SPORT_JOB_VARIANTS_additional = {
 }
 
 SPORT_JOB_VARIANTS.update(SPORT_JOB_VARIANTS_additional)
+
+# TODO: these 2 should be removed
+CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
+WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
+
 
 PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     STATIC_PLAYER_LABELS,
