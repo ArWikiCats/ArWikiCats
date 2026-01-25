@@ -1,8 +1,19 @@
-# Legacy Bots Static Analysis & Refactoring Roadmap
+# Legacy Bots Static Analysis & Refactoring Roadmap (Execution Log)
 
 **Scope**: `ArWikiCats/legacy_bots/` only
 **Analysis Date**: 2026-01-26
+**Status**: In Progress (Kickoff)
 **Total Files Analyzed**: 32 Python modules
+
+---
+
+## 0. Kickoff Tasks
+
+- [x] Read the roadmap
+- [x] Confirm scope limited to `ArWikiCats/legacy_bots/`
+- [ ] Create minimal tracking checklist
+- [ ] Identify first actionable task from Phase 1
+- [ ] Open draft PR description checklist
 
 ---
 
