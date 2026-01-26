@@ -1932,4 +1932,134 @@ Refactoring should achieve:
 
 ---
 
+## 9. Refactoring Checklist
+
+### Phase 1: Break Circular Dependencies
+
+- [ ] **Infrastructure Setup**
+  - [ ] Create `resolvers/` directory to replace `circular_dependency/`
+  - [ ] Create `resolvers/interface.py` for abstract base classes
+  - [ ] Create `resolvers/__init__.py` for clean imports
+
+- [ ] **Data Extraction**
+  - [ ] Extract `ar_lab_bot.find_ar_label()` to a separate module
+  - [ ] Extract `event2_d2` logic from `country_bot.py` to `resolvers/event_based_resolver.py`
+
+- [ ] **Module Refactoring**
+  - [ ] Refactor `country_bot.py` -> `resolvers/country_resolver.py` using composition
+  - [ ] Refactor `ar_lab_bot.py` -> `resolvers/arabic_label_builder.py` and `resolvers/preposition_handler.py`
+  - [ ] Refactor `general_resolver.py` -> `resolvers/separator_based_resolver.py`
+  - [ ] Refactor `sub_general_resolver.py` (if applicable) or merge logic
+  - [ ] Delete `circular_dependency/` directory once empty
+
+### Phase 2: Extract Value Objects & Constants
+
+- [ ] **Constants Package**
+  - [ ] Create `constants/` directory and `__init__.py`
+  - [ ] Create `constants/suffixes.py` (from `data/mappings.py`)
+  - [ ] Create `constants/prefixes.py` (from `data/mappings.py`)
+  - [ ] Create `constants/separators.py` with `Separator` class and `VALID_SEPARATORS`
+  - [ ] Create `constants/patterns.py` for regex constants
+  - [ ] Create `constants/event_constants.py` (from `legacy_resolvers_bots/event_lab_bot.py`)
+  - [ ] Create `constants/label_rules.py` (from `legacy_utils/data.py` - `Add_in_table`, etc.)
+
+- [ ] **Type Definitions**
+  - [ ] Define `Category`, `ArabicLabel` value objects
+
+### Phase 3: Implement Composition Over Inheritance
+
+- [ ] **CountryResolver Redesign**
+  - [ ] Implement `CountryResolver` with `_lookup_chain` (composition)
+  - [ ] Replace `CountryLabelRetriever` inheritance hierarchy
+
+- [ ] **ArabicLabelBuilder Redesign**
+  - [ ] Implement `ArabicLabelBuilder` taking `CountryResolver`, `TypeResolver`, `PrepositionHandler`
+  - [ ] Update `LabelPipeline.build()` to use composition
+
+### Phase 4: Centralize Data Access
+
+- [ ] **Data Access Layer**
+  - [ ] Create `data_access/` directory and `__init__.py`
+  - [ ] Create `data_access/label_registry.py` (Thread-safe registry for `players_new_keys`, `Films_O_TT`)
+  - [ ] Create `data_access/table_checker.py` (Refactor `make_bots/check_bot.py`)
+  - [ ] Create `data_access/composite_resolver.py` (Refactor `make_bots/table1_bot.py`)
+  - [ ] Create `data_access/population_loader.py` (Refactor `legacy_resolvers_bots/bot_2018.py`)
+  - [ ] Create `data_access/repositories.py`
+
+- [ ] **Data Files**
+  - [ ] Extract `known_political_bodies` from `legacy_resolvers_bots/with_years_bot.py` to `data/year_data.py`
+  - [ ] Extract `arabic_labels_preceding_year` from `legacy_resolvers_bots/with_years_bot.py` to `data/year_data.py`
+  - [ ] Refactor `data/mappings.py` into `data/number_mappings.py`, `data/suffix_mappings.py`, `data/prefix_mappings.py`, `data/type_mappings.py`
+
+### Phase 5: Reduce Method Complexity
+
+- [ ] **Specific Method Refactoring**
+  - [ ] `ar_lab_bot.py`: Refactor `determine_separator()` -> `SeparatorStrategy`
+  - [ ] `country_bot.py`: Refactor `_handle_type_lab_logic()`
+  - [ ] `country2_label_bot.py`: Refactor `make_cnt_lab()` -> `LabelCombiner.combine()`
+
+### Phase 6: Standardize Error Handling
+
+- [ ] **Core Types**
+  - [ ] Create `core/types.py` with `ResolutionResult` dataclass
+  - [ ] Create `core/exceptions.py` with `ResolutionError` and subclasses
+  - [ ] Update resolvers to return `Result` objects or handle exceptions properly (optional, vs empty strings)
+
+### Phase 7: Improve Testability
+
+- [ ] **Dependency Injection**
+  - [ ] Update all resolver constructors to accept dependencies
+  - [ ] Remove global state usage (`Films_O_TT`, etc.) in functions
+  - [ ] Create `core/category_parser.py` with `ParsedCategory` (Refactor `make_bots/reg_result.py`)
+  - [ ] Create `core/label_formatter.py` (Refactor `legacy_utils/fixing.py`)
+  - [ ] Create `core/separator_parser.py` (Refactor `legacy_utils/utils.py`)
+  - [ ] Refactor `legacy_utils/joint_class.py` -> `resolvers/prefix_handlers.py`
+
+### Concrete File Refactoring Steps
+
+#### entry point (`__init__.py`)
+- [ ] Add `Resolver` Protocol type hint
+- [ ] Define `RESOLVER_PIPELINE` list
+- [ ] Reduce cache size on `legacy_resolvers` and normalize input key
+
+#### `legacy_resolvers_bots/event_lab_bot.py`
+- [ ] Refactor into `resolvers/event_resolver.py`
+- [ ] Implement `EventResolver` class
+- [ ] Extract constants to `constants/event_constants.py`
+- [ ] Remove duplicate `translate_general_category_wrap`
+
+#### `legacy_resolvers_bots/with_years_bot.py`
+- [ ] Refactor into `resolvers/year_based_resolver.py`
+- [ ] Implement `YearBasedResolver` class
+- [ ] Extract data to `data/year_data.py`
+
+#### `legacy_resolvers_bots/year_or_typeo.py`
+- [ ] Refactor into `resolvers/year_prefix_resolver.py`
+- [ ] Implement `YearPrefixResolver` class
+- [ ] Simplify `new_func_mk2` logic
+
+#### `legacy_resolvers_bots/bys.py`
+- [ ] Refactor into `resolvers/by_pattern_resolver.py`
+- [ ] Implement `ByPatternResolver` class
+
+#### `legacy_resolvers_bots/mk3.py`
+- [ ] Refactor into `resolvers/preposition_builder.py`
+- [ ] Implement `PrepositionBuilder` and `PrepositionContext`
+
+#### `legacy_resolvers_bots/country2_label_bot.py`
+- [ ] Refactor into `resolvers/two_part_resolver.py`
+- [ ] Implement `TwoPartResolver` class with `LabelCombiner`
+
+#### `end_start_bots/fax2.py`
+- [ ] Refactor into `matchers/pattern_matcher.py`
+- [ ] Implement `SuffixMatcher` class
+
+#### `end_start_bots/utils.py`
+- [ ] Refactor into `matchers/dictionary_matcher.py`
+- [ ] Implement `DictionaryMatcher` and `PatternEntry`
+
+#### `utils/regex_hub.py`
+- [ ] Enhance with `RegexPattern` Enum
+- [ ] Add docstrings to patterns
+
 **Analysis Complete**
