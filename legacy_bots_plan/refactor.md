@@ -96,7 +96,7 @@ ar_lab_bot.py imports:
 class CountryLabelRetriever(CountryLabelAndTermParent):
     def get_country_label(self, country: str, ...):  # 67 lines
     def _check_basic_lookups(self, country: str):    # 23 lines
-    def get_term_label(...):                         # 82 lines
+    def fetch_country_term_label(...):                         # 82 lines
     def _handle_type_lab_logic(self, ...):           # 52 lines
 ```
 

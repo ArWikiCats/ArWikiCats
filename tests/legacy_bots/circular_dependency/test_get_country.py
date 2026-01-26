@@ -5,7 +5,7 @@ TODO: write tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.legacy_bots.circular_dependency.country_bot import get_country_label
+from ArWikiCats.legacy_bots.resolvers.country_resolver import get_country_label
 
 data_1 = {}
 

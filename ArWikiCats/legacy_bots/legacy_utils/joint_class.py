@@ -82,7 +82,7 @@ class CountryLabelAndTermParent:
             resolved_label = Nat_mens.get(country2, "")
             if resolved_label:
                 resolved_label = f"{resolved_label} أعضاء في  "
-                logger.info(f"a<<lightblue>>>2021 get country_label lab = {resolved_label}")
+                logger.info(f"a<<lightblue>>>2021 get_country_label lab = {resolved_label}")
                 return resolved_label
         return ""
 

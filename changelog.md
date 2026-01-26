@@ -1,3 +1,29 @@
+## [Refactor legacy_bots package to eliminate circular dependencies] - 2026-01-26
+
+This pull request refactors the `legacy_bots/` package to break circular dependencies using a callback injection pattern.
+
+### Added
+* Created new `resolvers/` package with clean DAG architecture:
+  - `interface.py`: Protocol definitions for resolvers
+  - `country_resolver.py`: Country-based label resolution
+  - `arabic_label_builder.py`: Arabic label construction
+  - `separator_based_resolver.py`: Separator-based resolution
+  - `sub_resolver.py`: Sub-category resolution utilities
+  - `factory.py`: Wires together and sets up callbacks
+
+### Changed
+* Implemented callback injection pattern to break circular imports:
+  - `country_resolver.py` uses `set_fallback_resolver()` for fallback resolution
+  - `country2_label_bot.py` uses `set_term_label_resolver()` for term label resolution
+  - `with_years_bot.py` uses `set_translate_callback()` for translation
+* Updated all dependent files to import from new resolvers package:
+  - `event_lab_bot.py`, `with_years_bot.py`, `year_or_typeo.py`
+* Updated all test files to import from `resolvers` instead of `circular_dependency`
+
+### Fixed
+* Eliminated circular import chain: `country_bot → general_resolver → ar_lab_bot → country_bot`
+* All 4609 legacy_bots tests passing
+
 ## [Update test expectations for corrected translation outputs] - 2026-01-25
 
 This pull request updates test expectations to align with improved Arabic translations for National Assembly categories and the Croatian War of Independence.
