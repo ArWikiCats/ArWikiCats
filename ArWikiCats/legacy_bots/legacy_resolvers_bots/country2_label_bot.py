@@ -38,14 +38,14 @@ def set_term_label_resolver(resolver: TermLabelResolver) -> None:
     after all modules are loaded.
 
     Parameters:
-        resolver: A callable that takes (term_lower: str, separator: str, lab_type: str, start_get_country2: bool)
+        resolver: A callable that takes (term_lower: str, separator: str, lab_type: str)
                   and returns an Arabic label string.
     """
     global _term_label_resolver
     _term_label_resolver = resolver
 
 
-def _get_term_label(term: str, separator: str = "", lab_type: str = "", start_get_country2: bool = True) -> str:
+def _get_term_label(term: str, separator: str = "", lab_type: str = "") -> str:
     """
     Get label from the term label resolver if one is set.
 
@@ -53,13 +53,12 @@ def _get_term_label(term: str, separator: str = "", lab_type: str = "", start_ge
         term: The term to resolve.
         separator: The separator context.
         lab_type: The label type (e.g., "type_label").
-        start_get_country2: Whether to use country2 fallback.
 
     Returns:
         The resolved label from the term label resolver, or empty string if not set.
     """
     if _term_label_resolver is not None:
-        return _term_label_resolver(term, separator, lab_type, start_get_country2)
+        return _term_label_resolver(term, separator, lab_type)
     return ""
 
 

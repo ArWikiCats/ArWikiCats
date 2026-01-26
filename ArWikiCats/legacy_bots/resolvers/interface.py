@@ -13,7 +13,7 @@ from typing import Protocol, Tuple
 class CountryLabelResolver(Protocol):
     """Protocol for resolving country labels."""
 
-    def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
+    def get_country_label(self, country: str) -> str:
         """Resolve an Arabic label for a country name."""
         ...
 
@@ -26,7 +26,7 @@ class TermLabelResolver(Protocol):
         term_lower: str,
         separator: str,
         lab_type: str = "",
-        start_get_country2: bool = True,
+
     ) -> str:
         """Resolve an Arabic label for a term."""
         ...

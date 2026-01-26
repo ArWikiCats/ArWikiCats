@@ -57,13 +57,12 @@ def _resolve_via_chain(category: str, resolvers: list[ResolverFn]) -> str:
     return ""
 
 
-def translate_general_category_wrap(category: str, start_get_country2: bool = False) -> str:
+def translate_general_category_wrap(category: str) -> str:
     """
     Produce an Arabic label for a general category using available translation strategies.
 
     Parameters:
         category (str): Category title to translate.
-        start_get_country2 (bool): If True, enable the resolver variant that prioritizes country-based translations.
 
     Returns:
         str: Arabic label if a translation is found, otherwise an empty string.
@@ -71,7 +70,7 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
     arlabel = (
         ""
         or sub_translate_general_category(category)
-        or work_separator_names(category, start_get_country2=start_get_country2)
+        or work_separator_names(category)
     )
     return arlabel
 
@@ -175,7 +174,7 @@ class EventLabResolver:
             country_resolvers: list[ResolverFn] = [
                 country2_label_bot.country_2_title_work,
                 *_STANDARD_COUNTRY_RESOLVERS,
-                lambda c: translate_general_category_wrap(c, start_get_country2=False),
+                lambda c: translate_general_category_wrap(c),
             ]
             category_lab = _resolve_via_chain(original_cat3, country_resolvers)
 

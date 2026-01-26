@@ -15,7 +15,7 @@ from __future__ import annotations
 from ...fix import fixtitle
 
 
-def translate_general_category_wrap(category: str, start_get_country2: bool = False) -> str:
+def translate_general_category_wrap(category: str) -> str:
     """
     Resolve an Arabic label for a general category using layered resolvers.
 
@@ -24,8 +24,6 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
 
     Parameters:
         category (str): The input category string to resolve.
-        start_get_country2 (bool): If True, allow the resolver to use country-based
-                                    fallback during resolution.
 
     Returns:
         str: Arabic label for the category, or an empty string if unresolved.
@@ -36,7 +34,7 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
     arlabel = (
         ""
         or sub_translate_general_category(category)
-        or work_separator_names(category, start_get_country2=start_get_country2)
+        or work_separator_names(category)
     )
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
@@ -77,8 +75,8 @@ def initialize_resolvers() -> None:
     set_fallback_resolver(translate_general_category_wrap)
 
     # Set up the term label resolver for country2_label_bot
-    def term_label_wrapper(term: str, separator: str, lab_type: str = "", start_get_country2: bool = True) -> str:
-        return fetch_country_term_label(term, separator, lab_type=lab_type, start_get_country2=start_get_country2)
+    def term_label_wrapper(term: str, separator: str, lab_type: str = "") -> str:
+        return fetch_country_term_label(term, separator, lab_type=lab_type)
 
     set_term_label_resolver(term_label_wrapper)
 

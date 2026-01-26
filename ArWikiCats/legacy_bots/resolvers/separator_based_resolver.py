@@ -26,7 +26,6 @@ en_literes = "[a-z]"
 @functools.lru_cache(maxsize=10000)
 def work_separator_names(
     category: str,
-    start_get_country2: bool = False,
 ) -> str:
     """Process categories that contain relational words (separator).
 
@@ -35,7 +34,6 @@ def work_separator_names(
 
     Args:
         category: The category string to process
-        start_get_country2: Whether to start country lookup
 
     Returns:
         The associated Arabic label if found, otherwise an empty string.
@@ -46,7 +44,7 @@ def work_separator_names(
         return ""
 
     logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
-    arlabel = find_ar_label(category, separator, cate_test=category, start_get_country2=start_get_country2)
+    arlabel = find_ar_label(category, separator, cate_test=category)
 
     if not arlabel:
         return ""

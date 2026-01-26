@@ -15,7 +15,6 @@ import functools
 import re
 from typing import Callable, Optional
 
-from ...config import app_settings
 from ...fix import fixtitle
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
@@ -50,26 +49,25 @@ def set_fallback_resolver(resolver: FallbackResolver) -> None:
     after all modules are loaded.
 
     Parameters:
-        resolver: A callable that takes (category: str, start_get_country2: bool)
+        resolver: A callable that takes (category: str)
                   and returns an Arabic label string.
     """
     global _fallback_resolver
     _fallback_resolver = resolver
 
 
-def _get_fallback_label(category: str, start_get_country2: bool = False) -> str:
+def _get_fallback_label(category: str) -> str:
     """
     Get label from the fallback resolver if one is set.
 
     Parameters:
         category: The category string to resolve.
-        start_get_country2: Whether to use country2 fallback.
 
     Returns:
         The resolved label from the fallback resolver, or empty string if not set.
     """
     if _fallback_resolver is not None:
-        return _fallback_resolver(category, start_get_country2)
+        return _fallback_resolver(category)
     return ""
 
 
@@ -95,7 +93,7 @@ def Get_country2(country: str) -> str:
         or get_lab_for_country2(country)
         or get_pop_All_18(country)
         or get_KAKO(country)
-        or _get_fallback_label(country, start_get_country2=False)
+        or _get_fallback_label(country)
         or ""
     )
 
@@ -192,14 +190,12 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         super().__init__(_resolve_callable=Get_country2)
 
     @functools.lru_cache(maxsize=1024)
-    def get_country_label(self, country: str, start_get_country2: bool = True) -> str:
+    def get_country_label(self, country: str) -> str:
         """
         Resolve an Arabic label for a country name using layered lookup strategies.
 
         Parameters:
             country (str): Country name to resolve; case is normalized internally.
-            start_get_country2 (bool): If True, include the enhanced multi-source lookup path
-                                        (Get_country2) as a fallback.
 
         Returns:
             str: The resolved Arabic label, or an empty string if no label is found.
@@ -210,9 +206,6 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         logger.debug(f"<<yellow>> start get_country_label: {country=}")
 
         resolved_label = self._check_basic_lookups(country)
-
-        if resolved_label == "" and start_get_country2:
-            resolved_label = Get_country2(country)
 
         if not resolved_label:
             resolved_label = (
@@ -257,7 +250,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         return label
 
     def fetch_country_term_label(
-        self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+        self, term_lower: str, separator: str, lab_type: str = ""
     ) -> str:
         """
         Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
@@ -266,15 +259,11 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             term_lower (str): The input term in lowercase.
             separator (str): Context separator (e.g., "for", "in") that can affect resolution and recursion.
             lab_type (str): If "type_label", apply specialized suffix-handling logic to produce a type-related label.
-            start_get_country2 (bool): If True, allow the enhanced country-resolution path as a fallback.
 
         Returns:
             str: The resolved Arabic label, or an empty string if no resolution is found.
         """
         logger.info(f'fetch_country_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
-
-        if app_settings.makeerr:
-            start_get_country2 = True
 
         # Check for numeric/empty terms
         test_numeric = re.sub(r"\d+", "", term_lower.strip())
@@ -291,7 +280,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
                 term_without_the = term_lower[len("the ") :]
                 term_label = get_pop_All_18(term_without_the, "")
                 if not term_label:
-                    term_label = self.get_country_label(term_without_the, start_get_country2=start_get_country2)
+                    term_label = self.get_country_label(term_without_the)
 
         if not term_label:
             if re.sub(r"\d+", "", term_lower) == "":
@@ -300,10 +289,10 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
                 term_label = convert_time_to_arabic(term_lower)
 
         if term_label == "":
-            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
+            term_label = self.get_country_label(term_lower)
 
         if not term_label and lab_type == "type_label":
-            term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
+            term_label = self._handle_type_lab_logic(term_lower, separator)
 
         if term_label:
             logger.info(f"fetch_country_term_label {term_label=} ")
@@ -312,14 +301,13 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         return term_label
 
-    def _handle_type_lab_logic(self, term_lower: str, separator: str, start_get_country2: bool) -> str:
+    def _handle_type_lab_logic(self, term_lower: str, separator: str) -> str:
         """
         Resolve a label for terms treated as types that end with suffixes like " of", " in", or " at".
 
         Parameters:
             term_lower (str): Lowercased term to process (may end with " of", " in", or " at").
             separator (str): Separator context such as "in" that can alter fallback behaviour.
-            start_get_country2 (bool): If true, allow the enhanced country lookup path when resolving base terms.
 
         Returns:
             str: The resolved Arabic label for the term, or an empty string if no label is found.
@@ -344,7 +332,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
                 translated_base = get_pop_All_18(base_term, "")
 
             if not translated_base:
-                translated_base = self.get_country_label(base_term, start_get_country2=start_get_country2)
+                translated_base = self.get_country_label(base_term)
 
             if term_label == "" and translated_base:
                 if term_lower in keys_of_without_in:
@@ -359,7 +347,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             term_label = get_pop_All_18(f"{term_lower} in", "")
 
         if not term_label:
-            term_label = self.get_country_label(term_lower, start_get_country2=start_get_country2)
+            term_label = self.get_country_label(term_lower)
 
         return term_label
 
@@ -393,21 +381,20 @@ def event2_d2(category_r: str) -> str:
     return category_lab
 
 
-def get_country_label(country: str, start_get_country2: bool = True) -> str:
+def get_country_label(country: str) -> str:
     """Retrieve the Arabic label for a given country name.
 
     Args:
         country: The country name to look up
-        start_get_country2: Whether to use enhanced country lookup
 
     Returns:
         The Arabic label for the country or an empty string if not found
     """
-    return _retriever.get_country_label(country, start_get_country2)
+    return _retriever.get_country_label(country)
 
 
 def fetch_country_term_label(
-    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+    term_lower: str, separator: str, lab_type: str = ""
 ) -> str:
     """
     Retrieve an Arabic label for a given term or country name using layered resolution strategies.
@@ -416,13 +403,11 @@ def fetch_country_term_label(
         term_lower (str): The lowercase term to look up.
         separator (str): Context separator used when resolving terms (e.g., "for", "in").
         lab_type (str): Optional label type that enables special handling (e.g., "type_label").
-        start_get_country2 (bool): If True, enable the enhanced country lookup path before
-                                    falling back to other resolvers.
 
     Returns:
         str: The resolved Arabic label for the term, or an empty string if no label is found.
     """
-    return _retriever.fetch_country_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
+    return _retriever.fetch_country_term_label(term_lower, separator, lab_type=lab_type)
 
 
 __all__ = [
