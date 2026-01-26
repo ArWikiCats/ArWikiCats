@@ -73,7 +73,7 @@ def _validate_separators(country: str) -> bool:
 
 def check_historical_prefixes(
     country: str,
-    get_country_func: callable,
+    get_country_func: callable = None,
 ) -> str:
     """
     Resolve Arabic labels for strings that start with a historical prefix (for example, "defunct national ...").

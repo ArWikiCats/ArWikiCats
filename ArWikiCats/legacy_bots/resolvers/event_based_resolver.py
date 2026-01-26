@@ -9,7 +9,7 @@ Extracts event2_d2 logic from country_bot.py to avoid circular dependencies.
 import re
 
 from ...helps import logger
-from ..circular_dependency.country_bot import get_country
+
 
 
 def event2_d2(category_r: str) -> str:
@@ -26,6 +26,7 @@ def event2_d2(category_r: str) -> str:
     Returns:
         The processed category label or an empty string if not found
     """
+    from ..circular_dependency.country_bot import get_country
     cat3 = category_r.lower().replace("category:", "").strip()
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
