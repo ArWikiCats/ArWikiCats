@@ -71,7 +71,10 @@ def _validate_separators(country: str) -> bool:
     return not any(sep in country for sep in disallowed_seps)
 
 
-def check_historical_prefixes(country: str) -> str:
+def check_historical_prefixes(
+    country: str,
+    get_country_func: callable,
+) -> str:
     """
     Resolve Arabic labels for strings that start with a historical prefix (for example, "defunct national ...").
 
@@ -170,6 +173,9 @@ def get_country_label(
     Returns:
         The resolved Arabic label, or an empty string if no label is found
     """
+    # if get_country_func is None:
+    get_country_func = Get_country2
+
     country = country.lower()
 
     logger.debug(">> ----------------- get_country start ----------------- ")
@@ -178,17 +184,16 @@ def get_country_label(
     resolved_label = _check_basic_lookups(country)
 
     if resolved_label == "" and start_get_country2:
-        resolved_label = Get_country2(country)
+        resolved_label = get_country_func(country)
 
     if not resolved_label:
         resolved_label = (
-            Get_country2(country)
+            get_country_func(country)
             or _parent_resolver._check_prefixes(country)
             or check_historical_prefixes(country)
             or all_new_resolvers(country)
             or _parent_resolver._check_regex_years(country)
             or _parent_resolver._check_members(country)
-            # or SPORTS_KEYS_FOR_LABEL.get(country, "")
             or ""
         )
 
@@ -409,6 +414,9 @@ def fetch_country_term_label(
 
 
 __all__ = [
-    "fetch_country_term_label",
+    "Get_country2",
     "get_country",
+    "get_country_label",
+    "fetch_country_term_label",
+    "check_historical_prefixes",
 ]
