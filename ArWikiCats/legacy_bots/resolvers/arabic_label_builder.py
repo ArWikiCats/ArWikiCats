@@ -20,8 +20,7 @@ from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
-from . import country_bot
-from ..resolvers import event_based_resolver
+from . import country_resolver
 
 separators_lists_raw = [
     "in",
@@ -61,7 +60,7 @@ class CountryResolver:
         if not result:
             result = (
                 get_pop_All_18(country)
-                or country_bot.fetch_country_term_label(country, preposition, "", start_get_country2)
+                or country_resolver.fetch_country_term_label(country, preposition, "", start_get_country2)
                 or get_con_label(country)
                 or tmp_bot.Work_Templates(country)
                 or _lookup_country_with_by(country)
@@ -263,7 +262,7 @@ def wrap_event2(category: str, separator: str = "") -> str:
     """
     result = (
         university_resolver.resolve_university_category(category)
-        or event_based_resolver.event2_d2(category)
+        or country_resolver.event2_d2(category)
         or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""

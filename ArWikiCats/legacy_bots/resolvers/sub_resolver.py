@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
+Sub-resolver module for general category translation.
 
-arlabel = (
-    ""
-    or sub_general_resolver.sub_translate_general_category(category)
-    or general_resolver.work_separator_names(category)
-)
+This module provides utility functions for translating categories using
+multiple lookup sources. It is extracted from the legacy circular_dependency
+package to break the import cycle.
 """
+
+from __future__ import annotations
 
 import functools
 import re
@@ -24,8 +25,23 @@ en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 @functools.lru_cache(maxsize=10000)
 def sub_translate_general_category(category_r: str) -> str:
     """
-    "Category:20th-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 20 حسب الآلة من أيرلندا الشمالية",
-    "Category:21st-century musicians by instrument from Northern Ireland": "تصنيف:موسيقيون في القرن 21 حسب الآلة من أيرلندا الشمالية",
+    Translate a general category using multiple lookup sources.
+
+    This function attempts to resolve a category label by checking:
+    1. Population data (get_pop_All_18)
+    2. Films lookup table (Films_O_TT)
+    3. Players/jobs tables
+    4. Time conversion
+
+    Parameters:
+        category_r: The category string to translate.
+
+    Returns:
+        The Arabic label if found, otherwise an empty string.
+
+    Example:
+        >>> sub_translate_general_category("Category:20th-century musicians")
+        "موسيقيون في القرن 20"
     """
     category = category_r.replace("_", " ").lower()
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
@@ -47,3 +63,8 @@ def sub_translate_general_category(category_r: str) -> str:
     logger.debug("<<lightyellow>>>> ^^^^^^^^^ sub_translate_general_category end ^^^^^^^^^ ")
 
     return arlabel
+
+
+__all__ = [
+    "sub_translate_general_category",
+]

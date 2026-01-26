@@ -1,10 +1,16 @@
 #!/usr/bin/python3
 """
-Arabic label translation for general categories.
+Separator-Based Resolver Module
 
 This module provides functionality to translate English category names
-into Arabic labels by applying various resolution strategies.
+into Arabic labels by applying separator-based resolution strategies.
+
+It is extracted from the legacy circular_dependency package to break the import cycle.
+This module imports from arabic_label_builder, which in turn imports from country_resolver.
+This creates a proper DAG of imports with no cycles.
 """
+
+from __future__ import annotations
 
 import functools
 import re
@@ -12,7 +18,7 @@ import re
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
 from ...utils import get_relation_word
-from .ar_lab_bot import find_ar_label
+from .arabic_label_builder import find_ar_label
 
 en_literes = "[abcdefghijklmnopqrstuvwxyz]"
 
@@ -52,3 +58,8 @@ def work_separator_names(
     logger.info(f">>>> <<lightyellow>> {arlabel=}")
 
     return arlabel
+
+
+__all__ = [
+    "work_separator_names",
+]
