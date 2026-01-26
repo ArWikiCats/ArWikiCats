@@ -5,7 +5,7 @@ Tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
+from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {

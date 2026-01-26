@@ -7,7 +7,7 @@ and actual data dependencies.
 
 import pytest
 
-from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import (
+from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import (
     add_in_tab,
     separator_lists_fixing,
 )

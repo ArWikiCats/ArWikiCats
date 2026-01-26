@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import find_ar_label
+from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 from ArWikiCats.legacy_bots.legacy_utils import get_type_country, split_text_by_separator
 
 data = [

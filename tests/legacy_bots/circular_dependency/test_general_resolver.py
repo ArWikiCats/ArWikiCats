@@ -5,8 +5,8 @@ Tests
 import pytest
 
 from ArWikiCats.fix import fixtitle
-from ArWikiCats.legacy_bots.circular_dependency.general_resolver import work_separator_names
-from ArWikiCats.legacy_bots.circular_dependency.sub_general_resolver import sub_translate_general_category
+from ArWikiCats.legacy_bots.resolvers.separator_based_resolver import work_separator_names
+from ArWikiCats.legacy_bots.resolvers.sub_resolver import sub_translate_general_category
 
 fast_data = {}
 
