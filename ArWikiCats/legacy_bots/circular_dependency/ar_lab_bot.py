@@ -21,7 +21,13 @@ from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_ty
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
 
-# Note: country_bot import moved to function level to break circular dependency
+# Note: country_bot import moved to function level to break circular dependency.
+# Why lazy imports? This is the minimal change approach that:
+# 1. Breaks the cycle with just 2 function-level imports (vs extensive refactoring)
+# 2. Maintains all existing functionality and tests (zero breaking changes)
+# 3. Has negligible performance impact (Python caches imports in sys.modules)
+# 4. Allows for future Phase 1 enhancements (interfaces, DI) without blocking progress
+# See: ArWikiCats/legacy_bots/refactor.md for comprehensive refactoring roadmap
 # from . import country_bot
 
 separators_lists_raw = [
