@@ -160,8 +160,8 @@ def get_country_label(
     Returns:
         The resolved Arabic label, or an empty string if no label is found
     """
-    if get_country_func is None:
-        get_country_func = Get_country2
+    # if get_country_func is None:
+    get_country_func = Get_country2
 
     country = country.lower()
 
@@ -175,11 +175,11 @@ def get_country_label(
 
     if not resolved_label:
         # Use parent class methods for prefix/members/years checks
-        _parent_resolver._resolve_callable = get_country_label
+        # _parent_resolver._resolve_callable = get_country_label
         resolved_label = (
             get_country_func(country)
             or _parent_resolver._check_prefixes(country)
-            or check_historical_prefixes(country, get_country_label)
+            or check_historical_prefixes(country, Get_country2)
             or all_new_resolvers(country)
             or _parent_resolver._check_regex_years(country)
             or _parent_resolver._check_members(country)
@@ -365,5 +365,4 @@ def fetch_country_term_label(
 __all__ = [
     "get_country_label",
     "fetch_country_term_label",
-    "check_historical_prefixes",
 ]
