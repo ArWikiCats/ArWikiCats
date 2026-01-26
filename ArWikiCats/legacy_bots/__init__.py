@@ -12,7 +12,7 @@ from typing import Callable
 from ..fix import fixtitle
 from .circular_dependency import country_bot, general_resolver, sub_general_resolver
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
-
+from .resolvers import event_based_resolver
 # Define the resolver pipeline in priority order
 # Each resolver is a callable that takes a category string and returns a label or empty string
 #
@@ -50,7 +50,7 @@ def translate_general_category_wrap(category: str) -> str:
 
 
 RESOLVER_PIPELINE: list[Callable[[str], str]] = [
-    country_bot.event2_d2,
+    event_based_resolver.event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
     event_lab_bot.event_Lab,

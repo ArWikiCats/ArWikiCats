@@ -352,32 +352,6 @@ def _handle_type_lab_logic(
     return term_label
 
 
-def event2_d2(category_r) -> str:
-    """Determine the category label based on the input string.
-
-    Args:
-        category_r: The raw category string to process
-
-    Returns:
-        The processed category label or an empty string if not found
-    """
-    cat3 = category_r.lower().replace("category:", "").strip()
-
-    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
-
-    # TODO: THIS NEED REVIEW
-    # Reject strings that contain common English prepositions
-    blocked = ("in", "of", "from", "by", "at")
-    if any(f" {word} " in cat3.lower() for word in blocked):
-        return ""
-
-    category_lab = ""
-    if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = get_country(cat3)
-
-    return category_lab
-
-
 def get_country(country: str, start_get_country2: bool = True) -> str:
     """
     Retrieve the Arabic label for a given country name.
