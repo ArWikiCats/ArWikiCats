@@ -51,7 +51,9 @@ class CountryResolver:
     @functools.lru_cache(maxsize=10000)
     def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
         """Resolve the country label."""
-        # Lazy import to break circular dependency
+        # Lazy import to break circular dependency.
+        # Performance note: Python caches imports in sys.modules, so this import
+        # is just a dictionary lookup after the first call (negligible overhead).
         from . import country_bot
 
         for_table = {
@@ -264,7 +266,9 @@ def wrap_event2(category: str, separator: str = "") -> str:
     Returns:
         str: The first non-empty label returned by the resolvers, or an empty string if none match.
     """
-    # Lazy import to break circular dependency
+    # Lazy import to break circular dependency.
+    # Performance note: Python caches imports in sys.modules, so this import
+    # is just a dictionary lookup after the first call (negligible overhead).
     from . import country_bot
 
     result = (
