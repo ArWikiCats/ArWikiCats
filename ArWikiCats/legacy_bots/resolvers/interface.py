@@ -21,7 +21,7 @@ class CountryLabelResolver(Protocol):
 class TermLabelResolver(Protocol):
     """Protocol for resolving term labels."""
 
-    def get_term_label(
+    def fetch_country_term_label(
         self,
         term_lower: str,
         separator: str,

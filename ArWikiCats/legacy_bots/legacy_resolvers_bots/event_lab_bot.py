@@ -15,14 +15,15 @@ from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of
 from ...translations import Ambassadors_tab
 from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot
-from ..circular_dependency import general_resolver, sub_general_resolver
+from ..resolvers.country_resolver import event2_d2
+from ..resolvers.sub_resolver import sub_translate_general_category
+from ..resolvers.separator_based_resolver import work_separator_names
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
 from ..make_bots import get_KAKO
 from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
-from ..resolvers import event_based_resolver
 
 # Constants
 SUFFIX_EPISODES: Literal[" episodes"] = " episodes"
@@ -69,8 +70,8 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
     """
     arlabel = (
         ""
-        or sub_general_resolver.sub_translate_general_category(category)
-        or general_resolver.work_separator_names(category, start_get_country2=start_get_country2)
+        or sub_translate_general_category(category)
+        or work_separator_names(category, start_get_country2=start_get_country2)
     )
     return arlabel
 
@@ -104,7 +105,7 @@ def event_label_work(country: str) -> str:
         *_STANDARD_COUNTRY_RESOLVERS,
         lambda c: get_from_new_p17_final(c, ""),
         lambda c: Ambassadors_tab.get(c, ""),
-        event_based_resolver.event2_d2,
+        event2_d2,
         with_years_bot.wrap_try_with_years,
         year_or_typeo.label_for_startwith_year_or_typeo,
         translate_general_category_wrap,

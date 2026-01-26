@@ -206,7 +206,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         """
         country = country.lower()
 
-        logger.debug(">> ----------------- get_country start ----------------- ")
+        logger.debug(">> ----------------- get_country_label start ----------------- ")
         logger.debug(f"<<yellow>> start get_country_label: {country=}")
 
         resolved_label = self._check_basic_lookups(country)
@@ -256,7 +256,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         )
         return label
 
-    def get_term_label(
+    def fetch_country_term_label(
         self, term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
     ) -> str:
         """
@@ -271,7 +271,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         Returns:
             str: The resolved Arabic label, or an empty string if no resolution is found.
         """
-        logger.info(f'get_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
+        logger.info(f'fetch_country_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
         if app_settings.makeerr:
             start_get_country2 = True
@@ -306,9 +306,9 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             term_label = self._handle_type_lab_logic(term_lower, separator, start_get_country2)
 
         if term_label:
-            logger.info(f"get_term_label {term_label=} ")
+            logger.info(f"fetch_country_term_label {term_label=} ")
         elif separator.strip() == "for" and term_lower.startswith("for "):
-            return self.get_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
+            return self.fetch_country_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
         return term_label
 
@@ -388,12 +388,12 @@ def event2_d2(category_r: str) -> str:
 
     category_lab = ""
     if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = get_country(cat3)
+        category_lab = get_country_label(cat3)
 
     return category_lab
 
 
-def get_country(country: str, start_get_country2: bool = True) -> str:
+def get_country_label(country: str, start_get_country2: bool = True) -> str:
     """Retrieve the Arabic label for a given country name.
 
     Args:
@@ -422,12 +422,12 @@ def fetch_country_term_label(
     Returns:
         str: The resolved Arabic label for the term, or an empty string if no label is found.
     """
-    return _retriever.get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
+    return _retriever.fetch_country_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
 
 __all__ = [
     "fetch_country_term_label",
-    "get_country",
+    "get_country_label",
     "Get_country2",
     "event2_d2",
     "set_fallback_resolver",

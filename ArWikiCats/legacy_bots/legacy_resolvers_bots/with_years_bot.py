@@ -4,17 +4,20 @@ Year-based category label processing.
 
 This module handles categories that contain year information, extracting and
 formatting them appropriately for Arabic labels.
+
+Note: This module uses a callback pattern for translate_general_category_wrap
+to avoid circular imports with the resolvers package. The callback is set
+via set_translate_callback() which is called by the resolvers factory.
 """
 
 import functools
 import re
-from typing import Pattern
+from typing import Callable, Optional, Pattern
 
 from ...helps import logger
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
 from ...translations.funcs import get_from_pf_keys2
-from ..circular_dependency import general_resolver, sub_general_resolver
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
@@ -40,14 +43,38 @@ known_bodies = {
 pattern_str = rf"^(\d+)(th|nd|st|rd) ({'|'.join(known_bodies.keys())})$"
 _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
+# Type alias for the translate callback
+TranslateCallback = Callable[[str], str]
+
+# Module-level callback holder - set via set_translate_callback()
+_translate_callback: Optional[TranslateCallback] = None
+
+
+def set_translate_callback(callback: TranslateCallback) -> None:
+    """
+    Set the translate general category callback.
+
+    This is used to break the circular dependency. The callback
+    (typically a function that calls sub_translate_general_category
+    and work_separator_names) is injected at runtime after all
+    modules are loaded.
+
+    Parameters:
+        callback: A callable that takes (category: str) and returns an Arabic label string.
+    """
+    global _translate_callback
+    _translate_callback = callback
+
 
 def translate_general_category_wrap(category: str) -> str:
-    arlabel = (
-        ""
-        or sub_general_resolver.sub_translate_general_category(category)
-        or general_resolver.work_separator_names(category)
-    )
-    return arlabel
+    """
+    Resolve an Arabic label for a general category.
+
+    Uses the callback set via set_translate_callback() to avoid circular imports.
+    """
+    if _translate_callback is not None:
+        return _translate_callback(category)
+    return ""
 
 
 def handle_political_terms(category_text: str) -> str:
