@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
 This module provides functions for processing and generating labels for country names based on separators.
+
+Note: This module uses a callback pattern for `fetch_country_term_label` to avoid circular imports.
+The callback is set at runtime via `set_term_label_resolver()`.
 """
 
 import functools
 import re
-from typing import Tuple
+from typing import Callable, Optional, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import logger
@@ -14,11 +17,50 @@ from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
 from ...translations import People_key
 from ...translations.funcs import get_and_label, get_from_pf_keys2
-from ..circular_dependency import country_bot
 from ..legacy_utils import fix_minor, split_text_by_separator
 from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
 from . import bys, with_years_bot
 from .bot_2018 import get_pop_All_18
+
+# Type alias for the term label resolver callback
+TermLabelResolver = Callable[[str, str, str, bool], str]
+
+# Module-level callback holder - set via set_term_label_resolver()
+_term_label_resolver: Optional[TermLabelResolver] = None
+
+
+def set_term_label_resolver(resolver: TermLabelResolver) -> None:
+    """
+    Set the term label resolver callback.
+
+    This is used to break the circular dependency. The resolver
+    (typically fetch_country_term_label) is injected at runtime
+    after all modules are loaded.
+
+    Parameters:
+        resolver: A callable that takes (term_lower: str, separator: str, lab_type: str, start_get_country2: bool)
+                  and returns an Arabic label string.
+    """
+    global _term_label_resolver
+    _term_label_resolver = resolver
+
+
+def _get_term_label(term: str, separator: str = "", lab_type: str = "", start_get_country2: bool = True) -> str:
+    """
+    Get label from the term label resolver if one is set.
+
+    Parameters:
+        term: The term to resolve.
+        separator: The separator context.
+        lab_type: The label type (e.g., "type_label").
+        start_get_country2: Whether to use country2 fallback.
+
+    Returns:
+        The resolved label from the term label resolver, or empty string if not set.
+    """
+    if _term_label_resolver is not None:
+        return _term_label_resolver(term, separator, lab_type, start_get_country2)
+    return ""
 
 
 def get_table_with_in(cone_1: str, separator: str) -> str:
@@ -296,7 +338,7 @@ def resolve_part_1_label(part_1, separator):
         ""
         or all_new_resolvers(part_1)
         or c_1_1_lab(separator, part_1)
-        or country_bot.fetch_country_term_label(part_1, "", lab_type="type_label")
+        or _get_term_label(part_1, "", lab_type="type_label")
         or ""
     )
 
@@ -308,7 +350,7 @@ def resolve_part_2_label(part_2, with_years):
         ""
         or all_new_resolvers(part_2)
         or c_2_1_lab(part_2)
-        or country_bot.fetch_country_term_label(part_2, "")
+        or _get_term_label(part_2, "")
         or (with_years_bot.Try_With_Years(part_2) if with_years else "")
         or ""
     )
@@ -396,4 +438,5 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
 
 __all__ = [
     "country_2_title_work",
+    "set_term_label_resolver",
 ]
