@@ -23,7 +23,7 @@ from . import bys, with_years_bot
 from .bot_2018 import get_pop_All_18
 
 # Type alias for the term label resolver callback
-TermLabelResolver = Callable[[str, str, str, bool], str]
+TermLabelResolver = Callable[[str, str, str], str]
 
 # Module-level callback holder - set via set_term_label_resolver()
 _term_label_resolver: Optional[TermLabelResolver] = None
