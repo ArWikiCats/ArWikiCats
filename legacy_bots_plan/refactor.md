@@ -60,7 +60,7 @@ The `legacy_bots` package implements a **chain-of-responsibility pattern** for t
 
 ### 2.1 Circular Dependencies (Critical)
 
-**Location**: [circular_dependency/__init__.py](circular_dependency/__init__.py:14-14)
+**Location**: [circular_dependency/__init__.py](../ArWikiCats/legacy_bots/circular_dependency/__init__.py:14-14)
 
 ```python
 # Documented circular import chain:
@@ -82,7 +82,7 @@ ar_lab_bot.py imports:
 
 ### 2.2 God Object Anti-Pattern
 
-**File**: [circular_dependency/country_bot.py](circular_dependency/country_bot.py:147-203)
+**File**: [circular_dependency/country_bot.py](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:147-203)
 
 **Issue**: `CountryLabelRetriever` class has excessive responsibilities:
 - Country label resolution
@@ -109,11 +109,11 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
 ### 2.3 Long Method Anti-Pattern
 
-**File**: [circular_dependency/ar_lab_bot.py](circular_dependency/ar_lab_bot.py:391-558)
+**File**: [circular_dependency/ar_lab_bot.py](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:391-558)
 
 **Method**: `LabelPipeline.build()` - 20 lines of complex logic
 
-**File**: [circular_dependency/ar_lab_bot.py](circular_dependency/ar_lab_bot.py:314-388)
+**File**: [circular_dependency/ar_lab_bot.py](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:314-388)
 
 **Method**: `Fixing.determine_separator()` - 75 lines with nested conditionals
 
@@ -134,7 +134,7 @@ def determine_separator(self) -> str:
 
 ### 2.4 Magic Strings & Numbers
 
-**File**: [legacy_resolvers_bots/event_lab_bot.py](legacy_resolvers_bots/event_lab_bot.py:26-34)
+**File**: [legacy_resolvers_bots/event_lab_bot.py](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:26-34)
 
 ```python
 SUFFIX_EPISODES: Literal[" episodes"] = " episodes"
@@ -154,8 +154,8 @@ CATEGORY_PEOPLE: Literal["people"] = "people"
 **Pattern 1**: Resolver chain repetition in multiple files
 
 **Locations**:
-- [common_resolver_chain.py:119-128](common_resolver_chain.py:119-128)
-- [legacy_resolvers_bots/country2_label_bot.py:72-81](legacy_resolvers_bots/country2_label_bot.py:72-81)
+- [common_resolver_chain.py:119-128](../ArWikiCats/legacy_bots/common_resolver_chain.py:119-128)
+- [legacy_resolvers_bots/country2_label_bot.py:72-81](../ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:72-81)
 
 **Evidence**:
 ```python
@@ -175,15 +175,15 @@ resolved_label = (
 **Pattern 2**: "في" (in) preposition logic duplicated
 
 **Locations**:
-- [circular_dependency/ar_lab_bot.py:71-155](circular_dependency/ar_lab_bot.py:71-155)
-- [legacy_resolvers_bots/country2_label_bot.py:283-290](legacy_resolvers_bots/country2_label_bot.py:283-290)
-- [legacy_resolvers_bots/mk3.py:110-140](legacy_resolvers_bots/mk3.py:110-140)
+- [circular_dependency/ar_lab_bot.py:71-155](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:71-155)
+- [legacy_resolvers_bots/country2_label_bot.py:283-290](../ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:283-290)
+- [legacy_resolvers_bots/mk3.py:110-140](../ArWikiCats/legacy_bots/legacy_resolvers_bots/mk3.py:110-140)
 
 ---
 
 ### 2.6 Feature Envy
 
-**File**: [circular_dependency/country_bot.py](circular_dependency/country_bot.py:204-227)
+**File**: [circular_dependency/country_bot.py](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:204-227)
 
 **Issue**: Methods heavily depend on external functions:
 ```python
@@ -203,7 +203,7 @@ def _check_basic_lookups(self, country: str) -> str:
 
 ### 2.7 Inappropriate Intimacy
 
-**File**: [legacy_resolvers_bots/bot_2018.py](legacy_resolvers_bots/bot_2018.py:14-15)
+**File**: [legacy_resolvers_bots/bot_2018.py](../ArWikiCats/legacy_bots/legacy_resolvers_bots/bot_2018.py:14-15)
 
 ```python
 from ...translations.funcs import _get_from_alias, open_json_file
@@ -220,17 +220,17 @@ pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266 entries
 
 **Example**: Number translations
 - Originally in `legacy_utils/numbers1.py`
-- Now duplicated in [data/mappings.py:16-146](data/mappings.py:16-146)
+- Now duplicated in [data/mappings.py:16-146](../ArWikiCats/legacy_bots/data/mappings.py:16-146)
 
 **Example**: Suffix mappings
-- [data/mappings.py:153-274](data/mappings.py:153-274) defines `pp_ends_with_pase`, `pp_ends_with`
-- [end_start_bots/end_start_match.py:3-88](end_start_bots/end_start_match.py:3-88) defines similar structures
+- [data/mappings.py:153-274](../ArWikiCats/legacy_bots/data/mappings.py:153-274) defines `pp_ends_with_pase`, `pp_ends_with`
+- [end_start_bots/end_start_match.py:3-88](../ArWikiCats/legacy_bots/end_start_bots/end_start_match.py:3-88) defines similar structures
 
 ---
 
 ### 2.9 Primitive Obsession
 
-**File**: [make_bots/reg_result.py:38-45](make_bots/reg_result.py:38-45)
+**File**: [make_bots/reg_result.py:38-45](../ArWikiCats/legacy_bots/make_bots/reg_result.py:38-45)
 
 ```python
 @dataclass
@@ -258,13 +258,13 @@ country = result.country.lower().strip()
 **Pattern**: Inconsistent `@lru_cache` usage
 
 **Examples**:
-- [__init__.py:61](__init__.py:61): `maxsize=50000`
-- [circular_dependency/country_bot.py:49](circular_dependency/country_bot.py:49): `maxsize=10000`
-- [circular_dependency/country_bot.py:163](circular_dependency/country_bot.py:163): `maxsize=1024`
+- [__init__.py:61](../ArWikiCats/legacy_bots/__init__.py:61): `maxsize=50000`
+- [circular_dependency/country_bot.py:49](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:49): `maxsize=10000`
+- [circular_dependency/country_bot.py:163](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:163): `maxsize=1024`
 
 **Issue**: No cache invalidation strategy; mutable dictionaries like `Films_O_TT` are cached but can be modified at runtime.
 
-**File**: [make_bots/bot.py:47-55](make_bots/bot.py:47-55)
+**File**: [make_bots/bot.py:47-55](../ArWikiCats/legacy_bots/make_bots/bot.py:47-55)
 ```python
 Films_O_TT = {}  # Mutable dict
 
@@ -375,11 +375,11 @@ def add_to_Films_O_TT(en: str, ar: str) -> None:
 4. Rename directory to `resolvers/` (no longer circular)
 
 **Files Affected**:
-- [circular_dependency/__init__.py](circular_dependency/__init__.py:1-17)
-- [circular_dependency/country_bot.py](circular_dependency/country_bot.py:1-403)
-- [circular_dependency/general_resolver.py](circular_dependency/general_resolver.py:1-54)
-- [circular_dependency/sub_general_resolver.py](circular_dependency/sub_general_resolver.py:1-50)
-- [circular_dependency/ar_lab_bot.py](circular_dependency/ar_lab_bot.py:1-586)
+- [circular_dependency/__init__.py](../ArWikiCats/legacy_bots/circular_dependency/__init__.py:1-17)
+- [circular_dependency/country_bot.py](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:1-403)
+- [circular_dependency/general_resolver.py](../ArWikiCats/legacy_bots/circular_dependency/general_resolver.py:1-54)
+- [circular_dependency/sub_general_resolver.py](../ArWikiCats/legacy_bots/circular_dependency/sub_general_resolver.py:1-50)
+- [circular_dependency/ar_lab_bot.py](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:1-586)
 
 **Deliverables**:
 - `resolvers/interface.py` - Abstract base classes
@@ -470,8 +470,8 @@ class ArabicLabelBuilder:
 ```
 
 **Files Affected**:
-- [circular_dependency/country_bot.py:147-203](circular_dependency/country_bot.py:147-203)
-- [circular_dependency/ar_lab_bot.py:314-558](circular_dependency/ar_lab_bot.py:314-558)
+- [circular_dependency/country_bot.py:147-203](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:147-203)
+- [circular_dependency/ar_lab_bot.py:314-558](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:314-558)
 
 ---
 
@@ -518,9 +518,9 @@ class LabelRepository:
 ```
 
 **Files Affected**:
-- [make_bots/bot.py](make_bots/bot.py:1-64)
-- [legacy_resolvers_bots/bot_2018.py](legacy_resolvers_bots/bot_2018.py:1-113)
-- [make_bots/table1_bot.py](make_bots/table1_bot.py:1-81)
+- [make_bots/bot.py](../ArWikiCats/legacy_bots/make_bots/bot.py:1-64)
+- [legacy_resolvers_bots/bot_2018.py](../ArWikiCats/legacy_bots/legacy_resolvers_bots/bot_2018.py:1-113)
+- [make_bots/table1_bot.py](../ArWikiCats/legacy_bots/make_bots/table1_bot.py:1-81)
 
 ---
 
@@ -529,9 +529,9 @@ class LabelRepository:
 **Target**: Methods > 20 lines
 
 **Files**:
-1. [circular_dependency/ar_lab_bot.py:318-388](circular_dependency/ar_lab_bot.py:318-388) - `determine_separator()`
-2. [circular_dependency/country_bot.py:284-335](circular_dependency/country_bot.py:284-335) - `_handle_type_lab_logic()`
-3. [legacy_resolvers_bots/country2_label_bot.py:145-221](legacy_resolvers_bots/country2_label_bot.py:145-221) - `make_cnt_lab()`
+1. [circular_dependency/ar_lab_bot.py:318-388](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:318-388) - `determine_separator()`
+2. [circular_dependency/country_bot.py:284-335](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:284-335) - `_handle_type_lab_logic()`
+3. [legacy_resolvers_bots/country2_label_bot.py:145-221](../ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:145-221) - `make_cnt_lab()`
 
 **Refactoring Pattern**: Extract Method / Replace Conditional with Polymorphism
 
@@ -627,7 +627,7 @@ class LabelLookup:
 
 ### 5.1 Entry Point
 
-**File**: [`__init__.py`](__init__.py:1-88)
+**File**: [`__init__.py`](../ArWikiCats/legacy_bots/__init__.py:1-88)
 
 **Current Issues**:
 - Lines 40-49: `translate_general_category_wrap()` duplicates logic from circular_dependency
@@ -662,7 +662,7 @@ def legacy_resolvers(changed_cat: str) -> str:
 
 ### 5.2 Circular Dependency Modules
 
-#### File: [`circular_dependency/__init__.py`](circular_dependency/__init__.py:1-17)
+#### File: [`circular_dependency/__init__.py`](../ArWikiCats/legacy_bots/circular_dependency/__init__.py:1-17)
 
 **Current**: Empty file with only circular dependency documentation
 
@@ -670,7 +670,7 @@ def legacy_resolvers(changed_cat: str) -> str:
 
 ---
 
-#### File: [`circular_dependency/country_bot.py`](circular_dependency/country_bot.py:1-403)
+#### File: [`circular_dependency/country_bot.py`](../ArWikiCats/legacy_bots/circular_dependency/country_bot.py:1-403)
 
 **Issues**:
 - Line 27: Imports from same package creating circular dependency
@@ -719,7 +719,7 @@ def event_based_resolver(category: str) -> str:
 
 ---
 
-#### File: [`circular_dependency/ar_lab_bot.py`](circular_dependency/ar_lab_bot.py:1-586)
+#### File: [`circular_dependency/ar_lab_bot.py`](../ArWikiCats/legacy_bots/circular_dependency/ar_lab_bot.py:1-586)
 
 **Issues**:
 - Lines 25-31: Global mutable list `separators_lists_raw`
@@ -804,7 +804,7 @@ class PrepositionHandler:
 
 ---
 
-#### File: [`circular_dependency/general_resolver.py`](circular_dependency/general_resolver.py:1-54)
+#### File: [`circular_dependency/general_resolver.py`](../ArWikiCats/legacy_bots/circular_dependency/general_resolver.py:1-54)
 
 **Issues**:
 - Line 15: Imports from ar_lab_bot (circular)
@@ -854,7 +854,7 @@ class SeparatorBasedResolver:
 
 ### 5.3 Legacy Resolvers Bots
 
-#### File: [`legacy_resolvers_bots/event_lab_bot.py`](legacy_resolvers_bots/event_lab_bot.py:1-392)
+#### File: [`legacy_resolvers_bots/event_lab_bot.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:1-392)
 
 **Issues**:
 - Lines 26-34: Constants should be in constants module
@@ -909,7 +909,7 @@ class EventLabel(str):
 
 ---
 
-#### File: [`legacy_resolvers_bots/with_years_bot.py`](legacy_resolvers_bots/with_years_bot.py:1-257)
+#### File: [`legacy_resolvers_bots/with_years_bot.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:1-257)
 
 **Issues**:
 - Lines 25-30: List `arabic_labels_preceding_year` should be constant
@@ -971,7 +971,7 @@ KNOWN_POLITICAL_BODIES = {
 
 ---
 
-#### File: [`legacy_resolvers_bots/year_or_typeo.py`](legacy_resolvers_bots/year_or_typeo.py:1-309)
+#### File: [`legacy_resolvers_bots/year_or_typeo.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py:1-309)
 
 **Issues**:
 - Lines 37-287: `LabelForStartWithYearOrTypeo` class is complex
@@ -1025,7 +1025,7 @@ class ParsedCategory:
 
 ---
 
-#### File: [`legacy_resolvers_bots/bys.py`](legacy_resolvers_bots/bys.py:1-140)
+#### File: [`legacy_resolvers_bots/bys.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/bys.py:1-140)
 
 **Issues**:
 - Line 4: TODO comment says "need refactoring"
@@ -1078,7 +1078,7 @@ class ByPatternResolver:
 
 ---
 
-#### File: [`legacy_resolvers_bots/mk3.py`](legacy_resolvers_bots/mk3.py:1-293)
+#### File: [`legacy_resolvers_bots/mk3.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/mk3.py:1-293)
 
 **Issues**:
 - Line 3: Module docstring is just "Usage:"
@@ -1145,7 +1145,7 @@ class NewFuncContext:
 
 ---
 
-#### File: [`legacy_resolvers_bots/bot_2018.py`](legacy_resolvers_bots/bot_2018.py:1-113)
+#### File: [`legacy_resolvers_bots/bot_2018.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/bot_2018.py:1-113)
 
 **Issues**:
 - Line 15: Loads 524,266 entries at module import time
@@ -1212,7 +1212,7 @@ class PopulationResolver:
 
 ---
 
-#### File: [`legacy_resolvers_bots/country2_label_bot.py`](legacy_resolvers_bots/country2_label_bot.py:1-400)
+#### File: [`legacy_resolvers_bots/country2_label_bot.py`](../ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:1-400)
 
 **Issues**:
 - Lines 35-42: `get_table_with_in()` creates inline dict
@@ -1291,7 +1291,7 @@ class LabelCombiner:
 
 ### 5.4 Make Bots
 
-#### File: [`make_bots/bot.py`](make_bots/bot.py:1-64)
+#### File: [`make_bots/bot.py`](../ArWikiCats/legacy_bots/make_bots/bot.py:1-64)
 
 **Issues**:
 - Lines 11-28: `_make_players_keys()` creates mutable global dict
@@ -1337,7 +1337,7 @@ films_registry = LabelRegistry()
 
 ---
 
-#### File: [`make_bots/check_bot.py`](make_bots/check_bot.py:1-67)
+#### File: [`make_bots/check_bot.py`](../ArWikiCats/legacy_bots/make_bots/check_bot.py:1-67)
 
 **Issues**:
 - Line 17: Global list `set_tables`
@@ -1386,7 +1386,7 @@ class TableChecker:
 
 ---
 
-#### File: [`make_bots/reg_result.py`](make_bots/reg_result.py:1-91)
+#### File: [`make_bots/reg_result.py`](../ArWikiCats/legacy_bots/make_bots/reg_result.py:1-91)
 
 **Issues**:
 - Lines 38-45: `TypiesResult` dataclass has primitive fields
@@ -1429,7 +1429,7 @@ class ParsedCategory:
 
 ---
 
-#### File: [`make_bots/table1_bot.py`](make_bots/table1_bot.py:1-81)
+#### File: [`make_bots/table1_bot.py`](../ArWikiCats/legacy_bots/make_bots/table1_bot.py:1-81)
 
 **Issues**:
 - Lines 18-24: `KAKO` dict structure nested
@@ -1492,7 +1492,7 @@ def build_composite_resolver(
 
 ### 5.5 Legacy Utils
 
-#### File: [`legacy_utils/data.py`](legacy_utils/data.py:1-47)
+#### File: [`legacy_utils/data.py`](../ArWikiCats/legacy_bots/legacy_utils/data.py:1-47)
 
 **Issues**:
 - Lines 4-6: Hardcoded lists
@@ -1530,7 +1530,7 @@ class PredefinedSets:
 
 ---
 
-#### File: [`legacy_utils/fixing.py`](legacy_utils/fixing.py:1-38)
+#### File: [`legacy_utils/fixing.py`](../ArWikiCats/legacy_bots/legacy_utils/fixing.py:1-38)
 
 **Issues**:
 - Lines 17-22: Hardcoded list `sps_list`
@@ -1581,7 +1581,7 @@ class LabelCleaner:
 
 ---
 
-#### File: [`legacy_utils/joint_class.py`](legacy_utils/joint_class.py:1-93)
+#### File: [`legacy_utils/joint_class.py`](../ArWikiCats/legacy_bots/legacy_utils/joint_class.py:1-93)
 
 **Issues**:
 - Lines 14-24: Class has only one method with dependencies
@@ -1642,7 +1642,7 @@ class MemberSuffixHandler:
 
 ---
 
-#### File: [`legacy_utils/utils.py`](legacy_utils/utils.py:1-236)
+#### File: [`legacy_utils/utils.py`](../ArWikiCats/legacy_bots/legacy_utils/utils.py:1-236)
 
 **Issues**:
 - Lines 13-93: `split_text_by_separator()` is complex (81 lines)
@@ -1697,7 +1697,7 @@ class SeparatorParser:
 
 ### 5.6 End Start Bots
 
-#### File: [`end_start_bots/fax2.py`](end_start_bots/fax2.py:1-65)
+#### File: [`end_start_bots/fax2.py`](../ArWikiCats/legacy_bots/end_start_bots/fax2.py:1-65)
 
 **Issues**:
 - Lines 16-64: `get_list_of_and_cat3()` has complex conditional logic
@@ -1751,7 +1751,7 @@ class SuffixMatcher:
 
 ---
 
-#### File: [`end_start_bots/utils.py`](end_start_bots/utils.py:1-126)
+#### File: [`end_start_bots/utils.py`](../ArWikiCats/legacy_bots/end_start_bots/utils.py:1-126)
 
 **Issues**:
 - Lines 6-45: `_get_from_dict()` is complex generic function
@@ -1817,7 +1817,7 @@ class PatternEntry:
 
 ### 5.7 Data Module
 
-#### File: [`data/mappings.py`](data/mappings.py:1-329)
+#### File: [`data/mappings.py`](../ArWikiCats/legacy_bots/data/mappings.py:1-329)
 
 **Issues**:
 - Lines 16-146: Programmatic generation of number mappings
@@ -1846,7 +1846,7 @@ data/
 
 ### 5.8 Utils
 
-#### File: [`utils/regex_hub.py`](utils/regex_hub.py:1-84)
+#### File: [`utils/regex_hub.py`](../ArWikiCats/legacy_bots/utils/regex_hub.py:1-84)
 
 **Current State**: Well-organized centralization of regex patterns
 
