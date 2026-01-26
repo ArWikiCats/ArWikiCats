@@ -201,7 +201,7 @@ def get_country_label(
 
 
 # Create resolver instance with proper initialization
-_parent_resolver = CountryLabelAndTermParent(_resolve_callable=None)
+_parent_resolver = CountryLabelAndTermParent(_resolve_callable=Get_country2)
 
 
 def _check_basic_lookups(country: str) -> str:
@@ -289,7 +289,11 @@ def get_term_label(
     return term_label
 
 
-def _handle_type_lab_logic(term_lower: str, separator: str, start_get_country2: bool) -> str:
+def _handle_type_lab_logic(
+    term_lower: str,
+    separator: str,
+    start_get_country2: bool,
+) -> str:
     """
     Resolve a label for terms treated as types that end with suffixes like " of", " in", or " at".
 
@@ -332,7 +336,7 @@ def _handle_type_lab_logic(term_lower: str, separator: str, start_get_country2: 
             else:
                 term_label = f"{translated_base} في "
                 logger.info(f"XX add في to {term_label=}, line:1596.")
-            return term_label  # Return immediately if found
+            return term_label
 
     if term_label == "" and separator.strip() == "in":
         term_label = get_pop_All_18(f"{term_lower} in", "")
@@ -370,7 +374,8 @@ def event2_d2(category_r) -> str:
 
 
 def get_country(country: str, start_get_country2: bool = True) -> str:
-    """Retrieve the Arabic label for a given country name.
+    """
+    Retrieve the Arabic label for a given country name.
 
     Args:
         country: The country name to look up
@@ -383,19 +388,22 @@ def get_country(country: str, start_get_country2: bool = True) -> str:
 
 
 def fetch_country_term_label(
-    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+    term_lower: str,
+    separator: str,
+    lab_type: str = "",
+    start_get_country2: bool = True,
 ) -> str:
     """
-    Retrieve an Arabic label for a given term or country name using layered resolution strategies.
+    Retrieve an Arabic label for a given term or country name.
 
-    Parameters:
-        term_lower (str): The lowercase term to look up.
-        separator (str): Context separator used when resolving terms (e.g., "for", "in").
-        lab_type (str): Optional label type that enables special handling (e.g., "type_label").
-        start_get_country2 (bool): If True, enable the enhanced country lookup path before falling back to other resolvers.
+    Args:
+        term_lower: The lowercase term to look up
+        separator: Context separator used when resolving terms
+        lab_type: Optional label type that enables special handling
+        start_get_country2: If True, enable the enhanced country lookup path
 
     Returns:
-        str: The resolved Arabic label for the term, or an empty string if no label is found.
+        The resolved Arabic label for the term, or an empty string if no label is found
     """
     return get_term_label(term_lower, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
