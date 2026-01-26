@@ -46,42 +46,6 @@ def translate_general_category_wrap(category, start_get_country2=False) -> str:
     return arlabel
 
 
-@functools.lru_cache(maxsize=10000)
-def Get_country2(country: str) -> str:
-    """
-    Resolve a country name to its Arabic label.
-
-    The resolved label is formatted for title consistency and normalized to remove extra whitespace.
-
-    Parameters:
-        country (str): Country name to resolve (case-insensitive; will be lower-cased and stripped).
-
-    Returns:
-        str: The Arabic label with title formatting applied and normalized whitespace, or an empty string if unresolved.
-    """
-
-    country = country.lower().strip()
-    logger.info(f'>> Get_country2 "{country}":')
-
-    resolved_label = (
-        country_2_title_work(country, with_years=True)
-        or get_lab_for_country2(country)
-        or get_pop_All_18(country)
-        or get_KAKO(country)
-        or translate_general_category_wrap(country, start_get_country2=False)
-        or ""
-    )
-
-    if resolved_label:
-        resolved_label = fixtitle.fixlabel(resolved_label, en=country)
-
-    resolved_label = " ".join(resolved_label.strip().split())
-
-    logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
-
-    return resolved_label
-
-
 def _validate_separators(country: str) -> bool:
     """
     Return whether the input contains any disallowed separator phrases.
@@ -91,7 +55,7 @@ def _validate_separators(country: str) -> bool:
     Returns:
         True if no disallowed separators are present, False otherwise.
     """
-    separators = [
+    disallowed = [
         "based in",
         "in",
         "by",
@@ -103,11 +67,8 @@ def _validate_separators(country: str) -> bool:
         "at",
         "on",
     ]
-    separators = [f" {sep} " if sep != "-of " else sep for sep in separators]
-    for sep in separators:
-        if sep in country:
-            return False
-    return True
+    disallowed_seps = [f" {sep} " if sep != "-of " else sep for sep in disallowed]
+    return not any(sep in country for sep in disallowed_seps)
 
 
 def check_historical_prefixes(country: str) -> str:
@@ -142,6 +103,54 @@ def check_historical_prefixes(country: str) -> str:
                 logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
                 return resolved_label
     return ""
+
+
+@functools.lru_cache(maxsize=10000)
+def Get_country2(country: str, country_2_title_work_func: callable | None = None) -> str:
+    """
+    Resolve a country name to its Arabic label.
+
+    The resolved label is formatted for title consistency and normalized.
+
+    Args:
+        country: Country name to resolve (case-insensitive; will be lower-cased and stripped)
+        country_2_title_work_func: Optional function for country_2_title_work (to avoid circular import)
+
+    Returns:
+        The Arabic label with title formatting applied and normalized whitespace,
+        or an empty string if unresolved
+    """
+    country = country.lower().strip()
+    logger.info(f'>> Get_country2 "{country}":')
+
+    # Try country_2_title_work if provided (optional dependency injection)
+    if country_2_title_work_func:
+        resolved_label = country_2_title_work_func(country, with_years=True)
+        if resolved_label:
+            if resolved_label:
+                resolved_label = fixtitle.fixlabel(resolved_label, en=country)
+            resolved_label = " ".join(resolved_label.strip().split())
+            logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
+            return resolved_label
+
+    # Fallback chain
+    resolved_label = (
+        country_2_title_work(country, with_years=True)
+        or get_lab_for_country2(country)
+        or get_pop_All_18(country)
+        or get_KAKO(country)
+        or translate_general_category_wrap(country, start_get_country2=False)
+        or ""
+    )
+
+    if resolved_label:
+        resolved_label = fixtitle.fixlabel(resolved_label, en=country)
+
+    resolved_label = " ".join(resolved_label.strip().split())
+
+    logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
+
+    return resolved_label
 
 
 @functools.lru_cache(maxsize=1024)
