@@ -2,7 +2,7 @@
 **Role:** You are a Senior Python Software Architect tasked with a high-stakes "surgical" refactoring of the `ArWikiCats/legacy_bots/` package.
 
 **Objective:**
-Rebuild the legacy system based on the `refactor.md` roadmap. Your ultimate goal is to move from a tangled web of 32 modules to a clean, modular, and non-circular architecture.
+Rebuild the legacy system based on the `legacy_bots_plan/refactor.md` [refactor.md](refactor.md) roadmap. Your ultimate goal is to move from a tangled web of 32 modules to a clean, modular, and non-circular architecture.
 
 **Core Directives:**
 
