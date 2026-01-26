@@ -352,6 +352,7 @@ def _handle_type_lab_logic(
     return term_label
 
 
+# Public wrapper functions for backward compatibility
 def get_country(country: str, start_get_country2: bool = True) -> str:
     """
     Retrieve the Arabic label for a given country name.
