@@ -106,7 +106,7 @@ def check_historical_prefixes(country: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def Get_country2(country: str, country_2_title_work_func: callable | None = None) -> str:
+def Get_country2(country: str, country_2_title_work_func: callable = None) -> str:
     """
     Resolve a country name to its Arabic label.
 
@@ -154,16 +154,21 @@ def Get_country2(country: str, country_2_title_work_func: callable | None = None
 
 
 @functools.lru_cache(maxsize=1024)
-def get_country_label(country: str, start_get_country2: bool = True) -> str:
+def get_country_label(
+    country: str,
+    start_get_country2: bool = True,
+    get_country_func: callable = None,
+) -> str:
     """
     Resolve an Arabic label for a country name using layered lookup strategies.
 
-    Parameters:
-        country (str): Country name to resolve; case is normalized internally.
-        start_get_country2 (bool): If True, include the enhanced multi-source lookup path (Get_country2) as a fallback.
+    Args:
+        country: Country name to resolve; case is normalized internally
+        start_get_country2: If True, include the enhanced multi-source lookup path
+        get_country_func: Optional function to use for country lookups (defaults to Get_country2)
 
     Returns:
-        str: The resolved Arabic label, or an empty string if no label is found.
+        The resolved Arabic label, or an empty string if no label is found
     """
     country = country.lower()
 
@@ -225,7 +230,10 @@ def _check_basic_lookups(country: str) -> str:
 
 
 def get_term_label(
-    term_lower: str, separator: str, lab_type: str = "", start_get_country2: bool = True
+    term_lower: str,
+    separator: str,
+    lab_type: str = "",
+    start_get_country2: bool = True,
 ) -> str:
     """
     Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
