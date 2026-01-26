@@ -26,7 +26,7 @@ The circular dependency has been broken using lazy imports in ar_lab_bot.py:
 
 This allows modules to be imported in any order without circular dependency errors.
 
-**Future Work**: 
+**Future Work**:
 - Consider renaming this directory from 'circular_dependency' to 'resolvers'
 - Extract shared interfaces as described in refactor.md Phase 1
 - Implement dependency injection patterns for better testability
