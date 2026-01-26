@@ -28,14 +28,14 @@ def test_fast_data(category: str, expected: str) -> None:
 
 def test_work_separator_names() -> None:
     # Test with a basic input
-    result = work_separator_names("test category", True)
+    result = work_separator_names("test category")
     assert isinstance(result, str)
 
-    result_empty = work_separator_names("", False)
+    result_empty = work_separator_names("")
     assert isinstance(result_empty, str)
 
     # Test with various inputs
-    result_various = work_separator_names("sports", True)
+    result_various = work_separator_names("sports")
     assert isinstance(result_various, str)
 
 

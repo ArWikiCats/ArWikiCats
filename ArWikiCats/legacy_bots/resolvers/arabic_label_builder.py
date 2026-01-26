@@ -47,7 +47,7 @@ class CountryResolver:
 
     @staticmethod
     @functools.lru_cache(maxsize=10000)
-    def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
+    def resolve_labels(preposition: str, country: str) -> str:
         """Resolve the country label."""
 
         for_table = {
@@ -60,7 +60,7 @@ class CountryResolver:
         if not result:
             result = (
                 get_pop_All_18(country)
-                or country_resolver.fetch_country_term_label(country, preposition, "", start_get_country2)
+                or country_resolver.fetch_country_term_label(country, preposition, "")
                 or get_con_label(country)
                 or tmp_bot.Work_Templates(country)
                 or _lookup_country_with_by(country)
@@ -398,13 +398,12 @@ class LabelPipeline(Fixing):
         category: str,
         separator: str,
         cate_test: str = "",
-        start_get_country2: bool = True,
+
         use_event2: bool = True,
     ):
         self.category = category
         self.separator = separator
         self.cate_test = cate_test
-        self.start_get_country2 = start_get_country2
         self.use_event2 = use_event2
 
         self.separator_stripped = separator.strip()
@@ -438,9 +437,7 @@ class LabelPipeline(Fixing):
             self.cate_test = self.cate_test.replace(self.type_lower, "")
 
         # Resolve country
-        self.country_label = CountryResolver.resolve_labels(
-            self.separator_stripped, self.country, self.start_get_country2
-        )
+        self.country_label = CountryResolver.resolve_labels(self.separator_stripped, self.country)
 
         if self.country_label:
             self.cate_test = self.cate_test.replace(self.country_lower, "")
@@ -563,7 +560,7 @@ def find_ar_label(
     category: str,
     separator: str,
     cate_test: str = "",
-    start_get_country2: bool = True,
+
     use_event2: bool = True,
 ) -> str:
     """Find the Arabic label based on the provided parameters.
@@ -574,7 +571,6 @@ def find_ar_label(
         category=category,
         separator=separator,
         cate_test=cate_test,
-        start_get_country2=start_get_country2,
         use_event2=use_event2,
     )
     return builder.build()

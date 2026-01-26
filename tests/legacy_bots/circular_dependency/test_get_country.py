@@ -19,7 +19,7 @@ def test_get_country() -> None:
     assert isinstance(result, str)
 
     # Test with different parameter
-    result_with_country2 = get_country_label("test country", False)
+    result_with_country2 = get_country_label("test country")
     assert isinstance(result_with_country2, str)
 
     # Test with empty string

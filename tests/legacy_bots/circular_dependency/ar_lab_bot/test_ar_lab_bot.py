@@ -9,7 +9,7 @@ from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import CountryResolve
 
 @pytest.mark.fast
 def test_get_con_lab_data_one() -> None:
-    label = CountryResolver.resolve_labels(" of ", "11th government of turkey", start_get_country2=True)
+    label = CountryResolver.resolve_labels(" of ", "11th government of turkey")
     assert label != "حكومة تركيا"
 
 
@@ -79,5 +79,5 @@ data_1 = [
 # @pytest.mark.fast
 def test_get_con_lab_data(separator: str, country: str, output: str) -> None:
     preposition = f" {separator} "
-    label = CountryResolver.resolve_labels(preposition, country, start_get_country2=True)
+    label = CountryResolver.resolve_labels(preposition, country)
     assert label == output

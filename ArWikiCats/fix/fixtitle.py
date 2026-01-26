@@ -288,7 +288,7 @@ def fixlabel(label_old: str, en: str = "") -> str:
     """
     logger.debug(f"fixlabel: Starting with label_old: {label_old=}| {en=}")
     original_label = label_old
-    letters_regex = "[abcdefghijklmnopqrstuvwxyz]"
+    letters_regex = "[a-z]"
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:
         return ""
 
