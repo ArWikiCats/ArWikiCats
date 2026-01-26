@@ -52,11 +52,7 @@ def _translate_general_no_fixtitle(category: str) -> str:
     from .separator_based_resolver import work_separator_names
     from .sub_resolver import sub_translate_general_category
 
-    return (
-        ""
-        or sub_translate_general_category(category)
-        or work_separator_names(category)
-    )
+    return "" or sub_translate_general_category(category) or work_separator_names(category)
 
 
 _initialized = False
