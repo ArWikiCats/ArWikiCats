@@ -19,7 +19,7 @@ from ...utils import get_value_from_any_table
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..make_bots import Films_O_TT, players_new_keys
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+en_literes = "[a-z]"
 
 
 @functools.lru_cache(maxsize=10000)

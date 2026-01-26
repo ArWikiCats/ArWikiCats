@@ -20,7 +20,7 @@ from ...helps import logger
 from ...utils import get_relation_word
 from .arabic_label_builder import find_ar_label
 
-en_literes = "[abcdefghijklmnopqrstuvwxyz]"
+en_literes = "[a-z]"
 
 
 @functools.lru_cache(maxsize=10000)
