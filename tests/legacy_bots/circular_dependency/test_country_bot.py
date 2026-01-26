@@ -4,7 +4,7 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.circular_dependency.country_bot import fetch_country_term_label
+from ArWikiCats.legacy_bots.resolvers.country_resolver import fetch_country_term_label
 
 
 def test_fetch_country_term_label() -> None:

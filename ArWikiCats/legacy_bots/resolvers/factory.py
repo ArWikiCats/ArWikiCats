@@ -30,7 +30,6 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
     Returns:
         str: Arabic label for the category, or an empty string if unresolved.
     """
-    # Import here to avoid circular dependency during module load
     from .separator_based_resolver import work_separator_names
     from .sub_resolver import sub_translate_general_category
 
@@ -42,6 +41,22 @@ def translate_general_category_wrap(category: str, start_get_country2: bool = Fa
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
     return arlabel
+
+
+def _translate_general_no_fixtitle(category: str) -> str:
+    """
+    Resolve an Arabic label for a general category without fixtitle.
+
+    This version is used as a callback for with_years_bot.
+    """
+    from .separator_based_resolver import work_separator_names
+    from .sub_resolver import sub_translate_general_category
+
+    return (
+        ""
+        or sub_translate_general_category(category)
+        or work_separator_names(category)
+    )
 
 
 _initialized = False
@@ -59,6 +74,7 @@ def initialize_resolvers() -> None:
         return
 
     from ..legacy_resolvers_bots.country2_label_bot import set_term_label_resolver
+    from ..legacy_resolvers_bots.with_years_bot import set_translate_callback
     from .country_resolver import fetch_country_term_label, set_fallback_resolver
 
     # Set up the fallback resolver for country_resolver
@@ -69,6 +85,9 @@ def initialize_resolvers() -> None:
         return fetch_country_term_label(term, separator, lab_type=lab_type, start_get_country2=start_get_country2)
 
     set_term_label_resolver(term_label_wrapper)
+
+    # Set up the translate callback for with_years_bot
+    set_translate_callback(_translate_general_no_fixtitle)
 
     _initialized = True
 

@@ -4,7 +4,7 @@ TODO: write tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.circular_dependency.ar_lab_bot import add_in_tab, find_ar_label
+from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import add_in_tab, find_ar_label
 
 fast_data = {
     "00s establishments in the Roman Empire": "تأسيسات عقد 00 في الإمبراطورية الرومانية",
