@@ -20,7 +20,9 @@ from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
-from . import country_bot
+
+# Note: country_bot import moved to function level to break circular dependency
+# from . import country_bot
 
 separators_lists_raw = [
     "in",
@@ -49,6 +51,8 @@ class CountryResolver:
     @functools.lru_cache(maxsize=10000)
     def resolve_labels(preposition: str, country: str, start_get_country2: bool = True) -> str:
         """Resolve the country label."""
+        # Lazy import to break circular dependency
+        from . import country_bot
 
         for_table = {
             "for national teams": "للمنتخبات الوطنية",
@@ -260,6 +264,9 @@ def wrap_event2(category: str, separator: str = "") -> str:
     Returns:
         str: The first non-empty label returned by the resolvers, or an empty string if none match.
     """
+    # Lazy import to break circular dependency
+    from . import country_bot
+
     result = (
         university_resolver.resolve_university_category(category)
         or country_bot.event2_d2(category)
