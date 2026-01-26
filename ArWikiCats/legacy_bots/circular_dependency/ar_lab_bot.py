@@ -27,7 +27,7 @@ from ..make_bots import check_key_new_players
 # 2. Maintains all existing functionality and tests (zero breaking changes)
 # 3. Has negligible performance impact (Python caches imports in sys.modules)
 # 4. Allows for future Phase 1 enhancements (interfaces, DI) without blocking progress
-# See: ArWikiCats/legacy_bots/refactor.md for comprehensive refactoring roadmap
+# See: ../refactor.md for comprehensive refactoring roadmap (7 phases total)
 # from . import country_bot
 
 separators_lists_raw = [

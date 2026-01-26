@@ -26,13 +26,13 @@ The circular dependency has been broken using lazy imports in ar_lab_bot.py:
 
 This allows modules to be imported in any order without circular dependency errors.
 
-**Future Work** (see ArWikiCats/legacy_bots/refactor.md for details):
+**Future Work** (see ../refactor.md for details):
 - Consider renaming this directory from 'circular_dependency' to 'resolvers'
 - Extract shared interfaces (abstract base classes for resolvers)
 - Implement dependency injection patterns for better testability
 - Move find_ar_label() to a separate module for cleaner separation
 
-These enhancements are described in detail in refactor.md Phase 1, which also
+These enhancements are described in detail in ../refactor.md Phase 1, which also
 outlines 6 additional refactoring phases for the legacy_bots module.
 
 """
