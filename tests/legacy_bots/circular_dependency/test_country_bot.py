@@ -13,7 +13,7 @@ def test_fetch_country_term_label() -> None:
     assert isinstance(result, str)
 
     # Test with different parameters
-    result_various = fetch_country_term_label("test country", "from", "type_label", False)
+    result_various = fetch_country_term_label("test country", "from", "type_label")
     assert isinstance(result_various, str)
 
     # Test with empty strings - avoid calling with empty strings as they might cause issues
