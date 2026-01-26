@@ -178,7 +178,7 @@ def get_country_label(
 
     country = country.lower()
 
-    logger.debug(">> ----------------- get_country start ----------------- ")
+    logger.debug(">> ----------------- get_country_label start ----------------- ")
     logger.debug(f"<<yellow>> start get_country_label: {country=}")
 
     resolved_label = _check_basic_lookups(country)
@@ -352,21 +352,6 @@ def _handle_type_lab_logic(
     return term_label
 
 
-# Public wrapper functions for backward compatibility
-def get_country(country: str, start_get_country2: bool = True) -> str:
-    """
-    Retrieve the Arabic label for a given country name.
-
-    Args:
-        country: The country name to look up
-        start_get_country2: Whether to use enhanced country lookup
-
-    Returns:
-        The Arabic label for the country or an empty string if not found
-    """
-    return get_country_label(country, start_get_country2)
-
-
 def fetch_country_term_label(
     term_lower: str,
     separator: str,
@@ -389,8 +374,6 @@ def fetch_country_term_label(
 
 
 __all__ = [
-    "Get_country2",
-    "get_country",
     "get_country_label",
     "fetch_country_term_label",
     "check_historical_prefixes",

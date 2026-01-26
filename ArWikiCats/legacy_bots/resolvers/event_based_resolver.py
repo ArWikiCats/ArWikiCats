@@ -26,7 +26,7 @@ def event2_d2(category_r: str) -> str:
     Returns:
         The processed category label or an empty string if not found
     """
-    from ..circular_dependency.country_bot import get_country
+    from ..circular_dependency.country_bot import get_country_label
     cat3 = category_r.lower().replace("category:", "").strip()
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
@@ -40,7 +40,7 @@ def event2_d2(category_r: str) -> str:
     category_lab = ""
     # If it doesn't start with a digit, try country resolution
     if re.sub(r"^\d", "", cat3) == cat3:
-        category_lab = get_country(cat3)
+        category_lab = get_country_label(cat3)
 
     return category_lab
 

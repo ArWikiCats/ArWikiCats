@@ -23,7 +23,7 @@ def resolve_country_label(country_lower: str, country_not_lower: str, cate3: str
         country_label = get_pop_All_18(country_lower, "")
 
         if not country_label:
-            country_label = country_bot.get_country(country_not_lower)
+            country_label = country_bot.get_country_label(country_not_lower)
 
         if country_label == "" and cate3 == compare_lab:
             country_label = Nat_mens.get(country_lower, "")
