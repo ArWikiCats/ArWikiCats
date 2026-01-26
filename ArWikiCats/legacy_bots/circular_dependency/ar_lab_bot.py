@@ -21,6 +21,7 @@ from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_ty
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
 from ..make_bots import check_key_new_players
 from . import country_bot
+from ..resolvers import event_based_resolver
 
 separators_lists_raw = [
     "in",
@@ -262,7 +263,7 @@ def wrap_event2(category: str, separator: str = "") -> str:
     """
     result = (
         university_resolver.resolve_university_category(category)
-        or country_bot.event2_d2(category)
+        or event_based_resolver.event2_d2(category)
         or with_years_bot.wrap_try_with_years(category)
         or label_for_startwith_year_or_typeo(category)
         or ""

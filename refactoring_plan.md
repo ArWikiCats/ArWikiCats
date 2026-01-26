@@ -626,7 +626,7 @@ class GeographyRepository(TranslationRepository):
         # Load from ArWikiCats/jsons/geography/
         pass
 
-    def get_country(self, english: str) -> Optional[str]:
+    def get_country_label(self, english: str) -> Optional[str]:
         pass
 
     def get_city(self, english: str) -> Optional[str]:

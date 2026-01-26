@@ -1,7 +1,15 @@
 #!/usr/bin/python3
 """
-Country Label Bot Module
+Country Label Service Module
+
+Contains shared country label resolution functions that are used by multiple
+resolvers. This module exists to break circular dependencies between
+country_resolver.py and country2_label_bot.py.
+
+This module does NOT depend on country2_label_bot.py, avoiding the cycle.
 """
+
+from __future__ import annotations
 
 import functools
 import re
@@ -21,29 +29,10 @@ from ...translations import (
 )
 from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
-from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
+# NOTE: Do NOT import country_2_title_work here to avoid circular dependency
+# It will be called dynamically or passed as a dependency
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
 from ..make_bots import get_KAKO
-from . import general_resolver, sub_general_resolver
-
-
-def translate_general_category_wrap(category, start_get_country2=False) -> str:
-    """
-    Resolve an Arabic label for a general category using layered resolvers.
-
-    Parameters:
-        category (str): The input category string to resolve.
-        start_get_country2 (bool): If True, allow the resolver to use country-based fallback during resolution.
-
-    Returns:
-        str: Arabic label for the category, or an empty string if unresolved.
-    """
-    arlabel = (
-        ""
-        or sub_general_resolver.sub_translate_general_category(category)
-        or general_resolver.work_separator_names(category, start_get_country2=start_get_country2)
-    )
-    return arlabel
 
 
 def _validate_separators(country: str) -> bool:
@@ -138,11 +127,9 @@ def Get_country2(country: str, country_2_title_work_func: callable = None) -> st
 
     # Fallback chain
     resolved_label = (
-        country_2_title_work(country, with_years=True)
-        or get_lab_for_country2(country)
+        get_lab_for_country2(country)
         or get_pop_All_18(country)
         or get_KAKO(country)
-        or translate_general_category_wrap(country, start_get_country2=False)
         or ""
     )
 
@@ -173,8 +160,8 @@ def get_country_label(
     Returns:
         The resolved Arabic label, or an empty string if no label is found
     """
-    if get_country_func is None:
-        get_country_func = Get_country2
+    # if get_country_func is None:
+    get_country_func = Get_country2
 
     country = country.lower()
 
@@ -192,7 +179,7 @@ def get_country_label(
         resolved_label = (
             get_country_func(country)
             or _parent_resolver._check_prefixes(country)
-            or check_historical_prefixes(country, get_country_func)
+            or check_historical_prefixes(country, Get_country2)
             or all_new_resolvers(country)
             or _parent_resolver._check_regex_years(country)
             or _parent_resolver._check_members(country)
@@ -274,7 +261,7 @@ def get_term_label(
             term_without_the = term_lower[len("the ") :]
             term_label = get_pop_All_18(term_without_the, "")
             if not term_label:
-                term_label = get_country_label(term_without_the, start_get_country2=start_get_country2, get_country_func=Get_country2)
+                term_label = get_country_label(term_without_the, start_get_country2=start_get_country2)
 
     if not term_label:
         if re.sub(r"\d+", "", term_lower) == "":
@@ -283,7 +270,7 @@ def get_term_label(
             term_label = convert_time_to_arabic(term_lower)
 
     if term_label == "":
-        term_label = get_country_label(term_lower, start_get_country2=start_get_country2, get_country_func=Get_country2)
+        term_label = get_country_label(term_lower, start_get_country2=start_get_country2)
 
     if not term_label and lab_type == "type_label":
         term_label = _handle_type_lab_logic(term_lower, separator, start_get_country2)
@@ -334,7 +321,7 @@ def _handle_type_lab_logic(
             translated_base = get_pop_All_18(base_term, "")
 
         if not translated_base:
-            translated_base = get_country_label(base_term, start_get_country2=start_get_country2, get_country_func=Get_country2)
+            translated_base = get_country_label(base_term, start_get_country2=start_get_country2)
 
         if term_label == "" and translated_base:
             if term_lower in keys_of_without_in:
@@ -349,7 +336,7 @@ def _handle_type_lab_logic(
         term_label = get_pop_All_18(f"{term_lower} in", "")
 
     if not term_label:
-        term_label = get_country_label(term_lower, start_get_country2=start_get_country2, get_country_func=Get_country2)
+        term_label = get_country_label(term_lower, start_get_country2=start_get_country2)
 
     return term_label
 
