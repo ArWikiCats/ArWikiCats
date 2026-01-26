@@ -190,7 +190,7 @@ def get_country_label(
         resolved_label = (
             get_country_func(country)
             or _parent_resolver._check_prefixes(country)
-            or check_historical_prefixes(country)
+            or check_historical_prefixes(country, get_country_label)
             or all_new_resolvers(country)
             or _parent_resolver._check_regex_years(country)
             or _parent_resolver._check_members(country)
