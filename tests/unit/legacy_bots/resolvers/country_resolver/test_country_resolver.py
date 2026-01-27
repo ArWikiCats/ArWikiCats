@@ -22,30 +22,30 @@ from ArWikiCats.legacy_bots.resolvers.country_resolver import (
 # ---------------------------------------------------------------------------
 
 
+@pytest.fixture
+def fallback_resolver_fixture():
+    """Fixture to save and restore fallback resolver state."""
+    from ArWikiCats.legacy_bots.resolvers import country_resolver
+
+    original = country_resolver._fallback_resolver
+    yield country_resolver
+    # Restore original state after test
+    country_resolver._fallback_resolver = original
+
+
 @pytest.mark.fast
 class TestFallbackResolver:
     """Tests for fallback resolver functions."""
 
-    def test_get_fallback_label_without_resolver_returns_empty(self) -> None:
+    def test_get_fallback_label_without_resolver_returns_empty(self, fallback_resolver_fixture) -> None:
         """Should return empty string when no fallback resolver is set."""
-        # Save current state
-        from ArWikiCats.legacy_bots.resolvers import country_resolver
-
-        original = country_resolver._fallback_resolver
-
         # Test with None
-        country_resolver._fallback_resolver = None
+        fallback_resolver_fixture._fallback_resolver = None
         result = _get_fallback_label("test")
         assert result == ""
 
-        # Restore
-        country_resolver._fallback_resolver = original
-
-    def test_set_fallback_resolver_sets_callback(self) -> None:
+    def test_set_fallback_resolver_sets_callback(self, fallback_resolver_fixture) -> None:
         """Should set the fallback resolver callback."""
-        from ArWikiCats.legacy_bots.resolvers import country_resolver
-
-        original = country_resolver._fallback_resolver
 
         # Set a test resolver
         def test_resolver(category: str) -> str:
@@ -54,9 +54,6 @@ class TestFallbackResolver:
         set_fallback_resolver(test_resolver)
         result = _get_fallback_label("test")
         assert result == "resolved_test"
-
-        # Restore
-        country_resolver._fallback_resolver = original
 
 
 # ---------------------------------------------------------------------------

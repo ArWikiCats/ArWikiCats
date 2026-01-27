@@ -118,46 +118,51 @@ class TestCheckKeyNewPlayersN:
 # ---------------------------------------------------------------------------
 
 
+@pytest.fixture
+def players_new_keys_fixture():
+    """Fixture to provide access to players_new_keys and clean up test keys."""
+    from ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
+
+    test_keys_added = []
+    yield players_new_keys, test_keys_added
+    # Cleanup: remove any test keys that were added
+    for key in test_keys_added:
+        if key in players_new_keys:
+            del players_new_keys[key]
+
+
 @pytest.mark.fast
 class TestAddKeyNewPlayers:
     """Tests for the add_key_new_players function."""
 
-    def test_adds_key_to_players_new_keys(self) -> None:
+    def test_adds_key_to_players_new_keys(self, players_new_keys_fixture) -> None:
         """Should add key to players_new_keys."""
-        from ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
+        players_new_keys, test_keys_added = players_new_keys_fixture
 
         # Use a unique key that won't conflict
         test_key = "test_add_key_12345"
         test_value = "تسمية اختبار"
 
-        # Ensure key doesn't exist first
-        if test_key.lower() in players_new_keys:
-            del players_new_keys[test_key.lower()]
+        # Track this key for cleanup
+        test_keys_added.append(test_key.lower())
 
         add_key_new_players(test_key, test_value, "test_file")
         assert test_key.lower() in players_new_keys
         assert players_new_keys[test_key.lower()] == test_value
 
-        # Cleanup
-        del players_new_keys[test_key.lower()]
-
-    def test_normalizes_key_to_lowercase(self) -> None:
+    def test_normalizes_key_to_lowercase(self, players_new_keys_fixture) -> None:
         """Should normalize key to lowercase."""
-        from ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
+        players_new_keys, test_keys_added = players_new_keys_fixture
 
         test_key = "TEST_UPPERCASE_KEY_12345"
         test_value = "تسمية"
 
-        # Ensure key doesn't exist first
-        if test_key.lower() in players_new_keys:
-            del players_new_keys[test_key.lower()]
+        # Track this key for cleanup
+        test_keys_added.append(test_key.lower())
 
         add_key_new_players(test_key, test_value, "test_file")
         assert test_key.lower() in players_new_keys
         assert test_key not in players_new_keys  # Original case should not exist
-
-        # Cleanup
-        del players_new_keys[test_key.lower()]
 
 
 # ---------------------------------------------------------------------------
