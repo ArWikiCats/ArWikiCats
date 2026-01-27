@@ -2,10 +2,8 @@
 Tests
 """
 
-from typing import Callable
-
 import pytest
-from load_one_data import dump_diff, one_dump_test
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from ArWikiCats import resolve_label_ar
 
@@ -32,10 +30,4 @@ TEMPORAL_CASES = [
     ("test_for_countries_t", for_countries_t, resolve_label_ar),
 ]
 
-
-@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(TEMPORAL_CASES, run_same=False)
