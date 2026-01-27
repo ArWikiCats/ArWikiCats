@@ -155,8 +155,6 @@ data_to_fix3 = {
 }
 
 to_test = [
-    # ("test_superhero_data_1", data_2),
-    # ("test_superhero_data_3", data_3),
     # ("test_superhero_data_to_fix1", data_0, resolve_label_ar),
     ("test_superhero_data_to_fix2", data_to_fix2, fetch_films_by_category),
     ("test_superhero_data_to_fix3", data_to_fix3, fetch_films_by_category),

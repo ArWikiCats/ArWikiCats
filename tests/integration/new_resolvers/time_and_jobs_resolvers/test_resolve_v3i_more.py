@@ -34,6 +34,12 @@ test_females_data = {
 }
 
 test_data_standard = {
+    "18th-century writers from Safavid Iran": "كتاب من إيران الصفوية في القرن 18",
+    "18th-century people from Safavid Iran": "أشخاص من إيران الصفوية في القرن 18",
+    "17th-century writers from Safavid Iran": "كتاب من إيران الصفوية في القرن 17",
+    "17th-century people from Safavid Iran": "أشخاص من إيران الصفوية في القرن 17",
+    "16th-century writers from Safavid Iran": "كتاب من إيران الصفوية في القرن 16",
+    "16th-century people from Safavid Iran": "أشخاص من إيران الصفوية في القرن 16",
     "19th-century LGBTQ people from the Russian Empire": "أعلام إل جي بي تي كيو من الإمبراطورية الروسية في القرن 19",
     "19th-century journalists from the Ottoman Empire": "صحفيون من الدولة العثمانية في القرن 19",
     "20th-century journalists from the Ottoman Empire": "صحفيون من الدولة العثمانية في القرن 20",
