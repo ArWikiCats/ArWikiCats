@@ -388,7 +388,7 @@ class TestFormatDataBaseSearchAll:
     def test_search_all_with_prefix(self):
         """Test search_all with add_arabic_category_prefix=True."""
         bot = FormatData(
-            formatted_data={"{sport} players": "لاعبو {sport_label}"},
+            formatted_data={"category:{sport} players": "لاعبو {sport_label}"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
@@ -496,14 +496,14 @@ class TestFormatDataBaseSearchAllCategory:
     def test_search_all_category_with_unprocessed_placeholders(self):
         """Test search_all_category returns empty for unprocessed placeholders."""
         bot = FormatData(
-            # This will leave {unprocessed} in the result
-            formatted_data={"{sport} players": "لاعبو {unprocessed}"},
+            # This will leave {sport_label} in the result if no data_list matches
+            formatted_data={"players": "لاعبو {sport_label}"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
-            value_placeholder="{unprocessed}",
+            value_placeholder="{sport_label}",
         )
-        # Since sport_label doesn't have {unprocessed}, it won't be replaced
-        result = bot.search_all_category("football players")
+        # Since "players" has {sport_label} but no sport matched, it won't be replaced
+        result = bot.search_all_category("players")
         # Should return empty due to unprocessed placeholder
         assert result == ""
 
