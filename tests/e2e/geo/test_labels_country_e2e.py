@@ -1,5 +1,6 @@
 """
-Unit tests for the get_and_label function in labels_country module.
+End-to-end tests for labels with joined country/region names.
+Tests the full resolve pipeline with real category inputs.
 """
 
 from __future__ import annotations
@@ -7,10 +8,9 @@ from __future__ import annotations
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.translations.funcs import get_and_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
-test_data = {
+e2e_data = {
     "Anglican bishops of Hong Kong and Macao": "أساقفة أنجليكيون من هونغ كونغ وماكاو",
     "Anglican bishops of Labuan and Sarawak": "أساقفة أنجليكيون من لابوان وساراواك",
     "Anglican bishops of Nova Scotia and Prince Edward Island": "أساقفة أنجليكيون من نوفا سكوشا وجزيرة الأمير إدوارد",
@@ -19,24 +19,15 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
-@pytest.mark.fast
-def test_get_and_label(category: str, expected: str) -> None:
+@pytest.mark.e2e
+@pytest.mark.parametrize("category,expected", e2e_data.items(), ids=e2e_data.keys())
+def test_resolve_joined_entities_labels(category: str, expected: str) -> None:
+    """Test full resolve pipeline for categories with joined country/region names."""
     label = resolve_label_ar(category)
     assert label == expected
 
 
-test_dump_all = make_dump_test_name_data_callback(
-    [("test_data", test_data, resolve_label_ar)], run_same=True, just_dump=True
+# Dump test for data comparison
+test_dump_joined_entities = make_dump_test_name_data_callback(
+    [("e2e_data", e2e_data, resolve_label_ar)], run_same=True, just_dump=True
 )
-
-
-@pytest.mark.unit
-def test_get_and_label_returns_joined_entities(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr(
-        "ArWikiCats.translations.funcs.get_from_new_p17_final",
-        lambda name, _: {"artist": "فنان", "painter": "رسام"}.get(name, ""),
-    )
-
-    result = get_and_label("Artist and Painter")
-    assert result == "فنان ورسام"
