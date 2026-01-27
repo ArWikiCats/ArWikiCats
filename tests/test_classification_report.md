@@ -154,7 +154,7 @@ git mv tests/event_lists/test_sports_events.py tests/e2e/test_sports_events.py
 git mv tests/event_lists/test_sports_events2.py tests/e2e/test_sports_events2.py
 git mv tests/event_lists/test_classical_musicians.py tests/e2e/test_classical_musicians.py
 git mv tests/event_lists/test_classical_composers_fix.py tests/e2e/test_classical_composers_fix.py
-git mv tests/event_lists/globals tests/e2e/event_lists_globals
+# git mv tests/event_lists/globals tests/e2e/event_lists_globals
 git mv tests/event_lists/importants tests/e2e/event_lists_importants
 git mv tests/event_lists/jobs_bots tests/e2e/event_lists_jobs_bots
 git mv tests/event_lists/new_data_new_update tests/e2e/event_lists_new_data
