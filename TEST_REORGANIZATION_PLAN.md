@@ -130,7 +130,7 @@ def pytest_configure(config: pytest.Config) -> None:
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Add custom command line options."""
     parser.addoption(
-        "--run-e2e",
+        "--rune2e",
         action="store_true",
         default=False,
         help="Run end-to-end tests (disabled by default in quick mode)",
@@ -141,7 +141,7 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
     """
     Automatically apply markers based on test location and add markers to unmarked tests.
     """
-    run_e2e = config.getoption("--run-e2e")
+    run_e2e = config.getoption("--rune2e")
 
     for item in items:
         path_parts = item.fspath.parts
@@ -154,7 +154,7 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
         elif "e2e" in path_parts:
             item.add_marker(pytest.mark.e2e)
             if not run_e2e:
-                item.add_marker(pytest.mark.skip(reason="E2E tests disabled, use --run-e2e"))
+                item.add_marker(pytest.mark.skip(reason="E2E tests disabled, use --rune2e"))
         else:
             # Fallback for tests not yet moved
             if "event_lists" in str(item.fspath):
@@ -252,10 +252,10 @@ pytest -m "unit or integration"
 # قبل إصدار - كل الاختبارات
 pytest -m "unit or integration or e2e"
 # أو
-pytest --run-e2e
+pytest --rune2e
 
 # تشغيل e2e فقط
-pytest -m e2e --run-e2e
+pytest -m e2e --rune2e
 
 # تشغيل اختبارات محددة
 pytest tests/unit/test_time_to_arabic.py

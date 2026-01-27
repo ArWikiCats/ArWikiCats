@@ -2,7 +2,6 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
-from load_one_data import dump_diff, dump_diff_text, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
@@ -35,6 +34,18 @@ test_females_data = {
 }
 
 test_data_standard = {
+    "19th-century LGBTQ people from the Russian Empire": "أعلام إل جي بي تي كيو من الإمبراطورية الروسية في القرن 19",
+    "19th-century journalists from the Ottoman Empire": "صحفيون من الدولة العثمانية في القرن 19",
+    "20th-century journalists from the Ottoman Empire": "صحفيون من الدولة العثمانية في القرن 20",
+    "9th-century Jews from al-Andalus": "يهود من الأندلس في القرن 9",
+    "9th-century people from al-Andalus": "أشخاص من الأندلس في القرن 9",
+    "17th-century writers from Bohemia": "كتاب من بوهيميا في القرن 17",
+    "16th-century writers from the Ottoman Empire": "كتاب من الدولة العثمانية في القرن 16",
+    "12th-century princes from Kievan Rus'": "أمراء من كييف روس في القرن 12",
+    "13th-century princes from Kievan Rus'": "أمراء من كييف روس في القرن 13",
+    "15th-century rabbis from the Ottoman Empire": "حاخامات من الدولة العثمانية في القرن 15",
+    "16th-century rabbis from the Ottoman Empire": "حاخامات من الدولة العثمانية في القرن 16",
+    "17th-century writers from the Ottoman Empire": "كتاب من الدولة العثمانية في القرن 17",
     "10th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 10",
     "10th-century historians from the Abbasid Caliphate": "مؤرخون من الدولة العباسية في القرن 10",
     "11th-century historians from al-Andalus": "مؤرخون من الأندلس في القرن 11",
