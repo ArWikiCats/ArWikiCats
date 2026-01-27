@@ -16,7 +16,7 @@ class TestBuildGenderKeyMaps:
             "comedy": {"male": "كوميدي", "female": "كوميدية"},
             "drama": {"male": "درامي", "female": "درامية"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        films_key_both, _ = _build_gender_key_maps(films_key_o_multi)
 
         assert "comedy" in films_key_both
         assert films_key_both["comedy"]["male"] == "كوميدي"
@@ -26,7 +26,7 @@ class TestBuildGenderKeyMaps:
         films_key_o_multi = {
             "Action": {"male": "أكشن", "female": "أكشن"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        films_key_both, _ = _build_gender_key_maps(films_key_o_multi)
 
         assert "action" in films_key_both
         assert "Action" not in films_key_both
@@ -35,7 +35,7 @@ class TestBuildGenderKeyMaps:
         films_key_o_multi = {
             "horror": {"male": "رعب", "female": "رعب"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        _, films_key_man = _build_gender_key_maps(films_key_o_multi)
 
         assert films_key_man["horror"] == "رعب"
 
@@ -43,7 +43,7 @@ class TestBuildGenderKeyMaps:
         films_key_o_multi = {
             "comedy": {"male": "كوميدي", "female": "كوميدية"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        _, films_key_man = _build_gender_key_maps(films_key_o_multi)
 
         assert "animated comedy" in films_key_man
         assert "رسوم متحركة" in films_key_man["animated comedy"]
@@ -52,7 +52,7 @@ class TestBuildGenderKeyMaps:
         films_key_o_multi = {
             "animated": {"male": "رسوم متحركة", "female": "رسوم متحركة"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        _, films_key_man = _build_gender_key_maps(films_key_o_multi)
 
         # Should not add "animated animated" variant
         assert "animated animated" not in films_key_man
@@ -61,7 +61,7 @@ class TestBuildGenderKeyMaps:
         films_key_o_multi = {
             "animated": {"male": "رسوم متحركة", "female": "رسوم متحركة"},
         }
-        films_key_both, films_key_man = _build_gender_key_maps(films_key_o_multi)
+        films_key_both, _ = _build_gender_key_maps(films_key_o_multi)
 
         assert "animation" in films_key_both
         assert films_key_both["animation"] == films_key_both["animated"]
@@ -122,7 +122,7 @@ class TestBuildSeriesAndNatKeys:
         TELEVISION_BASE_KEYS_FEMALE = {"series": "مسلسلات"}
         DEBUTS_ENDINGS_KEYS = []
 
-        films_key_for_nat, films_mslslat_tab = _build_series_and_nat_keys(
+        films_key_for_nat, _ = _build_series_and_nat_keys(
             female_keys, SERIES_DEBUTS_ENDINGS, TELEVISION_BASE_KEYS_FEMALE, DEBUTS_ENDINGS_KEYS
         )
 
@@ -148,7 +148,7 @@ class TestBuildSeriesAndNatKeys:
         TELEVISION_BASE_KEYS_FEMALE = {"series": "مسلسلات"}
         DEBUTS_ENDINGS_KEYS = ["series"]
 
-        films_key_for_nat, films_mslslat_tab = _build_series_and_nat_keys(
+        films_key_for_nat, _ = _build_series_and_nat_keys(
             female_keys, SERIES_DEBUTS_ENDINGS, TELEVISION_BASE_KEYS_FEMALE, DEBUTS_ENDINGS_KEYS
         )
 
@@ -161,7 +161,7 @@ class TestBuildSeriesAndNatKeys:
         TELEVISION_BASE_KEYS_FEMALE = {}
         DEBUTS_ENDINGS_KEYS = []
 
-        films_key_for_nat, films_mslslat_tab = _build_series_and_nat_keys(
+        films_key_for_nat, _ = _build_series_and_nat_keys(
             female_keys, SERIES_DEBUTS_ENDINGS, TELEVISION_BASE_KEYS_FEMALE, DEBUTS_ENDINGS_KEYS
         )
 
@@ -173,7 +173,7 @@ class TestBuildSeriesAndNatKeys:
         TELEVISION_BASE_KEYS_FEMALE = {}
         DEBUTS_ENDINGS_KEYS = []
 
-        films_key_for_nat, films_mslslat_tab = _build_series_and_nat_keys(
+        films_key_for_nat, _ = _build_series_and_nat_keys(
             female_keys, SERIES_DEBUTS_ENDINGS, TELEVISION_BASE_KEYS_FEMALE, DEBUTS_ENDINGS_KEYS
         )
 
@@ -187,7 +187,7 @@ class TestBuildTelevisionCao:
         female_keys = {}
         TELEVISION_KEYS = {"comedy": "كوميديا"}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "comedy characters" in films_key_cao
         assert films_key_cao["comedy characters"] == "شخصيات كوميديا"
@@ -196,7 +196,7 @@ class TestBuildTelevisionCao:
         female_keys = {}
         TELEVISION_KEYS = {"drama": "دراما"}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "drama title cards" in films_key_cao
         assert films_key_cao["drama title cards"] == "بطاقات عنوان دراما"
@@ -205,7 +205,7 @@ class TestBuildTelevisionCao:
         female_keys = {"action": "أكشن"}
         TELEVISION_KEYS = {}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "children's action" in films_key_cao
         assert films_key_cao["children's action"] == "أطفال أكشن"
@@ -214,7 +214,7 @@ class TestBuildTelevisionCao:
         female_keys = {"horror": "رعب"}
         TELEVISION_KEYS = {}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "horror film remakes" in films_key_cao
 
@@ -222,7 +222,7 @@ class TestBuildTelevisionCao:
         female_keys = {"comedy": "كوميدية"}
         TELEVISION_KEYS = {}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "comedy films" in films_key_cao
         assert films_key_cao["comedy films"] == "أفلام كوميدية"
@@ -231,7 +231,7 @@ class TestBuildTelevisionCao:
         female_keys = {"action": "أكشن"}
         TELEVISION_KEYS = {"series": "مسلسل"}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        _, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         assert "action series" in films_key_cao2
         assert films_key_cao2["action series"] == "مسلسل أكشن"
@@ -240,7 +240,7 @@ class TestBuildTelevisionCao:
         female_keys = {"valid": "صحيح", "empty": ""}
         TELEVISION_KEYS = {}
 
-        films_key_cao, films_key_cao2 = _build_television_cao(female_keys, TELEVISION_KEYS)
+        films_key_cao, _ = _build_television_cao(female_keys, TELEVISION_KEYS)
 
         # Should create entries for valid keys only
         assert "children's valid" in films_key_cao
