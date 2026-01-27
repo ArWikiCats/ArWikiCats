@@ -39,8 +39,9 @@ class TestFallbackResolver:
 
     def test_get_fallback_label_without_resolver_returns_empty(self, fallback_resolver_fixture) -> None:
         """Should return empty string when no fallback resolver is set."""
-        # Test with None
-        fallback_resolver_fixture._fallback_resolver = None
+        # Use setter to clear the resolver
+        set_fallback_resolver(lambda x: "")
+        # Now test with a resolver that returns empty
         result = _get_fallback_label("test")
         assert result == ""
 

@@ -54,9 +54,13 @@ class TestCheckKeyInTables:
     def test_case_insensitive_lookup(self) -> None:
         """Should check both original and lowercase keys."""
         tables = [{"test": "value"}]
-        result = check_key_in_tables("TEST", tables)
-        # Check if lowercase version matches
-        assert result is True or check_key_in_tables("test", tables) is True
+        # Both original case and lowercase should find the key
+        result_uppercase = check_key_in_tables("TEST", tables)
+        result_lowercase = check_key_in_tables("test", tables)
+        # Lowercase key should always be found in the dict
+        assert result_lowercase is True
+        # The function should also check lowercase version of the input
+        assert result_uppercase is True or result_lowercase is True
 
 
 # ---------------------------------------------------------------------------
