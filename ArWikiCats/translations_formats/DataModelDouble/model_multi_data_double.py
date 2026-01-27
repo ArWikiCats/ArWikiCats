@@ -6,8 +6,8 @@ FormatData instance with a FormatDataDouble instance for complex categories.
 
 from typing import Dict
 
-from ..DataModel.model_data import FormatData
-from ..DataModel.model_multi_data_base import MultiDataFormatterBaseHelpers
+from ..DataModel import FormatData
+from ..DataModelMulti import MultiDataFormatterBaseHelpers
 from .model_data_double import FormatDataDouble
 
 

@@ -172,9 +172,8 @@ class FormatDataBase:
         logger.debug(f"handle_texts_before_after: {normalized=}")
         # no need for further processing
         # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
-        normalized_strip = normalized.strip()
-        if self.formatted_data_ci.get(normalized_strip, ""):
-            logger.debug(f"handle_texts_before_after: found directly {normalized_strip=} in formatted_data_ci")
+        if self.formatted_data_ci.get(normalized.strip(), ""):
+            logger.debug(f"handle_texts_before_after: found directly {normalized.strip()=} in formatted_data_ci")
             return normalized
 
         if self.text_before:
@@ -183,7 +182,7 @@ class FormatDataBase:
 
             # no need for further processing
             # (text_after=" people") but key: ("{nat_en} people actors") already in formatted_data_ci so no need to replace
-            if self.formatted_data_ci.get(normalized_strip, ""):
+            if self.formatted_data_ci.get(normalized.strip(), ""):
                 return normalized
 
         if self.text_after:

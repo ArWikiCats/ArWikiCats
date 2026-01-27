@@ -38,7 +38,8 @@ test at tests.translations_formats.test_format_2_data.py
 
 from typing import Dict
 
-from .DataModel import FormatData, FormatDataV2, MultiDataFormatterBase, MultiDataFormatterBaseV2
+from .DataModel import FormatData, FormatDataV2
+from .DataModelMulti import MultiDataFormatterBase, MultiDataFormatterBaseV2
 from .formats_logger import logger
 
 YEAR_PARAM = "xoxo"
