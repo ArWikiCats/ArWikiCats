@@ -52,6 +52,16 @@
   - Tests for `check_key_new_players` function
   - Tests for `add_key_new_players` function
 
+* **Unit tests for genders_resolvers module (0% → 100%):**
+  - Tests for `utils.py`: `fix_keys` function, regex patterns
+  - Tests for `__init__.py`: `resolve_nat_genders_pattern_v2` function
+  - Tests for `jobs_and_genders_resolver.py`: `genders_jobs_resolver`, `generate_jobs_data_dict`, `generate_formatted_data`
+  - Tests for `sports_and_genders_resolver.py`: `genders_sports_resolver`, `generate_sports_data_dict`
+
+* **Unit tests for relegin_jobs_nats_jobs.py (0% → 100%):**
+  - Tests for `PAINTER_ROLE_LABELS` constant
+  - Tests for `resolve_nats_jobs` function
+
 ### Changed
 * Coverage for `event_lab_bot.py`: 34% → 84%
 * Coverage for `mk3.py`: 19% → 83%
@@ -61,8 +71,11 @@
 * Coverage for `interface.py`: 0% → 100%
 * Coverage for `joint_class.py`: 70% → 100%
 * Coverage for `check_bot.py`: 65% → 100%
+* Coverage for `genders_resolvers/`: 0% → 100%
+* Coverage for `relegin_jobs_nats_jobs.py`: 0% → 100%
 * Total legacy_bots module coverage: 70% → 87%
-* 206 new tests added
+* Total ArWikiCats coverage: 89% → 91%
+* 294 new tests added (206 + 88)
 
 ## [Add unit and integration tests for translations_formats module] - 2026-01-27
 
