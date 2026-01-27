@@ -75,7 +75,7 @@
 | `tests/event_lists/test_south_african.py` | 1 | `tests/e2e/test_south_african.py` |
 | `tests/event_lists/test_yy2_non.py` | 1 | `tests/e2e/test_yy2_non.py` |
 | `tests/event_lists/test_t4_2018_jobs_old_data.py` | 1 | `tests/e2e/test_t4_2018_jobs_old_data.py` |
-| `tests/legacy_bots/circular_dependency/ar_lab_bot/*.py` (7 files) | ~150+ | `tests/e2e/legacy_bots/ar_lab_bot/` |
+| `tests/legacy_bots/circular_dependency/arabic_label_builder/*.py` (7 files) | ~150+ | `tests/e2e/legacy_bots/arabic_label_builder/` |
 | `tests/legacy_bots/circular_dependency/country2_label_bot/*.py` (3 files) | ~80+ | `tests/e2e/legacy_bots/country2_label_bot/` |
 | `tests/legacy_bots/common_resolver_chain/*.py` (2 files) | ~40+ | `tests/e2e/legacy_bots/common_resolver_chain/` |
 | `tests/legacy_bots/end_start_bots/*.py` (2 files) | ~15+ | `tests/e2e/legacy_bots/end_start_bots/` |
@@ -173,7 +173,7 @@ These are skip/test-fix files that should be removed:
 # =====================================================
 # E2E: Move legacy_bots to tests/e2e/legacy_bots/
 # =====================================================
-git mv tests/legacy_bots/circular_dependency/ar_lab_bot tests/e2e/legacy_bots/ar_lab_bot
+git mv tests/legacy_bots/circular_dependency/arabic_label_builder tests/e2e/legacy_bots/arabic_label_builder
 git mv tests/legacy_bots/circular_dependency/country2_label_bot tests/e2e/legacy_bots/country2_label_bot
 git mv tests/legacy_bots/common_resolver_chain tests/e2e/legacy_bots/common_resolver_chain
 git mv tests/legacy_bots/end_start_bots tests/e2e/legacy_bots/end_start_bots
