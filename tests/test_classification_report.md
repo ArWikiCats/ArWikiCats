@@ -211,7 +211,7 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # git mv tests/translations/geo/test_geo_shared.py tests/unit/translations/geo/
 # git mv tests/translations/mixed tests/unit/translations/
 # git mv tests/translations/sports tests/unit/translations/
-git mv tests/translations/jobs tests/unit/translations/
+# git mv tests/translations/jobs tests/unit/translations/
 
 # =====================================================
 # INTEGRATION: Move patterns_resolvers/ to tests/integration/patterns_resolvers/
