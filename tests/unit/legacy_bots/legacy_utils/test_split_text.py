@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import (
+from ArWikiCats.legacy_bots.legacy_utils import (
     split_text_by_separator,
 )
 

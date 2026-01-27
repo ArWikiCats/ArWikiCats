@@ -4,7 +4,6 @@ Tests for country2_label_bot module functions.
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from utils.dump_runner import make_dump_test_name_data_callback
 
