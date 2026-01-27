@@ -173,7 +173,7 @@ These are skip/test-fix files that should be removed:
 # =====================================================
 # E2E: Move legacy_bots to tests/e2e/legacy_bots/
 # =====================================================
-git mv tests/legacy_bots/circular_dependency/arabic_label_builder tests/e2e/legacy_bots/arabic_label_builder
+# git mv tests/legacy_bots/circular_dependency/arabic_label_builder tests/e2e/legacy_bots/arabic_label_builder
 git mv tests/legacy_bots/circular_dependency/country2_label_bot tests/e2e/legacy_bots/country2_label_bot
 git mv tests/legacy_bots/common_resolver_chain tests/e2e/legacy_bots/common_resolver_chain
 git mv tests/legacy_bots/end_start_bots tests/e2e/legacy_bots/end_start_bots
