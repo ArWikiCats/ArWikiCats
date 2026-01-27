@@ -147,13 +147,13 @@ These are skip/test-fix files that should be removed:
 # =====================================================
 # E2E: Move event_lists to tests/e2e/
 # =====================================================
-git mv tests/event_lists/deaths tests/e2e/deaths
-git mv tests/event_lists/test_2.py tests/e2e/test_2.py
-git mv tests/event_lists/test_3.py tests/e2e/test_3.py
-git mv tests/event_lists/test_sports_events.py tests/e2e/test_sports_events.py
-git mv tests/event_lists/test_sports_events2.py tests/e2e/test_sports_events2.py
-git mv tests/event_lists/test_classical_musicians.py tests/e2e/test_classical_musicians.py
-git mv tests/event_lists/test_classical_composers_fix.py tests/e2e/test_classical_composers_fix.py
+# git mv tests/event_lists/deaths tests/e2e/deaths
+# git mv tests/event_lists/test_2.py tests/e2e/test_2.py
+# git mv tests/event_lists/test_3.py tests/e2e/test_3.py
+# git mv tests/event_lists/test_sports_events.py tests/e2e/test_sports_events.py
+# git mv tests/event_lists/test_sports_events2.py tests/e2e/test_sports_events2.py
+# git mv tests/event_lists/test_classical_musicians.py tests/e2e/test_classical_musicians.py
+# git mv tests/event_lists/test_classical_composers_fix.py tests/e2e/test_classical_composers_fix.py
 # git mv tests/event_lists/globals tests/e2e/event_lists_globals
 git mv tests/event_lists/importants tests/e2e/event_lists_importants
 git mv tests/event_lists/jobs_bots tests/e2e/event_lists_jobs_bots
