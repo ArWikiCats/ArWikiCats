@@ -220,9 +220,9 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # git mv tests/patterns_resolvers/time_patterns_resolvers/test_time_patterns_resolvers_extended.py tests/integration/patterns_resolvers/
 
 # =====================================================
-# INTEGRATION: Move relations_resolver/ to tests/integration/resolvers/
+# INTEGRATION: Move relations_resolver/ to tests/integration/resolvers/ ✔️
 # =====================================================
-git mv tests/new_resolvers/relations_resolver/test_rele_big_data.py tests/integration/resolvers/test_relations_big_data.py
+# git mv tests/new_resolvers/relations_resolver/test_rele_big_data.py tests/integration/resolvers/test_relations_big_data.py
 
 # =====================================================
 # DELETE: Remove to_fix_skip files
