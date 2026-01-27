@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
 
-from ..matables_bots.check_bot import check_key_new_players
-check_key_new_players(key)
 """
 
 import pytest
