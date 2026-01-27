@@ -188,12 +188,12 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # git mv tests/fix/specific_normalizations tests/unit/fix/specific_normalizations
 
 # =====================================================
-# UNIT: Move time_resolvers/ to tests/unit/time_resolvers/
+# UNIT: Move time_resolvers/ to tests/unit/time_resolvers/ ✔️
 # =====================================================
-git mv tests/time_resolvers/test_time_to_arabic tests/unit/time_resolvers
+# git mv tests/time_resolvers/test_time_to_arabic tests/unit/time_resolvers
 
 # =====================================================
-# UNIT: Move main_processers/ to tests/unit/main_processers/
+# UNIT: Move main_processers/ to tests/unit/main_processers/ ✔️
 # =====================================================
 git mv tests/main_processers/test_list_cat_format.py tests/unit/main_processers/
 
