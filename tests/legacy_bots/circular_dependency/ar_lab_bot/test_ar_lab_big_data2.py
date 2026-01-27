@@ -584,7 +584,7 @@ data_3 = {
 }
 
 to_test = [
-    ("test_data_list_in_1", data_1, lambda cat: find_ar_label(cat, " in ", use_event2=False)),
+    ("test_data_list_in_1", data_1, resolve_label_ar),
     ("test_data_list_in_2", data_2, resolve_label_ar),
     ("test_data_list_in_3", data_3, resolve_label_ar),
 ]
@@ -593,7 +593,7 @@ to_test = [
 @pytest.mark.parametrize("category, output", data_1.items(), ids=data_1.keys())
 @pytest.mark.fast
 def test_data_list_in_1(category: str, output: str) -> None:
-    label = find_ar_label(category, " in ", use_event2=False)
+    label = resolve_label_ar(category, " in ")
     assert label == output
 
 
