@@ -31,9 +31,12 @@ from typing import Dict
 from .DataModel import (
     FormatData,
     FormatDataV2,
+    YearFormatData,
+)
+
+from .DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
-    YearFormatData,
 )
 
 YEAR_PARAM = "{year1}"
