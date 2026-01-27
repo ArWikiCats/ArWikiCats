@@ -5,7 +5,6 @@ tests
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 from utils.dump_runner import make_dump_test_name_data_callback
 
 all_test_data_integrated = {

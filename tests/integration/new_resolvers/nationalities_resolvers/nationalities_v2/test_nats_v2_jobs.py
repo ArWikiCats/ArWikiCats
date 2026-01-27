@@ -18,8 +18,6 @@ test_data_males = {
     "Yemeni emigrants": "يمنيون مهاجرون",
 }
 
-test_data_ar = {}
-
 
 @pytest.mark.parametrize("category, expected", test_data_males.items(), ids=test_data_males.keys())
 @pytest.mark.fast
@@ -28,17 +26,9 @@ def test_resolve_males(category: str, expected: str) -> None:
     assert label == expected
 
 
-@pytest.mark.parametrize("category, expected", test_data_ar.items(), ids=test_data_ar.keys())
-@pytest.mark.fast
-def test_resolve_ar(category: str, expected: str) -> None:
-    label = resolve_by_nats(category)
-    assert label == expected
-
-
 TEMPORAL_CASES = [
     ("test_resolve_males", test_data_males, resolve_by_nats),
-    ("test_resolve_ar", test_data_ar, resolve_by_nats),
-]
+    x]
 
 
 @pytest.mark.dump
