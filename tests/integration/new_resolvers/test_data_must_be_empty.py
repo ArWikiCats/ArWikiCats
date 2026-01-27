@@ -7,12 +7,44 @@ import pytest
 from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 from ArWikiCats.new_resolvers.nationalities_resolvers import main_nationalities_resolvers
 from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
-from ArWikiCats.translations import countries_en_as_nationality_keys
+
+countries_en_as_nationality_keys = [
+    "antigua and barbuda",
+    "botswana",
+    "central african republic",
+    "chinese taipei",
+    "democratic republic of congo",
+    "democratic-republic-of-congo",
+    "dominican republic",
+    "federated states of micronesia",
+    "federated states-of micronesia",
+    "georgia (country)",
+    "hong kong",
+    "ireland",
+    "kiribati",
+    "kyrgyz",
+    "lesotho",
+    "liechtenstein",
+    "new zealand",
+    "northern ireland",
+    "republic of congo",
+    "republic of ireland",
+    "republic-of ireland",
+    "republic-of-congo",
+    "são toméan",
+    "trinidad and tobago",
+    "turkmen",
+    "turkmenistan",
+    "uzbek",
+    "vatican",
+    "west india",
+]
 
 test_data_must_be_empty = {
     "the caribbean": "",
     "caribbean": "",
 }
+
 test_data_must_be_empty.update({x: "" for x in countries_en_as_nationality_keys})
 
 
