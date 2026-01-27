@@ -22,7 +22,7 @@ def pytest_configure(config: pytest.Config) -> None:
 def pytest_addoption(parser: pytest.Parser) -> None:
     """Add custom command line options."""
     parser.addoption(
-        "--run-e2e",
+        "--rune2e",
         action="store_true",
         default=False,
         help="Run end-to-end tests (disabled by default in quick mode)",
@@ -38,7 +38,7 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
     - tests/integration/* → @pytest.mark.integration
     - tests/e2e/* → @pytest.mark.e2e
     """
-    run_e2e = config.getoption("--run-e2e")
+    run_e2e = config.getoption("--rune2e")
 
     for item in items:
         path_str = str(item.fspath)
@@ -52,4 +52,4 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
         elif "tests" + os.sep + "e2e" in path_str:
             item.add_marker(pytest.mark.e2e)
             if not run_e2e:
-                item.add_marker(pytest.mark.skip(reason="E2E tests disabled, use --run-e2e"))
+                item.add_marker(pytest.mark.skip(reason="E2E tests disabled, use --rune2e"))

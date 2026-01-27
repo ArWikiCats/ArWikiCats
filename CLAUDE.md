@@ -167,6 +167,14 @@ After any changes:
 - Follow Arabic Wikipedia naming conventions
 - All resolver outputs should be Arabic text (except debug paths)
 
+### Working with Large Files (API Context Limits)
+**Model context limit**: ~200k tokens (~256k input tokens max)
+
+When working with large files that may exceed the model's context:
+- **Read files in chunks** using `Read` tool with `offset` and `limit` parameters
+- **Use `Grep` for targeted searches** instead of reading entire files
+- **Use `Task` with `Explore` agent** for open-ended codebase exploration
+
 ## Directory Structure
 
 ```
