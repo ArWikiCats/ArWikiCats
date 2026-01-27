@@ -145,7 +145,7 @@ These are skip/test-fix files that should be removed:
 
 ```bash
 # =====================================================
-# E2E: Move event_lists to tests/e2e/
+# E2E: Move event_lists to tests/e2e/ ✔️
 # =====================================================
 # git mv tests/event_lists/deaths tests/e2e/deaths
 # git mv tests/event_lists/test_2.py tests/e2e/test_2.py
@@ -155,20 +155,20 @@ These are skip/test-fix files that should be removed:
 # git mv tests/event_lists/test_classical_musicians.py tests/e2e/test_classical_musicians.py
 # git mv tests/event_lists/test_classical_composers_fix.py tests/e2e/test_classical_composers_fix.py
 # git mv tests/event_lists/globals tests/e2e/event_lists_globals
-git mv tests/event_lists/importants tests/e2e/event_lists_importants
-git mv tests/event_lists/jobs_bots tests/e2e/event_lists_jobs_bots
-git mv tests/event_lists/new_data_new_update tests/e2e/event_lists_new_data
-git mv tests/event_lists/people tests/e2e/event_lists_people
-git mv tests/event_lists/squad_title_bot tests/e2e/event_lists_squad_title_bot
-git mv tests/event_lists/womens tests/e2e/event_lists_womens
-git mv tests/event_lists/papua_new_guinea tests/e2e/event_lists_papua_new_guinea
-git mv tests/event_lists/test_northern_ireland tests/e2e/test_northern_ireland
-git mv tests/event_lists/test_non tests/e2e/event_lists_test_non
-git mv tests/event_lists/test_religions tests/e2e/event_lists_test_religions
-git mv tests/event_lists/test_nuns.py tests/e2e/test_nuns.py
-git mv tests/event_lists/test_south_african.py tests/e2e/test_south_african.py
-git mv tests/event_lists/test_yy2_non.py tests/e2e/test_yy2_non.py
-git mv tests/event_lists/test_t4_2018_jobs_old_data.py tests/e2e/test_t4_2018_jobs_old_data.py
+# git mv tests/event_lists/importants tests/e2e/event_lists_importants
+# git mv tests/event_lists/jobs_bots tests/e2e/event_lists_jobs_bots
+# git mv tests/event_lists/new_data_new_update tests/e2e/event_lists_new_data
+# git mv tests/event_lists/people tests/e2e/event_lists_people
+# git mv tests/event_lists/squad_title_bot tests/e2e/event_lists_squad_title_bot
+# git mv tests/event_lists/womens tests/e2e/event_lists_womens
+# git mv tests/event_lists/papua_new_guinea tests/e2e/event_lists_papua_new_guinea
+# git mv tests/event_lists/test_northern_ireland tests/e2e/test_northern_ireland
+# git mv tests/event_lists/test_non tests/e2e/event_lists_test_non
+# git mv tests/event_lists/test_religions tests/e2e/event_lists_test_religions
+# git mv tests/event_lists/test_nuns.py tests/e2e/test_nuns.py
+# git mv tests/event_lists/test_south_african.py tests/e2e/test_south_african.py
+# git mv tests/event_lists/test_yy2_non.py tests/e2e/test_yy2_non.py
+# git mv tests/event_lists/test_t4_2018_jobs_old_data.py tests/e2e/test_t4_2018_jobs_old_data.py
 
 # =====================================================
 # E2E: Move legacy_bots to tests/e2e/legacy_bots/
