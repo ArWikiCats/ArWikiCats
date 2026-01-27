@@ -181,11 +181,11 @@ git mv tests/legacy_bots/event_lab_bot tests/e2e/legacy_bots/event_lab_bot
 git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 
 # =====================================================
-# UNIT: Move fix/ to tests/unit/fix/
+# UNIT: Move fix/ to tests/unit/fix/ ✔️
 # =====================================================
-git mv tests/fix/fixtitle tests/unit/fix/fixtitle
-git mv tests/fix/mv_years tests/unit/fix/mv_years
-git mv tests/fix/specific_normalizations tests/unit/fix/specific_normalizations
+# git mv tests/fix/fixtitle tests/unit/fix/fixtitle
+# git mv tests/fix/mv_years tests/unit/fix/mv_years
+# git mv tests/fix/specific_normalizations tests/unit/fix/specific_normalizations
 
 # =====================================================
 # UNIT: Move time_resolvers/ to tests/unit/time_resolvers/
