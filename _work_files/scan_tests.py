@@ -1,8 +1,15 @@
 import ast
 from pathlib import Path
 
-TARGET_MODULE = "load_one_data"
-TARGET_NAMES = {"dump_diff", "dump_same_and_not_same", "one_dump_test"}
+TARGETS = {
+    "from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test": [
+        "dump_diff",
+        "dump_same_and_not_same",
+        "one_dump_test",
+    ],
+    # Add more rules here:
+    # "from x import a, b, c": ["a", "b", "c"],
+}
 
 
 class ImportUsageVisitor(ast.NodeVisitor):
@@ -14,36 +21,37 @@ class ImportUsageVisitor(ast.NodeVisitor):
         self.generic_visit(node)
 
 
-def file_uses_any_target(filepath: Path) -> bool:
+def get_used_names(filepath: Path) -> set:
     tree = ast.parse(filepath.read_text(encoding="utf-8"))
     visitor = ImportUsageVisitor()
     visitor.visit(tree)
-    return bool(TARGET_NAMES & visitor.used_names)
+    return visitor.used_names
 
 
-def clean_file(filepath: Path):
+def clean_file(filepath: Path, used_names: set):
     lines = filepath.read_text(encoding="utf-8").splitlines()
     new_lines = []
+    changed = False
 
-    removed = False
     for line in lines:
-        if line.strip() == (
-            "from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test"
-        ):
-            removed = True
-            continue
+        stripped = line.strip()
+        if stripped in TARGETS:
+            names = set(TARGETS[stripped])
+            if not (names & used_names):
+                changed = True
+                print(f"Removed: {filepath} -> {stripped}")
+                continue
         new_lines.append(line)
 
-    if removed:
+    if changed:
         filepath.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
-        print(f"Cleaned: {filepath}")
 
 
 def main():
     tests_dir = Path(__file__).parent.parent / "tests"
     for file in tests_dir.rglob("*.py"):
         try:
-            if not file_uses_any_target(file):
+            if not get_used_names(file):
                 clean_file(file)
         except Exception as e:
             print(f"Skipped (parse error): {file} -> {e}")
