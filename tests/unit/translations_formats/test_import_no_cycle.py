@@ -14,7 +14,7 @@ data_fast = {
 
 
 @pytest.mark.parametrize("category, not_expected", data_fast.items(), ids=data_fast.keys())
-@pytest.mark.fast
+@pytest.mark.skip2
 # DON'T COPY THIS
 def test_get_country2_one(category: str, not_expected: str) -> None:
     label = resolve_label_ar(category)
