@@ -1,13 +1,9 @@
-from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from utils.dump_runner import make_dump_test_name_data_callback
 from utils.resolver_runner import make_resolver_fast_test
 
-data0 = {
-    "yemeni major indoor wheelchair football league": "الدوري الرئيسي اليمني لكرة القدم على الكراسي المتحركة داخل الصالات",
-}
-
 data1 = {
+    "yemeni major indoor wheelchair football league": "الدوري الرئيسي اليمني لكرة القدم على الكراسي المتحركة داخل الصالات",
     "australian rugby union": "اتحاد الرجبي الأسترالي",
     "australian women's ice hockey league": "الدوري الأسترالي لهوكي الجليد للسيدات",
     "british rugby union": "اتحاد الرجبي البريطاني",
@@ -43,17 +39,10 @@ data_3 = {}
 data_4 = {}
 
 to_test = [
-    ("test_mans_data_0", data0, resolve_label_ar),
     ("test_mans_data_1", data1, resolve_nats_sport_multi_v2),
     ("test_mans_data_3", data_3, resolve_nats_sport_multi_v2),
     ("test_mans_data_4", data_4, resolve_nats_sport_multi_v2),
 ]
-
-test_mans_data_0 = make_resolver_fast_test(
-    resolver=resolve_label_ar,
-    data=data0,
-    test_name="test_mans_data_0",
-)
 
 test_mans_data_1 = make_resolver_fast_test(
     resolver=resolve_nats_sport_multi_v2,
