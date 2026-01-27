@@ -195,15 +195,15 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # =====================================================
 # UNIT: Move main_processers/ to tests/unit/main_processers/ ✔️
 # =====================================================
-git mv tests/main_processers/test_list_cat_format.py tests/unit/main_processers/
+# git mv tests/main_processers/test_list_cat_format.py tests/unit/main_processers/
 
 # =====================================================
-# UNIT: Move sub_new_resolvers/ to tests/unit/resolvers/
+# UNIT: Move sub_new_resolvers/ to tests/unit/resolvers/ ✔️
 # =====================================================
-git mv tests/sub_new_resolvers/test_peoples_resolver.py tests/unit/resolvers/
-git mv tests/sub_new_resolvers/test_parties_resolver.py tests/unit/resolvers/
-git mv tests/sub_new_resolvers/test_team_work.py tests/unit/resolvers/
-git mv tests/sub_new_resolvers/test_university_resolver.py tests/unit/resolvers/
+# git mv tests/sub_new_resolvers/test_peoples_resolver.py tests/unit/resolvers/
+# git mv tests/sub_new_resolvers/test_parties_resolver.py tests/unit/resolvers/
+# git mv tests/sub_new_resolvers/test_team_work.py tests/unit/resolvers/
+# git mv tests/sub_new_resolvers/test_university_resolver.py tests/unit/resolvers/
 
 # =====================================================
 # UNIT: Move translations/ to tests/unit/translations/
