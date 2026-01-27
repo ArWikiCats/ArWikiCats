@@ -225,7 +225,10 @@ class TestFormatDataDoubleV2KeysToPatternDouble:
     def test_keys_to_pattern_double_returns_pattern(self):
         """Test keys_to_pattern_double returns a compiled regex pattern."""
         formatted_data = {"{genre} films": "أفلام {genre_label}"}
-        data_list = {"action": {"genre_label": "أكشن"}}
+        data_list = {
+            "action": {"genre_label": "أكشن"},
+            "drama": {"genre_label": "دراما"},
+        }
         bot = FormatDataDoubleV2(
             formatted_data=formatted_data,
             data_list=data_list,
@@ -236,11 +239,17 @@ class TestFormatDataDoubleV2KeysToPatternDouble:
         # Should match "action drama" with space separator
         match = pattern.search(" action drama ")
         assert match is not None
+        assert match.group(1) == "action"
+        assert match.group(2) == " "
+        assert match.group(3) == "drama"
 
     def test_keys_to_pattern_double_with_custom_splitter(self):
         """Test keys_to_pattern_double with custom splitter."""
         formatted_data = {"{genre} films": "أفلام {genre_label}"}
-        data_list = {"action": {"genre_label": "أكشن"}}
+        data_list = {
+            "action": {"genre_label": "أكشن"},
+            "drama": {"genre_label": "دراما"},
+        }
         bot = FormatDataDoubleV2(
             formatted_data=formatted_data,
             data_list=data_list,
@@ -252,6 +261,9 @@ class TestFormatDataDoubleV2KeysToPatternDouble:
         # Should match "action_drama" with underscore separator
         match = pattern.search(" action_drama ")
         assert match is not None
+        assert match.group(1) == "action"
+        assert match.group(2) == "_"
+        assert match.group(3) == "drama"
 
     def test_keys_to_pattern_double_empty_data_list(self):
         """Test keys_to_pattern_double returns None with empty data_list."""

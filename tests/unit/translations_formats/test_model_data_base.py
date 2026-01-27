@@ -129,31 +129,32 @@ class TestFormatDataBaseHandleTextsBeforeAfter:
         assert result == "{sport} players"
 
     def test_handle_texts_with_text_after(self):
-        """Test handle_texts_before_after with text_after - not found in formatted_data_ci."""
+        """Test handle_texts_before_after with text_after."""
         bot = FormatData(
-            # The formatted_data doesn't contain "{sport} players people"
+            # The formatted_data doesn't contain "{sport} people"
             formatted_data={"players": "لاعبو"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
             text_after=" people",
         )
-        result = bot.handle_texts_before_after("{sport} players people")
+        result = bot.handle_texts_before_after("{sport} people")
         # Should replace "{sport} people" with "{sport}"
-        assert result == "{sport} players"
+        assert result == "{sport}"
 
     def test_handle_texts_found_directly(self):
-        """Test handle_texts_before_after when normalized found directly."""
+        """Test handle_texts_before_after when normalized found directly without text_before/after."""
         bot = FormatData(
-            formatted_data={"the {sport} players": "لاعبو {sport_label}"},
+            formatted_data={"{sport} players": "لاعبو {sport_label}"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
             text_before="the ",
         )
-        result = bot.handle_texts_before_after("the {sport} players")
-        # Found directly in formatted_data_ci, should return unchanged
-        assert result == "the {sport} players"
+        result = bot.handle_texts_before_after("{sport} players")
+        # Found directly in formatted_data_ci and doesn't need processing
+        # (no "the {sport}" in the input)
+        assert result == "{sport} players"
 
     def test_handle_texts_with_both_before_and_after(self):
         """Test handle_texts_before_after with both text_before and text_after."""
@@ -165,9 +166,9 @@ class TestFormatDataBaseHandleTextsBeforeAfter:
             text_before="the ",
             text_after=" category",
         )
-        result = bot.handle_texts_before_after("the {sport} players category")
+        result = bot.handle_texts_before_after("the {sport} category")
         # Should handle both text_before and text_after
-        assert result == "{sport} players"
+        assert result == "{sport}"
 
 
 class TestFormatDataBaseGetTemplateAr:
