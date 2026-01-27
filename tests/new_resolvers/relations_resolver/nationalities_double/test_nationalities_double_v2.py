@@ -3,7 +3,6 @@ tests
 """
 
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 from utils.dump_runner import make_dump_test_name_data_callback

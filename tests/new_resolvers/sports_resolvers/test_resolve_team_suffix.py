@@ -3,7 +3,6 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 from utils.dump_runner import make_dump_test_name_data_callback

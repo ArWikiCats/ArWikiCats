@@ -1,9 +1,7 @@
 #
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
-
+# from tests.utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 data0_no_label = {
     "Romanian football clubs in international competitions": "أندية كرة القدم الرومانية في منافسات دولية",

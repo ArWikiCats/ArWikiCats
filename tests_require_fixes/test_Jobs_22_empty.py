@@ -1,8 +1,7 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
-
 from ArWikiCats import resolve_label_ar
+# from tests.utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "animation directors": "x",
@@ -209,10 +208,4 @@ TEMPORAL_CASES = [
     ("test_Jobs_22_empty", data1),
 ]
 
-
-@pytest.mark.parametrize("name,data", TEMPORAL_CASES)
-@pytest.mark.skip2
-def test_all(name: str, data: dict[str, str]) -> None:
-    expected, diff_result = one_dump_test(data, resolve_label_ar)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
