@@ -7,7 +7,7 @@ and edge cases.
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers import arabic_label_builder as ar_lab_bot
+from ArWikiCats.legacy_bots.resolvers import arabic_label_builder
 from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import (
     _handle_at_separator,
     _handle_in_separator,
@@ -65,7 +65,7 @@ class TestSeparatorListsFixing:
     def test_skip_in_for_exception_types(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'في' is not added for types in keys_of_without_in."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "keys_of_without_in",
             ["populations"],
             raising=False,
@@ -91,13 +91,13 @@ class TestAddInTab:
     def test_add_من_for_of_suffix(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type ends with ' of' and is in tables."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
         )
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "check_key_new_players",
             lambda *_: True,
             raising=False,
@@ -109,7 +109,7 @@ class TestAddInTab:
     def test_skip_من_when_no_ty_in18(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when get_pop_All_18 returns None."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: None,
             raising=False,
@@ -121,7 +121,7 @@ class TestAddInTab:
     def test_skip_من_when_not_ending_with_of(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type doesn't end with ' of'."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
@@ -133,7 +133,7 @@ class TestAddInTab:
     def test_skip_من_when_in_in_label(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when 'في' is already in label."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
@@ -145,13 +145,13 @@ class TestAddInTab:
     def test_skip_من_when_not_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type is not in tables."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
         )
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "check_key_new_players",
             lambda *_: False,
             raising=False,
@@ -163,7 +163,7 @@ class TestAddInTab:
     def test_add_من_when_prefix_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type prefix (without ' of') is in tables."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
@@ -175,7 +175,7 @@ class TestAddInTab:
             return next(calls)
 
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "check_key_new_players",
             fake_check_key,
             raising=False,
@@ -213,7 +213,7 @@ class TestHelperFunctions:
     def test_handle_in_separator_adds_في(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator adds 'في' when conditions are met."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "keys_of_without_in",
             [],
             raising=False,
@@ -225,7 +225,7 @@ class TestHelperFunctions:
     def test_handle_in_separator_skips_for_exceptions(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator skips adding 'في' for exception types."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "keys_of_without_in",
             ["military installations in"],
             raising=False,
@@ -305,7 +305,7 @@ class TestEdgeCases:
     def test_add_in_tab_removesuffix_python_39(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that removesuffix method works correctly (Python 3.9+)."""
         monkeypatch.setattr(
-            ar_lab_bot,
+            arabic_label_builder,
             "get_pop_All_18",
             lambda *_: "some_value",
             raising=False,
