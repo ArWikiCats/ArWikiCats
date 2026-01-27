@@ -68,7 +68,10 @@ Do **not** duplicate existing entries.
 ## Project Structure
 
 - `ArWikiCats/` - Main package directory
-- `tests/` - Test suite with 13900+ tests
+- `tests/` - Test suite with 28,500+ tests organized in 3 categories:
+  - `tests/unit/` - Unit tests (fast, isolated function/class tests)
+  - `tests/integration/` - Integration tests (component interaction tests)
+  - `tests/e2e/` - End-to-end tests (full system tests)
 - `examples/` - Usage examples
 - `help_scripts/` - Helper scripts
 - `tasks/` - Task definitions

@@ -13,9 +13,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Common Commands
 
 ### Testing
+
+Tests are organized into three categories:
+
+| Category | Directory | Description |
+|----------|-----------|-------------|
+| **Unit** | `tests/unit/` | Fast tests for individual functions/classes in isolation (< 0.1s) |
+| **Integration** | `tests/integration/` | Tests for interaction between components (< 1s) |
+| **E2E** | `tests/e2e/` | Full system tests with real inputs (may be slow) |
+
 ```bash
 # Run all tests
 pytest
+
+# Run by test category
+pytest tests/unit/           # Unit tests only
+pytest tests/integration/    # Integration tests only
+pytest tests/e2e/            # End-to-end tests only
+
+# Run by marker
+pytest -m unit               # Unit tests only
+pytest -m integration        # Integration tests only
+pytest -m e2e                # End-to-end tests only
 
 # Run specific test category
 pytest -k "jobs"
@@ -193,6 +212,11 @@ ArWikiCats/
 ├── translations_formats/    # Data model formatters
 ├── jsons/                   # JSON data files
 └── utils/                   # Shared utilities
+
+tests/
+├── unit/                    # Unit tests (fast, isolated)
+├── integration/             # Integration tests (component interaction)
+└── e2e/                     # End-to-end tests (full system)
 ```
 
 ## Environment Variables
