@@ -206,7 +206,7 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # git mv tests/sub_new_resolvers/test_university_resolver.py tests/unit/resolvers/
 
 # =====================================================
-# UNIT: Move translations/ to tests/unit/translations/
+# UNIT: Move translations/ to tests/unit/translations/ ✔️
 # =====================================================
 # git mv tests/translations/geo/test_geo_shared.py tests/unit/translations/geo/
 # git mv tests/translations/mixed tests/unit/translations/
@@ -214,10 +214,10 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # git mv tests/translations/jobs tests/unit/translations/
 
 # =====================================================
-# INTEGRATION: Move patterns_resolvers/ to tests/integration/patterns_resolvers/
+# INTEGRATION: Move patterns_resolvers/ to tests/integration/patterns_resolvers/ ✔️
 # =====================================================
-git mv tests/patterns_resolvers/country_time_pattern/test_country_time_pattern_main.py tests/integration/patterns_resolvers/
-git mv tests/patterns_resolvers/time_patterns_resolvers/test_time_patterns_resolvers_extended.py tests/integration/patterns_resolvers/
+# git mv tests/patterns_resolvers/country_time_pattern/test_country_time_pattern_main.py tests/integration/patterns_resolvers/
+# git mv tests/patterns_resolvers/time_patterns_resolvers/test_time_patterns_resolvers_extended.py tests/integration/patterns_resolvers/
 
 # =====================================================
 # INTEGRATION: Move relations_resolver/ to tests/integration/resolvers/

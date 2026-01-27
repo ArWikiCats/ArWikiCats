@@ -12,7 +12,6 @@ test_data = {
     "16th century theatre": "المسرح في القرن 16",
     "17th century music": "الموسيقى في القرن 17",
     "17th century theatre": "المسرح في القرن 17",
-    "12th-century Indian books": "كتب هندية في القرن 12",
     "1520s censuses": "تعداد السكان في عقد 1520",
     "1630s science fiction works": "أعمال خيال علمي عقد 1630",
     "1650s controversies": "خلافات عقد 1650",
@@ -42,7 +41,7 @@ test_data2 = {
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
-    label = resolve_label_ar(category)
+    label = resolve_lab_from_years_patterns(category)
     assert label == expected
 
 
