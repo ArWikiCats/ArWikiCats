@@ -1,4 +1,4 @@
-## [Add unit tests for legacy_resolvers_bots module] - 2026-01-27
+## [Add unit tests for legacy_bots module] - 2026-01-27
 
 ### Added
 * **Unit tests for event_lab_bot.py:**
@@ -25,12 +25,44 @@
   - Tests for year parsing, country handling, and label finalization
   - Integration-style tests for various year formats
 
+* **Unit tests for country_resolver.py:**
+  - Tests for fallback resolver functions
+  - Tests for `_validate_separators` function
+  - Tests for `check_historical_prefixes` function
+  - Tests for `Get_country2` function
+  - Tests for `CountryLabelRetriever` class methods
+  - Tests for `event2_d2` function
+
+* **Unit tests for common_resolver_chain.py:**
+  - Tests for `_lookup_country_with_in_prefix` function
+  - Tests for `get_con_label` function
+  - Tests for `get_lab_for_country2` function
+  - Tests for `con_lookup_both` dictionary
+
+* **Unit tests for interface.py:**
+  - Tests for all Protocol classes (CountryLabelResolver, TermLabelResolver, etc.)
+  - Tests for protocol implementation compliance
+
+* **Unit tests for joint_class.py:**
+  - Tests for `CountryLabelAndTermParent` class
+  - Tests for prefix handling and regex year patterns
+
+* **Unit tests for check_bot.py:**
+  - Tests for `check_key_in_tables` function
+  - Tests for `check_key_new_players` function
+  - Tests for `add_key_new_players` function
+
 ### Changed
 * Coverage for `event_lab_bot.py`: 34% → 84%
 * Coverage for `mk3.py`: 19% → 83%
 * Coverage for `year_or_typeo.py`: 16% → 66%
-* Total module coverage: 70% → 82%
-* 105 new tests added
+* Coverage for `country_resolver.py`: 71% → 92%
+* Coverage for `common_resolver_chain.py`: 65% → 93%
+* Coverage for `interface.py`: 0% → 100%
+* Coverage for `joint_class.py`: 70% → 100%
+* Coverage for `check_bot.py`: 65% → 100%
+* Total legacy_bots module coverage: 70% → 87%
+* 206 new tests added
 
 ## [Add unit and integration tests for translations_formats module] - 2026-01-27
 
