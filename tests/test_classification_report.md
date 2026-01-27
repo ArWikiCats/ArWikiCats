@@ -208,9 +208,9 @@ git mv tests/legacy_bots/make_bots tests/e2e/legacy_bots/make_bots
 # =====================================================
 # UNIT: Move translations/ to tests/unit/translations/
 # =====================================================
-git mv tests/translations/geo/test_geo_shared.py tests/unit/translations/geo/
-git mv tests/translations/mixed tests/unit/translations/
-git mv tests/translations/sports tests/unit/translations/
+# git mv tests/translations/geo/test_geo_shared.py tests/unit/translations/geo/
+# git mv tests/translations/mixed tests/unit/translations/
+# git mv tests/translations/sports tests/unit/translations/
 git mv tests/translations/jobs tests/unit/translations/
 
 # =====================================================
