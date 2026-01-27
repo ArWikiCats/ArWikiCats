@@ -1,10 +1,9 @@
 """ """
 
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import by_people_bot
-from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 data_0 = {"by football team": "حسب فريق كرة القدم"}
 
@@ -75,45 +74,6 @@ by_data_peoples = {
     "by wolfgang amadeus mozart": "بواسطة فولفغانغ أماديوس موتسارت",
 }
 
-by_data_fast = {
-    "by century": "حسب القرن",
-    "by city": "حسب المدينة",
-    "by conflict": "حسب النزاع",
-    "by county": "حسب المقاطعة",
-    "by decade": "حسب العقد",
-    "by educational affiliation": "حسب الانتماء التعليمي",
-    "by educational institution": "حسب الهيئة التعليمية",
-    "by hanging": "بالشنق",
-    "by high school": "حسب المدرسة الثانوية",
-    "by interest": "حسب الاهتمام",
-    "by law enforcement officers": "بواسطة ضباط إنفاذ القانون",
-    "by league": "حسب الدوري",
-    "by location": "حسب الموقع",
-    "by month": "حسب الشهر",
-    "by nationality": "حسب الجنسية",
-    "by newspaper": "حسب الصحيفة",
-    "by occupation": "حسب المهنة",
-    "by organization": "حسب المنظمة",
-    "by person": "حسب الشخص",
-    "by populated place": "حسب المكان المأهول",
-    "by province or territory": "حسب المقاطعة أو الإقليم",
-    "by province": "حسب المقاطعة",
-    "by school": "حسب المدرسة",
-    "by stabbing": "بالطعن",
-    "by subject": "حسب الموضوع",
-    "by team": "حسب الفريق",
-    "by university or college": "حسب الجامعة أو الكلية",
-    "by violence": "بسبب العنف",
-    "by year": "حسب السنة",
-}
-
-
-@pytest.mark.parametrize("category, expected", by_data_fast.items(), ids=by_data_fast.keys())
-@pytest.mark.fast
-def test_by_data(category: str, expected: str) -> None:
-    label = resolve_by_labels(category)
-    assert label == expected
-
 
 @pytest.mark.parametrize("category, expected", by_data_peoples.items(), ids=by_data_peoples.keys())
 @pytest.mark.fast
@@ -123,15 +83,7 @@ def test_by_data_peoples(category: str, expected: str) -> None:
 
 
 TEMPORAL_CASES = [
-    ("test_by_data_1", by_data_fast, resolve_by_labels),
     ("test_by_data_peoples", by_data_peoples, by_people_bot),
 ]
 
-
-@pytest.mark.dump
-@pytest.mark.parametrize("name,data, callback", TEMPORAL_CASES)
-def test_all_dump(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data_callback(TEMPORAL_CASES, run_same=True)

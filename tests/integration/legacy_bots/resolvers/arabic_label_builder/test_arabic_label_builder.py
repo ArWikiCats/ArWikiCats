@@ -4,7 +4,7 @@
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import add_in_tab, find_ar_label
+from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 
 fast_data = {
     "togolese expatriates in israel": "توغويون مغتربون في إسرائيل",
@@ -53,51 +53,22 @@ fast_data = {
 }
 
 
+data_list2 = [
+    ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
+    ("african games medalists for chad", " for ", "فائزون بميداليات الألعاب الإفريقية من تشاد"),
+    ("olympic silver medalists for finland", " for ", "فائزون بميداليات فضية أولمبية من فنلندا"),
+    ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
+]
+
+
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
 @pytest.mark.fast
 def test_find_ar_label_fast(category: str, expected: str) -> None:
     label = find_ar_label(category, "in")
     assert label == expected
 
-
-def test_add_in_tab() -> None:
-    # Test with basic inputs
-    result = add_in_tab("test label", "test", "from")
-    assert isinstance(result, str)
-
-    # Test with different separator value
-    result_other = add_in_tab("test label", "test of", "to")
-    assert isinstance(result_other, str)
-
-    # Test with empty strings
-    result_empty = add_in_tab("", "", "")
-    assert isinstance(result_empty, str)
-
-
-def test_add_in_tab_2() -> None:
-    # Test with basic inputs
-    result = add_in_tab("test label", "test", "from")
-    assert isinstance(result, str)
-
-    # Test with different separator value
-    result_other = add_in_tab("test label", "test of", "to")
-    assert isinstance(result_other, str)
-
-    # Test with empty strings
-    result_empty = add_in_tab("", "", "")
-    assert isinstance(result_empty, str)
-
-
+@pytest.mark.parametrize("category, separator, output", data_list2, ids=[x[0] for x in data_list2])
 @pytest.mark.fast
-def test_find_ar_label() -> None:
-    # Test with basic inputs
-    result = find_ar_label("test category", "from")
-    assert isinstance(result, str)
-
-    # Test with different parameters
-    result_various = find_ar_label("sports category", "in")
-    assert isinstance(result_various, str)
-
-    # Test with another valid combination instead of empty strings
-    result_safe = find_ar_label("music from france", "from")
-    assert isinstance(result_safe, str)
+def test_simple_2(category: str, separator: str, output: str) -> None:
+    label = find_ar_label(category, separator, use_event2=False)
+    assert label == output

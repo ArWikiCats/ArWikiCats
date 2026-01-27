@@ -1,11 +1,10 @@
 #
 import pytest
-from load_one_data import dump_diff, one_dump_test
-
 from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data0 = {
+    "by football team": "حسب فريق كرة القدم",
     "by year": "حسب السنة",
     "decade": "العقد",
     "election": "الانتخابات",
@@ -167,32 +166,53 @@ data2 = {
     "by organization and nonprofit organization": "حسب المنظمة والمنظمات غير الربحية",
 }
 
+by_data_fast = {
+    "by century": "حسب القرن",
+    "by city": "حسب المدينة",
+    "by conflict": "حسب النزاع",
+    "by county": "حسب المقاطعة",
+    "by decade": "حسب العقد",
+    "by educational affiliation": "حسب الانتماء التعليمي",
+    "by educational institution": "حسب الهيئة التعليمية",
+    "by hanging": "بالشنق",
+    "by high school": "حسب المدرسة الثانوية",
+    "by interest": "حسب الاهتمام",
+    "by law enforcement officers": "بواسطة ضباط إنفاذ القانون",
+    "by league": "حسب الدوري",
+    "by location": "حسب الموقع",
+    "by month": "حسب الشهر",
+    "by nationality": "حسب الجنسية",
+    "by newspaper": "حسب الصحيفة",
+    "by occupation": "حسب المهنة",
+    "by organization": "حسب المنظمة",
+    "by person": "حسب الشخص",
+    "by populated place": "حسب المكان المأهول",
+    "by province or territory": "حسب المقاطعة أو الإقليم",
+    "by province": "حسب المقاطعة",
+    "by school": "حسب المدرسة",
+    "by stabbing": "بالطعن",
+    "by subject": "حسب الموضوع",
+    "by team": "حسب الفريق",
+    "by university or college": "حسب الجامعة أو الكلية",
+    "by violence": "بسبب العنف",
+    "by year": "حسب السنة",
+}
+
+
 to_test = [
-    ("test_by_table_get", data1, resolve_by_labels),
     ("test_resolve_by_labels_1", data1, resolve_by_labels),
+    ("test_resolve_by_labels_2", data2, resolve_by_labels),
+    ("test_resolve_by_labels_3", by_data_fast, resolve_by_labels),
 ]
 
+data_all = data1 | data2 | by_data_fast
 
-@pytest.mark.parametrize("category, expected", data1.items(), ids=data1.keys())
+
+@pytest.mark.parametrize("category, expected", data_all.items(), ids=data_all.keys())
 @pytest.mark.fast
 def test_by_table_get(category: str, expected: str) -> None:
     label = resolve_by_labels(category)
     assert label == expected
-
-
-@pytest.mark.parametrize("category, expected", data2.items(), ids=data2.keys())
-@pytest.mark.fast
-def test_by_table_get_2(category: str, expected: str) -> None:
-    label2 = resolve_by_labels(category)
-    assert label2 == expected
-
-
-@pytest.mark.parametrize("name,data,callback", to_test)
-@pytest.mark.dump
-def test_dump_it(name: str, data: dict[str, str], callback) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff(diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

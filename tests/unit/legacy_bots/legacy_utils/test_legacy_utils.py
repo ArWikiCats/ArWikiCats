@@ -3,8 +3,6 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 from ArWikiCats.legacy_bots.legacy_utils import get_type_country, split_text_by_separator
 
 data = [
@@ -40,18 +38,3 @@ def test_get_type_country_data_for(category: str, separator: str, output: str) -
     assert part_2.strip() == output[1].strip()
 
     assert label[0].strip() == output[0].strip()
-
-
-data_list2 = [
-    ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),
-    ("african games medalists for chad", " for ", "فائزون بميداليات الألعاب الإفريقية من تشاد"),
-    ("olympic silver medalists for finland", " for ", "فائزون بميداليات فضية أولمبية من فنلندا"),
-    ("summer olympics competitors for peru", " for ", "منافسون أولمبيون صيفيون من بيرو"),
-]
-
-
-@pytest.mark.parametrize("category, separator, output", data_list2, ids=[x[0] for x in data_list2])
-@pytest.mark.fast
-def test_simple_2(category: str, separator: str, output: str) -> None:
-    label = find_ar_label(category, separator, use_event2=False)
-    assert label == output
