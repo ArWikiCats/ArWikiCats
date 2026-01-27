@@ -316,7 +316,3 @@ class TestEdgeCases:
 
         # Function should handle the ' of' removal correctly
         assert isinstance(result, str)
-
-
-if __name__ == "__main__":
-    pytest.main([__file__, "-v"])
