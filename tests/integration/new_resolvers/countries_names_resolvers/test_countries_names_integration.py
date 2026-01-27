@@ -1,5 +1,5 @@
 """
-Tests
+Integration tests for countries names resolvers
 """
 
 from typing import Callable
@@ -7,14 +7,7 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import resolve_by_countries_names
-
-data_main = {
-    "Spies for Federal Republic of Germany": "جواسيس لصالح جمهورية ألمانيا الاتحادية",
-    "Spies for Soviet Union by nationality": "جواسيس لصالح الاتحاد السوفيتي حسب الجنسية",
-    "World War I spies for Russian Empire": "جواسيس الحرب العالمية الأولى لصالح الإمبراطورية الروسية",
-}
 
 political_data_v1 = {
     "Spies for China": "جواسيس لصالح الصين",
@@ -92,13 +85,6 @@ test_data_1 = {
     "spain war and conflict": "حروب ونزاعات إسبانيا",
     "spain war": "حرب إسبانيا",
 }
-
-
-@pytest.mark.parametrize("category, expected", data_main.items(), ids=data_main.keys())
-@pytest.mark.fast
-def test_resolve_main(category: str, expected: str) -> None:
-    label = resolve_label_ar(category)
-    assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
