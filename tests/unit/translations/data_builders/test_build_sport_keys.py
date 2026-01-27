@@ -132,7 +132,7 @@ class TestApplyAliases:
         assert "soccer" in records
         assert records["soccer"]["label"] == "كرة القدم"
 
-    def test_apply_aliases_missing_source(self, caplog) -> None:
+    def test_apply_aliases_missing_source(self) -> None:
         records: dict[str, SportKeyRecord] = {}
         aliases = {"alias": "missing"}
 
