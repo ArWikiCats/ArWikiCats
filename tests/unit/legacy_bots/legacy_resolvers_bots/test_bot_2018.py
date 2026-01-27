@@ -2,9 +2,7 @@
 Tests
 """
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.bot_2018 import (
-    get_pop_All_18,
-)
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.bot_2018 import get_pop_All_18
 
 
 def test_get_pop_all_18() -> None:
