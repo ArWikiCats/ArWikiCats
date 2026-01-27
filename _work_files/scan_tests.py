@@ -1,5 +1,6 @@
 import ast
 from pathlib import Path
+from tqdm import tqdm
 
 TARGETS = {
     "from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test": [
@@ -49,12 +50,14 @@ def clean_file(filepath: Path, used_names: set):
 
 def main():
     tests_dir = Path(__file__).parent.parent / "tests"
-    for file in tests_dir.rglob("*.py"):
-        try:
-            used = get_used_names(file)
-            clean_file(file, used)
-        except Exception as e:
-            print(f"Skipped (parse error): {file} -> {e}")
+    all_files = list(tests_dir.rglob("*.py"))
+    for file in tqdm(all_files):
+        # print(f"Processing ({n + 1}/{len(all_files)}): {file}")
+        # try:
+        used = get_used_names(file)
+        clean_file(file, used)
+        # except Exception as e:
+        #     print(f"Skipped (parse error): {file} -> {e}")
 
 
 if __name__ == "__main__":
