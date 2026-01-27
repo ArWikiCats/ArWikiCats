@@ -1,3 +1,82 @@
+## [Add unit tests for legacy_bots module] - 2026-01-27
+
+### Added
+* **Unit tests for event_lab_bot.py:**
+  - Tests for module constants (SUFFIX_EPISODES, SUFFIX_TEMPLATES, etc.)
+  - Tests for `_resolve_via_chain` function
+  - Tests for `translate_general_category_wrap` function
+  - Tests for `event_label_work` function
+  - Tests for `EventLabResolver` class methods
+  - Tests for `_finalize_category_label` and `_process_category_formatting` functions
+  - Tests for `event_Lab` main entry point
+  - Integration-style tests for various input combinations
+
+* **Unit tests for mk3.py:**
+  - Tests for `check_country_in_tables` function
+  - Tests for `add_the_in` function with various preposition scenarios
+  - Tests for `added_in_new` function
+  - Tests for `new_func_mk2` function
+  - Tests for module constants (PREPOSITION_IN, PREPOSITION_AT, country_before_year)
+
+* **Unit tests for year_or_typeo.py:**
+  - Tests for `label_for_startwith_year_or_typeo` function
+  - Tests for `LabelForStartWithYearOrTypeo` class initialization and methods
+  - Tests for `replace_cat_test` static method
+  - Tests for year parsing, country handling, and label finalization
+  - Integration-style tests for various year formats
+
+* **Unit tests for country_resolver.py:**
+  - Tests for fallback resolver functions
+  - Tests for `_validate_separators` function
+  - Tests for `check_historical_prefixes` function
+  - Tests for `Get_country2` function
+  - Tests for `CountryLabelRetriever` class methods
+  - Tests for `event2_d2` function
+
+* **Unit tests for common_resolver_chain.py:**
+  - Tests for `_lookup_country_with_in_prefix` function
+  - Tests for `get_con_label` function
+  - Tests for `get_lab_for_country2` function
+  - Tests for `con_lookup_both` dictionary
+
+* **Unit tests for interface.py:**
+  - Tests for all Protocol classes (CountryLabelResolver, TermLabelResolver, etc.)
+  - Tests for protocol implementation compliance
+
+* **Unit tests for joint_class.py:**
+  - Tests for `CountryLabelAndTermParent` class
+  - Tests for prefix handling and regex year patterns
+
+* **Unit tests for check_bot.py:**
+  - Tests for `check_key_in_tables` function
+  - Tests for `check_key_new_players` function
+  - Tests for `add_key_new_players` function
+
+* **Unit tests for genders_resolvers module (0% → 100%):**
+  - Tests for `utils.py`: `fix_keys` function, regex patterns
+  - Tests for `__init__.py`: `resolve_nat_genders_pattern_v2` function
+  - Tests for `jobs_and_genders_resolver.py`: `genders_jobs_resolver`, `generate_jobs_data_dict`, `generate_formatted_data`
+  - Tests for `sports_and_genders_resolver.py`: `genders_sports_resolver`, `generate_sports_data_dict`
+
+* **Unit tests for relegin_jobs_nats_jobs.py (0% → 100%):**
+  - Tests for `PAINTER_ROLE_LABELS` constant
+  - Tests for `resolve_nats_jobs` function
+
+### Changed
+* Coverage for `event_lab_bot.py`: 34% → 84%
+* Coverage for `mk3.py`: 19% → 83%
+* Coverage for `year_or_typeo.py`: 16% → 66%
+* Coverage for `country_resolver.py`: 71% → 92%
+* Coverage for `common_resolver_chain.py`: 65% → 93%
+* Coverage for `interface.py`: 0% → 100%
+* Coverage for `joint_class.py`: 70% → 100%
+* Coverage for `check_bot.py`: 65% → 100%
+* Coverage for `genders_resolvers/`: 0% → 100%
+* Coverage for `relegin_jobs_nats_jobs.py`: 0% → 100%
+* Total legacy_bots module coverage: 70% → 87%
+* Total ArWikiCats coverage: 89% → 91%
+* 294 new tests added (206 + 88)
+
 ## [Add unit and integration tests for translations_formats module] - 2026-01-27
 
 This pull request adds comprehensive unit and integration tests for the `translations_formats` module to improve test coverage.
