@@ -28,7 +28,7 @@ from ...time_formats import (
     match_time_en_first,
     standardize_time_phrases,
 )
-from .model_multi_data_year_from_base import FormatDataFrom
+from .model_data_form import FormatDataFrom
 
 
 def YearFormatData(
