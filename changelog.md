@@ -1,3 +1,37 @@
+## [Add unit tests for legacy_resolvers_bots module] - 2026-01-27
+
+### Added
+* **Unit tests for event_lab_bot.py:**
+  - Tests for module constants (SUFFIX_EPISODES, SUFFIX_TEMPLATES, etc.)
+  - Tests for `_resolve_via_chain` function
+  - Tests for `translate_general_category_wrap` function
+  - Tests for `event_label_work` function
+  - Tests for `EventLabResolver` class methods
+  - Tests for `_finalize_category_label` and `_process_category_formatting` functions
+  - Tests for `event_Lab` main entry point
+  - Integration-style tests for various input combinations
+
+* **Unit tests for mk3.py:**
+  - Tests for `check_country_in_tables` function
+  - Tests for `add_the_in` function with various preposition scenarios
+  - Tests for `added_in_new` function
+  - Tests for `new_func_mk2` function
+  - Tests for module constants (PREPOSITION_IN, PREPOSITION_AT, country_before_year)
+
+* **Unit tests for year_or_typeo.py:**
+  - Tests for `label_for_startwith_year_or_typeo` function
+  - Tests for `LabelForStartWithYearOrTypeo` class initialization and methods
+  - Tests for `replace_cat_test` static method
+  - Tests for year parsing, country handling, and label finalization
+  - Integration-style tests for various year formats
+
+### Changed
+* Coverage for `event_lab_bot.py`: 34% → 84%
+* Coverage for `mk3.py`: 19% → 83%
+* Coverage for `year_or_typeo.py`: 16% → 66%
+* Total module coverage: 70% → 82%
+* 105 new tests added
+
 ## [Add unit and integration tests for translations_formats module] - 2026-01-27
 
 This pull request adds comprehensive unit and integration tests for the `translations_formats` module to improve test coverage.
