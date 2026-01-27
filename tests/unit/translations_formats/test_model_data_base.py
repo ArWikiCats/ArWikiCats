@@ -115,9 +115,10 @@ class TestFormatDataBaseHandleTextsBeforeAfter:
         assert result == "{sport} players"
 
     def test_handle_texts_with_text_before(self):
-        """Test handle_texts_before_after with text_before."""
+        """Test handle_texts_before_after with text_before - not found in formatted_data_ci."""
         bot = FormatData(
-            formatted_data={"the {sport} players": "لاعبو {sport_label}"},
+            # The formatted_data doesn't contain "the {sport} players"
+            formatted_data={"players": "لاعبو"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
@@ -128,9 +129,10 @@ class TestFormatDataBaseHandleTextsBeforeAfter:
         assert result == "{sport} players"
 
     def test_handle_texts_with_text_after(self):
-        """Test handle_texts_before_after with text_after."""
+        """Test handle_texts_before_after with text_after - not found in formatted_data_ci."""
         bot = FormatData(
-            formatted_data={"{sport} players people": "لاعبو {sport_label}"},
+            # The formatted_data doesn't contain "{sport} players people"
+            formatted_data={"players": "لاعبو"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
@@ -156,7 +158,7 @@ class TestFormatDataBaseHandleTextsBeforeAfter:
     def test_handle_texts_with_both_before_and_after(self):
         """Test handle_texts_before_after with both text_before and text_after."""
         bot = FormatData(
-            formatted_data={},
+            formatted_data={"players": "لاعبو"},
             data_list={"football": "كرة القدم"},
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
