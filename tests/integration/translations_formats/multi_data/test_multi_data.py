@@ -2,6 +2,7 @@
 """Integration tests for format_multi_data"""
 
 import pytest
+
 from ArWikiCats.translations_formats import (
     MultiDataFormatterBase,
     format_multi_data,

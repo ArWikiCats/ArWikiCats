@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 """
+Tests for model_data_base.py module.
+
+This module provides tests for FormatDataBase abstract class which is the foundation
+for all single-element category translation formatters.
 """
 
 import pytest

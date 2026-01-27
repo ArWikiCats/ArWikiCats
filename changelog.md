@@ -1,3 +1,33 @@
+## [Add unit and integration tests for translations_formats module] - 2026-01-27
+
+This pull request adds comprehensive unit and integration tests for the `translations_formats` module to improve test coverage.
+
+### Added
+* **Unit tests for factory functions:**
+  - `test_data_with_time.py`: Tests for `format_year_country_data` and `format_year_country_data_v2`
+  - `test_data_new_model.py`: Tests for `format_films_country_data`
+* **Unit tests for time patterns:**
+  - `test_time_patterns_formats.py`: Tests for `LabsYearsFormat` and `MatchTimes` classes
+* **Unit tests for DataModelMulti:**
+  - `test_model_multi_data_base.py`: Tests for `NormalizeResult` and `MultiDataFormatterBaseHelpers`
+  - `test_model_multi_data.py`: Tests for `MultiDataFormatterBase`, `MultiDataFormatterBaseYear`, `MultiDataFormatterBaseYearV2`
+  - `test_model_multi_data_year_from.py`: Tests for `MultiDataFormatterYearAndFrom`
+  - `test_model_multi_data_year_from_2.py`: Tests for `MultiDataFormatterYearAndFrom2`
+* **Unit tests for DataModelDouble:**
+  - `test_model_multi_data_double.py`: Tests for `MultiDataFormatterDataDouble`
+* **Unit tests for DataModel:**
+  - `test_model_data_form.py`: Tests for `FormatDataFrom`
+* **Integration tests for DataModel:**
+  - `test_model_data_inte.py`: Integration tests for `FormatData`
+  - `test_model_data_time_inte.py`: Integration tests for `YearFormatData`
+  - `test_model_data_form_inte.py`: Integration tests for `FormatDataFrom`
+  - `test_model_data_base_inte.py`: Integration tests for `FormatDataBase`
+  - `test_model_data_v2_inte.py`: Integration tests for `FormatDataV2`
+* **Integration tests for DataModelDouble:**
+  - `test_model_multi_data_double_inte.py`: Integration tests for `MultiDataFormatterDataDouble`
+
+### Changed
+* Total of 430+ new tests added across unit and integration test suites
 ## [Update documentation for new test categories] - 2026-01-27
 
 This pull request updates all documentation to reflect the new test organization into 3 categories: unit, integration, and e2e.

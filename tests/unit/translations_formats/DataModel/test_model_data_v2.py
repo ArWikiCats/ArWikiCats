@@ -5,6 +5,7 @@ Tests for model_data_v2.py module.
 This module provides tests for:
 1. FormatDataV2 class - dictionary-based template-driven translations
 """
+
 from ArWikiCats.translations_formats.DataModel.model_data_v2 import FormatDataV2
 
 

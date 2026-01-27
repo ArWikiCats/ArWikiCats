@@ -315,9 +315,7 @@ class TestFormatDataBasePrependArabicCategoryPrefix:
             key_placeholder="{sport}",
             value_placeholder="{sport_label}",
         )
-        result = bot.prepend_arabic_category_prefix(
-            "Category:football players", "تصنيف:لاعبو كرة القدم"
-        )
+        result = bot.prepend_arabic_category_prefix("Category:football players", "تصنيف:لاعبو كرة القدم")
         # Should not duplicate the prefix
         assert result == "تصنيف:لاعبو كرة القدم"
 
