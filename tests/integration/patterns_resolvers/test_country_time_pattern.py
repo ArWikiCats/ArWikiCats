@@ -4,8 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.country_time_pattern import load_bot, resolve_country_time_pattern
-from ArWikiCats.translations_formats import MultiDataFormatterBaseYear
+from ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 
 test_data = {
     # "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",
@@ -51,27 +50,3 @@ def test_country_time_pattern(category: str, expected: str) -> None:
     """Test all year-country translation patterns."""
     result = resolve_country_time_pattern(category)
     assert result == expected
-
-
-class TestLoadBot:
-    test_data2 = {
-        "Category:2010s in united states": "تصنيف:الولايات المتحدة في عقد 2010",
-        # with text_before
-        "Category:2010s in the united states": "تصنيف:الولايات المتحدة في عقد 2010",
-        "Category:2025 in Yemen": "تصنيف:اليمن في 2025",
-        "Category:2020s in Yemen": "تصنيف:اليمن في عقد 2020",
-        "Category:2025 in yemen": "تصنيف:اليمن في 2025",
-    }
-
-    @pytest.fixture
-    def yc_bot(self) -> MultiDataFormatterBaseYear:
-        yc_bot = load_bot()
-        yc_bot.country_bot.add_formatted_data("category:{year1} in {country1}", "تصنيف:{country1} في {year1}")
-        return yc_bot
-
-    @pytest.mark.parametrize("category,expected", test_data2.items(), ids=test_data2.keys())
-    @pytest.mark.fast
-    def test_load_bot(self, yc_bot: MultiDataFormatterBaseYear, category: str, expected: str) -> None:
-        """Test loading the bot and using it."""
-        result = yc_bot.create_label(category)
-        assert result == expected

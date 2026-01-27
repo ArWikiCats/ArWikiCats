@@ -4,7 +4,6 @@ Tests
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
 from ArWikiCats.patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 
 test_data = {
@@ -31,22 +30,11 @@ test_data = {
     "21st-century mosques": "مساجد القرن 21",
     "2nd-millennium texts": "نصوص الألفية 2",
     "15th-century executions": "إعدامات في القرن 15",
-}
-
-test_data2 = {
     "February 2020 sports-events": "أحداث فبراير 2020 الرياضية",
 }
 
-
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_mk3_skips_test_data_1(category: str, expected: str) -> None:
-    label = resolve_lab_from_years_patterns(category)
-    assert label == expected
-
-
-@pytest.mark.parametrize("category, expected", test_data2.items(), ids=test_data2.keys())
-@pytest.mark.fast
-def test_years_data(category: str, expected: str) -> None:
+def test_test_data_1(category: str, expected: str) -> None:
     label = resolve_lab_from_years_patterns(category)
     assert label == expected

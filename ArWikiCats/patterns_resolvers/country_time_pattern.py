@@ -44,5 +44,4 @@ def resolve_country_time_pattern(category: str) -> str:
 
 __all__ = [
     "resolve_country_time_pattern",
-    "load_bot",
 ]

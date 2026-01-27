@@ -3,7 +3,6 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.patterns_resolvers.nat_males_pattern import resolve_nat_males_pattern
 from utils.dump_runner import make_dump_test_name_data_callback
