@@ -3,15 +3,11 @@
 Tests for model_data_time.py module.
 
 This module provides tests for:
-1. YearFormatData class - deprecated legacy class for year pattern handling
 2. YearFormatData factory function - preferred way to create year formatters
 """
 
-import pytest
-
 from ArWikiCats.translations_formats.DataModel.model_data_time import (
     YearFormatData,
-    # YearFormatData,
 )
 
 
@@ -350,7 +346,7 @@ class TestYearFormatDataFactory:
 
     def test_year_format_data_returns_format_data_from(self):
         """Test YearFormatData returns a FormatDataFrom instance."""
-        from ArWikiCats.translations_formats.DataModel.model_multi_data_year_from import (
+        from ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from import (
             FormatDataFrom,
         )
 

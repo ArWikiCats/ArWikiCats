@@ -25,9 +25,7 @@ test at tests.translations_formats.test_format_2_data.py
 
 from typing import Dict
 
-from .model_data import FormatData
-from .model_data_time import YearFormatData
-from .model_data_v2 import FormatDataV2
+from ..DataModel import FormatData, FormatDataV2, YearFormatData
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 

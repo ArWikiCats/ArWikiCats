@@ -37,7 +37,7 @@ Example:
 """
 
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
-from .model_multi_data_year_from import FormatDataFrom
+from ..DataModel import FormatDataFrom
 
 
 class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
