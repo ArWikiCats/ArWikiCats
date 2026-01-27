@@ -5,7 +5,6 @@ Tests
 import re
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import genders_jobs_resolver
 

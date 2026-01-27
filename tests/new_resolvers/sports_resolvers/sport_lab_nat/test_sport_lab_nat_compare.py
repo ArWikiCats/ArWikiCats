@@ -1,5 +1,4 @@
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new

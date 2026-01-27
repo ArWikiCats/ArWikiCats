@@ -5,7 +5,6 @@ Tests
 from typing import Callable
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
     normalize_state,

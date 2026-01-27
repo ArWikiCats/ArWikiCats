@@ -3,7 +3,6 @@ Tests
 """
 
 import pytest
-from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import c_1_1_lab
 
