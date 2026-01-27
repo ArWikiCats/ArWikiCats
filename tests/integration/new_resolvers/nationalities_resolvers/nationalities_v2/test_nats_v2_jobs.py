@@ -28,7 +28,7 @@ def test_resolve_males(category: str, expected: str) -> None:
 
 TEMPORAL_CASES = [
     ("test_resolve_males", test_data_males, resolve_by_nats),
-    x]
+]
 
 
 @pytest.mark.dump
