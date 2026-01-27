@@ -17,3 +17,39 @@ def pytest_configure(config: pytest.Config) -> None:
 
     # Make randomness deterministic across workers/processes
     random.seed(0)
+
+
+def pytest_addoption(parser: pytest.Parser) -> None:
+    """Add custom command line options."""
+    parser.addoption(
+        "--run-e2e",
+        action="store_true",
+        default=False,
+        help="Run end-to-end tests (disabled by default in quick mode)",
+    )
+
+
+def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
+    """
+    Automatically apply markers based on test location.
+
+    Marker rules:
+    - tests/unit/* → @pytest.mark.unit
+    - tests/integration/* → @pytest.mark.integration
+    - tests/e2e/* → @pytest.mark.e2e
+    """
+    run_e2e = config.getoption("--run-e2e")
+
+    for item in items:
+        path_str = str(item.fspath)
+
+        # Auto-mark based on file path
+        if "tests" + os.sep + "unit" in path_str:
+            item.add_marker(pytest.mark.unit)
+            item.add_marker(pytest.mark.fast)
+        elif "tests" + os.sep + "integration" in path_str:
+            item.add_marker(pytest.mark.integration)
+        elif "tests" + os.sep + "e2e" in path_str:
+            item.add_marker(pytest.mark.e2e)
+            if not run_e2e:
+                item.add_marker(pytest.mark.skip(reason="E2E tests disabled, use --run-e2e"))
