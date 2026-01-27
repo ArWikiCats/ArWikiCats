@@ -2,13 +2,8 @@
 
 import os
 import random
-import sys
-from pathlib import Path
 
 import pytest
-
-# Add the ArWikiCats directory to the python path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 
 def pytest_configure(config: pytest.Config) -> None:

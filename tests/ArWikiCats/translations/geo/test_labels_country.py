@@ -10,7 +10,22 @@ from ArWikiCats import resolve_label_ar
 from ArWikiCats.translations.funcs import get_and_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
-test_data = {
+integration_data = {
+    "Hong Kong and Macao": "هونغ كونغ وماكاو",
+    "Labuan and Sarawak": "لابوان وساراواك",
+    "Nova Scotia and Prince Edward Island": "نوفا سكوشا وجزيرة الأمير إدوارد",
+    "Rwanda and Burundi": "رواندا وبوروندي",
+    "Roman Republic and Roman Empire": "الجمهورية الرومانية والإمبراطورية الرومانية",
+}
+
+
+@pytest.mark.parametrize("category,expected", integration_data.items(), ids=integration_data.keys())
+def test_integration_data(category: str, expected: str) -> None:
+    label = get_and_label(category)
+    assert label == expected
+
+
+e2e_data = {
     "Anglican bishops of Hong Kong and Macao": "أساقفة أنجليكيون من هونغ كونغ وماكاو",
     "Anglican bishops of Labuan and Sarawak": "أساقفة أنجليكيون من لابوان وساراواك",
     "Anglican bishops of Nova Scotia and Prince Edward Island": "أساقفة أنجليكيون من نوفا سكوشا وجزيرة الأمير إدوارد",
@@ -19,7 +34,7 @@ test_data = {
 }
 
 
-@pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
+@pytest.mark.parametrize("category,expected", e2e_data.items(), ids=e2e_data.keys())
 @pytest.mark.fast
 def test_get_and_label(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
@@ -27,7 +42,7 @@ def test_get_and_label(category: str, expected: str) -> None:
 
 
 test_dump_all = make_dump_test_name_data_callback(
-    [("test_data", test_data, resolve_label_ar)], run_same=True, just_dump=True
+    [("e2e_data", e2e_data, resolve_label_ar)], run_same=True, just_dump=True
 )
 
 
