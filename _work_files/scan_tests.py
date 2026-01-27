@@ -51,8 +51,8 @@ def main():
     tests_dir = Path(__file__).parent.parent / "tests"
     for file in tests_dir.rglob("*.py"):
         try:
-            if not get_used_names(file):
-                clean_file(file)
+            used = get_used_names(file)
+            clean_file(file, used)
         except Exception as e:
             print(f"Skipped (parse error): {file} -> {e}")
 
