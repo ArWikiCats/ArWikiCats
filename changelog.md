@@ -1,3 +1,21 @@
+## [Update documentation for new test categories] - 2026-01-27
+
+This pull request updates all documentation to reflect the new test organization into 3 categories: unit, integration, and e2e.
+
+### Changed
+* Updated `README.md`:
+  - Reorganized Section 8 (الاختبارات) to document the 3 test categories
+  - Added examples for running tests by category (`tests/unit/`, `tests/integration/`, `tests/e2e/`)
+  - Added marker-based test running (`-m unit`, `-m integration`, `-m e2e`)
+  - Updated project structure to show test subdirectories
+* Updated `CLAUDE.md`:
+  - Added table documenting the 3 test categories with descriptions
+  - Added test running commands for each category
+  - Updated directory structure to show tests subdirectories
+* Updated `.github/copilot-instructions.md`:
+  - Updated Project Structure section to describe the 3 test categories
+  - Updated test count to 28,500+ tests
+
 ## [Refactor legacy_bots package to eliminate circular dependencies] - 2026-01-26
 
 This pull request refactors the `legacy_bots/` package to break circular dependencies using a callback injection pattern.
