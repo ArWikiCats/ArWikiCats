@@ -66,7 +66,7 @@ data_2 = {
     "National sports teams of the United States": "منتخبات رياضية وطنية في الولايات المتحدة",
     "Biographical films about presidents of the United States": "أفلام سير ذاتية عن رؤساء الولايات المتحدة",
     "Documentary films about presidents of the United States": "أفلام وثائقية عن رؤساء الولايات المتحدة",
-    "Films about fictional presidents of the United States": "أفلام عن رؤساء خياليون الولايات المتحدة",
+    "Films about fictional presidents of the United States": "أفلام عن رؤساء الولايات المتحدة الخياليون",
     "Films about presidents of the United States": "أفلام عن رؤساء الولايات المتحدة",
     "Candidates for President of the United States": "مرشحون لمنصب رئيس الولايات المتحدة",
     "Jewish candidates for President of the United States": "مرشحون يهود لمنصب رئيس الولايات المتحدة",
