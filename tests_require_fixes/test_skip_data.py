@@ -373,8 +373,6 @@ data0 = {
     "17th-century Dutch books": "كتب هولندية في القرن 17",
 }
 
-data1 = {}
-
 data3 = {
     "2021 Tamil-language television series endings": "x",
     "2024–2026 ICC Cricket World Cup League 2": "x",
@@ -1358,7 +1356,6 @@ data_0 = {
     "british columbia (1866–1866)": "كولومبيا البريطانية (1866–1866)",
 }
 
-
 test_rele_many_data = {
     "africanamerican–asian-american relations": "العلاقات الأمريكية الآسيوية الأمريكية الإفريقية",
     "africanamerican–jewish relations": "العلاقات الأمريكية الإفريقية اليهودية",
@@ -1443,7 +1440,6 @@ data_skip = {
 
 to_test = [
     ("test_2_skip2_0", data0),
-    ("test_2_skip2_2", data1),
     ("test_2_skip2_3", data3),
 ]
 
