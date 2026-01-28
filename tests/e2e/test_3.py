@@ -331,7 +331,7 @@ data_3 = {
     "Deaths by airstrike during World War II": "وفيات بضربات جوية خلال الحرب العالمية الثانية",
     "Deaths by airstrike": "وفيات بضربات جوية",
     "December 2007 in sports": "ألعاب رياضية في ديسمبر 2007",
-    "democratic-republic-of-congo–republic-of ireland relations": "علاقات جمهورية أيرلندا وجمهورية الكونغو الديمقراطية",
+    "democratic-republic-of-congo–republic-of ireland relations": "العلاقات الأيرلندية الكونغوية الديمقراطية",
     "Educational institutions established in 2009": "هيئات تعليمية أسست في 2009",
     "February 2026 in sports": "ألعاب رياضية في فبراير 2026",
     "Fiction set in 1716": "أعمال خيالية في 1716",
