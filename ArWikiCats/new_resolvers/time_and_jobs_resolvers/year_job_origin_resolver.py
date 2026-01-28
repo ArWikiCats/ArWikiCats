@@ -17,54 +17,11 @@ import re
 from ...helps import logger
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
+from ...translations.others import get_death_label
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
 
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
-
-medical_keys = {
-    "amyloidosis": "داء نشواني",
-    "autoimmune disease": "أمراض المناعة الذاتية",
-    "blood disease": "أمراض الدم",
-    "brain cancer": "سرطان الدماغ",
-    "cancer": "السرطان",
-    "cardiovascular disease": "أمراض قلبية وعائية",
-    "digestive disease": "أمراض الجهاز الهضمي",
-    "endocrine disease": "أمراض الغدد الصماء",
-    "genetic disorders": "اضطرابات وراثية",
-    "infectious disease": "أمراض معدية",
-    "lung cancer": "سرطان الرئة",
-    "mastocytosis": "كثرة الخلايا البدينة",
-    "musculoskeletal disorders": "إصابة الإجهاد المتكرر",
-    "neurological disease": "أمراض عصبية",
-    "organ failure": "فشل عضوي",
-    "reproductive system disease": "أمراض الجهاز التناسلي",
-    "respiratory disease": "أمراض الجهاز التنفسي",
-    "skin disease": "مرض جلدي",
-    "urologic disease": "أمراض الجهاز البولي",
-    "deaths by airstrike": "وفيات بضربات جوية",
-    "deaths by airstrikes": "وفيات بضربات جوية",
-    "deaths by firearm": "وفيات بسلاح ناري",
-    "deaths from amyloidosis": "وفيات داء نشواني",
-    "deaths from autoimmune disease": "وفيات أمراض المناعة الذاتية",
-    "deaths from blood disease": "وفيات أمراض الدم",
-    "deaths from brain cancer": "وفيات سرطان الدماغ",
-    "deaths from cancer": "وفيات السرطان",
-    "deaths from cardiovascular disease": "وفيات أمراض قلبية وعائية",
-    "deaths from digestive disease": "وفيات أمراض الجهاز الهضمي",
-    "deaths from endocrine disease": "وفيات أمراض الغدد الصماء",
-    "deaths from genetic disorders": "وفيات اضطرابات وراثية",
-    "deaths from infectious disease": "وفيات أمراض معدية",
-    "deaths from lung cancer": "وفيات سرطان الرئة",
-    "deaths from mastocytosis": "وفيات كثرة الخلايا البدينة",
-    "deaths from musculoskeletal disorders": "وفيات إصابة الإجهاد المتكرر",
-    "deaths from neurological disease": "وفيات أمراض عصبية",
-    "deaths from organ failure": "وفيات فشل عضوي",
-    "deaths from reproductive system disease": "وفيات أمراض الجهاز التناسلي",
-    "deaths from respiratory disease": "وفيات أمراض الجهاز التنفسي",
-    "deaths from skin disease": "وفيات مرض جلدي",
-    "deaths from urologic disease": "وفيات أمراض الجهاز البولي",
-}
 
 label_new_keys = {
     # "crown-of aragon": "تاج أرغون",
@@ -100,7 +57,7 @@ def get_job_label(text: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def get_from_label(from_part):
     from_label = (
-        medical_keys.get(from_part)
+        get_death_label(from_part)
         or label_new_keys.get(from_part)
         or get_from_pf_keys2(from_part)
         or get_from_new_p17_final(from_part)
