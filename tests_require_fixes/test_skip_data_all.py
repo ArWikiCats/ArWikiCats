@@ -1,5 +1,5 @@
 """
-pytest tests_require_fixes/test_skip_data_all.py -m skip2 --maxfail=9000
+pytest tests_require_fixes/test_skip_data_all.py -m dump
 """
 import pytest
 from utils.dump_runner import make_dump_test_name_data
