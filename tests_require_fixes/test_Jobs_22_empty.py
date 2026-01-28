@@ -1,7 +1,7 @@
 #
 import pytest
 from ArWikiCats import resolve_label_ar
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "animation directors": "x",
@@ -208,4 +208,4 @@ TEMPORAL_CASES = [
     ("test_Jobs_22_empty", data1),
 ]
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(TEMPORAL_CASES, resolve_label_ar, run_same=True)

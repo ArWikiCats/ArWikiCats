@@ -1,6 +1,6 @@
 #
 import pytest
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
 
 data0_no_label = {
@@ -1462,4 +1462,4 @@ def test_2_skip2_2(category: str, expected: str) -> None:
     assert label == expected
 
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

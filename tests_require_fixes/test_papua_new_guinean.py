@@ -1,7 +1,7 @@
 #
 import pytest
 from ArWikiCats import resolve_label_ar
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 
 data_1 = {
     "1960s in Papua New Guinean sport": "x",
@@ -411,4 +411,4 @@ to_test = [
     ("test_papua_new_guinean_1", data_1),
 ]
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
