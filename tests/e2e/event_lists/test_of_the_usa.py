@@ -59,7 +59,7 @@ data_1 = {
 data_2 = {
     "Bilateral military relations of the United States": "علاقات الولايات المتحدة الثنائية العسكرية",
     "Bilateral relations of the United States": "علاقات الولايات المتحدة الثنائية",
-    "Works about military history of the United States": "أعمال عن التاريخ العسكري الولايات المتحدة",
+    "Works about military history of the United States": "أعمال عن تاريخ الولايات المتحدة العسكري",
     "Works about presidents of the United States": "أعمال عن رؤساء الولايات المتحدة",
     "Works about the military of the United States": "أعمال عن عسكرية الولايات المتحدة",
     "Works by presidents of the United States": "أعمال رؤساء الولايات المتحدة",
@@ -79,7 +79,7 @@ data_2 = {
     "Mass media by language of the United States": "وسائل إعلام حسب لغة الولايات المتحدة",
     "Books written by presidents of the United States": "كتب كتبها رؤساء الولايات المتحدة",
     "Children's books about presidents of the United States": "كتب أطفال عن رؤساء الولايات المتحدة",
-    "Non-fiction books about military history of the United States": "كتب غير خيالية عن التاريخ العسكري الولايات المتحدة",
+    "Non-fiction books about military history of the United States": "كتب غير خيالية عن تاريخ الولايات المتحدة العسكري",
     "Songs about presidents of the United States": "أغاني عن رؤساء الولايات المتحدة",
     "Television series about presidents of the United States": "مسلسلات تلفزيونية عن رؤساء الولايات المتحدة",
     "Television series about the history of the United States": "مسلسلات تلفزيونية عن تاريخ الولايات المتحدة",
