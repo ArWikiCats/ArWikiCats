@@ -46,7 +46,6 @@ test_data_1 = {
     "by vaikom muhammad basheer": "بواسطة محمد بشير",
     "Byzantine female saints": "قديسات بيزنطيات",
     "canada–oceanian relations": "العلاقات الأوقيانوسية الكندية",
-    "cherokee and united states treaties": "شيروكي ومعاهدات الولايات المتحدة",
     "chinese professional baseball league awards": "جوائز دوري كرة القاعدة الصيني للمحترفين",
     "Christian country music": "كانتري مسيحي",
     "Christian electronic dance music songs": "أغاني موسيقى الرقص الإلكترونية مسيحي",
