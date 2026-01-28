@@ -144,7 +144,7 @@ def resolve_part_2_label(country2, with_years=False) -> str:
         or parties_resolver.get_parties_lab(country2)
         or get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
-        or get_from_pf_keys2(country2.strip().lower())
+        or get_from_pf_keys2(country2)
         or get_KAKO(country2)
         or _get_term_label(country2, "")
         or (with_years_bot.Try_With_Years(country2) if with_years else "")
