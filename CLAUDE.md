@@ -34,7 +34,7 @@ pytest tests/e2e/            # End-to-end tests only
 # Run by marker
 pytest -m unit               # Unit tests only
 pytest -m integration        # Integration tests only
-pytest -m e2e                # End-to-end tests only
+pytest --rune2e                # End-to-end tests only
 
 # Run specific test category
 pytest -k "jobs"

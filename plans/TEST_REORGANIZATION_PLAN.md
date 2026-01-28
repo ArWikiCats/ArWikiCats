@@ -255,7 +255,7 @@ pytest -m "unit or integration or e2e"
 pytest --rune2e
 
 # تشغيل e2e فقط
-pytest -m e2e --rune2e
+pytest --rune2e --rune2e
 
 # تشغيل اختبارات محددة
 pytest tests/unit/test_time_to_arabic.py
