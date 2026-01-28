@@ -31,7 +31,7 @@ data_1 = {
     "February 2010 events by country": "أحداث فبراير 2010 حسب البلد",
     "August 2010 crimes": "جرائم أغسطس 2010",
     "Businesspeople in aviation by nationality": "شخصيات أعمال في طيران حسب الجنسية",
-    "2010 in motorsport by country": "رياضة محركات في 2010 حسب البلد",
+    "2010 in motorsport by country": "رياضة المحركات في 2010 حسب البلد",
     "2010s in international relations": "علاقات دولية في عقد 2010",
     "2010s in law": "القانون في عقد 2010",
     "2010s introductions": "استحداثات عقد 2010",
