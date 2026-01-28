@@ -1,6 +1,6 @@
 #
 from ArWikiCats import resolve_label_ar
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 
 data_1 = {
     "Non-fiction books about Indigenous peoples of the Americas": "كتب غير خيالية عن شعوب أصلية في الأمريكتين",
@@ -308,4 +308,4 @@ to_test = [
     ("text_non_fiction", data_1),
 ]
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

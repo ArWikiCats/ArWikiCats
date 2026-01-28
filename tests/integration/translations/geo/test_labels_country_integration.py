@@ -15,6 +15,7 @@ integration_data = {
     "Nova Scotia and Prince Edward Island": "نوفا سكوشا وجزيرة الأمير إدوارد",
     "Rwanda and Burundi": "رواندا وبوروندي",
     "Roman Republic and Roman Empire": "الجمهورية الرومانية والإمبراطورية الرومانية",
+    "qatar and yemen": "قطر واليمن",
 }
 
 

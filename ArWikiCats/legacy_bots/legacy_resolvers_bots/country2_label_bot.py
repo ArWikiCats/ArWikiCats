@@ -84,7 +84,7 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def c_1_1_lab(separator: str, country2: str) -> str:
+def resolve_part_1_label(country2, separator):
     """
     Resolve the Arabic label for the first part of a compound title given its English token and separator.
 
@@ -101,62 +101,57 @@ def c_1_1_lab(separator: str, country2: str) -> str:
     Example:
         {"separator": " in ", "country2": "cultural depictions of competitors", "output": "تصوير ثقافي عن منافسون"},
     """
-
-    country2 = country2.strip().lower()
-
     if country2 == "women" and separator.strip() == "from":
         part_1_label = "نساء"
         logger.debug(f">> >> >> Make {country2=}.")
         return part_1_label
 
-    part_1_label = (
-        get_pop_All_18(country2)
-        or People_key.get(country2)
+    country2_label = (
+        ""
         or all_new_resolvers(country2)
+        or get_pop_All_18(country2)
+        or People_key.get(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_table_with_in(country2, separator)
         or get_from_pf_keys2(country2)
         or get_KAKO(country2)
+        or _get_term_label(country2, "", lab_type="type_label")
         or ""
     )
 
-    if not part_1_label:
-        logger.debug(f'>>>> XX--== part_1_label =  "{part_1_label}" {country2=}')
-
-    return part_1_label
+    return country2_label
 
 
 @functools.lru_cache(maxsize=10000)
-def c_2_1_lab(country2: str) -> str:
+def resolve_part_2_label(country2, with_years=False) -> str:
     """
     Resolve an Arabic label for the second component of a compound title or country phrase.
 
     Parameters:
         country2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
+        with_years (bool): If true, allows an additional "with years" resolver when resolving `country2`.
 
     Returns:
         str: The resolved Arabic label for country2, or an empty string if no label could be determined.
     """
-
-    country2 = country2.strip().lower()
-
-    part_2_label = (
-        get_pop_All_18(country2)
+    country2_label = (
+        ""
+        or all_new_resolvers(country2)
+        or get_pop_All_18(country2)
         or bys.get_by_label(country2)
         or People_key.get(country2)
-        or all_new_resolvers(country2)
         or parties_resolver.get_parties_lab(country2)
         or get_and_label(country2)
         or team_work.resolve_clubs_teams_leagues(country2)
-        or get_from_pf_keys2(country2.strip().lower())
+        or get_from_pf_keys2(country2)
         or get_KAKO(country2)
+        or _get_term_label(country2, "")
+        or (with_years_bot.Try_With_Years(country2) if with_years else "")
         or ""
     )
 
-    logger.debug(f"{country2=} -> {part_2_label=}")
-
-    return part_2_label
+    return country2_label
 
 
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
@@ -184,7 +179,6 @@ def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized:
 
 
 def make_cnt_lab(
-    separator: str,
     country: str,
     part_2_label: str,
     part_1_label: str,
@@ -196,7 +190,6 @@ def make_cnt_lab(
     Builds a final Arabic label by combining part_1_label and part_2_label and applying contextual adjustments and normalizations.
 
     Parameters:
-        separator (str): English separator token between parts (informational; not directly used in formatting).
         country (str): Original country string used to record mappings when applicable.
         part_2_label (str): Resolved label for the second part (right-hand side).
         part_1_label (str): Resolved label for the first part (left-hand side).
@@ -332,31 +325,6 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     return part_1_label, part_2_label
 
 
-def resolve_part_1_label(part_1, separator):
-    part_1_label = (
-        ""
-        or all_new_resolvers(part_1)
-        or c_1_1_lab(separator, part_1)
-        or _get_term_label(part_1, "", lab_type="type_label")
-        or ""
-    )
-
-    return part_1_label
-
-
-def resolve_part_2_label(part_2, with_years):
-    part_2_label = (
-        ""
-        or all_new_resolvers(part_2)
-        or c_2_1_lab(part_2)
-        or _get_term_label(part_2, "")
-        or (with_years_bot.Try_With_Years(part_2) if with_years else "")
-        or ""
-    )
-
-    return part_2_label
-
-
 def get_separator(country: str) -> str:
     """Get the separator from a country string.
 
@@ -421,7 +389,6 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
         ar_separator = separator_arabic_resolve(separator)
 
     resolved_label = make_cnt_lab(
-        separator=separator,
         country=country,
         part_2_label=part_2_label,
         part_1_label=part_1_label,

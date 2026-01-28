@@ -115,7 +115,7 @@ This pull request updates all documentation to reflect the new test organization
 * Updated `README.md`:
   - Reorganized Section 8 (الاختبارات) to document the 3 test categories
   - Added examples for running tests by category (`tests/unit/`, `tests/integration/`, `tests/e2e/`)
-  - Added marker-based test running (`-m unit`, `-m integration`, `-m e2e`)
+  - Added marker-based test running (`-m unit`, `-m integration`, `--rune2e`)
   - Updated project structure to show test subdirectories
 * Updated `CLAUDE.md`:
   - Added table documenting the 3 test categories with descriptions

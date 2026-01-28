@@ -1,6 +1,6 @@
 #
 import pytest
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
 
 data_skip = {
@@ -136,4 +136,4 @@ data_skip = {
 
 to_test = [("test_antigua_and_barbuda_data_skip", data_skip)]
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

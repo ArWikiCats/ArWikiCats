@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import c_1_1_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_1_label
 
-fast_data_c_1_1_lab = [
+fast_data_resolve_part_1_label = [
     {"separator": " by ", "key": "american rock musicians", "output": "موسيقيو روك أمريكيون"},
     {"separator": " by ", "key": "amphibious warfare vessels", "output": "سفن حربية برمائية"},
     {"separator": " by ", "key": "animated television series", "output": "مسلسلات تلفزيونية رسوم متحركة"},
@@ -131,11 +131,11 @@ fast_data_c_1_1_lab = [
 ]
 
 
-@pytest.mark.parametrize("data", fast_data_c_1_1_lab, ids=lambda x: x["key"])
+@pytest.mark.parametrize("data", fast_data_resolve_part_1_label, ids=lambda x: x["key"])
 @pytest.mark.fast
-def test_c_1_1_lab(data) -> None:
+def test_resolve_part_1_label(data) -> None:
     """
-    Parametrized test that verifies c_1_1_lab produces the expected Arabic label for a given separator and key.
+    Parametrized test that verifies resolve_part_1_label produces the expected Arabic label for a given separator and key.
 
     Parameters:
         data (dict): Test case mapping with keys:
@@ -143,5 +143,5 @@ def test_c_1_1_lab(data) -> None:
             - 'key' (str): input label/topic to convert.
             - 'output' (str): expected Arabic label.
     """
-    label = c_1_1_lab(data["separator"], data["key"])
+    label = resolve_part_1_label(data["key"], data["separator"])
     assert label == data["output"]

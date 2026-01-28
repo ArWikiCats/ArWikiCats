@@ -11,6 +11,7 @@ from ..nats_as_country_names import nats_keys_as_country_names
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 formatted_data = {
+    "{en} relations": "العلاقات {the_female}",
     "{en} border crossings": "معابر الحدود {the_female}",
     "{en} joint economic efforts": "الجهود الاقتصادية المشتركة {the_female}",
     "{en} conflict video games": "ألعاب فيديو الصراع {the_male}",

@@ -1,7 +1,7 @@
 #
 import pytest
-# from ArWikiCats import resolve_label_ar
-# from tests.utils.dump_runner import make_dump_test_name_data
+from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
     "Persecution of LGBT people": "اضطهاد الأشخاص المثليين",
@@ -2738,4 +2738,4 @@ to_test = [
 ]
 
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=True)

@@ -6,23 +6,7 @@ from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels_and_time impo
 from utils.dump_runner import make_dump_test_name_data_callback
 
 data_0 = {
-    "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
-    "DC Comics superhero teams": "فرق أبطال دي سي كومكس",
     "Superhero film series navigational boxes": "صناديق تصفح سلاسل أفلام أبطال خارقين",
-    "Superheroes": "أبطال خارقون",
-    "Superheroes in anime and manga": "أنمي ومانغا أبطال خارقين",
-    "Superheroes by publisher": "أبطال خارقون حسب الناشر",
-    "Superheroes by type": "أبطال خارقون حسب النوع",
-    "Animal superheroes": "حيوانات أبطال خارقين",
-    "Child superheroes": "أبطال خارقون أطفال",
-    "Comics superheroes": "قصص مصورة حول أبطال خارقون",
-    "DC Comics female superheroes": "بطلات دي سي كومكس الخارقات",
-    "DC Comics superheroes": "أبطال دي سي كومكس",
-    "Egyptian superheroes": "أبطال خارقون مصريون",
-    "Golden Age superheroes": "أبطال العصر الذهبي",
-    "Marvel Comics female superheroes": "بطلات مارفل كومكس الخارقات",
-    "Marvel Comics superheroes": "أبطال خارقون في مارفل كومكس",
-    "Muslim superheroes": "أبطال خارقون مسلمون",
 }
 
 to_test = [

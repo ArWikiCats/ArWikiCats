@@ -1,6 +1,6 @@
 #
 import pytest
-# from tests.utils.dump_runner import make_dump_test_name_data
+from utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_label_ar
 
 data1 = {
@@ -116,7 +116,7 @@ data1 = {
 }
 
 to_test = [
-    # ("test_cultural_depictions_1", data1),
+    ("test_cultural_depictions_1", data1),
 ]
 
 
@@ -128,4 +128,4 @@ def test_cultural_depictions_data1(category: str, expected: str) -> None:
     assert result == expected
 
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)
+test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=False)

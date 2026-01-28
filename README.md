@@ -478,7 +478,7 @@ pytest -m integration
 
 ```bash
 pytest tests/e2e/
-pytest -m e2e
+pytest --rune2e
 ```
 
 ## 8.2 ما تغطيه الاختبارات
