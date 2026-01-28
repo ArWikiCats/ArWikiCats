@@ -24,7 +24,6 @@ make_cnt_lab_data = {
 @pytest.mark.fast
 def test_make_cnt_lab_data(category: str, ar: str) -> None:
     label = make_cnt_lab(
-        separator="-of ",
         country=f"kingdom-of {category}",
         part_2_label=ar,
         part_1_label="مملكة",
@@ -52,7 +51,6 @@ party_data = {
 @pytest.mark.fast
 def test_make_cnt_lab_communist_party(country: str, part_2_label: str, expected: str) -> None:
     label = make_cnt_lab(
-        separator="-of ",
         country=country,
         part_2_label=part_2_label,
         part_1_label="الحزب الشيوعي في ",
@@ -100,7 +98,6 @@ congress_data = {
 def test_congress_data(category: str, ar: str) -> None:
     label = f"الكونغرس الأمريكي {ar}"
     result = make_cnt_lab(
-        separator=" of ",
         country=f"acts of {category} united states congress",
         part_2_label=label,
         part_1_label="أفعال",

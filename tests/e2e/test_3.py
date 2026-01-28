@@ -231,6 +231,11 @@ data_2 = {
 }
 
 data_3 = {
+    "africanamerican–jewish relations": "العلاقات الأمريكية الإفريقية اليهودية",
+    "african–native american relations": "العلاقات الأمريكية الأصلية الإفريقية",
+    "arab–american relations": "العلاقات الأمريكية العربية",
+    "native american–jewish relations": "العلاقات الأمريكية الأصلية اليهودية",
+    "roman–iranian relations": "العلاقات الإيرانية الرومانية",
     "1009 works": "أعمال 1009",
     "1013 works": "أعمال 1013",
     "10th-century BC architecture": "عمارة القرن 10 ق م",

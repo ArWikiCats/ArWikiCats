@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import c_1_1_lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_1_label
 
 test_data = {
     "art museums and galleries": "متاحف فنية ومعارض",
@@ -75,6 +75,6 @@ test_data = {
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_c_1_1_lab_3(category: str, expected: str) -> None:
-    label = c_1_1_lab(" in ", category)
+def test_resolve_part_1_label_3(category: str, expected: str) -> None:
+    label = resolve_part_1_label(category, " in ")
     assert label == expected
