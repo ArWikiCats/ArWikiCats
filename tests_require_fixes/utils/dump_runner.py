@@ -13,7 +13,7 @@ def _run_dump_case(name: str, data: dict[str, str], callback: callable, run_same
     """
     Common dump test logic shared across many test files.
     """
-    from load_one_data import (
+    from utils.load_one_data import (
         dump_diff,
         dump_same_and_not_same,
         one_dump_test,
