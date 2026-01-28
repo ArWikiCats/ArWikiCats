@@ -374,7 +374,7 @@ data1 = {
     "non-fiction books about italian-american culture": "كتب غير خيالية عن ثقافة أمريكية إيطالية",
     "non-fiction books about jack ripper": "كتب غير خيالية عن جاك السفاح",
     "non-fiction books about james bond": "كتب غير خيالية عن جيمس بوند",
-    "non-fiction books about military history of united states": "كتب غير خيالية عن التاريخ العسكري الولايات المتحدة",
+    "non-fiction books about military history of united states": "كتب غير خيالية عن تاريخ الولايات المتحدة العسكري",
     "non-fiction books about mining": "كتب غير خيالية عن تعدين",
     "non-fiction books about murders in united states": "كتب غير خيالية عن جرائم قتل في الولايات المتحدة",
     "non-fiction books about murders": "كتب غير خيالية عن جرائم قتل",

@@ -6,7 +6,7 @@ import pytest
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_2_label
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_1_label
 
 test_data = {
     "american documentary television series": "مسلسلات تلفزيونية وثائقية أمريكية",
@@ -216,7 +216,7 @@ fast_data_c_2_1_lab = {
 @pytest.mark.parametrize("category, expected", fast_data_c_2_1_lab.items(), ids=fast_data_c_2_1_lab.keys())
 @pytest.mark.fast
 def test_c_2_1_lab(category: str, expected: str) -> None:
-    label = resolve_part_2_label(category)
+    label = resolve_part_1_label(category)
     assert label == expected
 
 
@@ -228,8 +228,8 @@ def test_test_data(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_c_2_1_lab", fast_data_c_2_1_lab, resolve_part_2_label),
-    ("test_c_2_1_lab", fast_and_data, resolve_part_2_label),
+    ("test_c_2_1_lab", fast_data_c_2_1_lab, resolve_part_1_label),
+    ("test_c_2_1_lab", fast_and_data, resolve_part_1_label),
 ]
 
 
