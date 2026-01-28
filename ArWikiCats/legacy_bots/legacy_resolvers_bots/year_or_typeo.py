@@ -184,29 +184,6 @@ class LabelForStartWithYearOrTypeo:
             logger.debug("a<<lightblue>>>>>> No country_lower.")
             return
 
-        # TODO: delete it
-        if self.country_lower == "x":
-            if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate,
-                    self.cat_test,
-                    self.year_at_first,
-                    "",
-                    self.In,
-                    self.country_lower,
-                    self.arlabel,
-                    self.year_labe,
-                    self.suf,
-                    self.Add_In,
-                    self.country_label,
-                    self.Add_In_Done,
-                )
-                return
-
-            logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
-            self.NoLab = True
-            return
-
         logger.info("a<<lightblue>>>>>> No label.")
         self.NoLab = True
 

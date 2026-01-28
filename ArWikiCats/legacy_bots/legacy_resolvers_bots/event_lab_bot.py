@@ -12,7 +12,6 @@ from ...fix import fixtitle
 from ...format_bots import change_cat
 from ...helps import logger
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
-from ...translations import Ambassadors_tab
 from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot
 from ..resolvers.country_resolver import event2_d2
@@ -103,7 +102,6 @@ def event_label_work(country: str) -> str:
     event_resolvers: list[ResolverFn] = [
         *_STANDARD_COUNTRY_RESOLVERS,
         lambda c: get_from_new_p17_final(c, ""),
-        lambda c: Ambassadors_tab.get(c, ""),
         event2_d2,
         with_years_bot.wrap_try_with_years,
         year_or_typeo.label_for_startwith_year_or_typeo,

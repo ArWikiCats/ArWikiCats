@@ -41,8 +41,13 @@ for by_key, by_label in deaths_by.items():
 
 
 def get_death_label(text: str) -> str:
-    """
-    TODO: use this in the code
+    """Get the Arabic label for a death-related category text.
+
+    Args:
+        text: The category text to look up (e.g., "lung cancer", "deaths from cancer").
+
+    Returns:
+        The Arabic translation if found, otherwise None.
     """
     result = medical_keys.get(text)
     return result

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from .deaths import medical_keys
+from .deaths import get_death_label, medical_keys
 from .languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
@@ -20,4 +20,5 @@ __all__ = [
     "ministers_keys",
     "TAXON_TABLE",
     "medical_keys",
+    "get_death_label",
 ]
