@@ -126,38 +126,6 @@ def resolve_part_1_label(country2, separator="", lab_type="type_label", with_yea
     return country2_label
 
 
-@functools.lru_cache(maxsize=10000)
-def resolve_part_2_label(country2, with_years=False) -> str:
-    """
-    Resolve an Arabic label for the second component of a compound title or country phrase.
-
-    Parameters:
-        country2 (str): The second part to resolve (e.g., the target or modifier in a "X of Y" title).
-        with_years (bool): If true, allows an additional "with years" resolver when resolving `country2`.
-
-    Returns:
-        str: The resolved Arabic label for country2, or an empty string if no label could be determined.
-    """
-    return resolve_part_1_label(country2, separator="", lab_type="!", with_years=with_years)
-    country2_label = (
-        ""
-        or all_new_resolvers(country2)
-        or get_pop_All_18(country2)
-        or bys.get_by_label(country2)
-        or People_key.get(country2)
-        or parties_resolver.get_parties_lab(country2)
-        or get_and_label(country2)
-        or team_work.resolve_clubs_teams_leagues(country2)
-        or get_from_pf_keys2(country2)
-        or get_KAKO(country2)
-        or _get_term_label(country2, "")
-        or (with_years_bot.Try_With_Years(country2) if with_years else "")
-        or ""
-    )
-
-    return country2_label
-
-
 def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized: str) -> str:
     """
     Return a corrected Arabic war label when appropriate.
@@ -301,10 +269,10 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
     Returns:
         Tuple[str, str]: (part_1_label, part_2_label) with resolved Arabic labels, or ("", "") if either could not be resolved.
     """
-    part_2_label = resolve_part_2_label(part_2, with_years)
+    part_2_label = resolve_part_1_label(part_2, with_years=with_years)
 
     if part_2_label == "" and "-" in part_2:
-        part_2_label = resolve_part_2_label(part_2.replace("-", " "), with_years)
+        part_2_label = resolve_part_1_label(part_2.replace("-", " "), with_years=with_years)
 
     part_1_label = resolve_part_1_label(part_1, separator)
 
