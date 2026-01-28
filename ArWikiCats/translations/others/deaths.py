@@ -40,7 +40,7 @@ for by_key, by_label in deaths_by.items():
     medical_keys[f"deaths {by_key}"] = f"وفيات {by_label}"
 
 
-def get_death_label(text: str) -> str:
+def get_death_label(text: str) -> str | None:
     """Get the Arabic label for a death-related category text.
 
     Args:

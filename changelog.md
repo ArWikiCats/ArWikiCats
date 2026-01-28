@@ -1,3 +1,15 @@
+## [Solve TODO problems] - 2026-01-28
+
+### Removed
+* **Ambassadors_tab empty dictionary**: Removed the unused `Ambassadors_tab` empty dictionary that was marked with TODO for deletion from `all_keys3.py`, along with its exports and usage in `event_lab_bot.py`
+* **Dead code in year_or_typeo.py**: Removed unreachable code branch (`country_lower == "x"`) that was marked with TODO for deletion
+* **Duplicate medical_keys in year_job_origin_resolver.py**: Removed duplicate `medical_keys` dictionary that duplicated data already defined in `deaths.py`
+* **Duplicate key comment in ministers_resolver.py**: Removed TODO comment and commented-out duplicate key
+
+### Changed
+* **get_death_label function now in use**: The `get_death_label` function in `deaths.py` is now exported from `translations/others/__init__.py` and used by `year_job_origin_resolver.py` instead of the duplicate local dictionary
+* **get_death_label docstring**: Updated the docstring to properly document the function's purpose, parameters, and return value
+
 ## [Add unit tests for legacy_bots module] - 2026-01-27
 
 ### Added
