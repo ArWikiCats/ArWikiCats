@@ -84,7 +84,7 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_part_1_label(country2, separator):
+def resolve_part_1_label(country2, separator="", with_years=False):
     """
     Resolve the Arabic label for the first part of a compound title given its English token and separator.
 
@@ -117,6 +117,9 @@ def resolve_part_1_label(country2, separator):
         or get_from_pf_keys2(country2)
         or get_KAKO(country2)
         or _get_term_label(country2, "", lab_type="type_label")
+        or bys.get_by_label(country2)
+        or get_and_label(country2)
+        or (with_years_bot.Try_With_Years(country2) if with_years else "")
         or ""
     )
 
@@ -135,6 +138,7 @@ def resolve_part_2_label(country2, with_years=False) -> str:
     Returns:
         str: The resolved Arabic label for country2, or an empty string if no label could be determined.
     """
+    return resolve_part_1_label(country2, separator="", with_years=with_years)
     country2_label = (
         ""
         or all_new_resolvers(country2)
