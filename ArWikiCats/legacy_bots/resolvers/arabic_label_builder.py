@@ -313,84 +313,7 @@ class TypeResolver:
         return type_label, True
 
 
-class Fixing:
-    def __init__(self) -> None:
-        pass
-
-    def determine_separator(self) -> str:
-        """
-        Choose the Arabic separator to place between the resolved type and country labels.
-
-        This method selects the appropriate Arabic separator based on the parsed English separator and internal mappings. It may append the preposition " في" to self.type_label when applicable and remove the original English separator from self.cate_test when a mapped Arabic separator is applied. The method also consults translation_category_relations and other heuristics to handle special cases (e.g., "for", "to") and returns the finalized separator string including surrounding spaces when non-empty.
-
-        Returns:
-            ar_separator (str): The Arabic separator to join type and country labels (may be a single space or a spaced Arabic preposition).
-        """
-        ar_separator = " "
-        if self.separator_stripped == "in":
-            ar_separator = " في "
-
-        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (" في" not in self.type_label):
-            self.type_label = self.type_label + " في"
-
-        if self.add_in_lab:
-            logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
-            separator2_lab = translation_category_relations.get(self.separator_stripped)
-
-            if separator2_lab not in separators_lists_raw:
-                tatl = separator2_lab
-                logger.info(
-                    f">>>>> > ({self.separator_stripped=}): separator_stripped in category_relation_mapping and separator_stripped not in separators_lists_raw, {tatl=}"
-                )
-
-                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
-                    if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
-                        tatl = "من"
-                    if self.type_lower.strip().endswith("medalists") and "medalists for" in self.category:
-                        tatl = "من"
-
-                if self.separator_stripped == "to" and self.type_lower.strip().startswith("ambassadors of"):
-                    tatl = "لدى"
-
-                if self.country_label == "لعضوية البرلمان":
-                    tatl = ""
-
-                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
-                    p18lab = get_pop_All_18(self.country_lower)
-                    if p18lab and p18lab == self.country_label:
-                        tatl = ""
-
-                for_table = {
-                    "for national teams": "للمنتخبات الوطنية",
-                    "for member-of-parliament": "لعضوية البرلمان",
-                }
-
-                if self.country_lower in for_table:
-                    tatl = ""
-
-                ar_separator = f" {tatl} "
-                logger.info(f"ar_separator:{ar_separator}")
-                self.cate_test = self.cate_test.replace(self.separator, "")
-
-        # in_tables_1 = check_key_new_players(self.country_lower)
-        # in_tables_2 = check_key_new_players(self.type_lower)
-
-        # if in_tables_1 and in_tables_2:
-        logger.info(">>>> ================ ")
-        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-        logger.info(">>>> ================ ")
-
-        faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
-            self.separator_stripped.replace("-", " ").strip()
-        )
-
-        if not ar_separator.strip() and faa:
-            ar_separator = f" {faa} "
-
-        return ar_separator
-
-
-class LabelPipeline(Fixing):
+class LabelPipeline:
     """
     A class to handle the construction of Arabic labels from category strings.
     """
@@ -554,6 +477,78 @@ class LabelPipeline(Fixing):
         arlabel = fix_minor(arlabel, ar_separator, self.category)
 
         return arlabel
+
+    def determine_separator(self) -> str:
+        """
+        Choose the Arabic separator to place between the resolved type and country labels.
+
+        This method selects the appropriate Arabic separator based on the parsed English separator and internal mappings. It may append the preposition " في" to self.type_label when applicable and remove the original English separator from self.cate_test when a mapped Arabic separator is applied. The method also consults translation_category_relations and other heuristics to handle special cases (e.g., "for", "to") and returns the finalized separator string including surrounding spaces when non-empty.
+
+        Returns:
+            ar_separator (str): The Arabic separator to join type and country labels (may be a single space or a spaced Arabic preposition).
+        """
+        ar_separator = " "
+        if self.separator_stripped == "in":
+            ar_separator = " في "
+
+        if (self.separator_stripped == "in" or self.separator_stripped == "at") and (" في" not in self.type_label):
+            self.type_label = self.type_label + " في"
+
+        if self.add_in_lab:
+            logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
+            separator2_lab = translation_category_relations.get(self.separator_stripped)
+
+            if separator2_lab not in separators_lists_raw:
+                tatl = separator2_lab
+                logger.info(
+                    f">>>>> > ({self.separator_stripped=}): separator_stripped in category_relation_mapping and separator_stripped not in separators_lists_raw, {tatl=}"
+                )
+
+                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
+                    if self.type_lower.strip().endswith("competitors") and "competitors for" in self.category:
+                        tatl = "من"
+                    if self.type_lower.strip().endswith("medalists") and "medalists for" in self.category:
+                        tatl = "من"
+
+                if self.separator_stripped == "to" and self.type_lower.strip().startswith("ambassadors of"):
+                    tatl = "لدى"
+
+                if self.country_label == "لعضوية البرلمان":
+                    tatl = ""
+
+                if self.separator_stripped == "for" and self.country_lower.startswith("for "):
+                    p18lab = get_pop_All_18(self.country_lower)
+                    if p18lab and p18lab == self.country_label:
+                        tatl = ""
+
+                for_table = {
+                    "for national teams": "للمنتخبات الوطنية",
+                    "for member-of-parliament": "لعضوية البرلمان",
+                }
+
+                if self.country_lower in for_table:
+                    tatl = ""
+
+                ar_separator = f" {tatl} "
+                logger.info(f"ar_separator:{ar_separator}")
+                self.cate_test = self.cate_test.replace(self.separator, "")
+
+        # in_tables_1 = check_key_new_players(self.country_lower)
+        # in_tables_2 = check_key_new_players(self.type_lower)
+
+        # if in_tables_1 and in_tables_2:
+        logger.info(">>>> ================ ")
+        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
+        logger.info(">>>> ================ ")
+
+        faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
+            self.separator_stripped.replace("-", " ").strip()
+        )
+
+        if not ar_separator.strip() and faa:
+            ar_separator = f" {faa} "
+
+        return ar_separator
 
 
 @functools.lru_cache(maxsize=10000)

@@ -110,6 +110,7 @@ exclude = [
 ]
 line-length = 120
 target-version = "py313"
+fix = true
 
 [tool.ruff.format]
 # Allow Ruff/Black to maintain vertical list formatting
@@ -135,11 +136,12 @@ ignore = ["E402", "E225", "E226", "E227", "E228", "E252", "E501", "F841", "E224"
 line_length = 120
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
 ignore_missing_imports = true
+line-length = 120
 
 [tool.pylint.messages_control]
 max-line-length = 120
