@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
 
 fast_data = {

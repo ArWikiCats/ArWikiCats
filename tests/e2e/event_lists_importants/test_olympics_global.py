@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data_callback
 
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data_callback
 
 for_countries_t = {
     # "Winter Olympics competitors for Algeria by sport": "منافسون في الألعاب الأولمبية الشتوية من الجزائر حسب الرياضة",

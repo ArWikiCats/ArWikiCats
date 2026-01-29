@@ -3,6 +3,7 @@ Tests
 """
 
 import pytest
+
 from ArWikiCats.legacy_bots.legacy_utils import get_type_country, split_text_by_separator
 
 data = [

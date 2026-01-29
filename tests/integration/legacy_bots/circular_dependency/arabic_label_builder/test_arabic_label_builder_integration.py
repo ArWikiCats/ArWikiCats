@@ -1,6 +1,7 @@
-"""
-"""
+""" """
+
 import pytest
+
 from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 
 data_list2 = [
@@ -175,7 +176,7 @@ test_data_in = {
     "transport in kirov oblast": "نقل في أوبلاست كيروف",
     "transport in newfoundland and labrador": "نقل في نيوفاوندلاند واللابرادور",
     "transport in oxford": "نقل في أكسفورد",
-    "transport in ternopil oblast": "نقل في تيرنوبل أوبلاست"
+    "transport in ternopil oblast": "نقل في تيرنوبل أوبلاست",
 }
 
 

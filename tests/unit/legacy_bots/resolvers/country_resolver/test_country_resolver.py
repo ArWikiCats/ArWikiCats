@@ -16,7 +16,6 @@ from ArWikiCats.legacy_bots.resolvers.country_resolver import (
     set_fallback_resolver,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for set_fallback_resolver and _get_fallback_label
 # ---------------------------------------------------------------------------

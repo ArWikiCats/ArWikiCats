@@ -330,7 +330,7 @@ data_1 = {
     "waste management in brazil": "إدارة المخلفات في البرازيل",
     "water sports in tanzania": "رياضات مائية في تنزانيا",
     "years in curaçao": "سنوات في كوراساو",
-    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية"
+    "youth sport in british virgin islands": "رياضة شبابية في جزر العذراء البريطانية",
 }
 
 data_2 = {

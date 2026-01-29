@@ -9,7 +9,6 @@ from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import (
     resolve_nats_jobs,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for PAINTER_ROLE_LABELS constant
 # ---------------------------------------------------------------------------

@@ -15,7 +15,6 @@ from ArWikiCats.legacy_bots.legacy_resolvers_bots.mk3 import (
     new_func_mk2,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for check_country_in_tables function
 # ---------------------------------------------------------------------------

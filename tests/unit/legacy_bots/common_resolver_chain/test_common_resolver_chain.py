@@ -12,7 +12,6 @@ from ArWikiCats.legacy_bots.common_resolver_chain import (
     get_type_lab,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for _lookup_country_with_in_prefix
 # ---------------------------------------------------------------------------

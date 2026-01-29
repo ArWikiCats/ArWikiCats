@@ -1,6 +1,4 @@
-"""
-
-"""
+""" """
 
 import pytest
 
@@ -66,6 +64,7 @@ data_list2 = [
 def test_find_ar_label_fast(category: str, expected: str) -> None:
     label = find_ar_label(category, "in")
     assert label == expected
+
 
 @pytest.mark.parametrize("category, separator, output", data_list2, ids=[x[0] for x in data_list2])
 @pytest.mark.fast

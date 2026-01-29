@@ -12,7 +12,6 @@ from ArWikiCats.legacy_bots.make_bots.check_bot import (
     set_tables,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for check_key_in_tables function
 # ---------------------------------------------------------------------------

@@ -1,9 +1,11 @@
 """
 pytest tests_require_fixes/test_skip_data_all.py -m dump
 """
+
 import pytest
-from utils.dump_runner import make_dump_test_name_data
+
 from ArWikiCats import resolve_label_ar
+from utils.dump_runner import make_dump_test_name_data
 
 test_data_1 = {
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
@@ -25,7 +27,6 @@ test_data_1 = {
     "Papua New Guinea and the United Nations": "بابوا غينيا الجديدة والأمم المتحدة",
     "qatar and united nations": "قطر والأمم المتحدة",
     "Turkey and United Nations": "تركيا والأمم المتحدة",
-
     "united kingdom–asian relations": "العلاقات الآسيوية البريطانية",
     "united kingdom–middle eastern relations": "العلاقات البريطانية الشرقية الأوسطية",
     "united kingdom–oceanian relations": "العلاقات الأوقيانوسية البريطانية",
@@ -39,7 +40,6 @@ test_data_1 = {
     "russian empire-united states relations": "العلاقات بين الإمبراطورية الروسية والولايات المتحدة",
     "german–romania military relations": "العلاقات الألمانية الرومانية العسكرية",
     "canada–oceanian relations": "العلاقات الأوقيانوسية الكندية",
-
     "American expatriate men's soccer players": "لاعبو كرة قدم أمريكيون مغتربون",
     "American rock music": "موسيقى الروك أمريكي",
     "Ancient Christian female saints": "قديسات مسيحيات قدماء",

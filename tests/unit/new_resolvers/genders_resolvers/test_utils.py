@@ -10,7 +10,6 @@ from ArWikiCats.new_resolvers.genders_resolvers.utils import (
     fix_keys,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for fix_keys function
 # ---------------------------------------------------------------------------

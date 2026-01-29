@@ -9,7 +9,6 @@ from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
     label_for_startwith_year_or_typeo,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for label_for_startwith_year_or_typeo function
 # ---------------------------------------------------------------------------

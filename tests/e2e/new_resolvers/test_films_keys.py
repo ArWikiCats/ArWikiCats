@@ -1,5 +1,6 @@
 #
 import pytest
+
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data_callback
 
@@ -23,7 +24,7 @@ data_1 = {
     "television series-endings": "مسلسلات تلفزيونية انتهت",
     "web series debuts": "مسلسلات ويب بدأ عرضها",
     "web series endings": "مسلسلات ويب انتهت",
-    "web series-endings": "مسلسلات ويب انتهت"
+    "web series-endings": "مسلسلات ويب انتهت",
 }
 
 data_2 = {
@@ -383,7 +384,7 @@ data_2 = {
     "western television series": "مسلسلات تلفزيونية غرب أمريكية",
     "western video games": "ألعاب فيديو غرب أمريكية",
     "zombie film series": "سلاسل أفلام زومبي",
-    "zombie web series": "مسلسلات ويب زومبي"
+    "zombie web series": "مسلسلات ويب زومبي",
 }
 
 

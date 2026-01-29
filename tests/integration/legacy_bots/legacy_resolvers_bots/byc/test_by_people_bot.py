@@ -1,9 +1,9 @@
 """ """
 
 import pytest
-from utils.dump_runner import make_dump_test_name_data_callback
 
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import by_people_bot
+from utils.dump_runner import make_dump_test_name_data_callback
 
 data_0 = {"by football team": "حسب فريق كرة القدم"}
 
