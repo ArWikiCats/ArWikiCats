@@ -16,7 +16,9 @@ import functools
 import re
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...utils import get_relation_word
 from .arabic_label_builder import find_ar_label
 

@@ -1,6 +1,8 @@
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from . import (
     p17_bot_sport,
     p17_sport_to_move_under,

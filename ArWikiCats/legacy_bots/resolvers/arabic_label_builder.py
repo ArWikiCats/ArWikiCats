@@ -9,7 +9,9 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -398,7 +400,6 @@ class LabelPipeline(Fixing):
         category: str,
         separator: str,
         cate_test: str = "",
-
         use_event2: bool = True,
     ):
         self.category = category
@@ -560,7 +561,6 @@ def find_ar_label(
     category: str,
     separator: str,
     cate_test: str = "",
-
     use_event2: bool = True,
 ) -> str:
     """Find the Arabic label based on the provided parameters.

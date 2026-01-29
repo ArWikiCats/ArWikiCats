@@ -1,5 +1,6 @@
 #
 import pytest
+
 from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
@@ -425,7 +426,6 @@ empty_data = {
 data1 = {
     "Works about the French invasion of Russia": "أعمال عن الغزو الفرنسي لروسيا",
     "Films about the French invasion of Russia": "أفلام عن الغزو الفرنسي لروسيا",
-
     "National youth sports teams of Russia": "منتخبات رياضية وطنية شبابية في روسيا",
     "National sports teams of Russia": "منتخبات رياضية وطنية في روسيا",
     "Women's national sports teams of Russia": "منتخبات رياضية وطنية نسائية في روسيا",

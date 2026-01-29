@@ -5,7 +5,9 @@ TODO: use this instead of nats_women.py
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import (
     All_Nat,
     all_country_with_nat,

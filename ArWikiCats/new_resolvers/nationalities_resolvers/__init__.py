@@ -6,7 +6,9 @@ nationalities, often combined with occupations or time periods.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from . import (
     ministers_resolver,
     nationalities_time_v2,

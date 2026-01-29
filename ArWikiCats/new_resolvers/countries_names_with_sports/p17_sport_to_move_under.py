@@ -6,7 +6,9 @@ English country-name → Arabic country-name.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 

@@ -6,8 +6,9 @@ list-style templates (e.g., "لاعبو {}") with special handling for sports.
 
 from typing import Tuple
 
-from ..helps import dump_data, logger
+from ..helps import getLogger
 
+logger = getLogger(__name__)
 # Constants
 FOOTBALL_ARABIC = "كرة"
 FOOTBALL_TEMPLATE = " كرة قدم {}"

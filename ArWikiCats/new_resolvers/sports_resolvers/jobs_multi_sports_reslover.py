@@ -9,7 +9,9 @@ related to jobs, nationalities, and multi-sports topics from English to Arabic.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
 from ..jobs_resolvers import main_jobs_resolvers

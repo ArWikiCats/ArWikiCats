@@ -3,8 +3,8 @@
 import pytest
 
 from ArWikiCats.translations.data_builders.build_nationalities import (
-    NationalityEntry,
     AllNatDict,
+    NationalityEntry,
     build_american_forms,
     build_en_nat_entries,
     build_lookup_tables,
@@ -136,9 +136,7 @@ class TestLoadSources:
         continents: AllNatDict = {}
         raw_sub_nat_additional = {}
         countries_en_as_nationality_keys: list[str] = []
-        raw_nats_as_en_key = {
-            "key1": {"en_nat": "Custom Name", "male": "custom", "males": "customs"}
-        }
+        raw_nats_as_en_key = {"key1": {"en_nat": "Custom Name", "male": "custom", "males": "customs"}}
 
         result = load_sources(
             raw_all_nat_o,
@@ -158,9 +156,7 @@ class TestBuildEnNatEntries:
     """Tests for build_en_nat_entries function."""
 
     def test_build_from_valid_data(self) -> None:
-        raw_data: AllNatDict = {
-            "key1": {"en_nat": "Custom Name", "male": "custom", "males": "customs"}
-        }
+        raw_data: AllNatDict = {"key1": {"en_nat": "Custom Name", "male": "custom", "males": "customs"}}
         result = build_en_nat_entries(raw_data)
 
         assert "Custom Name" in result

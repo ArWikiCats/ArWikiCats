@@ -8,7 +8,6 @@ import difflib
 import logging
 from typing import Union
 
-from ..config import print_settings
 from ..helps.printe_helper import make_str
 
 
@@ -30,7 +29,7 @@ class LoggerWrap:
             self._logger.setLevel(level)
 
             handler = logging.StreamHandler()
-            formatter = logging.Formatter("%(levelname)s - %(message)s")
+            formatter = logging.Formatter("%(name)s - %(lineno)s - %(levelname)s - %(message)s")
             handler.setFormatter(formatter)
 
             self._logger.addHandler(handler)
@@ -114,10 +113,11 @@ class LoggerWrap:
                 self._logger.warning(make_str(line))
 
 
-logger = LoggerWrap(__name__, disable_log=print_settings.noprint)
+def getLogger(name: str, disable_log: bool = False, level: int = logging.DEBUG) -> LoggerWrap:
+    """Get a LoggerWrap instance for the specified name."""
+    return LoggerWrap(name, disable_log=disable_log, level=level)
 
 
 __all__ = [
-    "logger",
-    "LoggerWrap",
+    "getLogger",
 ]

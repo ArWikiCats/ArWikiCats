@@ -1,31 +1,27 @@
 import ast
 from pathlib import Path
+
 from tqdm import tqdm
 
 TARGETS = {
-    "from load_one_data import dump_diff": [
-        "dump_diff"
-    ],
+    "from load_one_data import dump_diff": ["dump_diff"],
     "from load_one_data import dump_diff, dump_diff_text, dump_same_and_not_same, one_dump_test": [
         "dump_diff",
         "dump_diff_text",
         "dump_same_and_not_same",
-        "one_dump_test"
+        "one_dump_test",
     ],
     "from load_one_data import dump_diff, dump_diff_text, one_dump_test": [
         "dump_diff",
         "dump_diff_text",
-        "one_dump_test"
+        "one_dump_test",
     ],
     "from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test": [
         "dump_diff",
         "dump_same_and_not_same",
-        "one_dump_test"
+        "one_dump_test",
     ],
-    "from load_one_data import dump_diff, one_dump_test": [
-        "dump_diff",
-        "one_dump_test"
-    ],
+    "from load_one_data import dump_diff, one_dump_test": ["dump_diff", "one_dump_test"],
     "from load_one_data import dump_diff, dump_same_and_not_same": [
         "dump_diff",
         "dump_same_and_not_same",

@@ -6,10 +6,12 @@ where two adjacent keys from a data list appear together.
 
 import functools
 import re
+import logging
 from typing import Dict, Optional, Union
 
 from ..DataModel.model_data_base import FormatDataBase
-from ..formats_logger import logger
+
+logger = logging.getLogger(__name__)
 
 
 class FormatDataDoubleV2(FormatDataBase):

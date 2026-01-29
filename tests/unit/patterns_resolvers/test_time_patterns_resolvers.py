@@ -6,6 +6,7 @@ import pytest
 
 from ArWikiCats.patterns_resolvers.time_patterns_resolvers import build_labs_years_object
 
+
 @pytest.mark.unit
 def test_labsyears() -> None:
     # Test the LabsYearsFormat class functionality

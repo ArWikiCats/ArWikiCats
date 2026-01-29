@@ -2,6 +2,7 @@
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
 
 import pytest
+
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 from utils.dump_runner import make_dump_test_name_data
 
@@ -21,7 +22,7 @@ test_0 = {
     "16th-century people from the Colony of Santo Domingo": "دومينيكانيون في القرن 16",
     "17th-century people from the Colony of Santo Domingo": "دومينيكانيون في القرن 17",
     "17th-century people from the Province of New York": "أشخاص من ولاية نيويورك في القرن 17",
-    "18th-century people from the Savoyard State": "أشخاص من منطقة سافوا في القرن 18"
+    "18th-century people from the Savoyard State": "أشخاص من منطقة سافوا في القرن 18",
 }
 
 

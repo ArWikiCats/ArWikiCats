@@ -8,12 +8,12 @@ from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import (
     ARABIC_CATEGORY_PREFIX,
     CATEGORY_PEOPLE,
     CATEGORY_SPORTS_EVENTS,
-    EventLabResolver,
     LABEL_PEOPLE_AR,
     LABEL_SPORTS_EVENTS_AR,
     LIST_TEMPLATE_PLAYERS,
     SUFFIX_EPISODES,
     SUFFIX_TEMPLATES,
+    EventLabResolver,
     _finalize_category_label,
     _process_category_formatting,
     _resolve_via_chain,
@@ -21,7 +21,6 @@ from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import (
     event_label_work,
     translate_general_category_wrap,
 )
-
 
 # ---------------------------------------------------------------------------
 # Tests for constants

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""
-"""
+""" """
 
 import re
+import logging
 from typing import Callable, Optional
 
-from ..formats_logger import logger
+logger = logging.getLogger(__name__)
 
 
 class FormatDataFrom:

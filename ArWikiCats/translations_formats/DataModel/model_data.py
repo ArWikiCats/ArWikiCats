@@ -27,9 +27,10 @@ assert result == "لاعبو كرة القدم"
 """
 
 import functools
+import logging
 from typing import Dict
 
-from ..formats_logger import logger
+logger = logging.getLogger(__name__)
 from .model_data_base import FormatDataBase
 
 

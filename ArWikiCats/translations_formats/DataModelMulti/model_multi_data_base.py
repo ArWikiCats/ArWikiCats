@@ -26,8 +26,9 @@ test at tests.translations_formats.test_format_2_data.py
 
 import functools
 from dataclasses import dataclass
+import logging
 
-from ..formats_logger import logger
+logger = logging.getLogger(__name__)
 
 # -----------------------
 #

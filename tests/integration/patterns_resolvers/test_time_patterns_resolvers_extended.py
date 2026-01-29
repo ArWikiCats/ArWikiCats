@@ -33,6 +33,7 @@ test_data = {
     "February 2020 sports-events": "أحداث فبراير 2020 الرياضية",
 }
 
+
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
 def test_test_data_1(category: str, expected: str) -> None:

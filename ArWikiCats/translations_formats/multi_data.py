@@ -36,11 +36,13 @@ Example:
 test at tests.translations_formats.test_format_2_data.py
 """
 
+import logging
 from typing import Dict
 
 from .DataModel import FormatData, FormatDataV2
 from .DataModelMulti import MultiDataFormatterBase, MultiDataFormatterBaseV2
-from .formats_logger import logger
+
+logger = logging.getLogger(__name__)
 
 YEAR_PARAM = "xoxo"
 COUNTRY_PARAM = "natar"

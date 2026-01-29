@@ -1,10 +1,11 @@
+import logging
 import sys
 from pathlib import Path
 
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from ArWikiCats import logger, resolve_arabic_category_label
+from ArWikiCats import resolve_arabic_category_label
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import make_by_label
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import Try_With_Years
 from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
@@ -18,7 +19,7 @@ from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import 
 from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 
-logger.set_level("DEBUG")
+logging.getLogger("ArWikiCats").set_level("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))
 

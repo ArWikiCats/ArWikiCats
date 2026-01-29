@@ -12,7 +12,9 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..utils import open_json_file
 
 

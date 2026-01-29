@@ -14,7 +14,9 @@ import functools
 import re
 from typing import Callable, Optional, Pattern
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
 from ...translations.funcs import get_from_pf_keys2

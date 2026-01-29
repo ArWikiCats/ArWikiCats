@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import People_key

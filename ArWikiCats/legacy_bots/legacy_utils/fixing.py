@@ -6,7 +6,9 @@ category labels, such as removing duplicate spaces or prepositions.
 
 import re
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 
 
 def fix_minor(ar: str, ar_separator: str = "", en: str = "") -> str:

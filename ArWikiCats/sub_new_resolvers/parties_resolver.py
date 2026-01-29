@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..translations import PARTIES
 from ..translations_formats import FormatData
 

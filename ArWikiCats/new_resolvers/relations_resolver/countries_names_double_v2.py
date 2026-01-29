@@ -7,7 +7,9 @@ categories that mention relations/conflicts between two countries.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,

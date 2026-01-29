@@ -201,16 +201,16 @@ class TestBuildSportsJobVariants:
 
     def test_combines_with_football_roles(self) -> None:
         sport_jobs = {"football": "كرة القدم"}
-        football_roles = {
-            "goalkeeper": {"males": "حراس مرمى", "females": "حارسات مرمى"}
-        }
+        football_roles = {"goalkeeper": {"males": "حراس مرمى", "females": "حارسات مرمى"}}
         result = _build_sports_job_variants(sport_jobs, football_roles)
 
         # Should create composite entries
         assert "football goalkeeper" in result
         # Check that it combines labels properly
-        assert "goalkeeper" in result["football goalkeeper"]["males"] or "كرة القدم" in result[
-            "football goalkeeper"]["males"]
+        assert (
+            "goalkeeper" in result["football goalkeeper"]["males"]
+            or "كرة القدم" in result["football goalkeeper"]["males"]
+        )
 
     def test_skips_empty_jobs(self) -> None:
         sport_jobs = {"valid": "صحيح", "empty": ""}

@@ -11,7 +11,9 @@ import re
 from typing import Callable, Optional, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work

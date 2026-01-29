@@ -9,11 +9,13 @@ TODO: merge with sports_resolvers/nationalities_and_sports.py
 import functools
 import re
 
-from ...helps import len_print, logger
+from ...helps import getLogger, len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, Nat_women
-from ...translations_formats import format_multi_data_v2, MultiDataFormatterBase
+from ...translations_formats import MultiDataFormatterBase, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
+
+logger = getLogger(__name__)
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {

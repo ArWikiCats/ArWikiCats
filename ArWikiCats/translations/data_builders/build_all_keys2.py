@@ -7,7 +7,9 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Dict
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 
 
 def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:

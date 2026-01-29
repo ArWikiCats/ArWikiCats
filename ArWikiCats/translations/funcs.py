@@ -7,7 +7,9 @@ geography, jobs, languages, nationalities, sports, and media.
 import functools
 import re
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from . import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,

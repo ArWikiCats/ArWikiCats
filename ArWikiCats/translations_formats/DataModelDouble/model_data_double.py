@@ -27,10 +27,12 @@ Example:
 
 import functools
 import re
+import logging
 from typing import Dict, Optional
 
 from ..DataModel.model_data_base import FormatDataBase
-from ..formats_logger import logger
+
+logger = logging.getLogger(__name__)
 
 
 class FormatDataDouble(FormatDataBase):

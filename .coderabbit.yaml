@@ -3,6 +3,9 @@ language: "en"
 early_access: false
 
 reviews:
+    finishing_touches:
+        unit_tests:
+            enabled: true
     profile: "chill"
     request_changes_workflow: false
     high_level_summary: true

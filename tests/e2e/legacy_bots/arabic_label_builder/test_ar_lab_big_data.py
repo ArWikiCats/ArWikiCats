@@ -342,6 +342,7 @@ def test_simple_1(category: str, separator: str, output: str) -> None:
     label = find_ar_label(category, separator, use_event2=False)
     assert label == output
 
+
 test_data = {x[0]: x[2] for x in data_list}
 
 

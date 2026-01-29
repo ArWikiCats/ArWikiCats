@@ -6,7 +6,9 @@ This package provides specialized resolvers for categories like
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from . import (
     year_job_origin_resolver,
     year_job_resolver,

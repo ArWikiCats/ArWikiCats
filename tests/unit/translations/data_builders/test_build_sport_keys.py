@@ -122,9 +122,7 @@ class TestApplyAliases:
     """Tests for _apply_aliases function."""
 
     def test_apply_aliases_adds_entries(self) -> None:
-        records: dict[str, SportKeyRecord] = {
-            "football": {"label": "كرة القدم", "jobs": "", "team": "", "olympic": ""}
-        }
+        records: dict[str, SportKeyRecord] = {"football": {"label": "كرة القدم", "jobs": "", "team": "", "olympic": ""}}
         aliases = {"soccer": "football"}
 
         _apply_aliases(records, aliases)
@@ -145,9 +143,7 @@ class TestGenerateVariants:
     """Tests for _generate_variants function."""
 
     def test_generate_racing_variants(self) -> None:
-        records = {
-            "athletics": {"label": "ألعاب قوى", "jobs": "ألعاب قوى", "team": "للألعاب القوى", "olympic": ""}
-        }
+        records = {"athletics": {"label": "ألعاب قوى", "jobs": "ألعاب قوى", "team": "للألعاب القوى", "olympic": ""}}
         result = _generate_variants(records)
 
         assert "athletics racing" in result
@@ -212,9 +208,7 @@ class TestBuildTables:
         assert "basketball" not in result.jobs  # empty values skipped
 
     def test_build_lowercases_keys(self) -> None:
-        records = {
-            "Football": {"label": "كرة القدم", "jobs": "", "team": "", "olympic": ""}
-        }
+        records = {"Football": {"label": "كرة القدم", "jobs": "", "team": "", "olympic": ""}}
         result = _build_tables(records)
 
         assert "football" in result.label

@@ -5,7 +5,9 @@ Sports team and club category processing.
 
 import functools
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
 from ..translations_formats import FormatData
 

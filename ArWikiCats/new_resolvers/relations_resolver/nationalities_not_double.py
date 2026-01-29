@@ -14,10 +14,11 @@ result: `مسلسلات تلفزيونية غير أرجنتينية مبنية 
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import All_Nat
-from ...translations_formats import format_multi_data_v2
-from ...translations_formats import MultiDataFormatterBaseV2
+from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 
 formatted_data_tv_or_films = {
     "{en_1} {tv_or_film} based on {en_2} {tv_or_film}": "{tv_or_film} {female_1} مبنية على {tv_or_film} {female_2}",

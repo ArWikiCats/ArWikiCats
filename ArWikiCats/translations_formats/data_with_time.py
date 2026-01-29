@@ -33,7 +33,6 @@ from .DataModel import (
     FormatDataV2,
     YearFormatData,
 )
-
 from .DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,

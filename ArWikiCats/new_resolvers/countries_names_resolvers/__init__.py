@@ -6,7 +6,9 @@ country names and related geographic entities (like US states) into Arabic.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,

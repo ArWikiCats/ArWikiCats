@@ -13,7 +13,6 @@ from ArWikiCats.legacy_bots.resolvers.interface import (
     TypeResolver,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for Protocol classes
 # ---------------------------------------------------------------------------
@@ -122,9 +121,7 @@ class TestProtocolImplementation:
         """Should be able to create a class that implements TermLabelResolver."""
 
         class TestResolver:
-            def fetch_country_term_label(
-                self, term_lower: str, separator: str, lab_type: str = ""
-            ) -> str:
+            def fetch_country_term_label(self, term_lower: str, separator: str, lab_type: str = "") -> str:
                 return f"term_{term_lower}"
 
         resolver = TestResolver()

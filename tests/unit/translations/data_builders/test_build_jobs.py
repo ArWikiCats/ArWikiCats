@@ -25,9 +25,7 @@ class TestBuildJobs2020:
     """Tests for _build_jobs_2020 function."""
 
     def test_returns_copy(self) -> None:
-        JOBS_2020_BASE: GenderedLabelMap = {
-            "architects": {"males": "مهندسون", "females": "مهندسات"}
-        }
+        JOBS_2020_BASE: GenderedLabelMap = {"architects": {"males": "مهندسون", "females": "مهندسات"}}
         result = _build_jobs_2020(JOBS_2020_BASE)
 
         assert result == JOBS_2020_BASE
@@ -167,9 +165,7 @@ class TestLoadActivistJobs:
     def test_loads_activists(self) -> None:
         m_w_jobs: GenderedLabelMap = {}
         nat_before_occ: list[str] = []
-        activists = {
-            "activists": {"males": "ناشطون", "females": "ناشطات"}
-        }
+        activists = {"activists": {"males": "ناشطون", "females": "ناشطات"}}
 
         _load_activist_jobs(m_w_jobs, nat_before_occ, activists)
 
@@ -192,9 +188,7 @@ class TestAddSportVariants:
     """Tests for _add_sport_variants function."""
 
     def test_adds_sports_variants(self) -> None:
-        base_jobs: Mapping[str, GenderedLabel] = {
-            "players": {"males": "لاعبو", "females": "لاعبات"}
-        }
+        base_jobs: Mapping[str, GenderedLabel] = {"players": {"males": "لاعبو", "females": "لاعبات"}}
         result = _add_sport_variants(base_jobs)
 
         assert "sports players" in result
@@ -202,9 +196,7 @@ class TestAddSportVariants:
         assert "رياضيون" in result["sports players"]["males"]
 
     def test_adds_professional_variants(self) -> None:
-        base_jobs: Mapping[str, GenderedLabel] = {
-            "players": {"males": "لاعبو", "females": "لاعبات"}
-        }
+        base_jobs: Mapping[str, GenderedLabel] = {"players": {"males": "لاعبو", "females": "لاعبات"}}
         result = _add_sport_variants(base_jobs)
 
         assert "professional players" in result
@@ -212,9 +204,7 @@ class TestAddSportVariants:
         assert "محترفون" in result["professional players"]["males"]
 
     def test_adds_wheelchair_variants(self) -> None:
-        base_jobs: Mapping[str, GenderedLabel] = {
-            "players": {"males": "لاعبو", "females": "لاعبات"}
-        }
+        base_jobs: Mapping[str, GenderedLabel] = {"players": {"males": "لاعبو", "females": "لاعبات"}}
         result = _add_sport_variants(base_jobs)
 
         assert "wheelchair players" in result
@@ -255,9 +245,7 @@ class TestAddJobsPeopleVariants:
     """Tests for _add_jobs_people_variants function."""
 
     def test_combines_with_book_categories(self) -> None:
-        JOBS_PEOPLE_ROLES: GenderedLabelMap = {
-            "writers": {"males": "كتاب", "females": "كاتبات"}
-        }
+        JOBS_PEOPLE_ROLES: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
         BOOK_CATEGORIES = {"children's": "الأطفال"}
         JOBS_TYPE_TRANSLATIONS = {}
 
@@ -267,9 +255,7 @@ class TestAddJobsPeopleVariants:
         assert result["children's writers"]["males"] == "كتاب الأطفال"
 
     def test_combines_with_job_types(self) -> None:
-        JOBS_PEOPLE_ROLES: GenderedLabelMap = {
-            "writers": {"males": "كتاب", "females": "كاتبات"}
-        }
+        JOBS_PEOPLE_ROLES: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
         BOOK_CATEGORIES = {}
         JOBS_TYPE_TRANSLATIONS = {"science fiction": "خيال علمي"}
 

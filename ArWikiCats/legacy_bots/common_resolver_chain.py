@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import functools
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..new_resolvers import all_new_resolvers
 from ..sub_new_resolvers import parties_resolver, team_work, university_resolver
 from ..sub_new_resolvers.peoples_resolver import work_peoples

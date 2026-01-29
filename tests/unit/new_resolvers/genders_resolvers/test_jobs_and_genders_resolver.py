@@ -10,7 +10,6 @@ from ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import
     generate_jobs_data_dict,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for generate_jobs_data_dict function
 # ---------------------------------------------------------------------------

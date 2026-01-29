@@ -7,7 +7,9 @@ NOTE: planned to replace pop_format in format_bots/__init__.py
 import functools
 from typing import Dict
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import COUNTRY_LABEL_OVERRIDES, raw_region_overrides
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only

@@ -31,11 +31,7 @@ def translate_general_category_wrap(category: str) -> str:
     from .separator_based_resolver import work_separator_names
     from .sub_resolver import sub_translate_general_category
 
-    arlabel = (
-        ""
-        or sub_translate_general_category(category)
-        or work_separator_names(category)
-    )
+    arlabel = "" or sub_translate_general_category(category) or work_separator_names(category)
     if arlabel:
         arlabel = fixtitle.fixlabel(arlabel, en=category)
     return arlabel

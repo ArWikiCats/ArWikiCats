@@ -9,7 +9,6 @@ from ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver impo
     generate_sports_data_dict,
 )
 
-
 # ---------------------------------------------------------------------------
 # Tests for generate_sports_data_dict function
 # ---------------------------------------------------------------------------
