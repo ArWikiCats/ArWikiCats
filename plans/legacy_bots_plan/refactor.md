@@ -1716,7 +1716,6 @@ class SuffixMatcher:
     def match(
         self,
         category: str,
-        find_stubs: bool = False,
     ) -> MatchResult:
         """Match category against suffix patterns."""
         # Try prefixes first
@@ -1732,9 +1731,6 @@ class SuffixMatcher:
         # Special patterns
         if self._is_footballers(category):
             return self._handle_footballers(category)
-
-        if find_stubs and category.endswith(" stubs"):
-            return MatchResult("بذرة {}", category[: -len(" stubs")])
 
         return MatchResult.none()
 

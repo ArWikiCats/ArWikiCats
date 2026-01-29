@@ -129,7 +129,6 @@ data2 = {
     "Wheelchair manufacturers": "",
     "Wheelchair marathons": "",
     "Wheelchair organizations": "",
-    "Wheelchair rugby biography stubs": "",
     "Wheelchair shot putters": "",
     "Wheelchair sports classifications": "",
     "Wheelchair sports competitors by nationality": "",

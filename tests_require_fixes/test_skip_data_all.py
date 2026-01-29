@@ -1163,7 +1163,6 @@ test_data_empty = {
     "Songs written by Marla Cannon-Goodman": "x",
     "south african anti–world-war-ii activists": "x",
     "South African military memorials and cemeteries": "x",
-    "South African soccer biography stubs": "x",
     "South America territory (non-sovereign) templates": "x",
     "Spanish-language non-fiction books": "x",
     "sports-people from Thonon-les-Bains": "x",

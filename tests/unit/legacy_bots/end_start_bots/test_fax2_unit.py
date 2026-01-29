@@ -135,37 +135,6 @@ def test_get_list_of_and_cat3_players_variants(category3: str, category3_nolower
 
 
 # ---------------------------------------------------------------------------
-# 5) stubs branch (app_settings.find_stubs)
-# ---------------------------------------------------------------------------
-
-
-@pytest.mark.fast
-def test_get_list_of_and_cat3_stubs_respected_when_enabled() -> None:
-    category3 = "Physics stubs"
-    category3_nolower = category3
-
-    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower, True)
-
-    assert list_of_cat == "بذرة {}"
-    assert foot_ballers is False
-    assert rest == "Physics"
-
-
-@pytest.mark.fast
-def test_get_list_of_and_cat3_stubs_ignored_when_disabled() -> None:
-    category3 = "Physics stubs"
-    category3_nolower = category3
-
-    list_of_cat, foot_ballers, rest = fax2.get_list_of_and_cat3(category3, category3_nolower, False)
-
-    # No mapping in to_get_endswith, so no label
-    assert list_of_cat == ""
-    assert foot_ballers is False
-    # Only whitespace stripping should be applied
-    assert rest == "Physics stubs"
-
-
-# ---------------------------------------------------------------------------
 # 6) Patterns handled by to_get_endswith عبر get_from_endswith_dict
 # ---------------------------------------------------------------------------
 
@@ -227,7 +196,7 @@ def test_get_list_of_and_cat3_navigational_boxes_specificity() -> None:
 
 @pytest.mark.fast
 def test_get_list_of_and_cat3_no_match_returns_defaults() -> None:
-    """If no startswith/footballers/stubs/players/endswith patterns match, @pytest.mark.fast
+    """If no startswith/footballers/players/endswith patterns match, @pytest.mark.fast
     defaults should be returned."""
     category3 = "Completely unmatched category"
     category3_nolower = category3

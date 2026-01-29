@@ -16,7 +16,7 @@ from .utils import get_from_endswith_dict, get_from_starts_dict
 
 
 def get_list_of_and_cat3(
-    category3: str, category3_nolower: str = "", find_stubs: bool = False
+    category3: str, category3_nolower: str = ""
 ) -> Tuple[str, bool, str]:
     """Return list templates and metadata extracted from category suffix/prefix."""
     foot_ballers = False
@@ -43,10 +43,6 @@ def get_list_of_and_cat3(
         elif category3.endswith(" footballers"):
             foot_ballers = True
             category3, list_of_cat = get_from_endswith_dict(category3, footballers_get_endswith)
-
-        elif category3.endswith(" stubs") and find_stubs:
-            list_of_cat = "بذرة {}"
-            category3 = category3[: -len(" stubs")]
 
         elif category3.endswith(" players") or category3.endswith(" playerss"):
             list_of_cat = "لاعبو {}"

@@ -148,7 +148,7 @@ class EventLabResolver:
         else:
             # Process with the main category processing function
             list_of_cat, self.foot_ballers, category3 = get_list_of_and_cat3(
-                category3, find_stubs=app_settings.find_stubs
+                category3
             )
 
         return list_of_cat, category3

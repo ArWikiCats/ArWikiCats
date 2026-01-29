@@ -10,7 +10,6 @@ data0 = {
     "North African Futsal Tournament": "",
     "North African campaign": "",
     "North African campaign films": "",
-    "North African football biography stubs": "",
     "North African legendary creatures": "",
 }
 
