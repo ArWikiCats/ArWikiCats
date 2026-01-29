@@ -6,7 +6,9 @@ category names before they are processed by the resolvers.
 
 import re
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from .pf_keys import change_key_mappings_replacements
 
 # Precompiled Regex Patterns

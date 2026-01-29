@@ -36,8 +36,8 @@ Example:
     'كتاب من اليمن في القرن 14'
 """
 
-from .model_multi_data_base import MultiDataFormatterBaseHelpers
 from ..DataModel import FormatDataFrom
+from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
 class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):

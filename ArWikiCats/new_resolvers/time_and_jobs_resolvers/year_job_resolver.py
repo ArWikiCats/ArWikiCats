@@ -14,7 +14,9 @@ More examples:
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers

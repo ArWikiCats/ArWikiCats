@@ -3,7 +3,9 @@
 import functools
 import re
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -71,7 +73,7 @@ def resolve_country_nat_pattern(category: str) -> str:
     normalized_category = fix_keys(category)
 
     if normalized_category in countries_en_as_nationality_keys or normalized_category in countries_en_keys:
-        logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip resolve_country_nat_pattern: {category=}, [result=]")
         return ""
 
     yc_bot = _load_bot()

@@ -10,7 +10,7 @@ from .model_multi_data import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
 )
-from .model_multi_data_base import NormalizeResult, MultiDataFormatterBaseHelpers
+from .model_multi_data_base import MultiDataFormatterBaseHelpers, NormalizeResult
 from .model_multi_data_year_from import MultiDataFormatterYearAndFrom
 from .model_multi_data_year_from_2 import MultiDataFormatterYearAndFrom2
 

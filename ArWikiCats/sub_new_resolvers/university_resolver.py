@@ -5,7 +5,9 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
 

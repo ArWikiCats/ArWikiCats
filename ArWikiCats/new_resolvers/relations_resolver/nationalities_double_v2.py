@@ -3,7 +3,9 @@
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names

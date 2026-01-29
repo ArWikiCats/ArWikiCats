@@ -6,7 +6,9 @@ This module provides functions to resolve categories by identifying suffixes
 
 from typing import Dict, TypedDict
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 
 
 class GenderedLabel(TypedDict):

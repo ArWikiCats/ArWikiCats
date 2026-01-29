@@ -10,7 +10,9 @@ check_key_new_players(key)
 
 from typing import Dict, List, Set
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import Jobs_new, jobs_mens_data
 from .bot import players_new_keys
 

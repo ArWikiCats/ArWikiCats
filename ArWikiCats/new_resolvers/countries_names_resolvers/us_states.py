@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import US_STATES
 from ...translations_formats import FormatData
 

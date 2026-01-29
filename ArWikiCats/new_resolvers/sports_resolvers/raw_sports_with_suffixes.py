@@ -3,7 +3,9 @@
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,

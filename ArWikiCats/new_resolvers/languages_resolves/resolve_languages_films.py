@@ -4,7 +4,9 @@
 import functools
 import re
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,

@@ -16,7 +16,9 @@ import re
 from typing import Callable, Optional
 
 from ...fix import fixtitle
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
@@ -249,9 +251,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         )
         return label
 
-    def fetch_country_term_label(
-        self, term_lower: str, separator: str, lab_type: str = ""
-    ) -> str:
+    def fetch_country_term_label(self, term_lower: str, separator: str, lab_type: str = "") -> str:
         """
         Resolve an Arabic label for a given term (country, event, or category) using layered fallbacks.
 
@@ -393,11 +393,7 @@ def get_country_label(country: str) -> str:
     return _retriever.get_country_label(country)
 
 
-def fetch_country_term_label(
-    term_lower: str,
-    separator: str,
-    lab_type: str = ""
-) -> str:
+def fetch_country_term_label(term_lower: str, separator: str, lab_type: str = "") -> str:
     """
     Retrieve an Arabic label for a given term or country name using layered resolution strategies.
 

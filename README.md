@@ -584,7 +584,7 @@ from ArWikiCats import (
     resolve_label_ar,               # ترجمة تصنيف واحد بدون البادئة
     batch_resolve_labels,           # ترجمة قائمة تصنيفات
     EventProcessor,                 # معالج الأحداث المفصل
-    logger,                         # نظام التسجيل
+    getLogger,                     # نظام التسجيل
     print_memory,                   # طباعة استهلاك الذاكرة
     dump_all_len,                   # طباعة أطوال البيانات
     config_all_params,              # قائمة المعاملات المتاحة

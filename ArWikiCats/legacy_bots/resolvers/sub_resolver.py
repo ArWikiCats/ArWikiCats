@@ -12,7 +12,9 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...time_formats import time_to_arabic
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_value_from_any_table

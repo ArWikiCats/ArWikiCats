@@ -6,7 +6,9 @@ nationalities or country names in complex relationships.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from .countries_names_double_v2 import resolve_countries_names_double
 from .nationalities_double_v2 import resolve_by_nats_double_v2
 from .nationalities_not_double import two_nationalities_but_not_double_resolver

@@ -50,24 +50,24 @@ Example:
 from .data_new_model import format_films_country_data
 from .data_with_time import format_year_country_data, format_year_country_data_v2
 from .DataModel import (
+    FormatData,
     FormatDataFrom,
     FormatDataV2,
     YearFormatData,
-    FormatData,
+)
+from .DataModelDouble import (
+    FormatDataDouble,
+    FormatDataDoubleV2,
+    MultiDataFormatterDataDouble,
 )
 from .DataModelMulti import (
-    NormalizeResult,
     MultiDataFormatterBase,
     MultiDataFormatterBaseV2,
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
     MultiDataFormatterYearAndFrom,
     MultiDataFormatterYearAndFrom2,
-)
-from .DataModelDouble import (
-    FormatDataDouble,
-    FormatDataDoubleV2,
-    MultiDataFormatterDataDouble,
+    NormalizeResult,
 )
 from .multi_data import format_multi_data, format_multi_data_v2
 from .time_patterns_formats import LabsYearsFormat

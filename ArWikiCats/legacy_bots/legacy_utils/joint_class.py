@@ -3,7 +3,9 @@
 
 from typing import Callable
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import (
     Nat_mens,
 )

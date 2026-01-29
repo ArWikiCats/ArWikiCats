@@ -26,8 +26,8 @@ assert result == "كتاب يمنيون"
 
 from typing import Dict
 
-from .model_multi_data_base import MultiDataFormatterBaseHelpers
 from ..DataModel import FormatDataV2
+from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
 
 class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):

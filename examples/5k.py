@@ -7,9 +7,19 @@ if _Dir := Path(__file__).parent:
 
 from compare import compare_and_export_labels
 
-file_path = Path(__file__).parent / "data/5k.json"
+DATA_DIR = Path(__file__).parent / "data"
 
-with open(file_path, "r", encoding="utf-8") as f:
-    data = json.load(f)
+FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
 
-compare_and_export_labels(data, "5k")
+all_data = {}
+for file_path in FILE_PATHS:
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+        all_data.update(data)
+
+if len(all_data) > 5000:
+    data_5k = {k: v for i, (k, v) in enumerate(all_data.items()) if i < 5000}
+else:
+    data_5k = all_data
+
+compare_and_export_labels(data_5k, "5k")

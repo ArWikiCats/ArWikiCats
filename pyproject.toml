@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ArWikiCats"
-version = "0.1.0b5"
+version = "0.1.0b6"
 description = "Arabic Wikipedia Categories Translation Engine"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -133,3 +133,18 @@ ignore = ["E402", "E225", "E226", "E227", "E228", "E252", "E501", "F841", "E224"
 [tool.flynt]
 # Keep it aligned with Black/Ruff
 line_length = 120
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pylint.messages_control]
+max-line-length = 120
+disable = [
+    "C0111",  # missing-docstring
+    "C0103",  # invalid-name
+    "R0913",  # too-many-arguments
+]

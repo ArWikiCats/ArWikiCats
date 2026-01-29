@@ -26,7 +26,6 @@ class TermLabelResolver(Protocol):
         term_lower: str,
         separator: str,
         lab_type: str = "",
-
     ) -> str:
         """Resolve an Arabic label for a term."""
         ...

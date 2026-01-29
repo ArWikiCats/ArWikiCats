@@ -6,7 +6,7 @@ nationalities, and descriptors for women into idiomatic Arabic.
 
 import functools
 
-from ...helps import len_print, logger
+from ...helps import getLogger, len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,
@@ -21,6 +21,7 @@ from ..nats_as_country_names import nats_keys_as_country_names
 from .mens import mens_resolver_labels
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
+logger = getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 keys_not_jobs = [

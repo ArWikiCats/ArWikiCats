@@ -10,7 +10,9 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
-from .helps import logger
+from .helps import getLogger
+
+logger = getLogger(__name__)
 from .main_processers.main_resolve import CategoryResult, resolve_label
 
 LABEL_PREFIX = "تصنيف:"

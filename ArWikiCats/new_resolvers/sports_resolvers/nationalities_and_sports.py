@@ -11,7 +11,9 @@ NOTE: compare it with ArWikiCats/new_resolvers/sports_formats_teams/sport_lab_na
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2

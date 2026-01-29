@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from collections.abc import Mapping, MutableMapping
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 
 
 def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str]) -> None:

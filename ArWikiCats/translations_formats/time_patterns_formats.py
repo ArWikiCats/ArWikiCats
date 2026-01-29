@@ -2,9 +2,11 @@
 LabsYearsFormat processing module.
 """
 
+import logging
 from typing import Callable, Optional
 
-from ..helps import logger
+logger = logging.getLogger(__name__)
+
 from ..time_formats.time_to_arabic import (
     convert_time_to_arabic,
     match_time_ar_first,

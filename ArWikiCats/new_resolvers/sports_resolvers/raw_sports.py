@@ -3,7 +3,9 @@
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 from .pre_defined import pre_defined_results

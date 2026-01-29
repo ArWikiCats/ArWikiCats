@@ -10,7 +10,9 @@ TODO:
 import functools
 from typing import Dict
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from ...translations import (
     Nat_women,
     film_keys_for_female,

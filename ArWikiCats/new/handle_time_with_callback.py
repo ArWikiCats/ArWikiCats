@@ -9,7 +9,9 @@ import functools
 import re
 from typing import Callable, Optional
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 

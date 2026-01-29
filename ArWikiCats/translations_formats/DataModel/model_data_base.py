@@ -30,9 +30,10 @@ Example:
 
 import functools
 import re
+import logging
 from typing import Any, Dict, Optional, Union
 
-from ..formats_logger import logger
+logger = logging.getLogger(__name__)
 
 
 class FormatDataBase:

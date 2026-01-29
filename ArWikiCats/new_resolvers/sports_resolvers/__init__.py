@@ -6,7 +6,9 @@ often combined with geographic or nationality elements.
 
 import functools
 
-from ...helps import logger
+from ...helps import getLogger
+
+logger = getLogger(__name__)
 from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,

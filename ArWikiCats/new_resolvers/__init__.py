@@ -13,7 +13,9 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic

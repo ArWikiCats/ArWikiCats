@@ -6,7 +6,7 @@ TODO: merge with countries_names_sport_multi_v2.py
 
 import functools
 
-from ...helps import dump_data, logger
+from ...helps import getLogger
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     SPORTS_KEYS_FOR_TEAM,
@@ -14,6 +14,8 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..teams_mappings_ends import teams_label_mappings_ends
+
+logger = getLogger(__name__)
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
     "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",

@@ -11,7 +11,9 @@ from __future__ import annotations
 import re
 from typing import Iterable, Mapping
 
-from ..helps import logger
+from ..helps import getLogger
+
+logger = getLogger(__name__)
 from .fixlists import (
     ENDING_REPLACEMENTS,
     REPLACEMENTS,
