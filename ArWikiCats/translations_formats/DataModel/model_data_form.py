@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ """
 
-import re
 import logging
+import re
 from typing import Callable, Optional
 
 logger = logging.getLogger(__name__)

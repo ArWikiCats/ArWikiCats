@@ -15,9 +15,7 @@ from .end_start_match import (
 from .utils import get_from_endswith_dict, get_from_starts_dict
 
 
-def get_list_of_and_cat3(
-    category3: str, category3_nolower: str = ""
-) -> Tuple[str, bool, str]:
+def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> Tuple[str, bool, str]:
     """Return list templates and metadata extracted from category suffix/prefix."""
     foot_ballers = False
     list_of_cat = ""

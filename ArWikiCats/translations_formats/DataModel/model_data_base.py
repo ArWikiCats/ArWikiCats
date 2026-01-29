@@ -29,8 +29,8 @@ Example:
 """
 
 import functools
-import re
 import logging
+import re
 from typing import Any, Dict, Optional, Union
 
 logger = logging.getLogger(__name__)

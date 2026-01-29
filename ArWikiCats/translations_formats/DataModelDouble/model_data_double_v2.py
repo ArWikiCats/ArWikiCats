@@ -5,8 +5,8 @@ where two adjacent keys from a data list appear together.
 """
 
 import functools
-import re
 import logging
+import re
 from typing import Dict, Optional, Union
 
 from ..DataModel.model_data_base import FormatDataBase
