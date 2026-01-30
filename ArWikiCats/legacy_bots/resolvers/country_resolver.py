@@ -191,7 +191,6 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         """
         super().__init__(_resolve_callable=Get_country2)
 
-    @functools.lru_cache(maxsize=1024)
     def get_country_label(self, country: str) -> str:
         """
         Resolve an Arabic label for a country name using layered lookup strategies.
