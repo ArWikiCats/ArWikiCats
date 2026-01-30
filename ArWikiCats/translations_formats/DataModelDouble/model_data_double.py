@@ -26,8 +26,8 @@ Example:
 """
 
 import functools
-import re
 import logging
+import re
 from typing import Dict, Optional
 
 from ..DataModel.model_data_base import FormatDataBase

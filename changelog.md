@@ -1015,7 +1015,6 @@ These changes collectively improve the robustness, maintainability, and correctn
 
 * **Improvements**
   * Expanded translation patterns with extra gender and film-specific variants.
-  * Introduced a new startup option (TGC_RESOLVER_FIRST) in configuration and docs.
 
 * **Tests**
   * Increased test coverage for film-related categories and label resolution.
@@ -2723,7 +2722,7 @@ These changes collectively improve the robustness, maintainability, and correctn
 
 - **New Features**
 
-  - Centralized runtime configuration controlling printing, Wikidata, Kooora, stubs, and other app flags.
+  - Centralized runtime configuration controlling printing, and other app flags.
   - New colored text formatting helper for styled output.
 
 - **Refactor**

@@ -97,8 +97,6 @@ def test_config():
     return Config(
         print=PrintConfig(noprint=True),
         app=AppConfig(
-            find_stubs=False,
-            makeerr=False,
             save_data_path="",
         ),
     )

@@ -132,8 +132,6 @@ def process(self, categories: Iterable[str]) -> EventProcessingResult:
 settings = Config(
     print=PrintConfig(noprint=one_req("NOPRINT")),
     app=AppConfig(
-        find_stubs=one_req("-STUBS"),
-        makeerr=one_req("MAKEERR"),
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
     ),
 )
@@ -1039,8 +1037,6 @@ class ResolverConfig:
 @dataclass(frozen=True)
 class AppConfig:
     """Application configuration."""
-    find_stubs: bool = False
-    makeerr: bool = False
     save_data_path: str = ""
     data_directory: Path = field(default_factory=lambda: Path(__file__).parent / "jsons")
 
@@ -1066,8 +1062,6 @@ class Config:
                 max_size=int(os.getenv("ARWIKICATS_CACHE_MAX_SIZE", "50000")),
             ),
             app=AppConfig(
-                find_stubs=_env_bool("-STUBS", False),
-                makeerr=_env_bool("MAKEERR", False),
                 save_data_path=os.getenv("SAVE_DATA_PATH", ""),
             ),
         )

@@ -4,7 +4,9 @@ ArWikiCats: A package for processing and resolving Arabic Wikipedia category lab
 
 # -*- coding: utf-8 -*-
 import logging
-from .config import print_settings, all_params as config_all_params
+
+from .config import all_params as config_all_params
+from .config import print_settings
 from .event_processing import (
     EventProcessor,
     batch_resolve_labels,

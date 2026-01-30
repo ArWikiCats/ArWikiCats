@@ -4,7 +4,6 @@ This module handles environment variables and command-line arguments to configur
 the application's behavior, including printing and application-specific settings.
 """
 
-import logging
 import os
 import sys
 from dataclasses import dataclass
@@ -12,7 +11,7 @@ from dataclasses import dataclass
 argv_lower = [x.lower() for x in sys.argv]
 
 
-all_params = ["NOKOOORA", "NOWIKIDATA"]
+all_params = []
 
 
 def one_req(name: str) -> bool:
@@ -39,13 +38,9 @@ class AppConfig:
     """Configuration for application settings.
 
     Attributes:
-        find_stubs (bool): Whether to find stub entries.
-        makeerr (bool): Whether to generate error reports.
         save_data_path (str): Path to save data files.
     """
 
-    find_stubs: bool
-    makeerr: bool
     save_data_path: str
 
 
@@ -68,8 +63,6 @@ settings = Config(
         noprint_formats=one_req("NOPRINT_FORMATS"),
     ),
     app=AppConfig(
-        find_stubs=one_req("-STUBS"),
-        makeerr=one_req("MAKEERR"),
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
     ),
 )

@@ -221,11 +221,7 @@ tests/
 
 ## Environment Variables
 
-- `NOKOOORA` - Disable Wikidata lookup
-- `NOWIKIDATA` - Disable Wikidata
 - `NOPRINT` - Suppress output messages
-- `NOPRINT_FORMATS` - Suppress format printing
-- `TGC_RESOLVER_FIRST` - Enable general resolver first
 
 ## Performance Characteristics
 

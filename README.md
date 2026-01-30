@@ -243,9 +243,6 @@ python examples/5k.py            # معالجة 5000 تصنيف
 
 | الإعداد | الوصف |
 |---------|-------|
-| `TGC_RESOLVER_FIRST` | تفعيل المحلل العام أولاً |
-| `-STUBS` | البحث عن تصنيفات البذور |
-| `MAKEERR` | تفعيل وضع تتبع الأخطاء |
 | `NOPRINT` | إيقاف طباعة الرسائل |
 | `SAVE_DATA_PATH` | مسار حفظ البيانات المؤقتة |
 
@@ -255,8 +252,6 @@ python examples/5k.py            # معالجة 5000 تصنيف
 # عبر متغيرات البيئة
 NOPRINT=true python examples/run.py
 
-# عبر سطر الأوامر
-python examples/run.py -stubs
 ```
 
 تفاصيل كل متغير موجودة في:
