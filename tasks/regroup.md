@@ -12,7 +12,6 @@ Those functions will be moved directly into the file that consumes them.
 
 **The agent must ignore the following:**
 
-- `printe_helper.py`
 - Any file located under directories containing:
 
   - `helps/`
@@ -30,7 +29,6 @@ Those functions will be moved directly into the file that consumes them.
 
    - Files inside paths containing `helps/`
    - Files inside paths containing `utils/`
-   - The file `printe_helper.py` (exact filename match)
 
 3. For each remaining file:
 
@@ -140,7 +138,6 @@ After restructuring, the agent generates a Markdown report containing:
 
   - `helps/`
   - `utils/`
-  - `printe_helper.py`
 
 ### 7.2 Detailed Log Example
 
@@ -169,7 +166,6 @@ The AI agent must enforce:
 
    - `helps/*`
    - `utils/*`
-   - File `printe_helper.py`
 
 2. Never modify files containing classes or multiple functions.
 3. Only move functions with exactly one consumer.
