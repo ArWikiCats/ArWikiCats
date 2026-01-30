@@ -14,11 +14,12 @@ from .all_keys3 import (
 from .all_keys4 import INTER_FEDS_LOWER, Clubs_key_2, new2019
 from .all_keys5 import BASE_POP_FINAL_5, pop_final_5
 from .female_keys import RELIGIOUS_FEMALE_KEYS, New_female_keys, religious_entries
-from .keys2 import PARTIES, keys2_py
+from .keys2 import PARTIES, keys2_py, medical_keys
 from .keys_23 import NEW_2023
 from .Newkey import pop_final6
 
 __all__ = [
+    "medical_keys",
     "generate_key_mappings",
     "pop_final_3",
     "pop_final6",

@@ -120,8 +120,7 @@ def get_by_label(category: str) -> str:
     by_section = by_section.lower()
 
     first_part_cleaned = first_part.strip().lower()
-    if first_part_cleaned.startswith("the "):
-        first_part_cleaned = first_part_cleaned[4:]
+    first_part_cleaned = first_part_cleaned.removeprefix("the ")
 
     first_label = get_from_new_p17_final(first_part_cleaned) or get_pop_All_18(first_part_cleaned, "") or ""
     by_label = resolve_by_labels(by_section)

@@ -73,8 +73,7 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     if result:
         return result
 
-    if key.startswith("the "):
-        key = key[len("the ") :]
+    key = key.removeprefix("the ")
 
     call_ables = {
         "all_new_resolvers": all_new_resolvers,

@@ -49,8 +49,7 @@ def normalize_text(text):
     text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")
     # text = text.replace("republic of", "republic-of")
-    if text.startswith("the "):
-        text = text[4:]
+    text = text.removeprefix("the ")
     return text.strip()
 
 

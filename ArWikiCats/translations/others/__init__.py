@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-from .deaths import medical_keys
 from .languages import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     LANGUAGE_TOPIC_FORMATS,
@@ -19,5 +16,4 @@ __all__ = [
     "language_key_translations",
     "ministers_keys",
     "TAXON_TABLE",
-    "medical_keys",
 ]
