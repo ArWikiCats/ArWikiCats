@@ -42,7 +42,7 @@ The ArWikiCats system processes categories through a multi-stage pipeline:
 | 1. Input | `event_processing.py` | `EventProcessor.process()` | Receives categories |
 | 2. Normalization | `event_processing.py` | `_normalize_category()` | Cleans input |
 | 3. Format | `make_bots/format_bots` | `change_cat()` | Initial transformation |
-| 4. Filter | `make_bots/filter_en` | `filter_cat()` | Validates category |
+| 4. Filter | `make_bots/filter_en` | `is_category_allowed()` | Validates category |
 | 6. Pattern Resolution | Multiple resolvers | Various | Matches patterns |
 | 7. Translation | `main_processers/main_resolve.py` | `resolve_label()` | Core translation |
 | 8. Fix Label | `fix/` | `fixlabel()` | Post-processing |
@@ -166,7 +166,7 @@ from ArWikiCats.config import app_settings, print_settings
      │                   │                      │───────────────────>│
      │                   │                      │<──────────────────-│
      │                   │                      │                    │
-     │                   │                      │ filter_cat()       │
+     │                   │                      │ is_category_allowed()       │
      │                   │                      │───────────────────>│
      │                   │                      │<──────────────────-│
      │                   │                      │                    │
@@ -391,7 +391,7 @@ Input: "Category:2015 in Yemen"
                 ▼
 ┌───────────────────────────────────────┐
 │          FILTER CHECK                  │
-│  • filter_cat() validation             │
+│  • is_category_allowed() validation             │
 │  • Check if category is translatable   │
 │  • Early exit for invalid patterns     │
 └───────────────────────────────────────┘
