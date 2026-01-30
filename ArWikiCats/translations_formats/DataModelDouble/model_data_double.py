@@ -25,7 +25,6 @@ Example:
     'أفلام أكشن دراما'
 """
 
-import functools
 import logging
 import re
 from typing import Dict, Optional

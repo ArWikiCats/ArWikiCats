@@ -55,7 +55,7 @@ def dump_data(enable: bool = False, input_keys: list = None, compare_with_output
             if not output:
                 return output
 
-            if isinstance(output, (list, tuple)) and not any(output):
+            if isinstance(output, list | tuple) and not any(output):
                 return output
 
             path = Path(__file__).parent / f"{func.__name__}.jsonl"

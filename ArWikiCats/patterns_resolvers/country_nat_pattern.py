@@ -50,7 +50,7 @@ def fix_keys(category: str) -> str:
 def _load_bot() -> MultiDataFormatterBaseV2:
     countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
     countries_data = {x: {"country_ar": v} for x, v in countries_from_nat_data.items()}
-    nat_data = {x: v for x, v in All_Nat.items()}
+    nat_data = dict(All_Nat.items())
     both_bot = format_multi_data_v2(
         formatted_data=COUNTRY_NAT_DATA,
         data_list=nat_data,

@@ -223,8 +223,7 @@ def make_cnt_lab(
     resolved_label = " ".join(resolved_label.strip().split())
     resolved_label = _resolve_war(resolved_label, part_2_normalized, part_1_normalized)
 
-    if resolved_label.endswith(" في "):
-        resolved_label = resolved_label[: -len(" في ")]
+    resolved_label = resolved_label.removesuffix(" في ")
 
     return resolved_label
 

@@ -157,8 +157,8 @@ def test_lang_work_language_suffix(key: str, expected: str) -> None:
 # -----------------------------------------------------------
 @pytest.mark.parametrize(
     "key, arabic",
-    [(k, v) for k, v in languages_key_subset.items()],
-    ids=[k for k in languages_key_subset.keys()],
+    list(languages_key_subset.items()),
+    ids=list(languages_key_subset.keys()),
 )
 def test_lang_work_films_suffix(key: str, arabic: str) -> None:
     """Test '<lang> films' -> 'أفلام ب<ArabicLabel>'."""

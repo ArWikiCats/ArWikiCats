@@ -1,5 +1,4 @@
 import json
-import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -32,7 +31,7 @@ def check_data_new(data: dict[str, str]) -> dict[str, int]:
 
     keys_found = defaultdict(int)
     for line in tqdm(data_texts):
-        for end, key in A.iter(f" {line} "):
+        for _end, key in A.iter(f" {line} "):
             if key in data:
                 keys_found[key] += 1
 

@@ -272,7 +272,7 @@ def fix_keys(category: str) -> str:
         (e.g., "saudi arabian" -> "saudiarabian", "children's animated adventure television" ->
         "children's-animated-adventure-television").
     """
-    normalized_text = category.lower().replace("category:", " ").strip()
+    # normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
         # "animated television": "animated-television",

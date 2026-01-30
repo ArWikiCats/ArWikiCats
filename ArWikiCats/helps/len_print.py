@@ -39,7 +39,7 @@ def save_data(bot: str, tab: Mapping) -> None:
         for name, data in tab.items():
             if not data:
                 continue
-            if isinstance(data, dict) or isinstance(data, list):
+            if isinstance(data, dict | list):
                 # sort data by key
                 if isinstance(data, dict):
                     data = dict(sorted(data.items(), key=lambda item: item[0].lower()))

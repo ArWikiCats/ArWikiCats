@@ -56,8 +56,8 @@ formatted_data = {
     "{en} organized crime": "جريمة منظمة {female}",
 }
 
-nats_data = {x: v for x, v in All_Nat.items()}
-nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
+nats_data = dict(All_Nat.items())
+nats_data.update(dict(nats_keys_as_country_names.items()))
 nats_data.update(
     {
         "ireland": {

@@ -64,7 +64,7 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}
-    data = {x: v for x, v in dataset.items()}  # if v
+    data = dict(dataset.items())  # if v
     for cat, ar in data.items():
         result = callback(cat)
         # ---
@@ -83,7 +83,7 @@ def one_dump_test_no_labels(dataset: dict, callback: Callable[[str], str], do_st
     print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
     org = {}
     diff = {}
-    data = {x: v for x, v in dataset.items()}  # if v
+    data = dict(dataset.items())  # if v
     no_labels = []
     for cat, ar in data.items():
         result = callback(cat)

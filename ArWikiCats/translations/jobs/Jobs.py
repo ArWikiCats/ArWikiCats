@@ -15,7 +15,7 @@ from ..data_builders.jobs_defs import (
     GenderedLabelMap,
 )
 from ..helps import len_print
-from ..mixed import BOOK_CATEGORIES, RELIGIOUS_FEMALE_KEYS
+from ..mixed import RELIGIOUS_FEMALE_KEYS
 from ..nats import Nat_mens
 from ..sports import BASE_CYCLING_EVENTS
 from ..utils import open_json_file

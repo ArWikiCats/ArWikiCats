@@ -11,7 +11,6 @@
 
 import ast
 import json
-import os
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Set, Tuple
@@ -42,7 +41,7 @@ class DuplicateTestAnalyzer:
             file_path: مسار الملف
             dict_name: اسم القاموس
         """
-        for key_node, value_node in zip(node.keys, node.values):
+        for key_node, value_node in zip(node.keys, node.values, strict=False):
             # تجاهل العناصر None (في حالة dictionary unpacking)
             if key_node is None or value_node is None:
                 continue
@@ -235,9 +234,9 @@ class DuplicateTestAnalyzer:
         # تجميع الأسطر المراد حذفها حسب الملف
         lines_to_remove: Dict[str, Set[int]] = defaultdict(set)
 
-        for (key, value), locations in duplicates.items():
+        for (_key, _value), locations in duplicates.items():
             # الاحتفاظ بأول ظهور، حذف الباقي
-            for file_path, dict_name, line_num in locations[1:]:
+            for file_path, _dict_name, line_num in locations[1:]:
                 lines_to_remove[file_path].add(line_num)
 
         # إزالة الأسطر من كل ملف

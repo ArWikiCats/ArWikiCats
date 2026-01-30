@@ -50,7 +50,7 @@ def process_file(path: Path) -> None:
         data = json.load(f)
 
     updated = 0
-    for key, entry in data.items():
+    for _key, entry in data.items():
         if not isinstance(entry, dict):
             continue
         female = entry.get("female")

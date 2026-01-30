@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Tuple
-
 from ..helps import len_print
-from ..utils import open_json_file
 
 New_male_keys = {
     "agricultural science": "علم زراعي",

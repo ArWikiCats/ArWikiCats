@@ -14,7 +14,6 @@ formatted_data = {
     "{sport} coaches": "مدربو {sport_label}",
     "{sport} people": "أعلام {sport_label}",
     "{sport} players": "لاعبو {sport_label}",
-    "{sport} players": "لاعبو {sport_label}",
     "{sport} referees": "حكام {sport_label}",
     "{sport} squads": "تشكيلات {sport_label}",
     "{sport} finals": "نهائيات {sport_label}",
@@ -38,7 +37,7 @@ def bot() -> FormatData:
 @pytest.mark.parametrize(
     "category,expected_key",
     examples.items(),
-    ids=[k for k in examples],
+    ids=list(examples),
 )
 @pytest.mark.fast
 def test_format_data(bot, category: str, expected_key: str) -> None:

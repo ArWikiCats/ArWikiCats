@@ -23,7 +23,6 @@ class MatchTimes:
 
         This initializer performs no setup and exists to allow subclasses to define their own initialization behavior.
         """
-        pass
 
     def match_en_time(self, text: str) -> str:
         """Match English time in text."""

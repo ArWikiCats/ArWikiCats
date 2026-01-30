@@ -8,7 +8,6 @@ replace it with:
     "20th century members of maine legislature": "أعضاء هيئة مين التشريعية في القرن 20",
 """
 
-import os
 import re
 from pathlib import Path
 

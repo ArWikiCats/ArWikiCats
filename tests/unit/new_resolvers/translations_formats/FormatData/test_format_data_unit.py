@@ -62,7 +62,7 @@ def test_match_key(category: str, expected: str, sample_data: tuple[dict[str, st
         ("xoxo بطولة", "كرة السلة", "كرة السلة بطولة"),
         ("", "كرة الطائرة", ""),  # placeholder not found
     ],
-    ids=[k for k in range(3)],
+    ids=list(range(3)),
 )
 def test_apply_pattern_replacement(
     template_label: str, sport_label: str, expected: str, sample_data: tuple[dict[str, str], dict[str, str]]
@@ -100,7 +100,7 @@ def test_normalize_category(
         ("snooker records", "سجلات سنوكر"),
         ("unknown category", ""),
     ],
-    ids=[k for k in range(6)],
+    ids=list(range(6)),
 )
 def test_search(sample_data: tuple[dict[str, str], dict[str, str]], category: str, expected: str) -> None:
     formatted_data, data_list = sample_data

@@ -5,7 +5,6 @@ Utilities for assembling singer-related gendered job labels.
 
 from __future__ import annotations
 
-import sys
 from typing import Dict, Mapping
 
 from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap

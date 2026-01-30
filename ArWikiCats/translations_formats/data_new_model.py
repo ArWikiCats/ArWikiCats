@@ -32,8 +32,8 @@ def format_films_country_data(
     data_list: Dict[str, str],
     key_placeholder: str = "{nat_en}",
     value_placeholder: str = "{nat_ar}",
-    data_list2: Dict[str, str] = {},
-    other_formatted_data: Dict[str, str] = {},
+    data_list2: Dict[str, str] = None,
+    other_formatted_data: Dict[str, str] = None,
     key2_placeholder: str = "{film_key}",
     value2_placeholder: str = "{film_ar}",
     text_after: str = "",
@@ -78,6 +78,10 @@ def format_films_country_data(
     """
 
     # Country bot (FormatData)
+    if other_formatted_data is None:
+        other_formatted_data = {}
+    if data_list2 is None:
+        data_list2 = {}
     country_bot = FormatData(
         formatted_data=formatted_data,
         data_list=data_list,
