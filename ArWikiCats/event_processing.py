@@ -11,9 +11,9 @@ from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
 
 from .helps import getLogger
+from .main_processers.main_resolve import CategoryResult, resolve_label
 
 logger = getLogger(__name__)
-from .main_processers.main_resolve import CategoryResult, resolve_label
 
 LABEL_PREFIX = "تصنيف:"
 

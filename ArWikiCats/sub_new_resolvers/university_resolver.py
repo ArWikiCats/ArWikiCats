@@ -6,10 +6,10 @@ import functools
 from typing import Dict
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
+
+logger = getLogger(__name__)
 
 CITY_LOWER = {
     "chandler, oklahoma": "تشاندلر (أوكلاهوما)",

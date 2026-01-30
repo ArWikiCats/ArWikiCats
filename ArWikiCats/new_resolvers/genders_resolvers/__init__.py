@@ -32,10 +32,10 @@ Target examples:
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from .jobs_and_genders_resolver import genders_jobs_resolver
 from .sports_and_genders_resolver import genders_sports_resolver
+
+logger = getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

@@ -7,10 +7,10 @@ import functools
 import re
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
+
+logger = getLogger(__name__)
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 

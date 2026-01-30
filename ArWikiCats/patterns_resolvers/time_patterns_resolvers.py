@@ -7,11 +7,11 @@ complex temporal patterns (years, decades, centuries) using predefined templates
 import functools
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..time_formats.utils_time import standardize_time_phrases
 from ..translations_formats import LabsYearsFormat
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
+
+logger = getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=1)

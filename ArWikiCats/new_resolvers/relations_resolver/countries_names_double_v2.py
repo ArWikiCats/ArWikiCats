@@ -8,8 +8,6 @@ categories that mention relations/conflicts between two countries.
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -20,6 +18,8 @@ from ...translations import (
 )
 from ...translations_formats import FormatDataDouble, FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
+
+logger = getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

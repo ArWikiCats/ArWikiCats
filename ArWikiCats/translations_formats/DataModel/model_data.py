@@ -30,8 +30,9 @@ import functools
 import logging
 from typing import Dict
 
-logger = logging.getLogger(__name__)
 from .model_data_base import FormatDataBase
+
+logger = logging.getLogger(__name__)
 
 
 class FormatData(FormatDataBase):

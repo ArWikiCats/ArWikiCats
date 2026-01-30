@@ -5,13 +5,13 @@ import functools
 import re
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
 )
 from ...translations_formats import FormatDataV2
+
+logger = getLogger(__name__)
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 

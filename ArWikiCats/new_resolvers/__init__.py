@@ -14,8 +14,6 @@ import functools
 from typing import Callable
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic
@@ -28,6 +26,8 @@ from .nationalities_resolvers import main_nationalities_resolvers
 from .relations_resolver import main_relations_resolvers
 from .sports_resolvers import main_sports_resolvers
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
+
+logger = getLogger(__name__)
 
 # Type alias for resolver functions
 ResolverFn = Callable[[str], str]

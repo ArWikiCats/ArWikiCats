@@ -4,11 +4,11 @@
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from .resolve_films_labels import get_films_key_tyty_new
+
+logger = getLogger(__name__)
 
 formatted_data = {
     "{year1} {en}": "{ar} في {year1}",

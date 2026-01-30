@@ -5,11 +5,11 @@ from __future__ import annotations
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import all_country_with_nat_ar, ministers_keys
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
+
+logger = getLogger(__name__)
 
 nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence

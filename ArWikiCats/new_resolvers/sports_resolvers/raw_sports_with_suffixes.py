@@ -4,14 +4,14 @@
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,
 )
 from .pre_defined import pre_defined_results
 from .raw_sports import resolve_sport_label_unified
+
+logger = getLogger(__name__)
 
 mappings_data: dict[str, str] = {
     "squads": "تشكيلات",

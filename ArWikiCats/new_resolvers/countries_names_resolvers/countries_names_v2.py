@@ -9,12 +9,12 @@ countries_names_v2.py use countries names with nationalities
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import countries_nat_en_key
 from ...translations_formats import FormatDataV2
 from ..nationalities_resolvers.data import country_names_and_nats_data
 from .countries_names_data import formatted_data_en_ar_only
+
+logger = getLogger(__name__)
 
 countries_nat_en_key_example = {
     "yemen": {
