@@ -237,7 +237,7 @@ pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266 entries
 class TypiesResult:
     year_at_first: str
     year_at_first_strip: str
-    In: str
+    in_str: str
     country: str
     cat_test: str
 ```

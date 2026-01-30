@@ -3,8 +3,51 @@ Helper utilities and datasets for the mixed key collections.
 """
 
 from ..helps import len_print
-from ..others import medical_keys
 from ..utils import open_json_file
+
+medical_keys = {
+    "amyloidosis": "داء نشواني",
+    "autoimmune disease": "أمراض المناعة الذاتية",
+    "blood disease": "أمراض الدم",
+    "brain cancer": "سرطان الدماغ",
+    "cancer": "السرطان",
+    "cardiovascular disease": "أمراض قلبية وعائية",
+    "digestive disease": "أمراض الجهاز الهضمي",
+    "endocrine disease": "أمراض الغدد الصماء",
+    "genetic disorders": "اضطرابات وراثية",
+    "infectious disease": "أمراض معدية",
+    "lung cancer": "سرطان الرئة",
+    "mastocytosis": "كثرة الخلايا البدينة",
+    "musculoskeletal disorders": "إصابة الإجهاد المتكرر",
+    "neurological disease": "أمراض عصبية",
+    "organ failure": "فشل عضوي",
+    "reproductive system disease": "أمراض الجهاز التناسلي",
+    "respiratory disease": "أمراض الجهاز التنفسي",
+    "skin disease": "مرض جلدي",
+    "urologic disease": "أمراض الجهاز البولي",
+    "deaths by airstrike": "وفيات بضربات جوية",
+    "deaths by airstrikes": "وفيات بضربات جوية",
+    "deaths by firearm": "وفيات بسلاح ناري",
+    "deaths from amyloidosis": "وفيات داء نشواني",
+    "deaths from autoimmune disease": "وفيات أمراض المناعة الذاتية",
+    "deaths from blood disease": "وفيات أمراض الدم",
+    "deaths from brain cancer": "وفيات سرطان الدماغ",
+    "deaths from cancer": "وفيات السرطان",
+    "deaths from cardiovascular disease": "وفيات أمراض قلبية وعائية",
+    "deaths from digestive disease": "وفيات أمراض الجهاز الهضمي",
+    "deaths from endocrine disease": "وفيات أمراض الغدد الصماء",
+    "deaths from genetic disorders": "وفيات اضطرابات وراثية",
+    "deaths from infectious disease": "وفيات أمراض معدية",
+    "deaths from lung cancer": "وفيات سرطان الرئة",
+    "deaths from mastocytosis": "وفيات كثرة الخلايا البدينة",
+    "deaths from musculoskeletal disorders": "وفيات إصابة الإجهاد المتكرر",
+    "deaths from neurological disease": "وفيات أمراض عصبية",
+    "deaths from organ failure": "وفيات فشل عضوي",
+    "deaths from reproductive system disease": "وفيات أمراض الجهاز التناسلي",
+    "deaths from respiratory disease": "وفيات أمراض الجهاز التنفسي",
+    "deaths from skin disease": "وفيات مرض جلدي",
+    "deaths from urologic disease": "وفيات أمراض الجهاز البولي",
+}
 
 PARTIES: dict[str, str] = {
     "libertarian party of canada": "الحزب التحرري الكندي",
@@ -158,6 +201,7 @@ __all__ = [
     "PARTIES",
     "keys2_py",
     "new_2019",
+    "medical_keys",
 ]
 
 len_print.data_len(

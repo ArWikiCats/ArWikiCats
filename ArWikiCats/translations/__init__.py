@@ -37,6 +37,7 @@ from .mixed import (
     keys_of_without_in,
     pop_final_5,
     religious_entries,
+    medical_keys,
 )
 from .nats import (
     All_Nat,
@@ -142,6 +143,7 @@ __all__ = [
     "COMPLEX_LANGUAGE_TRANSLATIONS",
     "language_key_translations",
     "LANGUAGE_TOPIC_FORMATS",
+    "medical_keys",
     "religious_entries",
     "New_female_keys",
     "ministers_keys",

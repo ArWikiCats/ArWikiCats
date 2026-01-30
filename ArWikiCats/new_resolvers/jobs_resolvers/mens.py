@@ -13,7 +13,7 @@ from ...translations import (
     RELIGIOUS_KEYS_PP,
     All_Nat,
     all_country_with_nat,
-    all_country_with_nat_ar,
+    # all_country_with_nat_ar,
     countries_en_as_nationality_keys,
     jobs_mens_data,
 )
@@ -261,7 +261,7 @@ def _load_jobs_data() -> dict[str, str]:
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
-        logger.error(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data.update(
         {
@@ -276,9 +276,9 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def _load_nat_data() -> dict[str, str]:
     # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
-    nats_data: dict[str, str] = {x: v for x, v in All_Nat.items()}  # 342
+    nats_data: dict[str, str] = dict(All_Nat.items())  # 342
 
-    nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
+    nats_data.update(dict(nats_keys_as_country_names.items()))
 
     nats_data.update(
         {

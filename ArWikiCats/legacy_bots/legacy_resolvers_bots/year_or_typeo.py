@@ -42,7 +42,7 @@ class LabelForStartWithYearOrTypeo:
         self.cate = ""
         self.cate3 = ""
         self.year_at_first = ""
-        self.In = ""
+        self.in_str = ""
         self.country = ""
         self.country_lower = ""
         self.country_not_lower = ""
@@ -54,8 +54,8 @@ class LabelForStartWithYearOrTypeo:
         self.year_labe = ""
 
         self.country_label = ""
-        self.Add_In = True
-        self.Add_In_Done = False
+        self.add_in = True
+        self.add_in_done = False
         self.NoLab = False
 
     # ----------------------------------------------------
@@ -81,14 +81,14 @@ class LabelForStartWithYearOrTypeo:
         country_cleaned = result.country.strip()
 
         self.year_at_first = result.year_at_first
-        self.In = result.In
+        self.in_str = result.in_str
         self.cat_test = result.cat_test
 
         self.country = country_cleaned
         self.country_lower = country_cleaned
         self.country_not_lower = self.country
 
-        logger.debug(f'>>>> {self.year_at_first=}, "{self.In=}, {self.country=}, {self.cat_test=}')
+        logger.debug(f'>>>> {self.year_at_first=}, "{self.in_str=}, {self.country=}, {self.cat_test=}')
 
     # ----------------------------------------------------
     # 3 — HANDLE COUNTRY
@@ -131,16 +131,16 @@ class LabelForStartWithYearOrTypeo:
         self.arlabel += " " + self.year_labe
 
         logger.info(
-            f'252: year_at_first({self.year_at_first}) != "" arlabel:"{self.arlabel}",In.strip() == "{self.In.strip()}"'
+            f'252: year_at_first({self.year_at_first}) != "" arlabel:"{self.arlabel}",in_str.strip() == "{self.in_str.strip()}"'
         )
 
-        if (self.In.strip() in ("in", "at")) and not self.suf.strip():
+        if (self.in_str.strip() in ("in", "at")) and not self.suf.strip():
             logger.info(f"Add في to arlabel:in, at: {self.arlabel}")
 
             self.arlabel += " في "
-            self.cat_test = self.replace_cat_test(self.cat_test, self.In)
-            self.Add_In = False
-            self.Add_In_Done = True
+            self.cat_test = self.replace_cat_test(self.cat_test, self.in_str)
+            self.add_in = False
+            self.add_in_done = True
 
     # ----------------------------------------------------
     # 5 — RELATION MAPPING
@@ -148,14 +148,14 @@ class LabelForStartWithYearOrTypeo:
 
     def handle_relation_mapping(self) -> None:
         """Remove relation keywords that have already influenced the label."""
-        if not self.In.strip():
+        if not self.in_str.strip():
             return
 
-        if self.In.strip() in translation_category_relations:
-            if translation_category_relations[self.In.strip()].strip() in self.arlabel:
-                self.cat_test = self.replace_cat_test(self.cat_test, self.In)
+        if self.in_str.strip() in translation_category_relations:
+            if translation_category_relations[self.in_str.strip()].strip() in self.arlabel:
+                self.cat_test = self.replace_cat_test(self.cat_test, self.in_str)
         else:
-            self.cat_test = self.replace_cat_test(self.cat_test, self.In)
+            self.cat_test = self.replace_cat_test(self.cat_test, self.in_str)
 
         self.cat_test = re.sub(r"category:", "", self.cat_test)
 
@@ -178,8 +178,8 @@ class LabelForStartWithYearOrTypeo:
             logger.info('year_at_first ==  or year_labe == ""')
             return
 
-        if not self.country_lower and not self.In:
-            logger.info('a<<lightblue>>>>>> country_lower == "" and In ==  "" ')
+        if not self.country_lower and not self.in_str:
+            logger.info('a<<lightblue>>>>>> country_lower == "" and in_str ==  "" ')
             if self.suf:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
@@ -187,6 +187,7 @@ class LabelForStartWithYearOrTypeo:
             return
 
         # TODO: delete it
+        # if self.country_lower != "":
         if self.country_lower == "x":
             if self.country_label:
                 self.cat_test, self.arlabel = new_func_mk2(
@@ -194,16 +195,18 @@ class LabelForStartWithYearOrTypeo:
                     self.cat_test,
                     self.year_at_first,
                     "",
-                    self.In,
+                    self.in_str,
                     self.country_lower,
                     self.arlabel,
                     self.year_labe,
                     self.suf,
-                    self.Add_In,
+                    self.add_in,
                     self.country_label,
-                    self.Add_In_Done,
+                    self.add_in_done,
                 )
-                return
+                if self.arlabel:
+                    self.NoLab = False
+                    return
 
             logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
             self.NoLab = True
@@ -219,7 +222,7 @@ class LabelForStartWithYearOrTypeo:
     def apply_fallbacks(self) -> None:
         """Run backup labeling logic when primary processing fails."""
         if self.NoLab and self.cat_test == "":
-            if self.country_label and self.year_labe and self.In == "":
+            if self.country_label and self.year_labe and self.in_str == "":
                 self.arlabel = f"{self.country_label} {self.year_labe}"
                 if self.arlabel:
                     self.NoLab = False

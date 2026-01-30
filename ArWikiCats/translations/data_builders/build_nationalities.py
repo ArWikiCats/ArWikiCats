@@ -350,7 +350,7 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     for nat_key, entry in all_nat.items():
         en: str = entry["en"].lower()
         ar: str = entry["ar"]
-        en_norm: str = en[4:] if en.startswith("the ") else en
+        en_norm: str = en.removeprefix("the ")
 
         if entry.get("male"):
             Nat_men[nat_key] = entry["male"]

@@ -105,7 +105,6 @@
     "FOOTBALL_KEYS_PLAYERS": "46",
     "BOXING_LABELS": "42",
     "PROVINCE_LABELS": "41",
-    "medical_keys": "41",
     "film_keys_for_male": "38",
     "FILM_PRODUCTION_COMPANY": "36",
     "RELIGIOUS_KEYS_PP": "33",
@@ -131,7 +130,6 @@
     "PAINTER_STYLES": "5",
     "STATIC_PLAYER_LABELS": "4",
     "SKATING_LABELS": "4",
-    "LANGUAGE_SUFFIX_FORMATS": "2",
     "PAINTER_ROLE_LABELS": "2",
-    "Ambassadors_tab": "0"
+    "LANGUAGE_SUFFIX_FORMATS": "2"
 }

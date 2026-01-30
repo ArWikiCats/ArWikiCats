@@ -49,8 +49,7 @@ class EventProcessor:
     @staticmethod
     def _normalize_category(category: str) -> str:
         """Normalize the input category string quickly."""
-        if category.startswith("\ufeff"):
-            category = category[1:]
+        category = category.removeprefix("\ufeff")
         return category.replace("_", " ")
 
     @staticmethod

@@ -74,10 +74,10 @@ class TestLabelForStartWithYearOrTypeoClass:
         assert builder.cate == ""
         assert builder.cate3 == ""
         assert builder.year_at_first == ""
-        assert builder.In == ""
+        assert builder.in_str == ""
         assert builder.country == ""
         assert builder.arlabel == ""
-        assert builder.Add_In is True
+        assert builder.add_in is True
         assert builder.NoLab is False
 
     def test_parse_input_extracts_year(self) -> None:
@@ -139,9 +139,9 @@ class TestLabelForStartWithYearOrTypeoClass:
         assert builder.country_label == ""
 
     def test_handle_relation_mapping_with_empty_in(self) -> None:
-        """Test handle_relation_mapping with empty In value."""
+        """Test handle_relation_mapping with empty in_str value."""
         builder = LabelForStartWithYearOrTypeo()
-        builder.In = ""
+        builder.in_str = ""
         builder.cat_test = "test"
         builder.handle_relation_mapping()
         # Should return early without modification
