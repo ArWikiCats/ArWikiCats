@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from .films_mslslat import (
     TELEVISION_KEYS,

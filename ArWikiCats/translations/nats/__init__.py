@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from .Nationality import (
     All_Nat,

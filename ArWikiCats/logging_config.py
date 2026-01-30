@@ -7,6 +7,7 @@ import sys
 from typing import Optional
 
 import colorlog
+_configured = False
 
 
 def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
@@ -20,13 +21,16 @@ def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
     Example:
         >>> setup_logging(level="DEBUG", log_file="app.log")
     """
+    global _configured
+    if _configured:
+        return
     # Convert string level to logging constant
     numeric_level = getattr(logging, level.upper(), logging.INFO) if isinstance(level, str) else level
 
     # Create color formatter for console
     console_formatter = colorlog.ColoredFormatter(
         # fmt="%(log_color)s%(asctime)s - %(name)s - %(levelname)-8s%(reset)s %(message)s",
-        fmt="%(name)s - %(log_color)s%(levelname)-8s%(reset)s %(message)s",
+        fmt="%(name)s - %(lineno)s - %(log_color)s%(levelname)-8s%(reset)s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
         log_colors={
             "DEBUG": "cyan",
@@ -42,10 +46,10 @@ def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
     # Console handler with colors
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(console_formatter)
-    console_handler.setLevel(numeric_level)
+    # console_handler.setLevel(numeric_level)
 
     # Root logger configuration
-    root_logger = logging.getLogger()
+    root_logger = logging.getLogger("ArWikiCats")
     root_logger.setLevel(numeric_level)
     root_logger.addHandler(console_handler)
 
@@ -60,23 +64,4 @@ def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
         file_handler.setLevel(numeric_level)
         root_logger.addHandler(file_handler)
 
-    # Silence noisy third-party loggers
-    logging.getLogger("urllib3").setLevel(logging.WARNING)
-    logging.getLogger("pymysql").setLevel(logging.WARNING)
-
-
-def get_logger(name: str) -> logging.Logger:
-    """
-    Get a logger instance for a module.
-
-    Args:
-        name: Module name (typically __name__)
-
-    Returns:
-        Logger instance
-
-    Example:
-        >>> logger = get_logger(__name__)
-        >>> logger.info("Module initialized")
-    """
-    return logging.getLogger(name)
+    _configured = True

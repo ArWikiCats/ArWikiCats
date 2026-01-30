@@ -95,7 +95,6 @@ def nationality_translations():
 @pytest.fixture
 def test_config():
     return Config(
-        print=PrintConfig(noprint=True),
         app=AppConfig(
             save_data_path="",
         ),

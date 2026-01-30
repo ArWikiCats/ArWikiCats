@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 This module provides functions to identify and convert English time-related
 expressions (such as years, decades, centuries, and millennia) into their
