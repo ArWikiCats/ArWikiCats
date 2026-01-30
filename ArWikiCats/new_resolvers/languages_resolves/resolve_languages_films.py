@@ -32,7 +32,7 @@ def _make_bot() -> MultiDataFormatterBase:
     films_formatted_data = {
         "{lang_en} language {film_en} films": "أفلام {film_ar} باللغة {lang_al}",
     }
-    put_label_last = {
+    _put_label_last = {
         "low-budget",
         "supernatural",
         "christmas",

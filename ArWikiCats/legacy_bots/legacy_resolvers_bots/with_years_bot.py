@@ -96,7 +96,7 @@ def handle_political_terms(category_text: str) -> str:
     ordinal_label = change_numb_to_word.get(ordinal_number, f"الـ{ordinal_number}")
 
     label = f"{body_label} {ordinal_label}"
-    logger.debug(f">>> _handle_political_terms lab ({label}), country: ({category_text})")
+    logger.debug(f">>> lab ({label}), country: ({category_text})")
     return label
 
 
@@ -116,15 +116,15 @@ def _handle_year_at_start(category_text: str) -> str:
     year = REGEX_SUB_YEAR.sub(r"\g<1>", category_text)
 
     if not year:
-        logger.debug(f">>> _handle_year_at_start: {year=}, no match")
+        logger.debug(f">>> {year=}, no match")
         return ""
 
     if year == category_text:
-        logger.debug(f">>> _handle_year_at_start: {year=}, no match (year == category_text)")
+        logger.debug(f">>> {year=}, no match (year == category_text)")
         return ""
 
     remainder = category_text[len(year) :].strip().lower()
-    logger.debug(f">>> _handle_year_at_start: {year=}, suffix:{remainder}")
+    logger.debug(f">>> {year=}, suffix:{remainder}")
 
     remainder_label = ""
     if remainder in WORD_AFTER_YEARS:
@@ -148,7 +148,7 @@ def _handle_year_at_start(category_text: str) -> str:
     separator = " "
 
     if remainder_label.strip() in arabic_labels_preceding_year:
-        logger.debug("arabic_labels_preceding_year Add في to arlabel sus.")
+        logger.debug("Add في to arlabel sus.")
         separator = " في "
 
     elif remainder in Add_in_table:
@@ -192,7 +192,7 @@ def _handle_year_at_end(
         return ""
 
     formatted_year_label = year_at_end_label
-    logger.debug(f">>> _handle_year_at_end: year2:{year_at_end_label}")
+    logger.debug(f">>> year2:{year_at_end_label}")
     remainder = category_text[: -len(year_at_end_label)]
 
     remainder_label = (
@@ -250,7 +250,7 @@ def Try_With_Years(category: str) -> str:
     # RE4 = RE4_compile.match(category)
 
     if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
-        logger.info(f" end Try_With_Years: {category=} no match year patterns")
+        logger.info(f" end  {category=} no match year patterns")
         return ""
 
     label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
