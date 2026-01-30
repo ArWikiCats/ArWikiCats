@@ -13,9 +13,9 @@ from typing import Any, List, Mapping, Union
 from humanize import naturalsize
 
 from ..config import app_settings
-from ..helps.log import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 all_len = {}
 

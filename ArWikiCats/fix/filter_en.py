@@ -6,9 +6,9 @@ not be processed or translated.
 
 import re
 
-from ..helps import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 CATEGORY_BLACKLIST: list[str] = [
     "Disambiguation",

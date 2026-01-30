@@ -10,7 +10,7 @@ import re
 from ..helps import getLogger, len_print
 from ..translations_formats import MultiDataFormatterBase, format_multi_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",

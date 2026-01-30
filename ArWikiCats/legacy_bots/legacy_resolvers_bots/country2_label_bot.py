@@ -11,7 +11,7 @@ import re
 from typing import Callable, Optional, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
@@ -22,7 +22,7 @@ from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
 from . import bys, with_years_bot
 from .bot_2018 import get_pop_All_18
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Type alias for the term label resolver callback
 TermLabelResolver = Callable[[str, str, str], str]

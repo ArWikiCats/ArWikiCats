@@ -3,7 +3,7 @@
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
@@ -13,7 +13,7 @@ from ..teams_mappings_ends import teams_label_mappings_ends
 from .utils import fix_keys
 from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # NOTE: patterns with only en-ar should be in formatted_data_en_ar_only countries_names.py to handle countries without gender details
 # NOTE: patterns with only en-ar-time should be in COUNTRY_YEAR_DATA to handle countries-time without gender details

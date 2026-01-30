@@ -6,7 +6,7 @@ often combined with geographic or nationality elements.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
@@ -16,7 +16,7 @@ from . import (
     sport_lab_nat,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def main_sports_resolvers(normalized_category) -> str:

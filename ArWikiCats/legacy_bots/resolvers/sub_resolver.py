@@ -12,14 +12,14 @@ from __future__ import annotations
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...time_formats import time_to_arabic
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_value_from_any_table
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..make_bots import Films_O_TT, players_new_keys
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 en_literes = "[a-z]"
 

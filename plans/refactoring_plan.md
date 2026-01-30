@@ -780,8 +780,8 @@ import logging
 from typing import TypeVar, Callable, Any
 
 from .exceptions import ArWikiCatsError, TranslationError
-from .helps import getLogger
-logger = getLogger(__name__)
+import logging
+logger = logging.getLogger(__name__)
 
 T = TypeVar('T')
 

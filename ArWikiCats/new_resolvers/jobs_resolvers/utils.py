@@ -1,9 +1,9 @@
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 REGEX_WOMENS = re.compile(r"\b(womens|women)\b", re.I)
 REGEX_THE = re.compile(r"\b(the)\b", re.I)

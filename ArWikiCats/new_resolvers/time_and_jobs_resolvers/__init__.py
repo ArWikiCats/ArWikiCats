@@ -6,13 +6,13 @@ This package provides specialized resolvers for categories like
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     year_job_origin_resolver,
     year_job_resolver,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

@@ -10,7 +10,7 @@ from ..data_builders.jobs_defs import GenderedLabelMap
 from ..helps import getLogger, len_print
 from ..utils import open_json_file
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 jobs_primary = open_json_file("jobs/Jobs_22.json")
 jobs_additional = open_json_file("jobs/jobs_3.json")
 # ---------------------------------------------------------------------------

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import getLogger
+import logging
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -21,7 +21,7 @@ from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_coun
 from ..make_bots import check_key_new_players
 from . import country_resolver
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 separators_lists_raw = [

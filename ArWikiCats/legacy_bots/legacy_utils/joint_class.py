@@ -3,14 +3,14 @@
 
 from typing import Callable
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     Nat_mens,
 )
 from ..legacy_resolvers_bots import with_years_bot
 from ..utils import RE1_compile, RE2_compile, RE3_compile
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class CountryLabelAndTermParent:

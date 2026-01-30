@@ -11,7 +11,7 @@ from __future__ import annotations
 import re
 from typing import Iterable, Mapping
 
-from ..helps import getLogger
+import logging
 from .fixlists import (
     ENDING_REPLACEMENTS,
     REPLACEMENTS,
@@ -21,7 +21,7 @@ from .fixlists import (
 from .mv_years import move_years
 from .specific_normalizations import apply_category_specific_normalizations
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
 YEARS_REGEX_AR = (

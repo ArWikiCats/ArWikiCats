@@ -6,11 +6,11 @@ from __future__ import annotations
 
 import functools
 
-from ..helps import getLogger
+import logging
 from ..translations import People_key
 from ..translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 formatted_data = {
     "{person_key} administration cabinet members": "أعضاء مجلس وزراء إدارة {person_label}",

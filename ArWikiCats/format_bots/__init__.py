@@ -6,10 +6,10 @@ category names before they are processed by the resolvers.
 
 import re
 
-from ..helps import getLogger
+import logging
 from .pf_keys import change_key_mappings_replacements
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Precompiled Regex Patterns
 REGEX_SUB_WHITESPACE = re.compile(r"[\s\t]+", re.IGNORECASE)

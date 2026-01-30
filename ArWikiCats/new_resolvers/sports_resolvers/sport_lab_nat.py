@@ -15,7 +15,7 @@ from ...translations import SPORT_KEY_RECORDS, Nat_women
 from ...translations_formats import MultiDataFormatterBase, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {

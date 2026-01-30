@@ -13,12 +13,12 @@ TODO: use it instead of langs_w.py after adding
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new.handle_time_with_callback import handle_year_at_first
 from .resolve_languages import _resolve_languages_labels
 from .resolve_languages_films import resolve_films_languages_labels
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def fix_keys(category: str) -> str:

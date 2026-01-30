@@ -21,7 +21,7 @@ from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 jobs_mens_data_f = dict(jobs_mens_data.items())

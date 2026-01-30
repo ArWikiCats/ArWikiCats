@@ -7,7 +7,7 @@ geography, jobs, languages, nationalities, sports, and media.
 import functools
 import re
 
-from ..helps import getLogger
+import logging
 from . import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,
@@ -20,7 +20,7 @@ from .build_data import NEW_P17_FINAL, pf_keys2
 from .geo import ALIASES_CHAIN, US_COUNTY_TRANSLATIONS
 from .utils import open_json_file
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # from .mixed import pf_keys2
 

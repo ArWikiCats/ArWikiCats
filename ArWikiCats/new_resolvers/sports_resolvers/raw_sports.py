@@ -3,12 +3,12 @@
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 from .pre_defined import pre_defined_results
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 UNIFIED_FORMATTED_DATA: dict[str, str] = {
     "mens a {en_sport}": "{sport_label} للرجال للمحليين",

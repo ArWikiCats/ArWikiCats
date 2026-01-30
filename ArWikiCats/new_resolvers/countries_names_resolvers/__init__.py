@@ -6,7 +6,7 @@ country names and related geographic entities (like US states) into Arabic.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,
@@ -15,7 +15,7 @@ from . import (  # countries_names_double_v2,
     us_states,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

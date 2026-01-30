@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import US_STATES
 from ...translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
     # "georgia (u.s. state)": "ولاية جورجيا",

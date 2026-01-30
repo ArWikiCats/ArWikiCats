@@ -14,12 +14,12 @@ More examples:
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 jobs_part_labels = {
     "lgbtq people": "أعلام إل جي بي تي كيو",

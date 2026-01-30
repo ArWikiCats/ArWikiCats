@@ -4,7 +4,7 @@
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
@@ -14,7 +14,7 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBase, format_films_country_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 

@@ -6,14 +6,14 @@ nationalities, often combined with occupations or time periods.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     ministers_resolver,
     nationalities_time_v2,
     nationalities_v2,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

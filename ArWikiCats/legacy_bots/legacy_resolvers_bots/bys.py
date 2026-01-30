@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import People_key
@@ -17,7 +17,7 @@ from ...translations.funcs import get_from_new_p17_final
 from ..utils.regex_hub import BY_MATCH_PATTERN, DUAL_BY_PATTERN
 from .bot_2018 import get_pop_All_18
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def find_dual_by_keys(normalized: str) -> str:

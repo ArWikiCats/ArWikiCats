@@ -13,7 +13,7 @@ from __future__ import annotations
 import functools
 from typing import Callable
 
-from ..helps import getLogger
+import logging
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic
@@ -27,7 +27,7 @@ from .relations_resolver import main_relations_resolvers
 from .sports_resolvers import main_sports_resolvers
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Type alias for resolver functions
 ResolverFn = Callable[[str], str]

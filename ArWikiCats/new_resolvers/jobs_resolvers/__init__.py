@@ -6,10 +6,10 @@ as well as religious occupations.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import mens, relegin_jobs_new, womens
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

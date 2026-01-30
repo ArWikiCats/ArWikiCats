@@ -9,10 +9,10 @@ import functools
 import re
 from typing import Callable, Optional
 
-from ..helps import getLogger
+import logging
 from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def fix_keys(category: str) -> str:

@@ -9,7 +9,7 @@ from typing import Callable, Literal, Tuple
 
 from ...fix import fixtitle
 from ...format_bots import change_cat
-from ...helps import getLogger
+import logging
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot
@@ -23,7 +23,7 @@ from ..resolvers.sub_resolver import sub_translate_general_category
 from . import country2_label_bot, with_years_bot, year_or_typeo
 from .bot_2018 import get_pop_All_18
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Constants
 SUFFIX_EPISODES: Literal[" episodes"] = " episodes"

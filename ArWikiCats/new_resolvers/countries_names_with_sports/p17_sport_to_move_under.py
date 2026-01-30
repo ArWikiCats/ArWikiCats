@@ -6,11 +6,11 @@ English country-name → Arabic country-name.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: This all wrong arabic values need to be fixed later
 under_data_to_check = {

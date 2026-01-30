@@ -7,9 +7,9 @@ import functools
 import re
 from typing import Tuple
 
-from ...helps import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:

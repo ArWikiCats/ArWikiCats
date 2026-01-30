@@ -7,12 +7,12 @@ nationalities, and genders into idiomatic Arabic.
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from .utils import fix_keys
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def generate_jobs_data_dict() -> dict[str, dict[str, str]]:

@@ -7,12 +7,12 @@ and television series, often combined with geographic elements.
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import TELEVISION_KEYS, Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def legacy_label_check(normalized_category: str) -> str:

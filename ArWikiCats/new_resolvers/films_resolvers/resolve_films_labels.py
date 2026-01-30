@@ -10,7 +10,7 @@ TODO:
 import functools
 from typing import Dict
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     Nat_women,
     film_keys_for_female,
@@ -21,7 +21,7 @@ from ...translations_formats import (
     format_multi_data,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:

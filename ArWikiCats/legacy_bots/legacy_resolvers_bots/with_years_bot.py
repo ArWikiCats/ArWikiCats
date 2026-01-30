@@ -14,7 +14,7 @@ import functools
 import re
 from typing import Callable, Optional, Pattern
 
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
 from ...translations.funcs import get_from_pf_keys2
@@ -25,7 +25,7 @@ from ..make_bots import get_KAKO
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
 from .bot_2018 import get_pop_All_18
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 arabic_labels_preceding_year = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
