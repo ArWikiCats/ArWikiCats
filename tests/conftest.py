@@ -2,11 +2,7 @@
 
 import os
 import random
-import logging
 import pytest
-
-# logging.getLogger("ArWikiCats").disabled = True
-# logging.getLogger("ArWikiCats").setLevel(logging.CRITICAL)
 
 
 def pytest_configure(config: pytest.Config) -> None:

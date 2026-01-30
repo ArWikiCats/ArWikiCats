@@ -48,7 +48,7 @@ def sub_translate_general_category(category_r: str) -> str:
     category = category_r.replace("_", " ").lower()
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
-    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ sub_translate_general_category start ^^^^^^^^^ ({category}) ")
+    logger.info(f"<<lightyellow>>>> ^^^^^^^^^ start ^^^^^^^^^ ({category}) ")
     logger.debug(f"<<lightyellow>>>>>> {category_r=}")
 
     arlabel = (
@@ -60,9 +60,9 @@ def sub_translate_general_category(category_r: str) -> str:
     )
 
     if arlabel:
-        logger.debug(f"<<lightyellow>>>> sub_translate_general_category {arlabel=}  ")
+        logger.debug(f"<<lightyellow>>>> {arlabel=}  ")
 
-    logger.debug("<<lightyellow>>>> ^^^^^^^^^ sub_translate_general_category end ^^^^^^^^^ ")
+    logger.debug("<<lightyellow>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
 
     return arlabel
 
