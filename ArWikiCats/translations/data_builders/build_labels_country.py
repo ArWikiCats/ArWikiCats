@@ -170,8 +170,8 @@ def _build_country_label_index(
         "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,  # 176
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,  # 1424
     }
-    for name, mapping in to_update.items():
-        # logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
+    for _, mapping in to_update.items():
+        # logger.debug(f">> _build_country_label_index() Updating labels for {na}, entries: {len(mapping)}")
         update_with_lowercased(label_index, mapping)
 
     label_index.update(  # Specific overrides used by downstream consumers.

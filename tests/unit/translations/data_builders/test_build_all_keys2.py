@@ -347,21 +347,21 @@ class TestBuildPfKeys2:
 
     def test_builds_consolidated_mapping(self) -> None:
         result = build_pf_keys2(
-            ART_MOVEMENTS={},
-            BASE_LABELS={},
+            art_movements={},
+            base_labels={},
             ctl_data={},
-            DIRECTIONS={},
+            directions={},
             keys2_py={},
             keys_of_with_in={},
             keys_of_without_in={},
             pop_final_3={},
-            REGIONS={},
-            SCHOOL_LABELS={},
+            regions={},
+            school_labels={},
             tato_type={},
-            TOWNS_COMMUNITIES={},
-            WEAPON_CLASSIFICATIONS={},
-            WEAPON_EVENTS={},
-            WORD_AFTER_YEARS={},
+            towns_communities={},
+            weapon_classifications={},
+            weapon_events={},
+            word_after_years={},
         )
 
         assert isinstance(result, dict)
@@ -369,21 +369,21 @@ class TestBuildPfKeys2:
     def test_adds_competition_medalists(self) -> None:
         ctl_data = {"olympics": "أولمبياد"}
         result = build_pf_keys2(
-            ART_MOVEMENTS={},
-            BASE_LABELS={},
+            art_movements={},
+            base_labels={},
             ctl_data=ctl_data,
-            DIRECTIONS={},
+            directions={},
             keys2_py={},
             keys_of_with_in={},
             keys_of_without_in={},
             pop_final_3={},
-            REGIONS={},
-            SCHOOL_LABELS={},
+            regions={},
+            school_labels={},
             tato_type={},
-            TOWNS_COMMUNITIES={},
-            WEAPON_CLASSIFICATIONS={},
-            WEAPON_EVENTS={},
-            WORD_AFTER_YEARS={},
+            towns_communities={},
+            weapon_classifications={},
+            weapon_events={},
+            word_after_years={},
         )
 
         assert "olympics medalists" in result
@@ -391,21 +391,21 @@ class TestBuildPfKeys2:
     def test_creates_private_school_variants(self) -> None:
         SCHOOL_LABELS = {"schools": "مدارس {}"}
         result = build_pf_keys2(
-            ART_MOVEMENTS={},
-            BASE_LABELS={},
+            art_movements={},
+            base_labels={},
             ctl_data={},
-            DIRECTIONS={},
+            directions={},
             keys2_py={},
             keys_of_with_in={},
             keys_of_without_in={},
             pop_final_3={},
-            REGIONS={},
-            SCHOOL_LABELS=SCHOOL_LABELS,
+            regions={},
+            school_labels=SCHOOL_LABELS,
             tato_type={},
-            TOWNS_COMMUNITIES={},
-            WEAPON_CLASSIFICATIONS={},
-            WEAPON_EVENTS={},
-            WORD_AFTER_YEARS={},
+            towns_communities={},
+            weapon_classifications={},
+            weapon_events={},
+            word_after_years={},
         )
 
         assert "private schools" in result
@@ -413,21 +413,21 @@ class TestBuildPfKeys2:
 
     def test_adds_minister_keys(self) -> None:
         result = build_pf_keys2(
-            ART_MOVEMENTS={},
-            BASE_LABELS={},
+            art_movements={},
+            base_labels={},
             ctl_data={},
-            DIRECTIONS={},
+            directions={},
             keys2_py={},
             keys_of_with_in={},
             keys_of_without_in={},
             pop_final_3={},
-            REGIONS={},
-            SCHOOL_LABELS={},
+            regions={},
+            school_labels={},
             tato_type={},
-            TOWNS_COMMUNITIES={},
-            WEAPON_CLASSIFICATIONS={},
-            WEAPON_EVENTS={},
-            WORD_AFTER_YEARS={},
+            towns_communities={},
+            weapon_classifications={},
+            weapon_events={},
+            word_after_years={},
         )
 
         assert "ministers of" in result
@@ -438,21 +438,21 @@ class TestBuildPfKeys2:
         BASE_LABELS = {"existing": "موجود"}
         pop_final_3 = {"existing": "جديد", "new": "جديد"}
         result = build_pf_keys2(
-            ART_MOVEMENTS={},
-            BASE_LABELS=BASE_LABELS,
+            art_movements={},
+            base_labels=BASE_LABELS,
             ctl_data={},
-            DIRECTIONS={},
+            directions={},
             keys2_py={},
             keys_of_with_in={},
             keys_of_without_in={},
             pop_final_3=pop_final_3,
-            REGIONS={},
-            SCHOOL_LABELS={},
+            regions={},
+            school_labels={},
             tato_type={},
-            TOWNS_COMMUNITIES={},
-            WEAPON_CLASSIFICATIONS={},
-            WEAPON_EVENTS={},
-            WORD_AFTER_YEARS={},
+            towns_communities={},
+            weapon_classifications={},
+            weapon_events={},
+            word_after_years={},
         )
 
         # The "existing" key should not be overwritten if it was in BASE_LABELS

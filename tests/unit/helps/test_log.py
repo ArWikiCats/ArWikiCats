@@ -1,12 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Unit tests for the helps.log module.
 """
 
 import logging
-from unittest.mock import MagicMock, patch
-
-import pytest
+from unittest.mock import patch
 
 from ArWikiCats.helps.log import LoggerWrap, getLogger
 

@@ -643,33 +643,33 @@ clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 def generate_key_mappings(
     keys2_py: Dict[str, str],
     pop_final_3: Dict[str, str],
-    SINGERS_TAB: Dict[str, str],
+    singers_tab: Dict[str, str],
     film_keys_for_female: Dict[str, str],
-    ALBUMS_TYPE: Dict[str, str],
+    albums_type: Dict[str, str],
     film_keys_for_male: Dict[str, str],
-    TENNIS_KEYS: Dict[str, str],
+    tennis_keys: Dict[str, str],
     pop_final6: Dict[str, str],
-    MEDIA_CATEGORY_TRANSLATIONS: Dict[str, str],
+    media_category_translations: Dict[str, str],
     language_key_translations: Dict[str, str],
     new2019: Dict[str, str],
-    NEW_2023: Dict[str, str],
+    new_2023: Dict[str, str],
 ) -> Dict[str, str]:
     """
     Assemble a consolidated mapping of English keys to Arabic labels by merging multiple category and external translation sources.
 
     Parameters:
-        keys2_py: Primary keys mapping for generic categories.
-        pop_final_3: Population-derived key translations.
-        SINGERS_TAB: Singer-related key translations for book entries.
-        film_keys_for_female: Film keys related to female subjects used for literature/book integration.
-        ALBUMS_TYPE: Album-type key translations used for book entries.
-        film_keys_for_male: Film keys related to male subjects used for literature area integration.
-        TENNIS_KEYS: Tennis-related key translations to include (lowercase update applied with skip_existing=True).
-        pop_final6: Additional population-derived translations to include in lowercase updates.
-        MEDIA_CATEGORY_TRANSLATIONS: Media category translations included in selective lowercase updates.
-        language_key_translations: Language-related key translations included in broader lowercase updates.
-        new2019: External translation set included in broader lowercase updates.
-        NEW_2023: External translation set included in broader lowercase updates.
+        keys2_py: primary keys mapping for generic categories.
+        pop_final_3: population-derived key translations.
+        singers_tab: singer-related key translations for book entries.
+        film_keys_for_female: film keys related to female subjects used for literature/book integration.
+        albums_type: album-type key translations used for book entries.
+        film_keys_for_male: film keys related to male subjects used for literature area integration.
+        tennis_keys: tennis-related key translations to include (lowercase update applied with skip_existing=true).
+        pop_final6: additional population-derived translations to include in lowercase updates.
+        media_category_translations: media category translations included in selective lowercase updates.
+        language_key_translations: language-related key translations included in broader lowercase updates.
+        new2019: external translation set included in broader lowercase updates.
+        new_2023: external translation set included in broader lowercase updates.
 
     Returns:
         Dict[str, str]: A consolidated dictionary mapping normalized English key strings to their Arabic label translations.
@@ -696,9 +696,9 @@ def generate_key_mappings(
 
     _build_book_entries(
         data,
-        SINGERS_TAB,
+        singers_tab,
         film_keys_for_female,
-        ALBUMS_TYPE,
+        albums_type,
         BOOK_CATEGORIES,
         BOOK_TYPES,
     )
@@ -706,8 +706,8 @@ def generate_key_mappings(
     _build_literature_area_entries(data, film_keys_for_male, LITERATURE_AREAS)
     _build_cinema_entries(data, CINEMA_CATEGORIES)
 
-    _update_lowercase(data, [TENNIS_KEYS, pop_final6, MEDIA_CATEGORY_TRANSLATIONS], skip_existing=True)
-    _update_lowercase(data, [language_key_translations, People_key, new2019, NEW_2023], skip_existing=False)
+    _update_lowercase(data, [tennis_keys, pop_final6, media_category_translations], skip_existing=True)
+    _update_lowercase(data, [language_key_translations, People_key, new2019, new_2023], skip_existing=False)
 
     no_the = handle_the_prefix(data)
     data.update(no_the)
