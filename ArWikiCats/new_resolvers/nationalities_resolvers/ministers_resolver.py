@@ -134,10 +134,10 @@ def fix_keys(text: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_secretaries_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category)
     result = _names(category) or _nats(category)
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

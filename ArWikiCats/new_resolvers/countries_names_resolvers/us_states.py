@@ -172,12 +172,12 @@ def normalize_state(ar_name: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = us_bot.search(category)
     result = normalize_state(result)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

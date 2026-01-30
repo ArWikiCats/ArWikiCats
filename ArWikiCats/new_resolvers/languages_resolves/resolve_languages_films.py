@@ -69,13 +69,13 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_films_languages_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     category = fix_keys(category)
 
     result = _make_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

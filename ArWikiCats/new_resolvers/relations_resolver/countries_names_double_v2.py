@@ -176,7 +176,7 @@ def resolve_v1(category: str) -> str:
         >>> # Example of skipping a single country key
         >>> resolve_v1("jordan")
     """
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     all_country_labels = _load_all_country_labels_v1()
     if category in all_country_labels:
@@ -185,7 +185,7 @@ def resolve_v1(category: str) -> str:
         return ""
 
     result = double_bot_v1().search_all_category(category)
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -201,7 +201,7 @@ def resolve_v2(category: str) -> str:
     """
     category = category.replace("democratic republic of congo", "democratic-republic-of-congo")
     category = category.replace("republic of congo", "republic-of-congo")
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     nat_data = _load_all_country_labels_v2()
     if category in nat_data:
@@ -210,13 +210,13 @@ def resolve_v2(category: str) -> str:
         return ""
 
     result = double_bot_v2().search_all_category(category)
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 def resolve_countries_names_double(category: str) -> str:
     category = fix_keys(category)
-    # logger.debug(f"<<yellow>> start: {category=}")
+    # logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_countries_names_double: {category=}, [result=]")
@@ -224,7 +224,7 @@ def resolve_countries_names_double(category: str) -> str:
 
     result = resolve_v2(category) or resolve_v1(category)
 
-    # logger.info(f"<<yellow>> end: {category=}, {result=}")
+    # logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

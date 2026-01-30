@@ -28,7 +28,7 @@ def main_relations_resolvers(category: str) -> str:
         str: The resolved Arabic category label if a match is found, otherwise an empty string.
     """
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying main_relations_resolvers for: {category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
     resolved_label = (
         ""
@@ -37,5 +37,5 @@ def main_relations_resolvers(category: str) -> str:
         or two_nationalities_but_not_double_resolver(category)
     )
 
-    logger.info(f"<<yellow>> end: {category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {category=}, {resolved_label=}")
     return resolved_label

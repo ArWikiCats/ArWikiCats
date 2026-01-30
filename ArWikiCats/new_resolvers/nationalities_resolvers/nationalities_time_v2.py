@@ -95,12 +95,12 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nats_time_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     yc_bot = _bot_new()
 
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or ""
 
 

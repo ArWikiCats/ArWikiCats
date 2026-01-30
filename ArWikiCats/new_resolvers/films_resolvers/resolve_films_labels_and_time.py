@@ -69,19 +69,19 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     category = category.lower().replace("category:", "")
     # if category dosen't start with number, return ""
     if not category or not category[0].isdigit():
-        logger.debug(f"<<yellow>> end: {category=}, no digit start")
+        logger.debug(f"<<yellow>> end {category=}, no digit start")
         return ""
 
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     yc_bot = multi_bot_v4()
 
     if category == match_time_en_first(category):
-        logger.info(f"<<yellow>> end: {category=}, no time match")
+        logger.info(f"<<yellow>> end {category=}, no time match")
         return ""
 
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or ""
 
 

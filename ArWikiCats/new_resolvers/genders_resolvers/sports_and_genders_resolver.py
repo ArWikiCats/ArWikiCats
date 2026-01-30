@@ -116,13 +116,13 @@ def _sport_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def genders_sports_resolver(category: str) -> str:
     normalized_category = fix_keys(category)
-    logger.debug(f"<<yellow>> start: {normalized_category=}")
+    logger.debug(f"<<yellow>> start {normalized_category=}")
 
     sport_bot = _sport_bot()
     result = sport_bot.search_all_other_first(normalized_category)
     result = sport_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
 
     return result
 

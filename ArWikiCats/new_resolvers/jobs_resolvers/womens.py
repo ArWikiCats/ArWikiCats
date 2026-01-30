@@ -279,29 +279,29 @@ def load_bot_only_womens() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _womens_resolver(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     result = load_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 @functools.lru_cache(maxsize=10000)
 def _womens_jobs_resolver(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     result = load_bot_only_womens().search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 @functools.lru_cache(maxsize=10000)
 def womens_resolver_labels(category: str) -> str:
-    # logger.debug(f"<<yellow>> start: {category=}")
+    # logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if mens_label := mens_resolver_labels(category):
@@ -314,7 +314,7 @@ def womens_resolver_labels(category: str) -> str:
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)
 
-    # logger.info(f"<<yellow>> end: {category=}, {result=}")
+    # logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

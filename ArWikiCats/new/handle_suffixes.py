@@ -83,7 +83,7 @@ def resolve_suffix_with_mapping_genders(
         The translated category label, or the result of the callback on the original
         category if no suffix matches.
     """
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = ""
 
@@ -102,7 +102,7 @@ def resolve_suffix_with_mapping_genders(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -114,7 +114,7 @@ def resolve_sport_category_suffix_with_mapping(
     format_key: str = "",
 ) -> str:
     """."""
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = ""
     key = ""

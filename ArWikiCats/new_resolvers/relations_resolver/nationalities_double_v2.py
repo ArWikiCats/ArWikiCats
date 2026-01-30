@@ -106,7 +106,7 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats_double_v2(category: str) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
         logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
@@ -119,7 +119,7 @@ def resolve_by_nats_double_v2(category: str) -> str:
 
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

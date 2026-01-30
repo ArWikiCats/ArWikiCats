@@ -326,13 +326,13 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _mens_resolver_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -348,7 +348,7 @@ label_mappings_ends = dict(
 
 @functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
@@ -361,7 +361,7 @@ def mens_resolver_labels(category: str) -> str:
         callback=_mens_resolver_labels,
         format_key="{}",
     )
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

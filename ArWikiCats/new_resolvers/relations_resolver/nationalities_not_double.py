@@ -87,7 +87,7 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def two_nationalities_but_not_double_resolver(category: str) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     # Handling special case: "television remakes of films"
     if category == "television remakes of films":
@@ -95,7 +95,7 @@ def two_nationalities_but_not_double_resolver(category: str) -> str:
 
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

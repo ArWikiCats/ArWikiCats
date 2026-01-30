@@ -46,7 +46,7 @@ def resolve_languages_labels(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_languages_labels_with_time(category: str) -> str:
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category)
 
     result = handle_year_at_first(
@@ -55,7 +55,7 @@ def resolve_languages_labels_with_time(category: str) -> str:
         result_format="{sub_result} في {arabic_time}",
     )
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

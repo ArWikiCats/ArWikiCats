@@ -398,7 +398,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
     Returns:
         str: The resolved Arabic sport label if found, otherwise `default`.
     """
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category)
 
     # if pre_defined_results.get(category):
@@ -417,7 +417,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
         category2 = category.replace("championships", "championship")
         result = unified_bot.search(category2)
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or default
 
 

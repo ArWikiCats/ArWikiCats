@@ -143,11 +143,11 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=1000)
 def resolve_sport_under_labels(category: str) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
 
-    logger.info(f"<<yellow>> end: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

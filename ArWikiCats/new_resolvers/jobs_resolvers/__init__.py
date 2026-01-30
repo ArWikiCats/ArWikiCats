@@ -25,7 +25,7 @@ def main_jobs_resolvers(normalized_category) -> str:
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying jobs_resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
         mens.mens_resolver_labels(normalized_category)
@@ -34,7 +34,7 @@ def main_jobs_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

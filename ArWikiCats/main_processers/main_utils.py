@@ -37,7 +37,7 @@ def _format_category_with_list_template(
     category_lab_or = category_lab
     list_of_cat_x = list_of_cat.split("{}")[0].strip()
 
-    logger.info(f"<<lightblue>> _format_category_with_list_template {category_lab=}, {list_of_cat=}, {list_of_cat_x=}")
+    logger.info(f"<<lightblue>> {category_lab=}, {list_of_cat=}, {list_of_cat_x=}")
 
     # Apply the template if the label doesn't already start with the prefix
     if not category_lab.startswith(list_of_cat_x) or list_of_cat_x == "":

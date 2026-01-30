@@ -91,13 +91,13 @@ def _load_bot() -> FormatData:
 
 @functools.lru_cache(maxsize=2048)
 def resolve_clubs_teams_leagues(name: str) -> str:
-    logger.debug(f"<<yellow>> resolve_clubs_teams_leagues {name=}")
+    logger.debug(f"<<yellow>> {name=}")
 
     _peoples_bot = _load_bot()
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info(f"<<yellow>> end: {name=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {name=}, {resolved_label=}")
     return resolved_label
 
 
