@@ -11,10 +11,10 @@ via set_translate_callback() which is called by the resolvers factory.
 """
 
 import functools
+import logging
 import re
 from typing import Callable, Optional, Pattern
 
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
 from ...translations.funcs import get_from_pf_keys2

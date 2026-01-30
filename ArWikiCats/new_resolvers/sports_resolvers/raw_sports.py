@@ -2,8 +2,8 @@
 """ """
 
 import functools
-
 import logging
+
 from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
 from .pre_defined import pre_defined_results

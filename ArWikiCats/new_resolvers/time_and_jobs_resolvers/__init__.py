@@ -5,8 +5,8 @@ This package provides specialized resolvers for categories like
 """
 
 import functools
-
 import logging
+
 from . import (
     year_job_origin_resolver,
     year_job_resolver,

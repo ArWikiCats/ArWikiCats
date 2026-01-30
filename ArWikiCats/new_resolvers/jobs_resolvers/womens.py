@@ -6,6 +6,7 @@ nationalities, and descriptors for women into idiomatic Arabic.
 
 import functools
 import logging
+
 from ...helps import len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,

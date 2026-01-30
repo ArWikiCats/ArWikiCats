@@ -4,9 +4,9 @@
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 

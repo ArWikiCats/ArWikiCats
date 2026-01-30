@@ -6,9 +6,11 @@ resolve their corresponding Arabic labels using internal processors.
 
 #
 from __future__ import annotations
+
 import logging
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
+
 from .main_processers.main_resolve import CategoryResult, resolve_label
 
 logger = logging.getLogger(__name__)

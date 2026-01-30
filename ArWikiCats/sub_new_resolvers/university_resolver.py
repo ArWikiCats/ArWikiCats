@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
 

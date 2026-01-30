@@ -5,9 +5,9 @@ and television series, often combined with geographic elements.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import TELEVISION_KEYS, Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time

@@ -4,9 +4,8 @@ This module defines blacklists and prefixes to identify categories that should
 not be processed or translated.
 """
 
-import re
-
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 

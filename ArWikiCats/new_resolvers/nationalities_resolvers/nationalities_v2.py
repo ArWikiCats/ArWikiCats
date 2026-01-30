@@ -4,8 +4,8 @@ TODO: use this instead of nats_women.py
 """
 
 import functools
-
 import logging
+
 from ...translations import (
     All_Nat,
     all_country_with_nat,

@@ -5,8 +5,8 @@ nationalities, often combined with occupations or time periods.
 """
 
 import functools
-
 import logging
+
 from . import (
     ministers_resolver,
     nationalities_time_v2,

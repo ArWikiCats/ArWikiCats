@@ -8,9 +8,9 @@ TODO:
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...translations import (
     Nat_women,
     film_keys_for_female,

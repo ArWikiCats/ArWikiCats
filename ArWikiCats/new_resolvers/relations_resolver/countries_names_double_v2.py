@@ -6,8 +6,8 @@ categories that mention relations/conflicts between two countries.
 """
 
 import functools
-
 import logging
+
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,

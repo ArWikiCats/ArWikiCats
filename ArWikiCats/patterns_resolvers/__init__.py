@@ -5,8 +5,8 @@ and translate categories with structured temporal or nationality components.
 """
 
 import functools
-
 import logging
+
 from . import (
     country_nat_pattern,
     country_time_pattern,

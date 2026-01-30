@@ -9,10 +9,10 @@ book-keeping logic.
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
-import logging
 from ..utils import open_json_file
 
 logger = logging.getLogger(__name__)

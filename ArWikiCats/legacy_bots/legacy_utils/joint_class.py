@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ """
 
+import logging
 from typing import Callable
 
-import logging
 from ...translations import (
     Nat_mens,
 )

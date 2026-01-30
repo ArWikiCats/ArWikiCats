@@ -5,9 +5,9 @@ nationalities, and genders into idiomatic Arabic.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from .utils import fix_keys

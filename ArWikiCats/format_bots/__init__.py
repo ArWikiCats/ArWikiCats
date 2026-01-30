@@ -4,9 +4,9 @@ This package provides functions to transform and normalize English Wikipedia
 category names before they are processed by the resolvers.
 """
 
+import logging
 import re
 
-import logging
 from .pf_keys import change_key_mappings_replacements
 
 logger = logging.getLogger(__name__)

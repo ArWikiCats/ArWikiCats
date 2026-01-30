@@ -7,8 +7,8 @@ bot (`yc_bot`) to handle the translation logic.
 """
 
 import functools
-
 import logging
+
 from ...translations import all_country_with_nat_ar
 from ...translations_formats import (
     MultiDataFormatterBaseYearV2,

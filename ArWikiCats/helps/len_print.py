@@ -6,6 +6,7 @@ used by various bots and optionally save this data to JSON files.
 """
 
 import json
+import logging
 import sys
 from pathlib import Path
 from typing import Any, List, Mapping, Union
@@ -13,7 +14,6 @@ from typing import Any, List, Mapping, Union
 from humanize import naturalsize
 
 from ..config import app_settings
-import logging
 
 logger = logging.getLogger(__name__)
 

@@ -26,9 +26,7 @@ def _load_pattern() -> re.Pattern:
     )
     _in_pattern = " |".join(map(re.escape, [n.lower() for n in _sorted_mapping]))
 
-    _reg_line_1_match = (
-        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*(?P<in>{_in_pattern}|)\s*(?P<country>.*|).*"
-    )
+    _reg_line_1_match = rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*(?P<in>{_in_pattern}|)\s*(?P<country>.*|).*"
     return re.compile(_reg_line_1_match, re.I)
 
 

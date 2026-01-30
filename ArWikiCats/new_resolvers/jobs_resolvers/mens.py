@@ -5,15 +5,15 @@ nationalities, and descriptors for men into idiomatic Arabic.
 """
 
 import functools
-import re
 import logging
+import re
+
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations import (
+from ...translations import (  # all_country_with_nat_ar,
     RELIGIOUS_KEYS_PP,
     All_Nat,
     all_country_with_nat,
-    # all_country_with_nat_ar,
     countries_en_as_nationality_keys,
     jobs_mens_data,
 )

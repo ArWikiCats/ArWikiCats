@@ -11,9 +11,9 @@ New resolvers for Arabic Wikipedia categories.
 from __future__ import annotations
 
 import functools
+import logging
 from typing import Callable
 
-import logging
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic

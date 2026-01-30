@@ -3,10 +3,11 @@ Logging configuration with colored output.
 """
 
 import functools
-import re
 import logging
+import re
 import sys
 from typing import Optional
+
 import colorlog
 
 
@@ -114,9 +115,11 @@ def format_colored_text(textm: str) -> str:
 
 def wrap_color_messages(format_message):
     """Wrap the color messages to include additional context."""
+
     def wrapper(record):
         # Add custom attributes or modify the record as needed
         return format_colored_text(format_message(record))
+
     return wrapper
 
 

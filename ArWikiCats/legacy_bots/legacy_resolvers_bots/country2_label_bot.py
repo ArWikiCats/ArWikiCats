@@ -7,11 +7,11 @@ The callback is set at runtime via `set_term_label_resolver()`.
 """
 
 import functools
+import logging
 import re
 from typing import Callable, Optional, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work

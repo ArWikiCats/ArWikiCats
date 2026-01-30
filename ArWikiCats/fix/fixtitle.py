@@ -8,10 +8,10 @@ localized for Arabic Wikipedia labels and rely on the constants defined in
 
 from __future__ import annotations
 
+import logging
 import re
 from typing import Iterable, Mapping
 
-import logging
 from .fixlists import (
     ENDING_REPLACEMENTS,
     REPLACEMENTS,

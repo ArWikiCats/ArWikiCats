@@ -13,8 +13,8 @@ result: `مسلسلات تلفزيونية غير أرجنتينية مبنية 
 """
 
 import functools
-
 import logging
+
 from ...translations import All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 

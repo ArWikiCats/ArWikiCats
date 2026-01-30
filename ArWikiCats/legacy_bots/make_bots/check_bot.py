@@ -8,9 +8,9 @@ from ..matables_bots.check_bot import check_key_new_players
 check_key_new_players(key)
 """
 
+import logging
 from typing import Dict, List, Set
 
-import logging
 from ...translations import Jobs_new, jobs_mens_data
 from .bot import players_new_keys
 

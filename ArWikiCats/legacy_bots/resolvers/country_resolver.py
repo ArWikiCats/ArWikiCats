@@ -12,11 +12,11 @@ or separator_based_resolver. Instead, it accepts callback functions for fallback
 from __future__ import annotations
 
 import functools
+import logging
 import re
 from typing import Callable, Optional
 
 from ...fix import fixtitle
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic

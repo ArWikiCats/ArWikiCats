@@ -8,9 +8,9 @@ countries_names_v2.py use countries names with nationalities
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only

@@ -12,8 +12,8 @@ TODO: use it instead of langs_w.py after adding
 """
 
 import functools
-
 import logging
+
 from ...new.handle_time_with_callback import handle_year_at_first
 from .resolve_languages import _resolve_languages_labels
 from .resolve_languages_films import resolve_films_languages_labels

@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import functools
-
 import logging
+
 from ...translations import US_STATES
 from ...translations_formats import FormatData
 

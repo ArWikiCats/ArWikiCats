@@ -4,9 +4,8 @@ This module provides functions to resolve categories by identifying suffixes
 (like "players" or "coaches") and applying gender-specific Arabic translations.
 """
 
-from typing import Dict, TypedDict
-
 import logging
+from typing import Dict, TypedDict
 
 logger = logging.getLogger(__name__)
 

@@ -5,9 +5,9 @@ geography, jobs, languages, nationalities, sports, and media.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from . import (
     SPORTS_KEYS_FOR_LABEL,
     Clubs_key_2,

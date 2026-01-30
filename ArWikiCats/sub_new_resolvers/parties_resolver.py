@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+
 from ..translations import PARTIES
 from ..translations_formats import FormatData
 

@@ -30,8 +30,8 @@ Target examples:
 """
 
 import functools
-
 import logging
+
 from .jobs_and_genders_resolver import genders_jobs_resolver
 from .sports_and_genders_resolver import genders_sports_resolver
 

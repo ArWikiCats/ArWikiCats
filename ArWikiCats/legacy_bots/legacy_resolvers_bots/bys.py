@@ -8,8 +8,8 @@ TODO: need refactoring
 from __future__ import annotations
 
 import functools
-
 import logging
+
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import People_key

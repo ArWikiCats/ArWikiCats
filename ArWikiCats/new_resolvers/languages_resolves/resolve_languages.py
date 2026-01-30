@@ -2,9 +2,9 @@
 """ """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,

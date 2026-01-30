@@ -4,10 +4,9 @@ Key-label mappings for generic mixed categories.
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Mapping
 from typing import Dict
-
-import logging
 
 logger = logging.getLogger(__name__)
 

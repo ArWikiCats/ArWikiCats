@@ -1,4 +1,3 @@
-
 from .Nationality import (
     All_Nat,
     Nat_men,

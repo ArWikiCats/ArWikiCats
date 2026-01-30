@@ -5,8 +5,8 @@ as well as religious occupations.
 """
 
 import functools
-
 import logging
+
 from . import mens, relegin_jobs_new, womens
 
 logger = logging.getLogger(__name__)

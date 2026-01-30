@@ -7,8 +7,9 @@ TODO: merge with sports_resolvers/nationalities_and_sports.py
 """
 
 import functools
-import re
 import logging
+import re
+
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, Nat_women

@@ -2,9 +2,9 @@
 from . import fax2
 """
 
+import logging
 from typing import Tuple
 
-import logging
 from .end_start_match import (
     footballers_get_endswith,
     to_get_endswith,

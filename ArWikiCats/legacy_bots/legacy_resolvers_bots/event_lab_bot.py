@@ -5,11 +5,11 @@ EventLab Bot - A class-based implementation to handle category labeling
 from __future__ import annotations
 
 import functools
+import logging
 from typing import Callable, Literal, Tuple
 
 from ...fix import fixtitle
 from ...format_bots import change_cat
-import logging
 from ...main_processers.main_utils import list_of_cat_func_foot_ballers, list_of_cat_func_new
 from ...translations.funcs import get_from_new_p17_final
 from .. import tmp_bot

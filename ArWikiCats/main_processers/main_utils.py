@@ -4,9 +4,8 @@ This module provides helper functions to wrap Arabic labels in common
 list-style templates (e.g., "لاعبو {}") with special handling for sports.
 """
 
-from typing import Tuple
-
 import logging
+from typing import Tuple
 
 logger = logging.getLogger(__name__)
 # Constants

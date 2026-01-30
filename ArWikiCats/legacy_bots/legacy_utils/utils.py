@@ -4,10 +4,9 @@ This module provides functions for processing and generating labels for country 
 """
 
 import functools
+import logging
 import re
 from typing import Tuple
-
-import logging
 
 logger = logging.getLogger(__name__)
 

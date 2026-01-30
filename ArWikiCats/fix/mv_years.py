@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import functools
-import re
-
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 # Pattern for matching years in Arabic text (including BCE dates and century/millennium references)

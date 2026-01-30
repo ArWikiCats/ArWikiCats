@@ -6,8 +6,8 @@ using population data from 2018 and other mapping tables.
 """
 
 import functools
-
 import logging
+
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations.funcs import _get_from_alias, open_json_file

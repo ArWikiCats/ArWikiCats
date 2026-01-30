@@ -1,8 +1,8 @@
 """ """
 
 import functools
-
 import logging
+
 from . import peoples_resolver
 
 logger = logging.getLogger(__name__)

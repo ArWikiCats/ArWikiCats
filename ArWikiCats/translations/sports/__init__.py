@@ -1,4 +1,3 @@
-
 from .cycling import BASE_CYCLING_EVENTS, CYCLING_TEMPLATES
 from .games_labs import SUMMER_WINTER_GAMES, SUMMER_WINTER_TABS
 from .Sport_key import (

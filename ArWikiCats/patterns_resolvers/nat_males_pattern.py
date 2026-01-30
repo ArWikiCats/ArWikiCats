@@ -6,9 +6,9 @@ bot to handle the translation logic.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ..translations import (
     RELIGIOUS_KEYS_PP,
     All_Nat,

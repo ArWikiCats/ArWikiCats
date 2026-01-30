@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ """
 
+import logging
 import re
 
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens

@@ -3,10 +3,10 @@
 Usage:
 """
 
+import logging
 import re
 from typing import Literal
 
-import logging
 from ...translations import Jobs_new
 from ...utils import check_key_in_tables_return_tuple
 from ..legacy_utils import Add_in_table, Keep_it_frist, add_in_to_country

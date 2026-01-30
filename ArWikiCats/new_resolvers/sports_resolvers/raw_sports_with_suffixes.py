@@ -2,8 +2,8 @@
 """ """
 
 import functools
-
 import logging
+
 from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,

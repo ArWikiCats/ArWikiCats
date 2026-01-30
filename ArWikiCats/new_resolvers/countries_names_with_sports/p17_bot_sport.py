@@ -5,8 +5,8 @@ TODO: merge with countries_names_sport_multi_v2.py
 """
 
 import functools
-
 import logging
+
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     SPORTS_KEYS_FOR_TEAM,

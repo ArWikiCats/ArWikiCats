@@ -5,8 +5,8 @@ English country-name → Arabic country-name.
 """
 
 import functools
-
 import logging
+
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 

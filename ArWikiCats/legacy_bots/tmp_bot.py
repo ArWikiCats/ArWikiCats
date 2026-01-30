@@ -7,8 +7,8 @@ on suffixes and prefixes.
 """
 
 import functools
-
 import logging
+
 from .common_resolver_chain import get_lab_for_country2
 from .data.mappings import combined_suffix_mappings, pp_start_with
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
