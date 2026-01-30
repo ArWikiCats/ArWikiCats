@@ -6,7 +6,6 @@ This module provides tests for MultiDataFormatterYearAndFrom class
 which combines year-based and "from" relation category translations.
 """
 
-
 from ArWikiCats.translations_formats.DataModel import FormatDataFrom
 from ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
 from ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from import (

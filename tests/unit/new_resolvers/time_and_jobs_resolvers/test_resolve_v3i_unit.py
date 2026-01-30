@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for MultiDataFormatterBase and MultiDataFormatterYearAndFrom with year-based translations."""
 
-
 import pytest
 
 from ArWikiCats.time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first

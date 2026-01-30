@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for v3i translations resolvers validating country, year, and combined formatters."""
+
 import pytest
 
 from ArWikiCats import resolve_label_ar

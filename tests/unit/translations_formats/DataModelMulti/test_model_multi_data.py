@@ -7,7 +7,6 @@ and MultiDataFormatterBaseYearV2 classes which combine two formatter instances
 for dual-element category translations.
 """
 
-
 from ArWikiCats.translations_formats.DataModel import FormatData, FormatDataV2, YearFormatData
 from ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
 from ArWikiCats.translations_formats.DataModelMulti.model_multi_data import (

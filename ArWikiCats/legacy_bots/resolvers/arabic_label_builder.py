@@ -2,6 +2,7 @@
 """
 Arabic Label Builder Module
 """
+
 import functools
 import logging
 import re
