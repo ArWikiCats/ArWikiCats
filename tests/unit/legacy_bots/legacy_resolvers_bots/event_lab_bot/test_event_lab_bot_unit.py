@@ -17,7 +17,7 @@ from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import (
     _finalize_category_label,
     _process_category_formatting,
     _resolve_via_chain,
-    event_Lab,
+    event_lab,
     event_label_work,
     translate_general_category_wrap,
 )
@@ -291,48 +291,48 @@ class TestProcessCategoryFormatting:
 
 
 # ---------------------------------------------------------------------------
-# Tests for event_Lab function
+# Tests for event_lab function
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.fast
 class TestEventLab:
-    """Tests for the event_Lab function (main entry point)."""
+    """Tests for the event_lab function (main entry point)."""
 
     def test_returns_string(self) -> None:
         """Should return a string."""
-        result = event_Lab("test")
+        result = event_lab("test")
         assert isinstance(result, str)
 
     def test_handles_empty_input(self) -> None:
         """Should handle empty input."""
-        result = event_Lab("")
+        result = event_lab("")
         assert isinstance(result, str)
 
     def test_replaces_underscores(self) -> None:
         """Should replace underscores with spaces."""
         # The function converts underscores to spaces internally
-        result1 = event_Lab("test_category")
-        result2 = event_Lab("test category")
+        result1 = event_lab("test_category")
+        result2 = event_lab("test category")
         # Both should produce similar results
         assert isinstance(result1, str)
         assert isinstance(result2, str)
 
     def test_lowercase_handling(self) -> None:
         """Should handle uppercase input by lowercasing."""
-        result1 = event_Lab("TEST")
-        result2 = event_Lab("test")
+        result1 = event_lab("TEST")
+        result2 = event_lab("test")
         # Should produce same result
         assert result1 == result2
 
     def test_people_category(self) -> None:
         """Should handle 'people' category."""
-        result = event_Lab("people")
+        result = event_lab("people")
         assert isinstance(result, str)
 
     def test_category_with_prefix(self) -> None:
         """Should handle input with category: prefix."""
-        result = event_Lab("category:test")
+        result = event_lab("category:test")
         assert isinstance(result, str)
 
 
@@ -343,7 +343,7 @@ class TestEventLab:
 
 @pytest.mark.fast
 class TestEventLabIntegration:
-    """Integration-style tests for event_Lab function."""
+    """Integration-style tests for event_lab function."""
 
     @pytest.mark.parametrize(
         "input_category",
@@ -355,7 +355,7 @@ class TestEventLabIntegration:
     )
     def test_people_variations(self, input_category: str) -> None:
         """Various forms of 'people' should be handled."""
-        result = event_Lab(input_category)
+        result = event_lab(input_category)
         assert isinstance(result, str)
 
     @pytest.mark.parametrize(
@@ -368,5 +368,5 @@ class TestEventLabIntegration:
     )
     def test_edge_cases(self, input_category: str) -> None:
         """Edge cases should not raise exceptions."""
-        result = event_Lab(input_category)
+        result = event_lab(input_category)
         assert isinstance(result, str)

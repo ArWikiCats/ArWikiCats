@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_Lab
+from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_lab
 
 data = {
     "category:air force navigational boxes": "تصنيف:صناديق تصفح قوات جوية",
@@ -37,22 +37,22 @@ data = {
 
 @pytest.mark.parametrize("text, expected", data.items(), ids=data.keys())
 def test_basic_cases(text: str, expected: str) -> None:
-    result = event_Lab(text)
+    result = event_lab(text)
     assert result == expected
 
 
 @pytest.mark.fast
 def test_event_lab() -> None:
     # Test with a basic input
-    result = event_Lab("test event")
+    result = event_lab("test event")
     assert isinstance(result, str)
 
     # Test with different input
-    result_various = event_Lab("sports event")
+    result_various = event_lab("sports event")
     assert isinstance(result_various, str)
 
     # Test with empty string
-    result_empty = event_Lab("")
+    result_empty = event_lab("")
     assert isinstance(result_empty, str)
 
 
@@ -63,7 +63,7 @@ def test_event_lab() -> None:
 
 @pytest.mark.fast
 def test_event_lab_direct_lab2() -> None:
-    result = event_Lab("Category:German footballers")
+    result = event_lab("Category:German footballers")
     assert result == "تصنيف:لاعبو كرة قدم ألمان"
 
 
@@ -74,7 +74,7 @@ def test_event_lab_direct_lab2() -> None:
 
 @pytest.mark.fast
 def test_event_lab_episodes_branch_with_seo_fallback() -> None:
-    result = event_Lab("Category:Game_of_Thrones_(season_1)_episodes")
+    result = event_lab("Category:Game_of_Thrones_(season_1)_episodes")
     assert result == "تصنيف:حلقات صراع العروش الموسم 1"
 
 
@@ -85,7 +85,7 @@ def test_event_lab_episodes_branch_with_seo_fallback() -> None:
 
 @pytest.mark.fast
 def test_event_lab_templates_branch_with_seo_fallback() -> None:
-    result = event_Lab("Category:Association_football_templates")
+    result = event_lab("Category:Association_football_templates")
 
     assert result == "تصنيف:قوالب كرة القدم"
 
@@ -97,7 +97,7 @@ def test_event_lab_templates_branch_with_seo_fallback() -> None:
 
 @pytest.mark.fast
 def test_event_lab_footballers_country_special_case() -> None:
-    result = event_Lab("Category:Ethiopian_basketball_players")
+    result = event_lab("Category:Ethiopian_basketball_players")
 
     assert result == "تصنيف:لاعبو كرة سلة إثيوبيون"
 
@@ -109,7 +109,7 @@ def test_event_lab_footballers_country_special_case() -> None:
 
 @pytest.mark.fast
 def test_event_lab_general_translate_category_fallback() -> None:
-    result = event_Lab("Unknown Category For Testing")
+    result = event_lab("Unknown Category For Testing")
 
     assert result == ""
 
@@ -121,7 +121,7 @@ def test_event_lab_general_translate_category_fallback() -> None:
 
 @pytest.mark.fast
 def test_event_lab_cricketers_country_mapping() -> None:
-    result = event_Lab("Category:Indian cricketers")
+    result = event_lab("Category:Indian cricketers")
 
     # Expected: "لاعبو كريكت من الهند" with تصنيف: prefix
     assert result == "تصنيف:لاعبو كريكت هنود"

@@ -24,7 +24,7 @@ The `legacy_bots` package implements a **chain-of-responsibility pattern** for t
 │  1. country_bot.event2_d2         [circular_dependency/]       │
 │  2. with_years_bot.wrap_try_with_years  [legacy_resolvers_bots/]│
 │  3. year_or_typeo.label_for_startwith_year_or_typeo            │
-│  4. event_lab_bot.event_Lab                                     │
+│  4. event_lab_bot.event_lab                                     │
 │  5. translate_general_category_wrap (sub + general)             │
 └─────────────────────────────────────────────────────────────────┘
                               │
@@ -646,7 +646,7 @@ RESOLVER_PIPELINE: list[Resolver] = [
     country_bot.event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
-    event_lab_bot.event_Lab,
+    event_lab_bot.event_lab,
     translate_general_category_wrap,
 ]
 

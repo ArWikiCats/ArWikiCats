@@ -8,7 +8,7 @@
   - Tests for `event_label_work` function
   - Tests for `EventLabResolver` class methods
   - Tests for `_finalize_category_label` and `_process_category_formatting` functions
-  - Tests for `event_Lab` main entry point
+  - Tests for `event_lab` main entry point
   - Integration-style tests for various input combinations
 
 * **Unit tests for mk3.py:**

@@ -9,7 +9,6 @@ from .all_keys2 import (
 from .all_keys3 import (
     ALBUMS_TYPE,
     FILM_PRODUCTION_COMPANY,
-    Ambassadors_tab,
     pop_final_3,
 )
 from .all_keys4 import INTER_FEDS_LOWER, Clubs_key_2, new2019
@@ -33,7 +32,6 @@ __all__ = [
     "keys_of_without_in",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
-    "Ambassadors_tab",
     "INTER_FEDS_LOWER",
     "Clubs_key_2",
     "BASE_POP_FINAL_5",

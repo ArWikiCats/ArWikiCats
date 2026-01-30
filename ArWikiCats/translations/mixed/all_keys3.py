@@ -377,16 +377,12 @@ def build_pop_final_3() -> dict[str, str]:
 
 pop_final_3: dict[str, str] = build_pop_final_3()
 
-# TODO: delete Ambassadors_tab
-Ambassadors_tab: dict[str, str] = {}
-
 len_print.data_len(
     "all_keys3.py",
     {
         "pop_final_3": pop_final_3,
         "ALBUMS_TYPE": ALBUMS_TYPE,
         "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
-        "Ambassadors_tab": Ambassadors_tab,
         "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
     },
 )
@@ -395,6 +391,5 @@ __all__ = [
     "pop_final_3",
     "ALBUMS_TYPE",
     "FILM_PRODUCTION_COMPANY",
-    "Ambassadors_tab",
     "BUSINESSPEOPLE_INDUSTRIES",
 ]

@@ -51,7 +51,7 @@ initialize_resolvers()
 # 1. event2_d2 - Country and event-based resolution
 # 2. with_years_bot.wrap_try_with_years - Year-based category resolution
 # 3. year_or_typeo.label_for_startwith_year_or_typeo - Year prefix patterns and typo handling
-# 4. event_lab_bot.event_Lab - General event labeling
+# 4. event_lab_bot.event_lab - General event labeling
 # 5. translate_general_category_wrap - Catch-all general resolution (lowest priority)
 #
 # To add a new resolver:
@@ -67,7 +67,7 @@ RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
-    event_lab_bot.event_Lab,
+    event_lab_bot.event_lab,
     translate_general_category_wrap,
 ]
 

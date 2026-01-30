@@ -63,7 +63,7 @@ The system attempts resolvers in a specific order, stopping at the first success
         ↓ (if no match)
 6. event2_new2()                              # Event2 bot
         ↓ (if no match)
-7. event_Lab()                               # Event Lab bot
+7. event_lab()                               # Event Lab bot
         ↓ (if no match)
 8. translate_general_category()              # General translation
 ```
