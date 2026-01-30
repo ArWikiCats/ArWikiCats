@@ -119,7 +119,7 @@ def add_the_in(
             if (in_str.strip() == PREPOSITION_IN or in_str.strip() == PREPOSITION_AT) or in_tables:
                 country_label = f"{country_label}{ARABIC_PREPOSITION_FI}"
                 add_in_done = True
-                logger.info(">>> Add في in add_the_in")
+                logger.info(">>> Add في in ")
                 cat_test = cat_test.replace(in_str, "")
 
         arlabel = country_label + suf + arlabel
@@ -206,7 +206,7 @@ def added_in_new(
 
     arlabel = country_label + suf + arlabel2
 
-    logger.info("a<<lightblue>>>3265>>>arlabel = country_label + suf +  arlabel2")
+    logger.info("a<<lightblue>>>3265>>>arlabel = country_label + suf + arlabel2")
     logger.info(f"a<<lightblue>>>3265>>>{arlabel}")
 
     return arlabel, add_in, add_in_done
@@ -266,13 +266,13 @@ def new_func_mk2(
     # ---------------------
     in_table = check_country_in_tables(country)
 
-    logger.info(f"> new_func_mk2(): {country=}, {in_table=}, {arlabel=}")
+    logger.info(f"> (): {country=}, {in_table=}, {arlabel=}")
 
     add_in_done, arlabel, cat_test = add_the_in(
         in_table, country, arlabel, suf, in_str, typeo, year_labe, country_label, cat_test
     )
 
-    logger.info(f"> new_func_mk2(): {year_labe=}, {arlabel=}")
+    logger.info(f"> (): {year_labe=}, {arlabel=}")
 
     # ---------------------
     # phase 2
@@ -290,5 +290,5 @@ def new_func_mk2(
     logger.info(f"a<<lightblue>>>>>> p:{country_label}, {year_labe=}, {category=}")
     logger.info(f"a<<lightblue>>>>>> {arlabel=}")
 
-    logger.info("------- end > new_func_mk2() < --------")
+    logger.info("------- end > () < --------")
     return cat_test, arlabel

@@ -116,7 +116,7 @@ def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
             continue
         new_keys.setdefault(trimmed_key, value)
 
-    # logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    # logger.debug(f">> () Added {len(new_keys)} entries without 'the ' prefix.")
     return new_keys
 
 
@@ -170,7 +170,7 @@ def _build_country_label_index(
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,  # 1424
     }
     for _, mapping in to_update.items():
-        # logger.debug(f">> _build_country_label_index() Updating labels for {na}, entries: {len(mapping)}")
+        # logger.debug(f">> () Updating labels for {na}, entries: {len(mapping)}")
         update_with_lowercased(label_index, mapping)
 
     label_index.update(  # Specific overrides used by downstream consumers.

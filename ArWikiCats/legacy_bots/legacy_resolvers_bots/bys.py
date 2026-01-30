@@ -110,7 +110,7 @@ def get_by_label(category: str) -> str:
         return ""
 
     label = ""
-    logger.info(f"<<lightyellow>>>>get_by_label {category=}")
+    logger.info(f"<<lightyellow>>>> {category=}")
 
     match = BY_MATCH_PATTERN.match(category)
     if not match:
@@ -129,7 +129,7 @@ def get_by_label(category: str) -> str:
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
-        logger.info(f"<<lightyellow>>>>get_by_label lab {label=}")
+        logger.info(f"<<lightyellow>>>> lab {label=}")
 
     return label
 

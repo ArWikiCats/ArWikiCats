@@ -22,7 +22,7 @@ def fix_keys(category: str) -> str:
         category = category.replace(old, new)
 
     category = REGEX_WOMENS.sub("female", category)
-    logger.debug(f"fix_keys: {original_category} -> {category}")
+    logger.debug(f": {original_category} -> {category}")
     return category.strip()
 
 

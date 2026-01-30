@@ -181,7 +181,7 @@ def resolve_v1(category: str) -> str:
     all_country_labels = _load_all_country_labels_v1()
     if category in all_country_labels:
         # NOTE: only country key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_v1: one country key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one country key only {category=}, [result=]")
         return ""
 
     result = double_bot_v1().search_all_category(category)
@@ -206,7 +206,7 @@ def resolve_v2(category: str) -> str:
     nat_data = _load_all_country_labels_v2()
     if category in nat_data:
         # NOTE: only nationality key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_v2: one nationality key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
         return ""
 
     result = double_bot_v2().search_all_category(category)
@@ -219,7 +219,7 @@ def resolve_countries_names_double(category: str) -> str:
     # logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_countries_names_double: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = resolve_v2(category) or resolve_v1(category)

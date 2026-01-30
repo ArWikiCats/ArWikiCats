@@ -38,11 +38,11 @@ def get_parties_lab(party: str) -> str:
     """
 
     normalized_party = party.strip()
-    logger.debug(f"get_parties_lab {party=}")
+    logger.debug(f" {party=}")
 
     # Try FormatData first
     label = _parties_bot.search(normalized_party)
-    logger.info(f"get_parties_lab {party=}, {label=}")
+    logger.info(f" {party=}, {label=}")
 
     return label
 

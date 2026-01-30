@@ -31,18 +31,18 @@ formatted_data = {
 def match_key_callback(text: str) -> str:
     orgtext = text
     text = text.replace("{game} ", "")
-    logger.debug(f" match_key_callback: processed {orgtext=} into {text=}")
+    logger.debug(f" : processed {orgtext=} into {text=}")
     return text.strip()
 
 
 def get_game_label(text: str) -> str:
     label = medalists_data.get(text.lower(), "")
-    logger.debug(f" get_game_label: for {text=} found {label=}")
+    logger.debug(f" : for {text=} found {label=}")
     return label
 
 
 def match_game_key(category_lower: str) -> str:
-    logger.debug(f" match_game_key: category_lower: {category_lower}")
+    logger.debug(f" : category_lower: {category_lower}")
     for sport_prefix, sport_label in medalists_data.items():
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):

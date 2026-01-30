@@ -109,12 +109,12 @@ def resolve_by_nats_double_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     if category in nats_data:
         # NOTE: only nationality key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: one nationality key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
         return ""
 
     nat_bot = double_bot()

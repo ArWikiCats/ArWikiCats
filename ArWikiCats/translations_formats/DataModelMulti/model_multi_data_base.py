@@ -219,7 +219,7 @@ class MultiDataFormatterBaseHelpers:
         # category = Yemeni football championships
         template_data = self.normalize_both_new(category)
 
-        logger.debug(f">>>create_label {template_data.nat_key=}, {template_data.other_key=}")
+        logger.debug(f">>> {template_data.nat_key=}, {template_data.other_key=}")
         # print(f"{template_data.template_key_first=}, {template_data.template_key=}\n"*20)
 
         if not template_data.nat_key or not template_data.other_key:
@@ -228,25 +228,25 @@ class MultiDataFormatterBaseHelpers:
         template_ar_first = self.country_bot.get_template_ar(template_data.template_key_first)
         template_ar = self.country_bot.get_template_ar(template_data.template_key)
 
-        logger.debug(f">>>create_label {template_ar=}, {template_ar_first=}")
+        logger.debug(f">>> {template_ar=}, {template_ar_first=}")
 
         if self.search_first_part and template_ar_first:
             return self.country_bot.search(category)
 
         if not template_ar:
-            logger.debug(">>>create_label No template found")
+            logger.debug(">>> No template found")
             return ""
         # Get Arabic equivalents
         country_ar = self.country_bot.get_key_label(template_data.nat_key)
         other_ar = self.other_bot.get_key_label(template_data.other_key)
-        logger.debug(f">>>create_label {country_ar=}, {other_ar=}")
+        logger.debug(f">>> {country_ar=}, {other_ar=}")
         if not country_ar or not other_ar:
             return ""
 
         # Replace placeholders
         label = self.replace_placeholders(template_ar, country_ar, other_ar)
 
-        logger.debug(f">>>create_label Translated {category=} → {label=}")
+        logger.debug(f">>> Translated {category=} → {label=}")
 
         return label
 
@@ -334,7 +334,7 @@ class MultiDataFormatterBaseHelpers:
             str: The localized label for the category, or an empty string if no valid label is found or placeholder tokens remain.
         """
         logger.debug("--" * 5)
-        logger.debug(">> search_all_category start")
+        logger.debug(">> start")
 
         normalized_category = category.lower().replace("category:", "")
         result = self.search_all(normalized_category)
@@ -342,5 +342,5 @@ class MultiDataFormatterBaseHelpers:
         result = self.prepend_arabic_category_prefix(category, result)
 
         result = self.check_placeholders(category, result)
-        logger.debug(">> search_all_category end")
+        logger.debug(">> end")
         return result

@@ -126,7 +126,7 @@ class FormatData(FormatDataBase):
         Returns:
             str: The label with the value placeholder replaced by `value`.
         """
-        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
+        logger.debug(f"!!!! : {self.value_placeholder=}, {label=}, {value=}")
         # Replace placeholder
         return label.replace(self.value_placeholder, value)
 

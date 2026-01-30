@@ -261,7 +261,7 @@ def _load_jobs_data() -> dict[str, str]:
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
-        logger.warning(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f" mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data.update(
         {
@@ -352,7 +352,7 @@ def mens_resolver_labels(category: str) -> str:
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = _mens_resolver_labels(category) or resolve_sport_category_suffix_with_mapping(

@@ -28,7 +28,7 @@ def all_patterns_resolvers(category: str) -> str:
     Returns:
         str: The resolved category label, or an empty string if no pattern matches.
     """
-    logger.debug(f">> all_patterns_resolvers: {category}")
+    logger.debug(f">> : {category}")
     category_lab = (
         country_time_pattern.resolve_country_time_pattern(category)
         or nat_males_pattern.resolve_nat_males_pattern(category)
@@ -36,5 +36,5 @@ def all_patterns_resolvers(category: str) -> str:
         or country_nat_pattern.resolve_country_nat_pattern(category)
         or ""
     )
-    logger.debug(f"<< all_patterns_resolvers: {category} => {category_lab}")
+    logger.debug(f"<< : {category} => {category_lab}")
     return category_lab

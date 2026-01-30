@@ -134,7 +134,7 @@ def change_cat(cat_orginal: str) -> str:
 
     # Log changes if any
     if category != cat_orginal:
-        logger.info(f'change_cat to :"{category}", orginal: {cat_orginal}.')
+        logger.info(f' to :"{category}", orginal: {cat_orginal}.')
 
     return category
 

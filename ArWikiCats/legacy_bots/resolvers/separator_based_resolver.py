@@ -45,7 +45,7 @@ def work_separator_names(
     if not separator:
         return ""
 
-    logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
+    logger.info(f'<<lightblue>>>>>> : separator:"{separator_name}":"{separator}" in category ')
     arlabel = find_ar_label(category, separator, cate_test=category)
 
     if not arlabel:

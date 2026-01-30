@@ -51,7 +51,7 @@ def check_key_new_players(key: str) -> bool:
     """
     key_lower = key.lower()
     result = any(key in table or key_lower in table for table in set_tables)
-    logger.info(f"check_key_new_players [{key}] == {result}")
+    logger.info(f" [{key}] == {result}")
     return result
 
 

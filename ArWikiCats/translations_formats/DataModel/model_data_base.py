@@ -143,16 +143,16 @@ class FormatDataBase:
             return ""
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
-        logger.debug(f">!> match_key: {normalized_category=}")
+        logger.debug(f">!> : {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
-            logger.debug(f">>!!>> match_key: found in data_list_ci {normalized_category=}")
+            logger.debug(f">>!!>> : found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
 
         match = self.pattern.search(f" {normalized_category} ")
         result = match.group(1).lower() if match else ""
-        logger.debug(f"==== match_key {result=}")
+        logger.debug(f"==== {result=}")
         return result
 
     def handle_texts_before_after(self, normalized: str) -> str:
@@ -168,11 +168,11 @@ class FormatDataBase:
         if not self.text_before and not self.text_after:
             return normalized
 
-        logger.debug(f"handle_texts_before_after: {normalized=}")
+        logger.debug(f": {normalized=}")
         # no need for further processing
         # (text_before="the ") but key: ("the {nat_en} actors") already in formatted_data_ci so no need to replace
         if self.formatted_data_ci.get(normalized.strip(), ""):
-            logger.debug(f"handle_texts_before_after: found directly {normalized.strip()=} in formatted_data_ci")
+            logger.debug(f": found directly {normalized.strip()=} in formatted_data_ci")
             return normalized
 
         if self.text_before:
@@ -263,8 +263,8 @@ class FormatDataBase:
 
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
-        logger.debug("$$$ start _search(): ")
-        logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
+        logger.debug("$$$ start (): ")
+        logger.debug(f"++++++++ {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):
             return self.formatted_data_ci[category]

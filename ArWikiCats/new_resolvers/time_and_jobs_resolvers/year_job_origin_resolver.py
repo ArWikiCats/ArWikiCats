@@ -83,25 +83,25 @@ def get_label_new(text: str) -> str:
     """Get the Arabic label for a 'job from country' category."""
     text = normalize_text(text)
     match = FROM_REGEX.match(text)
-    logger.debug(f"get_label_new: {text=}")
+    logger.debug(f": {text=}")
 
     if not match:
-        logger.debug(f"get_label_new: no match: {text=}")
+        logger.debug(f": no match: {text=}")
         return ""
 
     job_part = match.group(1)
     from_part = match.group(2)
-    logger.debug(f"get_label_new: {job_part=}, {from_part=}")
+    logger.debug(f": {job_part=}, {from_part=}")
 
     job_label = get_job_label(job_part)
-    logger.debug(f"get_label_new: {job_part=}, {job_label=}")
+    logger.debug(f": {job_part=}, {job_label=}")
 
     from_label = get_from_label(from_part)
 
     if not from_label and "-" in from_part:
         from_label = get_from_label(from_part.replace("-", " "))
 
-    logger.debug(f"get_label_new: {from_part=}, {from_label=}")
+    logger.debug(f": {from_part=}, {from_label=}")
     min_word = "من" if job_label != "وفيات" else "بسبب"
     if job_label and from_label:
         return f"{job_label} {min_word} {from_label}"
@@ -157,7 +157,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
     logger.debug(f"<<yellow>> start {category=}")
     if not FROM_REGEX.match(category):
-        logger.debug(f"<<yellow>> skip resolve_year_job_from_countries: {category=} not FROM_REGEX.match(category)")
+        logger.debug(f"<<yellow>> skip : {category=} not FROM_REGEX.match(category)")
         return ""
 
     category = normalize_text(category)

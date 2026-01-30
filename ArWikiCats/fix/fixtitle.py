@@ -288,7 +288,7 @@ def fixlabel(label_old: str, en: str = "") -> str:
         The normalized label string. An empty string indicates that the label
         was rejected by one of the validation steps.
     """
-    logger.debug(f"fixlabel: Starting with label_old: {label_old=}| {en=}")
+    logger.debug(f": Starting with label_old: {label_old=}| {en=}")
     original_label = label_old
     letters_regex = "[a-z]"
     if re.sub(letters_regex, "", label_old, flags=re.IGNORECASE) != label_old:

@@ -701,7 +701,7 @@ def resolve_by_nats(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
     category = fix_keys(category)
     nat_bot = _load_bot()

@@ -54,7 +54,7 @@ def work_peoples(name: str) -> str:
     logger.debug(f"<<yellow>> {name=}")
 
     if label := People_key.get(name):
-        logger.info(f"<<yellow>> end work_peoples direct hit {name=}, {label=}")
+        logger.info(f"<<yellow>> end direct hit {name=}, {label=}")
         return label
 
     _peoples_bot = _load_bot()

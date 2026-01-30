@@ -112,13 +112,13 @@ def all_new_resolvers(category: str) -> str:
     Returns:
         str: The resolved category label, or empty string if not resolved.
     """
-    logger.info(f"<<purple>> all_new_resolvers: {category}")
+    logger.info(f"<<purple>> : {category}")
 
     for name, resolver, _ in _RESOLVER_CHAIN:
         result = resolver(category)
         if result:
-            logger.info(f"<<purple>> all_new_resolvers: {category} => {result} via {name}")
+            logger.info(f"<<purple>> : {category} => {result} via {name}")
             return result
 
-    logger.debug(f"<<purple>> all_new_resolvers: {category} => no match")
+    logger.debug(f"<<purple>> : {category} => no match")
     return ""

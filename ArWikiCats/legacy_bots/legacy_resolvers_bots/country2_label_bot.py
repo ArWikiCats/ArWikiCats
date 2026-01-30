@@ -334,7 +334,7 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
     separator = get_separator(country)
 
     if not separator:
-        logger.info(f">>>> country_2_title_work <<red>> {separator=}")
+        logger.info(f">>>> <<red>> {separator=}")
         return ""
 
     part_1, part_2 = split_text_by_separator(separator, country)

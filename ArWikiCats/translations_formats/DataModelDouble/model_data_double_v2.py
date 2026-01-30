@@ -118,8 +118,8 @@ class FormatDataDoubleV2(FormatDataBase):
         Returns:
             str: The formatted label produced by applying the matched template to the resolved key label, or an empty string if no matching key, label, or template is found.
         """
-        logger.debug("$$$ start _search(): ")
-        logger.debug(f"++++++++ _search {self.__class__.__name__} ++++++++ ")
+        logger.debug("$$$ start (): ")
+        logger.debug(f"++++++++ {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):
             return self.formatted_data_ci[category]
@@ -185,11 +185,11 @@ class FormatDataDoubleV2(FormatDataBase):
 
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
-        logger.debug(f">!> match_key: {normalized_category=}")
+        logger.debug(f">!> : {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
-            logger.debug(f">>!!>> match_key: found in data_list_ci {normalized_category=}")
+            logger.debug(f">>!!>> : found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
 
         match = self.pattern_double.search(f" {normalized_category} ")
@@ -199,14 +199,14 @@ class FormatDataDoubleV2(FormatDataBase):
             second_key = match.group(3).lower()
             result = f"{first_key}{splitter}{second_key}"
 
-            logger.debug(f">!> match_key: {first_key=}, {second_key=}")
-            logger.debug(f">!> match_key: {result=}")
+            logger.debug(f">!> : {first_key=}, {second_key=}")
+            logger.debug(f">!> : {result=}")
             self.keys_to_split[result] = [first_key, second_key]
             return result
 
         match2 = self.pattern.search(f" {normalized_category} ")
         result = match2.group(1).lower() if match2 else ""
-        logger.debug(f"==== match_key {result=}")
+        logger.debug(f"==== {result=}")
 
         return result
 
@@ -221,11 +221,11 @@ class FormatDataDoubleV2(FormatDataBase):
         Returns:
                 str: The template with placeholders replaced by their corresponding values, trimmed of surrounding whitespace.
         """
-        logger.debug(f"[] apply_pattern_replacement: {template_label=}, ")
-        logger.debug(f"[] apply_pattern_replacement: {sport_label=}, ")
+        logger.debug(f"[] : {template_label=}, ")
+        logger.debug(f"[] : {sport_label=}, ")
 
         if not isinstance(sport_label, dict):
-            logger.error("===> apply_pattern_replacement: sport_label not dict..")
+            logger.error("===> : sport_label not dict..")
             return template_label
 
         final_label = template_label
@@ -256,16 +256,16 @@ class FormatDataDoubleV2(FormatDataBase):
         second_label = self.data_list_ci.get(part2)
 
         if not first_label or not second_label:
-            logger.debug(f">>> create_label_from_keys: missing label for {part1=}, {part2=}")
+            logger.debug(f">>> : missing label for {part1=}, {part2=}")
             return ""
 
         if not isinstance(first_label, dict) or not isinstance(second_label, dict):
-            logger.debug(f">>> create_label_from_keys: non-dict label for {part1=}, {part2=}")
+            logger.debug(f">>> : non-dict label for {part1=}, {part2=}")
             return ""
 
         keys_in_2_parts = list(first_label.keys()) + list(second_label.keys())
 
-        logger.debug(f"!!! create_label_from_keys: found label for {part1=}, {part2=}")
+        logger.debug(f"!!! : found label for {part1=}, {part2=}")
 
         compound_data = {}
 
@@ -275,7 +275,7 @@ class FormatDataDoubleV2(FormatDataBase):
             second_lab = second_label.get(key, "")
             if first_lab and second_lab:
                 label = f"{first_lab}{self.ar_joiner}{second_lab}"
-                # logger.debug(f"!!! create_label_from_keys: label: {label}")
+                # logger.debug(f"!!! : label: {label}")
 
                 if part1 in self.put_label_last and part2 not in self.put_label_last:
                     label = f"{second_lab}{self.ar_joiner}{first_lab}"
@@ -296,19 +296,19 @@ class FormatDataDoubleV2(FormatDataBase):
         Returns:
             dict[str, str]: Mapping of attribute keys to Arabic label strings if found; empty string otherwise.
         """
-        logger.debug(f"@@ get_key_label: {sport_key=}")
+        logger.debug(f"@@ : {sport_key=}")
 
         result = self.data_list_ci.get(sport_key)
         if result:
             return result
 
         if self.search_multi_cache.get(sport_key.lower()):
-            logger.debug(f"@@ get_key_label: found in search_multi_cache {sport_key=}")
+            logger.debug(f"@@ : found in search_multi_cache {sport_key=}")
             return self.search_multi_cache[sport_key.lower()]
 
         if sport_key in self.keys_to_split:
             part1, part2 = self.keys_to_split[sport_key]
-            logger.debug(f"@@ get_key_label: found in keys_to_split {sport_key=}")
+            logger.debug(f"@@ : found in keys_to_split {sport_key=}")
             return self.create_label_from_keys(part1, part2)
 
         return ""
@@ -320,7 +320,7 @@ class FormatDataDoubleV2(FormatDataBase):
         @param value: Mapping of placeholder names to replacement strings; keys are placeholder names (without braces). If `value` is not a mapping, the label is returned unchanged.
         @returns: The label with each `{key}` replaced by its corresponding string from `value`; unchanged if no replacements apply.
         """
-        logger.debug(f"@@ replace_value_placeholder: {label=}, {value=}")
+        logger.debug(f"@@ : {label=}, {value=}")
 
         if not isinstance(value, dict):
             return label

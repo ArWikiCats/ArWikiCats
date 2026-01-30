@@ -131,7 +131,7 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end resolve_sport_category_suffix_with_mapping({key=}), {category=}, {result=})")
+    logger.info(f"<<yellow>> end ({key=}), {category=}, {result=})")
     return result
 
 

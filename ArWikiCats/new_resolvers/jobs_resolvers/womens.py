@@ -192,7 +192,7 @@ def _load_jobs_data() -> dict[str, str]:
     data = {x: {"ar_job": v} for x, v in jobs_womens_data.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_womens_data.keys()) - set(data.keys()))
     if len_diff:
-        logger.warning(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f" womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     # data.update({x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()})
 
@@ -254,7 +254,7 @@ def load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=1)
 def load_bot_only_womens() -> MultiDataFormatterBaseV2:
     jobs_data = {x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()}
-    logger.debug(f"load_bot_only_womens: {len(jobs_data):,}")
+    logger.debug(f": {len(jobs_data):,}")
 
     formatted_data, formatted_data_womens_jobs = _load_formatted_data()
     logger.debug(f"_load_formatted_data formatted_data_womens_jobs: {len(formatted_data_womens_jobs):,}")
@@ -305,11 +305,11 @@ def womens_resolver_labels(category: str) -> str:
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if mens_label := mens_resolver_labels(category):
-        logger.info(f"<<yellow>> skip womens_resolver_labels mens found: {category=}, {mens_label=}")
+        logger.info(f"<<yellow>> skip mens found: {category=}, {mens_label=}")
         return ""
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip womens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)

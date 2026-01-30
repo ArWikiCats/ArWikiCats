@@ -88,7 +88,7 @@ def Get_country2(country: str) -> str:
     """
 
     country = country.lower().strip()
-    logger.info(f'>> Get_country2 "{country}":')
+    logger.info(f'>> "{country}":')
 
     resolved_label = (
         country_2_title_work(country, with_years=True)
@@ -104,7 +104,7 @@ def Get_country2(country: str) -> str:
 
     resolved_label = " ".join(resolved_label.strip().split())
 
-    logger.info(f'>> Get_country2 "{country}": cnt_la: {resolved_label}')
+    logger.info(f'>> "{country}": cnt_la: {resolved_label}')
 
     return resolved_label
 
@@ -170,7 +170,7 @@ def check_historical_prefixes(country: str) -> str:
                 resolved_label = prefix_template.format(remainder_label)
                 if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
                     resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                logger.info(f'>>>>>> cdcdc new cnt_la  "{resolved_label}" ')
+                logger.info(f'>>>>>> cdcdc new cnt_la "{resolved_label}" ')
                 return resolved_label
     return ""
 
@@ -203,7 +203,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         """
         country = country.lower()
 
-        logger.debug(">> ----------------- get_country_label start ----------------- ")
+        logger.debug(">> ----------------- start ----------------- ")
         logger.debug(f"<<yellow>> start {country=}")
 
         resolved_label = self._check_basic_lookups(country)
@@ -262,7 +262,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         Returns:
             str: The resolved Arabic label, or an empty string if no resolution is found.
         """
-        logger.info(f'fetch_country_term_label {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
+        logger.info(f' {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
 
         # Check for numeric/empty terms
         test_numeric = re.sub(r"\d+", "", term_lower.strip())
@@ -294,7 +294,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             term_label = self._handle_type_lab_logic(term_lower, separator)
 
         if term_label:
-            logger.info(f"fetch_country_term_label {term_label=} ")
+            logger.info(f" {term_label=} ")
         elif separator.strip() == "for" and term_lower.startswith("for "):
             return self.fetch_country_term_label(term_lower[len("for ") :], "", lab_type=lab_type)
 
