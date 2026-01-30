@@ -10,11 +10,15 @@ Architecture Note:
 """
 
 from __future__ import annotations
-from .resolvers import event2_d2, initialize_resolvers, translate_general_category_wrap
-from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 import functools
 from typing import Callable, Protocol
+
+# Import other legacy resolvers that are not part of the circular dependency
+from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
+
+# Import from the new resolvers package (no circular dependencies)
+from .resolvers import event2_d2, initialize_resolvers, translate_general_category_wrap
 
 
 class Resolver(Protocol):
@@ -32,10 +36,6 @@ class Resolver(Protocol):
         """
         ...
 
-
-# Import other legacy resolvers that are not part of the circular dependency
-
-# Import from the new resolvers package (no circular dependencies)
 
 # Initialize the resolver callbacks after all modules are loaded
 initialize_resolvers()

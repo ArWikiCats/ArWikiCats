@@ -17,7 +17,7 @@ from ..common_resolver_chain import get_con_label, get_type_lab
 from ..legacy_resolvers_bots import bys, with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
-from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
+from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country  # , split_text_by_separator
 from ..make_bots import check_key_new_players
 from . import country_resolver
 
