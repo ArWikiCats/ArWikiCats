@@ -133,7 +133,7 @@ def fix_keys(category: str) -> str:
 
 def wrap_team_xo_normal_2025_with_ends(category) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start wrap_team_xo_normal_2025_with_ends: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
 
     result = pre_defined_results.get(category) or resolve_sport_label_unified(category)
 
@@ -153,7 +153,7 @@ def wrap_team_xo_normal_2025_with_ends(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result
 
 

@@ -127,13 +127,13 @@ def _job_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=10000)
 def genders_jobs_resolver(category: str) -> str:
     normalized_category = fix_keys(category)
-    logger.debug(f"<<yellow>> start genders_jobs_resolver: {normalized_category=}")
+    logger.debug(f"<<yellow>> start: {normalized_category=}")
 
     job_bot = _job_bot()
     result = job_bot.search_all_other_first(normalized_category)
     result = job_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info(f"<<yellow>> end genders_jobs_resolver: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
 
     return result
 

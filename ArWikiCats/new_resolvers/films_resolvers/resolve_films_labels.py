@@ -299,11 +299,11 @@ def _get_films_key_tyty_new(text: str) -> str:
         resolved_key (str): The matched films key, or an empty string if no match is found.
     """
     normalized_text = fix_keys(text)
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
+    logger.debug(f"<<yellow>> start: {normalized_text=}")
     double_bot, bot = _make_bot()
 
     result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
-    logger.info(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}")
+    logger.info(f"<<yellow>> end: {normalized_text=}, {result=}")
     return result
 
 

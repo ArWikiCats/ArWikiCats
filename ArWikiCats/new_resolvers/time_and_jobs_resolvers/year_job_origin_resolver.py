@@ -155,7 +155,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 @functools.lru_cache(maxsize=10000)
 def resolve_year_job_from_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
-    logger.debug(f"<<yellow>> start resolve_year_job_from_countries: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
     if not FROM_REGEX.match(category):
         logger.debug(f"<<yellow>> skip resolve_year_job_from_countries: {category=} not FROM_REGEX.match(category)")
         return ""
@@ -168,7 +168,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     #  "تصنيف:كتاب غير روائيين من أيرلنديون شماليون حسب القرن"
     result = _bot.create_label(category)
 
-    logger.info(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result
 
 

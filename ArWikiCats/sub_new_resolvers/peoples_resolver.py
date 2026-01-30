@@ -61,7 +61,7 @@ def work_peoples(name: str) -> str:
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info(f"<<yellow>> end work_peoples {name=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {name=}, {resolved_label=}")
     return resolved_label
 
 

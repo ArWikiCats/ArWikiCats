@@ -83,12 +83,12 @@ def jobs_in_multi_sports(category: str) -> str:
     category = category.replace("_", " ").lower()
     category = category.replace("olympics", "olympic")
 
-    logger.debug(f"<<yellow>> start jobs_in_multi_sports: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
     yc_bot = multi_bot_v4()
 
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result or ""
 
 

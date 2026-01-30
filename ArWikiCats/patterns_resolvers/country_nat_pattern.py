@@ -68,7 +68,7 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_country_nat_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_country_nat_pattern: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
 
     normalized_category = fix_keys(category)
 
@@ -82,7 +82,7 @@ def resolve_country_nat_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
 
     return result or ""
 

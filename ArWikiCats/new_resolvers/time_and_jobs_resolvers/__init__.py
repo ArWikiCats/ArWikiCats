@@ -38,7 +38,7 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end time_and_jobs_resolvers_main: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

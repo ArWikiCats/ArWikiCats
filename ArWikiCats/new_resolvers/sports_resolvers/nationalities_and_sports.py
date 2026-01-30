@@ -335,13 +335,13 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _resolve_nats_sport_multi_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start _resolve_nats_sport_multi_v2: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
 
     both_bot = _load_bot()
     category = fix_keys(category)
     result = both_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result
 
 
@@ -359,7 +359,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 def resolve_nats_sport_multi_v2(category: str) -> str:
     category = fix_keys(category)
 
-    logger.debug(f"<<yellow>> start resolve_nats_sport_multi_v2: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
     result = resolve_sport_category_suffix_with_mapping(
@@ -369,7 +369,7 @@ def resolve_nats_sport_multi_v2(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.info(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result
 
 

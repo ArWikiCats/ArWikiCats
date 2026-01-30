@@ -34,5 +34,5 @@ def main_countries_names_with_sports_resolvers(normalized_category) -> str:
         or p17_bot_sport.get_p17_with_sport_new(normalized_category)
         or ""
     )
-    logger.info(f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {normalized_category=}, {resolved_label=}")
     return resolved_label

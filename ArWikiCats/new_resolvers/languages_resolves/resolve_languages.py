@@ -155,13 +155,13 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def _resolve_languages_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start _resolve_languages_labels: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
 
     category = fix_keys(category)
 
     result = _load_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result
 
 

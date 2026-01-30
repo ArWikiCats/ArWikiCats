@@ -37,5 +37,5 @@ def main_relations_resolvers(category: str) -> str:
         or two_nationalities_but_not_double_resolver(category)
     )
 
-    logger.info(f"<<yellow>> end main_relations_resolvers: {category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {category=}, {resolved_label=}")
     return resolved_label

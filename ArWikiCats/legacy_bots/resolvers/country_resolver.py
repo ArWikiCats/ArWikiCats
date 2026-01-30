@@ -204,7 +204,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         country = country.lower()
 
         logger.debug(">> ----------------- get_country_label start ----------------- ")
-        logger.debug(f"<<yellow>> start get_country_label: {country=}")
+        logger.debug(f"<<yellow>> start: {country=}")
 
         resolved_label = self._check_basic_lookups(country)
 
@@ -223,7 +223,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             if "سنوات في القرن" in resolved_label:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
-        logger.info(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}")
+        logger.info(f"<<yellow>> end: {country=}, {resolved_label=}")
         return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:

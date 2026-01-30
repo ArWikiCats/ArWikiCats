@@ -157,7 +157,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     label = remainder_label + separator + year
 
-    logger.info(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}")
+    logger.info(f"<<yellow>> end: {category_text=}, {label=}")
     return label
 
 
@@ -212,7 +212,7 @@ def _handle_year_at_end(
     label = f"{remainder_label} {formatted_year_label}"
     logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
 
-    logger.info(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}")
+    logger.info(f"<<yellow>> end: {category_text=}, {label=}")
     return label
 
 
@@ -229,7 +229,7 @@ def Try_With_Years(category: str) -> str:
     Returns:
         str: The formatted Arabic label including the resolved remainder and year, or an empty string if no year pattern is applicable.
     """
-    logger.debug(f"<<yellow>> start Try_With_Years: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
     # pop_final_Without_Years
 
     label = ""
@@ -254,7 +254,7 @@ def Try_With_Years(category: str) -> str:
         return ""
 
     label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
-    logger.info(f"<<yellow>> end Try_With_Years: {category=}, {label=}")
+    logger.info(f"<<yellow>> end: {category=}, {label=}")
     return label
 
 

@@ -24,5 +24,5 @@ def main_other_resolvers(category: str) -> str:
 
     resolved_label = peoples_resolver.work_peoples(category)
 
-    logger.info(f"<<yellow>> end main_other_resolvers: {category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {category=}, {resolved_label=}")
     return resolved_label

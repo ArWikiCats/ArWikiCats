@@ -35,12 +35,12 @@ def load_bot() -> MultiDataFormatterBaseYear:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_country_time_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_country_time_pattern: {category=}")
+    logger.debug(f"<<yellow>> start: {category=}")
 
     yc_bot = load_bot()
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
+    logger.info(f"<<yellow>> end: {category=}, {result=}")
     return result or ""
 
 

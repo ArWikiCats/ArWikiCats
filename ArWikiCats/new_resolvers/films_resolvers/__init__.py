@@ -61,7 +61,7 @@ def main_films_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 
