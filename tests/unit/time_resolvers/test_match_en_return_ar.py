@@ -1,5 +1,4 @@
 # test_convert_time_to_arabic.py
-# -*- coding: utf-8 -*-
 import pytest
 
 from ArWikiCats.time_formats.time_to_arabic import match_en_return_ar

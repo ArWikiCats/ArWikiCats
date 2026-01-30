@@ -9,7 +9,6 @@ Note: FormatDataBase is an abstract class, so we test it through a
 concrete subclass (FormatData).
 """
 
-import pytest
 
 from ArWikiCats.translations_formats.DataModel.model_data import FormatData
 

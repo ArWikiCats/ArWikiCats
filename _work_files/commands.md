@@ -7,3 +7,13 @@
 
 
 # cd ArWikiCats/legacy_bots && pydeps . --only make2_new.ArWikiCats.legacy_bots
+
+# Fix E402
+```
+autopep8 --in-place --recursive --select=E402 .
+```
+
+# Fix
+```
+ruff check --fix .
+```

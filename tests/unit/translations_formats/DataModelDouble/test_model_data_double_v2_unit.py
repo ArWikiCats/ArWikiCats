@@ -7,7 +7,6 @@ double-key template-driven category translations where data_list values
 can be dictionaries.
 """
 
-import pytest
 
 from ArWikiCats.translations_formats.DataModelDouble.model_data_double_v2 import (
     FormatDataDoubleV2,

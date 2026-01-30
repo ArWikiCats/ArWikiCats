@@ -1,5 +1,3 @@
-import pytest
-
 from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 # ======================

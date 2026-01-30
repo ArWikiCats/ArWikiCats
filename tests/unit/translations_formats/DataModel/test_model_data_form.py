@@ -5,8 +5,6 @@ This module provides tests for FormatDataFrom class which is a dynamic wrapper
 for handling category transformations with customizable callbacks.
 """
 
-import pytest
-
 from ArWikiCats.translations_formats.DataModel.model_data_form import FormatDataFrom
 
 

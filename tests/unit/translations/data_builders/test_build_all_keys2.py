@@ -1,7 +1,5 @@
 """Tests for build_all_keys2.py key-label mapping utilities."""
 
-from collections.abc import Mapping
-
 from ArWikiCats.translations.data_builders.build_all_keys2 import (
     _build_book_entries,
     _build_cinema_entries,

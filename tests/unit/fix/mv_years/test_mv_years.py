@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Pytest move_years"""
 
 from ArWikiCats.fix.mv_years import move_years

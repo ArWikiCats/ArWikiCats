@@ -2,8 +2,6 @@
 Tests
 """
 
-from typing import Callable
-
 import pytest
 
 from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (

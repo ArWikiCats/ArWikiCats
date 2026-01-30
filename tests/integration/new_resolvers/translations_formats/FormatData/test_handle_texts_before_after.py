@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Integration tests"""
 
-import re
 
 import pytest
 

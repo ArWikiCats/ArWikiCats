@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for MultiDataFormatterBase and MultiDataFormatterYearAndFrom with year-based translations."""
 
-import re
 
 import pytest
 

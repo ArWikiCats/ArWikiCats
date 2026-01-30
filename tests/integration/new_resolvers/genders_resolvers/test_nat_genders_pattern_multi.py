@@ -2,8 +2,6 @@
 Tests
 """
 
-import re
-
 import pytest
 
 from ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
