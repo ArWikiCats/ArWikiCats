@@ -126,7 +126,7 @@ def wrap_color_messages(format_message):
 _configured = False
 
 
-def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
+def setup_logging(level: str = "ERROR", log_file: Optional[str] = None) -> None:
     """
     Configure colored logging for console and optional file output.
 
@@ -168,7 +168,7 @@ def setup_logging(level: str = "INFO", log_file: Optional[str] = None) -> None:
     # console_handler.setLevel(numeric_level)
 
     # Root logger configuration
-    root_logger = logging.getLogger("ArWikiCats")
+    root_logger = logging.getLogger()
     root_logger.setLevel(numeric_level)
     root_logger.addHandler(console_handler)
 
