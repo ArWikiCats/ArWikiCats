@@ -4,9 +4,8 @@ This module provides functions to resolve categories by identifying suffixes
 (like "players" or "coaches") and applying gender-specific Arabic translations.
 """
 
-from typing import Dict, TypedDict
-
 import logging
+from typing import Dict, TypedDict
 
 logger = logging.getLogger(__name__)
 
@@ -83,7 +82,7 @@ def resolve_suffix_with_mapping_genders(
         The translated category label, or the result of the callback on the original
         category if no suffix matches.
     """
-    logger.debug(f"<<yellow>> start resolve_suffix_with_mapping_genders: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = ""
 
@@ -102,7 +101,7 @@ def resolve_suffix_with_mapping_genders(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -114,7 +113,7 @@ def resolve_sport_category_suffix_with_mapping(
     format_key: str = "",
 ) -> str:
     """."""
-    logger.debug(f"<<yellow>> start resolve_sport_category_suffix_with_mapping: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = ""
     key = ""
@@ -132,7 +131,7 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end resolve_sport_category_suffix_with_mapping({key=}), {category=}, {result=})")
+    logger.info(f"<<yellow>> end ({key=}), {category=}, {result=})")
     return result
 
 

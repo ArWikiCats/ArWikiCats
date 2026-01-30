@@ -60,7 +60,7 @@ def _build_painter_job_labels(
         GenderedLabelMap: Mapping of composite job keys to gendered labels. Keys include base roles, style keys (except "history"), style+role composites (e.g., "symbolist painter"), and category-based entries like "{category} painters" and "{category} artists". Each value is a dict with "males" and "females" Arabic labels.
     """
     # _build_painter_job_labels(PAINTER_STYLES, PAINTER_ROLE_LABELS, PAINTER_CATEGORY_LABELS)
-    combined_data: GenderedLabelMap = {role_key: role_labels for role_key, role_labels in painter_roles.items()}
+    combined_data: GenderedLabelMap = dict(painter_roles.items())
 
     combined_data.update({_style: _labels for _style, _labels in painter_styles.items() if _style != "history"})
     for style_key, style_labels in painter_styles.items():
@@ -107,7 +107,7 @@ def _build_military_job_labels(
     """
     excluded = set(excluded_prefixes)
 
-    combined_roles: GenderedLabelMap = {role_key: role_labels for role_key, role_labels in military_roles.items()}
+    combined_roles: GenderedLabelMap = dict(military_roles.items())
 
     combined_roles.update(
         {

@@ -5,8 +5,8 @@ country names and related geographic entities (like US states) into Arabic.
 """
 
 import functools
-
 import logging
+
 from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,
@@ -33,7 +33,7 @@ def main_countries_names_resolvers(normalized_category: str) -> str:
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying countries_names_resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
         # NOTE: order matters here
@@ -49,7 +49,7 @@ def main_countries_names_resolvers(normalized_category: str) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

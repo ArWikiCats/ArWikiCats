@@ -11,7 +11,7 @@ def make_resolver_test(
     resolver: Callable[[str], str],
     data: Mapping[str, str],
     test_name: str = "test_resolver_data",
-    marks: list[pytest.MarkDecorator] = [],
+    marks: list[pytest.MarkDecorator] = None,
 ):
     """
     Factory to generate a parametrized pytest test for a resolver.
@@ -20,6 +20,9 @@ def make_resolver_test(
     - data: mapping {category: expected}
     - ids: use the dict keys to keep Arabic readable
     """
+
+    if marks is None:
+        marks = []
 
     @pytest.mark.parametrize("category, expected", list(data.items()), ids=list(data.keys()))
     def _test(category: str, expected: str) -> None:

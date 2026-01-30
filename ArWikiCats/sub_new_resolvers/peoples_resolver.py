@@ -5,8 +5,8 @@ Population and people helpers.
 from __future__ import annotations
 
 import functools
-
 import logging
+
 from ..translations import People_key
 from ..translations_formats import FormatData
 
@@ -51,17 +51,17 @@ def work_peoples(name: str) -> str:
     """
     Return the label for ``name`` using FormatData.
     """
-    logger.debug(f"<<yellow>> work_peoples {name=}")
+    logger.debug(f"<<yellow>> {name=}")
 
     if label := People_key.get(name):
-        logger.info(f"<<yellow>> end work_peoples direct hit {name=}, {label=}")
+        logger.info(f"<<yellow>> end direct hit {name=}, {label=}")
         return label
 
     _peoples_bot = _load_bot()
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info(f"<<yellow>> end work_peoples {name=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {name=}, {resolved_label=}")
     return resolved_label
 
 

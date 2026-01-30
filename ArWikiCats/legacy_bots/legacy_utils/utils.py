@@ -4,10 +4,9 @@ This module provides functions for processing and generating labels for country 
 """
 
 import functools
+import logging
 import re
 from typing import Tuple
-
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -232,6 +231,6 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
     country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
 
-    logger.info(f">>>> get_type_country: {type_regex=}, {country_regex=}")
+    logger.info(f">>>> : {type_regex=}, {country_regex=}")
 
     return type_regex, country_regex

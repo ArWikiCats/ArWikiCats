@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Unit tests for the format_bots.change_cat module (format_bots/__init__.py).
 """

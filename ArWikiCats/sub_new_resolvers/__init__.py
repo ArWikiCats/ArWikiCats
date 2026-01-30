@@ -1,8 +1,8 @@
 """ """
 
 import functools
-
 import logging
+
 from . import peoples_resolver
 
 logger = logging.getLogger(__name__)
@@ -20,9 +20,9 @@ def main_other_resolvers(category: str) -> str:
         resolved_label (str): The label resolved for the given category.
     """
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying main_other_resolvers for: {category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
     resolved_label = peoples_resolver.work_peoples(category)
 
-    logger.info(f"<<yellow>> end main_other_resolvers: {category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {category=}, {resolved_label=}")
     return resolved_label

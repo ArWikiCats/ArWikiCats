@@ -6,13 +6,13 @@ nationalities, and descriptors for women into idiomatic Arabic.
 
 import functools
 import logging
+
 from ...helps import len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,
     All_Nat,
     all_country_with_nat,
-    all_country_with_nat_ar,
     countries_en_as_nationality_keys,
     jobs_womens_data,
 )
@@ -192,7 +192,7 @@ def _load_jobs_data() -> dict[str, str]:
     data = {x: {"ar_job": v} for x, v in jobs_womens_data.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_womens_data.keys()) - set(data.keys()))
     if len_diff:
-        logger.warning(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f" womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     # data.update({x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()})
 
@@ -203,9 +203,9 @@ def _load_jobs_data() -> dict[str, str]:
 @functools.lru_cache(maxsize=1)
 def _load_nat_data() -> dict[str, str]:
     # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
-    nats_data: dict[str, str] = {x: v for x, v in All_Nat.items()}  # 342
+    nats_data: dict[str, str] = dict(All_Nat.items())  # 342
 
-    nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
+    nats_data.update(dict(nats_keys_as_country_names.items()))
 
     nats_data.update(
         {
@@ -254,7 +254,7 @@ def load_bot() -> MultiDataFormatterBaseV2:
 @functools.lru_cache(maxsize=1)
 def load_bot_only_womens() -> MultiDataFormatterBaseV2:
     jobs_data = {x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()}
-    logger.debug(f"load_bot_only_womens: {len(jobs_data):,}")
+    logger.debug(f": {len(jobs_data):,}")
 
     formatted_data, formatted_data_womens_jobs = _load_formatted_data()
     logger.debug(f"_load_formatted_data formatted_data_womens_jobs: {len(formatted_data_womens_jobs):,}")
@@ -279,42 +279,42 @@ def load_bot_only_womens() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _womens_resolver(category: str) -> str:
-    logger.debug(f"<<yellow>> start _womens_resolver: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     result = load_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end _womens_resolver: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 @functools.lru_cache(maxsize=10000)
 def _womens_jobs_resolver(category: str) -> str:
-    logger.debug(f"<<yellow>> start _womens_jobs_resolver: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     result = load_bot_only_womens().search_all_category(category)
 
-    logger.info(f"<<yellow>> end _womens_jobs_resolver: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 @functools.lru_cache(maxsize=10000)
 def womens_resolver_labels(category: str) -> str:
-    # logger.debug(f"<<yellow>> start womens_resolver_labels: {category=}")
+    # logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if mens_label := mens_resolver_labels(category):
-        logger.info(f"<<yellow>> skip womens_resolver_labels mens found: {category=}, {mens_label=}")
+        logger.info(f"<<yellow>> skip mens found: {category=}, {mens_label=}")
         return ""
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip womens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)
 
-    # logger.info(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}")
+    # logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

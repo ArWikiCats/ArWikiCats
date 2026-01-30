@@ -5,8 +5,8 @@ nationalities, often combined with occupations or time periods.
 """
 
 import functools
-
 import logging
+
 from . import (
     ministers_resolver,
     nationalities_time_v2,
@@ -30,7 +30,7 @@ def main_nationalities_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying nationalities_resolvers resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
         nationalities_v2.resolve_by_nats(normalized_category)
@@ -39,7 +39,7 @@ def main_nationalities_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

@@ -5,8 +5,8 @@ nationalities or country names in complex relationships.
 """
 
 import functools
-
 import logging
+
 from .countries_names_double_v2 import resolve_countries_names_double
 from .nationalities_double_v2 import resolve_by_nats_double_v2
 from .nationalities_not_double import two_nationalities_but_not_double_resolver
@@ -28,7 +28,7 @@ def main_relations_resolvers(category: str) -> str:
         str: The resolved Arabic category label if a match is found, otherwise an empty string.
     """
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying main_relations_resolvers for: {category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
     resolved_label = (
         ""
@@ -37,5 +37,5 @@ def main_relations_resolvers(category: str) -> str:
         or two_nationalities_but_not_double_resolver(category)
     )
 
-    logger.info(f"<<yellow>> end main_relations_resolvers: {category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {category=}, {resolved_label=}")
     return resolved_label

@@ -8,9 +8,9 @@ TODO:
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...translations import (
     Nat_women,
     film_keys_for_female,
@@ -272,7 +272,7 @@ def fix_keys(category: str) -> str:
         (e.g., "saudi arabian" -> "saudiarabian", "children's animated adventure television" ->
         "children's-animated-adventure-television").
     """
-    normalized_text = category.lower().replace("category:", " ").strip()
+    # normalized_text = category.lower().replace("category:", " ").strip()
     fixes = {
         "saudi arabian": "saudiarabian",
         # "animated television": "animated-television",
@@ -299,11 +299,11 @@ def _get_films_key_tyty_new(text: str) -> str:
         resolved_key (str): The matched films key, or an empty string if no match is found.
     """
     normalized_text = fix_keys(text)
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new: {normalized_text=}")
+    logger.debug(f"<<yellow>> start {normalized_text=}")
     double_bot, bot = _make_bot()
 
     result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
-    logger.info(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}")
+    logger.info(f"<<yellow>> end {normalized_text=}, {result=}")
     return result
 
 

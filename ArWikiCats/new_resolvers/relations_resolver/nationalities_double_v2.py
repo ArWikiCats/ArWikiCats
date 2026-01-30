@@ -2,8 +2,8 @@
 """ """
 
 import functools
-
 import logging
+
 from ...translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
@@ -56,8 +56,8 @@ formatted_data = {
     "{en} organized crime": "جريمة منظمة {female}",
 }
 
-nats_data = {x: v for x, v in All_Nat.items()}
-nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})
+nats_data = dict(All_Nat.items())
+nats_data.update(dict(nats_keys_as_country_names.items()))
 nats_data.update(
     {
         "ireland": {
@@ -106,20 +106,20 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def resolve_by_nats_double_v2(category: str) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start resolve_by_nats_double_v2: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     if category in nats_data:
         # NOTE: only nationality key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_by_nats_double_v2: one nationality key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
         return ""
 
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

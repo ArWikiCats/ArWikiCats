@@ -3,10 +3,9 @@
 Build lookup tables for translating sport related keys.
 """
 
+import logging
 from dataclasses import dataclass
 from typing import Mapping, MutableMapping, TypedDict
-
-import logging
 
 logger = logging.getLogger(__name__)
 

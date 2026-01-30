@@ -5,8 +5,9 @@ TODO: use it to replace get_by_label functions in bys.py
 """
 
 import functools
-import re
 import logging
+import re
+
 from ..helps import len_print
 from ..translations_formats import MultiDataFormatterBase, format_multi_data
 
@@ -599,10 +600,10 @@ def resolve_by_labels(category: str) -> str:
     if label:
         return label
 
-    logger.debug(f"<<yellow>> start resolve_by_labels: {normalized_category=}")
+    logger.debug(f"<<yellow>> start {normalized_category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(normalized_category)
-    logger.info(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {result=}")
     return result
 
 

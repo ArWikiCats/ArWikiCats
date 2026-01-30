@@ -2,8 +2,8 @@
 """ """
 
 import functools
-
 import logging
+
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from .resolve_films_labels import get_films_key_tyty_new
@@ -37,7 +37,7 @@ def match_key_callback(text: str) -> str:
     text = text.removesuffix(" debuts").removesuffix(" endings").removesuffix("-endings")
     text = text.replace("{year1} ", "")
 
-    logger.debug(f" match_key_callback: processed {orgtext=} into {text=}")
+    logger.debug(f" : processed {orgtext=} into {text=}")
     return text.strip()
 
 
@@ -69,19 +69,19 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     category = category.lower().replace("category:", "")
     # if category dosen't start with number, return ""
     if not category or not category[0].isdigit():
-        logger.debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no digit start")
+        logger.debug(f"<<yellow>> end {category=}, no digit start")
         return ""
 
-    logger.debug(f"<<yellow>> start get_films_key_tyty_new_and_time: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     yc_bot = multi_bot_v4()
 
     if category == match_time_en_first(category):
-        logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match")
+        logger.info(f"<<yellow>> end {category=}, no time match")
         return ""
 
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or ""
 
 

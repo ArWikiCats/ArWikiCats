@@ -1,9 +1,6 @@
-# -*- coding: utf-8 -*-
 """
 Unit tests for the event_processing module.
 """
-
-import pytest
 
 from ArWikiCats.event_processing import (
     LABEL_PREFIX,

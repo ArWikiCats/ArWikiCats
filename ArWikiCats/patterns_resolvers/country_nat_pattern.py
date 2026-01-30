@@ -1,9 +1,9 @@
 """ """
 
 import functools
+import logging
 import re
 
-import logging
 from ..translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -50,7 +50,7 @@ def fix_keys(category: str) -> str:
 def _load_bot() -> MultiDataFormatterBaseV2:
     countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
     countries_data = {x: {"country_ar": v} for x, v in countries_from_nat_data.items()}
-    nat_data = {x: v for x, v in All_Nat.items()}
+    nat_data = dict(All_Nat.items())
     both_bot = format_multi_data_v2(
         formatted_data=COUNTRY_NAT_DATA,
         data_list=nat_data,
@@ -68,12 +68,12 @@ def _load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_country_nat_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_country_nat_pattern: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     normalized_category = fix_keys(category)
 
     if normalized_category in countries_en_as_nationality_keys or normalized_category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_country_nat_pattern: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     yc_bot = _load_bot()
@@ -82,7 +82,7 @@ def resolve_country_nat_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
 
     return result or ""
 

@@ -4,9 +4,9 @@
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
@@ -142,7 +142,7 @@ def womens_result(category: str) -> str:
     Returns:
         str: The matched translation string, or an empty string if no match is found.
     """
-    logger.debug(f"\t xx start: <<lightred>>womens_result >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>> >> <<lightpurple>> {category=}")
 
     nat_bot = _load_womens_bot()
     return nat_bot.search_all_category(category)
@@ -159,7 +159,7 @@ def mens_result(category: str) -> str:
     Returns:
         str: The formatted translation for the given category, or an empty string if no match is found.
     """
-    logger.debug(f"\t xx start: <<lightred>>mens_result >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>> >> <<lightpurple>> {category=}")
 
     nat_bot = _load_mens_bot()
     return nat_bot.search_all_category(category)
@@ -204,7 +204,7 @@ def new_religions_jobs_with_suffix(category: str) -> str:
         Translated Arabic category string if a match is found, otherwise an empty string.
     """
     category = fix_keys(category)
-    logger.debug(f"\t xx start: <<lightred>>new_religions_jobs_with_suffix >> <<lightpurple>> {category=}")
+    logger.debug(f"\t xx start: <<lightred>> >> <<lightpurple>> {category=}")
 
     return mens_result(category) or womens_result(category)
 

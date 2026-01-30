@@ -5,8 +5,8 @@ This package provides specialized resolvers for categories like
 """
 
 import functools
-
 import logging
+
 from . import (
     year_job_origin_resolver,
     year_job_resolver,
@@ -30,7 +30,7 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
     """
     normalized_category = normalized_category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying time_and_jobs_resolvers_main for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
         year_job_origin_resolver.resolve_year_job_from_countries(normalized_category)
@@ -38,7 +38,7 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end time_and_jobs_resolvers_main: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

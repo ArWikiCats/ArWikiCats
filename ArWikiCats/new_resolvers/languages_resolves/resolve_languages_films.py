@@ -2,9 +2,9 @@
 """ """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
@@ -32,7 +32,7 @@ def _make_bot() -> MultiDataFormatterBase:
     films_formatted_data = {
         "{lang_en} language {film_en} films": "أفلام {film_ar} باللغة {lang_al}",
     }
-    put_label_last = {
+    _put_label_last = {
         "low-budget",
         "supernatural",
         "christmas",
@@ -69,13 +69,13 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_films_languages_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_films_languages_labels: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     category = fix_keys(category)
 
     result = _make_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_films_languages_labels: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

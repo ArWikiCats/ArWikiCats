@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ """
 
+import logging
 import re
 
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
@@ -175,11 +175,11 @@ class LabelForStartWithYearOrTypeo:
 
         if (not self.year_at_first or not self.year_labe) and self.cat_test.strip():
             self.NoLab = True
-            logger.info('year_at_first ==  or year_labe == ""')
+            logger.info('year_at_first == or year_labe == ""')
             return
 
         if not self.country_lower and not self.in_str:
-            logger.info('a<<lightblue>>>>>> country_lower == "" and in_str ==  "" ')
+            logger.info('a<<lightblue>>>>>> country_lower == "" and in_str == "" ')
             if self.suf:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
@@ -295,7 +295,7 @@ def _label_for_startwith_year_or_typeo(category_r: str) -> str:
     """Return an Arabic label for categories that begin with years or types."""
     builder = LabelForStartWithYearOrTypeo()
     result = builder.build(category_r).strip()
-    logger.debug(f"::_label_for_startwith_year_or_typeo: {category_r=} => {result=}")
+    logger.debug(f"::: {category_r=} => {result=}")
     return result
 
 
@@ -309,5 +309,5 @@ def label_for_startwith_year_or_typeo(category_r: str) -> str:
 
     result = _label_for_startwith_year_or_typeo(category_r)
 
-    logger.debug(f":: label_for_startwith_year_or_typeo: {category_r=} => {result=}")
+    logger.debug(f":: : {category_r=} => {result=}")
     return result

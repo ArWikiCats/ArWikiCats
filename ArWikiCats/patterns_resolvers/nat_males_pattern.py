@@ -6,9 +6,9 @@ bot to handle the translation logic.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ..translations import (
     RELIGIOUS_KEYS_PP,
     All_Nat,
@@ -79,12 +79,12 @@ def _bot_new() -> FormatDataV2:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_males_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nat_males_pattern: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     normalized_category = fix_keys(category)
 
     if normalized_category in countries_en_as_nationality_keys or normalized_category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_nat_males_pattern: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     yc_bot = _bot_new()
@@ -93,7 +93,7 @@ def resolve_nat_males_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info(f"<<yellow>> end resolve_nat_males_pattern: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
 
     return result or ""
 

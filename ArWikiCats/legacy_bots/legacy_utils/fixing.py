@@ -4,9 +4,8 @@ This module provides functions for cleaning up and normalizing Arabic
 category labels, such as removing duplicate spaces or prepositions.
 """
 
-import re
-
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -34,6 +33,6 @@ def fix_minor(ar: str, ar_separator: str = "", en: str = "") -> str:
 
     arlabel = " ".join(arlabel.strip().split())
 
-    logger.debug(f"fix_minor: {en=}| {ar=}  ==> {arlabel=}")
+    logger.debug(f": {en=}| {ar=} ==> {arlabel=}")
 
     return arlabel

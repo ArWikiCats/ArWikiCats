@@ -5,8 +5,8 @@ English country-name → Arabic country-name.
 """
 
 import functools
-
 import logging
+
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
@@ -143,11 +143,11 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=1000)
 def resolve_sport_under_labels(category: str) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start resolve_sport_under_labels: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
 
-    logger.info(f"<<yellow>> end resolve_sport_under_labels: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

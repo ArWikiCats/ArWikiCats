@@ -5,8 +5,8 @@ TODO: merge with countries_names_sport_multi_v2.py
 """
 
 import functools
-
 import logging
+
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     SPORTS_KEYS_FOR_TEAM,
@@ -106,12 +106,12 @@ def _get_p17_with_sport(category: str) -> str:
     if countries_from_nat.get(category):
         return ""
 
-    logger.debug(f"<<yellow>> start _get_p17_with_sport: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -143,7 +143,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 def get_p17_with_sport_new(category: str) -> str:
     category = fix_keys(category)
 
-    logger.debug(f"<<yellow>> start get_p17_with_sport_new: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = resolve_sport_category_suffix_with_mapping(
         category=category,
@@ -152,7 +152,7 @@ def get_p17_with_sport_new(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.info(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

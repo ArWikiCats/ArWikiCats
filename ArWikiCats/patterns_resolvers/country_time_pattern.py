@@ -6,8 +6,8 @@ bot (`yc_bot`) to handle the translation logic.
 """
 
 import functools
-
 import logging
+
 from ..translations import COUNTRY_LABEL_OVERRIDES, US_STATES, all_country_ar
 from ..translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
@@ -35,12 +35,12 @@ def load_bot() -> MultiDataFormatterBaseYear:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_country_time_pattern(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_country_time_pattern: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     yc_bot = load_bot()
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or ""
 
 

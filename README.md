@@ -243,16 +243,7 @@ python examples/5k.py            # معالجة 5000 تصنيف
 
 | الإعداد | الوصف |
 |---------|-------|
-| `NOPRINT` | إيقاف طباعة الرسائل |
 | `SAVE_DATA_PATH` | مسار حفظ البيانات المؤقتة |
-
-مثال على الاستخدام:
-
-```bash
-# عبر متغيرات البيئة
-NOPRINT=true python examples/run.py
-
-```
 
 تفاصيل كل متغير موجودة في:
 
@@ -582,6 +573,5 @@ from ArWikiCats import (
     getLogger,                     # نظام التسجيل
     print_memory,                   # طباعة استهلاك الذاكرة
     dump_all_len,                   # طباعة أطوال البيانات
-    config_all_params,              # قائمة المعاملات المتاحة
 )
 ```

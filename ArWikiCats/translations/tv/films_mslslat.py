@@ -6,7 +6,7 @@ Builds translation mappings for film and television categories from English to A
 handling gender-specific translations and nationality-based categories.
 """
 
-from typing import Dict, Tuple
+from typing import Dict
 
 from ..data_builders.build_films_mslslat import (
     _build_gender_key_maps,

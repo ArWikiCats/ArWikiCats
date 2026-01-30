@@ -6,10 +6,10 @@ using a provided callback function.
 """
 
 import functools
+import logging
 import re
 from typing import Callable, Optional
 
-import logging
 from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
 logger = logging.getLogger(__name__)
@@ -36,7 +36,7 @@ def handle_year_at_first(
     callback: Optional[Callable] = None,
     result_format: str = "{sub_result} في {arabic_time}",
 ) -> str:
-    logger.debug(f"<<yellow>> start handle_year_at_first: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     if not callback:
         return ""
 
@@ -59,7 +59,7 @@ def handle_year_at_first(
     # result = f"{sub_result} في {arabic_time}"
     result = result_format.format(sub_result=sub_result, arabic_time=arabic_time)
 
-    logger.info(f"<<yellow>> end handle_year_at_first: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

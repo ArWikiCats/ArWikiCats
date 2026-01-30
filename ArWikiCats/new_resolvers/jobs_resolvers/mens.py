@@ -5,15 +5,15 @@ nationalities, and descriptors for men into idiomatic Arabic.
 """
 
 import functools
-import re
 import logging
+import re
+
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
-from ...translations import (
+from ...translations import (  # all_country_with_nat_ar,
     RELIGIOUS_KEYS_PP,
     All_Nat,
     all_country_with_nat,
-    # all_country_with_nat_ar,
     countries_en_as_nationality_keys,
     jobs_mens_data,
 )
@@ -261,7 +261,7 @@ def _load_jobs_data() -> dict[str, str]:
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
-        logger.warning(f"_load_jobs_data mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f" mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data.update(
         {
@@ -326,13 +326,13 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 @functools.lru_cache(maxsize=10000)
 def _mens_resolver_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -348,11 +348,11 @@ label_mappings_ends = dict(
 
 @functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
-    logger.debug(f"<<yellow>> start mens_resolver_labels: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip mens_resolver_labels: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = _mens_resolver_labels(category) or resolve_sport_category_suffix_with_mapping(
@@ -361,7 +361,7 @@ def mens_resolver_labels(category: str) -> str:
         callback=_mens_resolver_labels,
         format_key="{}",
     )
-    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

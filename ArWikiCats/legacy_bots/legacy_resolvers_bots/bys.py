@@ -8,8 +8,8 @@ TODO: need refactoring
 from __future__ import annotations
 
 import functools
-
 import logging
+
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import People_key
@@ -73,7 +73,7 @@ def make_new_by_label(category: str) -> str:
 
     normalized = category.strip()
     logger.info(f"Resolving by-label, category: {normalized=}")
-    logger.info(f"<<lightred>>>> vvvvvvvvvvvv make_by_label start, cate:{category} vvvvvvvvvvvv ")
+    logger.info(f"<<lightred>>>> vvvvvvvvvvvv start, cate:{category} vvvvvvvvvvvv ")
     resolved = ""
 
     if normalized.lower().startswith("by "):
@@ -86,7 +86,7 @@ def make_new_by_label(category: str) -> str:
     if not resolved:
         resolved = find_dual_by_keys(normalized)
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ make_by_label end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
     return resolved
 
 
@@ -110,7 +110,7 @@ def get_by_label(category: str) -> str:
         return ""
 
     label = ""
-    logger.info(f"<<lightyellow>>>>get_by_label {category=}")
+    logger.info(f"<<lightyellow>>>> {category=}")
 
     match = BY_MATCH_PATTERN.match(category)
     if not match:
@@ -129,7 +129,7 @@ def get_by_label(category: str) -> str:
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
-        logger.info(f"<<lightyellow>>>>get_by_label lab {label=}")
+        logger.info(f"<<lightyellow>>>> lab {label=}")
 
     return label
 

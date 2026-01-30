@@ -7,11 +7,11 @@ The callback is set at runtime via `set_term_label_resolver()`.
 """
 
 import functools
+import logging
 import re
 from typing import Callable, Optional, Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
-import logging
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...sub_new_resolvers import parties_resolver, team_work
@@ -223,8 +223,7 @@ def make_cnt_lab(
     resolved_label = " ".join(resolved_label.strip().split())
     resolved_label = _resolve_war(resolved_label, part_2_normalized, part_1_normalized)
 
-    if resolved_label.endswith(" في "):
-        resolved_label = resolved_label[: -len(" في ")]
+    resolved_label = resolved_label.removesuffix(" في ")
 
     return resolved_label
 
@@ -335,7 +334,7 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
     separator = get_separator(country)
 
     if not separator:
-        logger.info(f">>>> country_2_title_work <<red>> {separator=}")
+        logger.info(f">>>> <<red>> {separator=}")
         return ""
 
     part_1, part_2 = split_text_by_separator(separator, country)

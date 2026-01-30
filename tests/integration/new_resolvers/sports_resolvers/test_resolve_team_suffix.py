@@ -247,7 +247,6 @@ data_2 = {
     "long jump racing fan clubs": "أندية معجبي سباق قفز طويل",
     "kabaddi racing organizations": "منظمات سباق كابادي",
     "artistic swimming racing non-profit publishers": "ناشرون غير ربحيون سباق سباحة فنية",
-    "canadian-football players": "لاعبو كرة قدم كندية",
     "sledge hockey racing non-playing staff": "طاقم سباق هوكي مزلجة غير اللاعبين",
     "ice hockey leagues seasons": "مواسم دوريات هوكي جليد",
     "sports managers": "مدربو رياضية",

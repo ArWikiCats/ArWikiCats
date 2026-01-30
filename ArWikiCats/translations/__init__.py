@@ -35,9 +35,9 @@ from .mixed import (
     People_key,
     clubs_teams_leagues,
     keys_of_without_in,
+    medical_keys,
     pop_final_5,
     religious_entries,
-    medical_keys,
 )
 from .nats import (
     All_Nat,

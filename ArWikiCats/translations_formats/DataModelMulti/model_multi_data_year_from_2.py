@@ -75,7 +75,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         self,
         country_bot: FormatDataFrom,
         year_bot: FormatDataFrom,
-        category_relation_mapping: dict[str, str] = {},
+        category_relation_mapping: dict[str, str] = None,
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
         other_key_first: bool = False,
@@ -90,6 +90,8 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
             data_to_find: Optional dictionary for direct category-to-label lookups.
             other_key_first: If True, process year/other key before country key.
         """
+        if category_relation_mapping is None:
+            category_relation_mapping = {}
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = year_bot
@@ -168,7 +170,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         # Avoid duplicate relation words by checking if it ends with the relation
         # or contains it as a complete word (surrounded by spaces or at boundaries)
         relation_ar_stripped = relation_ar.strip()
-        if base_label.endswith(relation_ar_stripped) or base_label.endswith(f" {relation_ar_stripped}"):
+        if base_label.endswith((relation_ar_stripped, f" {relation_ar_stripped}")):
             return base_label
         if f" {relation_ar_stripped} " in base_label:
             return base_label

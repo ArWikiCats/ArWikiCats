@@ -68,7 +68,7 @@ def test_match_key_no_pattern() -> None:
         ("{ar} بطولة", "كرة السلة", "كرة السلة بطولة"),
         ("بدون متغير", "كرة الطائرة", "بدون متغير"),  # placeholder not found
     ],
-    ids=[k for k in range(3)],
+    ids=list(range(3)),
 )
 def test_apply_pattern_replacement(template: str, sport: str, expected: str, sample_data: sample_data_type) -> None:
     bot = FormatData(*sample_data, key_placeholder="{en}", value_placeholder="{ar}")
@@ -111,7 +111,7 @@ def test_get_template_not_found(sample_data: sample_data_type) -> None:
         ("snooker records", "سجلات سنوكر"),
         ("random unrelated", ""),
     ],
-    ids=[k for k in range(4)],
+    ids=list(range(4)),
 )
 def test_search_output(category: str, expected: str, sample_data: sample_data_type) -> None:
     bot = FormatData(*sample_data, key_placeholder="{en}", value_placeholder="{ar}")

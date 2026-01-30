@@ -6,8 +6,8 @@ categories that mention relations/conflicts between two countries.
 """
 
 import functools
-
 import logging
+
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -176,16 +176,16 @@ def resolve_v1(category: str) -> str:
         >>> # Example of skipping a single country key
         >>> resolve_v1("jordan")
     """
-    logger.debug(f"<<yellow>> start resolve_v1: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     all_country_labels = _load_all_country_labels_v1()
     if category in all_country_labels:
         # NOTE: only country key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_v1: one country key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one country key only {category=}, [result=]")
         return ""
 
     result = double_bot_v1().search_all_category(category)
-    logger.info(f"<<yellow>> end resolve_v1: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -201,30 +201,30 @@ def resolve_v2(category: str) -> str:
     """
     category = category.replace("democratic republic of congo", "democratic-republic-of-congo")
     category = category.replace("republic of congo", "republic-of-congo")
-    logger.debug(f"<<yellow>> start resolve_v2: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     nat_data = _load_all_country_labels_v2()
     if category in nat_data:
         # NOTE: only nationality key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip resolve_v2: one nationality key only {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
         return ""
 
     result = double_bot_v2().search_all_category(category)
-    logger.info(f"<<yellow>> end resolve_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
 def resolve_countries_names_double(category: str) -> str:
     category = fix_keys(category)
-    # logger.debug(f"<<yellow>> start resolve_countries_names_double: {category=}")
+    # logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_countries_names_double: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
     result = resolve_v2(category) or resolve_v1(category)
 
-    # logger.info(f"<<yellow>> end resolve_countries_names_double: {category=}, {result=}")
+    # logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

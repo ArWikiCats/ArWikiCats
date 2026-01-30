@@ -76,11 +76,11 @@ class FormatDataFrom:
         Replace matched year with placeholder.
         normalize_category: key='writers from yemen', text='{year1} writers from yemen'
         """
-        logger.debug(f"normalize_category: {key=}, {text=}")
+        logger.debug(f": {key=}, {text=}")
         if not key:
             return text
         result = re.sub(re.escape(key), self.key_placeholder, text, flags=re.IGNORECASE)
-        logger.debug(f"normalize_category: {result=}")  # result='{year1} {country1}'
+        logger.debug(f": {result=}")  # result='{year1} {country1}'
         return result
 
     def normalize_category_with_key(self, category: str) -> tuple[str, str]:
@@ -113,7 +113,7 @@ class FormatDataFrom:
             str: The label with the placeholder replaced; if a fixing callback is configured, its output is returned.
         """
         # Replace placeholder
-        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
+        logger.debug(f"!!!! : {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
         if self.fixing_callback:
             result = self.fixing_callback(result)
@@ -131,7 +131,7 @@ class FormatDataFrom:
         """
         # Case-insensitive key lookup
         template_key = template_key.lower()
-        logger.debug(f"get_template_ar: {template_key=}")
+        logger.debug(f": {template_key=}")
         result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
@@ -141,7 +141,7 @@ class FormatDataFrom:
             else:
                 result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
-        logger.debug(f"get_template_ar: {template_key=}, {result=}")
+        logger.debug(f": {template_key=}, {result=}")
         return result
 
     def get_key_label(self, key: str) -> str:
@@ -156,7 +156,7 @@ class FormatDataFrom:
         """
         if not key:
             return ""
-        logger.debug(f"get_key_label: {key=}")
+        logger.debug(f": {key=}")
         return self.search(key)
 
     def search(self, text: str) -> str:

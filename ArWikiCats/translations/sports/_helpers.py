@@ -8,11 +8,10 @@ and well typed.
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterable, Mapping, MutableMapping
 from string import Formatter
 from typing import Any
-
-import logging
 
 logger = logging.getLogger(__name__)
 

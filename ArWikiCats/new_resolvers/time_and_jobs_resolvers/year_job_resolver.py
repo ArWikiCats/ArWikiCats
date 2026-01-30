@@ -13,8 +13,8 @@ More examples:
 """
 
 import functools
-
 import logging
+
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
@@ -99,14 +99,14 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 @functools.lru_cache(maxsize=10000)
 def resolve_year_job_countries(category: str) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
-    logger.debug(f"<<yellow>> start resolve_year_job_countries: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     category = normalize_text(category)
 
     _bot = multi_bot_v4()
     result = _bot.create_label(category)
 
-    logger.info(f"<<yellow>> end resolve_year_job_countries: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

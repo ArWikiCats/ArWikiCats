@@ -1,6 +1,6 @@
 import functools
-
 import logging
+
 from . import (
     p17_bot_sport,
     p17_sport_to_move_under,
@@ -22,9 +22,7 @@ def main_countries_names_with_sports_resolvers(normalized_category) -> str:
     Returns:
         str: Resolved label for the category, or an empty string if no resolver produces a value.
     """
-    logger.debug(
-        f"<><><><><><> <<green>> Trying main_countries_names_with_sports_resolvers for: {normalized_category=}"
-    )
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
     resolved_label = (
         #  [yemen international soccer players] : "تصنيف:لاعبو منتخب اليمن لكرة القدم",
         # countries_names.resolve_by_countries_names(normalized_category) or
@@ -34,5 +32,5 @@ def main_countries_names_with_sports_resolvers(normalized_category) -> str:
         or p17_bot_sport.get_p17_with_sport_new(normalized_category)
         or ""
     )
-    logger.info(f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label

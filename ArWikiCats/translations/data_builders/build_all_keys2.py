@@ -4,10 +4,9 @@ Key-label mappings for generic mixed categories.
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Mapping
 from typing import Dict
-
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +33,7 @@ def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
             continue
         new_keys.setdefault(trimmed_key, value)
 
-    # logger.debug(f">> handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    # logger.debug(f">> () Added {len(new_keys)} entries without 'the ' prefix.")
     return new_keys
 
 

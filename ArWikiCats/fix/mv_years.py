@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import functools
-import re
-
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 # Pattern for matching years in Arabic text (including BCE dates and century/millennium references)
@@ -47,7 +46,7 @@ def move_by_in(text_str: str) -> str:
     result = REGEX_BY_DATE_PATTERN.search(text_normalized)
 
     if not result:
-        logger.debug(f"move_by_in: no match for {text_str}")
+        logger.debug(f"no match for {text_str}")
         return text_str
 
     # [[تصنيف:اتحاد الرجبي في 1989 حسب البلد]]
@@ -55,7 +54,7 @@ def move_by_in(text_str: str) -> str:
     by_part = result.group("by_part")
     date = result.group("date")
     new_text = f"{first_part} في {date} حسب {by_part}"
-    logger.debug(f"move_by_in: {new_text=}")
+    logger.debug(f"{new_text=}")
 
     new_text = REGEX_WHITESPACE.sub(" ", new_text)
     new_text = REGEX_QM.sub("ق م", new_text)
@@ -79,12 +78,12 @@ def move_years_first(text_str: str) -> str:
     match = REGEX_YEAR_FIRST_PATTERN.match(text_str)
 
     if not match:
-        logger.debug(f'move_years_first: no match for "{text_str}"')
+        logger.debug(f'no match for "{text_str}"')
         return text_str
 
     first_part = match.group("first_part").strip()
     second_part = match.group("second_part").strip()
-    logger.debug(f"move_years_first: first_part={first_part} second_part={second_part}")
+    logger.debug(f"first_part={first_part} second_part={second_part}")
     skip_it = [
         "أفلام",
         "الأفلام",
@@ -92,12 +91,12 @@ def move_years_first(text_str: str) -> str:
     if second_part in skip_it:
         return text_str
     if " في x" in second_part:
-        logger.debug("move_years_first: skipping due to nested preposition")
+        logger.debug("skipping due to nested preposition")
         return text_str
 
     new_text = f"{second_part} في {first_part}"
     if result := REGEX_YEAR_IN_SECOND_PART.search(second_part):
-        logger.debug("move_years_first: found حسب clause")
+        logger.debug("found حسب clause")
         subject = result.group("subject")
         by_part = result.group("by")
         new_text = f"{subject} في {first_part} حسب {by_part}"

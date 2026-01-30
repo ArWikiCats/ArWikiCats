@@ -2,9 +2,9 @@
 from . import fax2
 """
 
+import logging
 from typing import Tuple
 
-import logging
 from .end_start_match import (
     footballers_get_endswith,
     to_get_endswith,
@@ -42,13 +42,13 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> Tuple[s
             foot_ballers = True
             category3, list_of_cat = get_from_endswith_dict(category3, footballers_get_endswith)
 
-        elif category3.endswith(" players") or category3.endswith(" playerss"):
+        elif category3.endswith((" players", " playerss")):
             list_of_cat = "لاعبو {}"
 
-            if category3.endswith("c. playerss") or category3.endswith(" playerss"):
+            if category3.endswith(("c. playerss", " playerss")):
                 category3 = category3_nolower[: -len(" playerss")]
 
-            elif category3.endswith("c. players") or category3.endswith(" players"):
+            elif category3.endswith(("c. players", " players")):
                 category3 = category3_nolower[: -len(" players")]
 
     if not list_of_cat:

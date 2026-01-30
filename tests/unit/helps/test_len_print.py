@@ -1,13 +1,8 @@
-# -*- coding: utf-8 -*-
 """
 Unit tests for the helps.len_print module.
 """
 
-import sys
-from pathlib import Path
 from unittest.mock import MagicMock, mock_open, patch
-
-import pytest
 
 from ArWikiCats.helps.len_print import all_len, data_len, dump_all_len, format_size, save_data
 

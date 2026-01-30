@@ -130,14 +130,13 @@ def process(self, categories: Iterable[str]) -> EventProcessingResult:
 # ArWikiCats/config.py
 
 settings = Config(
-    print=PrintConfig(noprint=one_req("NOPRINT")),
     app=AppConfig(
         save_data_path=os.getenv("SAVE_DATA_PATH", ""),
     ),
 )
 
 # Accessed as:
-from ArWikiCats.config import app_settings, print_settings
+from ArWikiCats.config import app_settings
 ```
 
 ---
@@ -244,7 +243,6 @@ from ArWikiCats.config import app_settings, print_settings
 │  ├── resolve_arabic_category_label()  - Single category API                 │
 │  ├── batch_resolve_labels()           - Batch processing API                │
 │  ├── EventProcessor                   - Processing class                    │
-│  └── config_all_params                - Configuration export                │
 └─────────────────────────────────────────────────────────────────────────────┘
                                       │
                                       ▼
@@ -1009,15 +1007,6 @@ from dataclasses import dataclass, field
 from typing import Optional, List
 from pathlib import Path
 
-
-@dataclass(frozen=True)
-class PrintConfig:
-    """Configuration for print/logging behavior."""
-    noprint: bool = False
-    log_level: str = "INFO"
-    log_format: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-
-
 @dataclass(frozen=True)
 class CacheConfig:
     """Configuration for caching."""
@@ -1044,7 +1033,6 @@ class AppConfig:
 @dataclass(frozen=True)
 class Config:
     """Main configuration container."""
-    print: PrintConfig = field(default_factory=PrintConfig)
     cache: CacheConfig = field(default_factory=CacheConfig)
     resolver: ResolverConfig = field(default_factory=ResolverConfig)
     app: AppConfig = field(default_factory=AppConfig)
@@ -1053,10 +1041,6 @@ class Config:
     def from_environment(cls) -> 'Config':
         """Create configuration from environment variables."""
         return cls(
-            print=PrintConfig(
-                noprint=_env_bool("ARWIKICATS_NOPRINT", False),
-                log_level=os.getenv("ARWIKICATS_LOG_LEVEL", "INFO"),
-            ),
             cache=CacheConfig(
                 enabled=_env_bool("ARWIKICATS_CACHE_ENABLED", True),
                 max_size=int(os.getenv("ARWIKICATS_CACHE_MAX_SIZE", "50000")),
@@ -1070,7 +1054,6 @@ class Config:
     def for_testing(cls) -> 'Config':
         """Create configuration for testing."""
         return cls(
-            print=PrintConfig(noprint=True),
             cache=CacheConfig(enabled=False),
         )
 
@@ -1086,7 +1069,6 @@ settings = Config.from_environment()
 
 
 # Convenience accessors (backward compatible)
-print_settings = settings.print
 app_settings = settings.app
 cache_settings = settings.cache
 resolver_settings = settings.resolver

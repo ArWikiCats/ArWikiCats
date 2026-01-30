@@ -5,8 +5,8 @@ complex temporal patterns (years, decades, centuries) using predefined templates
 """
 
 import functools
-
 import logging
+
 from ..time_formats.utils_time import standardize_time_phrases
 from ..translations_formats import LabsYearsFormat
 from .categories_patterns.YEAR_PATTERNS import YEAR_DATA
@@ -43,7 +43,7 @@ def resolve_lab_from_years_patterns(category: str) -> str:
     Returns:
         resolved_label (str): The standardized category label for the detected year/decade/century pattern, or an empty string if no year-based pattern could be resolved.
     """
-    logger.debug(f"<<yellow>> start resolve_lab_from_years_patterns: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     labs_years_bot = build_labs_years_object()
     _cat_year, from_year = labs_years_bot.lab_from_year(category)
@@ -55,7 +55,7 @@ def resolve_lab_from_years_patterns(category: str) -> str:
     # if not from_year and _cat_year:
     # labs_years_bot.lab_from_year_add(category, from_year, en_year=_cat_year)
 
-    logger.info(f"<<yellow>> end resolve_lab_from_years_patterns: {category=}, {from_year=}")
+    logger.info(f"<<yellow>> end {category=}, {from_year=}")
     return from_year
 
 

@@ -30,8 +30,8 @@ Target examples:
 """
 
 import functools
-
 import logging
+
 from .jobs_and_genders_resolver import genders_jobs_resolver
 from .sports_and_genders_resolver import genders_sports_resolver
 
@@ -40,10 +40,10 @@ logger = logging.getLogger(__name__)
 
 @functools.lru_cache(maxsize=10000)
 def resolve_nat_genders_pattern_v2(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_nat_genders_pattern_v2: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = genders_sports_resolver(category) or genders_jobs_resolver(category) or ""
-    logger.info(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
 
     return result
 

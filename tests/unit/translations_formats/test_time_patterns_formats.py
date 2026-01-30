@@ -6,7 +6,6 @@ This module provides tests for LabsYearsFormat and MatchTimes classes
 which handle year-based category label generation.
 """
 
-
 from ArWikiCats.translations_formats.time_patterns_formats import (
     LabsYearsFormat,
     MatchTimes,

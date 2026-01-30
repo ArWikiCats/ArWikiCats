@@ -5,9 +5,9 @@ NOTE: planned to replace pop_format in format_bots/__init__.py
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...translations import COUNTRY_LABEL_OVERRIDES, raw_region_overrides
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
@@ -41,12 +41,12 @@ def _load_bot() -> MultiDataFormatterBase:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_by_geo_names(category: str) -> str:
-    logger.debug(f"<<yellow>> start resolve_by_geo_names: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_by_geo_names: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

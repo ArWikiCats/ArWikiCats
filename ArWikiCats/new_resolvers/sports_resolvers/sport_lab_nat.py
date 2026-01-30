@@ -7,8 +7,9 @@ TODO: merge with sports_resolvers/nationalities_and_sports.py
 """
 
 import functools
-import re
 import logging
+import re
+
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, Nat_women
@@ -298,10 +299,10 @@ def _sport_lab_nat_load_new(category) -> str:
     Returns:
         str: The localized/formatted label corresponding to the provided category.
     """
-    logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -333,7 +334,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 def sport_lab_nat_load_new(category: str) -> str:
     category = fix_keys(category)
 
-    logger.debug(f"<<yellow>> start sport_lab_nat_load_new: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     keys_ending = _load_end_key_mappings()
 
     result = resolve_sport_category_suffix_with_mapping(
@@ -344,7 +345,7 @@ def sport_lab_nat_load_new(category: str) -> str:
         format_key="lab",
     )
 
-    logger.info(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

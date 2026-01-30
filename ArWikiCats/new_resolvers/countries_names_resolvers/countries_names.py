@@ -8,9 +8,9 @@ countries_names_v2.py use countries names with nationalities
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
@@ -67,12 +67,12 @@ def resolve_by_countries_names(category: str) -> str:
     Returns:
         str: The Arabic translation of the category, or an empty string if not found.
     """
-    logger.debug(f"<<yellow>> start resolve_by_countries_names: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

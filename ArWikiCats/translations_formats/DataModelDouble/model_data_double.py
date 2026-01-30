@@ -25,7 +25,6 @@ Example:
     'أفلام أكشن دراما'
 """
 
-import functools
 import logging
 import re
 from typing import Dict, Optional
@@ -146,11 +145,11 @@ class FormatDataDouble(FormatDataBase):
 
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
-        logger.debug(f">!> match_key: {normalized_category=}")
+        logger.debug(f">!> : {normalized_category=}")
 
         # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
-            logger.debug(f">>!!>> match_key: found in data_list_ci {normalized_category=}")
+            logger.debug(f">>!!>> : found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
 
         match = self.pattern_double.search(f" {normalized_category} ")
@@ -160,14 +159,14 @@ class FormatDataDouble(FormatDataBase):
             second_key = match.group(3).lower()
             result = f"{first_key}{splitter}{second_key}"
 
-            logger.debug(f">!> match_key: {first_key=}, {second_key=}")
-            logger.debug(f">!> match_key: {result=}")
+            logger.debug(f">!> : {first_key=}, {second_key=}")
+            logger.debug(f">!> : {result=}")
             self.keys_to_split[result] = [first_key, second_key]
             return result
 
         match2 = self.pattern.search(f" {normalized_category} ")
         result = match2.group(1).lower() if match2 else ""
-        logger.debug(f"==== match_key {result=}")
+        logger.debug(f"==== {result=}")
 
         return result
 
@@ -248,5 +247,5 @@ class FormatDataDouble(FormatDataBase):
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
-        logger.debug(f"!!!! replace_value_placeholder: {self.value_placeholder=}, {label=}, {value=}")
+        logger.debug(f"!!!! : {self.value_placeholder=}, {label=}, {value=}")
         return label.replace(self.value_placeholder, value)

@@ -98,12 +98,12 @@ def format_multi_data(
     data_list: Dict[str, str],
     key_placeholder: str = COUNTRY_PARAM,
     value_placeholder: str = COUNTRY_PARAM,
-    data_list2: Dict[str, str] = {},
+    data_list2: Dict[str, str] = None,
     key2_placeholder: str = YEAR_PARAM,
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
-    other_formatted_data: Dict[str, str] = {},
+    other_formatted_data: Dict[str, str] = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
     data_to_find: Dict[str, str] | None = None,
@@ -155,6 +155,10 @@ def format_multi_data(
         'لاعبو كرة القدم بريطانيون'
     """
     # Country bot (FormatData)
+    if other_formatted_data is None:
+        other_formatted_data = {}
+    if data_list2 is None:
+        data_list2 = {}
     country_bot = FormatData(
         formatted_data=formatted_data,
         data_list=data_list,
@@ -197,7 +201,7 @@ def format_multi_data_v2(
     formatted_data: Dict[str, str],
     data_list: Dict[str, str],
     key_placeholder: str,
-    data_list2: Dict[str, str] = {},
+    data_list2: Dict[str, str] = None,
     key2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
@@ -245,6 +249,8 @@ def format_multi_data_v2(
         >>> bot.search("yemen football players")
         'يمنيون لاعبو كرة القدم'
     """
+    if data_list2 is None:
+        data_list2 = {}
     country_bot = FormatDataV2(
         formatted_data=formatted_data,
         data_list=data_list,

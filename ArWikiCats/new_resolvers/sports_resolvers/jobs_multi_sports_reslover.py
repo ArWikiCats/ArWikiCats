@@ -8,8 +8,8 @@ related to jobs, nationalities, and multi-sports topics from English to Arabic.
 """
 
 import functools
-
 import logging
+
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
 from ..jobs_resolvers import main_jobs_resolvers
@@ -31,18 +31,18 @@ formatted_data = {
 def match_key_callback(text: str) -> str:
     orgtext = text
     text = text.replace("{game} ", "")
-    logger.debug(f" match_key_callback: processed {orgtext=} into {text=}")
+    logger.debug(f" : processed {orgtext=} into {text=}")
     return text.strip()
 
 
 def get_game_label(text: str) -> str:
     label = medalists_data.get(text.lower(), "")
-    logger.debug(f" get_game_label: for {text=} found {label=}")
+    logger.debug(f" : for {text=} found {label=}")
     return label
 
 
 def match_game_key(category_lower: str) -> str:
-    logger.debug(f" match_game_key: category_lower: {category_lower}")
+    logger.debug(f" : category_lower: {category_lower}")
     for sport_prefix, sport_label in medalists_data.items():
         prefix_pattern = f"{sport_prefix} ".lower()
         if category_lower.startswith(prefix_pattern):
@@ -83,12 +83,12 @@ def jobs_in_multi_sports(category: str) -> str:
     category = category.replace("_", " ").lower()
     category = category.replace("olympics", "olympic")
 
-    logger.debug(f"<<yellow>> start jobs_in_multi_sports: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
     yc_bot = multi_bot_v4()
 
     result = yc_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result or ""
 
 

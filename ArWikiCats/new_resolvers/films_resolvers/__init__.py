@@ -5,9 +5,9 @@ and television series, often combined with geographic elements.
 """
 
 import functools
+import logging
 import re
 
-import logging
 from ...translations import TELEVISION_KEYS, Films_key_CAO
 from .resolve_films_labels import get_films_key_tyty_new
 from .resolve_films_labels_and_time import get_films_key_tyty_new_and_time
@@ -50,7 +50,7 @@ def main_films_resolvers(normalized_category) -> str:
     normalized_category = normalized_category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> Trying nationalities_resolvers resolvers for: {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
         legacy_label_check(normalized_category)
@@ -61,7 +61,7 @@ def main_films_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
+    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

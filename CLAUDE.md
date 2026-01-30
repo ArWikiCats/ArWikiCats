@@ -219,10 +219,6 @@ tests/
 └── e2e/                     # End-to-end tests (full system)
 ```
 
-## Environment Variables
-
-- `NOPRINT` - Suppress output messages
-
 ## Performance Characteristics
 
 - Memory: <100MB (optimized from 2GB)

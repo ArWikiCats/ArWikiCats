@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
 
@@ -142,16 +142,14 @@ def resolve_university_category(category: str) -> str:
 
     normalized_category = _normalise_category(category)
 
-    logger.info(
-        f"<<lightblue>>>> vvvvvvvvvvvv resolve_university_category start, (category:{normalized_category}) vvvvvvvvvvvv "
-    )
+    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv start, (category:{normalized_category}) vvvvvvvvvvvv ")
 
     university_label = _university_bot.search(normalized_category)
 
     if university_label:
-        logger.info(f"<<lightblue>>>>>> resolve_university_category: new {university_label=} ")
+        logger.info(f"<<lightblue>>>>>>: new {university_label=} ")
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ resolve_university_category end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
     return university_label
 
 

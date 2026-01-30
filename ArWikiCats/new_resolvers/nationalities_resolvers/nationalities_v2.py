@@ -4,12 +4,11 @@ TODO: use this instead of nats_women.py
 """
 
 import functools
-
 import logging
+
 from ...translations import (
     All_Nat,
     all_country_with_nat,
-    all_country_with_nat_ar,
     countries_en_as_nationality_keys,
 )
 from ...translations_formats import FormatDataV2
@@ -655,12 +654,8 @@ def _load_bot() -> FormatDataV2:
     Returns:
         FormatDataV2: Configured FormatDataV2 instance ready to resolve nationality/category translations.
     """
-    nats_data = {
-        # x: v for x, v in all_country_with_nat_ar.items()  # if v.get("ar")
-        x: v
-        for x, v in All_Nat.items()  # if v.get("ar")
-    }
-    nats_data.update({x: v for x, v in nats_keys_as_country_names.items()})  # if v.get("ar")
+    nats_data = dict(All_Nat.items())
+    nats_data.update(dict(nats_keys_as_country_names.items()))  # if v.get("ar")
 
     if "jewish-american" not in nats_data:
         logger.warning("<<red>> 'jewish-american' not in nats_data keys")
@@ -703,15 +698,15 @@ def resolve_by_nats(category: str) -> str:
     Returns:
         str: Arabic translation of the category, or an empty string if the category is skipped or no translation is found.
     """
-    logger.debug(f"<<yellow>> start resolve_by_nats: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     if category in countries_en_as_nationality_keys or category in countries_en_keys:
-        logger.info(f"<<yellow>> skip resolve_by_nats: {category=}, [result=]")
+        logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
     category = fix_keys(category)
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

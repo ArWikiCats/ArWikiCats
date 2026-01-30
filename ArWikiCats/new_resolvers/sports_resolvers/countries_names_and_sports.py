@@ -2,8 +2,8 @@
 """ """
 
 import functools
-
 import logging
+
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
@@ -187,12 +187,12 @@ def resolve_countries_names_sport(category: str) -> str:
     if nats_data.get(category):
         return ""
 
-    logger.debug(f"<<yellow>> start resolve_countries_names_sport: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end resolve_countries_names_sport: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -208,7 +208,7 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
 
 def resolve_countries_names_sport_with_ends(category) -> str:
     category = fix_keys(category)
-    logger.debug(f"<<yellow>> start resolve_countries_names_sport_with_ends: {category=}")
+    logger.debug(f"<<yellow>> start {category=}")
 
     result = resolve_sport_category_suffix_with_mapping(
         category=category,
@@ -216,7 +216,7 @@ def resolve_countries_names_sport_with_ends(category) -> str:
         callback=resolve_countries_names_sport,
         fix_result_callable=fix_result_callable,
     )
-    logger.info(f"<<yellow>> end resolve_countries_names_sport_with_ends: {category=}, {result=}")
+    logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

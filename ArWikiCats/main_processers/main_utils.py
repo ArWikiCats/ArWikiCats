@@ -4,9 +4,8 @@ This module provides helper functions to wrap Arabic labels in common
 list-style templates (e.g., "لاعبو {}") with special handling for sports.
 """
 
-from typing import Tuple
-
 import logging
+from typing import Tuple
 
 logger = logging.getLogger(__name__)
 # Constants
@@ -37,15 +36,13 @@ def _format_category_with_list_template(
     category_lab_or = category_lab
     list_of_cat_x = list_of_cat.split("{}")[0].strip()
 
-    logger.info(f"<<lightblue>> _format_category_with_list_template {category_lab=}, {list_of_cat=}, {list_of_cat_x=}")
+    logger.info(f"<<lightblue>> {category_lab=}, {list_of_cat=}, {list_of_cat_x=}")
 
     # Apply the template if the label doesn't already start with the prefix
     if not category_lab.startswith(list_of_cat_x) or list_of_cat_x == "":
         category_lab = list_of_cat.format(category_lab)
 
-    logger.info(
-        f"<<lightblue>> _format_category_with_list_template add {category_lab=}, {category_lab_or=}, {category_r=}"
-    )
+    logger.info(f"<<lightblue>> add: {category_lab=}, {category_lab_or=}, {category_r=}")
 
     # Football-specific handling: add "football" if not present
     if foot_ballers and FOOTBALL_ARABIC not in category_lab:

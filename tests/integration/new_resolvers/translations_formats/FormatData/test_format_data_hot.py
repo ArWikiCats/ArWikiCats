@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Integration tests"""
 
-
 import pytest
 
 from ArWikiCats.translations_formats import FormatData

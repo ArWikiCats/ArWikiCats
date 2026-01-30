@@ -6,9 +6,9 @@ using multiple mapping tables.
 """
 
 import functools
+import logging
 from typing import Dict
 
-import logging
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import Jobs_new  # to be removed from players_new_keys
 from ...translations import jobs_mens_data  # to be  removed from players_new_keys

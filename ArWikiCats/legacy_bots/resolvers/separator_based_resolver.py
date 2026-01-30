@@ -13,10 +13,10 @@ This creates a proper DAG of imports with no cycles.
 from __future__ import annotations
 
 import functools
+import logging
 import re
 
 from ...format_bots.relation_mapping import translation_category_relations
-import logging
 from ...utils import get_relation_word
 from .arabic_label_builder import find_ar_label
 
@@ -45,7 +45,7 @@ def work_separator_names(
     if not separator:
         return ""
 
-    logger.info(f'<<lightblue>>>>>> work_separator_names: separator:"{separator_name}":"{separator}" in category ')
+    logger.info(f'<<lightblue>>>>>> : separator:"{separator_name}":"{separator}" in category ')
     arlabel = find_ar_label(category, separator, cate_test=category)
 
     if not arlabel:
