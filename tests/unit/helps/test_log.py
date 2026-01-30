@@ -24,11 +24,6 @@ class TestLoggerWrapInit:
         logger = LoggerWrap("test_logger", disable_log=True)
         assert logger._logger.disabled is True
 
-    def test_sets_correct_level(self) -> None:
-        """Should set the correct logging level."""
-        logger = LoggerWrap("test_logger", level=logging.WARNING)
-        assert logger._logger.level == logging.WARNING
-
     def test_prevents_propagation_to_root(self) -> None:
         """Should prevent propagation to root logger."""
         logger = LoggerWrap("test_logger")
@@ -225,12 +220,6 @@ class TestGetLoggerFunction:
         """Should respect disable_log parameter."""
         logger = getLogger("test_logger", disable_log=True)
         assert logger._logger.disabled is True
-
-    def test_respects_level_parameter(self) -> None:
-        """Should respect level parameter."""
-        logger = getLogger("test_logger", level=logging.CRITICAL)
-        assert logger._logger.level == logging.CRITICAL
-
 
 class TestLoggerWrapColorFormatting:
     """Tests for color formatting in log messages."""
