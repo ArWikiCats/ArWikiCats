@@ -5,9 +5,9 @@ Assemble gendered Arabic labels for general job categories.
 from __future__ import annotations
 
 from typing import Mapping, Tuple
-
+import logging
 from ..data_builders.jobs_defs import GenderedLabelMap
-from ..helps import getLogger, len_print
+from ..helps import len_print
 from ..utils import open_json_file
 
 logger = logging.getLogger(__name__)

@@ -5,8 +5,8 @@ nationalities, and descriptors for women into idiomatic Arabic.
 """
 
 import functools
-
-from ...helps import getLogger, len_print
+import logging
+from ...helps import len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,

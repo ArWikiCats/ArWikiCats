@@ -6,8 +6,8 @@ nationalities, and descriptors for men into idiomatic Arabic.
 
 import functools
 import re
-
-from ...helps import getLogger, len_print
+import logging
+from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     RELIGIOUS_KEYS_PP,
