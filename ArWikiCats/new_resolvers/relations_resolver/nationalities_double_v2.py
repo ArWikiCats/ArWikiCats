@@ -3,12 +3,12 @@
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -119,7 +119,7 @@ def resolve_by_nats_double_v2(category: str) -> str:
 
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}")
     return result
 
 

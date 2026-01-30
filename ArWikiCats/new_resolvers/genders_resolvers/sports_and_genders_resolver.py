@@ -7,12 +7,12 @@ nationalities, and genders into idiomatic Arabic.
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from .utils import fix_keys
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def generate_sports_data_dict() -> dict[str, dict[str, str]]:
@@ -122,7 +122,7 @@ def genders_sports_resolver(category: str) -> str:
     result = sport_bot.search_all_other_first(normalized_category)
     result = sport_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info_if_or_debug(f"<<yellow>> end genders_sports_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end genders_sports_resolver: {category=}, {result=}")
 
     return result
 

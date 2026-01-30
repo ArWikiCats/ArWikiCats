@@ -16,11 +16,11 @@ import functools
 import re
 
 from ...format_bots.relation_mapping import translation_category_relations
-from ...helps import getLogger
+import logging
 from ...utils import get_relation_word
 from .arabic_label_builder import find_ar_label
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 en_literes = "[a-z]"
 

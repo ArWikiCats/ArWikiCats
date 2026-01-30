@@ -11,13 +11,13 @@ from dataclasses import dataclass
 
 from ..fix import cleanse_category_label, filter_en, fixlabel
 from ..format_bots import change_cat
-from ..helps import getLogger
+import logging
 from ..legacy_bots import legacy_resolvers
 from ..new_resolvers import all_new_resolvers
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import university_resolver
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @dataclass

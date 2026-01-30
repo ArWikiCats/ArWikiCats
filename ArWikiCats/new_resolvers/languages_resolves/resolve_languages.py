@@ -4,14 +4,14 @@
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
 )
 from ...translations_formats import FormatDataV2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
@@ -161,7 +161,7 @@ def _resolve_languages_labels(category: str) -> str:
 
     result = _load_bot().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}")
     return result
 
 

@@ -6,11 +6,11 @@ TODO: use it to replace get_by_label functions in bys.py
 
 import functools
 import re
-
-from ..helps import getLogger, len_print
+import logging
+from ..helps import len_print
 from ..translations_formats import MultiDataFormatterBase, format_multi_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 CONTEXT_FIELD_LABELS = {
     "city": "مدينة",
@@ -602,7 +602,7 @@ def resolve_by_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_by_labels: {normalized_category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(normalized_category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_labels: {normalized_category=}, {result=}")
     return result
 
 

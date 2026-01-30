@@ -12,10 +12,10 @@ from __future__ import annotations
 from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
-from ..helps import getLogger
+import logging
 from ..utils import open_json_file
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:

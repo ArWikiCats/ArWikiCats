@@ -1,12 +1,12 @@
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     p17_bot_sport,
     p17_sport_to_move_under,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -34,7 +34,5 @@ def main_countries_names_with_sports_resolvers(normalized_category) -> str:
         or p17_bot_sport.get_p17_with_sport_new(normalized_category)
         or ""
     )
-    logger.info_if_or_debug(
-        f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
-    )
+    logger.info(f"<<yellow>> end countries_names_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label

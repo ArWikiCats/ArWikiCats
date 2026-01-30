@@ -6,10 +6,10 @@ as well as religious occupations.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import mens, relegin_jobs_new, womens
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -34,7 +34,7 @@ def main_jobs_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end jobs_resolvers: {normalized_category=}, {resolved_label=}", resolved_label)
+    logger.info(f"<<yellow>> end jobs_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

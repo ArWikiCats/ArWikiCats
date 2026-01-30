@@ -3,7 +3,7 @@
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new.handle_suffixes import (
     resolve_sport_category_suffix_with_mapping,
     resolve_suffix_with_mapping_genders,
@@ -11,7 +11,7 @@ from ...new.handle_suffixes import (
 from .pre_defined import pre_defined_results
 from .raw_sports import resolve_sport_label_unified
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 mappings_data: dict[str, str] = {
     "squads": "تشكيلات",
@@ -153,7 +153,7 @@ def wrap_team_xo_normal_2025_with_ends(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}")
     return result
 
 

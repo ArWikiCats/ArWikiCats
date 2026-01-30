@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import US_STATES
 from ...translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 _STATE_SUFFIX_TEMPLATES_BASE = {
     # "georgia (u.s. state)": "ولاية جورجيا",
@@ -177,7 +177,7 @@ def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
     result = normalize_state(result)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_us_states: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_us_states: {category=}, {result=}")
     return result
 
 

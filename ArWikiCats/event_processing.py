@@ -6,14 +6,12 @@ resolve their corresponding Arabic labels using internal processors.
 
 #
 from __future__ import annotations
-
+import logging
 from dataclasses import dataclass, field
 from typing import Dict, Iterable, List
-
-from .helps import getLogger
 from .main_processers.main_resolve import CategoryResult, resolve_label
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 LABEL_PREFIX = "تصنيف:"
 

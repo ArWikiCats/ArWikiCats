@@ -3,7 +3,7 @@
 import functools
 import re
 
-from ..helps import getLogger
+import logging
 from ..translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -13,7 +13,7 @@ from ..translations import (
 )
 from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_NAT.json
 COUNTRY_NAT_DATA = {
@@ -82,7 +82,7 @@ def resolve_country_nat_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}")
 
     return result or ""
 

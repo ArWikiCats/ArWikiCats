@@ -10,7 +10,7 @@ TODO:
 import functools
 from typing import Dict
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     Nat_women,
     film_keys_for_female,
@@ -21,7 +21,7 @@ from ...translations_formats import (
     format_multi_data,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
@@ -303,7 +303,7 @@ def _get_films_key_tyty_new(text: str) -> str:
     double_bot, bot = _make_bot()
 
     result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
+    logger.info(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}")
     return result
 
 

@@ -7,12 +7,12 @@ bot (`yc_bot`) to handle the translation logic.
 
 import functools
 
-from ..helps import getLogger
+import logging
 from ..translations import COUNTRY_LABEL_OVERRIDES, US_STATES, all_country_ar
 from ..translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: update countries_data with COUNTRY_LABEL_OVERRIDES after check any issues!
 
@@ -40,7 +40,7 @@ def resolve_country_time_pattern(category: str) -> str:
     yc_bot = load_bot()
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
     return result or ""
 
 

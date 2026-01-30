@@ -6,11 +6,11 @@ English country-name → Arabic country-name.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
 from ...translations_formats import MultiDataFormatterBase, format_multi_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: This all wrong arabic values need to be fixed later
 under_data_to_check = {
@@ -147,7 +147,7 @@ def resolve_sport_under_labels(category: str) -> str:
 
     result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_under_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_sport_under_labels: {category=}, {result=}")
     return result
 
 

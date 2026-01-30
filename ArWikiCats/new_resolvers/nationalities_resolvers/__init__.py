@@ -6,14 +6,14 @@ nationalities, often combined with occupations or time periods.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     ministers_resolver,
     nationalities_time_v2,
     nationalities_v2,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -39,9 +39,7 @@ def main_nationalities_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
-    )
+    logger.info(f"<<yellow>> end nationalities_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

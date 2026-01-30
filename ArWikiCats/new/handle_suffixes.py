@@ -6,9 +6,9 @@ This module provides functions to resolve categories by identifying suffixes
 
 from typing import Dict, TypedDict
 
-from ..helps import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class GenderedLabel(TypedDict):
@@ -102,7 +102,7 @@ def resolve_suffix_with_mapping_genders(
     if not result:
         result = callback(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_suffix_with_mapping_genders: {category=}, {result=}")
     return result
 
 
@@ -132,9 +132,7 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end resolve_sport_category_suffix_with_mapping({key=}), {category=}, {result=})", result
-    )
+    logger.info(f"<<yellow>> end resolve_sport_category_suffix_with_mapping({key=}), {category=}, {result=})")
     return result
 
 

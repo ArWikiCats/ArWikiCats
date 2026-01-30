@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import all_country_with_nat_ar, ministers_keys
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 nat_secretaries_mapping = {
     # Category:Secretaries of the Australian Department of Defence
@@ -137,7 +137,7 @@ def resolve_secretaries_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_secretaries_labels: {category=}")
     category = fix_keys(category)
     result = _names(category) or _nats(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_secretaries_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_secretaries_labels: {category=}, {result=}")
     return result
 
 

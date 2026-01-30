@@ -8,6 +8,7 @@ import difflib
 import logging
 from typing import Union
 
+# from ..config import print_settings
 from ..helps.printe_helper import make_str
 
 
@@ -117,6 +118,11 @@ def getLogger(name: str, disable_log: bool = False, level: int = logging.DEBUG) 
     """Get a LoggerWrap instance for the specified name."""
     return LoggerWrap(name, disable_log=disable_log, level=level)
 
+
+# logger = logging.getLogger("ArWikiCats")
+
+# if print_settings.noprint:
+#     logger.setLevel(logging.ERROR)
 
 __all__ = [
     "getLogger",

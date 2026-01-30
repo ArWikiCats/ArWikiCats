@@ -7,12 +7,12 @@ using population data from 2018 and other mapping tables.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations.funcs import _get_from_alias, open_json_file
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
 

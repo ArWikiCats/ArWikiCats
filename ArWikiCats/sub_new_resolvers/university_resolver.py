@@ -5,11 +5,11 @@ from __future__ import annotations
 import functools
 from typing import Dict
 
-from ..helps import getLogger
+import logging
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 CITY_LOWER = {
     "chandler, oklahoma": "تشاندلر (أوكلاهوما)",

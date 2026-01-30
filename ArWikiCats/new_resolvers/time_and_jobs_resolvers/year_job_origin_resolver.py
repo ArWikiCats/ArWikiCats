@@ -14,14 +14,14 @@ More examples:
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations import medical_keys
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
@@ -168,7 +168,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     #  "تصنيف:كتاب غير روائيين من أيرلنديون شماليون حسب القرن"
     result = _bot.create_label(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}")
     return result
 
 

@@ -16,7 +16,7 @@ import re
 from typing import Callable, Optional
 
 from ...fix import fixtitle
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
 from ...time_formats.time_to_arabic import convert_time_to_arabic
@@ -33,7 +33,7 @@ from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
 from ..make_bots import get_KAKO
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # Type alias for the fallback resolver callback
 FallbackResolver = Callable[[str, bool], str]
@@ -223,7 +223,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             if "سنوات في القرن" in resolved_label:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
-        logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
+        logger.info(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}")
         return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:

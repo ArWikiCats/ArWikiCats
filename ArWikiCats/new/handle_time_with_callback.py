@@ -9,10 +9,10 @@ import functools
 import re
 from typing import Callable, Optional
 
-from ..helps import getLogger
+import logging
 from ..time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 def fix_keys(category: str) -> str:
@@ -59,7 +59,7 @@ def handle_year_at_first(
     # result = f"{sub_result} في {arabic_time}"
     result = result_format.format(sub_result=sub_result, arabic_time=arabic_time)
 
-    logger.info_if_or_debug(f"<<yellow>> end handle_year_at_first: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end handle_year_at_first: {category=}, {result=}")
     return result
 
 

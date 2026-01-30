@@ -6,11 +6,11 @@ from __future__ import annotations
 
 import functools
 
-from ..helps import getLogger
+import logging
 from ..translations import People_key
 from ..translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 formatted_data = {
     "{person_key} administration cabinet members": "أعضاء مجلس وزراء إدارة {person_label}",
@@ -54,14 +54,14 @@ def work_peoples(name: str) -> str:
     logger.debug(f"<<yellow>> work_peoples {name=}")
 
     if label := People_key.get(name):
-        logger.info_if_or_debug(f"<<yellow>> end work_peoples direct hit {name=}, {label=}", label)
+        logger.info(f"<<yellow>> end work_peoples direct hit {name=}, {label=}")
         return label
 
     _peoples_bot = _load_bot()
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info_if_or_debug(f"<<yellow>> end work_peoples {name=}, {resolved_label=}", resolved_label)
+    logger.info(f"<<yellow>> end work_peoples {name=}, {resolved_label=}")
     return resolved_label
 
 

@@ -14,11 +14,11 @@ result: `مسلسلات تلفزيونية غير أرجنتينية مبنية 
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 formatted_data_tv_or_films = {
     "{en_1} {tv_or_film} based on {en_2} {tv_or_film}": "{tv_or_film} {female_1} مبنية على {tv_or_film} {female_2}",
@@ -95,7 +95,7 @@ def two_nationalities_but_not_double_resolver(category: str) -> str:
 
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end two_nationalities_but_not_double_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end two_nationalities_but_not_double_resolver: {category=}, {result=}")
     return result
 
 

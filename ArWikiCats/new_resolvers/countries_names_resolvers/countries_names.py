@@ -10,12 +10,12 @@ countries_names_v2.py use countries names with nationalities
 import functools
 from typing import Dict
 
-from ...helps import getLogger
+import logging
 from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
 
@@ -72,7 +72,7 @@ def resolve_by_countries_names(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_countries_names: {category=}, {result=}")
     return result
 
 

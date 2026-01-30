@@ -6,9 +6,9 @@ Build lookup tables for translating sport related keys.
 from dataclasses import dataclass
 from typing import Mapping, MutableMapping, TypedDict
 
-from ..helps import getLogger
+import logging
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class SportKeyRecord(TypedDict, total=False):

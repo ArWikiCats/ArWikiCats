@@ -6,7 +6,7 @@ TODO: merge with countries_names_sport_multi_v2.py
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     SPORTS_KEYS_FOR_TEAM,
@@ -15,7 +15,7 @@ from ...translations import (
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..teams_mappings_ends import teams_label_mappings_ends
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 SPORT_FORMATS_ENAR_P17_TEAM = {
     "{en} national men's under-13 {en_sport} team": "منتخب {ar} {sport_team} تحت 13 سنة للرجال",
@@ -111,7 +111,7 @@ def _get_p17_with_sport(category: str) -> str:
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _get_p17_with_sport: {category=}, {result=}")
     return result
 
 
@@ -152,7 +152,7 @@ def get_p17_with_sport_new(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end get_p17_with_sport_new: {category=}, {result=}")
     return result
 
 

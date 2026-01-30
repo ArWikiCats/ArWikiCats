@@ -8,14 +8,14 @@ TODO: merge with sports_resolvers/nationalities_and_sports.py
 
 import functools
 import re
-
-from ...helps import getLogger, len_print
+import logging
+from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, Nat_women
 from ...translations_formats import MultiDataFormatterBase, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 # TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
@@ -301,7 +301,7 @@ def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start _sport_lab_nat_load_new: {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
 
@@ -344,7 +344,7 @@ def sport_lab_nat_load_new(category: str) -> str:
         format_key="lab",
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end sport_lab_nat_load_new: {category=}, {result=}")
     return result
 
 

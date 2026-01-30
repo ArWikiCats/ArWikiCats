@@ -8,13 +8,13 @@ countries_names_v2.py use countries names with nationalities
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import countries_nat_en_key
 from ...translations_formats import FormatDataV2
 from ..nationalities_resolvers.data import country_names_and_nats_data
 from .countries_names_data import formatted_data_en_ar_only
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 countries_nat_en_key_example = {
     "yemen": {
@@ -104,7 +104,7 @@ def resolve_by_countries_names_v2(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_countries_names_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_countries_names_v2: {category=}, {result=}")
     return result
 
 

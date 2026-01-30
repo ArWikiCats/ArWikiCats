@@ -6,8 +6,8 @@ nationalities, and descriptors for men into idiomatic Arabic.
 
 import functools
 import re
-
-from ...helps import getLogger, len_print
+import logging
+from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import (
     RELIGIOUS_KEYS_PP,
@@ -21,7 +21,7 @@ from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 jobs_mens_data_f = dict(jobs_mens_data.items())
@@ -332,7 +332,7 @@ def _mens_resolver_labels(category: str) -> str:
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
     return result
 
 
@@ -361,7 +361,7 @@ def mens_resolver_labels(category: str) -> str:
         callback=_mens_resolver_labels,
         format_key="{}",
     )
-    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
     return result
 
 

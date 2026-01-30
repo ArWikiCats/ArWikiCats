@@ -6,7 +6,7 @@ and translate categories with structured temporal or nationality components.
 
 import functools
 
-from ..helps import getLogger
+import logging
 from . import (
     country_nat_pattern,
     country_time_pattern,
@@ -14,7 +14,7 @@ from . import (
     time_patterns_resolvers,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=50000)

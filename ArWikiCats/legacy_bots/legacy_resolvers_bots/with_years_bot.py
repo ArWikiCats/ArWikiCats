@@ -14,7 +14,7 @@ import functools
 import re
 from typing import Callable, Optional, Pattern
 
-from ...helps import getLogger
+import logging
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
 from ...translations.funcs import get_from_pf_keys2
@@ -25,7 +25,7 @@ from ..make_bots import get_KAKO
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
 from .bot_2018 import get_pop_All_18
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 arabic_labels_preceding_year = [
     # لإضافة "في" بين البداية والسنة في تصنيفات مثل :
@@ -157,7 +157,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     label = remainder_label + separator + year
 
-    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}", label)
+    logger.info(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}")
     return label
 
 
@@ -212,7 +212,7 @@ def _handle_year_at_end(
     label = f"{remainder_label} {formatted_year_label}"
     logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
 
-    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}", label)
+    logger.info(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}")
     return label
 
 
@@ -254,7 +254,7 @@ def Try_With_Years(category: str) -> str:
         return ""
 
     label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
-    logger.info_if_or_debug(f"<<yellow>> end Try_With_Years: {category=}, {label=}", label)
+    logger.info(f"<<yellow>> end Try_With_Years: {category=}, {label=}")
     return label
 
 

@@ -7,7 +7,7 @@ categories that mention relations/conflicts between two countries.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -19,7 +19,7 @@ from ...translations import (
 from ...translations_formats import FormatDataDouble, FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -185,7 +185,7 @@ def resolve_v1(category: str) -> str:
         return ""
 
     result = double_bot_v1().search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_v1: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_v1: {category=}, {result=}")
     return result
 
 
@@ -210,7 +210,7 @@ def resolve_v2(category: str) -> str:
         return ""
 
     result = double_bot_v2().search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_v2: {category=}, {result=}")
     return result
 
 
@@ -224,7 +224,7 @@ def resolve_countries_names_double(category: str) -> str:
 
     result = resolve_v2(category) or resolve_v1(category)
 
-    # logger.info_if_or_debug(f"<<yellow>> end resolve_countries_names_double: {category=}, {result=}", result)
+    # logger.info(f"<<yellow>> end resolve_countries_names_double: {category=}, {result=}")
     return result
 
 

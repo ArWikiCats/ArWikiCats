@@ -9,12 +9,12 @@ related to jobs, nationalities, and multi-sports topics from English to Arabic.
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
 from ..jobs_resolvers import main_jobs_resolvers
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 medalists_data = dict(
     sorted(
@@ -88,7 +88,7 @@ def jobs_in_multi_sports(category: str) -> str:
 
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}")
     return result or ""
 
 

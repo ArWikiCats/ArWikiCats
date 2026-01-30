@@ -3,12 +3,12 @@
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from .resolve_films_labels import get_films_key_tyty_new
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 formatted_data = {
     "{year1} {en}": "{ar} في {year1}",
@@ -76,12 +76,12 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     yc_bot = multi_bot_v4()
 
     if category == match_time_en_first(category):
-        logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match", "")
+        logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match")
         return ""
 
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}")
     return result or ""
 
 

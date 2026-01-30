@@ -11,7 +11,7 @@ NOTE: compare it with ArWikiCats/new_resolvers/sports_formats_teams/sport_lab_na
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
@@ -19,7 +19,7 @@ from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
 from .utils import fix_keys
 from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=1)
@@ -341,7 +341,7 @@ def _resolve_nats_sport_multi_v2(category: str) -> str:
     category = fix_keys(category)
     result = both_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
 
 
@@ -369,7 +369,7 @@ def resolve_nats_sport_multi_v2(category: str) -> str:
         fix_result_callable=fix_result_callable,
     )
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_nats_sport_multi_v2: {category=}, {result=}")
     return result
 
 

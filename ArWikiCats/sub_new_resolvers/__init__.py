@@ -2,10 +2,10 @@
 
 import functools
 
-from ..helps import getLogger
+import logging
 from . import peoples_resolver
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -24,5 +24,5 @@ def main_other_resolvers(category: str) -> str:
 
     resolved_label = peoples_resolver.work_peoples(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end main_other_resolvers: {category=}, {resolved_label=}", resolved_label)
+    logger.info(f"<<yellow>> end main_other_resolvers: {category=}, {resolved_label=}")
     return resolved_label

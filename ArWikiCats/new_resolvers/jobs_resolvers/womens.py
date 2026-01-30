@@ -5,8 +5,8 @@ nationalities, and descriptors for women into idiomatic Arabic.
 """
 
 import functools
-
-from ...helps import getLogger, len_print
+import logging
+from ...helps import len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
     RELIGIOUS_KEYS_PP,
@@ -21,7 +21,7 @@ from ..nats_as_country_names import nats_keys_as_country_names
 from .mens import mens_resolver_labels
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
 keys_not_jobs = [
@@ -284,7 +284,7 @@ def _womens_resolver(category: str) -> str:
 
     result = load_bot().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _womens_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _womens_resolver: {category=}, {result=}")
     return result
 
 
@@ -295,7 +295,7 @@ def _womens_jobs_resolver(category: str) -> str:
 
     result = load_bot_only_womens().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _womens_jobs_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _womens_jobs_resolver: {category=}, {result=}")
     return result
 
 
@@ -314,7 +314,7 @@ def womens_resolver_labels(category: str) -> str:
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)
 
-    # logger.info_if_or_debug(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}", result)
+    # logger.info(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}")
     return result
 
 

@@ -6,13 +6,13 @@ This package provides specialized resolvers for categories like
 
 import functools
 
-from ...helps import getLogger
+import logging
 from . import (
     year_job_origin_resolver,
     year_job_resolver,
 )
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -38,9 +38,7 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end time_and_jobs_resolvers_main: {normalized_category=}, {resolved_label=}", resolved_label
-    )
+    logger.info(f"<<yellow>> end time_and_jobs_resolvers_main: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

@@ -8,7 +8,7 @@ bot to handle the translation logic.
 import functools
 import re
 
-from ..helps import getLogger
+import logging
 from ..translations import (
     RELIGIOUS_KEYS_PP,
     All_Nat,
@@ -18,7 +18,7 @@ from ..translations import (
 from ..translations_formats import FormatDataV2
 from .categories_patterns.NAT_males import NAT_DATA_MALES
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -93,7 +93,7 @@ def resolve_nat_males_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_males_pattern: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_nat_males_pattern: {category=}, {result=}")
 
     return result or ""
 

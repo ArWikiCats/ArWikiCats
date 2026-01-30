@@ -5,7 +5,7 @@ TODO: use this instead of nats_women.py
 
 import functools
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     All_Nat,
     all_country_with_nat,
@@ -16,7 +16,7 @@ from ...translations_formats import FormatDataV2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 
@@ -711,7 +711,7 @@ def resolve_by_nats(category: str) -> str:
     category = fix_keys(category)
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
     return result
 
 

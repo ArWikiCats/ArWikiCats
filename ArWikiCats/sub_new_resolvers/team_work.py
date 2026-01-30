@@ -5,11 +5,11 @@ Sports team and club category processing.
 
 import functools
 
-from ..helps import getLogger
+import logging
 from ..translations import INTER_FEDS_LOWER, Clubs_key_2, clubs_teams_leagues
 from ..translations_formats import FormatData
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 Teams_new_end_keys = {
     "{team_key} broadcasters": "مذيعو {team_label}",
@@ -97,7 +97,7 @@ def resolve_clubs_teams_leagues(name: str) -> str:
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues {name=}, {resolved_label=}", resolved_label)
+    logger.info(f"<<yellow>> end resolve_clubs_teams_leagues {name=}, {resolved_label=}")
     return resolved_label
 
 

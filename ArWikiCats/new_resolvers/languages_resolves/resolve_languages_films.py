@@ -4,7 +4,7 @@
 import functools
 import re
 
-from ...helps import getLogger
+import logging
 from ...translations import (
     COMPLEX_LANGUAGE_TRANSLATIONS,
     PRIMARY_LANGUAGE_TRANSLATIONS,
@@ -14,7 +14,7 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBase, format_films_country_data
 
-logger = getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 new_data = PRIMARY_LANGUAGE_TRANSLATIONS | COMPLEX_LANGUAGE_TRANSLATIONS
 
@@ -75,7 +75,7 @@ def resolve_films_languages_labels(category: str) -> str:
 
     result = _make_bot().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_films_languages_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_films_languages_labels: {category=}, {result=}")
     return result
 
 
