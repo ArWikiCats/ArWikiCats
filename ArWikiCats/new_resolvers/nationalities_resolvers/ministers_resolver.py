@@ -26,9 +26,7 @@ nat_secretaries_mapping = {
 }
 
 en_secretaries_mapping = {
-    # TODO: solve this duplicate keys
     "ministers for {ministry} of {en}": "وزراء {no_al} {ar}",
-    # "ministers for {ministry} of {en}": "وزراء {no_al} في {ar}",
     "ministers of {ministry} for {en}": "وزراء {no_al} {ar}",
     "ministers of {ministry} of {en}": "وزراء {no_al} {ar}",
     "women government ministers of {en}": "وزيرات {females}",
