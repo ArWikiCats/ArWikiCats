@@ -250,7 +250,7 @@ def Try_With_Years(category: str) -> str:
     # RE4 = RE4_compile.match(category)
 
     if not year_at_start and not year_at_end and not year_at_end2:  # and not RE4
-        logger.info(f" end  {category=} no match year patterns")
+        logger.info(f" end {category=} no match year patterns")
         return ""
 
     label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""

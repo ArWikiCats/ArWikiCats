@@ -87,18 +87,18 @@ def get_con_label(country: str) -> str:
 
     label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
     if label:
-        logger.info(f"?????? get_con_label early return: {country=}, {label=}")
+        logger.info(f"??????  early return: {country=}, {label=}")
         return label
 
     for name, lookup_func in con_lookup_both.items():
         label = lookup_func(country) or lookup_func(country_no_dash)
         if label:
-            logger.debug(f"get_con_label({country}): Found label '{label}' via {name}")
+            logger.debug(f"({country}): Found label '{label}' via {name}")
             break
 
     # Normalize whitespace in the label
     label = " ".join(label.strip().split())
-    logger.info(f"?????? get_con_label: {country=}, {label=}")
+    logger.info(f"?????? {country=}, {label=}")
     return label
 
 
@@ -128,7 +128,7 @@ def get_lab_for_country2(country: str) -> str:
         or work_peoples(country2)
         or ""
     )
-    logger.info(f'>> get_lab_for_country2 "{country2}": label: {resolved_label}')
+    logger.info(f'>> "{country2}": label: {resolved_label}')
 
     return resolved_label
 

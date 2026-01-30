@@ -28,10 +28,9 @@ Example:
     'لاعبو كرة القدم'
 """
 
-import functools
 import logging
 import re
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -230,14 +229,14 @@ class FormatDataBase:
         result = ""
         if key:
             result = self.normalize_category(category, key)
-            logger.debug(f">>> normalize_category_with_key: {category=}, {key=}, {result=}")
+            logger.debug(f">>> {category=}, {key=}, {result=}")
 
         return key, result
 
     def get_template(self, sport_key: str, category: str) -> str:
         """Lookup template in a case-insensitive dict."""
         normalized = self.normalize_category(category, sport_key)
-        logger.debug(f"[] get_template:  : {normalized=}")
+        logger.debug(f"[] {normalized=}")
         # Case-insensitive key lookup
         return self.formatted_data_ci.get(normalized.lower(), "")
 
@@ -245,7 +244,7 @@ class FormatDataBase:
         """Lookup template in a case-insensitive dict."""
         # Case-insensitive key lookup
         template_key = template_key.lower()
-        logger.debug(f"get_template_ar: {template_key=}")
+        logger.debug(f"{template_key=}")
         result = self.formatted_data_ci.get(template_key, "")
 
         if not result:
@@ -255,7 +254,7 @@ class FormatDataBase:
             else:
                 result = self.formatted_data_ci.get(f"category:{template_key}", "")
 
-        logger.debug(f"get_template_ar: {template_key=}, {result=}")
+        logger.debug(f"{template_key=}, {result=}")
         return result
 
     def get_key_label(self, sport_key: str) -> Any:
@@ -287,7 +286,7 @@ class FormatDataBase:
             return ""
 
         result = self.apply_pattern_replacement(template_label, sport_label)
-        logger.debug(f"[] apply_pattern_replacement: {result=}")
+        logger.debug(f"[] {result=}")
 
         logger.debug(f"++++++++ end {self.__class__.__name__} ++++++++ ")
 
@@ -383,7 +382,7 @@ class FormatDataBase:
             str: The original `result` if it contains no "{", otherwise an empty string.
         """
         if "{" in result:
-            logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
+            logger.warning(f">>> Found unprocessed placeholders in {category=}: {result=}")
             return ""
         return result
 
@@ -397,7 +396,7 @@ class FormatDataBase:
             str: Final translated label, or an empty string if no valid translation is found or placeholders are unprocessed.
         """
         logger.debug("--" * 5)
-        logger.debug(">> search_all_category start")
+        logger.debug(">> start")
         normalized_category = category.lower().replace("category:", "")
 
         result = self._search(normalized_category)
@@ -406,5 +405,5 @@ class FormatDataBase:
 
         result = self.check_placeholders(category, result)
 
-        logger.debug(">> search_all_category end")
+        logger.debug(">> end")
         return result
