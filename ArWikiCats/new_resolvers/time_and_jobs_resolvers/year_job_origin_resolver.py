@@ -168,7 +168,7 @@ def resolve_year_job_from_countries(category: str) -> str:
     #  "تصنيف:كتاب غير روائيين من أيرلنديون شماليون حسب القرن"
     result = _bot.create_label(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_year_job_from_countries: {category=}, {result=}")
     return result
 
 

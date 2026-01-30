@@ -223,7 +223,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             if "سنوات في القرن" in resolved_label:
                 resolved_label = re.sub(r"سنوات في القرن", "سنوات القرن", resolved_label)
 
-        logger.info_if_or_debug(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}", resolved_label)
+        logger.info(f"<<yellow>> end get_country_label: {country=}, {resolved_label=}")
         return resolved_label
 
     def _check_basic_lookups(self, country: str) -> str:

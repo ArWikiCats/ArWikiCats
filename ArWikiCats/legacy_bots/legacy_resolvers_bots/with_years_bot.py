@@ -157,7 +157,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     label = remainder_label + separator + year
 
-    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}", label)
+    logger.info(f"<<yellow>> end _handle_year_at_start: {category_text=}, {label=}")
     return label
 
 
@@ -212,7 +212,7 @@ def _handle_year_at_end(
     label = f"{remainder_label} {formatted_year_label}"
     logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
 
-    logger.info_if_or_debug(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}", label)
+    logger.info(f"<<yellow>> end _handle_year_at_end: {category_text=}, {label=}")
     return label
 
 
@@ -254,7 +254,7 @@ def Try_With_Years(category: str) -> str:
         return ""
 
     label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
-    logger.info_if_or_debug(f"<<yellow>> end Try_With_Years: {category=}, {label=}", label)
+    logger.info(f"<<yellow>> end Try_With_Years: {category=}, {label=}")
     return label
 
 

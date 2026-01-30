@@ -82,7 +82,7 @@ def resolve_country_nat_pattern(category: str) -> str:
     if result and category.lower().startswith("category:"):
         result = "تصنيف:" + result
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_country_nat_pattern: {category=}, {result=}")
 
     return result or ""
 

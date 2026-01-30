@@ -106,7 +106,7 @@ def resolve_year_job_countries(category: str) -> str:
     _bot = multi_bot_v4()
     result = _bot.create_label(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_year_job_countries: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_year_job_countries: {category=}, {result=}")
     return result
 
 

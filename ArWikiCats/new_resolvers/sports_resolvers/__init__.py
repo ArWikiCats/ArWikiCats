@@ -4,9 +4,8 @@ This package provides resolvers for sports teams, athletes, and competitions,
 often combined with geographic or nationality elements.
 """
 
-import functools
-
 import logging
+
 from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
@@ -44,9 +43,7 @@ def main_sports_resolvers(normalized_category) -> str:
         or ""
     )
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end main_sports_resolvers: {normalized_category=}, {resolved_label=}", resolved_label
-    )
+    logger.info(f"<<yellow>> end main_sports_resolvers: {normalized_category=}, {resolved_label=}")
     return resolved_label
 
 

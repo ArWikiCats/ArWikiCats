@@ -88,7 +88,7 @@ def jobs_in_multi_sports(category: str) -> str:
 
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end jobs_in_multi_sports: {category=}, {result=}")
     return result or ""
 
 

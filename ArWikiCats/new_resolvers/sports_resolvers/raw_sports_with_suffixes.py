@@ -153,7 +153,7 @@ def wrap_team_xo_normal_2025_with_ends(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info_if_or_debug(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end wrap_team_xo_normal_2025_with_ends: {category=}, {result=}")
     return result
 
 

@@ -177,7 +177,7 @@ def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
     result = normalize_state(result)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_us_states: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_us_states: {category=}, {result=}")
     return result
 
 

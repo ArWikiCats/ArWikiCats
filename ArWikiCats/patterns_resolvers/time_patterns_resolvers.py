@@ -55,7 +55,7 @@ def resolve_lab_from_years_patterns(category: str) -> str:
     # if not from_year and _cat_year:
     # labs_years_bot.lab_from_year_add(category, from_year, en_year=_cat_year)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_lab_from_years_patterns: {category=}, {from_year=}", from_year)
+    logger.info(f"<<yellow>> end resolve_lab_from_years_patterns: {category=}, {from_year=}")
     return from_year
 
 

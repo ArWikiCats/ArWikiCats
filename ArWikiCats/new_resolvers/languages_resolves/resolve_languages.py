@@ -161,7 +161,7 @@ def _resolve_languages_labels(category: str) -> str:
 
     result = _load_bot().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _resolve_languages_labels: {category=}, {result=}")
     return result
 
 

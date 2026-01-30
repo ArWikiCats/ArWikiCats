@@ -160,7 +160,7 @@ def _build_formatted_data() -> Dict[str, str]:
         formatted_data[f"west {base_key}"] = base_label.format(game_ar="{game_ar} الغربية", ar="{ar}")
         formatted_data[f"east {base_key}"] = base_label.format(game_ar="{game_ar} الشرقية", ar="{ar}")
 
-    olympic_types = {
+    _olympic_types = {
         "olympic": "أولمبية",
         "winter olympic": "أولمبية شتوية",
         "summer olympic": "أولمبية صيفية",
@@ -258,9 +258,7 @@ def resolve_countries_names_medalists(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(normalized_category)
 
-    logger.info_if_or_debug(
-        f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}", result
-    )
+    logger.info(f"<<yellow>> end resolve_countries_names_medalists: {normalized_category=}, {result=}")
     return result
 
 

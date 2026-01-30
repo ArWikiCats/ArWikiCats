@@ -119,7 +119,7 @@ def resolve_by_nats_double_v2(category: str) -> str:
 
     nat_bot = double_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_nats_double_v2: {category=}, {result=}")
     return result
 
 

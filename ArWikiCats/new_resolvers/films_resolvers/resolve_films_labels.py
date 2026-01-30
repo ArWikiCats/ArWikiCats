@@ -303,7 +303,7 @@ def _get_films_key_tyty_new(text: str) -> str:
     double_bot, bot = _make_bot()
 
     result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}", result)
+    logger.info(f"<<yellow>> end get_films_key_tyty_new: {normalized_text=}, {result=}")
     return result
 
 

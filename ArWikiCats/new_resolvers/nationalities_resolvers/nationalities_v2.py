@@ -711,7 +711,7 @@ def resolve_by_nats(category: str) -> str:
     category = fix_keys(category)
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_nats: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_nats: {category=}, {result=}")
     return result
 
 

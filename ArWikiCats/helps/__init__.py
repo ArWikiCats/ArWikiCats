@@ -6,6 +6,5 @@ This package contains modules for logging, data dumping, and performance monitor
 # -*- coding: utf-8 -*-
 from . import len_print
 from .jsonl_dump import dump_data
-import logging
 
 __all__ = ["len_print", "dump_data", "getLogger"]

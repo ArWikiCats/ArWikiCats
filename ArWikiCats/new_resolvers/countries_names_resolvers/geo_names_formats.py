@@ -46,7 +46,7 @@ def resolve_by_geo_names(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_by_geo_names: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_by_geo_names: {category=}, {result=}")
     return result
 
 

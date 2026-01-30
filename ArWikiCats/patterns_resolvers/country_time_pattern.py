@@ -40,7 +40,7 @@ def resolve_country_time_pattern(category: str) -> str:
     yc_bot = load_bot()
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_country_time_pattern: {category=}, {result=}")
     return result or ""
 
 

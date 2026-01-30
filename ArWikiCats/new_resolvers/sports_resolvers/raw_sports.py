@@ -417,7 +417,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
         category2 = category.replace("championships", "championship")
         result = unified_bot.search(category2)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_sport_label_unified: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_sport_label_unified: {category=}, {result=}")
     return result or default
 
 

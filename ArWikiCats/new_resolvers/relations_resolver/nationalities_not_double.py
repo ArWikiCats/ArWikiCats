@@ -95,7 +95,7 @@ def two_nationalities_but_not_double_resolver(category: str) -> str:
 
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
-    logger.info_if_or_debug(f"<<yellow>> end two_nationalities_but_not_double_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end two_nationalities_but_not_double_resolver: {category=}, {result=}")
     return result
 
 

@@ -97,7 +97,7 @@ def resolve_clubs_teams_leagues(name: str) -> str:
 
     resolved_label = _peoples_bot.search(name)
 
-    logger.info_if_or_debug(f"<<yellow>> end resolve_clubs_teams_leagues {name=}, {resolved_label=}", resolved_label)
+    logger.info(f"<<yellow>> end resolve_clubs_teams_leagues {name=}, {resolved_label=}")
     return resolved_label
 
 

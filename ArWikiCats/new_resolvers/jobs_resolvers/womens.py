@@ -284,7 +284,7 @@ def _womens_resolver(category: str) -> str:
 
     result = load_bot().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _womens_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _womens_resolver: {category=}, {result=}")
     return result
 
 
@@ -295,7 +295,7 @@ def _womens_jobs_resolver(category: str) -> str:
 
     result = load_bot_only_womens().search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end _womens_jobs_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end _womens_jobs_resolver: {category=}, {result=}")
     return result
 
 
@@ -314,7 +314,7 @@ def womens_resolver_labels(category: str) -> str:
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)
 
-    # logger.info_if_or_debug(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}", result)
+    # logger.info(f"<<yellow>> end womens_resolver_labels: {category=}, {result=}")
     return result
 
 

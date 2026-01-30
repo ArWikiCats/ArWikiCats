@@ -332,7 +332,7 @@ def _mens_resolver_labels(category: str) -> str:
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
     return result
 
 
@@ -361,7 +361,7 @@ def mens_resolver_labels(category: str) -> str:
         callback=_mens_resolver_labels,
         format_key="{}",
     )
-    logger.info_if_or_debug(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end mens_resolver_labels: {category=}, {result=}")
     return result
 
 

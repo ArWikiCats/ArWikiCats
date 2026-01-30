@@ -76,12 +76,12 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     yc_bot = multi_bot_v4()
 
     if category == match_time_en_first(category):
-        logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match", "")
+        logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, no time match")
         return ""
 
     result = yc_bot.search_all_category(category)
 
-    logger.info_if_or_debug(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end get_films_key_tyty_new_and_time: {category=}, {result=}")
     return result or ""
 
 

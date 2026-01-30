@@ -43,7 +43,7 @@ def resolve_nat_genders_pattern_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start resolve_nat_genders_pattern_v2: {category=}")
 
     result = genders_sports_resolver(category) or genders_jobs_resolver(category) or ""
-    logger.info_if_or_debug(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end resolve_nat_genders_pattern_v2: {category=}, {result=}")
 
     return result
 

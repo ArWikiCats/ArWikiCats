@@ -59,7 +59,7 @@ def handle_year_at_first(
     # result = f"{sub_result} في {arabic_time}"
     result = result_format.format(sub_result=sub_result, arabic_time=arabic_time)
 
-    logger.info_if_or_debug(f"<<yellow>> end handle_year_at_first: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end handle_year_at_first: {category=}, {result=}")
     return result
 
 

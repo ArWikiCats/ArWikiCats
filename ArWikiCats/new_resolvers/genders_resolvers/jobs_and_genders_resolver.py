@@ -133,7 +133,7 @@ def genders_jobs_resolver(category: str) -> str:
     result = job_bot.search_all_other_first(normalized_category)
     result = job_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info_if_or_debug(f"<<yellow>> end genders_jobs_resolver: {category=}, {result=}", result)
+    logger.info(f"<<yellow>> end genders_jobs_resolver: {category=}, {result=}")
 
     return result
 
