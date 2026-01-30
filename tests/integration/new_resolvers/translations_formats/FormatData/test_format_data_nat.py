@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Integration tests for :mod:`FormatData` with nationality data."""
 
-import re
 
 import pytest
 

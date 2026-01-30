@@ -9,12 +9,12 @@ on suffixes and prefixes.
 import functools
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from .common_resolver_chain import get_lab_for_country2
 from .data.mappings import combined_suffix_mappings, pp_start_with
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
+
+logger = getLogger(__name__)
 
 
 def create_label_from_prefix(input_label):

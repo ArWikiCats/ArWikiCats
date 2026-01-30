@@ -60,7 +60,7 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
             from_match=False,
         )
 
-    is_cat_okay = filter_en.filter_cat(category)
+    is_cat_okay = filter_en.is_category_allowed(category)
     if not is_cat_okay:
         logger.debug(f"Category filtered out: {category}")
         return CategoryResult(

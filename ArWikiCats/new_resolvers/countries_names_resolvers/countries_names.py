@@ -11,11 +11,11 @@ import functools
 from typing import Dict
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
 from .countries_names_data import formatted_data_en_ar_only
+
+logger = getLogger(__name__)
 
 # NOTE: ONLY_COUNTRY_NAMES should not merge to formatted_data_en_ar_only directly
 

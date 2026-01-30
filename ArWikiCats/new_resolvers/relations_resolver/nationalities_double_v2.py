@@ -4,11 +4,11 @@
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import All_Nat, all_country_with_nat, countries_en_as_nationality_keys
 from ...translations_formats import FormatDataDoubleV2
 from ..nats_as_country_names import nats_keys_as_country_names
+
+logger = getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

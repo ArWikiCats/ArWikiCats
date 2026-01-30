@@ -13,9 +13,9 @@ from collections.abc import Iterable, Mapping, MutableMapping
 from typing import Any
 
 from ..helps import getLogger
+from ..utils import open_json_file
 
 logger = getLogger(__name__)
-from ..utils import open_json_file
 
 
 def load_json_mapping(file_key: str) -> dict[str, str]:

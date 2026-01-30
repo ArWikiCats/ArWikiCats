@@ -2,7 +2,6 @@ import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers import resolve_countries_names_medalists
 
 test_data = {
     "african games bronze medalists for yemen": "فائزون بميداليات برونزية في الألعاب الإفريقية من اليمن",

@@ -3,9 +3,9 @@
 import functools
 
 from ..helps import getLogger
+from . import peoples_resolver
 
 logger = getLogger(__name__)
-from . import peoples_resolver
 
 
 @functools.lru_cache(maxsize=10000)

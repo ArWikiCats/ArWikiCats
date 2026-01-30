@@ -16,6 +16,7 @@ from ..helps import len_print
 from ..jobs import SINGERS_TAB
 from ..mixed import (
     ALBUMS_TYPE,
+    BASE_POP_FINAL_5,
     NEW_2023,
     generate_key_mappings,
     keys2_py,
@@ -23,10 +24,6 @@ from ..mixed import (
     pop_final6,
     pop_final_3,
 )
-
-new2019.update(USA_PARTY_DERIVED_KEYS)
-
-from ..mixed import BASE_POP_FINAL_5
 from ..nats import all_country_ar
 from ..others import (
     MEDIA_CATEGORY_TRANSLATIONS,
@@ -38,6 +35,9 @@ from ..tv import (
     film_keys_for_female,
     film_keys_for_male,
 )
+
+new2019.update(USA_PARTY_DERIVED_KEYS)
+
 
 pf_keys2 = generate_key_mappings(
     keys2_py,

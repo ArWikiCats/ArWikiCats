@@ -1,7 +1,5 @@
 """Tests for jobs_defs.py gendered label utilities."""
 
-import pytest
-
 from ArWikiCats.translations.data_builders.jobs_defs import (
     GenderedLabel,
     GenderedLabelMap,

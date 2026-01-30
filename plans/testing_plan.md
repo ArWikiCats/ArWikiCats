@@ -146,7 +146,7 @@ def no_cache(mocker):
 # 3. Mock resolver chain for unit tests
 @pytest.fixture
 def mock_resolver_chain(mocker):
-    mocker.patch('ArWikiCats.main_processers.event_lab_bot.event_Lab', return_value="")
+    mocker.patch('ArWikiCats.main_processers.event_lab_bot.event_lab', return_value="")
 ```
 
 ### 2.3 Test Isolation

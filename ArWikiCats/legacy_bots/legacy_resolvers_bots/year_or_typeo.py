@@ -6,8 +6,6 @@ import re
 from ...fix import fixtitle
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...new_resolvers import all_new_resolvers
 from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
@@ -15,6 +13,8 @@ from ..make_bots import get_cats, get_reg_result
 from ..resolvers.country_resolver import get_country_label
 from .bot_2018 import get_pop_All_18
 from .mk3 import new_func_mk2
+
+logger = getLogger(__name__)
 
 
 def resolve_country_label(country_lower: str, country_not_lower: str, cate3: str, compare_lab: str) -> str:

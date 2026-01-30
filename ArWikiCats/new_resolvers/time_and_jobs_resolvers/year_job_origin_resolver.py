@@ -15,17 +15,18 @@ import functools
 import re
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..jobs_resolvers import main_jobs_resolvers
 
+logger = getLogger(__name__)
+
 FROM_REGEX = re.compile(r"^(.*?) from (.*?)$", re.I)
 
 medical_keys = {
     "amyloidosis": "داء نشواني",
+    "mastocytosis": "كثرة الخلايا البدينة",
     "autoimmune disease": "أمراض المناعة الذاتية",
     "blood disease": "أمراض الدم",
     "brain cancer": "سرطان الدماغ",
@@ -36,7 +37,6 @@ medical_keys = {
     "genetic disorders": "اضطرابات وراثية",
     "infectious disease": "أمراض معدية",
     "lung cancer": "سرطان الرئة",
-    "mastocytosis": "كثرة الخلايا البدينة",
     "musculoskeletal disorders": "إصابة الإجهاد المتكرر",
     "neurological disease": "أمراض عصبية",
     "organ failure": "فشل عضوي",
@@ -117,8 +117,7 @@ def normalize_text(text):
     text = text.replace("sportspeople", "sports-people")
     text = text.replace(" the ", " ")
     # text = text.replace("republic of", "republic-of")
-    if text.startswith("the "):
-        text = text[4:]
+    text = text.removeprefix("the ")
     return text.strip()
 
 

@@ -4,7 +4,6 @@
 import pytest
 
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
-from utils.dump_runner import make_dump_test_name_data
 
 test_0 = {
     "21st-century people from Northern Ireland by occupation": "أشخاص من أيرلندا الشمالية حسب المهنة في القرن 21",

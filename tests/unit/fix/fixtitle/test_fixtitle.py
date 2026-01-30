@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Pytest to validate all title lists using fixlabel()."""
 
 from ArWikiCats.fix.fixtitle import fixlabel

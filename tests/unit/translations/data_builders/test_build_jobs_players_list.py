@@ -1,7 +1,6 @@
 """Tests for build_jobs_players_list.py gendered player label utilities."""
 
 from ArWikiCats.translations.data_builders.build_jobs_players_list import (
-    GenderedLabel,
     GenderedLabelMap,
     _build_boxing_labels,
     _build_champion_labels,

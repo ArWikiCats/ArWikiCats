@@ -6,8 +6,6 @@ TODO: use this instead of nats_women.py
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import (
     All_Nat,
     all_country_with_nat,
@@ -17,6 +15,8 @@ from ...translations import (
 from ...translations_formats import FormatDataV2
 from ..nats_as_country_names import nats_keys_as_country_names
 from .data import country_names_and_nats_data
+
+logger = getLogger(__name__)
 
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
 

@@ -14,6 +14,12 @@ from __future__ import annotations
 import functools
 from typing import Callable, Protocol
 
+# Import other legacy resolvers that are not part of the circular dependency
+from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
+
+# Import from the new resolvers package (no circular dependencies)
+from .resolvers import event2_d2, initialize_resolvers, translate_general_category_wrap
+
 
 class Resolver(Protocol):
     """Protocol for resolver functions that convert category names to Arabic labels."""
@@ -31,12 +37,6 @@ class Resolver(Protocol):
         ...
 
 
-# Import other legacy resolvers that are not part of the circular dependency
-from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
-
-# Import from the new resolvers package (no circular dependencies)
-from .resolvers import event2_d2, initialize_resolvers, translate_general_category_wrap
-
 # Initialize the resolver callbacks after all modules are loaded
 initialize_resolvers()
 
@@ -51,7 +51,7 @@ initialize_resolvers()
 # 1. event2_d2 - Country and event-based resolution
 # 2. with_years_bot.wrap_try_with_years - Year-based category resolution
 # 3. year_or_typeo.label_for_startwith_year_or_typeo - Year prefix patterns and typo handling
-# 4. event_lab_bot.event_Lab - General event labeling
+# 4. event_lab_bot.event_lab - General event labeling
 # 5. translate_general_category_wrap - Catch-all general resolution (lowest priority)
 #
 # To add a new resolver:
@@ -67,7 +67,7 @@ RESOLVER_PIPELINE: list[Callable[[str], str]] = [
     event2_d2,
     with_years_bot.wrap_try_with_years,
     year_or_typeo.label_for_startwith_year_or_typeo,
-    event_lab_bot.event_Lab,
+    event_lab_bot.event_lab,
     translate_general_category_wrap,
 ]
 

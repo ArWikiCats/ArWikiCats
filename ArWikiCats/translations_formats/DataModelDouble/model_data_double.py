@@ -132,7 +132,6 @@ class FormatDataDouble(FormatDataBase):
         data_pattern = rf"(?<!\w)({self.alternation})({self.splitter})({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
-    @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
         """
         Determine the canonical lowercase key that corresponds to a given category string.
@@ -172,7 +171,6 @@ class FormatDataDouble(FormatDataBase):
 
         return result
 
-    @functools.lru_cache(maxsize=10000)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
         """
         Insert the provided sport label into the template by replacing the value placeholder.
@@ -191,7 +189,6 @@ class FormatDataDouble(FormatDataBase):
 
         return ""
 
-    @functools.lru_cache(maxsize=5000)
     def create_label_from_keys(self, part1: str, part2: str):
         """
         Compose an Arabic label by combining the labels for two key parts.

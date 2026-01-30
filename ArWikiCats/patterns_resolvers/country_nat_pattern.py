@@ -4,8 +4,6 @@ import functools
 import re
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..translations import (
     COUNTRY_LABEL_OVERRIDES,
     All_Nat,
@@ -14,6 +12,8 @@ from ..translations import (
     countries_from_nat,
 )
 from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+
+logger = getLogger(__name__)
 
 # TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_NAT.json
 COUNTRY_NAT_DATA = {

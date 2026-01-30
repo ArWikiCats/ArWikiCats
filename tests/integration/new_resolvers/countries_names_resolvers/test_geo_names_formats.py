@@ -7,7 +7,6 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers import all_new_resolvers
 from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
 
 data_0 = {

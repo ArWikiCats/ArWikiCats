@@ -1,6 +1,5 @@
 import pytest
 
-from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from utils.dump_runner import make_dump_test_name_data
 

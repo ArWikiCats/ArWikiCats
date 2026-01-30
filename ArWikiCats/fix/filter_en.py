@@ -61,25 +61,25 @@ MONTH_NAMES = [
 ]
 
 
-def filter_cat(cat: str) -> bool:
+def is_category_allowed(category_name: str) -> bool:
     """Return ``True`` when the English category is allowed for processing."""
-    normalized_category = cat.lower()
+    normalized_category = category_name.lower()
     for blocked_fragment in CATEGORY_BLACKLIST:
-        if blocked_fragment in normalized_category:
-            logger.info(f"<<lightred>> find ({blocked_fragment}) in cat")
+        if blocked_fragment.lower() in normalized_category:
+            logger.info(f"<<lightred>> find ({blocked_fragment}) in category_name")
             return False
 
     normalized_category = normalized_category.replace("category:", "")
     for blocked_prefix in CATEGORY_PREFIX_BLACKLIST:
         if normalized_category.startswith(blocked_prefix.lower()):
-            logger.info(f"<<lightred>> cat.startswith({blocked_prefix})")
+            logger.info(f"<<lightred>> category_name.startswith({blocked_prefix})")
             return False
 
     for month_name in MONTH_NAMES:
-        # match the end of cat like month \d+
+        # match the end of category_name like month \d+
         matt = rf"^.*? from {month_name.lower()} \d+$"
         if re.match(matt, normalized_category):
-            logger.info(f"<<lightred>> cat.match({matt})")
+            logger.info(f"<<lightred>> category_name.match({matt})")
             return False
 
     return True

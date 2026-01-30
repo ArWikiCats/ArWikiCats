@@ -1,12 +1,12 @@
 import functools
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from . import (
     p17_bot_sport,
     p17_sport_to_move_under,
 )
+
+logger = getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)

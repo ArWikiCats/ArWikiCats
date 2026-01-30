@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 

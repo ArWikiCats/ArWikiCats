@@ -68,7 +68,7 @@ class TestCategoryResolverProtocol:
 
     def test_protocol_has_call_method(self) -> None:
         """Protocol should define __call__ method."""
-        assert hasattr(CategoryResolver, "__call__")
+        assert callable(CategoryResolver)
 
 
 @pytest.mark.fast

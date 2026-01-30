@@ -7,10 +7,10 @@ import functools
 from typing import Dict
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+
+logger = getLogger(__name__)
 
 medalists_data = {
     # "central american and caribbean games": "ألعاب أمريكا الوسطى والكاريبي",

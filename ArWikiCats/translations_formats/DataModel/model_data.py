@@ -26,12 +26,12 @@ assert result == "لاعبو كرة القدم"
 
 """
 
-import functools
 import logging
 from typing import Dict
 
-logger = logging.getLogger(__name__)
 from .model_data_base import FormatDataBase
+
+logger = logging.getLogger(__name__)
 
 
 class FormatData(FormatDataBase):
@@ -97,7 +97,6 @@ class FormatData(FormatDataBase):
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
-    @functools.lru_cache(maxsize=10000)
     def apply_pattern_replacement(self, template_label: str, sport_label: str) -> str:
         """
         Format the given template by replacing the instance of the value placeholder with the provided value.

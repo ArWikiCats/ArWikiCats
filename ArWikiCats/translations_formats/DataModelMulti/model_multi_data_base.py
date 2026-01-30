@@ -24,7 +24,6 @@ Example:
 test at tests.translations_formats.test_format_2_data.py
 """
 
-import functools
 import logging
 from dataclasses import dataclass
 
@@ -202,7 +201,6 @@ class MultiDataFormatterBaseHelpers:
 
         return label.strip()
 
-    @functools.lru_cache(maxsize=1000)
     def create_label(self, category: str) -> str:
         """
         Create a localized Arabic label by combining the normalized country and other-element templates for the given category.

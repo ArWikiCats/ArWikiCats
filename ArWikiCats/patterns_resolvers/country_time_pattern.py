@@ -8,11 +8,11 @@ bot (`yc_bot`) to handle the translation logic.
 import functools
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..translations import COUNTRY_LABEL_OVERRIDES, US_STATES, all_country_ar
 from ..translations_formats import MultiDataFormatterBaseYear, format_year_country_data
 from .categories_patterns.COUNTRY_YEAR import COUNTRY_YEAR_DATA
+
+logger = getLogger(__name__)
 
 # TODO: update countries_data with COUNTRY_LABEL_OVERRIDES after check any issues!
 

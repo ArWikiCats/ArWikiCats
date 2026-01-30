@@ -1,10 +1,7 @@
 """Tests for build_nationalities.py nationality translation utilities."""
 
-import pytest
-
 from ArWikiCats.translations.data_builders.build_nationalities import (
     AllNatDict,
-    NationalityEntry,
     build_american_forms,
     build_en_nat_entries,
     build_lookup_tables,

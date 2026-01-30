@@ -6,7 +6,6 @@ This module provides tests for format_films_country_data factory function
 which creates MultiDataFormatterDataDouble instances for film category translations.
 """
 
-import pytest
 
 from ArWikiCats.translations_formats.data_new_model import (
     format_films_country_data,

@@ -7,7 +7,7 @@ from ArWikiCats.translations.data_builders.build_jobs_data_basic import (
     _build_painter_job_labels,
     _build_religious_job_labels,
 )
-from ArWikiCats.translations.data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
+from ArWikiCats.translations.data_builders.jobs_defs import GenderedLabelMap
 
 
 class TestBuildReligiousJobLabels:

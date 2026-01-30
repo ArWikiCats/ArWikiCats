@@ -8,8 +8,6 @@ from __future__ import annotations
 import functools
 
 from ..helps import getLogger
-
-logger = getLogger(__name__)
 from ..new_resolvers import all_new_resolvers
 from ..sub_new_resolvers import parties_resolver, team_work, university_resolver
 from ..sub_new_resolvers.peoples_resolver import work_peoples
@@ -21,6 +19,8 @@ from ..translations import (
 from ..translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from .make_bots import get_KAKO
+
+logger = getLogger(__name__)
 
 
 def _lookup_country_with_in_prefix(country: str) -> str:

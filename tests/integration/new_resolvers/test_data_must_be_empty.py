@@ -45,7 +45,7 @@ test_data_must_be_empty = {
     "caribbean": "",
 }
 
-test_data_must_be_empty.update({x: "" for x in countries_en_as_nationality_keys})
+test_data_must_be_empty.update(dict.fromkeys(countries_en_as_nationality_keys, ""))
 
 
 @pytest.mark.parametrize("category, expected_key", test_data_must_be_empty.items(), ids=test_data_must_be_empty.keys())

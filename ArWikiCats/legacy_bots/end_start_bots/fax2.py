@@ -5,14 +5,14 @@ from . import fax2
 from typing import Tuple
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from .end_start_match import (
     footballers_get_endswith,
     to_get_endswith,
     to_get_startswith,
 )
 from .utils import get_from_endswith_dict, get_from_starts_dict
+
+logger = getLogger(__name__)
 
 
 def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> Tuple[str, bool, str]:

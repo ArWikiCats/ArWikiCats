@@ -1,7 +1,6 @@
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 from utils.dump_runner import make_dump_test_name_data_callback
 
 new = {

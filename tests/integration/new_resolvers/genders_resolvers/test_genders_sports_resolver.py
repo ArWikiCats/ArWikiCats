@@ -2,8 +2,6 @@
 Tests
 """
 
-import re
-
 import pytest
 
 from ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import genders_sports_resolver

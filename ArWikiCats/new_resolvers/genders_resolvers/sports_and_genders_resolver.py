@@ -8,11 +8,11 @@ import functools
 import re
 
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from .utils import fix_keys
+
+logger = getLogger(__name__)
 
 
 def generate_sports_data_dict() -> dict[str, dict[str, str]]:

@@ -2,7 +2,6 @@
 """
 Arabic Label Builder Module
 """
-
 import functools
 import re
 from dataclasses import dataclass
@@ -10,8 +9,6 @@ from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...helps import getLogger
-
-logger = getLogger(__name__)
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
@@ -20,9 +17,12 @@ from ..common_resolver_chain import get_con_label, get_type_lab
 from ..legacy_resolvers_bots import bys, with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
-from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country, split_text_by_separator
+from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country  # , split_text_by_separator
 from ..make_bots import check_key_new_players
 from . import country_resolver
+
+logger = getLogger(__name__)
+
 
 separators_lists_raw = [
     "in",
