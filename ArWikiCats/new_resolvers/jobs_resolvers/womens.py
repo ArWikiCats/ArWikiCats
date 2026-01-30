@@ -192,7 +192,7 @@ def _load_jobs_data() -> dict[str, str]:
     data = {x: {"ar_job": v} for x, v in jobs_womens_data.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_womens_data.keys()) - set(data.keys()))
     if len_diff:
-        logger.error(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
+        logger.warning(f"_load_jobs_data womens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     # data.update({x: {"ar_job": v} for x, v in FEMALE_JOBS_BASE_EXTENDED.items()})
 

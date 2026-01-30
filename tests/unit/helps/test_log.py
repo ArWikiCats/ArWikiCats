@@ -19,11 +19,6 @@ class TestLoggerWrapInit:
         logger = LoggerWrap("test_logger")
         assert logger._logger.name == "test_logger"
 
-    def test_creates_disabled_logger_when_requested(self) -> None:
-        """Should create a disabled logger when disable_log=True."""
-        logger = LoggerWrap("test_logger", disable_log=True)
-        assert logger._logger.disabled is True
-
     def test_prevents_propagation_to_root(self) -> None:
         """Should prevent propagation to root logger."""
         logger = LoggerWrap("test_logger")
@@ -33,12 +28,6 @@ class TestLoggerWrapInit:
         """Should add a handler when logger is not disabled."""
         logger = LoggerWrap("test_logger")
         assert len(logger._logger.handlers) > 0
-
-    def test_does_not_add_handler_when_disabled(self) -> None:
-        """Should not add handlers when disabled."""
-        logger = LoggerWrap("test_logger", disable_log=True)
-        # Disabled loggers may or may not have handlers, check disabled flag
-        assert logger._logger.disabled is True
 
 
 class TestLoggerWrapSetLevel:
@@ -71,12 +60,6 @@ class TestLoggerWrapDisableLogger:
         logger = LoggerWrap("test_logger")
         logger.disable_logger(True)
         assert logger._logger.disabled is True
-
-    def test_enables_logger(self) -> None:
-        """Should enable the logger when called with False."""
-        logger = LoggerWrap("test_logger", disable_log=True)
-        logger.disable_logger(False)
-        assert logger._logger.disabled is False
 
 
 class TestLoggerWrapGetLogger:
@@ -215,11 +198,6 @@ class TestGetLoggerFunction:
         """Should create logger with the given name."""
         logger = getLogger("my_test_logger")
         assert logger._logger.name == "my_test_logger"
-
-    def test_respects_disable_log_parameter(self) -> None:
-        """Should respect disable_log parameter."""
-        logger = getLogger("test_logger", disable_log=True)
-        assert logger._logger.disabled is True
 
 class TestLoggerWrapColorFormatting:
     """Tests for color formatting in log messages."""

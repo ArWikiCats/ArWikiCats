@@ -48,7 +48,7 @@ def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mappin
         target.setdefault(key.lower(), value)
         added += 1
 
-    logger.debug(f"Added {added} entries to the target mapping, source mapping({name}) {len(mapping)}.")
+    # logger.debug(f"Added {added} entries to the target mapping, source mapping({name}) {len(mapping)}.")
 
 
 def _make_japan_labels(data: dict[str, str]) -> dict[str, str]:
@@ -117,7 +117,7 @@ def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
             continue
         new_keys.setdefault(trimmed_key, value)
 
-    logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
+    # logger.debug(f">> _handle_the_prefix() Added {len(new_keys)} entries without 'the ' prefix.")
     return new_keys
 
 
@@ -171,7 +171,7 @@ def _build_country_label_index(
         "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,  # 1424
     }
     for name, mapping in to_update.items():
-        logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
+        # logger.debug(f">> _build_country_label_index() Updating labels for {name}, entries: {len(mapping)}")
         update_with_lowercased(label_index, mapping)
 
     label_index.update(  # Specific overrides used by downstream consumers.
