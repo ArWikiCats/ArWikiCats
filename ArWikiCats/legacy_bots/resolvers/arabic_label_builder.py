@@ -498,7 +498,7 @@ class LabelPipeline:
             logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
             separator2_lab = translation_category_relations.get(self.separator_stripped)
 
-            if separator2_lab not in separators_lists_raw:
+            if separator2_lab and separator2_lab not in separators_lists_raw:
                 tatl = separator2_lab
                 logger.info(
                     f">>>>> > ({self.separator_stripped=}): separator_stripped in category_relation_mapping and separator_stripped not in separators_lists_raw, {tatl=}"

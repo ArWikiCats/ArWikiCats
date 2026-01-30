@@ -4,7 +4,6 @@ This module handles environment variables and command-line arguments to configur
 the application's behavior, including printing and application-specific settings.
 """
 
-import logging
 import os
 import sys
 from dataclasses import dataclass
