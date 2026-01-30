@@ -60,7 +60,7 @@ def sub_translate_general_category(category_r: str) -> str:
     )
 
     if arlabel:
-        logger.debug(f"<<lightyellow>>>> {arlabel=}  ")
+        logger.debug(f"<<lightyellow>>>> {arlabel=} ")
 
     logger.debug("<<lightyellow>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
 

@@ -50,7 +50,7 @@ class CountryLabelAndTermParent:
 
                 if remainder_label:
                     new_label = f"{remainder_label} {prefix_label}"
-                    logger.info(f'>>>>>> xxx new cnt_la  "{new_label}" ')
+                    logger.info(f'>>>>>> xxx new cnt_la "{new_label}" ')
                     return new_label
 
         return ""

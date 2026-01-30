@@ -210,7 +210,7 @@ def _handle_year_at_end(
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")
 
     label = f"{remainder_label} {formatted_year_label}"
-    logger.debug(f'>>>>>> Try With Years new lab4  "{label}" ')
+    logger.debug(f'>>>>>> Try With Years new lab4 "{label}" ')
 
     logger.info(f"<<yellow>> end {category_text=}, {label=}")
     return label

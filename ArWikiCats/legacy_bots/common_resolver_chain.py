@@ -87,7 +87,7 @@ def get_con_label(country: str) -> str:
 
     label = get_pop_All_18(country_no_dash, "") or get_pop_All_18(country, "")
     if label:
-        logger.info(f"??????  early return: {country=}, {label=}")
+        logger.info(f"?????? early return: {country=}, {label=}")
         return label
 
     for name, lookup_func in con_lookup_both.items():
