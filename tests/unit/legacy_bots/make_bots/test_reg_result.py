@@ -11,7 +11,7 @@ def test_get_reg_result_1() -> None:
     # Test with basic inputs
     result = get_reg_result("Category:19th government of turkey")
     assert result.year_at_first_strip == "19th"
-    assert result.In == ""
+    assert result.in_str == ""
     assert result.country == "government of turkey"
     assert result.cat_test == "government of turkey"
 
@@ -21,14 +21,14 @@ def test_get_reg_result() -> None:
     result = get_reg_result("Category:2025 in fishes")
     assert hasattr(result, "year_at_first")
     assert result.year_at_first_strip == "2025"
-    assert hasattr(result, "In")
+    assert hasattr(result, "in_str")
     assert hasattr(result, "country")
     assert hasattr(result, "cat_test")
 
     # Test with different parameters
     result_various = get_reg_result("category:year in type")
     assert hasattr(result_various, "year_at_first")
-    assert hasattr(result_various, "In")
+    assert hasattr(result_various, "in_str")
     assert hasattr(result_various, "country")
     assert hasattr(result_various, "cat_test")
 
@@ -137,7 +137,7 @@ class TestEdgeCases:
     def test_empty_category(self) -> None:
         out = get_reg_result("")
         assert out.year_at_first == ""
-        assert out.In == ""
+        assert out.in_str == ""
         assert out.country == ""
 
     def test_only_category_prefix(self) -> None:

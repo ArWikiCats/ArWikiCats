@@ -60,7 +60,7 @@ For every candidate file:
 
 ### Output Table Example
 
-| Function | Defined In           | Used By                 | Status  |
+| Function | Defined in_str       | Used By                 | Status  |
 | -------- | -------------------- | ----------------------- | ------- |
 | slugify  | ArWikiCats/tools/slugify.py | ArWikiCats/processors/title.py | movable |
 

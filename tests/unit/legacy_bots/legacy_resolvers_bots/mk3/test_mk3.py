@@ -65,7 +65,7 @@ class TestAddTheIn:
             country="test",
             arlabel="تسمية",
             suf=" ",
-            In=" in ",
+            in_str=" in ",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -75,13 +75,13 @@ class TestAddTheIn:
         assert len(result) == 3
 
     def test_returns_add_in_done_boolean(self) -> None:
-        """Should return Add_In_Done as boolean."""
+        """Should return add_in_done as boolean."""
         add_in_done, _, _ = add_the_in(
             in_table=False,
             country="test",
             arlabel="تسمية",
             suf=" ",
-            In=" in ",
+            in_str=" in ",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -96,7 +96,7 @@ class TestAddTheIn:
             country="test",
             arlabel="تسمية",
             suf=" ",
-            In="",
+            in_str="",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -105,13 +105,13 @@ class TestAddTheIn:
         assert isinstance(arlabel, str)
 
     def test_in_preposition_triggers_addition(self) -> None:
-        """Should add 'في' when In is 'in'."""
+        """Should add 'في' when in_str is 'in'."""
         add_in_done, arlabel, _ = add_the_in(
             in_table=False,
             country="test",
             arlabel="تسمية",
             suf=" ",
-            In=" in ",
+            in_str=" in ",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -121,13 +121,13 @@ class TestAddTheIn:
         assert ARABIC_PREPOSITION_FI.strip() in arlabel
 
     def test_at_preposition_triggers_addition(self) -> None:
-        """Should add 'في' when In is 'at'."""
+        """Should add 'في' when in_str is 'at'."""
         add_in_done, arlabel, _ = add_the_in(
             in_table=False,
             country="test",
             arlabel="تسمية",
             suf=" ",
-            In=" at ",
+            in_str=" at ",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -142,7 +142,7 @@ class TestAddTheIn:
             country="disasters",
             arlabel="تسمية",
             suf=" ",
-            In="",
+            in_str="",
             typeo="",
             year_labe="1900",
             country_label="البلد",
@@ -170,7 +170,7 @@ class TestAddedInNew:
             suf="",
             year_labe="1900",
             country_label="البلد",
-            Add_In=True,
+            add_in=True,
             arlabel2="1900",
         )
         assert isinstance(result, tuple)
@@ -184,7 +184,7 @@ class TestAddedInNew:
             suf="",
             year_labe="1900",
             country_label="البلد",
-            Add_In=True,
+            add_in=True,
             arlabel2="1900",
         )
         assert "البلد" in arlabel
@@ -198,37 +198,37 @@ class TestAddedInNew:
             suf="",
             year_labe="1900",
             country_label="البلد",
-            Add_In=True,
+            add_in=True,
             arlabel2="1900",
         )
         # suf becomes " في " when country_label starts with "ال"
         assert ARABIC_PREPOSITION_FI.strip() in arlabel
 
     def test_add_in_flag_changes(self) -> None:
-        """Add_In flag should potentially change during processing."""
-        _, Add_In, _ = added_in_new(
+        """add_in flag should potentially change during processing."""
+        _, add_in, _ = added_in_new(
             country="test",
             arlabel="تسمية",
             suf="",
             year_labe="1900",
             country_label="البلد",
-            Add_In=True,
+            add_in=True,
             arlabel2="1900",
         )
-        assert isinstance(Add_In, bool)
+        assert isinstance(add_in, bool)
 
     def test_add_in_done_is_boolean(self) -> None:
-        """Add_In_Done should be a boolean."""
-        _, _, Add_In_Done = added_in_new(
+        """add_in_done should be a boolean."""
+        _, _, add_in_done = added_in_new(
             country="test",
             arlabel="تسمية",
             suf="",
             year_labe="1900",
             country_label="بلد",  # Does not start with "ال"
-            Add_In=True,
+            add_in=True,
             arlabel2="1900",
         )
-        assert isinstance(Add_In_Done, bool)
+        assert isinstance(add_in_done, bool)
 
 
 # ---------------------------------------------------------------------------
@@ -247,14 +247,14 @@ class TestNewFuncMk2:
             cat_test="1900 events",
             year="1900",
             typeo="",
-            In="",
+            in_str="",
             country="events",
             arlabel="أحداث",
             year_labe="1900",
             suf="",
-            Add_In=True,
+            add_in=True,
             country_label="الأحداث",
-            Add_In_Done=False,
+            add_in_done=False,
         )
         assert isinstance(result, tuple)
         assert len(result) == 2
@@ -266,14 +266,14 @@ class TestNewFuncMk2:
             cat_test="1900 events",
             year="1900",
             typeo="",
-            In="",
+            in_str="",
             country="events",
             arlabel="أحداث",
             year_labe="1900",
             suf="",
-            Add_In=True,
+            add_in=True,
             country_label="الأحداث",
-            Add_In_Done=False,
+            add_in_done=False,
         )
         assert isinstance(cat_test, str)
         assert isinstance(arlabel, str)
@@ -285,14 +285,14 @@ class TestNewFuncMk2:
             cat_test="1900 disasters",
             year="1900",
             typeo="",
-            In="",
+            in_str="",
             country="disasters",
             arlabel="كوارث",
             year_labe="1900",
             suf="",
-            Add_In=True,
+            add_in=True,
             country_label="كوارث",
-            Add_In_Done=False,
+            add_in_done=False,
         )
         assert "disasters" not in cat_test
 
@@ -303,14 +303,14 @@ class TestNewFuncMk2:
             cat_test="test",
             year="1900",
             typeo="",
-            In="",
+            in_str="",
             country="test",
             arlabel="  multiple   spaces  ",
             year_labe="1900",
             suf="",
-            Add_In=True,
+            add_in=True,
             country_label="تسمية",
-            Add_In_Done=False,
+            add_in_done=False,
         )
         assert "  " not in arlabel  # No double spaces
 
@@ -321,14 +321,14 @@ class TestNewFuncMk2:
             cat_test="1900 in yemen",
             year="1900",
             typeo="",
-            In=" in ",
+            in_str=" in ",
             country="yemen",
             arlabel="1900",
             year_labe="1900",
             suf="",
-            Add_In=True,
+            add_in=True,
             country_label="اليمن",
-            Add_In_Done=False,
+            add_in_done=False,
         )
         assert isinstance(arlabel, str)
         assert " in " not in cat_test or cat_test.count(" in ") == 0

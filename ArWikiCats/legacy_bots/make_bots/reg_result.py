@@ -27,7 +27,7 @@ def _load_pattern() -> re.Pattern:
     _in_pattern = " |".join(map(re.escape, [n.lower() for n in _sorted_mapping]))
 
     _reg_line_1_match = (
-        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*" r"(?P<in>" + _in_pattern + r"|)\s*" r"(?P<country>.*|).*"
+        rf"(?P<monthyear>{_MONTHSTR3}(?:{_yy})|)\s*(?P<in>{_in_pattern}|)\s*(?P<country>.*|).*"
     )
     return re.compile(_reg_line_1_match, re.I)
 
@@ -39,7 +39,7 @@ REGEX_SEARCH_REG_LINE_1 = _load_pattern()
 class TypiesResult:
     year_at_first: str
     year_at_first_strip: str
-    In: str
+    in_str: str
     country: str
     cat_test: str
 
@@ -62,20 +62,20 @@ def get_reg_result(category_r: str) -> TypiesResult:
 
     year_first = ""
     country = ""
-    In = ""
+    in_str = ""
 
     if match_it:
         year_first = match_it.group("monthyear")
         country = match_it.group("country")
-        In = match_it.group("in")
+        in_str = match_it.group("in")
 
     if year_first and cate_gory.startswith(year_first):
         cat_test = cat_test.replace(year_first.lower(), "")
 
-    if In == cate_gory or In == cate3:
-        In = ""
+    if in_str == cate_gory or in_str == cate3:
+        in_str = ""
 
-    if In.strip() == "by":
+    if in_str.strip() == "by":
         country = f"by {country}"
 
     if not year_first:
@@ -84,7 +84,7 @@ def get_reg_result(category_r: str) -> TypiesResult:
     return TypiesResult(
         year_at_first=year_first,
         year_at_first_strip=year_first.strip(),
-        In=In,
+        in_str=in_str,
         country=country,
         cat_test=cat_test,
     )
