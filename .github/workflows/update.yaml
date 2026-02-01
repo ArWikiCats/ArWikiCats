@@ -23,7 +23,7 @@ jobs:
           rm: true
 
       - name: Deploy on Toolforge
-        uses: appleboy/ssh-action@v1.2.4
+        uses: appleboy/ssh-action@v1.2.5
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
