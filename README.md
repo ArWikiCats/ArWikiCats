@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Beta-orange)]()
-[![Tests](https://img.shields.io/badge/tests-28500+-success)]()
+[![Tests](https://img.shields.io/badge/tests-30000+-success)]()
 
 ---
 
@@ -422,7 +422,7 @@ ArWikiCats/
     ├── fixing.py
     └── match_relation_word.py
 
-tests/                       # اختبارات (+28,500 اختبار)
+tests/                       # اختبارات (+30,000 اختبار)
 │   ├── unit/                # اختبارات الوحدات (سريعة)
 │   ├── integration/         # اختبارات التكامل (متوسطة)
 │   └── e2e/                 # اختبارات شاملة (قد تكون بطيئة)
@@ -439,7 +439,7 @@ examples/                    # أمثلة الاستخدام
 pytest
 ```
 
-يغطي المشروع أكثر من **28,500 اختبار** مُنظّمة في ثلاث فئات رئيسية:
+يغطي المشروع أكثر من **30,000 اختبار** مُنظّمة في ثلاث فئات رئيسية:
 
 ## 8.1 فئات الاختبارات
 
@@ -552,7 +552,7 @@ ruff check ArWikiCats/
 * قواعد ترجمة متخصصة
 * محللات متعددة المستويات (وظائف، رياضات، جنسيات، بلدان)
 * تخزين مؤقت متقدم
-* اختبارات صارمة (+28,500 اختبار)
+* اختبارات صارمة (+30,000 اختبار)
 * تصميم قابل للتطوير
 * تنسيقات بيانات مرنة (FormatData, MultiDataFormatter)
 
