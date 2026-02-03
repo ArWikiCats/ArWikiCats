@@ -178,7 +178,6 @@ data_slow = {
     "Cultural depictions of Catiline": "تصوير ثقافي عن كاتيلين",
     "Cultural depictions of Cecil Rhodes": "تصوير ثقافي عن سيسل رودس",
     "Cultural depictions of Cesare Borgia": "تصوير ثقافي عن تشيزري بورجا",
-    "Cultural depictions of chancellors of Germany": "تصوير ثقافي عن مستشاري ألمانيا",
     "Cultural depictions of Charlemagne": "تصوير ثقافي عن شارلمان",
     "Cultural depictions of Charles Baudelaire": "تصوير ثقافي عن شارل بودلير",
     "Cultural depictions of Charles Darwin": "تصوير ثقافي عن تشارلز داروين",
