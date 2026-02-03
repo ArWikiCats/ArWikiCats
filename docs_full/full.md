@@ -520,7 +520,7 @@ ArWikiCats follows several key design principles that inform its architecture:
 
 **1. Resolver Chain Priority Pattern**
 
-Resolvers are ordered to prevent semantic conflicts. For example, "football manager" must be resolved by the jobs resolver (as an occupation) before the sports resolver can interpret it as a sports management role. The priority order is explicitly documented in [new_resolvers/__init__.py L29-L57](../new_resolvers/__init__.py#L29-L57).
+Resolvers are ordered to prevent semantic conflicts. For example, "football manager" must be resolved by the jobs resolver (as an occupation) before the sports resolver can interpret it as a sports management role. The priority order is explicitly documented in [new_resolvers/__init__.py L29-L57](../new_resolvers/__init__.py#L29-L57)
 
 **2. Template-Based Formatting**
 
@@ -570,7 +570,7 @@ The following files were used as context for generating this wiki page:
 
 This page provides a quick-start guide for using ArWikiCats to translate English Wikipedia category labels to Arabic. It covers installation, the main public API functions, and common usage patterns with practical examples.
 
-For an architectural overview of how the translation system works internally, see [Architecture](#3). For details on the translation data structure, see [Translation Data](#4).
+For an architectural overview of how the translation system works internally, see [Architecture](#3). For details on the translation data structure, see [Translation Data](#4)
 
 ---
 
@@ -1115,7 +1115,7 @@ The following files were used as context for generating this wiki page:
 
 This page describes the overall system architecture of ArWikiCats. The system translates English Wikipedia category labels to Arabic through a five-layer architecture: a public API layer, a main resolution engine, a prioritized resolver chain, a template formatting engine, and a translation data layer.
 
-For detailed information about specific subsystems, see the child pages: page 3.1 (Resolution Pipeline), page 3.2 (Data Architecture), and page 3.3 (Resolver Chain Priority System).
+For detailed information about specific subsystems, see the child pages: page 3.1 (Resolution Pipeline), page 3.2 (Data Architecture), and page 3.3 (Resolver Chain Priority System)
 
 ## System Architecture Overview
 
@@ -1277,7 +1277,7 @@ graph TB
 The priority ordering is critical to prevent mismatches. For example:
 
 - **Jobs before Sports**: "football manager" could match sports ("football") or jobs ("manager"). Jobs wins to correctly identify it as a management position.
-- **Nationalities before Countries**: "Italy political leader" should resolve as nationality-based ("قادة سياسيون إيطاليون") not country-based ("قادة إيطاليا السياسيون").
+- **Nationalities before Countries**: "Italy political leader" should resolve as nationality-based ("قادة سياسيون إيطاليون") not country-based ("قادة إيطاليا السياسيون")
 
 **Sources:** [ArWikiCats/new_resolvers/__init__.py L1-L57](../ArWikiCats/new_resolvers/__init__.py#L1-L57), [ArWikiCats/patterns_resolvers/__init__.py L1-L30](../ArWikiCats/patterns_resolvers/__init__.py#L1-L30), [ArWikiCats/legacy_bots/__init__.py L29-L57](../ArWikiCats/legacy_bots/__init__.py#L29-L57)
 
@@ -1444,7 +1444,7 @@ The system implements multi-level caching to optimize performance:
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
 ```
 
-First call processes through entire resolver chain (~10-50ms). Subsequent calls retrieve from cache (<1ms).
+First call processes through entire resolver chain (~10-50ms). Subsequent calls retrieve from cache (<1ms)
 
 **Sources:** [ArWikiCats/main_processers/main_resolve.py L32-L33](../ArWikiCats/main_processers/main_resolve.py#L32-L33), [changelog.md:277]()
 
@@ -1566,7 +1566,7 @@ This stage attempts resolvers in priority order:
 3. `university_resolver.resolve_university_category()` - University-specific patterns
 4. `legacy_resolvers()` - Legacy bot fallback
 
-Each resolver returns on first match (early exit pattern).
+Each resolver returns on first match (early exit pattern)
 
 ### Stage 5: Arabic Grammar
 
@@ -1843,7 +1843,7 @@ The following files were used as context for generating this wiki page:
 
 The resolution pipeline is the core translation engine that converts English Wikipedia category strings into Arabic equivalents. This page documents the multi-stage processing flow, from input normalization through the waterfall resolver chain to final output formatting.
 
-For information about specific resolver implementations (Year Pattern, Nationality, Country Name, etc.), see the Resolver Chain pages [5.1](#5.1)-[5.7](#5.7). For details about the formatting system that resolvers use, see [6](#6). For category parsing internals, see [3.3](#3.3).
+For information about specific resolver implementations (Year Pattern, Nationality, Country Name, etc.), see the Resolver Chain pages [5.1](#5.1)-[5.7](#5.7). For details about the formatting system that resolvers use, see [6](#6). For category parsing internals, see [3.3](#3.3)
 
 ## Overview
 
@@ -2077,7 +2077,7 @@ The `fixlabel` function [ArWikiCats/fix/fixtitle.py]() (called at [ArWikiCats/ma
 
 ### Category Prefix Addition
 
-The resolved label is prefixed with `"تصنيف:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303).
+The resolved label is prefixed with `"تصنيف:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303)
 
 **Note:** The `resolve_label_ar` function returns labels **without** the prefix, while `resolve_arabic_category_label` (in the EventProcessor) includes it.
 
@@ -2289,7 +2289,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the architectural organization of translation data within ArWikiCats, explaining how raw JSON sources are processed, aggregated, and made accessible to the resolution system. The focus is on structural organization and access patterns rather than the detailed content of specific datasets.
 
-For information about the aggregation pipeline that builds these structures, see [Data Aggregation Pipeline](#4.1). For details about specific data domains (geography, jobs, sports, etc.), see sections [4.2](#4.2) through [4.7](#4.7).
+For information about the aggregation pipeline that builds these structures, see [Data Aggregation Pipeline](#4.1). For details about specific data domains (geography, jobs, sports, etc.), see sections [4.2](#4.2) through [4.7](#4.7)
 
 ## Layered Data Architecture
 
@@ -2684,7 +2684,7 @@ The `pf_keys2` dataset (33,657 entries) is assembled from multiple sources throu
 | `NEW_2023` | 757 | 2023 additions |
 | Generated entries | ~24,000+ | Built from base mappings |
 
-The majority of entries are generated programmatically through helper functions like `build_pf_keys2()`, which combines base labels with modifiers (directions, regions, book types, etc.).
+The majority of entries are generated programmatically through helper functions like `build_pf_keys2()`, which combines base labels with modifiers (directions, regions, book types, etc.)
 
 **Sources:** [ArWikiCats/translations/mixed/all_keys2.py L643-L714](../ArWikiCats/translations/mixed/all_keys2.py#L643-L714), [ArWikiCats/translations/build_data/__init__.py L42-L56](../ArWikiCats/translations/build_data/__init__.py#L42-L56)
 
@@ -2855,7 +2855,7 @@ For information about individual resolver implementations, see:
 - Nationality resolvers: [5.2](#5.2)
 - Country resolvers: [5.3](#5.3)
 
-For the overall resolution pipeline architecture, see [3.1](#3.1).
+For the overall resolution pipeline architecture, see [3.1](#3.1)
 
 ---
 
@@ -3340,13 +3340,13 @@ The following files were used as context for generating this wiki page:
 
 The Translation Data layer provides the foundational English-to-Arabic mapping tables used throughout the ArWikiCats system. This page documents the organization, structure, and scale of these translation resources across all supported domains.
 
-For information about how this data is processed and aggregated, see [Data Aggregation Pipeline](#4.1). For details about specific resolvers that consume this data, see [Resolver System](#5).
+For information about how this data is processed and aggregated, see [Data Aggregation Pipeline](#4.1). For details about specific resolvers that consume this data, see [Resolver System](#5)
 
 ## Overview
 
-The translation data consists of structured dictionaries mapping English Wikipedia category terms to their Arabic equivalents. The system manages approximately **250,000+ translation entries** across multiple domains, organized into domain-specific modules under [ArWikiCats/translations/]().
+The translation data consists of structured dictionaries mapping English Wikipedia category terms to their Arabic equivalents. The system manages approximately **250,000+ translation entries** across multiple domains, organized into domain-specific modules under [ArWikiCats/translations/]()
 
-The data originates from raw JSON files in [jsons/](), which are processed by Python aggregator modules into typed dictionaries exported via [ArWikiCats/translations/__init__.py L1-L152](../ArWikiCats/translations/__init__.py#L1-L152).
+The data originates from raw JSON files in [jsons/](), which are processed by Python aggregator modules into typed dictionaries exported via [ArWikiCats/translations/__init__.py L1-L152](../ArWikiCats/translations/__init__.py#L1-L152)
 
 ## Data Architecture
 
@@ -3628,7 +3628,7 @@ The translation data layer manages significant volumes requiring optimization:
 | `CITY_TRANSLATIONS_LOWER` | 10,526 | N/A | Module import |
 | **Total Managed** | ~250,000+ | ~6 MiB | <1s |
 
-All translation data is loaded at module import time and cached in memory for fast lookups. The resolver chain benefits from Python's built-in dictionary hash table performance (O(1) average case).
+All translation data is loaded at module import time and cached in memory for fast lookups. The resolver chain benefits from Python's built-in dictionary hash table performance (O(1) average case)
 
 **Sources:** [ArWikiCats/translations/jobs/Jobs.py L185-L194](../ArWikiCats/translations/jobs/Jobs.py#L185-L194), [_work_files/data_len.json L1-L135](../_work_files/data_len.json#L1-L135)
 
@@ -3693,9 +3693,9 @@ The following files were used as context for generating this wiki page:
 
 ## Purpose and Scope
 
-The Data Aggregation Pipeline is responsible for transforming raw JSON translation data from multiple domains into comprehensive, deduplicated lookup tables that power the resolver system. This page documents how translation data flows from source files through domain-specific aggregators to produce the final consolidated datasets `pf_keys2` (33,657 entries) and `NEW_P17_FINAL` (68,981 entries).
+The Data Aggregation Pipeline is responsible for transforming raw JSON translation data from multiple domains into comprehensive, deduplicated lookup tables that power the resolver system. This page documents how translation data flows from source files through domain-specific aggregators to produce the final consolidated datasets `pf_keys2` (33,657 entries) and `NEW_P17_FINAL` (68,981 entries)
 
-For information about how these datasets are used in category resolution, see [Resolution Pipeline](#3.1). For details on individual translation data domains, see the respective pages: [Geographic Data](#4.2), [Jobs and Occupations](#4.3), [Nationalities](#4.4), [Sports Data](#4.5), [Films and Television](#4.6).
+For information about how these datasets are used in category resolution, see [Resolution Pipeline](#3.1). For details on individual translation data domains, see the respective pages: [Geographic Data](#4.2), [Jobs and Occupations](#4.3), [Nationalities](#4.4), [Sports Data](#4.5), [Films and Television](#4.6)
 
 ## Pipeline Architecture Overview
 
@@ -4349,7 +4349,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the geographic translation data system used for resolving city, region, country, and county names from English to Arabic. It covers the structure of translation tables, data sources, aggregation process, and how resolvers access this data.
 
-For nationality-based category resolution, see [Nationalities](#4.4). For country-based resolvers, see [Country Name Resolvers](#5.3).
+For nationality-based category resolution, see [Nationalities](#4.4). For country-based resolvers, see [Country Name Resolvers](#5.3)
 
 ---
 
@@ -4840,7 +4840,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the jobs and occupations translation system, which provides comprehensive English-to-Arabic mappings for occupational categories with gender-aware handling. The system maintains 97,797 male job entries and 75,244 female job entries, supporting the translation of Wikipedia categories like "British film directors" to "مخرجو أفلام بريطانيون".
 
-For resolver implementation details using these datasets, see [Job Resolvers](#5.4). For nationality handling in job categories, see [Nationality Resolvers](#5.2).
+For resolver implementation details using these datasets, see [Job Resolvers](#5.4). For nationality handling in job categories, see [Nationality Resolvers](#5.2)
 
 ## Overview
 
@@ -5499,7 +5499,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the nationality translation data system, which maintains 799 nationality entries with gender-specific Arabic translations. The nationality data is fundamental to the resolver system as it enables grammatically correct Arabic translation of categories containing nationality identifiers (e.g., "American films" → "أفلام أمريكية"). For information about how nationality data is used in pattern matching, see [5.2 Nationality Resolvers](#5.2).
+This page documents the nationality translation data system, which maintains 799 nationality entries with gender-specific Arabic translations. The nationality data is fundamental to the resolver system as it enables grammatically correct Arabic translation of categories containing nationality identifiers (e.g., "American films" → "أفلام أمريكية"). For information about how nationality data is used in pattern matching, see [5.2 Nationality Resolvers](#5.2)
 
 ## Overview
 
@@ -5827,7 +5827,7 @@ The resolver handles "non-" prefix patterns for negative nationality expressions
 "non yemeni television series" → "مسلسلات تلفزيونية غير يمنية"
 ```
 
-The pattern splits on "non-" or "non " and translates to "غير" (meaning "non" in Arabic).
+The pattern splits on "non-" or "non " and translates to "غير" (meaning "non" in Arabic)
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py L13-L17](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py#L13-L17)
 
@@ -5955,7 +5955,7 @@ The following files were used as context for generating this wiki page:
 
 This document describes the sports-related translation data used in ArWikiCats. Sports data enables translation of English Wikipedia categories related to sports, athletes, teams, clubs, competitions, and venues into Arabic. The data structures support gender-specific forms, context-specific variants (jobs, labels, Olympic categories), and team/club translations.
 
-For information about how sports resolvers use this data in the resolution chain, see [Sports Resolvers](#5.5). For job-related sports data (e.g., "footballers", "basketball players"), see [Jobs and Occupations](#4.3).
+For information about how sports resolvers use this data in the resolution chain, see [Sports Resolvers](#5.5). For job-related sports data (e.g., "footballers", "basketball players"), see [Jobs and Occupations](#4.3)
 
 ---
 
@@ -6522,7 +6522,7 @@ The following files were used as context for generating this wiki page:
 
 This document describes the film and television translation data structures used by ArWikiCats to translate English Wikipedia film and TV categories into Arabic. This includes gender-specific film genre translations, nationality-aware patterns, television series keys, and the CAO (Characters, Albums, Organizations) mapping system.
 
-For information about how these translation datasets are used during category resolution, see [Film and TV Resolvers](#5.6). For the general data architecture and metadata tracking, see [Data Organization and Metadata](#4.1).
+For information about how these translation datasets are used during category resolution, see [Film and TV Resolvers](#5.6). For the general data architecture and metadata tracking, see [Data Organization and Metadata](#4.1)
 
 ## Overview
 
@@ -6952,7 +6952,7 @@ for ke, ke_lab in female_keys.items():  # 207 genres
         films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 ```
 
-This generates **207 × 54 = 11,178 entries** (tracked as `ss_Films_key_CAO` in data_len.json).
+This generates **207 × 54 = 11,178 entries** (tracked as `ss_Films_key_CAO` in data_len.json)
 
 Examples:
 - `"action video games"` → `"ألعاب فيديو حركية"`
@@ -7008,7 +7008,7 @@ The current implementation at [ArWikiCats/translations/tv/films_mslslat.py:510](
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
 ```
 
-This contains 897 entries as tracked in [_work_files/data_len.json:30]().
+This contains 897 entries as tracked in [_work_files/data_len.json:30]()
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py L321-L344](../ArWikiCats/translations/tv/films_mslslat.py#L321-L344), [ArWikiCats/translations/tv/films_mslslat.py:510](), [_work_files/data_len.json:30]()
 
@@ -7119,7 +7119,7 @@ len_print.data_len(
 )
 ```
 
-This populates entries in [_work_files/data_len.json:4-12,30,52,65-67,78-79,111,121,127,142-143]().
+This populates entries in [_work_files/data_len.json:4-12,30,52,65-67,78-79,111,121,127,142-143]()
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py L383-L535](../ArWikiCats/translations/tv/films_mslslat.py#L383-L535), [_work_files/data_len.json L4-L12](../_work_files/data_len.json#L4-L12)
 
@@ -7142,7 +7142,7 @@ __all__ = [
 ]
 ```
 
-These are imported by the main translations module at [ArWikiCats/translations/__init__.py L65-L75](../ArWikiCats/translations/__init__.py#L65-L75) and re-exported at [ArWikiCats/translations/__init__.py L135-L143](../ArWikiCats/translations/__init__.py#L135-L143).
+These are imported by the main translations module at [ArWikiCats/translations/__init__.py L65-L75](../ArWikiCats/translations/__init__.py#L65-L75) and re-exported at [ArWikiCats/translations/__init__.py L135-L143](../ArWikiCats/translations/__init__.py#L135-L143)
 
 ### Import Usage
 
@@ -7186,7 +7186,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the minister and secretary translation mappings used for translating political role categories from English to Arabic. The `ministers_keys` dictionary provides 99 specialized translations for government positions, cabinet roles, and political titles.
 
-For broader political party translations, see the `PARTIES` dictionary in the mixed keys system. For nationality-based political patterns (e.g., "British ministers"), see [Nationality Resolvers](#5.2).
+For broader political party translations, see the `PARTIES` dictionary in the mixed keys system. For nationality-based political patterns (e.g., "British ministers"), see [Nationality Resolvers](#5.2)
 
 ## Purpose and Scope
 
@@ -7197,7 +7197,7 @@ The ministers and political roles system handles translation of:
 - **Legislative positions**: speakers, party chairs
 - **Judicial positions**: chief justices, attorneys general
 
-The system provides both standalone translations (e.g., "ministers" → "وزراء") and pattern-based translations that combine with nationalities (e.g., "British ministers" → "وزراء بريطانيون").
+The system provides both standalone translations (e.g., "ministers" → "وزراء") and pattern-based translations that combine with nationalities (e.g., "British ministers" → "وزراء بريطانيون")
 
 Sources: [ArWikiCats/translations/others/__init__.py:8](), [ArWikiCats/translations/__init__.py L67-L68](../ArWikiCats/translations/__init__.py#L67-L68), [_work_files/data_len.json:88]()
 
@@ -7336,7 +7336,7 @@ graph TB
 
 **Diagram 3: Executive Council Pattern System**
 
-These patterns use `{the_male}` placeholder which resolves to the nationality's definite masculine form (e.g., "الأسترالي" for Australian, "الكندي" for Canadian).
+These patterns use `{the_male}` placeholder which resolves to the nationality's definite masculine form (e.g., "الأسترالي" for Australian, "الكندي" for Canadian)
 
 Sources: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py L69-L73](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py#L69-L73)
 
@@ -7561,7 +7561,7 @@ The following files were used as context for generating this wiki page:
 
 The Resolver System is the core orchestration layer that coordinates multiple specialized resolvers to translate English Wikipedia category names into their Arabic equivalents. This page documents the resolver chain architecture, priority ordering, individual resolver types, and the legacy resolver system.
 
-For information about the data used by resolvers, see [Translation Data](#4). For information about the template formatting system used by resolvers, see [Formatting System](#6). For information about the complete translation pipeline including normalization and post-processing, see [Resolution Pipeline](#3.1).
+For information about the data used by resolvers, see [Translation Data](#4). For information about the template formatting system used by resolvers, see [Formatting System](#6). For information about the complete translation pipeline including normalization and post-processing, see [Resolution Pipeline](#3.1)
 
 ---
 
@@ -7914,7 +7914,7 @@ The films resolver system handles movie and television categories with support f
 
 ### Film Data Structure
 
-Uses `film_keys_for_female` with gender-specific film genre labels and `Nat_women` for nationality combinations. The resolver applies special handling for categories that should have label order adjusted (stored in `put_label_last` set).
+Uses `film_keys_for_female` with gender-specific film genre labels and `Nat_women` for nationality combinations. The resolver applies special handling for categories that should have label order adjusted (stored in `put_label_last` set)
 
 **Sources**: [ArWikiCats/new_resolvers/films_resolvers/__init__.py L1-L73](../ArWikiCats/new_resolvers/films_resolvers/__init__.py#L1-L73), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py L1-L327](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py#L1-L327)
 
@@ -8175,7 +8175,7 @@ The following files were used as context for generating this wiki page:
 
 Time Pattern Resolvers are specialized components in the ArWikiCats system that detect and translate temporal patterns in English Wikipedia category names into properly formatted Arabic equivalents. These resolvers handle years (e.g., "1990", "2015"), decades (e.g., "1550s", "1990s"), centuries (e.g., "20th century"), millennia, and BC dates, along with their associated category content.
 
-For information about pattern-based resolvers for non-temporal patterns, see [Pattern-Based Resolvers](#5.0). For information about how time patterns combine with job categories, see [Time + Jobs Resolvers](#5.4).
+For information about pattern-based resolvers for non-temporal patterns, see [Pattern-Based Resolvers](#5.0). For information about how time patterns combine with job categories, see [Time + Jobs Resolvers](#5.4)
 
 **Sources:** [README.md L72-L86](../README.md#L72-L86), [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py L1-L286](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py#L1-L286), [ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py L1-L314](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py#L1-L314)
 
@@ -8732,7 +8732,7 @@ The following files were used as context for generating this wiki page:
 
 Nationality Resolvers translate English Wikipedia category labels containing nationality adjectives (e.g., "American", "Yemeni", "British") into grammatically correct Arabic, accounting for gender agreement, number forms, and proper word order. This resolver is the **second highest priority** in the resolution chain (after Year Pattern Resolvers) with an importance score of 129.38.
 
-For resolving country names (as opposed to nationality adjectives), see [Country Name Resolvers](#5.3). For job-specific nationality patterns (e.g., "American footballers"), see [Job Resolvers](#5.4).
+For resolving country names (as opposed to nationality adjectives), see [Country Name Resolvers](#5.3). For job-specific nationality patterns (e.g., "American footballers"), see [Job Resolvers](#5.4)
 
 ---
 
@@ -8745,7 +8745,7 @@ The Nationality Resolver system handles categories where a nationality adjective
 3. **Word order**: Arabic typically places adjectives after nouns
 4. **Article forms**: Some patterns require definite articles (ال)
 
-The system maintains **799 nationality entries** covering countries, regions, ethnic groups, and religious identities (e.g., "Jewish", "Christian", "Kurdish").
+The system maintains **799 nationality entries** covering countries, regions, ethnic groups, and religious identities (e.g., "Jewish", "Christian", "Kurdish")
 
 **Sources:**
 - [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py L1-L800](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py#L1-L800)
@@ -8881,7 +8881,7 @@ The nationality resolver uses **seven specialized pattern dictionaries**, each h
 
 ### 1. formatted_data_double: Jewish/Ethnic Dual Patterns
 
-Handles compound patterns with both nationality and religious/ethnic identifiers. **Note**: This dictionary is defined but currently commented out in `all_formatted_data` (line 643).
+Handles compound patterns with both nationality and religious/ethnic identifiers. **Note**: This dictionary is defined but currently commented out in `all_formatted_data` (line 643)
 
 | Pattern Template | Arabic Translation | Example Match |
 |-----------------|-------------------|---------------|
@@ -9566,7 +9566,7 @@ The following files were used as context for generating this wiki page:
 
 The Country Name Resolvers translate Wikipedia categories containing country names from English to Arabic. This resolver handles geographic and political entities such as country-specific history, government structures, military units, geographic features, and sports teams.
 
-**Critical ordering requirement**: Country resolvers must execute **after** Nationality resolvers in the resolver chain to prevent semantic conflicts. For details on nationality-based categories, see [Nationality Resolvers](#5.2). For country+sport combinations, see [Sports Resolvers](#5.5).
+**Critical ordering requirement**: Country resolvers must execute **after** Nationality resolvers in the resolver chain to prevent semantic conflicts. For details on nationality-based categories, see [Nationality Resolvers](#5.2). For country+sport combinations, see [Sports Resolvers](#5.5)
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py L1-L59](../ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py#L1-L59), [ArWikiCats/new_resolvers/__init__.py L64-L72](../ArWikiCats/new_resolvers/__init__.py#L64-L72)
 
@@ -10051,7 +10051,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the job resolution subsystem within the ArWikiCats resolver chain. Job resolvers translate English Wikipedia categories containing occupation names into grammatically correct Arabic equivalents, handling gender agreement, nationality-occupation ordering, and specialized domains like sports jobs, religious occupations, and professional roles.
 
-For nationality-based category resolution without job components, see [Nationality Resolvers](#5.2). For sports-specific categories that don't involve occupations, see [Sports Resolvers](#5.5). For the overall resolver chain orchestration, see [Resolver Chain](#5).
+For nationality-based category resolution without job components, see [Nationality Resolvers](#5.2). For sports-specific categories that don't involve occupations, see [Sports Resolvers](#5.5). For the overall resolver chain orchestration, see [Resolver Chain](#5)
 
 ---
 
@@ -10303,7 +10303,7 @@ graph LR
 | Standard | British actors | ممثلون بريطانيون | Job → Nationality |
 | Standard | French writers | كتاب فرنسيون | Job → Nationality |
 
-**Note:** Both patterns result in Job→Nationality order in Arabic, but `NAT_BEFORE_OCC` entries use expanded job phrases (e.g., "لاعبو كرة القدم" instead of just "لاعبو").
+**Note:** Both patterns result in Job→Nationality order in Arabic, but `NAT_BEFORE_OCC` entries use expanded job phrases (e.g., "لاعبو كرة القدم" instead of just "لاعبو")
 
 **Sources:** ArWikiCats/translations/jobs/jobs_data_basic.py:7-54, ArWikiCats/new_resolvers/jobs_resolvers/mens.py, ArWikiCats/translations/nats/Nationality.py
 
@@ -10592,7 +10592,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the sports resolution system within the resolver chain, responsible for translating English Wikipedia categories related to sports, teams, clubs, athletes, and competitions into Arabic. For information about resolving job categories related to sports (e.g., "footballers", "basketball coaches"), see [Job Resolvers](#5.4). For nationality-based patterns like "American athletes", see [Nationality Resolvers](#5.2).
+This page documents the sports resolution system within the resolver chain, responsible for translating English Wikipedia categories related to sports, teams, clubs, athletes, and competitions into Arabic. For information about resolving job categories related to sports (e.g., "footballers", "basketball coaches"), see [Job Resolvers](#5.4). For nationality-based patterns like "American athletes", see [Nationality Resolvers](#5.2)
 
 ## Overview
 
@@ -10976,7 +10976,7 @@ The following files were used as context for generating this wiki page:
 
 The Film and TV Resolvers subsystem translates English Wikipedia categories for films, television series, and related media into Arabic. This resolver handles categories combining nationality, genre, time periods, and media types (e.g., "2010 American action films" → "أفلام حركة أمريكية في 2010"). The system manages 13,146 film/TV entries with gender-specific handling and nationality placeholder patterns.
 
-For job-related resolvers (including sports-related jobs), see [Job Resolvers](#5.4). For nationality-based categories without media types, see [Nationality Resolvers](#5.2). For time pattern resolution, see [Time Pattern Resolvers](#5.1).
+For job-related resolvers (including sports-related jobs), see [Job Resolvers](#5.4). For nationality-based categories without media types, see [Nationality Resolvers](#5.2). For time pattern resolution, see [Time Pattern Resolvers](#5.1)
 
 ## Resolution Architecture
 
@@ -11521,7 +11521,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the **Legacy Resolvers** system, which provides backward compatibility for older category translation logic that predates the new resolver architecture. The legacy system was refactored from a simple `RESOLVER_PIPELINE` list into a structured class-based architecture while maintaining the same external API.
 
-For information about modern resolver implementations, see [Resolver System](#5). For the overall architecture, see [Architecture](#3).
+For information about modern resolver implementations, see [Resolver System](#5). For the overall architecture, see [Architecture](#3)
 
 ---
 
@@ -12697,7 +12697,7 @@ country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the"
 
 **Empty Result Handling**:
 
-If a resolver returns an empty string, the next resolver in the pipeline is tried. The final fallback (`translate_general_category_wrap`) always returns a result (possibly empty).
+If a resolver returns an empty string, the next resolver in the pipeline is tried. The final fallback (`translate_general_category_wrap`) always returns a result (possibly empty)
 
 **Sources**: [ArWikiCats/legacy_bots/__init__.py L75-L96](../ArWikiCats/legacy_bots/__init__.py#L75-L96)
 
@@ -12789,9 +12789,9 @@ The following files were used as context for generating this wiki page:
 
 
 
-The Formatting System is a template-based translation framework that converts English Wikipedia category patterns to Arabic using placeholder substitution. It provides a compositional architecture where formatters can be combined to handle categories with multiple dynamic elements (e.g., nationality + sport + year).
+The Formatting System is a template-based translation framework that converts English Wikipedia category patterns to Arabic using placeholder substitution. It provides a compositional architecture where formatters can be combined to handle categories with multiple dynamic elements (e.g., nationality + sport + year)
 
-For information about how formatters are used within resolvers, see [Resolver Chain](#5). For details on translation data organization, see [Translation Data](#4).
+For information about how formatters are used within resolvers, see [Resolver Chain](#5). For details on translation data organization, see [Translation Data](#4)
 
 ---
 
@@ -12936,7 +12936,7 @@ graph LR
     SUBSTITUTE --> OUTPUT["Final Label<br/>لاعبو كرة القدم بريطانيون"]
 ```
 
-The pattern matching uses case-insensitive regex with word boundaries. Keys are sorted by length and space count to prevent incorrect matches (e.g., "black-and-white" should match before "black").
+The pattern matching uses case-insensitive regex with word boundaries. Keys are sorted by length and space count to prevent incorrect matches (e.g., "black-and-white" should match before "black")
 
 Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py L106-L131](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L106-L131), [ArWikiCats/translations_formats/DataModel/model_data_base.py L242-L271](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L242-L271)
 
@@ -13197,7 +13197,7 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_multi_data.py L71-L105
 
 Combines `FormatDataV2` with `YearFormatData`. The `other_key_first` parameter controls processing order—if `True`, the year is extracted before the nationality.
 
-**Use case:** Categories where the year pattern appears before the nationality (e.g., "14th-century yemeni writers").
+**Use case:** Categories where the year pattern appears before the nationality (e.g., "14th-century yemeni writers")
 
 Sources: [ArWikiCats/translations_formats/DataModel/model_multi_data.py L107-L144](../ArWikiCats/translations_formats/DataModel/model_multi_data.py#L107-L144)
 
@@ -13393,7 +13393,7 @@ graph TB
     REPLACE --> RESULT["Return Arabic label"]
 ```
 
-**Code location:** Resolvers typically construct formatters at module level or within resolver functions. For example, nationality resolvers use formatters defined in [ArWikiCats/new_resolvers/nationalities_resolvers/]() and sports resolvers in [ArWikiCats/new_resolvers/sports_resolvers/]().
+**Code location:** Resolvers typically construct formatters at module level or within resolver functions. For example, nationality resolvers use formatters defined in [ArWikiCats/new_resolvers/nationalities_resolvers/]() and sports resolvers in [ArWikiCats/new_resolvers/sports_resolvers/]()
 
 Sources: Based on architectural patterns shown in [README.md L266-L344](../README.md#L266-L344) and resolver structure from diagrams
 
@@ -13700,7 +13700,7 @@ The following files were used as context for generating this wiki page:
 
 This document describes the `FormatDataBase` class, which serves as the abstract foundation for all single-element category translation formatters in the ArWikiCats system. It defines the core operations, data structures, and contract that all formatter implementations must follow.
 
-For information about concrete single-element formatter implementations (FormatData, FormatDataV2, FormatDataFrom), see [Single-Element Formatters](#6.2). For multi-element formatters that combine multiple FormatDataBase instances, see [Multi-Element Formatters](#6.3). For details on placeholder syntax and template patterns, see [Template and Placeholder System](#6.4).
+For information about concrete single-element formatter implementations (FormatData, FormatDataV2, FormatDataFrom), see [Single-Element Formatters](#6.2). For multi-element formatters that combine multiple FormatDataBase instances, see [Multi-Element Formatters](#6.3). For details on placeholder syntax and template patterns, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py L1-L410](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L1-L410)
 
@@ -14153,7 +14153,7 @@ FormatDataBase is extended by three main subclasses:
 | `FormatDataV2` | [ArWikiCats/translations_formats/DataModel/model_data_v2.py L32-L121](../ArWikiCats/translations_formats/DataModel/model_data_v2.py#L32-L121) | Dictionary-based multi-placeholder replacement |
 | `FormatDataFrom` | [ArWikiCats/translations_formats/DataModel/model_data_form.py]() | Callback-based formatting (used by `YearFormatData`) |
 
-For detailed information about these implementations, see [Single-Element Formatters](#6.2).
+For detailed information about these implementations, see [Single-Element Formatters](#6.2)
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/__init__.py L1-L21](../ArWikiCats/translations_formats/DataModel/__init__.py#L1-L21)2f:T4631,# Single-Element Formatters
 
@@ -14177,9 +14177,9 @@ The following files were used as context for generating this wiki page:
 
 
 
-Single-element formatters are classes that handle category translations containing one dynamic element to be replaced. They match a single key in the input category (e.g., "football", "yemen", "14th-century") and use template patterns to produce Arabic output. Single-element formatters form the building blocks for more complex multi-element formatters (see [Multi-Element Formatters](#6.3)).
+Single-element formatters are classes that handle category translations containing one dynamic element to be replaced. They match a single key in the input category (e.g., "football", "yemen", "14th-century") and use template patterns to produce Arabic output. Single-element formatters form the building blocks for more complex multi-element formatters (see [Multi-Element Formatters](#6.3))
 
-This page covers the three concrete implementations of single-element formatters: `FormatData`, `FormatDataV2`, and `FormatDataFrom`. For information about the abstract base class they inherit from, see [FormatDataBase Architecture](#6.1). For information about factory functions that create these formatters, see [Factory Functions and Usage](#6.5).
+This page covers the three concrete implementations of single-element formatters: `FormatData`, `FormatDataV2`, and `FormatDataFrom`. For information about the abstract base class they inherit from, see [FormatDataBase Architecture](#6.1). For information about factory functions that create these formatters, see [Factory Functions and Usage](#6.5)
 
 ## Architecture Overview
 
@@ -14363,7 +14363,7 @@ def apply_pattern_replacement(self, template_label: str, sport_label: str) -> st
 
 ## FormatDataV2: Dictionary-Based Replacement
 
-`FormatDataV2` extends the base formatter to support dictionary values in `data_list`, enabling multiple placeholder replacements from a single key. This is used when a single entity (e.g., a country) requires different forms in the output template (e.g., demonym vs. country name).
+`FormatDataV2` extends the base formatter to support dictionary values in `data_list`, enabling multiple placeholder replacements from a single key. This is used when a single entity (e.g., a country) requires different forms in the output template (e.g., demonym vs. country name)
 
 ### Data Structure
 
@@ -14668,7 +14668,7 @@ The following files were used as context for generating this wiki page:
 
 Multi-Element Formatters handle category translations that contain **two dynamic elements**. For example, "British football players" requires translating both the nationality ("British" → "بريطانيون") and the sport ("football" → "كرة القدم"), then combining them according to Arabic grammar rules.
 
-This page documents the classes that orchestrate two single-element formatters (see [Single-Element Formatters](#6.2)) to handle these complex translations. For information about the base formatting infrastructure, see [Format Data Models](#6.1). For placeholder syntax and substitution logic, see [Template and Placeholder System](#6.4).
+This page documents the classes that orchestrate two single-element formatters (see [Single-Element Formatters](#6.2)) to handle these complex translations. For information about the base formatting infrastructure, see [Format Data Models](#6.1). For placeholder syntax and substitution logic, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/__init__.py L1-L48](../ArWikiCats/translations_formats/__init__.py#L1-L48), [ArWikiCats/translations_formats/DataModel/model_multi_data.py L1-L24](../ArWikiCats/translations_formats/DataModel/model_multi_data.py#L1-L24)
 
@@ -14845,7 +14845,7 @@ Combines `FormatDataV2` with `YearFormatData`, adding dictionary value support t
 
 ### MultiDataFormatterDataDouble
 
-Combines `FormatData` with `FormatDataDouble` for **double-key pattern matching**. Designed for film categories where the genre can consist of two adjacent keys (e.g., "action drama films").
+Combines `FormatData` with `FormatDataDouble` for **double-key pattern matching**. Designed for film categories where the genre can consist of two adjacent keys (e.g., "action drama films")
 
 | Attribute | Type | Purpose |
 |-----------|------|---------|
@@ -14982,7 +14982,7 @@ Factory functions create configured multi-element formatters from parameters, si
 
 ### format_multi_data()
 
-Creates `MultiDataFormatterBase` (FormatData + FormatData).
+Creates `MultiDataFormatterBase` (FormatData + FormatData)
 
 **Signature:**
 ```python
@@ -15051,7 +15051,7 @@ data_list = {"yemen": {"demonym": "يمنيون", "country_ar": "اليمن"}}
 
 ### format_year_country_data()
 
-Creates `MultiDataFormatterBaseYear` (FormatData + YearFormatData).
+Creates `MultiDataFormatterBaseYear` (FormatData + YearFormatData)
 
 **Signature:**
 ```python
@@ -15113,7 +15113,7 @@ def format_films_country_data(
 ) -> MultiDataFormatterDataDouble
 ```
 
-**Purpose:** Specialized for film categories where genre can be two adjacent keys (e.g., "action drama").
+**Purpose:** Specialized for film categories where genre can be two adjacent keys (e.g., "action drama")
 
 **Sources:** [ArWikiCats/translations_formats/data_new_model.py L30-L102](../ArWikiCats/translations_formats/data_new_model.py#L30-L102)
 
@@ -15375,7 +15375,7 @@ def get_other_data(
     }
 ```
 
-**Purpose:** Allows the `other_bot` to handle single-element patterns when the first element is absent (e.g., "{sport} coaches" without nationality).
+**Purpose:** Allows the `other_bot` to handle single-element patterns when the first element is absent (e.g., "{sport} coaches" without nationality)
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py L48-L93](../ArWikiCats/translations_formats/multi_data.py#L48-L93)
 
@@ -15470,13 +15470,13 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the placeholder syntax, pattern compilation mechanisms, and replacement strategies used throughout the ArWikiCats formatting system. For information about the base formatter classes, see [FormatDataBase Architecture](#6.1). For usage examples with factory functions, see [Factory Functions and Usage](#6.5).
+This page documents the placeholder syntax, pattern compilation mechanisms, and replacement strategies used throughout the ArWikiCats formatting system. For information about the base formatter classes, see [FormatDataBase Architecture](#6.1). For usage examples with factory functions, see [Factory Functions and Usage](#6.5)
 
 The template and placeholder system is the core mechanism that enables pattern-based translation. It defines how English category patterns are matched and how Arabic translations are generated through systematic placeholder replacement.
 
 ## Placeholder Syntax Overview
 
-The system uses curly-brace delimited placeholders in both template keys and template values. These placeholders serve two distinct purposes: pattern matching (in keys) and value substitution (in values).
+The system uses curly-brace delimited placeholders in both template keys and template values. These placeholders serve two distinct purposes: pattern matching (in keys) and value substitution (in values)
 
 ### Placeholder Categories
 
@@ -15632,7 +15632,7 @@ if self.text_after:
         normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
 ```
 
-This handles cases where the nationality data includes "the " prefix (e.g., "the British actors" → "{nat_en} actors").
+This handles cases where the nationality data includes "the " prefix (e.g., "the British actors" → "{nat_en} actors")
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py L158-L191](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L158-L191)
 
@@ -15755,7 +15755,7 @@ return FormatDataFrom(
 )
 ```
 
-The callbacks handle temporal pattern conversion (e.g., "14th-century" → "القرن 14").
+The callbacks handle temporal pattern conversion (e.g., "14th-century" → "القرن 14")
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_time.py L34-L66](../ArWikiCats/translations_formats/DataModel/model_data_time.py#L34-L66)
 
@@ -15952,7 +15952,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the factory functions that provide the high-level API for creating formatter instances in the ArWikiCats translation system. Factory functions hide the complexity of instantiating and configuring formatter classes, providing a simplified interface for creating dual-element and temporal pattern formatters.
 
-For information about the underlying formatter class architecture, see [FormatDataBase Architecture](#6.1). For details on the individual formatter classes themselves, see [Single-Element Formatters](#6.2) and [Multi-Element Formatters](#6.3). For template and placeholder syntax, see [Template and Placeholder System](#6.4).
+For information about the underlying formatter class architecture, see [FormatDataBase Architecture](#6.1). For details on the individual formatter classes themselves, see [Single-Element Formatters](#6.2) and [Multi-Element Formatters](#6.3). For template and placeholder syntax, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/__init__.py L27-L47](../ArWikiCats/translations_formats/__init__.py#L27-L47), [ArWikiCats/translations_formats/multi_data.py L1-L37](../ArWikiCats/translations_formats/multi_data.py#L1-L37)
 
@@ -16337,7 +16337,7 @@ Created at [ArWikiCats/translations_formats/data_with_time.py L89-L106](../ArWik
 
 ## format_films_country_data
 
-Creates a `MultiDataFormatterDataDouble` for translating film categories containing nationality and genre elements where genres can consist of two adjacent keys (e.g., "action drama").
+Creates a `MultiDataFormatterDataDouble` for translating film categories containing nationality and genre elements where genres can consist of two adjacent keys (e.g., "action drama")
 
 ### Signature
 
@@ -16686,7 +16686,7 @@ The following files were used as context for generating this wiki page:
 
 Processing components handle category string manipulation: parsing raw English category labels into structured components, normalizing text, splitting by separators, and applying Arabic grammatical corrections. These operations occur before translation resolution and after initial pattern matching.
 
-For information about the overall resolution pipeline and how processing components fit into the translation flow, see [Resolution Pipeline](#3.1). For details on template-based translation and placeholder substitution, see [Formatting System](#6).
+For information about the overall resolution pipeline and how processing components fit into the translation flow, see [Resolution Pipeline](#3.1). For details on template-based translation and placeholder substitution, see [Formatting System](#6)
 
 ---
 
@@ -16770,7 +16770,7 @@ Resolves the English category type into an Arabic label. This function handles:
 - Temporal patterns: `"railway stations in south korea"` → `"محطات السكك الحديدية في كوريا الجنوبية"`
 - Special cases: `"former buildings and structures"` → `"مبان ومنشآت سابقة"`
 
-The function applies pattern matching against translation tables and handles grammatical variations (gender, plurality).
+The function applies pattern matching against translation tables and handles grammatical variations (gender, plurality)
 
 **Sources**: [tests/ma_bots2/ar_lab/test_bot_type_lab.py L9-L223](../tests/ma_bots2/ar_lab/test_bot_type_lab.py#L9-L223)
 
@@ -17200,7 +17200,7 @@ The following files were used as context for generating this wiki page:
 
 Category normalization is the process of standardizing input category strings into a consistent format before they are matched against translation patterns. This preprocessing step is critical for ensuring that variations in capitalization, punctuation, spacing, and common typos do not prevent successful category resolution.
 
-For information about the complete resolution pipeline that uses these normalization functions, see [Resolution Pipeline](#3.1). For details on how normalized categories are matched using templates, see [Template and Placeholder System](#6.4).
+For information about the complete resolution pipeline that uses these normalization functions, see [Resolution Pipeline](#3.1). For details on how normalized categories are matched using templates, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py L10-L26](../ArWikiCats/new_resolvers/jobs_resolvers/utils.py#L10-L26), [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py L366-L378](../ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py#L366-L378)
 
@@ -18108,7 +18108,7 @@ This page documents utility scripts in the ArWikiCats system that support data p
 
 The main helper script documented here is `split_non_geography.py`, which classifies translation entries into geographic and non-geographic categories to ensure clean geographic data feeds into the resolution pipeline.
 
-For information about how translation data is organized, see [Data Architecture](#3.2). For the data aggregation pipeline, see [Data Aggregation Pipeline](#4.1).
+For information about how translation data is organized, see [Data Architecture](#3.2). For the data aggregation pipeline, see [Data Aggregation Pipeline](#4.1)
 
 ---
 
@@ -18209,7 +18209,7 @@ CHECK_AR_ALSO = {
 }
 ```
 
-When these keywords match, the classifier checks if the Arabic value also contains the Arabic keyword. If not, the entry is treated as non-geographic (e.g., "Central Park" vs "Park Street").
+When these keywords match, the classifier checks if the Arabic value also contains the Arabic keyword. If not, the entry is treated as non-geographic (e.g., "Central Park" vs "Park Street")
 
 **Sources:** [help_scripts/split_non_geography.py L28-L231](../help_scripts/split_non_geography.py#L28-L231)
 
@@ -18664,7 +18664,7 @@ The script processes raw JSON files from the data aggregation pipeline:
 - [ArWikiCats/translations/jsons/geography/popopo.json]() - Additional place names
 - [ArWikiCats/translations/jsons/cities/]() - City-specific translations
 
-For more on data sources, see [Data Architecture](#3.2) and [Geographic Data](#4.2).
+For more on data sources, see [Data Architecture](#3.2) and [Geographic Data](#4.2)
 
 ### Downstream: Geographic Resolvers
 
@@ -18727,7 +18727,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the testing and validation system for ArWikiCats, which includes 28,500+ automated tests achieving 91% code coverage. The testing infrastructure validates translation accuracy, resolver logic, pattern matching, and system integration across the entire codebase.
 
-For information about the resolver system being tested, see [Resolver System](#5). For details on the translation data being validated, see [Translation Data](#4).
+For information about the resolver system being tested, see [Resolver System](#5). For details on the translation data being validated, see [Translation Data](#4)
 
 ---
 
@@ -19447,7 +19447,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page explains the three-tier test structure (unit, integration, and E2E) used in the ArWikiCats codebase and how pytest markers are used to organize and run the 28,500+ test suite efficiently. For information about specific domain test suites (resolvers, legacy bots, etc.), see [Domain-Specific Test Suites](#8.2). For test utilities and helper functions, see [Test Utilities](#8.3).
+This page explains the three-tier test structure (unit, integration, and E2E) used in the ArWikiCats codebase and how pytest markers are used to organize and run the 28,500+ test suite efficiently. For information about specific domain test suites (resolvers, legacy bots, etc.), see [Domain-Specific Test Suites](#8.2). For test utilities and helper functions, see [Test Utilities](#8.3)
 
 ---
 
@@ -19932,7 +19932,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the domain-specific test suites that validate translation accuracy for each resolver in the ArWikiCats system. Tests are organized by translation domain (nationalities, ministers, films, countries, etc.) and use data-driven testing with pytest parametrization. For information about test data organization and JSON file structure, see [Test Data Organization](#8.1). For test execution utilities and markers, see [Test Utilities and Markers](#8.3).
+This page documents the domain-specific test suites that validate translation accuracy for each resolver in the ArWikiCats system. Tests are organized by translation domain (nationalities, ministers, films, countries, etc.) and use data-driven testing with pytest parametrization. For information about test data organization and JSON file structure, see [Test Data Organization](#8.1). For test execution utilities and markers, see [Test Utilities and Markers](#8.3)
 
 ## Test Suite Organization
 
@@ -20081,7 +20081,7 @@ This data validates nationality-specific patterns across:
 
 ## Ministers and Politics Tests
 
-The ministers test suite validates translation of political office titles, focusing on grammatical correctness with the Arabic definite article (ال).
+The ministers test suite validates translation of political office titles, focusing on grammatical correctness with the Arabic definite article (ال)
 
 ### Test Structure
 
@@ -20717,7 +20717,7 @@ assert len(diff) == 0, f"Found {len(diff)} mismatches"
 
 ### one_dump_test_no_labels Function
 
-Extended version of `one_dump_test` that also tracks categories with no translation result (empty strings).
+Extended version of `one_dump_test` that also tracks categories with no translation result (empty strings)
 
 **Function Signature:**
 ```python
@@ -21286,7 +21286,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the example category datasets used throughout the ArWikiCats testing system. These datasets provide curated sets of English Wikipedia categories with their expected Arabic translations, serving as test fixtures, validation data, and documentation examples. The datasets cover various domains including literature, television, sports, and geography.
 
-For information about how these datasets are used in the test system, see [Test Utilities](#8.3). For the overall testing architecture, see [Testing and Validation](#8).
+For information about how these datasets are used in the test system, see [Test Utilities](#8.3). For the overall testing architecture, see [Testing and Validation](#8)
 
 ## Dataset Organization
 
@@ -21626,7 +21626,7 @@ This guide provides practical guidelines for developers who want to contribute t
 - For implementing new category resolvers and integrating them into the resolver chain, see [Creating New Resolvers](#9.2)
 - For using helper scripts and utilities, see [Utilities and Scripts](#9.3)
 
-For general usage and API documentation, see [Getting Started](#2). For understanding the overall system architecture, see [Architecture](#3).
+For general usage and API documentation, see [Getting Started](#2). For understanding the overall system architecture, see [Architecture](#3)
 
 ---
 
@@ -22053,7 +22053,7 @@ Without caching, loading 96,552 job entries on every call would cause severe per
 
 ### Pattern 2: Resolver Chain Integration and Priority Order
 
-Resolvers must be added in the correct priority order to prevent conflicts. The order is documented in [ArWikiCats/new_resolvers/__init__.py]().
+Resolvers must be added in the correct priority order to prevent conflicts. The order is documented in [ArWikiCats/new_resolvers/__init__.py]()
 
 **Critical Priority Rules:**
 
@@ -22369,7 +22369,7 @@ Before submitting a pull request:
 
 ## Complete Development Example: Adding "Classical Composers" Support
 
-This example demonstrates the full lifecycle of adding a new category type, based on actual implementation from [changelog.md L321-L331](../changelog.md#L321-L331).
+This example demonstrates the full lifecycle of adding a new category type, based on actual implementation from [changelog.md L321-L331](../changelog.md#L321-L331)
 
 ### Step-by-Step Implementation
 
@@ -22552,7 +22552,7 @@ The following files were used as context for generating this wiki page:
 
 This document explains how to add new translation entries to the ArWikiCats translation datasets, update the metadata registry, and maintain data consistency across the system. This covers the practical steps for extending existing translation dictionaries and JSON files.
 
-For information about creating entirely new resolvers that use this data, see [Creating New Resolvers](#9.2). For an overview of the translation data architecture, see [Data Architecture](#3.2).
+For information about creating entirely new resolvers that use this data, see [Creating New Resolvers](#9.2). For an overview of the translation data architecture, see [Data Architecture](#3.2)
 
 ---
 
@@ -22714,7 +22714,7 @@ Increment the count in [_work_files/data_len.json L1-L155](../_work_files/data_l
 }
 ```
 
-Note the comma-formatted string representation (e.g., `"4,016"` not `4016`).
+Note the comma-formatted string representation (e.g., `"4,016"` not `4016`)
 
 **Sources:** [_work_files/data_len.json L1-L155](../_work_files/data_len.json#L1-L155)
 
@@ -22764,7 +22764,7 @@ JSON files typically follow this structure:
 }
 ```
 
-Add new entries following the existing pattern. Ensure proper JSON syntax (commas, quotes).
+Add new entries following the existing pattern. Ensure proper JSON syntax (commas, quotes)
 
 ### Step 3: Update data_len.json
 
@@ -23132,7 +23132,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page explains how to implement new resolver modules for ArWikiCats, integrate them into the resolution pipeline, and test them. For information about the overall resolution pipeline and how existing resolvers work, see [Resolution Pipeline](#3.1). For details about specific resolver implementations, see sections [5.1](#5.1) through [5.7](#5.7).
+This page explains how to implement new resolver modules for ArWikiCats, integrate them into the resolution pipeline, and test them. For information about the overall resolution pipeline and how existing resolvers work, see [Resolution Pipeline](#3.1). For details about specific resolver implementations, see sections [5.1](#5.1) through [5.7](#5.7)
 
 ---
 
@@ -23511,7 +23511,7 @@ __all__ = [
 ]
 ```
 
-This follows the pattern from [ArWikiCats/new_resolvers/sports_resolvers/__init__.py L21-L52](../ArWikiCats/new_resolvers/sports_resolvers/__init__.py#L21-L52) and [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py L15-L43](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py#L15-L43).
+This follows the pattern from [ArWikiCats/new_resolvers/sports_resolvers/__init__.py L21-L52](../ArWikiCats/new_resolvers/sports_resolvers/__init__.py#L21-L52) and [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py L15-L43](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py#L15-L43)
 
 Sources: [ArWikiCats/new_resolvers/sports_resolvers/__init__.py L1-L52](../ArWikiCats/new_resolvers/sports_resolvers/__init__.py#L1-L52), [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py L1-L43](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py#L1-L43), [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py L1-L48](../ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py#L1-L48)
 
@@ -24054,7 +24054,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the code formatting, linting standards, and development practices enforced in the ArWikiCats codebase. These standards ensure consistency, maintainability, and code quality across all contributions.
 
-For information about adding new features to the system, see [Development Guide](#9). For testing guidelines, see [Testing and Validation](#8).
+For information about adding new features to the system, see [Development Guide](#9). For testing guidelines, see [Testing and Validation](#8)
 
 ---
 
@@ -24661,7 +24661,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the caching strategies, memory optimization techniques, and profiling tools used in ArWikiCats to achieve high-throughput category translation. For information about adding new translation data, see [9.1](#9.1). For code style standards, see [9.3](#9.3).
+This page documents the caching strategies, memory optimization techniques, and profiling tools used in ArWikiCats to achieve high-throughput category translation. For information about adding new translation data, see [9.1](#9.1). For code style standards, see [9.3](#9.3)
 
 ## Overview
 
@@ -25221,4 +25221,4 @@ ArWikiCats achieves high performance through:
 4. **Profiling infrastructure**: Scalene integration for identifying bottlenecks
 5. **Performance testing**: 28,500+ tests run in ~23 seconds validate optimizations
 
-For profiling guidance specific to your changes, use `python -m scalene` on example scripts. For adding new cached resolvers, see [9.2](#9.2).
+For profiling guidance specific to your changes, use `python -m scalene` on example scripts. For adding new cached resolvers, see [9.2](#9.2)
