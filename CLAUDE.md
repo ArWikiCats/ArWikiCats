@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **ArWikiCats** is an Arabic Wikipedia Categories Translation Engine - a Python library that automatically translates English Wikipedia category names into standardized Arabic category names. It's designed for bot operations, mass translation, and automated editing tasks.
 
 - **Status**: Beta
-- **Tests**: 30,000+ tests
+- **Tests**: 60,000+ tests (all four types)
 - **Python**: 3.10+
 
 ## Common Commands
@@ -24,14 +24,14 @@ Tests are organized into four categories:
 | **BIG** | `tests/big/` | large dataset tests (slow) |
 
 ```bash
-# Run all tests
-pytest
+# Run all tests (60,000+ tests across all types)
+pytest --rune2e -m "not skip2" -n 16
 
 # Run by test category
 pytest tests/unit/           # Unit tests only
 pytest tests/integration/    # Integration tests only
-pytest tests/e2e/            # End-to-end tests only
-pytest tests/big/            # large dataset tests
+pytest tests/e2e/            # End-to-end tests only (15,000+ categories)
+pytest tests/big/ -m big     # large dataset tests (26,000+ categories)
 
 # Run by marker
 pytest -m unit               # Unit tests only
@@ -219,8 +219,8 @@ ArWikiCats/
 tests/
 ├── unit/                    # Unit tests (fast, isolated)
 ├── integration/             # Integration tests (component interaction)
-└── e2e/                     # End-to-end tests (full system)
-└── big/                     #
+├── e2e/                     # End-to-end tests (15,000+ categories)
+└── big/                     # Large dataset tests (26,000+ categories)
 ```
 
 ## Performance Characteristics
