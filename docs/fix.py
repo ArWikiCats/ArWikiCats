@@ -1,3 +1,10 @@
+
+r"""
+\[([^:]+):(\d+)-(\d+)\]\(\)
+
+[$1 L$2-L$3](../$1#L$2-L$3)
+"""
+
 from pathlib import Path
 import re
 
