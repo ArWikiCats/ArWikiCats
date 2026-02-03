@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 titles = [
     "Overview",
@@ -45,15 +46,21 @@ titles = [
     "Performance-Optimization"
 ]
 
+replaces = {}
 
-full_path = Path(__file__).parent / "full.md"
+for i, title in enumerate(titles):
+    # [Architecture](/ArWikiCats/ArWikiCats/3-architecture)
+    find_str = rf"\[{title.replace("-", " ")}\]\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"
+    replace_str = rf"[{title.replace('-', ' ')}]({i}.{title}.md)"
+    replaces[find_str] = replace_str
 
-full_text = full_path.read_text(encoding="utf-8")
+work_dir = Path(__file__).parent
 
-sections = [x for x in full_text.split("<details>") if x.strip()]
-
-for i, section in enumerate(sections):
-    print(f"Writing section: {i}")
-    section = f"<details>{section}" if i > 0 else section
-    section_file = Path(__file__).parent / f"{i}.{titles[i]}.md"
-    section_file.write_text(section, encoding="utf-8")
+for md_file in work_dir.glob("*.md"):
+    if md_file.name == "full.md":
+        continue
+    print(f"Processing file: {md_file.name}")
+    file_text = md_file.read_text(encoding="utf-8")
+    for find_str, replace_str in replaces.items():
+        file_text = re.sub(find_str, replace_str, file_text)
+    md_file.write_text(file_text, encoding="utf-8")
