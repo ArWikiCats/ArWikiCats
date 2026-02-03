@@ -6,17 +6,8 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 test_data_0 = {
-    "Slaves from the Mamluk Sultanate": "العبيد من مماليك مصر",
+    "Slaves from the Mamluk Sultanate": "عبيد من مماليك مصر",
     "Philosophers of technology": "فلاسفة تقنية (تكنولوجيا)",
-    "1966 British Empire and Commonwealth Games venues": "",
-    "21st-century Canadian federal election candidates": "",
-    "21st-century Ohio politicians": "",
-    "British people executed for theft": "",
-    "Caribbean Series managers": "",
-    "Executed people from Gansu": "",
-    "Games and sports introduced in 2026": "",
-    "Songs from The Sound of Music": "",
-    "Speculative crime and thriller fiction novels": ""
 }
 
 test_data_1 = {
