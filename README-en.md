@@ -5,7 +5,7 @@
 [![Status](https://img.shields.io/badge/status-Beta-orange)]()
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
 [![Version](https://img.shields.io/badge/version-0.1.0b6-blue)]()
-
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 ---
 
 **ArWikiCats** is a Python library that automatically translates English Wikipedia category names into standardized Arabic category names. It is designed for bot operations, mass translation, and automated editing tasks on Arabic Wikipedia.
