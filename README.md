@@ -3,7 +3,8 @@
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Beta-orange)]()
-[![Tests](https://img.shields.io/badge/tests-28500+-success)]()
+[![Tests](https://img.shields.io/badge/tests-60000+-success)]()
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 
 ---
 
@@ -422,10 +423,11 @@ ArWikiCats/
     ├── fixing.py
     └── match_relation_word.py
 
-tests/                       # اختبارات (+28,500 اختبار)
+tests/                       # اختبارات (+60,000 اختبار)
 │   ├── unit/                # اختبارات الوحدات (سريعة)
 │   ├── integration/         # اختبارات التكامل (متوسطة)
-│   └── e2e/                 # اختبارات شاملة (قد تكون بطيئة)
+│   └── e2e/                 # اختبارات شاملة (+15,000 تصنيف)
+│   └── big/                 # اختبارات مجموعة بيانات (+26,000 تصنيف)
 examples/                    # أمثلة الاستخدام
 ```
 
@@ -439,7 +441,7 @@ examples/                    # أمثلة الاستخدام
 pytest
 ```
 
-يغطي المشروع أكثر من **28,500 اختبار** مُنظّمة في ثلاث فئات رئيسية:
+يغطي المشروع أكثر من **60,000 اختبار** مُنظّمة في أربع فئات رئيسية:
 
 ## 8.1 فئات الاختبارات
 
@@ -460,11 +462,25 @@ pytest -m integration
 ```
 
 ### اختبارات شاملة (`tests/e2e/`)
-اختبارات النظام الكامل من المدخل للمخرج (قد تكون بطيئة).
+اختبارات النظام الكامل من المدخل للمخرج (قد تكون بطيئة) - تحتوي على أكثر من **15,000 تصنيف**
 
 ```bash
 pytest tests/e2e/
 pytest --rune2e
+```
+
+### اختبارات مجموعة بيانات (`tests/big/`)
+اختبارات النظام كامل (بطيئة) - تحتوي على أكثر من **26,000 تصنيف**
+
+```bash
+pytest tests/big/ -m big
+```
+
+### تشغيل كافة الاختبارات الأربعة
+تشغيل أكثر من **60,000 اختبار** من جميع الأنواع:
+
+```bash
+pytest --rune2e -m "not skip2" -n 16
 ```
 
 ## 8.2 ما تغطيه الاختبارات
@@ -552,7 +568,7 @@ ruff check ArWikiCats/
 * قواعد ترجمة متخصصة
 * محللات متعددة المستويات (وظائف، رياضات، جنسيات، بلدان)
 * تخزين مؤقت متقدم
-* اختبارات صارمة (+28,500 اختبار)
+* اختبارات صارمة (+60,000 اختبار)
 * تصميم قابل للتطوير
 * تنسيقات بيانات مرنة (FormatData, MultiDataFormatter)
 

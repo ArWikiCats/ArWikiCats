@@ -7,34 +7,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **ArWikiCats** is an Arabic Wikipedia Categories Translation Engine - a Python library that automatically translates English Wikipedia category names into standardized Arabic category names. It's designed for bot operations, mass translation, and automated editing tasks.
 
 - **Status**: Beta
-- **Tests**: 28,500+ tests
+- **Tests**: 60,000+ tests (all four types)
 - **Python**: 3.10+
 
 ## Common Commands
 
 ### Testing
 
-Tests are organized into three categories:
+Tests are organized into four categories:
 
 | Category | Directory | Description |
 |----------|-----------|-------------|
 | **Unit** | `tests/unit/` | Fast tests for individual functions/classes in isolation (< 0.1s) |
 | **Integration** | `tests/integration/` | Tests for interaction between components (< 1s) |
 | **E2E** | `tests/e2e/` | Full system tests with real inputs (may be slow) |
+| **BIG** | `tests/big/` | large dataset tests (slow) |
 
 ```bash
-# Run all tests
-pytest
+# Run all tests (60,000+ tests across all types)
+pytest --rune2e -m "not skip2" -n 16
 
 # Run by test category
 pytest tests/unit/           # Unit tests only
 pytest tests/integration/    # Integration tests only
-pytest tests/e2e/            # End-to-end tests only
+pytest tests/e2e/            # End-to-end tests only (15,000+ categories)
+pytest tests/big/ -m big     # large dataset tests (26,000+ categories)
 
 # Run by marker
 pytest -m unit               # Unit tests only
 pytest -m integration        # Integration tests only
-pytest --rune2e                # End-to-end tests only
+pytest --rune2e              # End-to-end tests only
+pytest -m big                # large dataset tests
 
 # Run specific test category
 pytest -k "jobs"
@@ -216,7 +219,8 @@ ArWikiCats/
 tests/
 ├── unit/                    # Unit tests (fast, isolated)
 ├── integration/             # Integration tests (component interaction)
-└── e2e/                     # End-to-end tests (full system)
+├── e2e/                     # End-to-end tests (15,000+ categories)
+└── big/                     # Large dataset tests (26,000+ categories)
 ```
 
 ## Performance Characteristics

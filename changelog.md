@@ -123,7 +123,7 @@ This pull request updates all documentation to reflect the new test organization
   - Updated directory structure to show tests subdirectories
 * Updated `.github/copilot-instructions.md`:
   - Updated Project Structure section to describe the 3 test categories
-  - Updated test count to 28,500+ tests
+  - Updated test count to 30,000+ tests
 
 ## [Refactor legacy_bots package to eliminate circular dependencies] - 2026-01-26
 
@@ -367,7 +367,7 @@ These changes collectively improve the maintainability, accuracy, and performanc
 ## [Update README documentation to reflect current codebase] - 2026-01-01
 
 * **Documentation**
-  * Updated test count badge from 20,000+ to 28,500+ to reflect actual test coverage.
+  * Updated test count badge from 20,000+ to 30,000+ to reflect actual test coverage.
   * Rewrote project structure section with accurate directory descriptions.
   * Added new API reference section with exported functions and classes.
   * Enhanced usage examples with new methods (resolve_label_ar, EventProcessor).

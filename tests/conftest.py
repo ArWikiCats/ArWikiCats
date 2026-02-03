@@ -2,8 +2,21 @@
 
 import os
 import random
-
 import pytest
+import json
+from pathlib import Path
+
+
+@pytest.fixture
+def load_json_data(request: pytest.FixtureRequest):
+    file_path = request.param
+    file_path = Path(file_path)
+
+    if not file_path.exists():
+        pytest.skip(f"File {file_path} not found")
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        return json.load(f), file_path.stem
 
 
 def pytest_configure(config: pytest.Config) -> None:
@@ -37,6 +50,7 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
     - tests/unit/* → @pytest.mark.unit
     - tests/integration/* → @pytest.mark.integration
     - tests/e2e/* → @pytest.mark.e2e
+    - tests/big/* → @pytest.mark.big
     """
     run_e2e = config.getoption("--rune2e")
 
@@ -49,6 +63,8 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
             item.add_marker(pytest.mark.fast)
         elif "tests" + os.sep + "integration" in path_str:
             item.add_marker(pytest.mark.integration)
+        elif "tests" + os.sep + "big" in path_str:
+            item.add_marker(pytest.mark.big)
         elif "tests" + os.sep + "e2e" in path_str:
             item.add_marker(pytest.mark.e2e)
             if not run_e2e:

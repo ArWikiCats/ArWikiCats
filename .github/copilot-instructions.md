@@ -68,10 +68,26 @@ Do **not** duplicate existing entries.
 ## Project Structure
 
 - `ArWikiCats/` - Main package directory
-- `tests/` - Test suite with 28,500+ tests organized in 3 categories:
+- `tests/` - Test suite with 60,000+ tests organized in 4 categories:
   - `tests/unit/` - Unit tests (fast, isolated function/class tests)
   - `tests/integration/` - Integration tests (component interaction tests)
-  - `tests/e2e/` - End-to-end tests (full system tests)
+  - `tests/e2e/` - End-to-end tests (full system tests) - 15,000+ categories
+  - `tests/big/` - Big tests (large dataset tests) - 26,000+ categories
+
+**Running all tests:**
+```bash
+pytest --rune2e -m "not skip2" -n 16
+```
+
+**Running big tests:**
+```bash
+pytest tests/big -m big
+```
+
+**Running e2e tests:**
+```bash
+pytest tests/e2e --rune2e
+```
 - `examples/` - Usage examples
 - `help_scripts/` - Helper scripts
 - `tasks/` - Task definitions
