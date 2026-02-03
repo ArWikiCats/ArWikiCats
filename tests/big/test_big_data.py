@@ -7,19 +7,6 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 from utils.resolver_runner import make_resolver_test
 
-
-@pytest.fixture
-def load_json_data(request: pytest.FixtureRequest):
-    file_path = request.param
-    file_path = Path(file_path)
-
-    if not file_path.exists():
-        pytest.skip(f"File {file_path} not found")
-
-    with open(file_path, "r", encoding="utf-8") as f:
-        return json.load(f), file_path.stem
-
-
 def JSON_FILES(dir_path):
     DATA_DIR = Path(__file__).parent.parent.parent / dir_path
     FILE_PATHS = sorted(DATA_DIR.glob("*.json"))

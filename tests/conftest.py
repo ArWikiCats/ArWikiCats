@@ -3,6 +3,20 @@
 import os
 import random
 import pytest
+import json
+from pathlib import Path
+
+
+@pytest.fixture
+def load_json_data(request: pytest.FixtureRequest):
+    file_path = request.param
+    file_path = Path(file_path)
+
+    if not file_path.exists():
+        pytest.skip(f"File {file_path} not found")
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        return json.load(f), file_path.stem
 
 
 def pytest_configure(config: pytest.Config) -> None:
