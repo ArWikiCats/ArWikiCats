@@ -60,6 +60,9 @@ for i, title in enumerate(titles):
 
     replaces[rf"\[[\d\.]+ {title.replace('-', ' ')}\]\({i}\.{title}\.md\)"] = rf"[{i}. {title.replace('-', ' ')}]({i}.{title}.md)"
 
+    # see sections [5.1](15.Time-Pattern-Resolvers.md) through [5.7](21.Legacy-Resolvers.md).
+    replaces[rf"\[[\d\.]+\]\({i}\.{title}\.md\)"] = rf"[{i}]({i}.{title}.md)"
+
 work_dir = Path(__file__).parent
 
 for md_file in work_dir.glob("*.md"):
