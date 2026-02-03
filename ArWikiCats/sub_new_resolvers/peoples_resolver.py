@@ -7,12 +7,15 @@ from __future__ import annotations
 import functools
 import logging
 
-from ..translations import People_key
+from ..translations.funcs import open_json_file
 from ..translations_formats import FormatData
 
 logger = logging.getLogger(__name__)
 
+people_dictionary = open_json_file("people/peoples.json") or {}
+
 formatted_data = {
+    "by {person_key}": "بواسطة {person_label}",
     # Category:Relationships_of_Jeffrey_Epstein
     "relationships of {person_key}": "علاقات {person_label}",
     "{person_key} administration cabinet members": "أعضاء مجلس وزراء إدارة {person_label}",
@@ -41,7 +44,7 @@ formatted_data = {
 def _load_bot() -> FormatData:
     _peoples_bot = FormatData(
         formatted_data=formatted_data,
-        data_list=People_key,
+        data_list=people_dictionary,
         key_placeholder="{person_key}",
         value_placeholder="{person_label}",
     )
@@ -56,7 +59,7 @@ def work_peoples(name: str) -> str:
     """
     logger.debug(f"<<yellow>> {name=}")
 
-    if label := People_key.get(name):
+    if label := people_dictionary.get(name):
         logger.info(f"<<yellow>> end direct hit {name=}, {label=}")
         return label
 

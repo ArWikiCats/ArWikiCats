@@ -12,7 +12,6 @@ import logging
 
 from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
-from ...translations import People_key
 from ...translations.funcs import get_from_new_p17_final
 from ..utils.regex_hub import BY_MATCH_PATTERN, DUAL_BY_PATTERN
 from .bot_2018 import get_pop_All_18
@@ -41,25 +40,6 @@ def find_dual_by_keys(normalized: str) -> str:
     return resolved
 
 
-def by_people_bot(key: str) -> str:
-    """Return the Arabic label for a person-related key.
-
-    Args:
-        key: The key representing a person-related category.
-    Returns:
-        The Arabic label corresponding to the key, or an empty string if not found.
-    """
-    resolved = ""
-    if key.lower().startswith("by "):
-        candidate = key[3:]
-        label = People_key.get(candidate, "")
-        if label:
-            resolved = f"بواسطة {label}"
-            logger.debug(f"matched people label, {key=}, {resolved=}")
-
-    return resolved
-
-
 @functools.lru_cache(maxsize=10000)
 def make_new_by_label(category: str) -> str:
     """Return the Arabic label for ``category`` that starts with ``by``.
@@ -78,7 +58,7 @@ def make_new_by_label(category: str) -> str:
 
     if normalized.lower().startswith("by "):
         candidate = normalized[3:]
-        film_label = "" or all_new_resolvers(candidate) or People_key.get(candidate)
+        film_label = "" or all_new_resolvers(candidate)
         if film_label:
             resolved = f"بواسطة {film_label}"
             logger.debug(f"Matched film label, category: {normalized}, label: {resolved}")
@@ -92,7 +72,7 @@ def make_new_by_label(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def make_by_label(category: str) -> str:
-    return by_people_bot(category) or make_new_by_label(category) or ""
+    return make_new_by_label(category) or ""
 
 
 @functools.lru_cache(maxsize=10000)

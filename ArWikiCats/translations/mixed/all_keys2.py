@@ -11,7 +11,6 @@ ctl_data,
 DIRECTIONS,
 keys_of_without_in,
 LITERATURE_AREAS,
-People_key,
 REGIONS,
 SCHOOL_LABELS,
 tato_type,
@@ -46,8 +45,6 @@ from ..utils import open_json_file
 # from .keys2 import keys2_py
 # from .keys_23 import NEW_2023
 # from .Newkey import pop_final6
-
-People_key = open_json_file("people/peoples.json") or {}
 
 BASE_LABELS: Dict[str, str] = {
     "international reactions": "ردود فعل دولية",
@@ -707,7 +704,7 @@ def generate_key_mappings(
     _build_cinema_entries(data, CINEMA_CATEGORIES)
 
     _update_lowercase(data, [tennis_keys, pop_final6, media_category_translations], skip_existing=True)
-    _update_lowercase(data, [language_key_translations, People_key, new2019, new_2023], skip_existing=False)
+    _update_lowercase(data, [language_key_translations, new2019, new_2023], skip_existing=False)
 
     no_the = handle_the_prefix(data)
     data.update(no_the)
@@ -719,7 +716,6 @@ def generate_key_mappings(
 len_print.data_len(
     "all_keys2.py",
     {
-        "People_key": People_key,
         # "pf_keys2": pf_keys2,
         "keys_of_without_in": keys_of_without_in,
         "clubs_teams_leagues": clubs_teams_leagues,

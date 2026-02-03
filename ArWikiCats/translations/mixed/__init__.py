@@ -1,7 +1,6 @@
 from .all_keys2 import (
     BOOK_CATEGORIES,
     WORD_AFTER_YEARS,
-    People_key,
     clubs_teams_leagues,
     generate_key_mappings,
     keys_of_without_in,
@@ -28,7 +27,6 @@ __all__ = [
     "keys2_py",
     "BOOK_CATEGORIES",
     "WORD_AFTER_YEARS",
-    "People_key",
     "clubs_teams_leagues",
     "keys_of_without_in",
     "ALBUMS_TYPE",
