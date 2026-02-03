@@ -129,7 +129,7 @@ graph TB
 
 The system is organized into five primary layers:
 
-1. **Public API Layer** - User-facing functions in [ArWikiCats/__init__.py]() that provide simple interfaces for single-category and batch translation
+1. **Public API Layer** - User-facing functions in [ArWikiCats/__init__.py](../ArWikiCats/__init__.py) that provide simple interfaces for single-category and batch translation
 2. **Main Resolution Coordinator** - [main_processers/main_resolve.py L33-L93](../main_processers/main_resolve.py#L33-L93) orchestrates the resolution pipeline with LRU caching
 3. **Input Processing** - Normalizes categories and filters invalid inputs before resolution
 4. **Resolution Pipeline** - Prioritized chain of specialized resolvers that attempt pattern matching
@@ -510,7 +510,7 @@ Additional caching is applied to:
 3. **Lazy loading** - Translation data loaded on-demand in some modules
 4. **Pre-compiled regexes** - Pattern matchers compiled at module load time
 
-**Sources:** [README.md L498-L508](../README.md#L498-L508), [ArWikiCats/main_processers/main_resolve.py:32](), [changelog.md L269-L293](../changelog.md#L269-L293)
+**Sources:** [README.md L498-L508](../README.md#L498-L508), [ArWikiCats/main_processers/main_resolve.py:32](../ArWikiCats/main_processers/main_resolve.py:32), [changelog.md L269-L293](../changelog.md#L269-L293)
 
 ---
 
@@ -623,7 +623,7 @@ print(result)
 That's it! The system automatically:
 1. Normalizes the input text
 2. Identifies the pattern (nationality + sport + job)
-3. Applies the appropriate resolver ([ArWikiCats/new_resolvers/sports_resolvers/]())
+3. Applies the appropriate resolver ([ArWikiCats/new_resolvers/sports_resolvers/](../ArWikiCats/new_resolvers/sports_resolvers/))
 4. Formats the Arabic output with proper grammar
 5. Adds the `تصنيف:` prefix
 
@@ -676,7 +676,7 @@ graph TB
     EP --> RACL
 ```
 
-All four functions ultimately call `main_resolve()` from [ArWikiCats/main_processers/main_resolve.py](), which orchestrates the resolver chain.
+All four functions ultimately call `main_resolve()` from [ArWikiCats/main_processers/main_resolve.py](../ArWikiCats/main_processers/main_resolve.py), which orchestrates the resolver chain.
 
 **Sources:** [ArWikiCats/__init__.py L1-L50](../ArWikiCats/__init__.py#L1-L50), [ArWikiCats/event_processing.py L1-L100](../ArWikiCats/event_processing.py#L1-L100), [ArWikiCats/main_processers/main_resolve.py L1-L100](../ArWikiCats/main_processers/main_resolve.py#L1-L100)
 
@@ -780,7 +780,7 @@ BatchResult(
 )
 ```
 
-**Sources:** [README.md L184-L204](../README.md#L184-L204), [ArWikiCats/event_processing.py]()
+**Sources:** [README.md L184-L204](../README.md#L184-L204), [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py)
 
 ---
 
@@ -812,7 +812,7 @@ print(f"Has label: {result.has_label}")
 | `final_label` | `str` | Complete Arabic category label |
 | `has_label` | `bool` | Whether translation succeeded |
 
-**Sources:** [README.md L216-L229](../README.md#L216-L229), [ArWikiCats/event_processing.py]()
+**Sources:** [README.md L216-L229](../README.md#L216-L229), [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py)
 
 ---
 
@@ -875,13 +875,13 @@ graph TB
 
 **Key Processing Steps:**
 
-1. **Normalization** - `change_cat()` from [ArWikiCats/format_bots/__init__.py]() strips prefixes and normalizes spacing
+1. **Normalization** - `change_cat()` from [ArWikiCats/format_bots/__init__.py](../ArWikiCats/format_bots/__init__.py) strips prefixes and normalizes spacing
 2. **Main Resolution** - `main_resolve()` from [ArWikiCats/main_processers/main_resolve.py L29-L57](../ArWikiCats/main_processers/main_resolve.py#L29-L57) orchestrates the resolver chain
-3. **Time Detection** - `LabsYears.return_text()` from [ArWikiCats/time_formats/labs_years.py]() checks for year patterns first
+3. **Time Detection** - `LabsYears.return_text()` from [ArWikiCats/time_formats/labs_years.py](../ArWikiCats/time_formats/labs_years.py) checks for year patterns first
 4. **Specialized Resolvers** - `all_new_resolvers()` from [ArWikiCats/new_resolvers/__init__.py L29-L57](../ArWikiCats/new_resolvers/__init__.py#L29-L57) tries jobs → sports → nationalities → countries in order
 5. **Legacy Fallback** - `legacy_resolvers()` from [ArWikiCats/legacy_bots/__init__.py L66-L97](../ArWikiCats/legacy_bots/__init__.py#L66-L97) handles remaining patterns
-6. **Post-Processing** - `fixlabel()` from [ArWikiCats/fix/fixtitle.py]() applies Arabic grammar rules
-7. **Prefix Addition** - `EventProcessor._prefix_label()` from [ArWikiCats/event_processing.py]() adds `تصنيف:`
+6. **Post-Processing** - `fixlabel()` from [ArWikiCats/fix/fixtitle.py](../ArWikiCats/fix/fixtitle.py) applies Arabic grammar rules
+7. **Prefix Addition** - `EventProcessor._prefix_label()` from [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py) adds `تصنيف:`
 
 **Example: "American basketball players"**
 - Normalized to `"american basketball players"`
@@ -893,7 +893,7 @@ graph TB
 - `fixlabel()` verifies grammar
 - Output: `"تصنيف:لاعبو كرة سلة أمريكيون"`
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py L1-L100](../ArWikiCats/main_processers/main_resolve.py#L1-L100), [ArWikiCats/new_resolvers/__init__.py L29-L57](../ArWikiCats/new_resolvers/__init__.py#L29-L57), [ArWikiCats/legacy_bots/__init__.py L66-L97](../ArWikiCats/legacy_bots/__init__.py#L66-L97), [ArWikiCats/fix/fixtitle.py](), [ArWikiCats/event_processing.py L1-L150](../ArWikiCats/event_processing.py#L1-L150)
+**Sources:** [ArWikiCats/main_processers/main_resolve.py L1-L100](../ArWikiCats/main_processers/main_resolve.py#L1-L100), [ArWikiCats/new_resolvers/__init__.py L29-L57](../ArWikiCats/new_resolvers/__init__.py#L29-L57), [ArWikiCats/legacy_bots/__init__.py L66-L97](../ArWikiCats/legacy_bots/__init__.py#L66-L97), [ArWikiCats/fix/fixtitle.py](../ArWikiCats/fix/fixtitle.py), [ArWikiCats/event_processing.py L1-L150](../ArWikiCats/event_processing.py#L1-L150)
 
 ---
 
@@ -1667,7 +1667,7 @@ graph TB
 The codebase contains two resolver architectures that coexist:
 
 **Legacy Architecture** (`legacy_bots/`):
-- Located in [ArWikiCats/legacy_bots/]()
+- Located in [ArWikiCats/legacy_bots/](../ArWikiCats/legacy_bots/)
 - Organized around bot scripts with mixed concerns
 - Direct dictionary lookups without abstraction
 - Monolithic functions handling multiple patterns
@@ -1675,7 +1675,7 @@ The codebase contains two resolver architectures that coexist:
 - Recently refactored from `RESOLVER_PIPELINE` list to `LegacyBotsResolver` class
 
 **Modern Architecture** (`new_resolvers/`):
-- Located in [ArWikiCats/new_resolvers/]()
+- Located in [ArWikiCats/new_resolvers/](../ArWikiCats/new_resolvers/)
 - Domain-specific modules (jobs, sports, nationalities, countries, films)
 - Template-based formatting via `FormatData` classes
 - Composition over inheritance
@@ -1930,7 +1930,7 @@ The internal `resolve_label` function [ArWikiCats/main_processers/main_resolve.p
 | `ar` | `str` | Resolved Arabic label |
 | `from_match` | `str` | Source of match (year pattern or resolver ID) |
 
-**Caching:** The `resolve_label` function uses `@functools.lru_cache(maxsize=None)` [ArWikiCats/main_processers/main_resolve.py:52]() for unlimited caching, providing significant performance improvements for repeated lookups.
+**Caching:** The `resolve_label` function uses `@functools.lru_cache(maxsize=None)` [ArWikiCats/main_processers/main_resolve.py:52](../ArWikiCats/main_processers/main_resolve.py:52) for unlimited caching, providing significant performance improvements for repeated lookups.
 
 **Sources:** [ArWikiCats/main_processers/main_resolve.py L28-L149](../ArWikiCats/main_processers/main_resolve.py#L28-L149)
 
@@ -1940,7 +1940,7 @@ Before entering the resolver chain, category strings undergo normalization and v
 
 ### change_key_mappings
 
-The `change_cat` function [ArWikiCats/format_bots/__init__.py]() (imported in [ArWikiCats/main_processers/main_resolve.py:21]()) applies key mappings to standardize English terminology:
+The `change_cat` function [ArWikiCats/format_bots/__init__.py](../ArWikiCats/format_bots/__init__.py) (imported in [ArWikiCats/main_processers/main_resolve.py:21](../ArWikiCats/main_processers/main_resolve.py:21)) applies key mappings to standardize English terminology:
 
 - `labor` → `labour`
 - `war of` → `war-of`
@@ -1951,7 +1951,7 @@ This ensures consistent input patterns for downstream resolvers.
 
 ### filter_cat Validation
 
-The `filter_en.filter_cat` function [ArWikiCats/main_processers/main_resolve.py:71]() performs category validation to determine if a category should be processed. Categories failing validation skip most of the resolver chain.
+The `filter_en.filter_cat` function [ArWikiCats/main_processers/main_resolve.py:71](../ArWikiCats/main_processers/main_resolve.py:71) performs category validation to determine if a category should be processed. Categories failing validation skip most of the resolver chain.
 
 **Early Exit Conditions:**
 
@@ -1971,7 +1971,7 @@ graph LR
     CHECK2 -->|"No"| PROCESS
 ```
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py L55-L71](../ArWikiCats/main_processers/main_resolve.py#L55-L71), [ArWikiCats/format_bots/__init__.py]()
+**Sources:** [ArWikiCats/main_processers/main_resolve.py L55-L71](../ArWikiCats/main_processers/main_resolve.py#L55-L71), [ArWikiCats/format_bots/__init__.py](../ArWikiCats/format_bots/__init__.py)
 
 ## Resolver Chain (Waterfall Pattern)
 
@@ -2027,11 +2027,11 @@ This resolver uses the `LabsYears` class to detect temporal patterns (decades, c
 - Calls `labs_years_bot.lab_from_year(category)` which returns `(cat_year, from_year)`
 - If `from_year` is truthy, resolution succeeds immediately
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py L37-L49](../ArWikiCats/main_processers/main_resolve.py#L37-L49), [ArWikiCats/time_resolvers/labs_years.py]()
+**Sources:** [ArWikiCats/main_processers/main_resolve.py L37-L49](../ArWikiCats/main_processers/main_resolve.py#L37-L49), [ArWikiCats/time_resolvers/labs_years.py](../ArWikiCats/time_resolvers/labs_years.py)
 
 ### Priority 2: new_resolvers_all
 
-**Function:** `new_resolvers_all(changed_cat)` [ArWikiCats/main_processers/main_resolve.py:84]()
+**Function:** `new_resolvers_all(changed_cat)` [ArWikiCats/main_processers/main_resolve.py:84](../ArWikiCats/main_processers/main_resolve.py:84)
 
 This is the main modular resolver that chains together specialized resolvers in the `new_resolvers/` directory. See [5](#5) for detailed documentation of each resolver.
 
@@ -2044,7 +2044,7 @@ This is the main modular resolver that chains together specialized resolvers in 
 6. Relations resolvers (`new_relations_resolvers`)
 7. Language resolvers (`resolve_languages_labels`)
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py:84](), [ArWikiCats/new_resolvers/reslove_all.py L1-L50](../ArWikiCats/new_resolvers/reslove_all.py#L1-L50)
+**Sources:** [ArWikiCats/main_processers/main_resolve.py:84](../ArWikiCats/main_processers/main_resolve.py:84), [ArWikiCats/new_resolvers/reslove_all.py L1-L50](../ArWikiCats/new_resolvers/reslove_all.py#L1-L50)
 
 ### Priority 3-8: Additional Resolvers
 
@@ -2067,7 +2067,7 @@ After a resolver produces a match, the label undergoes grammatical correction an
 
 ### fixlabel Function
 
-The `fixlabel` function [ArWikiCats/fix/fixtitle.py]() (called at [ArWikiCats/main_processers/main_resolve.py:128]()) performs:
+The `fixlabel` function [ArWikiCats/fix/fixtitle.py](../ArWikiCats/fix/fixtitle.py) (called at [ArWikiCats/main_processers/main_resolve.py:128](../ArWikiCats/main_processers/main_resolve.py:128)) performs:
 
 - Arabic article agreement (definite/indefinite forms)
 - Preposition insertion based on English separators ("of" → "من", "in" → "في")
@@ -2077,11 +2077,11 @@ The `fixlabel` function [ArWikiCats/fix/fixtitle.py]() (called at [ArWikiCats/ma
 
 ### Category Prefix Addition
 
-The resolved label is prefixed with `"تصنيف:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303)
+The resolved label is prefixed with `"تصنيف:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](../ArWikiCats/main_processers/event_lab_bot.py:301). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303)
 
 **Note:** The `resolve_label_ar` function returns labels **without** the prefix, while `resolve_arabic_category_label` (in the EventProcessor) includes it.
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py:128](), [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303), [ArWikiCats/fix/fixtitle.py]()
+**Sources:** [ArWikiCats/main_processers/main_resolve.py:128](../ArWikiCats/main_processers/main_resolve.py:128), [ArWikiCats/main_processers/event_lab_bot.py L287-L303](../ArWikiCats/main_processers/event_lab_bot.py#L287-L303), [ArWikiCats/fix/fixtitle.py](../ArWikiCats/fix/fixtitle.py)
 
 ## EventProcessor and event_Lab
 
@@ -2184,11 +2184,11 @@ The waterfall pattern ensures minimal computational cost:
 - Subsequent calls: O(1) dictionary lookup from LRU cache
 - Memory usage: Grows with unique category count, bounded by `maxsize`
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py L37-L52](../ArWikiCats/main_processers/main_resolve.py#L37-L52), [ArWikiCats/main_processers/event_lab_bot.py:32](), [ArWikiCats/legacy_bots/matables_bots/bot.py]()
+**Sources:** [ArWikiCats/main_processers/main_resolve.py L37-L52](../ArWikiCats/main_processers/main_resolve.py#L37-L52), [ArWikiCats/main_processers/event_lab_bot.py:32](../ArWikiCats/main_processers/event_lab_bot.py:32), [ArWikiCats/legacy_bots/matables_bots/bot.py](../ArWikiCats/legacy_bots/matables_bots/bot.py)
 
 ## Configuration and Control Flow
 
-The resolution pipeline behavior can be modified via configuration settings in [ArWikiCats/config.py]():
+The resolution pipeline behavior can be modified via configuration settings in [ArWikiCats/config.py](../ArWikiCats/config.py):
 
 | Setting | Variable | Effect |
 |---------|----------|--------|
@@ -2197,7 +2197,7 @@ The resolution pipeline behavior can be modified via configuration settings in [
 | `MAKEERR` | `app_settings.makeerr` | Enables error tracking mode |
 | `NOPRINT` | `print_settings.noprint` | Disables logging output |
 
-The `start_tgc_resolver_first` setting [ArWikiCats/main_processers/main_resolve.py:108]() demonstrates conditional resolver ordering:
+The `start_tgc_resolver_first` setting [ArWikiCats/main_processers/main_resolve.py:108](../ArWikiCats/main_processers/main_resolve.py:108) demonstrates conditional resolver ordering:
 
 ```python
 if not category_lab and app_settings.start_tgc_resolver_first:
@@ -2208,7 +2208,7 @@ if not category_lab and app_settings.start_tgc_resolver_first:
 
 ## Integration with EventProcessor
 
-The public API [ArWikiCats/event_processing.py]() wraps the resolution pipeline with additional functionality:
+The public API [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py) wraps the resolution pipeline with additional functionality:
 
 **EventProcessor Data Flow:**
 
@@ -2238,7 +2238,7 @@ The EventProcessor extends the base resolution pipeline with:
 - Pattern categorization (year-based, nationality-based, etc.)
 - Statistics collection (success count, failure count)
 
-**Sources:** [ArWikiCats/event_processing.py](), [README.md L217-L229](../README.md#L217-L229)
+**Sources:** [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py), [README.md L217-L229](../README.md#L217-L229)
 
 ## Error Handling and Fallbacks
 
@@ -2252,7 +2252,7 @@ The resolution pipeline is designed to never throw exceptions during normal oper
 
 Categories returning empty strings are collected in the `no_labels` list when using `batch_resolve_labels`, allowing post-processing review.
 
-**Sources:** [ArWikiCats/main_processers/main_resolve.py L53-L143](../ArWikiCats/main_processers/main_resolve.py#L53-L143), [ArWikiCats/event_processing.py]()1b:T5385,# Data Architecture
+**Sources:** [ArWikiCats/main_processers/main_resolve.py L53-L143](../ArWikiCats/main_processers/main_resolve.py#L53-L143), [ArWikiCats/event_processing.py](../ArWikiCats/event_processing.py)1b:T5385,# Data Architecture
 
 <details>
 <summary>Relevant source files</summary>
@@ -2362,7 +2362,7 @@ JSON files stored in the `jsons/` directory contain the raw translation mappings
 | `jsons/nats/` | Nationality data | `nationalities_data.json` |
 | `jsons/population/` | Generic category keys | `pop_All_2018.json` |
 
-**Sources:** [ArWikiCats/translations/tv/films_mslslat.py L118-L121](../ArWikiCats/translations/tv/films_mslslat.py#L118-L121), [ArWikiCats/translations/sports/Sport_key.py:34](), [ArWikiCats/translations/geo/labels_country.py L230-L232](../ArWikiCats/translations/geo/labels_country.py#L230-L232)
+**Sources:** [ArWikiCats/translations/tv/films_mslslat.py L118-L121](../ArWikiCats/translations/tv/films_mslslat.py#L118-L121), [ArWikiCats/translations/sports/Sport_key.py:34](../ArWikiCats/translations/sports/Sport_key.py:34), [ArWikiCats/translations/geo/labels_country.py L230-L232](../ArWikiCats/translations/geo/labels_country.py#L230-L232)
 
 ### Layer 2: Domain-Specific Modules
 
@@ -2725,7 +2725,7 @@ This structure is used throughout the jobs domain:
 - `jobs_womens_data` - Flattened to female forms only
 - `MEN_WOMENS_JOBS_2`, `PLAYERS_TO_MEN_WOMENS_JOBS` - Full gendered structures
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py L181-L183](../ArWikiCats/translations/jobs/Jobs.py#L181-L183), [ArWikiCats/translations/data_builders/jobs_defs.py]()
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py L181-L183](../ArWikiCats/translations/jobs/Jobs.py#L181-L183), [ArWikiCats/translations/data_builders/jobs_defs.py](../ArWikiCats/translations/data_builders/jobs_defs.py)
 
 ### Sport Key Records
 
@@ -2746,7 +2746,7 @@ Built by `_build_tables()` which generates three separate dictionaries:
 - `SPORTS_KEYS_FOR_LABEL` - General sport labels
 - `SPORTS_KEYS_FOR_JOBS` - Job combination forms (e.g., "football players" → "لاعبو كرة قدم")
 
-**Sources:** [ArWikiCats/translations/sports/Sport_key.py L42-L50](../ArWikiCats/translations/sports/Sport_key.py#L42-L50), [ArWikiCats/translations/data_builders/build_sport_keys.py]()
+**Sources:** [ArWikiCats/translations/sports/Sport_key.py L42-L50](../ArWikiCats/translations/sports/Sport_key.py#L42-L50), [ArWikiCats/translations/data_builders/build_sport_keys.py](../ArWikiCats/translations/data_builders/build_sport_keys.py)
 
 ### Nationality Lookup Tables
 
@@ -2773,7 +2773,7 @@ Exported as separate dictionaries for each form:
 - `Nat_the_male`, `Nat_the_female` - Definite forms
 - `ar_Nat_men` - Arabic-keyed male forms
 
-**Sources:** [ArWikiCats/translations/nats/Nationality.py](), [ArWikiCats/translations/__init__.py L42-L61](../ArWikiCats/translations/__init__.py#L42-L61)
+**Sources:** [ArWikiCats/translations/nats/Nationality.py](../ArWikiCats/translations/nats/Nationality.py), [ArWikiCats/translations/__init__.py L42-L61](../ArWikiCats/translations/__init__.py#L42-L61)
 
 ## Data Caching and Performance
 
@@ -2789,7 +2789,7 @@ Translation access functions use `functools.lru_cache` for performance optimizat
 The main resolution function uses a much larger cache:
 - `resolve_label()` - 50,000 entries (caches complete resolution results)
 
-**Sources:** [ArWikiCats/translations/funcs.py L59-L98](../ArWikiCats/translations/funcs.py#L59-L98), [ArWikiCats/translations/funcs.py L116-L150](../ArWikiCats/translations/funcs.py#L116-L150), [ArWikiCats/main_processers/main_resolve.py:32]()
+**Sources:** [ArWikiCats/translations/funcs.py L59-L98](../ArWikiCats/translations/funcs.py#L59-L98), [ArWikiCats/translations/funcs.py L116-L150](../ArWikiCats/translations/funcs.py#L116-L150), [ArWikiCats/main_processers/main_resolve.py:32](../ArWikiCats/main_processers/main_resolve.py:32)
 
 ### Access Pattern Optimization
 
@@ -3157,7 +3157,7 @@ flowchart TB
 
 **Sources:**
 - [ArWikiCats/new_resolvers/__init__.py L1-L125](../ArWikiCats/new_resolvers/__init__.py#L1-L125)
-- [ArWikiCats/__init__.py]()
+- [ArWikiCats/__init__.py](../ArWikiCats/__init__.py)
 
 ---
 
@@ -3184,7 +3184,7 @@ When adding a new resolver to the chain, consider:
    ArWikiCats/new_resolvers/your_domain/
    ```
 
-2. **Add to the resolver chain** in [ArWikiCats/new_resolvers/__init__.py]():
+2. **Add to the resolver chain** in [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py):
    ```python
    _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
        # ... existing resolvers ...
@@ -3225,9 +3225,9 @@ Each component in the resolver chain implements caching at multiple levels:
 All caches use `@functools.lru_cache` for automatic eviction.
 
 **Sources:**
-- [ArWikiCats/new_resolvers/__init__.py:101]()
-- [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15]()
-- [ArWikiCats/new_resolvers/sports_resolvers/__init__.py:21]()
+- [ArWikiCats/new_resolvers/__init__.py:101](../ArWikiCats/new_resolvers/__init__.py:101)
+- [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15)
+- [ArWikiCats/new_resolvers/sports_resolvers/__init__.py:21](../ArWikiCats/new_resolvers/sports_resolvers/__init__.py:21)
 
 ### Optimization for Early Exit
 
@@ -3344,7 +3344,7 @@ For information about how this data is processed and aggregated, see [Data Aggre
 
 ## Overview
 
-The translation data consists of structured dictionaries mapping English Wikipedia category terms to their Arabic equivalents. The system manages approximately **250,000+ translation entries** across multiple domains, organized into domain-specific modules under [ArWikiCats/translations/]()
+The translation data consists of structured dictionaries mapping English Wikipedia category terms to their Arabic equivalents. The system manages approximately **250,000+ translation entries** across multiple domains, organized into domain-specific modules under [ArWikiCats/translations/](../ArWikiCats/translations/)
 
 The data originates from raw JSON files in [jsons/](), which are processed by Python aggregator modules into typed dictionaries exported via [ArWikiCats/translations/__init__.py L1-L152](../ArWikiCats/translations/__init__.py#L1-L152)
 
@@ -3650,7 +3650,7 @@ len_print.data_len(
 
 This validation runs during module initialization and helps detect unexpected changes in dataset sizes when JSON sources are updated.
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py L196-L204](../ArWikiCats/translations/jobs/Jobs.py#L196-L204), [ArWikiCats/translations/helps/len_print.py]()
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py L196-L204](../ArWikiCats/translations/jobs/Jobs.py#L196-L204), [ArWikiCats/translations/helps/len_print.py](../ArWikiCats/translations/helps/len_print.py)
 
 ## Related Pages
 
@@ -3773,7 +3773,7 @@ The pipeline ingests translation data from JSON files organized by domain. These
 
 **Sources:**
 - [_work_files/data_len.json L1-L135](../_work_files/data_len.json#L1-L135)
-- [ArWikiCats/translations/utils.py]() (referenced for `open_json_file`)
+- [ArWikiCats/translations/utils.py](../ArWikiCats/translations/utils.py) (referenced for `open_json_file`)
 
 ## Jobs Data Aggregator
 
@@ -3899,7 +3899,7 @@ ALIASES = {
 
 **Sources:**
 - [ArWikiCats/translations/sports/Sport_key.py L1-L73](../ArWikiCats/translations/sports/Sport_key.py#L1-L73)
-- [ArWikiCats/translations/data_builders/build_sport_keys.py]() (referenced)
+- [ArWikiCats/translations/data_builders/build_sport_keys.py](../ArWikiCats/translations/data_builders/build_sport_keys.py) (referenced)
 
 ## Geographic Data Aggregator
 
@@ -4022,7 +4022,7 @@ The aggregator creates several specialized outputs:
 
 **Sources:**
 - [ArWikiCats/translations/tv/films_mslslat.py L1-L271](../ArWikiCats/translations/tv/films_mslslat.py#L1-L271)
-- [ArWikiCats/translations/data_builders/build_films_mslslat.py]() (referenced)
+- [ArWikiCats/translations/data_builders/build_films_mslslat.py](../ArWikiCats/translations/data_builders/build_films_mslslat.py) (referenced)
 
 ## Mixed Categories Aggregator
 
@@ -4096,7 +4096,7 @@ The `generate_key_mappings()` function merges data in this order:
 **Sources:**
 - [ArWikiCats/translations/mixed/all_keys2.py L1-L739](../ArWikiCats/translations/mixed/all_keys2.py#L1-L739)
 - [ArWikiCats/translations/mixed/keys2.py L1-L215](../ArWikiCats/translations/mixed/keys2.py#L1-L215)
-- [ArWikiCats/translations/data_builders/build_all_keys2.py]() (referenced)
+- [ArWikiCats/translations/data_builders/build_all_keys2.py](../ArWikiCats/translations/data_builders/build_all_keys2.py) (referenced)
 
 ## Unified Export Layers
 
@@ -4447,7 +4447,7 @@ CITY_TRANSLATIONS_LOWER: Dict[str, str] = {
 
 **Patches:** The system also includes `CITY_LABEL_PATCHES` (4,160 entries) loaded from `cities/yy2.json`, which provides corrections or additions to the main city translation table. These patches are integrated during the aggregation process.
 
-**Sources:** [ArWikiCats/translations/geo/labels_country.py:230](), [_work_files/data_len.json L6-L8](../_work_files/data_len.json#L6-L8)
+**Sources:** [ArWikiCats/translations/geo/labels_country.py:230](../ArWikiCats/translations/geo/labels_country.py:230), [_work_files/data_len.json L6-L8](../_work_files/data_len.json#L6-L8)
 
 ---
 
@@ -4489,7 +4489,7 @@ US_COUNTY_TRANSLATIONS = {
 }
 ```
 
-**Sources:** [ArWikiCats/translations/geo/us_counties.py](), [_work_files/data_len.json:13]()
+**Sources:** [ArWikiCats/translations/geo/us_counties.py](../ArWikiCats/translations/geo/us_counties.py), [_work_files/data_len.json:13]()
 
 ---
 
@@ -4510,7 +4510,7 @@ COUNTRY_LABEL_OVERRIDES = {
 }
 ```
 
-**Sources:** [ArWikiCats/translations/geo/labels_country.py:231](), [_work_files/data_len.json:19]()
+**Sources:** [ArWikiCats/translations/geo/labels_country.py:231](../ArWikiCats/translations/geo/labels_country.py:231), [_work_files/data_len.json:19]()
 
 ### Regional Overrides
 
@@ -4529,13 +4529,13 @@ COUNTRY_LABEL_OVERRIDES = {
 
 This file includes historical empires, sultanates, governorates, states, and other administrative divisions from around the world.
 
-**Sources:** [ArWikiCats/translations/geo/labels_country.py:232](), [ArWikiCats/jsons/geography/popopo.json L1-L100](../ArWikiCats/jsons/geography/popopo.json#L1-L100)
+**Sources:** [ArWikiCats/translations/geo/labels_country.py:232](../ArWikiCats/translations/geo/labels_country.py:232), [ArWikiCats/jsons/geography/popopo.json L1-L100](../ArWikiCats/jsons/geography/popopo.json#L1-L100)
 
 ### Administrative Labels
 
 `COUNTRY_ADMIN_LABELS` (1,777 entries) provides translations for administrative divisions and their variants across different countries.
 
-**Sources:** [ArWikiCats/translations/geo/labels_country2.py](), [_work_files/data_len.json:17]()
+**Sources:** [ArWikiCats/translations/geo/labels_country2.py](../ArWikiCats/translations/geo/labels_country2.py), [_work_files/data_len.json:17]()
 
 ---
 
@@ -4561,7 +4561,7 @@ JAPAN_REGIONAL_LABELS = {
 - Prefecture suffixes: `"saitama prefecture"` → `"محافظة سايتاما"`
 - Regional groupings: `"kantō region"` → `"منطقة كانتو"`
 
-**Sources:** [ArWikiCats/translations/geo/labels_country.py L70-L127](../ArWikiCats/translations/geo/labels_country.py#L70-L127), [ArWikiCats/translations/geo/labels_country.py:226]()
+**Sources:** [ArWikiCats/translations/geo/labels_country.py L70-L127](../ArWikiCats/translations/geo/labels_country.py#L70-L127), [ArWikiCats/translations/geo/labels_country.py:226](../ArWikiCats/translations/geo/labels_country.py:226)
 
 ### Turkey Province Labels
 
@@ -4582,20 +4582,20 @@ TURKEY_PROVINCE_LABELS = {
 - Province suffixes: `"ankara province"` → `"محافظة أنقرة"`
 - Alternative forms
 
-**Sources:** [ArWikiCats/translations/geo/labels_country.py L128-L211](../ArWikiCats/translations/geo/labels_country.py#L128-L211), [ArWikiCats/translations/geo/labels_country.py:227]()
+**Sources:** [ArWikiCats/translations/geo/labels_country.py L128-L211](../ArWikiCats/translations/geo/labels_country.py#L128-L211), [ArWikiCats/translations/geo/labels_country.py:227](../ArWikiCats/translations/geo/labels_country.py:227)
 
 ### India Regional Translations
 
 `INDIA_REGION_TRANSLATIONS` (1,424 entries) provides comprehensive coverage of Indian states, union territories, and regions. This is loaded in `geo/regions2.py`.
 
-**Sources:** [ArWikiCats/translations/geo/regions2.py](), [_work_files/data_len.json:20]()
+**Sources:** [ArWikiCats/translations/geo/regions2.py](../ArWikiCats/translations/geo/regions2.py), [_work_files/data_len.json:20]()
 
 ### Main and Secondary Regions
 
 - **`MAIN_REGION_TRANSLATIONS`** (820 entries): Major geographic regions, provinces, and territories from `geo/regions.py`
 - **`SECONDARY_REGION_TRANSLATIONS`** (176 entries): Additional regional labels from `geo/regions2.py`
 
-**Sources:** [ArWikiCats/translations/geo/regions.py](), [ArWikiCats/translations/geo/regions2.py](), [_work_files/data_len.json:27,78]()
+**Sources:** [ArWikiCats/translations/geo/regions.py](../ArWikiCats/translations/geo/regions.py), [ArWikiCats/translations/geo/regions2.py](../ArWikiCats/translations/geo/regions2.py), [_work_files/data_len.json:27,78]()
 
 ---
 
@@ -4953,7 +4953,7 @@ flowchart TB
     Finalise --> SplitGender
 ```
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py L150-L183](../ArWikiCats/translations/jobs/Jobs.py#L150-L183), [ArWikiCats/translations/data_builders/build_jobs.py]()
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py L150-L183](../ArWikiCats/translations/jobs/Jobs.py#L150-L183), [ArWikiCats/translations/data_builders/build_jobs.py](../ArWikiCats/translations/data_builders/build_jobs.py)
 
 ### Key Aggregation Function
 
@@ -5038,7 +5038,7 @@ graph TB
     GenderedLabelMap --> MEN_WOMENS_SINGERS
 ```
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py L181-L183](../ArWikiCats/translations/jobs/Jobs.py#L181-L183), [ArWikiCats/translations/data_builders/jobs_defs.py](), [_work_files/data_len.json L9-L15](../_work_files/data_len.json#L9-L15)
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py L181-L183](../ArWikiCats/translations/jobs/Jobs.py#L181-L183), [ArWikiCats/translations/data_builders/jobs_defs.py](../ArWikiCats/translations/data_builders/jobs_defs.py), [_work_files/data_len.json L9-L15](../_work_files/data_len.json#L9-L15)
 
 ## Job Categories
 
@@ -5409,12 +5409,12 @@ Jobs data exports through multiple layers for different use cases:
 
 | Export | Source | Purpose |
 |--------|--------|---------|
-| `jobs_mens_data` | [ArWikiCats/translations/jobs/Jobs.py:181]() | Primary male job resolver lookup |
-| `jobs_womens_data` | [ArWikiCats/translations/jobs/Jobs.py:182]() | Primary female job resolver lookup |
-| `Jobs_new` | [ArWikiCats/translations/jobs/Jobs.py:183]() | Extended jobs with nationality variants |
-| `RELIGIOUS_KEYS_PP` | [ArWikiCats/translations/jobs/jobs_data_basic.py:20]() | Religious role patterns |
-| `SPORT_JOB_VARIANTS` | [ArWikiCats/translations/jobs/jobs_players_list.py:202]() | Sport-specific job variants |
-| `short_womens_jobs` | [ArWikiCats/translations/jobs/jobs_womens.py:75]() | Core female-specific jobs |
+| `jobs_mens_data` | [ArWikiCats/translations/jobs/Jobs.py:181](../ArWikiCats/translations/jobs/Jobs.py:181) | Primary male job resolver lookup |
+| `jobs_womens_data` | [ArWikiCats/translations/jobs/Jobs.py:182](../ArWikiCats/translations/jobs/Jobs.py:182) | Primary female job resolver lookup |
+| `Jobs_new` | [ArWikiCats/translations/jobs/Jobs.py:183](../ArWikiCats/translations/jobs/Jobs.py:183) | Extended jobs with nationality variants |
+| `RELIGIOUS_KEYS_PP` | [ArWikiCats/translations/jobs/jobs_data_basic.py:20](../ArWikiCats/translations/jobs/jobs_data_basic.py:20) | Religious role patterns |
+| `SPORT_JOB_VARIANTS` | [ArWikiCats/translations/jobs/jobs_players_list.py:202](../ArWikiCats/translations/jobs/jobs_players_list.py:202) | Sport-specific job variants |
+| `short_womens_jobs` | [ArWikiCats/translations/jobs/jobs_womens.py:75](../ArWikiCats/translations/jobs/jobs_womens.py:75) | Core female-specific jobs |
 
 ### Aggregate Exports
 
@@ -5481,7 +5481,7 @@ graph TB
 - `jobs_womens_data`: 1.8 MiB (75,244 entries)
 - Total jobs memory: ~5.5 MiB
 
-**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327](), [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302](), [_work_files/data_len.json L9-L14](../_work_files/data_len.json#L9-L14)21:T4082,# Nationalities
+**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327), [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302](../ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302), [_work_files/data_len.json L9-L14](../_work_files/data_len.json#L9-L14)21:T4082,# Nationalities
 
 <details>
 <summary>Relevant source files</summary>
@@ -6183,7 +6183,7 @@ The `sub_teams_new` data is primarily used in category patterns like:
 - "[team name] seasons" → `"مواسم [arabic_team_name]"`
 - "[team name] matches" → `"مباريات [arabic_team_name]"`
 
-**Sources:** [_work_files/data_len.json:7](), [ArWikiCats/translations/__init__.py:64]()
+**Sources:** [_work_files/data_len.json:7](), [ArWikiCats/translations/__init__.py:64](../ArWikiCats/translations/__init__.py:64)
 
 ---
 
@@ -6240,7 +6240,7 @@ graph LR
     MENS -.queried by.-> LOOKUP3
 ```
 
-**Sources:** [_work_files/data_len.json L45-L47](../_work_files/data_len.json#L45-L47), [_work_files/data_len.json:53](), [_work_files/data_len.json:24](), [_work_files/data_len.json:117](), [ArWikiCats/translations/__init__.py:8]()
+**Sources:** [_work_files/data_len.json L45-L47](../_work_files/data_len.json#L45-L47), [_work_files/data_len.json:53](), [_work_files/data_len.json:24](), [_work_files/data_len.json:117](), [ArWikiCats/translations/__init__.py:8](../ArWikiCats/translations/__init__.py:8)
 
 ---
 
@@ -6288,7 +6288,7 @@ graph TB
     P4 --> L1 --> L2 --> O4
 ```
 
-**Sources:** [_work_files/data_len.json:41](), [_work_files/data_len.json:94](), [_work_files/data_len.json:114](), [_work_files/data_len.json:60](), [ArWikiCats/translations/__init__.py:56]()
+**Sources:** [_work_files/data_len.json:41](), [_work_files/data_len.json:94](), [_work_files/data_len.json:114](), [_work_files/data_len.json:60](), [ArWikiCats/translations/__init__.py:56](../ArWikiCats/translations/__init__.py:56)
 
 ---
 
@@ -6424,7 +6424,7 @@ graph LR
 
 ### match_sport_key Function
 
-Located at [ArWikiCats/translations/utils/match_sport_keys.py](), this utility provides case-insensitive lookups for sport keys with fallback logic.
+Located at [ArWikiCats/translations/utils/match_sport_keys.py](../ArWikiCats/translations/utils/match_sport_keys.py), this utility provides case-insensitive lookups for sport keys with fallback logic.
 
 **Functionality:**
 - Case-insensitive sport name matching
@@ -6432,7 +6432,7 @@ Located at [ArWikiCats/translations/utils/match_sport_keys.py](), this utility p
 - Returns structured sport data with gender forms
 - Used by sports resolvers for pattern matching
 
-**Sources:** [ArWikiCats/translations/__init__.py:78](), [ArWikiCats/translations/__init__.py L57-L64](../ArWikiCats/translations/__init__.py#L57-L64)
+**Sources:** [ArWikiCats/translations/__init__.py:78](../ArWikiCats/translations/__init__.py:78), [ArWikiCats/translations/__init__.py L57-L64](../ArWikiCats/translations/__init__.py#L57-L64)
 
 ---
 
@@ -6724,7 +6724,7 @@ The `Films_key_For_nat` dictionary contains three main pattern types:
 
 ### Remakes Pattern
 
-Special pattern for film remakes at [ArWikiCats/translations/tv/films_mslslat.py:201]():
+Special pattern for film remakes at [ArWikiCats/translations/tv/films_mslslat.py:201](../ArWikiCats/translations/tv/films_mslslat.py:201):
 ```python
 _key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
 ```
@@ -6750,7 +6750,7 @@ The `SERIES_DEBUTS_ENDINGS` constant at [ArWikiCats/translations/tv/films_mslsla
 
 ### Supported Media Types
 
-The `DEBUTS_ENDINGS_KEYS` list at [ArWikiCats/translations/tv/films_mslslat.py:21]() defines which media types support debuts/endings variants:
+The `DEBUTS_ENDINGS_KEYS` list at [ArWikiCats/translations/tv/films_mslslat.py:21](../ArWikiCats/translations/tv/films_mslslat.py:21) defines which media types support debuts/endings variants:
 - `television series`
 - `television miniseries`
 - `television films`
@@ -6972,7 +6972,7 @@ Examples:
 - `"children's action"` → `"أطفال حركية"`
 - `"horror film remakes"` → `"أفلام رعب معاد إنتاجها"`
 
-Sources: [ArWikiCats/translations/tv/films_mslslat.py L259-L318](../ArWikiCats/translations/tv/films_mslslat.py#L259-L318), [ArWikiCats/translations/tv/films_mslslat.py:506](), [_work_files/data_len.json L4-L5](../_work_files/data_len.json#L4-L5)
+Sources: [ArWikiCats/translations/tv/films_mslslat.py L259-L318](../ArWikiCats/translations/tv/films_mslslat.py#L259-L318), [ArWikiCats/translations/tv/films_mslslat.py:506](../ArWikiCats/translations/tv/films_mslslat.py:506), [_work_files/data_len.json L4-L5](../_work_files/data_len.json#L4-L5)
 
 ## Female Genre Combinations
 
@@ -7003,14 +7003,14 @@ for en, tab in filmskeys_male_female.items():
 
 ### Data Source
 
-The current implementation at [ArWikiCats/translations/tv/films_mslslat.py:510]() loads pre-computed combinations from JSON:
+The current implementation at [ArWikiCats/translations/tv/films_mslslat.py:510](../ArWikiCats/translations/tv/films_mslslat.py:510) loads pre-computed combinations from JSON:
 ```python
 Films_keys_both_new_female = open_json_file("Films_keys_both_new_female_found.json")
 ```
 
 This contains 897 entries as tracked in [_work_files/data_len.json:30]()
 
-Sources: [ArWikiCats/translations/tv/films_mslslat.py L321-L344](../ArWikiCats/translations/tv/films_mslslat.py#L321-L344), [ArWikiCats/translations/tv/films_mslslat.py:510](), [_work_files/data_len.json:30]()
+Sources: [ArWikiCats/translations/tv/films_mslslat.py L321-L344](../ArWikiCats/translations/tv/films_mslslat.py#L321-L344), [ArWikiCats/translations/tv/films_mslslat.py:510](../ArWikiCats/translations/tv/films_mslslat.py:510), [_work_files/data_len.json:30]()
 
 ## Data Organization and JSON Sources
 
@@ -7074,7 +7074,7 @@ graph TB
 
 ### Data Filtering and Enhancement
 
-At [ArWikiCats/translations/tv/films_mslslat.py:387](), the system adds sports translations:
+At [ArWikiCats/translations/tv/films_mslslat.py:387](../ArWikiCats/translations/tv/films_mslslat.py:387), the system adds sports translations:
 ```python
 Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
 ```
@@ -7089,7 +7089,7 @@ Films_key_O_multi = {
 
 ### Extended Pattern Generation
 
-At [ArWikiCats/translations/tv/films_mslslat.py:418](), the system generates extended nationality patterns:
+At [ArWikiCats/translations/tv/films_mslslat.py:418](../ArWikiCats/translations/tv/films_mslslat.py:418), the system generates extended nationality patterns:
 ```python
 Films_key_For_nat_extended = {x: f"{v} {{}}" for x, v in films_mslslat_tab_base.items()}
 ```
@@ -7199,7 +7199,7 @@ The ministers and political roles system handles translation of:
 
 The system provides both standalone translations (e.g., "ministers" → "وزراء") and pattern-based translations that combine with nationalities (e.g., "British ministers" → "وزراء بريطانيون")
 
-Sources: [ArWikiCats/translations/others/__init__.py:8](), [ArWikiCats/translations/__init__.py L67-L68](../ArWikiCats/translations/__init__.py#L67-L68), [_work_files/data_len.json:88]()
+Sources: [ArWikiCats/translations/others/__init__.py:8](../ArWikiCats/translations/others/__init__.py:8), [ArWikiCats/translations/__init__.py L67-L68](../ArWikiCats/translations/__init__.py#L67-L68), [_work_files/data_len.json:88]()
 
 ## Data Architecture
 
@@ -7703,12 +7703,12 @@ The jobs resolver system handles occupation and profession categories with separ
 1. **Mens Resolver** (`mens.mens_resolver_labels`)
    - Uses 96,552 male job entries from `jobs_mens_data`
    - Handles male-specific grammatical forms
-   - Source: [ArWikiCats/new_resolvers/jobs_resolvers/mens.py]()
+   - Source: [ArWikiCats/new_resolvers/jobs_resolvers/mens.py](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py)
 
 2. **Womens Resolver** (`womens.womens_resolver_labels`)
    - Uses female job mappings from `jobs_womens_data`
    - Handles feminine plural and grammatical agreement
-   - Source: [ArWikiCats/new_resolvers/jobs_resolvers/womens.py]()
+   - Source: [ArWikiCats/new_resolvers/jobs_resolvers/womens.py](../ArWikiCats/new_resolvers/jobs_resolvers/womens.py)
 
 3. **Religious Jobs Resolver** (`relegin_jobs_new.new_religions_jobs_with_suffix`)
    - Handles religious occupations with nationality combinations
@@ -7775,7 +7775,7 @@ The sports resolver attempts matches in the following order:
 
 3. **Jobs + Sports** (`jobs_in_multi_sports`)
    - Sports occupations like coaches, managers, referees
-   - Source: [ArWikiCats/new_resolvers/sports_resolvers/jobs_multi_sports_reslover.py]()
+   - Source: [ArWikiCats/new_resolvers/sports_resolvers/jobs_multi_sports_reslover.py](../ArWikiCats/new_resolvers/sports_resolvers/jobs_multi_sports_reslover.py)
 
 4. **Sport Labels + Nationalities** (`sport_lab_nat_load_new`)
    - Complex patterns with national teams and leagues
@@ -7816,17 +7816,17 @@ The nationalities resolver system handles categories based on nationality with s
    - Uses `FormatDataV2` with comprehensive nationality data
    - Supports 18 lookup tables for different grammatical forms
    - Handles patterns like "{nationality} {occupation}"
-   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py]()
+   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py)
 
 2. **Nationalities + Time** (`resolve_nats_time_v2`)
    - Combines nationality with temporal patterns
    - Patterns like "{year} {nationality} {category}"
-   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_time_v2.py]()
+   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_time_v2.py](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_time_v2.py)
 
 3. **Ministers Resolver** (`resolve_secretaries_labels`)
    - Specialized for political roles and ministerial positions
    - Uses nationality + political title combinations
-   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py]()
+   - Source: [ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py](../ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py)
 
 ### Nationality Data Structure
 
@@ -7856,26 +7856,26 @@ The order is critical to prevent conflicts:
    - **Must come before** `resolve_by_countries_names`
    - Prevents mis-resolving patterns like "Zimbabwe political leader"
    - Uses nationality-aware patterns
-   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py]()
+   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py](../ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py)
 
 2. **Countries Names** (`resolve_by_countries_names`)
    - Standard country name resolution
    - Uses `NEW_P17_FINAL` with 68,981 entries
-   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py]()
+   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py](../ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py)
 
 3. **Medalists Resolver** (`resolve_countries_names_medalists`)
    - Olympic medalists by country
    - Patterns like "{country} Olympic gold medalists"
-   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py]()
+   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py](../ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py)
 
 4. **US States** (`resolve_us_states`)
    - US state-specific categories
    - Uses `US_STATES` mapping data
-   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py]()
+   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py](../ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py)
 
 5. **Geographic Names Formats** (`resolve_by_geo_names`)
    - General geographic entity patterns
-   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py]()
+   - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py](../ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py)
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py L1-L59](../ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py#L1-L59), [README.md L34-L48](../README.md#L34-L48)
 
@@ -7897,7 +7897,7 @@ The films resolver system handles movie and television categories with support f
 2. **Films + Time** (`get_films_key_tyty_new_and_time`)
    - Combines film genres with temporal patterns
    - Patterns like "{year} {nationality} {genre} films"
-   - Source: [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels_and_time.py]()
+   - Source: [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels_and_time.py](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels_and_time.py)
 
 3. **Television Keys** (Direct lookup in `TELEVISION_KEYS`)
    - Static television category mappings
@@ -8027,7 +8027,7 @@ All resolver functions use `@functools.lru_cache` decorator for performance opti
 
 The largest cache (`all_new_resolvers` with 50,000 entries) was chosen based on profiling production workloads processing thousands of categories in batch mode.
 
-**Sources**: [ArWikiCats/new_resolvers/__init__.py:101](), [README.md L45-L46](../README.md#L45-L46)
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:101](../ArWikiCats/new_resolvers/__init__.py:101), [README.md L45-L46](../README.md#L45-L46)
 
 ---
 
@@ -8068,7 +8068,7 @@ sequenceDiagram
     M->>O: "تصنيف:لاعبو كرة قدم بريطانيون"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/__init__.py L101-L124](../ArWikiCats/new_resolvers/__init__.py#L101-L124), [ArWikiCats/main_processers/main_resolve.py]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py L101-L124](../ArWikiCats/new_resolvers/__init__.py#L101-L124), [ArWikiCats/main_processers/main_resolve.py](../ArWikiCats/main_processers/main_resolve.py)
 
 ---
 
@@ -8105,7 +8105,7 @@ def main_your_domain_resolvers(normalized_category: str) -> str:
 
 ### 2. Register in Resolver Chain
 
-Add your resolver to `_RESOLVER_CHAIN` in [ArWikiCats/new_resolvers/__init__.py]():
+Add your resolver to `_RESOLVER_CHAIN` in [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py):
 
 ```python
 _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
@@ -8633,7 +8633,7 @@ Time pattern resolvers use `functools.lru_cache` for performance optimization:
 2. **Memory:** LRU eviction prevents unbounded memory growth
 3. **Consistency:** Same input always produces same output
 
-**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:219](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:82]()
+**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:219](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:219), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:82](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:82)
 
 ---
 
@@ -8712,7 +8712,7 @@ These are handled by the broader time conversion system (see `time_to_arabic.py`
 | `regex_hub.py` | `RE1_compile`<br/>`RE2_compile`<br/>`RE33_compile`<br/>`REGEX_SUB_YEAR` | Pre-compiled year detection patterns |
 | `event_lab_bot.py` | `event_label_work()` | Integrates year resolution into event labeling |
 
-**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py L1-L286](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py#L1-L286), [ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py L1-L314](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py#L1-L314), [ArWikiCats/legacy_bots/utils/regex_hub.py](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L108](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L108)27:T8194,# Nationality Resolvers
+**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py L1-L286](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py#L1-L286), [ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py L1-L314](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py#L1-L314), [ArWikiCats/legacy_bots/utils/regex_hub.py](../ArWikiCats/legacy_bots/utils/regex_hub.py), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L108](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L108)27:T8194,# Nationality Resolvers
 
 <details>
 <summary>Relevant source files</summary>
@@ -8819,7 +8819,7 @@ graph TB
 
 **Sources:**
 - [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py L1-L15](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py#L1-L15)
-- [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py]()
+- [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py](../ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py)
 
 ---
 
@@ -9108,7 +9108,7 @@ graph TD
 
 **Sources:**
 - [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py L15-L800](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py#L15-L800)
-- [ArWikiCats/translations_formats/DataModel/model_data_v2.py]() (FormatDataV2)
+- [ArWikiCats/translations_formats/DataModel/model_data_v2.py](../ArWikiCats/translations_formats/DataModel/model_data_v2.py) (FormatDataV2)
 
 ---
 
@@ -9357,7 +9357,7 @@ When primary nationality patterns fail, the resolver chains to:
 
 **Sources:**
 - [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py L10-L11](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py#L10-L11)
-- [ArWikiCats/new_resolvers/nats_as_country_names.py]() (referenced)
+- [ArWikiCats/new_resolvers/nats_as_country_names.py](../ArWikiCats/new_resolvers/nats_as_country_names.py) (referenced)
 
 ### Resolver Chain Position
 
@@ -9371,7 +9371,7 @@ Year Patterns → **Nationality Patterns** → Country Names → Jobs → Sports
 
 **Sources:**
 - High-level architecture diagrams provided
-- [ArWikiCats/main_processers/main_resolve.py]() (referenced)
+- [ArWikiCats/main_processers/main_resolve.py](../ArWikiCats/main_processers/main_resolve.py) (referenced)
 
 ---
 
@@ -9454,8 +9454,8 @@ Two levels of caching optimize performance:
 - **Average case**: O(50-100) — Most categories match within first 100 patterns
 
 **Sources:**
-- [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:647]() (_load_bot cache)
-- [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:690]() (resolve_by_nats cache)
+- [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:647](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:647) (_load_bot cache)
+- [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:690](../ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:690) (resolve_by_nats cache)
 - [ArWikiCats/translations/nats/Nationality.py L197-L214](../ArWikiCats/translations/nats/Nationality.py#L197-L214) (len_result statistics)
 
 ---
@@ -9481,7 +9481,7 @@ To add a new pattern template:
 4. Verify pattern doesn't conflict with existing patterns
 
 **Sources:**
-- [ArWikiCats/translations/nats/]() (data files)
+- [ArWikiCats/translations/nats/](../ArWikiCats/translations/nats/) (data files)
 - Development guidelines in README
 
 ---
@@ -9764,7 +9764,7 @@ Pattern: "{en} political leader" → "قادة سياسيون {males}"
 Result: "قادة سياسيون زيمبابويون"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py](../ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py)
 
 ### countries_names Resolver
 
@@ -9775,7 +9775,7 @@ The standard resolver handles patterns where the country name appears in Arabic 
 - Handles most geographic and governmental categories
 - Pattern: `"history of {en}"` → `"تاريخ {ar}"`
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py](../ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py)
 
 ### medalists_resolvers
 
@@ -9788,7 +9788,7 @@ Handles Olympic medalist categories by country and sport:
   "فائزون بميداليات فضية أولمبية من {ar} في {sport_label}"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py](../ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py)
 
 ### us_states Resolver
 
@@ -9803,7 +9803,7 @@ Specialized resolver for US state-specific categories:
 
 **Data source**: `US_STATES` dictionary mapping English state names to Arabic translations.
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py](../ArWikiCats/new_resolvers/countries_names_resolvers/us_states.py)
 
 ### geo_names_formats Resolver
 
@@ -9814,7 +9814,7 @@ Handles geographic entity names using specialized geographic data:
 - `COUNTRY_LABEL_OVERRIDES`: Special-case country name translations
 - Geographic hierarchies (regions, counties, etc.)
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py](../ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py)
 
 ## Integration with Sports Resolvers
 
@@ -10001,7 +10001,7 @@ Input categories undergo consistent normalization:
 normalized_category = normalized_category.strip().lower().replace("category:", "")
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py:34]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py:34](../ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py:34)
 
 ### Return Value Behavior
 
@@ -10713,7 +10713,7 @@ graph TB
     SUFFIX --> OUTPUT
 ```
 
-**Sources:** [ArWikiCats/translations/utils/match_sport_keys.py](), [ArWikiCats/translations/__init__.py L77-L78](../ArWikiCats/translations/__init__.py#L77-L78)
+**Sources:** [ArWikiCats/translations/utils/match_sport_keys.py](../ArWikiCats/translations/utils/match_sport_keys.py), [ArWikiCats/translations/__init__.py L77-L78](../ArWikiCats/translations/__init__.py#L77-L78)
 
 ### Sport Key Matching
 
@@ -10743,7 +10743,7 @@ graph LR
     style FOUND fill:#f9f9f9,stroke:#333
 ```
 
-**Sources:** [ArWikiCats/translations/utils/match_sport_keys.py](), [changelog.md:205]()
+**Sources:** [ArWikiCats/translations/utils/match_sport_keys.py](../ArWikiCats/translations/utils/match_sport_keys.py), [changelog.md:205]()
 
 ## Context-Specific Resolution
 
@@ -10854,7 +10854,7 @@ The formatting system handles:
 - **Context placeholders**: `{team_type}`, `{competition}`, `{venue_type}`
 - **Gender placeholders**: `{male}`, `{female}`, `{males}`, `{females}`
 
-**Sources:** [changelog.md:205](), [ArWikiCats/translations_formats/]()
+**Sources:** [changelog.md:205](), [ArWikiCats/translations_formats/](../ArWikiCats/translations_formats/)
 
 ### Sport Placeholder Types
 
@@ -11495,7 +11495,7 @@ The film resolver implements aggressive caching at multiple levels:
 
 All caches use `functools.lru_cache` for automatic LRU eviction when capacity is reached. The singleton bot cache ensures the expensive formatter construction happens only once per process.
 
-**Sources:** [ArWikiCats/new_resolvers/films_resolvers/__init__.py:37](), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:154](), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:290](), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:310]()2c:Ta192,# Legacy Resolvers
+**Sources:** [ArWikiCats/new_resolvers/films_resolvers/__init__.py:37](../ArWikiCats/new_resolvers/films_resolvers/__init__.py:37), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:154](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:154), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:290](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:290), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:310](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:310)2c:Ta192,# Legacy Resolvers
 
 <details>
 <summary>Relevant source files</summary>
@@ -12213,7 +12213,7 @@ Dictionary mapping English suffixes to Arabic template patterns.
 | ` episodes` | `حلقات {}` | `series episodes` → `حلقات مسلسل` |
 | ` templates` | `قوالب {}` | `football templates` → `قوالب كرة القدم` |
 
-**Sources**: [ArWikiCats/legacy_bots/data/mappings.py]() (referenced in [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:17]())
+**Sources**: [ArWikiCats/legacy_bots/data/mappings.py](../ArWikiCats/legacy_bots/data/mappings.py) (referenced in [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:17](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:17))
 
 ---
 
@@ -12231,7 +12231,7 @@ Dictionary mapping English prefixes to Arabic template patterns.
 | `economy of ` | `اقتصاد {}` | `economy of india` → `اقتصاد الهند` |
 | `politics of ` | `سياسة {}` | `politics of germany` → `سياسة ألمانيا` |
 
-**Sources**: [ArWikiCats/legacy_bots/data/mappings.py]() (referenced in [ArWikiCats/legacy_bots/tmp_bot.py:13]())
+**Sources**: [ArWikiCats/legacy_bots/data/mappings.py](../ArWikiCats/legacy_bots/data/mappings.py) (referenced in [ArWikiCats/legacy_bots/tmp_bot.py:13](../ArWikiCats/legacy_bots/tmp_bot.py:13))
 
 ---
 
@@ -12281,7 +12281,7 @@ else:
 - `italian athletes` → `رياضيون إيطاليون`
 - `french scientists` → `علماء فرنسيون`
 
-**Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L237-L241](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L237-L241), [ArWikiCats/main_processers/main_utils.py]() (referenced)
+**Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L237-L241](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L237-L241), [ArWikiCats/main_processers/main_utils.py](../ArWikiCats/main_processers/main_utils.py) (referenced)
 
 ---
 
@@ -12392,7 +12392,7 @@ graph TB
 | `Work_Templates` | 10,000 | Template matching |
 | `_load_resolver` | 1 | EventLabResolver singleton |
 
-**Sources**: [ArWikiCats/legacy_bots/__init__.py:75](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L323](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L323), [ArWikiCats/legacy_bots/common_resolver_chain.py:67]()
+**Sources**: [ArWikiCats/legacy_bots/__init__.py:75](../ArWikiCats/legacy_bots/__init__.py:75), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L323](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L323), [ArWikiCats/legacy_bots/common_resolver_chain.py:67](../ArWikiCats/legacy_bots/common_resolver_chain.py:67)
 
 ---
 
@@ -12559,7 +12559,7 @@ graph TB
 
 ### Resolver Coordination
 
-The main resolver in [ArWikiCats/__init__.py]() coordinates between modern and legacy resolvers:
+The main resolver in [ArWikiCats/__init__.py](../ArWikiCats/__init__.py) coordinates between modern and legacy resolvers:
 
 **Resolution Flow**:
 ```
@@ -12677,7 +12677,7 @@ category = category.replace("−", "-")  # En-dash to hyphen
 category = category.replace("–", "-")  # Em-dash to hyphen
 ```
 
-**Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:241]()
+**Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:241](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:241)
 
 ---
 
@@ -12691,7 +12691,7 @@ country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the"
 - `the united states` → `united states`
 - `sport in the ottoman empire` → `sport in ottoman empire`
 
-**Sources**: [ArWikiCats/legacy_bots/common_resolver_chain.py:81]()
+**Sources**: [ArWikiCats/legacy_bots/common_resolver_chain.py:81](../ArWikiCats/legacy_bots/common_resolver_chain.py:81)
 
 ---
 
@@ -12906,7 +12906,7 @@ formatted_data = {
 }
 ```
 
-Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:47]()
+Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:47](../ArWikiCats/translations_formats/DataModel/model_data_base.py:47)
 
 ### Placeholders
 
@@ -13393,7 +13393,7 @@ graph TB
     REPLACE --> RESULT["Return Arabic label"]
 ```
 
-**Code location:** Resolvers typically construct formatters at module level or within resolver functions. For example, nationality resolvers use formatters defined in [ArWikiCats/new_resolvers/nationalities_resolvers/]() and sports resolvers in [ArWikiCats/new_resolvers/sports_resolvers/]()
+**Code location:** Resolvers typically construct formatters at module level or within resolver functions. For example, nationality resolvers use formatters defined in [ArWikiCats/new_resolvers/nationalities_resolvers/](../ArWikiCats/new_resolvers/nationalities_resolvers/) and sports resolvers in [ArWikiCats/new_resolvers/sports_resolvers/](../ArWikiCats/new_resolvers/sports_resolvers/)
 
 Sources: Based on architectural patterns shown in [README.md L266-L344](../README.md#L266-L344) and resolver structure from diagrams
 
@@ -13403,7 +13403,7 @@ Formatters use `functools.lru_cache` on the `search()` method to cache translati
 
 **Caching locations:**
 - `FormatDataBase.search()` at [ArWikiCats/translations_formats/DataModel/model_data_base.py L281-L295](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L281-L295)
-- `MultiDataFormatterBaseHelpers.create_label()` at [ArWikiCats/translations_formats/DataModel/model_multi_data_base.py:184]()
+- `MultiDataFormatterBaseHelpers.create_label()` at [ArWikiCats/translations_formats/DataModel/model_multi_data_base.py:184](../ArWikiCats/translations_formats/DataModel/model_multi_data_base.py:184)
 
 Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py L281-L295](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L281-L295), [ArWikiCats/translations_formats/DataModel/model_multi_data_base.py L184-L227](../ArWikiCats/translations_formats/DataModel/model_multi_data_base.py#L184-L227)
 
@@ -13498,7 +13498,7 @@ The `regex_filter` parameter controls word boundary detection in pattern matchin
 
 **Example:** With `regex_filter=r"\w"`, the pattern for "football" will match "football" but not "footballers" or "nonfootball".
 
-Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:89](), [ArWikiCats/translations_formats/DataModel/model_data_base.py:129]()
+Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:89](../ArWikiCats/translations_formats/DataModel/model_data_base.py:89), [ArWikiCats/translations_formats/DataModel/model_data_base.py:129](../ArWikiCats/translations_formats/DataModel/model_data_base.py:129)
 
 ### Search Order Control
 
@@ -13639,7 +13639,7 @@ Sources: Examples based on documentation in [ArWikiCats/translations_formats/Dat
 
 ## Exports and Public API
 
-The formatting system exports the following classes and functions through [ArWikiCats/translations_formats/__init__.py]():
+The formatting system exports the following classes and functions through [ArWikiCats/translations_formats/__init__.py](../ArWikiCats/translations_formats/__init__.py):
 
 **Classes:**
 - `FormatData`
@@ -14090,9 +14090,9 @@ This prevents returning partially-translated categories that would appear broken
 ### Empty Result Handling
 
 The search pipeline returns empty strings (`""`) rather than `None` when:
-- No matching key is found [ArWikiCats/translations_formats/DataModel/model_data_base.py:275]()
-- No label exists for the matched key [ArWikiCats/translations_formats/DataModel/model_data_base.py:280]()
-- No template matches the normalized category [ArWikiCats/translations_formats/DataModel/model_data_base.py:285]()
+- No matching key is found [ArWikiCats/translations_formats/DataModel/model_data_base.py:275](../ArWikiCats/translations_formats/DataModel/model_data_base.py:275)
+- No label exists for the matched key [ArWikiCats/translations_formats/DataModel/model_data_base.py:280](../ArWikiCats/translations_formats/DataModel/model_data_base.py:280)
+- No template matches the normalized category [ArWikiCats/translations_formats/DataModel/model_data_base.py:285](../ArWikiCats/translations_formats/DataModel/model_data_base.py:285)
 
 This allows callers to use simple truthiness checks: `if result: ...`
 
@@ -14108,8 +14108,8 @@ FormatDataBase implements several performance optimizations:
 
 | Structure | Purpose | Computed When |
 |-----------|---------|---------------|
-| `formatted_data_ci` | Case-insensitive template lookup | Constructor [ArWikiCats/translations_formats/DataModel/model_data_base.py:93]() |
-| `data_list_ci` | Case-insensitive key lookup | Constructor [ArWikiCats/translations_formats/DataModel/model_data_base.py:94]() |
+| `formatted_data_ci` | Case-insensitive template lookup | Constructor [ArWikiCats/translations_formats/DataModel/model_data_base.py:93](../ArWikiCats/translations_formats/DataModel/model_data_base.py:93) |
+| `data_list_ci` | Case-insensitive key lookup | Constructor [ArWikiCats/translations_formats/DataModel/model_data_base.py:94](../ArWikiCats/translations_formats/DataModel/model_data_base.py:94) |
 | `alternation` | Regex alternation string | Constructor or first use [ArWikiCats/translations_formats/DataModel/model_data_base.py L106-L117](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L106-L117) |
 | `pattern` | Compiled regex pattern | Constructor or first use [ArWikiCats/translations_formats/DataModel/model_data_base.py L119-L133](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L119-L133) |
 
@@ -14151,7 +14151,7 @@ FormatDataBase is extended by three main subclasses:
 |-------|------|---------|
 | `FormatData` | [ArWikiCats/translations_formats/DataModel/model_data.py L37-L132](../ArWikiCats/translations_formats/DataModel/model_data.py#L37-L132) | Simple string-to-string placeholder replacement |
 | `FormatDataV2` | [ArWikiCats/translations_formats/DataModel/model_data_v2.py L32-L121](../ArWikiCats/translations_formats/DataModel/model_data_v2.py#L32-L121) | Dictionary-based multi-placeholder replacement |
-| `FormatDataFrom` | [ArWikiCats/translations_formats/DataModel/model_data_form.py]() | Callback-based formatting (used by `YearFormatData`) |
+| `FormatDataFrom` | [ArWikiCats/translations_formats/DataModel/model_data_form.py](../ArWikiCats/translations_formats/DataModel/model_data_form.py) | Callback-based formatting (used by `YearFormatData`) |
 
 For detailed information about these implementations, see [Single-Element Formatters](#6.2)
 
@@ -15560,7 +15560,7 @@ keys_sorted = sorted(self.data_list_ci.keys(), key=lambda k: (-k.count(" "), -le
 
 This ensures that "black-and-white" is matched before "black", preventing incorrect partial matches.
 
-**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:115]()
+**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:115](../ArWikiCats/translations_formats/DataModel/model_data_base.py:115)
 
 ### Regex Pattern Construction
 
@@ -15894,7 +15894,7 @@ keys_sorted = sorted(self.data_list_ci.keys(), key=lambda k: (-k.count(" "), -le
 
 This prevents "black" from matching when "black-and-white" is the intended key.
 
-**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:115]()
+**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:115](../ArWikiCats/translations_formats/DataModel/model_data_base.py:115)
 
 ### Arabic Category Prefix
 
@@ -17389,8 +17389,8 @@ def fix_keys(category: str) -> str:
 ```
 
 **Used by:**
-- [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:330]()
-- [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:283,294,305]()
+- [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:330](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py:330)
+- [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:283,294,305](../ArWikiCats/new_resolvers/jobs_resolvers/womens.py:283,294,305)
 
 ### Sports Resolver Normalization
 
@@ -17416,9 +17416,9 @@ def fix_keys(category: str) -> str:
 ```
 
 **Used by:**
-- [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:402]()
-- [ArWikiCats/new_resolvers/sports_resolvers/nationalities_and_sports.py:341]()
-- [ArWikiCats/new_resolvers/sports_resolvers/countries_names_and_sports.py:186]()
+- [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:402](../ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:402)
+- [ArWikiCats/new_resolvers/sports_resolvers/nationalities_and_sports.py:341](../ArWikiCats/new_resolvers/sports_resolvers/nationalities_and_sports.py:341)
+- [ArWikiCats/new_resolvers/sports_resolvers/countries_names_and_sports.py:186](../ArWikiCats/new_resolvers/sports_resolvers/countries_names_and_sports.py:186)
 
 ### Films/TV Resolver Normalization
 
@@ -17446,7 +17446,7 @@ def fix_keys(category: str) -> str:
     return category
 ```
 
-**Used by:** [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:301]()
+**Used by:** [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:301](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:301)
 
 ### Ministers/Political Roles Normalization
 
@@ -17467,7 +17467,7 @@ def fix_keys(text: str) -> str:
     return text
 ```
 
-**Used by:** [ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py:138]()
+**Used by:** [ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py:138](../ArWikiCats/new_resolvers/nationalities_resolvers/ministers_resolver.py:138)
 
 **Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py L1-L109](../ArWikiCats/new_resolvers/jobs_resolvers/utils.py#L1-L109), [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py L366-L378](../ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py#L366-L378), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py L263-L287](../ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py#L263-L287), [ArWikiCats/new_resolvers/ministers_resolver.py L128-L132](../ArWikiCats/new_resolvers/ministers_resolver.py#L128-L132)
 
@@ -17568,7 +17568,7 @@ Result: Different normalized forms may match different patterns
 
 ## Suffix Handling Normalization
 
-The suffix handling system ([ArWikiCats/new/handle_suffixes.py]()) includes its own `normalize_text` function used specifically for suffix-based resolution:
+The suffix handling system ([ArWikiCats/new/handle_suffixes.py](../ArWikiCats/new/handle_suffixes.py)) includes its own `normalize_text` function used specifically for suffix-based resolution:
 
 ```python
 def normalize_text(text: str) -> str:
@@ -17710,7 +17710,7 @@ graph TB
 
 ### Primary Functions
 
-The system provides two main resolution functions in [ArWikiCats/new/handle_suffixes.py]():
+The system provides two main resolution functions in [ArWikiCats/new/handle_suffixes.py](../ArWikiCats/new/handle_suffixes.py):
 
 | Function | Purpose | Gender Handling |
 |----------|---------|-----------------|
@@ -18659,10 +18659,10 @@ After classification, output files should be spot-checked:
 The script processes raw JSON files from the data aggregation pipeline:
 
 **Primary Sources:**
-- [ArWikiCats/translations/jsons/geography/P17_PP.json]() - Country and region data
-- [ArWikiCats/translations/jsons/geography/P17_2_final_ll.json]() - Extended geographic data
-- [ArWikiCats/translations/jsons/geography/popopo.json]() - Additional place names
-- [ArWikiCats/translations/jsons/cities/]() - City-specific translations
+- [ArWikiCats/translations/jsons/geography/P17_PP.json](../ArWikiCats/translations/jsons/geography/P17_PP.json) - Country and region data
+- [ArWikiCats/translations/jsons/geography/P17_2_final_ll.json](../ArWikiCats/translations/jsons/geography/P17_2_final_ll.json) - Extended geographic data
+- [ArWikiCats/translations/jsons/geography/popopo.json](../ArWikiCats/translations/jsons/geography/popopo.json) - Additional place names
+- [ArWikiCats/translations/jsons/cities/](../ArWikiCats/translations/jsons/cities/) - City-specific translations
 
 For more on data sources, see [Data Architecture](#3.2) and [Geographic Data](#4.2)
 
@@ -18682,7 +18682,7 @@ The classification ensures that resolvers only process true geographic locations
 ### Parallel: Other Helper Scripts
 
 The script is part of a broader data preparation toolkit:
-- Complementary to data builders in [ArWikiCats/translations/]() modules
+- Complementary to data builders in [ArWikiCats/translations/](../ArWikiCats/translations/) modules
 - Used before data aggregation (see [Data Aggregation Pipeline](#4.1))
 - Supports data quality validation
 
@@ -20496,7 +20496,7 @@ The following table summarizes test coverage across all domains:
 
 This comprehensive test coverage ensures translation accuracy across ~100,000+ category patterns, with domain-specific validation guaranteeing correct grammatical forms, preposition usage, and Arabic article agreement.
 
-**Sources:** [tests/event_lists/test_2.py](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](), [tests/event_lists/test_ministers.py](), [examples/data/5k.json](), [ArWikiCats/translations/politics/ministers.py]()3a:T5f71,# Test Utilities
+**Sources:** [tests/event_lists/test_2.py](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](), [tests/event_lists/test_ministers.py](), [examples/data/5k.json](), [ArWikiCats/translations/politics/ministers.py](../ArWikiCats/translations/politics/ministers.py)3a:T5f71,# Test Utilities
 
 <details>
 <summary>Relevant source files</summary>
@@ -21696,7 +21696,7 @@ graph TB
     COVERAGE --> PR
 ```
 
-**Sources:** [changelog.md L1-L80](../changelog.md#L1-L80), [README.md L449-L514](../README.md#L449-L514), [ArWikiCats/new_resolvers/reslove_all.py](), [tests/]()
+**Sources:** [changelog.md L1-L80](../changelog.md#L1-L80), [README.md L449-L514](../README.md#L449-L514), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [tests/]()
 
 ---
 
@@ -21779,7 +21779,7 @@ graph TB
 4. **Singleton Cache**: `@lru_cache(maxsize=1)` on data loading functions ensures single load [translations/jobs/Jobs.py]()
 5. **Strategy Pattern**: Different resolver strategies (jobs, sports, nationalities) implement common resolver interface
 
-**Sources:** [ArWikiCats/__init__.py](), [ArWikiCats/main_processers/main_resolve.py](), [ArWikiCats/new_resolvers/reslove_all.py](), [ArWikiCats/legacy_bots/__init__.py](), [ArWikiCats/translations_formats/DataModel/]()
+**Sources:** [ArWikiCats/__init__.py](../ArWikiCats/__init__.py), [ArWikiCats/main_processers/main_resolve.py](../ArWikiCats/main_processers/main_resolve.py), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [ArWikiCats/legacy_bots/__init__.py](../ArWikiCats/legacy_bots/__init__.py), [ArWikiCats/translations_formats/DataModel/](../ArWikiCats/translations_formats/DataModel/)
 
 ---
 
@@ -22014,7 +22014,7 @@ The codebase uses several recurring patterns that developers should follow when 
 
 All data-loading functions use `@lru_cache(maxsize=1)` to ensure single load per process. This pattern is critical for performance.
 
-**Implementation Example from [ArWikiCats/translations/jobs/Jobs.py]():**
+**Implementation Example from [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py):**
 
 ```python
 from functools import lru_cache
@@ -22049,11 +22049,11 @@ def get_jobs_data() -> dict:
 
 Without caching, loading 96,552 job entries on every call would cause severe performance degradation. With `@lru_cache(maxsize=1)`, the data is loaded once and reused across all 28,500+ test cases.
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py](), [changelog.md L268-L294](../changelog.md#L268-L294)
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py), [changelog.md L268-L294](../changelog.md#L268-L294)
 
 ### Pattern 2: Resolver Chain Integration and Priority Order
 
-Resolvers must be added in the correct priority order to prevent conflicts. The order is documented in [ArWikiCats/new_resolvers/__init__.py]()
+Resolvers must be added in the correct priority order to prevent conflicts. The order is documented in [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py)
 
 **Critical Priority Rules:**
 
@@ -22061,7 +22061,7 @@ Resolvers must be added in the correct priority order to prevent conflicts. The 
 2. **Nationalities before Countries**: "Italy political leader" should resolve with nationality patterns, not country-year patterns
 3. **Time patterns first**: Year/decade/century extraction must happen before other resolvers
 
-**Implementation in [ArWikiCats/new_resolvers/__init__.py]():**
+**Implementation in [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py):**
 
 ```python
 def new_resolvers_all(category: str) -> str:
@@ -22106,7 +22106,7 @@ resolve_jobs_main("football manager") or    # Returns "مدرب كرة قدم" (
 resolve_sports_main("football manager")     # Fallback
 ```
 
-**Sources:** [ArWikiCats/new_resolvers/__init__.py](), [ArWikiCats/new_resolvers/reslove_all.py](), [changelog.md L170-L200](../changelog.md#L170-L200)
+**Sources:** [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [changelog.md L170-L200](../changelog.md#L170-L200)
 
 ### Pattern 3: FormatData Template Engine Usage
 
@@ -22125,7 +22125,7 @@ The `FormatData` family of classes provides template-based translation with plac
 
 **Implementation Example 1: Simple FormatData**
 
-From [ArWikiCats/new_resolvers/sports_resolvers/]():
+From [ArWikiCats/new_resolvers/sports_resolvers/](../ArWikiCats/new_resolvers/sports_resolvers/):
 
 ```python
 from ArWikiCats.translations_formats import FormatData
@@ -22148,7 +22148,7 @@ result = formatter.search("football players")
 
 **Implementation Example 2: FormatDataV2 with Dictionary Data**
 
-From [ArWikiCats/new_resolvers/nationalities_resolvers/]():
+From [ArWikiCats/new_resolvers/nationalities_resolvers/](../ArWikiCats/new_resolvers/nationalities_resolvers/):
 
 ```python
 from ArWikiCats.translations_formats import FormatDataV2
@@ -22173,7 +22173,7 @@ result = formatter.search("british writers")
 
 **Implementation Example 3: MultiDataFormatterBase for Dual Patterns**
 
-Created via factory function [ArWikiCats/translations_formats/multi_data.py]():
+Created via factory function [ArWikiCats/translations_formats/multi_data.py](../ArWikiCats/translations_formats/multi_data.py):
 
 ```python
 from ArWikiCats.translations_formats import format_multi_data
@@ -22201,7 +22201,7 @@ result = formatter.search("british football players")
 - `formatter.search_all_category(category: str) -> str`: Alternative search with different matching logic
 - `formatter.load_v2(category: str) -> str`: Load and search in one call
 
-**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py](), [ArWikiCats/translations_formats/DataModel/model_data.py](), [ArWikiCats/translations_formats/DataModel/model_data_v2.py](), [ArWikiCats/translations_formats/multi_data.py]()
+**Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py](../ArWikiCats/translations_formats/DataModel/model_data_base.py), [ArWikiCats/translations_formats/DataModel/model_data.py](../ArWikiCats/translations_formats/DataModel/model_data.py), [ArWikiCats/translations_formats/DataModel/model_data_v2.py](../ArWikiCats/translations_formats/DataModel/model_data_v2.py), [ArWikiCats/translations_formats/multi_data.py](../ArWikiCats/translations_formats/multi_data.py)
 
 ### Pattern 4: Metadata Updates
 
@@ -22221,7 +22221,7 @@ The counts should be comma-formatted strings representing the number of entries 
 
 Arabic requires gender agreement. The system handles gender-specific translations through separate datasets and gender normalization.
 
-**Data Structure in [ArWikiCats/translations/jobs/Jobs.py]():**
+**Data Structure in [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py):**
 
 ```python
 @lru_cache(maxsize=1)
@@ -22245,7 +22245,7 @@ def _finalise_jobs_womens_data() -> dict:
     }
 ```
 
-**Gender Detection and Normalization in [ArWikiCats/new_resolvers/genders_resolvers/utils.py]():**
+**Gender Detection and Normalization in [ArWikiCats/new_resolvers/genders_resolvers/utils.py](../ArWikiCats/new_resolvers/genders_resolvers/utils.py):**
 
 ```python
 def fix_keys(category: str) -> str:
@@ -22265,7 +22265,7 @@ def fix_keys(category: str) -> str:
 
 **Gender-Specific Resolver Implementation:**
 
-From [ArWikiCats/new_resolvers/jobs_resolvers/mens.py]():
+From [ArWikiCats/new_resolvers/jobs_resolvers/mens.py](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py):
 
 ```python
 def resolve_mens_jobs(category: str) -> str:
@@ -22300,7 +22300,7 @@ resolve_label_ar("British women painters")     # → "رسامات بريطان�
 3. Ensure both dictionaries have matching keys
 4. Test with both "male" and "female" category variants
 
-**Sources:** [ArWikiCats/translations/jobs/Jobs.py](), [ArWikiCats/new_resolvers/genders_resolvers/utils.py](), [ArWikiCats/new_resolvers/jobs_resolvers/mens.py](), [changelog.md L402-L432](../changelog.md#L402-L432)
+**Sources:** [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py), [ArWikiCats/new_resolvers/genders_resolvers/utils.py](../ArWikiCats/new_resolvers/genders_resolvers/utils.py), [ArWikiCats/new_resolvers/jobs_resolvers/mens.py](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py), [changelog.md L402-L432](../changelog.md#L402-L432)
 
 ---
 
@@ -22496,7 +22496,7 @@ python -c "from ArWikiCats import resolve_label_ar; print(resolve_label_ar('Brit
 # Output: ملحنون كلاسيكيون بريطانيون
 ```
 
-**Sources:** [changelog.md L321-L331](../changelog.md#L321-L331), [ArWikiCats/translations/jobs/Jobs.py](), [ArWikiCats/new_resolvers/jobs_resolvers/](), [tests/unit/]()
+**Sources:** [changelog.md L321-L331](../changelog.md#L321-L331), [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py), [ArWikiCats/new_resolvers/jobs_resolvers/](../ArWikiCats/new_resolvers/jobs_resolvers/), [tests/unit/]()
 
 ---
 
@@ -22740,7 +22740,7 @@ graph TB
     style LOADER fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
-**Sources:** [ArWikiCats/translations/__init__.py:77]()
+**Sources:** [ArWikiCats/translations/__init__.py:77](../ArWikiCats/translations/__init__.py:77)
 
 ### Step 1: Identify the JSON File
 
@@ -22902,7 +22902,7 @@ Sports translations include sport types, teams, and competition formats.
 
 Each sport may have different translations depending on whether it's used in "Olympic athletes", "football teams", or "basketball players" contexts.
 
-**Sources:** [_work_files/data_len.json:7,54-62](), [ArWikiCats/translations/__init__.py:56-64,8]()
+**Sources:** [_work_files/data_len.json:7,54-62](), [ArWikiCats/translations/__init__.py:56-64,8](../ArWikiCats/translations/__init__.py:56-64,8)
 
 ### Films and Television
 
@@ -22957,7 +22957,7 @@ ministers_keys = {
 - Combined ministries use coordination (و)
 - Match capitalization patterns from English Wikipedia
 
-**Sources:** [_work_files/data_len.json:99](), [ArWikiCats/translations/__init__.py:55]()
+**Sources:** [_work_files/data_len.json:99](), [ArWikiCats/translations/__init__.py:55](../ArWikiCats/translations/__init__.py:55)
 
 ### Languages
 
@@ -23237,7 +23237,7 @@ The function iterates through `_RESOLVER_CHAIN` tuples containing `(name, resolv
 | Function | Location | Purpose |
 |----------|----------|---------|
 | `all_new_resolvers()` | [ArWikiCats/new_resolvers/__init__.py L101-L125](../ArWikiCats/new_resolvers/__init__.py#L101-L125) | Main entry point, iterates through resolver chain |
-| `convert_time_to_arabic()` | [ArWikiCats/time_formats/]() | First resolver: handles temporal patterns |
+| `convert_time_to_arabic()` | [ArWikiCats/time_formats/](../ArWikiCats/time_formats/) | First resolver: handles temporal patterns |
 | `main_jobs_resolvers()` | [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py L15-L38](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py#L15-L38) | Third resolver: job titles and occupations |
 | `main_sports_resolvers()` | [ArWikiCats/new_resolvers/sports_resolvers/__init__.py L21-L47](../ArWikiCats/new_resolvers/sports_resolvers/__init__.py#L21-L47) | Fifth resolver: sports categories |
 | `main_nationalities_resolvers()` | [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py L19-L43](../ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py#L19-L43) | Sixth resolver: nationality-based categories |
@@ -23976,7 +23976,7 @@ Sources: [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py L1-L43](../ArWikiC
 Before submitting your resolver, verify these requirements based on actual codebase patterns:
 
 ### Code Structure
-- [ ] **Main entry function** named `main_*_resolvers(normalized_category)` following pattern from [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15]()
+- [ ] **Main entry function** named `main_*_resolvers(normalized_category)` following pattern from [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15](../ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15)
 - [ ] **Caching** with `@functools.lru_cache(maxsize=10000)` on all resolver functions
 - [ ] **Sub-resolvers** in separate files within your resolver package
 - [ ] **Helper functions** for data loading use `@functools.lru_cache(maxsize=1)`
@@ -23992,7 +23992,7 @@ Before submitting your resolver, verify these requirements based on actual codeb
 - [ ] **Sub-resolver logs** for debugging pattern matching
 
 ### Integration
-- [ ] **Added to _RESOLVER_CHAIN** in [ArWikiCats/new_resolvers/__init__.py]()
+- [ ] **Added to _RESOLVER_CHAIN** in [ArWikiCats/new_resolvers/__init__.py](../ArWikiCats/new_resolvers/__init__.py)
 - [ ] **Priority note** explaining why this position in chain
 - [ ] **Import statement** at top of `__init__.py`
 
@@ -24471,7 +24471,7 @@ graph TB
     end
 ```
 
-**Example from codebase**: [ArWikiCats/legacy_bots/]()
+**Example from codebase**: [ArWikiCats/legacy_bots/](../ArWikiCats/legacy_bots/)
 - `__init__.py` - Main entry point with `LegacyBotsResolver` class
 - `data/mappings.py` - Centralized data dictionaries
 - `utils/regex_hub.py` - Pre-compiled regex patterns
@@ -24723,7 +24723,7 @@ The cache decorator is applied to `resolve_label()`:
 | Aspect | Implementation |
 |--------|----------------|
 | **Decorator** | `@functools.lru_cache(maxsize=50000)` |
-| **Location** | [ArWikiCats/main_processers/main_resolve.py:32]() |
+| **Location** | [ArWikiCats/main_processers/main_resolve.py:32](../ArWikiCats/main_processers/main_resolve.py:32) |
 | **Cache Key** | `(category: str, fix_label: bool)` tuple |
 | **Eviction Policy** | LRU (Least Recently Used) |
 | **Thread Safety** | Thread-safe (provided by `functools`) |
@@ -24831,7 +24831,7 @@ graph LR
     NextCall --> ReturnCached
 ```
 
-**Sources:** [changelog.md L269-L287](../changelog.md#L269-L287), [ArWikiCats/translations/]()
+**Sources:** [changelog.md L269-L287](../changelog.md#L269-L287), [ArWikiCats/translations/](../ArWikiCats/translations/)
 
 ### Data Structure Optimization
 
