@@ -89,6 +89,9 @@ for i, title in enumerate(titles):
     # (see [Resolver Chain Priority System](#3.3))
     replaces[rf"\[{title.replace('-', ' ')}\]\(#[\d\.]+\)"] = rf"[{title.replace('-', ' ')}]({i}.{title}.md)"
 
+    # see [Format Data Models](#6.1).
+    replaces[rf"\[[^\[\]]+\] \(#[\d\.]+\)"] = rf"[\1](\1)"
+
 work_dir = Path(__file__).parent
 work_dir = Path(__file__).parent.parent / "docs_full"
 
