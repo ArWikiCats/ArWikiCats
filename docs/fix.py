@@ -67,6 +67,7 @@ for i, title in enumerate(titles):
     replaces[rf"\[{title.replace('-', ' ')}\]\(#[\d\.]+\)"] = rf"[{title.replace('-', ' ')}]({i}.{title}.md)"
 
 work_dir = Path(__file__).parent
+work_dir = Path(__file__).parent.parent / "docs_full"
 
 for md_file in work_dir.glob("*.md"):
     if md_file.name == "full.md":
