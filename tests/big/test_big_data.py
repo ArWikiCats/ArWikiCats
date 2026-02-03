@@ -7,6 +7,7 @@ from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 from utils.resolver_runner import make_resolver_test
 
+
 def JSON_FILES(dir_path):
     DATA_DIR = Path(__file__).parent.parent.parent / dir_path
     FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
