@@ -56,7 +56,7 @@ for i, title in enumerate(titles):
     replaces[find_str] = replace_str
 
     find_str2 = rf"\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"
-    replaces[find_str2] = replace_str
+    replaces[find_str2] = rf"({i}.{title}.md)"
 
 work_dir = Path(__file__).parent
 
