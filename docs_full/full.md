@@ -579,7 +579,7 @@ For an architectural overview of how the translation system works internally, se
 - **Python 3.10 or higher**
 - **Operating System**: Windows, macOS, or Linux
 
-**Sources:** [README.md L1-L7](../README.md#L1-L7), [pyproject.toml]()
+**Sources:** [README.md L1-L7](../README.md#L1-L7), [pyproject.toml](../pyproject.toml)
 
 ---
 
@@ -1075,7 +1075,7 @@ for category in categories:
         log_untranslated(result.original)
 ```
 
-**Sources:** [README.md L170-L239](../README.md#L170-L239), [examples/run.py](), [examples/5k.py]()
+**Sources:** [README.md L170-L239](../README.md#L170-L239), [examples/run.py](../examples/run.py), [examples/5k.py](../examples/5k.py)
 
 ---
 
@@ -2398,7 +2398,7 @@ graph LR
 - **`translations/geo/`**: Geographic data processing
   - [Cities.py L1-L50](../Cities.py#L1-L50) - City name translations (`CITY_TRANSLATIONS_LOWER`: 10,526 entries)
   - [labels_country.py L1-L275](../labels_country.py#L1-L275) - Country labels and overrides (`COUNTRY_LABEL_OVERRIDES`: 1,459 entries)
-  - [regions.py]() - Regional translations (`MAIN_REGION_TRANSLATIONS`: 820 entries)
+  - [regions.py](../regions.py) - Regional translations (`MAIN_REGION_TRANSLATIONS`: 820 entries)
 
 - **`translations/jobs/`**: Occupation data processing
   - [Jobs.py L1-L211](../Jobs.py#L1-L211) - Main jobs dataset builder (`jobs_mens_data`: 4,012 entries, `jobs_womens_data`: 2,954 entries)
@@ -2409,7 +2409,7 @@ graph LR
   - [Sport_key.py L1-L73](../Sport_key.py#L1-L73) - Sports key records (`SPORT_KEY_RECORDS`: 431 entries)
 
 - **`translations/nats/`**: Nationality data
-  - [Nationality.py]() - Nationality lookup tables (`All_Nat`: 400 entries with 18 grammatical variants)
+  - [Nationality.py](../Nationality.py) - Nationality lookup tables (`All_Nat`: 400 entries with 18 grammatical variants)
 
 - **`translations/tv/`**: Film and television
   - [films_mslslat.py L1-L271](../films_mslslat.py#L1-L271) - Film/TV translations (`Films_key_For_nat`: 13,146 entries)
@@ -2453,7 +2453,7 @@ graph TB
 | Dataset | Size | Purpose | Built By |
 |---------|------|---------|----------|
 | `pf_keys2` | 33,657 entries | Consolidated generic category mappings | [generate_key_mappings() L643-L714](../generate_key_mappings()#L643-L714) |
-| `NEW_P17_FINAL` | 24,480 entries | Comprehensive geographic label index | [_build_country_label_index()]() |
+| `NEW_P17_FINAL` | 24,480 entries | Comprehensive geographic label index | [_build_country_label_index()](../_build_country_label_index()) |
 
 The `generate_key_mappings()` function merges:
 - `keys2_py` (1,217 entries) - Core mappings
@@ -3274,7 +3274,7 @@ def test_jobs_before_sports_conflict():
 ```
 
 **Sources:**
-- [tests/]()
+- [tests/](../tests/)
 - [CLAUDE.md L16-L48](../CLAUDE.md#L16-L48)
 
 ---
@@ -3346,7 +3346,7 @@ For information about how this data is processed and aggregated, see [Data Aggre
 
 The translation data consists of structured dictionaries mapping English Wikipedia category terms to their Arabic equivalents. The system manages approximately **250,000+ translation entries** across multiple domains, organized into domain-specific modules under [ArWikiCats/translations/](../ArWikiCats/translations/)
 
-The data originates from raw JSON files in [jsons/](), which are processed by Python aggregator modules into typed dictionaries exported via [ArWikiCats/translations/__init__.py L1-L152](../ArWikiCats/translations/__init__.py#L1-L152)
+The data originates from raw JSON files in [jsons/](../jsons/), which are processed by Python aggregator modules into typed dictionaries exported via [ArWikiCats/translations/__init__.py L1-L152](../ArWikiCats/translations/__init__.py#L1-L152)
 
 ## Data Architecture
 
@@ -7947,7 +7947,7 @@ This specialized resolver handles the combination of country names with sports, 
 
 The legacy resolver system handles patterns that were implemented before the new modular resolver architecture. It has been refactored into a class-based implementation while maintaining backward compatibility.
 
-**Entry Point**: `legacy_resolvers()` function in [legacy_bots/__init__.py]() which delegates to `LegacyBotsResolver.resolve()`
+**Entry Point**: `legacy_resolvers()` function in [legacy_bots/__init__.py](../legacy_bots/__init__.py) which delegates to `LegacyBotsResolver.resolve()`
 
 ### LegacyBotsResolver Class
 
@@ -12443,10 +12443,10 @@ The legacy resolvers have comprehensive test coverage across multiple test suite
 
 **Key Test Files**:
 
-- [tests/legacy_bots/test_event_lab_bot.py]() - EventLabResolver class tests
-- [tests/legacy_bots/test_with_years_bot.py]() - Year pattern resolution tests
-- [tests/legacy_bots/test_country2_label_bot.py]() - Separator-based resolution tests
-- [tests/legacy_bots/test_tmp_bot.py]() - Template matching tests
+- [tests/legacy_bots/test_event_lab_bot.py](../tests/legacy_bots/test_event_lab_bot.py) - EventLabResolver class tests
+- [tests/legacy_bots/test_with_years_bot.py](../tests/legacy_bots/test_with_years_bot.py) - Year pattern resolution tests
+- [tests/legacy_bots/test_country2_label_bot.py](../tests/legacy_bots/test_country2_label_bot.py) - Separator-based resolution tests
+- [tests/legacy_bots/test_tmp_bot.py](../tests/legacy_bots/test_tmp_bot.py) - Template matching tests
 
 **Sources**: Test file structure referenced in high-level diagrams
 
@@ -14571,7 +14571,7 @@ graph TD
 | **Data Source** | Static dictionary | Static dictionary | Callback function |
 | **Primary Use Case** | Sports, simple jobs | Nationalities, countries | Years, decades, centuries |
 | **Example Template** | `"{sport} players"` | `"{country} {demonym} writers"` | `"{year1} events"` |
-| **File Path** | [model_data.py]() | [model_data_v2.py]() | [model_data_form.py]() (via [model_data_time.py]()) |
+| **File Path** | [model_data.py](../model_data.py) | [model_data_v2.py](../model_data_v2.py) | [model_data_form.py](../model_data_form.py) (via [model_data_time.py](../model_data_time.py)) |
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data.py L37-L132](../ArWikiCats/translations_formats/DataModel/model_data.py#L37-L132), [ArWikiCats/translations_formats/DataModel/model_data_v2.py L32-L122](../ArWikiCats/translations_formats/DataModel/model_data_v2.py#L32-L122), [ArWikiCats/translations_formats/DataModel/model_data_time.py L34-L66](../ArWikiCats/translations_formats/DataModel/model_data_time.py#L34-L66)
 
@@ -17115,7 +17115,7 @@ graph TB
 | `test_bot_con_lab.py` | `get_con_lab` | 218 test cases |
 | `test_separator_fixing.py` | `separator_lists_fixing`, `add_in_tab` | 164 test cases |
 
-**Sources**: All test files in [tests/ma_bots2/]() directory structure
+**Sources**: All test files in [tests/ma_bots2/](../tests/ma_bots2/) directory structure
 
 ---
 
@@ -18118,7 +18118,7 @@ Helper scripts in the ArWikiCats system serve the following purposes:
 
 | Script | Location | Purpose | Input | Output |
 |--------|----------|---------|-------|--------|
-| `split_non_geography.py` | [help_scripts/]() | Classify geographic vs non-geographic labels | JSON translation files | Geographic + Non-geographic JSON files |
+| `split_non_geography.py` | [help_scripts/](../help_scripts/) | Classify geographic vs non-geographic labels | JSON translation files | Geographic + Non-geographic JSON files |
 
 These scripts are typically run manually during data preparation and are not part of the automated translation pipeline. They ensure high data quality by removing non-geographic entries from geographic translation datasets.
 
@@ -19992,7 +19992,7 @@ graph TB
     DUMP --> DIFF
 ```
 
-**Sources:** [tests/event_lists/test_2.py](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](), [tests/event_lists/test_ministers.py](), [examples/data/5k.json](), [examples/data/2025-11-28.json](), [examples/data/1k.json]()
+**Sources:** [tests/event_lists/test_2.py](../tests/event_lists/test_2.py), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py), [tests/event_lists/test_ministers.py](../tests/event_lists/test_ministers.py), [examples/data/5k.json](../examples/data/5k.json), [examples/data/2025-11-28.json](../examples/data/2025-11-28.json), [examples/data/1k.json](../examples/data/1k.json)
 
 ## Nationality Tests
 
@@ -20077,7 +20077,7 @@ This data validates nationality-specific patterns across:
 - Event categories (competitions, festivals, elections)
 - Occupation categories (businesspeople, journalists)
 
-**Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py L1-L300](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py#L1-L300), [tests/event_lists/test_2.py L1-L601](../tests/event_lists/test_2.py#L1-L601), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py]()
+**Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py L1-L300](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py#L1-L300), [tests/event_lists/test_2.py L1-L601](../tests/event_lists/test_2.py#L1-L601), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py)
 
 ## Ministers and Politics Tests
 
@@ -20245,7 +20245,7 @@ graph LR
     RESOLVE_FILMS --> MULTI_FORMATTER
 ```
 
-**Sources:** [examples/data/films_with_time.json](), [examples/data/television series.json](), [examples/data/endings.json](), [examples/data/novels.json L1-L35](../examples/data/novels.json#L1-L35)
+**Sources:** [examples/data/films_with_time.json](../examples/data/films_with_time.json), [examples/data/television series.json](../examples/data/television series.json), [examples/data/endings.json](../examples/data/endings.json), [examples/data/novels.json L1-L35](../examples/data/novels.json#L1-L35)
 
 ## Country-Specific Tests
 
@@ -20407,7 +20407,7 @@ The integration tests validate:
 "Category:2010s fantasy novels": "تصنيف:روايات فانتازيا في عقد 2010"  # Year + Film genre
 ```
 
-**Sources:** [examples/data/5k.json L1-L100](../examples/data/5k.json#L1-L100), [examples/data/2025-11-28.json L1-L50](../examples/data/2025-11-28.json#L1-L50), [examples/data/1k.json L1-L50](../examples/data/1k.json#L1-L50), [examples/data/teams_to_test.json]()
+**Sources:** [examples/data/5k.json L1-L100](../examples/data/5k.json#L1-L100), [examples/data/2025-11-28.json L1-L50](../examples/data/2025-11-28.json#L1-L50), [examples/data/1k.json L1-L50](../examples/data/1k.json#L1-L50), [examples/data/teams_to_test.json](../examples/data/teams_to_test.json)
 
 ## Test Execution Patterns
 
@@ -20496,7 +20496,7 @@ The following table summarizes test coverage across all domains:
 
 This comprehensive test coverage ensures translation accuracy across ~100,000+ category patterns, with domain-specific validation guaranteeing correct grammatical forms, preposition usage, and Arabic article agreement.
 
-**Sources:** [tests/event_lists/test_2.py](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](), [tests/event_lists/test_ministers.py](), [examples/data/5k.json](), [ArWikiCats/translations/politics/ministers.py](../ArWikiCats/translations/politics/ministers.py)3a:T5f71,# Test Utilities
+**Sources:** [tests/event_lists/test_2.py](../tests/event_lists/test_2.py), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py), [tests/event_lists/test_ministers.py](../tests/event_lists/test_ministers.py), [examples/data/5k.json](../examples/data/5k.json), [ArWikiCats/translations/politics/ministers.py](../ArWikiCats/translations/politics/ministers.py)3a:T5f71,# Test Utilities
 
 <details>
 <summary>Relevant source files</summary>
@@ -21323,7 +21323,7 @@ graph TB
     NonFiction -.->|"loaded by"| IntegrationTests
 ```
 
-**Sources:** [examples/data/novels.json](), [examples/data/endings.json](), [examples/data/television series.json](), [_work_files/non-fiction.json]()
+**Sources:** [examples/data/novels.json](../examples/data/novels.json), [examples/data/endings.json](../examples/data/endings.json), [examples/data/television series.json](../examples/data/television series.json), [_work_files/non-fiction.json](../_work_files/non-fiction.json)
 
 ## Dataset Categories
 
@@ -21331,7 +21331,7 @@ graph TB
 
 The novels dataset provides comprehensive coverage of novel-related categories including temporal patterns, nationality combinations, and genre classifications.
 
-**File Location:** [examples/data/novels.json]()
+**File Location:** [examples/data/novels.json](../examples/data/novels.json)
 
 **Coverage Areas:**
 - Year + nationality patterns (e.g., "2010 French novels")
@@ -21356,7 +21356,7 @@ The novels dataset provides comprehensive coverage of novel-related categories i
 
 This dataset focuses on television series categories, covering production countries, genres, temporal periods, and format variations.
 
-**File Location:** [examples/data/television series.json]()
+**File Location:** [examples/data/television series.json](../examples/data/television series.json)
 
 **Coverage Areas:**
 - Series debuts by year and country (e.g., "2010 Japanese television series debuts")
@@ -21379,7 +21379,7 @@ This dataset focuses on television series categories, covering production countr
 
 A specialized dataset for television series ending categories, demonstrating year-specific and decade-based ending patterns.
 
-**File Location:** [examples/data/endings.json]()
+**File Location:** [examples/data/endings.json](../examples/data/endings.json)
 
 **Coverage Areas:**
 - Year-specific endings (e.g., "2010 British television series endings")
@@ -21401,7 +21401,7 @@ A specialized dataset for television series ending categories, demonstrating yea
 
 The most extensive example dataset, containing non-fiction categories with multiple Arabic translation forms organized by semantic groupings.
 
-**File Location:** [_work_files/non-fiction.json]()
+**File Location:** [_work_files/non-fiction.json](../_work_files/non-fiction.json)
 
 **Structure:** Unlike other datasets, this file uses a hierarchical structure with Arabic root words as top-level keys:
 
@@ -21469,7 +21469,7 @@ graph LR
 - **Encoding:** UTF-8 JSON format
 - **Special Cases:** Non-fiction dataset uses nested structure with Arabic root forms as grouping keys
 
-**Sources:** [examples/data/novels.json](), [examples/data/television series.json](), [_work_files/non-fiction.json]()
+**Sources:** [examples/data/novels.json](../examples/data/novels.json), [examples/data/television series.json](../examples/data/television series.json), [_work_files/non-fiction.json](../_work_files/non-fiction.json)
 
 ## Dataset Statistics
 
@@ -21530,7 +21530,7 @@ graph TB
 4. **Documentation Examples:** Datasets provide real-world examples for documentation and API examples
 5. **Performance Benchmarking:** Large datasets (especially non-fiction) used for performance testing
 
-**Sources:** [examples/data/novels.json](), [examples/data/television series.json](), [examples/data/endings.json](), [_work_files/non-fiction.json]()
+**Sources:** [examples/data/novels.json](../examples/data/novels.json), [examples/data/television series.json](../examples/data/television series.json), [examples/data/endings.json](../examples/data/endings.json), [_work_files/non-fiction.json](../_work_files/non-fiction.json)
 
 ## Domain-Specific Patterns
 
@@ -21579,7 +21579,7 @@ graph LR
     R4 --> T3
 ```
 
-**Sources:** [examples/data/novels.json](), [examples/data/television series.json]()
+**Sources:** [examples/data/novels.json](../examples/data/novels.json), [examples/data/television series.json](../examples/data/television series.json)
 
 ## Adding New Example Datasets
 
@@ -21596,7 +21596,7 @@ To add a new example dataset:
 - Use descriptive domain names: `novels.json`, `endings.json`
 - Place work-in-progress datasets in `_work_files/` directory
 
-**Sources:** [examples/data/novels.json](), [examples/data/endings.json](), [examples/data/television series.json]()3c:T8297,# Development Guide
+**Sources:** [examples/data/novels.json](../examples/data/novels.json), [examples/data/endings.json](../examples/data/endings.json), [examples/data/television series.json](../examples/data/television series.json)3c:T8297,# Development Guide
 
 <details>
 <summary>Relevant source files</summary>
@@ -21696,7 +21696,7 @@ graph TB
     COVERAGE --> PR
 ```
 
-**Sources:** [changelog.md L1-L80](../changelog.md#L1-L80), [README.md L449-L514](../README.md#L449-L514), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [tests/]()
+**Sources:** [changelog.md L1-L80](../changelog.md#L1-L80), [README.md L449-L514](../README.md#L449-L514), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [tests/](../tests/)
 
 ---
 
@@ -21773,10 +21773,10 @@ graph TB
 
 **Key Architectural Patterns:**
 
-1. **Chain of Responsibility**: `new_resolvers_all()` tries resolvers in priority order until match found [new_resolvers/reslove_all.py]()
-2. **Template Method**: `FormatDataBase` defines abstract interface, subclasses implement search logic [translations_formats/DataModel/model_data_base.py]()
-3. **Factory Pattern**: `format_multi_data()`, `format_year_country_data()` create configured formatter instances [translations_formats/multi_data.py]()
-4. **Singleton Cache**: `@lru_cache(maxsize=1)` on data loading functions ensures single load [translations/jobs/Jobs.py]()
+1. **Chain of Responsibility**: `new_resolvers_all()` tries resolvers in priority order until match found [new_resolvers/reslove_all.py](../new_resolvers/reslove_all.py)
+2. **Template Method**: `FormatDataBase` defines abstract interface, subclasses implement search logic [translations_formats/DataModel/model_data_base.py](../translations_formats/DataModel/model_data_base.py)
+3. **Factory Pattern**: `format_multi_data()`, `format_year_country_data()` create configured formatter instances [translations_formats/multi_data.py](../translations_formats/multi_data.py)
+4. **Singleton Cache**: `@lru_cache(maxsize=1)` on data loading functions ensures single load [translations/jobs/Jobs.py](../translations/jobs/Jobs.py)
 5. **Strategy Pattern**: Different resolver strategies (jobs, sports, nationalities) implement common resolver interface
 
 **Sources:** [ArWikiCats/__init__.py](../ArWikiCats/__init__.py), [ArWikiCats/main_processers/main_resolve.py](../ArWikiCats/main_processers/main_resolve.py), [ArWikiCats/new_resolvers/reslove_all.py](../ArWikiCats/new_resolvers/reslove_all.py), [ArWikiCats/legacy_bots/__init__.py](../ArWikiCats/legacy_bots/__init__.py), [ArWikiCats/translations_formats/DataModel/](../ArWikiCats/translations_formats/DataModel/)
@@ -21889,7 +21889,7 @@ graph TB
 | `pytest -m integration` | Integration marker | Medium-speed tests |
 | `pytest -k "jobs"` | Keyword filter | All tests with "jobs" in name |
 
-**Sources:** [tests/unit/](), [tests/integration/](), [tests/e2e/](), [tests/utils/dump_runner.py](), [changelog.md L1-L110](../changelog.md#L1-L110), [README.md L442-L469](../README.md#L442-L469)
+**Sources:** [tests/unit/](../tests/unit/), [tests/integration/](../tests/integration/), [tests/e2e/](../tests/e2e/), [tests/utils/dump_runner.py](../tests/utils/dump_runner.py), [changelog.md L1-L110](../changelog.md#L1-L110), [README.md L442-L469](../README.md#L442-L469)
 
 ### Test Writing Patterns
 
@@ -22496,7 +22496,7 @@ python -c "from ArWikiCats import resolve_label_ar; print(resolve_label_ar('Brit
 # Output: ملحنون كلاسيكيون بريطانيون
 ```
 
-**Sources:** [changelog.md L321-L331](../changelog.md#L321-L331), [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py), [ArWikiCats/new_resolvers/jobs_resolvers/](../ArWikiCats/new_resolvers/jobs_resolvers/), [tests/unit/]()
+**Sources:** [changelog.md L321-L331](../changelog.md#L321-L331), [ArWikiCats/translations/jobs/Jobs.py](../ArWikiCats/translations/jobs/Jobs.py), [ArWikiCats/new_resolvers/jobs_resolvers/](../ArWikiCats/new_resolvers/jobs_resolvers/), [tests/unit/](../tests/unit/)
 
 ---
 
