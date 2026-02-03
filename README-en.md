@@ -148,7 +148,7 @@ print(f"Has Label: {result.has_label}")
 
 The translation pipeline processes category labels through multiple specialized resolvers:
 
-```
+```text
 Input Category → Normalization → Pattern Detection → Specialized Resolvers
     → Pattern-Based Resolvers → Time Format Resolver → Legacy Resolvers
     → Formatting → Output "تصنيف:..."
