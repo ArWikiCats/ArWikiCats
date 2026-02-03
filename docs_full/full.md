@@ -4801,7 +4801,7 @@ The geographic data integrates with the broader resolver chain at priority level
 
 All counts are approximate based on module documentation and `data_len.json`.
 
-**Sources:** [_work_files/data_len.json L1-L135](../_work_files/data_len.json#L1-L135), [ArWikiCats/translations/geo/labels_country.py L267-L274](../ArWikiCats/translations/geo/labels_country.py#L267-L274), [ArWikiCats/translations/build_data/__init__.py L71-L77](../ArWikiCats/translations/build_data/__init__.py#L71-L77)20:T7084,# Jobs and Occupations
+**Sources:** [_work_files/data_len.json L1-L135](../_work_files/data_len.json#L1-L135), [ArWikiCats/translations/geo/labels_country.py L267-L274](../ArWikiCats/translations/geo/labels_country.py#L267-L274), [ArWikiCats/translations/build_data/__init__.py L71-L77](../ArWikiCats/translations/build_data/__init__.py#L71-L77)
 
 <details>
 <summary>Relevant source files</summary>
@@ -5481,7 +5481,7 @@ graph TB
 - `jobs_womens_data`: 1.8 MiB (75,244 entries)
 - Total jobs memory: ~5.5 MiB
 
-**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327), [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302](../ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302), [_work_files/data_len.json L9-L14](../_work_files/data_len.json#L9-L14)21:T4082,# Nationalities
+**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114,257,276,302,327), [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302](../ArWikiCats/new_resolvers/jobs_resolvers/womens.py:90,203,229,254,280,291,302), [_work_files/data_len.json L9-L14](../_work_files/data_len.json#L9-L14)
 
 <details>
 <summary>Relevant source files</summary>
@@ -8141,7 +8141,7 @@ def test_basic_resolution():
     assert main_your_domain_resolvers("test category") == "expected result"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/__init__.py L37-L98](../ArWikiCats/new_resolvers/__init__.py#L37-L98), [CLAUDE.md L144-L151](../CLAUDE.md#L144-L151)26:T5238,# Time Pattern Resolvers
+**Sources**: [ArWikiCats/new_resolvers/__init__.py L37-L98](../ArWikiCats/new_resolvers/__init__.py#L37-L98), [CLAUDE.md L144-L151](../CLAUDE.md#L144-L151)
 
 <details>
 <summary>Relevant source files</summary>
@@ -8712,7 +8712,7 @@ These are handled by the broader time conversion system (see `time_to_arabic.py`
 | `regex_hub.py` | `RE1_compile`<br/>`RE2_compile`<br/>`RE33_compile`<br/>`REGEX_SUB_YEAR` | Pre-compiled year detection patterns |
 | `event_lab_bot.py` | `event_label_work()` | Integrates year resolution into event labeling |
 
-**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py L1-L286](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py#L1-L286), [ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py L1-L314](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py#L1-L314), [ArWikiCats/legacy_bots/utils/regex_hub.py](../ArWikiCats/legacy_bots/utils/regex_hub.py), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L108](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L108)27:T8194,# Nationality Resolvers
+**Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py L1-L286](../ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py#L1-L286), [ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py L1-L314](../ArWikiCats/legacy_bots/legacy_resolvers_bots/year_or_typeo.py#L1-L314), [ArWikiCats/legacy_bots/utils/regex_hub.py](../ArWikiCats/legacy_bots/utils/regex_hub.py), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py L82-L108](../ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py#L82-L108)
 
 <details>
 <summary>Relevant source files</summary>
@@ -15448,7 +15448,7 @@ all_test_data_integrated = {
 
 These test cases involve **nested multi-element formatters** where both "American" and "non-American" are handled within the same category string.
 
-**Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py L12-L51](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py#L12-L51), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py L12-L51](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py#L12-L51), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py L11-L97](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py#L11-L97), [tests/event_lists/test_2.py L7-L601](../tests/event_lists/test_2.py#L7-L601)31:T4760,# Template and Placeholder System
+**Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py L12-L51](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py#L12-L51), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py L12-L51](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py#L12-L51), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py L11-L97](../tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py#L11-L97), [tests/event_lists/test_2.py L7-L601](../tests/event_lists/test_2.py#L7-L601)
 
 <details>
 <summary>Relevant source files</summary>
@@ -16660,7 +16660,7 @@ bot = format_multi_data(
 
 The normalization process at [ArWikiCats/translations_formats/DataModel/model_data_base.py L158-L191](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L158-L191) removes these surrounding texts when they appear adjacent to the matched key.
 
-**Sources:** [ArWikiCats/translations_formats/multi_data.py L47-L48](../ArWikiCats/translations_formats/multi_data.py#L47-L48), [ArWikiCats/translations_formats/data_with_time.py L41-L42](../ArWikiCats/translations_formats/data_with_time.py#L41-L42), [ArWikiCats/translations_formats/DataModel/model_data_base.py L158-L191](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L158-L191)33:T4737,# Processing Components
+**Sources:** [ArWikiCats/translations_formats/multi_data.py L47-L48](../ArWikiCats/translations_formats/multi_data.py#L47-L48), [ArWikiCats/translations_formats/data_with_time.py L41-L42](../ArWikiCats/translations_formats/data_with_time.py#L41-L42), [ArWikiCats/translations_formats/DataModel/model_data_base.py L158-L191](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L158-L191)
 
 <details>
 <summary>Relevant source files</summary>
@@ -17636,7 +17636,7 @@ Ensure normalization doesn't break existing patterns:
 assert fix_keys("women's football") != fix_keys("men's football")
 ```
 
-**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py L1-L109](../ArWikiCats/new_resolvers/jobs_resolvers/utils.py#L1-L109), [ArWikiCats/new_resolvers/jobs_resolvers/mens.py L327-L336](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py#L327-L336)35:T4258,# Suffix Resolution System
+**Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py L1-L109](../ArWikiCats/new_resolvers/jobs_resolvers/utils.py#L1-L109), [ArWikiCats/new_resolvers/jobs_resolvers/mens.py L327-L336](../ArWikiCats/new_resolvers/jobs_resolvers/mens.py#L327-L336)
 
 <details>
 <summary>Relevant source files</summary>
@@ -18089,7 +18089,7 @@ This ensures:
 3. "records and statistics" matches before "statistics"
 4. "clubs and teams" matches before "teams"
 
-**Sources:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py L100-L105](../ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py#L100-L105), [ArWikiCats/new_resolvers/teams_mappings_ends.py L45-L50](../ArWikiCats/new_resolvers/teams_mappings_ends.py#L45-L50)36:T5199,# Helper Scripts
+**Sources:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py L100-L105](../ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py#L100-L105), [ArWikiCats/new_resolvers/teams_mappings_ends.py L45-L50](../ArWikiCats/new_resolvers/teams_mappings_ends.py#L45-L50)
 
 <details>
 <summary>Relevant source files</summary>
@@ -24638,7 +24638,7 @@ python -m pstats profile.prof
 4. **Clear large temporary structures** after use
 5. **Use `__slots__` for dataclasses** when appropriate
 
-**Sources**: Based on performance optimization context from README and architecture diagrams40:T4307,# Performance Optimization
+**Sources**: Based on performance optimization context from README and architecture diagrams
 
 <details>
 <summary>Relevant source files</summary>
