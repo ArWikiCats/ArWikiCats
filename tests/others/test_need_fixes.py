@@ -3,8 +3,7 @@ Tests
 """
 import pytest
 from ArWikiCats import resolve_label_ar
-# from utils.dump_runner import s
-from load_one_data import one_dump_test, dump_same_and_not_same, dump_diff_text
+from utils.dump_runner import make_dump_test_name_data
 
 test_data_0 = {
     "Slaves from the Mamluk Sultanate": "العبيد من مماليك مصر",
@@ -84,17 +83,8 @@ def test_move_by_in(category: str, expected: str) -> None:
     assert label == expected
 
 
-# test_dump_all = make_dump_test_name_data([("test_data", test_data)], callback=resolve_label_ar, run_same=True)
-
 TEMPORAL_CASES = [
     ("test_data", test_data_1, resolve_label_ar),
 ]
 
-
-@pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
-@pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str], callback: callable) -> None:
-    expected, diff_result = one_dump_test(data, callback)
-    dump_diff_text(expected, diff_result, name)
-    dump_same_and_not_same(data, diff_result, name)
-    assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
+test_dump_all = make_dump_test_name_data(TEMPORAL_CASES, callback=resolve_label_ar, run_same=True)
