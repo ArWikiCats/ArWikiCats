@@ -13,14 +13,20 @@ from ..translations_formats import FormatData
 logger = logging.getLogger(__name__)
 
 formatted_data = {
+    # Category:Relationships_of_Jeffrey_Epstein
+    "relationships of {person_key}": "علاقات {person_label}",
     "{person_key} administration cabinet members": "أعضاء مجلس وزراء إدارة {person_label}",
     "{person_key} administration personnel": "موظفو إدارة {person_label}",
+    "{person_key} executive office": "مكتب {person_label} التنفيذي",
+    "{person_key} memorials": "نصب {person_label} التذكارية",
+    "{person_key} cabinet": "مجلس وزراء {person_label}",
+    "{person_key} albums": "ألبومات {person_label}",
+
     "{person_key} animation albums": "ألبومات رسوم متحركة {person_label}",
     "{person_key} comedy albums": "ألبومات كوميدية {person_label}",
     "{person_key} compilation albums": "ألبومات تجميعية {person_label}",
     "{person_key} concept albums": "ألبومات مفاهيمية {person_label}",
     "{person_key} eps albums": "ألبومات أسطوانة مطولة {person_label}",
-    "{person_key} executive office": "مكتب {person_label} التنفيذي",
     "{person_key} folk albums": "ألبومات فولك {person_label}",
     "{person_key} folktronica albums": "ألبومات فولكترونيكا {person_label}",
     "{person_key} jazz albums": "ألبومات جاز {person_label}",
@@ -29,9 +35,6 @@ formatted_data = {
     "{person_key} remix albums": "ألبومات ريمكس {person_label}",
     "{person_key} surprise albums": "ألبومات مفاجئة {person_label}",
     "{person_key} video albums": "ألبومات فيديو {person_label}",
-    "{person_key} memorials": "نصب {person_label} التذكارية",
-    "{person_key} cabinet": "مجلس وزراء {person_label}",
-    "{person_key} albums": "ألبومات {person_label}",
 }
 
 
