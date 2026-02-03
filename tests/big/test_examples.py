@@ -11,19 +11,24 @@ from utils.resolver_runner import make_resolver_test
 @pytest.fixture
 def load_json_data(request: pytest.FixtureRequest):
     file_path = request.param
+    file_path = Path(file_path)
+
+    if not file_path.exists():
+        pytest.skip(f"File {file_path} not found")
+
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f), file_path.stem
 
 
 def JSON_FILES(dir_path):
-    DATA_DIR = Path(__file__).parent.parent.parent.parent / dir_path
+    DATA_DIR = Path(__file__).parent.parent.parent / dir_path
     FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
     return FILE_PATHS
 
 
 @pytest.mark.dumpbig
 @pytest.mark.parametrize("load_json_data", JSON_FILES("examples/data"), indirect=True, ids=lambda p: p.name)
-def test_examples_data(load_json_data: tuple[dict[str, str], str]) -> None:
+def test_big_data(load_json_data: tuple[dict[str, str], str]) -> None:
     data, name = load_json_data
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
     dump_diff(diff_result, name)
@@ -31,8 +36,8 @@ def test_examples_data(load_json_data: tuple[dict[str, str], str]) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-def create_resolver_tests():
-    for file_path in JSON_FILES("examples/data"):
+def create_resolver_big_tests(dir_path):
+    for file_path in JSON_FILES(dir_path):
         with open(file_path, "r", encoding="utf-8") as f:
             data1 = json.load(f)
 
@@ -46,4 +51,4 @@ def create_resolver_tests():
         globals()[test_func.__name__] = test_func
 
 
-create_resolver_tests()
+create_resolver_big_tests("examples/data")

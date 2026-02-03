@@ -21,7 +21,7 @@ def load_json_data(request: pytest.FixtureRequest):
 
 
 def JSON_FILES(dir_path):
-    DATA_DIR = Path(__file__).parent.parent.parent.parent / dir_path
+    DATA_DIR = Path(__file__).parent.parent.parent / dir_path
     FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
     return FILE_PATHS
 
@@ -36,8 +36,8 @@ def test_big_data(load_json_data: tuple[dict[str, str], str]) -> None:
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
-def create_resolver_tests():
-    for file_path in JSON_FILES("examples/big_data"):
+def create_resolver_big_tests(dir_path):
+    for file_path in JSON_FILES(dir_path):
         with open(file_path, "r", encoding="utf-8") as f:
             data1 = json.load(f)
 
@@ -51,4 +51,4 @@ def create_resolver_tests():
         globals()[test_func.__name__] = test_func
 
 
-create_resolver_tests()
+create_resolver_big_tests("examples/big_data")
