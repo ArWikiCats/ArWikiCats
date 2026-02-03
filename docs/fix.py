@@ -58,6 +58,8 @@ for i, title in enumerate(titles):
     find_str2 = rf"\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"
     replaces[find_str2] = rf"({i}.{title}.md)"
 
+    replaces[rf"[[\d\.]+ {title.replace('-', ' ')}]({i}.{title}.md)"] = rf"[{i}. {title.replace('-', ' ')}]({i}.{title}.md)"
+
 work_dir = Path(__file__).parent
 
 for md_file in work_dir.glob("*.md"):
