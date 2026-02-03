@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Beta-orange)]()
-[![Tests](https://img.shields.io/badge/tests-30000+-success)]()
+[![Tests](https://img.shields.io/badge/tests-60000+-success)]()
 [![Version](https://img.shields.io/badge/version-0.1.0b6-blue)]()
 
 ---
@@ -51,7 +51,7 @@ ArWikiCats addresses these challenges with a specialized translation engine that
 ## Key Features
 
 - **High Performance** - Process 5,000+ categories in seconds
-- **Comprehensive Coverage** - 30,000+ tests covering thousands of patterns
+- **Comprehensive Coverage** - 60,000+ tests covering thousands of patterns
 - **Specialized Resolvers** - Separate modules for jobs, sports, nationalities, countries, films, etc.
 - **Smart Caching** - `functools.lru_cache` for optimal performance
 - **Modular Bots System** - Easy to extend with new translation rules
@@ -288,8 +288,8 @@ ArWikiCats/
 tests/
 ├── unit/                    # Unit tests (fast, isolated)
 ├── integration/             # Integration tests (component interaction)
-└── e2e/                     # End-to-end tests (full system)
-└── big/                     # large dataset tests (full system)
+├── e2e/                     # End-to-end tests (15,000+ categories)
+└── big/                     # Large dataset tests (26,000+ categories)
 
 examples/                    # Usage examples
 ```
@@ -325,7 +325,13 @@ pytest -m slow
 
 ### Test Coverage
 
-The project has **30,000+ tests** covering:
+The project has **60,000+ tests** across all test types:
+
+- **All tests** (60,000+): `pytest --rune2e -m "not skip2" -n 16`
+- **Big tests** (26,000+ categories): `pytest tests/big -m big`
+- **E2E tests** (15,000+ categories): `pytest tests/e2e --rune2e`
+
+Coverage includes:
 - Core functionality
 - Temporal patterns (years, decades, centuries, millennia, BC)
 - Countries, nationalities, and various category cases
