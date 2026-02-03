@@ -1,4 +1,3 @@
-
 <details>
 <summary>Relevant source files</summary>
 
@@ -175,7 +174,7 @@ flowchart TD
     subgraph OutputStage["Output Processing"]
         Fix["fixlabel()<br/>Apply Arabic grammar rules"]
         Clean["cleanse_category_label()<br/>Final formatting"]
-        Result["Output: Arabic Category<br/>'ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2010'"]
+        Result["Output: Arabic Category<br/>'تصنيف:لاعبو كرة قدم بريطانيون عام 2010'"]
     end
 
     Input --> ChangeCat
@@ -333,10 +332,10 @@ The system exposes four main entry points for category translation:
 ```mermaid
 graph LR
     subgraph "Public API Functions"
-        API1["resolve_arabic_category_label(category: str)<br/>â†’ str<br/>Returns: 'ØªØµÙ†ÙŠÙ:...'"]
-        API2["resolve_label_ar(category: str)<br/>â†’ str<br/>Returns Arabic without 'ØªØµÙ†ÙŠÙ:' prefix"]
-        API3["batch_resolve_labels(categories: List[str])<br/>â†’ CategoryBatchResult<br/>Returns dict of translations"]
-        API4["EventProcessor.process_single(category: str)<br/>â†’ CategoryProcessingResult<br/>Returns detailed result with metadata"]
+        API1["resolve_arabic_category_label(category: str)<br/>→ str<br/>Returns: 'تصنيف:...'"]
+        API2["resolve_label_ar(category: str)<br/>→ str<br/>Returns Arabic without 'تصنيف:' prefix"]
+        API3["batch_resolve_labels(categories: List[str])<br/>→ CategoryBatchResult<br/>Returns dict of translations"]
+        API4["EventProcessor.process_single(category: str)<br/>→ CategoryProcessingResult<br/>Returns detailed result with metadata"]
     end
 
     subgraph "Return Types"
@@ -369,11 +368,11 @@ from ArWikiCats import (
 
 # Single category with prefix
 label = resolve_arabic_category_label("Category:2015 British footballers")
-# Returns: "ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2015"
+# Returns: "تصنيف:لاعبو كرة قدم بريطانيون عام 2015"
 
 # Single category without prefix
 label = resolve_label_ar("British footballers")
-# Returns: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Returns: "لاعبو كرة قدم بريطانيون"
 
 # Batch processing
 categories = [
@@ -389,7 +388,7 @@ processor = EventProcessor()
 result = processor.process_single("Category:British footballers")
 # result.original: "Category:British footballers"
 # result.normalized: "british footballers"
-# result.final_label: "ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# result.final_label: "تصنيف:لاعبو كرة قدم بريطانيون"
 # result.has_label: True
 ```
 
@@ -414,10 +413,10 @@ graph TB
     end
 
     subgraph "Aggregation Layer (translations/)"
-        Agg1["jobs/Jobs.py<br/>_finalise_jobs_dataset()<br/>â†’ 96,552 entries"]
-        Agg2["sports/Sport_key.py<br/>_build_tables()<br/>â†’ SPORT_KEY_RECORDS"]
-        Agg3["nats/Nationality.py<br/>build_lookup_tables()<br/>â†’ 18 lookup tables"]
-        Agg4["geo/labels_country.py<br/>_build_country_label_index()<br/>â†’ 68,981 entries"]
+        Agg1["jobs/Jobs.py<br/>_finalise_jobs_dataset()<br/>→ 96,552 entries"]
+        Agg2["sports/Sport_key.py<br/>_build_tables()<br/>→ SPORT_KEY_RECORDS"]
+        Agg3["nats/Nationality.py<br/>build_lookup_tables()<br/>→ 18 lookup tables"]
+        Agg4["geo/labels_country.py<br/>_build_country_label_index()<br/>→ 68,981 entries"]
         Agg5["tv/films_mslslat.py<br/>_build_gender_key_maps()"]
     end
 
@@ -525,7 +524,7 @@ Resolvers are ordered to prevent semantic conflicts. For example, "football mana
 
 **2. Template-Based Formatting**
 
-The `FormatDataBase` class and its variants provide a template engine for pattern matching and placeholder replacement. This allows resolvers to define translation patterns like `"{nat} {sport} players"` â†’ `"Ù„Ø§Ø¹Ø¨Ùˆ {sport} {nat}"` with automatic substitution of Arabic equivalents.
+The `FormatDataBase` class and its variants provide a template engine for pattern matching and placeholder replacement. This allows resolvers to define translation patterns like `"{nat} {sport} players"` → `"لاعبو {sport} {nat}"` with automatic substitution of Arabic equivalents.
 
 **3. Separation of Data and Logic**
 
@@ -618,7 +617,7 @@ from ArWikiCats import resolve_arabic_category_label
 # Translate a single category
 result = resolve_arabic_category_label("Category:American basketball players")
 print(result)
-# Output: ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†
+# Output: تصنيف:لاعبو كرة سلة أمريكيون
 ```
 
 That's it! The system automatically:
@@ -626,7 +625,7 @@ That's it! The system automatically:
 2. Identifies the pattern (nationality + sport + job)
 3. Applies the appropriate resolver ([ArWikiCats/new_resolvers/sports_resolvers/]())
 4. Formats the Arabic output with proper grammar
-5. Adds the `ØªØµÙ†ÙŠÙ:` prefix
+5. Adds the `تصنيف:` prefix
 
 **Sources:** [README.md:174-180](), [examples/run.py:1-48]()
 
@@ -695,12 +694,12 @@ from ArWikiCats import resolve_label_ar
 # Returns only the translated text
 label = resolve_label_ar("American basketball players")
 print(label)
-# Output: Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†
+# Output: لاعبو كرة سلة أمريكيون
 
 # Strips "Category:" prefix if present
 label = resolve_label_ar("Category:2015 in Yemen")
 print(label)
-# Output: 2015 ÙÙŠ Ø§Ù„ÙŠÙ…Ù†
+# Output: 2015 في اليمن
 ```
 
 This function calls `main_resolve()` directly from [ArWikiCats/main_processers/main_resolve.py:1-50]() and returns the raw Arabic label.
@@ -717,15 +716,15 @@ from ArWikiCats import resolve_arabic_category_label
 # Returns full category with prefix
 label = resolve_arabic_category_label("Category:2015 in Yemen")
 print(label)
-# Output: ØªØµÙ†ÙŠÙ:2015 ÙÙŠ Ø§Ù„ÙŠÙ…Ù†
+# Output: تصنيف:2015 في اليمن
 
 # Works without the English prefix too
 label = resolve_arabic_category_label("Belgian cyclists")
 print(label)
-# Output: ØªØµÙ†ÙŠÙ:Ø¯Ø±Ø§Ø¬ÙˆÙ† Ø¨Ù„Ø¬ÙŠÙƒÙŠÙˆÙ†
+# Output: تصنيف:دراجون بلجيكيون
 ```
 
-This function uses `EventProcessor` from [ArWikiCats/event_processing.py:1-200]() internally and adds the `ØªØµÙ†ÙŠÙ:` prefix via `_prefix_label()`.
+This function uses `EventProcessor` from [ArWikiCats/event_processing.py:1-200]() internally and adds the `تصنيف:` prefix via `_prefix_label()`.
 
 **Recommended**: Use this function for bot operations and Wikipedia integration.
 
@@ -758,7 +757,7 @@ print(f"Category patterns found: {result.category_patterns}")
 
 # Iterate through translations
 for english, arabic in result.labels.items():
-    print(f"{english} â†’ {arabic}")
+    print(f"{english} → {arabic}")
 ```
 
 **Output structure:**
@@ -766,8 +765,8 @@ for english, arabic in result.labels.items():
 ```python
 BatchResult(
     labels={
-        "Category:2015 American television": "ØªØµÙ†ÙŠÙ:Ø§Ù„ØªÙ„ÙØ²Ø© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ© ÙÙŠ 2015",
-        "Category:Belgian cyclists": "ØªØµÙ†ÙŠÙ:Ø¯Ø±Ø§Ø¬ÙˆÙ† Ø¨Ù„Ø¬ÙŠÙƒÙŠÙˆÙ†",
+        "Category:2015 American television": "تصنيف:التلفزة الأمريكية في 2015",
+        "Category:Belgian cyclists": "تصنيف:دراجون بلجيكيون",
         # ...
     },
     no_labels=[
@@ -848,7 +847,7 @@ graph TB
 
     AddPrefix["Add Prefix<br/>EventProcessor._prefix_label()<br/>event_processing.py"]
 
-    Output["Output:<br/>ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"]
+    Output["Output:<br/>تصنيف:لاعبو كرة سلة أمريكيون"]
 
     Input --> Norm
     Norm --> MainResolve
@@ -879,20 +878,20 @@ graph TB
 1. **Normalization** - `change_cat()` from [ArWikiCats/format_bots/__init__.py]() strips prefixes and normalizes spacing
 2. **Main Resolution** - `main_resolve()` from [ArWikiCats/main_processers/main_resolve.py:29-57]() orchestrates the resolver chain
 3. **Time Detection** - `LabsYears.return_text()` from [ArWikiCats/time_formats/labs_years.py]() checks for year patterns first
-4. **Specialized Resolvers** - `all_new_resolvers()` from [ArWikiCats/new_resolvers/__init__.py:29-57]() tries jobs â†’ sports â†’ nationalities â†’ countries in order
+4. **Specialized Resolvers** - `all_new_resolvers()` from [ArWikiCats/new_resolvers/__init__.py:29-57]() tries jobs → sports → nationalities → countries in order
 5. **Legacy Fallback** - `legacy_resolvers()` from [ArWikiCats/legacy_bots/__init__.py:66-97]() handles remaining patterns
 6. **Post-Processing** - `fixlabel()` from [ArWikiCats/fix/fixtitle.py]() applies Arabic grammar rules
-7. **Prefix Addition** - `EventProcessor._prefix_label()` from [ArWikiCats/event_processing.py]() adds `ØªØµÙ†ÙŠÙ:`
+7. **Prefix Addition** - `EventProcessor._prefix_label()` from [ArWikiCats/event_processing.py]() adds `تصنيف:`
 
 **Example: "American basketball players"**
 - Normalized to `"american basketball players"`
 - No time pattern detected
 - `all_new_resolvers()` tries resolvers in priority order
 - `resolve_sport_label_unified()` matches pattern: `{nationality} {sport} players`
-- Lookups: "american" â†’ "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†", "basketball" â†’ "ÙƒØ±Ø© Ø³Ù„Ø©", "players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ"
-- Template applied: `"Ù„Ø§Ø¹Ø¨Ùˆ {sport} {nationality}"` â†’ `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"`
+- Lookups: "american" → "أمريكيون", "basketball" → "كرة سلة", "players" → "لاعبو"
+- Template applied: `"لاعبو {sport} {nationality}"` → `"لاعبو كرة سلة أمريكيون"`
 - `fixlabel()` verifies grammar
-- Output: `"ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"`
+- Output: `"تصنيف:لاعبو كرة سلة أمريكيون"`
 
 **Sources:** [ArWikiCats/main_processers/main_resolve.py:1-100](), [ArWikiCats/new_resolvers/__init__.py:29-57](), [ArWikiCats/legacy_bots/__init__.py:66-97](), [ArWikiCats/fix/fixtitle.py](), [ArWikiCats/event_processing.py:1-150]()
 
@@ -1035,7 +1034,7 @@ from ArWikiCats import resolve_label_ar
 
 categories = ["American actors", "French films", "2020 in sports"]
 for cat in categories:
-    print(f"{cat} â†’ {resolve_label_ar(cat)}")
+    print(f"{cat} → {resolve_label_ar(cat)}")
 ```
 
 ### Pattern 2: Batch with Error Handling
@@ -1201,7 +1200,7 @@ The public API provides entry points for category translation. All functions are
 
 ```mermaid
 graph LR
-    User["User Code"] --> API1["resolve_arabic_category_label(category)<br/>Returns: str with 'ØªØµÙ†ÙŠÙ:' prefix"]
+    User["User Code"] --> API1["resolve_arabic_category_label(category)<br/>Returns: str with 'تصنيف:' prefix"]
     User --> API2["resolve_label_ar(category, fix_label=True)<br/>Returns: str without prefix"]
     User --> API3["batch_resolve_labels(categories)<br/>Returns: BatchResult dataclass"]
     User --> API4["EventProcessor.process_single(category)<br/>Returns: CategoryResult dataclass"]
@@ -1215,7 +1214,7 @@ graph LR
 | Function | Location | Purpose | Return Type |
 |----------|----------|---------|-------------|
 | `resolve_label_ar()` | `main_resolve.py:96-99` | Translate single category without prefix | `str` |
-| `resolve_arabic_category_label()` | `__init__.py:19-24` | Translate with "ØªØµÙ†ÙŠÙ:" prefix | `str` |
+| `resolve_arabic_category_label()` | `__init__.py:19-24` | Translate with "تصنيف:" prefix | `str` |
 | `batch_resolve_labels()` | `__init__.py:27-32` | Process multiple categories | `BatchResult` |
 | `EventProcessor.process_single()` | `event_processing.py:67-111` | Detailed processing with metadata | `CategoryResult` |
 
@@ -1278,7 +1277,7 @@ graph TB
 The priority ordering is critical to prevent mismatches. For example:
 
 - **Jobs before Sports**: "football manager" could match sports ("football") or jobs ("manager"). Jobs wins to correctly identify it as a management position.
-- **Nationalities before Countries**: "Italy political leader" should resolve as nationality-based ("Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†") not country-based ("Ù‚Ø§Ø¯Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†").
+- **Nationalities before Countries**: "Italy political leader" should resolve as nationality-based ("قادة سياسيون إيطاليون") not country-based ("قادة إيطاليا السياسيون").
 
 **Sources:** [ArWikiCats/new_resolvers/__init__.py:1-57](), [ArWikiCats/patterns_resolvers/__init__.py:1-30](), [ArWikiCats/legacy_bots/__init__.py:29-57]()
 
@@ -1292,8 +1291,8 @@ The template formatting engine implements pattern matching and placeholder repla
 graph TB
     Base["FormatDataBase<br/>model_data_base.py<br/>Abstract base class<br/>Pattern compilation<br/>Placeholder replacement"]
 
-    Base --> Single1["FormatData<br/>model_data.py<br/>String â†’ String<br/>'{sport}' â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
-    Base --> Single2["FormatDataV2<br/>model_data_v2.py<br/>Dict â†’ Template<br/>'{sport}' â†’ {'team': '...', 'jobs': '...'}"]
+    Base --> Single1["FormatData<br/>model_data.py<br/>String → String<br/>'{sport}' → 'كرة القدم'"]
+    Base --> Single2["FormatDataV2<br/>model_data_v2.py<br/>Dict → Template<br/>'{sport}' → {'team': '...', 'jobs': '...'}"]
     Base --> Single3["FormatDataFrom<br/>model_data_time.py<br/>Callback-based<br/>For temporal patterns"]
 
     Single1 --> Multi1["MultiDataFormatterBase<br/>model_multi_data.py<br/>Combines two FormatData objects<br/>Example: Nationality + Sport"]
@@ -1309,7 +1308,7 @@ graph TB
 
 Each formatter provides:
 - Pattern compilation: Regex patterns with case-insensitive matching
-- Placeholder substitution: `{sport}` â†’ `{sport_ar}` with Arabic translations
+- Placeholder substitution: `{sport}` → `{sport_ar}` with Arabic translations
 - Result caching: `@lru_cache` on search methods
 - Label reordering: Ensures grammatically correct Arabic
 
@@ -1318,9 +1317,9 @@ Each formatter provides:
 Input: "british football players"
 1. Match pattern: "{nat} {sport} players"
 2. Extract: nat="british", sport="football"
-3. Lookup: nat_ar="Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†", sport_ar="ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
-4. Template: "Ù„Ø§Ø¹Ø¨Ùˆ {sport} {nat}"
-5. Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+3. Lookup: nat_ar="بريطانيون", sport_ar="كرة القدم"
+4. Template: "لاعبو {sport} {nat}"
+5. Output: "لاعبو كرة القدم بريطانيون"
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:1-150](), [ArWikiCats/translations_formats/DataModel/model_multi_data.py:1-400](), [ArWikiCats/translations_formats/multi_data.py:1-100]()
@@ -1342,11 +1341,11 @@ graph TB
     end
 
     subgraph Aggregators["Python Aggregators"]
-        A1["jobs/Jobs.py<br/>_finalise_jobs_dataset()<br/>â†’ 96,552 jobs"]
-        A2["sports/Sport_key.py<br/>_build_tables()<br/>â†’ Sport records"]
-        A3["nats/Nationality.py<br/>build_lookup_tables()<br/>â†’ 18 lookup tables"]
-        A4["geo/labels_country.py<br/>_build_country_label_index()<br/>â†’ 68,981 entries"]
-        A5["tv/films_mslslat.py<br/>_build_gender_key_maps()<br/>â†’ Gender-specific maps"]
+        A1["jobs/Jobs.py<br/>_finalise_jobs_dataset()<br/>→ 96,552 jobs"]
+        A2["sports/Sport_key.py<br/>_build_tables()<br/>→ Sport records"]
+        A3["nats/Nationality.py<br/>build_lookup_tables()<br/>→ 18 lookup tables"]
+        A4["geo/labels_country.py<br/>_build_country_label_index()<br/>→ 68,981 entries"]
+        A5["tv/films_mslslat.py<br/>_build_gender_key_maps()<br/>→ Gender-specific maps"]
     end
 
     subgraph Exports["Unified Exports"]
@@ -1455,20 +1454,20 @@ Translation data is organized by semantic domain rather than technical structure
 
 ```
 translations/
-â”œâ”€â”€ jobs/                   # Occupations and professions
-â”‚   â”œâ”€â”€ Jobs.py            # jobs_mens_data, jobs_womens_data
-â”‚   â”œâ”€â”€ activists_jobs.py  # Activism-specific roles
-â”‚   â””â”€â”€ religious_jobs.py  # Religious positions
-â”œâ”€â”€ sports/                 # Sports and teams
-â”‚   â”œâ”€â”€ Sport_key.py       # SPORT_KEY_RECORDS
-â”‚   â””â”€â”€ sub_teams.py       # Team-specific mappings
-â”œâ”€â”€ nats/                   # Nationalities
-â”‚   â””â”€â”€ Nationality.py     # All_Nat, 18 lookup tables
-â”œâ”€â”€ geo/                    # Geographic entities
-â”‚   â”œâ”€â”€ labels_country.py  # Country names
-â”‚   â””â”€â”€ labels_city.py     # City names
-â””â”€â”€ tv/                     # Films and television
-    â””â”€â”€ films_mslslat.py   # Genre and nationality patterns
+├── jobs/                   # Occupations and professions
+│   ├── Jobs.py            # jobs_mens_data, jobs_womens_data
+│   ├── activists_jobs.py  # Activism-specific roles
+│   └── religious_jobs.py  # Religious positions
+├── sports/                 # Sports and teams
+│   ├── Sport_key.py       # SPORT_KEY_RECORDS
+│   └── sub_teams.py       # Team-specific mappings
+├── nats/                   # Nationalities
+│   └── Nationality.py     # All_Nat, 18 lookup tables
+├── geo/                    # Geographic entities
+│   ├── labels_country.py  # Country names
+│   └── labels_city.py     # City names
+└── tv/                     # Films and television
+    └── films_mslslat.py   # Genre and nationality patterns
 ```
 
 Each domain maintains:
@@ -1496,7 +1495,7 @@ sequenceDiagram
     participant fixlabel
 
     User->>resolve_label: "2010 British football players"
-    resolve_label->>resolve_label: change_cat() â†’ lowercase, normalize
+    resolve_label->>resolve_label: change_cat() → lowercase, normalize
     resolve_label->>all_patterns_resolvers: "2010 british football players"
     all_patterns_resolvers->>all_patterns_resolvers: Check time patterns
     all_patterns_resolvers->>all_patterns_resolvers: Extract year: "2010"
@@ -1506,18 +1505,18 @@ sequenceDiagram
     all_new_resolvers->>main_sports_resolvers: Try sports resolver
     main_sports_resolvers->>FormatData: search("{nat} {sport} players")
     FormatData->>FormatData: Match: nat="british", sport="football"
-    FormatData->>FormatData: Lookup: nat_ar="Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†", sport_ar="ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
-    FormatData->>FormatData: Template: "Ù„Ø§Ø¹Ø¨Ùˆ {sport} {nat} Ø¹Ø§Ù… {year}"
-    FormatData-->>main_sports_resolvers: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2010"
+    FormatData->>FormatData: Lookup: nat_ar="بريطانيون", sport_ar="كرة القدم"
+    FormatData->>FormatData: Template: "لاعبو {sport} {nat} عام {year}"
+    FormatData-->>main_sports_resolvers: "لاعبو كرة القدم بريطانيون عام 2010"
     main_sports_resolvers-->>all_new_resolvers: Result found
     all_new_resolvers-->>resolve_label: category_lab
 
-    resolve_label->>fixlabel: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2010"
+    resolve_label->>fixlabel: "لاعبو كرة القدم بريطانيون عام 2010"
     fixlabel->>fixlabel: Apply Arabic grammar rules
-    fixlabel-->>resolve_label: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2010"
+    fixlabel-->>resolve_label: "لاعبو كرة القدم بريطانيون عام 2010"
 
     resolve_label->>resolve_label: cleanse_category_label()
-    resolve_label-->>User: CategoryResult(ar="Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ø¹Ø§Ù… 2010")
+    resolve_label-->>User: CategoryResult(ar="لاعبو كرة القدم بريطانيون عام 2010")
 ```
 
 **Sources:** [ArWikiCats/main_processers/main_resolve.py:33-94](), [ArWikiCats/new_resolvers/__init__.py:1-57](), [ArWikiCats/translations_formats/DataModel/model_data_base.py:1-150]()
@@ -1550,10 +1549,10 @@ Input categories may include:
 
 The `change_cat()` function in [ArWikiCats/format_bots/change_cat.py:1-25]() applies:
 - Lowercase conversion
-- Underscore to space: "British_footballers" â†’ "british footballers"
+- Underscore to space: "British_footballers" → "british footballers"
 - "Category:" prefix removal
 - Whitespace normalization
-- Key mappings: "labor" â†’ "labour", "womens" â†’ "female"
+- Key mappings: "labor" → "labour", "womens" → "female"
 
 ### Stage 3: Filtering
 
@@ -1572,9 +1571,9 @@ Each resolver returns on first match (early exit pattern).
 ### Stage 5: Arabic Grammar
 
 The `fixlabel()` function in [ArWikiCats/fix/fixtitle.py:1-150]() applies:
-- Article agreement: Proper handling of "Ø§Ù„" prefix
-- Preposition insertion: Add "ÙÙŠ" or "Ù…Ù†" based on English separators
-- Duplicate removal: Prevent "ÙÙŠ ÙÙŠ" patterns
+- Article agreement: Proper handling of "ال" prefix
+- Preposition insertion: Add "في" or "من" based on English separators
+- Duplicate removal: Prevent "في في" patterns
 - Gender-specific adjustments
 - Final formatting cleanup
 
@@ -1858,7 +1857,7 @@ graph TB
 
     subgraph PREPROCESS["Preprocessing Stage"]
         NORM["Normalization<br/>(lowercase, strip prefixes)"]
-        KEYMAP["change_key_mappings<br/>(laborâ†’labour)"]
+        KEYMAP["change_key_mappings<br/>(labor→labour)"]
         FILTER["filter_cat<br/>(validation check)"]
     end
 
@@ -1867,7 +1866,7 @@ graph TB
         YEAR["retrieve_year_from_category<br/>(LabsYears.lab_from_year)"]
 
         subgraph CHAIN["Resolver Chain (Waterfall)"]
-            R1["new_resolvers_all<br/>(Jobsâ†’Sportsâ†’Natsâ†’etc.)"]
+            R1["new_resolvers_all<br/>(Jobs→Sports→Nats→etc.)"]
             R2["resolve_country_time_pattern<br/>(Country+Year patterns)"]
             R3["resolve_nat_men_pattern_new<br/>(Nationality+Job patterns)"]
             R4["cash_2022<br/>(Direct lookup cache)"]
@@ -1878,7 +1877,7 @@ graph TB
 
     subgraph POSTPROCESS["Post-Processing Stage"]
         FIX["fixlabel<br/>(Arabic grammar correction)"]
-        PREFIX["Add Category Prefix<br/>(ØªØµÙ†ÙŠÙ:)"]
+        PREFIX["Add Category Prefix<br/>(تصنيف:)"]
     end
 
     OUTPUT["Output: Arabic Label"]
@@ -1943,8 +1942,8 @@ Before entering the resolver chain, category strings undergo normalization and v
 
 The `change_cat` function [ArWikiCats/format_bots/__init__.py]() (imported in [ArWikiCats/main_processers/main_resolve.py:21]()) applies key mappings to standardize English terminology:
 
-- `labor` â†’ `labour`
-- `war of` â†’ `war-of`
+- `labor` → `labour`
+- `war of` → `war-of`
 - Apostrophe removal
 - Whitespace normalization
 
@@ -1985,7 +1984,7 @@ graph TB
     START["resolve_label begins"]
 
     STEP1["Priority 1:<br/>retrieve_year_from_category<br/>(LabsYears.lab_from_year)"]
-    STEP2["Priority 2:<br/>new_resolvers_all<br/>(Jobsâ†’Sportsâ†’Natsâ†’Countriesâ†’Filmsâ†’Ministers)"]
+    STEP2["Priority 2:<br/>new_resolvers_all<br/>(Jobs→Sports→Nats→Countries→Films→Ministers)"]
     STEP3["Priority 3:<br/>resolve_country_time_pattern<br/>(Country+Year combinations)"]
     STEP4["Priority 4:<br/>resolve_nat_men_pattern_new<br/>(Nationality+Job patterns)"]
     STEP5["Priority 5:<br/>cash_2022.get<br/>(Direct JSON lookup cache)"]
@@ -2071,14 +2070,14 @@ After a resolver produces a match, the label undergoes grammatical correction an
 The `fixlabel` function [ArWikiCats/fix/fixtitle.py]() (called at [ArWikiCats/main_processers/main_resolve.py:128]()) performs:
 
 - Arabic article agreement (definite/indefinite forms)
-- Preposition insertion based on English separators ("of" â†’ "Ù…Ù†", "in" â†’ "ÙÙŠ")
+- Preposition insertion based on English separators ("of" → "من", "in" → "في")
 - Duplicate preposition removal
 - Gender agreement corrections
 - Diacritical mark normalization
 
 ### Category Prefix Addition
 
-The resolved label is prefixed with `"ØªØµÙ†ÙŠÙ:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py:287-303]().
+The resolved label is prefixed with `"تصنيف:"` by the EventProcessor's `_prefix_label` method [ArWikiCats/main_processers/event_lab_bot.py:301](). The main resolver optionally applies this through `_finalize_category_label` [ArWikiCats/main_processers/event_lab_bot.py:287-303]().
 
 **Note:** The `resolve_label_ar` function returns labels **without** the prefix, while `resolve_arabic_category_label` (in the EventProcessor) includes it.
 
@@ -2229,7 +2228,7 @@ graph LR
     RESULT -->|"original"| O["Original category"]
     RESULT -->|"normalized"| N["Normalized category"]
     RESULT -->|"raw_label"| R["Label before prefix"]
-    RESULT -->|"final_label"| F["ØªØµÙ†ÙŠÙ: + label"]
+    RESULT -->|"final_label"| F["تصنيف: + label"]
     RESULT -->|"has_label"| H["bool: success"]
 ```
 
@@ -2373,7 +2372,7 @@ Domain modules in `translations/{domain}/` load raw JSON and perform transformat
 graph LR
     subgraph DomainProcessing["Domain Module Processing Pattern"]
         LoadJSON["open_json_file()<br/>Load raw JSON"]
-        Transform["Transform & Filter<br/>â€¢ Lowercase keys<br/>â€¢ Build variants<br/>â€¢ Merge sources"]
+        Transform["Transform & Filter<br/>• Lowercase keys<br/>• Build variants<br/>• Merge sources"]
         Export["Module Exports<br/>Python dictionaries"]
     end
 
@@ -2532,7 +2531,7 @@ graph TB
 4. **`get_and_label(category)`** - Pattern-based resolution for "X and Y" categories
    - Uses regex `r"^(.*?) and (.*)$"` to split
    - Resolves each part independently
-   - Combines with Arabic conjunction "Ùˆ"
+   - Combines with Arabic conjunction "و"
 
    [ArWikiCats/translations/funcs.py:59-98]()
 
@@ -2592,7 +2591,7 @@ Used for complex lookups with fallback logic:
 from ArWikiCats.translations.funcs import get_from_new_p17_final
 
 # Geographic/entity lookup with cascading fallback
-label = get_from_new_p17_final("paris")  # Returns "Ø¨Ø§Ø±ÙŠØ³"
+label = get_from_new_p17_final("paris")  # Returns "باريس"
 ```
 
 Example: Country and nationality resolvers use `get_from_new_p17_final()` for geographic entity resolution.
@@ -2609,7 +2608,7 @@ from ArWikiCats.new_resolvers.format_opts import FormatDataV2
 formatter = FormatDataV2(SPORTS_KEYS_FOR_LABEL, template="{sport} players")
 
 # Apply to category
-result = formatter.apply_format("football players")  # Uses footballâ†’ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…
+result = formatter.apply_format("football players")  # Uses football→كرة القدم
 ```
 
 Example: Sports resolvers create `FormatDataV2` instances with `SPORTS_KEYS_FOR_LABEL` data.
@@ -2711,12 +2710,12 @@ Example data structure:
 ```python
 {
   "engineers": {
-    "males": "Ù…Ù‡Ù†Ø¯Ø³ÙˆÙ†",
-    "females": "Ù…Ù‡Ù†Ø¯Ø³Ø§Øª"
+    "males": "مهندسون",
+    "females": "مهندسات"
   },
   "teachers": {
-    "males": "Ù…Ø¹Ù„Ù…ÙˆÙ†",
-    "females": "Ù…Ø¹Ù„Ù…Ø§Øª"
+    "males": "معلمون",
+    "females": "معلمات"
   }
 }
 ```
@@ -2735,9 +2734,9 @@ Sports data uses `SportKeyRecord` with multiple translation variants:
 ```typescript
 // Type definition for reference
 type SportKeyRecord = {
-  team: string;      // "ÙØ±ÙŠÙ‚ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
-  label: string;     // "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
-  jobs: string;      // "ÙƒØ±Ø© Ù‚Ø¯Ù…" (for job combinations)
+  team: string;      // "فريق كرة القدم"
+  label: string;     // "كرة القدم"
+  jobs: string;      // "كرة قدم" (for job combinations)
   // Additional metadata
 }
 ```
@@ -2745,7 +2744,7 @@ type SportKeyRecord = {
 Built by `_build_tables()` which generates three separate dictionaries:
 - `SPORTS_KEYS_FOR_TEAM` - Team name patterns
 - `SPORTS_KEYS_FOR_LABEL` - General sport labels
-- `SPORTS_KEYS_FOR_JOBS` - Job combination forms (e.g., "football players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…")
+- `SPORTS_KEYS_FOR_JOBS` - Job combination forms (e.g., "football players" → "لاعبو كرة قدم")
 
 **Sources:** [ArWikiCats/translations/sports/Sport_key.py:42-50](), [ArWikiCats/translations/data_builders/build_sport_keys.py]()
 
@@ -2757,12 +2756,12 @@ Nationality data provides 18 different grammatical forms per nationality:
 # Example structure for "British"
 All_Nat["british"] = {
   "en": "British",
-  "ar": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠ",
-  # Forms: definite/indefinite Ã— singular/plural Ã— male/female
-  "male_singular": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠ",
-  "female_singular": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©",
-  "male_plural": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-  "female_plural": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª",
+  "ar": "بريطاني",
+  # Forms: definite/indefinite × singular/plural × male/female
+  "male_singular": "بريطاني",
+  "female_singular": "بريطانية",
+  "male_plural": "بريطانيون",
+  "female_plural": "بريطانيات",
   # ... 14 more forms
 }
 ```
@@ -2967,8 +2966,8 @@ flowchart TD
 ### Example 1: Nationality vs. Country Conflict
 
 **Problem:** "Italy political leader" could be interpreted as:
-- âŒ Country-based: "Ù‚Ø§Ø¯Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†" (political leaders of Italy - wrong)
-- âœ“ Nationality-based: "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†" (Italian political leaders - correct)
+- ❌ Country-based: "قادة إيطاليا السياسيون" (political leaders of Italy - wrong)
+- ✓ Nationality-based: "قادة سياسيون إيطاليون" (Italian political leaders - correct)
 
 **Solution:** Nationalities resolver (Priority 6) runs before Countries resolver (Priority 7)
 
@@ -2979,7 +2978,7 @@ flowchart LR
     Nats["Nationalities Resolver<br/>Priority 6"]
     Countries["Countries Resolver<br/>Priority 7"]
 
-    NatsMatch["Match Found<br/>'Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†'"]
+    NatsMatch["Match Found<br/>'قادة سياسيون إيطاليون'"]
     CountriesSkipped["Skipped<br/>Already matched"]
 
     Input --> Nats
@@ -2998,8 +2997,8 @@ flowchart LR
 ### Example 2: Job Title vs. Sports Term Conflict
 
 **Problem:** "football manager" could be interpreted as:
-- âŒ Sports-based: "Ù…Ø¯ÙŠØ±Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" (football directors - wrong)
-- âœ“ Job-based: "Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…" (football coaches/managers - correct)
+- ❌ Sports-based: "مديرو كرة القدم" (football directors - wrong)
+- ✓ Job-based: "مدربو كرة قدم" (football coaches/managers - correct)
 
 **Solution:** Jobs resolver (Priority 3) runs before Sports resolver (Priority 5)
 
@@ -3010,7 +3009,7 @@ flowchart LR
     Jobs["Jobs Resolver<br/>Priority 3"]
     Sports["Sports Resolver<br/>Priority 5"]
 
-    JobsMatch["Match Found<br/>'Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…'"]
+    JobsMatch["Match Found<br/>'مدربو كرة قدم'"]
     SportsSkipped["Skipped<br/>Already matched"]
 
     Input --> Jobs
@@ -3042,7 +3041,7 @@ flowchart LR
     Films["Films Resolver<br/>Priority 8"]
 
     TimePartial["Extracts '1990'<br/>but no full match"]
-    TimeJobsMatch["Complete Match<br/>'Ø£ÙÙ„Ø§Ù… 1990'"]
+    TimeJobsMatch["Complete Match<br/>'أفلام 1990'"]
 
     Input --> Time
     Time -->|"No complete match"| TimePartial
@@ -3233,8 +3232,8 @@ All caches use `@functools.lru_cache` for automatic eviction.
 ### Optimization for Early Exit
 
 The chain is ordered to place most common patterns earlier:
-- Time patterns (years, decades) are extremely common â†’ Priority 1
-- Jobs are more common than films â†’ Priority 3 vs Priority 8
+- Time patterns (years, decades) are extremely common → Priority 1
+- Jobs are more common than films → Priority 3 vs Priority 8
 - This minimizes the average number of resolver calls per category
 
 **Sources:**
@@ -3250,14 +3249,14 @@ Tests are organized by resolver type:
 
 ```
 tests/
-â”œâ”€â”€ unit/
-â”‚   â”œâ”€â”€ new_resolvers/
-â”‚   â”‚   â”œâ”€â”€ test_jobs_resolvers.py
-â”‚   â”‚   â”œâ”€â”€ test_sports_resolvers.py
-â”‚   â”‚   â”œâ”€â”€ test_nationalities_resolvers.py
-â”‚   â”‚   â””â”€â”€ ...
-â”œâ”€â”€ integration/
-â”‚   â””â”€â”€ test_resolver_chain.py
+├── unit/
+│   ├── new_resolvers/
+│   │   ├── test_jobs_resolvers.py
+│   │   ├── test_sports_resolvers.py
+│   │   ├── test_nationalities_resolvers.py
+│   │   └── ...
+├── integration/
+│   └── test_resolver_chain.py
 ```
 
 ### Conflict Testing
@@ -3267,11 +3266,11 @@ Add tests that verify conflict resolution:
 ```python
 def test_nationality_before_country_conflict():
     # Should match nationality resolver, not country resolver
-    assert resolve_label_ar("Italy political leader") == "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†"
+    assert resolve_label_ar("Italy political leader") == "قادة سياسيون إيطاليون"
 
 def test_jobs_before_sports_conflict():
     # Should match jobs resolver, not sports resolver
-    assert resolve_label_ar("football manager") == "Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…"
+    assert resolve_label_ar("football manager") == "مدربو كرة قدم"
 ```
 
 **Sources:**
@@ -3287,7 +3286,7 @@ def test_jobs_before_sports_conflict():
 The resolver chain logs which resolver matched:
 
 ```
-<<purple>> : british footballers => Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† via Sports resolvers
+<<purple>> : british footballers => لاعبو كرة قدم بريطانيون via Sports resolvers
 ```
 
 Enable debug logging to trace the resolution process:
@@ -3567,8 +3566,8 @@ Basic string-to-string dictionaries for straightforward translations:
 ```python
 # Example from COUNTRY_LABEL_OVERRIDES
 {
-    "united states": "Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©",
-    "united kingdom": "Ø§Ù„Ù…Ù…Ù„ÙƒØ© Ø§Ù„Ù…ØªØ­Ø¯Ø©"
+    "united states": "الولايات المتحدة",
+    "united kingdom": "المملكة المتحدة"
 }
 ```
 
@@ -3580,8 +3579,8 @@ Job and role translations with masculine and feminine forms:
 # Example from jobs_mens_data and jobs_womens_data
 {
     "engineers": {
-        "males": "Ù…Ù‡Ù†Ø¯Ø³ÙˆÙ†",
-        "females": "Ù…Ù‡Ù†Ø¯Ø³Ø§Øª"
+        "males": "مهندسون",
+        "females": "مهندسات"
     }
 }
 ```
@@ -3593,8 +3592,8 @@ Patterns with placeholders for dynamic substitution:
 ```python
 # Example from Films_key_For_nat
 {
-    "drama films": "Ø£ÙÙ„Ø§Ù… Ø¯Ø±Ø§Ù…ÙŠØ© {}",  # {} = nationality placeholder
-    "action films": "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© {}"
+    "drama films": "أفلام درامية {}",  # {} = nationality placeholder
+    "action films": "أفلام حركة {}"
 }
 ```
 
@@ -3606,9 +3605,9 @@ Complex structures with multiple translation contexts:
 # Example from SPORT_KEY_RECORDS (Sport_key.py)
 {
     "football": {
-        "label": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…",      # General label
-        "team": "ÙƒØ±Ø© Ù‚Ø¯Ù…",         # For teams
-        "jobs": "ÙƒØ±Ø© Ù‚Ø¯Ù…"          # For jobs/occupations
+        "label": "كرة القدم",      # General label
+        "team": "كرة قدم",         # For teams
+        "jobs": "كرة قدم"          # For jobs/occupations
     }
 }
 ```
@@ -3828,8 +3827,8 @@ The final dataset structure uses `GenderedLabelMap` types:
 ```python
 {
     "football players": {
-        "males": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…",
-        "females": "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…"
+        "males": "لاعبو كرة قدم",
+        "females": "لاعبات كرة قدم"
     }
 }
 ```
@@ -3883,9 +3882,9 @@ The `SportKeyRecord` structure contains four translation variants:
 | Field | Usage | Example |
 |-------|-------|---------|
 | `sport` | Base sport name | "football" |
-| `team` | Team context | "ÙƒØ±Ø© Ù‚Ø¯Ù…" (for "football teams") |
-| `label` | Label context | "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" (for "football players") |
-| `jobs` | Job context | "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" (for "football coaches") |
+| `team` | Team context | "كرة قدم" (for "football teams") |
+| `label` | Label context | "كرة القدم" (for "football players") |
+| `jobs` | Job context | "كرة القدم" (for "football coaches") |
 
 The aggregator also applies aliases to normalize input:
 
@@ -3939,9 +3938,9 @@ graph TB
 
 The aggregation follows this priority order:
 
-1. **City translations** (lowercase normalized) - e.g., "new york" â†’ "Ù†ÙŠÙˆÙŠÙˆØ±Ùƒ"
-2. **Country administrative labels** - e.g., "england" â†’ "Ø¥Ù†Ø¬Ù„ØªØ±Ø§"
-3. **US States** - e.g., "california" â†’ "ÙƒØ§Ù„ÙŠÙÙˆØ±Ù†ÙŠØ§"
+1. **City translations** (lowercase normalized) - e.g., "new york" → "نيويورك"
+2. **Country administrative labels** - e.g., "england" → "إنجلترا"
+3. **US States** - e.g., "california" → "كاليفورنيا"
 4. **Country label overrides** - handles special cases
 5. **Region translations** - hierarchical regions like "main", "secondary", "india"
 6. **Taxonomic data** - biological classifications with "of" suffix handling
@@ -4015,8 +4014,8 @@ The aggregator creates several specialized outputs:
 1. **`Films_key_CAO`** - Comprehensive film/TV categories without nationality placeholders
 2. **`Films_key_For_nat`** - Templates with `{}` placeholder for nationality insertion, e.g.:
    ```python
-   "action films": "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© {}"
-   "television series debuts": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ"
+   "action films": "أفلام حركة {}"
+   "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في"
    ```
 3. **`films_mslslat_tab`** - Series-specific patterns (debuts, endings)
 4. **Gender-specific mappings** - Male/female actor categories
@@ -4204,11 +4203,11 @@ A flat dictionary mapping English keys to Arabic labels for generic categories:
 
 ```python
 {
-    "football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…",
-    "novels": "Ø±ÙˆØ§ÙŠØ§Øª",
-    "political parties": "Ø£Ø­Ø²Ø§Ø¨ Ø³ÙŠØ§Ø³ÙŠØ©",
-    "births": "Ù…ÙˆØ§Ù„ÙŠØ¯",
-    "earthquakes": "Ø²Ù„Ø§Ø²Ù„",
+    "football": "كرة القدم",
+    "novels": "روايات",
+    "political parties": "أحزاب سياسية",
+    "births": "مواليد",
+    "earthquakes": "زلازل",
     # ... 33,652 more entries
 }
 ```
@@ -4226,11 +4225,11 @@ A comprehensive geographic and taxonomic index:
 
 ```python
 {
-    "london": "Ù„Ù†Ø¯Ù†",
-    "california": "ÙƒØ§Ù„ÙŠÙÙˆØ±Ù†ÙŠØ§",
-    "england": "Ø¥Ù†Ø¬Ù„ØªØ±Ø§",
-    "mammals": "Ø«Ø¯ÙŠÙŠØ§Øª",
-    "fossil mammals": "Ø«Ø¯ÙŠÙŠØ§Øª Ø£Ø­ÙÙˆØ±ÙŠØ©",
+    "london": "لندن",
+    "california": "كاليفورنيا",
+    "england": "إنجلترا",
+    "mammals": "ثدييات",
+    "fossil mammals": "ثدييات أحفورية",
     # ... 68,976 more entries
 }
 ```
@@ -4294,9 +4293,9 @@ graph LR
 
 | Function | Purpose | Fallback Chain |
 |----------|---------|----------------|
-| `get_from_new_p17_final()` | Primary lookup for any term | ALIASES_CHAIN â†’ pf_keys2 â†’ NEW_P17_FINAL |
+| `get_from_new_p17_final()` | Primary lookup for any term | ALIASES_CHAIN → pf_keys2 → NEW_P17_FINAL |
 | `get_from_pf_keys2()` | Direct mixed categories lookup | pf_keys2 only |
-| `_get_from_alias()` | Multi-source lookup with caching (LRU 10,000) | pf_keys2 â†’ Jobs_new â†’ jobs_mens_data â†’ films_mslslat_tab â†’ Clubs_key_2 â†’ pop_final_5 â†’ NEW_P17_FINAL â†’ SPORTS_KEYS_FOR_LABEL |
+| `_get_from_alias()` | Multi-source lookup with caching (LRU 10,000) | pf_keys2 → Jobs_new → jobs_mens_data → films_mslslat_tab → Clubs_key_2 → pop_final_5 → NEW_P17_FINAL → SPORTS_KEYS_FOR_LABEL |
 | `get_and_label()` | Handle "X and Y" patterns | Splits on "and", calls get_from_new_p17_final() for each part |
 
 The `ALIASES_CHAIN` provides fast lookups for specialized domains:
@@ -4439,9 +4438,9 @@ Cities are stored in `CITY_TRANSLATIONS_LOWER` with 10,526 entries. The dictiona
 **Structure:**
 ```python
 CITY_TRANSLATIONS_LOWER: Dict[str, str] = {
-    "new york": "Ù†ÙŠÙˆÙŠÙˆØ±Ùƒ",
-    "london": "Ù„Ù†Ø¯Ù†",
-    "paris": "Ø¨Ø§Ø±ÙŠØ³",
+    "new york": "نيويورك",
+    "london": "لندن",
+    "paris": "باريس",
     # ... 10,526 total entries
 }
 ```
@@ -4460,14 +4459,14 @@ The `US_STATES` dictionary contains all 50 US states plus special cases like "Wa
 
 ```python
 US_STATES = {
-    "georgia (u.s. state)": "ÙˆÙ„Ø§ÙŠØ© Ø¬ÙˆØ±Ø¬ÙŠØ§",
-    "new york (state)": "ÙˆÙ„Ø§ÙŠØ© Ù†ÙŠÙˆÙŠÙˆØ±Ùƒ",
-    "washington (state)": "ÙˆÙ„Ø§ÙŠØ© ÙˆØ§Ø´Ù†Ø·Ù†",
-    "washington": "ÙˆØ§Ø´Ù†Ø·Ù†",
-    "washington, d.c.": "ÙˆØ§Ø´Ù†Ø·Ù† Ø§Ù„Ø¹Ø§ØµÙ…Ø©",
-    "georgia": "Ø¬ÙˆØ±Ø¬ÙŠØ§",
-    "new york": "Ù†ÙŠÙˆÙŠÙˆØ±Ùƒ",
-    "alabama": "Ø£Ù„Ø§Ø¨Ø§Ù…Ø§",
+    "georgia (u.s. state)": "ولاية جورجيا",
+    "new york (state)": "ولاية نيويورك",
+    "washington (state)": "ولاية واشنطن",
+    "washington": "واشنطن",
+    "washington, d.c.": "واشنطن العاصمة",
+    "georgia": "جورجيا",
+    "new york": "نيويورك",
+    "alabama": "ألاباما",
     # ... all 50 states
 }
 ```
@@ -4478,14 +4477,14 @@ The dictionary handles disambiguation by including both the parenthetical form `
 
 ### US Counties
 
-The `US_COUNTY_TRANSLATIONS` dictionary provides translations for 2,998 US counties, loaded from `us_counties.py`. This enables resolution of categories like "People from Alameda County, California" â†’ "Ø£Ø¹Ù„Ø§Ù… Ù…Ù† Ù…Ù‚Ø§Ø·Ø¹Ø© Ø£Ù„Ø§Ù…ÙŠØ¯Ø§ØŒ ÙƒØ§Ù„ÙŠÙÙˆØ±Ù†ÙŠØ§".
+The `US_COUNTY_TRANSLATIONS` dictionary provides translations for 2,998 US counties, loaded from `us_counties.py`. This enables resolution of categories like "People from Alameda County, California" → "أعلام من مقاطعة ألاميدا، كاليفورنيا".
 
 **Example entries:**
 ```python
 US_COUNTY_TRANSLATIONS = {
-    "alameda county": "Ù…Ù‚Ø§Ø·Ø¹Ø© Ø£Ù„Ø§Ù…ÙŠØ¯Ø§",
-    "los angeles county": "Ù…Ù‚Ø§Ø·Ø¹Ø© Ù„ÙˆØ³ Ø£Ù†Ø¬Ù„ÙŠØ³",
-    "cook county": "Ù…Ù‚Ø§Ø·Ø¹Ø© ÙƒÙˆÙƒ",
+    "alameda county": "مقاطعة ألاميدا",
+    "los angeles county": "مقاطعة لوس أنجليس",
+    "cook county": "مقاطعة كوك",
     # ... 2,998 total counties
 }
 ```
@@ -4503,10 +4502,10 @@ US_COUNTY_TRANSLATIONS = {
 **Examples:**
 ```python
 COUNTRY_LABEL_OVERRIDES = {
-    "united states": "Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©",
-    "united kingdom": "Ø§Ù„Ù…Ù…Ù„ÙƒØ© Ø§Ù„Ù…ØªØ­Ø¯Ø©",
-    "soviet union": "Ø§Ù„Ø§ØªØ­Ø§Ø¯ Ø§Ù„Ø³ÙˆÙÙŠØªÙŠ",
-    "roman empire": "Ø§Ù„Ø¥Ù…Ø¨Ø±Ø§Ø·ÙˆØ±ÙŠØ© Ø§Ù„Ø±ÙˆÙ…Ø§Ù†ÙŠØ©",
+    "united states": "الولايات المتحدة",
+    "united kingdom": "المملكة المتحدة",
+    "soviet union": "الاتحاد السوفيتي",
+    "roman empire": "الإمبراطورية الرومانية",
     # ... 1,459 total entries
 }
 ```
@@ -4520,11 +4519,11 @@ COUNTRY_LABEL_OVERRIDES = {
 **Sample content from popopo.json:**
 ```json
 {
-    "'asir region": "Ù…Ù†Ø·Ù‚Ø© Ø¹Ø³ÙŠØ±",
-    "abbasid caliphate": "Ø§Ù„Ø¯ÙˆÙ„Ø© Ø§Ù„Ø¹Ø¨Ø§Ø³ÙŠØ©",
-    "aceh sultanate": "Ø³Ù„Ø·Ù†Ø© Ø¢ØªØ´ÙŠÙ‡",
-    "adamawa state": "ÙˆÙ„Ø§ÙŠØ© Ø¢Ø¯Ù…Ø§ÙˆØ©",
-    "aleppo governorate": "Ù…Ø­Ø§ÙØ¸Ø© Ø­Ù„Ø¨"
+    "'asir region": "منطقة عسير",
+    "abbasid caliphate": "الدولة العباسية",
+    "aceh sultanate": "سلطنة آتشيه",
+    "adamawa state": "ولاية آدماوة",
+    "aleppo governorate": "محافظة حلب"
 }
 ```
 
@@ -4549,18 +4548,18 @@ The system includes comprehensive Japanese prefecture and region translations bu
 **Base labels:**
 ```python
 JAPAN_REGIONAL_LABELS = {
-    "saitama": "Ø³Ø§ÙŠØªØ§Ù…Ø§",
-    "tohoku": "ØªÙˆÙ‡ÙˆÙƒÙˆ",
-    "kyushu": "ÙƒÙŠÙˆØ´Ùˆ",
-    "kantÅ": "ÙƒØ§Ù†ØªÙˆ",
-    "hokkaido": "Ù‡ÙˆÙƒØ§ÙŠØ¯Ùˆ",
+    "saitama": "سايتاما",
+    "tohoku": "توهوكو",
+    "kyushu": "كيوشو",
+    "kantō": "كانتو",
+    "hokkaido": "هوكايدو",
     # ... 47 prefectures + regions
 }
 ```
 
 **Generated labels:** The `_make_japan_labels()` function creates additional entries for:
-- Prefecture suffixes: `"saitama prefecture"` â†’ `"Ù…Ø­Ø§ÙØ¸Ø© Ø³Ø§ÙŠØªØ§Ù…Ø§"`
-- Regional groupings: `"kantÅ region"` â†’ `"Ù…Ù†Ø·Ù‚Ø© ÙƒØ§Ù†ØªÙˆ"`
+- Prefecture suffixes: `"saitama prefecture"` → `"محافظة سايتاما"`
+- Regional groupings: `"kantō region"` → `"منطقة كانتو"`
 
 **Sources:** [ArWikiCats/translations/geo/labels_country.py:70-127](), [ArWikiCats/translations/geo/labels_country.py:226]()
 
@@ -4571,16 +4570,16 @@ Turkish provinces are similarly structured with automatic suffix generation:
 **Base labels:**
 ```python
 TURKEY_PROVINCE_LABELS = {
-    "adana": "Ø£Ø¶Ù†Ø©",
-    "ankara": "Ø£Ù†Ù‚Ø±Ø©",
-    "istanbul": "Ø¥Ø³Ø·Ù†Ø¨ÙˆÙ„",
-    "izmir": "Ø¥Ø²Ù…ÙŠØ±",
+    "adana": "أضنة",
+    "ankara": "أنقرة",
+    "istanbul": "إسطنبول",
+    "izmir": "إزمير",
     # ... 81 provinces
 }
 ```
 
 **Generated labels:** The `_make_turkey_labels()` function creates:
-- Province suffixes: `"ankara province"` â†’ `"Ù…Ø­Ø§ÙØ¸Ø© Ø£Ù†Ù‚Ø±Ø©"`
+- Province suffixes: `"ankara province"` → `"محافظة أنقرة"`
 - Alternative forms
 
 **Sources:** [ArWikiCats/translations/geo/labels_country.py:128-211](), [ArWikiCats/translations/geo/labels_country.py:227]()
@@ -4839,7 +4838,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the jobs and occupations translation system, which provides comprehensive English-to-Arabic mappings for occupational categories with gender-aware handling. The system maintains 97,797 male job entries and 75,244 female job entries, supporting the translation of Wikipedia categories like "British film directors" to "Ù…Ø®Ø±Ø¬Ùˆ Ø£ÙÙ„Ø§Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†".
+This page documents the jobs and occupations translation system, which provides comprehensive English-to-Arabic mappings for occupational categories with gender-aware handling. The system maintains 97,797 male job entries and 75,244 female job entries, supporting the translation of Wikipedia categories like "British film directors" to "مخرجو أفلام بريطانيون".
 
 For resolver implementation details using these datasets, see [Job Resolvers](#5.4). For nationality handling in job categories, see [Nationality Resolvers](#5.2).
 
@@ -4996,15 +4995,15 @@ The jobs system maintains separate male and female datasets with specialized han
 
 | Dataset | Size | Example Entry | Usage |
 |---------|------|---------------|-------|
-| `jobs_mens_data` | 97,797 entries | `"zoologists": "Ø¹Ù„Ù…Ø§Ø¡ Ø­ÙŠÙˆØ§Ù†Ø§Øª"` | Primary male job lookup |
+| `jobs_mens_data` | 97,797 entries | `"zoologists": "علماء حيوانات"` | Primary male job lookup |
 | `Jobs_new` | 99,104 entries | Includes nationality variants | Extended male jobs with nationality combinations |
 
 ### Female Jobs Dataset
 
 | Dataset | Size | Example Entry | Usage |
 |---------|------|---------------|-------|
-| `jobs_womens_data` | 75,244 entries | `"actresses": "Ù…Ù…Ø«Ù„Ø§Øª"` | Primary female job lookup |
-| `short_womens_jobs` | 484 entries | `"nuns": "Ø±Ø§Ù‡Ø¨Ø§Øª"` | Core female-specific jobs |
+| `jobs_womens_data` | 75,244 entries | `"actresses": "ممثلات"` | Primary female job lookup |
+| `short_womens_jobs` | 484 entries | `"nuns": "راهبات"` | Core female-specific jobs |
 | `FEMALE_JOBS_BASE_EXTENDED` | 51 entries | Religious + base female jobs | Extended female roles |
 
 **Gender-Specific Data Structure:**
@@ -5016,17 +5015,17 @@ graph TB
     end
 
     subgraph "Male-Only Access"
-        jobs_mens_data["jobs_mens_data<br/>Dict[str, str]<br/>Key â†’ Arabic male label"]
+        jobs_mens_data["jobs_mens_data<br/>Dict[str, str]<br/>Key → Arabic male label"]
         Jobs_new["Jobs_new<br/>Dict[str, str]<br/>Extended male labels"]
     end
 
     subgraph "Female-Only Access"
-        jobs_womens_data["jobs_womens_data<br/>Dict[str, str]<br/>Key â†’ Arabic female label"]
+        jobs_womens_data["jobs_womens_data<br/>Dict[str, str]<br/>Key → Arabic female label"]
         short_womens["short_womens_jobs<br/>Dict[str, str]<br/>Core female jobs"]
     end
 
     subgraph "Dual-Gender Access"
-        GenderedLabelMap["GenderedLabelMap<br/>Dict[str, GenderedLabel]<br/>Key â†’ {males, females}"]
+        GenderedLabelMap["GenderedLabelMap<br/>Dict[str, GenderedLabel]<br/>Key → {males, females}"]
 
         RELIGIOUS_KEYS_PP["RELIGIOUS_KEYS_PP<br/>33 religious roles"]
         PLAYERS_TO_MEN_WOMENS["PLAYERS_TO_MEN_WOMENS_JOBS<br/>1,342 player roles"]
@@ -5055,15 +5054,15 @@ graph LR
     end
 
     subgraph "Religious Role Types"
-        BaseRoles["Base Roles:<br/>â€¢ christians â†’ Ù…Ø³ÙŠØ­ÙŠÙˆÙ†/Ù…Ø³ÙŠØ­ÙŠØ§Øª<br/>â€¢ muslims â†’ Ù…Ø³Ù„Ù…ÙˆÙ†/Ù…Ø³Ù„Ù…Ø§Øª<br/>â€¢ jews â†’ ÙŠÙ‡ÙˆØ¯/ÙŠÙ‡ÙˆØ¯ÙŠØ§Øª<br/>â€¢ buddhist â†’ Ø¨ÙˆØ°ÙŠÙˆÙ†/Ø¨ÙˆØ°ÙŠØ§Øª"]
+        BaseRoles["Base Roles:<br/>• christians → مسيحيون/مسيحيات<br/>• muslims → مسلمون/مسلمات<br/>• jews → يهود/يهوديات<br/>• buddhist → بوذيون/بوذيات"]
 
-        DenomRoles["Denomination Roles:<br/>â€¢ sunni muslim â†’ Ù…Ø³Ù„Ù…ÙˆÙ† Ø³Ù†Ø©<br/>â€¢ shi'a muslim â†’ Ù…Ø³Ù„Ù…ÙˆÙ† Ø´ÙŠØ¹Ø©<br/>â€¢ anglican â†’ Ø£Ù†Ø¬Ù„ÙŠÙƒÙŠÙˆÙ†"]
+        DenomRoles["Denomination Roles:<br/>• sunni muslim → مسلمون سنة<br/>• shi'a muslim → مسلمون شيعة<br/>• anglican → أنجليكيون"]
 
-        FunctionRoles["Functional Roles:<br/>â€¢ missionaries â†’ Ù…Ø¨Ø´Ø±ÙˆÙ†/Ù…Ø¨Ø´Ø±Ø§Øª<br/>â€¢ monks â†’ Ø±Ù‡Ø¨Ø§Ù†<br/>â€¢ nuns â†’ Ø±Ø§Ù‡Ø¨Ø§Øª<br/>â€¢ saints â†’ Ù‚Ø¯ÙŠØ³ÙˆÙ†/Ù‚Ø¯ÙŠØ³Ø§Øª"]
+        FunctionRoles["Functional Roles:<br/>• missionaries → مبشرون/مبشرات<br/>• monks → رهبان<br/>• nuns → راهبات<br/>• saints → قديسون/قديسات"]
     end
 
     subgraph "Builder Functions"
-        BuildReligious["_build_religious_job_labels()<br/>Combines religions Ã— roles"]
+        BuildReligious["_build_religious_job_labels()<br/>Combines religions × roles"]
     end
 
     RELIGIOUS_KEYS_PP --> BuildReligious
@@ -5077,9 +5076,9 @@ graph LR
 
 | English Key | Male Arabic | Female Arabic |
 |-------------|-------------|---------------|
-| `"christian missionaries"` | `"Ù…Ø¨Ø´Ø±ÙˆÙ† Ù…Ø³ÙŠØ­ÙŠÙˆÙ†"` | `"Ù…Ø¨Ø´Ø±Ø§Øª Ù…Ø³ÙŠØ­ÙŠØ§Øª"` |
-| `"buddhist monks"` | `"Ø±Ù‡Ø¨Ø§Ù† Ø¨ÙˆØ°ÙŠÙˆÙ†"` | `"Ø±Ø§Ù‡Ø¨Ø§Øª Ø¨ÙˆØ°ÙŠØ§Øª"` |
-| `"muslim saints"` | `"Ù‚Ø¯ÙŠØ³ÙˆÙ† Ù…Ø³Ù„Ù…ÙˆÙ†"` | `"Ù‚Ø¯ÙŠØ³Ø§Øª Ù…Ø³Ù„Ù…Ø§Øª"` |
+| `"christian missionaries"` | `"مبشرون مسيحيون"` | `"مبشرات مسيحيات"` |
+| `"buddhist monks"` | `"رهبان بوذيون"` | `"راهبات بوذيات"` |
+| `"muslim saints"` | `"قديسون مسلمون"` | `"قديسات مسلمات"` |
 
 **Sources:** [ArWikiCats/translations/jobs/jobs_data_basic.py:20-54](), [ArWikiCats/translations/jobs/jobs_data_basic.py:83-98]()
 
@@ -5090,11 +5089,11 @@ The sports job system provides 571 sport job variants, integrating with the spor
 ```mermaid
 graph TB
     subgraph "Sport Job Components"
-        SPORTS_KEYS["SPORTS_KEYS_FOR_JOBS<br/>431 sport keys<br/>'football' â†’ 'ÙƒØ±Ø© Ù‚Ø¯Ù…'"]
+        SPORTS_KEYS["SPORTS_KEYS_FOR_JOBS<br/>431 sport keys<br/>'football' → 'كرة قدم'"]
 
         FOOTBALL_KEYS["FOOTBALL_KEYS_PLAYERS<br/>46 football-specific roles<br/>Position-based labels"]
 
-        JOBS_PLAYERS["JOBS_PLAYERS<br/>145 player base roles<br/>'swimmers' â†’ base label"]
+        JOBS_PLAYERS["JOBS_PLAYERS<br/>145 player base roles<br/>'swimmers' → base label"]
     end
 
     subgraph "Player Role Builders"
@@ -5126,10 +5125,10 @@ graph TB
 
 | Variant Type | Example | Male Label | Female Label |
 |--------------|---------|------------|--------------|
-| Team sport player | `"basketball players"` | `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©"` | `"Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©"` |
-| Boxing weight class | `"heavyweight boxers"` | `"Ù…Ù„Ø§ÙƒÙ…Ùˆ ÙˆØ²Ù† Ø«Ù‚ÙŠÙ„"` | (not defined) |
-| Sport manager | `"football managers"` | `"Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…"` | `"Ù…Ø¯Ø±Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…"` |
-| Olympic scope | `"olympic athletes"` | `"Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†"` | `"Ø±ÙŠØ§Ø¶ÙŠØ§Øª Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Øª"` |
+| Team sport player | `"basketball players"` | `"لاعبو كرة السلة"` | `"لاعبات كرة السلة"` |
+| Boxing weight class | `"heavyweight boxers"` | `"ملاكمو وزن ثقيل"` | (not defined) |
+| Sport manager | `"football managers"` | `"مدربو كرة قدم"` | `"مدربات كرة قدم"` |
+| Olympic scope | `"olympic athletes"` | `"رياضيون أولمبيون"` | `"رياضيات أولمبيات"` |
 
 **Sources:** [ArWikiCats/translations/jobs/jobs_players_list.py:1-263](), [_work_files/data_len.json:32-46]()
 
@@ -5150,9 +5149,9 @@ graph TB
     end
 
     subgraph "Singer Builders"
-        BuildSingerVariants["Build singer Ã— media variants<br/>_add_singer_media_variants()"]
+        BuildSingerVariants["Build singer × media variants<br/>_add_singer_media_variants()"]
 
-        BuildNonFiction["Build non-fiction Ã— role variants<br/>_add_non_fiction_variants()"]
+        BuildNonFiction["Build non-fiction × role variants<br/>_add_non_fiction_variants()"]
     end
 
     subgraph "Final Singer Datasets"
@@ -5175,10 +5174,10 @@ graph TB
 
 | Category | Male Form | Female Form |
 |----------|-----------|-------------|
-| `"film musicians"` | `"Ù…ÙˆØ³ÙŠÙ‚ÙŠÙˆ Ø£ÙÙ„Ø§Ù…"` | `"Ù…ÙˆØ³ÙŠÙ‚ÙŠØ§Øª Ø£ÙÙ„Ø§Ù…"` |
-| `"television singers"` | `"Ù…ØºÙ†Ùˆ ØªÙ„ÙØ²ÙŠÙˆÙ†"` | `"Ù…ØºÙ†ÙŠØ§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†"` |
-| `"record producers"` | `"Ù…Ù†ØªØ¬Ùˆ ØªØ³Ø¬ÙŠÙ„Ø§Øª"` | `"Ù…Ù†ØªØ¬Ø§Øª ØªØ³Ø¬ÙŠÙ„Ø§Øª"` |
-| `"singer-songwriters"` | `"Ù…ØºÙ†ÙˆÙ† ÙˆÙƒØªØ§Ø¨ Ø£ØºØ§Ù†ÙŠ"` | `"Ù…ØºÙ†ÙŠØ§Øª ÙˆÙƒØ§ØªØ¨Ø§Øª Ø£ØºØ§Ù†ÙŠ"` |
+| `"film musicians"` | `"موسيقيو أفلام"` | `"موسيقيات أفلام"` |
+| `"television singers"` | `"مغنو تلفزيون"` | `"مغنيات تلفزيون"` |
+| `"record producers"` | `"منتجو تسجيلات"` | `"منتجات تسجيلات"` |
+| `"singer-songwriters"` | `"مغنون وكتاب أغاني"` | `"مغنيات وكاتبات أغاني"` |
 
 **Sources:** [ArWikiCats/translations/jobs/jobs_singers.py:1-148](), [_work_files/data_len.json:41-42,63-64]()
 
@@ -5190,10 +5189,10 @@ The jobs system includes 193 scientific discipline translations organized by fie
 
 | Field | Example Disciplines | Arabic Pattern |
 |-------|-------------------|----------------|
-| Life Sciences | `"biologists"`, `"zoologists"`, `"botanists"` | `"Ø¹Ù„Ù…Ø§Ø¡ {discipline}"` |
-| Medical Sciences | `"epidemiologists"`, `"immunologists"`, `"virologists"` | `"Ø¹Ù„Ù…Ø§Ø¡ {discipline}"` |
-| Physical Sciences | `"physicists"`, `"chemists"`, `"astronomers"` | `"ÙÙŠØ²ÙŠØ§Ø¦ÙŠÙˆÙ†"`, `"ÙƒÙŠÙ…ÙŠØ§Ø¦ÙŠÙˆÙ†"` |
-| Earth Sciences | `"geologists"`, `"oceanographers"`, `"seismologists"` | `"Ø¹Ù„Ù…Ø§Ø¡ {discipline}"` |
+| Life Sciences | `"biologists"`, `"zoologists"`, `"botanists"` | `"علماء {discipline}"` |
+| Medical Sciences | `"epidemiologists"`, `"immunologists"`, `"virologists"` | `"علماء {discipline}"` |
+| Physical Sciences | `"physicists"`, `"chemists"`, `"astronomers"` | `"فيزيائيون"`, `"كيميائيون"` |
+| Earth Sciences | `"geologists"`, `"oceanographers"`, `"seismologists"` | `"علماء {discipline}"` |
 
 **Sources:** [ArWikiCats/translations/jobs/Jobs2.py:21-88]()
 
@@ -5210,11 +5209,11 @@ graph LR
     end
 
     subgraph "Builder"
-        BuildPainter["_build_painter_job_labels()<br/>Combines styles Ã— roles Ã— subjects"]
+        BuildPainter["_build_painter_job_labels()<br/>Combines styles × roles × subjects"]
     end
 
     subgraph "Output"
-        PainterJobs["Painter job labels<br/>'romantic landscape painters'<br/>â†’ 'Ø±Ø³Ø§Ù…Ùˆ Ù…Ù†Ø§Ø¸Ø± Ø·Ø¨ÙŠØ¹ÙŠØ© Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠÙˆÙ†'"]
+        PainterJobs["Painter job labels<br/>'romantic landscape painters'<br/>→ 'رسامو مناظر طبيعية رومانسيون'"]
     end
 
     PAINTER_STYLES --> BuildPainter
@@ -5233,9 +5232,9 @@ The system includes 28 company founder role mappings organized by industry.
 
 | English Key | Male Label | Female Label |
 |-------------|------------|--------------|
-| `"technology company founders"` | `"Ù…Ø¤Ø³Ø³Ùˆ Ø´Ø±ÙƒØ§Øª ØªÙ‚Ø§Ù†Ø©"` | `"Ù…Ø¤Ø³Ø³Ø§Øª Ø´Ø±ÙƒØ§Øª ØªÙ‚Ø§Ù†Ø©"` |
-| `"media company founders"` | `"Ù…Ø¤Ø³Ø³Ùˆ Ø´Ø±ÙƒØ§Øª Ø¥Ø¹Ù„Ø§Ù…ÙŠØ©"` | `"Ù…Ø¤Ø³Ø³Ø§Øª Ø´Ø±ÙƒØ§Øª Ø¥Ø¹Ù„Ø§Ù…ÙŠØ©"` |
-| `"pharmaceutical company founders"` | `"Ù…Ø¤Ø³Ø³Ùˆ Ø´Ø±ÙƒØ§Øª Ø£Ø¯ÙˆÙŠØ©"` | `"Ù…Ø¤Ø³Ø³Ø§Øª Ø´Ø±ÙƒØ§Øª Ø£Ø¯ÙˆÙŠØ©"` |
+| `"technology company founders"` | `"مؤسسو شركات تقانة"` | `"مؤسسات شركات تقانة"` |
+| `"media company founders"` | `"مؤسسو شركات إعلامية"` | `"مؤسسات شركات إعلامية"` |
+| `"pharmaceutical company founders"` | `"مؤسسو شركات أدوية"` | `"مؤسسات شركات أدوية"` |
 
 **Sources:** [ArWikiCats/translations/jobs/Jobs.py:32-67](), [_work_files/data_len.json:114]()
 
@@ -5253,21 +5252,21 @@ graph TB
     end
 
     subgraph "Data Loading"
-        LoadJobs["_load_jobs_data()<br/>jobs_mens_data â†’ {ar_job}"]
-        LoadNats["_load_nat_data()<br/>All_Nat â†’ {males}"]
+        LoadJobs["_load_jobs_data()<br/>jobs_mens_data → {ar_job}"]
+        LoadNats["_load_nat_data()<br/>All_Nat → {males}"]
         LoadFormatted["_load_formatted_data()<br/>Template patterns"]
     end
 
     subgraph "Formatter Creation"
         CreateBot["format_multi_data_v2()<br/>MultiDataFormatterBaseV2"]
 
-        Templates["Formatted patterns:<br/>'{en_nat} {en_job}' â†’ '{ar_job} {males}'<br/>'{en_nat} expatriate {en_job}' â†’ '{ar_job} {males} Ù…ØºØªØ±Ø¨ÙˆÙ†'"]
+        Templates["Formatted patterns:<br/>'{en_nat} {en_job}' → '{ar_job} {males}'<br/>'{en_nat} expatriate {en_job}' → '{ar_job} {males} مغتربون'"]
     end
 
     subgraph "Resolution"
         SearchCategory["_bot.search_all_category()<br/>Pattern matching"]
 
-        ResolveResult["Result:<br/>'Ù…Ø®Ø±Ø¬Ùˆ Ø£ÙÙ„Ø§Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+        ResolveResult["Result:<br/>'مخرجو أفلام بريطانيون'"]
     end
 
     InputCategory --> NormalizeInput
@@ -5286,10 +5285,10 @@ graph TB
 
 | Pattern Template | Arabic Output | Example |
 |-----------------|---------------|---------|
-| `"{en_nat} {en_job}"` | `"{ar_job} {males}"` | `"british actors"` â†’ `"Ù…Ù…Ø«Ù„ÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"` |
-| `"{en_nat} expatriate {en_job}"` | `"{ar_job} {males} Ù…ØºØªØ±Ø¨ÙˆÙ†"` | `"turkish expatriate footballers"` â†’ `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£ØªØ±Ø§Ùƒ Ù…ØºØªØ±Ø¨ÙˆÙ†"` |
-| `"{en_nat} emigrants {en_job}"` | `"{ar_job} {males} Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†"` | `"italian emigrants writers"` â†’ `"ÙƒØªØ§Ø¨ Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ† Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†"` |
-| `"male {en_nat}"` | `"{males} Ø°ÙƒÙˆØ±"` | `"male american"` â†’ `"Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† Ø°ÙƒÙˆØ±"` |
+| `"{en_nat} {en_job}"` | `"{ar_job} {males}"` | `"british actors"` → `"ممثلون بريطانيون"` |
+| `"{en_nat} expatriate {en_job}"` | `"{ar_job} {males} مغتربون"` | `"turkish expatriate footballers"` → `"لاعبو كرة قدم أتراك مغتربون"` |
+| `"{en_nat} emigrants {en_job}"` | `"{ar_job} {males} مهاجرون"` | `"italian emigrants writers"` → `"كتاب إيطاليون مهاجرون"` |
+| `"male {en_nat}"` | `"{males} ذكور"` | `"male american"` → `"أمريكيون ذكور"` |
 
 **Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:114-254](), [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:303-325]()
 
@@ -5309,11 +5308,11 @@ graph TB
     end
 
     subgraph "Female Templates"
-        FemaleTemplates["Female patterns:<br/>'{en_nat} female {en_job}' â†’ '{ar_job} {females}'<br/>'{en_nat} actresses' â†’ 'Ù…Ù…Ø«Ù„Ø§Øª {females}'<br/>'female {en_nat}' â†’ '{females}'"]
+        FemaleTemplates["Female patterns:<br/>'{en_nat} female {en_job}' → '{ar_job} {females}'<br/>'{en_nat} actresses' → 'ممثلات {females}'<br/>'female {en_nat}' → '{females}'"]
     end
 
     subgraph "Resolution Output"
-        FemaleResult["Result:<br/>'Ù…Ù…Ø«Ù„Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª'"]
+        FemaleResult["Result:<br/>'ممثلات بريطانيات'"]
     end
 
     InputFemale --> CheckMale
@@ -5328,10 +5327,10 @@ graph TB
 
 | Pattern Template | Arabic Output | Example |
 |-----------------|---------------|---------|
-| `"{en_nat} female {en_job}"` | `"{ar_job} {females}"` | `"german female scientists"` â†’ `"Ø¹Ø§Ù„Ù…Ø§Øª Ø£Ù„Ù…Ø§Ù†ÙŠØ§Øª"` |
-| `"{en_nat} actresses"` | `"Ù…Ù…Ø«Ù„Ø§Øª {females}"` | `"french actresses"` â†’ `"Ù…Ù…Ø«Ù„Ø§Øª ÙØ±Ù†Ø³ÙŠØ§Øª"` |
-| `"female {en_nat} people"` | `"{females}"` | `"female british people"` â†’ `"Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª"` |
-| `"female expatriate {en_job}"` | `"{ar_job} Ù…ØºØªØ±Ø¨Ø§Øª"` | `"female expatriate nurses"` â†’ `"Ù…Ù…Ø±Ø¶Ø§Øª Ù…ØºØªØ±Ø¨Ø§Øª"` |
+| `"{en_nat} female {en_job}"` | `"{ar_job} {females}"` | `"german female scientists"` → `"عالمات ألمانيات"` |
+| `"{en_nat} actresses"` | `"ممثلات {females}"` | `"french actresses"` → `"ممثلات فرنسيات"` |
+| `"female {en_nat} people"` | `"{females}"` | `"female british people"` → `"بريطانيات"` |
+| `"female expatriate {en_job}"` | `"{ar_job} مغتربات"` | `"female expatriate nurses"` → `"ممرضات مغتربات"` |
 
 **Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:91-186](), [ArWikiCats/new_resolvers/jobs_resolvers/womens.py:230-278]()
 
@@ -5369,7 +5368,7 @@ NAT_BEFORE_OCC_BASE = [
 
 **Extended with religious keys (total 54 patterns):**
 - All entries from `RELIGIOUS_KEYS_PP` are added to create the full `NAT_BEFORE_OCC` list
-- This ensures patterns like `"british muslims"` â†’ `"Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† Ù…Ø³Ù„Ù…ÙˆÙ†"` (nationality first)
+- This ensures patterns like `"british muslims"` → `"بريطانيون مسلمون"` (nationality first)
 
 **Sources:** [ArWikiCats/translations/jobs/jobs_data_basic.py:56-82](), [_work_files/data_len.json:99]()
 
@@ -5380,13 +5379,13 @@ NAT_BEFORE_OCC_BASE = [
 The `fix_keys()` function standardizes input categories before resolution:
 
 **Normalization operations:**
-1. Remove apostrophes: `"women's"` â†’ `"womens"`
+1. Remove apostrophes: `"women's"` → `"womens"`
 2. Convert to lowercase
 3. Remove "the" prefix
 4. Replace multi-space with single space
-5. Map `"womens"` / `"women"` â†’ `"female"`
-6. Map `"expatriates"` â†’ `"expatriate"`
-7. Map `"canadian football"` â†’ `"canadian-football"`
+5. Map `"womens"` / `"women"` → `"female"`
+6. Map `"expatriates"` → `"expatriate"`
+7. Map `"canadian football"` → `"canadian-football"`
 
 **Sources:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py:10-26]()
 
@@ -5395,7 +5394,7 @@ The `fix_keys()` function standardizes input categories before resolution:
 The `is_false_key()` function prevents incorrect job classification:
 
 **Filtering logic:**
-- Skip keys containing `"mens"` or `"men's"` with Arabic label containing `"Ø±Ø¬Ø§Ù„ÙŠØ©"` (men's sports equipment)
+- Skip keys containing `"mens"` or `"men's"` with Arabic label containing `"رجالية"` (men's sports equipment)
 - Skip keys in `genders_keys` (status descriptors like `"executed"`, `"murdered abroad"`)
 - Skip keys in `RELIGIOUS_KEYS_PP` (handled separately)
 - Skip keys containing `"expatriate"` or `"immigrants"` without job context
@@ -5500,7 +5499,7 @@ The following files were used as context for generating this wiki page:
 
 
 
-This page documents the nationality translation data system, which maintains 799 nationality entries with gender-specific Arabic translations. The nationality data is fundamental to the resolver system as it enables grammatically correct Arabic translation of categories containing nationality identifiers (e.g., "American films" â†’ "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"). For information about how nationality data is used in pattern matching, see [5.2 Nationality Resolvers](#5.2).
+This page documents the nationality translation data system, which maintains 799 nationality entries with gender-specific Arabic translations. The nationality data is fundamental to the resolver system as it enables grammatically correct Arabic translation of categories containing nationality identifiers (e.g., "American films" → "أفلام أمريكية"). For information about how nationality data is used in pattern matching, see [5.2 Nationality Resolvers](#5.2).
 
 ## Overview
 
@@ -5513,31 +5512,31 @@ The nationality system consists of multiple parallel dictionaries that store the
 ```mermaid
 graph TB
     subgraph "Core Nationality Data - 799 entries each"
-        ALL["All_Nat<br/>Base dictionary<br/>English â†’ NationalityEntry"]
+        ALL["All_Nat<br/>Base dictionary<br/>English → NationalityEntry"]
 
-        MEN["Nat_men<br/>Singular masculine forms<br/>e.g., 'ÙŠÙ…Ù†ÙŠ' (Yemeni male)"]
+        MEN["Nat_men<br/>Singular masculine forms<br/>e.g., 'يمني' (Yemeni male)"]
 
-        WOMEN["Nat_women<br/>Singular feminine forms<br/>e.g., 'ÙŠÙ…Ù†ÙŠØ©' (Yemeni female)"]
+        WOMEN["Nat_women<br/>Singular feminine forms<br/>e.g., 'يمنية' (Yemeni female)"]
 
-        MENS["Nat_mens<br/>Plural masculine forms<br/>e.g., 'ÙŠÙ…Ù†ÙŠÙˆÙ†' (Yemeni males)"]
+        MENS["Nat_mens<br/>Plural masculine forms<br/>e.g., 'يمنيون' (Yemeni males)"]
 
-        WOMENS["Nat_Womens<br/>Plural feminine forms<br/>e.g., 'ÙŠÙ…Ù†ÙŠØ§Øª' (Yemeni females)"]
+        WOMENS["Nat_Womens<br/>Plural feminine forms<br/>e.g., 'يمنيات' (Yemeni females)"]
 
-        THEMALE["Nat_the_male<br/>Definite masculine forms<br/>e.g., 'Ø§Ù„ÙŠÙ…Ù†ÙŠ' (the Yemeni)"]
+        THEMALE["Nat_the_male<br/>Definite masculine forms<br/>e.g., 'اليمني' (the Yemeni)"]
 
-        THEFEMALE["Nat_the_female<br/>Definite feminine forms<br/>e.g., 'Ø§Ù„ÙŠÙ…Ù†ÙŠØ©' (the Yemeni)"]
+        THEFEMALE["Nat_the_female<br/>Definite feminine forms<br/>e.g., 'اليمنية' (the Yemeni)"]
     end
 
     subgraph "Related Dictionaries"
         ARNAT["ar_Nat_men<br/>673 entries<br/>Arabic nationality forms"]
 
-        COUNTRYNAT["all_country_with_nat<br/>Country â†’ nationality mappings"]
+        COUNTRYNAT["all_country_with_nat<br/>Country → nationality mappings"]
 
         COUNTRYNATAR["all_country_with_nat_ar<br/>Arabic country names"]
 
         COUNTRYKEYS["countries_en_as_nationality_keys<br/>English country as nat key"]
 
-        NATTOAR["en_nats_to_ar_label<br/>English nat â†’ Arabic label"]
+        NATTOAR["en_nats_to_ar_label<br/>English nat → Arabic label"]
     end
 
     ALL --> MEN
@@ -5562,12 +5561,12 @@ graph TB
 | Dictionary | Entries | Purpose |
 |------------|---------|---------|
 | `All_Nat` | 799 | Master dictionary with NationalityEntry objects |
-| `Nat_men` | 799 | Singular masculine forms (e.g., "ÙŠÙ…Ù†ÙŠ") |
-| `Nat_women` | 799 | Singular feminine forms (e.g., "ÙŠÙ…Ù†ÙŠØ©") |
-| `Nat_mens` | 799 | Plural masculine forms (e.g., "ÙŠÙ…Ù†ÙŠÙˆÙ†") |
-| `Nat_Womens` | 799 | Plural feminine forms (e.g., "ÙŠÙ…Ù†ÙŠØ§Øª") |
-| `Nat_the_male` | 799 | Definite masculine forms (e.g., "Ø§Ù„ÙŠÙ…Ù†ÙŠ") |
-| `Nat_the_female` | 799 | Definite feminine forms (e.g., "Ø§Ù„ÙŠÙ…Ù†ÙŠØ©") |
+| `Nat_men` | 799 | Singular masculine forms (e.g., "يمني") |
+| `Nat_women` | 799 | Singular feminine forms (e.g., "يمنية") |
+| `Nat_mens` | 799 | Plural masculine forms (e.g., "يمنيون") |
+| `Nat_Womens` | 799 | Plural feminine forms (e.g., "يمنيات") |
+| `Nat_the_male` | 799 | Definite masculine forms (e.g., "اليمني") |
+| `Nat_the_female` | 799 | Definite feminine forms (e.g., "اليمنية") |
 | `ar_Nat_men` | 673 | Arabic-origin nationality forms |
 
 **Sources:** [_work_files/data_len.json:33-42](), [ArWikiCats/translations/__init__.py:33-53]()
@@ -5597,13 +5596,13 @@ classDiagram
     class Nat_men {
         +dict~string, string~
         +799 entries
-        +Maps en_key â†’ male form
+        +Maps en_key → male form
     }
 
     class Nat_women {
         +dict~string, string~
         +799 entries
-        +Maps en_key â†’ female form
+        +Maps en_key → female form
     }
 
     All_Nat "1" --> "*" NationalityEntry : contains
@@ -5616,13 +5615,13 @@ classDiagram
 | Field | English Key: "yemeni" | English Key: "american" |
 |-------|----------------------|-------------------------|
 | `en` | "yemeni" | "american" |
-| `ar` | "Ø§Ù„ÙŠÙ…Ù†" | "Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©" |
-| `male` | "ÙŠÙ…Ù†ÙŠ" | "Ø£Ù…Ø±ÙŠÙƒÙŠ" |
-| `female` | "ÙŠÙ…Ù†ÙŠØ©" | "Ø£Ù…Ø±ÙŠÙƒÙŠØ©" |
-| `males` | "ÙŠÙ…Ù†ÙŠÙˆÙ†" | "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†" |
-| `females` | "ÙŠÙ…Ù†ÙŠØ§Øª" | "Ø£Ù…Ø±ÙŠÙƒÙŠØ§Øª" |
-| `the_male` | "Ø§Ù„ÙŠÙ…Ù†ÙŠ" | "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ" |
-| `the_female` | "Ø§Ù„ÙŠÙ…Ù†ÙŠØ©" | "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©" |
+| `ar` | "اليمن" | "الولايات المتحدة" |
+| `male` | "يمني" | "أمريكي" |
+| `female` | "يمنية" | "أمريكية" |
+| `males` | "يمنيون" | "أمريكيون" |
+| `females` | "يمنيات" | "أمريكيات" |
+| `the_male` | "اليمني" | "الأمريكي" |
+| `the_female` | "اليمنية" | "الأمريكية" |
 
 **Sources:** [ArWikiCats/translations/__init__.py:33-53]()
 
@@ -5637,13 +5636,13 @@ The nationality resolvers use placeholder-based pattern matching where placehold
 | Placeholder | Purpose | Example Pattern | Example Result |
 |-------------|---------|-----------------|----------------|
 | `{en}` | English nationality key | `"{en} films"` | Identifies "american" |
-| `{ar}` | Arabic country name | `"{en} grand prix"` â†’ `"Ø¬Ø§Ø¦Ø²Ø© {ar} Ø§Ù„ÙƒØ¨Ø±Ù‰"` | "Ø¬Ø§Ø¦Ø²Ø© ÙØ±Ù†Ø³Ø§ Ø§Ù„ÙƒØ¨Ø±Ù‰" |
-| `{male}` | Singular masculine | `"{en} cuisine"` â†’ `"Ù…Ø·Ø¨Ø® {male}"` | "Ù…Ø·Ø¨Ø® Ø¥ÙŠØ·Ø§Ù„ÙŠ" |
-| `{female}` | Singular feminine | `"{en} culture"` â†’ `"Ø«Ù‚Ø§ÙØ© {female}"` | "Ø«Ù‚Ø§ÙØ© ÙØ±Ù†Ø³ÙŠØ©" |
-| `{males}` | Plural masculine | `"{en} emigrants"` â†’ `"{males} Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†"` | "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†" |
-| `{females}` | Plural feminine | `"{en} women singers"` â†’ `"Ù…ØºÙ†ÙŠØ§Øª {females}"` | "Ù…ØºÙ†ÙŠØ§Øª ÙŠÙ…Ù†ÙŠØ§Øª" |
-| `{the_male}` | Definite masculine | `"{en} occupation"` â†’ `"Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ {the_male}"` | "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ" |
-| `{the_female}` | Definite feminine | `"{en} navy"` â†’ `"Ø§Ù„Ø¨Ø­Ø±ÙŠØ© {the_female}"` | "Ø§Ù„Ø¨Ø­Ø±ÙŠØ© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©" |
+| `{ar}` | Arabic country name | `"{en} grand prix"` → `"جائزة {ar} الكبرى"` | "جائزة فرنسا الكبرى" |
+| `{male}` | Singular masculine | `"{en} cuisine"` → `"مطبخ {male}"` | "مطبخ إيطالي" |
+| `{female}` | Singular feminine | `"{en} culture"` → `"ثقافة {female}"` | "ثقافة فرنسية" |
+| `{males}` | Plural masculine | `"{en} emigrants"` → `"{males} مهاجرون"` | "يمنيون مهاجرون" |
+| `{females}` | Plural feminine | `"{en} women singers"` → `"مغنيات {females}"` | "مغنيات يمنيات" |
+| `{the_male}` | Definite masculine | `"{en} occupation"` → `"الاحتلال {the_male}"` | "الاحتلال الأمريكي" |
+| `{the_female}` | Definite feminine | `"{en} navy"` → `"البحرية {the_female}"` | "البحرية الأمريكية" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:1-600]()
 
@@ -5689,14 +5688,14 @@ graph LR
 Used when the noun is masculine singular in Arabic.
 
 ```
-"{en} cuisine" â†’ "Ù…Ø·Ø¨Ø® {male}"
-"italian cuisine" â†’ "Ù…Ø·Ø¨Ø® Ø¥ÙŠØ·Ø§Ù„ÙŠ"
+"{en} cuisine" → "مطبخ {male}"
+"italian cuisine" → "مطبخ إيطالي"
 
-"{en} history" â†’ "ØªØ§Ø±ÙŠØ® {male}"
-"egyptian history" â†’ "ØªØ§Ø±ÙŠØ® Ù…ØµØ±ÙŠ"
+"{en} history" → "تاريخ {male}"
+"egyptian history" → "تاريخ مصري"
 
-"{en} diaspora" â†’ "Ø´ØªØ§Øª {male}"
-"palestinian diaspora" â†’ "Ø´ØªØ§Øª ÙÙ„Ø³Ø·ÙŠÙ†ÙŠ"
+"{en} diaspora" → "شتات {male}"
+"palestinian diaspora" → "شتات فلسطيني"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:98-124]()
@@ -5706,17 +5705,17 @@ Used when the noun is masculine singular in Arabic.
 Used when the noun is feminine singular in Arabic. This is the largest category with ~200 patterns.
 
 ```
-"{en} culture" â†’ "Ø«Ù‚Ø§ÙØ© {female}"
-"french culture" â†’ "Ø«Ù‚Ø§ÙØ© ÙØ±Ù†Ø³ÙŠØ©"
+"{en} culture" → "ثقافة {female}"
+"french culture" → "ثقافة فرنسية"
 
-"{en} companies" â†’ "Ø´Ø±ÙƒØ§Øª {female}"
-"american companies" â†’ "Ø´Ø±ÙƒØ§Øª Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"{en} companies" → "شركات {female}"
+"american companies" → "شركات أمريكية"
 
-"{en} television series" â†’ "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {female}"
-"yemeni television series" â†’ "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ÙŠÙ…Ù†ÙŠØ©"
+"{en} television series" → "مسلسلات تلفزيونية {female}"
+"yemeni television series" → "مسلسلات تلفزيونية يمنية"
 
-"{en} music" â†’ "Ù…ÙˆØ³ÙŠÙ‚Ù‰ {female}"
-"american music" â†’ "Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"{en} music" → "موسيقى {female}"
+"american music" → "موسيقى أمريكية"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:297-600]()
@@ -5726,14 +5725,14 @@ Used when the noun is feminine singular in Arabic. This is the largest category 
 Used for masculine plural professions or groups.
 
 ```
-"{en} expatriates" â†’ "{males} Ù…ØºØªØ±Ø¨ÙˆÙ†"
-"yemeni expatriates" â†’ "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù…ØºØªØ±Ø¨ÙˆÙ†"
+"{en} expatriates" → "{males} مغتربون"
+"yemeni expatriates" → "يمنيون مغتربون"
 
-"{en} emigrants" â†’ "{males} Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†"
-"yemeni emigrants" â†’ "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†"
+"{en} emigrants" → "{males} مهاجرون"
+"yemeni emigrants" → "يمنيون مهاجرون"
 
-"{en} singers" â†’ "Ù…ØºÙ†ÙˆÙ† {males}"
-"yemeni singers" â†’ "Ù…ØºÙ†ÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†"
+"{en} singers" → "مغنون {males}"
+"yemeni singers" → "مغنون يمنيون"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:29-45]()
@@ -5743,14 +5742,14 @@ Used for masculine plural professions or groups.
 Used when the Arabic translation requires the definite article with masculine agreement.
 
 ```
-"{en} occupation" â†’ "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ {the_male}"
-"american occupation" â†’ "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ"
+"{en} occupation" → "الاحتلال {the_male}"
+"american occupation" → "الاحتلال الأمريكي"
 
-"{en} super league" â†’ "Ø¯ÙˆØ±ÙŠ Ø§Ù„Ø³ÙˆØ¨Ø± {the_male}"
-"saudi super league" â†’ "Ø¯ÙˆØ±ÙŠ Ø§Ù„Ø³ÙˆØ¨Ø± Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ"
+"{en} super league" → "دوري السوبر {the_male}"
+"saudi super league" → "دوري السوبر السعودي"
 
-"{en} premier league" â†’ "Ø§Ù„Ø¯ÙˆØ±ÙŠ {the_male} Ø§Ù„Ù…Ù…ØªØ§Ø²"
-"egyptian premier league" â†’ "Ø§Ù„Ø¯ÙˆØ±ÙŠ Ø§Ù„Ù…ØµØ±ÙŠ Ø§Ù„Ù…Ù…ØªØ§Ø²"
+"{en} premier league" → "الدوري {the_male} الممتاز"
+"egyptian premier league" → "الدوري المصري الممتاز"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:59-96]()
@@ -5760,11 +5759,11 @@ Used when the Arabic translation requires the definite article with masculine ag
 Used when the Arabic translation requires the definite article with feminine agreement.
 
 ```
-"{en} navy" â†’ "Ø§Ù„Ø¨Ø­Ø±ÙŠØ© {the_female}"
-"american navy" â†’ "Ø§Ù„Ø¨Ø­Ø±ÙŠØ© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"{en} navy" → "البحرية {the_female}"
+"american navy" → "البحرية الأمريكية"
 
-"{en} air force" â†’ "Ø§Ù„Ù‚ÙˆØ§Øª Ø§Ù„Ø¬ÙˆÙŠØ© {the_female}"
-"french air force" â†’ "Ø§Ù„Ù‚ÙˆØ§Øª Ø§Ù„Ø¬ÙˆÙŠØ© Ø§Ù„ÙØ±Ù†Ø³ÙŠØ©"
+"{en} air force" → "القوات الجوية {the_female}"
+"french air force" → "القوات الجوية الفرنسية"
 ```
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:429-450]()
@@ -5774,14 +5773,14 @@ Used when the Arabic translation requires the definite article with feminine agr
 Used when the pattern requires the Arabic country name rather than the adjectival form.
 
 ```
-"{en} grand prix" â†’ "Ø¬Ø§Ø¦Ø²Ø© {ar} Ø§Ù„ÙƒØ¨Ø±Ù‰"
-"french grand prix" â†’ "Ø¬Ø§Ø¦Ø²Ø© ÙØ±Ù†Ø³Ø§ Ø§Ù„ÙƒØ¨Ø±Ù‰"
+"{en} grand prix" → "جائزة {ar} الكبرى"
+"french grand prix" → "جائزة فرنسا الكبرى"
 
-"{en} cup" â†’ "ÙƒØ£Ø³ {ar}"
-"egyptian cup" â†’ "ÙƒØ£Ø³ Ù…ØµØ±"
+"{en} cup" → "كأس {ar}"
+"egyptian cup" → "كأس مصر"
 
-"{en} independence" â†’ "Ø§Ø³ØªÙ‚Ù„Ø§Ù„ {ar}"
-"syrian independence" â†’ "Ø§Ø³ØªÙ‚Ù„Ø§Ù„ Ø³ÙˆØ±ÙŠØ§"
+"{en} independence" → "استقلال {ar}"
+"syrian independence" → "استقلال سوريا"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:47-57]()
@@ -5798,11 +5797,11 @@ flowchart TD
 
     LOOKUP["Lookup in All_Nat<br/>Get NationalityEntry"]
 
-    PATTERN["Match against patterns<br/>'{en} films' â†’ found"]
+    PATTERN["Match against patterns<br/>'{en} films' → found"]
 
     DETERMINE["Determine grammatical form<br/>'films' = feminine plural<br/>Use {female} placeholder"]
 
-    SUBSTITUTE["Substitute placeholder<br/>{female} â†’ 'ÙŠÙ…Ù†ÙŠØ©'<br/>Result: 'Ø£ÙÙ„Ø§Ù… ÙŠÙ…Ù†ÙŠØ©'"]
+    SUBSTITUTE["Substitute placeholder<br/>{female} → 'يمنية'<br/>Result: 'أفلام يمنية'"]
 
     INPUT --> RESOLVE
     RESOLVE --> EXTRACT
@@ -5824,11 +5823,11 @@ flowchart TD
 The resolver handles "non-" prefix patterns for negative nationality expressions:
 
 ```
-"non-american television series" â†’ "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
-"non yemeni television series" â†’ "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± ÙŠÙ…Ù†ÙŠØ©"
+"non-american television series" → "مسلسلات تلفزيونية غير أمريكية"
+"non yemeni television series" → "مسلسلات تلفزيونية غير يمنية"
 ```
 
-The pattern splits on "non-" or "non " and translates to "ØºÙŠØ±" (meaning "non" in Arabic).
+The pattern splits on "non-" or "non " and translates to "غير" (meaning "non" in Arabic).
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:13-17]()
 
@@ -5837,14 +5836,14 @@ The pattern splits on "non-" or "non " and translates to "ØºÙŠØ±" (meaning
 A dedicated `female_data_music` dictionary contains ~170 patterns specifically for music-related categories, as these require consistent feminine agreement in Arabic:
 
 ```
-"{en} rock groups" â†’ "ÙØ±Ù‚ Ø±ÙˆÙƒ {female}"
-"yemeni rock groups" â†’ "ÙØ±Ù‚ Ø±ÙˆÙƒ ÙŠÙ…Ù†ÙŠØ©"
+"{en} rock groups" → "فرق روك {female}"
+"yemeni rock groups" → "فرق روك يمنية"
 
-"{en} hip hop groups" â†’ "ÙØ±Ù‚ Ù‡ÙŠØ¨ Ù‡ÙˆØ¨ {female}"
-"american hip hop groups" â†’ "ÙØ±Ù‚ Ù‡ÙŠØ¨ Ù‡ÙˆØ¨ Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"{en} hip hop groups" → "فرق هيب هوب {female}"
+"american hip hop groups" → "فرق هيب هوب أمريكية"
 
-"{en} metal musical groups" â†’ "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ù…ÙŠØªØ§Ù„ {female}"
-"swedish metal musical groups" â†’ "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ù…ÙŠØªØ§Ù„ Ø³ÙˆÙŠØ¯ÙŠØ©"
+"{en} metal musical groups" → "فرق موسيقى ميتال {female}"
+"swedish metal musical groups" → "فرق موسيقى ميتال سويدية"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:126-295](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:26-270]()
@@ -5854,11 +5853,11 @@ A dedicated `female_data_music` dictionary contains ~170 patterns specifically f
 Some patterns combine nationalities with other modifiers like religious identifiers:
 
 ```
-"jewish {en} surnames" â†’ "Ø£Ù„Ù‚Ø§Ø¨ ÙŠÙ‡ÙˆØ¯ÙŠØ© {female}"
-"jewish french surnames" â†’ "Ø£Ù„Ù‚Ø§Ø¨ ÙŠÙ‡ÙˆØ¯ÙŠØ© ÙØ±Ù†Ø³ÙŠØ©"
+"jewish {en} surnames" → "ألقاب يهودية {female}"
+"jewish french surnames" → "ألقاب يهودية فرنسية"
 
-"{en}-jewish culture" â†’ "Ø«Ù‚Ø§ÙØ© ÙŠÙ‡ÙˆØ¯ÙŠØ© {female}"
-"american-jewish culture" â†’ "Ø«Ù‚Ø§ÙØ© ÙŠÙ‡ÙˆØ¯ÙŠØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"{en}-jewish culture" → "ثقافة يهودية {female}"
+"american-jewish culture" → "ثقافة يهودية أمريكية"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:15-27]()
@@ -5869,11 +5868,11 @@ Beyond the core 799-entry dictionaries, the system maintains several related map
 
 | Dictionary | Purpose | Example |
 |------------|---------|---------|
-| `all_country_with_nat` | Maps country names to nationality keys | "France" â†’ {"en": "french"} |
-| `all_country_with_nat_ar` | Arabic country names | "France" â†’ {"ar": "ÙØ±Ù†Ø³Ø§"} |
+| `all_country_with_nat` | Maps country names to nationality keys | "France" → {"en": "french"} |
+| `all_country_with_nat_ar` | Arabic country names | "France" → {"ar": "فرنسا"} |
 | `countries_en_as_nationality_keys` | Country name as nat key | ["france", "germany", ...] |
-| `countries_from_nat` | Reverse mapping | "french" â†’ "France" |
-| `en_nats_to_ar_label` | Direct English to Arabic | "yemeni" â†’ "ÙŠÙ…Ù†ÙŠ" |
+| `countries_from_nat` | Reverse mapping | "french" → "France" |
+| `en_nats_to_ar_label` | Direct English to Arabic | "yemeni" → "يمني" |
 | `raw_nats_as_en_key` | Raw nationality forms | Unprocessed nationality data |
 
 **Sources:** [ArWikiCats/translations/__init__.py:33-53]()
@@ -5891,16 +5890,16 @@ The nationality system has extensive test coverage validating all grammatical fo
 **Test example:**
 ```python
 # Masculine form test
-"egyptian descent" â†’ "Ø£ØµÙ„ Ù…ØµØ±ÙŠ"
+"egyptian descent" → "أصل مصري"
 
 # Feminine form test
-"american music" â†’ "Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+"american music" → "موسيقى أمريكية"
 
 # Definite masculine test
-"iraqi occupation" â†’ "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ Ø§Ù„Ø¹Ø±Ø§Ù‚ÙŠ"
+"iraqi occupation" → "الاحتلال العراقي"
 
 # Plural masculine test
-"yemeni expatriates" â†’ "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù…ØºØªØ±Ø¨ÙˆÙ†"
+"yemeni expatriates" → "يمنيون مغتربون"
 ```
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:1-700](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_jobs.py:1-51](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py:1-97]()22:T61c4,# Sports Data
@@ -6024,10 +6023,10 @@ Each sport entry in `SPORT_KEY_RECORDS` typically contains:
 | Field | Type | Purpose | Example |
 |-------|------|---------|---------|
 | English Key | `str` | Lowercase sport name | `"football"`, `"basketball"` |
-| Arabic Label | `str` | Base Arabic translation | `"ÙƒØ±Ø© Ù‚Ø¯Ù…"`, `"ÙƒØ±Ø© Ø³Ù„Ø©"` |
-| Male Form | `str` | Masculine grammatical form | `"ÙƒØ±Ø© Ù‚Ø¯Ù…"` |
-| Female Form | `str` | Feminine grammatical form | `"ÙƒØ±Ø© Ù‚Ø¯Ù…"` |
-| Plural Forms | `str` | Plural variations | `"ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"` |
+| Arabic Label | `str` | Base Arabic translation | `"كرة قدم"`, `"كرة سلة"` |
+| Male Form | `str` | Masculine grammatical form | `"كرة قدم"` |
+| Female Form | `str` | Feminine grammatical form | `"كرة قدم"` |
+| Plural Forms | `str` | Plural variations | `"كرة القدم"` |
 
 ### Data Organization
 
@@ -6086,10 +6085,10 @@ Sports data is exported in five specialized forms to match different category pa
 | Variant Name | Entry Count | Pattern Examples | Arabic Pattern |
 |--------------|-------------|------------------|----------------|
 | `SPORTS_KEYS_FOR_LABEL` | 433 | "American football films"<br/>"Basketball culture" | `"{sport_ar} {type_ar}"` |
-| `SPORTS_KEYS_FOR_JOBS` | 433 | "Football players"<br/>"Basketball coaches" | `"Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}"` |
-| `SPORTS_KEYS_FOR_OLYMPIC` | 432 | "Olympic footballers"<br/>"Olympic athletes" | `"{sport_ar} Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†"` |
-| `SPORTS_KEYS_FOR_TEAM` | 431 | "Football teams"<br/>"Basketball clubs" | `"ÙØ±Ù‚ {sport_ar}"` |
-| `FEMALE_JOBS_SPORTS` | 433 | "Women footballers"<br/>"Female basketball players" | `"Ù„Ø§Ø¹Ø¨Ø§Øª {sport_ar}"` |
+| `SPORTS_KEYS_FOR_JOBS` | 433 | "Football players"<br/>"Basketball coaches" | `"لاعبو {sport_ar}"` |
+| `SPORTS_KEYS_FOR_OLYMPIC` | 432 | "Olympic footballers"<br/>"Olympic athletes" | `"{sport_ar} أولمبيون"` |
+| `SPORTS_KEYS_FOR_TEAM` | 431 | "Football teams"<br/>"Basketball clubs" | `"فرق {sport_ar}"` |
+| `FEMALE_JOBS_SPORTS` | 433 | "Women footballers"<br/>"Female basketball players" | `"لاعبات {sport_ar}"` |
 
 ### Translation Pattern Examples
 
@@ -6112,19 +6111,19 @@ graph TB
     end
 
     subgraph "Sport Lookup"
-        LOOKUP1["Key: 'american football'<br/>Returns: ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"]
-        LOOKUP2["Key: 'basketball'<br/>Returns: ÙƒØ±Ø© Ø³Ù„Ø©"]
-        LOOKUP3["Key: 'football'<br/>Returns: ÙƒØ±Ø© Ù‚Ø¯Ù…"]
-        LOOKUP4["Key: 'tennis'<br/>Returns: ÙƒØ±Ø© Ù…Ø¶Ø±Ø¨"]
-        LOOKUP5["Key: 'football'<br/>Returns: ÙƒØ±Ø© Ù‚Ø¯Ù…"]
+        LOOKUP1["Key: 'american football'<br/>Returns: كرة قدم أمريكية"]
+        LOOKUP2["Key: 'basketball'<br/>Returns: كرة سلة"]
+        LOOKUP3["Key: 'football'<br/>Returns: كرة قدم"]
+        LOOKUP4["Key: 'tennis'<br/>Returns: كرة مضرب"]
+        LOOKUP5["Key: 'football'<br/>Returns: كرة قدم"]
     end
 
     subgraph "Arabic Output"
-        OUT1["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
-        OUT2["'Ø±ÙŠØ§Ø¶ÙŠÙˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†'"]
-        OUT3["'ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù… ÙÙŠ Ø¥Ø³Ø¨Ø§Ù†ÙŠØ§'"]
-        OUT4["'Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù…Ø¶Ø±Ø¨'"]
-        OUT5["'Ø«Ù‚Ø§ÙØ© ÙƒØ±Ø© Ù‚Ø¯Ù…'"]
+        OUT1["'لاعبو كرة قدم أمريكية'"]
+        OUT2["'رياضيو كرة سلة أولمبيون'"]
+        OUT3["'فرق كرة قدم في إسبانيا'"]
+        OUT4["'لاعبات كرة مضرب'"]
+        OUT5["'ثقافة كرة قدم'"]
     end
 
     IN1 --> SEL1 --> LOOKUP1 --> OUT1
@@ -6180,9 +6179,9 @@ graph TB
 ### Usage Pattern
 
 The `sub_teams_new` data is primarily used in category patterns like:
-- "Players of [team name]" â†’ `"Ù„Ø§Ø¹Ø¨Ùˆ [arabic_team_name]"`
-- "[team name] seasons" â†’ `"Ù…ÙˆØ§Ø³Ù… [arabic_team_name]"`
-- "[team name] matches" â†’ `"Ù…Ø¨Ø§Ø±ÙŠØ§Øª [arabic_team_name]"`
+- "Players of [team name]" → `"لاعبو [arabic_team_name]"`
+- "[team name] seasons" → `"مواسم [arabic_team_name]"`
+- "[team name] matches" → `"مباريات [arabic_team_name]"`
 
 **Sources:** [_work_files/data_len.json:7](), [ArWikiCats/translations/__init__.py:64]()
 
@@ -6198,8 +6197,8 @@ The `SPORT_JOB_VARIANTS` dictionary (571 entries) maps English player type patte
 
 | Data Structure | Entries | Purpose | Example Mapping |
 |----------------|---------|---------|-----------------|
-| `SPORT_JOB_VARIANTS` | 571 | Sport-specific job types | `"footballers"` â†’ `{"male": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…", "female": "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…"}` |
-| `PLAYERS_TO_MEN_WOMENS_JOBS` | 1,345 | Player to job mappings | `"football players"` â†’ `"footballers"` |
+| `SPORT_JOB_VARIANTS` | 571 | Sport-specific job types | `"footballers"` → `{"male": "لاعبو كرة قدم", "female": "لاعبات كرة قدم"}` |
+| `PLAYERS_TO_MEN_WOMENS_JOBS` | 1,345 | Player to job mappings | `"football players"` → `"footballers"` |
 | `BASE_PLAYER_VARIANTS` | 435 | Base player patterns | Generic player translations |
 | `FOOTBALL_KEYS_PLAYERS` | 46 | Football-specific players | Position-specific football roles |
 
@@ -6223,7 +6222,7 @@ graph LR
         LOOKUP1["Check SPORT_JOB_VARIANTS"]
         LOOKUP2["Check PLAYERS_TO_MEN_WOMENS_JOBS"]
         LOOKUP3["Check jobs_mens_data"]
-        OUTPUT["Arabic Output<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
+        OUTPUT["Arabic Output<br/>'لاعبو كرة قدم أمريكية'"]
     end
 
     SPORTVAR -.supplements.-> MENS
@@ -6253,10 +6252,10 @@ The Olympic-related data structures handle temporal and seasonal aspects of Olym
 
 | Data Structure | Entries | Content Type | Example Usage |
 |----------------|---------|--------------|---------------|
-| `SUMMER_WINTER_GAMES` | 48 | Named games instances | `"2020 Summer Olympics"` â†’ `"Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Ø¯ 2020 Ø§Ù„ØµÙŠÙÙŠ"` |
-| `SUMMER_WINTER_TABS` | 714 | Season-specific patterns | `"summer olympics"` â†’ seasonal variants |
+| `SUMMER_WINTER_GAMES` | 48 | Named games instances | `"2020 Summer Olympics"` → `"أولمبياد 2020 الصيفي"` |
+| `SUMMER_WINTER_TABS` | 714 | Season-specific patterns | `"summer olympics"` → seasonal variants |
 | `SEASONAL_GAME_LABELS` | 119 | Game label patterns | Generic seasonal patterns |
-| `SPORTS_KEYS_FOR_OLYMPIC` | 432 | Sport + Olympic patterns | `"olympic football"` â†’ `"ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£ÙˆÙ„Ù…Ø¨ÙŠØ©"` |
+| `SPORTS_KEYS_FOR_OLYMPIC` | 432 | Sport + Olympic patterns | `"olympic football"` → `"كرة قدم أولمبية"` |
 
 ### Olympic Pattern Resolution
 
@@ -6277,10 +6276,10 @@ graph TB
     end
 
     subgraph "Arabic Output"
-        O1["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… ÙÙŠ<br/>Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Ø¯ 2020 Ø§Ù„ØµÙŠÙÙŠ'"]
-        O2["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†'"]
-        O3["'Ø±ÙŠØ§Ø¶Ø§Øª Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Ø¯ ØµÙŠÙÙŠ'"]
-        O4["'Ø±ÙŠØ§Ø¶ÙŠÙˆ Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Ø¯ 2016'"]
+        O1["'لاعبو كرة قدم في<br/>أولمبياد 2020 الصيفي'"]
+        O2["'لاعبو كرة سلة أولمبيون'"]
+        O3["'رياضات أولمبياد صيفي'"]
+        O4["'رياضيو أولمبياد 2016'"]
     end
 
     P1 --> L1 --> L2 --> L3 --> O1
@@ -6344,9 +6343,9 @@ graph TB
     end
 
     subgraph "Pattern Examples"
-        EX1["Input: 'football champions'<br/>Output: 'Ø£Ø¨Ø·Ø§Ù„ ÙƒØ±Ø© Ù‚Ø¯Ù…'"]
-        EX2["Input: 'world boxing champions'<br/>Output: 'Ø£Ø¨Ø·Ø§Ù„ Ø§Ù„Ø¹Ø§Ù„Ù… ÙÙŠ Ø§Ù„Ù…Ù„Ø§ÙƒÙ…Ø©'"]
-        EX3["Input: 'olympic champions'<br/>Output: 'Ø£Ø¨Ø·Ø§Ù„ Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†'"]
+        EX1["Input: 'football champions'<br/>Output: 'أبطال كرة قدم'"]
+        EX2["Input: 'world boxing champions'<br/>Output: 'أبطال العالم في الملاكمة'"]
+        EX3["Input: 'olympic champions'<br/>Output: 'أبطال أولمبيون'"]
     end
 
     subgraph "Source Data"
@@ -6364,10 +6363,10 @@ graph TB
 ### Usage Context
 
 These dictionaries handle categories like:
-- `"[Sport] champions"` â†’ Simple championship categories
-- `"World [sport] champions"` â†’ World-level competitions
-- `"[Nationality] [sport] champions"` â†’ Country-specific champions
-- `"Olympic [sport] champions"` â†’ Olympic medal categories
+- `"[Sport] champions"` → Simple championship categories
+- `"World [sport] champions"` → World-level competitions
+- `"[Nationality] [sport] champions"` → Country-specific champions
+- `"Olympic [sport] champions"` → Olympic medal categories
 
 **Sources:** [_work_files/data_len.json:57](), [_work_files/data_len.json:62]()
 
@@ -6478,14 +6477,14 @@ The following table demonstrates how sports data enables category translation ac
 
 | English Category | Data Used | Arabic Translation |
 |------------------|-----------|-------------------|
-| `"American football players"` | SPORTS_KEYS_FOR_JOBS | `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"` |
-| `"Olympic basketball athletes"` | SPORTS_KEYS_FOR_OLYMPIC | `"Ø±ÙŠØ§Ø¶ÙŠÙˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†"` |
-| `"Real Madrid players"` | sub_teams_new | `"Ù„Ø§Ø¹Ø¨Ùˆ Ø±ÙŠØ§Ù„ Ù…Ø¯Ø±ÙŠØ¯"` |
-| `"Women's tennis players"` | FEMALE_JOBS_SPORTS | `"Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù…Ø¶Ø±Ø¨"` |
-| `"Football teams in Spain"` | SPORTS_KEYS_FOR_TEAM | `"ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù… ÙÙŠ Ø¥Ø³Ø¨Ø§Ù†ÙŠØ§"` |
-| `"World boxing champions"` | WORLD_CHAMPION_LABELS | `"Ø£Ø¨Ø·Ø§Ù„ Ø§Ù„Ø¹Ø§Ù„Ù… ÙÙŠ Ø§Ù„Ù…Ù„Ø§ÙƒÙ…Ø©"` |
-| `"2020 Summer Olympics"` | SUMMER_WINTER_GAMES | `"Ø£ÙˆÙ„Ù…Ø¨ÙŠØ§Ø¯ 2020 Ø§Ù„ØµÙŠÙÙŠ"` |
-| `"Defunct football clubs"` | sub_teams_new + SPORTS_KEYS_FOR_TEAM | `"Ø£Ù†Ø¯ÙŠØ© ÙƒØ±Ø© Ù‚Ø¯Ù… Ø³Ø§Ø¨Ù‚Ø©"` |
+| `"American football players"` | SPORTS_KEYS_FOR_JOBS | `"لاعبو كرة قدم أمريكية"` |
+| `"Olympic basketball athletes"` | SPORTS_KEYS_FOR_OLYMPIC | `"رياضيو كرة سلة أولمبيون"` |
+| `"Real Madrid players"` | sub_teams_new | `"لاعبو ريال مدريد"` |
+| `"Women's tennis players"` | FEMALE_JOBS_SPORTS | `"لاعبات كرة مضرب"` |
+| `"Football teams in Spain"` | SPORTS_KEYS_FOR_TEAM | `"فرق كرة قدم في إسبانيا"` |
+| `"World boxing champions"` | WORLD_CHAMPION_LABELS | `"أبطال العالم في الملاكمة"` |
+| `"2020 Summer Olympics"` | SUMMER_WINTER_GAMES | `"أولمبياد 2020 الصيفي"` |
+| `"Defunct football clubs"` | sub_teams_new + SPORTS_KEYS_FOR_TEAM | `"أندية كرة قدم سابقة"` |
 
 **Sources:** [tests/event_lists/test_defunct.py:12-65]()23:T67bb,# Films and Television
 
@@ -6542,9 +6541,9 @@ The film and television translation system maintains 13,146+ translation pattern
 | `television_keys` | 54 | Base television category keys |
 
 The system handles complex translation requirements including:
-- **Gender agreement**: Arabic requires different forms for masculine/feminine (e.g., "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ©" vs "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒÙŠØ©")
-- **Nationality placeholders**: Templates like "Ø£ÙÙ„Ø§Ù… {} Ø¯Ø±Ø§Ù…ÙŠØ©" where `{}` is filled with nationality
-- **Temporal patterns**: Debuts ("Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ"), endings ("Ø§Ù†ØªÙ‡Øª ÙÙŠ"), revivals
+- **Gender agreement**: Arabic requires different forms for masculine/feminine (e.g., "أفلام حركة" vs "أفلام حركية")
+- **Nationality placeholders**: Templates like "أفلام {} درامية" where `{}` is filled with nationality
+- **Temporal patterns**: Debuts ("بدأ عرضها في"), endings ("انتهت في"), revivals
 - **Media type variations**: Films, television series, web series, miniseries, etc.
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py:1-554](), [_work_files/data_len.json:1-155]()
@@ -6570,16 +6569,16 @@ graph TB
     end
 
     subgraph "Core Dictionaries - films_mslslat.py"
-        DICT1["Films_key_both<br/>key â†’ {male, female}"]
-        DICT2["Films_key_man<br/>key â†’ male label"]
-        DICT3["film_keys_for_female<br/>key â†’ female label"]
-        DICT4["film_keys_for_male<br/>key â†’ male label"]
-        DICT5["Films_key_333<br/>key â†’ female label"]
-        DICT6["Films_key_For_nat<br/>key â†’ pattern with {}"]
-        DICT7["Films_key_For_nat_extended<br/>key â†’ extended patterns"]
-        DICT8["films_mslslat_tab<br/>key â†’ pattern without {}"]
-        DICT9["Films_key_CAO<br/>key â†’ CAO mappings<br/>13,146 entries"]
-        DICT10["Films_keys_both_new_female<br/>key â†’ combo patterns<br/>897 entries"]
+        DICT1["Films_key_both<br/>key → {male, female}"]
+        DICT2["Films_key_man<br/>key → male label"]
+        DICT3["film_keys_for_female<br/>key → female label"]
+        DICT4["film_keys_for_male<br/>key → male label"]
+        DICT5["Films_key_333<br/>key → female label"]
+        DICT6["Films_key_For_nat<br/>key → pattern with {}"]
+        DICT7["Films_key_For_nat_extended<br/>key → extended patterns"]
+        DICT8["films_mslslat_tab<br/>key → pattern without {}"]
+        DICT9["Films_key_CAO<br/>key → CAO mappings<br/>13,146 entries"]
+        DICT10["Films_keys_both_new_female<br/>key → combo patterns<br/>897 entries"]
     end
 
     JSON1 --> DICT6
@@ -6619,7 +6618,7 @@ Sources: [ArWikiCats/translations/tv/films_mslslat.py:116-554](), [ArWikiCats/tr
 
 ## Gender-Specific Translation System
 
-Arabic film categories require gender agreement between genre adjectives and the plural noun "Ø£ÙÙ„Ø§Ù…" (films). The system maintains separate male and female forms for each genre.
+Arabic film categories require gender agreement between genre adjectives and the plural noun "أفلام" (films). The system maintains separate male and female forms for each genre.
 
 ### Gender Dictionary Structure
 
@@ -6628,9 +6627,9 @@ The core gender-aware data structure `Films_key_both` maps English keys to dicti
 ```python
 # Example structure from Films_key_O_multi.json
 {
-    "action": {"male": "Ø­Ø±ÙƒØ©", "female": "Ø­Ø±ÙƒÙŠØ©"},
-    "drama": {"male": "Ø¯Ø±Ø§Ù…ÙŠ", "female": "Ø¯Ø±Ø§Ù…ÙŠØ©"},
-    "comedy": {"male": "ÙƒÙˆÙ…ÙŠØ¯ÙŠ", "female": "ÙƒÙˆÙ…ÙŠØ¯ÙŠØ©"}
+    "action": {"male": "حركة", "female": "حركية"},
+    "drama": {"male": "درامي", "female": "درامية"},
+    "comedy": {"male": "كوميدي", "female": "كوميدية"}
 }
 ```
 
@@ -6638,7 +6637,7 @@ The `_build_gender_key_maps()` function at [ArWikiCats/translations/tv/films_msl
 
 1. **Lowercases keys** for case-insensitive matching
 2. **Creates male-only dictionary** `Films_key_man` by extracting male forms
-3. **Handles animated variants**: For each genre, generates "animated {genre}" â†’ "{male_label} Ø±Ø³ÙˆÙ… Ù…ØªØ­Ø±ÙƒØ©"
+3. **Handles animated variants**: For each genre, generates "animated {genre}" → "{male_label} رسوم متحركة"
 4. **Manages animation aliasing**: "animated" and "animation" are treated as synonyms
 
 ### Gender-Specific Extraction
@@ -6647,8 +6646,8 @@ Two parallel dictionaries provide quick gender-specific lookups:
 
 | Dictionary | Source | Example |
 |-----------|--------|---------|
-| `film_keys_for_male` | Lines 401-403 | `"action"` â†’ `"Ø­Ø±ÙƒØ©"` |
-| `film_keys_for_female` | Extracted by `build_gender_specific_film_maps()` | `"action"` â†’ `"Ø­Ø±ÙƒÙŠØ©"` |
+| `film_keys_for_male` | Lines 401-403 | `"action"` → `"حركة"` |
+| `film_keys_for_female` | Extracted by `build_gender_specific_film_maps()` | `"action"` → `"حركية"` |
 | `Films_key_333` | Extended female labels | Combines multiple sources |
 
 The `_extend_females_labels()` function at [ArWikiCats/translations/tv/films_mslslat.py:154-182]() extracts female forms and handles the animation aliasing:
@@ -6675,16 +6674,16 @@ graph LR
 
     subgraph "Template Lookup"
         LOOKUP1["Films_key_For_nat<br/>action films"]
-        TEMPLATE["'Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒÙŠØ© {}'"]
+        TEMPLATE["'أفلام حركية {}'"]
     end
 
     subgraph "Nationality Translation"
-        NAT["All_Nat dictionary<br/>american â†’ Ø£Ù…Ø±ÙŠÙƒÙŠØ©"]
+        NAT["All_Nat dictionary<br/>american → أمريكية"]
     end
 
     subgraph "Substitution"
         SUB["Replace {} with<br/>nationality"]
-        RESULT["'Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒÙŠØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
+        RESULT["'أفلام حركية أمريكية'"]
     end
 
     EN --> LOOKUP1
@@ -6703,19 +6702,19 @@ The `Films_key_For_nat` dictionary contains three main pattern types:
 1. **Basic Film/TV Patterns** (Lines 454-475):
 ```python
 {
-    "drama films": "Ø£ÙÙ„Ø§Ù… Ø¯Ø±Ø§Ù…ÙŠØ© {}",
-    "action films": "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© {}",
-    "television series": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {}",
-    "web series": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ÙˆÙŠØ¨ {}"
+    "drama films": "أفلام درامية {}",
+    "action films": "أفلام حركة {}",
+    "television series": "مسلسلات تلفزيونية {}",
+    "web series": "مسلسلات ويب {}"
 }
 ```
 
 2. **Debuts and Endings Patterns** (Lines 477-503):
 ```python
 {
-    "television series debuts": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ",
-    "television series endings": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø§Ù†ØªÙ‡Øª ÙÙŠ",
-    "web series debuts": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ÙˆÙŠØ¨ {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ"
+    "television series debuts": "مسلسلات تلفزيونية {} بدأ عرضها في",
+    "television series endings": "مسلسلات تلفزيونية {} انتهت في",
+    "web series debuts": "مسلسلات ويب {} بدأ عرضها في"
 }
 ```
 
@@ -6727,7 +6726,7 @@ The `Films_key_For_nat` dictionary contains three main pattern types:
 
 Special pattern for film remakes at [ArWikiCats/translations/tv/films_mslslat.py:201]():
 ```python
-_key_for_nat["remakes of {} films"] = f"Ø£ÙÙ„Ø§Ù… {NAT_PLACEHOLDER} Ù…Ø¹Ø§Ø¯ Ø¥Ù†ØªØ§Ø¬Ù‡Ø§"
+_key_for_nat["remakes of {} films"] = f"أفلام {NAT_PLACEHOLDER} معاد إنتاجها"
 ```
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py:18-32](), [ArWikiCats/translations/tv/films_mslslat.py:184-256](), [ArWikiCats/translations/tv/films_mslslat.py:454-503]()
@@ -6742,12 +6741,12 @@ The `SERIES_DEBUTS_ENDINGS` constant at [ArWikiCats/translations/tv/films_mslsla
 
 | English Pattern | Arabic Template |
 |----------------|-----------------|
-| `television series debuts` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ` |
-| `television series endings` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø§Ù†ØªÙ‡Øª ÙÙŠ` |
-| `web series debuts` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ÙˆÙŠØ¨ {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ` |
-| `web series endings` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ÙˆÙŠØ¨ {} Ø§Ù†ØªÙ‡Øª ÙÙŠ` |
-| `television series-debuts` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ` (with dash) |
-| `television series-endings` | `Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {} Ø§Ù†ØªÙ‡Øª ÙÙŠ` (with dash) |
+| `television series debuts` | `مسلسلات تلفزيونية {} بدأ عرضها في` |
+| `television series endings` | `مسلسلات تلفزيونية {} انتهت في` |
+| `web series debuts` | `مسلسلات ويب {} بدأ عرضها في` |
+| `web series endings` | `مسلسلات ويب {} انتهت في` |
+| `television series-debuts` | `مسلسلات تلفزيونية {} بدأ عرضها في` (with dash) |
+| `television series-endings` | `مسلسلات تلفزيونية {} انتهت في` (with dash) |
 
 ### Supported Media Types
 
@@ -6821,17 +6820,17 @@ The `TELEVISION_BASE_KEYS` dictionary at [ArWikiCats/translations/tv/films_mslsl
 
 ```python
 {
-    "video games": "Ø£Ù„Ø¹Ø§Ø¨ ÙÙŠØ¯ÙŠÙˆ",
-    "soap opera": "Ù…Ø³Ù„Ø³Ù„Ø§Øª Ø·ÙˆÙŠÙ„Ø©",
-    "television characters": "Ø´Ø®ØµÙŠØ§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©",
-    "television programs": "Ø¨Ø±Ø§Ù…Ø¬ ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©",
-    "web series": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ÙˆÙŠØ¨",
-    "television series": "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©",
-    "film series": "Ø³Ù„Ø§Ø³Ù„ Ø£ÙÙ„Ø§Ù…",
-    "television episodes": "Ø­Ù„Ù‚Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©",
-    "television films": "Ø£ÙÙ„Ø§Ù… ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©",
-    "miniseries": "Ù…Ø³Ù„Ø³Ù„Ø§Øª Ù‚ØµÙŠØ±Ø©",
-    "television miniseries": "Ù…Ø³Ù„Ø³Ù„Ø§Øª Ù‚ØµÙŠØ±Ø© ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©"
+    "video games": "ألعاب فيديو",
+    "soap opera": "مسلسلات طويلة",
+    "television characters": "شخصيات تلفزيونية",
+    "television programs": "برامج تلفزيونية",
+    "web series": "مسلسلات ويب",
+    "television series": "مسلسلات تلفزيونية",
+    "film series": "سلاسل أفلام",
+    "television episodes": "حلقات تلفزيونية",
+    "television films": "أفلام تلفزيونية",
+    "miniseries": "مسلسلات قصيرة",
+    "television miniseries": "مسلسلات قصيرة تلفزيونية"
 }
 ```
 
@@ -6856,13 +6855,13 @@ The system generates multiple pattern variants for each television key:
    - Without placeholder: `"{tt_lab}"`
 
 2. **Temporal variants** at [ArWikiCats/translations/tv/films_mslslat.py:209-216]():
-   - Debuts: `"{tt_lab} {NAT_PLACEHOLDER} Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ"`
-   - Endings: `"{tt_lab} {NAT_PLACEHOLDER} Ø§Ù†ØªÙ‡Øª ÙÙŠ"`
-   - Revived: `"{tt_lab} {NAT_PLACEHOLDER} Ø£Ø¹ÙŠØ¯Øª Ø¨Ø¹Ø¯ Ø¥Ù„ØºØ§Ø¦Ù‡Ø§"`
+   - Debuts: `"{tt_lab} {NAT_PLACEHOLDER} بدأ عرضها في"`
+   - Endings: `"{tt_lab} {NAT_PLACEHOLDER} انتهت في"`
+   - Revived: `"{tt_lab} {NAT_PLACEHOLDER} أعيدت بعد إلغائها"`
 
 3. **Genre combinations** at [ArWikiCats/translations/tv/films_mslslat.py:226-255]():
    - Combines each female film key with each TV key
-   - Example: "action television series" â†’ "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø­Ø±ÙƒÙŠØ© {}"
+   - Example: "action television series" → "مسلسلات تلفزيونية حركية {}"
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py:35-109](), [ArWikiCats/translations/tv/films_mslslat.py:184-256]()
 
@@ -6885,7 +6884,7 @@ graph TB
     subgraph "_build_television_cao()<br/>Lines 259-318"
         STEP1["Add base suffixes<br/>to TELEVISION_KEYS"]
         STEP2["Add genre categories<br/>combinations"]
-        STEP3["Combine female_keys Ã—<br/>TELEVISION_KEYS"]
+        STEP3["Combine female_keys ×<br/>TELEVISION_KEYS"]
         STEP4["Generate special cases"]
     end
 
@@ -6925,13 +6924,13 @@ At [ArWikiCats/translations/tv/films_mslslat.py:272-282](), the system adds comm
 
 | English Suffix | Arabic Translation |
 |---------------|-------------------|
-| `characters` | `Ø´Ø®ØµÙŠØ§Øª` (characters) |
-| `title cards` | `Ø¨Ø·Ø§Ù‚Ø§Øª Ø¹Ù†ÙˆØ§Ù†` (title cards) |
-| `video covers` | `Ø£ØºÙ„ÙØ© ÙÙŠØ¯ÙŠÙˆ` (video covers) |
-| `posters` | `Ù…Ù„ØµÙ‚Ø§Øª` (posters) |
-| `images` | `ØµÙˆØ±` (images) |
+| `characters` | `شخصيات` (characters) |
+| `title cards` | `بطاقات عنوان` (title cards) |
+| `video covers` | `أغلفة فيديو` (video covers) |
+| `posters` | `ملصقات` (posters) |
+| `images` | `صور` (images) |
 
-Example: `"television series characters"` â†’ `"Ø´Ø®ØµÙŠØ§Øª Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ©"`
+Example: `"television series characters"` → `"شخصيات مسلسلات تلفزيونية"`
 
 ### Genre-Based Categories
 
@@ -6942,7 +6941,7 @@ The `genre_categories` list at [ArWikiCats/translations/tv/films_mslslat.py:285-
 - TV types: `television series`, `television episodes`, `television programs`
 - Other: `terminology`, `groups`
 
-### Genre Ã— TV Combinations
+### Genre × TV Combinations
 
 The most significant contribution to CAO size comes from the nested loop at [ArWikiCats/translations/tv/films_mslslat.py:304-316]():
 
@@ -6953,25 +6952,25 @@ for ke, ke_lab in female_keys.items():  # 207 genres
         films_key_cao[f"{ke} {fao}"] = f"{base_label} {ke_lab}"
 ```
 
-This generates **207 Ã— 54 = 11,178 entries** (tracked as `ss_Films_key_CAO` in data_len.json).
+This generates **207 × 54 = 11,178 entries** (tracked as `ss_Films_key_CAO` in data_len.json).
 
 Examples:
-- `"action video games"` â†’ `"Ø£Ù„Ø¹Ø§Ø¨ ÙÙŠØ¯ÙŠÙˆ Ø­Ø±ÙƒÙŠØ©"`
-- `"comedy television series"` â†’ `"Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ÙƒÙˆÙ…ÙŠØ¯ÙŠØ©"`
-- `"horror comics"` â†’ `"Ù‚ØµØµ Ù…ØµÙˆØ±Ø© Ø±Ø¹Ø¨"`
+- `"action video games"` → `"ألعاب فيديو حركية"`
+- `"comedy television series"` → `"مسلسلات تلفزيونية كوميدية"`
+- `"horror comics"` → `"قصص مصورة رعب"`
 
 ### Special CAO Patterns
 
 At [ArWikiCats/translations/tv/films_mslslat.py:305-311](), special cases are generated:
 
 ```python
-films_key_cao[f"children's {ke}"] = f"Ø£Ø·ÙØ§Ù„ {ke_lab}"
-films_key_cao[f"{ke} film remakes"] = f"Ø£ÙÙ„Ø§Ù… {ke_lab} Ù…Ø¹Ø§Ø¯ Ø¥Ù†ØªØ§Ø¬Ù‡Ø§"
+films_key_cao[f"children's {ke}"] = f"أطفال {ke_lab}"
+films_key_cao[f"{ke} film remakes"] = f"أفلام {ke_lab} معاد إنتاجها"
 ```
 
 Examples:
-- `"children's action"` â†’ `"Ø£Ø·ÙØ§Ù„ Ø­Ø±ÙƒÙŠØ©"`
-- `"horror film remakes"` â†’ `"Ø£ÙÙ„Ø§Ù… Ø±Ø¹Ø¨ Ù…Ø¹Ø§Ø¯ Ø¥Ù†ØªØ§Ø¬Ù‡Ø§"`
+- `"children's action"` → `"أطفال حركية"`
+- `"horror film remakes"` → `"أفلام رعب معاد إنتاجها"`
 
 Sources: [ArWikiCats/translations/tv/films_mslslat.py:259-318](), [ArWikiCats/translations/tv/films_mslslat.py:506](), [_work_files/data_len.json:4-5]()
 
@@ -6997,10 +6996,10 @@ for en, tab in filmskeys_male_female.items():
 
 | English Category | Arabic Translation | Structure |
 |-----------------|-------------------|-----------|
-| `action comedy` | `Ø­Ø±ÙƒÙŠØ© ÙƒÙˆÙ…ÙŠØ¯ÙŠØ©` | action_female + comedy_female |
-| `horror drama` | `Ø±Ø¹Ø¨ Ø¯Ø±Ø§Ù…ÙŠØ©` | horror_female + drama_female |
-| `romantic comedy` | `Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠØ© ÙƒÙˆÙ…ÙŠØ¯ÙŠØ©` | romantic_female + comedy_female |
-| `science fiction adventure` | `Ø®ÙŠØ§Ù„ Ø¹Ù„Ù…ÙŠ Ù…ØºØ§Ù…Ø±Ø§Øª` | sci-fi_female + adventure_female |
+| `action comedy` | `حركية كوميدية` | action_female + comedy_female |
+| `horror drama` | `رعب درامية` | horror_female + drama_female |
+| `romantic comedy` | `رومانسية كوميدية` | romantic_female + comedy_female |
+| `science fiction adventure` | `خيال علمي مغامرات` | sci-fi_female + adventure_female |
 
 ### Data Source
 
@@ -7077,7 +7076,7 @@ graph TB
 
 At [ArWikiCats/translations/tv/films_mslslat.py:387](), the system adds sports translations:
 ```python
-Films_keys_male_female["sports"] = {"male": "Ø±ÙŠØ§Ø¶ÙŠ", "female": "Ø±ÙŠØ§Ø¶ÙŠØ©"}
+Films_keys_male_female["sports"] = {"male": "رياضي", "female": "رياضية"}
 ```
 
 At [ArWikiCats/translations/tv/films_mslslat.py:391-393](), filtering ensures only complete gender pairs:
@@ -7198,7 +7197,7 @@ The ministers and political roles system handles translation of:
 - **Legislative positions**: speakers, party chairs
 - **Judicial positions**: chief justices, attorneys general
 
-The system provides both standalone translations (e.g., "ministers" â†’ "ÙˆØ²Ø±Ø§Ø¡") and pattern-based translations that combine with nationalities (e.g., "British ministers" â†’ "ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†").
+The system provides both standalone translations (e.g., "ministers" → "وزراء") and pattern-based translations that combine with nationalities (e.g., "British ministers" → "وزراء بريطانيون").
 
 Sources: [ArWikiCats/translations/others/__init__.py:8](), [ArWikiCats/translations/__init__.py:67-68](), [_work_files/data_len.json:88]()
 
@@ -7249,13 +7248,13 @@ The core data structure is a dictionary mapping English political titles to thei
 
 ```python
 ministers_keys = {
-    "ministers": "ÙˆØ²Ø±Ø§Ø¡",
-    "cabinet ministers": "ÙˆØ²Ø±Ø§Ø¡",
-    "secretaries": "ÙˆØ²Ø±Ø§Ø¡",
-    "cabinet secretaries": "Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡",
-    "secretaries of state": "ÙˆØ²Ø±Ø§Ø¡ Ø®Ø§Ø±Ø¬ÙŠØ©",
-    "state treasurers": "Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø© ÙˆÙ„Ø§ÙŠØ©",
-    "treasurers": "Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø©",
+    "ministers": "وزراء",
+    "cabinet ministers": "وزراء",
+    "secretaries": "وزراء",
+    "cabinet secretaries": "أعضاء مجلس وزراء",
+    "secretaries of state": "وزراء خارجية",
+    "state treasurers": "أمناء خزينة ولاية",
+    "treasurers": "أمناء خزينة",
     # ... ~99 total entries
 }
 ```
@@ -7264,13 +7263,13 @@ ministers_keys = {
 
 | English Pattern | Arabic Translation | Category Example |
 |----------------|-------------------|------------------|
-| `ministers` | ÙˆØ²Ø±Ø§Ø¡ | Category:British ministers |
-| `cabinet secretaries` | Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ | Category:State cabinet secretaries |
-| `secretaries of state` | ÙˆØ²Ø±Ø§Ø¡ Ø®Ø§Ø±Ø¬ÙŠØ© | Category:American secretaries of state |
-| `treasurers` | Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø© | Category:State treasurers |
-| `superintendents of public instruction` | Ù…Ø¯Ø±Ø§Ø¡ ØªØ¹Ù„ÙŠÙ… Ø¹Ø§Ù… | Category:State superintendents |
-| `chief justices` | Ø±Ø¤Ø³Ø§Ø¡ Ù‚Ø¶Ø§Ø¡ | Category:Chief justices |
-| `party chairs` | Ø±Ø¤Ø³Ø§Ø¡ Ø£Ø­Ø²Ø§Ø¨ | Category:Party chairs |
+| `ministers` | وزراء | Category:British ministers |
+| `cabinet secretaries` | أعضاء مجلس وزراء | Category:State cabinet secretaries |
+| `secretaries of state` | وزراء خارجية | Category:American secretaries of state |
+| `treasurers` | أمناء خزينة | Category:State treasurers |
+| `superintendents of public instruction` | مدراء تعليم عام | Category:State superintendents |
+| `chief justices` | رؤساء قضاء | Category:Chief justices |
+| `party chairs` | رؤساء أحزاب | Category:Party chairs |
 
 Sources: [ArWikiCats/translations/mixed/all_keys2.py:393-515](), [_work_files/data_len.json:88]()
 
@@ -7283,15 +7282,15 @@ graph LR
     Input["Category Input<br/>'British ministers'"]
 
     subgraph "Pattern Matching"
-        NatParse[Extract Nationality<br/>'British' â†’ 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†']
-        RoleParse[Extract Role<br/>'ministers' â†’ 'ÙˆØ²Ø±Ø§Ø¡']
+        NatParse[Extract Nationality<br/>'British' → 'بريطانيون']
+        RoleParse[Extract Role<br/>'ministers' → 'وزراء']
     end
 
     subgraph "Template Application"
-        Template["Template: '{males} {role}'<br/>Becomes: 'ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+        Template["Template: '{males} {role}'<br/>Becomes: 'وزراء بريطانيون'"]
     end
 
-    Output["Arabic Output<br/>'ØªØµÙ†ÙŠÙ:ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+    Output["Arabic Output<br/>'تصنيف:وزراء بريطانيون'"]
 
     Input --> NatParse
     Input --> RoleParse
@@ -7319,15 +7318,15 @@ Special patterns exist for executive council positions, which use nationality-sp
 ```mermaid
 graph TB
     subgraph "Executive Council Templates"
-        T1["{en} executive council<br/>â†’ 'Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ {the_male}'"]
-        T2["{en} executive council positions<br/>â†’ 'Ù…Ù†Ø§ØµØ¨ ÙÙŠ Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ {the_male}'"]
-        T3["former {en} executive council positions<br/>â†’ 'Ù…Ù†Ø§ØµØ¨ Ø³Ø§Ø¨Ù‚Ø© ÙÙŠ Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ {the_male}'"]
+        T1["{en} executive council<br/>→ 'المجلس التنفيذي {the_male}'"]
+        T2["{en} executive council positions<br/>→ 'مناصب في المجلس التنفيذي {the_male}'"]
+        T3["former {en} executive council positions<br/>→ 'مناصب سابقة في المجلس التنفيذي {the_male}'"]
     end
 
     subgraph "Example Resolutions"
-        Ex1["'Australian executive council'<br/>â†’ 'Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø§Ù„Ø£Ø³ØªØ±Ø§Ù„ÙŠ'"]
-        Ex2["'Canadian executive council positions'<br/>â†’ 'Ù…Ù†Ø§ØµØ¨ ÙÙŠ Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø§Ù„ÙƒÙ†Ø¯ÙŠ'"]
-        Ex3["'Former British executive council positions'<br/>â†’ 'Ù…Ù†Ø§ØµØ¨ Ø³Ø§Ø¨Ù‚Ø© ÙÙŠ Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠ'"]
+        Ex1["'Australian executive council'<br/>→ 'المجلس التنفيذي الأسترالي'"]
+        Ex2["'Canadian executive council positions'<br/>→ 'مناصب في المجلس التنفيذي الكندي'"]
+        Ex3["'Former British executive council positions'<br/>→ 'مناصب سابقة في المجلس التنفيذي البريطاني'"]
     end
 
     T1 --> Ex1
@@ -7337,7 +7336,7 @@ graph TB
 
 **Diagram 3: Executive Council Pattern System**
 
-These patterns use `{the_male}` placeholder which resolves to the nationality's definite masculine form (e.g., "Ø§Ù„Ø£Ø³ØªØ±Ø§Ù„ÙŠ" for Australian, "Ø§Ù„ÙƒÙ†Ø¯ÙŠ" for Canadian).
+These patterns use `{the_male}` placeholder which resolves to the nationality's definite masculine form (e.g., "الأسترالي" for Australian, "الكندي" for Canadian).
 
 Sources: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:69-73]()
 
@@ -7351,12 +7350,12 @@ From `keys_of_without_in` dictionary:
 
 | English Term | Arabic Translation | Usage Context |
 |-------------|-------------------|---------------|
-| `chief justices` | Ø±Ø¤Ø³Ø§Ø¡ Ù‚Ø¶Ø§Ø¡ | Judicial system heads |
-| `speakers` | Ø±Ø¤Ø³Ø§Ø¡ | Legislative speakers |
-| `party chairs` | Ø±Ø¤Ø³Ø§Ø¡ Ø£Ø­Ø²Ø§Ø¨ | Political party leadership |
-| `lieutenant governors` | Ù†ÙˆØ§Ø¨ Ø­ÙƒØ§Ù… | Deputy governors |
-| `vice presidents` | Ù†ÙˆØ§Ø¨ Ø±Ø¤Ø³Ø§Ø¡ | Vice presidential roles |
-| `appellate courts` | Ù…Ø­Ø§ÙƒÙ… Ø§Ø³ØªØ¦Ù†Ø§Ù ÙˆÙ„Ø§ÙŠØ§Øª | State court systems |
+| `chief justices` | رؤساء قضاء | Judicial system heads |
+| `speakers` | رؤساء | Legislative speakers |
+| `party chairs` | رؤساء أحزاب | Political party leadership |
+| `lieutenant governors` | نواب حكام | Deputy governors |
+| `vice presidents` | نواب رؤساء | Vice presidential roles |
+| `appellate courts` | محاكم استئناف ولايات | State court systems |
 
 Sources: [ArWikiCats/translations/mixed/all_keys2.py:367-550]()
 
@@ -7366,10 +7365,10 @@ The `PARTIES` dictionary in `keys2.py` provides 76 entries for specific politica
 
 ```python
 PARTIES = {
-    "republican party (united states)": "Ø§Ù„Ø­Ø²Ø¨ Ø§Ù„Ø¬Ù…Ù‡ÙˆØ±ÙŠ (Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©)",
-    "democratic party": "Ø§Ù„Ø­Ø²Ø¨ Ø§Ù„Ø¯ÙŠÙ…Ù‚Ø±Ø§Ø·ÙŠ",
-    "labour party": "Ø­Ø²Ø¨ Ø§Ù„Ø¹Ù…Ø§Ù„",
-    "conservative party": "Ø­Ø²Ø¨ Ø§Ù„Ù…Ø­Ø§ÙØ¸ÙŠÙ†",
+    "republican party (united states)": "الحزب الجمهوري (الولايات المتحدة)",
+    "democratic party": "الحزب الديمقراطي",
+    "labour party": "حزب العمال",
+    "conservative party": "حزب المحافظين",
     # ... 76 total entries
 }
 ```
@@ -7388,11 +7387,11 @@ Special handling exists for U.S. state-level positions:
 
 | English Pattern | Arabic Translation | Notes |
 |----------------|-------------------|-------|
-| `state cabinet secretaries` | Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ | State cabinet members |
-| `state treasurers` | Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø© ÙˆÙ„Ø§ÙŠØ© | State financial officers |
-| `state appellate courts` | Ù…Ø­Ø§ÙƒÙ… Ø§Ø³ØªØ¦Ù†Ø§Ù ÙˆÙ„Ø§ÙŠØ§Øª | State court systems |
-| `state superior courts` | Ù…Ø­Ø§ÙƒÙ… Ø¹Ù„ÙŠØ§ | State high courts |
-| `superintendents of public instruction` | Ù…Ø¯Ø±Ø§Ø¡ ØªØ¹Ù„ÙŠÙ… Ø¹Ø§Ù… | Education commissioners |
+| `state cabinet secretaries` | أعضاء مجلس وزراء | State cabinet members |
+| `state treasurers` | أمناء خزينة ولاية | State financial officers |
+| `state appellate courts` | محاكم استئناف ولايات | State court systems |
+| `state superior courts` | محاكم عليا | State high courts |
+| `superintendents of public instruction` | مدراء تعليم عام | Education commissioners |
 
 These patterns allow categories like "California state treasurers" to be properly translated with both state name and role.
 
@@ -7411,15 +7410,15 @@ graph TB
     end
 
     subgraph "Data Lookups"
-        AllNat[All_Nat<br/>'british' â†’ nationality data]
-        Ministers[ministers_keys<br/>'cabinet ministers' â†’ 'Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡']
+        AllNat[All_Nat<br/>'british' → nationality data]
+        Ministers[ministers_keys<br/>'cabinet ministers' → 'أعضاء مجلس وزراء']
     end
 
     subgraph "Template Processing"
-        Template["FormatDataV2<br/>{males} + role pattern<br/>'Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+        Template["FormatDataV2<br/>{males} + role pattern<br/>'أعضاء مجلس وزراء بريطانيون'"]
     end
 
-    Output["ØªØµÙ†ÙŠÙ:Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"]
+    Output["تصنيف:أعضاء مجلس وزراء بريطانيون"]
 
     Input --> TimeR
     TimeR --> PatternR
@@ -7485,28 +7484,28 @@ Sources: [ArWikiCats/translations/jobs/Jobs.py:1-211](), [ArWikiCats/new_resolve
 ## Government Positions by Category
 
 ### Cabinet and Ministerial Roles
-- `ministers` â†’ "ÙˆØ²Ø±Ø§Ø¡"
-- `cabinet ministers` â†’ "ÙˆØ²Ø±Ø§Ø¡"
-- `cabinet secretaries` â†’ "Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡"
-- `cabinet` â†’ "Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡"
+- `ministers` → "وزراء"
+- `cabinet ministers` → "وزراء"
+- `cabinet secretaries` → "أعضاء مجلس وزراء"
+- `cabinet` → "مجلس وزراء"
 
 ### Foreign Affairs
-- `secretaries of state` â†’ "ÙˆØ²Ø±Ø§Ø¡ Ø®Ø§Ø±Ø¬ÙŠØ©"
-- `secretaries-of state` â†’ "ÙˆØ²Ø±Ø§Ø¡ Ø®Ø§Ø±Ø¬ÙŠØ©"
+- `secretaries of state` → "وزراء خارجية"
+- `secretaries-of state` → "وزراء خارجية"
 
 ### Financial Positions
-- `treasurers` â†’ "Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø©"
-- `state treasurers` â†’ "Ø£Ù…Ù†Ø§Ø¡ Ø®Ø²ÙŠÙ†Ø© ÙˆÙ„Ø§ÙŠØ©"
+- `treasurers` → "أمناء خزينة"
+- `state treasurers` → "أمناء خزينة ولاية"
 
 ### Educational Administration
-- `superintendents of public instruction` â†’ "Ù…Ø¯Ø±Ø§Ø¡ ØªØ¹Ù„ÙŠÙ… Ø¹Ø§Ù…"
+- `superintendents of public instruction` → "مدراء تعليم عام"
 
 ### Judicial Positions
-- `chief justices` â†’ "Ø±Ø¤Ø³Ø§Ø¡ Ù‚Ø¶Ø§Ø¡"
+- `chief justices` → "رؤساء قضاء"
 
 ### Legislative Leadership
-- `speakers` â†’ "Ø±Ø¤Ø³Ø§Ø¡"
-- `party chairs` â†’ "Ø±Ø¤Ø³Ø§Ø¡ Ø£Ø­Ø²Ø§Ø¨"
+- `speakers` → "رؤساء"
+- `party chairs` → "رؤساء أحزاب"
 
 Sources: [ArWikiCats/translations/mixed/all_keys2.py:367-550](), [_work_files/data_len.json:88]()
 
@@ -7514,12 +7513,12 @@ Sources: [ArWikiCats/translations/mixed/all_keys2.py:367-550](), [_work_files/da
 
 | Input Category | Resolution Path | Arabic Output |
 |---------------|----------------|---------------|
-| British ministers | Nationality + ministers_keys | ØªØµÙ†ÙŠÙ:ÙˆØ²Ø±Ø§Ø¡ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† |
-| State cabinet secretaries | State pattern + ministers_keys | ØªØµÙ†ÙŠÙ:Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ ÙˆÙ„Ø§ÙŠØ© |
-| French secretaries of state | Nationality + ministers_keys | ØªØµÙ†ÙŠÙ:ÙˆØ²Ø±Ø§Ø¡ Ø®Ø§Ø±Ø¬ÙŠØ© ÙØ±Ù†Ø³ÙŠÙˆÙ† |
-| Australian executive council | Nationality + executive pattern | ØªØµÙ†ÙŠÙ:Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„ØªÙ†ÙÙŠØ°ÙŠ Ø§Ù„Ø£Ø³ØªØ±Ø§Ù„ÙŠ |
-| Political parties | Direct PARTIES lookup | ØªØµÙ†ÙŠÙ:Ø£Ø­Ø²Ø§Ø¨ Ø³ÙŠØ§Ø³ÙŠØ© |
-| Republican Party (United States) | Specific PARTIES entry | ØªØµÙ†ÙŠÙ:Ø§Ù„Ø­Ø²Ø¨ Ø§Ù„Ø¬Ù…Ù‡ÙˆØ±ÙŠ (Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©) |
+| British ministers | Nationality + ministers_keys | تصنيف:وزراء بريطانيون |
+| State cabinet secretaries | State pattern + ministers_keys | تصنيف:أعضاء مجلس وزراء ولاية |
+| French secretaries of state | Nationality + ministers_keys | تصنيف:وزراء خارجية فرنسيون |
+| Australian executive council | Nationality + executive pattern | تصنيف:المجلس التنفيذي الأسترالي |
+| Political parties | Direct PARTIES lookup | تصنيف:أحزاب سياسية |
+| Republican Party (United States) | Specific PARTIES entry | تصنيف:الحزب الجمهوري (الولايات المتحدة) |
 
 Sources: [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:69-106](), [ArWikiCats/translations/mixed/keys2.py:52-129]()25:T63dc,# Resolver System
 
@@ -7661,8 +7660,8 @@ The order of resolvers is critical for correctness. Certain resolvers must prece
 
 2. **Nationalities before Countries** (Priority 6 before 7)
    - Prevents "Italy political leader" from being mis-resolved
-   - Correct: "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†" (Italian political leaders)
-   - Incorrect: "Ù‚Ø§Ø¯Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†" (Italy's political leaders)
+   - Correct: "قادة سياسيون إيطاليون" (Italian political leaders)
+   - Incorrect: "قادة إيطاليا السياسيون" (Italy's political leaders)
 
 3. **Time + Jobs before standalone resolvers** (Priority 4 before others)
    - Ensures compound temporal+occupational categories are handled correctly
@@ -7677,14 +7676,14 @@ graph LR
     end
 
     subgraph "Correct Resolution Path"
-        Ex1 --> J["Jobs Resolver<br/>(Priority 3)<br/>Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…"]
-        Ex2 --> N["Nationalities Resolver<br/>(Priority 6)<br/>Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†"]
-        Ex3 --> TJ["Time+Jobs Resolver<br/>(Priority 4)<br/>Ø£ÙÙ„Ø§Ù… 1990"]
+        Ex1 --> J["Jobs Resolver<br/>(Priority 3)<br/>مدربو كرة قدم"]
+        Ex2 --> N["Nationalities Resolver<br/>(Priority 6)<br/>قادة سياسيون إيطاليون"]
+        Ex3 --> TJ["Time+Jobs Resolver<br/>(Priority 4)<br/>أفلام 1990"]
     end
 
     subgraph "Avoided Incorrect Path"
-        Ex1 -.X.-> S["Sports Resolver<br/>(Priority 5)<br/>Ù…Ø¯ÙŠØ±Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"]
-        Ex2 -.X.-> C["Countries Resolver<br/>(Priority 7)<br/>Ù‚Ø§Ø¯Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†"]
+        Ex1 -.X.-> S["Sports Resolver<br/>(Priority 5)<br/>مديرو كرة القدم"]
+        Ex2 -.X.-> C["Countries Resolver<br/>(Priority 7)<br/>قادة إيطاليا السياسيون"]
         Ex3 -.X.-> F["Films Resolver<br/>(Priority 8)<br/>Wrong template"]
     end
 ```
@@ -7796,8 +7795,8 @@ The sports resolver attempts matches in the following order:
 
 The sports resolvers use `SPORT_KEY_RECORDS` which provides multiple translations for each sport:
 
-- `sport_jobs`: For occupation patterns (e.g., "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" for football jobs)
-- `sport_team`: For team/competition patterns (e.g., "Ù„ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" for football teams)
+- `sport_jobs`: For occupation patterns (e.g., "كرة القدم" for football jobs)
+- `sport_team`: For team/competition patterns (e.g., "لكرة القدم" for football teams)
 - `sport_label`: For general sport labels
 - `sport_olympic`: For Olympic-specific patterns
 
@@ -8060,13 +8059,13 @@ sequenceDiagram
     J-->>R: ""
 
     R->>S: Try sports resolvers
-    Note over S: Match found!<br/>"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
-    S-->>R: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+    Note over S: Match found!<br/>"لاعبو كرة قدم بريطانيون"
+    S-->>R: "لاعبو كرة قدم بريطانيون"
 
-    R-->>M: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+    R-->>M: "لاعبو كرة قدم بريطانيون"
     M->>M: Apply fixlabel formatting
-    M->>M: Add "ØªØµÙ†ÙŠÙ:" prefix
-    M->>O: "ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+    M->>M: Add "تصنيف:" prefix
+    M->>O: "تصنيف:لاعبو كرة قدم بريطانيون"
 ```
 
 **Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:101-124](), [ArWikiCats/main_processers/main_resolve.py]()
@@ -8188,7 +8187,7 @@ Time Pattern Resolvers have **highest priority** in the main resolver chain, pos
 
 **Resolver Chain Position:**
 ```
-1. Time Resolvers â† HIGHEST PRIORITY
+1. Time Resolvers ← HIGHEST PRIORITY
 2. Pattern Resolvers
 3. Jobs Resolvers
 4. Sports Resolvers
@@ -8227,7 +8226,7 @@ flowchart TB
 
     FinalFormat["Final Formatting<br/>fixlabel()"]
 
-    Output["Arabic Output<br/>'ØªÙ„ÙØ²ÙŠÙˆÙ† Ø£Ù…Ø±ÙŠÙƒÙŠ 2015'"]
+    Output["Arabic Output<br/>'تلفزيون أمريكي 2015'"]
 
     Input --> Normalize
     Normalize --> TimeDetect
@@ -8305,8 +8304,8 @@ graph LR
 | Pattern | Purpose | Example Match |
 |---------|---------|---------------|
 | `RE1_compile` | Matches year at beginning | "1990 United States Congress" |
-| `RE2_compile` | Matches year at end | "American Soccer League 1933â€“83" |
-| `RE33_compile` | Matches year range in parentheses | "League (1933â€“83)" |
+| `RE2_compile` | Matches year at end | "American Soccer League 1933–83" |
+| `RE33_compile` | Matches year range in parentheses | "League (1933–83)" |
 | `REGEX_SUB_YEAR` | Extracts the year substring | Extracts "1990" from input |
 
 **Sources:** [ArWikiCats/legacy_bots/utils/regex_hub.py:1-30](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:25-28]()
@@ -8322,7 +8321,7 @@ When a category begins with a year (e.g., "1990 United States Congress"), this f
 1. Extracts the year using `REGEX_SUB_YEAR.sub(r"\g<1>", category_text)`
 2. Extracts the remainder by removing the year: `remainder = category_text[len(year):].strip().lower()`
 3. Resolves the remainder through the resolver chain
-4. Determines the appropriate separator (" " or " ÙÙŠ ")
+4. Determines the appropriate separator (" " or " في ")
 5. Constructs the label: `remainder_label + separator + year`
 
 **Separator Selection Logic:**
@@ -8335,7 +8334,7 @@ flowchart TD
     CheckTable{"Is remainder in<br/>Add_in_table?"}
 
     UseSpace["Use separator = ' '"]
-    UseFi["Use separator = ' ÙÙŠ '"]
+    UseFi["Use separator = ' في '"]
 
     CombineLabel["Combine:<br/>remainder_label + separator + year"]
 
@@ -8351,9 +8350,9 @@ flowchart TD
 
 **Special Cases:**
 
-The `arabic_labels_preceding_year` list defines labels that require " ÙÙŠ " before the year:
-- "ÙƒØªØ§Ø¨ Ø¨Ø£Ø³Ù…Ø§Ø¡ Ù…Ø³ØªØ¹Ø§Ø±Ø©" (Writers with pseudonyms)
-- "Ø¨Ø·ÙˆÙ„Ø§Øª Ø§ØªØ­Ø§Ø¯ Ø±Ø¬Ø¨ÙŠ Ù„Ù„Ù…Ù†ØªØ®Ø¨Ø§Øª Ø§Ù„ÙˆØ·Ù†ÙŠØ©" (Rugby union tournaments for national teams)
+The `arabic_labels_preceding_year` list defines labels that require " في " before the year:
+- "كتاب بأسماء مستعارة" (Writers with pseudonyms)
+- "بطولات اتحاد رجبي للمنتخبات الوطنية" (Rugby union tournaments for national teams)
 
 **Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:103-161](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:30-35]()
 
@@ -8361,7 +8360,7 @@ The `arabic_labels_preceding_year` list defines labels that require " ÙÙŠ "
 
 ### Year at End: `_handle_year_at_end()`
 
-When a category ends with a year or year range (e.g., "American Soccer League (1933â€“83)"), this function:
+When a category ends with a year or year range (e.g., "American Soccer League (1933–83)"), this function:
 
 1. Extracts the year using `compiled_year_pattern.sub(r"\g<1>", category_text.strip())`
 2. Refines extraction if a range pattern is detected using `compiled_range_pattern`
@@ -8370,8 +8369,8 @@ When a category ends with a year or year range (e.g., "American Soccer League (1
 5. Constructs the label: `remainder_label + " " + formatted_year_label`
 
 **Special Handling:**
-- Converts "â€“present" to "â€“Ø§Ù„Ø¢Ù†" (â€“now)
-- Validates that extraction is successful (year â‰  original category)
+- Converts "–present" to "–الآن" (–now)
+- Validates that extraction is successful (year ≠ original category)
 
 **Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:164-216]()
 
@@ -8394,8 +8393,8 @@ _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 
 | English Pattern | Arabic Label |
 |----------------|--------------|
-| "iranian majlis" | "Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø¥ÙŠØ±Ø§Ù†ÙŠ" |
-| "united states congress" | "Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ" |
+| "iranian majlis" | "المجلس الإيراني" |
+| "united states congress" | "الكونغرس الأمريكي" |
 
 **Label Construction:**
 
@@ -8403,7 +8402,7 @@ _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 2. Match body key (e.g., "united states congress")
 3. Convert ordinal to Arabic word using `change_numb_to_word` dictionary
 4. Combine: `body_label + " " + ordinal_label`
-5. Example: "Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€115"
+5. Example: "الكونغرس الأمريكي الـ115"
 
 **Sources:** [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:38-100]()
 
@@ -8549,23 +8548,23 @@ graph TB
 
 ### Arabic Preposition Injection
 
-Time pattern resolvers must determine when to insert Arabic prepositions (" ÙÙŠ ", " Ù…Ù† ", etc.) based on context:
+Time pattern resolvers must determine when to insert Arabic prepositions (" في ", " من ", etc.) based on context:
 
 **Preposition Rules:**
 
 | Condition | Preposition | Position | Example |
 |-----------|-------------|----------|---------|
-| `in_str.strip() == "in"` | " ÙÙŠ " | After year | "Ø£ÙÙ„Ø§Ù… 1990 ÙÙŠ Ù…ØµØ±" |
-| `in_str.strip() == "at"` | " ÙÙŠ " | After year | "Ø£Ø­Ø¯Ø§Ø« 1990 ÙÙŠ Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©" |
-| `in_str.strip() == "from"` | " Ù…Ù† " | Before country | "Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ† Ù…Ù† Ø§Ù„ÙŠÙ…Ù†" |
-| Remainder in `Add_in_table` | " ÙÙŠ " | After year | Category-specific |
+| `in_str.strip() == "in"` | " في " | After year | "أفلام 1990 في مصر" |
+| `in_str.strip() == "at"` | " في " | After year | "أحداث 1990 في القاهرة" |
+| `in_str.strip() == "from"` | " من " | Before country | "مهاجرون من اليمن" |
+| Remainder in `Add_in_table` | " في " | After year | Category-specific |
 
 **Preposition Insertion Logic (from `handle_year()`):**
 
 ```python
 if (self.in_str.strip() in ("in", "at")) and not self.suf.strip():
-    logger.info(f"Add ÙÙŠ to arlabel:in, at: {self.arlabel}")
-    self.arlabel += " ÙÙŠ "
+    logger.info(f"Add في to arlabel:in, at: {self.arlabel}")
+    self.arlabel += " في "
     self.cat_test = self.replace_cat_test(self.cat_test, self.in_str)
     self.add_in = False
     self.add_in_done = True
@@ -8650,7 +8649,7 @@ flowchart TD
 
     CheckDigit{"Category<br/>starts with digit?"}
     CheckYear{"Year patterns<br/>match?"}
-    CheckSame{"Extracted year<br/>â‰  original?"}
+    CheckSame{"Extracted year<br/>≠ original?"}
 
     Proceed["Proceed with Resolution"]
     Skip["Return Empty String"]
@@ -8683,10 +8682,10 @@ flowchart TD
 
 | Input Category | Extracted Year | Remainder | Arabic Output |
 |----------------|----------------|-----------|---------------|
-| "2015 American television" | "2015" | "American television" | "ØªÙ„ÙØ²ÙŠÙˆÙ† Ø£Ù…Ø±ÙŠÙƒÙŠ 2015" |
-| "1990 establishments in Yemen" | "1990" | "establishments in Yemen" | "ØªØ£Ø³ÙŠØ³Ø§Øª 1990 ÙÙŠ Ø§Ù„ÙŠÙ…Ù†" |
-| "American Soccer League (1933â€“83)" | "1933â€“83" | "American Soccer League" | "Ø¯ÙˆØ±ÙŠ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ 1933â€“83" |
-| "115th United States Congress" | "115" | N/A (political term) | "Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€115" |
+| "2015 American television" | "2015" | "American television" | "تلفزيون أمريكي 2015" |
+| "1990 establishments in Yemen" | "1990" | "establishments in Yemen" | "تأسيسات 1990 في اليمن" |
+| "American Soccer League (1933–83)" | "1933–83" | "American Soccer League" | "دوري كرة القدم الأمريكي 1933–83" |
+| "115th United States Congress" | "115" | N/A (political term) | "الكونغرس الأمريكي الـ115" |
 
 ### Decade and Century Examples
 
@@ -8694,9 +8693,9 @@ These are handled by the broader time conversion system (see `time_to_arabic.py`
 
 | Input Pattern | Output Pattern |
 |---------------|----------------|
-| "1550s establishments" | "ØªØ£Ø³ÙŠØ³Ø§Øª Ø¹Ù‚Ø¯ 1550" |
-| "20th century" | "Ø§Ù„Ù‚Ø±Ù† 20" |
-| "10BC battles" | "Ù…Ø¹Ø§Ø±Ùƒ 10 Ù‚ Ù…" |
+| "1550s establishments" | "تأسيسات عقد 1550" |
+| "20th century" | "القرن 20" |
+| "10BC battles" | "معارك 10 ق م" |
 
 **Sources:** [README.md:82-86](), [examples/run.py:42-44]()
 
@@ -8744,7 +8743,7 @@ The Nationality Resolver system handles categories where a nationality adjective
 1. **Gender agreement**: Adjectives must match noun gender (masculine/feminine)
 2. **Number agreement**: Singular vs. plural forms differ
 3. **Word order**: Arabic typically places adjectives after nouns
-4. **Article forms**: Some patterns require definite articles (Ø§Ù„)
+4. **Article forms**: Some patterns require definite articles (ال)
 
 The system maintains **799 nationality entries** covering countries, regions, ethnic groups, and religious identities (e.g., "Jewish", "Christian", "Kurdish").
 
@@ -8781,7 +8780,7 @@ graph TB
     end
 
     subgraph "Formatting Engine"
-        FMT_V2["FormatDataV2<br/>Placeholder substitution<br/>{en}â†’nationality<br/>{male}/{female}â†’gender forms"]
+        FMT_V2["FormatDataV2<br/>Placeholder substitution<br/>{en}→nationality<br/>{male}/{female}→gender forms"]
         SEARCH["search_all_category()<br/>Pattern matching"]
     end
 
@@ -8813,7 +8812,7 @@ graph TB
     RESOLVE --> COUNTRY_NAMES
     RESOLVE --> DATA_FUNC
 
-    FMT_V2 --> OUTPUT["Arabic Label<br/>e.g., 'Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©'"]
+    FMT_V2 --> OUTPUT["Arabic Label<br/>e.g., 'ألعاب رياضية يمنية'"]
     COUNTRY_NAMES --> OUTPUT
     DATA_FUNC --> OUTPUT
 ```
@@ -8886,10 +8885,10 @@ Handles compound patterns with both nationality and religious/ethnic identifiers
 
 | Pattern Template | Arabic Translation | Example Match |
 |-----------------|-------------------|---------------|
-| `{en} jewish surnames` | `Ø£Ù„Ù‚Ø§Ø¨ ÙŠÙ‡ÙˆØ¯ÙŠØ© {female}` | "American jewish surnames" |
-| `{en} jewish culture` | `Ø«Ù‚Ø§ÙØ© ÙŠÙ‡ÙˆØ¯ÙŠØ© {female}` | "Polish jewish culture" |
-| `{en} jewish diaspora` | `Ø´ØªØ§Øª ÙŠÙ‡ÙˆØ¯ÙŠ {male}` | "Russian jewish diaspora" |
-| `{en}-jewish descent` | `Ø£ØµÙ„ ÙŠÙ‡ÙˆØ¯ÙŠ {male}` | "German-jewish descent" |
+| `{en} jewish surnames` | `ألقاب يهودية {female}` | "American jewish surnames" |
+| `{en} jewish culture` | `ثقافة يهودية {female}` | "Polish jewish culture" |
+| `{en} jewish diaspora` | `شتات يهودي {male}` | "Russian jewish diaspora" |
+| `{en}-jewish descent` | `أصل يهودي {male}` | "German-jewish descent" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:22-34]()
 
@@ -8899,11 +8898,11 @@ Handles patterns requiring masculine plural nationality forms:
 
 | Pattern Template | Arabic Translation | Example |
 |-----------------|-------------------|---------|
-| `{en} expatriates` | `{males} Ù…ØºØªØ±Ø¨ÙˆÙ†` | "Yemeni expatriates" â†’ "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù…ØºØªØ±Ø¨ÙˆÙ†" |
-| `{en} emigrants` | `{males} Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†` | "Syrian emigrants" â†’ "Ø³ÙˆØ±ÙŠÙˆÙ† Ù…Ù‡Ø§Ø¬Ø±ÙˆÙ†" |
-| `{en} singers` | `Ù…ØºÙ†ÙˆÙ† {males}` | "Egyptian singers" â†’ "Ù…ØºÙ†ÙˆÙ† Ù…ØµØ±ÙŠÙˆÙ†" |
-| `{en} government officials` | `Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† {males}` | "Saudi government officials" |
-| `anti-{en} sentiment` | `Ù…Ø´Ø§Ø¹Ø± Ù…Ø¹Ø§Ø¯ÙŠØ© Ù„Ù„{males}` | "anti-American sentiment" |
+| `{en} expatriates` | `{males} مغتربون` | "Yemeni expatriates" → "يمنيون مغتربون" |
+| `{en} emigrants` | `{males} مهاجرون` | "Syrian emigrants" → "سوريون مهاجرون" |
+| `{en} singers` | `مغنون {males}` | "Egyptian singers" → "مغنون مصريون" |
+| `{en} government officials` | `مسؤولون حكوميون {males}` | "Saudi government officials" |
+| `anti-{en} sentiment` | `مشاعر معادية لل{males}` | "anti-American sentiment" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:36-54]()
 
@@ -8913,25 +8912,25 @@ Uses the full Arabic country name (not nationality adjective):
 
 | Pattern Template | Arabic Translation | Example |
 |-----------------|-------------------|---------|
-| `{en} cup` | `ÙƒØ£Ø³ {ar}` | "Yemeni cup" â†’ "ÙƒØ£Ø³ Ø§Ù„ÙŠÙ…Ù†" |
-| `{en} independence` | `Ø§Ø³ØªÙ‚Ù„Ø§Ù„ {ar}` | "Syrian independence" â†’ "Ø§Ø³ØªÙ‚Ù„Ø§Ù„ Ø³ÙˆØ±ÙŠØ§" |
-| `{en} open` | `Ø¨Ø·ÙˆÙ„Ø© {ar} Ø§Ù„Ù…ÙØªÙˆØ­Ø©` | "Australian open" â†’ "Ø¨Ø·ÙˆÙ„Ø© Ø£Ø³ØªØ±Ø§Ù„ÙŠØ§ Ø§Ù„Ù…ÙØªÙˆØ­Ø©" |
-| `{en} national university` | `Ø¬Ø§Ù…Ø¹Ø© {ar} Ø§Ù„ÙˆØ·Ù†ÙŠØ©` | "American national university" |
-| `{en} grand prix` | `Ø¬Ø§Ø¦Ø²Ø© {ar} Ø§Ù„ÙƒØ¨Ø±Ù‰` | "Bahraini grand prix" |
+| `{en} cup` | `كأس {ar}` | "Yemeni cup" → "كأس اليمن" |
+| `{en} independence` | `استقلال {ar}` | "Syrian independence" → "استقلال سوريا" |
+| `{en} open` | `بطولة {ar} المفتوحة` | "Australian open" → "بطولة أستراليا المفتوحة" |
+| `{en} national university` | `جامعة {ar} الوطنية` | "American national university" |
+| `{en} grand prix` | `جائزة {ar} الكبرى` | "Bahraini grand prix" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:56-67]()
 
 ### 4. the_male_data: Definite Article Patterns
 
-Uses nationality with definite article (Ø§Ù„) for institutional/legal contexts:
+Uses nationality with definite article (ال) for institutional/legal contexts:
 
 | Pattern Template | Arabic Translation | Example |
 |-----------------|-------------------|---------|
-| `{en} nationality law` | `Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¬Ù†Ø³ÙŠØ© {the_male}` | "American nationality law" â†’ "Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¬Ù†Ø³ÙŠØ© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ" |
-| `{en} occupation` | `Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ {the_male}` | "British occupation" â†’ "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠ" |
-| `{en} premier league` | `Ø§Ù„Ø¯ÙˆØ±ÙŠ {the_male} Ø§Ù„Ù…Ù…ØªØ§Ø²` | "English premier league" |
-| `{en} super cup` | `ÙƒØ£Ø³ Ø§Ù„Ø³ÙˆØ¨Ø± {the_male}` | "Spanish super cup" |
-| `{en} census` | `Ø§Ù„ØªØ¹Ø¯Ø§Ø¯ {the_male}` | "American census" |
+| `{en} nationality law` | `قانون الجنسية {the_male}` | "American nationality law" → "قانون الجنسية الأمريكي" |
+| `{en} occupation` | `الاحتلال {the_male}` | "British occupation" → "الاحتلال البريطاني" |
+| `{en} premier league` | `الدوري {the_male} الممتاز` | "English premier league" |
+| `{en} super cup` | `كأس السوبر {the_male}` | "Spanish super cup" |
+| `{en} census` | `التعداد {the_male}` | "American census" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:69-106]()
 
@@ -8941,11 +8940,11 @@ General masculine patterns for abstract concepts:
 
 | Pattern Template | Arabic Translation | Common Categories |
 |-----------------|-------------------|-------------------|
-| `{en} cuisine` | `Ù…Ø·Ø¨Ø® {male}` | "Italian cuisine", "Japanese cuisine" |
-| `{en} history` | `ØªØ§Ø±ÙŠØ® {male}` | "French history", "Roman history" |
-| `{en} art` | `ÙÙ† {male}` | "Byzantine art", "Islamic art" |
-| `{en} law` | `Ù‚Ø§Ù†ÙˆÙ† {male}` | "German law", "Swiss law" |
-| `{en} literature` | `Ø£Ø¯Ø¨ {male}` | "English literature" |
+| `{en} cuisine` | `مطبخ {male}` | "Italian cuisine", "Japanese cuisine" |
+| `{en} history` | `تاريخ {male}` | "French history", "Roman history" |
+| `{en} art` | `فن {male}` | "Byzantine art", "Islamic art" |
+| `{en} law` | `قانون {male}` | "German law", "Swiss law" |
+| `{en} literature` | `أدب {male}` | "English literature" |
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:108-134]()
 
@@ -8955,11 +8954,11 @@ Extensive collection of **200+ music genre patterns**, all using feminine nation
 
 | Pattern Template | Arabic Translation | Genre Coverage |
 |-----------------|-------------------|----------------|
-| `{en} rock groups` | `ÙØ±Ù‚ Ø±ÙˆÙƒ {female}` | rock, indie rock, punk rock, etc. |
-| `{en} metal musical groups` | `ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ù…ÙŠØªØ§Ù„ {female}` | death metal, black metal, etc. |
-| `{en} hip hop groups` | `ÙØ±Ù‚ Ù‡ÙŠØ¨ Ù‡ÙˆØ¨ {female}` | hip hop, rap, etc. |
-| `{en} classical music groups` | `ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠØ© {female}` | classical, baroque, opera |
-| `{en} electronic music groups` | `ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ© {female}` | electronic, techno, house |
+| `{en} rock groups` | `فرق روك {female}` | rock, indie rock, punk rock, etc. |
+| `{en} metal musical groups` | `فرق موسيقى ميتال {female}` | death metal, black metal, etc. |
+| `{en} hip hop groups` | `فرق هيب هوب {female}` | hip hop, rap, etc. |
+| `{en} classical music groups` | `فرق موسيقى كلاسيكية {female}` | classical, baroque, opera |
+| `{en} electronic music groups` | `فرق موسيقى إلكترونية {female}` | electronic, techno, house |
 
 **Complete list includes:** alternative metal, ambient, avant-garde metal, baroque, big beat, black metal, bluegrass, blues, blues rock, britpop, cantopop, celtic, children's, christian punk, contemporary folk, country, dance, death metal, disco, doom metal, electronic, emo, eurodisco, europop, experimental, flamenco, folk, funk, fusion, gangsta rap, glam metal, gospel, gothic, grindcore, grunge, hard rock, hardcore punk, heavy metal, hip hop, horrorcore, house, indie folk, indie pop, indie rock, industrial, klezmer, latin, mandopop, mariachi, minimal, new wave, noise, nu metal, opera, political, polka, pop, pop punk, post-grunge, post-punk, power metal, progressive metal, punk, qawwali, R&B, rap, rapcore, reggae, reggaeton, rhythm and blues, rock, romani, ska, soul, southern hip hop, swing, symphonic metal, synth-pop, technical death metal, techno, teen pop, tejano, thrash metal, trance, traditional, west coast hip hop, world music.
 
@@ -9000,13 +8999,13 @@ graph TB
     ENTRY["NationalityEntry<br/>(TypedDict from data_builders)"]
 
     ENTRY --> EN["'en': str<br/>English nationality<br/>Example: 'american'"]
-    ENTRY --> AR["'ar': str<br/>Arabic country name<br/>Example: 'Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©'"]
-    ENTRY --> MALE["'male': str<br/>Masculine singular<br/>Example: 'Ø£Ù…Ø±ÙŠÙƒÙŠ'"]
-    ENTRY --> FEMALE["'female': str<br/>Feminine singular<br/>Example: 'Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
-    ENTRY --> MALES["'males': str<br/>Masculine plural<br/>Example: 'Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'"]
-    ENTRY --> FEMALES["'females': str<br/>Feminine plural<br/>Example: 'Ø£Ù…Ø±ÙŠÙƒÙŠØ§Øª'"]
-    ENTRY --> THE_MALE["'the_male': str<br/>Definite masculine<br/>Example: 'Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ'"]
-    ENTRY --> THE_FEMALE["'the_female': str<br/>Definite feminine<br/>Example: 'Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
+    ENTRY --> AR["'ar': str<br/>Arabic country name<br/>Example: 'الولايات المتحدة'"]
+    ENTRY --> MALE["'male': str<br/>Masculine singular<br/>Example: 'أمريكي'"]
+    ENTRY --> FEMALE["'female': str<br/>Feminine singular<br/>Example: 'أمريكية'"]
+    ENTRY --> MALES["'males': str<br/>Masculine plural<br/>Example: 'أمريكيون'"]
+    ENTRY --> FEMALES["'females': str<br/>Feminine plural<br/>Example: 'أمريكيات'"]
+    ENTRY --> THE_MALE["'the_male': str<br/>Definite masculine<br/>Example: 'الأمريكي'"]
+    ENTRY --> THE_FEMALE["'the_female': str<br/>Definite feminine<br/>Example: 'الأمريكية'"]
 
     style ENTRY fill:#f9f9f9
 ```
@@ -9018,7 +9017,7 @@ The nationality resolver imports from `ArWikiCats.translations`:
 ```python
 from ...translations import (
     All_Nat,                              # Dict[str, NationalityEntry] - 843 entries
-    all_country_with_nat,                 # Countryâ†’Nationality mapping
+    all_country_with_nat,                 # Country→Nationality mapping
     countries_en_as_nationality_keys,     # List of 78 special keys
 )
 ```
@@ -9053,7 +9052,7 @@ graph LR
 | Name | Type | Count | Purpose |
 |------|------|-------|---------|
 | `All_Nat` | `Dict[str, NationalityEntry]` | 843 | Primary nationality lookup |
-| `all_country_with_nat` | `Dict[str, NationalityEntry]` | 336 | Country names â†’ nationalities |
+| `all_country_with_nat` | `Dict[str, NationalityEntry]` | 336 | Country names → nationalities |
 | `countries_en_as_nationality_keys` | `List[str]` | 78 | Special cases (e.g., "ireland") |
 
 **Sources:**
@@ -9072,13 +9071,13 @@ Arabic requires strict gender agreement between nouns and adjectives. The nation
 | Placeholder | Meaning | Example Value | Usage Context |
 |------------|---------|---------------|---------------|
 | `{en}` | English nationality | "american", "yemeni" | Pattern matching |
-| `{ar}` | Arabic country name | "Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©", "Ø§Ù„ÙŠÙ…Ù†" | Official names, tournaments |
-| `{male}` | Masculine singular | "Ø£Ù…Ø±ÙŠÙƒÙŠ", "ÙŠÙ…Ù†ÙŠ" | Abstract concepts, history |
-| `{female}` | Feminine singular | "Ø£Ù…Ø±ÙŠÙƒÙŠØ©", "ÙŠÙ…Ù†ÙŠØ©" | Most nouns (films, books, etc.) |
-| `{males}` | Masculine plural | "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†", "ÙŠÙ…Ù†ÙŠÙˆÙ†" | People, occupations |
-| `{females}` | Feminine plural | "Ø£Ù…Ø±ÙŠÙƒÙŠØ§Øª", "ÙŠÙ…Ù†ÙŠØ§Øª" | Groups of women |
-| `{the_male}` | Definite masculine | "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ", "Ø§Ù„ÙŠÙ…Ù†ÙŠ" | Laws, institutions |
-| `{the_female}` | Definite feminine | "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©", "Ø§Ù„ÙŠÙ…Ù†ÙŠØ©" | Definite contexts |
+| `{ar}` | Arabic country name | "الولايات المتحدة", "اليمن" | Official names, tournaments |
+| `{male}` | Masculine singular | "أمريكي", "يمني" | Abstract concepts, history |
+| `{female}` | Feminine singular | "أمريكية", "يمنية" | Most nouns (films, books, etc.) |
+| `{males}` | Masculine plural | "أمريكيون", "يمنيون" | People, occupations |
+| `{females}` | Feminine plural | "أمريكيات", "يمنيات" | Groups of women |
+| `{the_male}` | Definite masculine | "الأمريكي", "اليمني" | Laws, institutions |
+| `{the_female}` | Definite feminine | "الأمريكية", "اليمنية" | Definite contexts |
 
 ### Gender Assignment Logic
 
@@ -9257,45 +9256,45 @@ The `all_formatted_data` dictionary (lines 636-644) merges in this order:
 
 ```
 Input:   "yemeni rock groups"
-Match:   female_data_music["{en} rock groups"] = "ÙØ±Ù‚ Ø±ÙˆÙƒ {female}"
-Lookup:  All_Nat["yemeni"]["female"] = "ÙŠÙ…Ù†ÙŠØ©"
-Result:  "ÙØ±Ù‚ Ø±ÙˆÙƒ ÙŠÙ…Ù†ÙŠØ©"
+Match:   female_data_music["{en} rock groups"] = "فرق روك {female}"
+Lookup:  All_Nat["yemeni"]["female"] = "يمنية"
+Result:  "فرق روك يمنية"
 ```
 
 ### Example 2: Government Officials (Masculine Plural)
 
 ```
 Input:   "saudi government officials"
-Match:   males_data["{en} government officials"] = "Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† {males}"
-Lookup:  All_Nat["saudi"]["males"] = "Ø³Ø¹ÙˆØ¯ÙŠÙˆÙ†"
-Result:  "Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† Ø³Ø¹ÙˆØ¯ÙŠÙˆÙ†"
+Match:   males_data["{en} government officials"] = "مسؤولون حكوميون {males}"
+Lookup:  All_Nat["saudi"]["males"] = "سعوديون"
+Result:  "مسؤولون حكوميون سعوديون"
 ```
 
 ### Example 3: Independence (Arabic Country Name)
 
 ```
 Input:   "syrian independence"
-Match:   ar_data["{en} independence"] = "Ø§Ø³ØªÙ‚Ù„Ø§Ù„ {ar}"
-Lookup:  All_Nat["syrian"]["ar"] = "Ø³ÙˆØ±ÙŠØ§"
-Result:  "Ø§Ø³ØªÙ‚Ù„Ø§Ù„ Ø³ÙˆØ±ÙŠØ§"
+Match:   ar_data["{en} independence"] = "استقلال {ar}"
+Lookup:  All_Nat["syrian"]["ar"] = "سوريا"
+Result:  "استقلال سوريا"
 ```
 
 ### Example 4: Nationality Law (Definite Masculine)
 
 ```
 Input:   "american nationality law"
-Match:   the_male_data["{en} nationality law"] = "Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¬Ù†Ø³ÙŠØ© {the_male}"
-Lookup:  All_Nat["american"]["the_male"] = "Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ"
-Result:  "Ù‚Ø§Ù†ÙˆÙ† Ø§Ù„Ø¬Ù†Ø³ÙŠØ© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ"
+Match:   the_male_data["{en} nationality law"] = "قانون الجنسية {the_male}"
+Lookup:  All_Nat["american"]["the_male"] = "الأمريكي"
+Result:  "قانون الجنسية الأمريكي"
 ```
 
 ### Example 5: Cuisine (Masculine Singular)
 
 ```
 Input:   "italian cuisine"
-Match:   male_data["{en} cuisine"] = "Ù…Ø·Ø¨Ø® {male}"
-Lookup:  All_Nat["italian"]["male"] = "Ø¥ÙŠØ·Ø§Ù„ÙŠ"
-Result:  "Ù…Ø·Ø¨Ø® Ø¥ÙŠØ·Ø§Ù„ÙŠ"
+Match:   male_data["{en} cuisine"] = "مطبخ {male}"
+Lookup:  All_Nat["italian"]["male"] = "إيطالي"
+Result:  "مطبخ إيطالي"
 ```
 
 **Sources:**
@@ -9312,7 +9311,7 @@ The resolver handles "non-" prefix patterns (categories about things that are NO
 ```
 Input:   "non-american television series"
 Match:   Pattern with "non-" prefix
-Result:  "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+Result:  "مسلسلات تلفزيونية غير أمريكية"
 ```
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:14-17]()
@@ -9324,7 +9323,7 @@ For complex patterns like "Non-American television series based on American tele
 ```
 Input:   "Non-American television series based on American television series"
 Process: Multiple nationality extractions and substitutions
-Result:  "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ù…Ø¨Ù†ÙŠØ© Ø¹Ù„Ù‰ Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+Result:  "مسلسلات تلفزيونية غير أمريكية مبنية على مسلسلات تلفزيونية أمريكية"
 ```
 
 **Sources:** [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2_extended.py:12-64]()
@@ -9335,11 +9334,11 @@ Religious and ethnic groups are treated as nationalities:
 
 | English | Type | Arabic Forms |
 |---------|------|--------------|
-| Jewish | Religious | ÙŠÙ‡ÙˆØ¯ÙŠ (male), ÙŠÙ‡ÙˆØ¯ÙŠØ© (female), ÙŠÙ‡ÙˆØ¯ (males) |
-| Christian | Religious | Ù…Ø³ÙŠØ­ÙŠ (male), Ù…Ø³ÙŠØ­ÙŠØ© (female), Ù…Ø³ÙŠØ­ÙŠÙˆÙ† (males) |
-| Kurdish | Ethnic | ÙƒØ±Ø¯ÙŠ (male), ÙƒØ±Ø¯ÙŠØ© (female), Ø£ÙƒØ±Ø§Ø¯ (males) |
-| Arab | Ethnic | Ø¹Ø±Ø¨ÙŠ (male), Ø¹Ø±Ø¨ÙŠØ© (female), Ø¹Ø±Ø¨ (males) |
-| Palestinian | Nationality/Ethnic | ÙÙ„Ø³Ø·ÙŠÙ†ÙŠ (male), ÙÙ„Ø³Ø·ÙŠÙ†ÙŠØ© (female), ÙÙ„Ø³Ø·ÙŠÙ†ÙŠÙˆÙ† (males) |
+| Jewish | Religious | يهودي (male), يهودية (female), يهود (males) |
+| Christian | Religious | مسيحي (male), مسيحية (female), مسيحيون (males) |
+| Kurdish | Ethnic | كردي (male), كردية (female), أكراد (males) |
+| Arab | Ethnic | عربي (male), عربية (female), عرب (males) |
+| Palestinian | Nationality/Ethnic | فلسطيني (male), فلسطينية (female), فلسطينيون (males) |
 
 **Sources:**
 - [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:149-337]()
@@ -9365,7 +9364,7 @@ When primary nationality patterns fail, the resolver chains to:
 In the main resolution pipeline, nationality resolvers are invoked **second** (after year patterns):
 
 ```
-Year Patterns â†’ **Nationality Patterns** â†’ Country Names â†’ Jobs â†’ Sports â†’ Films â†’ Ministers
+Year Patterns → **Nationality Patterns** → Country Names → Jobs → Sports → Films → Ministers
 ```
 
 **Priority justification:** Nationality patterns are unambiguous once detected (no ambiguity about whether "American" is a nationality), and they're extremely common in Wikipedia categories.
@@ -9394,8 +9393,8 @@ Tests use parametrized pytest format:
 
 ```python
 test_data_males = {
-    "yemeni government officials": "Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†",
-    "saudi non profit publishers": "Ù†Ø§Ø´Ø±ÙˆÙ† ØºÙŠØ± Ø±Ø¨Ø­ÙŠÙˆÙ† Ø³Ø¹ÙˆØ¯ÙŠÙˆÙ†",
+    "yemeni government officials": "مسؤولون حكوميون يمنيون",
+    "saudi non profit publishers": "ناشرون غير ربحيون سعوديون",
 }
 
 @pytest.mark.parametrize("category, expected", test_data_males.items())
@@ -9449,10 +9448,10 @@ Two levels of caching optimize performance:
 
 ### Complexity Analysis
 
-- **Cache hit**: O(1) â€” Direct lookup in LRU cache
-- **Cache miss, best case**: O(1) â€” Match in first dictionary (`males_data`)
-- **Cache miss, worst case**: O(n) where n â‰ˆ 650 â€” Iterate all patterns
-- **Average case**: O(50-100) â€” Most categories match within first 100 patterns
+- **Cache hit**: O(1) — Direct lookup in LRU cache
+- **Cache miss, best case**: O(1) — Match in first dictionary (`males_data`)
+- **Cache miss, worst case**: O(n) where n ≈ 650 — Iterate all patterns
+- **Average case**: O(50-100) — Most categories match within first 100 patterns
 
 **Sources:**
 - [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:647]() (_load_bot cache)
@@ -9581,11 +9580,11 @@ The resolver chain priority places Nationalities (priority 6) before Countries (
 ```
 Input: "Italy political leader"
 
-âŒ Wrong (if Countries resolver runs first):
-   "Ù‚Ø§Ø¯Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†" (political leaders of Italy)
+❌ Wrong (if Countries resolver runs first):
+   "قادة إيطاليا السياسيون" (political leaders of Italy)
 
-âœ“ Correct (with Nationalities resolver first):
-   "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†" (Italian political leaders)
+✓ Correct (with Nationalities resolver first):
+   "قادة سياسيون إيطاليون" (Italian political leaders)
 ```
 
 ```mermaid
@@ -9597,10 +9596,10 @@ graph TB
         Countries["Priority 7:<br/>Countries Names Resolvers<br/>main_countries_names_resolvers()"]
     end
 
-    NatsMatch["Match: 'Italian political leaders'<br/>Pattern: '{nat_en} political leader'<br/>Result: 'Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†'"]
+    NatsMatch["Match: 'Italian political leaders'<br/>Pattern: '{nat_en} political leader'<br/>Result: 'قادة سياسيون إيطاليون'"]
     CountriesSkipped["Countries resolver<br/>never executes"]
 
-    Output["Output: 'ØªØµÙ†ÙŠÙ:Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†'"]
+    Output["Output: 'تصنيف:قادة سياسيون إيطاليون'"]
 
     Input --> Nats
     Nats -->|Match found| NatsMatch
@@ -9664,11 +9663,11 @@ Even within country resolvers, order matters. `resolve_by_countries_names_v2()` 
 The `formatted_data_en_ar_only` dictionary contains 300+ translation patterns using placeholder substitution:
 
 ```
-Pattern: "{en} history" â†’ "ØªØ§Ø±ÙŠØ® {ar}"
-Example: "Germany history" â†’ "ØªØ§Ø±ÙŠØ® Ø£Ù„Ù…Ø§Ù†ÙŠØ§"
+Pattern: "{en} history" → "تاريخ {ar}"
+Example: "Germany history" → "تاريخ ألمانيا"
 
-Pattern: "government of {en}" â†’ "Ø­ÙƒÙˆÙ…Ø© {ar}"
-Example: "government of France" â†’ "Ø­ÙƒÙˆÙ…Ø© ÙØ±Ù†Ø³Ø§"
+Pattern: "government of {en}" → "حكومة {ar}"
+Example: "government of France" → "حكومة فرنسا"
 ```
 
 ```mermaid
@@ -9679,7 +9678,7 @@ graph TB
     end
 
     subgraph "Lookup Data"
-        CountryDict["all_country_with_nat_ar<br/>English â†’ Arabic mappings"]
+        CountryDict["all_country_with_nat_ar<br/>English → Arabic mappings"]
     end
 
     subgraph "Formatting Engine"
@@ -9692,8 +9691,8 @@ graph TB
 
     Input["Input: 'germany history'"]
     Match["Match pattern: '{en} history'"]
-    Substitute["Substitute: {en}â†’'germany'<br/>{ar}â†’'Ø£Ù„Ù…Ø§Ù†ÙŠØ§'"]
-    Result["Output: 'ØªØ§Ø±ÙŠØ® Ø£Ù„Ù…Ø§Ù†ÙŠØ§'"]
+    Substitute["Substitute: {en}→'germany'<br/>{ar}→'ألمانيا'"]
+    Result["Output: 'تاريخ ألمانيا'"]
 
     Input --> Formatter
     Formatter --> Match
@@ -9724,23 +9723,23 @@ The data mappings cover these category types:
 
 ```python
 # Historical patterns
-"history of {en}": "ØªØ§Ø±ÙŠØ® {ar}"
-"military history of {en}": "ØªØ§Ø±ÙŠØ® {ar} Ø§Ù„Ø¹Ø³ÙƒØ±ÙŠ"
-"contemporary history of {en}": "ØªØ§Ø±ÙŠØ® {ar} Ø§Ù„Ù…Ø¹Ø§ØµØ±"
+"history of {en}": "تاريخ {ar}"
+"military history of {en}": "تاريخ {ar} العسكري"
+"contemporary history of {en}": "تاريخ {ar} المعاصر"
 
 # Governmental patterns
-"government of {en}": "Ø­ÙƒÙˆÙ…Ø© {ar}"
-"parliament of {en}": "Ø¨Ø±Ù„Ù…Ø§Ù† {ar}"
-"cabinet of {en}": "Ù…Ø¬Ù„Ø³ ÙˆØ²Ø±Ø§Ø¡ {ar}"
+"government of {en}": "حكومة {ar}"
+"parliament of {en}": "برلمان {ar}"
+"cabinet of {en}": "مجلس وزراء {ar}"
 
 # Geographic patterns
-"mountains of {en}": "Ø¬Ø¨Ø§Ù„ {ar}"
-"rivers of {en}": "Ø£Ù†Ù‡Ø§Ø± {ar}"
-"islands of {en}": "Ø¬Ø²Ø± {ar}"
+"mountains of {en}": "جبال {ar}"
+"rivers of {en}": "أنهار {ar}"
+"islands of {en}": "جزر {ar}"
 
 # Sports patterns
-"{en} national team": "Ù…Ù†ØªØ®Ø¨Ø§Øª {ar} Ø§Ù„ÙˆØ·Ù†ÙŠØ©"
-"{en} olympics squad": "ØªØ´ÙƒÙŠÙ„Ø§Øª {ar} ÙÙŠ Ø§Ù„Ø£Ù„Ø¹Ø§Ø¨ Ø§Ù„Ø£ÙˆÙ„Ù…Ø¨ÙŠØ©"
+"{en} national team": "منتخبات {ar} الوطنية"
+"{en} olympics squad": "تشكيلات {ar} في الألعاب الأولمبية"
 ```
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_data.py:46-119]()
@@ -9754,15 +9753,15 @@ The V2 resolver handles nationality-inflected patterns that require gender-speci
 **Key characteristics**:
 - Uses `FormatDataV2` for dictionary-based value lookup
 - Accesses nationality data with gender forms (`male`, `female`, `the_male`, `the_female`)
-- Pattern: `"{en} political leader"` â†’ `"Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† {males}"`
+- Pattern: `"{en} political leader"` → `"قادة سياسيون {males}"`
 
 **Example**:
 ```
 Input: "zimbabwe political leader"
 Lookup: all_country_with_nat_ar["zimbabwe"]
-  â†’ {ar: "Ø²ÙŠÙ…Ø¨Ø§Ø¨ÙˆÙŠ", males: "Ø²ÙŠÙ…Ø¨Ø§Ø¨ÙˆÙŠÙˆÙ†", ...}
-Pattern: "{en} political leader" â†’ "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† {males}"
-Result: "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø²ÙŠÙ…Ø¨Ø§Ø¨ÙˆÙŠÙˆÙ†"
+  → {ar: "زيمبابوي", males: "زيمبابويون", ...}
+Pattern: "{en} political leader" → "قادة سياسيون {males}"
+Result: "قادة سياسيون زيمبابويون"
 ```
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names_v2.py]()
@@ -9772,9 +9771,9 @@ Result: "Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø²ÙŠÙ…Ø¨Ø§Ø
 The standard resolver handles patterns where the country name appears in Arabic without gender inflection.
 
 **Key characteristics**:
-- Uses simple string substitution `{en}` â†’ `{ar}`
+- Uses simple string substitution `{en}` → `{ar}`
 - Handles most geographic and governmental categories
-- Pattern: `"history of {en}"` â†’ `"ØªØ§Ø±ÙŠØ® {ar}"`
+- Pattern: `"history of {en}"` → `"تاريخ {ar}"`
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/countries_names.py]()
 
@@ -9784,9 +9783,9 @@ Handles Olympic medalist categories by country and sport:
 
 ```python
 # Pattern examples
-"olympic gold medalists for {en}": "ÙØ§Ø¦Ø²ÙˆÙ† Ø¨Ù…ÙŠØ¯Ø§Ù„ÙŠØ§Øª Ø°Ù‡Ø¨ÙŠØ© Ø£ÙˆÙ„Ù…Ø¨ÙŠØ© Ù…Ù† {ar}"
+"olympic gold medalists for {en}": "فائزون بميداليات ذهبية أولمبية من {ar}"
 "olympic silver medalists for {en} in {en_sport}":
-  "ÙØ§Ø¦Ø²ÙˆÙ† Ø¨Ù…ÙŠØ¯Ø§Ù„ÙŠØ§Øª ÙØ¶ÙŠØ© Ø£ÙˆÙ„Ù…Ø¨ÙŠØ© Ù…Ù† {ar} ÙÙŠ {sport_label}"
+  "فائزون بميداليات فضية أولمبية من {ar} في {sport_label}"
 ```
 
 **Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/medalists_resolvers.py]()
@@ -9797,9 +9796,9 @@ Specialized resolver for US state-specific categories:
 
 ```python
 # Pattern examples
-"{state} politicians": "Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ù…Ù† {ar_state}"
-"{state} musicians": "Ù…ÙˆØ³ÙŠÙ‚ÙŠÙˆÙ† Ù…Ù† {ar_state}"
-"governor of {state}": "Ø­Ø§ÙƒÙ… {ar_state}"
+"{state} politicians": "سياسيون من {ar_state}"
+"{state} musicians": "موسيقيون من {ar_state}"
+"governor of {state}": "حاكم {ar_state}"
 ```
 
 **Data source**: `US_STATES` dictionary mapping English state names to Arabic translations.
@@ -9828,11 +9827,11 @@ graph TB
 
         CountryMatch["Country pattern detected:<br/>'{en} {en_sport} federation'"]
 
-        Lookups["Parallel lookups:<br/>1. Country: 'germany' â†’ 'Ø£Ù„Ù…Ø§Ù†ÙŠØ§'<br/>2. Sport: 'football' â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        Lookups["Parallel lookups:<br/>1. Country: 'germany' → 'ألمانيا'<br/>2. Sport: 'football' → 'كرة القدم'"]
 
-        Template["Template application:<br/>'Ø§Ù„Ø§ØªØ­Ø§Ø¯ {the_male} {sport_team}'"]
+        Template["Template application:<br/>'الاتحاد {the_male} {sport_team}'"]
 
-        Result["Result:<br/>'Ø§Ù„Ø§ØªØ­Ø§Ø¯ Ø§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠ Ù„ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        Result["Result:<br/>'الاتحاد الألماني لكرة القدم'"]
     end
 
     Input --> CountryMatch
@@ -9847,12 +9846,12 @@ These patterns appear in both country and sports resolver modules:
 
 ```python
 # From sports_resolvers/countries_names_and_sports.py
-"{en} {en_sport} federation": "Ø§Ù„Ø§ØªØ­Ø§Ø¯ {the_male} {sport_team}"
-"{en} national {en_sport} team": "Ù…Ù†ØªØ®Ø¨ {ar} {sport_team}"
-"{en} {en_sport} league": "Ø¯ÙˆØ±ÙŠ {ar} {sport_team}"
+"{en} {en_sport} federation": "الاتحاد {the_male} {sport_team}"
+"{en} national {en_sport} team": "منتخب {ar} {sport_team}"
+"{en} {en_sport} league": "دوري {ar} {sport_team}"
 
-# Country placeholder: {en} â†’ {ar}, {the_male}
-# Sport placeholder: {en_sport} â†’ {sport_team}, {sport_label}
+# Country placeholder: {en} → {ar}, {the_male}
+# Sport placeholder: {en_sport} → {sport_team}, {sport_label}
 ```
 
 **Resolution priority**:
@@ -9873,7 +9872,7 @@ graph LR
     end
 
     subgraph "Nationality Resolver Match"
-        N1["Pattern: '{nat_en} politicians'<br/>Lookup: italian â†’ 'Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†'<br/>Result: 'Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†'"]
+        N1["Pattern: '{nat_en} politicians'<br/>Lookup: italian → 'إيطاليون'<br/>Result: 'سياسيون إيطاليون'"]
     end
 
     subgraph "Country Resolver Skipped"
@@ -9896,11 +9895,11 @@ graph LR
     end
 
     subgraph "V2 Resolver Match"
-        V2["Pattern: '{en} political leader'<br/>Uses nationality data<br/>Result: 'Ù‚Ø§Ø¯Ø© Ø³ÙŠØ§Ø³ÙŠÙˆÙ† Ø²ÙŠÙ…Ø¨Ø§Ø¨ÙˆÙŠÙˆÙ†'"]
+        V2["Pattern: '{en} political leader'<br/>Uses nationality data<br/>Result: 'قادة سياسيون زيمبابويون'"]
     end
 
     subgraph "V1 Resolver Skipped"
-        V1["Would give: 'Ù‚Ø§Ø¯Ø© Ø²ÙŠÙ…Ø¨Ø§Ø¨ÙˆÙŠ Ø§Ù„Ø³ÙŠØ§Ø³ÙŠÙˆÙ†'<br/>Incorrect semantics"]
+        V1["Would give: 'قادة زيمبابوي السياسيون'<br/>Incorrect semantics"]
     end
 
     I2 --> V2
@@ -10078,16 +10077,16 @@ graph TB
     WOMENS --> NAT_CHECK
     NEUTRAL --> NAT_CHECK
 
-    NAT_CHECK -->|"Yes"| NAT_FIRST["Nationality-First Formatting<br/>(e.g. 'American footballers'<br/>â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†')"]
+    NAT_CHECK -->|"Yes"| NAT_FIRST["Nationality-First Formatting<br/>(e.g. 'American footballers'<br/>→ 'لاعبو كرة قدم أمريكيون')"]
 
-    NAT_CHECK -->|"No"| STANDARD["Standard Formatting<br/>(e.g. 'British actors'<br/>â†’ 'Ù…Ù…Ø«Ù„ÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†')"]
+    NAT_CHECK -->|"No"| STANDARD["Standard Formatting<br/>(e.g. 'British actors'<br/>→ 'ممثلون بريطانيون')"]
 
     NAT_FIRST --> FORMATTER["MultiDataFormatterBaseV2<br/>Pattern Substitution"]
     STANDARD --> FORMATTER
 
     FORMATTER --> GENDER_AGREE["Gender Agreement<br/>Apply male/female forms"]
 
-    GENDER_AGREE --> OUTPUT["Arabic Label<br/>(e.g. 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†')"]
+    GENDER_AGREE --> OUTPUT["Arabic Label<br/>(e.g. 'لاعبو كرة قدم أمريكيون')"]
 
     style ENTRY fill:#f9f9f9,stroke:#333,stroke-width:2px
     style MENS fill:#e3f2fd,stroke:#333,stroke-width:1px
@@ -10217,23 +10216,23 @@ graph TB
 
         FUNC1 --> CHECK["Gender Detection"]
 
-        CHECK -->|"Male"| DATA1["jobs_mens_data<br/>['footballers': 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…']"]
-        CHECK -->|"Female"| DATA2["jobs_womens_data<br/>['actors': 'Ù…Ù…Ø«Ù„Ø§Øª']"]
-        CHECK -->|"Religious"| DATA3["RELIGIOUS_KEYS_PP<br/>['bishops': 'Ø£Ø³Ø§Ù‚ÙØ©']"]
+        CHECK -->|"Male"| DATA1["jobs_mens_data<br/>['footballers': 'لاعبو كرة قدم']"]
+        CHECK -->|"Female"| DATA2["jobs_womens_data<br/>['actors': 'ممثلات']"]
+        CHECK -->|"Religious"| DATA3["RELIGIOUS_KEYS_PP<br/>['bishops': 'أساقفة']"]
         CHECK -->|"Language"| DATA4["Lang_work()<br/>language_key_translations"]
 
         DATA1 --> NAT["All_Nat<br/>['american': NationalityEntry(...)]"]
         DATA2 --> NAT
         DATA3 --> NAT
 
-        NAT --> FORMATTER1["MultiDataFormatterBaseV2<br/>'{nat} {job}' â†’ '{job_ar} {nat_ar}'"]
+        NAT --> FORMATTER1["MultiDataFormatterBaseV2<br/>'{nat} {job}' → '{job_ar} {nat_ar}'"]
 
-        DATA4 --> FORMATTER2["FormatDataV2<br/>'{lang}-language {job}' â†’ '{job_ar} Ø¨Ø§Ù„Ù„ØºØ© {lang_ar}'"]
+        DATA4 --> FORMATTER2["FormatDataV2<br/>'{lang}-language {job}' → '{job_ar} باللغة {lang_ar}'"]
 
-        FORMATTER1 --> OUTPUT1["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'"]
-        FORMATTER1 --> OUTPUT2["'Ù…Ù…Ø«Ù„Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª'"]
-        FORMATTER1 --> OUTPUT3["'Ø£Ø³Ø§Ù‚ÙØ© Ø£Ù„Ù…Ø§Ù†'"]
-        FORMATTER2 --> OUTPUT4["'Ù…ØºÙ†ÙˆÙ† Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„ÙØ±Ù†Ø³ÙŠØ©'"]
+        FORMATTER1 --> OUTPUT1["'لاعبو كرة قدم أمريكيون'"]
+        FORMATTER1 --> OUTPUT2["'ممثلات بريطانيات'"]
+        FORMATTER1 --> OUTPUT3["'أساقفة ألمان'"]
+        FORMATTER2 --> OUTPUT4["'مغنون باللغة الفرنسية'"]
     end
 
     style FUNC1 fill:#f9f9f9,stroke:#333,stroke-width:2px
@@ -10256,11 +10255,11 @@ The `NAT_BEFORE_OCC` (Nationality Before Occupation) pattern system handles Engl
 ```python
 # Example entries from NAT_BEFORE_OCC
 {
-    "footballers": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…",
-    "basketball players": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©",
-    "baseball players": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø§Ø¹Ø¯Ø©",
-    "rugby players": "Ù„Ø§Ø¹Ø¨Ùˆ Ø§Ù„Ø±Ø¬Ø¨ÙŠ",
-    "cricketers": "Ù„Ø§Ø¹Ø¨Ùˆ Ø§Ù„ÙƒØ±ÙŠÙƒÙŠØª"
+    "footballers": "لاعبو كرة القدم",
+    "basketball players": "لاعبو كرة السلة",
+    "baseball players": "لاعبو كرة القاعدة",
+    "rugby players": "لاعبو الرجبي",
+    "cricketers": "لاعبو الكريكيت"
 }
 ```
 
@@ -10277,18 +10276,18 @@ graph LR
 
         JOB_PART --> LOOKUP1["Check NAT_BEFORE_OCC<br/>Key: 'footballers'"]
 
-        LOOKUP1 -->|"Found"| FOUND["Value: 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        LOOKUP1 -->|"Found"| FOUND["Value: 'لاعبو كرة القدم'"]
         LOOKUP1 -->|"Not found"| STANDARD_FLOW["Use standard jobs_mens_data"]
 
-        FOUND --> NAT_LOOKUP["All_Nat lookup<br/>'american' â†’ NationalityEntry"]
+        FOUND --> NAT_LOOKUP["All_Nat lookup<br/>'american' → NationalityEntry"]
 
-        NAT_LOOKUP --> GENDER["Extract gender form<br/>males: 'Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'"]
+        NAT_LOOKUP --> GENDER["Extract gender form<br/>males: 'أمريكيون'"]
 
         GENDER --> COMBINE["Combine: Job + Nationality"]
 
-        COMBINE --> OUTPUT1["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'<br/>(Job-first order)"]
+        COMBINE --> OUTPUT1["'لاعبو كرة القدم أمريكيون'<br/>(Job-first order)"]
 
-        STANDARD_FLOW --> OUTPUT2["'Ù…Ù…Ø«Ù„ÙˆÙ† Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'<br/>(Standard order)"]
+        STANDARD_FLOW --> OUTPUT2["'ممثلون أمريكيون'<br/>(Standard order)"]
     end
 
     style LOOKUP1 fill:#fff3e0,stroke:#333,stroke-width:2px
@@ -10299,12 +10298,12 @@ graph LR
 
 | Pattern Type | English Example | Arabic Output | Word Order |
 |-------------|-----------------|---------------|------------|
-| NAT_BEFORE_OCC | American footballers | Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† | Job â†’ Nationality |
-| NAT_BEFORE_OCC | German basketball players | Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø© Ø£Ù„Ù…Ø§Ù† | Job â†’ Nationality |
-| Standard | British actors | Ù…Ù…Ø«Ù„ÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† | Job â†’ Nationality |
-| Standard | French writers | ÙƒØªØ§Ø¨ ÙØ±Ù†Ø³ÙŠÙˆÙ† | Job â†’ Nationality |
+| NAT_BEFORE_OCC | American footballers | لاعبو كرة القدم أمريكيون | Job → Nationality |
+| NAT_BEFORE_OCC | German basketball players | لاعبو كرة السلة ألمان | Job → Nationality |
+| Standard | British actors | ممثلون بريطانيون | Job → Nationality |
+| Standard | French writers | كتاب فرنسيون | Job → Nationality |
 
-**Note:** Both patterns result in Jobâ†’Nationality order in Arabic, but `NAT_BEFORE_OCC` entries use expanded job phrases (e.g., "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…" instead of just "Ù„Ø§Ø¹Ø¨Ùˆ").
+**Note:** Both patterns result in Job→Nationality order in Arabic, but `NAT_BEFORE_OCC` entries use expanded job phrases (e.g., "لاعبو كرة القدم" instead of just "لاعبو").
 
 **Sources:** ArWikiCats/translations/jobs/jobs_data_basic.py:7-54, ArWikiCats/new_resolvers/jobs_resolvers/mens.py, ArWikiCats/translations/nats/Nationality.py
 
@@ -10355,26 +10354,26 @@ graph TB
 ```python
 # Example from jobs_mens_data
 jobs_mens_data = {
-    "footballers": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…",
-    "actors": "Ù…Ù…Ø«Ù„ÙˆÙ†",
-    "writers": "ÙƒØªØ§Ø¨",
-    "politicians": "Ø³ÙŠØ§Ø³ÙŠÙˆÙ†"
+    "footballers": "لاعبو كرة قدم",
+    "actors": "ممثلون",
+    "writers": "كتاب",
+    "politicians": "سياسيون"
 }
 
 # Example from jobs_womens_data
 jobs_womens_data = {
-    "footballers": "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…",
-    "actors": "Ù…Ù…Ø«Ù„Ø§Øª",
-    "writers": "ÙƒØ§ØªØ¨Ø§Øª",
-    "politicians": "Ø³ÙŠØ§Ø³ÙŠØ§Øª"
+    "footballers": "لاعبات كرة قدم",
+    "actors": "ممثلات",
+    "writers": "كاتبات",
+    "politicians": "سياسيات"
 }
 
 # Example from short_womens_jobs (485 entries)
-# Used for gender transformation: male form â†’ female form
+# Used for gender transformation: male form → female form
 short_womens_jobs = {
-    "Ù„Ø§Ø¹Ø¨Ùˆ": "Ù„Ø§Ø¹Ø¨Ø§Øª",
-    "Ù…Ù…Ø«Ù„ÙˆÙ†": "Ù…Ù…Ø«Ù„Ø§Øª",
-    "ÙƒØªØ§Ø¨": "ÙƒØ§ØªØ¨Ø§Øª"
+    "لاعبو": "لاعبات",
+    "ممثلون": "ممثلات",
+    "كتاب": "كاتبات"
 }
 ```
 
@@ -10384,10 +10383,10 @@ When combining jobs with nationalities, the system uses `NationalityEntry` gende
 
 | Category | Job Dictionary | Nationality Form | Result |
 |----------|---------------|------------------|--------|
-| American footballers (male) | jobs_mens_data | NationalityEntry.males | Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† |
-| American footballers (female) | jobs_womens_data | NationalityEntry.females | Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ§Øª |
-| British actors (male) | jobs_mens_data | NationalityEntry.males | Ù…Ù…Ø«Ù„ÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† |
-| British actors (female) | jobs_womens_data | NationalityEntry.females | Ù…Ù…Ø«Ù„Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª |
+| American footballers (male) | jobs_mens_data | NationalityEntry.males | لاعبو كرة قدم أمريكيون |
+| American footballers (female) | jobs_womens_data | NationalityEntry.females | لاعبات كرة قدم أمريكيات |
+| British actors (male) | jobs_mens_data | NationalityEntry.males | ممثلون بريطانيون |
+| British actors (female) | jobs_womens_data | NationalityEntry.females | ممثلات بريطانيات |
 
 **Sources:** ArWikiCats/translations/jobs/Jobs.py, ArWikiCats/translations/jobs/jobs_womens.py:9-485, ArWikiCats/new_resolvers/jobs_resolvers/mens.py, ArWikiCats/new_resolvers/jobs_resolvers/womens.py, ArWikiCats/translations/nats/Nationality.py
 
@@ -10408,13 +10407,13 @@ graph TB
     CHECK -->|"Found"| REL_DATA["RELIGIOUS_KEYS_PP<br/>33 entries"]
     CHECK -->|"Not found"| STANDARD["Standard job resolution"]
 
-    REL_DATA --> ENTRIES["Example entries:<br/>'bishops': 'Ø£Ø³Ø§Ù‚ÙØ©'<br/>'priests': 'Ù‚Ø³Ø§ÙˆØ³Ø©'<br/>'rabbis': 'Ø­Ø§Ø®Ø§Ù…Ø§Øª'"]
+    REL_DATA --> ENTRIES["Example entries:<br/>'bishops': 'أساقفة'<br/>'priests': 'قساوسة'<br/>'rabbis': 'حاخامات'"]
 
     ENTRIES --> NAT["Combine with nationality"]
 
     NAT --> FORMATTER["MultiDataFormatterBaseV2"]
 
-    FORMATTER --> OUTPUT["'Ø£Ø³Ø§Ù‚ÙØ© Ø£Ù„Ù…Ø§Ù†'"]
+    FORMATTER --> OUTPUT["'أساقفة ألمان'"]
 
     style REL_DATA fill:#fff3e0,stroke:#333,stroke-width:2px
 ```
@@ -10425,12 +10424,12 @@ The `RELIGIOUS_KEYS_PP` dictionary contains 33 religious occupation translations
 
 ```python
 RELIGIOUS_KEYS_PP = {
-    "bishops": "Ø£Ø³Ø§Ù‚ÙØ©",
-    "priests": "Ù‚Ø³Ø§ÙˆØ³Ø©",
-    "rabbis": "Ø­Ø§Ø®Ø§Ù…Ø§Øª",
-    "imams": "Ø£Ø¦Ù…Ø©",
-    "monks": "Ø±Ù‡Ø¨Ø§Ù†",
-    "nuns": "Ø±Ø§Ù‡Ø¨Ø§Øª",
+    "bishops": "أساقفة",
+    "priests": "قساوسة",
+    "rabbis": "حاخامات",
+    "imams": "أئمة",
+    "monks": "رهبان",
+    "nuns": "راهبات",
     # ... 27 more entries
 }
 ```
@@ -10491,19 +10490,19 @@ graph TB
 
         FORMATTER --> PLACEHOLDERS["Placeholder Substitution"]
 
-        PLACEHOLDERS --> P1["{'{job}'} â†’ 'footballers'"]
-        PLACEHOLDERS --> P2["{'{job_ar}'} â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…'"]
-        PLACEHOLDERS --> P3["{'{nat}'} â†’ 'american'"]
-        PLACEHOLDERS --> P4["{'{male}'} â†’ 'Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'"]
+        PLACEHOLDERS --> P1["{'{job}'} → 'footballers'"]
+        PLACEHOLDERS --> P2["{'{job_ar}'} → 'لاعبو كرة قدم'"]
+        PLACEHOLDERS --> P3["{'{nat}'} → 'american'"]
+        PLACEHOLDERS --> P4["{'{male}'} → 'أمريكيون'"]
 
-        P1 --> PATTERN["Pattern:<br/>'{nat} {job}' â†’<br/>'{job_ar} {male}'"]
+        P1 --> PATTERN["Pattern:<br/>'{nat} {job}' →<br/>'{job_ar} {male}'"]
         P2 --> PATTERN
         P3 --> PATTERN
         P4 --> PATTERN
 
         PATTERN --> SUBSTITUTE["Substitute values"]
 
-        SUBSTITUTE --> OUTPUT["'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'"]
+        SUBSTITUTE --> OUTPUT["'لاعبو كرة قدم أمريكيون'"]
     end
 
     style FORMATTER fill:#f9f9f9,stroke:#333,stroke-width:2px
@@ -10520,11 +10519,11 @@ graph TB
 
 | English Category | Resolution Path | Dictionary Used | Arabic Output |
 |------------------|----------------|-----------------|---------------|
-| American footballers | NAT_BEFORE_OCC â†’ jobs_mens_data | NAT_BEFORE_OCC, All_Nat | Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† |
-| British female actors | Gender detection â†’ jobs_womens_data | jobs_womens_data, All_Nat | Ù…Ù…Ø«Ù„Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª |
-| German bishops | RELIGIOUS_KEYS_PP | RELIGIOUS_KEYS_PP, All_Nat | Ø£Ø³Ø§Ù‚ÙØ© Ø£Ù„Ù…Ø§Ù† |
-| French-language singers | Lang_work | language_key_translations | Ù…ØºÙ†ÙˆÙ† Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„ÙØ±Ù†Ø³ÙŠØ© |
-| 2018 Brazilian footballers | te4_2018_Jobs | NAT_BEFORE_OCC, YEAR_DATA | Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±Ø§Ø²ÙŠÙ„ÙŠÙˆÙ† ÙÙŠ 2018 |
+| American footballers | NAT_BEFORE_OCC → jobs_mens_data | NAT_BEFORE_OCC, All_Nat | لاعبو كرة القدم أمريكيون |
+| British female actors | Gender detection → jobs_womens_data | jobs_womens_data, All_Nat | ممثلات بريطانيات |
+| German bishops | RELIGIOUS_KEYS_PP | RELIGIOUS_KEYS_PP, All_Nat | أساقفة ألمان |
+| French-language singers | Lang_work | language_key_translations | مغنون باللغة الفرنسية |
+| 2018 Brazilian footballers | te4_2018_Jobs | NAT_BEFORE_OCC, YEAR_DATA | لاعبو كرة القدم برازيليون في 2018 |
 
 ### Complex Job Category Handling
 
@@ -10616,7 +10615,7 @@ The sports domain maintains multiple specialized translation dictionaries, each 
 
 | Dataset | Size | Purpose |
 |---------|------|---------|
-| `SPORT_KEY_RECORDS` | 433 | Base sport name translations (English â†’ Arabic) |
+| `SPORT_KEY_RECORDS` | 433 | Base sport name translations (English → Arabic) |
 | `SPORT_KEY_RECORDS_BASE` | 229 | Core sport name variants without suffixes |
 | `sub_teams_new` | 7,832 | Team and club name translations |
 | `SPORTS_KEYS_FOR_LABEL` | 433 | Sport labels for general categories |
@@ -10680,7 +10679,7 @@ The sports resolver is invoked as part of the resolver chain through `resolve_sp
 graph TB
     INPUT["Category String<br/>e.g., 'American football players'"]
 
-    NORMALIZE["Normalize Input<br/>â€¢ Lowercase<br/>â€¢ Remove underscores<br/>â€¢ Strip 'Category:' prefix"]
+    NORMALIZE["Normalize Input<br/>• Lowercase<br/>• Remove underscores<br/>• Strip 'Category:' prefix"]
 
     MATCH_SPORT["Match Sport Key<br/>match_sport_key()<br/>translations/utils/match_sport_keys.py"]
 
@@ -10693,9 +10692,9 @@ graph TB
 
     FORMAT["Format with FormatDataV2<br/>Apply placeholders<br/>Gender agreement"]
 
-    SUFFIX["Suffix Handling<br/>â€¢ Teams<br/>â€¢ Clubs<br/>â€¢ Players<br/>â€¢ Defunct<br/>â€¢ Youth"]
+    SUFFIX["Suffix Handling<br/>• Teams<br/>• Clubs<br/>• Players<br/>• Defunct<br/>• Youth"]
 
-    OUTPUT["Arabic Label<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
+    OUTPUT["Arabic Label<br/>'لاعبو كرة قدم أمريكية'"]
 
     INPUT --> NORMALIZE
     NORMALIZE --> MATCH_SPORT
@@ -10734,7 +10733,7 @@ graph LR
     LOOKUP["SPORT_KEY_RECORDS<br/>Lookup"]
 
     subgraph "Match Result"
-        FOUND["Sport Found:<br/>EN: 'basketball'<br/>AR: 'ÙƒØ±Ø© Ø³Ù„Ø©'"]
+        FOUND["Sport Found:<br/>EN: 'basketball'<br/>AR: 'كرة سلة'"]
     end
 
     INPUT --> EXTRACT
@@ -10752,10 +10751,10 @@ graph LR
 
 Team and club categories use the `sub_teams_new` dataset (7,832 entries), which includes:
 
-- National teams (e.g., "France national football team" â†’ "Ù…Ù†ØªØ®Ø¨ ÙØ±Ù†Ø³Ø§ Ù„ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…")
-- Club teams (e.g., "FC Barcelona" â†’ "Ù†Ø§Ø¯ÙŠ Ø¨Ø±Ø´Ù„ÙˆÙ†Ø©")
-- League teams (e.g., "Premier League clubs" â†’ "Ø£Ù†Ø¯ÙŠØ© Ø§Ù„Ø¯ÙˆØ±ÙŠ Ø§Ù„Ø¥Ù†Ø¬Ù„ÙŠØ²ÙŠ Ø§Ù„Ù…Ù…ØªØ§Ø²")
-- Defunct teams (e.g., "defunct football clubs" â†’ "Ø£Ù†Ø¯ÙŠØ© ÙƒØ±Ø© Ù‚Ø¯Ù… Ø³Ø§Ø¨Ù‚Ø©")
+- National teams (e.g., "France national football team" → "منتخب فرنسا لكرة القدم")
+- Club teams (e.g., "FC Barcelona" → "نادي برشلونة")
+- League teams (e.g., "Premier League clubs" → "أندية الدوري الإنجليزي الممتاز")
+- Defunct teams (e.g., "defunct football clubs" → "أندية كرة قدم سابقة")
 
 The resolution process for teams:
 
@@ -10763,7 +10762,7 @@ The resolution process for teams:
 graph TB
     CAT["Category: 'national basketball teams'"]
 
-    CHECK_TEAM["Check for Team Keywords<br/>â€¢ national<br/>â€¢ club<br/>â€¢ team<br/>â€¢ squad"]
+    CHECK_TEAM["Check for Team Keywords<br/>• national<br/>• club<br/>• team<br/>• squad"]
 
     MATCH_SPORT_TEAM["Match Sport<br/>SPORTS_KEYS_FOR_TEAM<br/>431 entries"]
 
@@ -10771,9 +10770,9 @@ graph TB
 
     FORMAT_TEAM["Format Team Label<br/>FormatDataV2<br/>{sport_label} + {team_type}"]
 
-    SUFFIX_TEAM["Apply Suffix Logic<br/>â€¢ Gendered forms<br/>â€¢ Age groups<br/>â€¢ Defunct status"]
+    SUFFIX_TEAM["Apply Suffix Logic<br/>• Gendered forms<br/>• Age groups<br/>• Defunct status"]
 
-    RESULT["Result:<br/>'Ù…Ù†ØªØ®Ø¨Ø§Øª ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø© Ø§Ù„ÙˆØ·Ù†ÙŠØ©'"]
+    RESULT["Result:<br/>'منتخبات كرة السلة الوطنية'"]
 
     CAT --> CHECK_TEAM
     CHECK_TEAM --> MATCH_SPORT_TEAM
@@ -10794,9 +10793,9 @@ Olympic categories use specialized resolvers that handle:
 - Medalists and champions (using `CHAMPION_LABELS`)
 
 Example patterns:
-- "Olympic athletes" â†’ "Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†"
-- "2020 Summer Olympics" â†’ "Ø§Ù„Ø£Ù„Ø¹Ø§Ø¨ Ø§Ù„Ø£ÙˆÙ„Ù…Ø¨ÙŠØ© Ø§Ù„ØµÙŠÙÙŠØ© 2020"
-- "Olympic medalists in swimming" â†’ "Ø­Ø§ØµÙ„ÙˆÙ† Ø¹Ù„Ù‰ Ù…ÙŠØ¯Ø§Ù„ÙŠØ§Øª Ø£ÙˆÙ„Ù…Ø¨ÙŠØ© ÙÙŠ Ø§Ù„Ø³Ø¨Ø§Ø­Ø©"
+- "Olympic athletes" → "رياضيون أولمبيون"
+- "2020 Summer Olympics" → "الألعاب الأولمبية الصيفية 2020"
+- "Olympic medalists in swimming" → "حاصلون على ميداليات أولمبية في السباحة"
 
 **Sources:** [_work_files/data_len.json:60-62](), [_work_files/data_len.json:113-114]()
 
@@ -10810,10 +10809,10 @@ The sports resolver handles gendered forms through multiple mechanisms:
 
 | English Pattern | Arabic Translation | Dataset |
 |----------------|-------------------|---------|
-| "female athletes" | "Ø±ÙŠØ§Ø¶ÙŠØ§Øª" | `FEMALE_JOBS_SPORTS` |
-| "women's basketball" | "ÙƒØ±Ø© Ø³Ù„Ø© Ù†Ø³Ø§Ø¦ÙŠØ©" | `SPORTS_KEYS_FOR_LABEL` |
-| "footballers" (male) | "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…" | `SPORT_JOB_VARIANTS` |
-| "footballers" (female context) | "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…" | `FEMALE_JOBS_SPORTS` |
+| "female athletes" | "رياضيات" | `FEMALE_JOBS_SPORTS` |
+| "women's basketball" | "كرة سلة نسائية" | `SPORTS_KEYS_FOR_LABEL` |
+| "footballers" (male) | "لاعبو كرة قدم" | `SPORT_JOB_VARIANTS` |
+| "footballers" (female context) | "لاعبات كرة قدم" | `FEMALE_JOBS_SPORTS` |
 
 **Sources:** [_work_files/data_len.json:58](), [changelog.md:239-241](), [tests/event_lists/test_defunct.py:62-65]()
 
@@ -10821,21 +10820,21 @@ The sports resolver handles gendered forms through multiple mechanisms:
 
 Youth and age-group sports categories are handled through suffix detection:
 
-- "youth" â†’ "Ø´Ø¨Ø§Ø¨"
-- "under-21" â†’ "ØªØ­Øª 21"
-- "junior" â†’ "Ù†Ø§Ø´Ø¦ÙˆÙ†"
-- "amateur" â†’ "Ù‡ÙˆØ§Ø©"
+- "youth" → "شباب"
+- "under-21" → "تحت 21"
+- "junior" → "ناشئون"
+- "amateur" → "هواة"
 
 **Sources:** [changelog.md:263-271](), [changelog.md:290-303]()
 
 ### Defunct and Historical Sports
 
-Defunct sports categories (from test data) use the "defunct" â†’ "Ø³Ø§Ø¨Ù‚Ø©" pattern:
+Defunct sports categories (from test data) use the "defunct" → "سابقة" pattern:
 
 Examples from test suite:
-- "defunct football clubs" â†’ "Ø£Ù†Ø¯ÙŠØ© ÙƒØ±Ø© Ù‚Ø¯Ù… Ø³Ø§Ø¨Ù‚Ø©"
-- "defunct national sports teams" â†’ "ÙØ±Ù‚ Ø±ÙŠØ§Ø¶ÙŠØ© ÙˆØ·Ù†ÙŠØ© Ø³Ø§Ø¨Ù‚Ø©"
-- "defunct basketball venues" â†’ "Ù…Ù„Ø§Ø¹Ø¨ ÙƒØ±Ø© Ø³Ù„Ø© Ø³Ø§Ø¨Ù‚Ø©"
+- "defunct football clubs" → "أندية كرة قدم سابقة"
+- "defunct national sports teams" → "فرق رياضية وطنية سابقة"
+- "defunct basketball venues" → "ملاعب كرة سلة سابقة"
 
 **Sources:** [tests/event_lists/test_defunct.py:12-65]()
 
@@ -10847,7 +10846,7 @@ The sports resolver uses `FormatDataV2` for template-based translation with plac
 
 ```
 Pattern: "{nat} {sport} players"
-Template: "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"
+Template: "لاعبو {sport_ar} {nat_ar}"
 ```
 
 The formatting system handles:
@@ -10909,10 +10908,10 @@ This ordering ensures that job-related sports categories (e.g., "basketball coac
 
 | Input Category | Matched Dataset | Resolution Path | Arabic Output |
 |---------------|----------------|-----------------|---------------|
-| "Olympic athletes" | `SPORTS_KEYS_FOR_OLYMPIC` | match_sport_key("athletes") â†’ FormatDataV2 | "Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†" |
-| "national basketball teams" | `sub_teams_new` + `SPORTS_KEYS_FOR_TEAM` | match_sport_key("basketball") â†’ team pattern | "Ù…Ù†ØªØ®Ø¨Ø§Øª ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø© Ø§Ù„ÙˆØ·Ù†ÙŠØ©" |
-| "defunct football clubs" | `SPORT_KEY_RECORDS` | match_sport_key("football") â†’ suffix("defunct") | "Ø£Ù†Ø¯ÙŠØ© ÙƒØ±Ø© Ù‚Ø¯Ù… Ø³Ø§Ø¨Ù‚Ø©" |
-| "women's basketball" | `SPORTS_KEYS_FOR_LABEL` | match_sport_key("basketball") â†’ gender("women's") | "ÙƒØ±Ø© Ø³Ù„Ø© Ù†Ø³Ø§Ø¦ÙŠØ©" |
+| "Olympic athletes" | `SPORTS_KEYS_FOR_OLYMPIC` | match_sport_key("athletes") → FormatDataV2 | "رياضيون أولمبيون" |
+| "national basketball teams" | `sub_teams_new` + `SPORTS_KEYS_FOR_TEAM` | match_sport_key("basketball") → team pattern | "منتخبات كرة السلة الوطنية" |
+| "defunct football clubs" | `SPORT_KEY_RECORDS` | match_sport_key("football") → suffix("defunct") | "أندية كرة قدم سابقة" |
+| "women's basketball" | `SPORTS_KEYS_FOR_LABEL` | match_sport_key("basketball") → gender("women's") | "كرة سلة نسائية" |
 
 **Sources:** [tests/event_lists/test_defunct.py:12-65]()
 
@@ -10975,7 +10974,7 @@ The following files were used as context for generating this wiki page:
 
 ## Purpose and Scope
 
-The Film and TV Resolvers subsystem translates English Wikipedia categories for films, television series, and related media into Arabic. This resolver handles categories combining nationality, genre, time periods, and media types (e.g., "2010 American action films" â†’ "Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ© ÙÙŠ 2010"). The system manages 13,146 film/TV entries with gender-specific handling and nationality placeholder patterns.
+The Film and TV Resolvers subsystem translates English Wikipedia categories for films, television series, and related media into Arabic. This resolver handles categories combining nationality, genre, time periods, and media types (e.g., "2010 American action films" → "أفلام حركة أمريكية في 2010"). The system manages 13,146 film/TV entries with gender-specific handling and nationality placeholder patterns.
 
 For job-related resolvers (including sports-related jobs), see [Job Resolvers](#5.4). For nationality-based categories without media types, see [Nationality Resolvers](#5.2). For time pattern resolution, see [Time Pattern Resolvers](#5.1).
 
@@ -11005,7 +11004,7 @@ graph TB
     FilmsResult{"Result?"}
     PatternResult{"Result?"}
 
-    Output["Arabic Category<br/>ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ© ÙÙŠ 2010"]
+    Output["Arabic Category<br/>تصنيف:أفلام حركة أمريكية في 2010"]
     EmptyResult["Empty String"]
 
     Input --> MainEntry
@@ -11069,7 +11068,7 @@ graph LR
 
 The function performs these operations:
 1. **Normalization**: Strips whitespace, converts to lowercase, removes "category:" prefix
-2. **Legacy check**: Returns numeric categories as-is, maps "people" to "Ø£Ø´Ø®Ø§Øµ"
+2. **Legacy check**: Returns numeric categories as-is, maps "people" to "أشخاص"
 3. **Time-based**: Handles year/decade + film/TV combinations
 4. **Direct lookups**: Queries pre-compiled dictionaries for exact matches
 5. **Pattern matching**: Uses template-based formatters for complex patterns
@@ -11083,7 +11082,7 @@ The `legacy_label_check()` function handles two special cases that don't require
 | Input Pattern | Output | Description |
 |---------------|--------|-------------|
 | `^\d+$` | Same number | Numeric categories (e.g., "2010") |
-| `people` | `Ø£Ø´Ø®Ø§Øµ` | Generic people category |
+| `people` | `أشخاص` | Generic people category |
 
 This early check avoids unnecessary processing for categories that are already in their final form or need simple direct translation.
 
@@ -11172,11 +11171,11 @@ The builder creates patterns for:
 
 | Dictionary | Purpose | Example Pattern | Example Output |
 |------------|---------|-----------------|----------------|
-| `data` | With nationality placeholder | `{nat_en} {film_key} films` | `Ø£ÙÙ„Ø§Ù… {film_ar} {nat_ar}` |
-| `data_no_nats` | Without nationality | `{film_key} films` | `Ø£ÙÙ„Ø§Ù… {film_ar}` |
+| `data` | With nationality placeholder | `{nat_en} {film_key} films` | `أفلام {film_ar} {nat_ar}` |
+| `data_no_nats` | Without nationality | `{film_key} films` | `أفلام {film_ar}` |
 
 The function generates 100+ pattern combinations by cross-multiplying:
-- 5 base suffixes Ã— 27 genre categories = 135 compound patterns
+- 5 base suffixes × 27 genre categories = 135 compound patterns
 - Plus standalone genre patterns
 - Plus nationality-genre combinations
 
@@ -11191,9 +11190,9 @@ The film resolver uses a multi-placeholder template system that allows flexible 
 | Placeholder | Purpose | Example Input | Example Value |
 |-------------|---------|---------------|---------------|
 | `{nat_en}` | English nationality | "american" | Looked up in Nat_women |
-| `{nat_ar}` | Arabic nationality | Result | "Ø£Ù…Ø±ÙŠÙƒÙŠØ©" |
+| `{nat_ar}` | Arabic nationality | Result | "أمريكية" |
 | `{film_key}` | English genre key | "action" | Looked up in film_keys_for_female |
-| `{film_ar}` | Arabic genre value | Result | "Ø­Ø±ÙƒØ©" |
+| `{film_ar}` | Arabic genre value | Result | "حركة" |
 
 ### Template Examples
 
@@ -11202,22 +11201,22 @@ graph LR
     subgraph "Example 1: Nationality + Genre"
         Input1["american action films"]
         Template1["{nat_en} {film_key} films"]
-        Arabic1["Ø£ÙÙ„Ø§Ù… {film_ar} {nat_ar}"]
-        Output1["Ø£ÙÙ„Ø§Ù… Ø­Ø±ÙƒØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ©"]
+        Arabic1["أفلام {film_ar} {nat_ar}"]
+        Output1["أفلام حركة أمريكية"]
     end
 
     subgraph "Example 2: Genre Only"
         Input2["horror films"]
         Template2["{film_key} films"]
-        Arabic2["Ø£ÙÙ„Ø§Ù… {film_ar}"]
-        Output2["Ø£ÙÙ„Ø§Ù… Ø±Ø¹Ø¨"]
+        Arabic2["أفلام {film_ar}"]
+        Output2["أفلام رعب"]
     end
 
     subgraph "Example 3: TV Series"
         Input3["british television series"]
         Template3["{nat_en} television series"]
-        Arabic3["Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© {nat_ar}"]
-        Output3["Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"]
+        Arabic3["مسلسلات تلفزيونية {nat_ar}"]
+        Output3["مسلسلات تلفزيونية بريطانية"]
     end
 
     Input1 --> Template1 --> Arabic1 --> Output1
@@ -11242,7 +11241,7 @@ graph TB
 
         Remove1["Remove 'television'<br/>Avoid conflicts"]
 
-        Override1["Override 'superhero'<br/>superhero â†’ Ø£Ø¨Ø·Ø§Ù„ Ø®Ø§Ø±Ù‚ÙŠÙ†<br/>(special plural form)"]
+        Override1["Override 'superhero'<br/>superhero → أبطال خارقين<br/>(special plural form)"]
 
         FinalData["data_list2<br/>Final genre dictionary"]
     end
@@ -11258,11 +11257,11 @@ graph TB
 
 | Genre Key | Arabic Value | Notes |
 |-----------|--------------|-------|
-| action | Ø­Ø±ÙƒØ© | Feminine form for "films" (Ø£ÙÙ„Ø§Ù…) |
-| drama | Ø¯Ø±Ø§Ù…ÙŠØ© | Feminine adjective |
-| horror | Ø±Ø¹Ø¨ | Masculine noun (no gender change) |
-| superhero | Ø£Ø¨Ø·Ø§Ù„ Ø®Ø§Ø±Ù‚ÙŠÙ† | Plural form (overridden) |
-| upcoming | Ù‚Ø§Ø¯Ù…Ø© | Feminine participle |
+| action | حركة | Feminine form for "films" (أفلام) |
+| drama | درامية | Feminine adjective |
+| horror | رعب | Masculine noun (no gender change) |
+| superhero | أبطال خارقين | Plural form (overridden) |
+| upcoming | قادمة | Feminine participle |
 
 ### Label Positioning
 
@@ -11279,8 +11278,8 @@ put_label_last = {
 ```
 
 This affects patterns like:
-- "upcoming films" â†’ "Ø£ÙÙ„Ø§Ù… Ù‚Ø§Ø¯Ù…Ø©" (not "Ù‚Ø§Ø¯Ù…Ø© Ø£ÙÙ„Ø§Ù…")
-- "low-budget films" â†’ "Ø£ÙÙ„Ø§Ù… Ù‚Ù„ÙŠÙ„Ø© Ø§Ù„ØªÙƒÙ„ÙØ©" (not "Ù‚Ù„ÙŠÙ„Ø© Ø§Ù„ØªÙƒÙ„ÙØ© Ø£ÙÙ„Ø§Ù…")
+- "upcoming films" → "أفلام قادمة" (not "قادمة أفلام")
+- "low-budget films" → "أفلام قليلة التكلفة" (not "قليلة التكلفة أفلام")
 
 **Sources:** [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:208-247]()
 
@@ -11406,11 +11405,11 @@ From the test data, the resolver handles complex television category patterns:
 
 | English Category | Arabic Translation |
 |------------------|-------------------|
-| 2010 Swedish television series | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø³ÙˆÙŠØ¯ÙŠØ© ÙÙŠ 2010 |
-| British police procedural television series | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¥Ø¬Ø±Ø§Ø¡Ø§Øª Ø§Ù„Ø´Ø±Ø·Ø© Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© |
-| American animated television series about children | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø±Ø³ÙˆÙ… Ù…ØªØ­Ø±ÙƒØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ø¹Ù† Ø£Ø·ÙØ§Ù„ |
-| 2010 Japanese television series debuts | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ 2010 |
-| Nigerian television series title cards | Ø¨Ø·Ø§Ù‚Ø§Øª Ø¹Ù†ÙˆØ§Ù† Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ù†ÙŠØ¬ÙŠØ±ÙŠØ© |
+| 2010 Swedish television series | مسلسلات تلفزيونية سويدية في 2010 |
+| British police procedural television series | مسلسلات تلفزيونية إجراءات الشرطة بريطانية |
+| American animated television series about children | مسلسلات تلفزيونية رسوم متحركة أمريكية عن أطفال |
+| 2010 Japanese television series debuts | مسلسلات تلفزيونية يابانية بدأ عرضها في 2010 |
+| Nigerian television series title cards | بطاقات عنوان مسلسلات تلفزيونية نيجيرية |
 
 **Sources:** [examples/data/television series.json:1-56]()
 
@@ -11420,9 +11419,9 @@ The resolver also handles "endings" patterns for television series:
 
 | English Category | Arabic Translation |
 |------------------|-------------------|
-| 2010 Brazilian television series endings | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¨Ø±Ø§Ø²ÙŠÙ„ÙŠØ© Ø§Ù†ØªÙ‡Øª ÙÙŠ 2010 |
-| 2010s Indonesian television series endings | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¥Ù†Ø¯ÙˆÙ†ÙŠØ³ÙŠØ© Ø§Ù†ØªÙ‡Øª ÙÙŠ Ø¹Ù‚Ø¯ 2010 |
-| 21st-century Chilean television series endings | Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØªØ´ÙŠÙ„ÙŠØ© Ø§Ù†ØªÙ‡Øª ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 21 |
+| 2010 Brazilian television series endings | مسلسلات تلفزيونية برازيلية انتهت في 2010 |
+| 2010s Indonesian television series endings | مسلسلات تلفزيونية إندونيسية انتهت في عقد 2010 |
+| 21st-century Chilean television series endings | مسلسلات تلفزيونية تشيلية انتهت في القرن 21 |
 
 **Sources:** [examples/data/endings.json:1-32]()
 
@@ -11537,10 +11536,10 @@ The Legacy Resolvers serve as a **fallback resolution system** for categories th
 - **General category translation**: Handles edge cases and uncommon category formats
 
 **Key Categories Handled**:
-- Year-based categories: `1990 united states congress` â†’ `Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€101`
-- Separator-based categories: `sport in ottoman` â†’ `Ø§Ù„Ø±ÙŠØ§Ø¶Ø© ÙÙŠ Ø§Ù„Ø¯ÙˆÙ„Ø© Ø§Ù„Ø¹Ø«Ù…Ø§Ù†ÙŠØ©`
-- Template categories: `lists of american writers` â†’ `Ù‚ÙˆØ§Ø¦Ù… ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†`
-- Event categories: `2020 sports events in france` â†’ `Ø£Ø­Ø¯Ø§Ø« Ø±ÙŠØ§Ø¶ÙŠØ© ÙÙŠ 2020 ÙÙŠ ÙØ±Ù†Ø³Ø§`
+- Year-based categories: `1990 united states congress` → `الكونغرس الأمريكي الـ101`
+- Separator-based categories: `sport in ottoman` → `الرياضة في الدولة العثمانية`
+- Template categories: `lists of american writers` → `قوائم كتاب أمريكيون`
+- Event categories: `2020 sports events in france` → `أحداث رياضية في 2020 في فرنسا`
 - Complex structured categories with multiple components
 
 **Sources**: [ArWikiCats/legacy_bots/__init__.py:1-102](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:1-386]()
@@ -11651,7 +11650,7 @@ def new_relations_resolvers(category: str) -> str:
     Resolve bilateral relations category labels.
 
     Args:
-        category: English category string (e.g., "franceâ€“germany relations")
+        category: English category string (e.g., "france–germany relations")
 
     Returns:
         Arabic translation or empty string if no match
@@ -11724,9 +11723,9 @@ RESOLVER_PIPELINE: list[Callable[[str], str]] = [
 
 | Priority | Resolver | Purpose | Example |
 |----------|----------|---------|---------|
-| 1 | `event2_d2` | Country/event resolution | `sport in france` â†’ `Ø§Ù„Ø±ÙŠØ§Ø¶Ø© ÙÙŠ ÙØ±Ù†Ø³Ø§` |
-| 2 | `wrap_try_with_years` | Year patterns | `1990 films` â†’ `Ø£ÙÙ„Ø§Ù… 1990` |
-| 3 | `label_for_startwith_year_or_typeo` | Year prefix handling | `2020 american films` â†’ `Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ© 2020` |
+| 1 | `event2_d2` | Country/event resolution | `sport in france` → `الرياضة في فرنسا` |
+| 2 | `wrap_try_with_years` | Year patterns | `1990 films` → `أفلام 1990` |
+| 3 | `label_for_startwith_year_or_typeo` | Year prefix handling | `2020 american films` → `أفلام أمريكية 2020` |
 | 4 | `event_lab` | Complex event categories | Categories with episodes, templates, lists |
 | 5 | `translate_general_category_wrap` | General fallback | Separator-based categories |
 
@@ -11747,7 +11746,7 @@ def new_relations_resolvers(category: str) -> str:
     Resolve bilateral relations category labels.
 
     Args:
-        category: English category string (e.g., "franceâ€“germany relations")
+        category: English category string (e.g., "france–germany relations")
 
     Returns:
         Arabic translation or empty string if no match
@@ -11964,11 +11963,11 @@ def get_con_label(country: str) -> str:
 
 | Resolver | Purpose | Example |
 |----------|---------|---------|
-| `get_from_new_p17_final` | Geographic data (68,981 entries) | `france` â†’ `ÙØ±Ù†Ø³Ø§` |
+| `get_from_new_p17_final` | Geographic data (68,981 entries) | `france` → `فرنسا` |
 | `all_new_resolvers` | Modern resolver dispatch | Delegates to new resolvers |
 | `get_from_pf_keys2` | Combined dataset (33,657 entries) | Various lookups |
-| `_lookup_country_with_in_prefix` | "in X" patterns | `in france` â†’ `ÙÙŠ ÙØ±Ù†Ø³Ø§` |
-| `RELIGIOUS_KEYS_PP` | Religious categories | `muslims` â†’ `Ù…Ø³Ù„Ù…ÙˆÙ†` |
+| `_lookup_country_with_in_prefix` | "in X" patterns | `in france` → `في فرنسا` |
+| `RELIGIOUS_KEYS_PP` | Religious categories | `muslims` → `مسلمون` |
 | `New_female_keys` | Female job titles | Female-specific translations |
 | `religious_entries` | Religious entries | Religious role translations |
 | `resolve_clubs_teams_leagues` | Sports teams | Team names |
@@ -11996,9 +11995,9 @@ def Try_With_Years(category: str) -> str:
     Produce an Arabic label combining year information with resolved category.
 
     Handles patterns like:
-    - "1990 films" â†’ "Ø£ÙÙ„Ø§Ù… 1990"
-    - "101st united states congress" â†’ "Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€101"
-    - "American Soccer League (1933â€“83)" â†’ "Ø¯ÙˆØ±ÙŠ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ 1933â€“1983"
+    - "1990 films" → "أفلام 1990"
+    - "101st united states congress" → "الكونغرس الأمريكي الـ101"
+    - "American Soccer League (1933–83)" → "دوري كرة القدم الأمريكي 1933–1983"
     """
 ```
 
@@ -12014,9 +12013,9 @@ graph TB
 
     START["RE1_compile<br/>Year at start pattern<br/>^(\d+s?)[_ ]"]
 
-    END["RE2_compile<br/>Year at end pattern<br/>[_ ]\((\d+â€“?\d*)\)$"]
+    END["RE2_compile<br/>Year at end pattern<br/>[_ ]\((\d+–?\d*)\)$"]
 
-    RANGE["RE33_compile<br/>Year range pattern<br/>[_ ](\d+â€“\d+)$"]
+    RANGE["RE33_compile<br/>Year range pattern<br/>[_ ](\d+–\d+)$"]
 
     HANDLE_START["_handle_year_at_start()<br/>Resolve remainder + year"]
 
@@ -12061,9 +12060,9 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
     Process categories with separators and resolve both parts.
 
     Examples:
-    - "sport in france" â†’ "Ø§Ù„Ø±ÙŠØ§Ø¶Ø© ÙÙŠ ÙØ±Ù†Ø³Ø§"
-    - "ambassadors to italy" â†’ "Ø³ÙØ±Ø§Ø¡ Ù„Ø¯Ù‰ Ø¥ÙŠØ·Ø§Ù„ÙŠØ§"
-    - "writers from egypt" â†’ "ÙƒØªØ§Ø¨ Ù…Ù† Ù…ØµØ±"
+    - "sport in france" → "الرياضة في فرنسا"
+    - "ambassadors to italy" → "سفراء لدى إيطاليا"
+    - "writers from egypt" → "كتاب من مصر"
     """
 ```
 
@@ -12104,13 +12103,13 @@ flowchart TD
 
 | English | Arabic | Example |
 |---------|--------|---------|
-| `in` | `ÙÙŠ` | `sport in france` â†’ `Ø§Ù„Ø±ÙŠØ§Ø¶Ø© ÙÙŠ ÙØ±Ù†Ø³Ø§` |
-| `from` | `Ù…Ù†` | `writers from egypt` â†’ `ÙƒØªØ§Ø¨ Ù…Ù† Ù…ØµØ±` |
-| `to` | `Ø¥Ù„Ù‰` | `exports to china` â†’ `ØµØ§Ø¯Ø±Ø§Øª Ø¥Ù„Ù‰ Ø§Ù„ØµÙŠÙ†` |
-| `to` (ambassadors) | `Ù„Ø¯Ù‰` | `ambassadors to italy` â†’ `Ø³ÙØ±Ø§Ø¡ Ù„Ø¯Ù‰ Ø¥ÙŠØ·Ø§Ù„ÙŠØ§` |
-| `on` | `Ø¹Ù„Ù‰` | `attacks on france` â†’ `Ù‡Ø¬Ù…Ø§Øª Ø¹Ù„Ù‰ ÙØ±Ù†Ø³Ø§` |
-| `about` | `Ø¹Ù†` | `books about egypt` â†’ `ÙƒØªØ¨ Ø¹Ù† Ù…ØµØ±` |
-| `based in` | `Ù…Ù‚Ø±Ù‡Ø§ ÙÙŠ` | `organizations based in london` â†’ `Ù…Ù†Ø¸Ù…Ø§Øª Ù…Ù‚Ø±Ù‡Ø§ ÙÙŠ Ù„Ù†Ø¯Ù†` |
+| `in` | `في` | `sport in france` → `الرياضة في فرنسا` |
+| `from` | `من` | `writers from egypt` → `كتاب من مصر` |
+| `to` | `إلى` | `exports to china` → `صادرات إلى الصين` |
+| `to` (ambassadors) | `لدى` | `ambassadors to italy` → `سفراء لدى إيطاليا` |
+| `on` | `على` | `attacks on france` → `هجمات على فرنسا` |
+| `about` | `عن` | `books about egypt` → `كتب عن مصر` |
+| `based in` | `مقرها في` | `organizations based in london` → `منظمات مقرها في لندن` |
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:333-376](), [ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:231-256]()
 
@@ -12136,15 +12135,15 @@ def Work_Templates(input_label: str) -> str:
 **Template Types**:
 
 **Suffix Templates** (`combined_suffix_mappings`):
-- ` teams` â†’ `ÙØ±Ù‚ {}`
-- ` players` â†’ `Ù„Ø§Ø¹Ø¨Ùˆ {}`
-- ` players by club` â†’ `Ù„Ø§Ø¹Ø¨Ùˆ {} Ø­Ø³Ø¨ Ø§Ù„Ù†Ø§Ø¯ÙŠ`
-- ` by country` â†’ `{} Ø­Ø³Ø¨ Ø§Ù„Ø¨Ù„Ø¯`
+- ` teams` → `فرق {}`
+- ` players` → `لاعبو {}`
+- ` players by club` → `لاعبو {} حسب النادي`
+- ` by country` → `{} حسب البلد`
 
 **Prefix Templates** (`pp_start_with`):
-- `lists of ` â†’ `Ù‚ÙˆØ§Ø¦Ù… {}`
-- `history of ` â†’ `ØªØ§Ø±ÙŠØ® {}`
-- `culture of ` â†’ `Ø«Ù‚Ø§ÙØ© {}`
+- `lists of ` → `قوائم {}`
+- `history of ` → `تاريخ {}`
+- `culture of ` → `ثقافة {}`
 
 **Example Resolution**:
 ```
@@ -12152,8 +12151,8 @@ Input: "lists of american writers"
 1. Check suffix: No match
 2. Check prefix: Match "lists of "
 3. Extract base: "american writers"
-4. Resolve base: "ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"
-5. Apply template: "Ù‚ÙˆØ§Ø¦Ù… {}" â†’ "Ù‚ÙˆØ§Ø¦Ù… ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"
+4. Resolve base: "كتاب أمريكيون"
+5. Apply template: "قوائم {}" → "قوائم كتاب أمريكيون"
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/tmp_bot.py:79-102](), [ArWikiCats/legacy_bots/tmp_bot.py:20-76]()
@@ -12206,13 +12205,13 @@ Dictionary mapping English suffixes to Arabic template patterns.
 
 | English Suffix | Arabic Template | Example |
 |----------------|-----------------|---------|
-| ` teams` | `ÙØ±Ù‚ {}` | `american teams` â†’ `ÙØ±Ù‚ Ø£Ù…Ø±ÙŠÙƒÙŠØ©` |
-| ` players` | `Ù„Ø§Ø¹Ø¨Ùˆ {}` | `football players` â†’ `Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…` |
-| ` by club` | `{} Ø­Ø³Ø¨ Ø§Ù„Ù†Ø§Ø¯ÙŠ` | `players by club` â†’ `Ù„Ø§Ø¹Ø¨ÙˆÙ† Ø­Ø³Ø¨ Ø§Ù„Ù†Ø§Ø¯ÙŠ` |
-| ` by country` | `{} Ø­Ø³Ø¨ Ø§Ù„Ø¨Ù„Ø¯` | `teams by country` â†’ `ÙØ±Ù‚ Ø­Ø³Ø¨ Ø§Ù„Ø¨Ù„Ø¯` |
-| ` by year` | `{} Ø­Ø³Ø¨ Ø§Ù„Ø³Ù†Ø©` | `films by year` â†’ `Ø£ÙÙ„Ø§Ù… Ø­Ø³Ø¨ Ø§Ù„Ø³Ù†Ø©` |
-| ` episodes` | `Ø­Ù„Ù‚Ø§Øª {}` | `series episodes` â†’ `Ø­Ù„Ù‚Ø§Øª Ù…Ø³Ù„Ø³Ù„` |
-| ` templates` | `Ù‚ÙˆØ§Ù„Ø¨ {}` | `football templates` â†’ `Ù‚ÙˆØ§Ù„Ø¨ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…` |
+| ` teams` | `فرق {}` | `american teams` → `فرق أمريكية` |
+| ` players` | `لاعبو {}` | `football players` → `لاعبو كرة القدم` |
+| ` by club` | `{} حسب النادي` | `players by club` → `لاعبون حسب النادي` |
+| ` by country` | `{} حسب البلد` | `teams by country` → `فرق حسب البلد` |
+| ` by year` | `{} حسب السنة` | `films by year` → `أفلام حسب السنة` |
+| ` episodes` | `حلقات {}` | `series episodes` → `حلقات مسلسل` |
+| ` templates` | `قوالب {}` | `football templates` → `قوالب كرة القدم` |
 
 **Sources**: [ArWikiCats/legacy_bots/data/mappings.py]() (referenced in [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:17]())
 
@@ -12226,11 +12225,11 @@ Dictionary mapping English prefixes to Arabic template patterns.
 
 | English Prefix | Arabic Template | Example |
 |----------------|-----------------|---------|
-| `lists of ` | `Ù‚ÙˆØ§Ø¦Ù… {}` | `lists of writers` â†’ `Ù‚ÙˆØ§Ø¦Ù… ÙƒØªØ§Ø¨` |
-| `history of ` | `ØªØ§Ø±ÙŠØ® {}` | `history of france` â†’ `ØªØ§Ø±ÙŠØ® ÙØ±Ù†Ø³Ø§` |
-| `culture of ` | `Ø«Ù‚Ø§ÙØ© {}` | `culture of egypt` â†’ `Ø«Ù‚Ø§ÙØ© Ù…ØµØ±` |
-| `economy of ` | `Ø§Ù‚ØªØµØ§Ø¯ {}` | `economy of india` â†’ `Ø§Ù‚ØªØµØ§Ø¯ Ø§Ù„Ù‡Ù†Ø¯` |
-| `politics of ` | `Ø³ÙŠØ§Ø³Ø© {}` | `politics of germany` â†’ `Ø³ÙŠØ§Ø³Ø© Ø£Ù„Ù…Ø§Ù†ÙŠØ§` |
+| `lists of ` | `قوائم {}` | `lists of writers` → `قوائم كتاب` |
+| `history of ` | `تاريخ {}` | `history of france` → `تاريخ فرنسا` |
+| `culture of ` | `ثقافة {}` | `culture of egypt` → `ثقافة مصر` |
+| `economy of ` | `اقتصاد {}` | `economy of india` → `اقتصاد الهند` |
+| `politics of ` | `سياسة {}` | `politics of germany` → `سياسة ألمانيا` |
 
 **Sources**: [ArWikiCats/legacy_bots/data/mappings.py]() (referenced in [ArWikiCats/legacy_bots/tmp_bot.py:13]())
 
@@ -12246,7 +12245,7 @@ The `EventLabResolver` handles special list category patterns with different for
 
 **Detection**:
 - Category ends with known football-related suffixes
-- Template marker `list_of_cat` = `"Ù„Ø§Ø¹Ø¨Ùˆ {}"`
+- Template marker `list_of_cat` = `"لاعبو {}"`
 
 **Processing**:
 ```python
@@ -12259,8 +12258,8 @@ if self.foot_ballers:
 Input: "italian football players"
 1. Detect suffix: "players"
 2. Set foot_ballers flag: True
-3. Resolve: "Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†"
-4. Apply football template: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†"
+3. Resolve: "إيطاليون"
+4. Apply football template: "لاعبو كرة قدم إيطاليون"
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:237-241]()
@@ -12278,9 +12277,9 @@ else:
 ```
 
 **Common List Patterns**:
-- `lists of american writers` â†’ `Ù‚ÙˆØ§Ø¦Ù… ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†`
-- `italian athletes` â†’ `Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†`
-- `french scientists` â†’ `Ø¹Ù„Ù…Ø§Ø¡ ÙØ±Ù†Ø³ÙŠÙˆÙ†`
+- `lists of american writers` → `قوائم كتاب أمريكيون`
+- `italian athletes` → `رياضيون إيطاليون`
+- `french scientists` → `علماء فرنسيون`
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:237-241](), [ArWikiCats/main_processers/main_utils.py]() (referenced)
 
@@ -12297,8 +12296,8 @@ else:
 **Example**:
 ```
 Input: "breaking bad episodes"
-Processing: Extract "breaking bad", resolve, add "Ø­Ù„Ù‚Ø§Øª" prefix
-Output: "Ø­Ù„Ù‚Ø§Øª Ø¨Ø±ÙŠÙƒÙ†Øº Ø¨Ø§Ø¯"
+Processing: Extract "breaking bad", resolve, add "حلقات" prefix
+Output: "حلقات بريكنغ باد"
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:139-140]()
@@ -12314,8 +12313,8 @@ Output: "Ø­Ù„Ù‚Ø§Øª Ø¨Ø±ÙŠÙƒÙ†Øº Ø¨Ø§Ø¯"
 **Example**:
 ```
 Input: "football templates"
-Processing: Extract "football", resolve, add "Ù‚ÙˆØ§Ù„Ø¨" prefix
-Output: "Ù‚ÙˆØ§Ù„Ø¨ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+Processing: Extract "football", resolve, add "قوالب" prefix
+Output: "قوالب كرة القدم"
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:142-143]()
@@ -12330,8 +12329,8 @@ The year resolver handles special political body patterns.
 
 | English Pattern | Arabic Translation |
 |-----------------|-------------------|
-| `iranian majlis` | `Ø§Ù„Ù…Ø¬Ù„Ø³ Ø§Ù„Ø¥ÙŠØ±Ø§Ù†ÙŠ` |
-| `united states congress` | `Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ` |
+| `iranian majlis` | `المجلس الإيراني` |
+| `united states congress` | `الكونغرس الأمريكي` |
 
 **Pattern**: `{ordinal}(th|nd|st|rd) {body_name}`
 
@@ -12339,8 +12338,8 @@ The year resolver handles special political body patterns.
 ```
 Input: "101st united states congress"
 Pattern match: ordinal=101, body="united states congress"
-Ordinal word: "Ø§Ù„Ù€101"
-Output: "Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€101"
+Ordinal word: "الـ101"
+Output: "الكونغرس الأمريكي الـ101"
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:38-100]()
@@ -12359,11 +12358,11 @@ graph TB
 
     L1["Level 1: legacy_resolvers()<br/>@lru_cache(maxsize=10000)"]
 
-    L2["Level 2: Individual Resolvers<br/>â€¢ event_label_work (maxsize=10000)<br/>â€¢ Try_With_Years (maxsize=10000)<br/>â€¢ get_con_label (maxsize=10000)"]
+    L2["Level 2: Individual Resolvers<br/>• event_label_work (maxsize=10000)<br/>• Try_With_Years (maxsize=10000)<br/>• get_con_label (maxsize=10000)"]
 
-    L3["Level 3: Lookup Functions<br/>â€¢ get_lab_for_country2 (maxsize=10000)<br/>â€¢ get_KAKO (maxsize=10000)<br/>â€¢ Work_Templates (maxsize=10000)"]
+    L3["Level 3: Lookup Functions<br/>• get_lab_for_country2 (maxsize=10000)<br/>• get_KAKO (maxsize=10000)<br/>• Work_Templates (maxsize=10000)"]
 
-    L4["Level 4: Module-Level Cache<br/>â€¢ Loaded translation data<br/>â€¢ Compiled regex patterns"]
+    L4["Level 4: Module-Level Cache<br/>• Loaded translation data<br/>• Compiled regex patterns"]
 
     RESOLVE["Full Resolution"]
     RESULT["Result"]
@@ -12403,12 +12402,12 @@ Input normalization is applied at multiple stages to maximize cache hits.
 
 **Normalization Steps**:
 
-1. **Lowercase conversion**: `Category:American Films` â†’ `american films`
-2. **Underscore to space**: `american_films` â†’ `american films`
-3. **Prefix removal**: `category:american films` â†’ `american films`
-4. **Whitespace trimming**: `" american films "` â†’ `american films`
-5. **"the" removal**: `the united states` â†’ `united states`
-6. **Dash normalization**: `guineaâˆ’bissau` â†’ `guinea-bissau`
+1. **Lowercase conversion**: `Category:American Films` → `american films`
+2. **Underscore to space**: `american_films` → `american films`
+3. **Prefix removal**: `category:american films` → `american films`
+4. **Whitespace trimming**: `" american films "` → `american films`
+5. **"the" removal**: `the united states` → `united states`
+6. **Dash normalization**: `guinea−bissau` → `guinea-bissau`
 
 **Normalization at Different Levels**:
 
@@ -12461,14 +12460,14 @@ The legacy resolvers have comprehensive test coverage across multiple test suite
 def test_event_lab_basic() -> None:
     """Test basic event_lab functionality"""
     result = event_lab("american films")
-    assert result == "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+    assert result == "تصنيف:أفلام أمريكية"
 ```
 
 **Parametrized Tests**:
 ```python
 @pytest.mark.parametrize("category,expected", [
-    ("1990 films", "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… 1990"),
-    ("101st united states congress", "ØªØµÙ†ÙŠÙ:Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€101"),
+    ("1990 films", "تصنيف:أفلام 1990"),
+    ("101st united states congress", "تصنيف:الكونغرس الأمريكي الـ101"),
     # ... more test cases
 ])
 def test_year_patterns(category: str, expected: str) -> None:
@@ -12482,7 +12481,7 @@ def test_year_patterns(category: str, expected: str) -> None:
 def test_legacy_resolver_chain() -> None:
     """Test complete legacy resolver pipeline"""
     result = legacy_resolvers("2020 american films")
-    assert result.startswith("ØªØµÙ†ÙŠÙ:")
+    assert result.startswith("تصنيف:")
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/__init__.py:75-96]() (shows resolver usage pattern)
@@ -12588,10 +12587,10 @@ The main resolver in [ArWikiCats/__init__.py]() coordinates between modern and l
 
 | Input Category | Output Label |
 |----------------|--------------|
-| `1990 films` | `ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… 1990` |
-| `2020s american films` | `ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ø¹Ù‚Ø¯ 2020` |
-| `101st united states congress` | `ØªØµÙ†ÙŠÙ:Ø§Ù„ÙƒÙˆÙ†ØºØ±Ø³ Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ Ø§Ù„Ù€101` |
-| `1933â€“83 american soccer league` | `ØªØµÙ†ÙŠÙ:Ø¯ÙˆØ±ÙŠ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠ 1933â€“1983` |
+| `1990 films` | `تصنيف:أفلام 1990` |
+| `2020s american films` | `تصنيف:أفلام أمريكية عقد 2020` |
+| `101st united states congress` | `تصنيف:الكونغرس الأمريكي الـ101` |
+| `1933–83 american soccer league` | `تصنيف:دوري كرة القدم الأمريكي 1933–1983` |
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:219-258](), [examples/run.py:42]()
 
@@ -12601,11 +12600,11 @@ The main resolver in [ArWikiCats/__init__.py]() coordinates between modern and l
 
 | Input Category | Output Label |
 |----------------|--------------|
-| `sport in france` | `ØªØµÙ†ÙŠÙ:Ø§Ù„Ø±ÙŠØ§Ø¶Ø© ÙÙŠ ÙØ±Ù†Ø³Ø§` |
-| `writers from egypt` | `ØªØµÙ†ÙŠÙ:ÙƒØªØ§Ø¨ Ù…Ù† Ù…ØµØ±` |
-| `ambassadors to italy` | `ØªØµÙ†ÙŠÙ:Ø³ÙØ±Ø§Ø¡ Ù„Ø¯Ù‰ Ø¥ÙŠØ·Ø§Ù„ÙŠØ§` |
-| `books about history` | `ØªØµÙ†ÙŠÙ:ÙƒØªØ¨ Ø¹Ù† Ø§Ù„ØªØ§Ø±ÙŠØ®` |
-| `organizations based in london` | `ØªØµÙ†ÙŠÙ:Ù…Ù†Ø¸Ù…Ø§Øª Ù…Ù‚Ø±Ù‡Ø§ ÙÙŠ Ù„Ù†Ø¯Ù†` |
+| `sport in france` | `تصنيف:الرياضة في فرنسا` |
+| `writers from egypt` | `تصنيف:كتاب من مصر` |
+| `ambassadors to italy` | `تصنيف:سفراء لدى إيطاليا` |
+| `books about history` | `تصنيف:كتب عن التاريخ` |
+| `organizations based in london` | `تصنيف:منظمات مقرها في لندن` |
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/country2_label_bot.py:333-376]()
 
@@ -12615,10 +12614,10 @@ The main resolver in [ArWikiCats/__init__.py]() coordinates between modern and l
 
 | Input Category | Output Label |
 |----------------|--------------|
-| `lists of american writers` | `ØªØµÙ†ÙŠÙ:Ù‚ÙˆØ§Ø¦Ù… ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†` |
-| `history of france` | `ØªØµÙ†ÙŠÙ:ØªØ§Ø±ÙŠØ® ÙØ±Ù†Ø³Ø§` |
-| `american football teams` | `ØªØµÙ†ÙŠÙ:ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©` |
-| `football players by club` | `ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø­Ø³Ø¨ Ø§Ù„Ù†Ø§Ø¯ÙŠ` |
+| `lists of american writers` | `تصنيف:قوائم كتاب أمريكيون` |
+| `history of france` | `تصنيف:تاريخ فرنسا` |
+| `american football teams` | `تصنيف:فرق كرة قدم أمريكية` |
+| `football players by club` | `تصنيف:لاعبو كرة القدم حسب النادي` |
 
 **Sources**: [ArWikiCats/legacy_bots/tmp_bot.py:79-102]()
 
@@ -12628,10 +12627,10 @@ The main resolver in [ArWikiCats/__init__.py]() coordinates between modern and l
 
 | Input Category | Output Label |
 |----------------|--------------|
-| `2020 sports events in france` | `ØªØµÙ†ÙŠÙ:Ø£Ø­Ø¯Ø§Ø« Ø±ÙŠØ§Ø¶ÙŠØ© ÙÙŠ 2020 ÙÙŠ ÙØ±Ù†Ø³Ø§` |
-| `breaking bad episodes` | `ØªØµÙ†ÙŠÙ:Ø­Ù„Ù‚Ø§Øª Ø¨Ø±ÙŠÙƒÙ†Øº Ø¨Ø§Ø¯` |
-| `football templates` | `ØªØµÙ†ÙŠÙ:Ù‚ÙˆØ§Ù„Ø¨ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…` |
-| `italian football players` | `ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ†` |
+| `2020 sports events in france` | `تصنيف:أحداث رياضية في 2020 في فرنسا` |
+| `breaking bad episodes` | `تصنيف:حلقات بريكنغ باد` |
+| `football templates` | `تصنيف:قوالب كرة القدم` |
+| `italian football players` | `تصنيف:لاعبو كرة قدم إيطاليون` |
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/event_lab_bot.py:244-312]()
 
@@ -12664,8 +12663,8 @@ if any(f" {word} " in cat3.lower() for word in blocked):
 This prevents conflicts with separator-based resolution.
 
 **Example**:
-- `1990 films` â†’ Handled by year resolver âœ“
-- `1990 films in france` â†’ Rejected by year resolver, handled by separator resolver âœ“
+- `1990 films` → Handled by year resolver ✓
+- `1990 films in france` → Rejected by year resolver, handled by separator resolver ✓
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:276-279]()
 
@@ -12674,8 +12673,8 @@ This prevents conflicts with separator-based resolution.
 **Dash Normalization**:
 ```python
 # Various dash types normalized to standard hyphen
-category = category.replace("âˆ’", "-")  # En-dash to hyphen
-category = category.replace("â€“", "-")  # Em-dash to hyphen
+category = category.replace("−", "-")  # En-dash to hyphen
+category = category.replace("–", "-")  # Em-dash to hyphen
 ```
 
 **Sources**: [ArWikiCats/legacy_bots/legacy_resolvers_bots/with_years_bot.py:241]()
@@ -12689,8 +12688,8 @@ country = country.replace(" the ", " ").removeprefix("the ").removesuffix(" the"
 ```
 
 **Example**:
-- `the united states` â†’ `united states`
-- `sport in the ottoman empire` â†’ `sport in ottoman empire`
+- `the united states` → `united states`
+- `sport in the ottoman empire` → `sport in ottoman empire`
 
 **Sources**: [ArWikiCats/legacy_bots/common_resolver_chain.py:81]()
 
@@ -12712,13 +12711,13 @@ For specialized use cases, the `ar_joiner` parameter can be customized:
 
 ```python
 # Default: space joiner
-bot = FormatDataDoubleV2(ar_joiner=" ")    # "Ø£ÙƒØ´Ù† Ø¯Ø±Ø§Ù…Ø§"
+bot = FormatDataDoubleV2(ar_joiner=" ")    # "أكشن دراما"
 
 # Arabic "and" joiner
-bot = FormatDataDoubleV2(ar_joiner=" Ùˆ ")  # "Ø£ÙƒØ´Ù† Ùˆ Ø¯Ø±Ø§Ù…Ø§"
+bot = FormatDataDoubleV2(ar_joiner=" و ")  # "أكشن و دراما"
 
 # Dash joiner
-bot = FormatDataDoubleV2(ar_joiner="-")    # "Ø£ÙƒØ´Ù†-Ø¯Ø±Ø§Ù…Ø§"
+bot = FormatDataDoubleV2(ar_joiner="-")    # "أكشن-دراما"
 ```
 
 ### Enabling Label Sorting
@@ -12734,8 +12733,8 @@ bot = FormatDataDoubleV2(
 )
 
 # Both inputs produce same output:
-bot.search("franceâ€“germany relations")   # Ø§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ© Ø§Ù„ÙØ±Ù†Ø³ÙŠØ©
-bot.search("germanyâ€“france relations")   # Ø§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ø£Ù„Ù…Ø§Ù†ÙŠØ© Ø§Ù„ÙØ±Ù†Ø³ÙŠØ©
+bot.search("france–germany relations")   # العلاقات الألمانية الفرنسية
+bot.search("germany–france relations")   # العلاقات الألمانية الفرنسية
 ```
 
 ### Dynamic Label Reordering
@@ -12754,7 +12753,7 @@ bot = FormatDataDoubleV2(
 bot.update_put_label_last(["action"])
 
 # "action" will now appear last
-bot.search("action drama films")  # "Ø£ÙÙ„Ø§Ù… Ø¯Ø±Ø§Ù…Ø§ Ø£ÙƒØ´Ù†"
+bot.search("action drama films")  # "أفلام دراما أكشن"
 ```
 
 **Sources**: [tests/new_resolvers/translations_formats/DataModelDouble/test_model_data_double_v2.py:468-526](), [tests/new_resolvers/translations_formats/DataModelDouble/test_model_data_double_v2.py:284-329]()
@@ -12806,9 +12805,9 @@ The formatting system operates on a **template-driven pattern matching** model. 
 **Example transformation:**
 ```
 Input: "british football players"
-Pattern: "{nat} {sport} players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"
-Keys: nat="british" â†’ "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†", sport="football" â†’ "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
-Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+Pattern: "{nat} {sport} players" → "لاعبو {sport_ar} {nat_ar}"
+Keys: nat="british" → "بريطانيون", sport="football" → "كرة القدم"
+Output: "لاعبو كرة القدم بريطانيون"
 ```
 
 The system supports three complexity levels:
@@ -12901,9 +12900,9 @@ Templates define the structural mapping between English and Arabic patterns. The
 **Example templates:**
 ```python
 formatted_data = {
-    "{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}",
-    "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",
-    "{year1} {nat} films": "Ø£ÙÙ„Ø§Ù… {nat_ar} {year1}",
+    "{sport} players": "لاعبو {sport_label}",
+    "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
+    "{year1} {nat} films": "أفلام {nat_ar} {year1}",
 }
 ```
 
@@ -12932,9 +12931,9 @@ graph LR
     NORMALIZE --> MATCH_KEY["Match Key<br/>Regex search:<br/>(?<!\w)football(?!\w)"]
     MATCH_KEY --> REPLACE["Replace with Placeholder<br/>british {sport} players"]
     REPLACE --> LOOKUP_TEMPLATE["Lookup Template<br/>{nat} {sport} players"]
-    LOOKUP_TEMPLATE --> GET_VALUES["Get Arabic Values<br/>football â†’ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…<br/>british â†’ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"]
-    GET_VALUES --> SUBSTITUTE["Substitute Placeholders<br/>Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"]
-    SUBSTITUTE --> OUTPUT["Final Label<br/>Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"]
+    LOOKUP_TEMPLATE --> GET_VALUES["Get Arabic Values<br/>football → كرة القدم<br/>british → بريطانيون"]
+    GET_VALUES --> SUBSTITUTE["Substitute Placeholders<br/>لاعبو {sport_ar} {nat_ar}"]
+    SUBSTITUTE --> OUTPUT["Final Label<br/>لاعبو كرة القدم بريطانيون"]
 ```
 
 The pattern matching uses case-insensitive regex with word boundaries. Keys are sorted by length and space count to prevent incorrect matches (e.g., "black-and-white" should match before "black").
@@ -12948,9 +12947,9 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:106-131](
 `FormatDataBase` provides the foundation for all single-element formatters. It implements core functionality shared across formatter types.
 
 **Key attributes:**
-- `formatted_data`: Template dictionary (English â†’ Arabic patterns)
+- `formatted_data`: Template dictionary (English → Arabic patterns)
 - `formatted_data_ci`: Case-insensitive version for lookups
-- `data_list`: Key mappings (e.g., `{"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}`)
+- `data_list`: Key mappings (e.g., `{"football": "كرة القدم"}`)
 - `data_list_ci`: Case-insensitive version
 - `key_placeholder`: Token to replace in English patterns
 - `alternation`: Regex alternation string built from keys
@@ -12989,21 +12988,21 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:38-316]()
 
 **Constructor parameters:**
 - `formatted_data`: Templates with patterns like `"{sport} players"`
-- `data_list`: Simple string mappings like `{"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}`
+- `data_list`: Simple string mappings like `{"football": "كرة القدم"}`
 - `key_placeholder`: Placeholder in English patterns (e.g., `"{sport}"`)
 - `value_placeholder`: Placeholder in Arabic templates (e.g., `"{sport_label}"`)
 
 **Example usage:**
 ```python
-formatted_data = {"{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}"}
-data_list = {"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…", "basketball": "ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©"}
+formatted_data = {"{sport} players": "لاعبو {sport_label}"}
+data_list = {"football": "كرة القدم", "basketball": "كرة السلة"}
 
 bot = FormatData(formatted_data, data_list,
                  key_placeholder="{sport}",
                  value_placeholder="{sport_label}")
 
 result = bot.search("football players")
-# Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+# Output: "لاعبو كرة القدم"
 ```
 
 **Implementation:** The `apply_pattern_replacement()` method performs simple string replacement:
@@ -13021,15 +13020,15 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data.py:35-102]()
 ```python
 data_list = {
     "yemen": {
-        "demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†",
-        "country_ar": "Ø§Ù„ÙŠÙ…Ù†",
-        "demonym_female": "ÙŠÙ…Ù†ÙŠØ§Øª"
+        "demonym": "يمنيون",
+        "country_ar": "اليمن",
+        "demonym_female": "يمنيات"
     }
 }
 
 formatted_data = {
-    "{country} writers": "{demonym} ÙƒØªØ§Ø¨",
-    "{country} people from {city}": "Ø£Ø´Ø®Ø§Øµ Ù…Ù† {city_ar} {demonym}"
+    "{country} writers": "{demonym} كتاب",
+    "{country} people from {city}": "أشخاص من {city_ar} {demonym}"
 }
 ```
 
@@ -13059,7 +13058,7 @@ bot = FormatDataFrom(
     formatted_data={},
     key_placeholder="{year1}",
     value_placeholder="{year1}",
-    search_callback=convert_time_to_arabic,  # "14th-century" â†’ "Ø§Ù„Ù‚Ø±Ù† 14"
+    search_callback=convert_time_to_arabic,  # "14th-century" → "القرن 14"
     match_key_callback=match_time_en_first,  # Extract year pattern
     fixing_callback=fixing  # Arabic text cleanup
 )
@@ -13142,8 +13141,8 @@ MultiDataFormatterBase(
 ```python
 # Create nationality formatter
 country_bot = FormatData(
-    formatted_data={"{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"},
-    data_list={"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"},
+    formatted_data={"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"},
+    data_list={"british": "بريطانيون"},
     key_placeholder="{nat}",
     value_placeholder="{nat_ar}"
 )
@@ -13151,7 +13150,7 @@ country_bot = FormatData(
 # Create sport formatter
 sport_bot = FormatData(
     formatted_data={},  # Used only for normalization
-    data_list={"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"},
+    data_list={"football": "كرة القدم"},
     key_placeholder="{sport}",
     value_placeholder="{sport_ar}"
 )
@@ -13159,7 +13158,7 @@ sport_bot = FormatData(
 # Combine them
 bot = MultiDataFormatterBase(country_bot, sport_bot)
 result = bot.search("british football players")
-# Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Output: "لاعبو كرة القدم بريطانيون"
 ```
 
 Sources: [ArWikiCats/translations_formats/DataModel/model_multi_data.py:34-70]()
@@ -13189,14 +13188,14 @@ MultiDataFormatterBaseYear(
 **Processing order:**
 1. Extract nationality key ("british") and normalize to `{nat}`
 2. Extract year pattern ("14th-century") and normalize to `{year1}`
-3. Look up template: `"{year1} {nat} writers"` â†’ `"{nat_ar} ÙƒØªØ§Ø¨ ÙÙŠ {year1}"`
-4. Replace `{nat_ar}` with "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†" and `{year1}` with "Ø§Ù„Ù‚Ø±Ù† 14"
+3. Look up template: `"{year1} {nat} writers"` → `"{nat_ar} كتاب في {year1}"`
+4. Replace `{nat_ar}` with "بريطانيون" and `{year1}` with "القرن 14"
 
 Sources: [ArWikiCats/translations_formats/DataModel/model_multi_data.py:71-105]()
 
 ### MultiDataFormatterBaseYearV2
 
-Combines `FormatDataV2` with `YearFormatData`. The `other_key_first` parameter controls processing orderâ€”if `True`, the year is extracted before the nationality.
+Combines `FormatDataV2` with `YearFormatData`. The `other_key_first` parameter controls processing order—if `True`, the year is extracted before the nationality.
 
 **Use case:** Categories where the year pattern appears before the nationality (e.g., "14th-century yemeni writers").
 
@@ -13265,9 +13264,9 @@ def format_multi_data(
 ```python
 from ArWikiCats.translations_formats import format_multi_data
 
-formatted_data = {"{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"}
-data_list = {"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"}
-data_list2 = {"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}
+formatted_data = {"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"}
+data_list = {"british": "بريطانيون"}
+data_list2 = {"football": "كرة القدم"}
 
 bot = format_multi_data(
     formatted_data=formatted_data,
@@ -13292,9 +13291,9 @@ Creates a `MultiDataFormatterBaseV2` for dual-element translations with dictiona
 
 **Example with dictionary values:**
 ```python
-formatted_data = {"{country} {sport} players": "{demonym} Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}"}
-data_list = {"yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"}}
-data_list2 = {"football": {"sport_ar": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}}
+formatted_data = {"{country} {sport} players": "{demonym} لاعبو {sport_ar}"}
+data_list = {"yemen": {"demonym": "يمنيون", "country_ar": "اليمن"}}
+data_list2 = {"football": {"sport_ar": "كرة القدم"}}
 
 bot = format_multi_data_v2(
     formatted_data=formatted_data,
@@ -13418,40 +13417,40 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py:281-295](
 |---------------------|-------------|------------|---------|
 | English Keys | `{en}`, `{nat_en}`, `{sport}`, `{country1}` | String | Key for pattern matching |
 | Arabic Translations | `{ar}`, `{nat_ar}`, `{sport_ar}`, `{film_ar}` | String | Replacement value |
-| Gender Forms (Singular) | `{male}`, `{female}` | String | "ÙŠÙ…Ù†ÙŠ" / "ÙŠÙ…Ù†ÙŠØ©" |
-| Gender Forms (Plural) | `{males}`, `{females}` | String | "ÙŠÙ…Ù†ÙŠÙˆÙ†" / "ÙŠÙ…Ù†ÙŠØ§Øª" |
-| Time Placeholders | `{year1}`, `{decade}`, `{century}` | String | "Ø§Ù„Ù‚Ø±Ù† 14" |
-| Country Attributes | `{demonym}`, `{country_ar}` | String (from dict) | "ÙŠÙ…Ù†ÙŠÙˆÙ†" / "Ø§Ù„ÙŠÙ…Ù†" |
+| Gender Forms (Singular) | `{male}`, `{female}` | String | "يمني" / "يمنية" |
+| Gender Forms (Plural) | `{males}`, `{females}` | String | "يمنيون" / "يمنيات" |
+| Time Placeholders | `{year1}`, `{decade}`, `{century}` | String | "القرن 14" |
+| Country Attributes | `{demonym}`, `{country_ar}` | String (from dict) | "يمنيون" / "اليمن" |
 
 ### Template Pattern Examples
 
 **Simple sport pattern:**
 ```python
-{"{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}"}
+{"{sport} players": "لاعبو {sport_label}"}
 # Input: "football players"
-# Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+# Output: "لاعبو كرة القدم"
 ```
 
 **Nationality + sport pattern:**
 ```python
-{"{nat_en} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"}
+{"{nat_en} {sport} players": "لاعبو {sport_ar} {nat_ar}"}
 # Input: "british football players"
-# Output: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Output: "لاعبو كرة القدم بريطانيون"
 ```
 
 **Year + nationality pattern:**
 ```python
-{"{year1} {nat_en} films": "Ø£ÙÙ„Ø§Ù… {nat_ar} {year1}"}
+{"{year1} {nat_en} films": "أفلام {nat_ar} {year1}"}
 # Input: "1990s american films"
-# Output: "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ø¹Ù‚Ø¯ 1990"
+# Output: "أفلام أمريكية عقد 1990"
 ```
 
 **Dictionary-based pattern with multiple placeholders:**
 ```python
-{"{country} {sport} players": "{demonym} Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}"}
-# data_list = {"yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†"}}
+{"{country} {sport} players": "{demonym} لاعبو {sport_ar}"}
+# data_list = {"yemen": {"demonym": "يمنيون"}}
 # Input: "yemen football players"
-# Output: "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+# Output: "يمنيون لاعبو كرة القدم"
 ```
 
 Sources: Based on examples from architecture diagram and [ArWikiCats/translations_formats/DataModel/model_data.py:103-152]()
@@ -13467,8 +13466,8 @@ The `text_before` and `text_after` parameters enable handling of fixed text arou
 ```python
 # Handle "the" prefix
 bot = FormatData(
-    formatted_data={"{nat_en} actors": "Ù…Ù…Ø«Ù„ÙˆÙ† {nat_ar}"},
-    data_list={"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"},
+    formatted_data={"{nat_en} actors": "ممثلون {nat_ar}"},
+    data_list={"british": "بريطانيون"},
     key_placeholder="{nat_en}",
     value_placeholder="{nat_ar}",
     text_before="the "  # Will remove "the " before nationality
@@ -13476,7 +13475,7 @@ bot = FormatData(
 
 # Input: "the british actors"
 # Normalized to: "{nat_en} actors"
-# Output: "Ù…Ù…Ø«Ù„ÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Output: "ممثلون بريطانيون"
 ```
 
 **Implementation:** The `handle_texts_before_after()` method in `FormatDataBase` removes the specified text during normalization.
@@ -13536,8 +13535,8 @@ bot = MultiDataFormatterBase(
     country_bot,
     sport_bot,
     data_to_find={
-        "olympic athletes": "Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø£ÙˆÙ„Ù…Ø¨ÙŠÙˆÙ†",
-        "world cup": "ÙƒØ£Ø³ Ø§Ù„Ø¹Ø§Ù„Ù…"
+        "olympic athletes": "رياضيون أولمبيون",
+        "world cup": "كأس العالم"
     }
 )
 
@@ -13557,8 +13556,8 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_multi_data_base.py:192
 from ArWikiCats.translations_formats import FormatData
 
 # Define templates and data
-formatted_data = {"{sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar}"}
-data_list = {"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}
+formatted_data = {"{sport} coaches": "مدربو {sport_ar}"}
+data_list = {"football": "كرة القدم"}
 
 # Create formatter
 bot = FormatData(
@@ -13570,7 +13569,7 @@ bot = FormatData(
 
 # Translate
 result = bot.search("football coaches")
-print(result)  # "Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+print(result)  # "مدربو كرة القدم"
 ```
 
 ### Dual-Element Translation with Factory
@@ -13578,9 +13577,9 @@ print(result)  # "Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
 ```python
 from ArWikiCats.translations_formats import format_multi_data
 
-formatted_data = {"{nat} {sport} teams": "Ù…Ù†ØªØ®Ø¨Ø§Øª {sport_ar} {nat_ar}"}
-data_list = {"yemeni": "ÙŠÙ…Ù†ÙŠØ©"}
-data_list2 = {"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}
+formatted_data = {"{nat} {sport} teams": "منتخبات {sport_ar} {nat_ar}"}
+data_list = {"yemeni": "يمنية"}
+data_list2 = {"football": "كرة القدم"}
 
 bot = format_multi_data(
     formatted_data=formatted_data,
@@ -13593,7 +13592,7 @@ bot = format_multi_data(
 )
 
 result = bot.search("yemeni football teams")
-print(result)  # "Ù…Ù†ØªØ®Ø¨Ø§Øª ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… ÙŠÙ…Ù†ÙŠØ©"
+print(result)  # "منتخبات كرة القدم يمنية"
 ```
 
 ### Year-Based Translation
@@ -13601,8 +13600,8 @@ print(result)  # "Ù…Ù†ØªØ®Ø¨Ø§Øª ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯
 ```python
 from ArWikiCats.translations_formats import format_year_country_data
 
-formatted_data = {"{year1} {country1} events": "Ø£Ø­Ø¯Ø§Ø« {country1} ÙÙŠ {year1}"}
-data_list = {"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"}
+formatted_data = {"{year1} {country1} events": "أحداث {country1} في {year1}"}
+data_list = {"british": "بريطانية"}
 
 bot = format_year_country_data(
     formatted_data=formatted_data,
@@ -13610,7 +13609,7 @@ bot = format_year_country_data(
 )
 
 result = bot.search("1990s british events")
-print(result)  # "Ø£Ø­Ø¯Ø§Ø« Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙÙŠ Ø¹Ù‚Ø¯ 1990"
+print(result)  # "أحداث بريطانية في عقد 1990"
 ```
 
 ### Dictionary-Based Translation
@@ -13618,10 +13617,10 @@ print(result)  # "Ø£Ø­Ø¯Ø§Ø« Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙÙ�
 ```python
 from ArWikiCats.translations_formats import FormatDataV2
 
-formatted_data = {"{country} writers": "{demonym} ÙƒØªØ§Ø¨"}
+formatted_data = {"{country} writers": "{demonym} كتاب"}
 data_list = {
-    "yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"},
-    "egypt": {"demonym": "Ù…ØµØ±ÙŠÙˆÙ†", "country_ar": "Ù…ØµØ±"}
+    "yemen": {"demonym": "يمنيون", "country_ar": "اليمن"},
+    "egypt": {"demonym": "مصريون", "country_ar": "مصر"}
 }
 
 bot = FormatDataV2(
@@ -13631,7 +13630,7 @@ bot = FormatDataV2(
 )
 
 result = bot.search("yemen writers")
-print(result)  # "ÙŠÙ…Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨"
+print(result)  # "يمنيون كتاب"
 ```
 
 Sources: Examples based on documentation in [ArWikiCats/translations_formats/DataModel/model_data.py:103-152]() and [ArWikiCats/translations_formats/multi_data.py:20-34]()
@@ -13756,7 +13755,7 @@ graph TD
 
 **Pattern Construction Example:**
 
-Given `data_list = {"black": "Ø£Ø³ÙˆØ¯", "black-and-white": "Ø£Ø¨ÙŠØ¶ ÙˆØ£Ø³ÙˆØ¯"}`, the system sorts keys by space count and length to ensure "black-and-white" matches before "black", preventing incorrect partial matches.
+Given `data_list = {"black": "أسود", "black-and-white": "أبيض وأسود"}`, the system sorts keys by space count and length to ensure "black-and-white" matches before "black", preventing incorrect partial matches.
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:106-133]()
 
@@ -13803,8 +13802,8 @@ FormatDataBase defines an abstract contract that subclasses must implement for p
 ```mermaid
 graph TB
     subgraph "Abstract Methods - Must Override"
-        Apply["apply_pattern_replacement()<br/>Template + Label â†’ Final Result"]
-        Replace["replace_value_placeholder()<br/>Label + Value â†’ Substituted Label"]
+        Apply["apply_pattern_replacement()<br/>Template + Label → Final Result"]
+        Replace["replace_value_placeholder()<br/>Label + Value → Substituted Label"]
     end
 
     subgraph "Concrete Implementations"
@@ -13871,9 +13870,9 @@ FormatDataBase provides additional utility methods:
 | Method | Purpose | Usage |
 |--------|---------|-------|
 | `create_label(category)` | Alias for `search()` | [ArWikiCats/translations_formats/DataModel/model_data_base.py:327-337]() |
-| `search_all(category, add_arabic_category_prefix)` | Search with optional "ØªØµÙ†ÙŠÙ:" prefix | [ArWikiCats/translations_formats/DataModel/model_data_base.py:354-369]() |
+| `search_all(category, add_arabic_category_prefix)` | Search with optional "تصنيف:" prefix | [ArWikiCats/translations_formats/DataModel/model_data_base.py:354-369]() |
 | `search_all_category(category)` | Full pipeline with normalization and validation | [ArWikiCats/translations_formats/DataModel/model_data_base.py:389-409]() |
-| `prepend_arabic_category_prefix(category, result)` | Add "ØªØµÙ†ÙŠÙ:" when appropriate | [ArWikiCats/translations_formats/DataModel/model_data_base.py:339-352]() |
+| `prepend_arabic_category_prefix(category, result)` | Add "تصنيف:" when appropriate | [ArWikiCats/translations_formats/DataModel/model_data_base.py:339-352]() |
 | `check_placeholders(category, result)` | Validate no unprocessed placeholders remain | [ArWikiCats/translations_formats/DataModel/model_data_base.py:371-387]() |
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:327-409]()
@@ -13937,12 +13936,12 @@ graph TB
     subgraph "Translation Pipeline (_search)"
         Direct{{"Direct match in<br/>formatted_data_ci?"}}
         Match["match_key()<br/>Extract 'football'"]
-        Label["get_key_label('football')<br/>â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
-        Template["get_template('football', category)<br/>â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}'"]
+        Label["get_key_label('football')<br/>→ 'كرة القدم'"]
+        Template["get_template('football', category)<br/>→ 'لاعبو {sport_label}'"]
         Apply["apply_pattern_replacement()<br/>(subclass-specific)"]
     end
 
-    Output["Output:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+    Output["Output:<br/>'لاعبو كرة القدم'"]
 
     Input --> Direct
     Direct -->|No| Match
@@ -13969,12 +13968,12 @@ FormatDataBase implements case-insensitive matching by maintaining parallel dict
 graph LR
     subgraph "Original Data"
         FD["formatted_data<br/>{'Football players': '...'}"]
-        DL["data_list<br/>{'Football': 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'}"]
+        DL["data_list<br/>{'Football': 'كرة القدم'}"]
     end
 
     subgraph "Case-Insensitive Mirrors"
         FDCI["formatted_data_ci<br/>{'football players': '...'}"]
-        DLCI["data_list_ci<br/>{'football': 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'}"]
+        DLCI["data_list_ci<br/>{'football': 'كرة القدم'}"]
     end
 
     subgraph "Pattern Matching"
@@ -14273,8 +14272,8 @@ flowchart TD
 
 | Component | Type | Example |
 |-----------|------|---------|
-| `formatted_data` | `Dict[str, str]` | `{"{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}"}` |
-| `data_list` | `Dict[str, str]` | `{"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"}` |
+| `formatted_data` | `Dict[str, str]` | `{"{sport} players": "لاعبو {sport_label}"}` |
+| `data_list` | `Dict[str, str]` | `{"football": "كرة القدم"}` |
 | `key_placeholder` | `str` | `"{sport}"` |
 | `value_placeholder` | `str` | `"{sport_label}"` |
 
@@ -14292,17 +14291,17 @@ flowchart LR
     end
 
     subgraph "Data Lookup"
-        DataList["data_list_ci.get('football')<br/>â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        DataList["data_list_ci.get('football')<br/>→ 'كرة القدم'"]
     end
 
     subgraph "Template Selection"
-        Normalize["normalize_category()<br/>'football players'<br/>â†’ '{sport} players'"]
-        Template["formatted_data_ci.get()<br/>â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}'"]
+        Normalize["normalize_category()<br/>'football players'<br/>→ '{sport} players'"]
+        Template["formatted_data_ci.get()<br/>→ 'لاعبو {sport_label}'"]
     end
 
     subgraph "Replacement"
-        Replace["template.replace()<br/>'{sport_label}' â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
-        Result["Result:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        Replace["template.replace()<br/>'{sport_label}' → 'كرة القدم'"]
+        Result["Result:<br/>'لاعبو كرة القدم'"]
     end
 
     Cat --> Pattern
@@ -14324,14 +14323,14 @@ The following demonstrates `FormatData` usage from the actual implementation:
 ```python
 # From ArWikiCats/translations_formats/DataModel/model_data.py:134-184
 formatted_data = {
-    "{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}",
-    "{sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_label}",
-    "{sport} managers": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_label}",
+    "{sport} players": "لاعبو {sport_label}",
+    "{sport} coaches": "مدربو {sport_label}",
+    "{sport} managers": "مدربو {sport_label}",
 }
 
 data_list = {
-    "american football": "ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
-    "canadian football": "ÙƒØ±Ø© Ù‚Ø¯Ù… ÙƒÙ†Ø¯ÙŠØ©",
+    "american football": "كرة قدم أمريكية",
+    "canadian football": "كرة قدم كندية",
 }
 
 bot = FormatData(
@@ -14342,7 +14341,7 @@ bot = FormatData(
 )
 
 result = bot.search("american football players")
-# result == "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+# result == "لاعبو كرة قدم أمريكية"
 ```
 
 ### Implementation Details
@@ -14370,8 +14369,8 @@ def apply_pattern_replacement(self, template_label: str, sport_label: str) -> st
 
 | Component | Type | Example |
 |-----------|------|---------|
-| `formatted_data` | `Dict[str, str]` | `{"{country} writers": "{demonym} ÙƒØªØ§Ø¨ Ù…Ù† {country_ar}"}` |
-| `data_list` | `Dict[str, Union[str, Dict]]` | `{"yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"}}` |
+| `formatted_data` | `Dict[str, str]` | `{"{country} writers": "{demonym} كتاب من {country_ar}"}` |
+| `data_list` | `Dict[str, Union[str, Dict]]` | `{"yemen": {"demonym": "يمنيون", "country_ar": "اليمن"}}` |
 | `key_placeholder` | `str` | `"{country}"` |
 
 Note that `FormatDataV2` does **not** have a `value_placeholder` parameter because the dictionary keys serve as the placeholder names.
@@ -14390,18 +14389,18 @@ flowchart LR
     end
 
     subgraph "Data Lookup"
-        DataList["data_list_ci.get('yemen')<br/>â†’ {'demonym': 'ÙŠÙ…Ù†ÙŠÙˆÙ†',<br/>'country_ar': 'Ø§Ù„ÙŠÙ…Ù†'}"]
+        DataList["data_list_ci.get('yemen')<br/>→ {'demonym': 'يمنيون',<br/>'country_ar': 'اليمن'}"]
     end
 
     subgraph "Template Selection"
-        Normalize["normalize_category()<br/>'yemen writers'<br/>â†’ '{country} writers'"]
-        Template["formatted_data_ci.get()<br/>â†’ '{demonym} ÙƒØªØ§Ø¨ Ù…Ù† {country_ar}'"]
+        Normalize["normalize_category()<br/>'yemen writers'<br/>→ '{country} writers'"]
+        Template["formatted_data_ci.get()<br/>→ '{demonym} كتاب من {country_ar}'"]
     end
 
     subgraph "Multi-Replacement"
-        Replace1["{demonym} â†’ 'ÙŠÙ…Ù†ÙŠÙˆÙ†'"]
-        Replace2["{country_ar} â†’ 'Ø§Ù„ÙŠÙ…Ù†'"]
-        Result["Result:<br/>'ÙŠÙ…Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨ Ù…Ù† Ø§Ù„ÙŠÙ…Ù†'"]
+        Replace1["{demonym} → 'يمنيون'"]
+        Replace2["{country_ar} → 'اليمن'"]
+        Result["Result:<br/>'يمنيون كتاب من اليمن'"]
     end
 
     Cat --> Pattern
@@ -14446,16 +14445,16 @@ def apply_pattern_replacement(self, template_label: str, sport_label: Union[str,
 # Real-world example from nationality resolver
 data_list = {
     "yemeni": {
-        "nat_label": "ÙŠÙ…Ù†ÙŠÙˆÙ†",      # plural masculine
-        "nat_label_f": "ÙŠÙ…Ù†ÙŠØ§Øª",    # plural feminine
-        "nat_label_g": "ÙŠÙ…Ù†ÙŠØ©",     # singular feminine
+        "nat_label": "يمنيون",      # plural masculine
+        "nat_label_f": "يمنيات",    # plural feminine
+        "nat_label_g": "يمنية",     # singular feminine
     }
 }
 
 formatted_data = {
     "{nat_en} men": "{nat_label}",
     "{nat_en} women": "{nat_label_f}",
-    "{nat_en} actresses": "Ù…Ù…Ø«Ù„Ø§Øª {nat_label_f}",
+    "{nat_en} actresses": "ممثلات {nat_label_f}",
 }
 ```
 
@@ -14469,7 +14468,7 @@ formatted_data = {
 
 | Component | Type | Purpose |
 |-----------|------|---------|
-| `search_callback` | `Callable` | Convert matched key to Arabic (e.g., "14th-century" â†’ "Ø§Ù„Ù‚Ø±Ù† 14") |
+| `search_callback` | `Callable` | Convert matched key to Arabic (e.g., "14th-century" → "القرن 14") |
 | `match_key_callback` | `Callable` | Extract temporal key from category |
 | `fixing_callback` | `Callable` | Normalize temporal expressions before matching |
 
@@ -14504,18 +14503,18 @@ flowchart LR
     end
 
     subgraph "Callback: match_key_callback"
-        Fix["standardize_time_phrases()<br/>'14th-century' â†’ '14th-century'"]
+        Fix["standardize_time_phrases()<br/>'14th-century' → '14th-century'"]
         Match["match_time_en_first()<br/>Extract '14th-century'"]
     end
 
     subgraph "Callback: search_callback"
-        Convert["convert_time_to_arabic()<br/>'14th-century' â†’ 'Ø§Ù„Ù‚Ø±Ù† 14'"]
+        Convert["convert_time_to_arabic()<br/>'14th-century' → 'القرن 14'"]
     end
 
     subgraph "Template Application"
-        Template["Template: '{year1} writers'<br/>â†’ 'ÙƒØªØ§Ø¨ {year1}'"]
-        Replace["Replace '{year1}' â†’ 'Ø§Ù„Ù‚Ø±Ù† 14'"]
-        Result["Result:<br/>'ÙƒØªØ§Ø¨ Ø§Ù„Ù‚Ø±Ù† 14'"]
+        Template["Template: '{year1} writers'<br/>→ 'كتاب {year1}'"]
+        Replace["Replace '{year1}' → 'القرن 14'"]
+        Result["Result:<br/>'كتاب القرن 14'"]
     end
 
     Cat --> Fix
@@ -14532,10 +14531,10 @@ The callback functions in `FormatDataFrom` handle multiple temporal patterns:
 
 | English Pattern | Matched Key | Arabic Output |
 |----------------|-------------|---------------|
-| `"1990s"` | `"1990s"` | `"Ø¹Ù‚Ø¯ 1990"` |
-| `"14th-century"` | `"14th-century"` | `"Ø§Ù„Ù‚Ø±Ù† 14"` |
+| `"1990s"` | `"1990s"` | `"عقد 1990"` |
+| `"14th-century"` | `"14th-century"` | `"القرن 14"` |
 | `"2010"` | `"2010"` | `"2010"` |
-| `"1990â€“1999"` | `"1990â€“1999"` | `"1990â€“1999"` |
+| `"1990–1999"` | `"1990–1999"` | `"1990–1999"` |
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_time.py:1-67]()
 
@@ -14667,7 +14666,7 @@ The following files were used as context for generating this wiki page:
 
 ## Purpose and Scope
 
-Multi-Element Formatters handle category translations that contain **two dynamic elements**. For example, "British football players" requires translating both the nationality ("British" â†’ "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†") and the sport ("football" â†’ "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"), then combining them according to Arabic grammar rules.
+Multi-Element Formatters handle category translations that contain **two dynamic elements**. For example, "British football players" requires translating both the nationality ("British" → "بريطانيون") and the sport ("football" → "كرة القدم"), then combining them according to Arabic grammar rules.
 
 This page documents the classes that orchestrate two single-element formatters (see [Single-Element Formatters](#6.2)) to handle these complex translations. For information about the base formatting infrastructure, see [Format Data Models](#6.1). For placeholder syntax and substitution logic, see [Template and Placeholder System](#6.4).
 
@@ -14692,12 +14691,12 @@ graph TB
     subgraph "Translation Process"
         INPUT["Category String<br/>british football players"]
 
-        NORM1["Normalize First Element<br/>british â†’ {nat}"]
-        NORM2["Normalize Second Element<br/>football â†’ {sport}"]
+        NORM1["Normalize First Element<br/>british → {nat}"]
+        NORM2["Normalize Second Element<br/>football → {sport}"]
 
         TEMPLATE["Template Lookup<br/>{nat} {sport} players"]
 
-        REPLACE["Replace Placeholders<br/>Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"]
+        REPLACE["Replace Placeholders<br/>لاعبو كرة القدم بريطانيون"]
 
         OUTPUT["Final Translation"]
     end
@@ -14759,23 +14758,23 @@ Combines two `FormatData` instances for dual-element translations with simple st
 | `data_to_find` | Dict[str, str] \| None | Optional direct lookup dictionary |
 
 **Key Methods:**
-- `normalize_both_new(category)` â†’ `NormalizeResult` - Normalizes both elements and returns structured result
-- `create_label(category)` â†’ `str` - End-to-end translation
-- `search(category)` â†’ `str` - Alias for `create_label`
+- `normalize_both_new(category)` → `NormalizeResult` - Normalizes both elements and returns structured result
+- `create_label(category)` → `str` - End-to-end translation
+- `search(category)` → `str` - Alias for `create_label`
 
 **Example Usage:**
 ```python
 # From format_multi_data factory
 bot = format_multi_data(
-    formatted_data={"{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"},
-    data_list={"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"},
-    data_list2={"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"},
+    formatted_data={"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"},
+    data_list={"british": "بريطانيون"},
+    data_list2={"football": "كرة القدم"},
     key_placeholder="{nat}",
     value_placeholder="{nat_ar}",
     key2_placeholder="{sport}",
     value2_placeholder="{sport_ar}",
 )
-bot.search("british football players")  # 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'
+bot.search("british football players")  # 'لاعبو كرة القدم بريطانيون'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_multi_data.py:34-70](), [ArWikiCats/translations_formats/multi_data.py:95-193]()
@@ -14795,11 +14794,11 @@ Combines two `FormatDataV2` instances, supporting **dictionary values** in data_
 ```python
 # data_list can have dictionary values with multiple placeholders
 data_list = {
-    "yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"},
-    "egypt": {"demonym": "Ù…ØµØ±ÙŠÙˆÙ†", "country_ar": "Ù…ØµØ±"},
+    "yemen": {"demonym": "يمنيون", "country_ar": "اليمن"},
+    "egypt": {"demonym": "مصريون", "country_ar": "مصر"},
 }
 # Template can use multiple placeholders from same key
-formatted_data = {"{country} {sport} players": "{demonym} Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}"}
+formatted_data = {"{country} {sport} players": "{demonym} لاعبو {sport_ar}"}
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_v2.py:127-161](), [ArWikiCats/translations_formats/multi_data.py:195-277]()
@@ -14818,12 +14817,12 @@ Combines `FormatData` with `YearFormatData` to handle **temporal patterns** (yea
 **Example Usage:**
 ```python
 bot = format_year_country_data(
-    formatted_data={"{year1} {country1} writers": "{country1} ÙƒØªØ§Ø¨ ÙÙŠ {year1}"},
-    data_list={"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"},
+    formatted_data={"{year1} {country1} writers": "{country1} كتاب في {year1}"},
+    data_list={"british": "بريطانية"},
     key_placeholder="{country1}",
     value_placeholder="{country1}",
 )
-bot.search("14th-century british writers")  # 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙƒØªØ§Ø¨ ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14'
+bot.search("14th-century british writers")  # 'بريطانية كتاب في القرن 14'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_multi_data.py:71-105](), [ArWikiCats/translations_formats/data_with_time.py:107-171]()
@@ -14857,11 +14856,11 @@ Combines `FormatData` with `FormatDataDouble` for **double-key pattern matching*
 **Example Usage:**
 ```python
 bot = format_films_country_data(
-    formatted_data={"{nat_en} {film_key} films": "Ø£ÙÙ„Ø§Ù… {film_ar} {nat_ar}"},
-    data_list={"british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"},
-    data_list2={"action": "Ø£ÙƒØ´Ù†", "drama": "Ø¯Ø±Ø§Ù…Ø§"},
+    formatted_data={"{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}"},
+    data_list={"british": "بريطانية"},
+    data_list2={"action": "أكشن", "drama": "دراما"},
 )
-bot.search("british action drama films")  # 'Ø£ÙÙ„Ø§Ù… Ø£ÙƒØ´Ù† Ø¯Ø±Ø§Ù…Ø§ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©'
+bot.search("british action drama films")  # 'أفلام أكشن دراما بريطانية'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModelDouble/model_multi_data_double.py:1-100]() (referenced), [ArWikiCats/translations_formats/data_new_model.py:30-102]()
@@ -14945,10 +14944,10 @@ graph TB
 
     NORM["normalize_both_new()<br/>extract keys + template"]
 
-    LOOKUP1["country_bot.get_key_label()<br/>british â†’ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"]
-    LOOKUP2["other_bot.get_key_label()<br/>football â†’ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"]
+    LOOKUP1["country_bot.get_key_label()<br/>british → بريطانيون"]
+    LOOKUP2["other_bot.get_key_label()<br/>football → كرة القدم"]
 
-    TEMPLATE["country_bot.get_template_ar()<br/>{nat} {sport} players â†’ Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}"]
+    TEMPLATE["country_bot.get_template_ar()<br/>{nat} {sport} players → لاعبو {sport_ar} {nat_ar}"]
 
     REPLACE["replace_placeholders()<br/>substitute both values"]
 
@@ -15045,7 +15044,7 @@ def format_multi_data_v2(
 
 **Key Difference:** Supports dictionary values in `data_list` and `data_list2`:
 ```python
-data_list = {"yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"}}
+data_list = {"yemen": {"demonym": "يمنيون", "country_ar": "اليمن"}}
 ```
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py:195-277]()
@@ -15122,27 +15121,27 @@ def format_films_country_data(
 
 ### Example 1: Nationality + Sport
 
-**Pattern:** "British football players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+**Pattern:** "British football players" → "لاعبو كرة القدم بريطانيون"
 
 ```python
 from ArWikiCats.translations_formats import format_multi_data
 
 formatted_data = {
-    "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",
-    "{nat} {sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar} {nat_ar}",
-    "{nat} {sport} championships": "Ø¨Ø·ÙˆÙ„Ø§Øª {sport_ar} {nat_ar}",
+    "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
+    "{nat} {sport} coaches": "مدربو {sport_ar} {nat_ar}",
+    "{nat} {sport} championships": "بطولات {sport_ar} {nat_ar}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†",
-    "yemeni": "ÙŠÙ…Ù†ÙŠÙˆÙ†",
+    "british": "بريطانيون",
+    "american": "أمريكيون",
+    "yemeni": "يمنيون",
 }
 
 data_list2 = {
-    "football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…",
-    "basketball": "ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©",
-    "volleyball": "ÙƒØ±Ø© Ø§Ù„Ø·Ø§Ø¦Ø±Ø©",
+    "football": "كرة القدم",
+    "basketball": "كرة السلة",
+    "volleyball": "كرة الطائرة",
 }
 
 bot = format_multi_data(
@@ -15156,28 +15155,28 @@ bot = format_multi_data(
 )
 
 # Translations
-bot.search("british football players")      # 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'
-bot.search("american basketball coaches")   # 'Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†'
-bot.search("yemeni volleyball championships")  # 'Ø¨Ø·ÙˆÙ„Ø§Øª ÙƒØ±Ø© Ø§Ù„Ø·Ø§Ø¦Ø±Ø© ÙŠÙ…Ù†ÙŠÙˆÙ†'
+bot.search("british football players")      # 'لاعبو كرة القدم بريطانيون'
+bot.search("american basketball coaches")   # 'مدربو كرة السلة أمريكيون'
+bot.search("yemeni volleyball championships")  # 'بطولات كرة الطائرة يمنيون'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py:95-155](), [tests/event_lists/test_2.py:7-288]()
 
 ### Example 2: Year + Country
 
-**Pattern:** "14th-century British writers" â†’ "ÙƒØªØ§Ø¨ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14"
+**Pattern:** "14th-century British writers" → "كتاب بريطانيون في القرن 14"
 
 ```python
 from ArWikiCats.translations_formats import format_year_country_data
 
 formatted_data = {
-    "{year1} {country1} writers": "{country1} ÙƒØªØ§Ø¨ ÙÙŠ {year1}",
-    "{year1} {country1} events": "{country1} Ø£Ø­Ø¯Ø§Ø« ÙÙŠ {year1}",
+    "{year1} {country1} writers": "{country1} كتاب في {year1}",
+    "{year1} {country1} events": "{country1} أحداث في {year1}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†",
+    "british": "بريطانيون",
+    "american": "أمريكيون",
 }
 
 bot = format_year_country_data(
@@ -15188,8 +15187,8 @@ bot = format_year_country_data(
 )
 
 # Translations
-bot.search("14th-century british writers")  # 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨ ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14'
-bot.search("1990s american events")         # 'Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† Ø£Ø­Ø¯Ø§Ø« ÙÙŠ Ø¹Ù‚Ø¯ 1990'
+bot.search("14th-century british writers")  # 'بريطانيون كتاب في القرن 14'
+bot.search("1990s american events")         # 'أمريكيون أحداث في عقد 1990'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/data_with_time.py:107-171]()
@@ -15202,17 +15201,17 @@ bot.search("1990s american events")         # 'Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ�
 from ArWikiCats.translations_formats import format_multi_data_v2
 
 formatted_data = {
-    "{country} {sport} players": "{demonym} Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}",
+    "{country} {sport} players": "{demonym} لاعبو {sport_ar}",
 }
 
 # Dictionary values with multiple placeholders
 data_list = {
-    "yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"},
-    "egypt": {"demonym": "Ù…ØµØ±ÙŠÙˆÙ†", "country_ar": "Ù…ØµØ±"},
+    "yemen": {"demonym": "يمنيون", "country_ar": "اليمن"},
+    "egypt": {"demonym": "مصريون", "country_ar": "مصر"},
 }
 
 data_list2 = {
-    "football": {"sport_ar": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"},
+    "football": {"sport_ar": "كرة القدم"},
 }
 
 bot = format_multi_data_v2(
@@ -15224,31 +15223,31 @@ bot = format_multi_data_v2(
 )
 
 # Translation uses {demonym} from data_list
-bot.search("yemen football players")  # 'ÙŠÙ…Ù†ÙŠÙˆÙ† Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'
+bot.search("yemen football players")  # 'يمنيون لاعبو كرة القدم'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py:195-246](), [ArWikiCats/translations_formats/DataModel/model_data_v2.py:35-104]()
 
 ### Example 4: Film Categories with Double Keys
 
-**Pattern:** "British action drama films" â†’ "Ø£ÙÙ„Ø§Ù… Ø£ÙƒØ´Ù† Ø¯Ø±Ø§Ù…Ø§ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
+**Pattern:** "British action drama films" → "أفلام أكشن دراما بريطانية"
 
 ```python
 from ArWikiCats.translations_formats import format_films_country_data
 
 formatted_data = {
-    "{nat_en} {film_key} films": "Ø£ÙÙ„Ø§Ù… {film_ar} {nat_ar}",
+    "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+    "british": "بريطانية",
+    "american": "أمريكية",
 }
 
 data_list2 = {
-    "action": "Ø£ÙƒØ´Ù†",
-    "drama": "Ø¯Ø±Ø§Ù…Ø§",
-    "comedy": "ÙƒÙˆÙ…ÙŠØ¯ÙŠ",
+    "action": "أكشن",
+    "drama": "دراما",
+    "comedy": "كوميدي",
 }
 
 bot = format_films_country_data(
@@ -15258,8 +15257,8 @@ bot = format_films_country_data(
 )
 
 # Handles adjacent genre keys
-bot.search("british action drama films")  # 'Ø£ÙÙ„Ø§Ù… Ø£ÙƒØ´Ù† Ø¯Ø±Ø§Ù…Ø§ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©'
-bot.search("american comedy films")       # 'Ø£ÙÙ„Ø§Ù… ÙƒÙˆÙ…ÙŠØ¯ÙŠ Ø£Ù…Ø±ÙŠÙƒÙŠØ©'
+bot.search("british action drama films")  # 'أفلام أكشن دراما بريطانية'
+bot.search("american comedy films")       # 'أفلام كوميدي أمريكية'
 ```
 
 **Sources:** [ArWikiCats/translations_formats/data_new_model.py:30-102]()
@@ -15324,9 +15323,9 @@ all_formatted_data = MultiDataFormatterBaseV2(
 ```
 
 This handles patterns like:
-- "yemeni music groups" â†’ "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ ÙŠÙ…Ù†ÙŠØ©"
-- "yemeni rock musical groups" â†’ "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ø±ÙˆÙƒ ÙŠÙ…Ù†ÙŠØ©"
-- "yemeni alternative rock groups" â†’ "ÙØ±Ù‚ Ø±ÙˆÙƒ Ø¨Ø¯ÙŠÙ„ ÙŠÙ…Ù†ÙŠØ©"
+- "yemeni music groups" → "فرق موسيقى يمنية"
+- "yemeni rock musical groups" → "فرق موسيقى روك يمنية"
+- "yemeni alternative rock groups" → "فرق روك بديل يمنية"
 
 **Sources:** [ArWikiCats/new_resolvers/nationalities_resolvers/nationalities_v2.py:1-700](), [tests/new_resolvers/nationalities_resolvers/nationalities_v2/test_nats_v2.py:1-51]()
 
@@ -15347,7 +15346,7 @@ The base class providing shared functionality:
 | `create_label(category)` | str | End-to-end translation |
 | `search(category)` | str | Alias for `create_label` |
 | `search_all(category)` | str | Try `create_label`, fallback to individual bots |
-| `search_all_category(category)` | str | Handle "ØªØµÙ†ÙŠÙ:" prefix |
+| `search_all_category(category)` | str | Handle "تصنيف:" prefix |
 
 **Caching:** The `create_label()` method uses `@functools.lru_cache(maxsize=1000)` for performance optimization.
 
@@ -15425,9 +15424,9 @@ Multi-element formatters are extensively tested with thousands of test cases:
 
 ```python
 test_data_males = {
-    "yemeni non profit publishers": "Ù†Ø§Ø´Ø±ÙˆÙ† ØºÙŠØ± Ø±Ø¨Ø­ÙŠÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†",
-    "yemeni government officials": "Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†",
-    "saudi non profit publishers": "Ù†Ø§Ø´Ø±ÙˆÙ† ØºÙŠØ± Ø±Ø¨Ø­ÙŠÙˆÙ† Ø³Ø¹ÙˆØ¯ÙŠÙˆÙ†",
+    "yemeni non profit publishers": "ناشرون غير ربحيون يمنيون",
+    "yemeni government officials": "مسؤولون حكوميون يمنيون",
+    "saudi non profit publishers": "ناشرون غير ربحيون سعوديون",
 }
 
 @pytest.mark.parametrize("category, expected", test_data_males.items())
@@ -15441,9 +15440,9 @@ def test_resolve_males(category: str, expected: str) -> None:
 ```python
 all_test_data_integrated = {
     "Non-American television series based on American television series":
-        "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ù…Ø¨Ù†ÙŠØ© Ø¹Ù„Ù‰ Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+        "مسلسلات تلفزيونية غير أمريكية مبنية على مسلسلات تلفزيونية أمريكية",
     "American television series based on non-American television series":
-        "Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ù…Ø¨Ù†ÙŠØ© Ø¹Ù„Ù‰ Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ØºÙŠØ± Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+        "مسلسلات تلفزيونية أمريكية مبنية على مسلسلات تلفزيونية غير أمريكية",
 }
 ```
 
@@ -15498,10 +15497,10 @@ The system employs several categories of placeholders:
 Templates consist of two parts:
 
 ```
-{key_pattern} â†’ {value_pattern}
+{key_pattern} → {value_pattern}
 
 Example:
-"{sport} players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}"
+"{sport} players" → "لاعبو {sport_label}"
 ```
 
 The key pattern contains element placeholders that match English category components. The value pattern contains value placeholders that are replaced with Arabic translations.
@@ -15515,7 +15514,7 @@ The pattern compilation process transforms data dictionaries into compiled regul
 ```mermaid
 graph TB
     subgraph Input["Input Data"]
-        DataList["data_list<br/>{'football': 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…',<br/>'basketball': 'ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©'}"]
+        DataList["data_list<br/>{'football': 'كرة القدم',<br/>'basketball': 'كرة السلة'}"]
         KeyPlaceholder["key_placeholder<br/>'{sport}'"]
     end
 
@@ -15633,7 +15632,7 @@ if self.text_after:
         normalized = normalized.replace(f"{self.key_placeholder}{self.text_after}", self.key_placeholder)
 ```
 
-This handles cases where the nationality data includes "the " prefix (e.g., "the British actors" â†’ "{nat_en} actors").
+This handles cases where the nationality data includes "the " prefix (e.g., "the British actors" → "{nat_en} actors").
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:158-191]()
 
@@ -15650,23 +15649,23 @@ graph TB
     end
 
     subgraph SimpleImpl["Simple Replacement"]
-        SimpleTmpl["Template:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ {sport_label}'"]
-        SimpleVal["Value:<br/>'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        SimpleTmpl["Template:<br/>'لاعبو {sport_label}'"]
+        SimpleVal["Value:<br/>'كرة القدم'"]
         SimpleReplace["template.replace(placeholder, value)"]
-        SimpleResult["Result:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
+        SimpleResult["Result:<br/>'لاعبو كرة القدم'"]
     end
 
     subgraph DictImpl["Dictionary Replacement"]
-        DictTmpl["Template:<br/>'{demonym} ÙƒØªØ§Ø¨'"]
-        DictVal["Value:<br/>{'demonym': 'ÙŠÙ…Ù†ÙŠÙˆÙ†'}"]
+        DictTmpl["Template:<br/>'{demonym} كتاب'"]
+        DictVal["Value:<br/>{'demonym': 'يمنيون'}"]
         DictLoop["For each key, val in dict:<br/>template.replace('{key}', val)"]
-        DictResult["Result:<br/>'ÙŠÙ…Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨'"]
+        DictResult["Result:<br/>'يمنيون كتاب'"]
     end
 
     subgraph CallbackImpl["Callback Replacement"]
-        CallbackTmpl["Template:<br/>'ÙƒØªØ§Ø¨ ÙÙŠ {year1}'"]
+        CallbackTmpl["Template:<br/>'كتاب في {year1}'"]
         CallbackVal["Callback:<br/>convert_time_to_arabic('14th-century')"]
-        CallbackResult["Result:<br/>'ÙƒØªØ§Ø¨ ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14'"]
+        CallbackResult["Result:<br/>'كتاب في القرن 14'"]
     end
 
     Simple --> SimpleTmpl
@@ -15733,9 +15732,9 @@ Each key-value pair in the dictionary replaces a corresponding placeholder in th
 
 Example:
 ```python
-data_list = {"yemen": {"demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†", "country_ar": "Ø§Ù„ÙŠÙ…Ù†"}}
-template = "{demonym} ÙƒØªØ§Ø¨ Ù…Ù† {country_ar}"
-# Result: "ÙŠÙ…Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨ Ù…Ù† Ø§Ù„ÙŠÙ…Ù†"
+data_list = {"yemen": {"demonym": "يمنيون", "country_ar": "اليمن"}}
+template = "{demonym} كتاب من {country_ar}"
+# Result: "يمنيون كتاب من اليمن"
 ```
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_v2.py:81-100]()
@@ -15756,7 +15755,7 @@ return FormatDataFrom(
 )
 ```
 
-The callbacks handle temporal pattern conversion (e.g., "14th-century" â†’ "Ø§Ù„Ù‚Ø±Ù† 14").
+The callbacks handle temporal pattern conversion (e.g., "14th-century" → "القرن 14").
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_time.py:34-66]()
 
@@ -15768,11 +15767,11 @@ The codebase follows specific naming conventions for placeholders to maintain co
 
 | Pattern Type | Key Placeholder | Value Placeholder | Example |
 |--------------|-----------------|-------------------|---------|
-| Sports | `{sport}` | `{sport_label}`, `{sport_ar}` | Football â†’ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… |
-| Nationalities | `{nat}`, `{nat_en}` | `{nat_ar}`, `{demonym}` | British â†’ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† |
-| Countries | `{country}`, `{country1}` | `{country_ar}`, `{demonym}` | Yemen â†’ Ø§Ù„ÙŠÙ…Ù† |
-| Years | `{year1}`, `{year2}` | `{year1}`, `{year2}` | 14th-century â†’ Ø§Ù„Ù‚Ø±Ù† 14 |
-| Films | `{film_key}` | `{film_ar}` | Action â†’ Ø£ÙƒØ´Ù† |
+| Sports | `{sport}` | `{sport_label}`, `{sport_ar}` | Football → كرة القدم |
+| Nationalities | `{nat}`, `{nat_en}` | `{nat_ar}`, `{demonym}` | British → بريطانيون |
+| Countries | `{country}`, `{country1}` | `{country_ar}`, `{demonym}` | Yemen → اليمن |
+| Years | `{year1}`, `{year2}` | `{year1}`, `{year2}` | 14th-century → القرن 14 |
+| Films | `{film_key}` | `{film_ar}` | Action → أكشن |
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py:47-48](), [ArWikiCats/translations_formats/data_with_time.py:41-42]()
 
@@ -15797,32 +15796,32 @@ The following diagram shows how placeholders flow through the entire translation
 graph TB
     subgraph Input["Input"]
         Cat["Category:<br/>'british football players'"]
-        Templates["formatted_data:<br/>{'{nat} {sport} players':<br/>'Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}'}"]
-        Data1["data_list (nationalities):<br/>{'british': 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'}"]
-        Data2["data_list2 (sports):<br/>{'football': 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'}"]
+        Templates["formatted_data:<br/>{'{nat} {sport} players':<br/>'لاعبو {sport_ar} {nat_ar}'}"]
+        Data1["data_list (nationalities):<br/>{'british': 'بريطانيون'}"]
+        Data2["data_list2 (sports):<br/>{'football': 'كرة القدم'}"]
     end
 
     subgraph Step1["Step 1: Match First Element"]
         Match1["match_key()<br/>Pattern: (?<!\\w)(british)(?<!\\w)"]
         Key1["Matched: 'british'"]
-        Norm1["normalize_category()<br/>'british football players'<br/>â†’ '{nat} football players'"]
+        Norm1["normalize_category()<br/>'british football players'<br/>→ '{nat} football players'"]
     end
 
     subgraph Step2["Step 2: Match Second Element"]
         Match2["match_key()<br/>Pattern: (?<!\\w)(football)(?<!\\w)"]
         Key2["Matched: 'football'"]
-        Norm2["normalize_category()<br/>'{nat} football players'<br/>â†’ '{nat} {sport} players'"]
+        Norm2["normalize_category()<br/>'{nat} football players'<br/>→ '{nat} {sport} players'"]
     end
 
     subgraph Step3["Step 3: Template Lookup"]
         Lookup["get_template_ar()<br/>Key: '{nat} {sport} players'"]
-        Template["Template:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}'"]
+        Template["Template:<br/>'لاعبو {sport_ar} {nat_ar}'"]
     end
 
     subgraph Step4["Step 4: Placeholder Replacement"]
-        Replace1["Replace {sport_ar}<br/>with 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…'"]
-        Replace2["Replace {nat_ar}<br/>with 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
-        Final["Result:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+        Replace1["Replace {sport_ar}<br/>with 'كرة القدم'"]
+        Replace2["Replace {nat_ar}<br/>with 'بريطانيون'"]
+        Final["Result:<br/>'لاعبو كرة القدم بريطانيون'"]
     end
 
     Cat --> Match1
@@ -15903,12 +15902,12 @@ The system handles the "category:" prefix specially:
 
 ```python
 def prepend_arabic_category_prefix(self, category, result) -> str:
-    if result and category.lower().startswith("category:") and not result.startswith("ØªØµÙ†ÙŠÙ:"):
-        result = "ØªØµÙ†ÙŠÙ:" + result
+    if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
+        result = "تصنيف:" + result
     return result
 ```
 
-When the English input starts with "category:", the Arabic output is prefixed with "ØªØµÙ†ÙŠÙ:" unless it already has that prefix.
+When the English input starts with "category:", the Arabic output is prefixed with "تصنيف:" unless it already has that prefix.
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py:339-352]()
 
@@ -16090,18 +16089,18 @@ The function creates two `FormatData` instances:
 from ArWikiCats.translations_formats import format_multi_data
 
 formatted_data = {
-    "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",
-    "{nat} {sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar} {nat_ar}",
+    "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
+    "{nat} {sport} coaches": "مدربو {sport_ar} {nat_ar}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†",
+    "british": "بريطانيون",
+    "american": "أمريكيون",
 }
 
 data_list2 = {
-    "football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…",
-    "basketball": "ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©",
+    "football": "كرة القدم",
+    "basketball": "كرة السلة",
 }
 
 bot = format_multi_data(
@@ -16115,7 +16114,7 @@ bot = format_multi_data(
 )
 
 result = bot.search("british football players")
-# Returns: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Returns: "لاعبو كرة القدم بريطانيون"
 ```
 
 ### use_other_formatted_data Parameter
@@ -16124,8 +16123,8 @@ When `use_other_formatted_data=True`, the function automatically filters `format
 
 ```python
 formatted_data = {
-    "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",
-    "{sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar}",  # Only sport, no nationality
+    "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
+    "{sport} coaches": "مدربو {sport_ar}",  # Only sport, no nationality
 }
 
 bot = format_multi_data(
@@ -16176,24 +16175,24 @@ Unlike `format_multi_data`, this function uses `FormatDataV2` which expects dict
 from ArWikiCats.translations_formats import format_multi_data_v2
 
 formatted_data = {
-    "{country} {sport} players": "{demonym} Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}",
+    "{country} {sport} players": "{demonym} لاعبو {sport_ar}",
 }
 
 # data_list values are dictionaries with multiple placeholders
 data_list = {
     "yemen": {
-        "demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†",
-        "country_ar": "Ø§Ù„ÙŠÙ…Ù†",
+        "demonym": "يمنيون",
+        "country_ar": "اليمن",
     },
     "egypt": {
-        "demonym": "Ù…ØµØ±ÙŠÙˆÙ†",
-        "country_ar": "Ù…ØµØ±",
+        "demonym": "مصريون",
+        "country_ar": "مصر",
     },
 }
 
 data_list2 = {
-    "football": {"sport_ar": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"},
-    "basketball": {"sport_ar": "ÙƒØ±Ø© Ø§Ù„Ø³Ù„Ø©"},
+    "football": {"sport_ar": "كرة القدم"},
+    "basketball": {"sport_ar": "كرة السلة"},
 }
 
 bot = format_multi_data_v2(
@@ -16205,7 +16204,7 @@ bot = format_multi_data_v2(
 )
 
 result = bot.search("yemen football players")
-# Returns: "ÙŠÙ…Ù†ÙŠÙˆÙ† Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+# Returns: "يمنيون لاعبو كرة القدم"
 ```
 
 ### Internal Components
@@ -16241,9 +16240,9 @@ def format_year_country_data(
 
 This function creates a `YearFormatData` instance (which returns `FormatDataFrom`) for handling temporal patterns. The year formatter automatically converts English time expressions to Arabic:
 
-- `"14th-century"` â†’ `"Ø§Ù„Ù‚Ø±Ù† 14"`
-- `"1990s"` â†’ `"Ø¹Ù‚Ø¯ 1990"`
-- `"2010"` â†’ `"2010"`
+- `"14th-century"` → `"القرن 14"`
+- `"1990s"` → `"عقد 1990"`
+- `"2010"` → `"2010"`
 
 ### Usage Example
 
@@ -16251,13 +16250,13 @@ This function creates a `YearFormatData` instance (which returns `FormatDataFrom
 from ArWikiCats.translations_formats import format_year_country_data
 
 formatted_data = {
-    "{year1} {country1} events": "{country1} Ø£Ø­Ø¯Ø§Ø« ÙÙŠ {year1}",
-    "{year1} {country1} writers": "ÙƒØªØ§Ø¨ {country1} ÙÙŠ {year1}",
+    "{year1} {country1} events": "{country1} أحداث في {year1}",
+    "{year1} {country1} writers": "كتاب {country1} في {year1}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+    "british": "بريطانية",
+    "american": "أمريكية",
 }
 
 bot = format_year_country_data(
@@ -16266,10 +16265,10 @@ bot = format_year_country_data(
 )
 
 result = bot.search("14th-century british events")
-# Returns: "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© Ø£Ø­Ø¯Ø§Ø« ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14"
+# Returns: "بريطانية أحداث في القرن 14"
 
 result = bot.search("1990s american writers")
-# Returns: "ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠØ© ÙÙŠ Ø¹Ù‚Ø¯ 1990"
+# Returns: "كتاب أمريكية في عقد 1990"
 ```
 
 ### Internal Components
@@ -16308,13 +16307,13 @@ Similar to `format_multi_data_v2`, this function uses `FormatDataV2` for the cou
 from ArWikiCats.translations_formats import format_year_country_data_v2
 
 formatted_data = {
-    "{year1} {country1} writers": "{demonym} ÙƒØªØ§Ø¨ ÙÙŠ {year1}",
+    "{year1} {country1} writers": "{demonym} كتاب في {year1}",
 }
 
 data_list = {
     "yemen": {
-        "demonym": "ÙŠÙ…Ù†ÙŠÙˆÙ†",
-        "country_ar": "Ø§Ù„ÙŠÙ…Ù†",
+        "demonym": "يمنيون",
+        "country_ar": "اليمن",
     },
 }
 
@@ -16324,7 +16323,7 @@ bot = format_year_country_data_v2(
 )
 
 result = bot.search("14th-century yemen writers")
-# Returns: "ÙŠÙ…Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨ ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 14"
+# Returns: "يمنيون كتاب في القرن 14"
 ```
 
 ### Internal Components
@@ -16366,18 +16365,18 @@ The second formatter uses `FormatDataDouble` which can match two adjacent genre 
 from ArWikiCats.translations_formats import format_films_country_data
 
 formatted_data = {
-    "{nat_en} {film_key} films": "Ø£ÙÙ„Ø§Ù… {film_ar} {nat_ar}",
+    "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
 }
 
 data_list = {
-    "british": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©",
-    "american": "Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+    "british": "بريطانية",
+    "american": "أمريكية",
 }
 
 data_list2 = {
-    "action": "Ø£ÙƒØ´Ù†",
-    "drama": "Ø¯Ø±Ø§Ù…Ø§",
-    "comedy": "ÙƒÙˆÙ…ÙŠØ¯ÙŠ",
+    "action": "أكشن",
+    "drama": "دراما",
+    "comedy": "كوميدي",
 }
 
 bot = format_films_country_data(
@@ -16388,11 +16387,11 @@ bot = format_films_country_data(
 
 # Single genre key
 result = bot.search("british action films")
-# Returns: "Ø£ÙÙ„Ø§Ù… Ø£ÙƒØ´Ù† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
+# Returns: "أفلام أكشن بريطانية"
 
 # Double genre keys (action + drama)
 result = bot.search("british action drama films")
-# Returns: "Ø£ÙÙ„Ø§Ù… Ø£ÙƒØ´Ù† Ø¯Ø±Ø§Ù…Ø§ Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
+# Returns: "أفلام أكشن دراما بريطانية"
 ```
 
 ### Internal Components
@@ -16441,10 +16440,10 @@ key = year_bot.match_key("14th-century british writers from Yemen")
 
 # Convert to Arabic
 result = year_bot.search("14th-century")
-# Returns: "Ø§Ù„Ù‚Ø±Ù† 14"
+# Returns: "القرن 14"
 
 result = year_bot.search("1990s")
-# Returns: "Ø¹Ù‚Ø¯ 1990"
+# Returns: "عقد 1990"
 ```
 
 ### Callback Configuration
@@ -16488,10 +16487,10 @@ def get_other_data(
 from ArWikiCats.translations_formats.multi_data import get_other_data
 
 formatted_data = {
-    "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",  # Has both placeholders
-    "{nat} {sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar} {nat_ar}",  # Has both placeholders
-    "{sport} teams": "ÙØ±Ù‚ {sport_ar}",                     # Only sport placeholder
-    "{sport} competitions": "Ù…Ù†Ø§ÙØ³Ø§Øª {sport_ar}",         # Only sport placeholder
+    "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",  # Has both placeholders
+    "{nat} {sport} coaches": "مدربو {sport_ar} {nat_ar}",  # Has both placeholders
+    "{sport} teams": "فرق {sport_ar}",                     # Only sport placeholder
+    "{sport} competitions": "منافسات {sport_ar}",         # Only sport placeholder
 }
 
 other_data = get_other_data(
@@ -16504,8 +16503,8 @@ other_data = get_other_data(
 
 # Returns:
 # {
-#     "{sport} teams": "ÙØ±Ù‚ {sport_ar}",
-#     "{sport} competitions": "Ù…Ù†Ø§ÙØ³Ø§Øª {sport_ar}",
+#     "{sport} teams": "فرق {sport_ar}",
+#     "{sport} competitions": "منافسات {sport_ar}",
 # }
 ```
 
@@ -16644,8 +16643,8 @@ These parameters handle cases where the key is preceded or followed by common wo
 
 ```python
 formatted_data = {
-    "the {nat} actors": "Ù…Ù…Ø«Ù„ÙˆÙ† {nat_ar}",
-    "{nat} people writers": "ÙƒØªØ§Ø¨ {nat_ar}",
+    "the {nat} actors": "ممثلون {nat_ar}",
+    "{nat} people writers": "كتاب {nat_ar}",
 }
 
 bot = format_multi_data(
@@ -16697,7 +16696,7 @@ The processing layer performs three critical functions:
 
 1. **Parsing**: Extracting category type, country/entity, and separator from raw strings
 2. **Normalization**: Text splitting, hyphen handling, and lowercasing for consistent lookups
-3. **Grammar Correction**: Adding Arabic prepositions (ÙÙŠ, Ù…Ù†, Ø­Ø³Ø¨) based on English separator patterns
+3. **Grammar Correction**: Adding Arabic prepositions (في, من, حسب) based on English separator patterns
 
 ```mermaid
 graph TD
@@ -16712,16 +16711,16 @@ graph TD
     subgraph "Normalization Stage"
         Split["split_text_by_separator()<br/>Handles 'of', 'in', hyphens"]
         Lower["Lowercase conversion"]
-        KeyMap["change_key_mappings()<br/>'labor' â†’ 'labour'"]
+        KeyMap["change_key_mappings()<br/>'labor' → 'labour'"]
     end
 
     subgraph "Grammar Correction Stage"
-        SepFix["separator_lists_fixing()<br/>Adds 'ÙÙŠ' for 'in'/'at'"]
-        AddIn["add_in_tab()<br/>Adds 'Ù…Ù†' for 'from'"]
+        SepFix["separator_lists_fixing()<br/>Adds 'في' for 'in'/'at'"]
+        AddIn["add_in_tab()<br/>Adds 'من' for 'from'"]
         FixLabel["fixlabel()<br/>Article agreement"]
     end
 
-    Output["Formatted Arabic Label<br/>Example: 'Ø§Ù†ØªØ®Ø§Ø¨Ø§Øª 1550 ÙÙŠ Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©'"]
+    Output["Formatted Arabic Label<br/>Example: 'انتخابات 1550 في الولايات المتحدة'"]
 
     Input --> TypeCountry
     TypeCountry --> TypeLab
@@ -16766,10 +16765,10 @@ The `get_type_country` function splits a category string into two components bas
 
 Resolves the English category type into an Arabic label. This function handles:
 
-- Geographic entities: `"arizona territory"` â†’ `"Ø¥Ù‚Ù„ÙŠÙ… Ø£Ø±ÙŠØ²ÙˆÙ†Ø§"`
-- Sports contexts: `"basketball playerss in lebanon"` â†’ `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© ÙÙŠ Ù„Ø¨Ù†Ø§Ù†"`
-- Temporal patterns: `"railway stations in south korea"` â†’ `"Ù…Ø­Ø·Ø§Øª Ø§Ù„Ø³ÙƒÙƒ Ø§Ù„Ø­Ø¯ÙŠØ¯ÙŠØ© ÙÙŠ ÙƒÙˆØ±ÙŠØ§ Ø§Ù„Ø¬Ù†ÙˆØ¨ÙŠØ©"`
-- Special cases: `"former buildings and structures"` â†’ `"Ù…Ø¨Ø§Ù† ÙˆÙ…Ù†Ø´Ø¢Øª Ø³Ø§Ø¨Ù‚Ø©"`
+- Geographic entities: `"arizona territory"` → `"إقليم أريزونا"`
+- Sports contexts: `"basketball playerss in lebanon"` → `"لاعبو كرة سلة في لبنان"`
+- Temporal patterns: `"railway stations in south korea"` → `"محطات السكك الحديدية في كوريا الجنوبية"`
+- Special cases: `"former buildings and structures"` → `"مبان ومنشآت سابقة"`
 
 The function applies pattern matching against translation tables and handles grammatical variations (gender, plurality).
 
@@ -16779,10 +16778,10 @@ The function applies pattern matching against translation tables and handles gra
 
 Resolves the country/entity portion into Arabic, with support for:
 
-- Standard countries: `"united states"` â†’ `"Ø§Ù„ÙˆÙ„Ø§ÙŠØ§Øª Ø§Ù„Ù…ØªØ­Ø¯Ø©"`
-- Historical entities: `"world-war-ii"` â†’ `"Ø§Ù„Ø­Ø±Ø¨ Ø§Ù„Ø¹Ø§Ù„Ù…ÙŠØ© Ø§Ù„Ø«Ø§Ù†ÙŠØ©"`
-- Temporal references: `"1420"` â†’ `"1420"`, `"20th century"` â†’ `"Ø§Ù„Ù‚Ø±Ù† 20"`
-- Special contexts: `"american civil war"` â†’ `"Ø§Ù„Ø­Ø±Ø¨ Ø§Ù„Ø£Ù‡Ù„ÙŠØ© Ø§Ù„Ø£Ù…Ø±ÙŠÙƒÙŠØ©"`
+- Standard countries: `"united states"` → `"الولايات المتحدة"`
+- Historical entities: `"world-war-ii"` → `"الحرب العالمية الثانية"`
+- Temporal references: `"1420"` → `"1420"`, `"20th century"` → `"القرن 20"`
+- Special contexts: `"american civil war"` → `"الحرب الأهلية الأمريكية"`
 
 The function parameter `start_get_country2` enables recursive lookup for complex geographic patterns.
 
@@ -16835,20 +16834,20 @@ graph TD
 
 The function checks separators in strict order:
 
-1. **Hyphenated "of"** (`-of`): `"kingdom-of italy"` â†’ `("kingdom of", "italy")`
-2. **" of "**: `"ambassadors of fiji"` â†’ `("ambassadors of", "fiji")`
-3. **" to "**: `"ambassadors to south sudan"` â†’ `("ambassadors", "south sudan")`
-4. **" from "**: `"artists from novi sad"` â†’ `("artists", "novi sad")`
-5. **" by "**: `"1550 by country"` â†’ `("1550", "by country")`
-6. **" in "**: `"1550 in canada"` â†’ `("1550", "canada")`
+1. **Hyphenated "of"** (`-of`): `"kingdom-of italy"` → `("kingdom of", "italy")`
+2. **" of "**: `"ambassadors of fiji"` → `("ambassadors of", "fiji")`
+3. **" to "**: `"ambassadors to south sudan"` → `("ambassadors", "south sudan")`
+4. **" from "**: `"artists from novi sad"` → `("artists", "novi sad")`
+5. **" by "**: `"1550 by country"` → `("1550", "by country")`
+6. **" in "**: `"1550 in canada"` → `("1550", "canada")`
 
 ### Hyphen Handling
 
 The function converts hyphenated "of" patterns to standard space-separated form:
 
-- `"ministers-of foreign affairs"` â†’ `("ministers of", "foreign affairs")`
-- `"republic-of ireland"` â†’ `("republic of", "ireland")`
-- `"federated states-of micronesia"` â†’ `("federated states of", "micronesia")`
+- `"ministers-of foreign affairs"` → `("ministers of", "foreign affairs")`
+- `"republic-of ireland"` → `("republic of", "ireland")`
+- `"federated states-of micronesia"` → `("federated states of", "micronesia")`
 
 This normalization ensures consistent lookup in translation dictionaries.
 
@@ -16856,7 +16855,7 @@ This normalization ensures consistent lookup in translation dictionaries.
 
 ```python
 # From test_split_text_extended.py
-assert split_text_by_separator("kingdom-of italy (1789â€“1789)") == ("kingdom of", "italy (1789â€“1789)")
+assert split_text_by_separator("kingdom-of italy (1789–1789)") == ("kingdom of", "italy (1789–1789)")
 assert split_text_by_separator("ambassadors of afghanistan") == ("ambassadors of", "afghanistan")
 assert split_text_by_separator("tourism in republic-of ireland") == ("tourism in republic of", "ireland")
 ```
@@ -16869,7 +16868,7 @@ assert split_text_by_separator("tourism in republic-of ireland") == ("tourism in
 
 ### separator_lists_fixing Function
 
-Adds the Arabic preposition **"ÙÙŠ"** (meaning "in") when the English category uses `"in"` or `"at"` separators. This function ensures grammatically correct Arabic output.
+Adds the Arabic preposition **"في"** (meaning "in") when the English category uses `"in"` or `"at"` separators. This function ensures grammatically correct Arabic output.
 
 **Logic Flow**:
 
@@ -16878,10 +16877,10 @@ graph TD
     Input["Input:<br/>type_label, separator, type_lower"]
 
     CheckSep{{"separator in<br/>['in', 'at']?"}}
-    CheckPresent{{"'ÙÙŠ' already<br/>in label?"}}
+    CheckPresent{{"'في' already<br/>in label?"}}
     CheckException{{"type_lower in<br/>pop_of_without_in?"}}
 
-    AddFi["Add ' ÙÙŠ' suffix"]
+    AddFi["Add ' في' suffix"]
     Return["Return unchanged"]
 
     Input --> CheckSep
@@ -16899,12 +16898,12 @@ graph TD
 
 | Input Label | Separator | Output Label |
 |---|---|---|
-| `"Ù…Ù†Ø´Ø¢Øª Ø¹Ø³ÙƒØ±ÙŠØ©"` | `"in"` | `"Ù…Ù†Ø´Ø¢Øª Ø¹Ø³ÙƒØ±ÙŠØ© ÙÙŠ"` |
-| `"Ø±ÙŠØ§Ø¶Ø©"` | `"at"` | `"Ø±ÙŠØ§Ø¶Ø© ÙÙŠ"` |
-| `"Ù…Ù†Ø´Ø¢Øª Ø¹Ø³ÙƒØ±ÙŠØ© ÙÙŠ"` | `"in"` | `"Ù…Ù†Ø´Ø¢Øª Ø¹Ø³ÙƒØ±ÙŠØ© ÙÙŠ"` (unchanged) |
+| `"منشآت عسكرية"` | `"in"` | `"منشآت عسكرية في"` |
+| `"رياضة"` | `"at"` | `"رياضة في"` |
+| `"منشآت عسكرية في"` | `"in"` | `"منشآت عسكرية في"` (unchanged) |
 
-The function skips adding "ÙÙŠ" for:
-- Labels already containing "ÙÙŠ"
+The function skips adding "في" for:
+- Labels already containing "في"
 - Types in the `pop_of_without_in` exception list
 - Non-listed separators (`"from"`, `"by"`, `"of"`)
 
@@ -16912,7 +16911,7 @@ The function skips adding "ÙÙŠ" for:
 
 ### add_in_tab Function
 
-Adds the Arabic preposition **"Ù…Ù†"** (meaning "from") based on two conditions:
+Adds the Arabic preposition **"من"** (meaning "from") based on two conditions:
 
 1. **Direct "from" separator**: When `separator_stripped == "from"`
 2. **"of" suffix pattern**: When type ends with `" of"` and appears in translation tables
@@ -16924,13 +16923,13 @@ graph TD
     Start["Input: type_label, type_lower, separator"]
 
     CheckFrom{{"separator == 'from'?"}}
-    CheckAlready{{"'Ù…Ù†' already present?"}}
-    AddMin1["Add ' Ù…Ù† ' suffix"]
+    CheckAlready{{"'من' already present?"}}
+    AddMin1["Add ' من ' suffix"]
 
     CheckOfSuffix{{"type ends with ' of'?"}}
-    CheckInLabel{{"'ÙÙŠ' in label?"}}
+    CheckInLabel{{"'في' in label?"}}
     CheckTables{{"type in translation<br/>tables?"}}
-    AddMin2["Add ' Ù…Ù† ' suffix"]
+    AddMin2["Add ' من ' suffix"]
 
     Return["Return label"]
 
@@ -16954,11 +16953,11 @@ graph TD
 
 | Input Label | Type | Separator | Output Label |
 |---|---|---|---|
-| `"Ø±ÙŠØ§Ø¶ÙŠÙˆÙ†"` | `"athletes"` | `"from"` | `"Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ù…Ù† "` |
-| `"Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ù…Ù†"` | `"athletes"` | `"from"` | `"Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ù…Ù†"` (unchanged) |
-| `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…"` | `"footballers of"` | `"in"` | `"Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ù…Ù† "` (if in tables) |
+| `"رياضيون"` | `"athletes"` | `"from"` | `"رياضيون من "` |
+| `"رياضيون من"` | `"athletes"` | `"from"` | `"رياضيون من"` (unchanged) |
+| `"لاعبو كرة قدم"` | `"footballers of"` | `"in"` | `"لاعبو كرة قدم من "` (if in tables) |
 
-The function checks `get_pop_All_18` and `check_key_new_players` to determine if a type with `" of"` suffix qualifies for "Ù…Ù†" addition.
+The function checks `get_pop_All_18` and `check_key_new_players` to determine if a type with `" of"` suffix qualifies for "من" addition.
 
 **Sources**: [tests/ma_bots2/ar_lab/test_separator_fixing.py:76-164](), [tests/ma_bots2/ar_lab/test_separator_fixing_integration.py:61-101]()
 
@@ -16967,7 +16966,7 @@ The function checks `get_pop_All_18` and `check_key_new_players` to determine if
 Applies final Arabic grammar corrections including:
 
 - **Article agreement**: Ensuring definite articles match noun gender/number
-- **Preposition consistency**: Verifying correct use of ÙÙŠ/Ù…Ù†/Ø­Ø³Ø¨
+- **Preposition consistency**: Verifying correct use of في/من/حسب
 - **Word order adjustments**: Placing adjectives and modifiers correctly
 
 This function is called after all translation and composition steps are complete.
@@ -17100,8 +17099,8 @@ graph TB
 | `get_type_lab` | `ArWikiCats.legacy_bots.ma_bots2.lab` | Resolves type to Arabic label |
 | `get_con_lab` | `ArWikiCats.legacy_bots.ma_bots2.lab` | Resolves country to Arabic label |
 | `split_text_by_separator` | `ArWikiCats.legacy_bots.ma_bots2.country2_label_bot` | Recursive separator splitting |
-| `separator_lists_fixing` | `ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot` | Adds "ÙÙŠ" preposition |
-| `add_in_tab` | `ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot` | Adds "Ù…Ù†" preposition |
+| `separator_lists_fixing` | `ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot` | Adds "في" preposition |
+| `add_in_tab` | `ArWikiCats.legacy_bots.ma_bots2.ar_lab_bot` | Adds "من" preposition |
 | `fixlabel` | Referenced in imports | Final Arabic grammar corrections |
 | `country_2_title_work` | `ArWikiCats.legacy_bots.ma_bots2.country2_label_bot` | Country-specific processing |
 
@@ -17127,39 +17126,39 @@ graph TB
 **Input**: `"1550 in canada"`
 
 **Processing Steps**:
-1. `get_type_country("1550 in canada", " in ")` â†’ `("1550 in", "canada")`
-2. `get_type_lab("1550 in")` â†’ `"1550"`
-3. `get_con_lab("canada")` â†’ `"ÙƒÙ†Ø¯Ø§"`
-4. `separator_lists_fixing("1550", "in", ...)` â†’ `"1550 ÙÙŠ"`
-5. Compose: `"1550 ÙÙŠ ÙƒÙ†Ø¯Ø§"` â†’ `"ÙƒÙ†Ø¯Ø§ ÙÙŠ 1550"` (reordering applied)
+1. `get_type_country("1550 in canada", " in ")` → `("1550 in", "canada")`
+2. `get_type_lab("1550 in")` → `"1550"`
+3. `get_con_lab("canada")` → `"كندا"`
+4. `separator_lists_fixing("1550", "in", ...)` → `"1550 في"`
+5. Compose: `"1550 في كندا"` → `"كندا في 1550"` (reordering applied)
 
-**Output**: `"ÙƒÙ†Ø¯Ø§ ÙÙŠ 1550"`
+**Output**: `"كندا في 1550"`
 
 ### Pattern 2: People From Location
 
 **Input**: `"artists from zurich"`
 
 **Processing Steps**:
-1. `split_text_by_separator("artists from zurich")` â†’ `("artists", "zurich")`
-2. `get_type_lab("artists")` â†’ `"ÙÙ†Ø§Ù†ÙˆÙ†"`
-3. `get_con_lab("zurich")` â†’ `"Ø²ÙŠÙˆØ±Ø®"`
-4. `add_in_tab("ÙÙ†Ø§Ù†ÙˆÙ†", "artists", "from")` â†’ `"ÙÙ†Ø§Ù†ÙˆÙ† Ù…Ù† "`
-5. Compose: `"ÙÙ†Ø§Ù†ÙˆÙ† Ù…Ù† Ø²ÙŠÙˆØ±Ø®"`
+1. `split_text_by_separator("artists from zurich")` → `("artists", "zurich")`
+2. `get_type_lab("artists")` → `"فنانون"`
+3. `get_con_lab("zurich")` → `"زيورخ"`
+4. `add_in_tab("فنانون", "artists", "from")` → `"فنانون من "`
+5. Compose: `"فنانون من زيورخ"`
 
-**Output**: `"ÙÙ†Ø§Ù†ÙˆÙ† Ù…Ù† Ø²ÙŠÙˆØ±Ø®"`
+**Output**: `"فنانون من زيورخ"`
 
 ### Pattern 3: Complex Hyphenated Entity
 
-**Input**: `"kingdom-of italy (1789â€“1789)"`
+**Input**: `"kingdom-of italy (1789–1789)"`
 
 **Processing Steps**:
 1. `split_text_by_separator(...)` detects hyphenated "of"
-2. Converts to: `("kingdom of", "italy (1789â€“1789)")`
-3. `get_type_lab("kingdom of")` â†’ `"Ù…Ù…Ù„ÙƒØ©"`
-4. `get_con_lab("italy (1789â€“1789)")` â†’ `"Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ (1789â€“1789)"`
+2. Converts to: `("kingdom of", "italy (1789–1789)")`
+3. `get_type_lab("kingdom of")` → `"مملكة"`
+4. `get_con_lab("italy (1789–1789)")` → `"إيطاليا (1789–1789)"`
 5. Compose with appropriate preposition
 
-**Output**: `"Ù…Ù…Ù„ÙƒØ© Ø¥ÙŠØ·Ø§Ù„ÙŠØ§ (1789â€“1789)"`
+**Output**: `"مملكة إيطاليا (1789–1789)"`
 
 **Sources**: [tests/ma_bots2/ar_lab/test_ar_lab_big_data.py:10-19](), [tests/ma_bots2/country2_bots/test_split_text_extended.py:11-17]()34:T4e27,# Category Normalization
 
@@ -17214,11 +17213,11 @@ flowchart TD
     Input["Raw Input<br/>'Category: British Football Players'"]
 
     subgraph Normalization["Normalization Phase"]
-        RemovePrefix["Remove 'Category:' prefix<br/>â†’ 'British Football Players'"]
-        Lowercase["Convert to lowercase<br/>â†’ 'british football players'"]
-        RemoveQuotes["Remove quotes<br/>â†’ 'british football players'"]
-        FixTypos["Fix common typos<br/>â†’ 'british football players'"]
-        Trim["Trim whitespace<br/>â†’ 'british football players'"]
+        RemovePrefix["Remove 'Category:' prefix<br/>→ 'British Football Players'"]
+        Lowercase["Convert to lowercase<br/>→ 'british football players'"]
+        RemoveQuotes["Remove quotes<br/>→ 'british football players'"]
+        FixTypos["Fix common typos<br/>→ 'british football players'"]
+        Trim["Trim whitespace<br/>→ 'british football players'"]
     end
 
     Normalized["Normalized Category<br/>'british football players'"]
@@ -17281,8 +17280,8 @@ Single quotes (apostrophes) are removed to handle possessive forms and contracti
 
 ```python
 category = category.replace("'", "")
-# "women's" â†’ "womens"
-# "men's" â†’ "mens"
+# "women's" → "womens"
+# "men's" → "mens"
 ```
 
 ### 4. Whitespace Normalization
@@ -17293,7 +17292,7 @@ Leading and trailing whitespace is removed. Some implementations also collapse m
 category = category.strip()
 
 # In jobs/utils.py:
-category = re.sub(r"\s+", " ", category)  # Multiple spaces â†’ single space
+category = re.sub(r"\s+", " ", category)  # Multiple spaces → single space
 ```
 
 ### 5. Common Word Removal
@@ -17324,30 +17323,30 @@ graph TB
         J1["Remove quotes & lowercase"]
         J2["Remove 'the'"]
         J3["Collapse whitespace"]
-        J4["expatriates â†’ expatriate"]
-        J5["canadian football â†’ canadian-football"]
-        J6["womens/women â†’ female<br/>(via REGEX_WOMENS)"]
+        J4["expatriates → expatriate"]
+        J5["canadian football → canadian-football"]
+        J6["womens/women → female<br/>(via REGEX_WOMENS)"]
     end
 
     subgraph SportsNorm["Sports Normalization<br/>(raw_sports.py)"]
         S1["Remove quotes & lowercase"]
         S2["Remove 'category:'"]
-        S3["playerss â†’ players"]
+        S3["playerss → players"]
         S4["Trim whitespace"]
     end
 
     subgraph FilmsNorm["Films Normalization<br/>(resolve_films_labels.py)"]
         F1["Lowercase & strip"]
-        F2["saudi arabian â†’ saudiarabian"]
-        F3["children's animated adventure television<br/>â†’ children's-animated-adventure-television"]
-        F4["children's animated superhero<br/>â†’ children's-animated-superhero"]
+        F2["saudi arabian → saudiarabian"]
+        F3["children's animated adventure television<br/>→ children's-animated-adventure-television"]
+        F4["children's animated superhero<br/>→ children's-animated-superhero"]
     end
 
     subgraph MinistersNorm["Ministers Normalization<br/>(ministers_resolver.py)"]
         M1["Remove quotes"]
-        M2["ministers-of â†’ ministers of"]
-        M3["ministers-for â†’ ministers for"]
-        M4["secretaries-of â†’ secretaries of"]
+        M2["ministers-of → ministers of"]
+        M3["ministers-for → ministers for"]
+        M4["secretaries-of → secretaries of"]
     end
 
     Input --> JobsNorm
@@ -17361,9 +17360,9 @@ graph TB
 The jobs resolver normalization handles gender-specific terminology and expatriate variations:
 
 **Key transformations:**
-- `"womens"` or `"women"` â†’ `"female"` (using `REGEX_WOMENS`)
-- `"expatriates"` â†’ `"expatriate"`
-- `"canadian football"` â†’ `"canadian-football"`
+- `"womens"` or `"women"` → `"female"` (using `REGEX_WOMENS`)
+- `"expatriates"` → `"expatriate"`
+- `"canadian football"` → `"canadian-football"`
 
 **Implementation:** [ArWikiCats/new_resolvers/jobs_resolvers/utils.py:10-26]()
 
@@ -17398,8 +17397,8 @@ def fix_keys(category: str) -> str:
 The sports resolver focuses on typo correction and basic cleanup:
 
 **Key transformations:**
-- `"playerss"` â†’ `"players"` (common typo)
-- `"australian rules"` â†’ `"australian-rules"` (in caller code)
+- `"playerss"` → `"players"` (common typo)
+- `"australian rules"` → `"australian-rules"` (in caller code)
 - Removes `"category:"` prefix
 
 **Implementation:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:366-378]()
@@ -17426,9 +17425,9 @@ def fix_keys(category: str) -> str:
 Films normalization handles country name variations and hyphenates multi-word modifiers:
 
 **Key transformations:**
-- `"saudi arabian"` â†’ `"saudiarabian"` (country name normalization)
-- `"children's animated adventure television"` â†’ `"children's-animated-adventure-television"`
-- `"children's animated superhero"` â†’ `"children's-animated-superhero"`
+- `"saudi arabian"` → `"saudiarabian"` (country name normalization)
+- `"children's animated adventure television"` → `"children's-animated-adventure-television"`
+- `"children's animated superhero"` → `"children's-animated-superhero"`
 
 **Implementation:** [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:263-287]()
 
@@ -17454,9 +17453,9 @@ def fix_keys(category: str) -> str:
 Ministers normalization handles hyphenated terms in political categories:
 
 **Key transformations:**
-- `"ministers-of"` â†’ `"ministers of"`
-- `"ministers-for"` â†’ `"ministers for"`
-- `"secretaries-of"` â†’ `"secretaries of"`
+- `"ministers-of"` → `"ministers of"`
+- `"ministers-for"` → `"ministers for"`
+- `"secretaries-of"` → `"secretaries of"`
 
 **Implementation:** [ArWikiCats/new_resolvers/ministers_resolver.py:128-132]()
 
@@ -17525,14 +17524,14 @@ While all normalization functions share common goals, their implementations vary
 
 | Operation | jobs/utils.py | sports/raw_sports.py | films/resolve_films_labels.py | ministers_resolver.py |
 |-----------|---------------|----------------------|-------------------------------|----------------------|
-| Remove quotes | âœ“ | âœ“ | âœ— | âœ“ |
-| Lowercase | âœ“ | âœ“ | âœ“ | âœ— |
-| Remove "category:" | âœ— | âœ“ | âœ— | âœ— |
-| Remove "the" | âœ“ (regex) | âœ— | âœ— | âœ— |
-| Collapse whitespace | âœ“ (regex) | âœ— | âœ— | âœ— |
-| Strip whitespace | âœ“ | âœ“ | âœ“ | âœ— |
-| Gender normalization | âœ“ (womensâ†’female) | âœ— | âœ— | âœ— |
-| Typo fixes | âœ— | âœ“ (playerss) | âœ— | âœ— |
+| Remove quotes | ✓ | ✓ | ✗ | ✓ |
+| Lowercase | ✓ | ✓ | ✓ | ✗ |
+| Remove "category:" | ✗ | ✓ | ✗ | ✗ |
+| Remove "the" | ✓ (regex) | ✗ | ✗ | ✗ |
+| Collapse whitespace | ✓ (regex) | ✗ | ✗ | ✗ |
+| Strip whitespace | ✓ | ✓ | ✓ | ✗ |
+| Gender normalization | ✓ (womens→female) | ✗ | ✗ | ✗ |
+| Typo fixes | ✗ | ✓ (playerss) | ✗ | ✗ |
 | Domain-specific | expatriates, canadian football | australian-rules (caller) | saudi arabian, children's patterns | ministers/secretaries hyphen fixes |
 
 ### Why Variations Exist
@@ -17555,11 +17554,11 @@ These variations mean that:
 Input: "Category: Women's Football Players"
 
 Jobs resolver:
-  fix_keys â†’ "female football players"
-  (womens â†’ female conversion applied)
+  fix_keys → "female football players"
+  (womens → female conversion applied)
 
 Sports resolver:
-  fix_keys â†’ "womens football players"
+  fix_keys → "womens football players"
   (no gender normalization)
 
 Result: Different normalized forms may match different patterns
@@ -17585,8 +17584,8 @@ This function is called by:
 - `resolve_sport_category_suffix_with_mapping` [ArWikiCats/new/handle_suffixes.py:108-136]()
 
 These suffix resolution functions are used extensively in sports resolvers to handle categories like:
-- `"british football players"` â†’ suffix: `"players"`, base: `"british football"`
-- `"american basketball coaches"` â†’ suffix: `"coaches"`, base: `"american basketball"`
+- `"british football players"` → suffix: `"players"`, base: `"british football"`
+- `"american basketball coaches"` → suffix: `"coaches"`, base: `"american basketball"`
 
 **Sources:** [ArWikiCats/new/handle_suffixes.py:20-34](), [ArWikiCats/new/handle_suffixes.py:59-105](), [ArWikiCats/new/handle_suffixes.py:108-136]()
 
@@ -17687,12 +17686,12 @@ The suffix resolution system follows a decomposition-and-recombination pattern:
 graph TB
     Input["Input: 'british football players'"]
     CheckSuffix["Check if ends with known suffix"]
-    StripSuffix["Strip 'players' â†’ 'british football'"]
+    StripSuffix["Strip 'players' → 'british football'"]
     RecursiveResolve["Recursively resolve 'british football'"]
-    TranslateBase["Result: 'ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©'"]
-    TranslateSuffix["Suffix 'players' â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ'"]
-    Combine["Combine: 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©'"]
-    Output["Output: 'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©'"]
+    TranslateBase["Result: 'كرة قدم بريطانية'"]
+    TranslateSuffix["Suffix 'players' → 'لاعبو'"]
+    Combine["Combine: 'لاعبو كرة قدم بريطانية'"]
+    Output["Output: 'لاعبو كرة قدم بريطانية'"]
 
     Input --> CheckSuffix
     CheckSuffix -->|"Found"| StripSuffix
@@ -17748,19 +17747,19 @@ The most commonly used suffix mappings are defined in `teams_label_mappings_ends
 ```mermaid
 graph LR
     subgraph "Standard Suffixes (teams_label_mappings_ends)"
-        Teams["'teams' â†’ 'ÙØ±Ù‚'"]
-        Players["'players' â†’ 'Ù„Ø§Ø¹Ø¨Ùˆ'"]
-        Coaches["'coaches' â†’ 'Ù…Ø¯Ø±Ø¨Ùˆ'"]
-        Managers["'managers' â†’ 'Ù…Ø¯Ø±Ø¨Ùˆ'"]
-        Clubs["'clubs' â†’ 'Ø£Ù†Ø¯ÙŠØ©'"]
-        Competitions["'competitions' â†’ 'Ù…Ù†Ø§ÙØ³Ø§Øª'"]
+        Teams["'teams' → 'فرق'"]
+        Players["'players' → 'لاعبو'"]
+        Coaches["'coaches' → 'مدربو'"]
+        Managers["'managers' → 'مدربو'"]
+        Clubs["'clubs' → 'أندية'"]
+        Competitions["'competitions' → 'منافسات'"]
     end
 
     subgraph "Extended Suffixes"
-        Champions["'champions' â†’ 'Ø£Ø¨Ø·Ø§Ù„'"]
-        Leagues["'leagues' â†’ 'Ø¯ÙˆØ±ÙŠØ§Øª'"]
-        Venues["'venues' â†’ 'Ù…Ù„Ø§Ø¹Ø¨'"]
-        Stats["'records and statistics' â†’ 'Ø³Ø¬Ù„Ø§Øª ÙˆØ¥Ø­ØµØ§Ø¦ÙŠØ§Øª'"]
+        Champions["'champions' → 'أبطال'"]
+        Leagues["'leagues' → 'دوريات'"]
+        Venues["'venues' → 'ملاعب'"]
+        Stats["'records and statistics' → 'سجلات وإحصائيات'"]
     end
 ```
 
@@ -17772,11 +17771,11 @@ Football-specific position suffixes with gender variants are defined in `FOOTBAL
 
 | Suffix | Male Form | Female Form |
 |--------|-----------|-------------|
-| "players" | "Ù„Ø§Ø¹Ø¨Ùˆ" | "Ù„Ø§Ø¹Ø¨Ø§Øª" |
-| "goalkeepers" | "Ø­Ø±Ø§Ø³ Ù…Ø±Ù…Ù‰" | "Ø­Ø§Ø±Ø³Ø§Øª Ù…Ø±Ù…Ù‰" |
-| "defenders" | "Ù…Ø¯Ø§ÙØ¹Ùˆ" | "Ù…Ø¯Ø§ÙØ¹Ø§Øª" |
-| "midfielders" | "Ù„Ø§Ø¹Ø¨Ùˆ ÙˆØ³Ø·" | "Ù„Ø§Ø¹Ø¨Ø§Øª ÙˆØ³Ø·" |
-| "forwards" | "Ù…Ù‡Ø§Ø¬Ù…Ùˆ" | "Ù…Ù‡Ø§Ø¬Ù…Ø§Øª" |
+| "players" | "لاعبو" | "لاعبات" |
+| "goalkeepers" | "حراس مرمى" | "حارسات مرمى" |
+| "defenders" | "مدافعو" | "مدافعات" |
+| "midfielders" | "لاعبو وسط" | "لاعبات وسط" |
+| "forwards" | "مهاجمو" | "مهاجمات" |
 
 **Sources:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py:57-98]()
 
@@ -17826,12 +17825,12 @@ sequenceDiagram
     Note over ResolveSuffix: Found "teams" at end
     ResolveSuffix->>ResolveSuffix: Strip to "british football"
     ResolveSuffix->>Callback: resolve("british football")
-    Callback-->>ResolveSuffix: "ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
-    ResolveSuffix->>Combiner: value="ÙØ±Ù‚", label="ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
-    Combiner-->>ResolveSuffix: "ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
+    Callback-->>ResolveSuffix: "كرة قدم بريطانية"
+    ResolveSuffix->>Combiner: value="فرق", label="كرة قدم بريطانية"
+    Combiner-->>ResolveSuffix: "فرق كرة قدم بريطانية"
     ResolveSuffix->>Fixer: Optional post-processing
-    Fixer-->>ResolveSuffix: "Ù…Ù†ØªØ®Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
-    Note over Fixer: Fixed "ÙØ±Ù‚" to "Ù…Ù†ØªØ®Ø¨Ø§Øª"<br/>because "national" in category
+    Fixer-->>ResolveSuffix: "منتخبات كرة قدم بريطانية"
+    Note over Fixer: Fixed "فرق" to "منتخبات"<br/>because "national" in category
     ResolveSuffix-->>Caller: Final result
 ```
 
@@ -17845,8 +17844,8 @@ The gendered variant checks for "womens" in the category string:
 graph TB
     Input["Input: 'british football players'"]
     CheckWomens{"Contains 'womens'?"}
-    SelectMale["Select males: 'Ù„Ø§Ø¹Ø¨Ùˆ'"]
-    SelectFemale["Select females: 'Ù„Ø§Ø¹Ø¨Ø§Øª'"]
+    SelectMale["Select males: 'لاعبو'"]
+    SelectFemale["Select females: 'لاعبات'"]
     Strip["Strip suffix"]
     Resolve["Resolve base category"]
     Combine["Combine results"]
@@ -17944,8 +17943,8 @@ The `format_key` parameter controls how the suffix translation and base translat
 
 | Format Key | Behavior | Example |
 |------------|----------|---------|
-| `""` (empty) | Simple concatenation: `"{value} {label}"` | `"ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù…"` |
-| `"{}"` | Format substitution: `value.format(label)` | Used with `"{} Ù…ØºØªØ±Ø¨ÙˆÙ†"` |
+| `""` (empty) | Simple concatenation: `"{value} {label}"` | `"فرق كرة قدم"` |
+| `"{}"` | Format substitution: `value.format(label)` | Used with `"{} مغتربون"` |
 | `"ar"` | Named format: `value.format_map({"ar": label})` | Placeholder replacement |
 
 **Sources:** [ArWikiCats/new/handle_suffixes.py:37-57]()
@@ -17956,13 +17955,13 @@ The `fix_result_callable` allows context-aware corrections:
 
 ```mermaid
 graph LR
-    Result["Raw Result:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ù„Ù„Ø³ÙŠØ¯Ø§Øª'"]
-    Check1{"Starts with<br/>'Ù„Ø§Ø¹Ø¨Ùˆ'?"}
-    Check2{"Contains<br/>'Ù„Ù„Ø³ÙŠØ¯Ø§Øª'?"}
-    Fix1["Replace 'Ù„Ø§Ø¹Ø¨Ùˆ' â†’ 'Ù„Ø§Ø¹Ø¨Ø§Øª'"]
+    Result["Raw Result:<br/>'لاعبو كرة قدم للسيدات'"]
+    Check1{"Starts with<br/>'لاعبو'?"}
+    Check2{"Contains<br/>'للسيدات'?"}
+    Fix1["Replace 'لاعبو' → 'لاعبات'"]
     Check3{"Suffix is<br/>'teams'?"}
     Check4{"Contains<br/>'national'?"}
-    Fix2["Replace 'ÙØ±Ù‚' â†’ 'Ù…Ù†ØªØ®Ø¨Ø§Øª'"]
+    Fix2["Replace 'فرق' → 'منتخبات'"]
     Output["Final Result"]
 
     Result --> Check1
@@ -17979,8 +17978,8 @@ graph LR
 ```
 
 Common fixes:
-- **Gender agreement**: If result starts with "Ù„Ø§Ø¹Ø¨Ùˆ" and contains "Ù„Ù„Ø³ÙŠØ¯Ø§Øª", change to "Ù„Ø§Ø¹Ø¨Ø§Øª"
-- **National team correction**: If suffix is "teams" and category contains "national", change "ÙØ±Ù‚" to "Ù…Ù†ØªØ®Ø¨Ø§Øª"
+- **Gender agreement**: If result starts with "لاعبو" and contains "للسيدات", change to "لاعبات"
+- **National team correction**: If suffix is "teams" and category contains "national", change "فرق" to "منتخبات"
 
 **Sources:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py:115-123](), [ArWikiCats/new_resolvers/sports_resolvers/nationalities_and_sports.py:348-356]()
 
@@ -17990,49 +17989,49 @@ Common fixes:
 
 ```
 Input: "american basketball teams"
-â”‚
-â”œâ”€ Check suffix: Found "teams" â†’ Arabic: "ÙØ±Ù‚"
-â”‚
-â”œâ”€ Strip suffix: "american basketball"
-â”‚
-â”œâ”€ Recursive resolve via callback
-â”‚  â””â”€ Result: "ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
-â”‚
-â””â”€ Combine: "ÙØ±Ù‚ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+│
+├─ Check suffix: Found "teams" → Arabic: "فرق"
+│
+├─ Strip suffix: "american basketball"
+│
+├─ Recursive resolve via callback
+│  └─ Result: "كرة سلة أمريكية"
+│
+└─ Combine: "فرق كرة سلة أمريكية"
 ```
 
 ### Example 2: Gendered Players
 
 ```
 Input: "british womens football players"
-â”‚
-â”œâ”€ Check suffix: Found "players"
-â”‚
-â”œâ”€ Check gender: Contains "womens" â†’ Select "Ù„Ø§Ø¹Ø¨Ø§Øª"
-â”‚
-â”œâ”€ Strip suffix: "british womens football"
-â”‚
-â”œâ”€ Recursive resolve
-â”‚  â””â”€ Result: "ÙƒØ±Ø© Ù‚Ø¯Ù… Ù„Ù„Ø³ÙŠØ¯Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
-â”‚
-â”œâ”€ Combine: "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù… Ù„Ù„Ø³ÙŠØ¯Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©"
-â”‚
-â””â”€ Post-process: Gender agreement verified âœ“
+│
+├─ Check suffix: Found "players"
+│
+├─ Check gender: Contains "womens" → Select "لاعبات"
+│
+├─ Strip suffix: "british womens football"
+│
+├─ Recursive resolve
+│  └─ Result: "كرة قدم للسيدات بريطانية"
+│
+├─ Combine: "لاعبات كرة قدم للسيدات بريطانية"
+│
+└─ Post-process: Gender agreement verified ✓
 ```
 
 ### Example 3: Religious Jobs
 
 ```
 Input: "buddhist monks"
-â”‚
-â”œâ”€ Check suffix: Found "monks" â†’ Arabic: "Ø±Ù‡Ø¨Ø§Ù† {}"
-â”‚
-â”œâ”€ Strip suffix: "buddhist"
-â”‚
-â”œâ”€ Recursive resolve
-â”‚  â””â”€ Result: "Ø¨ÙˆØ°ÙŠÙˆÙ†"
-â”‚
-â””â”€ Combine with format_key="{}": "Ø±Ù‡Ø¨Ø§Ù† Ø¨ÙˆØ°ÙŠÙˆÙ†"
+│
+├─ Check suffix: Found "monks" → Arabic: "رهبان {}"
+│
+├─ Strip suffix: "buddhist"
+│
+├─ Recursive resolve
+│  └─ Result: "بوذيون"
+│
+└─ Combine with format_key="{}": "رهبان بوذيون"
 ```
 
 **Sources:** [ArWikiCats/new_resolvers/sports_resolvers/raw_sports_with_suffixes.py:134-158](), [ArWikiCats/new/handle_suffixes.py:59-106]()
@@ -18205,8 +18204,8 @@ The `CHECK_AR_ALSO` dictionary at [help_scripts/split_non_geography.py:28-31]() 
 
 ```python
 CHECK_AR_ALSO = {
-    "park": "Ø¨Ø§Ø±Ùƒ",
-    "bridge": "Ø¨Ø±ÙŠØ¯Ø¬",
+    "park": "بارك",
+    "bridge": "بريدج",
 }
 ```
 
@@ -18231,20 +18230,20 @@ Located at [help_scripts/split_non_geography.py:281-306](), this function perfor
 6. Return `(True, category_name)` on first match
 
 **Example Matches:**
-- "Harvard University" â†’ `(True, "education")`
-- "Manchester United F.C." â†’ `(True, "sports")`
-- "Golden Gate Bridge" â†’ `(True, "Infrastructure")`
+- "Harvard University" → `(True, "education")`
+- "Manchester United F.C." → `(True, "sports")`
+- "Golden Gate Bridge" → `(True, "Infrastructure")`
 
 #### detect_arabic_keywords()
 
 Located at [help_scripts/split_non_geography.py:309-314](), this function checks for Arabic keywords in the translated value.
 
 **Keywords Checked:** 12 common Arabic non-geographic terms from `NON_GEO_KEYWORDS_AR` at [help_scripts/split_non_geography.py:237-252]():
-- Ø¬Ø§Ù…Ø¹Ø© (university), ÙƒÙ„ÙŠØ© (college), Ù…Ø¹Ù‡Ø¯ (institute)
-- Ù†Ø§Ø¯ÙŠ (club), Ø´Ø±ÙƒØ© (company), Ù…Ø³ØªØ´ÙÙ‰ (hospital)
-- Ù…ØªØ­Ù (museum), Ø¬Ù…Ø¹ÙŠØ© (association), ÙÙ†Ø¯Ù‚ (hotel)
-- Ù…Ù„Ø¹Ø¨ (stadium), Ø¬Ø³Ø± (bridge), Ù‚Ù†Ø§Ø© (canal)
-- Ù…Ø­Ø·Ø© (station), Ù…Ø·Ø§Ø± (airport)
+- جامعة (university), كلية (college), معهد (institute)
+- نادي (club), شركة (company), مستشفى (hospital)
+- متحف (museum), جمعية (association), فندق (hotel)
+- ملعب (stadium), جسر (bridge), قناة (canal)
+- محطة (station), مطار (airport)
 
 #### detect_taxon()
 
@@ -18258,9 +18257,9 @@ Located at [help_scripts/split_non_geography.py:317-320](), this function identi
 - Other: `-ineae`, `-inae`, `-oidea`, `-morpha`, `-cetes`, `-phycidae`
 
 **Example Matches:**
-- "Rosaceae" â†’ True (plant family)
-- "Felidae" â†’ True (cat family)
-- "Passeriformes" â†’ True (bird order)
+- "Rosaceae" → True (plant family)
+- "Felidae" → True (cat family)
+- "Passeriformes" → True (bird order)
 
 #### detect_person_like()
 
@@ -18274,9 +18273,9 @@ Located at [help_scripts/split_non_geography.py:323-335](), this function identi
 **Pattern:** `(?<!\w){role}(?!\w)` with word boundaries
 
 **Example Matches:**
-- "King of France" â†’ True
-- "President of the United States" â†’ True
-- "Sir Isaac Newton" â†’ True
+- "King of France" → True
+- "President of the United States" → True
+- "Sir Isaac Newton" → True
 
 **Sources:** [help_scripts/split_non_geography.py:281-335](), [help_scripts/split_non_geography.py:237-273]()
 
@@ -18292,7 +18291,7 @@ graph LR
 
     GeoDict["Geographic Dict"]
     NonGeoDict["Non-Geographic Dict"]
-    TypesDict["Types Dict<br/>(category â†’ entries)"]
+    TypesDict["Types Dict<br/>(category → entries)"]
 
     Input --> Classify
     Classify --> GeoDict
@@ -18434,7 +18433,7 @@ Processing complete.
 Input entry:
 ```json
 {
-    "Manchester United F.C.": "Ù†Ø§Ø¯ÙŠ Ù…Ø§Ù†Ø´Ø³ØªØ± ÙŠÙˆÙ†Ø§ÙŠØªØ¯ Ù„ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+    "Manchester United F.C.": "نادي مانشستر يونايتد لكرة القدم"
 }
 ```
 
@@ -18448,13 +18447,13 @@ Classification:
 Input entry:
 ```json
 {
-    "Harvard University": "Ø¬Ø§Ù…Ø¹Ø© Ù‡Ø§Ø±ÙØ§Ø±Ø¯"
+    "Harvard University": "جامعة هارفارد"
 }
 ```
 
 Classification:
 - Layer 1 detects "University" (education keyword)
-- Layer 2 confirms Arabic "Ø¬Ø§Ù…Ø¹Ø©" is present
+- Layer 2 confirms Arabic "جامعة" is present
 - Classified as non-geographic, category: `education`
 - Output to `P17_PP_non.json`
 
@@ -18463,7 +18462,7 @@ Classification:
 Input entry:
 ```json
 {
-    "Felidae": "Ø³Ù†ÙˆØ±ÙŠØ§Øª"
+    "Felidae": "سنوريات"
 }
 ```
 
@@ -18478,7 +18477,7 @@ Classification:
 Input entry:
 ```json
 {
-    "Paris": "Ø¨Ø§Ø±ÙŠØ³"
+    "Paris": "باريس"
 }
 ```
 
@@ -18492,14 +18491,14 @@ Classification:
 Input entry:
 ```json
 {
-    "Brooklyn Bridge": "Ø¬Ø³Ø± Ø¨Ø±ÙˆÙƒÙ„ÙŠÙ†"
+    "Brooklyn Bridge": "جسر بروكلين"
 }
 ```
 
 Classification:
 - Layer 1 detects "bridge" keyword
-- Checks `CHECK_AR_ALSO` for Arabic "Ø¨Ø±ÙŠØ¯Ø¬"
-- Arabic value contains "Ø¬Ø³Ø±" (not "Ø¨Ø±ÙŠØ¯Ø¬")
+- Checks `CHECK_AR_ALSO` for Arabic "بريدج"
+- Arabic value contains "جسر" (not "بريدج")
 - Classified as non-geographic, category: `Infrastructure`
 - Output to `P17_PP_non.json`
 
@@ -18533,12 +18532,12 @@ NON_GEO_KEYWORDS_AR = [
 
 ### Adding Special Handling
 
-For keywords that require Arabic confirmation (like "bridge"/"Ø¨Ø±ÙŠØ¯Ø¬"), update `CHECK_AR_ALSO` at [help_scripts/split_non_geography.py:28-31]():
+For keywords that require Arabic confirmation (like "bridge"/"بريدج"), update `CHECK_AR_ALSO` at [help_scripts/split_non_geography.py:28-31]():
 
 ```python
 CHECK_AR_ALSO = {
-    "park": "Ø¨Ø§Ø±Ùƒ",
-    "bridge": "Ø¨Ø±ÙŠØ¯Ø¬",
+    "park": "بارك",
+    "bridge": "بريدج",
     "new_keyword": "arabic_equivalent",
 }
 ```
@@ -18566,16 +18565,16 @@ The classifier operates with the following complexity:
 
 | Operation | Complexity | Notes |
 |-----------|-----------|-------|
-| Keyword matching | O(k Ã— m) | k = keywords, m = avg keyword length |
+| Keyword matching | O(k × m) | k = keywords, m = avg keyword length |
 | Regex compilation | O(1) | Patterns compiled at runtime |
 | Dictionary insertion | O(1) | Amortized |
-| Overall per entry | O(k Ã— m) | Linear in keyword count |
-| Total processing | O(n Ã— k Ã— m) | n = total entries |
+| Overall per entry | O(k × m) | Linear in keyword count |
+| Total processing | O(n × k × m) | n = total entries |
 
 For typical datasets:
 - n = 68,981 entries (P17_PP.json)
-- k â‰ˆ 150 total keywords across all categories
-- m â‰ˆ 10 characters per keyword
+- k ≈ 150 total keywords across all categories
+- m ≈ 10 characters per keyword
 - Processing time: ~30-60 seconds on modern hardware
 
 ### Memory Usage
@@ -18584,9 +18583,9 @@ The script maintains three in-memory dictionaries:
 
 | Dictionary | Purpose | Typical Size |
 |-----------|---------|--------------|
-| `geo` | Geographic entries | ~65,000 entries Ã— 100 bytes â‰ˆ 6.5 MB |
-| `non_geo` | Non-geographic entries | ~3,700 entries Ã— 100 bytes â‰ˆ 370 KB |
-| `typies` | Category breakdown | ~15 categories Ã— 200 entries â‰ˆ 50 KB |
+| `geo` | Geographic entries | ~65,000 entries × 100 bytes ≈ 6.5 MB |
+| `non_geo` | Non-geographic entries | ~3,700 entries × 100 bytes ≈ 370 KB |
+| `typies` | Category breakdown | ~15 categories × 200 entries ≈ 50 KB |
 
 **Total Memory:** ~7 MB for typical processing
 
@@ -18633,8 +18632,8 @@ The system prevents false positives through:
    - "Parking" does not match "park" keyword
 
 2. **Arabic Cross-Validation:** `CHECK_AR_ALSO` mechanism
-   - "Central Park" with "Ø­Ø¯ÙŠÙ‚Ø©" (park/garden) â†’ Geographic
-   - "Technology Park" with "Ø¨Ø§Ø±Ùƒ" (transliterated) â†’ Non-geographic
+   - "Central Park" with "حديقة" (park/garden) → Geographic
+   - "Technology Park" with "بارك" (transliterated) → Non-geographic
 
 3. **Context-Aware Detection:** Person roles require specific title words
    - "Kingston" does not match despite containing "king"
@@ -18676,9 +18675,9 @@ Cleaned geographic data feeds into the resolver system:
 - [Geographic Data](#4.2) - Builds `COUNTRY_LABEL_OVERRIDES` and city indexes
 
 The classification ensures that resolvers only process true geographic locations, preventing misclassification errors like:
-- âŒ "Manchester United" resolving as "Manchester" city
-- âŒ "Harvard University" resolving as "Harvard" location
-- âŒ "Golden Gate Bridge" resolving as "Golden Gate" location
+- ❌ "Manchester United" resolving as "Manchester" city
+- ❌ "Harvard University" resolving as "Harvard" location
+- ❌ "Golden Gate Bridge" resolving as "Golden Gate" location
 
 ### Parallel: Other Helper Scripts
 
@@ -18695,8 +18694,8 @@ The script is part of a broader data preparation toolkit:
 
 The Arabic grammar correction system ensures grammatically correct category labels through three coordinated functions:
 
-1. **`separator_lists_fixing()`** - Adds location/time preposition "ÙÙŠ"
-2. **`add_in_tab()`** - Adds origin preposition "Ù…Ù†" and handles complex cases
+1. **`separator_lists_fixing()`** - Adds location/time preposition "في"
+2. **`add_in_tab()`** - Adds origin preposition "من" and handles complex cases
 3. **`fixlabel()`** - Performs final normalization and duplicate removal
 
 The system is thoroughly tested with 500+ test cases and handles edge cases including duplicate prevention, exception categories, and spacing normalization. It operates as the final processing stage in the translation pipeline with O(1) time complexity and minimal memory overhead.37:T5b5b,# Testing and Validation
@@ -18866,10 +18865,10 @@ The ArWikiCats test suite has achieved 91% overall code coverage through systema
 ```mermaid
 graph LR
     subgraph "Coverage Improvements"
-        Legacy["legacy_bots/<br/>70% â†’ 87%<br/>(+294 tests)"]
-        Formats["translations_formats/<br/>0% â†’ High coverage<br/>(+430 tests)"]
-        Genders["genders_resolvers/<br/>0% â†’ 100%"]
-        Interface["interface.py<br/>0% â†’ 100%"]
+        Legacy["legacy_bots/<br/>70% → 87%<br/>(+294 tests)"]
+        Formats["translations_formats/<br/>0% → High coverage<br/>(+430 tests)"]
+        Genders["genders_resolvers/<br/>0% → 100%"]
+        Interface["interface.py<br/>0% → 100%"]
     end
 
     subgraph "Total Project Coverage"
@@ -18975,11 +18974,11 @@ Event lists are country-specific test suites that validate complete category tra
 # Expected translations after improvements
 {
     "Women members of the National Assembly of South Africa":
-        "Ø¹Ø¶ÙˆØ§Øª Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ø¬Ù†ÙˆØ¨ Ø§Ù„Ø¥ÙØ±ÙŠÙ‚ÙŠØ©",
+        "عضوات الجمعية الوطنية الجنوب الإفريقية",
     "Speakers of the National Assembly of South Africa":
-        "Ø±Ø¤Ø³Ø§Ø¡ Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ø¬Ù†ÙˆØ¨ Ø§Ù„Ø¥ÙØ±ÙŠÙ‚ÙŠØ©",
+        "رؤساء الجمعية الوطنية الجنوب الإفريقية",
     "Members of the National Assembly of South Africa":
-        "Ø£Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ø¬Ù†ÙˆØ¨ Ø§Ù„Ø¥ÙØ±ÙŠÙ‚ÙŠØ©"
+        "أعضاء الجمعية الوطنية الجنوب الإفريقية"
 }
 ```
 
@@ -19042,8 +19041,8 @@ Compares resolver output against expected translations for a dataset.
 - `do_strip`: Whether to strip whitespace before comparison
 
 **Returns:**
-- `org`: Dictionary of categories where actual â‰  expected (original expected values)
-- `diff`: Dictionary of categories where actual â‰  expected (actual results)
+- `org`: Dictionary of categories where actual ≠ expected (original expected values)
+- `diff`: Dictionary of categories where actual ≠ expected (actual results)
 
 **Source:** [tests/load_one_data.py:63-79]()
 
@@ -19074,7 +19073,7 @@ Generates wiki-formatted text for manual review and copy-paste to Wikipedia.
 
 **Output format:**
 ```
-# {{ÙˆØ¨:Ø·Ù†Øª/Ø³Ø·Ø±|original|new|Ø³Ø¨Ø¨ Ø§Ù„Ù†Ù‚Ù„=ØªØµØ­ÙŠØ­ ArWikiCats}}
+# {{وب:طنت/سطر|original|new|سبب النقل=تصحيح ArWikiCats}}
 ```
 
 **Source:** [tests/load_one_data.py:32-60]()
@@ -19266,8 +19265,8 @@ def test_specific_function():
 # Integration test example with parametrize
 @pytest.mark.integration
 @pytest.mark.parametrize("input_cat,expected", [
-    ("British footballers", "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"),
-    ("American basketball players", "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"),
+    ("British footballers", "لاعبو كرة قدم بريطانيون"),
+    ("American basketball players", "لاعبو كرة سلة أمريكيون"),
 ])
 def test_nationality_sport_pattern(input_cat, expected):
     result = resolve_label_ar(input_cat)
@@ -19281,8 +19280,8 @@ from tests.load_one_data import one_dump_test, dump_diff
 
 def test_batch_categories():
     dataset = {
-        "British footballers": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-        "French painters": "Ø±Ø³Ø§Ù…ÙˆÙ† ÙØ±Ù†Ø³ÙŠÙˆÙ†",
+        "British footballers": "لاعبو كرة قدم بريطانيون",
+        "French painters": "رسامون فرنسيون",
         # ... more test cases
     }
 
@@ -19389,9 +19388,9 @@ The project enforces quality through:
 
 ```python
 @pytest.mark.parametrize("english,arabic", [
-    ("2015 in Yemen", "2015 ÙÙŠ Ø§Ù„ÙŠÙ…Ù†"),
-    ("British footballers", "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"),
-    ("American basketball coaches", "Ù…Ø¯Ø±Ø¨Ùˆ ÙƒØ±Ø© Ø³Ù„Ø© Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"),
+    ("2015 in Yemen", "2015 في اليمن"),
+    ("British footballers", "لاعبو كرة قدم بريطانيون"),
+    ("American basketball coaches", "مدربو كرة سلة أمريكيون"),
 ])
 def test_translations(english, arabic):
     result = resolve_label_ar(english)
@@ -19418,9 +19417,9 @@ def test_south_african_national_assembly():
     """Regression test for corrected translations."""
     test_cases = {
         "Women members of the National Assembly of South Africa":
-            "Ø¹Ø¶ÙˆØ§Øª Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ø¬Ù†ÙˆØ¨ Ø§Ù„Ø¥ÙØ±ÙŠÙ‚ÙŠØ©",
+            "عضوات الجمعية الوطنية الجنوب الإفريقية",
         "Speakers of the National Assembly of South Africa":
-            "Ø±Ø¤Ø³Ø§Ø¡ Ø§Ù„Ø¬Ù…Ø¹ÙŠØ© Ø§Ù„ÙˆØ·Ù†ÙŠØ© Ø§Ù„Ø¬Ù†ÙˆØ¨ Ø§Ù„Ø¥ÙØ±ÙŠÙ‚ÙŠØ©",
+            "رؤساء الجمعية الوطنية الجنوب الإفريقية",
     }
     org, diff = one_dump_test(test_cases, resolve_arabic_category_label)
     assert len(diff) == 0  # No regressions
@@ -19664,8 +19663,8 @@ The `dump_runner.py` module provides shared test logic for data comparison tests
 from utils.dump_runner import make_dump_test_name_data
 
 test_data = {
-    "British footballers": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-    "American actors": "Ù…Ù…Ø«Ù„ÙˆÙ† Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"
+    "British footballers": "لاعبو كرة قدم بريطانيون",
+    "American actors": "ممثلون أمريكيون"
 }
 
 to_test = [("test_jobs", test_data)]
@@ -20014,11 +20013,11 @@ The nationality tests use multiple data dictionaries organized by grammatical fo
 ```mermaid
 graph LR
     subgraph "Nationality Test Data Structure"
-        TEST_MALES["test_data_males<br/>{'{en} non profit publishers':<br/>'Ù†Ø§Ø´Ø±ÙˆÙ† ØºÙŠØ± Ø±Ø¨Ø­ÙŠÙˆÙ† {males}'}"]
-        TEST_AR["test_data_ar<br/>{'{en} music groups':<br/>'ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ {female}'}"]
-        TEST_FEMALE["test_data_female_music<br/>{'{en} musical duos':<br/>'ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚ÙŠØ© Ø«Ù†Ø§Ø¦ÙŠØ© {female}'}"]
-        TEST_MALE["test_data_male<br/>{'{en} cuisine':<br/>'Ù…Ø·Ø¨Ø® {male}'}"]
-        TEST_THE_MALE["test_data_the_male<br/>{'{en} occupation':<br/>'Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ {the_male}'}"]
+        TEST_MALES["test_data_males<br/>{'{en} non profit publishers':<br/>'ناشرون غير ربحيون {males}'}"]
+        TEST_AR["test_data_ar<br/>{'{en} music groups':<br/>'فرق موسيقى {female}'}"]
+        TEST_FEMALE["test_data_female_music<br/>{'{en} musical duos':<br/>'فرق موسيقية ثنائية {female}'}"]
+        TEST_MALE["test_data_male<br/>{'{en} cuisine':<br/>'مطبخ {male}'}"]
+        TEST_THE_MALE["test_data_the_male<br/>{'{en} occupation':<br/>'الاحتلال {the_male}'}"]
     end
 
     subgraph "Test Execution"
@@ -20042,18 +20041,18 @@ graph LR
 ```python
 # From test_nats_v2.py:8-24
 test_data_males = {
-    "yemeni non profit publishers": "Ù†Ø§Ø´Ø±ÙˆÙ† ØºÙŠØ± Ø±Ø¨Ø­ÙŠÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†",
-    "yemeni government officials": "Ù…Ø³Ø¤ÙˆÙ„ÙˆÙ† Ø­ÙƒÙˆÙ…ÙŠÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†",
+    "yemeni non profit publishers": "ناشرون غير ربحيون يمنيون",
+    "yemeni government officials": "مسؤولون حكوميون يمنيون",
 }
 
 test_data_ar = {
-    "yemeni music groups": "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ ÙŠÙ…Ù†ÙŠØ©",
-    "yemeni rock musical groups": "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚Ù‰ Ø±ÙˆÙƒ ÙŠÙ…Ù†ÙŠØ©",
+    "yemeni music groups": "فرق موسيقى يمنية",
+    "yemeni rock musical groups": "فرق موسيقى روك يمنية",
 }
 
 test_data_the_male = {
-    "yemeni occupation": "Ø§Ù„Ø§Ø­ØªÙ„Ø§Ù„ Ø§Ù„ÙŠÙ…Ù†ÙŠ",
-    "yemeni premier league": "Ø§Ù„Ø¯ÙˆØ±ÙŠ Ø§Ù„ÙŠÙ…Ù†ÙŠ Ø§Ù„Ù…Ù…ØªØ§Ø²",
+    "yemeni occupation": "الاحتلال اليمني",
+    "yemeni premier league": "الدوري اليمني الممتاز",
 }
 ```
 
@@ -20064,10 +20063,10 @@ The file `test_2.py` contains an exhaustive test suite for Yemeni nationality pa
 ```python
 # From test_2.py:7-211
 fast_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
-    "yemeni buildings": "Ù…Ø¨Ø§Ù†ÙŠ ÙŠÙ…Ù†ÙŠØ©",
-    "yemeni elections": "Ø§Ù†ØªØ®Ø§Ø¨Ø§Øª ÙŠÙ…Ù†ÙŠØ©",
-    "yemeni musical groups": "ÙØ±Ù‚ Ù…ÙˆØ³ÙŠÙ‚ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
+    "yemeni sports": "ألعاب رياضية يمنية",
+    "yemeni buildings": "مباني يمنية",
+    "yemeni elections": "انتخابات يمنية",
+    "yemeni musical groups": "فرق موسيقية يمنية",
     # ... 600+ more patterns
 }
 ```
@@ -20082,17 +20081,17 @@ This data validates nationality-specific patterns across:
 
 ## Ministers and Politics Tests
 
-The ministers test suite validates translation of political office titles, focusing on grammatical correctness with the Arabic definite article (Ø§Ù„).
+The ministers test suite validates translation of political office titles, focusing on grammatical correctness with the Arabic definite article (ال).
 
 ### Test Structure
 
 ```python
 # From test_ministers.py:9-16
 examples_1 = {
-    "Ministers for foreign affairs of Papua New Guinea": "ÙˆØ²Ø±Ø§Ø¡ Ø´Ø¤ÙˆÙ† Ø®Ø§Ø±Ø¬ÙŠØ© Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©",
-    "Justice ministers of Papua New Guinea": "ÙˆØ²Ø±Ø§Ø¡ Ø¹Ø¯Ù„ Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©",
-    "Agriculture ministers of Antigua and Barbuda": "ÙˆØ²Ø±Ø§Ø¡ Ø²Ø±Ø§Ø¹Ø© Ø£Ù†ØªÙŠØºÙˆØ§ ÙˆØ¨Ø§Ø±Ø¨ÙˆØ¯Ø§",
-    "Energy ministers of Antigua and Barbuda": "ÙˆØ²Ø±Ø§Ø¡ Ø·Ø§Ù‚Ø© Ø£Ù†ØªÙŠØºÙˆØ§ ÙˆØ¨Ø§Ø±Ø¨ÙˆØ¯Ø§",
+    "Ministers for foreign affairs of Papua New Guinea": "وزراء شؤون خارجية بابوا غينيا الجديدة",
+    "Justice ministers of Papua New Guinea": "وزراء عدل بابوا غينيا الجديدة",
+    "Agriculture ministers of Antigua and Barbuda": "وزراء زراعة أنتيغوا وباربودا",
+    "Energy ministers of Antigua and Barbuda": "وزراء طاقة أنتيغوا وباربودا",
 }
 ```
 
@@ -20105,16 +20104,16 @@ graph TB
     subgraph "ministers_keys Structure"
         KEY["ministers_keys<br/>Dictionary"]
 
-        KEY --> AGRICULTURE["'agriculture':<br/>{no_al: 'Ø²Ø±Ø§Ø¹Ø©',<br/>with_al: 'Ø§Ù„Ø²Ø±Ø§Ø¹Ø©'}"]
-        KEY --> DEFENSE["'defence':<br/>{no_al: 'Ø¯ÙØ§Ø¹',<br/>with_al: 'Ø§Ù„Ø¯ÙØ§Ø¹'}"]
-        KEY --> FOREIGN["'foreign affairs':<br/>{no_al: 'Ø´Ø¤ÙˆÙ† Ø®Ø§Ø±Ø¬ÙŠØ©',<br/>with_al: 'Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ©'}"]
-        KEY --> JUSTICE["'justice':<br/>{no_al: 'Ø¹Ø¯Ù„',<br/>with_al: 'Ø§Ù„Ø¹Ø¯Ù„'}"]
+        KEY --> AGRICULTURE["'agriculture':<br/>{no_al: 'زراعة',<br/>with_al: 'الزراعة'}"]
+        KEY --> DEFENSE["'defence':<br/>{no_al: 'دفاع',<br/>with_al: 'الدفاع'}"]
+        KEY --> FOREIGN["'foreign affairs':<br/>{no_al: 'شؤون خارجية',<br/>with_al: 'الشؤون الخارجية'}"]
+        KEY --> JUSTICE["'justice':<br/>{no_al: 'عدل',<br/>with_al: 'العدل'}"]
     end
 
     subgraph "Test Validation"
         INPUT["'Justice ministers of<br/>Papua New Guinea'"]
         RESOLVE["ministers resolver"]
-        OUTPUT["'ÙˆØ²Ø±Ø§Ø¡ Ø¹Ø¯Ù„<br/>Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©'"]
+        OUTPUT["'وزراء عدل<br/>بابوا غينيا الجديدة'"]
     end
 
     INPUT --> RESOLVE
@@ -20126,11 +20125,11 @@ The test suite validates ~94 ministry types with proper article usage:
 
 | Ministry Type | No Article (no_al) | With Article (with_al) |
 |---------------|-------------------|----------------------|
-| agriculture | Ø²Ø±Ø§Ø¹Ø© | Ø§Ù„Ø²Ø±Ø§Ø¹Ø© |
-| defence | Ø¯ÙØ§Ø¹ | Ø§Ù„Ø¯ÙØ§Ø¹ |
-| foreign affairs | Ø´Ø¤ÙˆÙ† Ø®Ø§Ø±Ø¬ÙŠØ© | Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ© |
-| justice | Ø¹Ø¯Ù„ | Ø§Ù„Ø¹Ø¯Ù„ |
-| interior | Ø¯Ø§Ø®Ù„ÙŠØ© | Ø§Ù„Ø¯Ø§Ø®Ù„ÙŠØ© |
+| agriculture | زراعة | الزراعة |
+| defence | دفاع | الدفاع |
+| foreign affairs | شؤون خارجية | الشؤون الخارجية |
+| justice | عدل | العدل |
+| interior | داخلية | الداخلية |
 
 **Sources:** [tests/event_lists/test_ministers.py:1-50](), [ArWikiCats/translations/politics/ministers.py:1-104]()
 
@@ -20143,10 +20142,10 @@ Year pattern tests validate temporal expression translation including decades, c
 ```mermaid
 graph TB
     subgraph "Year Pattern Test Types"
-        DECADES["Decade Tests<br/>'1970s albums'<br/>â†’ 'Ø£Ù„Ø¨ÙˆÙ…Ø§Øª Ø¹Ù‚Ø¯ 1970'"]
-        CENTURIES["Century Tests<br/>'11th-century composers'<br/>â†’ 'Ù…Ù„Ø­Ù†ÙˆÙ† ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 11'"]
-        YEARS["Specific Years<br/>'2010 births'<br/>â†’ 'Ù…ÙˆØ§Ù„ÙŠØ¯ 2010'"]
-        RANGES["Year Ranges<br/>'2010-20 in British football'<br/>â†’ 'ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙÙŠ 2010-20'"]
+        DECADES["Decade Tests<br/>'1970s albums'<br/>→ 'ألبومات عقد 1970'"]
+        CENTURIES["Century Tests<br/>'11th-century composers'<br/>→ 'ملحنون في القرن 11'"]
+        YEARS["Specific Years<br/>'2010 births'<br/>→ 'مواليد 2010'"]
+        RANGES["Year Ranges<br/>'2010-20 in British football'<br/>→ 'كرة القدم البريطانية في 2010-20'"]
     end
 
     subgraph "Test Data Sources"
@@ -20179,15 +20178,15 @@ From the 5k.json dataset:
 
 ```python
 # Decade patterns
-"Category:2010s Massachusetts elections": "ØªØµÙ†ÙŠÙ:Ø§Ù†ØªØ®Ø§Ø¨Ø§Øª Ù…Ø§Ø³Ø§ØªØ´ÙˆØ³ØªØ³ ÙÙŠ Ø¹Ù‚Ø¯ 2010"
-"Category:1970s in Australian tennis": "ØªØµÙ†ÙŠÙ:ÙƒØ±Ø© Ø§Ù„Ù…Ø¶Ø±Ø¨ Ø§Ù„Ø£Ø³ØªØ±Ø§Ù„ÙŠØ© ÙÙŠ Ø¹Ù‚Ø¯ 1970"
+"Category:2010s Massachusetts elections": "تصنيف:انتخابات ماساتشوستس في عقد 2010"
+"Category:1970s in Australian tennis": "تصنيف:كرة المضرب الأسترالية في عقد 1970"
 
 # Century patterns
-"Category:11th-century composers": "ØªØµÙ†ÙŠÙ:Ù…Ù„Ø­Ù†ÙˆÙ† ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 11"
-"Category:13th-century Italian judges": "ØªØµÙ†ÙŠÙ:Ù‚Ø¶Ø§Ø© Ø¥ÙŠØ·Ø§Ù„ÙŠÙˆÙ† ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 13"
+"Category:11th-century composers": "تصنيف:ملحنون في القرن 11"
+"Category:13th-century Italian judges": "تصنيف:قضاة إيطاليون في القرن 13"
 
 # Year ranges
-"Category:2010-20 in British football": "ØªØµÙ†ÙŠÙ:ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø§Ù„Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© ÙÙŠ 2010-20"
+"Category:2010-20 in British football": "تصنيف:كرة القدم البريطانية في 2010-20"
 ```
 
 **Sources:** [examples/data/5k.json:1-50](), [examples/data/2025-11-28.json:1-40]()
@@ -20210,11 +20209,11 @@ Films and television tests validate genre combinations, temporal patterns, and n
 ```python
 # From films_with_time.json:1-7
 {
-    "Category:2010s fantasy novels": "ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ÙØ§Ù†ØªØ§Ø²ÙŠØ§ ÙÙŠ Ø¹Ù‚Ø¯ 2010",
-    "Category:2010s science fiction novels": "ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª Ø®ÙŠØ§Ù„ Ø¹Ù„Ù…ÙŠ ÙÙŠ Ø¹Ù‚Ø¯ 2010",
-    "Category:2010 fantasy novels": "ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ÙØ§Ù†ØªØ§Ø²ÙŠØ§ ÙÙŠ 2010",
-    "Category:2010s mystery films": "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… ØºÙ…ÙˆØ¶ ÙÙŠ Ø¹Ù‚Ø¯ 2010",
-    "Category:2010s pornographic films": "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø¥Ø¨Ø§Ø­ÙŠØ© ÙÙŠ Ø¹Ù‚Ø¯ 2010"
+    "Category:2010s fantasy novels": "تصنيف:روايات فانتازيا في عقد 2010",
+    "Category:2010s science fiction novels": "تصنيف:روايات خيال علمي في عقد 2010",
+    "Category:2010 fantasy novels": "تصنيف:روايات فانتازيا في 2010",
+    "Category:2010s mystery films": "تصنيف:أفلام غموض في عقد 2010",
+    "Category:2010s pornographic films": "تصنيف:أفلام إباحية في عقد 2010"
 }
 ```
 
@@ -20259,13 +20258,13 @@ The Papua New Guinea test suite demonstrates the structure of country-specific t
 ```python
 # From test_papua_new_guinea.py:7-22
 data_skip = {
-    "Category:Defunct airports in Papua New Guinea": "ØªØµÙ†ÙŠÙ:Ù…Ø·Ø§Ø±Ø§Øª Ø³Ø§Ø¨Ù‚Ø© ÙÙŠ Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©",
-    "Category:April 2023 in Papua New Guinea": "ØªØµÙ†ÙŠÙ:Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø© ÙÙŠ Ø£Ø¨Ø±ÙŠÙ„ 2023",
+    "Category:Defunct airports in Papua New Guinea": "تصنيف:مطارات سابقة في بابوا غينيا الجديدة",
+    "Category:April 2023 in Papua New Guinea": "تصنيف:بابوا غينيا الجديدة في أبريل 2023",
 }
 
 data_0 = {
-    "Category:Papua New Guinea men's international soccer players": "ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¯ÙˆÙ„ÙŠÙˆÙ† Ù…Ù† Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©",
-    "Category:Papua New Guinea women's international soccer players": "ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¯ÙˆÙ„ÙŠØ§Øª Ù…Ù† Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©",
+    "Category:Papua New Guinea men's international soccer players": "تصنيف:لاعبو كرة قدم دوليون من بابوا غينيا الجديدة",
+    "Category:Papua New Guinea women's international soccer players": "تصنيف:لاعبات كرة قدم دوليات من بابوا غينيا الجديدة",
 }
 ```
 
@@ -20316,10 +20315,10 @@ Relations tests validate bilateral relationship categories between countries.
 ```python
 # From relations_data.json:1-5
 {
-    "north macedoniaâ€“qatar relations": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„Ù‚Ø·Ø±ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯ÙˆÙ†ÙŠØ© Ø§Ù„Ø´Ù…Ø§Ù„ÙŠØ©",
-    "north macedoniaâ€“serbia border crossings": "ØªØµÙ†ÙŠÙ:Ù…Ø¹Ø§Ø¨Ø± Ø§Ù„Ø­Ø¯ÙˆØ¯ Ø§Ù„ØµØ±Ø¨ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯ÙˆÙ†ÙŠØ© Ø§Ù„Ø´Ù…Ø§Ù„ÙŠØ©",
-    "north macedoniaâ€“serbia border": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø­Ø¯ÙˆØ¯ Ø§Ù„ØµØ±Ø¨ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯ÙˆÙ†ÙŠØ© Ø§Ù„Ø´Ù…Ø§Ù„ÙŠØ©",
-    "north macedoniaâ€“serbia relations": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø¹Ù„Ø§Ù‚Ø§Øª Ø§Ù„ØµØ±Ø¨ÙŠØ© Ø§Ù„Ù…Ù‚Ø¯ÙˆÙ†ÙŠØ© Ø§Ù„Ø´Ù…Ø§Ù„ÙŠØ©"
+    "north macedonia–qatar relations": "تصنيف:العلاقات القطرية المقدونية الشمالية",
+    "north macedonia–serbia border crossings": "تصنيف:معابر الحدود الصربية المقدونية الشمالية",
+    "north macedonia–serbia border": "تصنيف:الحدود الصربية المقدونية الشمالية",
+    "north macedonia–serbia relations": "تصنيف:العلاقات الصربية المقدونية الشمالية"
 }
 ```
 
@@ -20403,9 +20402,9 @@ The integration tests validate:
 
 ```python
 # From 5k.json - Categories requiring multiple resolvers
-"Category:2010s American sports-people": "ØªØµÙ†ÙŠÙ:Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ† ÙÙŠ Ø¹Ù‚Ø¯ 2010"  # Year + Nationality
-"Category:Ministers for foreign affairs of Papua New Guinea": "ØªØµÙ†ÙŠÙ:ÙˆØ²Ø±Ø§Ø¡ Ø´Ø¤ÙˆÙ† Ø®Ø§Ø±Ø¬ÙŠØ© Ø¨Ø§Ø¨ÙˆØ§ ØºÙŠÙ†ÙŠØ§ Ø§Ù„Ø¬Ø¯ÙŠØ¯Ø©"  # Ministers + Country
-"Category:2010s fantasy novels": "ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ÙØ§Ù†ØªØ§Ø²ÙŠØ§ ÙÙŠ Ø¹Ù‚Ø¯ 2010"  # Year + Film genre
+"Category:2010s American sports-people": "تصنيف:رياضيون أمريكيون في عقد 2010"  # Year + Nationality
+"Category:Ministers for foreign affairs of Papua New Guinea": "تصنيف:وزراء شؤون خارجية بابوا غينيا الجديدة"  # Ministers + Country
+"Category:2010s fantasy novels": "تصنيف:روايات فانتازيا في عقد 2010"  # Year + Film genre
 ```
 
 **Sources:** [examples/data/5k.json:1-100](), [examples/data/2025-11-28.json:1-50](), [examples/data/1k.json:1-50](), [examples/data/teams_to_test.json]()
@@ -20589,7 +20588,7 @@ def dump_one(data: dict, file_name: str) -> None
 
 **Usage:**
 ```python
-result_data = {"Category:yemeni sports": "ØªØµÙ†ÙŠÙ:Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©"}
+result_data = {"Category:yemeni sports": "تصنيف:ألعاب رياضية يمنية"}
 dump_one(result_data, "nationality_results")
 # Creates: tests/diff_data/nationality_results.json
 ```
@@ -20622,9 +20621,9 @@ This ordering makes it easier to review successful translations separately from 
 **Usage:**
 ```python
 diff_results = {
-    "Category:yemeni sports": "ØªØµÙ†ÙŠÙ:Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
+    "Category:yemeni sports": "تصنيف:ألعاب رياضية يمنية",
     "Category:unknown category": "",
-    "Category:american films": "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+    "Category:american films": "تصنيف:أفلام أمريكية"
 }
 dump_diff(diff_results, "test_diff")
 # Output will have non-empty translations first, then empty strings
@@ -20651,7 +20650,7 @@ def dump_diff_text(expected: dict, diff_result: dict, file_name: str) -> None
 **Output Format:**
 Creates text file with wiki template syntax for category moves:
 ```
-# {{ÙˆØ¨:Ø·Ù†Øª/Ø³Ø·Ø±|old_name|new_name|Ø³Ø¨Ø¨ Ø§Ù„Ù†Ù‚Ù„=ØªØµØ­ÙŠØ­ ArWikiCats}}
+# {{وب:طنت/سطر|old_name|new_name|سبب النقل=تصحيح ArWikiCats}}
 ```
 
 **Filtering Logic:**
@@ -20662,8 +20661,8 @@ Only includes entries where:
 
 **Usage:**
 ```python
-expected = {"old cat name": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ù‚Ø¯ÙŠÙ…"}
-actual = {"old cat name": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ø¬Ø¯ÙŠØ¯"}
+expected = {"old cat name": "تصنيف:الاسم القديم"}
+actual = {"old cat name": "تصنيف:الاسم الجديد"}
 dump_diff_text(expected, actual, "category_moves")
 # Creates: tests/diff_data/category_moves_wiki.json
 ```
@@ -20701,8 +20700,8 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
 **Usage:**
 ```python
 test_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
-    "american films": "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+    "yemeni sports": "ألعاب رياضية يمنية",
+    "american films": "أفلام أمريكية"
 }
 
 org, diff = one_dump_test(test_data, resolve_arabic_category_label)
@@ -20739,7 +20738,7 @@ Unlike `one_dump_test`, this function separates three types of failures:
 **Usage:**
 ```python
 test_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
+    "yemeni sports": "ألعاب رياضية يمنية",
     "unknown category": "some expected value"
 }
 
@@ -20943,15 +20942,15 @@ Test utilities write their output to the `tests/diff_data/` directory, which is 
 **Directory Structure:**
 ```
 tests/
-â”œâ”€â”€ diff_data/              # Auto-generated output directory
-â”‚   â”œâ”€â”€ test_name.json      # Sorted diff results
-â”‚   â”œâ”€â”€ test_name_same.json # Matching results
-â”‚   â”œâ”€â”€ test_name_not_same.json # Non-matching results
-â”‚   â”œâ”€â”€ test_name_wiki.json # Wiki-formatted move templates
-â”‚   â””â”€â”€ ...
-â”œâ”€â”€ load_one_data.py
-â””â”€â”€ utils/
-    â””â”€â”€ dump_runner.py
+├── diff_data/              # Auto-generated output directory
+│   ├── test_name.json      # Sorted diff results
+│   ├── test_name_same.json # Matching results
+│   ├── test_name_not_same.json # Non-matching results
+│   ├── test_name_wiki.json # Wiki-formatted move templates
+│   └── ...
+├── load_one_data.py
+└── utils/
+    └── dump_runner.py
 ```
 
 **File Formats:**
@@ -20966,16 +20965,16 @@ tests/
 **JSON Output Example:**
 ```json
 {
-    "Category:yemeni sports": "ØªØµÙ†ÙŠÙ:Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
-    "Category:american films": "ØªØµÙ†ÙŠÙ:Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
+    "Category:yemeni sports": "تصنيف:ألعاب رياضية يمنية",
+    "Category:american films": "تصنيف:أفلام أمريكية",
     "Category:unknown": ""
 }
 ```
 
 **Wiki Template Output Example:**
 ```
-# {{ÙˆØ¨:Ø·Ù†Øª/Ø³Ø·Ø±|Category:old name|Category:new name|Ø³Ø¨Ø¨ Ø§Ù„Ù†Ù‚Ù„=ØªØµØ­ÙŠØ­ ArWikiCats}}
-# {{ÙˆØ¨:Ø·Ù†Øª/Ø³Ø·Ø±|Category:another old|Category:another new|Ø³Ø¨Ø¨ Ø§Ù„Ù†Ù‚Ù„=ØªØµØ­ÙŠØ­ ArWikiCats}}
+# {{وب:طنت/سطر|Category:old name|Category:new name|سبب النقل=تصحيح ArWikiCats}}
+# {{وب:طنت/سطر|Category:another old|Category:another new|سبب النقل=تصحيح ArWikiCats}}
 ```
 
 **Sources:** [tests/load_one_data.py:8-9](), [tests/load_one_data.py:50-51]()
@@ -21018,8 +21017,8 @@ from load_one_data import one_dump_test
 from ArWikiCats import resolve_arabic_category_label
 
 test_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
-    "american films": "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+    "yemeni sports": "ألعاب رياضية يمنية",
+    "american films": "أفلام أمريكية"
 }
 
 def test_nationality_translations():
@@ -21103,9 +21102,9 @@ from load_one_data import one_dump_test, dump_diff
 from ArWikiCats import resolve_arabic_category_label
 
 test_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
-    "american films": "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©",
-    "french novels": "Ø±ÙˆØ§ÙŠØ§Øª ÙØ±Ù†Ø³ÙŠØ©"
+    "yemeni sports": "ألعاب رياضية يمنية",
+    "american films": "أفلام أمريكية",
+    "french novels": "روايات فرنسية"
 }
 
 def test_translations():
@@ -21131,9 +21130,9 @@ Identify categories that return no translation:
 from load_one_data import one_dump_test_no_labels, dump_diff
 
 test_data = {
-    "yemeni sports": "Ø£Ù„Ø¹Ø§Ø¨ Ø±ÙŠØ§Ø¶ÙŠØ© ÙŠÙ…Ù†ÙŠØ©",
+    "yemeni sports": "ألعاب رياضية يمنية",
     "unknown category": "expected value",
-    "american films": "Ø£ÙÙ„Ø§Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©"
+    "american films": "أفلام أمريكية"
 }
 
 def test_with_empty_tracking():
@@ -21162,9 +21161,9 @@ Create parametrized tests for multiple datasets:
 from tests.utils.dump_runner import make_dump_test_name_data
 from ArWikiCats import resolve_arabic_category_label
 
-test_data_males = {"yemeni singers": "Ù…ØºÙ†ÙˆÙ† ÙŠÙ…Ù†ÙŠÙˆÙ†"}
-test_data_females = {"yemeni music": "Ù…ÙˆØ³ÙŠÙ‚Ù‰ ÙŠÙ…Ù†ÙŠØ©"}
-test_data_ar = {"yemeni cup": "ÙƒØ£Ø³ Ø§Ù„ÙŠÙ…Ù†"}
+test_data_males = {"yemeni singers": "مغنون يمنيون"}
+test_data_females = {"yemeni music": "موسيقى يمنية"}
+test_data_ar = {"yemeni cup": "كأس اليمن"}
 
 to_test = [
     ("males", test_data_males),
@@ -21223,8 +21222,8 @@ from load_one_data import one_dump_test, dump_diff_text
 
 # Test data with old category names
 test_data = {
-    "old category name 1": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ù‚Ø¯ÙŠÙ… 1",
-    "old category name 2": "ØªØµÙ†ÙŠÙ:Ø§Ù„Ø§Ø³Ù… Ø§Ù„Ù‚Ø¯ÙŠÙ… 2"
+    "old category name 1": "تصنيف:الاسم القديم 1",
+    "old category name 2": "تصنيف:الاسم القديم 2"
 }
 
 # Run test to get new translations
@@ -21234,7 +21233,7 @@ org, diff = one_dump_test(test_data, resolve_arabic_category_label)
 if diff:
     dump_diff_text(org, diff, "category_moves")
     # Creates: diff_data/category_moves_wiki.json
-    # Content: {{ÙˆØ¨:Ø·Ù†Øª/Ø³Ø·Ø±|old|new|Ø³Ø¨Ø¨ Ø§Ù„Ù†Ù‚Ù„=ØªØµØ­ÙŠØ­ ArWikiCats}}
+    # Content: {{وب:طنت/سطر|old|new|سبب النقل=تصحيح ArWikiCats}}
 ```
 
 **Sources:** [tests/load_one_data.py:32-60]()
@@ -21346,10 +21345,10 @@ The novels dataset provides comprehensive coverage of novel-related categories i
 
 | English Category | Arabic Translation | Pattern Type |
 |-----------------|-------------------|--------------|
-| `Category:2010 French novels` | `ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ÙØ±Ù†Ø³ÙŠØ© ÙÙŠ 2010` | Year + Nationality |
-| `Category:2010s novels` | `ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª Ø¹Ù‚Ø¯ 2010` | Decade only |
-| `Category:British psychological novels` | `ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª Ù†ÙØ³ÙŠØ© Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ©` | Nationality + Genre |
-| `Category:Novels set in Angola` | `ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ØªÙ‚Ø¹ Ø£Ø­Ø¯Ø§Ø«Ù‡Ø§ ÙÙŠ Ø£Ù†ØºÙˆÙ„Ø§` | Setting-based |
+| `Category:2010 French novels` | `تصنيف:روايات فرنسية في 2010` | Year + Nationality |
+| `Category:2010s novels` | `تصنيف:روايات عقد 2010` | Decade only |
+| `Category:British psychological novels` | `تصنيف:روايات نفسية بريطانية` | Nationality + Genre |
+| `Category:Novels set in Angola` | `تصنيف:روايات تقع أحداثها في أنغولا` | Setting-based |
 
 **Sources:** [examples/data/novels.json:1-77]()
 
@@ -21370,9 +21369,9 @@ This dataset focuses on television series categories, covering production countr
 
 | English Category | Arabic Translation | Pattern Type |
 |-----------------|-------------------|--------------|
-| `Category:2010 Japanese television series debuts` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ø¨Ø¯Ø£ Ø¹Ø±Ø¶Ù‡Ø§ ÙÙŠ 2010` | Year + Country + Debut |
-| `Category:2010s Swedish television series` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø³ÙˆÙŠØ¯ÙŠØ© ÙÙŠ Ø¹Ù‚Ø¯ 2010` | Decade + Country |
-| `Category:Arabic-language television series` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¨Ø§Ù„Ù„ØºØ© Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©` | Language-based |
+| `Category:2010 Japanese television series debuts` | `تصنيف:مسلسلات تلفزيونية يابانية بدأ عرضها في 2010` | Year + Country + Debut |
+| `Category:2010s Swedish television series` | `تصنيف:مسلسلات تلفزيونية سويدية في عقد 2010` | Decade + Country |
+| `Category:Arabic-language television series` | `تصنيف:مسلسلات تلفزيونية باللغة العربية` | Language-based |
 
 **Sources:** [examples/data/television series.json:1-57]()
 
@@ -21392,9 +21391,9 @@ A specialized dataset for television series ending categories, demonstrating yea
 
 | English Category | Arabic Translation |
 |-----------------|-------------------|
-| `Category:2010 British television series endings` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ© Ø§Ù†ØªÙ‡Øª ÙÙŠ 2010` |
-| `Category:2010s Indonesian television series endings` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¥Ù†Ø¯ÙˆÙ†ÙŠØ³ÙŠØ© Ø§Ù†ØªÙ‡Øª ÙÙŠ Ø¹Ù‚Ø¯ 2010` |
-| `Category:Indonesian television series endings by decade` | `ØªØµÙ†ÙŠÙ:Ù…Ø³Ù„Ø³Ù„Ø§Øª ØªÙ„ÙØ²ÙŠÙˆÙ†ÙŠØ© Ø¥Ù†Ø¯ÙˆÙ†ÙŠØ³ÙŠØ© Ø­Ø³Ø¨ Ø¹Ù‚Ø¯ Ø§Ù†ØªÙ‡Ø§Ø¡ Ø§Ù„Ø¹Ø±Ø¶` |
+| `Category:2010 British television series endings` | `تصنيف:مسلسلات تلفزيونية بريطانية انتهت في 2010` |
+| `Category:2010s Indonesian television series endings` | `تصنيف:مسلسلات تلفزيونية إندونيسية انتهت في عقد 2010` |
+| `Category:Indonesian television series endings by decade` | `تصنيف:مسلسلات تلفزيونية إندونيسية حسب عقد انتهاء العرض` |
 
 **Sources:** [examples/data/endings.json:1-32]()
 
@@ -21408,27 +21407,27 @@ The most extensive example dataset, containing non-fiction categories with multi
 
 ```json
 {
-    "ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠ": {
-        "Category:Non-fiction": "ØªØµÙ†ÙŠÙ:ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠ",
-        "Category:Non-fiction literature": "ØªØµÙ†ÙŠÙ:Ø£Ø¯Ø¨ ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠ",
+    "غير روائي": {
+        "Category:Non-fiction": "تصنيف:غير روائي",
+        "Category:Non-fiction literature": "تصنيف:أدب غير روائي",
         ...
     },
-    "ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠÙŠÙ†": {
-        "Category:20th-century non-fiction writers": "ØªØµÙ†ÙŠÙ:ÙƒØªØ§Ø¨ ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠÙŠÙ† ÙÙŠ Ø§Ù„Ù‚Ø±Ù† 20",
-        "Category:American non-fiction writers": "ØªØµÙ†ÙŠÙ:ÙƒØªØ§Ø¨ ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠÙŠÙ† Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†",
+    "غير روائيين": {
+        "Category:20th-century non-fiction writers": "تصنيف:كتاب غير روائيين في القرن 20",
+        "Category:American non-fiction writers": "تصنيف:كتاب غير روائيين أمريكيون",
         ...
     },
-    "Ø®ÙŠØ§Ù„ÙŠ": {
-        "Category:1643 non-fiction books": "ØªØµÙ†ÙŠÙ:ÙƒØªØ¨ ØºÙŠØ± Ø®ÙŠØ§Ù„ÙŠØ© 1643",
+    "خيالي": {
+        "Category:1643 non-fiction books": "تصنيف:كتب غير خيالية 1643",
         ...
     }
 }
 ```
 
 **Coverage Areas:**
-- General non-fiction categories (under "ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠ")
-- Non-fiction writers by nationality and century (under "ØºÙŠØ± Ø±ÙˆØ§Ø¦ÙŠÙŠÙ†")
-- Non-fiction books by year (under "Ø®ÙŠØ§Ù„ÙŠ")
+- General non-fiction categories (under "غير روائي")
+- Non-fiction writers by nationality and century (under "غير روائيين")
+- Non-fiction books by year (under "خيالي")
 - Gender-specific writer categories
 - Environmental and crime non-fiction subcategories
 
@@ -21442,7 +21441,7 @@ All example datasets follow a consistent JSON structure mapping English categori
 graph LR
     subgraph "JSON Structure"
         EnglishKey["English Category Key<br/>'Category:2010 French novels'"]
-        ArabicValue["Arabic Translation Value<br/>'ØªØµÙ†ÙŠÙ:Ø±ÙˆØ§ÙŠØ§Øª ÙØ±Ù†Ø³ÙŠØ© ÙÙŠ 2010'"]
+        ArabicValue["Arabic Translation Value<br/>'تصنيف:روايات فرنسية في 2010'"]
 
         EnglishKey -->|"maps to"| ArabicValue
     end
@@ -21453,7 +21452,7 @@ graph LR
     end
 
     subgraph "Value Components"
-        TasnifPrefix["'ØªØµÙ†ÙŠÙ:' prefix<br/>(Arabic for 'Category:')"]
+        TasnifPrefix["'تصنيف:' prefix<br/>(Arabic for 'Category:')"]
         TranslatedContent["Translated content<br/>(Arabic)"]
     end
 
@@ -21466,7 +21465,7 @@ graph LR
 
 **Standard Format:**
 - **Keys:** Full English category names with `Category:` prefix
-- **Values:** Full Arabic translations with `ØªØµÙ†ÙŠÙ:` prefix
+- **Values:** Full Arabic translations with `تصنيف:` prefix
 - **Encoding:** UTF-8 JSON format
 - **Special Cases:** Non-fiction dataset uses nested structure with Arabic root forms as grouping keys
 
@@ -21562,9 +21561,9 @@ graph LR
     end
 
     subgraph "Format Templates"
-        T1["'{nationality} novels in {year}'<br/>â†’ 'Ø±ÙˆØ§ÙŠØ§Øª {nationality} ÙÙŠ {year}'"]
-        T2["'{nationality} novels in {century}'<br/>â†’ 'Ø±ÙˆØ§ÙŠØ§Øª {nationality} ÙÙŠ {century}'"]
-        T3["'Novels set in {country}'<br/>â†’ 'Ø±ÙˆØ§ÙŠØ§Øª ØªÙ‚Ø¹ Ø£Ø­Ø¯Ø§Ø«Ù‡Ø§ ÙÙŠ {country}'"]
+        T1["'{nationality} novels in {year}'<br/>→ 'روايات {nationality} في {year}'"]
+        T2["'{nationality} novels in {century}'<br/>→ 'روايات {nationality} في {century}'"]
+        T3["'Novels set in {country}'<br/>→ 'روايات تقع أحداثها في {country}'"]
     end
 
     N1 --> R1
@@ -21587,7 +21586,7 @@ graph LR
 To add a new example dataset:
 
 1. **Create JSON file** in `examples/data/` directory with descriptive name
-2. **Follow standard format:** English category keys with `Category:` prefix mapping to Arabic translations with `ØªØµÙ†ÙŠÙ:` prefix
+2. **Follow standard format:** English category keys with `Category:` prefix mapping to Arabic translations with `تصنيف:` prefix
 3. **Group related categories:** Keep thematically related categories in the same file
 4. **Document coverage:** Add comments or companion documentation describing the domain coverage
 5. **Update test references:** Modify test utilities to load and validate the new dataset
@@ -21900,8 +21899,8 @@ graph TB
 
 ```python
 data0_no_label = {
-    "defunct american football venues": "Ù…Ù„Ø§Ø¹Ø¨ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ© Ø³Ø§Ø¨Ù‚Ø©",
-    "defunct amusement parks": "Ù…ØªÙ†Ø²Ù‡Ø§Øª Ù…Ù„Ø§Ù‡ÙŠ Ø³Ø§Ø¨Ù‚Ø©",
+    "defunct american football venues": "ملاعب كرة قدم أمريكية سابقة",
+    "defunct amusement parks": "متنزهات ملاهي سابقة",
     # ... more cases
 }
 
@@ -22099,11 +22098,11 @@ def new_resolvers_all(category: str) -> str:
 
 ```python
 # Bad order (causes mis-resolution):
-resolve_sports_main("football manager") or  # Returns "Ù…Ø¯ÙŠØ± ÙƒØ±Ø© Ù‚Ø¯Ù…" (sports manager)
+resolve_sports_main("football manager") or  # Returns "مدير كرة قدم" (sports manager)
 resolve_jobs_main("football manager")       # Never reached!
 
 # Correct order:
-resolve_jobs_main("football manager") or    # Returns "Ù…Ø¯Ø±Ø¨ ÙƒØ±Ø© Ù‚Ø¯Ù…" (job title)
+resolve_jobs_main("football manager") or    # Returns "مدرب كرة قدم" (job title)
 resolve_sports_main("football manager")     # Fallback
 ```
 
@@ -22117,7 +22116,7 @@ The `FormatData` family of classes provides template-based translation with plac
 
 | Class | Use Case | Example Pattern |
 |-------|----------|----------------|
-| `FormatData` | Single placeholder, simple string data | `"{sport} players" â†’ "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}"` |
+| `FormatData` | Single placeholder, simple string data | `"{sport} players" → "لاعبو {sport_ar}"` |
 | `FormatDataV2` | Single placeholder, dictionary data with sub-keys | Nationality + multiple grammatical forms |
 | `FormatDataFrom` | Single placeholder with callback function | Time-based transformations |
 | `MultiDataFormatterBase` | Two placeholders (nationality + sport) | `"{nat} {sport} players"` |
@@ -22134,17 +22133,17 @@ from ArWikiCats.translations.sports import SPORT_JOBS_DATA
 
 formatter = FormatData(
     formatted_data={
-        "{sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar}",
-        "{sport} teams": "ÙØ±Ù‚ {sport_ar}",
-        "{sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar}",
+        "{sport} players": "لاعبو {sport_ar}",
+        "{sport} teams": "فرق {sport_ar}",
+        "{sport} coaches": "مدربو {sport_ar}",
     },
-    data_list=SPORT_JOBS_DATA,  # {"football": "ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…", ...}
+    data_list=SPORT_JOBS_DATA,  # {"football": "كرة القدم", ...}
     key_placeholder="{sport}",
     value_placeholder="{sport_ar}",
 )
 
 result = formatter.search("football players")
-# Returns: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù…"
+# Returns: "لاعبو كرة القدم"
 ```
 
 **Implementation Example 2: FormatDataV2 with Dictionary Data**
@@ -22157,10 +22156,10 @@ from ArWikiCats.translations.nats import All_Nat
 
 formatter = FormatDataV2(
     formatted_data={
-        "{nat} writers": "{nat_m_plural} ÙƒØªØ§Ø¨",      # Masculine plural
-        "{nat} female writers": "{nat_f_plural} ÙƒØ§ØªØ¨Ø§Øª",  # Feminine plural
+        "{nat} writers": "{nat_m_plural} كتاب",      # Masculine plural
+        "{nat} female writers": "{nat_f_plural} كاتبات",  # Feminine plural
     },
-    data_list=All_Nat,  # {"british": {"m_plural": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†", "f_plural": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª", ...}}
+    data_list=All_Nat,  # {"british": {"m_plural": "بريطانيون", "f_plural": "بريطانيات", ...}}
     key_placeholder="{nat}",
     value_placeholder_map={
         "{nat_m_plural}": "m_plural",
@@ -22169,7 +22168,7 @@ formatter = FormatDataV2(
 )
 
 result = formatter.search("british writers")
-# Returns: "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ† ÙƒØªØ§Ø¨"
+# Returns: "بريطانيون كتاب"
 ```
 
 **Implementation Example 3: MultiDataFormatterBase for Dual Patterns**
@@ -22183,8 +22182,8 @@ from ArWikiCats.translations.sports import SPORT_JOBS_DATA
 
 formatter = format_multi_data(
     formatted_data={
-        "{nat} {sport} players": "Ù„Ø§Ø¹Ø¨Ùˆ {sport_ar} {nat_ar}",
-        "{nat} {sport} coaches": "Ù…Ø¯Ø±Ø¨Ùˆ {sport_ar} {nat_ar}",
+        "{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}",
+        "{nat} {sport} coaches": "مدربو {sport_ar} {nat_ar}",
     },
     data_list=All_Nat,              # First placeholder
     data_list2=SPORT_JOBS_DATA,     # Second placeholder
@@ -22193,7 +22192,7 @@ formatter = format_multi_data(
 )
 
 result = formatter.search("british football players")
-# Returns: "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ø§Ù„Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"
+# Returns: "لاعبو كرة القدم بريطانيون"
 ```
 
 **Key Methods:**
@@ -22229,9 +22228,9 @@ Arabic requires gender agreement. The system handles gender-specific translation
 def _finalise_jobs_dataset() -> dict:
     """Men's jobs dataset - 96,552 entries."""
     return {
-        "writers": "ÙƒØªØ§Ø¨",
-        "singers": "Ù…ØºÙ†ÙˆÙ†",
-        "painters": "Ø±Ø³Ø§Ù…ÙˆÙ†",
+        "writers": "كتاب",
+        "singers": "مغنون",
+        "painters": "رسامون",
         # ... 96,549 more entries
     }
 
@@ -22239,9 +22238,9 @@ def _finalise_jobs_dataset() -> dict:
 def _finalise_jobs_womens_data() -> dict:
     """Women's jobs dataset with feminine forms."""
     return {
-        "writers": "ÙƒØ§ØªØ¨Ø§Øª",
-        "singers": "Ù…ØºÙ†ÙŠØ§Øª",
-        "painters": "Ø±Ø³Ø§Ù…Ø§Øª",
+        "writers": "كاتبات",
+        "singers": "مغنيات",
+        "painters": "رسامات",
         # ... entries
     }
 ```
@@ -22253,10 +22252,10 @@ def fix_keys(category: str) -> str:
     """Normalize gender-specific category terms.
 
     Transformations:
-    - "women" â†’ "female"
-    - "womens" â†’ "female"
-    - "men" â†’ "male"
-    - "mens" â†’ "male"
+    - "women" → "female"
+    - "womens" → "female"
+    - "men" → "male"
+    - "mens" → "male"
     """
     category = category.replace("women", "female")
     category = category.replace("womens", "female")
@@ -22289,9 +22288,9 @@ def resolve_womens_jobs(category: str) -> str:
 
 ```python
 # These are automatically routed to correct gender dataset:
-resolve_label_ar("American male writers")      # â†’ "ÙƒØªØ§Ø¨ Ø£Ù…Ø±ÙŠÙƒÙŠÙˆÙ†"
-resolve_label_ar("American female writers")    # â†’ "ÙƒØ§ØªØ¨Ø§Øª Ø£Ù…Ø±ÙŠÙƒÙŠØ§Øª"
-resolve_label_ar("British women painters")     # â†’ "Ø±Ø³Ø§Ù…Ø§Øª Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠØ§Øª"
+resolve_label_ar("American male writers")      # → "كتاب أمريكيون"
+resolve_label_ar("American female writers")    # → "كاتبات أمريكيات"
+resolve_label_ar("British women painters")     # → "رسامات بريطانيات"
 ```
 
 **Adding New Gender-Aware Translations:**
@@ -22379,10 +22378,10 @@ graph TB
     IDENTIFY["Real Example: Add support for<br/>'Classical composers' categories"]
 
     subgraph Step1["Step 1: Data Preparation"]
-        JSON["Add to jsons/jobs/jobs_3.json:<br/>{<br/>  'classical composers': 'Ù…Ù„Ø­Ù†ÙˆÙ† ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠÙˆÙ†',<br/>  'romantic composers': 'Ù…Ù„Ø­Ù†ÙˆÙ† Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠÙˆÙ†'<br/>}"]
+        JSON["Add to jsons/jobs/jobs_3.json:<br/>{<br/>  'classical composers': 'ملحنون كلاسيكيون',<br/>  'romantic composers': 'ملحنون رومانسيون'<br/>}"]
         LOAD["Loaded by translations/jobs/Jobs.py:<br/>@lru_cache(maxsize=1)<br/>def _finalise_jobs_dataset():<br/>    jobs_3 = open_json_file('jsons/jobs/jobs_3.json')"]
         EXPORT["Exported in translations/__init__.py:<br/>from .jobs.Jobs import jobs_mens_data"]
-        META["Update _work_files/data_len.json:<br/>jobs_mens_data: 96,552 â†’ 96,554"]
+        META["Update _work_files/data_len.json:<br/>jobs_mens_data: 96,552 → 96,554"]
     end
 
     subgraph Step2["Step 2: Resolver Integration"]
@@ -22393,15 +22392,15 @@ graph TB
 
     subgraph Step3["Step 3: Testing"]
         TEST_FILE["Create tests/unit/test_jobs/test_composers.py"]
-        TEST_DATA["test_data = {<br/>    'British classical composers': 'Ù…Ù„Ø­Ù†ÙˆÙ† ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†',<br/>    'German romantic composers': 'Ù…Ù„Ø­Ù†ÙˆÙ† Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠÙˆÙ† Ø£Ù„Ù…Ø§Ù†'<br/>}"]
+        TEST_DATA["test_data = {<br/>    'British classical composers': 'ملحنون كلاسيكيون بريطانيون',<br/>    'German romantic composers': 'ملحنون رومانسيون ألمان'<br/>}"]
         PARAM["@pytest.mark.parametrize('category, expected', test_data.items())<br/>def test_composers(category, expected):<br/>    assert resolve_label_ar(category) == expected"]
         RUN["pytest tests/unit/test_jobs/test_composers.py -v"]
     end
 
     subgraph Step4["Step 4: Validation & PR"]
-        UNIT["pytest tests/unit/ â†’ PASS"]
-        INTEGRATION["pytest tests/integration/ â†’ PASS"]
-        LINT["black ArWikiCats/ â†’ Reformatted 1 file<br/>isort ArWikiCats/ â†’ Skipped 0 files<br/>ruff check ArWikiCats/ â†’ All checks passed"]
+        UNIT["pytest tests/unit/ → PASS"]
+        INTEGRATION["pytest tests/integration/ → PASS"]
+        LINT["black ArWikiCats/ → Reformatted 1 file<br/>isort ArWikiCats/ → Skipped 0 files<br/>ruff check ArWikiCats/ → All checks passed"]
         CHANGELOG["Update changelog.md:<br/>[#301] - 2026-01-04<br/>* Added comprehensive support for<br/>  classical composers categories"]
         PR["Create PR with changes:<br/>- jsons/jobs/jobs_3.json<br/>- _work_files/data_len.json<br/>- tests/unit/test_jobs/test_composers.py<br/>- changelog.md"]
     end
@@ -22432,9 +22431,9 @@ graph TB
 **File 1: `jsons/jobs/jobs_3.json`**
 ```json
 {
-  "classical composers": "Ù…Ù„Ø­Ù†ÙˆÙ† ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠÙˆÙ†",
-  "romantic composers": "Ù…Ù„Ø­Ù†ÙˆÙ† Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠÙˆÙ†",
-  "baroque composers": "Ù…Ù„Ø­Ù†ÙˆÙ† Ø¹ØµØ± Ø§Ù„Ø¨Ø§Ø±ÙˆÙƒ"
+  "classical composers": "ملحنون كلاسيكيون",
+  "romantic composers": "ملحنون رومانسيون",
+  "baroque composers": "ملحنون عصر الباروك"
 }
 ```
 
@@ -22444,9 +22443,9 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 test_data = {
-    "British classical composers": "Ù…Ù„Ø­Ù†ÙˆÙ† ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†",
-    "German romantic composers": "Ù…Ù„Ø­Ù†ÙˆÙ† Ø±ÙˆÙ…Ø§Ù†Ø³ÙŠÙˆÙ† Ø£Ù„Ù…Ø§Ù†",
-    "French baroque composers": "Ù…Ù„Ø­Ù†ÙˆÙ† Ø¹ØµØ± Ø§Ù„Ø¨Ø§Ø±ÙˆÙƒ ÙØ±Ù†Ø³ÙŠÙˆÙ†",
+    "British classical composers": "ملحنون كلاسيكيون بريطانيون",
+    "German romantic composers": "ملحنون رومانسيون ألمان",
+    "French baroque composers": "ملحنون عصر الباروك فرنسيون",
 }
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
@@ -22473,7 +22472,7 @@ def test_composer_categories(category: str, expected: str) -> None:
 * Test coverage for composer categories with nationality combinations
 
 ### Changed
-* jobs_mens_data: 96,552 â†’ 96,555 entries
+* jobs_mens_data: 96,552 → 96,555 entries
 ```
 
 ### Verification Steps
@@ -22494,7 +22493,7 @@ ruff check ArWikiCats/
 
 # 4. Manual verification
 python -c "from ArWikiCats import resolve_label_ar; print(resolve_label_ar('British classical composers'))"
-# Output: Ù…Ù„Ø­Ù†ÙˆÙ† ÙƒÙ„Ø§Ø³ÙŠÙƒÙŠÙˆÙ† Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†
+# Output: ملحنون كلاسيكيون بريطانيون
 ```
 
 **Sources:** [changelog.md:321-331](), [ArWikiCats/translations/jobs/Jobs.py](), [ArWikiCats/new_resolvers/jobs_resolvers/](), [tests/unit/]()
@@ -22657,9 +22656,9 @@ For simple key-value dictionaries, add entries directly:
 # In translations/jobs/Jobs.py
 jobs_mens_data = {
     # Existing entries...
-    "software engineers": "Ù…Ù‡Ù†Ø¯Ø³Ùˆ Ø¨Ø±Ù…Ø¬ÙŠØ§Øª",
+    "software engineers": "مهندسو برمجيات",
     # Add new entry:
-    "data scientists": "Ø¹Ù„Ù…Ø§Ø¡ Ø¨ÙŠØ§Ù†Ø§Øª",
+    "data scientists": "علماء بيانات",
 }
 ```
 
@@ -22670,20 +22669,20 @@ All_Nat = {
     # Existing entries...
     "egyptian": NationalityEntry(
         en="egyptian",
-        ar="Ù…ØµØ±ÙŠ",
-        male="Ù…ØµØ±ÙŠ",
-        males="Ù…ØµØ±ÙŠÙˆÙ†",
-        female="Ù…ØµØ±ÙŠØ©",
-        females="Ù…ØµØ±ÙŠØ§Øª",
+        ar="مصري",
+        male="مصري",
+        males="مصريون",
+        female="مصرية",
+        females="مصريات",
     ),
     # Add new entry:
     "moroccan": NationalityEntry(
         en="moroccan",
-        ar="Ù…ØºØ±Ø¨ÙŠ",
-        male="Ù…ØºØ±Ø¨ÙŠ",
-        males="Ù…ØºØ§Ø±Ø¨Ø©",
-        female="Ù…ØºØ±Ø¨ÙŠØ©",
-        females="Ù…ØºØ±Ø¨ÙŠØ§Øª",
+        ar="مغربي",
+        male="مغربي",
+        males="مغاربة",
+        female="مغربية",
+        females="مغربيات",
     ),
 }
 ```
@@ -22818,8 +22817,8 @@ graph TB
     JOB --> MENS["jobs_mens_data<br/>4,015 entries<br/>Masculine forms"]
     JOB --> WOMENS["jobs_womens_data<br/>2,954 entries<br/>Feminine forms"]
 
-    MENS --> PATTERN1["Pattern: '{en}' athletes<br/>Arabic: 'Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† {males}'"]
-    WOMENS --> PATTERN2["Pattern: '{en}' athletes<br/>Arabic: 'Ø±ÙŠØ§Ø¶ÙŠØ§Øª {females}'"]
+    MENS --> PATTERN1["Pattern: '{en}' athletes<br/>Arabic: 'رياضيون {males}'"]
+    WOMENS --> PATTERN2["Pattern: '{en}' athletes<br/>Arabic: 'رياضيات {females}'"]
 
     subgraph "Special Categories"
         NAT_BEFORE["NAT_BEFORE_OCC<br/>Jobs where nationality precedes<br/>e.g., 'American footballers'"]
@@ -22836,11 +22835,11 @@ graph TB
 **Example Entry:**
 ```python
 jobs_mens_data = {
-    "footballers": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…",  # Masculine plural
+    "footballers": "لاعبو كرة قدم",  # Masculine plural
 }
 
 jobs_womens_data = {
-    "footballers": "Ù„Ø§Ø¹Ø¨Ø§Øª ÙƒØ±Ø© Ù‚Ø¯Ù…",  # Feminine plural
+    "footballers": "لاعبات كرة قدم",  # Feminine plural
 }
 ```
 
@@ -22855,11 +22854,11 @@ graph TB
     NAT_ENTRY["NationalityEntry Object"]
 
     NAT_ENTRY --> EN["en: 'egyptian'<br/>English key"]
-    NAT_ENTRY --> AR["ar: 'Ù…ØµØ±ÙŠ'<br/>Base Arabic form"]
-    NAT_ENTRY --> MALE["male: 'Ù…ØµØ±ÙŠ'<br/>Singular masculine"]
-    NAT_ENTRY --> MALES["males: 'Ù…ØµØ±ÙŠÙˆÙ†'<br/>Plural masculine"]
-    NAT_ENTRY --> FEMALE["female: 'Ù…ØµØ±ÙŠØ©'<br/>Singular feminine"]
-    NAT_ENTRY --> FEMALES["females: 'Ù…ØµØ±ÙŠØ§Øª'<br/>Plural feminine"]
+    NAT_ENTRY --> AR["ar: 'مصري'<br/>Base Arabic form"]
+    NAT_ENTRY --> MALE["male: 'مصري'<br/>Singular masculine"]
+    NAT_ENTRY --> MALES["males: 'مصريون'<br/>Plural masculine"]
+    NAT_ENTRY --> FEMALE["female: 'مصرية'<br/>Singular feminine"]
+    NAT_ENTRY --> FEMALES["females: 'مصريات'<br/>Plural feminine"]
 
     subgraph "All Nationality Dictionaries - 799 entries each"
         ALL_NAT["All_Nat"]
@@ -22942,20 +22941,20 @@ The `ministers_keys` dictionary (99 entries) contains ministry translations with
 ```python
 ministers_keys = {
     "foreign affairs": {
-        "no_al": "Ø´Ø¤ÙˆÙ† Ø®Ø§Ø±Ø¬ÙŠØ©",    # Without article
-        "with_al": "Ø§Ù„Ø´Ø¤ÙˆÙ† Ø§Ù„Ø®Ø§Ø±Ø¬ÙŠØ©",  # With article
+        "no_al": "شؤون خارجية",    # Without article
+        "with_al": "الشؤون الخارجية",  # With article
     },
     # Combined ministries:
     "defense and veterans affairs": {
-        "no_al": "Ø¯ÙØ§Ø¹ ÙˆØ´Ø¤ÙˆÙ† Ø§Ù„Ù…Ø­Ø§Ø±Ø¨ÙŠÙ† Ø§Ù„Ù‚Ø¯Ù…Ø§Ø¡",
-        "with_al": "Ø§Ù„Ø¯ÙØ§Ø¹ ÙˆØ´Ø¤ÙˆÙ† Ø§Ù„Ù…Ø­Ø§Ø±Ø¨ÙŠÙ† Ø§Ù„Ù‚Ø¯Ù…Ø§Ø¡",
+        "no_al": "دفاع وشؤون المحاربين القدماء",
+        "with_al": "الدفاع وشؤون المحاربين القدماء",
     },
 }
 ```
 
 **Key Considerations:**
 - Provide both `no_al` and `with_al` forms
-- Combined ministries use coordination (Ùˆ)
+- Combined ministries use coordination (و)
 - Match capitalization patterns from English Wikipedia
 
 **Sources:** [_work_files/data_len.json:99](), [ArWikiCats/translations/__init__.py:55]()
@@ -22991,8 +22990,8 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 test_data = {
-    "moroccan athletes": "ØªØµÙ†ÙŠÙ:Ø±ÙŠØ§Ø¶ÙŠÙˆÙ† Ù…ØºØ§Ø±Ø¨Ø©",
-    "data scientists": "ØªØµÙ†ÙŠÙ:Ø¹Ù„Ù…Ø§Ø¡ Ø¨ÙŠØ§Ù†Ø§Øª",
+    "moroccan athletes": "تصنيف:رياضيون مغاربة",
+    "data scientists": "تصنيف:علماء بيانات",
 }
 
 @pytest.mark.parametrize("category, expected", test_data.items())
@@ -23054,7 +23053,7 @@ Some datasets must maintain synchronization:
 - Normalize spacing: `"new york"` not `"new  york"`
 
 **Arabic Values:**
-- Remove unnecessary articles (Ø§Ù„) unless required by grammar
+- Remove unnecessary articles (ال) unless required by grammar
 - Use standard Arabic orthography
 - Maintain consistency with existing entries
 
@@ -23333,15 +23332,15 @@ graph TB
     LookupSport -->|Found| GetValues["Get sport_jobs,<br/>sport_team, sport_label"]
     LookupCountry -->|Found| GetNat["Get female, male,<br/>males, females"]
 
-    GetValues --> Substitute["Substitute in template:<br/>'ÙØ±Ù‚ {sport_jobs} {female}'"]
+    GetValues --> Substitute["Substitute in template:<br/>'فرق {sport_jobs} {female}'"]
     GetNat --> Substitute
 
-    Substitute --> Return1["Return:<br/>'ÙØ±Ù‚ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø£Ù…Ø±ÙŠÙƒÙŠØ©'"]
+    Substitute --> Return1["Return:<br/>'فرق كرة قدم أمريكية'"]
 
     LookupSport -->|Not Found| Return2["Return ''"]
     LookupCountry -->|Not Found| Return2
 
-    FormattedData["formatted_data dict<br/>'{en} {en_sport} teams':<br/>'ÙØ±Ù‚ {sport_jobs} {female}'"]
+    FormattedData["formatted_data dict<br/>'{en} {en_sport} teams':<br/>'فرق {sport_jobs} {female}'"]
 
     FormattedData -.defines.-> CreateFormatter
 ```
@@ -23352,7 +23351,7 @@ graph TB
 
 | Component | Purpose | Example from Code |
 |-----------|---------|-------------------|
-| `formatted_data` | Pattern templates | `{"{en} {en_sport} teams": "ÙØ±Ù‚ {sport_jobs} {female}"}` |
+| `formatted_data` | Pattern templates | `{"{en} {en_sport} teams": "فرق {sport_jobs} {female}"}` |
 | `data_list` | First data source (countries/nats) | `all_country_with_nat_ar` (from translations) |
 | `data_list2` | Second data source (sports/jobs) | `SPORT_KEY_RECORDS` (431 sports) |
 | `key_placeholder` | English placeholder 1 | `"{en}"` |
@@ -23401,13 +23400,13 @@ graph TB
     MatchPattern --> ExtractNat["Extract 'british'<br/>from {en_nat}"]
     MatchPattern --> ExtractJob["Extract 'football'<br/>from {en_job}"]
 
-    ExtractNat --> LookupNat["Lookup in All_Nat:<br/>{'males': 'Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'}"]
-    ExtractJob --> LookupJob["Lookup in jobs_mens_data:<br/>{'football': 'ÙƒØ±Ø© Ù‚Ø¯Ù…'}"]
+    ExtractNat --> LookupNat["Lookup in All_Nat:<br/>{'males': 'بريطانيون'}"]
+    ExtractJob --> LookupJob["Lookup in jobs_mens_data:<br/>{'football': 'كرة قدم'}"]
 
-    LookupNat --> Substitute["Substitute in template:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ {ar_job} {males}'"]
+    LookupNat --> Substitute["Substitute in template:<br/>'لاعبو {ar_job} {males}'"]
     LookupJob --> Substitute
 
-    Substitute --> Return["Return:<br/>'Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'"]
+    Substitute --> Return["Return:<br/>'لاعبو كرة قدم بريطانيون'"]
 ```
 
 **Multi-Data Formatter for Jobs + Nationalities**
@@ -23440,8 +23439,8 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
 | Data Source | Size | Format | Example |
 |-------------|------|--------|---------|
-| `jobs_mens_data` | 96,552 entries | `{en: ar}` | `{"football players": "Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù…"}` |
-| `All_Nat` | 843 entries | `{en: {males, females, ...}}` | `{"british": {"males": "Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†"}}` |
+| `jobs_mens_data` | 96,552 entries | `{en: ar}` | `{"football players": "لاعبو كرة قدم"}` |
+| `All_Nat` | 843 entries | `{en: {males, females, ...}}` | `{"british": {"males": "بريطانيون"}}` |
 | `formatted_data` | ~200 patterns | Template strings | `{"{en_nat} {en_job}": "{ar_job} {males}"}` |
 
 Sources: [ArWikiCats/new_resolvers/jobs_resolvers/mens.py:302-366]()
@@ -23456,11 +23455,11 @@ Place your resolver in the appropriate location following the existing structure
 
 ```
 ArWikiCats/new_resolvers/
-â”œâ”€â”€ __init__.py              # Main resolver chain with _RESOLVER_CHAIN
-â”œâ”€â”€ your_domain_resolver/    # Your new resolver module
-â”‚   â”œâ”€â”€ __init__.py          # Main resolver function (e.g., main_your_domain_resolvers)
-â”‚   â”œâ”€â”€ sub_resolver_1.py   # Specific resolver logic
-â”‚   â””â”€â”€ data.py              # Translation data (optional)
+├── __init__.py              # Main resolver chain with _RESOLVER_CHAIN
+├── your_domain_resolver/    # Your new resolver module
+│   ├── __init__.py          # Main resolver function (e.g., main_your_domain_resolvers)
+│   ├── sub_resolver_1.py   # Specific resolver logic
+│   └── data.py              # Translation data (optional)
 ```
 
 **Module Structure Following Sports Resolver Pattern:**
@@ -23631,12 +23630,12 @@ Create tests in `tests/new_resolvers/your_domain/`:
 
 ```
 tests/
-â”œâ”€â”€ new_resolvers/
-â”‚   â”œâ”€â”€ your_domain/
-â”‚   â”‚   â”œâ”€â”€ __init__.py
-â”‚   â”‚   â”œâ”€â”€ test_basic.py         # Basic functionality tests
-â”‚   â”‚   â”œâ”€â”€ test_patterns.py      # Pattern matching tests
-â”‚   â”‚   â””â”€â”€ test_integration.py   # Integration tests
+├── new_resolvers/
+│   ├── your_domain/
+│   │   ├── __init__.py
+│   │   ├── test_basic.py         # Basic functionality tests
+│   │   ├── test_patterns.py      # Pattern matching tests
+│   │   └── test_integration.py   # Integration tests
 ```
 
 ---
@@ -23651,8 +23650,8 @@ from ArWikiCats.new_resolvers.your_domain_resolver import resolve_your_domain
 
 # Test data: input -> expected output
 TEST_CASES = {
-    "software creators": "Ù…Ù†Ø´Ø¦Ùˆ Ø¨Ø±Ù…Ø¬ÙŠØ§Øª",
-    "video game developers": "Ù…Ø·ÙˆØ±Ùˆ Ø£Ù„Ø¹Ø§Ø¨ ÙÙŠØ¯ÙŠÙˆ",
+    "software creators": "منشئو برمجيات",
+    "video game developers": "مطورو ألعاب فيديو",
     "unknown category": "",  # Should return empty for no match
 }
 
@@ -23722,7 +23721,7 @@ def test_resolver_in_full_pipeline() -> None:
     result = resolve_label_ar(category)
 
     assert result != ""
-    assert "Ù…Ù†Ø´Ø¦Ùˆ" in result
+    assert "منشئو" in result
 
 @pytest.mark.integration
 def test_resolver_priority() -> None:
@@ -23734,7 +23733,7 @@ def test_resolver_priority() -> None:
 
     # Should still be resolved by jobs resolver
     assert result != ""
-    assert "Ù„Ø§Ø¹Ø¨Ùˆ" in result
+    assert "لاعبو" in result
 ```
 
 Sources: [tests/new_resolvers/resolve_languages/test_langs_slow.py:1-85](), [tests/new_resolvers/resolve_languages/test_langs_w.py:1-220]()
@@ -24195,7 +24194,7 @@ def resolve_category(category: str, data: dict) -> str:
 
 **Incorrect Pattern** (Do Not Use):
 ```python
-# âŒ Wrong: Old-style string formatting
+# ❌ Wrong: Old-style string formatting
 logger.debug("Resolving category=%s with data_keys=%s", category, len(data))
 ```
 
@@ -24266,9 +24265,9 @@ def format_category(english: str, arabic: str) -> str:
         arabic: Arabic translation (UTF-8)
 
     Returns:
-        Formatted category with ØªØµÙ†ÙŠÙ: prefix
+        Formatted category with تصنيف: prefix
     """
-    return f"ØªØµÙ†ÙŠÙ:{arabic}"
+    return f"تصنيف:{arabic}"
 ```
 
 **Sources**: [.github/copilot-instructions.md:98-104](), [CLAUDE.md:183-187](), [README.md:518]()
@@ -24289,18 +24288,18 @@ the application's behavior, including printing and application-specific settings
 **Function Docstring**:
 ```python
 def resolve_arabic_category_label(category: str) -> str:
-    """Translate an English Wikipedia category to Arabic with ØªØµÙ†ÙŠÙ: prefix.
+    """Translate an English Wikipedia category to Arabic with تصنيف: prefix.
 
     Args:
         category: English category name (e.g., "Category:2015 in Yemen")
 
     Returns:
-        Arabic category with prefix (e.g., "ØªØµÙ†ÙŠÙ:2015 ÙÙŠ Ø§Ù„ÙŠÙ…Ù†")
+        Arabic category with prefix (e.g., "تصنيف:2015 في اليمن")
         Empty string if no translation found
 
     Example:
         >>> resolve_arabic_category_label("Category:British footballers")
-        'ØªØµÙ†ÙŠÙ:Ù„Ø§Ø¹Ø¨Ùˆ ÙƒØ±Ø© Ù‚Ø¯Ù… Ø¨Ø±ÙŠØ·Ø§Ù†ÙŠÙˆÙ†'
+        'تصنيف:لاعبو كرة قدم بريطانيون'
     """
 ```
 
@@ -24492,7 +24491,7 @@ def resolve_category_pattern(category: str) -> str:
         category: Normalized category string (lowercase, no prefix)
 
     Returns:
-        Arabic translation without ØªØµÙ†ÙŠÙ: prefix
+        Arabic translation without تصنيف: prefix
         Empty string if pattern doesn't match
 
     Notes:
@@ -24538,7 +24537,7 @@ def resolve_with_fallback(category: str) -> str:
 
 ## Anti-Patterns to Avoid
 
-### âŒ Avoid: Direct Data Mutation
+### ❌ Avoid: Direct Data Mutation
 
 ```python
 # Wrong: Mutating shared data structures
@@ -24549,7 +24548,7 @@ custom_translations = TRANSLATION_DICT.copy()
 custom_translations["new_key"] = "new_value"
 ```
 
-### âŒ Avoid: Circular Imports
+### ❌ Avoid: Circular Imports
 
 ```python
 # Wrong: Circular dependency
@@ -24571,7 +24570,7 @@ def set_fallback_resolver(callback):
 
 **Sources**: [changelog.md:128-152]()
 
-### âŒ Avoid: Non-Cached Expensive Operations
+### ❌ Avoid: Non-Cached Expensive Operations
 
 ```python
 # Wrong: Loading data on every call
@@ -24887,7 +24886,7 @@ graph TB
     Old3 -.->|"Added caching"| New3
     Old4 -.->|"Pattern caching"| New4
 
-    Improvement["20x memory reduction<br/>2GB â†’ 100MB"]
+    Improvement["20x memory reduction<br/>2GB → 100MB"]
 
     New1 --> Improvement
     New2 --> Improvement
@@ -25209,3 +25208,17 @@ def get_translation_data():
 ```
 
 **Sources:** [changelog.md:268-294](), [changelog.md:215-224]()
+
+---
+
+## Summary
+
+ArWikiCats achieves high performance through:
+
+1. **Multi-level caching**: 50,000-entry LRU cache at entry point, plus resolver-level caches
+2. **Lazy data loading**: Translation data loaded on-demand, not at import
+3. **Memory optimization**: 20x reduction (2GB → 100MB) through efficient data structures
+4. **Profiling infrastructure**: Scalene integration for identifying bottlenecks
+5. **Performance testing**: 28,500+ tests run in ~23 seconds validate optimizations
+
+For profiling guidance specific to your changes, use `python -m scalene` on example scripts. For adding new cached resolvers, see [9.2](#9.2).
