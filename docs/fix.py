@@ -64,7 +64,7 @@ for i, title in enumerate(titles):
     replaces[rf"\[[\d\.]+\]\({i}\.{title}\.md\)"] = rf"[{i}]({i}.{title}.md)"
 
     # (see [Resolver Chain Priority System](#3.3))
-    replaces[rf"\({title.replace('-', ' ')}\)\(#[\d\.]+\)"] = rf"({i}.{title}.md)"
+    replaces[rf"\[{title.replace('-', ' ')}\]\(#[\d\.]+\)"] = rf"[{title.replace('-', ' ')}]({i}.{title}.md)"
 
 work_dir = Path(__file__).parent
 
