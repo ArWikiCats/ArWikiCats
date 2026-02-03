@@ -12812,7 +12812,7 @@ Output: "لاعبو كرة القدم بريطانيون"
 
 The system supports three complexity levels:
 1. **Single-element** formatters for one dynamic component
-2. **Multi-element** formatters that compose two single-element formatters
+2. **Multi-element** formatters that compose two Single Element Formatters
 3. **Factory functions** that construct configured formatter instances
 
 Sources: [ArWikiCats/translations_formats/__init__.py L1-L48](../ArWikiCats/translations_formats/__init__.py#L1-L48), [ArWikiCats/translations_formats/DataModel/model_data_base.py L1-L29](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L1-L29)
@@ -12827,7 +12827,7 @@ graph TB
         BASE[FormatDataBase<br/>model_data_base.py]
     end
 
-    subgraph "Single-Element Formatters"
+    subgraph "Single Element Formatters"
         FD[FormatData<br/>String placeholders]
         FDV2[FormatDataV2<br/>Dictionary placeholders]
         FDFROM[FormatDataFrom<br/>Callback-based]
@@ -12944,7 +12944,7 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py L106-L131
 
 ## FormatDataBase Abstract Class
 
-`FormatDataBase` provides the foundation for all single-element formatters. It implements core functionality shared across formatter types.
+`FormatDataBase` provides the foundation for all Single Element Formatters. It implements core functionality shared across formatter types.
 
 **Key attributes:**
 - `formatted_data`: Template dictionary (English → Arabic patterns)
@@ -12980,7 +12980,7 @@ Sources: [ArWikiCats/translations_formats/DataModel/model_data_base.py L38-L316]
 
 ---
 
-## Single-Element Formatters
+## Single Element Formatters
 
 ### FormatData: Simple String Replacement
 
@@ -13080,7 +13080,7 @@ Sources: [ArWikiCats/translations_formats/__init__.py L65-L69](../ArWikiCats/tra
 
 ## Multi-Element Formatters
 
-Multi-element formatters orchestrate two single-element formatters to handle categories with two dynamic components. They follow a common pattern:
+Multi-element formatters orchestrate two Single Element Formatters to handle categories with two dynamic components. They follow a common pattern:
 1. Normalize category by replacing first element with placeholder (`country_bot`)
 2. Normalize result by replacing second element with placeholder (`other_bot`)
 3. Look up template using normalized key
@@ -13700,7 +13700,7 @@ The following files were used as context for generating this wiki page:
 
 This document describes the `FormatDataBase` class, which serves as the abstract foundation for all single-element category translation formatters in the ArWikiCats system. It defines the core operations, data structures, and contract that all formatter implementations must follow.
 
-For information about concrete single-element formatter implementations (FormatData, FormatDataV2, FormatDataFrom), see [Single-Element Formatters](#6.2). For multi-element formatters that combine multiple FormatDataBase instances, see [Multi-Element Formatters](#6.3). For details on placeholder syntax and template patterns, see [Template and Placeholder System](#6.4)
+For information about concrete single-element formatter implementations (FormatData, FormatDataV2, FormatDataFrom), see [Single Element Formatters](#6.2). For multi-element formatters that combine multiple FormatDataBase instances, see [Multi-Element Formatters](#6.3). For details on placeholder syntax and template patterns, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/DataModel/model_data_base.py L1-L410](../ArWikiCats/translations_formats/DataModel/model_data_base.py#L1-L410)
 
@@ -14153,9 +14153,9 @@ FormatDataBase is extended by three main subclasses:
 | `FormatDataV2` | [ArWikiCats/translations_formats/DataModel/model_data_v2.py L32-L121](../ArWikiCats/translations_formats/DataModel/model_data_v2.py#L32-L121) | Dictionary-based multi-placeholder replacement |
 | `FormatDataFrom` | [ArWikiCats/translations_formats/DataModel/model_data_form.py](../ArWikiCats/translations_formats/DataModel/model_data_form.py) | Callback-based formatting (used by `YearFormatData`) |
 
-For detailed information about these implementations, see [Single-Element Formatters](#6.2)
+For detailed information about these implementations, see [Single Element Formatters](#6.2)
 
-**Sources:** [ArWikiCats/translations_formats/DataModel/__init__.py L1-L21](../ArWikiCats/translations_formats/DataModel/__init__.py#L1-L21)2f:T4631,# Single-Element Formatters
+**Sources:** [ArWikiCats/translations_formats/DataModel/__init__.py L1-L21](../ArWikiCats/translations_formats/DataModel/__init__.py#L1-L21)2f:T4631,# Single Element Formatters
 
 <details>
 <summary>Relevant source files</summary>
@@ -14177,13 +14177,13 @@ The following files were used as context for generating this wiki page:
 
 
 
-Single-element formatters are classes that handle category translations containing one dynamic element to be replaced. They match a single key in the input category (e.g., "football", "yemen", "14th-century") and use template patterns to produce Arabic output. Single-element formatters form the building blocks for more complex multi-element formatters (see [Multi-Element Formatters](#6.3))
+Single Element Formatters are classes that handle category translations containing one dynamic element to be replaced. They match a single key in the input category (e.g., "football", "yemen", "14th-century") and use template patterns to produce Arabic output. Single Element Formatters form the building blocks for more complex multi-element formatters (see [Multi-Element Formatters](#6.3))
 
-This page covers the three concrete implementations of single-element formatters: `FormatData`, `FormatDataV2`, and `FormatDataFrom`. For information about the abstract base class they inherit from, see [FormatDataBase Architecture](#6.1). For information about factory functions that create these formatters, see [Factory Functions and Usage](#6.5)
+This page covers the three concrete implementations of Single Element Formatters: `FormatData`, `FormatDataV2`, and `FormatDataFrom`. For information about the abstract base class they inherit from, see [FormatDataBase Architecture](#6.1). For information about factory functions that create these formatters, see [Factory Functions and Usage](#6.5)
 
 ## Architecture Overview
 
-All single-element formatters inherit from `FormatDataBase` and implement two abstract methods: `apply_pattern_replacement` and `replace_value_placeholder`. The inheritance hierarchy defines a common interface for pattern matching and template application while allowing each subclass to handle value replacement differently.
+All Single Element Formatters inherit from `FormatDataBase` and implement two abstract methods: `apply_pattern_replacement` and `replace_value_placeholder`. The inheritance hierarchy defines a common interface for pattern matching and template application while allowing each subclass to handle value replacement differently.
 
 ```mermaid
 classDiagram
@@ -14231,7 +14231,7 @@ classDiagram
 
 ### Common Resolution Flow
 
-All single-element formatters follow the same resolution pipeline defined in `FormatDataBase._search`:
+All Single Element Formatters follow the same resolution pipeline defined in `FormatDataBase._search`:
 
 ```mermaid
 flowchart TD
@@ -14593,7 +14593,7 @@ The following table maps natural language concepts to concrete code entities:
 
 ## Integration with Resolver Chain
 
-Single-element formatters are used throughout the resolver chain (see [Resolver System](#5)). Each resolver typically instantiates one or more formatters:
+Single Element Formatters are used throughout the resolver chain (see [Resolver System](#5)). Each resolver typically instantiates one or more formatters:
 
 ```mermaid
 flowchart TB
@@ -14668,7 +14668,7 @@ The following files were used as context for generating this wiki page:
 
 Multi-Element Formatters handle category translations that contain **two dynamic elements**. For example, "British football players" requires translating both the nationality ("British" → "بريطانيون") and the sport ("football" → "كرة القدم"), then combining them according to Arabic grammar rules.
 
-This page documents the classes that orchestrate two single-element formatters (see [Single-Element Formatters](#6.2)) to handle these complex translations. For information about the base formatting infrastructure, see [Format Data Models](#6.1). For placeholder syntax and substitution logic, see [Template and Placeholder System](#6.4)
+This page documents the classes that orchestrate two Single Element Formatters (see [Single Element Formatters](#6.2)) to handle these complex translations. For information about the base formatting infrastructure, see [Format Data Models](#6.1). For placeholder syntax and substitution logic, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/__init__.py L1-L48](../ArWikiCats/translations_formats/__init__.py#L1-L48), [ArWikiCats/translations_formats/DataModel/model_multi_data.py L1-L24](../ArWikiCats/translations_formats/DataModel/model_multi_data.py#L1-L24)
 
@@ -15952,7 +15952,7 @@ The following files were used as context for generating this wiki page:
 
 This page documents the factory functions that provide the high-level API for creating formatter instances in the ArWikiCats translation system. Factory functions hide the complexity of instantiating and configuring formatter classes, providing a simplified interface for creating dual-element and temporal pattern formatters.
 
-For information about the underlying formatter class architecture, see [FormatDataBase Architecture](#6.1). For details on the individual formatter classes themselves, see [Single-Element Formatters](#6.2) and [Multi-Element Formatters](#6.3). For template and placeholder syntax, see [Template and Placeholder System](#6.4)
+For information about the underlying formatter class architecture, see [FormatDataBase Architecture](#6.1). For details on the individual formatter classes themselves, see [Single Element Formatters](#6.2) and [Multi-Element Formatters](#6.3). For template and placeholder syntax, see [Template and Placeholder System](#6.4)
 
 **Sources:** [ArWikiCats/translations_formats/__init__.py L27-L47](../ArWikiCats/translations_formats/__init__.py#L27-L47), [ArWikiCats/translations_formats/multi_data.py L1-L37](../ArWikiCats/translations_formats/multi_data.py#L1-L37)
 
@@ -16006,7 +16006,7 @@ graph TB
         YFD["YearFormatData()"]
     end
 
-    subgraph "Single-Element Formatters"
+    subgraph "Single Element Formatters"
         FD["FormatData"]
         FD2["FormatDataV2"]
         FDF["FormatDataFrom"]
@@ -16042,7 +16042,7 @@ graph TB
     YFD -->|"Returns configured"| FDF
 ```
 
-**Key Insight:** All factory functions follow the same pattern: they instantiate one or two single-element formatters and wrap them in a multi-element formatter that orchestrates their interaction. The `YearFormatData` function is unique in that it directly returns a single-element formatter.
+**Key Insight:** All factory functions follow the same pattern: they instantiate one or two Single Element Formatters and wrap them in a multi-element formatter that orchestrates their interaction. The `YearFormatData` function is unique in that it directly returns a single-element formatter.
 
 **Sources:** [ArWikiCats/translations_formats/multi_data.py L162-L197](../ArWikiCats/translations_formats/multi_data.py#L162-L197), [ArWikiCats/translations_formats/data_with_time.py L154-L172](../ArWikiCats/translations_formats/data_with_time.py#L154-L172), [ArWikiCats/translations_formats/data_new_model.py L85-L105](../ArWikiCats/translations_formats/data_new_model.py#L85-L105)
 
