@@ -72,6 +72,7 @@ Do **not** duplicate existing entries.
   - `tests/unit/` - Unit tests (fast, isolated function/class tests)
   - `tests/integration/` - Integration tests (component interaction tests)
   - `tests/e2e/` - End-to-end tests (full system tests)
+  - `tests/big/` - Big tests (large dataset tests)
 - `examples/` - Usage examples
 - `help_scripts/` - Helper scripts
 - `tasks/` - Task definitions

@@ -289,6 +289,7 @@ tests/
 ├── unit/                    # Unit tests (fast, isolated)
 ├── integration/             # Integration tests (component interaction)
 └── e2e/                     # End-to-end tests (full system)
+└── big/                     # large dataset tests (full system)
 
 examples/                    # Usage examples
 ```
@@ -307,6 +308,7 @@ pytest
 pytest tests/unit/           # Unit tests only
 pytest tests/integration/    # Integration tests only
 pytest tests/e2e/            # End-to-end tests only
+pytest tests/big/            # large dataset tests
 
 # Run by marker
 pytest -m unit               # Unit tests only
