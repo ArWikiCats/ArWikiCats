@@ -129,7 +129,7 @@ graph TB
 
 The system is organized into five primary layers:
 
-1. **Public API Layer** - User-facing functions in [ArWikiCats/\_\_init\_\_.py]() that provide simple interfaces for single-category and batch translation
+1. **Public API Layer** - User-facing functions in [ArWikiCats/__init__.py]() that provide simple interfaces for single-category and batch translation
 2. **Main Resolution Coordinator** - [main_processers/main_resolve.py:33-93]() orchestrates the resolution pipeline with LRU caching
 3. **Input Processing** - Normalizes categories and filters invalid inputs before resolution
 4. **Resolution Pipeline** - Prioritized chain of specialized resolvers that attempt pattern matching
@@ -392,7 +392,7 @@ result = processor.process_single("Category:British footballers")
 # result.has_label: True
 ```
 
-All public API functions are exported from [ArWikiCats/\_\_init\_\_.py:1-40]() and documented in the package's top-level module.
+All public API functions are exported from [ArWikiCats/__init__.py:1-40]() and documented in the package's top-level module.
 
 **Sources:** [README.md:170-230](), [ArWikiCats/main_processers/main_resolve.py:33-100]()
 
@@ -520,7 +520,7 @@ ArWikiCats follows several key design principles that inform its architecture:
 
 **1. Resolver Chain Priority Pattern**
 
-Resolvers are ordered to prevent semantic conflicts. For example, "football manager" must be resolved by the jobs resolver (as an occupation) before the sports resolver can interpret it as a sports management role. The priority order is explicitly documented in [new_resolvers/\_\_init\_\_.py:29-57]().
+Resolvers are ordered to prevent semantic conflicts. For example, "football manager" must be resolved by the jobs resolver (as an occupation) before the sports resolver can interpret it as a sports management role. The priority order is explicitly documented in [new_resolvers/__init__.py:29-57]().
 
 **2. Template-Based Formatting**
 
@@ -7569,7 +7569,7 @@ For information about the data used by resolvers, see [Translation Data](#4). Fo
 
 The resolver system is organized as a priority-based chain where each resolver attempts to match and translate a category. The first resolver to return a non-empty result wins. This design prevents conflicts and ensures predictable, deterministic translations.
 
-**Main Entry Point**: `all_new_resolvers()` in [ArWikiCats/new_resolvers/\_\_init\_\_.py:101-124]()
+**Main Entry Point**: `all_new_resolvers()` in [ArWikiCats/new_resolvers/__init__.py:101-124]()
 
 ```mermaid
 graph TB
@@ -7621,7 +7621,7 @@ graph TB
     R11 -."|match found|".-> Output
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:1-125]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:1-125]()
 
 ---
 
@@ -7644,7 +7644,7 @@ The resolver chain is defined in `_RESOLVER_CHAIN` as a list of tuples containin
 | 11 | `resolve_languages_labels_with_time` | Language + time patterns | `languages_resolves` |
 | 12 | `main_other_resolvers` | Catch-all for remaining patterns | `sub_new_resolvers` |
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:37-98]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:37-98]()
 
 ---
 
@@ -7688,7 +7688,7 @@ graph LR
     end
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:37-98](), [README.md:114-128]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:37-98](), [README.md:114-128]()
 
 ---
 
@@ -7696,7 +7696,7 @@ graph LR
 
 The jobs resolver system handles occupation and profession categories with separate pipelines for male, female, and religious occupations.
 
-**Entry Point**: `main_jobs_resolvers()` in [ArWikiCats/new_resolvers/jobs_resolvers/\_\_init\_\_.py:15-38]()
+**Entry Point**: `main_jobs_resolvers()` in [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:15-38]()
 
 ### Components
 
@@ -7749,7 +7749,7 @@ graph TD
     R -."|match|".-> Output
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/jobs_resolvers/\_\_init\_\_.py:1-44](), [ArWikiCats/new_resolvers/jobs_resolvers/relegin_jobs_new.py:1-180]()
+**Sources**: [ArWikiCats/new_resolvers/jobs_resolvers/__init__.py:1-44](), [ArWikiCats/new_resolvers/jobs_resolvers/relegin_jobs_new.py:1-180]()
 
 ---
 
@@ -7757,7 +7757,7 @@ graph TD
 
 The sports resolver system handles sports-related categories including teams, athletes, competitions, and venues. It uses a layered approach with multiple specialized sub-resolvers.
 
-**Entry Point**: `main_sports_resolvers()` in [ArWikiCats/new_resolvers/sports_resolvers/\_\_init\_\_.py:21-47]()
+**Entry Point**: `main_sports_resolvers()` in [ArWikiCats/new_resolvers/sports_resolvers/__init__.py:21-47]()
 
 ### Sub-Resolver Layers
 
@@ -7800,7 +7800,7 @@ The sports resolvers use `SPORT_KEY_RECORDS` which provides multiple translation
 - `sport_label`: For general sport labels
 - `sport_olympic`: For Olympic-specific patterns
 
-**Sources**: [ArWikiCats/new_resolvers/sports_resolvers/\_\_init\_\_.py:1-53](), [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:1-427]()
+**Sources**: [ArWikiCats/new_resolvers/sports_resolvers/__init__.py:1-53](), [ArWikiCats/new_resolvers/sports_resolvers/raw_sports.py:1-427]()
 
 ---
 
@@ -7808,7 +7808,7 @@ The sports resolvers use `SPORT_KEY_RECORDS` which provides multiple translation
 
 The nationalities resolver system handles categories based on nationality with support for different grammatical forms and time periods.
 
-**Entry Point**: `main_nationalities_resolvers()` in [ArWikiCats/new_resolvers/nationalities_resolvers/\_\_init\_\_.py:19-43]()
+**Entry Point**: `main_nationalities_resolvers()` in [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py:19-43]()
 
 ### Components
 
@@ -7838,7 +7838,7 @@ The resolver uses `all_country_with_nat_ar` which provides:
 - `the_male`: Definite male form
 - `the_female`: Definite female form
 
-**Sources**: [ArWikiCats/new_resolvers/nationalities_resolvers/\_\_init\_\_.py:1-49]()
+**Sources**: [ArWikiCats/new_resolvers/nationalities_resolvers/__init__.py:1-49]()
 
 ---
 
@@ -7846,7 +7846,7 @@ The resolver uses `all_country_with_nat_ar` which provides:
 
 The countries names resolver system handles geographic entity names including countries, US states, and general geographic patterns.
 
-**Entry Point**: `main_countries_names_resolvers()` in [ArWikiCats/new_resolvers/countries_names_resolvers/\_\_init\_\_.py:21-54]()
+**Entry Point**: `main_countries_names_resolvers()` in [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py:21-54]()
 
 ### Resolution Order
 
@@ -7877,7 +7877,7 @@ The order is critical to prevent conflicts:
    - General geographic entity patterns
    - Source: [ArWikiCats/new_resolvers/countries_names_resolvers/geo_names_formats.py]()
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/\_\_init\_\_.py:1-59](), [README.md:34-48]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_resolvers/__init__.py:1-59](), [README.md:34-48]()
 
 ---
 
@@ -7885,14 +7885,14 @@ The order is critical to prevent conflicts:
 
 The films resolver system handles movie and television categories with support for genres, nationalities, and time periods.
 
-**Entry Point**: `main_films_resolvers()` in [ArWikiCats/new_resolvers/films_resolvers/\_\_init\_\_.py:37-65]()
+**Entry Point**: `main_films_resolvers()` in [ArWikiCats/new_resolvers/films_resolvers/__init__.py:37-65]()
 
 ### Components
 
 1. **Legacy Label Check** (`legacy_label_check`)
    - Handles simple numeric categories and "people"
    - Fast-path for known simple patterns
-   - Source: [ArWikiCats/new_resolvers/films_resolvers/\_\_init\_\_.py:18-34]()
+   - Source: [ArWikiCats/new_resolvers/films_resolvers/__init__.py:18-34]()
 
 2. **Films + Time** (`get_films_key_tyty_new_and_time`)
    - Combines film genres with temporal patterns
@@ -7916,7 +7916,7 @@ The films resolver system handles movie and television categories with support f
 
 Uses `film_keys_for_female` with gender-specific film genre labels and `Nat_women` for nationality combinations. The resolver applies special handling for categories that should have label order adjusted (stored in `put_label_last` set).
 
-**Sources**: [ArWikiCats/new_resolvers/films_resolvers/\_\_init\_\_.py:1-73](), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:1-327]()
+**Sources**: [ArWikiCats/new_resolvers/films_resolvers/__init__.py:1-73](), [ArWikiCats/new_resolvers/films_resolvers/resolve_films_labels.py:1-327]()
 
 ---
 
@@ -7924,7 +7924,7 @@ Uses `film_keys_for_female` with gender-specific film genre labels and `Nat_wome
 
 This specialized resolver handles the combination of country names with sports, primarily for international competitions and national teams.
 
-**Entry Point**: `main_countries_names_with_sports_resolvers()` in [ArWikiCats/new_resolvers/countries_names_with_sports/\_\_init\_\_.py:12-36]()
+**Entry Point**: `main_countries_names_with_sports_resolvers()` in [ArWikiCats/new_resolvers/countries_names_with_sports/__init__.py:12-36]()
 
 ### Sub-Resolvers
 
@@ -7939,7 +7939,7 @@ This specialized resolver handles the combination of country names with sports, 
    - Uses `SPORT_FORMATS_ENAR_P17_TEAM` formatted data
    - Source: [ArWikiCats/new_resolvers/countries_names_with_sports/p17_bot_sport.py:1-139]()
 
-**Sources**: [ArWikiCats/new_resolvers/countries_names_with_sports/\_\_init\_\_.py:1-37](), [ArWikiCats/new_resolvers/countries_names_with_sports/p17_bot_sport.py:1-139]()
+**Sources**: [ArWikiCats/new_resolvers/countries_names_with_sports/__init__.py:1-37](), [ArWikiCats/new_resolvers/countries_names_with_sports/p17_bot_sport.py:1-139]()
 
 ---
 
@@ -7947,7 +7947,7 @@ This specialized resolver handles the combination of country names with sports, 
 
 The legacy resolver system handles patterns that were implemented before the new modular resolver architecture. It has been refactored into a class-based implementation while maintaining backward compatibility.
 
-**Entry Point**: `legacy_resolvers()` function in [legacy_bots/\_\_init\_\_.py]() which delegates to `LegacyBotsResolver.resolve()`
+**Entry Point**: `legacy_resolvers()` function in [legacy_bots/__init__.py]() which delegates to `LegacyBotsResolver.resolve()`
 
 ### LegacyBotsResolver Class
 
@@ -8027,7 +8027,7 @@ All resolver functions use `@functools.lru_cache` decorator for performance opti
 
 The largest cache (`all_new_resolvers` with 50,000 entries) was chosen based on profiling production workloads processing thousands of categories in batch mode.
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:101](), [README.md:45-46]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:101](), [README.md:45-46]()
 
 ---
 
@@ -8068,7 +8068,7 @@ sequenceDiagram
     M->>O: "تصنيف:لاعبو كرة قدم بريطانيون"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:101-124](), [ArWikiCats/main_processers/main_resolve.py]()
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:101-124](), [ArWikiCats/main_processers/main_resolve.py]()
 
 ---
 
@@ -8105,7 +8105,7 @@ def main_your_domain_resolvers(normalized_category: str) -> str:
 
 ### 2. Register in Resolver Chain
 
-Add your resolver to `_RESOLVER_CHAIN` in [ArWikiCats/new_resolvers/\_\_init\_\_.py]():
+Add your resolver to `_RESOLVER_CHAIN` in [ArWikiCats/new_resolvers/__init__.py]():
 
 ```python
 _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
@@ -8141,7 +8141,7 @@ def test_basic_resolution():
     assert main_your_domain_resolvers("test category") == "expected result"
 ```
 
-**Sources**: [ArWikiCats/new_resolvers/\_\_init\_\_.py:37-98](), [CLAUDE.md:144-151]()26:T5238,# Time Pattern Resolvers
+**Sources**: [ArWikiCats/new_resolvers/__init__.py:37-98](), [CLAUDE.md:144-151]()26:T5238,# Time Pattern Resolvers
 
 <details>
 <summary>Relevant source files</summary>
