@@ -7,6 +7,9 @@ r"""
 
 \[(ArWikiCats/[^\[\]]+)\]\(\)
 [$1](../$1)
+
+#L(\d+)-L\1\b
+#L$1
 """
 
 from pathlib import Path
