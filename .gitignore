@@ -30,4 +30,3 @@ _work_files/*.json
 tests/legacy_bots/test_new_ideas.py
 .claude
 /deepwiki.md
-/docs_full
