@@ -1,13 +1,10 @@
 """
 pytest tests/big_data/test_big.py -m dumpbig
 """
-
+import pytest
 import json
 from pathlib import Path
-
-import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
-
 from ArWikiCats import resolve_arabic_category_label
 
 
@@ -31,7 +28,7 @@ def run_dump_logic(name, data):
 
 
 def JSON_FILES():
-    base_path = Path(__file__).parent.parent.parent / "examples/religions_data"
+    base_path = Path(__file__).parent.parent.parent.parent / "examples/religions_data"
     return sorted(base_path.glob("*.json"))
 
 
