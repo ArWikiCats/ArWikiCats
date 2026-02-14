@@ -113,24 +113,43 @@ def format_colored_text(textm: str) -> str:
     return toprint
 
 
-def wrap_color_messages(format_message):
+from typing import Callable
+
+
+def wrap_color_messages(format_message: Callable[[logging.LogRecord], str]) -> Callable[[logging.LogRecord], str]:
     """Wrap the color messages to include additional context."""
 
-    def wrapper(record):
+    def wrapper(record: logging.LogRecord) -> str:
         # Add custom attributes or modify the record as needed
         return format_colored_text(format_message(record))
 
     return wrapper
 
 
-def prepare_log_file(log_file, project_logger):
-    log_file = Path(log_file).expanduser()
+def prepare_log_file(log_file: str | None, project_logger: logging.Logger) -> Path | None:
+    """Prepare the log file path and create parent directories if needed.
+
+    Parameters
+    ----------
+    log_file : str | None
+        Path to the log file.
+    project_logger : logging.Logger
+        Logger instance for error reporting.
+
+    Returns
+    -------
+    Path | None
+        The expanded log file path, or None if creation failed.
+    """
+    if log_file is None:
+        return None
+    log_file_path = Path(log_file).expanduser()
     try:
-        log_file.parent.mkdir(parents=True, exist_ok=True)
+        log_file_path.parent.mkdir(parents=True, exist_ok=True)
     except Exception as e:
         project_logger.error(f"Failed to create log directory: {e}")
-        log_file = None
-    return log_file
+        return None
+    return log_file_path
 
 
 def setup_logging(
@@ -172,15 +191,16 @@ def setup_logging(
 
     # Optional file handler (no colors)
     if log_file:
-        log_file = prepare_log_file(log_file, project_logger)
-        setup_file_handler(project_logger, log_file, numeric_level)
+        log_file_path = prepare_log_file(log_file, project_logger)
+        if log_file_path:
+            setup_file_handler(project_logger, log_file_path, numeric_level)
 
-        # Separate error log file
-        log_file2 = log_file.with_suffix(".err")
-        setup_file_handler(project_logger, log_file2, logging.WARNING)
+            # Separate error log file
+            log_file2 = log_file_path.with_suffix(".err")
+            setup_file_handler(project_logger, log_file2, logging.WARNING)
 
 
-def setup_file_handler(project_logger, log_file, level):
+def setup_file_handler(project_logger: logging.Logger, log_file: Path, level: int) -> None:
     file_formatter = logging.Formatter(
         fmt="%(asctime)s - %(name)s - %(levelname)-8s - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",

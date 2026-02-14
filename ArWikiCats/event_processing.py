@@ -20,7 +20,15 @@ LABEL_PREFIX = "تصنيف:"
 
 @dataclass
 class ProcessedCategory:
-    """Data structure representing each processed category."""
+    """Data structure representing each processed category.
+
+    Attributes:
+        original: The original input category string.
+        normalized: The normalized category string (underscores replaced).
+        raw_label: The raw Arabic label without prefix.
+        final_label: The final label with Arabic prefix added.
+        has_label: Whether a valid label was resolved.
+    """
 
     original: str
     normalized: str
@@ -31,7 +39,14 @@ class ProcessedCategory:
 
 @dataclass
 class EventProcessingResult:
-    """Structured results for a batch."""
+    """Structured results for a batch of processed categories.
+
+    Attributes:
+        processed: List of all processed category records.
+        labels: Dictionary mapping normalized categories to final labels.
+        no_labels: List of categories that could not be resolved.
+        category_patterns: Count of categories matched by pattern resolvers.
+    """
 
     processed: List[ProcessedCategory] = field(default_factory=list)
     labels: Dict[str, str] = field(default_factory=dict)
