@@ -2,9 +2,9 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
-[![Status](https://img.shields.io/badge/status-Beta-orange)]()
+[![Status](https://img.shields.io/badge/status-Stable-orange)]()
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
-[![Version](https://img.shields.io/badge/version-0.1.0b6-blue)]()
+[![Version](https://img.shields.io/badge/version-0.2.0-blue)]()
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 ---
 
@@ -70,7 +70,7 @@ ArWikiCats addresses these challenges with a specialized translation engine that
 ### Install via pip
 
 ```bash
-pip install ArWikiCats --pre
+pip install ArWikiCats
 ```
 
 ### Install from source
@@ -426,7 +426,7 @@ result = processor.process_single("Category:British footballers")
 
 - **GitHub**: https://github.com/MrIbrahem/ArWikiCats
 - **Issues**: https://github.com/MrIbrahem/ArWikiCats/issues
-- **PyPI**: `pip install ArWikiCats --pre`
+- **PyPI**: `pip install ArWikiCats`
 
 ---
 
@@ -438,4 +438,4 @@ MIT License - see LICENSE file for details
 
 **Author**: Ibrahim Qasim
 
-**Version**: 0.1.0b6 (Beta)
+**Version**: 0.2.0

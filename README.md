@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
-[![Status](https://img.shields.io/badge/status-Beta-orange)]()
+[![Status](https://img.shields.io/badge/status-Stable-orange)]()
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 
@@ -157,7 +157,7 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 3.2 التثبيت
 
 ```bash
-pip install ArWikiCats --pre
+pip install ArWikiCats
 ```
 or
 ```bash

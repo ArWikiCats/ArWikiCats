@@ -32,7 +32,6 @@ from .mixed import (
     WORD_AFTER_YEARS,
     Clubs_key_2,
     New_female_keys,
-    People_key,
     clubs_teams_leagues,
     keys_of_without_in,
     medical_keys,
@@ -147,5 +146,4 @@ __all__ = [
     "religious_entries",
     "New_female_keys",
     "ministers_keys",
-    "People_key",
 ]

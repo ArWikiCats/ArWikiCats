@@ -28,5 +28,5 @@ _work_files/*.json
 *.svg
 *.pyc*
 tests/legacy_bots/test_new_ideas.py
-.claude
 /deepwiki.md
+.claude/settings.local.json

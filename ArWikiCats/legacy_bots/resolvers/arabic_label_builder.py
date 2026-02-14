@@ -14,7 +14,7 @@ from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years
 from ...sub_new_resolvers import university_resolver
 from ...translations import keys_of_without_in
 from .. import tmp_bot
-from ..common_resolver_chain import get_con_label, get_type_lab
+from ..common_resolver_chain import get_con_label, get_type_lab, work_peoples
 from ..legacy_resolvers_bots import bys, with_years_bot
 from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
@@ -37,7 +37,7 @@ separators_lists_raw = [
 def _lookup_country_with_by(country: str) -> str:
     """Handle country labels with 'by' prefix or infix."""
     if country.startswith("by "):
-        return bys.make_by_label(country)
+        return bys.make_by_label(country) or work_peoples(country)
 
     if " by " in country:
         return bys.get_by_label(country)

@@ -19,10 +19,10 @@ from typing import Callable, Optional
 from ...fix import fixtitle
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
+from ...sub_new_resolvers.peoples_resolver import work_peoples
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     New_female_keys,
-    People_key,
     jobs_mens_data,
     keys_of_without_in,
     religious_entries,
@@ -244,7 +244,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         label = (
             New_female_keys.get(country, "")
             or religious_entries.get(country, "")
-            or People_key.get(country)
+            or work_peoples(country)
             or all_new_resolvers(country)
             or team_work.resolve_clubs_teams_leagues(country)
         )
