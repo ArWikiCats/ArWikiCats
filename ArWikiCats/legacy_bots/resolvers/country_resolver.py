@@ -16,10 +16,10 @@ import logging
 import re
 from typing import Callable, Optional
 
-from ...sub_new_resolvers.peoples_resolver import work_peoples
 from ...fix import fixtitle
 from ...new_resolvers import all_new_resolvers
 from ...sub_new_resolvers import team_work
+from ...sub_new_resolvers.peoples_resolver import work_peoples
 from ...time_formats.time_to_arabic import convert_time_to_arabic
 from ...translations import (
     New_female_keys,

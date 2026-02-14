@@ -1,10 +1,11 @@
 """Test configuration for the test-suite."""
 
+import json
 import os
 import random
-import pytest
-import json
 from pathlib import Path
+
+import pytest
 
 
 @pytest.fixture

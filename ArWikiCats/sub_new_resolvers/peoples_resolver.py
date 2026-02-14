@@ -24,7 +24,6 @@ formatted_data = {
     "{person_key} memorials": "نصب {person_label} التذكارية",
     "{person_key} cabinet": "مجلس وزراء {person_label}",
     "{person_key} albums": "ألبومات {person_label}",
-
     "{person_key} animation albums": "ألبومات رسوم متحركة {person_label}",
     "{person_key} comedy albums": "ألبومات كوميدية {person_label}",
     "{person_key} compilation albums": "ألبومات تجميعية {person_label}",
