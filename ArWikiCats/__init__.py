@@ -14,7 +14,7 @@ from .main_processers.main_resolve import resolve_label_ar
 
 setup_logging()
 
-__version__ = "0.1.0b6"
+__version__ = "0.2.0"
 
 __all__ = [
     "resolve_label_ar",

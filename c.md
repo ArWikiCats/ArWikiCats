@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **ArWikiCats** is an Arabic Wikipedia Categories Translation Engine - a Python library that automatically translates English Wikipedia category names into standardized Arabic category names. It's designed for bot operations, mass translation, and automated editing tasks.
 
-- **Status**: Beta
+- **Status**: Stable
 - **Tests**: 60,000+ tests (all four types)
 - **Python**: 3.10+
 
@@ -64,7 +64,7 @@ ruff check ArWikiCats/
 
 ### Installation
 ```bash
-pip install ArWikiCats --pre
+pip install ArWikiCats
 # or
 pip install -r requirements.in
 ```
