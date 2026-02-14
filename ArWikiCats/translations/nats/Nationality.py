@@ -22,25 +22,6 @@ AllNatDict = Dict[str, NationalityEntry]
 LookupTable = Dict[str, str]
 
 
-regex_line = r"""
-"male": "([^"]+)?",
-\s+"males": "([^"]+)?",
-\s+"female": "([^"]+)?",
-\s+"females": "([^"]+)?",
-\s+"the_male": "([^"]+)?",
-\s+"the_female": "([^"]+)?",
-\s+"en": "([^"]+)?",
-\s+"ar": "([^"]+)?"
-
-"male": "$1",
-"males": "$2",
-"female": "$3",
-"females": "$4",
-"the_male": "$5",
-"the_female": "$6",
-"en": "$7",
-"ar": "$8"
-"""
 # =====================================================================
 # Type aliases
 # =====================================================================

@@ -12,6 +12,7 @@ from .pf_keys import change_key_mappings_replacements
 logger = logging.getLogger(__name__)
 
 # Precompiled Regex Patterns
+_THE_REGEX = re.compile(r"\bthe\b", re.IGNORECASE)
 REGEX_SUB_WHITESPACE = re.compile(r"[\s\t]+", re.IGNORECASE)
 REGEX_SUB_CENTURY = re.compile(r"[−–\-]century", re.IGNORECASE)
 REGEX_SUB_MILLENNIUM = re.compile(r"[−–\-]millennium", re.IGNORECASE)
@@ -78,7 +79,7 @@ def change_cat(cat_orginal: str) -> str:
     cat_orginal = cat_orginal.lower().strip()
     category = cat_orginal
 
-    category = re.sub(r"\bthe\b", "", category, flags=re.IGNORECASE).strip()
+    category = _THE_REGEX.sub("", category).strip()
 
     # Normalize whitespace
     category = REGEX_SUB_WHITESPACE.sub(" ", category)
