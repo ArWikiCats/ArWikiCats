@@ -7,6 +7,7 @@ import logging
 import re
 import sys
 from pathlib import Path
+from typing import Callable
 
 import colorlog
 
@@ -111,9 +112,6 @@ def format_colored_text(textm: str) -> str:
 
     # Print the final colored text
     return toprint
-
-
-from typing import Callable
 
 
 def wrap_color_messages(format_message: Callable[[logging.LogRecord], str]) -> Callable[[logging.LogRecord], str]:
