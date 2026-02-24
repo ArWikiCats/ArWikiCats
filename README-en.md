@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Stable-orange)]()
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
-[![Version](https://img.shields.io/badge/version-0.2.1-blue)]()
+[![Version](https://img.shields.io/badge/version-0.2.1-blue)](https://github.com/MrIbrahem/ArWikiCats/releases)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 ---
 
