@@ -362,7 +362,7 @@ CINEMA_CATEGORIES: Dict[str, str] = {
 }
 
 keys_of_without_in = {
-    "explorers": "مستكشفو",
+    # "explorers": "مستكشفو",
     "historians": "مؤرخو",
     "activities": "أنشطة",
     "adaptations": "تكييفات",

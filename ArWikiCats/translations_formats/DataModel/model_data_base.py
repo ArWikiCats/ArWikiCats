@@ -94,7 +94,7 @@ class FormatDataBase:
         self.data_list_ci: Dict[str, Any] = {k.lower(): v for k, v in data_list.items()}
 
         self.key_placeholder = key_placeholder
-        self.alternation: str = None
+        self.alternation: str | None = None
         self.pattern: Optional[re.Pattern[str]] = None
         self.pattern_double: Optional[re.Pattern[str]] = None
 

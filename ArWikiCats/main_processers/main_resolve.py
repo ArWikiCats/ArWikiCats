@@ -22,7 +22,13 @@ logger = logging.getLogger(__name__)
 
 @dataclass
 class CategoryResult:
-    """Data structure representing each processed category."""
+    """Data structure representing each processed category.
+
+    Attributes:
+        en: The original English category label.
+        ar: The resolved Arabic label, or empty string if not resolved.
+        from_match: True if pattern-based match produced the label.
+    """
 
     en: str
     ar: str
@@ -31,18 +37,23 @@ class CategoryResult:
 
 @functools.lru_cache(maxsize=50000)
 def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
-    """
-    Translate an English Wikipedia category label into its Arabic equivalent.
+    """Translate an English Wikipedia category label into its Arabic equivalent.
 
-    Parameters:
-        category (str): The original English category label.
-        fix_label (bool): If true, apply post-resolution label fixes before final cleansing (default True).
+    Parameters
+    ----------
+    category : str
+        The original English category label to translate.
+    fix_label : bool, optional
+        If True, apply post-resolution label fixes before final cleansing.
+        Default is True.
 
-    Returns:
-        CategoryResult: dataclass with:
-            - en: the original English category label.
-            - ar: the resolved Arabic label, or an empty string if the category was filtered or no resolution was found.
-            - from_match: `true` if a pattern-based match produced the Arabic label, `false` otherwise.
+    Returns
+    -------
+    CategoryResult
+        A dataclass containing:
+        - ``en``: The original English category label.
+        - ``ar``: The resolved Arabic label, or empty string if not resolved.
+        - ``from_match``: True if a pattern-based match produced the label.
     """
     changed_cat = change_cat(category)
 
@@ -72,15 +83,14 @@ def resolve_label(category: str, fix_label: bool = True) -> CategoryResult:
     category_lab = all_patterns_resolvers(changed_cat)
     from_match = bool(category_lab)
 
+    # If no pattern match, try the resolver chain
+    # The chain works because empty string is falsy - first non-empty result wins
     if not category_lab:
         category_lab = (
-            ""
-            or all_new_resolvers(changed_cat)
+            all_new_resolvers(changed_cat)
             or university_resolver.resolve_university_category(changed_cat)
             or legacy_resolvers(changed_cat)
-            or ""
         )
-
     if category_lab and fix_label:
         category_lab = fixlabel(category_lab, en=category)
 

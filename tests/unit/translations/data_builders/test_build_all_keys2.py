@@ -92,10 +92,9 @@ class TestUpdateKeysWithin:
 
         assert "key of" in data
 
-    def test_removes_explorers_and_historians(self) -> None:
+    def test_removes_historians(self) -> None:
         keys_of_with_in = {}
         keys_of_without_in = {
-            "explorers": "مستكشفون",
             "historians": "مؤرخون",
             "others": "آخرون",
         }
@@ -103,7 +102,6 @@ class TestUpdateKeysWithin:
 
         update_keys_within(keys_of_with_in, keys_of_without_in, data)
 
-        assert "explorers" not in data
         assert "historians" not in data
         assert "others" in data
 

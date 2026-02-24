@@ -599,16 +599,6 @@
         "job_females": "خبيرات",
         "both_jobs": "خبراء وخبيرات"
     },
-    "explorers": {
-        "job_males": "مستكشفون",
-        "job_females": "مستكشفات",
-        "both_jobs": "مستكشفون ومستكشفات"
-    },
-    "explorers of": {
-        "job_males": "مستكشفو",
-        "job_females": "مستكشفات",
-        "both_jobs": "مستكشفو ومستكشفات"
-    },
     "extortionists": {
         "job_males": "مبتزون",
         "job_females": "مبتزات",

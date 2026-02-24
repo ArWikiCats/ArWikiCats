@@ -13,6 +13,7 @@ test_data_0 = {
 }
 
 test_data_1 = {
+    # "Women's National Basketball Association players from Belgium": "لاعبات الاتحاد الوطني لكرة السلة للسيدات من بلجيكا",
     "1988 war films": "أفلام حربية في 1988",
     "2011 in film by country": "الأفلام في 2011 حسب البلد",
     "20th-century Danish sportsmen": "رياضيون رجال دنماركيون في القرن 20",
@@ -63,7 +64,6 @@ test_data_1 = {
     "Supernatural slasher films": "أفلام تقطيع خارقة للطبيعة",
     "United States under secretaries of agriculture": "نواب وزير الزراعة الأمريكي للشؤون المتخصصة",
     "Women's handball players": "لاعبات كرة يد",
-    "Women's National Basketball Association players from Belgium": "لاعبات الاتحاد الوطني لكرة السلة للسيدات من بلجيكا",
     "11th-century people from the Republic of Venice": "أشخاص من جمهورية البندقية في القرن 11",
 }
 

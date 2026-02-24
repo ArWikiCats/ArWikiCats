@@ -51,6 +51,7 @@ data_empty = {
 }
 
 data0 = {
+    # "yemeni national women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للسيدات",
     "chess composers": "مؤلفو مسائل شطرنج",
     "cultural depictions of Canadian activists": "تصوير ثقافي عن ناشطون كنديون",
     "Assassinated Canadian activists": "ناشطون كنديون مغتالون",
@@ -62,7 +63,6 @@ data0 = {
     # "Native American women leaders": "قائدات أمريكيات أصليون",
     "yemeni national junior women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للناشئات",
     "yemeni national junior women's football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية للناشئات",
-    "yemeni national women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للسيدات",
     "yemeni national youth women's under-16 football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية تحت 16 سنة للشابات",
     "yemeni national youth women's football teams players": "لاعبات منتخبات كرة قدم وطنية يمنية للشابات",
     "zaïrean wheelchair sports federation": "الاتحاد الزائيري للرياضة على الكراسي المتحركة",

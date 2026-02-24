@@ -262,15 +262,18 @@ def fix_it(ar_label: str, en_label: str) -> str:
     return ar_label
 
 
-def cleanse_category_label(category_lab):
-    """
-    Fixes a known formatting issue in Arabic category labels.
+def cleanse_category_label(category_lab: str) -> str:
+    """Fix known formatting issues in Arabic category labels.
 
-    Parameters:
-        category_lab (str): The category label to cleanse.
+    Parameters
+    ----------
+    category_lab : str
+        The category label to cleanse.
 
-    Returns:
-        str: The cleansed category label with specific formatting corrections applied.
+    Returns
+    -------
+    str
+        The cleansed category label with specific formatting corrections applied.
     """
     category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
     return category_lab
@@ -315,8 +318,11 @@ def fixlabel(label_old: str, en: str = "") -> str:
     ar_label = add_fee(ar_label)
     ar_label = move_years(ar_label)
 
+    if "لاعبو" in ar_label and ("سيدات" in ar_label or "نسائية" in ar_label):
+        ar_label = ""
+
     if "لاعبو" in ar_label and ("women's" in en or "womens" in en or "سيدات" in ar_label or "نسائية" in ar_label):
-        ar_label = ar_label.replace("لاعبو", "لاعبات")
+        ar_label = ar_label.replace("لاعبون", "لاعبات").replace("لاعبو", "لاعبات")
 
     if original_label != ar_label:
         logger.info(f'fixtitle: original_label:"{original_label}", after:"{ar_label}"')

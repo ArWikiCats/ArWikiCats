@@ -1,4 +1,16 @@
-"""Normalization helpers for Arabic category labels."""
+"""Arabic label normalization and fixing pipeline.
+
+This module provides the post-processing pipeline that cleans and normalizes
+Arabic category labels after they are resolved. The pipeline includes:
+
+- fixlabel: Main entry point that applies all normalization rules
+- cleanse_category_label: Final cleansing step for formatting issues
+- add_fee: Ensures proper preposition usage with year references
+- move_years: Reorders year references in labels
+
+The fix pipeline is applied after resolution to ensure labels are grammatically
+correct and follow Arabic Wikipedia naming conventions.
+"""
 
 from __future__ import annotations
 

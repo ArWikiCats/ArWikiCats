@@ -4,7 +4,6 @@ import pytest
 from ArWikiCats import resolve_label_ar
 
 examples = {
-    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",
     "19th-century actors": "ممثلون في القرن 19",
     "2000s American films": "أفلام أمريكية في عقد 2000",
