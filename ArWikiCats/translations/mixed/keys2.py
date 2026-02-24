@@ -152,7 +152,7 @@ def build_keys2_py_mapping() -> dict[str, str]:
     # data["men"] = "رجال"
     # https://quarry.wmcloud.org/query/100263#
     # (مرشحو|مدربو|صحفيو|مستكشفو|سياسيو|لاعبو|مدربو|مؤرخو|مؤسسو|موظفو|مدربو|مسيرو|خريجو|معلقو|مفوضو|مذيعو|موسيقيو|مغنو|معلمو|طبالو|مدونو|ملحنو|مؤلفو|منتجو|محررو|فنانو|مخرجو|ناشرو|مبتكرو) (في|من)
-    others = {
+    _others = {
         "producers": "منتجو",
         "editors": "محررو",
         "artists": "فنانو",
@@ -176,7 +176,7 @@ def build_keys2_py_mapping() -> dict[str, str]:
             "candidates for": "مرشحو",
             "trainers of": "مدربو",
             "journalists of": "صحفيو",
-            "explorers of": "مستكشفو",
+            # "explorers of": "مستكشفو",
             "political people of": "سياسيو",
             "players of": "لاعبو",
             "managers of": "مدربو",

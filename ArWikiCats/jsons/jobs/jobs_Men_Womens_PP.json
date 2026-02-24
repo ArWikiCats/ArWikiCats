@@ -225,8 +225,6 @@
     "evangelists": {"males":"دعاة إنجيليون", "females":"داعيات إنجيليات"},
     "executioners": {"males":"جلادون", "females":"جلادات"},
     "experts": {"males":"خبراء", "females":"خبيرات"},
-    "explorers": {"males":"مستكشفون", "females":"مستكشفات"},
-    "explorers of": {"males":"مستكشفو", "females":"مستكشفات"},
     "mythological": {"males":"أسطوريون", "females":"أسطوريات"},
     "firefighters": {"males":"رجال إطفاء", "females":"سيدات أطفاء"},
     "fishers": {"males":"صيادو سمك", "females":"صيادات سمك"},

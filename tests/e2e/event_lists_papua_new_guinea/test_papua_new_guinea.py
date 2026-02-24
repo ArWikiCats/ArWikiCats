@@ -615,7 +615,6 @@ data_1 = {
     "Expatriate sportspeople in Papua New Guinea": "رياضيون مغتربون في بابوا غينيا الجديدة",
     "Expatriate sportspeople in Papua New Guinea by nationality": "رياضيون مغتربون في بابوا غينيا الجديدة حسب الجنسية",
     "Expatriates in Papua New Guinea": "مغتربون في بابوا غينيا الجديدة",
-    "Explorers of Papua New Guinea": "مستكشفو بابوا غينيا الجديدة",
     "Fauna of Papua New Guinea": "حيوانات بابوا غينيا الجديدة",
     "Featured pictures of Papua New Guinea": "صور مميزة عن بابوا غينيا الجديدة",
     "Festivals in Papua New Guinea": "مهرجانات في بابوا غينيا الجديدة",

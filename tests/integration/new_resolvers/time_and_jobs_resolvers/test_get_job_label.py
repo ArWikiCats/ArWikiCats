@@ -44,7 +44,6 @@ test_data_standard = {
     "educators": "معلمون",
     "engineers": "مهندسون",
     "engravers": "نقاشون",
-    "explorers": "مستكشفون",
     "folk musicians": "موسيقيو فولك",
     "guitarists": "عازفو قيثارة",
     "historians": "مؤرخون",

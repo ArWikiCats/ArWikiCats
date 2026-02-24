@@ -127,7 +127,6 @@ data_3 = {
     "Diplomatic missions of the United States": "بعثات الولايات المتحدة الدبلوماسية",
     "Economy of the United States": "اقتصاد الولايات المتحدة",
     "Environment of the United States": "بيئة الولايات المتحدة",
-    "Explorers of the United States": "مستكشفو الولايات المتحدة",
     "Extrajudicial prisoners of the United States": "مسجونون خارج نطاق القضاء من الولايات المتحدة",
     "Fauna of the United States": "حيوانات الولايات المتحدة",
     "Featured pictures of the United States": "صور مميزة عن الولايات المتحدة",

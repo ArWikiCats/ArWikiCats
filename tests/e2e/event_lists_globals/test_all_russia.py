@@ -450,7 +450,6 @@ data1 = {
     "Nobility from the Tsardom of Russia": "نبلاء من روسيا القيصرية",
     "English expatriates in the Tsardom of Russia": "إنجليز مغتربون في روسيا القيصرية",
     "Expatriates in the Tsardom of Russia": "مغتربون في روسيا القيصرية",
-    "Explorers from the Tsardom of Russia": "مستكشفون من روسيا القيصرية",
     "Expatriates from the Dutch Republic in the Tsardom of Russia": "مغتربون من جمهورية هولندا في روسيا القيصرية",
     "Artists from the Tsardom of Russia": "فنانون من روسيا القيصرية",
     "Writers from the Tsardom of Russia": "كتاب من روسيا القيصرية",

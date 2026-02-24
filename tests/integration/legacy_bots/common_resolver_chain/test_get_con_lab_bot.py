@@ -68,7 +68,6 @@ join_data_same = {
     "delaware": "ديلاوير",
     "21st century": "القرن 21",
     "north macedonia": "مقدونيا الشمالية",
-    "american explorers": "مستكشفون أمريكيون",
     "american novelists": "روائيون أمريكيون",
     "canadian awards": "جوائز كندية",
     "indian politicians": "سياسيون هنود",

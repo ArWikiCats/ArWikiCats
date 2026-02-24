@@ -52,7 +52,6 @@ data_1 = {
     "Editors from Northern Ireland": "محررون من أيرلندا الشمالية",
     "Electronic music groups from Northern Ireland": "فرق موسيقى إلكترونية من أيرلندا الشمالية",
     "Epidemiologists from Northern Ireland": "علماء وبائيات من أيرلندا الشمالية",
-    "Explorers from Northern Ireland": "مستكشفون من أيرلندا الشمالية",
     "Female archers from Northern Ireland": "نبالات من أيرلندا الشمالية",
     "Female badminton players from Northern Ireland": "لاعبات تنس ريشة من أيرلندا الشمالية",
     "Female equestrians from Northern Ireland": "فارسات خيول من أيرلندا الشمالية",

@@ -701,7 +701,6 @@ data1 = {
     "male models": "عارضو أزياء ذكور",
     "male sport shooters": "لاعبو رماية ذكور",
     "assassinated politicians": "سياسيون مغتالون",
-    "18th-century Dutch explorers": "مستكشفون هولنديون في القرن 18",
     "1650s crimes": "جرائم عقد 1650",
     "20th century women musicians": "موسيقيات في القرن 20",
     "20th century canadian violinists": "عازفو كمان كنديون في القرن 20",

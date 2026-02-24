@@ -304,7 +304,6 @@ data_slow = {
     "Cultural depictions of Erwin Rommel": "تصوير ثقافي عن إرفين رومل",
     "Cultural depictions of Estonian people": "تصوير ثقافي عن إستونيون",
     "Cultural depictions of Eva Perón": "تصوير ثقافي عن إيفا بيرون",
-    "Cultural depictions of explorers": "تصوير ثقافي عن مستكشفون",
     "Cultural depictions of Ezra Pound": "تصوير ثقافي عن عزرا باوند",
     "Cultural depictions of fashion designers": "تصوير ثقافي عن مصممو أزياء",
     "Cultural depictions of Federico García Lorca": "تصوير ثقافي عن فيديريكو غارثيا لوركا",
