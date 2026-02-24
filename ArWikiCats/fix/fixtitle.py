@@ -322,7 +322,7 @@ def fixlabel(label_old: str, en: str = "") -> str:
         ar_label = ""
 
     if "لاعبو" in ar_label and ("women's" in en or "womens" in en or "سيدات" in ar_label or "نسائية" in ar_label):
-        ar_label = ar_label.replace("لاعبو", "لاعبات")
+        ar_label = ar_label.replace("لاعبون", "لاعبات").replace("لاعبو", "لاعبات")
 
     if original_label != ar_label:
         logger.info(f'fixtitle: original_label:"{original_label}", after:"{ar_label}"')
