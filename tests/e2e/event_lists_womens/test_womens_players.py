@@ -5,6 +5,7 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 male_players_before_fixtitle = {
+    "2023 FIFA Women's World Cup players": "لاعبات كأس العالم لكرة القدم للسيدات 2023",
     "Association football players by women's under-20 national team": "لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 20 سنة",
     "Association football players by women's under-21 national team": "لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 21 سنة",
     "Association football players by women's under-23 national team": "لاعبات كرة قدم حسب المنتخب الوطني للسيدات تحت 23 سنة",
@@ -27,7 +28,6 @@ data_2 = {
     # "Galatasaray S.K. (women's basketball) players": "لاعبات نادي غلطة سراي لكرة السلة للسيدات",
     "Women's England Hockey League players": "لاعبات الدوري الإنجليزي للهوكي للسيدات",
     "2022 Women's Africa Cup of Nations players": "لاعبات كأس الأمم الإفريقية للسيدات 2022",
-    "2023 FIFA Women's World Cup players": "لاعبات كأس العالم لكرة القدم للسيدات 2023",
     "2024 Women's Africa Cup of Nations players": "لاعبات كأس الأمم الإفريقية للسيدات 2024",
     "Armenian women's volleyball players": "لاعبات كرة طائرة أرمنيات",
     "Canada women's national basketball team players": "لاعبات منتخب كندا لكرة السلة للسيدات",
