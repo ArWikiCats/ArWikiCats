@@ -73,7 +73,6 @@ data_2 = {
     "Women's Irish Hockey League players": "لاعبات الدوري الأيرلندي للهوكي للسيدات",
     "Women's Korean Basketball League players": "لاعبات الدوري الكوري لكرة السلة للسيدات",
     "Women's lacrosse players": "لاعبات لاكروس",
-    "Women's National Basketball Association players from Belgium": "لاعبات الاتحاد الوطني لكرة السلة للسيدات من بلجيكا",
     "Women's National Basketball Association players from Croatia": "لاعبات الاتحاد الوطني لكرة السلة للسيدات من كرواتيا",
     "Women's National Basketball Association players from Serbia": "لاعبات الاتحاد الوطني لكرة السلة للسيدات من صربيا",
     "Women's National Basketball Association players": "لاعبات الاتحاد الوطني لكرة السلة للسيدات",
