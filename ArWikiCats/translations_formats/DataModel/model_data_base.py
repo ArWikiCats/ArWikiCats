@@ -30,7 +30,7 @@ Example:
 
 import logging
 import re
-from typing import Any, Dict, Optional
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -74,8 +74,8 @@ class FormatDataBase:
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, Any],
+        formatted_data: dict[str, str],
+        data_list: dict[str, Any],
         key_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
@@ -90,13 +90,13 @@ class FormatDataBase:
         self.text_before = text_before
 
         # Case-insensitive mirrors
-        self.formatted_data_ci: Dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
-        self.data_list_ci: Dict[str, Any] = {k.lower(): v for k, v in data_list.items()}
+        self.formatted_data_ci: dict[str, str] = {k.lower(): v for k, v in formatted_data.items()}
+        self.data_list_ci: dict[str, Any] = {k.lower(): v for k, v in data_list.items()}
 
         self.key_placeholder = key_placeholder
         self.alternation: str | None = None
-        self.pattern: Optional[re.Pattern[str]] = None
-        self.pattern_double: Optional[re.Pattern[str]] = None
+        self.pattern: re.Pattern[str] | None = None
+        self.pattern_double: re.Pattern[str] | None = None
 
     def add_formatted_data(self, key: str, value: str) -> None:
         """Add a key-value pair to the data_list."""
@@ -116,7 +116,7 @@ class FormatDataBase:
 
         return "|".join(map(re.escape, keys_sorted))
 
-    def keys_to_pattern(self) -> Optional[re.Pattern[str]]:
+    def keys_to_pattern(self) -> re.Pattern[str] | None:
         """
         Create a compiled, case-insensitive regular expression that matches any key from the case-insensitive data list as a standalone token using the configured word-boundary filter.
 

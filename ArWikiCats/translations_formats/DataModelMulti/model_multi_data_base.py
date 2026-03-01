@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 # -----------------------
 
 
-@dataclass
+@dataclass(slots=True)
 class NormalizeResult:
     """
     Data structure representing the results of category normalization.

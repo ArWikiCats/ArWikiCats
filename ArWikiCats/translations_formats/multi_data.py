@@ -37,7 +37,6 @@ test at tests.translations_formats.test_format_2_data.py
 """
 
 import logging
-from typing import Dict
 
 from .DataModel import FormatData, FormatDataV2
 from .DataModelMulti import MultiDataFormatterBase, MultiDataFormatterBaseV2
@@ -94,19 +93,19 @@ def get_other_data(
 
 
 def format_multi_data(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
+    formatted_data: dict[str, str],
+    data_list: dict[str, str],
     key_placeholder: str = COUNTRY_PARAM,
     value_placeholder: str = COUNTRY_PARAM,
-    data_list2: Dict[str, str] = None,
+    data_list2: dict[str, str] | None = None,
     key2_placeholder: str = YEAR_PARAM,
     value2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
-    other_formatted_data: Dict[str, str] = None,
+    other_formatted_data: dict[str, str] | None = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
-    data_to_find: Dict[str, str] | None = None,
+    data_to_find: dict[str, str] | None = None,
     regex_filter: str | None = None,
 ) -> MultiDataFormatterBase:
     """
@@ -198,16 +197,16 @@ def format_multi_data(
 
 
 def format_multi_data_v2(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
+    formatted_data: dict[str, str],
+    data_list: dict[str, str],
     key_placeholder: str,
-    data_list2: Dict[str, str] = None,
+    data_list2: dict[str, str] | None = None,
     key2_placeholder: str = YEAR_PARAM,
     text_after: str = "",
     text_before: str = "",
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
-    data_to_find: Dict[str, str] | None = None,
+    data_to_find: dict[str, str] | None = None,
     regex_filter: str | None = None,
 ) -> MultiDataFormatterBaseV2:
     """

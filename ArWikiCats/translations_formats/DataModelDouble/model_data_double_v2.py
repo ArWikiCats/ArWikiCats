@@ -7,7 +7,6 @@ where two adjacent keys from a data list appear together.
 import functools
 import logging
 import re
-from typing import Dict, Optional, Union
 
 from ..DataModel.model_data_base import FormatDataBase
 
@@ -25,8 +24,8 @@ class FormatDataDoubleV2(FormatDataBase):
     labels last.
 
     Attributes:
-        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        data_list (Dict[str, Union[str, Dict[str, str]]]): Key-to-Arabic-label mappings for replacements.
+        formatted_data (dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (dict[str, str | dict[str, str]]): Key-to-Arabic-label mappings for replacements.
         key_placeholder (str): Placeholder used in formatted_data keys (default: "xoxo").
         text_after (str): Text to append after the formatted label (default: "").
         text_before (str): Text to prepend before the formatted label (default: "").
@@ -56,8 +55,8 @@ class FormatDataDoubleV2(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, Union[str, Dict[str, str]]],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str | dict[str, str]],
         key_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
@@ -151,7 +150,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return result
 
-    def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
+    def keys_to_pattern_double(self) -> re.Pattern[str] | None:
         """
         Create a compiled case-insensitive regex that matches two adjacent keys separated by the configured splitter.
 
@@ -210,13 +209,13 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return result
 
-    def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: str | dict[str, str]) -> str:
         """
         Substitute placeholder tokens in a template with values from a mapping.
 
         Parameters:
                 template_label (str): Template string containing placeholders in the form `{key}`.
-                sport_label (Union[str, Dict[str, str]]): Mapping of placeholder names to replacement strings; if not a dict the template is returned unchanged.
+                sport_label (str | dict[str, str]): Mapping of placeholder names to replacement strings; if not a dict the template is returned unchanged.
 
         Returns:
                 str: The template with placeholders replaced by their corresponding values, trimmed of surrounding whitespace.
@@ -313,12 +312,17 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return ""
 
-    def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
+    def replace_value_placeholder(self, label: str, value: str | dict[str, str]) -> str:
         """
         Replace placeholders in a label string with corresponding values from a mapping.
 
-        @param value: Mapping of placeholder names to replacement strings; keys are placeholder names (without braces). If `value` is not a mapping, the label is returned unchanged.
-        @returns: The label with each `{key}` replaced by its corresponding string from `value`; unchanged if no replacements apply.
+        Args:
+            label: Template string containing placeholders in the form `{key}`.
+            value: Mapping of placeholder names to replacement strings; keys are placeholder
+                names (without braces). If `value` is not a mapping, the label is returned unchanged.
+
+        Returns:
+            The label with each `{key}` replaced by its corresponding string from `value`; unchanged if no replacements apply.
         """
         logger.debug(f"@@ : {label=}, {value=}")
 

@@ -27,7 +27,6 @@ assert result == "لاعبو كرة القدم"
 """
 
 import logging
-from typing import Dict
 
 from .model_data_base import FormatDataBase
 
@@ -44,8 +43,8 @@ class FormatData(FormatDataBase):
     them with their Arabic equivalents using template strings.
 
     Attributes:
-        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        data_list (Dict[str, str]): Key-to-Arabic-label mappings for replacements.
+        formatted_data (dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (dict[str, str]): Key-to-Arabic-label mappings for replacements.
         key_placeholder (str): Placeholder used in formatted_data keys (e.g., "{sport}").
         value_placeholder (str): Placeholder used in formatted_data values (e.g., "{sport_label}").
         text_after (str): Optional text that appears after the key in patterns.
@@ -65,8 +64,8 @@ class FormatData(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
         text_after: str = "",

@@ -21,24 +21,22 @@ Example:
     'أفلام أكشن دراما بريطانية'
 """
 
-from typing import Dict
-
 from .DataModel import FormatData
 from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 
 def format_films_country_data(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
+    formatted_data: dict[str, str],
+    data_list: dict[str, str],
     key_placeholder: str = "{nat_en}",
     value_placeholder: str = "{nat_ar}",
-    data_list2: Dict[str, str] = None,
-    other_formatted_data: Dict[str, str] = None,
+    data_list2: dict[str, str] | None = None,
+    other_formatted_data: dict[str, str] | None = None,
     key2_placeholder: str = "{film_key}",
     value2_placeholder: str = "{film_ar}",
     text_after: str = "",
     text_before: str = "",
-    data_to_find: Dict[str, str] | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterDataDouble:
     """
     Create a MultiDataFormatterDataDouble for film category translations.

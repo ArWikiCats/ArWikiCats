@@ -2,7 +2,7 @@
 """
 Module for dictionary-based category translation formatting (Version 2).
 
-This module provides MultiDataFormatterBaseV2 classes for
+This module provides MultiDataFormatterBaseV2 class for
 advanced category translations where the data_list values can be dictionaries
 with multiple placeholder replacements instead of simple strings.
 
@@ -24,8 +24,6 @@ result = bot.search("yemeni writers")
 assert result == "كتاب يمنيون"
 """
 
-from typing import Dict
-
 from ..DataModel import FormatDataV2
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
@@ -43,7 +41,7 @@ class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
         country_bot (FormatDataV2): Formatter for the first dynamic element (e.g., nationality).
         other_bot (FormatDataV2): Formatter for the second dynamic element (e.g., profession).
         search_first_part (bool): If True, search using only the first part after normalization.
-        data_to_find (Dict[str, str] | None): Optional direct lookup dictionary for category labels.
+        data_to_find (dict[str, str] | None): Optional direct lookup dictionary for category labels.
 
     Example:
         >>> bot = MultiDataFormatterBaseV2(country_bot, profession_bot)
@@ -56,7 +54,7 @@ class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: FormatDataV2,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
 

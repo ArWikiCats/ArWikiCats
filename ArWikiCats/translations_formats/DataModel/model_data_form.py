@@ -1,9 +1,18 @@
 #!/usr/bin/python3
-""" """
+"""
+Module for callback-based category translation formatting.
+
+This module provides the FormatDataFrom class which offers a flexible way to
+normalize category strings using customizable callback functions for key
+matching and searching.
+
+Classes:
+    FormatDataFrom: A dynamic wrapper for handling category transformations with customizable callbacks.
+"""
 
 import logging
 import re
-from typing import Callable, Optional
+from collections.abc import Callable
 
 logger = logging.getLogger(__name__)
 
@@ -22,9 +31,9 @@ class FormatDataFrom:
         formatted_data_ci (dict[str, str]): Case-insensitive version of formatted_data.
         key_placeholder (str): Placeholder string for the key (e.g., "{year1}", "{country1}").
         value_placeholder (str): Placeholder string for the value in Arabic templates.
-        search_callback (callable): Function to search/translate a key to its Arabic label.
-        match_key_callback (callable): Function to extract a key from a category string.
-        fixing_callback (callable | None): Optional callback for post-processing results.
+        search_callback (Callable): Function to search/translate a key to its Arabic label.
+        match_key_callback (Callable): Function to extract a key from a category string.
+        fixing_callback (Callable | None): Optional callback for post-processing results.
 
     Example:
         >>> bot = FormatDataFrom(
@@ -43,9 +52,9 @@ class FormatDataFrom:
         formatted_data: dict[str, str],
         key_placeholder: str,
         value_placeholder: str,
-        search_callback: Callable,
-        match_key_callback: Callable,
-        fixing_callback: Optional[Callable] = None,
+        search_callback: Callable[[str], str],
+        match_key_callback: Callable[[str], str],
+        fixing_callback: Callable[[str], str] | None = None,
     ) -> None:
         """
         Create a FormatDataFrom instance configured with templates, placeholders, and lookup/matching callbacks.

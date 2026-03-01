@@ -2,7 +2,7 @@
 """
 Module for dictionary-based category translation formatting (Version 2).
 
-This module provides FormatDataV2 classe for
+This module provides FormatDataV2 class for
 advanced category translations where the data_list values can be dictionaries
 with multiple placeholder replacements instead of simple strings.
 
@@ -24,8 +24,6 @@ result = bot.search("yemeni writers")
 assert result == "كتاب يمنيون"
 """
 
-from typing import Dict, Union
-
 from .model_data_base import FormatDataBase
 
 
@@ -39,8 +37,8 @@ class FormatDataV2(FormatDataBase):
     replaced with different values from the same key's data.
 
     Attributes:
-        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        data_list (Dict[str, Union[str, Dict[str, str]]]): Key mappings where values can be
+        formatted_data (dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        data_list (dict[str, str | dict[str, str]]): Key mappings where values can be
             simple strings or dictionaries with multiple placeholder values.
         key_placeholder (str): Placeholder used in formatted_data keys.
         text_after (str): Optional text that appears after the key in patterns.
@@ -58,8 +56,8 @@ class FormatDataV2(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, Union[str, Dict[str, str]]],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str | dict[str, str]],
         key_placeholder: str = "xoxo",
         text_after: str = "",
         text_before: str = "",
@@ -78,7 +76,7 @@ class FormatDataV2(FormatDataBase):
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
-    def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: str | dict[str, str]) -> str:
         """Replace value placeholder once template is chosen."""
         if not isinstance(sport_label, dict):
             return template_label
@@ -90,16 +88,9 @@ class FormatDataV2(FormatDataBase):
                 if isinstance(val, str) and val:
                     final_label = final_label.replace(f"{{{key}}}", val)
 
-        # if any(f"{key}" in final_label for key in sport_label.keys()):
-        # logger.warning(f"Not all placeholders replaced in {final_label=}, {sport_label=}")
-        #     # If not all placeholders were replaced, we can choose to either
-        #     # leave the label as is or apply some default behavior.
-        #     # For now, we'll just log a warning and return the label.
-        #     return ""
-
         return final_label.strip()
 
-    def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
+    def replace_value_placeholder(self, label: str, value: str | dict[str, str]) -> str:
         """
         Used in MultiDataFormatterBaseV2 / MultiDataFormatterBaseHelpers
         """
@@ -110,12 +101,5 @@ class FormatDataV2(FormatDataBase):
         for key, val in value.items():
             if isinstance(val, str) and val:
                 final_label = final_label.replace(f"{{{key}}}", val)
-
-        # if any(f"{key}" in final_label for key in value.keys()):
-        # logger.warning(f"Not all placeholders replaced in {final_label=}, {value=}")
-        #     # If not all placeholders were replaced, we can choose to either
-        #     # leave the label as is or apply some default behavior.
-        #     # For now, we'll just log a warning and return the label.
-        #     return ""
 
         return final_label
