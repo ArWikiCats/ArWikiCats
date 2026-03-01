@@ -1,3 +1,27 @@
+## [Modernize translations_formats module] - 2026-03-01
+
+### Changed
+* **Type Hints Modernization** (all files in translations_formats):
+  - Replaced `Dict[str, str]` with `dict[str, str]`
+  - Replaced `Optional[X]` with `X | None`
+  - Replaced `Union[A, B]` with `A | B`
+  - Removed unused `typing` imports
+  - Used `collections.abc.Callable` instead of `typing.Callable`
+  - Added proper Callable type annotations with signatures
+
+* **Memory Optimization**:
+  - Added `slots=True` to `NormalizeResult` dataclass for reduced memory footprint
+
+* **Code Quality Improvements**:
+  - Fixed docstring typo: "classe" → "class" in model_data_v2.py
+  - Removed commented-out code in model_data_v2.py
+  - Fixed trailing whitespace issues
+
+### Added
+* **Documentation**:
+  - Added module docstring to model_data_form.py
+  - Improved docstring consistency across classes
+
 ## [Add unit tests for legacy_bots module] - 2026-01-27
 
 ### Added
