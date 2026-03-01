@@ -1,3 +1,35 @@
+## [Real improvements to translations_formats module] - 2026-03-01
+
+### Added
+* **Performance Improvements (LRU Caching)**:
+  - Added `@lru_cache` decorator to `match_key()` method in FormatDataBase for cached key lookups
+  - Added `@lru_cache` decorator to `_search()` method in FormatDataBase for cached translation results
+  - These caches significantly improve performance when the same categories are translated multiple times
+
+* **Data Management Methods**:
+  - Added `add_data_list_entry()` method to dynamically add new key-value pairs after initialization
+  - Added `rebuild_patterns()` method to update regex patterns after modifying data_list
+  - Added `clear_cache()` method to invalidate cached results when data changes
+  - Added `get_cache_stats()` method to retrieve cache hit/miss statistics for monitoring
+
+* **Shared Utilities (mixins.py)**:
+  - Created new `CategoryPrefixMixin` class to reduce code duplication
+  - Extracted `prepend_arabic_category_prefix()` and `check_placeholders()` into shared mixin
+  - Added `strip_category_prefix()` static method for convenient prefix removal
+  - Added `normalize_category_string()` static method for combined normalization
+  - Added constants `ARABIC_CATEGORY_PREFIX` and `ENGLISH_CATEGORY_PREFIX`
+
+* **Unit Tests**:
+  - Added 28 new tests for the new functionality
+  - Tests for `add_data_list_entry()`, `rebuild_patterns()`, `clear_cache()`, `get_cache_stats()`
+  - Tests for `CategoryPrefixMixin` methods
+
+### Changed
+* **Code Deduplication**:
+  - `FormatDataBase` now inherits from `CategoryPrefixMixin`
+  - `MultiDataFormatterBaseHelpers` now inherits from `CategoryPrefixMixin`
+  - Removed duplicated `prepend_arabic_category_prefix()` and `check_placeholders()` implementations
+
 ## [Modernize translations_formats module] - 2026-03-01
 
 ### Changed

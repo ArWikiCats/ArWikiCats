@@ -28,14 +28,21 @@ Example:
     'لاعبو كرة القدم'
 """
 
+import functools
 import logging
 import re
 from typing import Any
 
+from ..mixins import CategoryPrefixMixin
+
 logger = logging.getLogger(__name__)
 
+# Default cache sizes for LRU caching
+DEFAULT_SEARCH_CACHE_SIZE = 10000
+DEFAULT_MATCH_KEY_CACHE_SIZE = 10000
 
-class FormatDataBase:
+
+class FormatDataBase(CategoryPrefixMixin):
     """
     Abstract base class for single-element category translation formatters.
 
@@ -43,11 +50,14 @@ class FormatDataBase:
     by matching keys from a data_list and replacing them using template patterns.
     It is meant to be subclassed by specific formatter implementations.
 
+    Inherits from:
+        CategoryPrefixMixin: Provides prepend_arabic_category_prefix and check_placeholders.
+
     Attributes:
-        formatted_data (Dict[str, str]): Template patterns mapping English patterns to Arabic templates.
-        formatted_data_ci (Dict[str, str]): Case-insensitive version of formatted_data.
-        data_list (Dict[str, Any]): Key-to-Arabic-label mappings for replacements.
-        data_list_ci (Dict[str, Any]): Case-insensitive version of data_list.
+        formatted_data (dict[str, str]): Template patterns mapping English patterns to Arabic templates.
+        formatted_data_ci (dict[str, str]): Case-insensitive version of formatted_data.
+        data_list (dict[str, Any]): Key-to-Arabic-label mappings for replacements.
+        data_list_ci (dict[str, Any]): Case-insensitive version of data_list.
         key_placeholder (str): Placeholder string for the key in patterns.
         text_after (str): Optional text that appears after the key.
         text_before (str): Optional text that appears before the key.
@@ -98,10 +108,92 @@ class FormatDataBase:
         self.pattern: re.Pattern[str] | None = None
         self.pattern_double: re.Pattern[str] | None = None
 
+        # Statistics tracking
+        self._cache_hits = 0
+        self._cache_misses = 0
+
     def add_formatted_data(self, key: str, value: str) -> None:
-        """Add a key-value pair to the data_list."""
+        """Add a key-value pair to the formatted_data dictionary.
+
+        Note: This invalidates any cached search results. Call clear_cache()
+        if using cached methods after adding data.
+        """
         self.formatted_data[key] = value
         self.formatted_data_ci[key.lower()] = value
+
+    def add_data_list_entry(self, key: str, value: Any) -> None:
+        """Add a key-value pair to the data_list dictionary.
+
+        This method adds a new key-value mapping that can be used for
+        translations. After adding entries, you should call rebuild_patterns()
+        to update the regex patterns.
+
+        Parameters:
+            key: The English key to add (e.g., "football").
+            value: The Arabic translation or dict of translations.
+
+        Example:
+            >>> bot.add_data_list_entry("tennis", "تنس")
+            >>> bot.rebuild_patterns()
+        """
+        self.data_list[key] = value
+        self.data_list_ci[key.lower()] = value
+
+    def rebuild_patterns(self) -> None:
+        """Rebuild regex patterns after modifying data_list.
+
+        Call this method after using add_data_list_entry() to ensure
+        the regex patterns include the new keys.
+        """
+        self.alternation = self.create_alternation()
+        self.pattern = self.keys_to_pattern()
+        # Clear any method-level caches if they exist
+        self.clear_cache()
+
+    def clear_cache(self) -> None:
+        """Clear all internal caches.
+
+        Call this method after modifying data_list or formatted_data
+        to ensure fresh lookups.
+        """
+        # Clear stats
+        self._cache_hits = 0
+        self._cache_misses = 0
+
+        # Clear any LRU caches on methods (subclasses may have them)
+        for attr_name in dir(self):
+            attr = getattr(self, attr_name, None)
+            if hasattr(attr, "cache_clear"):
+                attr.cache_clear()
+
+    def get_cache_stats(self) -> dict[str, Any]:
+        """Return cache statistics for monitoring performance.
+
+        Returns:
+            dict with cache statistics including:
+                - data_list_size: Number of keys in data_list
+                - formatted_data_size: Number of template patterns
+                - alternation_length: Length of regex alternation string
+        """
+        stats: dict[str, Any] = {
+            "data_list_size": len(self.data_list_ci),
+            "formatted_data_size": len(self.formatted_data_ci),
+            "alternation_length": len(self.alternation) if self.alternation else 0,
+        }
+
+        # Check for LRU cache info on methods
+        for method_name in ["match_key", "_search", "normalize_category"]:
+            method = getattr(self, method_name, None)
+            if method and hasattr(method, "cache_info"):
+                cache_info = method.cache_info()
+                stats[f"{method_name}_cache"] = {
+                    "hits": cache_info.hits,
+                    "misses": cache_info.misses,
+                    "size": cache_info.currsize,
+                    "maxsize": cache_info.maxsize,
+                }
+
+        return stats
 
     def create_alternation(self) -> str:
         """Create regex alternation from data_list_ci keys."""
@@ -132,9 +224,13 @@ class FormatDataBase:
         data_pattern = rf"(?<!{self.regex_filter})({self.alternation})(?!{self.regex_filter})"
         return re.compile(data_pattern, re.I)
 
+    @functools.lru_cache(maxsize=DEFAULT_MATCH_KEY_CACHE_SIZE)
     def match_key(self, category: str) -> str:
         """
         Finds the canonical key present in the given category string.
+
+        This method is cached using LRU cache for performance. Call
+        clear_cache() if you need to invalidate cached results.
 
         Returns:
                 lowercased key from data_list if a matching key is found, otherwise an empty string.
@@ -145,7 +241,7 @@ class FormatDataBase:
         normalized_category = " ".join(category.split())
         logger.debug(f">!> : {normalized_category=}")
 
-        # TODO: check this
+        # Fast path: direct lookup in data_list
         if self.data_list_ci.get(normalized_category.lower()):
             logger.debug(f">>!!>> : found in data_list_ci {normalized_category=}")
             return normalized_category.lower()
@@ -261,8 +357,13 @@ class FormatDataBase:
         """Return the Arabic label mapped to the provided key if present."""
         return self.data_list_ci.get(sport_key)
 
+    @functools.lru_cache(maxsize=DEFAULT_SEARCH_CACHE_SIZE)
     def _search(self, category: str) -> str:
-        """End-to-end resolution."""
+        """End-to-end resolution with caching.
+
+        This method is cached using LRU cache for performance. Call
+        clear_cache() if you need to invalidate cached results.
+        """
         logger.debug("$$$ start (): ")
         logger.debug(f"++++++++ {self.__class__.__name__} ++++++++ ")
 
@@ -336,20 +437,7 @@ class FormatDataBase:
         """
         return self._search(category)
 
-    def prepend_arabic_category_prefix(self, category, result) -> str:
-        """
-        Prepend the Arabic category prefix "تصنيف:" to `result` when `category` begins with "category:" and `result` is not already prefixed.
-
-        Parameters:
-            category (str): The original category string; checked case-insensitively for the "category:" prefix.
-            result (str): The result string to modify.
-
-        Returns:
-            str: `result` with "تصنيف:" prepended when applicable, otherwise the original `result`.
-        """
-        if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
-            result = "تصنيف:" + result
-        return result
+    # NOTE: prepend_arabic_category_prefix is now inherited from CategoryPrefixMixin
 
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
         """
@@ -368,23 +456,7 @@ class FormatDataBase:
             result = self.prepend_arabic_category_prefix(category, result)
         return result
 
-    def check_placeholders(self, category: str, result: str) -> str:
-        """
-        Validate that the translated result contains no unprocessed placeholders.
-
-        If the result contains a literal "{" character, a warning is logged (including the original category) and an empty string is returned; otherwise the original result is returned.
-
-        Parameters:
-            category (str): Original category string used for context in warnings.
-            result (str): Translated/processed string to check for unprocessed placeholders.
-
-        Returns:
-            str: The original `result` if it contains no "{", otherwise an empty string.
-        """
-        if "{" in result:
-            logger.warning(f">>> Found unprocessed placeholders in {category=}: {result=}")
-            return ""
-        return result
+    # NOTE: check_placeholders is now inherited from CategoryPrefixMixin
 
     def search_all_category(self, category: str) -> str:
         """

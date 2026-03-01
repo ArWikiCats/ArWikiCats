@@ -27,6 +27,8 @@ test at tests.translations_formats.test_format_2_data.py
 import logging
 from dataclasses import dataclass
 
+from ..mixins import CategoryPrefixMixin
+
 logger = logging.getLogger(__name__)
 
 # -----------------------
@@ -67,9 +69,12 @@ class NormalizeResult:
     other_key: str
 
 
-class MultiDataFormatterBaseHelpers:
+class MultiDataFormatterBaseHelpers(CategoryPrefixMixin):
     """
     Base class providing shared functionality for multi-formatter translations.
+
+    Inherits from:
+        CategoryPrefixMixin: Provides prepend_arabic_category_prefix and check_placeholders.
 
     This class contains the core logic for normalizing and translating
     category strings that contain two dynamic elements. It is meant to
@@ -259,38 +264,9 @@ class MultiDataFormatterBaseHelpers:
         """
         return self.create_label(category)
 
-    def check_placeholders(self, category: str, result: str) -> str:
-        """
-        Ensure the produced label contains no unprocessed placeholder characters.
+    # NOTE: check_placeholders is now inherited from CategoryPrefixMixin
 
-        Logs a warning if unprocessed placeholders (`{`) are found in `result`, using `category` for context.
-
-        Parameters:
-            category (str): Original category string used in the warning message.
-            result (str): The generated label to check for placeholders.
-
-        Returns:
-            str: The original `result` if it contains no `{` characters, otherwise an empty string.
-        """
-        if "{" in result:
-            logger.warning(f">>> search_all_category Found unprocessed placeholders in {category=}: {result=}")
-            return ""
-        return result
-
-    def prepend_arabic_category_prefix(self, category: str, result: str) -> str:
-        """
-        Prepend the Arabic category prefix "تصنيف:" to the result when the original category started with "category:" and the result lacks that prefix.
-
-        Parameters:
-            category (str): The original category string to inspect for the English "category:" prefix.
-            result (str): The generated Arabic label that may require the Arabic category prefix.
-
-        Returns:
-            str: The possibly modified `result` with "تصنيف:" prepended when `category` starts with "category:" (case-insensitive) and `result` is non-empty and does not already start with "تصنيف:".
-        """
-        if result and category.lower().startswith("category:") and not result.startswith("تصنيف:"):
-            result = "تصنيف:" + result
-        return result
+    # NOTE: prepend_arabic_category_prefix is now inherited from CategoryPrefixMixin
 
     def search_all(self, category: str, add_arabic_category_prefix: bool = False) -> str:
         """
