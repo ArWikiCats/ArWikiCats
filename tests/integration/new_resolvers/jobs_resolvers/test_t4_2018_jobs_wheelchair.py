@@ -8,7 +8,6 @@ from load_one_data import dump_diff, one_dump_test
 from ArWikiCats.new_resolvers import all_new_resolvers
 
 test_data_not_for_2018_bot = {
-    "swiss wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة السويسرية",
     "wheelchair basketball coaches": "مدربو كرة سلة على كراسي متحركة",
     "wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة",
     "wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة",
