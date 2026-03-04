@@ -7,7 +7,7 @@ cities), occupational, and sports-related categories.
 
 Version
 -------
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 Quick Start
 -----------
@@ -54,7 +54,7 @@ from .main_processers.main_resolve import resolve_label_ar
 
 setup_logging()
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 __all__ = [
     "resolve_label_ar",
