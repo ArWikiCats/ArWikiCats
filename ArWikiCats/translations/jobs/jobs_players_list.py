@@ -12,17 +12,14 @@ from typing import Mapping
 
 from ..data_builders.build_jobs_players_list import (
     _build_boxing_labels,
-    _build_champion_labels,
     _build_general_scope_labels,
     _build_jobs_player_variants,
     _build_skating_labels,
     _build_team_sport_labels,
-    _build_world_champion_labels,
     _merge_maps,
 )
 from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 from ..helps import len_print
-from ..sports import SPORTS_KEYS_FOR_LABEL, SPORTS_KEYS_FOR_TEAM
 from ..utils import open_json_file
 
 # ---------------------------------------------------------------------------
@@ -220,19 +217,12 @@ GENERAL_SCOPE_LABELS = _build_general_scope_labels(GENERAL_SPORT_ROLES, SPORT_SC
 
 SPORT_JOB_VARIANTS.update(SPORT_JOB_VARIANTS_additional)
 
-# TODO: these 2 should be removed
-CHAMPION_LABELS = _build_champion_labels(SPORTS_KEYS_FOR_LABEL)
-WORLD_CHAMPION_LABELS = _build_world_champion_labels(SPORTS_KEYS_FOR_TEAM)
-
-
 PLAYERS_TO_MEN_WOMENS_JOBS = _merge_maps(
     STATIC_PLAYER_LABELS,
     TEAM_SPORT_LABELS,
     SKATING_LABELS,
     BOXING_LABELS,
     GENERAL_SCOPE_LABELS,
-    CHAMPION_LABELS,
-    WORLD_CHAMPION_LABELS,
     # SPORT_JOB_VARIANTS,
     BASE_PLAYER_VARIANTS,
 )
@@ -249,8 +239,6 @@ len_print.data_len(
         "PLAYERS_TO_MEN_WOMENS_JOBS": PLAYERS_TO_MEN_WOMENS_JOBS,  # 1,345
         "SPORT_JOB_VARIANTS": SPORT_JOB_VARIANTS,  # 61,919
         "BASE_PLAYER_VARIANTS": BASE_PLAYER_VARIANTS,  # 435
-        "WORLD_CHAMPION_LABELS": WORLD_CHAMPION_LABELS,  # 431
-        "CHAMPION_LABELS": CHAMPION_LABELS,  # 434
         "GENERAL_SCOPE_LABELS": GENERAL_SCOPE_LABELS,  # 9
         "STATIC_PLAYER_LABELS": STATIC_PLAYER_LABELS,  # 4
         "BOXING_LABELS": BOXING_LABELS,  # 42

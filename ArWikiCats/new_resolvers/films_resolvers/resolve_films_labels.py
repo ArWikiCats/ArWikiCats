@@ -2,7 +2,6 @@
 """
 
 TODO:
-    - use this file instead of film_keys_bot.py
     - add formated_data from ArWikiCats/translations/tv/films_mslslat.py
 
 """

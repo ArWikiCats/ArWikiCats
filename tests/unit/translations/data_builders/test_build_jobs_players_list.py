@@ -3,13 +3,11 @@
 from ArWikiCats.translations.data_builders.build_jobs_players_list import (
     GenderedLabelMap,
     _build_boxing_labels,
-    _build_champion_labels,
     _build_general_scope_labels,
     _build_jobs_player_variants,
     _build_skating_labels,
     _build_sports_job_variants,
     _build_team_sport_labels,
-    _build_world_champion_labels,
     _merge_maps,
 )
 from ArWikiCats.translations.data_builders.jobs_defs import combine_gender_labels
@@ -139,45 +137,6 @@ class TestBuildGeneralScopeLabels:
         result = _build_general_scope_labels(roles, scopes)
 
         assert "olympic coach" in result
-
-
-class TestBuildChampionLabels:
-    """Tests for _build_champion_labels function."""
-
-    def test_builds_champions(self) -> None:
-        labels = {"football": "كرة القدم", "basketball": "كرة السلة"}
-        result = _build_champion_labels(labels)
-
-        assert "football champions" in result
-        assert result["football champions"]["males"] == "أبطال كرة القدم"
-        assert result["football champions"]["females"] == ""
-
-    def test_skips_empty_labels(self) -> None:
-        labels = {"valid": "صحيح", "empty": ""}
-        result = _build_champion_labels(labels)
-
-        assert "valid champions" in result
-        assert "empty champions" not in result
-
-
-class TestBuildWorldChampionLabels:
-    """Tests for _build_world_champion_labels function."""
-
-    def test_builds_world_champions(self) -> None:
-        labels = {"boxing": "الملاكمة", "wrestling": "المصارعة"}
-        result = _build_world_champion_labels(labels)
-
-        assert "world boxing champions" in result
-        assert result["world boxing champions"]["males"] == "أبطال العالم الملاكمة "
-        assert result["world boxing champions"]["females"] == ""
-
-    def test_skips_empty_labels(self) -> None:
-        labels = {"valid": "صحيح", "empty": ""}
-        result = _build_world_champion_labels(labels)
-
-        assert "world valid champions" in result
-        assert "world empty champions" not in result
-
 
 class TestBuildSportsJobVariants:
     """Tests for _build_sports_job_variants function."""

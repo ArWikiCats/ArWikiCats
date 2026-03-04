@@ -1,8 +1,5 @@
 """
 Label helpers for categories that use the word ``by``.
-
-TODO: need refactoring
-
 """
 
 from __future__ import annotations

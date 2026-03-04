@@ -1,5 +1,4 @@
 """
-TODO: write code relegin_jobs_nats_jobs.py
 """
 
 import pytest

@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-TODO: use this instead of nats_women.py
 """
 
 import functools

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-TODO: use this code in flowworks
+TODO: use this code in workflow
 
 Examples:
     - en: 18th-century nobility

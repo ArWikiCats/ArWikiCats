@@ -145,7 +145,6 @@ class FormatDataBase:
         normalized_category = " ".join(category.split())
         logger.debug(f">!> : {normalized_category=}")
 
-        # TODO: check this
         if self.data_list_ci.get(normalized_category.lower()):
             logger.debug(f">>!!>> : found in data_list_ci {normalized_category=}")
             return normalized_category.lower()

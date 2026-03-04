@@ -208,7 +208,6 @@ def _load_formatted_data() -> dict:
             "{en_nat} emigrants": "{males} مهاجرون",
             "fictional {en_nat} religious workers": "عمال دينيون {males} خياليون",
             "{en_nat} religious workers": "عمال دينيون {males}",
-            # TODO: ADD DATA FROM NAT_BEFORE_OCC_BASE
             # "{en_nat} saints": "{males} قديسون",
             "{en_nat} anti-communists": "{males} مناهضون للشيوعية",
             "{en_nat} disability rights activists": "{males} ناشطون في حقوق الإعاقة",
