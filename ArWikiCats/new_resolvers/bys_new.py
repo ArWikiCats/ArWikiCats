@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-TODO: use it to replace get_by_label functions in bys.py
 
 """
 

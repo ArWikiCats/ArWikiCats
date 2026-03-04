@@ -1,5 +1,4 @@
 """
-TODO: use mens_resolver_labels
 """
 
 import pytest

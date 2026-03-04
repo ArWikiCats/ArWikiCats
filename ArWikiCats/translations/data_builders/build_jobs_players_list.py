@@ -164,59 +164,6 @@ def _build_general_scope_labels(
     return result
 
 
-def _build_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
-    """
-    Build gendered Arabic "champions" labels for sports.
-
-    For each entry in `labels` with a non-empty Arabic value, adds a key "<sport_key> champions"
-    (lowercased) whose value is a gendered label with the male form "أبطال {arabic_label}" and an empty
-    female form.
-
-    Parameters:
-        labels (Mapping[str, str]): Mapping from sport keys to their Arabic labels.
-
-    Returns:
-        GenderedLabelMap: A mapping from composite keys to dictionaries with "males" and "females"
-        strings; the "males" entry contains the Arabic champion phrase and the "females" entry is empty.
-    """
-
-    result: GenderedLabelMap = {}
-    for sport_key, arabic_label in labels.items():
-        if not arabic_label:
-            continue
-        composite_key = f"{sport_key.lower()} champions"
-        result[composite_key] = {
-            "males": f"أبطال {arabic_label}",
-            "females": "",
-        }
-    return result
-
-
-def _build_world_champion_labels(labels: Mapping[str, str]) -> GenderedLabelMap:
-    """
-    Generate "world <sport> champions" gendered labels from a mapping of sport descriptors to Arabic names.
-
-    Parameters:
-        labels (Mapping[str, str]): Mapping from English sport keys to their Arabic sport names; entries with empty Arabic names are skipped.
-
-    Returns:
-        GenderedLabelMap: A map where each key is "world <sport_key> champions" (lowercased sport_key) and the value is a dict with:
-            - "males": Arabic male-form label "أبطال العالم {arabic_label} "
-            - "females": an empty string
-    """
-
-    result: GenderedLabelMap = {}
-    for sport_key, arabic_label in labels.items():
-        if not arabic_label:
-            continue
-        composite_key = f"world {sport_key.lower()} champions"
-        result[composite_key] = {
-            "males": f"أبطال العالم {arabic_label} ",
-            "females": "",
-        }
-    return result
-
-
 def _build_sports_job_variants(
     sport_jobs: Mapping[str, str],
     football_roles: Mapping[str, GenderedLabel],
@@ -308,8 +255,6 @@ __all__ = [
     "_build_team_sport_labels",
     "_build_jobs_player_variants",
     "_build_general_scope_labels",
-    "_build_champion_labels",
-    "_build_world_champion_labels",
     "_build_sports_job_variants",
     "_merge_maps",
 ]

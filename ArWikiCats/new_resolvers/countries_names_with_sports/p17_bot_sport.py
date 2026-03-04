@@ -1,6 +1,5 @@
 """
 
-TODO: merge with countries_names_sport_multi_v2.py
 
 """
 

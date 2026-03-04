@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ArWikiCats"
-version = "0.2.1"
+version = "0.2.2"
 description = "Arabic Wikipedia Categories Translation Engine"
 readme = "README.md"
 requires-python = ">=3.10"

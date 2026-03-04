@@ -12,7 +12,6 @@ from ...translations import Nat_mens
 from ..make_bots import get_cats, get_reg_result
 from ..resolvers.country_resolver import get_country_label
 from .bot_2018 import get_pop_All_18
-from .mk3 import new_func_mk2
 
 logger = logging.getLogger(__name__)
 
@@ -184,32 +183,6 @@ class LabelForStartWithYearOrTypeo:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
             logger.debug("a<<lightblue>>>>>> No country_lower.")
-            return
-
-        # TODO: delete it
-        # if self.country_lower != "":
-        if self.country_lower == "x":
-            if self.country_label:
-                self.cat_test, self.arlabel = new_func_mk2(
-                    self.cate,
-                    self.cat_test,
-                    self.year_at_first,
-                    "",
-                    self.in_str,
-                    self.country_lower,
-                    self.arlabel,
-                    self.year_labe,
-                    self.suf,
-                    self.add_in,
-                    self.country_label,
-                    self.add_in_done,
-                )
-                if self.arlabel:
-                    self.NoLab = False
-                    return
-
-            logger.info(f"a<<lightblue>>>>>> No label., {self.country_lower=}")
-            self.NoLab = True
             return
 
         logger.info("a<<lightblue>>>>>> No label.")

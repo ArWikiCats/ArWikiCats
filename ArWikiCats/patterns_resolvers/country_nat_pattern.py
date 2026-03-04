@@ -15,7 +15,6 @@ from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v
 
 logger = logging.getLogger(__name__)
 
-# TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/COUNTRY_NAT.json
 COUNTRY_NAT_DATA = {
     # French invasion of Russia
     "{en_nat} invasion of {country}": "الغزو {the_male} ل{country_ar}",

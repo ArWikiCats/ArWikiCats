@@ -1,5 +1,5 @@
 """
-# TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/NAT.json"""
+"""
 
 NAT_PARAMS = ["{males}"]
 

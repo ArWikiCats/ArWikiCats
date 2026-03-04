@@ -1,5 +1,5 @@
 """
-# TODO: ADD SOME DATA FROM D:/categories_bot/langlinks/z2_data/YEAR.json"""
+"""
 
 YEAR_PARAM_NAME = "year1"
 

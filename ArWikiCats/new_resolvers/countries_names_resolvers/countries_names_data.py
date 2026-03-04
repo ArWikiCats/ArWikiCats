@@ -293,7 +293,6 @@ keys_of_without_in_data = {
 
 formatted_data_en_ar_only.update(keys_of_without_in_data)
 
-# TODO: add from_russia_data to formatted_data_en_ar_only
 from_russia_data = {
     "agriculture ministers of {en}": "وزراء زراعة {ar}",
     "culture ministers of {en}": "وزراء ثقافة {ar}",

@@ -272,7 +272,6 @@ def wrap_try_with_years(category_r) -> str:
 
     logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
 
-    # TODO: THIS NEED REVIEW
     # Reject strings that contain common English prepositions
     blocked = ("in", "of", "from", "by", "at")
     if any(f" {word} " in cat3.lower() for word in blocked):
