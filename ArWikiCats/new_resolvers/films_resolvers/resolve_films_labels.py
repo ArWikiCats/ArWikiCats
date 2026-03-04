@@ -184,8 +184,6 @@ def _make_bot() -> MultiDataFormatterBase:
         "{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}",
         "remakes of {nat_en} {film_key} films": "أفلام {film_ar} {nat_ar} معاد إنتاجها",
         "{nat_en} {film_key} television commercials": "إعلانات تجارية تلفزيونية {film_ar} {nat_ar}",
-        # TODO: move this to jobs bot?
-        # "{nat_en} sports coaches": "مدربو رياضة {nat_ar}",
         "{nat_en} animated television films": "أفلام رسوم متحركة تلفزيونية {nat_ar}",
         "{nat_en} animated television series": "مسلسلات رسوم متحركة تلفزيونية {nat_ar}",
     }

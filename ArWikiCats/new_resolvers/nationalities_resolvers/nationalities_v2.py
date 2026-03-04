@@ -44,8 +44,6 @@ peoples_nats_not_jobs_males = {
 
 males_data = {
     # en_is_nat_ar_is_mens
-    # TODO: until the_males is implemented
-    # "anti-{en} sentiment": "مشاعر معادية لل{the_males}",
     "{en} non profit publishers": "ناشرون غير ربحيون {males}",
     "{en} non-profit publishers": "ناشرون غير ربحيون {males}",
     "{en} government officials": "مسؤولون حكوميون {males}",

@@ -2,7 +2,6 @@
 """
 NOTE: this file has alot of formatted_data
 
-TODO: merge with sports_resolvers/nationalities_and_sports.py
 
 """
 
@@ -18,7 +17,6 @@ from ..nats_as_country_names import nats_keys_as_country_names
 
 logger = logging.getLogger(__name__)
 
-# TODO: add data from new_for_nat_female_xo_team_additional
 new_for_nat_female_xo_team_2 = {
     # "yemeni football": "كرة قدم يمنية",
     # "{en} {en_sport}": "{sport_jobs} {female}",  # Category:American_basketball
