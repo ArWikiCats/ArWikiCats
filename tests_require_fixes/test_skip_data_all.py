@@ -8,6 +8,11 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 test_data_1 = {
+    "swedish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة سويديون",
+    "scottish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة إسكتلنديون",
+    "finnish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة فنلنديون",
+    "canadian wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة كنديون",
+    "american wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة أمريكيون",
     "Superhero television characters by franchise": "أبطال خارقون تلفازيون حسب حق الامتياز",
     "DC Comics superhero teams": "فرق أبطال دي سي كومكس",
     "Superheroes": "أبطال خارقون",
