@@ -611,7 +611,6 @@ slow_data = {
 }
 
 data1 = {
-    "christian saints": "قديسون",
     "Christian Science in England": "علم مسيحي في إنجلترا",
     "Christian fiction": "خيال مسيحي",
     "Christian Science in California": "علم مسيحي في كاليفورنيا",
