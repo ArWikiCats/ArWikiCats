@@ -107,7 +107,7 @@ def is_false_key(key: str, value: str) -> bool:
 
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
-    # moved to genders_resolver_to_be_replaced.py
+    # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
     _formatted_data_jobs_with_nat = {
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
@@ -158,7 +158,7 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
 
-    # moved to genders_resolver_to_be_replaced.py
+    # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
     _formatted_data_jobs = {
         # base keys
         "{en_job}": "{ar_job}",
@@ -177,8 +177,8 @@ def _load_formatted_data() -> dict:
         # emigrants keys
         "emigrants {en_job}": "{ar_job} مهاجرون",
     }
-    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور")) # moved to genders_resolver_to_be_replaced.py
-    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور")) # moved to genders_resolver_to_be_replaced.py
+    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور")) # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
+    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور")) # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
 
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(
