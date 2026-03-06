@@ -612,6 +612,32 @@ ruff check ArWikiCats/
 
 ---
 
+## 13.3 منسق البيانات المتعدد مع السنوات والعلاقات (MultiDataFormatterYearAndFrom2)
+
+**الموقع:**
+`ArWikiCats/translations_formats/DataModelMulti/model_multi_data_year_from_2.py`
+
+**الوظيفة:**
+دمج ترجمات التصنيفات التي تحتوي على أنماط زمنية (سنوات، عقود، قرون) مع أنماط العلاقات مثل "from"، "in"، "by" (مثال: "writers from Yemen"، "buildings in France"). يستخدم `category_relation_mapping` لتحويل حروف الجر الإنجليزية إلى العربية.
+
+**الخصائص الرئيسية:**
+
+-   دمج بوتين: أحدهما للبلدان/العلاقات (`country_bot`) والآخر للسنوات (`year_bot`)
+-   دعم `category_relation_mapping` لربط كلمات العلاقة بترجماتها العربية
+-   methods: `get_relation_word()`، `resolve_relation_label()`، `get_relation_mapping()`
+
+**أمثلة:**
+
+| التصنيف الإنجليزي           | العلاقة المكتشفة      | الترجمة العربية |
+| --------------------------- | --------------------- | --------------- |
+| `People from Germany`       | from → من             | أشخاص من        |
+| `Buildings in France`       | in → في               | مباني في        |
+| `Works published by Oxford` | published by → نشرتها | أعمال نشرتها    |
+
+**ملاحظة:** هذا المنسق جاهز للاستخدام ولكنه غير مدمج في سير العمل الرئيسي حاليًا.
+
+---
+
 # 14. الخلاصة
 
 نظام **ArWikiCats** هو نظام مرن، عالي الأداء، قابل للتوسعة، ويدعم عدد كبير جدًا من التصنيفات بسهولة.
