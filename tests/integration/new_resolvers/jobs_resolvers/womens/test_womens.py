@@ -89,7 +89,7 @@ def test_nat_and_gender_keys():
 
 def test_compare():
     # jobs_mens_data jobs_womens_data
-    new_keys = {x: v for x, v in jobs_womens_data.items() if x not in jobs_mens_data}
+    _new_keys = {x: v for x, v in jobs_womens_data.items() if x not in jobs_mens_data}
     expected = {
         "women": "نساء",
         "sportswomen": "رياضيات",

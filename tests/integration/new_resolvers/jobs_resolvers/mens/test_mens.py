@@ -5,6 +5,12 @@ Tests
 import pytest
 
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels, nat_and_gender_keys
+from ArWikiCats.new_resolvers.jobs_resolvers_male.mens import males_resolver_labels
+
+
+def wrap_mens_resolver_labels(category):
+    return mens_resolver_labels(category) or males_resolver_labels(category)
+
 
 test_data2 = {
     # Category:Turkish expatriate sports-people
@@ -55,15 +61,15 @@ test_data_2 = {
 @pytest.mark.fast
 def test_nat_pattern_multi(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = mens_resolver_labels(category)
+    result = wrap_mens_resolver_labels(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", test_data_2.items(), ids=test_data_2.keys())
 @pytest.mark.fast
-def test_religions_2(category: str, expected: str) -> None:
+def test_mens_2(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = mens_resolver_labels(category)
+    result = wrap_mens_resolver_labels(category)
     assert result == expected
 
 

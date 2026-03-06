@@ -123,6 +123,8 @@ NAT_DATA_MALES = {
     "{en_nat} middle-distance runners": "عداؤو مسافات متوسطة {males}",  # 65
     "{en_nat} civil servants": "موظفو خدمة مدنية {males}",  # 100
     "{en_nat} nationalists": "قوميون {males}",  # 99
+    "{en_nat} martial artists": "ممارسو فنون قتالية {males}",  # 120
+
     # males with ذكور
     "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
     "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
@@ -135,5 +137,4 @@ NAT_DATA_MALES = {
     "{en_nat} male singers": "مغنون ذكور {males}",  # 85
     "{en_nat} male writers": "كتاب ذكور {males}",  # 86
     "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
-    "{en_nat} martial artists": "ممارسو فنون قتالية {males}",  # 120
 }
