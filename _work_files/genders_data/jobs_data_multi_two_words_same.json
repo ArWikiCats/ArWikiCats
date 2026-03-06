@@ -9,16 +9,6 @@
         "job_females": "مناهضات للعبودية",
         "both_jobs": "مناهضون ومناهضات للعبودية"
     },
-    "academic founders": {
-        "job_males": "مؤسسو أكاديمية",
-        "job_females": "مؤسسات أكاديمية",
-        "both_jobs": "مؤسسو ومؤسسات أكاديمية"
-    },
-    "academic owners": {
-        "job_males": "ملاك أكاديمية",
-        "job_females": "مالكات أكاديمية",
-        "both_jobs": "ملاك ومالكات أكاديمية"
-    },
     "adventure writers": {
         "job_males": "كتاب مغامرة",
         "job_females": "كاتبات مغامرة",
@@ -44,60 +34,10 @@
         "job_females": "مهندسون زراعيون",
         "both_jobs": "مهندسون ومهندسون زراعيون"
     },
-    "agriculture founders": {
-        "job_males": "مؤسسو زراعة",
-        "job_females": "مؤسسات زراعة",
-        "both_jobs": "مؤسسو ومؤسسات زراعة"
-    },
-    "agriculture owners": {
-        "job_males": "ملاك زراعة",
-        "job_females": "مالكات زراعة",
-        "both_jobs": "ملاك ومالكات زراعة"
-    },
     "aikidoka": {
         "job_males": "لاعبو آيكيدو",
         "job_females": "لاعبات آيكيدو",
         "both_jobs": "لاعبو ولاعبات آيكيدو"
-    },
-    "airliner founders": {
-        "job_males": "مؤسسو طائرات",
-        "job_females": "مؤسسات طائرات",
-        "both_jobs": "مؤسسو ومؤسسات طائرات"
-    },
-    "airliner owners": {
-        "job_males": "ملاك طائرات",
-        "job_females": "مالكات طائرات",
-        "both_jobs": "ملاك ومالكات طائرات"
-    },
-    "airlines founders": {
-        "job_males": "مؤسسو طيران",
-        "job_females": "مؤسسات طيران",
-        "both_jobs": "مؤسسو ومؤسسات طيران"
-    },
-    "airlines owners": {
-        "job_males": "ملاك طيران",
-        "job_females": "مالكات طيران",
-        "both_jobs": "ملاك ومالكات طيران"
-    },
-    "alcohol founders": {
-        "job_males": "مؤسسو كحول",
-        "job_females": "مؤسسات كحول",
-        "both_jobs": "مؤسسو ومؤسسات كحول"
-    },
-    "alcohol owners": {
-        "job_males": "ملاك كحول",
-        "job_females": "مالكات كحول",
-        "both_jobs": "ملاك ومالكات كحول"
-    },
-    "aluminium founders": {
-        "job_males": "مؤسسو ألومنيوم",
-        "job_females": "مؤسسات ألومنيوم",
-        "both_jobs": "مؤسسو ومؤسسات ألومنيوم"
-    },
-    "aluminium owners": {
-        "job_males": "ملاك ألومنيوم",
-        "job_females": "مالكات ألومنيوم",
-        "both_jobs": "ملاك ومالكات ألومنيوم"
     },
     "ambient composers": {
         "job_males": "ملحنو أمبينت",
@@ -244,26 +184,6 @@
         "job_females": "مهندسات سيارات",
         "both_jobs": "مهندسو ومهندسات سيارات"
     },
-    "automotive founders": {
-        "job_males": "مؤسسو سيارات",
-        "job_females": "مؤسسات سيارات",
-        "both_jobs": "مؤسسو ومؤسسات سيارات"
-    },
-    "automotive owners": {
-        "job_males": "ملاك سيارات",
-        "job_females": "مالكات سيارات",
-        "both_jobs": "ملاك ومالكات سيارات"
-    },
-    "aviation founders": {
-        "job_males": "مؤسسو طيران",
-        "job_females": "مؤسسات طيران",
-        "both_jobs": "مؤسسو ومؤسسات طيران"
-    },
-    "aviation owners": {
-        "job_males": "ملاك طيران",
-        "job_females": "مالكات طيران",
-        "both_jobs": "ملاك ومالكات طيران"
-    },
     "award winners": {
         "job_males": "حائزو جوائز",
         "job_females": "حائزات جوائز",
@@ -308,16 +228,6 @@
         "job_males": "لاعبو باندي",
         "job_females": "لاعبات باندي",
         "both_jobs": "لاعبو ولاعبات باندي"
-    },
-    "banks founders": {
-        "job_males": "مؤسسو بنوك",
-        "job_females": "مؤسسات بنوك",
-        "both_jobs": "مؤسسو ومؤسسات بنوك"
-    },
-    "banks owners": {
-        "job_males": "ملاك بنوك",
-        "job_females": "مالكات بنوك",
-        "both_jobs": "ملاك ومالكات بنوك"
     },
     "baroque composers": {
         "job_males": "ملحنو باروك",
@@ -559,16 +469,6 @@
         "job_females": "عازفات تشيلو",
         "both_jobs": "عازفو وعازفات تشيلو"
     },
-    "cement founders": {
-        "job_males": "مؤسسو أسمنت",
-        "job_females": "مؤسسات أسمنت",
-        "both_jobs": "مؤسسو ومؤسسات أسمنت"
-    },
-    "cement owners": {
-        "job_males": "ملاك أسمنت",
-        "job_females": "مالكات أسمنت",
-        "both_jobs": "ملاك ومالكات أسمنت"
-    },
     "centers": {
         "job_males": "لاعبو وسط",
         "job_females": "لاعبات وسط",
@@ -588,16 +488,6 @@
         "job_males": "قادة تشجيع",
         "job_females": "قائدات تشجيع",
         "both_jobs": "قادة وقائدات تشجيع"
-    },
-    "chemical founders": {
-        "job_males": "مؤسسو كيميائية",
-        "job_females": "مؤسسات كيميائية",
-        "both_jobs": "مؤسسو ومؤسسات كيميائية"
-    },
-    "chemical owners": {
-        "job_males": "ملاك كيميائية",
-        "job_females": "مالكات كيميائية",
-        "both_jobs": "ملاك ومالكات كيميائية"
     },
     "chess arbiters": {
         "job_males": "حكام شطرنج",
@@ -669,26 +559,6 @@
         "job_females": "صانعات ساعات",
         "both_jobs": "صانعو وصانعات ساعات"
     },
-    "clothing founders": {
-        "job_males": "مؤسسو ملابس",
-        "job_females": "مؤسسات ملابس",
-        "both_jobs": "مؤسسو ومؤسسات ملابس"
-    },
-    "clothing owners": {
-        "job_males": "ملاك ملابس",
-        "job_females": "مالكات ملابس",
-        "both_jobs": "ملاك ومالكات ملابس"
-    },
-    "coal founders": {
-        "job_males": "مؤسسو فحم",
-        "job_females": "مؤسسات فحم",
-        "both_jobs": "مؤسسو ومؤسسات فحم"
-    },
-    "coal owners": {
-        "job_males": "ملاك فحم",
-        "job_females": "مالكات فحم",
-        "both_jobs": "ملاك ومالكات فحم"
-    },
     "collectors": {
         "job_males": "جامعو مقتنيات",
         "job_females": "جامعات مقتنيات",
@@ -744,16 +614,6 @@
         "job_females": "مؤسسات شركات",
         "both_jobs": "مؤسسو ومؤسسات شركات"
     },
-    "computer founders": {
-        "job_males": "مؤسسو حوسبة",
-        "job_females": "مؤسسات حوسبة",
-        "both_jobs": "مؤسسو ومؤسسات حوسبة"
-    },
-    "computer owners": {
-        "job_males": "ملاك حوسبة",
-        "job_females": "مالكات حوسبة",
-        "both_jobs": "ملاك ومالكات حوسبة"
-    },
     "computer scientists": {
         "job_males": "علماء حاسوب",
         "job_females": "عالمات حاسوب",
@@ -764,16 +624,6 @@
         "job_females": "متخصصات كمبيوتر",
         "both_jobs": "متخصصو ومتخصصات كمبيوتر"
     },
-    "condiment founders": {
-        "job_males": "مؤسسو توابل",
-        "job_females": "مؤسسات توابل",
-        "both_jobs": "مؤسسو ومؤسسات توابل"
-    },
-    "condiment owners": {
-        "job_males": "ملاك توابل",
-        "job_females": "مالكات توابل",
-        "both_jobs": "ملاك ومالكات توابل"
-    },
     "conspiracy theorists": {
         "job_males": "منظرو المؤامرة",
         "job_females": "منظرات المؤامرة",
@@ -783,16 +633,6 @@
         "job_males": "مبتكرو اللغات",
         "job_females": "مبتكرات اللغات",
         "both_jobs": "مبتكرو ومبتكرات اللغات"
-    },
-    "construction founders": {
-        "job_males": "مؤسسو بناء",
-        "job_females": "مؤسسات بناء",
-        "both_jobs": "مؤسسو ومؤسسات بناء"
-    },
-    "construction owners": {
-        "job_males": "ملاك بناء",
-        "job_females": "مالكات بناء",
-        "both_jobs": "ملاك ومالكات بناء"
     },
     "contemporary historians": {
         "job_males": "مؤرخو معاصرة",
@@ -994,16 +834,6 @@
         "job_females": "متسابقات عشاري",
         "both_jobs": "متسابقو ومتسابقات عشاري"
     },
-    "defence founders": {
-        "job_males": "مؤسسو دفاعية",
-        "job_females": "مؤسسات دفاعية",
-        "both_jobs": "مؤسسو ومؤسسات دفاعية"
-    },
-    "defence owners": {
-        "job_males": "ملاك دفاعية",
-        "job_females": "مالكات دفاعية",
-        "both_jobs": "ملاك ومالكات دفاعية"
-    },
     "defensive linemen": {
         "job_males": "مدافعو خط",
         "job_females": "مدافعات خط",
@@ -1028,16 +858,6 @@
         "job_males": "أطباء أسنان",
         "job_females": "طبيبات أسنان",
         "both_jobs": "أطباء وطبيبات أسنان"
-    },
-    "design founders": {
-        "job_males": "مؤسسو تصميم",
-        "job_females": "مؤسسات تصميم",
-        "both_jobs": "مؤسسو ومؤسسات تصميم"
-    },
-    "design owners": {
-        "job_males": "ملاك تصميم",
-        "job_females": "مالكات تصميم",
-        "both_jobs": "ملاك ومالكات تصميم"
     },
     "diabetologists": {
         "job_males": "أخصائيو السكري",
@@ -1069,16 +889,6 @@
         "job_females": "راميات قرص",
         "both_jobs": "رماة وراميات قرص"
     },
-    "distribution founders": {
-        "job_males": "مؤسسو توزيع",
-        "job_females": "مؤسسات توزيع",
-        "both_jobs": "مؤسسو ومؤسسات توزيع"
-    },
-    "distribution owners": {
-        "job_males": "ملاك توزيع",
-        "job_females": "مالكات توزيع",
-        "both_jobs": "ملاك ومالكات توزيع"
-    },
     "diving coaches": {
         "job_males": "مدربو غطس",
         "job_females": "مدربات غطس",
@@ -1088,16 +898,6 @@
         "job_males": "لاعبو ضامة",
         "job_females": "لاعبات ضامة",
         "both_jobs": "لاعبو ولاعبات ضامة"
-    },
-    "drink founders": {
-        "job_males": "مؤسسو مشروبات",
-        "job_females": "مؤسسات مشروبات",
-        "both_jobs": "مؤسسو ومؤسسات مشروبات"
-    },
-    "drink owners": {
-        "job_males": "ملاك مشروبات",
-        "job_females": "مالكات مشروبات",
-        "both_jobs": "ملاك ومالكات مشروبات"
     },
     "drivers": {
         "job_males": "سائقو سيارات",
@@ -1134,16 +934,6 @@
         "job_females": "كاتبات إقتصاد",
         "both_jobs": "كتاب وكاتبات إقتصاد"
     },
-    "education founders": {
-        "job_males": "مؤسسو تعليم",
-        "job_females": "مؤسسات تعليم",
-        "both_jobs": "مؤسسو ومؤسسات تعليم"
-    },
-    "education owners": {
-        "job_males": "ملاك تعليم",
-        "job_females": "مالكات تعليم",
-        "both_jobs": "ملاك ومالكات تعليم"
-    },
     "educational personnel": {
         "job_males": "مشتغلون بالتعليم",
         "job_females": "مشتغلات بالتعليم",
@@ -1179,50 +969,10 @@
         "job_females": "موسيقيات إلكترونيكا",
         "both_jobs": "موسيقيو وموسيقيات إلكترونيكا"
     },
-    "electronics founders": {
-        "job_males": "مؤسسو إلكترونيات",
-        "job_females": "مؤسسات إلكترونيات",
-        "both_jobs": "مؤسسو ومؤسسات إلكترونيات"
-    },
-    "electronics owners": {
-        "job_males": "ملاك إلكترونيات",
-        "job_females": "مالكات إلكترونيات",
-        "both_jobs": "ملاك ومالكات إلكترونيات"
-    },
     "emo musicians": {
         "job_males": "موسيقيو إيمو",
         "job_females": "موسيقيات إيمو",
         "both_jobs": "موسيقيو وموسيقيات إيمو"
-    },
-    "energy founders": {
-        "job_males": "مؤسسو طاقة",
-        "job_females": "مؤسسات طاقة",
-        "both_jobs": "مؤسسو ومؤسسات طاقة"
-    },
-    "energy owners": {
-        "job_males": "ملاك طاقة",
-        "job_females": "مالكات طاقة",
-        "both_jobs": "ملاك ومالكات طاقة"
-    },
-    "engineering founders": {
-        "job_males": "مؤسسو هندسية",
-        "job_females": "مؤسسات هندسية",
-        "both_jobs": "مؤسسو ومؤسسات هندسية"
-    },
-    "engineering owners": {
-        "job_males": "ملاك هندسية",
-        "job_females": "مالكات هندسية",
-        "both_jobs": "ملاك ومالكات هندسية"
-    },
-    "entertainment founders": {
-        "job_males": "مؤسسو ترفيه",
-        "job_females": "مؤسسات ترفيه",
-        "both_jobs": "مؤسسو ومؤسسات ترفيه"
-    },
-    "entertainment owners": {
-        "job_males": "ملاك ترفيه",
-        "job_females": "مالكات ترفيه",
-        "both_jobs": "ملاك ومالكات ترفيه"
     },
     "entomologists": {
         "job_males": "علماء حشرات",
@@ -1294,16 +1044,6 @@
         "job_females": "موسيقيات تجريبية",
         "both_jobs": "موسيقيو وموسيقيات تجريبية"
     },
-    "eyewear founders": {
-        "job_males": "مؤسسو نظارات",
-        "job_females": "مؤسسات نظارات",
-        "both_jobs": "مؤسسو ومؤسسات نظارات"
-    },
-    "eyewear owners": {
-        "job_males": "ملاك نظارات",
-        "job_females": "مالكات نظارات",
-        "both_jobs": "ملاك ومالكات نظارات"
-    },
     "fado singers": {
         "job_males": "مغنو فادو",
         "job_females": "مغنيات فادو",
@@ -1369,20 +1109,10 @@
         "job_females": "محررات تمويل",
         "both_jobs": "محررو ومحررات تمويل"
     },
-    "financial founders": {
-        "job_males": "مؤسسو مالية",
-        "job_females": "مؤسسات مالية",
-        "both_jobs": "مؤسسو ومؤسسات مالية"
-    },
     "financial journalists": {
         "job_males": "صحفيو مالية",
         "job_females": "صحفيات مالية",
         "both_jobs": "صحفيو وصحفيات مالية"
-    },
-    "financial owners": {
-        "job_males": "ملاك مالية",
-        "job_females": "مالكات مالية",
-        "both_jobs": "ملاك ومالكات مالية"
     },
     "financial writers": {
         "job_males": "كتاب مالية",
@@ -1439,16 +1169,6 @@
         "job_females": "مغنيات فولك",
         "both_jobs": "مغنو ومغنيات فولك"
     },
-    "food founders": {
-        "job_males": "مؤسسو أطعمة",
-        "job_females": "مؤسسات أطعمة",
-        "both_jobs": "مؤسسو ومؤسسات أطعمة"
-    },
-    "food owners": {
-        "job_males": "ملاك أطعمة",
-        "job_females": "مالكات أطعمة",
-        "both_jobs": "ملاك ومالكات أطعمة"
-    },
     "food writers": {
         "job_males": "كتاب طعام",
         "job_females": "كاتبات طعام",
@@ -1494,16 +1214,6 @@
         "job_females": "موسيقيات فيوشن",
         "both_jobs": "موسيقيو وموسيقيات فيوشن"
     },
-    "gambling founders": {
-        "job_males": "مؤسسو مقامرة",
-        "job_females": "مؤسسات مقامرة",
-        "both_jobs": "مؤسسو ومؤسسات مقامرة"
-    },
-    "gambling owners": {
-        "job_males": "ملاك مقامرة",
-        "job_females": "مالكات مقامرة",
-        "both_jobs": "ملاك ومالكات مقامرة"
-    },
     "game designers": {
         "job_males": "مصممو ألعاب",
         "job_females": "مصممات ألعاب",
@@ -1513,16 +1223,6 @@
         "job_males": "مزارعو حدائق",
         "job_females": "مزارعات حدائق",
         "both_jobs": "مزارعو ومزارعات حدائق"
-    },
-    "gas founders": {
-        "job_males": "مؤسسو غاز",
-        "job_females": "مؤسسات غاز",
-        "both_jobs": "مؤسسو ومؤسسات غاز"
-    },
-    "gas owners": {
-        "job_males": "ملاك غاز",
-        "job_females": "مالكات غاز",
-        "both_jobs": "ملاك ومالكات غاز"
     },
     "geneticists": {
         "job_males": "علماء وراثة",
@@ -1538,16 +1238,6 @@
         "job_males": "رسامو نوع",
         "job_females": "رسامات نوع",
         "both_jobs": "رسامو ورسامات نوع"
-    },
-    "glassmaking founders": {
-        "job_males": "مؤسسو الزجاج",
-        "job_females": "مؤسسات الزجاج",
-        "both_jobs": "مؤسسو ومؤسسات الزجاج"
-    },
-    "glassmaking owners": {
-        "job_males": "ملاك الزجاج",
-        "job_females": "مالكات الزجاج",
-        "both_jobs": "ملاك ومالكات الزجاج"
     },
     "go coaches": {
         "job_males": "مدربو غو",
@@ -1729,16 +1419,6 @@
         "job_females": "جناحات هوكي",
         "both_jobs": "أجنحة وجناحات هوكي"
     },
-    "holding founders": {
-        "job_males": "مؤسسو قابضة",
-        "job_females": "مؤسسات قابضة",
-        "both_jobs": "مؤسسو ومؤسسات قابضة"
-    },
-    "holding owners": {
-        "job_males": "ملاك قابضة",
-        "job_females": "مالكات قابضة",
-        "both_jobs": "ملاك ومالكات قابضة"
-    },
     "holocaust deniers": {
         "job_males": "منكرو الهولوكوست",
         "job_females": "منكرات الهولوكوست",
@@ -1759,40 +1439,10 @@
         "job_females": "مدربات خيول",
         "both_jobs": "مدربو ومدربات خيول"
     },
-    "horticultural founders": {
-        "job_males": "مؤسسو بستنة",
-        "job_females": "مؤسسات بستنة",
-        "both_jobs": "مؤسسو ومؤسسات بستنة"
-    },
-    "horticultural owners": {
-        "job_males": "ملاك بستنة",
-        "job_females": "مالكات بستنة",
-        "both_jobs": "ملاك ومالكات بستنة"
-    },
-    "hospitality founders": {
-        "job_males": "مؤسسو ضيافة",
-        "job_females": "مؤسسات ضيافة",
-        "both_jobs": "مؤسسو ومؤسسات ضيافة"
-    },
-    "hospitality owners": {
-        "job_males": "ملاك ضيافة",
-        "job_females": "مالكات ضيافة",
-        "both_jobs": "ملاك ومالكات ضيافة"
-    },
     "hoteliers": {
         "job_males": "أصحاب فنادق",
         "job_females": "صاحبات فنادق",
         "both_jobs": "أصحاب وصاحبات فنادق"
-    },
-    "hotels founders": {
-        "job_males": "مؤسسو فنادق",
-        "job_females": "مؤسسات فنادق",
-        "both_jobs": "مؤسسو ومؤسسات فنادق"
-    },
-    "hotels owners": {
-        "job_males": "ملاك فنادق",
-        "job_females": "مالكات فنادق",
-        "both_jobs": "ملاك ومالكات فنادق"
     },
     "house musicians": {
         "job_males": "موسيقيو الهاوس",
@@ -1829,16 +1479,6 @@
         "job_females": "حكمات قذف",
         "both_jobs": "حكام وحكمات قذف"
     },
-    "hydroelectric founders": {
-        "job_males": "مؤسسو كهرمائية",
-        "job_females": "مؤسسات كهرمائية",
-        "both_jobs": "مؤسسو ومؤسسات كهرمائية"
-    },
-    "hydroelectric owners": {
-        "job_males": "ملاك كهرمائية",
-        "job_females": "مالكات كهرمائية",
-        "both_jobs": "ملاك ومالكات كهرمائية"
-    },
     "hygienists": {
         "job_males": "علماء صحة",
         "job_females": "عالمات صحة",
@@ -1864,16 +1504,6 @@
         "job_females": "موسيقيات صناعية",
         "both_jobs": "موسيقيو وموسيقيات صناعية"
     },
-    "insurance founders": {
-        "job_males": "مؤسسو تأمين",
-        "job_females": "مؤسسات تأمين",
-        "both_jobs": "مؤسسو ومؤسسات تأمين"
-    },
-    "insurance owners": {
-        "job_males": "ملاك تأمين",
-        "job_females": "مالكات تأمين",
-        "both_jobs": "ملاك ومالكات تأمين"
-    },
     "intelligence personnel": {
         "job_males": "أفراد مخابرات",
         "job_females": "أفراد مخابرات",
@@ -1888,26 +1518,6 @@
         "job_males": "ناشطو إنترنت",
         "job_females": "ناشطات إنترنت",
         "both_jobs": "ناشطو وناشطات إنترنت"
-    },
-    "internet founders": {
-        "job_males": "مؤسسو إنترنت",
-        "job_females": "مؤسسات إنترنت",
-        "both_jobs": "مؤسسو ومؤسسات إنترنت"
-    },
-    "internet owners": {
-        "job_males": "ملاك إنترنت",
-        "job_females": "مالكات إنترنت",
-        "both_jobs": "ملاك ومالكات إنترنت"
-    },
-    "investment founders": {
-        "job_males": "مؤسسو استثمارية",
-        "job_females": "مؤسسات استثمارية",
-        "both_jobs": "مؤسسو ومؤسسات استثمارية"
-    },
-    "investment owners": {
-        "job_males": "ملاك استثمارية",
-        "job_females": "مالكات استثمارية",
-        "both_jobs": "ملاك ومالكات استثمارية"
     },
     "investment writers": {
         "job_males": "كتاب استثمار",
@@ -1963,16 +1573,6 @@
         "job_males": "مصممو مجوهرات",
         "job_females": "مصممات مجوهرات",
         "both_jobs": "مصممو ومصممات مجوهرات"
-    },
-    "jewellery founders": {
-        "job_males": "مؤسسو مجوهرات",
-        "job_females": "مؤسسات مجوهرات",
-        "both_jobs": "مؤسسو ومؤسسات مجوهرات"
-    },
-    "jewellery owners": {
-        "job_males": "ملاك مجوهرات",
-        "job_females": "مالكات مجوهرات",
-        "both_jobs": "ملاك ومالكات مجوهرات"
     },
     "jewelry designers": {
         "job_males": "مصممو مجوهرات",
@@ -2104,16 +1704,6 @@
         "job_females": "مدربات حياة",
         "both_jobs": "مدربو ومدربات حياة"
     },
-    "logistics founders": {
-        "job_males": "مؤسسو لوجستية",
-        "job_females": "مؤسسات لوجستية",
-        "both_jobs": "مؤسسو ومؤسسات لوجستية"
-    },
-    "logistics owners": {
-        "job_males": "ملاك لوجستية",
-        "job_females": "مالكات لوجستية",
-        "both_jobs": "ملاك ومالكات لوجستية"
-    },
     "magazine editors": {
         "job_males": "محررو مجلات",
         "job_females": "محررات مجلات",
@@ -2128,11 +1718,6 @@
         "job_males": "صحفيو مجلات",
         "job_females": "صحفيات مجلات",
         "both_jobs": "صحفيو وصحفيات مجلات"
-    },
-    "magazine owners": {
-        "job_males": "ملاك مجلات",
-        "job_females": "مالكات مجلات",
-        "both_jobs": "ملاك ومالكات مجلات"
     },
     "magazine publishers (people)": {
         "job_males": "ناشرو مجلات",
@@ -2199,16 +1784,6 @@
         "job_females": "ناقدات مانغا",
         "both_jobs": "نقاد وناقدات مانغا"
     },
-    "manga founders": {
-        "job_males": "مؤسسو مانغا",
-        "job_females": "مؤسسات مانغا",
-        "both_jobs": "مؤسسو ومؤسسات مانغا"
-    },
-    "manga owners": {
-        "job_males": "ملاك مانغا",
-        "job_females": "مالكات مانغا",
-        "both_jobs": "ملاك ومالكات مانغا"
-    },
     "manga painters": {
         "job_males": "رسامو مانغا",
         "job_females": "رسامات مانغا",
@@ -2219,26 +1794,6 @@
         "job_females": "كاتبات مانغا",
         "both_jobs": "كتاب وكاتبات مانغا"
     },
-    "manufacturing founders": {
-        "job_males": "مؤسسو تصنيع",
-        "job_females": "مؤسسات تصنيع",
-        "both_jobs": "مؤسسو ومؤسسات تصنيع"
-    },
-    "manufacturing owners": {
-        "job_males": "ملاك تصنيع",
-        "job_females": "مالكات تصنيع",
-        "both_jobs": "ملاك ومالكات تصنيع"
-    },
-    "map founders": {
-        "job_males": "مؤسسو خرائط",
-        "job_females": "مؤسسات خرائط",
-        "both_jobs": "مؤسسو ومؤسسات خرائط"
-    },
-    "map owners": {
-        "job_males": "ملاك خرائط",
-        "job_females": "مالكات خرائط",
-        "both_jobs": "ملاك ومالكات خرائط"
-    },
     "marathon runners": {
         "job_males": "عداؤو ماراثون",
         "job_females": "عداءات ماراثون",
@@ -2248,16 +1803,6 @@
         "job_males": "موسيقيو مرياتي",
         "job_females": "موسيقيات مرياتي",
         "both_jobs": "موسيقيو وموسيقيات مرياتي"
-    },
-    "marketing founders": {
-        "job_males": "مؤسسو تسويق",
-        "job_females": "مؤسسات تسويق",
-        "both_jobs": "مؤسسو ومؤسسات تسويق"
-    },
-    "marketing owners": {
-        "job_males": "ملاك تسويق",
-        "job_females": "مالكات تسويق",
-        "both_jobs": "ملاك ومالكات تسويق"
     },
     "masonic founders": {
         "job_males": "مؤسسو ماسونية",
@@ -2273,11 +1818,6 @@
         "job_males": "مهندسو ميكانيك",
         "job_females": "مهندسات ميكانيك",
         "both_jobs": "مهندسو ومهندسات ميكانيك"
-    },
-    "media founders": {
-        "job_males": "مؤسسو إعلامية",
-        "job_females": "مؤسسات إعلامية",
-        "both_jobs": "مؤسسو ومؤسسات إعلامية"
     },
     "media owners": {
         "job_males": "ملاك إعلامية",
@@ -2309,20 +1849,10 @@
         "job_females": "طبالات ميتال",
         "both_jobs": "طبالو وطبالات ميتال"
     },
-    "metal founders": {
-        "job_males": "مؤسسو معادن",
-        "job_females": "مؤسسات معادن",
-        "both_jobs": "مؤسسو ومؤسسات معادن"
-    },
     "metal musicians": {
         "job_males": "موسيقيو ميتال",
         "job_females": "موسيقيات ميتال",
         "both_jobs": "موسيقيو وموسيقيات ميتال"
-    },
-    "metal owners": {
-        "job_males": "ملاك معادن",
-        "job_females": "مالكات معادن",
-        "both_jobs": "ملاك ومالكات معادن"
     },
     "metal singers": {
         "job_males": "مغنو ميتال",
@@ -2353,16 +1883,6 @@
         "job_males": "مهندسو معادن",
         "job_females": "مهندسات معادن",
         "both_jobs": "مهندسو ومهندسات معادن"
-    },
-    "mining founders": {
-        "job_males": "مؤسسو تعدين",
-        "job_females": "مؤسسات تعدين",
-        "both_jobs": "مؤسسو ومؤسسات تعدين"
-    },
-    "mining owners": {
-        "job_males": "ملاك تعدين",
-        "job_females": "مالكات تعدين",
-        "both_jobs": "ملاك ومالكات تعدين"
     },
     "mnemonists": {
         "job_males": "حافظو ذاكرة",
@@ -2424,11 +1944,6 @@
         "job_females": "معلمات موسيقى",
         "both_jobs": "معلمو ومعلمات موسيقى"
     },
-    "music founders": {
-        "job_males": "مؤسسو الموسيقى",
-        "job_females": "مؤسسات الموسيقى",
-        "both_jobs": "مؤسسو ومؤسسات الموسيقى"
-    },
     "music historians": {
         "job_males": "مؤرخو موسيقى",
         "job_females": "مؤرخات موسيقى",
@@ -2438,11 +1953,6 @@
         "job_males": "موسيقيو موسيقى",
         "job_females": "موسيقيات موسيقى",
         "both_jobs": "موسيقيو وموسيقيات موسيقى"
-    },
-    "music owners": {
-        "job_males": "ملاك الموسيقى",
-        "job_females": "مالكات الموسيقى",
-        "both_jobs": "ملاك ومالكات الموسيقى"
     },
     "music publishers (people)": {
         "job_males": "ناشرو موسيقى",
@@ -2548,16 +2058,6 @@
         "job_males": "موسيقيو ضوضائية",
         "job_females": "موسيقيات ضوضائية",
         "both_jobs": "موسيقيو وموسيقيات ضوضائية"
-    },
-    "nuclear founders": {
-        "job_males": "مؤسسو نووية",
-        "job_females": "مؤسسات نووية",
-        "both_jobs": "مؤسسو ومؤسسات نووية"
-    },
-    "nuclear owners": {
-        "job_males": "ملاك نووية",
-        "job_females": "مالكات نووية",
-        "both_jobs": "ملاك ومالكات نووية"
     },
     "nuclear physicists": {
         "job_males": "علماء ذرة",
@@ -2688,16 +2188,6 @@
         "job_males": "مهندسو نفط",
         "job_females": "مهندسات نفط",
         "both_jobs": "مهندسو ومهندسات نفط"
-    },
-    "pharmaceutical founders": {
-        "job_males": "مؤسسو أدوية",
-        "job_females": "مؤسسات أدوية",
-        "both_jobs": "مؤسسو ومؤسسات أدوية"
-    },
-    "pharmaceutical owners": {
-        "job_males": "ملاك أدوية",
-        "job_females": "مالكات أدوية",
-        "both_jobs": "ملاك ومالكات أدوية"
     },
     "pharmacologists": {
         "job_males": "علماء صيدلة",
@@ -2839,30 +2329,10 @@
         "job_females": "مغنيات بوست-غرنج",
         "both_jobs": "مغنو ومغنيات بوست-غرنج"
     },
-    "postal founders": {
-        "job_males": "مؤسسو بريد",
-        "job_females": "مؤسسات بريد",
-        "both_jobs": "مؤسسو ومؤسسات بريد"
-    },
-    "postal owners": {
-        "job_males": "ملاك بريد",
-        "job_females": "مالكات بريد",
-        "both_jobs": "ملاك ومالكات بريد"
-    },
     "primatologists": {
         "job_males": "علماء رئيسيات",
         "job_females": "عالمات رئيسيات",
         "both_jobs": "علماء وعالمات رئيسيات"
-    },
-    "printing founders": {
-        "job_males": "مؤسسو طباعة",
-        "job_females": "مؤسسات طباعة",
-        "both_jobs": "مؤسسو ومؤسسات طباعة"
-    },
-    "printing owners": {
-        "job_males": "ملاك طباعة",
-        "job_females": "مالكات طباعة",
-        "both_jobs": "ملاك ومالكات طباعة"
     },
     "printmakers": {
         "job_males": "صناع طباعة",
@@ -2874,30 +2344,10 @@
         "job_females": "مسؤولات سجون",
         "both_jobs": "مسؤولو ومسؤولات سجون"
     },
-    "privately held founders": {
-        "job_males": "مؤسسو خاصة",
-        "job_females": "مؤسسات خاصة",
-        "both_jobs": "مؤسسو ومؤسسات خاصة"
-    },
-    "privately held owners": {
-        "job_males": "ملاك خاصة",
-        "job_females": "مالكات خاصة",
-        "both_jobs": "ملاك ومالكات خاصة"
-    },
     "production designers": {
         "job_males": "مصممو إنتاج",
         "job_females": "مصممات إنتاج",
         "both_jobs": "مصممو ومصممات إنتاج"
-    },
-    "property founders": {
-        "job_males": "مؤسسو ممتلكات",
-        "job_females": "مؤسسات ممتلكات",
-        "both_jobs": "مؤسسو ومؤسسات ممتلكات"
-    },
-    "property owners": {
-        "job_males": "ملاك ممتلكات",
-        "job_females": "مالكات ممتلكات",
-        "both_jobs": "ملاك ومالكات ممتلكات"
     },
     "protestant founders": {
         "job_males": "مؤسسو بروتستانتية",
@@ -2913,16 +2363,6 @@
         "job_males": "مخرجو منشورات",
         "job_females": "مخرجات منشورات",
         "both_jobs": "مخرجو ومخرجات منشورات"
-    },
-    "publishing founders": {
-        "job_males": "مؤسسو نشر",
-        "job_females": "مؤسسات نشر",
-        "both_jobs": "مؤسسو ومؤسسات نشر"
-    },
-    "publishing owners": {
-        "job_males": "ملاك نشر",
-        "job_females": "مالكات نشر",
-        "both_jobs": "ملاك ومالكات نشر"
     },
     "puppeteers": {
         "job_males": "محركو دمى",
@@ -3028,16 +2468,6 @@
         "job_males": "موسيقيو راي",
         "job_females": "موسيقيات راي",
         "both_jobs": "موسيقيو وموسيقيات راي"
-    },
-    "real estate founders": {
-        "job_males": "مؤسسو عقارية",
-        "job_females": "مؤسسات عقارية",
-        "both_jobs": "مؤسسو ومؤسسات عقارية"
-    },
-    "real estate owners": {
-        "job_males": "ملاك عقارية",
-        "job_females": "مالكات عقارية",
-        "both_jobs": "ملاك ومالكات عقارية"
     },
     "record producers": {
         "job_males": "منتجو تسجيلات",
@@ -3249,35 +2679,15 @@
         "job_females": "كاتبات سيناريو",
         "both_jobs": "كتاب وكاتبات سيناريو"
     },
-    "security founders": {
-        "job_males": "مؤسسو أمن",
-        "job_females": "مؤسسات أمن",
-        "both_jobs": "مؤسسو ومؤسسات أمن"
-    },
     "security guards": {
         "job_males": "حراس أمن",
         "job_females": "حارسات أمن",
         "both_jobs": "حراس وحارسات أمن"
     },
-    "security owners": {
-        "job_males": "ملاك أمن",
-        "job_females": "مالكات أمن",
-        "both_jobs": "ملاك ومالكات أمن"
-    },
     "seismologists": {
         "job_males": "علماء زلازل",
         "job_females": "عالمات زلازل",
         "both_jobs": "علماء وعالمات زلازل"
-    },
-    "service founders": {
-        "job_males": "مؤسسو خدمات",
-        "job_females": "مؤسسات خدمات",
-        "both_jobs": "مؤسسو ومؤسسات خدمات"
-    },
-    "service owners": {
-        "job_males": "ملاك خدمات",
-        "job_females": "مالكات خدمات",
-        "both_jobs": "ملاك ومالكات خدمات"
     },
     "session musicians": {
         "job_males": "موسيقيو جلسات",
@@ -3293,16 +2703,6 @@
         "job_males": "موسيقيو شيبوياكي",
         "job_females": "موسيقيات شيبوياكي",
         "both_jobs": "موسيقيو وموسيقيات شيبوياكي"
-    },
-    "shipbuilding founders": {
-        "job_males": "مؤسسو سفن",
-        "job_females": "مؤسسات سفن",
-        "both_jobs": "مؤسسو ومؤسسات سفن"
-    },
-    "shipbuilding owners": {
-        "job_males": "ملاك سفن",
-        "job_females": "مالكات سفن",
-        "both_jobs": "ملاك ومالكات سفن"
     },
     "shipwrights": {
         "job_males": "نجارو سفن",
@@ -3403,16 +2803,6 @@
         "job_males": "مهندسو برمجيات",
         "job_females": "مهندسات برمجيات",
         "both_jobs": "مهندسو ومهندسات برمجيات"
-    },
-    "software founders": {
-        "job_males": "مؤسسو برمجيات",
-        "job_females": "مؤسسات برمجيات",
-        "both_jobs": "مؤسسو ومؤسسات برمجيات"
-    },
-    "software owners": {
-        "job_males": "ملاك برمجيات",
-        "job_females": "مالكات برمجيات",
-        "both_jobs": "ملاك ومالكات برمجيات"
     },
     "solicitors": {
         "job_males": "كتاب عدل",
@@ -3574,40 +2964,10 @@
         "job_females": "تاجرات أسهم",
         "both_jobs": "تجار وتاجرات أسهم"
     },
-    "storage founders": {
-        "job_males": "مؤسسو تخزين",
-        "job_females": "مؤسسات تخزين",
-        "both_jobs": "مؤسسو ومؤسسات تخزين"
-    },
-    "storage owners": {
-        "job_males": "ملاك تخزين",
-        "job_females": "مالكات تخزين",
-        "both_jobs": "ملاك ومالكات تخزين"
-    },
     "structural engineers": {
         "job_males": "مهندسو إنشاءات",
         "job_females": "مهندسات إنشاءات",
         "both_jobs": "مهندسو ومهندسات إنشاءات"
-    },
-    "submarine founders": {
-        "job_males": "مؤسسو غواصات",
-        "job_females": "مؤسسات غواصات",
-        "both_jobs": "مؤسسو ومؤسسات غواصات"
-    },
-    "submarine owners": {
-        "job_males": "ملاك غواصات",
-        "job_females": "مالكات غواصات",
-        "both_jobs": "ملاك ومالكات غواصات"
-    },
-    "sugar founders": {
-        "job_males": "مؤسسو السكر",
-        "job_females": "مؤسسات السكر",
-        "both_jobs": "مؤسسو ومؤسسات السكر"
-    },
-    "sugar owners": {
-        "job_males": "ملاك السكر",
-        "job_females": "مالكات السكر",
-        "both_jobs": "ملاك ومالكات السكر"
     },
     "sumo announcers": {
         "job_males": "مذيعو سومو",
@@ -3684,20 +3044,10 @@
         "job_females": "موسيقيات تكنو",
         "both_jobs": "موسيقيو وموسيقيات تكنو"
     },
-    "technology founders": {
-        "job_males": "مؤسسو تقانة",
-        "job_females": "مؤسسات تقانة",
-        "both_jobs": "مؤسسو ومؤسسات تقانة"
-    },
     "technology journalists": {
         "job_males": "صحفيو تقانة",
         "job_females": "صحفيات تقانة",
         "both_jobs": "صحفيو وصحفيات تقانة"
-    },
-    "technology owners": {
-        "job_males": "ملاك تقانة",
-        "job_females": "مالكات تقانة",
-        "both_jobs": "ملاك ومالكات تقانة"
     },
     "technology writers": {
         "job_males": "كتاب تقانة",
@@ -3749,20 +3099,10 @@
         "job_females": "ممثلات أفلام",
         "both_jobs": "ممثلو وممثلات أفلام"
     },
-    "television founders": {
-        "job_males": "مؤسسو تلفاز",
-        "job_females": "مؤسسات تلفاز",
-        "both_jobs": "مؤسسو ومؤسسات تلفاز"
-    },
     "television journalists": {
         "job_males": "صحفيو تلفزيون",
         "job_females": "صحفيات تلفزيون",
         "both_jobs": "صحفيو وصحفيات تلفزيون"
-    },
-    "television owners": {
-        "job_males": "ملاك تلفاز",
-        "job_females": "مالكات تلفاز",
-        "both_jobs": "ملاك ومالكات تلفاز"
     },
     "television personalities": {
         "job_males": "شخصيات تلفزيون",
@@ -3799,16 +3139,6 @@
         "job_females": "كاتبات إثارة",
         "both_jobs": "كتاب وكاتبات إثارة"
     },
-    "tobacco founders": {
-        "job_males": "مؤسسو التبغ",
-        "job_females": "مؤسسات التبغ",
-        "both_jobs": "مؤسسو ومؤسسات التبغ"
-    },
-    "tobacco owners": {
-        "job_males": "ملاك التبغ",
-        "job_females": "مالكات التبغ",
-        "both_jobs": "ملاك ومالكات التبغ"
-    },
     "toxicologists": {
         "job_males": "علماء سموم",
         "job_females": "عالمات سموم",
@@ -3834,30 +3164,10 @@
         "job_females": "مغنيات ترانس",
         "both_jobs": "مغنو ومغنيات ترانس"
     },
-    "transport founders": {
-        "job_males": "مؤسسو نقل",
-        "job_females": "مؤسسات نقل",
-        "both_jobs": "مؤسسو ومؤسسات نقل"
-    },
-    "transport owners": {
-        "job_males": "ملاك نقل",
-        "job_females": "مالكات نقل",
-        "both_jobs": "ملاك ومالكات نقل"
-    },
     "trap musicians": {
         "job_males": "موسيقيو تراب",
         "job_females": "موسيقيات تراب",
         "both_jobs": "موسيقيو وموسيقيات تراب"
-    },
-    "travel founders": {
-        "job_males": "مؤسسو سفر",
-        "job_females": "مؤسسات سفر",
-        "both_jobs": "مؤسسو ومؤسسات سفر"
-    },
-    "travel owners": {
-        "job_males": "ملاك سفر",
-        "job_females": "مالكات سفر",
-        "both_jobs": "ملاك ومالكات سفر"
     },
     "travel writers": {
         "job_males": "كتاب سفر",
@@ -3899,16 +3209,6 @@
         "job_females": "أساتذة جامعات",
         "both_jobs": "أساتذة وأساتذة جامعات"
     },
-    "veterinary founders": {
-        "job_males": "مؤسسو بيطرة",
-        "job_females": "مؤسسات بيطرة",
-        "both_jobs": "مؤسسو ومؤسسات بيطرة"
-    },
-    "veterinary owners": {
-        "job_males": "ملاك بيطرة",
-        "job_females": "مالكات بيطرة",
-        "both_jobs": "ملاك ومالكات بيطرة"
-    },
     "victims of crime": {
         "job_males": "ضحايا جرائم",
         "job_females": "ضحيات جرائم",
@@ -3944,16 +3244,6 @@
         "job_females": "أميرات حرب",
         "both_jobs": "أمراء وأميرات حرب"
     },
-    "water founders": {
-        "job_males": "مؤسسو مياه",
-        "job_females": "مؤسسات مياه",
-        "both_jobs": "مؤسسو ومؤسسات مياه"
-    },
-    "water owners": {
-        "job_males": "ملاك مياه",
-        "job_females": "مالكات مياه",
-        "both_jobs": "ملاك ومالكات مياه"
-    },
     "whalers": {
         "job_males": "صائدو حيتان",
         "job_females": "صائدات حيتان",
@@ -3963,16 +3253,6 @@
         "job_males": "راكبو أمواج",
         "job_females": "راكبات أمواج",
         "both_jobs": "راكبو وراكبات أمواج"
-    },
-    "wine founders": {
-        "job_males": "مؤسسو نبيذ",
-        "job_females": "مؤسسات نبيذ",
-        "both_jobs": "مؤسسو ومؤسسات نبيذ"
-    },
-    "wine owners": {
-        "job_males": "ملاك نبيذ",
-        "job_females": "مالكات نبيذ",
-        "both_jobs": "ملاك ومالكات نبيذ"
     },
     "winemakers": {
         "job_males": "صانعو نبيذ",

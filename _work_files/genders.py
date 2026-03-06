@@ -47,6 +47,7 @@ womens_example = {
     "accountants": "محاسبات",
 }
 
+# TODO: Add data from `_work_files/genders_data` files
 new_data = {
     "actors": {"job_males": "ممثلون", "job_females": "ممثلات", "both_jobs": "ممثلون وممثلات"},
 }
