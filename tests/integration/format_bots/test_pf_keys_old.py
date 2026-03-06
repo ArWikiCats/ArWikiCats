@@ -55,7 +55,6 @@ data1 = {
     "category:canadian football people from windsor, ontario": "category:canadian-football people from windsor, ontario",
     "category:canadian football people from winnipeg": "category:canadian-football people from winnipeg",
     "category:canadian football people": "category:canadian-football people",
-    "category:canadian football placekickers": "category:canadian-football placekickers",
     "category:canadian football quarterbacks": "category:canadian-football quarterbacks",
     "category:canadian football running backs": "category:canadian-football running backs",
     "category:canadian football scouts": "category:canadian-football scouts",

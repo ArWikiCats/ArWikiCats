@@ -303,14 +303,6 @@
         "males": "أعلام هوكي",
         "females": ""
     },
-    "ice hockey defencemen": {
-        "males": "مدافعو هوكي جليد",
-        "females": "مدافعات هوكي جليد"
-    },
-    "hockey defencemen": {
-        "males": "مدافعو هوكي",
-        "females": "مدافعات هوكي"
-    },
     "ice hockey goaltenders": {
         "males": "حراس مرمى هوكي جليد",
         "females": "حارسات مرمى هوكي جليد"
@@ -1071,17 +1063,9 @@
         "males": "مهاجمو خط كرة قدم",
         "females": "مهاجمات خط كرة قدم"
     },
-    "football placekickers": {
-        "males": "مسددو كرة قدم",
-        "females": "مسددات كرة قدم"
-    },
     "football running backs": {
         "males": "راكضون للخلف كرة قدم",
         "females": "راكضات للخلف كرة قدم"
-    },
-    "football tackles": {
-        "males": "مصطدمو كرة قدم",
-        "females": "مصطدمات كرة قدم"
     },
     "ice hockey centers": {
         "males": "لاعبو وسط هوكي جليد",
@@ -1246,10 +1230,6 @@
     "american football quarterbacks": {
         "males": "أظهرة رباعيون كرة قدم أمريكية",
         "females": "ظهيرات رباعيات كرة قدم أمريكية"
-    },
-    "football wide receivers": {
-        "males": "مستقبلون واسعون كرة قدم",
-        "females": "مستقبلات واسعات كرة قدم"
     },
     "professional wrestling biography": {
         "males": "أعلام مصارعة محترفين",
@@ -1423,14 +1403,6 @@
         "males": "مدافعو خط كرة قدم أمريكية",
         "females": "مدافعات خط كرة قدم أمريكية"
     },
-    "american football drop kickers": {
-        "males": "مسددو ركلات كرة قدم أمريكية",
-        "females": "مسددات ركلات كرة قدم أمريكية"
-    },
-    "football drop kickers": {
-        "males": "مسددو ركلات كرة قدم",
-        "females": "مسددات ركلات كرة قدم"
-    },
     "american football fullbacks": {
         "males": "مدافعو كرة قدم أمريكية",
         "females": "مدافعات كرة قدم أمريكية"
@@ -1455,10 +1427,6 @@
         "males": "مهاجمو خط كرة قدم أمريكية",
         "females": "مهاجمات خط كرة قدم أمريكية"
     },
-    "american football placekickers": {
-        "males": "مسددو كرة قدم أمريكية",
-        "females": "مسددات كرة قدم أمريكية"
-    },
     "american football running backs": {
         "males": "راكضون للخلف كرة قدم أمريكية",
         "females": "راكضات للخلف كرة قدم أمريكية"
@@ -1466,14 +1434,6 @@
     "american football scouts": {
         "males": "كشافة كرة قدم أمريكية",
         "females": "كشافة كرة قدم أمريكية"
-    },
-    "american football tackles": {
-        "males": "مصطدمو كرة قدم أمريكية",
-        "females": "مصطدمات كرة قدم أمريكية"
-    },
-    "american football wide receivers": {
-        "males": "مستقبلون واسعون كرة قدم أمريكية",
-        "females": "مستقبلات واسعات كرة قدم أمريكية"
     },
     "men's ice hockey centers": {
         "males": "لاعبو وسط هوكي جليد رجالية",
@@ -1739,21 +1699,9 @@
         "males": "أظهرة رباعيون كرة قدم أمريكية شمالية",
         "females": "ظهيرات رباعيات كرة قدم أمريكية شمالية"
     },
-    "gridiron football receivers": {
-        "males": "مستقبلو كرة قدم أمريكية شمالية",
-        "females": "مستقبلات كرة قدم أمريكية شمالية"
-    },
-    "football receivers": {
-        "males": "مستقبلو كرة قدم",
-        "females": "مستقبلات كرة قدم"
-    },
     "gridiron football running backs": {
         "males": "راكضون للخلف كرة قدم أمريكية شمالية",
         "females": "راكضات للخلف كرة قدم أمريكية شمالية"
-    },
-    "gridiron football tackles": {
-        "males": "مصطدمو كرة قدم أمريكية شمالية",
-        "females": "مصطدمات كرة قدم أمريكية شمالية"
     },
     "handball referees": {
         "males": "حكام كرة يد",

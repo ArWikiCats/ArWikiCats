@@ -150,9 +150,6 @@ def format_data_sample() -> bool:
         "amateur {sport} home stadiums": "ملاعب {sport_label} للهواة",
         "amateur {sport} templates": "قوالب {sport_label} للهواة",
         "amateur {sport} rivalries": "دربيات {sport_label} للهواة",
-        "amateur {sport} receivers": "مستقبلو {sport_label} للهواة",
-        "amateur {sport} wide receivers": "مستقبلون واسعون {sport_label} للهواة",
-        "amateur {sport} tackles": "مصطدمو {sport_label} للهواة",
         "amateur {sport} utility players": "لاعبو مراكز متعددة {sport_label} للهواة",
     }
 

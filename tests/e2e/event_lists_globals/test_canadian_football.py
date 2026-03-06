@@ -15,11 +15,8 @@ data4 = {
     "Canadian football defensive linemen": "مدافعو خط كرة القدم الكندية",
     "Canadian football defensive backs": "مدافعون خلفيون كرة القدم الكندية",
     "Canadian football fullbacks": "مدافعو كرة القدم الكندية",
-    "Canadian football placekickers": "مسددو كرة القدم الكندية",
     "Canadian football scouts": "كشافة كرة القدم الكندية",
     "Canadian football offensive linemen": "مهاجمو خط كرة القدم الكندية",
-    "Canadian football tackles": "مصطدمو كرة القدم الكندية",
-    "Canadian football wide receivers": "مستقبلون واسعون كرة القدم الكندية",
     "Canadian football guards": "حراس كرة القدم الكندية",
     "Canadian football quarterbacks": "أظهرة رباعيون كرة القدم الكندية",
 }

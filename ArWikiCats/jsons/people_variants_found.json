@@ -3,14 +3,6 @@
         "males": "شخصيات تلفزيون",
         "females": "شخصيات تلفزيون"
     },
-    "television presenters": {
-        "males": "مذيعو تلفزيون",
-        "females": "مذيعات تلفزيون"
-    },
-    "radio presenters": {
-        "males": "مذيعو راديو",
-        "females": "مذيعات راديو"
-    },
     "radio personalities": {
         "males": "شخصيات راديو",
         "females": "شخصيات راديو"
@@ -26,10 +18,6 @@
     "newspaper editors": {
         "males": "محررو صحف",
         "females": "محررات صحف"
-    },
-    "newspaper publishers (people)": {
-        "males": "ناشرو صحف",
-        "females": "ناشرات صحف"
     },
     "television journalists": {
         "males": "صحفيو تلفزيون",
@@ -79,10 +67,6 @@
         "males": "مذيعو أخبار تلفزيون",
         "females": "مذيعات أخبار تلفزيون"
     },
-    "comics creators": {
-        "males": "مبتكرو قصص مصورة",
-        "females": "مبتكرات قصص مصورة"
-    },
     "war artists": {
         "males": "فنانو حرب",
         "females": "فنانات حرب"
@@ -119,10 +103,6 @@
         "males": "كتاب جريمة",
         "females": "كاتبات جريمة"
     },
-    "magazine publishers (people)": {
-        "males": "ناشرو مجلات",
-        "females": "ناشرات مجلات"
-    },
     "thriller writers": {
         "males": "كتاب إثارة",
         "females": "كاتبات إثارة"
@@ -134,10 +114,6 @@
     "speculative fiction critics": {
         "males": "نقاد خيال تأملي",
         "females": "ناقدات خيال تأملي"
-    },
-    "webcomic creators": {
-        "males": "مبتكرو ويب كومكس",
-        "females": "مبتكرات ويب كومكس"
     },
     "comedy writers": {
         "males": "كتاب كوميديا",
@@ -186,10 +162,6 @@
     "environmental writers": {
         "males": "كتاب بيئة",
         "females": "كاتبات بيئة"
-    },
-    "speculative fiction publishers (people)": {
-        "males": "ناشرو خيال تأملي",
-        "females": "ناشرات خيال تأملي"
     },
     "comic book writers": {
         "males": "كتاب كتب قصص مصورة",
@@ -255,10 +227,6 @@
         "males": "محررو خيال علمي",
         "females": "محررات خيال علمي"
     },
-    "sports presenters": {
-        "males": "مذيعو رياضة",
-        "females": "مذيعات رياضة"
-    },
     "crime journalists": {
         "males": "صحفيو جريمة",
         "females": "صحفيات جريمة"
@@ -274,10 +242,6 @@
     "comedy fiction writers": {
         "males": "كتاب خيال كوميدي",
         "females": "كاتبات خيال كوميدي"
-    },
-    "comic book publishers (people)": {
-        "males": "ناشرو كتب قصص مصورة",
-        "females": "ناشرات كتب قصص مصورة"
     },
     "comics critics": {
         "males": "نقاد قصص مصورة",

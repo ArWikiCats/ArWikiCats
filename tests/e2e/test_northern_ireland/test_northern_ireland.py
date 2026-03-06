@@ -153,7 +153,6 @@ data_2 = {
     "Ceremonial officers in Northern Ireland": "",
     "Chief Medical Officers for Northern Ireland": "",
     "Children's entertainers from Northern Ireland": "",
-    "Children's television presenters from Northern Ireland": "",
     "Civil servants in the Northern Ireland Office": "",
     "Cookbook writers from Northern Ireland": "",
     "Councillors in Northern Ireland": "",

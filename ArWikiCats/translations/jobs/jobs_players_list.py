@@ -169,10 +169,6 @@ SPORT_JOB_VARIANTS_additional = {
         "males": "مهاجمو خط كرة قدم كندية",
         "females": "مهاجمات خط كرة قدم كندية",
     },
-    "canadian football placekickers": {
-        "males": "مسددو كرة قدم كندية",
-        "females": "مسددات كرة قدم كندية",
-    },
     "canadian football quarterbacks": {
         "males": "أظهرة رباعيون كرة قدم كندية",
         "females": "ظهيرات رباعيات كرة قدم كندية",
@@ -182,14 +178,7 @@ SPORT_JOB_VARIANTS_additional = {
         "females": "راكضات للخلف كرة قدم كندية",
     },
     "canadian football scouts": {"males": "كشافة كرة قدم كندية", "females": "كشافة كرة قدم كندية"},
-    "canadian football tackles": {
-        "males": "مصطدمو كرة قدم كندية",
-        "females": "مصطدمات كرة قدم كندية",
-    },
-    "canadian football wide receivers": {
-        "males": "مستقبلون واسعون كرة قدم كندية",
-        "females": "مستقبلات واسعات كرة قدم كندية",
-    },
+
 }
 
 # ---------------------------------------------------------------------------

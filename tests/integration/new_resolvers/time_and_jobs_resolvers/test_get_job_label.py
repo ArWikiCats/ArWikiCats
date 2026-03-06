@@ -79,7 +79,6 @@ test_data_standard = {
     "poets": "شعراء",
     "politicians": "سياسيون",
     "princes": "أمراء",
-    "publishers (people)": "ناشرون",
     "rabbis": "حاخامات",
     "scholars": "دارسون",
     "scientists": "علماء",

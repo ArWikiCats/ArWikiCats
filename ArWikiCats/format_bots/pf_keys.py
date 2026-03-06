@@ -111,7 +111,6 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
     "presidential primaries": "presidential-primaries",
     "prisoners of conscience": "prisoners-of-conscience",
     "protectorate of": "protectorate-of",
-    "publishers (people)": "publisherspeople",
     "realm of": "realm-of",
     "refusing to convert to christianity": "refusing-to-convert-to-christianity",
     "refusing to convert to islam": "refusing-to-convert-to-islam",

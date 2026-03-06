@@ -121,10 +121,6 @@ JOBS_PEOPLE_ROLES: Mapping[str, GenderedLabel] = {
     "editors": {"males": "محررو", "females": "محررات"},
     "artists": {"males": "فنانو", "females": "فنانات"},
     "directors": {"males": "مخرجو", "females": "مخرجات"},
-    "publisherspeople": {"males": "ناشرو", "females": "ناشرات"},
-    "publishers (people)": {"males": "ناشرو", "females": "ناشرات"},
-    "presenters": {"males": "مذيعو", "females": "مذيعات"},
-    "creators": {"males": "مبتكرو", "females": "مبتكرات"},
 }
 
 jobs_data = open_json_file("jobs/jobs.json")
