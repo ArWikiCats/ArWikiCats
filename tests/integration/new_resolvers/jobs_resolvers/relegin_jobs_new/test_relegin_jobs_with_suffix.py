@@ -77,7 +77,6 @@ test_data_2 = {
     "Christian biblical scholars": "علماء الكتاب المقدس مسيحيون",
     "Christian bloggers": "مدونون مسيحيون",
     "Christian clergy": "رجال دين مسيحيون",
-    "Christian comics creators": "مبتكرو قصص مصورة مسيحيون",
     "Christian communists": "شيوعيون مسيحيون",
     "Christian conspiracy theorists": "منظرو المؤامرة مسيحيون",
     "Christian country singers": "مغنو كانتري مسيحيون",

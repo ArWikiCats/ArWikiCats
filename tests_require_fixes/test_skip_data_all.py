@@ -484,7 +484,6 @@ test_data_empty = {
     "2026–27 in European men's international football": "x",
     "2026–27 U Sports season": "x",
     "2026–27 UEFA Conference League": "x",
-    "20th-century American newspaper publishers (people)": "x",
     "21st-century Moroccan LGBTQ people": "x",
     "Abortion in non-fiction": "x",
     "Academic staff of Süleyman Demirel University": "x",

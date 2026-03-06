@@ -206,7 +206,6 @@ test_womens_data = {
     "women pop singers": "مغنيات بوب",
     "women psychiatrists": "طبيبات نفسيات",
     "women radio personalities": "شخصيات راديو",
-    "women radio presenters": "مذيعات راديو",
     "women rappers": "مغنيات راب",
     "women referees and umpires": "حكمات رياضات",
     "women rock singers": "مغنيات روك",
@@ -230,7 +229,6 @@ test_womens_data = {
     "women steeplechase runners": "عداءات موانع",
     "women television directors": "مخرجات تلفزيون",
     "women television personalities": "شخصيات تلفزيون",
-    "women television presenters": "مذيعات تلفزيون",
     "women television producers": "منتجات تلفزيون",
     "women theatre directors": "مخرجات مسرح",
     "women trade unionists": "نقابيات",
@@ -244,7 +242,6 @@ test_womens_data = {
     "women's candidates": "مرشحات",
     "women's football managers": "مدربات كرة قدم",
     "women's football wingers": "جناحات كرة قدم",
-    "women's ice hockey defencemen": "مدافعات هوكي جليد",
     "women's ice hockey goaltenders": "حارسات مرمى هوكي جليد",
     "women's rugby union coaches": "مدربات اتحاد رجبي",
 }

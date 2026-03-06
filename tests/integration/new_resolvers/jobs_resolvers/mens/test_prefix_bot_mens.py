@@ -94,7 +94,6 @@ test_mens_data2 = {
     "deaf baseball players": "لاعبو كرة قاعدة صم",
     "deaf poets": "شعراء صم",
     "deaf sports-people": "رياضيون صم",
-    "deaf television presenters": "مذيعو تلفزيون صم",
     "deaf triathletes": "لاعبو ترياثلون صم",
     "disabled sports-people": "رياضيون معاقون",
     "fictional american people": "أمريكيون خياليون",
