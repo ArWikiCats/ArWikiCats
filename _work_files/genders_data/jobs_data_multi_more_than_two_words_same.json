@@ -1,9 +1,4 @@
 {
-    "academic company founders": {
-        "job_males": "مؤسسو شركات أكاديمية",
-        "job_females": "مؤسسات شركات أكاديمية",
-        "both_jobs": "مؤسسو ومؤسسات شركات أكاديمية"
-    },
     "access to knowledge activists": {
         "job_males": "ناشطو الوصول إلى المعرفة",
         "job_females": "ناشطات الوصول إلى المعرفة",
@@ -19,40 +14,10 @@
         "job_females": "مؤيدات العلم المزيف",
         "both_jobs": "مؤيدو ومؤيدات العلم المزيف"
     },
-    "agriculture company founders": {
-        "job_males": "مؤسسو شركات زراعة",
-        "job_females": "مؤسسات شركات زراعة",
-        "both_jobs": "مؤسسو ومؤسسات شركات زراعة"
-    },
-    "airline company founders": {
-        "job_males": "مؤسسو شركات خطوط جوية",
-        "job_females": "مؤسسات شركات خطوط جوية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خطوط جوية"
-    },
     "airline founders": {
         "job_males": "مؤسسو خطوط جوية",
         "job_females": "مؤسسات خطوط جوية",
         "both_jobs": "مؤسسو ومؤسسات خطوط جوية"
-    },
-    "airline owners": {
-        "job_males": "ملاك خطوط جوية",
-        "job_females": "مالكات خطوط جوية",
-        "both_jobs": "ملاك ومالكات خطوط جوية"
-    },
-    "airliner company founders": {
-        "job_males": "مؤسسو شركات طائرات",
-        "job_females": "مؤسسات شركات طائرات",
-        "both_jobs": "مؤسسو ومؤسسات شركات طائرات"
-    },
-    "airlines company founders": {
-        "job_males": "مؤسسو شركات طيران",
-        "job_females": "مؤسسات شركات طيران",
-        "both_jobs": "مؤسسو ومؤسسات شركات طيران"
-    },
-    "alcohol company founders": {
-        "job_males": "مؤسسو شركات كحول",
-        "job_females": "مؤسسات شركات كحول",
-        "both_jobs": "مؤسسو ومؤسسات شركات كحول"
     },
     "alpine skaters": {
         "job_males": "متزلجو منحدرات ثلجية",
@@ -118,11 +83,6 @@
         "job_males": "مغنو روك بديل",
         "job_females": "مغنيات روك بديل",
         "both_jobs": "مغنو ومغنيات روك بديل"
-    },
-    "aluminium company founders": {
-        "job_males": "مؤسسو شركات ألومنيوم",
-        "job_females": "مؤسسات شركات ألومنيوم",
-        "both_jobs": "مؤسسو ومؤسسات شركات ألومنيوم"
     },
     "american football announcers": {
         "job_males": "مذيعو كرة قدم أمريكية",
@@ -263,21 +223,6 @@
         "job_males": "قضاة محاكم استئناف",
         "job_females": "قاضيات محاكم استئناف",
         "both_jobs": "قضاة وقاضيات محاكم استئناف"
-    },
-    "architecture company founders": {
-        "job_males": "مؤسسو شركات هندسة معمارية",
-        "job_females": "مؤسسات شركات هندسة معمارية",
-        "both_jobs": "مؤسسو ومؤسسات شركات هندسة معمارية"
-    },
-    "architecture founders": {
-        "job_males": "مؤسسو هندسة معمارية",
-        "job_females": "مؤسسات هندسة معمارية",
-        "both_jobs": "مؤسسو ومؤسسات هندسة معمارية"
-    },
-    "architecture owners": {
-        "job_males": "ملاك هندسة معمارية",
-        "job_females": "مالكات هندسة معمارية",
-        "both_jobs": "ملاك ومالكات هندسة معمارية"
     },
     "argentine tango musicians": {
         "job_males": "موسيقيو تانغو أرجنتيني",
@@ -479,16 +424,6 @@
         "job_females": "كاتبات سيرة ذاتية",
         "both_jobs": "كتاب وكاتبات سيرة ذاتية"
     },
-    "automotive company founders": {
-        "job_males": "مؤسسو شركات سيارات",
-        "job_females": "مؤسسات شركات سيارات",
-        "both_jobs": "مؤسسو ومؤسسات شركات سيارات"
-    },
-    "aviation company founders": {
-        "job_males": "مؤسسو شركات طيران",
-        "job_females": "مؤسسات شركات طيران",
-        "both_jobs": "مؤسسو ومؤسسات شركات طيران"
-    },
     "bachata guitarists": {
         "job_males": "عازفو قيثارة باجاتا",
         "job_females": "عازفات قيثارة باجاتا",
@@ -513,11 +448,6 @@
         "job_males": "لاعبو هوكي كرة",
         "job_females": "لاعبات هوكي كرة",
         "both_jobs": "لاعبو ولاعبات هوكي كرة"
-    },
-    "banks company founders": {
-        "job_males": "مؤسسو شركات بنوك",
-        "job_females": "مؤسسات شركات بنوك",
-        "both_jobs": "مؤسسو ومؤسسات شركات بنوك"
     },
     "bantamweight boxers": {
         "job_males": "ملاكمو وزن بانتام",
@@ -694,21 +624,6 @@
         "job_females": "عالمات تقانة حيوية",
         "both_jobs": "علماء وعالمات تقانة حيوية"
     },
-    "biotechnology company founders": {
-        "job_males": "مؤسسو شركات تقانة حيوية",
-        "job_females": "مؤسسات شركات تقانة حيوية",
-        "both_jobs": "مؤسسو ومؤسسات شركات تقانة حيوية"
-    },
-    "biotechnology founders": {
-        "job_males": "مؤسسو تقانة حيوية",
-        "job_females": "مؤسسات تقانة حيوية",
-        "both_jobs": "مؤسسو ومؤسسات تقانة حيوية"
-    },
-    "biotechnology owners": {
-        "job_males": "ملاك تقانة حيوية",
-        "job_females": "مالكات تقانة حيوية",
-        "both_jobs": "ملاك ومالكات تقانة حيوية"
-    },
     "black metal guitarists": {
         "job_males": "عازفو قيثارة بلاك ميتال",
         "job_females": "عازفات قيثارة بلاك ميتال",
@@ -829,40 +744,10 @@
         "job_females": "موسيقيات بوب بريطاني",
         "both_jobs": "موسيقيو وموسيقيات بوب بريطاني"
     },
-    "building materials company founders": {
-        "job_males": "مؤسسو شركات مواد بناء",
-        "job_females": "مؤسسات شركات مواد بناء",
-        "both_jobs": "مؤسسو ومؤسسات شركات مواد بناء"
-    },
-    "building materials founders": {
-        "job_males": "مؤسسو مواد بناء",
-        "job_females": "مؤسسات مواد بناء",
-        "both_jobs": "مؤسسو ومؤسسات مواد بناء"
-    },
-    "building materials owners": {
-        "job_males": "ملاك مواد بناء",
-        "job_females": "مالكات مواد بناء",
-        "both_jobs": "ملاك ومالكات مواد بناء"
-    },
     "business and financial journalists": {
         "job_males": "صحفيو أعمال ومالية",
         "job_females": "صحفيات أعمال ومالية",
         "both_jobs": "صحفيو وصحفيات أعمال ومالية"
-    },
-    "business services company founders": {
-        "job_males": "مؤسسو شركات خدمات أعمال تجارية",
-        "job_females": "مؤسسات شركات خدمات أعمال تجارية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خدمات أعمال تجارية"
-    },
-    "business services founders": {
-        "job_males": "مؤسسو خدمات أعمال تجارية",
-        "job_females": "مؤسسات خدمات أعمال تجارية",
-        "both_jobs": "مؤسسو ومؤسسات خدمات أعمال تجارية"
-    },
-    "business services owners": {
-        "job_males": "ملاك خدمات أعمال تجارية",
-        "job_females": "مالكات خدمات أعمال تجارية",
-        "both_jobs": "ملاك ومالكات خدمات أعمال تجارية"
     },
     "c-pop musicians": {
         "job_males": "موسيقيو سي بوب",
@@ -944,36 +829,6 @@
         "job_females": "متسابقات قوارب الكانوي",
         "both_jobs": "متسابقو ومتسابقات قوارب الكانوي"
     },
-    "car rental company founders": {
-        "job_males": "مؤسسو شركات تأجير السيارات",
-        "job_females": "مؤسسات شركات تأجير السيارات",
-        "both_jobs": "مؤسسو ومؤسسات شركات تأجير السيارات"
-    },
-    "car rental founders": {
-        "job_males": "مؤسسو تأجير السيارات",
-        "job_females": "مؤسسات تأجير السيارات",
-        "both_jobs": "مؤسسو ومؤسسات تأجير السيارات"
-    },
-    "car rental owners": {
-        "job_males": "ملاك تأجير السيارات",
-        "job_females": "مالكات تأجير السيارات",
-        "both_jobs": "ملاك ومالكات تأجير السيارات"
-    },
-    "cargo airlines company founders": {
-        "job_males": "مؤسسو شركات شحن جوي",
-        "job_females": "مؤسسات شركات شحن جوي",
-        "both_jobs": "مؤسسو ومؤسسات شركات شحن جوي"
-    },
-    "cargo airlines founders": {
-        "job_males": "مؤسسو شحن جوي",
-        "job_females": "مؤسسات شحن جوي",
-        "both_jobs": "مؤسسو ومؤسسات شحن جوي"
-    },
-    "cargo airlines owners": {
-        "job_males": "ملاك شحن جوي",
-        "job_females": "مالكات شحن جوي",
-        "both_jobs": "ملاك ومالكات شحن جوي"
-    },
     "cartographers": {
         "job_males": "علماء رسم خرائط",
         "job_females": "عالمات رسم خرائط",
@@ -984,11 +839,6 @@
         "job_females": "عالمات أحياء خلوية",
         "both_jobs": "علماء وعالمات أحياء خلوية"
     },
-    "cement company founders": {
-        "job_males": "مؤسسو شركات أسمنت",
-        "job_females": "مؤسسات شركات أسمنت",
-        "both_jobs": "مؤسسو ومؤسسات شركات أسمنت"
-    },
     "chairmen": {
         "job_males": "رؤساء مجلس إدارة",
         "job_females": "رئيسات مجلس إدارة",
@@ -998,11 +848,6 @@
         "job_males": "رؤساء مجلس إدارة",
         "job_females": "رئيسات مجلس إدارة",
         "both_jobs": "رؤساء ورئيسات مجلس إدارة"
-    },
-    "chemical company founders": {
-        "job_males": "مؤسسو شركات كيميائية",
-        "job_females": "مؤسسات شركات كيميائية",
-        "both_jobs": "مؤسسو ومؤسسات شركات كيميائية"
     },
     "chess composers": {
         "job_males": "مؤلفو مسائل شطرنج",
@@ -1064,50 +909,10 @@
         "job_females": "أخصائيات علم المناخ",
         "both_jobs": "أخصائيي وأخصائيات علم المناخ"
     },
-    "clothing company founders": {
-        "job_males": "مؤسسو شركات ملابس",
-        "job_females": "مؤسسات شركات ملابس",
-        "both_jobs": "مؤسسو ومؤسسات شركات ملابس"
-    },
-    "clothing retailers company founders": {
-        "job_males": "مؤسسو شركات متاجر ملابس بالتجزئة",
-        "job_females": "مؤسسات شركات متاجر ملابس بالتجزئة",
-        "both_jobs": "مؤسسو ومؤسسات شركات متاجر ملابس بالتجزئة"
-    },
-    "clothing retailers founders": {
-        "job_males": "مؤسسو متاجر ملابس بالتجزئة",
-        "job_females": "مؤسسات متاجر ملابس بالتجزئة",
-        "both_jobs": "مؤسسو ومؤسسات متاجر ملابس بالتجزئة"
-    },
-    "clothing retailers owners": {
-        "job_males": "ملاك متاجر ملابس بالتجزئة",
-        "job_females": "مالكات متاجر ملابس بالتجزئة",
-        "both_jobs": "ملاك ومالكات متاجر ملابس بالتجزئة"
-    },
     "coachbuilders": {
         "job_males": "صانعو هياكل سيارات",
         "job_females": "صانعات هياكل سيارات",
         "both_jobs": "صانعو وصانعات هياكل سيارات"
-    },
-    "coal company founders": {
-        "job_males": "مؤسسو شركات فحم",
-        "job_females": "مؤسسات شركات فحم",
-        "both_jobs": "مؤسسو ومؤسسات شركات فحم"
-    },
-    "coal gas company founders": {
-        "job_males": "مؤسسو شركات غاز الفحم",
-        "job_females": "مؤسسات شركات غاز الفحم",
-        "both_jobs": "مؤسسو ومؤسسات شركات غاز الفحم"
-    },
-    "coal gas founders": {
-        "job_males": "مؤسسو غاز الفحم",
-        "job_females": "مؤسسات غاز الفحم",
-        "both_jobs": "مؤسسو ومؤسسات غاز الفحم"
-    },
-    "coal gas owners": {
-        "job_males": "ملاك غاز الفحم",
-        "job_females": "مالكات غاز الفحم",
-        "both_jobs": "ملاك ومالكات غاز الفحم"
     },
     "colorists": {
         "job_males": "فنيون في التلوين",
@@ -1149,11 +954,6 @@
         "job_females": "فنانات قصص مصورة",
         "both_jobs": "فنانو وفنانات قصص مصورة"
     },
-    "comics company founders": {
-        "job_males": "مؤسسو شركات قصص مصورة",
-        "job_females": "مؤسسات شركات قصص مصورة",
-        "both_jobs": "مؤسسو ومؤسسات شركات قصص مصورة"
-    },
     "comics creators": {
         "job_males": "مبتكرو قصص مصورة",
         "job_females": "مبتكرات قصص مصورة",
@@ -1169,16 +969,6 @@
         "job_females": "محررات قصص مصورة",
         "both_jobs": "محررو ومحررات قصص مصورة"
     },
-    "comics founders": {
-        "job_males": "مؤسسو قصص مصورة",
-        "job_females": "مؤسسات قصص مصورة",
-        "both_jobs": "مؤسسو ومؤسسات قصص مصورة"
-    },
-    "comics owners": {
-        "job_males": "ملاك قصص مصورة",
-        "job_females": "مالكات قصص مصورة",
-        "both_jobs": "ملاك ومالكات قصص مصورة"
-    },
     "comics painters": {
         "job_males": "رسامو قصص مصورة",
         "job_females": "رسامات قصص مصورة",
@@ -1188,16 +978,6 @@
         "job_males": "كتاب قصص مصورة",
         "job_females": "كاتبات قصص مصورة",
         "both_jobs": "كتاب وكاتبات قصص مصورة"
-    },
-    "computer company founders": {
-        "job_males": "مؤسسو شركات حوسبة",
-        "job_females": "مؤسسات شركات حوسبة",
-        "both_jobs": "مؤسسو ومؤسسات شركات حوسبة"
-    },
-    "condiment company founders": {
-        "job_males": "مؤسسو شركات توابل",
-        "job_females": "مؤسسات شركات توابل",
-        "both_jobs": "مؤسسو ومؤسسات شركات توابل"
     },
     "conductors (music)": {
         "job_males": "قادة فرق موسيقية",
@@ -1214,21 +994,6 @@
         "job_females": "مؤسسات شركات بناء وهندسة مدنية",
         "both_jobs": "مؤسسو ومؤسسات شركات بناء وهندسة مدنية"
     },
-    "construction and civil engineering founders": {
-        "job_males": "مؤسسو بناء وهندسة مدنية",
-        "job_females": "مؤسسات بناء وهندسة مدنية",
-        "both_jobs": "مؤسسو ومؤسسات بناء وهندسة مدنية"
-    },
-    "construction and civil engineering owners": {
-        "job_males": "ملاك بناء وهندسة مدنية",
-        "job_females": "مالكات بناء وهندسة مدنية",
-        "both_jobs": "ملاك ومالكات بناء وهندسة مدنية"
-    },
-    "construction company founders": {
-        "job_males": "مؤسسو شركات بناء",
-        "job_females": "مؤسسات شركات بناء",
-        "both_jobs": "مؤسسو ومؤسسات شركات بناء"
-    },
     "contemporary r&b singers": {
         "job_males": "مغنو آر أند بي معاصر",
         "job_females": "مغنيات آر أند بي معاصر",
@@ -1238,21 +1003,6 @@
         "job_males": "مختصو دراسات قبطية",
         "job_females": "متخصصات دراسات قبطية",
         "both_jobs": "مختصو ومتخصصات دراسات قبطية"
-    },
-    "cosmetics company founders": {
-        "job_males": "مؤسسو شركات مستحضرات التجميل",
-        "job_females": "مؤسسات شركات مستحضرات التجميل",
-        "both_jobs": "مؤسسو ومؤسسات شركات مستحضرات التجميل"
-    },
-    "cosmetics founders": {
-        "job_males": "مؤسسو مستحضرات التجميل",
-        "job_females": "مؤسسات مستحضرات التجميل",
-        "both_jobs": "مؤسسو ومؤسسات مستحضرات التجميل"
-    },
-    "cosmetics owners": {
-        "job_males": "ملاك مستحضرات التجميل",
-        "job_females": "مالكات مستحضرات التجميل",
-        "both_jobs": "ملاك ومالكات مستحضرات التجميل"
     },
     "costume designers": {
         "job_males": "مصممو أزياء تنكرية",
@@ -1309,21 +1059,6 @@
         "job_females": "مغنيات كروس أوفر",
         "both_jobs": "مغنو ومغنيات كروس أوفر"
     },
-    "cruise ships company founders": {
-        "job_males": "مؤسسو شركات سفن سياحية",
-        "job_females": "مؤسسات شركات سفن سياحية",
-        "both_jobs": "مؤسسو ومؤسسات شركات سفن سياحية"
-    },
-    "cruise ships founders": {
-        "job_males": "مؤسسو سفن سياحية",
-        "job_females": "مؤسسات سفن سياحية",
-        "both_jobs": "مؤسسو ومؤسسات سفن سياحية"
-    },
-    "cruise ships owners": {
-        "job_males": "ملاك سفن سياحية",
-        "job_females": "مالكات سفن سياحية",
-        "both_jobs": "ملاك ومالكات سفن سياحية"
-    },
     "cruiserweight boxers": {
         "job_males": "ملاكمو وزن الطراد",
         "job_females": "ملاكمات وزن الطراد",
@@ -1379,26 +1114,6 @@
         "job_females": "موسيقيات ديث ميتال",
         "both_jobs": "موسيقيو وموسيقيات ديث ميتال"
     },
-    "defence company founders": {
-        "job_males": "مؤسسو شركات دفاعية",
-        "job_females": "مؤسسات شركات دفاعية",
-        "both_jobs": "مؤسسو ومؤسسات شركات دفاعية"
-    },
-    "department stores company founders": {
-        "job_males": "مؤسسو شركات متاجر متعددة الأقسام",
-        "job_females": "مؤسسات شركات متاجر متعددة الأقسام",
-        "both_jobs": "مؤسسو ومؤسسات شركات متاجر متعددة الأقسام"
-    },
-    "department stores founders": {
-        "job_males": "مؤسسو متاجر متعددة الأقسام",
-        "job_females": "مؤسسات متاجر متعددة الأقسام",
-        "both_jobs": "مؤسسو ومؤسسات متاجر متعددة الأقسام"
-    },
-    "department stores owners": {
-        "job_males": "ملاك متاجر متعددة الأقسام",
-        "job_females": "مالكات متاجر متعددة الأقسام",
-        "both_jobs": "ملاك ومالكات متاجر متعددة الأقسام"
-    },
     "dermatologists": {
         "job_males": "أطباء أمراض جلدية",
         "job_females": "طبيبات أمراض جلدية",
@@ -1413,11 +1128,6 @@
         "job_males": "ناشطون في حقوق الإعاقة",
         "job_females": "ناشطات في حقوق الإعاقة",
         "both_jobs": "ناشطون وناشطات في حقوق الإعاقة"
-    },
-    "distribution company founders": {
-        "job_males": "مؤسسو شركات توزيع",
-        "job_females": "مؤسسات شركات توزيع",
-        "both_jobs": "مؤسسو ومؤسسات شركات توزيع"
     },
     "documentary film directors": {
         "job_males": "مخرجو أفلام وثائقية",
@@ -1454,41 +1164,6 @@
         "job_females": "مؤسسات شركات مشروبات",
         "both_jobs": "مؤسسو ومؤسسات شركات مشروبات"
     },
-    "education company founders": {
-        "job_males": "مؤسسو شركات تعليم",
-        "job_females": "مؤسسات شركات تعليم",
-        "both_jobs": "مؤسسو ومؤسسات شركات تعليم"
-    },
-    "electric power company founders": {
-        "job_males": "مؤسسو شركات طاقة كهربائية",
-        "job_females": "مؤسسات شركات طاقة كهربائية",
-        "both_jobs": "مؤسسو ومؤسسات شركات طاقة كهربائية"
-    },
-    "electric power founders": {
-        "job_males": "مؤسسو طاقة كهربائية",
-        "job_females": "مؤسسات طاقة كهربائية",
-        "both_jobs": "مؤسسو ومؤسسات طاقة كهربائية"
-    },
-    "electric power owners": {
-        "job_males": "ملاك طاقة كهربائية",
-        "job_females": "مالكات طاقة كهربائية",
-        "both_jobs": "ملاك ومالكات طاقة كهربائية"
-    },
-    "electrical engineering company founders": {
-        "job_males": "مؤسسو شركات هندسة كهربائية",
-        "job_females": "مؤسسات شركات هندسة كهربائية",
-        "both_jobs": "مؤسسو ومؤسسات شركات هندسة كهربائية"
-    },
-    "electrical engineering founders": {
-        "job_males": "مؤسسو هندسة كهربائية",
-        "job_females": "مؤسسات هندسة كهربائية",
-        "both_jobs": "مؤسسو ومؤسسات هندسة كهربائية"
-    },
-    "electrical engineering owners": {
-        "job_males": "ملاك هندسة كهربائية",
-        "job_females": "مالكات هندسة كهربائية",
-        "both_jobs": "ملاك ومالكات هندسة كهربائية"
-    },
     "electro musicians": {
         "job_males": "موسيقيو موسيقى كهربائية",
         "job_females": "موسيقيات موسيقى كهربائية",
@@ -1508,11 +1183,6 @@
         "job_males": "موسيقيو آلات إلكترونية",
         "job_females": "موسيقيات آلات إلكترونية",
         "both_jobs": "موسيقيو وموسيقيات آلات إلكترونية"
-    },
-    "electronics company founders": {
-        "job_males": "مؤسسو شركات إلكترونيات",
-        "job_females": "مؤسسات شركات إلكترونيات",
-        "both_jobs": "مؤسسو ومؤسسات شركات إلكترونيات"
     },
     "endocrinologists": {
         "job_males": "أطباء غدد صماء",
@@ -1599,11 +1269,6 @@
         "job_females": "مسجونات خارج نطاق القضاء",
         "both_jobs": "مسجونون ومسجونات خارج نطاق القضاء"
     },
-    "eyewear company founders": {
-        "job_males": "مؤسسو شركات نظارات",
-        "job_females": "مؤسسات شركات نظارات",
-        "both_jobs": "مؤسسو ومؤسسات شركات نظارات"
-    },
     "fado guitarists": {
         "job_males": "عازفو قيثارة فادو",
         "job_females": "عازفات قيثارة فادو",
@@ -1618,6 +1283,11 @@
         "job_males": "ملاكمو وزن الريشة",
         "job_females": "ملاكمات وزن الريشة",
         "both_jobs": "ملاكمو وملاكمات وزن الريشة"
+    },
+    "female rights activists": {
+        "job_males": "ناشطون في حقوق المرأة",
+        "job_females": "ناشطات في حقوق المرأة",
+        "both_jobs": "ناشطون وناشطات في حقوق المرأة"
     },
     "feminist filmmakers": {
         "job_males": "صانعو أفلام نسوية",
@@ -1714,21 +1384,6 @@
         "job_females": "مؤسسات شركات مالية",
         "both_jobs": "مؤسسو ومؤسسات شركات مالية"
     },
-    "financial services company founders": {
-        "job_males": "مؤسسو شركات خدمات مالية",
-        "job_females": "مؤسسات شركات خدمات مالية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خدمات مالية"
-    },
-    "financial services founders": {
-        "job_males": "مؤسسو خدمات مالية",
-        "job_females": "مؤسسات خدمات مالية",
-        "both_jobs": "مؤسسو ومؤسسات خدمات مالية"
-    },
-    "financial services owners": {
-        "job_males": "ملاك خدمات مالية",
-        "job_females": "مالكات خدمات مالية",
-        "both_jobs": "ملاك ومالكات خدمات مالية"
-    },
     "finnish rock drummers": {
         "job_males": "طبالو روك فنلندي",
         "job_females": "طبالات روك فنلندي",
@@ -1803,16 +1458,6 @@
         "job_males": "مؤسسو شركات أطعمة ومشروبات",
         "job_females": "مؤسسات شركات أطعمة ومشروبات",
         "both_jobs": "مؤسسو ومؤسسات شركات أطعمة ومشروبات"
-    },
-    "food and drink founders": {
-        "job_males": "مؤسسو أطعمة ومشروبات",
-        "job_females": "مؤسسات أطعمة ومشروبات",
-        "both_jobs": "مؤسسو ومؤسسات أطعمة ومشروبات"
-    },
-    "food and drink owners": {
-        "job_males": "ملاك أطعمة ومشروبات",
-        "job_females": "مالكات أطعمة ومشروبات",
-        "both_jobs": "ملاك ومالكات أطعمة ومشروبات"
     },
     "food company founders": {
         "job_males": "مؤسسو شركات أطعمة",
@@ -1989,21 +1634,6 @@
         "job_females": "مدربات فورمولا ون",
         "both_jobs": "مدربو ومدربات فورمولا ون"
     },
-    "fraternal service company founders": {
-        "job_males": "مؤسسو شركات خدمات أخوية",
-        "job_females": "مؤسسات شركات خدمات أخوية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خدمات أخوية"
-    },
-    "fraternal service founders": {
-        "job_males": "مؤسسو خدمات أخوية",
-        "job_females": "مؤسسات خدمات أخوية",
-        "both_jobs": "مؤسسو ومؤسسات خدمات أخوية"
-    },
-    "fraternal service owners": {
-        "job_males": "ملاك خدمات أخوية",
-        "job_females": "مالكات خدمات أخوية",
-        "both_jobs": "ملاك ومالكات خدمات أخوية"
-    },
     "freestyle skiers": {
         "job_males": "ممارسو تزلج حر",
         "job_females": "ممارسات تزلج حر",
@@ -2134,16 +1764,6 @@
         "job_females": "لاعبات كرة قدم غيلية",
         "both_jobs": "لاعبو ولاعبات كرة قدم غيلية"
     },
-    "gambling company founders": {
-        "job_males": "مؤسسو شركات مقامرة",
-        "job_females": "مؤسسات شركات مقامرة",
-        "both_jobs": "مؤسسو ومؤسسات شركات مقامرة"
-    },
-    "gas company founders": {
-        "job_males": "مؤسسو شركات غاز",
-        "job_females": "مؤسسات شركات غاز",
-        "both_jobs": "مؤسسو ومؤسسات شركات غاز"
-    },
     "gastroenterologists": {
         "job_males": "أخصائيو الجهاز الهضمي",
         "job_females": "أخصائيات الجهاز الهضمي",
@@ -2178,11 +1798,6 @@
         "job_males": "موسيقيو جلام ميتال",
         "job_females": "موسيقيات جلام ميتال",
         "both_jobs": "موسيقيو وموسيقيات جلام ميتال"
-    },
-    "glassmaking company founders": {
-        "job_males": "مؤسسو شركات الزجاج",
-        "job_females": "مؤسسات شركات الزجاج",
-        "both_jobs": "مؤسسو ومؤسسات شركات الزجاج"
     },
     "goalball players": {
         "job_males": "لاعبو كرة هدف",
@@ -2329,31 +1944,6 @@
         "job_females": "مؤسسات شركات رعاية صحية",
         "both_jobs": "مؤسسو ومؤسسات شركات رعاية صحية"
     },
-    "health care founders": {
-        "job_males": "مؤسسو رعاية صحية",
-        "job_females": "مؤسسات رعاية صحية",
-        "both_jobs": "مؤسسو ومؤسسات رعاية صحية"
-    },
-    "health care owners": {
-        "job_males": "ملاك رعاية صحية",
-        "job_females": "مالكات رعاية صحية",
-        "both_jobs": "ملاك ومالكات رعاية صحية"
-    },
-    "health clubs company founders": {
-        "job_males": "مؤسسو شركات نوادي صحية",
-        "job_females": "مؤسسات شركات نوادي صحية",
-        "both_jobs": "مؤسسو ومؤسسات شركات نوادي صحية"
-    },
-    "health clubs founders": {
-        "job_males": "مؤسسو نوادي صحية",
-        "job_females": "مؤسسات نوادي صحية",
-        "both_jobs": "مؤسسو ومؤسسات نوادي صحية"
-    },
-    "health clubs owners": {
-        "job_males": "ملاك نوادي صحية",
-        "job_females": "مالكات نوادي صحية",
-        "both_jobs": "ملاك ومالكات نوادي صحية"
-    },
     "healthcare managers": {
         "job_males": "مدراء رعاية صحية",
         "job_females": "مديرات رعاية صحية",
@@ -2439,11 +2029,6 @@
         "job_females": "جناحات يمين هوكي",
         "both_jobs": "أجنحة وجناحات يمين هوكي"
     },
-    "holding company founders": {
-        "job_males": "مؤسسو شركات قابضة",
-        "job_females": "مؤسسات شركات قابضة",
-        "both_jobs": "مؤسسو ومؤسسات شركات قابضة"
-    },
     "horror film directors": {
         "job_males": "مخرجو أفلام رعب",
         "job_females": "مخرجات أفلام رعب",
@@ -2453,66 +2038,6 @@
         "job_males": "منتجو أفلام رعب",
         "job_females": "منتجات أفلام رعب",
         "both_jobs": "منتجو ومنتجات أفلام رعب"
-    },
-    "horticultural company founders": {
-        "job_males": "مؤسسو شركات بستنة",
-        "job_females": "مؤسسات شركات بستنة",
-        "both_jobs": "مؤسسو ومؤسسات شركات بستنة"
-    },
-    "hospitality company founders": {
-        "job_males": "مؤسسو شركات ضيافة",
-        "job_females": "مؤسسات شركات ضيافة",
-        "both_jobs": "مؤسسو ومؤسسات شركات ضيافة"
-    },
-    "hotel and leisure company founders": {
-        "job_males": "مؤسسو شركات فنادق وترفيه",
-        "job_females": "مؤسسات شركات فنادق وترفيه",
-        "both_jobs": "مؤسسو ومؤسسات شركات فنادق وترفيه"
-    },
-    "hotel and leisure founders": {
-        "job_males": "مؤسسو فنادق وترفيه",
-        "job_females": "مؤسسات فنادق وترفيه",
-        "both_jobs": "مؤسسو ومؤسسات فنادق وترفيه"
-    },
-    "hotel and leisure owners": {
-        "job_males": "ملاك فنادق وترفيه",
-        "job_females": "مالكات فنادق وترفيه",
-        "both_jobs": "ملاك ومالكات فنادق وترفيه"
-    },
-    "hotel chains company founders": {
-        "job_males": "مؤسسو شركات سلاسل فندقية",
-        "job_females": "مؤسسات شركات سلاسل فندقية",
-        "both_jobs": "مؤسسو ومؤسسات شركات سلاسل فندقية"
-    },
-    "hotel chains founders": {
-        "job_males": "مؤسسو سلاسل فندقية",
-        "job_females": "مؤسسات سلاسل فندقية",
-        "both_jobs": "مؤسسو ومؤسسات سلاسل فندقية"
-    },
-    "hotel chains owners": {
-        "job_males": "ملاك سلاسل فندقية",
-        "job_females": "مالكات سلاسل فندقية",
-        "both_jobs": "ملاك ومالكات سلاسل فندقية"
-    },
-    "hotels company founders": {
-        "job_males": "مؤسسو شركات فنادق",
-        "job_females": "مؤسسات شركات فنادق",
-        "both_jobs": "مؤسسو ومؤسسات شركات فنادق"
-    },
-    "household and personal product company founders": {
-        "job_males": "مؤسسو شركات المنتجات المنزلية والشخصية",
-        "job_females": "مؤسسات شركات المنتجات المنزلية والشخصية",
-        "both_jobs": "مؤسسو ومؤسسات شركات المنتجات المنزلية والشخصية"
-    },
-    "household and personal product founders": {
-        "job_males": "مؤسسو المنتجات المنزلية والشخصية",
-        "job_females": "مؤسسات المنتجات المنزلية والشخصية",
-        "both_jobs": "مؤسسو ومؤسسات المنتجات المنزلية والشخصية"
-    },
-    "household and personal product owners": {
-        "job_males": "ملاك المنتجات المنزلية والشخصية",
-        "job_females": "مالكات المنتجات المنزلية والشخصية",
-        "both_jobs": "ملاك ومالكات المنتجات المنزلية والشخصية"
     },
     "human rights activists": {
         "job_males": "ناشطون في حقوق الإنسان",
@@ -2528,11 +2053,6 @@
         "job_males": "حراس مرمى قذف",
         "job_females": "حارسات مرمى قذف",
         "both_jobs": "حراس وحارسات مرمى قذف"
-    },
-    "hydroelectric company founders": {
-        "job_males": "مؤسسو شركات كهرمائية",
-        "job_females": "مؤسسات شركات كهرمائية",
-        "both_jobs": "مؤسسو ومؤسسات شركات كهرمائية"
     },
     "hydrographers": {
         "job_males": "علماء وصف المياه",
@@ -2639,21 +2159,6 @@
         "job_females": "موسيقيات إندستريال روك",
         "both_jobs": "موسيقيو وموسيقيات إندستريال روك"
     },
-    "information technology company founders": {
-        "job_males": "مؤسسو شركات تقانة المعلومات",
-        "job_females": "مؤسسات شركات تقانة المعلومات",
-        "both_jobs": "مؤسسو ومؤسسات شركات تقانة المعلومات"
-    },
-    "information technology founders": {
-        "job_males": "مؤسسو تقانة المعلومات",
-        "job_females": "مؤسسات تقانة المعلومات",
-        "both_jobs": "مؤسسو ومؤسسات تقانة المعلومات"
-    },
-    "information technology owners": {
-        "job_males": "ملاك تقانة المعلومات",
-        "job_females": "مالكات تقانة المعلومات",
-        "both_jobs": "ملاك ومالكات تقانة المعلومات"
-    },
     "inline hockey players": {
         "job_males": "لاعبو هوكي مضمن",
         "job_females": "لاعبات هوكي مضمن",
@@ -2664,35 +2169,10 @@
         "job_females": "محققات محاكم تفتيش",
         "both_jobs": "محققو ومحققات محاكم تفتيش"
     },
-    "insurance company founders": {
-        "job_males": "مؤسسو شركات تأمين",
-        "job_females": "مؤسسات شركات تأمين",
-        "both_jobs": "مؤسسو ومؤسسات شركات تأمين"
-    },
     "internet company founders": {
         "job_males": "مؤسسو شركات إنترنت",
         "job_females": "مؤسسات شركات إنترنت",
         "both_jobs": "مؤسسو ومؤسسات شركات إنترنت"
-    },
-    "internet service providers company founders": {
-        "job_males": "مؤسسو شركات تزويد خدمة الإنترنت",
-        "job_females": "مؤسسات شركات تزويد خدمة الإنترنت",
-        "both_jobs": "مؤسسو ومؤسسات شركات تزويد خدمة الإنترنت"
-    },
-    "internet service providers founders": {
-        "job_males": "مؤسسو تزويد خدمة الإنترنت",
-        "job_females": "مؤسسات تزويد خدمة الإنترنت",
-        "both_jobs": "مؤسسو ومؤسسات تزويد خدمة الإنترنت"
-    },
-    "internet service providers owners": {
-        "job_males": "ملاك تزويد خدمة الإنترنت",
-        "job_females": "مالكات تزويد خدمة الإنترنت",
-        "both_jobs": "ملاك ومالكات تزويد خدمة الإنترنت"
-    },
-    "investment company founders": {
-        "job_males": "مؤسسو شركات استثمارية",
-        "job_females": "مؤسسات شركات استثمارية",
-        "both_jobs": "مؤسسو ومؤسسات شركات استثمارية"
     },
     "islamic studies scholars": {
         "job_males": "علماء دراسات إسلامية",
@@ -2813,11 +2293,6 @@
         "job_males": "ممارسو الجت سكي",
         "job_females": "ممارسات الجت سكي",
         "both_jobs": "ممارسو وممارسات الجت سكي"
-    },
-    "jewellery company founders": {
-        "job_males": "مؤسسو شركات مجوهرات",
-        "job_females": "مؤسسات شركات مجوهرات",
-        "both_jobs": "مؤسسو ومؤسسات شركات مجوهرات"
     },
     "k-pop musicians": {
         "job_males": "موسيقيو بوب كوري",
@@ -2964,11 +2439,6 @@
         "job_females": "عالمات دراسات أدبية",
         "both_jobs": "علماء وعالمات دراسات أدبية"
     },
-    "logistics company founders": {
-        "job_males": "مؤسسو شركات لوجستية",
-        "job_females": "مؤسسات شركات لوجستية",
-        "both_jobs": "مؤسسو ومؤسسات شركات لوجستية"
-    },
     "long jumpers": {
         "job_males": "لاعبو قفز طويل",
         "job_females": "لاعبات قفز طويل",
@@ -2984,50 +2454,15 @@
         "job_females": "عازفات آلات وترية",
         "both_jobs": "عازفو وعازفات آلات وترية"
     },
-    "magazine company founders": {
-        "job_males": "مؤسسو شركات مجلات",
-        "job_females": "مؤسسات شركات مجلات",
-        "both_jobs": "مؤسسو ومؤسسات شركات مجلات"
-    },
-    "management consulting company founders": {
-        "job_males": "مؤسسو شركات استشارات إدارية",
-        "job_females": "مؤسسات شركات استشارات إدارية",
-        "both_jobs": "مؤسسو ومؤسسات شركات استشارات إدارية"
-    },
-    "management consulting founders": {
-        "job_males": "مؤسسو استشارات إدارية",
-        "job_females": "مؤسسات استشارات إدارية",
-        "both_jobs": "مؤسسو ومؤسسات استشارات إدارية"
-    },
-    "management consulting owners": {
-        "job_males": "ملاك استشارات إدارية",
-        "job_females": "مالكات استشارات إدارية",
-        "both_jobs": "ملاك ومالكات استشارات إدارية"
-    },
-    "manga company founders": {
-        "job_males": "مؤسسو شركات مانغا",
-        "job_females": "مؤسسات شركات مانغا",
-        "both_jobs": "مؤسسو ومؤسسات شركات مانغا"
-    },
     "manufacturing company founders": {
         "job_males": "مؤسسو شركات تصنيع",
         "job_females": "مؤسسات شركات تصنيع",
         "both_jobs": "مؤسسو ومؤسسات شركات تصنيع"
     },
-    "map company founders": {
-        "job_males": "مؤسسو شركات خرائط",
-        "job_females": "مؤسسات شركات خرائط",
-        "both_jobs": "مؤسسو ومؤسسات شركات خرائط"
-    },
     "marine biologists": {
         "job_males": "علماء أحياء بحرية",
         "job_females": "عالمات أحياء بحرية",
         "both_jobs": "علماء وعالمات أحياء بحرية"
-    },
-    "marketing company founders": {
-        "job_males": "مؤسسو شركات تسويق",
-        "job_females": "مؤسسات شركات تسويق",
-        "both_jobs": "مؤسسو ومؤسسات شركات تسويق"
     },
     "martial artists": {
         "job_males": "ممارسو فنون قتالية",
@@ -3069,25 +2504,10 @@
         "job_females": "فنانات مارفال كومكس",
         "both_jobs": "فنانو وفنانات مارفال كومكس"
     },
-    "marvel comics company founders": {
-        "job_males": "مؤسسو شركات مارفال كومكس",
-        "job_females": "مؤسسات شركات مارفال كومكس",
-        "both_jobs": "مؤسسو ومؤسسات شركات مارفال كومكس"
-    },
     "marvel comics editors": {
         "job_males": "محررو مارفال كومكس",
         "job_females": "محررات مارفال كومكس",
         "both_jobs": "محررو ومحررات مارفال كومكس"
-    },
-    "marvel comics founders": {
-        "job_males": "مؤسسو مارفال كومكس",
-        "job_females": "مؤسسات مارفال كومكس",
-        "both_jobs": "مؤسسو ومؤسسات مارفال كومكس"
-    },
-    "marvel comics owners": {
-        "job_males": "ملاك مارفال كومكس",
-        "job_females": "مالكات مارفال كومكس",
-        "both_jobs": "ملاك ومالكات مارفال كومكس"
     },
     "marvel comics painters": {
         "job_males": "رسامو مارفال كومكس",
@@ -3104,11 +2524,6 @@
         "job_females": "مؤسسات شركات وسائل إعلام",
         "both_jobs": "مؤسسو ومؤسسات شركات وسائل إعلام"
     },
-    "mass media founders": {
-        "job_males": "مؤسسو وسائل إعلام",
-        "job_females": "مؤسسات وسائل إعلام",
-        "both_jobs": "مؤسسو ومؤسسات وسائل إعلام"
-    },
     "mass media owners": {
         "job_males": "ملاك وسائل إعلام",
         "job_females": "مالكات وسائل إعلام",
@@ -3124,10 +2539,10 @@
         "job_females": "مديرات وسائل إعلام",
         "both_jobs": "مدراء ومديرات وسائل إعلام"
     },
-    "metal company founders": {
-        "job_males": "مؤسسو شركات معادن",
-        "job_females": "مؤسسات شركات معادن",
-        "both_jobs": "مؤسسو ومؤسسات شركات معادن"
+    "media founders": {
+        "job_males": "مؤسسو وسائل إعلامية",
+        "job_females": "مؤسسات وسائل إعلامية",
+        "both_jobs": "مؤسسو ومؤسسات وسائل إعلامية"
     },
     "metal guitarists": {
         "job_males": "عازفو قيثارة ميتال",
@@ -3148,21 +2563,6 @@
         "job_males": "ملاكمو وزن متوسط",
         "job_females": "ملاكمات وزن متوسط",
         "both_jobs": "ملاكمو وملاكمات وزن متوسط"
-    },
-    "military logistics company founders": {
-        "job_males": "مؤسسو شركات لوجستية عسكرية",
-        "job_females": "مؤسسات شركات لوجستية عسكرية",
-        "both_jobs": "مؤسسو ومؤسسات شركات لوجستية عسكرية"
-    },
-    "military logistics founders": {
-        "job_males": "مؤسسو لوجستية عسكرية",
-        "job_females": "مؤسسات لوجستية عسكرية",
-        "both_jobs": "مؤسسو ومؤسسات لوجستية عسكرية"
-    },
-    "military logistics owners": {
-        "job_males": "ملاك لوجستية عسكرية",
-        "job_females": "مالكات لوجستية عسكرية",
-        "both_jobs": "ملاك ومالكات لوجستية عسكرية"
     },
     "mining company founders": {
         "job_males": "مؤسسو شركات تعدين",
@@ -3218,21 +2618,6 @@
         "job_males": "مغنو بوب مغربي",
         "job_females": "مغنيات بوب مغربي",
         "both_jobs": "مغنو ومغنيات بوب مغربي"
-    },
-    "motor vehicle manufacturers company founders": {
-        "job_males": "مؤسسو شركات مصانع سيارات",
-        "job_females": "مؤسسات شركات مصانع سيارات",
-        "both_jobs": "مؤسسو ومؤسسات شركات مصانع سيارات"
-    },
-    "motor vehicle manufacturers founders": {
-        "job_males": "مؤسسو مصانع سيارات",
-        "job_females": "مؤسسات مصانع سيارات",
-        "both_jobs": "مؤسسو ومؤسسات مصانع سيارات"
-    },
-    "motor vehicle manufacturers owners": {
-        "job_males": "ملاك مصانع سيارات",
-        "job_females": "مالكات مصانع سيارات",
-        "both_jobs": "ملاك ومالكات مصانع سيارات"
     },
     "motorboat racers": {
         "job_males": "متسابقو زوارق نارية",
@@ -3314,11 +2699,6 @@
         "job_females": "فنانات وسائط متعددة",
         "both_jobs": "فنانو وفنانات وسائط متعددة"
     },
-    "music company founders": {
-        "job_males": "مؤسسو شركات الموسيقى",
-        "job_females": "مؤسسات شركات الموسيقى",
-        "both_jobs": "مؤسسو ومؤسسات شركات الموسيقى"
-    },
     "music industry executives": {
         "job_males": "مدراء صناعة الموسيقى",
         "job_females": "مديرات صناعة الموسيقى",
@@ -3328,21 +2708,6 @@
         "job_males": "عازفو بيانو موسيقى",
         "job_females": "عازفات بيانو موسيقى",
         "both_jobs": "عازفو وعازفات بيانو موسيقى"
-    },
-    "music publishing company founders": {
-        "job_males": "مؤسسو شركات نشر موسيقى",
-        "job_females": "مؤسسات شركات نشر موسيقى",
-        "both_jobs": "مؤسسو ومؤسسات شركات نشر موسيقى"
-    },
-    "music publishing founders": {
-        "job_males": "مؤسسو نشر موسيقى",
-        "job_females": "مؤسسات نشر موسيقى",
-        "both_jobs": "مؤسسو ومؤسسات نشر موسيقى"
-    },
-    "music publishing owners": {
-        "job_males": "ملاك نشر موسيقى",
-        "job_females": "مالكات نشر موسيقى",
-        "both_jobs": "ملاك ومالكات نشر موسيقى"
     },
     "music record producers": {
         "job_males": "منتجو تسجيلات موسيقى",
@@ -3398,21 +2763,6 @@
         "job_males": "علماء دراسات الأمريكيين الأصليين",
         "job_females": "عالمات دراسات الأمريكيين الأصليين",
         "both_jobs": "علماء وعالمات دراسات الأمريكيين الأصليين"
-    },
-    "natural gas company founders": {
-        "job_males": "مؤسسو شركات غاز طبيعي",
-        "job_females": "مؤسسات شركات غاز طبيعي",
-        "both_jobs": "مؤسسو ومؤسسات شركات غاز طبيعي"
-    },
-    "natural gas founders": {
-        "job_males": "مؤسسو غاز طبيعي",
-        "job_females": "مؤسسات غاز طبيعي",
-        "both_jobs": "مؤسسو ومؤسسات غاز طبيعي"
-    },
-    "natural gas owners": {
-        "job_males": "ملاك غاز طبيعي",
-        "job_females": "مالكات غاز طبيعي",
-        "both_jobs": "ملاك ومالكات غاز طبيعي"
     },
     "neopagan religious founders": {
         "job_males": "مؤسسو وثنية جديدة",
@@ -3504,45 +2854,10 @@
         "job_females": "مغنيات نيو ميتال",
         "both_jobs": "مغنو ومغنيات نيو ميتال"
     },
-    "nuclear company founders": {
-        "job_males": "مؤسسو شركات نووية",
-        "job_females": "مؤسسات شركات نووية",
-        "both_jobs": "مؤسسو ومؤسسات شركات نووية"
-    },
     "nuclear medicine physicians": {
         "job_males": "أطباء طب نووي",
         "job_females": "طبيبات طب نووي",
         "both_jobs": "أطباء وطبيبات طب نووي"
-    },
-    "oil company founders": {
-        "job_males": "مؤسسو شركات زيت الوقود",
-        "job_females": "مؤسسات شركات زيت الوقود",
-        "both_jobs": "مؤسسو ومؤسسات شركات زيت الوقود"
-    },
-    "oil founders": {
-        "job_males": "مؤسسو زيت الوقود",
-        "job_females": "مؤسسات زيت الوقود",
-        "both_jobs": "مؤسسو ومؤسسات زيت الوقود"
-    },
-    "oil owners": {
-        "job_males": "ملاك زيت الوقود",
-        "job_females": "مالكات زيت الوقود",
-        "both_jobs": "ملاك ومالكات زيت الوقود"
-    },
-    "oil shale company founders": {
-        "job_males": "مؤسسو شركات صخر زيتي",
-        "job_females": "مؤسسات شركات صخر زيتي",
-        "both_jobs": "مؤسسو ومؤسسات شركات صخر زيتي"
-    },
-    "oil shale founders": {
-        "job_males": "مؤسسو صخر زيتي",
-        "job_females": "مؤسسات صخر زيتي",
-        "both_jobs": "مؤسسو ومؤسسات صخر زيتي"
-    },
-    "oil shale owners": {
-        "job_males": "ملاك صخر زيتي",
-        "job_females": "مالكات صخر زيتي",
-        "both_jobs": "ملاك ومالكات صخر زيتي"
     },
     "opera librettists": {
         "job_males": "مؤلفو أغاني الأوبرا",
@@ -3569,21 +2884,6 @@
         "job_females": "موسيقيات أوتسايدر هاوس",
         "both_jobs": "موسيقيو وموسيقيات أوتسايدر هاوس"
     },
-    "paint and coatings company founders": {
-        "job_males": "مؤسسو شركات رسم وطلاء",
-        "job_females": "مؤسسات شركات رسم وطلاء",
-        "both_jobs": "مؤسسو ومؤسسات شركات رسم وطلاء"
-    },
-    "paint and coatings founders": {
-        "job_males": "مؤسسو رسم وطلاء",
-        "job_females": "مؤسسات رسم وطلاء",
-        "both_jobs": "مؤسسو ومؤسسات رسم وطلاء"
-    },
-    "paint and coatings owners": {
-        "job_males": "ملاك رسم وطلاء",
-        "job_females": "مالكات رسم وطلاء",
-        "both_jobs": "ملاك ومالكات رسم وطلاء"
-    },
     "parody film directors": {
         "job_males": "مخرجو أفلام ساخرة",
         "job_females": "مخرجات أفلام ساخرة",
@@ -3608,21 +2908,6 @@
         "job_males": "مؤسسو شركات أدوية",
         "job_females": "مؤسسات شركات أدوية",
         "both_jobs": "مؤسسو ومؤسسات شركات أدوية"
-    },
-    "photovoltaic company founders": {
-        "job_males": "مؤسسو شركات خلايا كهروضوئية",
-        "job_females": "مؤسسات شركات خلايا كهروضوئية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خلايا كهروضوئية"
-    },
-    "photovoltaic founders": {
-        "job_males": "مؤسسو خلايا كهروضوئية",
-        "job_females": "مؤسسات خلايا كهروضوئية",
-        "both_jobs": "مؤسسو ومؤسسات خلايا كهروضوئية"
-    },
-    "photovoltaic owners": {
-        "job_males": "ملاك خلايا كهروضوئية",
-        "job_females": "مالكات خلايا كهروضوئية",
-        "both_jobs": "ملاك ومالكات خلايا كهروضوئية"
     },
     "physical chemists": {
         "job_males": "علماء كيمياء فيزيائية",
@@ -3739,11 +3024,6 @@
         "job_females": "موسيقيات بوست بانك",
         "both_jobs": "موسيقيو وموسيقيات بوست بانك"
     },
-    "postal company founders": {
-        "job_males": "مؤسسو شركات بريد",
-        "job_females": "مؤسسات شركات بريد",
-        "both_jobs": "مؤسسو ومؤسسات شركات بريد"
-    },
     "postmasters": {
         "job_males": "مدراء مكاتب بريد",
         "job_females": "مديرات مكاتب بريد",
@@ -3774,20 +3054,10 @@
         "job_females": "فائزات في طواف تركيا",
         "both_jobs": "فائزون وفائزات في طواف تركيا"
     },
-    "printing company founders": {
-        "job_males": "مؤسسو شركات طباعة",
-        "job_females": "مؤسسات شركات طباعة",
-        "both_jobs": "مؤسسو ومؤسسات شركات طباعة"
-    },
     "prison escapees": {
         "job_males": "هاربون من السجن",
         "job_females": "هاربات من السجن",
         "both_jobs": "هاربون وهاربات من السجن"
-    },
-    "privately held company founders": {
-        "job_males": "مؤسسو شركات خاصة",
-        "job_females": "مؤسسات شركات خاصة",
-        "both_jobs": "مؤسسو ومؤسسات شركات خاصة"
     },
     "professional wrestling announcers": {
         "job_males": "مذيعو مصارعة محترفين",
@@ -3839,11 +3109,6 @@
         "job_females": "مخرجات أفلام دعائية",
         "both_jobs": "مخرجو ومخرجات أفلام دعائية"
     },
-    "property company founders": {
-        "job_males": "مؤسسو شركات ممتلكات",
-        "job_females": "مؤسسات شركات ممتلكات",
-        "both_jobs": "مؤسسو ومؤسسات شركات ممتلكات"
-    },
     "psychological fiction writers": {
         "job_males": "كتاب خيال نفسي",
         "job_females": "كاتبات خيال نفسي",
@@ -3854,21 +3119,6 @@
         "job_females": "مديرات نقل عام",
         "both_jobs": "مدراء ومديرات نقل عام"
     },
-    "public utilities company founders": {
-        "job_males": "مؤسسو شركات مرافق عمومية",
-        "job_females": "مؤسسات شركات مرافق عمومية",
-        "both_jobs": "مؤسسو ومؤسسات شركات مرافق عمومية"
-    },
-    "public utilities founders": {
-        "job_males": "مؤسسو مرافق عمومية",
-        "job_females": "مؤسسات مرافق عمومية",
-        "both_jobs": "مؤسسو ومؤسسات مرافق عمومية"
-    },
-    "public utilities owners": {
-        "job_males": "ملاك مرافق عمومية",
-        "job_females": "مالكات مرافق عمومية",
-        "both_jobs": "ملاك ومالكات مرافق عمومية"
-    },
     "publishing company founders": {
         "job_males": "مؤسسو شركات نشر",
         "job_females": "مؤسسات شركات نشر",
@@ -3878,21 +3128,6 @@
         "job_males": "أخصائيو الجهاز التنفسي",
         "job_females": "أخصائيات الجهاز التنفسي",
         "both_jobs": "أخصائيو وأخصائيات الجهاز التنفسي"
-    },
-    "pulp and paper company founders": {
-        "job_males": "مؤسسو شركات اللب والورق",
-        "job_females": "مؤسسات شركات اللب والورق",
-        "both_jobs": "مؤسسو ومؤسسات شركات اللب والورق"
-    },
-    "pulp and paper founders": {
-        "job_males": "مؤسسو اللب والورق",
-        "job_females": "مؤسسات اللب والورق",
-        "both_jobs": "مؤسسو ومؤسسات اللب والورق"
-    },
-    "pulp and paper owners": {
-        "job_males": "ملاك اللب والورق",
-        "job_females": "مالكات اللب والورق",
-        "both_jobs": "ملاك ومالكات اللب والورق"
     },
     "punk blues musicians": {
         "job_males": "موسيقيو بانك بلوز",
@@ -3944,21 +3179,6 @@
         "job_females": "عازفات بيانو راجتايم",
         "both_jobs": "عازفو وعازفات بيانو راجتايم"
     },
-    "rail company founders": {
-        "job_males": "مؤسسو شركات سكك حديدية",
-        "job_females": "مؤسسات شركات سكك حديدية",
-        "both_jobs": "مؤسسو ومؤسسات شركات سكك حديدية"
-    },
-    "rail founders": {
-        "job_males": "مؤسسو سكك حديدية",
-        "job_females": "مؤسسات سكك حديدية",
-        "both_jobs": "مؤسسو ومؤسسات سكك حديدية"
-    },
-    "rail owners": {
-        "job_males": "ملاك سكك حديدية",
-        "job_females": "مالكات سكك حديدية",
-        "both_jobs": "ملاك ومالكات سكك حديدية"
-    },
     "rail workers": {
         "job_males": "عمال سكك حديدية",
         "job_females": "عاملات سكك حديدية",
@@ -3969,25 +3189,10 @@
         "job_females": "مديرات سكك حديدية",
         "both_jobs": "مدراء ومديرات سكك حديدية"
     },
-    "railway company founders": {
-        "job_males": "مؤسسو شركات سكك حديدية",
-        "job_females": "مؤسسات شركات سكك حديدية",
-        "both_jobs": "مؤسسو ومؤسسات شركات سكك حديدية"
-    },
-    "railway founders": {
-        "job_males": "مؤسسو سكك حديدية",
-        "job_females": "مؤسسات سكك حديدية",
-        "both_jobs": "مؤسسو ومؤسسات سكك حديدية"
-    },
     "railway historians": {
         "job_males": "مؤرخو سكك حديدية",
         "job_females": "مؤرخات سكك حديدية",
         "both_jobs": "مؤرخو ومؤرخات سكك حديدية"
-    },
-    "railway owners": {
-        "job_males": "ملاك سكك حديدية",
-        "job_females": "مالكات سكك حديدية",
-        "both_jobs": "ملاك ومالكات سكك حديدية"
     },
     "rap metal musicians": {
         "job_males": "موسيقيو راب ميتال",
@@ -3998,21 +3203,6 @@
         "job_males": "مؤسسو شركات عقارية",
         "job_females": "مؤسسات شركات عقارية",
         "both_jobs": "مؤسسو ومؤسسات شركات عقارية"
-    },
-    "real estate services company founders": {
-        "job_males": "مؤسسو شركات خدمات عقارية",
-        "job_females": "مؤسسات شركات خدمات عقارية",
-        "both_jobs": "مؤسسو ومؤسسات شركات خدمات عقارية"
-    },
-    "real estate services founders": {
-        "job_males": "مؤسسو خدمات عقارية",
-        "job_females": "مؤسسات خدمات عقارية",
-        "both_jobs": "مؤسسو ومؤسسات خدمات عقارية"
-    },
-    "real estate services owners": {
-        "job_males": "ملاك خدمات عقارية",
-        "job_females": "مالكات خدمات عقارية",
-        "both_jobs": "ملاك ومالكات خدمات عقارية"
     },
     "reality television producers": {
         "job_males": "منتجو تلفزيون الواقع",
@@ -4044,35 +3234,10 @@
         "job_females": "منتجات تسجيلات ريغيه تون",
         "both_jobs": "منتجو ومنتجات تسجيلات ريغيه تون"
     },
-    "renewable energy company founders": {
-        "job_males": "مؤسسو شركات طاقة متجددة",
-        "job_females": "مؤسسات شركات طاقة متجددة",
-        "both_jobs": "مؤسسو ومؤسسات شركات طاقة متجددة"
-    },
-    "renewable energy founders": {
-        "job_males": "مؤسسو طاقة متجددة",
-        "job_females": "مؤسسات طاقة متجددة",
-        "both_jobs": "مؤسسو ومؤسسات طاقة متجددة"
-    },
-    "renewable energy owners": {
-        "job_males": "ملاك طاقة متجددة",
-        "job_females": "مالكات طاقة متجددة",
-        "both_jobs": "ملاك ومالكات طاقة متجددة"
-    },
     "retail company founders": {
         "job_males": "مؤسسو شركات تجارة التجزئة",
         "job_females": "مؤسسات شركات تجارة التجزئة",
         "both_jobs": "مؤسسو ومؤسسات شركات تجارة التجزئة"
-    },
-    "retail founders": {
-        "job_males": "مؤسسو تجارة التجزئة",
-        "job_females": "مؤسسات تجارة التجزئة",
-        "both_jobs": "مؤسسو ومؤسسات تجارة التجزئة"
-    },
-    "retail owners": {
-        "job_males": "ملاك تجارة التجزئة",
-        "job_females": "مالكات تجارة التجزئة",
-        "both_jobs": "ملاك ومالكات تجارة التجزئة"
     },
     "rhythm and blues drummers": {
         "job_males": "طبالو ريذم أند بلوز",
@@ -4118,21 +3283,6 @@
         "job_males": "لاعبو جمباز إيقاعي",
         "job_females": "لاعبات جمباز إيقاعي",
         "both_jobs": "لاعبو ولاعبات جمباز إيقاعي"
-    },
-    "road transport company founders": {
-        "job_males": "مؤسسو شركات نقل بري",
-        "job_females": "مؤسسات شركات نقل بري",
-        "both_jobs": "مؤسسو ومؤسسات شركات نقل بري"
-    },
-    "road transport founders": {
-        "job_males": "مؤسسو نقل بري",
-        "job_females": "مؤسسات نقل بري",
-        "both_jobs": "مؤسسو ومؤسسات نقل بري"
-    },
-    "road transport owners": {
-        "job_males": "ملاك نقل بري",
-        "job_females": "مالكات نقل بري",
-        "both_jobs": "ملاك ومالكات نقل بري"
     },
     "rock and roll musicians": {
         "job_males": "موسيقيو روك أند رول",
@@ -4379,11 +3529,6 @@
         "job_females": "رسامات مجال علمي",
         "both_jobs": "رسامو ورسامات مجال علمي"
     },
-    "security company founders": {
-        "job_males": "مؤسسو شركات أمن",
-        "job_females": "مؤسسات شركات أمن",
-        "both_jobs": "مؤسسو ومؤسسات شركات أمن"
-    },
     "semiticists": {
         "job_males": "مختصون بالدراسات السامية",
         "job_females": "متخصصات بالدراسات السامية",
@@ -4394,45 +3539,10 @@
         "job_females": "لاعبات سيباك تاكرو",
         "both_jobs": "لاعبو ولاعبات سيباك تاكرو"
     },
-    "service company founders": {
-        "job_males": "مؤسسو شركات خدمات",
-        "job_females": "مؤسسات شركات خدمات",
-        "both_jobs": "مؤسسو ومؤسسات شركات خدمات"
-    },
-    "shipbuilding company founders": {
-        "job_males": "مؤسسو شركات سفن",
-        "job_females": "مؤسسات شركات سفن",
-        "both_jobs": "مؤسسو ومؤسسات شركات سفن"
-    },
     "shipping company founders": {
         "job_males": "مؤسسو شركات نقل بحري",
         "job_females": "مؤسسات شركات نقل بحري",
         "both_jobs": "مؤسسو ومؤسسات شركات نقل بحري"
-    },
-    "shipping founders": {
-        "job_males": "مؤسسو نقل بحري",
-        "job_females": "مؤسسات نقل بحري",
-        "both_jobs": "مؤسسو ومؤسسات نقل بحري"
-    },
-    "shipping owners": {
-        "job_males": "ملاك نقل بحري",
-        "job_females": "مالكات نقل بحري",
-        "both_jobs": "ملاك ومالكات نقل بحري"
-    },
-    "shipyards company founders": {
-        "job_males": "مؤسسو شركات حوض بناء سفن",
-        "job_females": "مؤسسات شركات حوض بناء سفن",
-        "both_jobs": "مؤسسو ومؤسسات شركات حوض بناء سفن"
-    },
-    "shipyards founders": {
-        "job_males": "مؤسسو حوض بناء سفن",
-        "job_females": "مؤسسات حوض بناء سفن",
-        "both_jobs": "مؤسسو ومؤسسات حوض بناء سفن"
-    },
-    "shipyards owners": {
-        "job_males": "ملاك حوض بناء سفن",
-        "job_females": "مالكات حوض بناء سفن",
-        "both_jobs": "ملاك ومالكات حوض بناء سفن"
     },
     "shooting survivors": {
         "job_males": "ناجون من إطلاق نار",
@@ -4649,11 +3759,6 @@
         "job_females": "لاعبات كرة لينة",
         "both_jobs": "لاعبو ولاعبات كرة لينة"
     },
-    "software company founders": {
-        "job_males": "مؤسسو شركات برمجيات",
-        "job_females": "مؤسسات شركات برمجيات",
-        "both_jobs": "مؤسسو ومؤسسات شركات برمجيات"
-    },
     "soul guitarists": {
         "job_males": "عازفو قيثارة السول",
         "job_females": "عازفات قيثارة السول",
@@ -4719,11 +3824,6 @@
         "job_females": "رسامات طبيعة صامتة",
         "both_jobs": "رسامو ورسامات طبيعة صامتة"
     },
-    "storage company founders": {
-        "job_males": "مؤسسو شركات تخزين",
-        "job_females": "مؤسسات شركات تخزين",
-        "both_jobs": "مؤسسو ومؤسسات شركات تخزين"
-    },
     "strategic studies scholars": {
         "job_males": "علماء دراسات إستراتيجية",
         "job_females": "عالمات دراسات إستراتيجية",
@@ -4738,16 +3838,6 @@
         "job_males": "ملحنو رباعية وترية",
         "job_females": "ملحنات رباعية وترية",
         "both_jobs": "ملحنو وملحنات رباعية وترية"
-    },
-    "submarine company founders": {
-        "job_males": "مؤسسو شركات غواصات",
-        "job_females": "مؤسسات شركات غواصات",
-        "both_jobs": "مؤسسو ومؤسسات شركات غواصات"
-    },
-    "sugar company founders": {
-        "job_males": "مؤسسو شركات السكر",
-        "job_females": "مؤسسات شركات السكر",
-        "both_jobs": "مؤسسو ومؤسسات شركات السكر"
     },
     "super bantamweight boxers": {
         "job_males": "ملاكمو وزن البانتام سوبر",
@@ -4904,11 +3994,6 @@
         "job_females": "موسيقيات ثراش ميتال",
         "both_jobs": "موسيقيو وموسيقيات ثراش ميتال"
     },
-    "tobacco company founders": {
-        "job_males": "مؤسسو شركات التبغ",
-        "job_females": "مؤسسات شركات التبغ",
-        "both_jobs": "مؤسسو ومؤسسات شركات التبغ"
-    },
     "tour de france cyclists": {
         "job_males": "دراجو سباق طواف فرنسا",
         "job_females": "دراجات سباق طواف فرنسا",
@@ -4974,41 +4059,6 @@
         "job_females": "مؤسسات شركات نقل",
         "both_jobs": "مؤسسو ومؤسسات شركات نقل"
     },
-    "travel and holiday company founders": {
-        "job_males": "مؤسسو شركات السفر والعطلات",
-        "job_females": "مؤسسات شركات السفر والعطلات",
-        "both_jobs": "مؤسسو ومؤسسات شركات السفر والعطلات"
-    },
-    "travel and holiday founders": {
-        "job_males": "مؤسسو السفر والعطلات",
-        "job_females": "مؤسسات السفر والعطلات",
-        "both_jobs": "مؤسسو ومؤسسات السفر والعطلات"
-    },
-    "travel and holiday owners": {
-        "job_males": "ملاك السفر والعطلات",
-        "job_females": "مالكات السفر والعطلات",
-        "both_jobs": "ملاك ومالكات السفر والعطلات"
-    },
-    "travel company founders": {
-        "job_males": "مؤسسو شركات سفر",
-        "job_females": "مؤسسات شركات سفر",
-        "both_jobs": "مؤسسو ومؤسسات شركات سفر"
-    },
-    "travel insurance company founders": {
-        "job_males": "مؤسسو شركات تأمين السفر",
-        "job_females": "مؤسسات شركات تأمين السفر",
-        "both_jobs": "مؤسسو ومؤسسات شركات تأمين السفر"
-    },
-    "travel insurance founders": {
-        "job_males": "مؤسسو تأمين السفر",
-        "job_females": "مؤسسات تأمين السفر",
-        "both_jobs": "مؤسسو ومؤسسات تأمين السفر"
-    },
-    "travel insurance owners": {
-        "job_males": "ملاك تأمين السفر",
-        "job_females": "مالكات تأمين السفر",
-        "both_jobs": "ملاك ومالكات تأمين السفر"
-    },
     "triathlon coaches": {
         "job_males": "مدربو سباق ثلاثي",
         "job_females": "مدربات سباق ثلاثي",
@@ -5018,21 +4068,6 @@
         "job_males": "لاعبو وثب ثلاثي",
         "job_females": "لاعبات وثب ثلاثي",
         "both_jobs": "لاعبو ولاعبات وثب ثلاثي"
-    },
-    "trucking company founders": {
-        "job_males": "مؤسسو شركات نقل بالشاحنات",
-        "job_females": "مؤسسات شركات نقل بالشاحنات",
-        "both_jobs": "مؤسسو ومؤسسات شركات نقل بالشاحنات"
-    },
-    "trucking founders": {
-        "job_males": "مؤسسو نقل بالشاحنات",
-        "job_females": "مؤسسات نقل بالشاحنات",
-        "both_jobs": "مؤسسو ومؤسسات نقل بالشاحنات"
-    },
-    "trucking owners": {
-        "job_males": "ملاك نقل بالشاحنات",
-        "job_females": "مالكات نقل بالشاحنات",
-        "both_jobs": "ملاك ومالكات نقل بالشاحنات"
     },
     "underwater divers": {
         "job_males": "غطاسون تحت الماء",
@@ -5049,60 +4084,15 @@
         "job_females": "رئيسات جامعات وكليات",
         "both_jobs": "رؤساء ورئيسات جامعات وكليات"
     },
-    "urban regeneration company founders": {
-        "job_males": "مؤسسو شركات تطوير حضري",
-        "job_females": "مؤسسات شركات تطوير حضري",
-        "both_jobs": "مؤسسو ومؤسسات شركات تطوير حضري"
-    },
-    "urban regeneration founders": {
-        "job_males": "مؤسسو تطوير حضري",
-        "job_females": "مؤسسات تطوير حضري",
-        "both_jobs": "مؤسسو ومؤسسات تطوير حضري"
-    },
-    "urban regeneration owners": {
-        "job_males": "ملاك تطوير حضري",
-        "job_females": "مالكات تطوير حضري",
-        "both_jobs": "ملاك ومالكات تطوير حضري"
-    },
     "urologists": {
         "job_males": "أطباء مسالك بولية",
         "job_females": "طبيبات مسالك بولية",
         "both_jobs": "أطباء وطبيبات مسالك بولية"
     },
-    "utilities company founders": {
-        "job_males": "مؤسسو شركات مرافق عمومية",
-        "job_females": "مؤسسات شركات مرافق عمومية",
-        "both_jobs": "مؤسسو ومؤسسات شركات مرافق عمومية"
-    },
-    "utilities founders": {
-        "job_males": "مؤسسو مرافق عمومية",
-        "job_females": "مؤسسات مرافق عمومية",
-        "both_jobs": "مؤسسو ومؤسسات مرافق عمومية"
-    },
-    "utilities owners": {
-        "job_males": "ملاك مرافق عمومية",
-        "job_females": "مالكات مرافق عمومية",
-        "both_jobs": "ملاك ومالكات مرافق عمومية"
-    },
     "utility players": {
         "job_males": "لاعبو مراكز متعددة",
         "job_females": "لاعبات مراكز متعددة",
         "both_jobs": "لاعبو ولاعبات مراكز متعددة"
-    },
-    "vehicle manufacturing company founders": {
-        "job_males": "مؤسسو شركات تصنيع مركبات",
-        "job_females": "مؤسسات شركات تصنيع مركبات",
-        "both_jobs": "مؤسسو ومؤسسات شركات تصنيع مركبات"
-    },
-    "vehicle manufacturing founders": {
-        "job_males": "مؤسسو تصنيع مركبات",
-        "job_females": "مؤسسات تصنيع مركبات",
-        "both_jobs": "مؤسسو ومؤسسات تصنيع مركبات"
-    },
-    "vehicle manufacturing owners": {
-        "job_males": "ملاك تصنيع مركبات",
-        "job_females": "مالكات تصنيع مركبات",
-        "both_jobs": "ملاك ومالكات تصنيع مركبات"
     },
     "venture capitalists": {
         "job_males": "أصحاب رؤوس أموال",
@@ -5114,11 +4104,6 @@
         "job_females": "ناشطات في حقوق قدامى المحاربون",
         "both_jobs": "ناشطون وناشطات في حقوق قدامى المحاربون"
     },
-    "veterinary company founders": {
-        "job_males": "مؤسسو شركات بيطرة",
-        "job_females": "مؤسسات شركات بيطرة",
-        "both_jobs": "مؤسسو ومؤسسات شركات بيطرة"
-    },
     "victims of human rights abuses": {
         "job_males": "ضحايا انتهاكات حقوق الإنسان",
         "job_females": "ضحيات انتهاكات حقوق الإنسان",
@@ -5129,11 +4114,6 @@
         "job_females": "سيدات أعمال في ألعاب الفيديو",
         "both_jobs": "شخصيات وسيدات أعمال في ألعاب الفيديو"
     },
-    "video game company founders": {
-        "job_males": "مؤسسو شركات ألعاب فيديو",
-        "job_females": "مؤسسات شركات ألعاب فيديو",
-        "both_jobs": "مؤسسو ومؤسسات شركات ألعاب فيديو"
-    },
     "video game designers": {
         "job_males": "مصممو ألعاب فيديو",
         "job_females": "مصممات ألعاب فيديو",
@@ -5143,16 +4123,6 @@
         "job_males": "مطورو ألعاب فيديو",
         "job_females": "مطورات ألعاب فيديو",
         "both_jobs": "مطورو ومطورات ألعاب فيديو"
-    },
-    "video game founders": {
-        "job_males": "مؤسسو ألعاب فيديو",
-        "job_females": "مؤسسات ألعاب فيديو",
-        "both_jobs": "مؤسسو ومؤسسات ألعاب فيديو"
-    },
-    "video game owners": {
-        "job_males": "ملاك ألعاب فيديو",
-        "job_females": "مالكات ألعاب فيديو",
-        "both_jobs": "ملاك ومالكات ألعاب فيديو"
     },
     "video game producers": {
         "job_males": "منتجو ألعاب فيديو",
@@ -5244,26 +4214,6 @@
         "job_females": "مصورات في وقت الحروب",
         "both_jobs": "مصورون ومصورات في وقت الحروب"
     },
-    "waste management company founders": {
-        "job_males": "مؤسسو شركات إدارة المخلفات",
-        "job_females": "مؤسسات شركات إدارة المخلفات",
-        "both_jobs": "مؤسسو ومؤسسات شركات إدارة المخلفات"
-    },
-    "waste management founders": {
-        "job_males": "مؤسسو إدارة المخلفات",
-        "job_females": "مؤسسات إدارة المخلفات",
-        "both_jobs": "مؤسسو ومؤسسات إدارة المخلفات"
-    },
-    "waste management owners": {
-        "job_males": "ملاك إدارة المخلفات",
-        "job_females": "مالكات إدارة المخلفات",
-        "both_jobs": "ملاك ومالكات إدارة المخلفات"
-    },
-    "water company founders": {
-        "job_males": "مؤسسو شركات مياه",
-        "job_females": "مؤسسات شركات مياه",
-        "both_jobs": "مؤسسو ومؤسسات شركات مياه"
-    },
     "water polo coaches": {
         "job_males": "مدربو كرة ماء",
         "job_females": "مدربات كرة ماء",
@@ -5288,21 +4238,6 @@
         "job_males": "متزلجون على الماء",
         "job_females": "متزلجات على الماء",
         "both_jobs": "متزلجون ومتزلجات على الماء"
-    },
-    "water transport company founders": {
-        "job_males": "مؤسسو شركات نقل مائي",
-        "job_females": "مؤسسات شركات نقل مائي",
-        "both_jobs": "مؤسسو ومؤسسات شركات نقل مائي"
-    },
-    "water transport founders": {
-        "job_males": "مؤسسو نقل مائي",
-        "job_females": "مؤسسات نقل مائي",
-        "both_jobs": "مؤسسو ومؤسسات نقل مائي"
-    },
-    "water transport owners": {
-        "job_males": "ملاك نقل مائي",
-        "job_females": "مالكات نقل مائي",
-        "both_jobs": "ملاك ومالكات نقل مائي"
     },
     "web series actors": {
         "job_males": "ممثلو مسلسلات ويب",
@@ -5379,21 +4314,6 @@
         "job_females": "لاعبات كرة مضرب على كراسي متحركة",
         "both_jobs": "لاعبو ولاعبات كرة مضرب على كراسي متحركة"
     },
-    "wholesalers company founders": {
-        "job_males": "مؤسسو شركات بيع بالجملة",
-        "job_females": "مؤسسات شركات بيع بالجملة",
-        "both_jobs": "مؤسسو ومؤسسات شركات بيع بالجملة"
-    },
-    "wholesalers founders": {
-        "job_males": "مؤسسو بيع بالجملة",
-        "job_females": "مؤسسات بيع بالجملة",
-        "both_jobs": "مؤسسو ومؤسسات بيع بالجملة"
-    },
-    "wholesalers owners": {
-        "job_males": "ملاك بيع بالجملة",
-        "job_females": "مالكات بيع بالجملة",
-        "both_jobs": "ملاك ومالكات بيع بالجملة"
-    },
     "wildlife artists": {
         "job_males": "فنانو حياة برية",
         "job_females": "فنانات حياة برية",
@@ -5403,11 +4323,6 @@
         "job_males": "رسامو حياة برية",
         "job_females": "رسامات حياة برية",
         "both_jobs": "رسامو ورسامات حياة برية"
-    },
-    "wine company founders": {
-        "job_males": "مؤسسو شركات نبيذ",
-        "job_females": "مؤسسات شركات نبيذ",
-        "both_jobs": "مؤسسو ومؤسسات شركات نبيذ"
     },
     "women's rights activists": {
         "job_males": "ناشطون في حقوق المرأة",
