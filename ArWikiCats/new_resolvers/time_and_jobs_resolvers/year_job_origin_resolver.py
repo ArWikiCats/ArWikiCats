@@ -19,7 +19,8 @@ from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en
 from ...translations import medical_keys
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from .. import wrap_main_jobs_resolvers
+from ..jobs_resolvers import main_jobs_resolvers
+from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -46,6 +47,10 @@ formatted_data = {
     # "{year1} deaths from {country1}": "وفيات بسبب {country1} في {year1}",
     "{year1} {country1}": "{country1} في {year1}",
 }
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=10000)

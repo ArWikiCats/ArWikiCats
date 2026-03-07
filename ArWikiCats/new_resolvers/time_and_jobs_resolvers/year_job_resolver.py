@@ -14,9 +14,11 @@ More examples:
 
 import functools
 import logging
+
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from .. import wrap_main_jobs_resolvers
+from ..jobs_resolvers import main_jobs_resolvers
+from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -33,6 +35,10 @@ jobs_part_labels = {
 formatted_data = {
     "{year1} {country1}": "{country1} في {year1}",
 }
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=10000)

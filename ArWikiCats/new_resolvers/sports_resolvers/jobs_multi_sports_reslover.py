@@ -12,7 +12,8 @@ import logging
 
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
-from .. import wrap_main_jobs_resolvers
+from ..jobs_resolvers import main_jobs_resolvers
+from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +26,10 @@ medalists_data = dict(
 formatted_data = {
     "{game} {en_job}": "{ar_job} في {game}",
 }
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=10000)
