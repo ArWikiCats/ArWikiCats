@@ -4,6 +4,7 @@
 import pytest
 
 from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import resolve_nats_jobs
+from ArWikiCats.new_resolvers.jobs_resolvers_male.relegins_nats import resolve_nats_jobs_for_males
 
 # from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix as resolve_nats_jobs
 # from ArWikiCats.new_resolvers.reslove_all import all_new_resolvers as resolve_nats_jobs
@@ -12,6 +13,10 @@ from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import resol
 
 # from ArWikiCats import resolve_label_ar as resolve_nats_jobs
 # from ArWikiCats.make_bots.relegin_jobs_new import new_religions_jobs_with_suffix
+
+def wrap_resolve_nats_jobs(category) -> str:
+    return resolve_nats_jobs(category) or resolve_nats_jobs_for_males(category)
+
 
 data_without_nats = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",
@@ -154,30 +159,30 @@ test_religions_female_data = {
 
 @pytest.mark.parametrize("input_text,expected", test_data_error.items(), ids=test_data_error.keys())
 def test_relegin_jobs(input_text: str, expected: str) -> None:
-    result = resolve_nats_jobs(input_text)
+    result = wrap_resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("input_text,expected", data_without_nats.items(), ids=data_without_nats.keys())
 def test_data_without_nats(input_text: str, expected: str) -> None:
-    result = resolve_nats_jobs(input_text)
+    result = wrap_resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("input_text,expected", test_data.items(), ids=test_data.keys())
 def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
-    result = resolve_nats_jobs(input_text)
+    result = wrap_resolve_nats_jobs(input_text)
     assert result == expected, f"{expected=}, {result=}, {input_text=}"
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
 def test_nats_jobs_resolver_1(category: str, expected: str) -> None:
-    result = resolve_nats_jobs(category)
+    result = wrap_resolve_nats_jobs(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category,expected", test_religions_female_data.items(), ids=test_religions_female_data.keys())
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = resolve_nats_jobs(category)
+    result = wrap_resolve_nats_jobs(category)
     assert result == expected
