@@ -9,6 +9,10 @@ from ArWikiCats import resolve_label_ar
 
 
 test_data2 = {
+    "canadian male wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون",
+
+    "Paintings of male saints": "تصنيف:لوحات عن قديسون ذكور",
+    "Jewish male actors by nationality": "تصنيف:ممثلون ذكور يهود حسب الجنسية",
     "19th-century American male singers": "مغنون ذكور أمريكيون في القرن 19",
     "19th-century Austrian male musicians": "موسيقيون ذكور نمساويون في القرن 19",
     "19th-century Swiss male opera singers": "مغنو أوبرا ذكور سويسريون في القرن 19",

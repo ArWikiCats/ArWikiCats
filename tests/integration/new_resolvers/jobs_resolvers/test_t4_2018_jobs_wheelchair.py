@@ -59,7 +59,6 @@ wheelchair_data_1 = {
     "british wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة بريطانيون",
     "british women wheelchair racers": "متسابقات كراسي متحركة بريطانيات",
     "cameroonian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كاميرونيون",
-    "canadian male wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون",
     "canadian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كنديون",
     "canadian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة كنديون",
     "canadian wheelchair racers": "متسابقو كراسي متحركة كنديون",
