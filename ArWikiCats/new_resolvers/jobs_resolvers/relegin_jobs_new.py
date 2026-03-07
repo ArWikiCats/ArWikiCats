@@ -81,22 +81,15 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     """
     religions_data = {x: v["males"] for x, v in RELIGIOUS_KEYS_PP.items() if v.get("males")}
 
-    # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/relegins.py
-    _formatted_data = {
+    # `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/relegins.py
+    formatted_data = {
         "{job_en}": "{job_ar}",
-        "male {job_en}": "{job_ar} ذكور",
 
         "{rele_en}": "{rele_ar}",
-        "male {rele_en}": "{rele_ar} ذكور",
 
         "{rele_en} {job_en}": "{job_ar} {rele_ar}",
-        "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
 
         "{job_en} {rele_en}": "{job_ar} {rele_ar}",
-        "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
-    }
-
-    formatted_data = {
         "{rele_en} expatriate": "{rele_ar} مغتربون",
 
         "people {job_en}": "{job_ar}",

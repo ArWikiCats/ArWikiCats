@@ -19,7 +19,7 @@ from ...translations import (  # all_country_with_nat_ar,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
-from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
+from .utils import fix_keys, one_Keys_more_2
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -107,18 +107,12 @@ def is_false_key(key: str, value: str) -> bool:
 
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
-    # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
-    _formatted_data_jobs_with_nat = {
+    # `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
+
+    formatted_data_jobs_with_nat = {
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
 
-        # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
-        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {males} مغتربون",
-
-        "male {en_nat}": "{males} ذكور",
-
-    }
-    formatted_data_jobs_with_nat = {
         "political office-holders": "أصحاب مناصب سياسية",
         "{en_nat} political office-holders": "أصحاب مناصب سياسية {males}",
         # base keys
@@ -154,22 +148,14 @@ def _load_formatted_data() -> dict:
         "spouses of {en_nat} {en_job}": "قرينات {ar_job} {males}",
     }
 
-    # { "{en_nat} male emigrants": "{males} مهاجرون ذكور", "{en_nat} emigrants male": "{males} مهاجرون ذكور", "male {en_nat} emigrants": "{males} مهاجرون ذكور" }
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
+    # `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
 
-    # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
-    _formatted_data_jobs = {
+    formatted_data_jobs = {
         # base keys
         "{en_job}": "{ar_job}",
-        "male {en_job}": "{ar_job} ذكور",
 
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
-        "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
-    }
-
-    formatted_data_jobs = {
 
         "{en_job} people": "أعلام {ar_job}",
         "men {en_job}": "{ar_job}",  # رجال
