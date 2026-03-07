@@ -82,11 +82,8 @@ def _load_formatted_data() -> dict:
 
         'male {en_nat} expatriate': '{males} مغتربون ذكور',
         '{en_nat} expatriate male': '{males} مغتربون ذكور',
-        '{en_nat} male expatriate': '{males} مغتربون ذكور',
 
         'male {en_nat} emigrants': '{males} مهاجرون ذكور',
-        '{en_nat} emigrants male': '{males} مهاجرون ذكور',
-        '{en_nat} male emigrants': '{males} مهاجرون ذكور',
     }
 
     formatted_data_jobs_with_nat.update(NAT_DATA_MALES)
@@ -101,12 +98,9 @@ def _load_formatted_data() -> dict:
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
 
         'male {en_job} emigrants': '{ar_job} مهاجرون ذكور',
-        '{en_job} emigrants male': '{ar_job} مهاجرون ذكور',
-        '{en_job} male emigrants': '{ar_job} مهاجرون ذكور',
 
         'male {en_job} expatriate': '{ar_job} مغتربون ذكور',
         '{en_job} expatriate male': '{ar_job} مغتربون ذكور',
-        '{en_job} male expatriate': '{ar_job} مغتربون ذكور',
     }
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(

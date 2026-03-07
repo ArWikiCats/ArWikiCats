@@ -23,3 +23,13 @@ def test_nat_and_gender_keys_female():
         "{en_nat} expatriate {women}": "{ar_nat} مغتربات",
         "{women} {en_nat} expatriate": "{ar_nat} مغتربات",
     }, print(data)
+
+
+def test_nat_and_gender_keys_2():
+    data = nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور")
+
+    assert data == {
+        'male {en_job} emigrants': '{ar_job} مهاجرون ذكور',
+        '{en_job} emigrants male': '{ar_job} مهاجرون ذكور',
+        '{en_job} male emigrants': '{ar_job} مهاجرون ذكور',
+    }, print(data)
