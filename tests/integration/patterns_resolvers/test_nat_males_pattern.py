@@ -83,12 +83,6 @@ test_data_males = {
     "east timorese sports-people": "رياضيون تيموريون شرقيون",
     "dominican republic sports-people": "رياضيون دومينيكانيون",
     "brazilian sports-people": "رياضيون برازيليون",
-    # {en_nat} men
-    "czechoslovak men": "رجال تشيكوسلوفاكيون",
-    "bosnia and herzegovina men": "رجال بوسنيون",
-    # {en_nat} sportsmen
-    "anglo-irish sportsmen": "رياضيون رجال أنجلو إيرلنديون",
-    "ancient-romans sportsmen": "رياضيون رجال رومان قدماء",
     # {en_nat} people in sports
     "chinese taipei people in sports": "تايبيون صينيون في ألعاب رياضية",
     "democratic-republic-of-congo people in sports": "كونغويون ديمقراطيون في ألعاب رياضية",
@@ -98,9 +92,6 @@ test_data_males = {
     # {en_nat} expatriates
     "eastern european expatriates": "أوروبيون شرقيون مغتربون",
     "central asian expatriates": "آسيويون أوسطيون مغتربون",
-    # {en_nat} men by occupation
-    "federated states-of micronesia men by occupation": "رجال ميكرونيزيون حسب المهنة",
-    "equatorial guinean men by occupation": "رجال غينيون استوائيون حسب المهنة",
     # {en_nat} people by descent
     "bissau-guinean people by descent": "غينيون بيساويون حسب الأصل العرقي أو الوطني",
     "east german people by descent": "ألمانيون شرقيون حسب الأصل العرقي أو الوطني",
@@ -335,36 +326,6 @@ test_data_males = {
     # {en_nat} nationalists
     "central american nationalists": "قوميون أمريكيون أوسطيون",
     "central asian nationalists": "قوميون آسيويون أوسطيون",
-    # males with ذكور - {en_nat} male swimmers
-    "east timorese male swimmers": "سباحون ذكور تيموريون شرقيون",
-    "federated states-of micronesia male swimmers": "سباحون ذكور ميكرونيزيون",
-    # {en_nat} male freestyle swimmers
-    "bissau-guinean male freestyle swimmers": "سباحو تزلج حر ذكور غينيون بيساويون",
-    "anglo-irish male freestyle swimmers": "سباحو تزلج حر ذكور أنجلو إيرلنديون",
-    # {en_nat} male sprinters
-    "czechoslovak male sprinters": "عداؤون سريعون ذكور تشيكوسلوفاكيون",
-    "east german male sprinters": "عداؤون سريعون ذكور ألمانيون شرقيون",
-    # males without ذكور - {en_nat} male martial artists
-    "bosnia and herzegovina male martial artists": "ممارسو فنون قتالية ذكور بوسنيون",
-    "chinese taipei male martial artists": "ممارسو فنون قتالية ذكور تايبيون صينيون",
-    # {en_nat} male boxers
-    "democratic-republic-of-congo male boxers": "ملاكمون ذكور كونغويون ديمقراطيون",
-    "dominican republic male boxers": "ملاكمون ذكور دومينيكانيون",
-    # {en_nat} male athletes
-    "eastern asian male athletes": "لاعبو قوى ذكور آسيويون شرقيون",
-    "equatoguinean male athletes": "لاعبو قوى ذكور غينيون استوائيون",
-    # {en_nat} male actors
-    "central african republic male actors": "ممثلون ذكور أفارقة أوسطيون",
-    "equatorial guinean male actors": "ممثلون ذكور غينيون استوائيون",
-    # {en_nat} male singers
-    "ancient-romans male singers": "مغنون ذكور رومان قدماء",
-    "eastern european male singers": "مغنون ذكور أوروبيون شرقيون",
-    # {en_nat} male writers
-    "central american male writers": "كتاب ذكور أمريكيون أوسطيون",
-    "central asian male writers": "كتاب ذكور آسيويون أوسطيون",
-    # {en_nat} male film actors
-    "east timorese male film actors": "ممثلو أفلام ذكور تيموريون شرقيون",
-    "federated states-of micronesia male film actors": "ممثلو أفلام ذكور ميكرونيزيون",
 }
 
 test_data_ar = {}

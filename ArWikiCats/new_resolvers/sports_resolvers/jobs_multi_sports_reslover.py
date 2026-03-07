@@ -13,6 +13,7 @@ import logging
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
 from ..jobs_resolvers import main_jobs_resolvers
+from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +26,10 @@ medalists_data = dict(
 formatted_data = {
     "{game} {en_job}": "{ar_job} في {game}",
 }
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -60,7 +65,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         formatted_data=formatted_data,
         key_placeholder="{en_job}",
         value_placeholder="{ar_job}",
-        search_callback=main_jobs_resolvers,
+        search_callback=wrap_main_jobs_resolvers,
         match_key_callback=match_key_callback,
     )
     game_bot = FormatDataFrom(

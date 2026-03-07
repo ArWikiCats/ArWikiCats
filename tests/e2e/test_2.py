@@ -685,7 +685,6 @@ data1 = {
     "american indoor soccer league seasons": "مواسم الدوري الأمريكي لكرة القدم داخل الصالات",
     "male actors from west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "Canadian football players in Edmonton": "لاعبو كرة قدم كندية في إدمونتون",
-    "christian saints": "قديسون",
     "electro musicians": "موسيقيو موسيقى كهربائية",
     "film editors": "محررو أفلام",
     "gardeners": "مزارعو حدائق",

@@ -19,7 +19,7 @@ from ...translations import (  # all_country_with_nat_ar,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
-from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
+from .utils import fix_keys, one_Keys_more_2
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -35,11 +35,6 @@ keys_not_jobs = [
 ]
 
 Mens_prefix: dict[str, str] = {
-    # "men": "رجال",
-    # "expatriate male": "ذكور مغتربون",
-    # "expatriate men's": "رجال مغتربون",
-    # "male": "ذكور",
-    # "male child": "أطفال ذكور",
     "amputee": "مبتورو أحد الأطراف",
     "blind": "مكفوفون",
     "child": "أطفال",
@@ -71,7 +66,6 @@ genders_keys_new_under_test: dict[str, str] = {
 
 genders_keys: dict[str, str] = {
     "assassinated": "مغتالون",
-    # "male deaf": "صم ذكور",
     "blind": "مكفوفون",
     "abolitionists": "مناهضون للعبودية",
     "deaf": "صم",
@@ -113,7 +107,12 @@ def is_false_key(key: str, value: str) -> bool:
 
 @functools.lru_cache(maxsize=1)
 def _load_formatted_data() -> dict:
+    # `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
+
     formatted_data_jobs_with_nat = {
+        # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
+        "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
+
         "political office-holders": "أصحاب مناصب سياسية",
         "{en_nat} political office-holders": "أصحاب مناصب سياسية {males}",
         # base keys
@@ -133,15 +132,11 @@ def _load_formatted_data() -> dict:
         "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
         "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
         "{en_nat} contemporary artists": "فنانون {males} معاصرون",
-        # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
-        "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
-        # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
-        "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {males} مغتربون",
+
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
         "{en_nat} immigrants {en_job}": "{ar_job} {males} مهاجرون",
         "{en_nat} films people": "أعلام أفلام {males}",
         "{en_nat} film people": "أعلام أفلام {males}",
-        "male {en_nat}": "{males} ذكور",
         "men {en_nat}": "{males}",  # رجال
         "mens {en_nat}": "{males}",  # رجال
         # emigrants keys
@@ -153,26 +148,21 @@ def _load_formatted_data() -> dict:
         "spouses of {en_nat} {en_job}": "قرينات {ar_job} {males}",
     }
 
-    # { "{en_nat} male emigrants": "{males} مهاجرون ذكور", "{en_nat} emigrants male": "{males} مهاجرون ذكور", "male {en_nat} emigrants": "{males} مهاجرون ذكور" }
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
+    # `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
 
     formatted_data_jobs = {
         # base keys
         "{en_job}": "{ar_job}",
-        "{en_job} people": "أعلام {ar_job}",
-        "male {en_job}": "{ar_job} ذكور",
-        "men {en_job}": "{ar_job}",  # رجال
-        "mens {en_job}": "{ar_job}",  # رجال
+
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
-        "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
+
+        "{en_job} people": "أعلام {ar_job}",
+        "men {en_job}": "{ar_job}",  # رجال
+        "mens {en_job}": "{ar_job}",  # رجال
         # emigrants keys
         "emigrants {en_job}": "{ar_job} مهاجرون",
     }
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور"))
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور"))
-
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(
         {
@@ -250,32 +240,35 @@ def _load_formatted_data() -> dict:
             formatted_data[f"{{en_nat}} {x}"] = f"{{males}} {jobs_mens_data_f[x]}"
 
     formatted_data_final = {x.replace("'", ""): v for x, v in formatted_data.items()}
+
     return formatted_data_final
 
 
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {x: {"ar_job": v} for x, v in jobs_mens_data_f.items() if not is_false_key(x, v)}
+    data = {
+        x: {"ar_job": v} for x, v
+        in jobs_mens_data_f.items()
+        if not is_false_key(x, v)
+    }
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
         logger.warning(f" mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
-    data.update(
-        {
-            "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
-        }
-    )
-
     data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
+
+    data.update({
+        "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
+    })
     return data
 
 
 @functools.lru_cache(maxsize=1)
-def _load_nat_data() -> dict[str, str]:
-    # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
-    nats_data: dict[str, str] = dict(All_Nat.items())  # 342
+def _load_nat_data() -> dict[str, dict]:
+    # nats_data: dict[str, dict] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    nats_data: dict[str, dict] = dict(All_Nat.items())  # 342
 
     nats_data.update(dict(nats_keys_as_country_names.items()))
 
@@ -312,10 +305,8 @@ def load_bot() -> MultiDataFormatterBaseV2:
         formatted_data=formatted_data,
         data_list=nats_data,
         key_placeholder="{en_nat}",
-        # value_placeholder="{males}",
         data_list2=jobs_data_enhanced,
         key2_placeholder="{en_job}",
-        # value2_placeholder="{ar_job}",
         text_after=" people",
         text_before="the ",
         use_other_formatted_data=True,

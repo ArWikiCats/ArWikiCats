@@ -4,7 +4,13 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
+from ArWikiCats.new_resolvers.jobs_resolvers_male import males_resolver_labels
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+
+
+def wrap_mens_resolver_labels(category):
+    return mens_resolver_labels(category) or males_resolver_labels(category)
+
 
 test_mens_data = {
     "ancient romans killed in action": "رومان قدماء قتلوا في عمليات قتالية",
@@ -253,37 +259,28 @@ test_mens_data_male = {
 @pytest.mark.parametrize("category, expected", test_mens_data.items(), ids=test_mens_data.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_1(category: str, expected: str) -> None:
-    label = mens_resolver_labels(category)
+    label = wrap_mens_resolver_labels(category)
     assert label == expected
-
-    label2 = mens_resolver_labels(category)
-    assert label2 == expected
 
 
 @pytest.mark.parametrize("category, expected", test_mens_data2.items(), ids=test_mens_data2.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_2(category: str, expected: str) -> None:
-    label = mens_resolver_labels(category)
+    label = wrap_mens_resolver_labels(category)
     assert label == expected
-
-    label2 = mens_resolver_labels(category)
-    assert label2 == expected
 
 
 @pytest.mark.parametrize("category, expected", test_mens_data_male.items(), ids=test_mens_data_male.keys())
 @pytest.mark.fast
 def test_prefix_bot_mens_male(category: str, expected: str) -> None:
-    label = mens_resolver_labels(category)
+    label = wrap_mens_resolver_labels(category)
     assert label == expected
-
-    label2 = mens_resolver_labels(category)
-    assert label2 == expected
 
 
 TEMPORAL_CASES = [
-    ("test_prefix_bot_mens_1", test_mens_data, mens_resolver_labels),
-    ("test_prefix_bot_mens_2", test_mens_data2, mens_resolver_labels),
-    ("test_prefix_bot_mens_male", test_mens_data_male, mens_resolver_labels),
+    ("test_prefix_bot_mens_1", test_mens_data, wrap_mens_resolver_labels),
+    ("test_prefix_bot_mens_2", test_mens_data2, wrap_mens_resolver_labels),
+    ("test_prefix_bot_mens_male", test_mens_data_male, wrap_mens_resolver_labels),
 ]
 
 

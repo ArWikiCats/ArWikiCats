@@ -13,6 +13,13 @@ data0 = {
 }
 
 data1 = {
+    "13th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 13",
+    "16th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 16",
+    "17th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 17",
+    "18th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 18",
+    "19th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 19",
+    "20th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 20",
+    "21st-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 21",
     "Lists of Buddhist buildings and structures": "قوائم مبان ومنشآت بوذية",
     "Lists of Hindu buildings and structures": "قوائم مبان ومنشآت هندوسية",
     "Lists of Islamic buildings and structures": "قوائم مبان ومنشآت إسلامية",
@@ -87,13 +94,6 @@ data1 = {
     "1690s essays": "مقالات عقد 1690",
     "1610s essays": "مقالات عقد 1610",
     "1640s essays": "مقالات عقد 1640",
-    "13th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 13",
-    "16th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 16",
-    "17th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 17",
-    "18th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 18",
-    "19th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 19",
-    "20th-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 20",
-    "21st-century Hindu philosophers and theologians": "فلاسفة ولاهوتيون هندوس في القرن 21",
     "1650s television series": "مسلسلات تلفزيونية في عقد 1650",
     "16th-century Anglican bishops in Ireland": "أساقفة أنجليكيون في القرن 16 في أيرلندا",
     "16th-century rabbis in Jerusalem": "حاخامات في القرن 16 في القدس",

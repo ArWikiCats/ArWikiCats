@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers.womens import nat_and_gender_keys, womens_resolver_labels
+from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
 from ArWikiCats.translations import jobs_mens_data, jobs_womens_data
 
 test_data2 = {
@@ -77,19 +77,9 @@ def test_religions_2(category: str, expected: str) -> None:
     assert result == expected
 
 
-def test_nat_and_gender_keys():
-    data = nat_and_gender_keys("{en_nat}", "expatriate", "{women}", "{ar_nat} مغتربات")
-
-    assert data == {
-        "{en_nat} {women} expatriate": "{ar_nat} مغتربات",
-        "{en_nat} expatriate {women}": "{ar_nat} مغتربات",
-        "{women} {en_nat} expatriate": "{ar_nat} مغتربات",
-    }, print(data)
-
-
 def test_compare():
     # jobs_mens_data jobs_womens_data
-    new_keys = {x: v for x, v in jobs_womens_data.items() if x not in jobs_mens_data}
+    _new_keys = {x: v for x, v in jobs_womens_data.items() if x not in jobs_mens_data}
     expected = {
         "women": "نساء",
         "sportswomen": "رياضيات",

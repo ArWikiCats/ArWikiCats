@@ -21,6 +21,7 @@ from .countries_names_resolvers import main_countries_names_resolvers
 from .countries_names_with_sports import main_countries_names_with_sports_resolvers
 from .films_resolvers import main_films_resolvers
 from .jobs_resolvers import main_jobs_resolvers
+from .jobs_resolvers_male import main_jobs_resolvers_for_males
 from .languages_resolves import resolve_languages_labels_with_time
 from .nationalities_resolvers import main_nationalities_resolvers
 from .relations_resolver import main_relations_resolvers
@@ -48,6 +49,11 @@ _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
     (
         "Jobs resolvers",
         main_jobs_resolvers,
+        "Must be before sports to avoid mis-resolving job titles as sports",
+    ),
+    (
+        "Jobs resolvers for males",
+        main_jobs_resolvers_for_males,
         "Must be before sports to avoid mis-resolving job titles as sports",
     ),
     (

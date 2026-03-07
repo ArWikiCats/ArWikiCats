@@ -36,13 +36,19 @@ class TestMultiDataFormatterBaseV2Init:
     def test_init_with_search_first_part(self):
         """Test initialization with search_first_part=True."""
         country_bot = FormatDataV2(
-            formatted_data={"{country}": "{demonym}"},
-            data_list={"yemeni": {"demonym": "يمنيون"}},
+            formatted_data={
+                "{country}": "{demonym}",
+            },
+            data_list={
+                "yemeni": {"demonym": "يمنيون"},
+            },
             key_placeholder="{country}",
         )
         other_bot = FormatDataV2(
             formatted_data={"{job}": "{job_ar}"},
-            data_list={"writers": {"job_ar": "كتاب"}},
+            data_list={
+                "writers": {"job_ar": "كتاب"},
+            },
             key_placeholder="{job}",
         )
 
@@ -57,21 +63,32 @@ class TestMultiDataFormatterBaseV2Init:
     def test_init_with_data_to_find(self):
         """Test initialization with data_to_find dictionary."""
         country_bot = FormatDataV2(
-            formatted_data={"{country}": "{demonym}"},
-            data_list={"yemeni": {"demonym": "يمنيون"}},
+            formatted_data={
+                "{country}": "{demonym}",
+                "{country} {job}": "{job_ar} {demonym}",
+            },
+            data_list={
+                "yemeni": {"demonym": "يمنيون"},
+            },
             key_placeholder="{country}",
         )
         other_bot = FormatDataV2(
             formatted_data={"{job}": "{job_ar}"},
-            data_list={"writers": {"job_ar": "كتاب"}},
+            data_list={
+                "writers": {"job_ar": "كتاب"},
+                "philosophers and theologians": {"job_ar": "فلاسفة ولاهوتيون"},
+            },
             key_placeholder="{job}",
         )
 
-        data_to_find = {"yemeni writers": "كتاب يمنيون"}
+        data_to_find = {
+            "yemeni writers": "كتاب يمنيون",
+            "yemeni philosophers and theologians": "فلاسفة ولاهوتيون يمنيون",
+        }
         bot = MultiDataFormatterBaseV2(
             country_bot=country_bot,
             other_bot=other_bot,
-            data_to_find=data_to_find,
+            # data_to_find=data_to_find,
         )
-
-        assert bot.data_to_find == data_to_find
+        for x, v in data_to_find.items():
+            assert bot.search_all_category(x) == v

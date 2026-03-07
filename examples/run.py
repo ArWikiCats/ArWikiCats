@@ -19,7 +19,11 @@ from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import 
 from ArWikiCats.new_resolvers.sports_resolvers.jobs_multi_sports_reslover import jobs_in_multi_sports
 from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 
-logging.getLogger("ArWikiCats").setLevel("DEBUG")
+logger = logging.getLogger("ArWikiCats")
+logger.setLevel("DEBUG")
+
+for handler in logger.handlers:
+    handler.setLevel("DEBUG")
 
 # print(resolve_arabic_category_label("Category:2015 American television"))
 
@@ -40,8 +44,9 @@ logging.getLogger("ArWikiCats").setLevel("DEBUG")
 # print(get_con_label("by danish artists"))
 # print(make_by_label("by danish artists"))
 # print(Try_With_Years("2020s Dutch-language films"))
-print(resolve_sport_label_unified("national football"))
+# print(resolve_sport_label_unified("national football"))
 # print(resolve_by_nats_double_v2("jewish history"))
 
+print(mens_resolver_labels("yemeni philosophers and theologians"))
 # python3 D:/categories_bot/make2_new/examples/run.py
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"

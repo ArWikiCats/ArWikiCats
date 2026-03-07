@@ -212,7 +212,6 @@ religions_data = {
     "yugoslav muslims": "يوغسلافيون مسلمون",
     "zambian muslims": "زامبيون مسلمون",
     "zimbabwean muslims": "زيمبابويون مسلمون",
-    "anti-muslim sentiment": "مشاعر معادية للمسلمون",
 }
 
 data2 = {

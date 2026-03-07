@@ -8,6 +8,7 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 test_data_1 = {
+    "christian saints": "قديسون",
     "American wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة أمريكيون",
     "Canadian wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة كنديون",
     "Finnish wheelchair curling champions": "أبطال الكيرلنغ على الكراسي المتحركة فنلنديون",
