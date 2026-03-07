@@ -99,13 +99,21 @@ def _load_formatted_data() -> dict:
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {x: {"ar_job": v} for x, v in jobs_mens_data_f.items() if not is_false_key(x, v)}
+    data = {
+        x: {"ar_job": v} for x, v
+        in jobs_mens_data_f.items()
+        if not is_false_key(x, v)
+    }
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
         logger.warning(f" mens before fix: {len(data):,}, is_false_key diff: {len_diff:,}")
 
     data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
+
+    data.update({
+        "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
+    })
     return data
 
 

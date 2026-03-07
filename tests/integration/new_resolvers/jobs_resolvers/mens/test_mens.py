@@ -13,6 +13,7 @@ def wrap_mens_resolver_labels(category):
 
 
 test_data2 = {
+    # "yemeni philosophers and theologians": "فلاسفة ولاهوتيون يمنيون",
     # Category:Turkish expatriate sports-people
     "Category:Turkish expatriate sports-people": "تصنيف:رياضيون أتراك مغتربون",
     # nat
