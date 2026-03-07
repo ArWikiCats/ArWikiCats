@@ -17,7 +17,10 @@ def match_it(key, value):
     if " male " in key:
         return True
 
-    if " ذكور " in value:
+    if "ذكور" in value:
+        return True
+
+    if "رجال" in value:
         return True
 
 

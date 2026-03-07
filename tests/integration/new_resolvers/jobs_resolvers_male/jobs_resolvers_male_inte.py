@@ -63,7 +63,6 @@ test_data2 = {
     "Thai male sailors (sport)": "بحارة رياضيون ذكور تايلنديون",
     "Ugandan male mixed martial artists": "مقاتلو فنون قتالية مختلطة ذكور أوغنديون",
     "Welsh male short story writers": "كتاب قصة قصيرة ذكور ويلزيون",
-
     "Male actors from Austrian Empire": "ممثلون ذكور من الإمبراطورية النمساوية",
     "Male actors from Basque Country (autonomous community)": "ممثلون ذكور من منطقة الباسك ذاتية الحكم",
     "Male actors from Brooklyn": "ممثلون ذكور من بروكلين",
@@ -89,6 +88,7 @@ test_data2 = {
     "Male models from Massachusetts": "عارضو أزياء ذكور من ماساتشوستس",
     "Male television actors from Georgia (country)": "ممثلو تلفزيون ذكور من جورجيا",
     "Male voice actors from Sendai": "ممثلو أداء صوتي ذكور من سنداي",
+    "Male field hockey goalkeepers": "حراس مرمى هوكي ميدان ذكور",
 }
 
 
