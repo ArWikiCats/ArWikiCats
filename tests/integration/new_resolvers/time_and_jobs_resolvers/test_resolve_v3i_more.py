@@ -7,6 +7,17 @@ from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 from utils.dump_runner import make_dump_test_name_data_callback
 
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=wrap_main_jobs_resolvers)
+
+
 test_deaths_data = {
     "16th-century deaths from tuberculosis": "وفيات بسبب السل في القرن 16",
     "20th-century deaths from infectious disease": "وفيات بسبب أمراض معدية في القرن 20",
@@ -150,7 +161,7 @@ test_data_standard = {
 @pytest.mark.fast
 def test_year_job_origin_resolver_more_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)
@@ -164,13 +175,13 @@ def test_females_data_1(category: str, expected: str) -> None:
     result2 = resolve_label_ar(category)
     assert result2 == expected
 
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
 
 to_test = [
-    ("test_year_job_origin_resolver_more_2", test_data_standard, resolve_year_job_from_countries),
-    ("test_females_data_1", test_females_data, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_more_2", test_data_standard, wrap_resolve_year_job_from_countries),
+    ("test_females_data_1", test_females_data, wrap_resolve_year_job_from_countries),
 ]
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

@@ -4,6 +4,10 @@ from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data1 = {
+    "Gay male literature": "أدب المثليين جنسياً",
+    "Songs about fictional male characters": "أغان عن ذكور خياليين",
+    "Malaysian male squash players": "لاعبو سكواش ماليزيين",
+    "20th-century Asian male musicians": "موسيقيون ذكور آسيويين في القرن 20",
     "Persecution of LGBT people": "اضطهاد الأشخاص المثليين",
     "Persecution of LGBTQ people": "اضطهاد الأشخاص المثليين",
     "1990s LGBTQ-related sitcoms": "مسلسلات تلفزيونية كوميدية أمريكية متعلقة بإل جي بي تي كيو في عقد 1990",
@@ -50,7 +54,6 @@ data1 = {
     "2022 African Nations Championship players": "لاعبو بطولة أمم إفريقيا للمحليين 2022",
     "2024 African Nations Championship": "بطولة أمم إفريقيا للمحليين 2024",
     "2024 pro-Palestinian protests on university campuses": "احتجاجات مؤيدة للفلسطينيين في الجامعات 2024",
-    "20th-century Asian male musicians": "موسيقيون ذكور آسيويين في القرن 20",
     "20th-century assassinated Asian politicians": "سياسيون آسيويين مغتالون في القرن 20",
     "20th-century venerated Christians": "تبجيل المسيحيين في القرن العشرين",
     "20th-century wives of Ottoman sultans": "زوجات سلاطين عثمانيين في القرن 20",
@@ -620,7 +623,6 @@ data1 = {
     "Funk albums by American artists": "ألبومات فانك لفنانين أمريكيين",
     "Gabon men's A' international footballers": "لاعبو منتخب الغابون لكرة القدم للرجال للمحليين",
     "Gangsta rap albums by American artists": "ألبومات راب عصابات لفنانين أمريكيين",
-    "Gay male literature": "أدب المثليين جنسياً",
     "Gay villages": "قرى مثليين",
     "Gay villages in Brazil": "قرى مثليين في البرازيل",
     "Gay villages in California": "قرى مثليين في كاليفورنيا",
@@ -1622,7 +1624,6 @@ data1 = {
     "Lists of spouses of heads of state": "قوائم قرينات قادة وطنيين",
     "Lists of things named after mathematicians": "أشياء مسماة نسبة لرياضياتيين",
     "Local politicians in the Netherlands": "أصحاب مناصب سياسيين محليين في هولندا",
-    "Malaysian male squash players": "لاعبو سكواش ماليزيين",
     "Mali men's A' international footballers": "لاعبو منتخب مالي لكرة القدم للرجال للمحليين",
     "Massacres of Bengali Hindus": "مذابح الهندوس البنغاليين",
     "Massacres of Bengali Hindus in British India": "مذابح الهندوس البنغاليين في الراج البريطاني",
@@ -1956,7 +1957,6 @@ data1 = {
     "Soft rock albums by Irish artists": "ألبومات سوفت روك لفنانين أيرلنديين",
     "Songs about American politicians": "أغان عن سياسيين أمريكيين",
     "Songs about comedians": "أغان عن كوميديين",
-    "Songs about fictional male characters": "أغان عن ذكور خياليين",
     "Songs about military officers": "أغان عن ضباط عسكريين",
     "Songs about musicians": "أغان عن موسيقيين",
     "Songs about politicians": "أغان عن سياسيين",

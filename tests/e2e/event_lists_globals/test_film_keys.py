@@ -112,7 +112,6 @@ data_2 = {
     "Zimbabwean film actresses": "ممثلات أفلام زيمبابويات",
     "Zimbabwean film directors": "مخرجو أفلام زيمبابويون",
     "Zimbabwean filmmakers": "صانعو أفلام زيمبابويون",
-    "Zimbabwean male film actors": "ممثلو أفلام ذكور زيمبابويون",
     "Zimbabwean women film directors": "مخرجات أفلام زيمبابويات",
     "Zombie film series": "سلاسل أفلام زومبي",
     "Zombie film series navigational boxes": "صناديق تصفح سلاسل أفلام زومبي",

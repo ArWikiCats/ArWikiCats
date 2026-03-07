@@ -47,7 +47,7 @@ te4_2018_jobs_data = {
 
 @pytest.mark.parametrize("category, expected", te4_2018_jobs_data.items(), ids=te4_2018_jobs_data.keys())
 @pytest.mark.fast
-def jobs_resolvers_male_all(category: str, expected: str) -> None:
+def test_jobs_resolvers_male_all(category: str, expected: str) -> None:
     label = all_new_resolvers(category)
     assert label == expected
 

@@ -95,7 +95,7 @@ def resolve_nats_jobs_for_males(category: str) -> str:
     """
     category_lower = category.lower().strip()
 
-    if any(w in category_lower for w in ["female", "women's"]):
+    if any(w in category_lower for w in ["female", "women's", "women", "womens"]):
         return ""  # female labels should not resolve in this model
 
     if res := _nat_rel_bot_v2.search(category_lower):

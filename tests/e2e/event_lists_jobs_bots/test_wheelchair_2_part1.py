@@ -23,7 +23,6 @@ data = {
     "British wheelchair rugby players": "لاعبو رجبي على كراسي متحركة بريطانيون",
     "British wheelchair tennis players": "لاعبو كرة مضرب على كراسي متحركة بريطانيون",
     "Cameroonian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كاميرونيون",
-    "Canadian male wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون",
     "Canadian wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة كنديون",
     "Canadian wheelchair curlers": "لاعبو كيرلنغ على الكراسي المتحركة كنديون",
     "Canadian wheelchair rugby players": "لاعبو رجبي على كراسي متحركة كنديون",

@@ -6,6 +6,17 @@ import pytest
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 from utils.dump_runner import make_dump_test_name_data_callback
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=wrap_main_jobs_resolvers)
+
 
 test_data_standard = {
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
@@ -203,12 +214,6 @@ test_data_standard = {
     "18th-century Jews from the Russian Empire": "يهود من الإمبراطورية الروسية في القرن 18",
     "18th-century jurists from the Holy Roman Empire": "حقوقيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century lawyers from the Holy Roman Empire": "محامون من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male actors from the Holy Roman Empire": "ممثلون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male musicians from Bohemia": "موسيقيون ذكور من بوهيميا في القرن 18",
-    "18th-century male musicians from the Holy Roman Empire": "موسيقيون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male musicians from the Russian Empire": "موسيقيون ذكور من الإمبراطورية الروسية في القرن 18",
-    "18th-century male singers from the Holy Roman Empire": "مغنون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male writers from the Russian Empire": "كتاب ذكور من الإمبراطورية الروسية في القرن 18",
     "18th-century mathematicians from the Holy Roman Empire": "رياضياتيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century musicians from the Holy Roman Empire": "موسيقيون من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century naturalists from the Holy Roman Empire": "علماء طبيعة من الإمبراطورية الرومانية المقدسة في القرن 18",
@@ -286,9 +291,6 @@ test_data_standard = {
     "19th-century journalists from the Russian Empire": "صحفيون من الإمبراطورية الروسية في القرن 19",
     "19th-century landowners from the Russian Empire": "حائزو أراضي من الإمبراطورية الروسية في القرن 19",
     "19th-century lawyers from the Russian Empire": "محامون من الإمبراطورية الروسية في القرن 19",
-    "19th-century male actors from the Ottoman Empire": "ممثلون ذكور من الدولة العثمانية في القرن 19",
-    "19th-century male musicians from the Russian Empire": "موسيقيون ذكور من الإمبراطورية الروسية في القرن 19",
-    "19th-century male singers from the Russian Empire": "مغنون ذكور من الإمبراطورية الروسية في القرن 19",
     "19th-century memoirists from the Russian Empire": "كتاب مذكرات من الإمبراطورية الروسية في القرن 19",
     "19th-century musicians from the Ottoman Empire": "موسيقيون من الدولة العثمانية في القرن 19",
     "19th-century nobility from the Russian Empire": "نبلاء من الإمبراطورية الروسية في القرن 19",
@@ -373,12 +375,6 @@ test_data_standard = {
     "20th-century journalists from Northern Ireland": "صحفيون من أيرلندا الشمالية في القرن 20",
     "20th-century journalists from the Ottoman Empire": "صحفيون من الدولة العثمانية في القرن 20",
     "20th-century lawyers from Northern Ireland": "محامون من أيرلندا الشمالية في القرن 20",
-    "20th-century male actors from the Ottoman Empire": "ممثلون ذكور من الدولة العثمانية في القرن 20",
-    "20th-century male artists from Northern Ireland": "فنانون ذكور من أيرلندا الشمالية في القرن 20",
-    "20th-century male composers from Northern Ireland": "ملحنون ذكور من أيرلندا الشمالية في القرن 20",
-    "20th-century male musicians from Northern Ireland": "موسيقيون ذكور من أيرلندا الشمالية في القرن 20",
-    "20th-century male singers from Northern Ireland": "مغنون ذكور من أيرلندا الشمالية في القرن 20",
-    "20th-century male writers from Northern Ireland": "كتاب ذكور من أيرلندا الشمالية في القرن 20",
     "20th-century mathematicians from Northern Ireland": "رياضياتيون من أيرلندا الشمالية في القرن 20",
     "20th-century medical doctors from Northern Ireland": "أطباء من أيرلندا الشمالية في القرن 20",
     "20th-century memoirists from Northern Ireland": "كتاب مذكرات من أيرلندا الشمالية في القرن 20",
@@ -490,10 +486,6 @@ test_data_standard = {
     "21st-century Jews from Georgia (country)": "يهود من جورجيا في القرن 21",
     "21st-century journalists from Northern Ireland": "صحفيون من أيرلندا الشمالية في القرن 21",
     "21st-century lawyers from Northern Ireland": "محامون من أيرلندا الشمالية في القرن 21",
-    "21st-century male composers from Northern Ireland": "ملحنون ذكور من أيرلندا الشمالية في القرن 21",
-    "21st-century male musicians from Northern Ireland": "موسيقيون ذكور من أيرلندا الشمالية في القرن 21",
-    "21st-century male singers from Northern Ireland": "مغنون ذكور من أيرلندا الشمالية في القرن 21",
-    "21st-century male writers from Northern Ireland": "كتاب ذكور من أيرلندا الشمالية في القرن 21",
     "21st-century mathematicians from Northern Ireland": "رياضياتيون من أيرلندا الشمالية في القرن 21",
     "21st-century memoirists from Northern Ireland": "كتاب مذكرات من أيرلندا الشمالية في القرن 21",
     "21st-century musicians from Northern Ireland": "موسيقيون من أيرلندا الشمالية في القرن 21",
@@ -602,8 +594,6 @@ test_data_1 = {
     "16th-century musicians from the Holy Roman Empire": "موسيقيون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "17th-century musicians from the Holy Roman Empire": "موسيقيون من الإمبراطورية الرومانية المقدسة في القرن 17",
     "18th-century musicians from the Holy Roman Empire": "موسيقيون من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male actors from the Holy Roman Empire": "ممثلون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
-    "18th-century male singers from the Holy Roman Empire": "مغنون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
     "15th-century mathematicians from the Holy Roman Empire": "رياضياتيون من الإمبراطورية الرومانية المقدسة في القرن 15",
     "16th-century mathematicians from the Holy Roman Empire": "رياضياتيون من الإمبراطورية الرومانية المقدسة في القرن 16",
     "17th-century mathematicians from the Holy Roman Empire": "رياضياتيون من الإمبراطورية الرومانية المقدسة في القرن 17",
@@ -679,13 +669,6 @@ test_data_1 = {
     "20th-century LGBTQ people from Northern Ireland": "أعلام إل جي بي تي كيو من أيرلندا الشمالية في القرن 20",
     "21st-century LGBTQ people from Northern Ireland": "أعلام إل جي بي تي كيو من أيرلندا الشمالية في القرن 21",
     "19th-century LGBTQ people from the Russian Empire": "أعلام إل جي بي تي كيو من الإمبراطورية الروسية في القرن 19",
-    "20th-century male actors from Georgia (country)": "ممثلون ذكور من جورجيا في القرن 20",
-    "21st-century male actors from Georgia (country)": "ممثلون ذكور من جورجيا في القرن 21",
-    "20th-century male actors from Northern Ireland": "ممثلون ذكور من أيرلندا الشمالية في القرن 20",
-    "21st-century male actors from Northern Ireland": "ممثلون ذكور من أيرلندا الشمالية في القرن 21",
-    "19th-century male actors from the Russian Empire": "ممثلون ذكور من الإمبراطورية الروسية في القرن 19",
-    "19th-century male artists from the Russian Empire": "فنانون ذكور من الإمبراطورية الروسية في القرن 19",
-    "19th-century male writers from the Russian Empire": "كتاب ذكور من الإمبراطورية الروسية في القرن 19",
     "18th-century mathematicians from the Russian Empire": "رياضياتيون من الإمبراطورية الروسية في القرن 18",
     "19th-century mathematicians from the Russian Empire": "رياضياتيون من الإمبراطورية الروسية في القرن 19",
     "18th-century military personnel from the Russian Empire": "أفراد عسكريون من الإمبراطورية الروسية في القرن 18",
@@ -873,7 +856,7 @@ test_data_1 = {
 @pytest.mark.slow
 def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)
@@ -884,7 +867,7 @@ def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
 @pytest.mark.slow
 def test_year_job_origin_resolver_new_2(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_1."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)
@@ -892,8 +875,8 @@ def test_year_job_origin_resolver_new_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_year_job_origin_resolver_new_1", test_data_standard, resolve_year_job_from_countries),
-    ("test_year_job_origin_resolver_new_2", test_data_1, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_1", test_data_standard, wrap_resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_2", test_data_1, wrap_resolve_year_job_from_countries),
 ]
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

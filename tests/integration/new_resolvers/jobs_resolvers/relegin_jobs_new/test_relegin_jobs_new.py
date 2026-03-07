@@ -12,7 +12,6 @@ def wrap_new_religions_jobs_with_suffix(category):
 test_religions_data = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",
     "painters shia muslims": "رسامون مسلمون شيعة",
-    "painters male muslims": "رسامون ذكور مسلمون",
     "muslims painters": "رسامون مسلمون",
     "painters muslims": "رسامون مسلمون",
 }

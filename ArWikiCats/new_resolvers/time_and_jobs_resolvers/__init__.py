@@ -6,6 +6,7 @@ This package provides specialized resolvers for categories like
 
 import functools
 import logging
+from typing import Callable
 
 from . import (
     year_job_origin_resolver,
@@ -16,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def time_and_jobs_resolvers_main(normalized_category) -> str:
+def time_and_jobs_resolvers_main(normalized_category, callback: Callable | None = None) -> str:
     """
     Resolve a combined time-period-and-job category string to its Arabic label.
 
@@ -33,8 +34,8 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
-        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category)
-        or year_job_resolver.resolve_year_job_countries(normalized_category)
+        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category, callback=callback)
+        or year_job_resolver.resolve_year_job_countries(normalized_category, callback=callback)
         or ""
     )
 

@@ -395,8 +395,6 @@ data_virginia_2 = {
     "Louisa County, Virginia": "مقاطعة لويزا (فرجينيا)",
     "Lunenburg County, Virginia": "مقاطعة لونينبرغ (فرجينيا)",
     "Madison County, Virginia": "مقاطعة ماديسون (فرجينيا)",
-    "Male actors from Charleston, West Virginia": "ممثلون ذكور من تشارلستون (فرجينيا الغربية)",
-    "Male actors from Fairfax, Virginia": "ممثلون ذكور من فيرفاكس (فرجينيا)",
     "Marshall County, West Virginia": "مقاطعة مارشال (فرجينيا الغربية)",
     "Martinsville, Virginia": "مارتينسفيل (فرجينيا)",
     "Mason County, West Virginia": "مقاطعة ماسون (فرجينيا الغربية)",

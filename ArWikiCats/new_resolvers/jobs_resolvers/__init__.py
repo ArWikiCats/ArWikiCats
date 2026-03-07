@@ -8,7 +8,6 @@ import functools
 import logging
 
 from . import mens, relegin_jobs_new, womens
-# from ..jobs_resolvers_male import new_religions_jobs_for_males, males_resolver_labels
 
 logger = logging.getLogger(__name__)
 

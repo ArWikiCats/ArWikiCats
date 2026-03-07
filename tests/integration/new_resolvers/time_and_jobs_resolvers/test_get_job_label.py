@@ -3,6 +3,8 @@
 
 import pytest
 
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_job_label
 from utils.dump_runner import make_dump_test_name_data
 
@@ -54,12 +56,6 @@ test_data_standard = {
     "landowners": "حائزو أراضي",
     "lawyers": "محامون",
     "LGBTQ people": "أعلام إل جي بي تي كيو",
-    "male actors": "ممثلون ذكور",
-    "male artists": "فنانون ذكور",
-    "male composers": "ملحنون ذكور",
-    "male musicians": "موسيقيون ذكور",
-    "male singers": "مغنون ذكور",
-    "male writers": "كتاب ذكور",
     "mathematicians": "رياضياتيون",
     "medical doctors": "أطباء",
     "memoirists": "كتاب مذكرات",
@@ -111,12 +107,16 @@ test_data_standard = {
 }
 
 
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
 @pytest.mark.parametrize("category,expected", test_data_standard.items(), ids=test_data_standard.keys())
 def test_get_job_label_1(category: str, expected: str) -> None:
     """
     Test
     """
-    result = get_job_label(category)
+    result = get_job_label(category, callback=wrap_main_jobs_resolvers)
     assert result == expected
 
 

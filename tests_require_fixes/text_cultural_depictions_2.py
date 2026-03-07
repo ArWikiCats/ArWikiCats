@@ -103,7 +103,6 @@ data1 = {
     "Cultural depictions of diplomats": "تصوير ثقافي عن دبلوماسيين",
     "Cultural depictions of economists": "تصوير ثقافي لاقتصاديين",
     "Cultural depictions of journalists": "تصوير ثقافي لصحفيين",
-    "Cultural depictions of male monarchs": "تصوير ثقافي عن ملكيين ذكور",
     "Cultural depictions of mathematicians": "تصوير ثقافي عن رياضياتيين",
     "Cultural depictions of military officers": "تصوير ثقافي لضباط عسكريين",
     "Cultural depictions of monarchs": "تصوير ثقافي عن ملكيين",

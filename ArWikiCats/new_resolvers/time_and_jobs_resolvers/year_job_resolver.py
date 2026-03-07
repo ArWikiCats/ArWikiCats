@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """
-TODO: use this code in workflow
 
 Examples:
     - en: 18th-century nobility
@@ -14,11 +13,10 @@ More examples:
 
 import functools
 import logging
+from typing import Callable
 
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..jobs_resolvers import main_jobs_resolvers
-from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -37,14 +35,13 @@ formatted_data = {
 }
 
 
-def wrap_main_jobs_resolvers(category) -> str:
-    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
-
-
 @functools.lru_cache(maxsize=10000)
-def get_job_label(text: str) -> str:
+def get_job_label(text: str, callback: Callable | None = None) -> str:
     text = normalize_text(text)
-    result = jobs_part_labels.get(text) or wrap_main_jobs_resolvers(text) or ""
+    result = jobs_part_labels.get(text) or ""
+
+    if not result and callback:
+        result = callback(text)
 
     return result
 
@@ -79,12 +76,12 @@ def match_key_callback(text: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
+def multi_bot_v4(callback: Callable | None = None) -> MultiDataFormatterYearAndFrom:
     country_bot = FormatDataFrom(
         formatted_data=formatted_data,
         key_placeholder="{country1}",
         value_placeholder="{country1}",
-        search_callback=get_job_label,
+        search_callback=lambda cat: get_job_label(cat, callback=callback),
         match_key_callback=match_key_callback,
     )
     year_bot = FormatDataFrom(
@@ -102,13 +99,13 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_year_job_countries(category: str) -> str:
+def resolve_year_job_countries(category: str, callback: Callable | None = None) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
     logger.debug(f"<<yellow>> start {category=}")
 
     category = normalize_text(category)
 
-    _bot = multi_bot_v4()
+    _bot = multi_bot_v4(callback=callback)
     result = _bot.create_label(category)
 
     logger.info(f"<<yellow>> end {category=}, {result=}")
