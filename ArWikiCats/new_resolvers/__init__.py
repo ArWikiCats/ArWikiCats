@@ -47,13 +47,13 @@ _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
         "Regex patterns for complex category structures",
     ),
     (
-        "Jobs resolvers for males",
-        main_jobs_resolvers_for_males,
+        "Jobs resolvers",
+        main_jobs_resolvers,
         "Must be before sports to avoid mis-resolving job titles as sports",
     ),
     (
-        "Jobs resolvers",
-        main_jobs_resolvers,
+        "Jobs resolvers for males",
+        main_jobs_resolvers_for_males,
         "Must be before sports to avoid mis-resolving job titles as sports",
     ),
     (
