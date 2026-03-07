@@ -29,7 +29,6 @@ test_data_1 = {
     "Fantasy adventure novels": "روايات فانتازيا مغامرات",
     "Film characters introduced in 1999": "شخصيات أفلام عرضت في 1999",
     "Judges in Canadian reality television series": "قضاة في مسلسلات تلفزيونية واقعية كندية",
-    "Male adult models": "عارضون بالغون ذكور",
     "Members of the Democratic Socialists of America from New York (state)": "أعضاء اشتراكيون ديمقراطيون من أمريكا من ولاية نيويورك",
     "Members of the Democratic Socialists of America from Pennsylvania": "أعضاء اشتراكيون ديمقراطيون من أمريكا من بنسلفانيا",
     "People from the Province of Huesca": "أشخاص من وشقة (مقاطعة)",

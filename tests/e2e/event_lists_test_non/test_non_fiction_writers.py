@@ -45,50 +45,6 @@ non_fiction_data_nats = {
     "Algerian non-fiction writers": "كتاب غير روائيين جزائريون",
 }
 
-non_fiction_data_male = {
-    # "New Zealand male non-fiction writers": "كتاب غير روائيين ذكور نيوزيلنديون",
-    "Turkish male non-fiction writers": "كتاب غير روائيين ذكور أتراك",
-    "Argentine male non-fiction writers": "كتاب غير روائيين ذكور أرجنتينيون",
-    "Albanian male non-fiction writers": "كتاب غير روائيين ذكور ألبان",
-    "Estonian male non-fiction writers": "كتاب غير روائيين ذكور إستونيون",
-    "Israeli male non-fiction writers": "كتاب غير روائيين ذكور إسرائيليون",
-    "Scottish male non-fiction writers": "كتاب غير روائيين ذكور إسكتلنديون",
-    "Pakistani male non-fiction writers": "كتاب غير روائيين ذكور باكستانيون",
-    "Brazilian male non-fiction writers": "كتاب غير روائيين ذكور برازيليون",
-    "Portuguese male non-fiction writers": "كتاب غير روائيين ذكور برتغاليون",
-    "Puerto Rican male non-fiction writers": "كتاب غير روائيين ذكور بورتوريكيون",
-    "Bolivian male non-fiction writers": "كتاب غير روائيين ذكور بوليفيون",
-    "Peruvian male non-fiction writers": "كتاب غير روائيين ذكور بيرويون",
-    "Trinidad and Tobago male non-fiction writers": "كتاب غير روائيين ذكور ترنيداديون",
-    "Czech male non-fiction writers": "كتاب غير روائيين ذكور تشيكيون",
-    "Chilean male non-fiction writers": "كتاب غير روائيين ذكور تشيليون",
-    "Jamaican male non-fiction writers": "كتاب غير روائيين ذكور جامايكيون",
-    "Russian male non-fiction writers": "كتاب غير روائيين ذكور روس",
-    "Romanian male non-fiction writers": "كتاب غير روائيين ذكور رومان",
-    "Soviet male non-fiction writers": "كتاب غير روائيين ذكور سوفيت",
-    "Swiss male non-fiction writers": "كتاب غير روائيين ذكور سويسريون",
-    "Serbian male non-fiction writers": "كتاب غير روائيين ذكور صرب",
-    "Chinese male non-fiction writers": "كتاب غير روائيين ذكور صينيون",
-    "Palestinian male non-fiction writers": "كتاب غير روائيين ذكور فلسطينيون",
-    "Venezuelan male non-fiction writers": "كتاب غير روائيين ذكور فنزويليون",
-    "Finnish male non-fiction writers": "كتاب غير روائيين ذكور فنلنديون",
-    "Cuban male non-fiction writers": "كتاب غير روائيين ذكور كوبيون",
-    "Colombian male non-fiction writers": "كتاب غير روائيين ذكور كولومبيون",
-    "Luxembourgian male non-fiction writers": "كتاب غير روائيين ذكور لوكسمبورغيون",
-    "Lithuanian male non-fiction writers": "كتاب غير روائيين ذكور ليتوانيون",
-    "Hungarian male non-fiction writers": "كتاب غير روائيين ذكور مجريون",
-    "Egyptian male non-fiction writers": "كتاب غير روائيين ذكور مصريون",
-    "Mexican male non-fiction writers": "كتاب غير روائيين ذكور مكسيكيون",
-    "Moldovan male non-fiction writers": "كتاب غير روائيين ذكور مولدوفيون",
-    "Norwegian male non-fiction writers": "كتاب غير روائيين ذكور نرويجيون",
-    "Austrian male non-fiction writers": "كتاب غير روائيين ذكور نمساويون",
-    "Haitian male non-fiction writers": "كتاب غير روائيين ذكور هايتيون",
-    "Dutch male non-fiction writers": "كتاب غير روائيين ذكور هولنديون",
-    "Welsh male non-fiction writers": "كتاب غير روائيين ذكور ويلزيون",
-    "Japanese male non-fiction writers": "كتاب غير روائيين ذكور يابانيون",
-    "Greek male non-fiction writers": "كتاب غير روائيين ذكور يونانيون",
-}
-
 non_fiction_data_nat_with_time = {
     "20th-century Turkish non-fiction writers": "كتاب غير روائيين أتراك في القرن 20",
     "21st-century Turkish non-fiction writers": "كتاب غير روائيين أتراك في القرن 21",
@@ -149,7 +105,6 @@ to_test = [
     ("test_non_fiction_data_by", non_fiction_data_by),
     ("test_non_fiction_data_from", non_fiction_data_from),
     ("test_non_fiction_data_nats", non_fiction_data_nats),
-    ("test_non_fiction_data_male", non_fiction_data_male),
     ("test_non_fiction_data_nat_with_time", non_fiction_data_nat_with_time),
 ]
 
@@ -157,7 +112,6 @@ non_fiction_data_all = {
     **non_fiction_data_by,
     **non_fiction_data_from,
     **non_fiction_data_nats,
-    **non_fiction_data_male,
     **non_fiction_data_nat_with_time,
 }
 

@@ -18,11 +18,11 @@ test_sport_bot_data = {
     "male swimming players": "لاعبو سباحة",
     "male synchronised swimming players": "لاعبو سباحة متزامنة",
     "male synchronized swimming players": "لاعبو سباحة متزامنة",
-    "female players of american-football": "لاعبات كرة قدم أمريكية",
     "male players of american-football": "لاعبو كرة قدم أمريكية",
+    "yemeni male players of american-football": "لاعبو كرة قدم أمريكية يمنيون",
+    "female players of american-football": "لاعبات كرة قدم أمريكية",
     "players of american-football": "لاعبو ولاعبات كرة قدم أمريكية",
     "yemeni players of american-football": "لاعبو ولاعبات كرة قدم أمريكية يمنيون",
-    "yemeni male players of american-football": "لاعبو كرة قدم أمريكية يمنيون",
     "yemeni female players of american-football": "لاعبات كرة قدم أمريكية يمنيات",
 }
 

@@ -116,7 +116,6 @@ data_list_1 = {
     "19th century establishments in kingdom-of sicily": "تأسيسات القرن 19 في مملكة صقلية",
     "19th century establishments in nepal": "تأسيسات القرن 19 في نيبال",
     "19th century establishments in yukon": "تأسيسات القرن 19 في يوكون",
-    "19th century male composers by nationality": "ملحنون ذكور في القرن 19 حسب الجنسية",
     "1st millennium bc establishments in the roman empire": "تأسيسات الألفية 1 ق م في الإمبراطورية الرومانية",
     "1st millennium establishments in morocco": "تأسيسات الألفية 1 في المغرب",
     "20th century chemists by nationality": "كيميائيون في القرن 20 حسب الجنسية",

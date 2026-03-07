@@ -12,7 +12,6 @@ data_2 = {
     "buildings and structures in georgia (u.s. state)": "مبان ومنشآت في ولاية جورجيا",
     "burials in washington (state)": "مدفونون في ولاية واشنطن",
     "disestablishments in georgia (u.s. state)": "انحلالات في ولاية جورجيا",
-    "male actors from the west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "protected areas of georgia (u.s. state)": "مناطق محمية في ولاية جورجيا",
     "national-register-of-historic-places in north carolina": "السجل الوطني للأماكن التاريخية في كارولاينا الشمالية",
     "federalist party members of united states house-of-representatives": "أعضاء الحزب الفيدرالي الأمريكي في مجلس النواب الأمريكي",

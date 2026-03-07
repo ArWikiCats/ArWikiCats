@@ -27,8 +27,6 @@ data2 = {
 data3 = {
     "Canadian nuclear medicine physicians": "أطباء طب نووي كنديون",
     "Croatian nuclear medicine physicians": "أطباء طب نووي كروات",
-    "Expatriate male actors in New Zealand": "ممثلون ذكور مغتربون في نيوزيلندا",
-    "Expatriate male actors": "ممثلون ذكور مغتربون",
     "German nuclear medicine physicians": "أطباء طب نووي ألمان",
     "Immigrants to New Zealand": "مهاجرون إلى نيوزيلندا",
     "Immigration to New Zealand": "الهجرة إلى نيوزيلندا",
