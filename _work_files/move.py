@@ -33,7 +33,7 @@ for n, cat in enumerate(CATS_DATA.values(), 1):
     rows.append(line)
 
 wikitext = """
-{|
+{| class="wikitable sortable"
 |-
 !#
 | 1
