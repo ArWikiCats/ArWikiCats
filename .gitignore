@@ -31,3 +31,4 @@ tests/legacy_bots/test_new_ideas.py
 /deepwiki.md
 .claude/settings.local.json
 _work_files/*.wiki
+examples/data/full_data.json
