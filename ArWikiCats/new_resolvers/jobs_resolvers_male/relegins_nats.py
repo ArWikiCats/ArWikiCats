@@ -40,10 +40,11 @@ _combined_templates = {
     # Nationality + Religion (Male/General)
     "{nat} {rel}": "{nat_ar} {rel_ar}",
     "{rel} {nat}": "{nat_ar} {rel_ar}",
+
     "{nat} {rel} male": "{nat_ar} {rel_ar} ذكور",
     "{rel} {nat} male": "{nat_ar} {rel_ar} ذكور",
     "{nat} male {rel}": "{rel_ar} ذكور {nat_ar}",
-    "{nat} people {rel}": "{nat_ar} {rel_ar}",
+
     # Job + Religion (Male/General)
     "{job} {rel}": "{job_ar} {rel_ar}",
     "{rel} {job}": "{job_ar} {rel_ar}",
@@ -52,28 +53,6 @@ _combined_templates = {
     "{rel} {job} male": "{job_ar} ذكور {rel_ar}",
     "male {job} {rel}": "{job_ar} ذكور {rel_ar}",
     # Nationality + Religion (Female)
-    "female {nat} {rel}": "{rel_ar_f} {nat_ar_f}",
-    "women's {nat} {rel}": "{rel_ar_f} {nat_ar_f}",
-    "{nat} female {rel}": "{rel_ar_f} {nat_ar_f}",
-    "{nat} women's {rel}": "{rel_ar_f} {nat_ar_f}",
-    "{nat} {rel} female": "{rel_ar_f} {nat_ar_f}",
-    "{nat} {rel} women's": "{rel_ar_f} {nat_ar_f}",
-    "female {rel} {nat}": "{rel_ar_f} {nat_ar_f}",
-    "women's {rel} {nat}": "{rel_ar_f} {nat_ar_f}",
-    # Job + Religion (Female)
-    "female {job} {rel}": "{job_ar_f} {rel_ar_f}",
-    "women's {job} {rel}": "{job_ar_f} {rel_ar_f}",
-    "{job} female {rel}": "{job_ar_f} {rel_ar_f}",
-    "{job} women's {rel}": "{job_ar_f} {rel_ar_f}",
-    "{job} {rel} female": "{job_ar_f} {rel_ar_f}",
-    "{job} {rel} women's": "{job_ar_f} {rel_ar_f}",
-    "female {rel} {job}": "{job_ar_f} {rel_ar_f}",
-    "women's {rel} {job}": "{job_ar_f} {rel_ar_f}",
-    # Simple religious labels (Female)
-    "female {rel}": "{rel_ar_f}",
-    "women's {rel}": "{rel_ar_f}",
-    "{rel} female": "{rel_ar_f}",
-    "{rel} women's": "{rel_ar_f}",
 }
 
 # 1. Main Bot for Nationality + Religion (V2)
@@ -103,14 +82,6 @@ _simple_m_bot = FormatData(
     value_placeholder="{rel_ar}",
 )
 
-# 4. Simple Fallback Bot for (Female)
-_simple_f_bot = FormatData(
-    formatted_data={"female {rel}": "{rel_ar_f}", "women's {rel}": "{rel_ar_f}"},
-    data_list={k: v.get("females") for k, v in RELIGIOUS_KEYS_PP.items() if v.get("females")},
-    key_placeholder="{rel}",
-    value_placeholder="{rel_ar_f}",
-)
-
 
 def resolve_nats_jobs(category: str) -> str:
     """
@@ -124,6 +95,7 @@ def resolve_nats_jobs(category: str) -> str:
 
     if res := _nat_rel_bot_v2.search(category_lower):
         return res
+
     if res := _job_rel_bot_v2.search(category_lower):
         return res
 
@@ -131,13 +103,10 @@ def resolve_nats_jobs(category: str) -> str:
     for key, labels in RELIGIOUS_KEYS_PP.items():
         if category_lower == key:
             if any(w in category_lower for w in ["female", "women's"]):
-                return labels.get("females", "")
+                return ""  # female labels should not resolve in this model
             return labels.get("males", "")
 
     if res := _simple_m_bot.search(category_lower):
-        return res
-
-    if res := _simple_f_bot.search(category_lower):
         return res
 
     return ""
