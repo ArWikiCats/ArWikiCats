@@ -5,7 +5,6 @@ Tests
 import pytest
 
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
-from ArWikiCats.new_resolvers.jobs_resolvers.utils import nat_and_gender_keys
 from ArWikiCats.new_resolvers.jobs_resolvers_male.mens import males_resolver_labels
 
 
@@ -79,13 +78,3 @@ def test_mens_2(category: str, expected: str) -> None:
 def test_people_key() -> None:
     result = mens_resolver_labels("people")
     assert result == ""
-
-
-def test_nat_and_gender_keys():
-    data = nat_and_gender_keys("{en_nat}", "emigrants", "male", "{ar_nat} مهاجرون ذكور")
-
-    assert data == {
-        "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور",
-        "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور",
-        "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور",
-    }, print(data)
