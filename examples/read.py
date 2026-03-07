@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 Dir = Path(__file__).parent
 
-f_path = Dir / "language.json"
+f_path = Dir / "male.json"
 
 f_data = {}
 
@@ -17,7 +17,7 @@ for file in tqdm(json_files, desc="Processing JSON files"):
         json_data = json.load(f)
     json_data_original = json_data.copy()
     for key, value in json_data.copy().items():
-        if "language" in key:
+        if " male " in key:
             f_data[key] = value
             del json_data[key]
     if json_data_original != json_data:
