@@ -13,6 +13,7 @@ More examples:
 
 import functools
 import logging
+from typing import Callable
 
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
@@ -35,7 +36,7 @@ formatted_data = {
 
 
 @functools.lru_cache(maxsize=10000)
-def get_job_label(text: str, callback=None) -> str:
+def get_job_label(text: str, callback: Callable | None = None) -> str:
     text = normalize_text(text)
     result = jobs_part_labels.get(text) or ""
 
@@ -75,7 +76,7 @@ def match_key_callback(text: str) -> str:
 
 
 @functools.lru_cache(maxsize=1)
-def multi_bot_v4(callback=None) -> MultiDataFormatterYearAndFrom:
+def multi_bot_v4(callback: Callable | None = None) -> MultiDataFormatterYearAndFrom:
     country_bot = FormatDataFrom(
         formatted_data=formatted_data,
         key_placeholder="{country1}",
@@ -98,7 +99,7 @@ def multi_bot_v4(callback=None) -> MultiDataFormatterYearAndFrom:
 
 
 @functools.lru_cache(maxsize=10000)
-def resolve_year_job_countries(category: str, callback=None) -> str:
+def resolve_year_job_countries(category: str, callback: Callable | None = None) -> str:
     """Resolve year and job from countries using multi_bot_v4."""
     logger.debug(f"<<yellow>> start {category=}")
 

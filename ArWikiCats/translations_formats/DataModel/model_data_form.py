@@ -3,7 +3,7 @@
 
 import logging
 import re
-from typing import Callable, Optional
+from typing import Callable
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +45,7 @@ class FormatDataFrom:
         value_placeholder: str,
         search_callback: Callable,
         match_key_callback: Callable,
-        fixing_callback: Optional[Callable] = None,
+        fixing_callback: Callable | None = None,
     ) -> None:
         """
         Create a FormatDataFrom instance configured with templates, placeholders, and lookup/matching callbacks.
