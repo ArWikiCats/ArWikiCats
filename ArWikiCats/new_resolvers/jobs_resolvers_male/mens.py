@@ -29,6 +29,21 @@ keys_not_jobs = [
     "men",
 ]
 
+NAT_DATA_MALES = {
+    # males with ذكور
+    "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
+    "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
+    "{en_nat} male sprinters": "عداؤون سريعون ذكور {males}",  # 71
+    # males without ذكور
+    "{en_nat} male martial artists": "ممارسو فنون قتالية ذكور {males}",  # 137
+    "{en_nat} male boxers": "ملاكمون ذكور {males}",  # 136
+    "{en_nat} male athletes": "لاعبو قوى ذكور {males}",  # 81
+    "{en_nat} male actors": "ممثلون ذكور {males}",  # 91
+    "{en_nat} male singers": "مغنون ذكور {males}",  # 85
+    "{en_nat} male writers": "كتاب ذكور {males}",  # 86
+    "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
+}
+
 
 def is_false_key(key: str, value: str) -> bool:
     if ("mens" in key.lower() or "men's" in key.lower()) and "رجالية" in value:
@@ -67,6 +82,7 @@ def _load_formatted_data() -> dict:
     # { "{en_nat} male emigrants": "{males} مهاجرون ذكور", "{en_nat} emigrants male": "{males} مهاجرون ذكور", "male {en_nat} emigrants": "{males} مهاجرون ذكور" }
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
     formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
+    formatted_data_jobs_with_nat.update(NAT_DATA_MALES)
 
     formatted_data_jobs = {
         # base keys

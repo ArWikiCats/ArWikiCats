@@ -26,6 +26,19 @@ NAT_DATA_to_check = {
 }
 
 NAT_DATA_MALES = {
+    # males with ذكور
+    "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
+    "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
+    "{en_nat} male sprinters": "عداؤون سريعون ذكور {males}",  # 71
+    # males without ذكور
+    "{en_nat} male martial artists": "ممارسو فنون قتالية ذكور {males}",  # 137
+    "{en_nat} male boxers": "ملاكمون ذكور {males}",  # 136
+    "{en_nat} male athletes": "لاعبو قوى ذكور {males}",  # 81
+    "{en_nat} male actors": "ممثلون ذكور {males}",  # 91
+    "{en_nat} male singers": "مغنون ذكور {males}",  # 85
+    "{en_nat} male writers": "كتاب ذكور {males}",  # 86
+    "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
+
     # Afghan officials of the United Nations
     "{en_nat} officials of the United Nations": "مسؤولون {males} في الأمم المتحدة",
     # 17th-century Hindu philosophers and theologians
@@ -124,17 +137,4 @@ NAT_DATA_MALES = {
     "{en_nat} civil servants": "موظفو خدمة مدنية {males}",  # 100
     "{en_nat} nationalists": "قوميون {males}",  # 99
     "{en_nat} martial artists": "ممارسو فنون قتالية {males}",  # 120
-
-    # males with ذكور
-    "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
-    "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
-    "{en_nat} male sprinters": "عداؤون سريعون ذكور {males}",  # 71
-    # males without ذكور
-    "{en_nat} male martial artists": "ممارسو فنون قتالية ذكور {males}",  # 137
-    "{en_nat} male boxers": "ملاكمون ذكور {males}",  # 136
-    "{en_nat} male athletes": "لاعبو قوى ذكور {males}",  # 81
-    "{en_nat} male actors": "ممثلون ذكور {males}",  # 91
-    "{en_nat} male singers": "مغنون ذكور {males}",  # 85
-    "{en_nat} male writers": "كتاب ذكور {males}",  # 86
-    "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
 }
