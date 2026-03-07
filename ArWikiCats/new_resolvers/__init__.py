@@ -104,6 +104,10 @@ _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
 ]
 
 
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
 @functools.lru_cache(maxsize=50000)
 def all_new_resolvers(category: str) -> str:
     """Apply all new resolvers to translate a category string.

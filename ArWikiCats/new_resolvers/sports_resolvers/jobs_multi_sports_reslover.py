@@ -12,7 +12,7 @@ import logging
 
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 from ..countries_names_resolvers.medalists_resolvers import medalists_data
-from ..jobs_resolvers import main_jobs_resolvers
+from .. import wrap_main_jobs_resolvers
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +60,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         formatted_data=formatted_data,
         key_placeholder="{en_job}",
         value_placeholder="{ar_job}",
-        search_callback=main_jobs_resolvers,
+        search_callback=wrap_main_jobs_resolvers,
         match_key_callback=match_key_callback,
     )
     game_bot = FormatDataFrom(

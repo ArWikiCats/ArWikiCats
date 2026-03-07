@@ -19,7 +19,7 @@ from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en
 from ...translations import medical_keys
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..jobs_resolvers import main_jobs_resolvers
+from .. import wrap_main_jobs_resolvers
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ formatted_data = {
 @functools.lru_cache(maxsize=10000)
 def get_job_label(text: str) -> str:
     text = normalize_text(text)
-    result = jobs_part_labels.get(text) or main_jobs_resolvers(text) or ""
+    result = jobs_part_labels.get(text) or wrap_main_jobs_resolvers(text) or ""
 
     return result
 
