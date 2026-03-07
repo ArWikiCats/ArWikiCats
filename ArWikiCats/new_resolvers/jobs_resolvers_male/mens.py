@@ -1,8 +1,6 @@
 """
 copied from ArWikiCats/new_resolvers/jobs_resolvers/mens.py
 
-This module goal is to collect all `male` resolvers so it can replaced later by genders_resolvers.
-
 """
 
 import functools

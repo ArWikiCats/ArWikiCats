@@ -7,7 +7,7 @@ nationalities, and descriptors for women into idiomatic Arabic.
 import functools
 import logging
 
-from ..jobs_resolvers_male.mens import males_resolver_labels
+from ..jobs_resolvers_male import males_resolver_labels
 
 from ...helps import len_print
 from ...translations import (

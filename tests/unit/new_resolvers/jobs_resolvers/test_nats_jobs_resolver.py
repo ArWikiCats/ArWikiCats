@@ -4,7 +4,7 @@
 import pytest
 
 from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import resolve_nats_jobs
-from ArWikiCats.new_resolvers.jobs_resolvers_male.relegins_nats import resolve_nats_jobs_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers_male import resolve_nats_jobs_for_males
 
 # from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix as resolve_nats_jobs
 # from ArWikiCats.new_resolvers.reslove_all import all_new_resolvers as resolve_nats_jobs
