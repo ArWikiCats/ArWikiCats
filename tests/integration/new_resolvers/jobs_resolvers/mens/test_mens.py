@@ -4,7 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels, nat_and_gender_keys
+from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from ArWikiCats.new_resolvers.jobs_resolvers.utils import nat_and_gender_keys
 from ArWikiCats.new_resolvers.jobs_resolvers_male.mens import males_resolver_labels
 
 

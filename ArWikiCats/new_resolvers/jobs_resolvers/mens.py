@@ -163,9 +163,6 @@ def _load_formatted_data() -> dict:
         # emigrants keys
         "emigrants {en_job}": "{ar_job} مهاجرون",
     }
-    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور")) # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
-    # formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور")) # moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
-
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(
         {
