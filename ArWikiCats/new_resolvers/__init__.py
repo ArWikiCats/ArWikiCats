@@ -58,7 +58,8 @@ _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
     ),
     (
         "Time + Jobs resolvers",
-        time_and_jobs_resolvers_main,
+        # time_and_jobs_resolvers_main,
+        lambda cat: time_and_jobs_resolvers_main(cat, callback=wrap_main_jobs_resolvers),
         "Combined time period and job titles",
     ),
     (
@@ -102,6 +103,10 @@ _RESOLVER_CHAIN: list[tuple[str, ResolverFn, str]] = [
         "Catch-all for remaining patterns",
     ),
 ]
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=50000)

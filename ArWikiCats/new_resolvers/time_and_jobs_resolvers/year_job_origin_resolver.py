@@ -19,8 +19,6 @@ from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en
 from ...translations import medical_keys
 from ...translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from ...translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
-from ..jobs_resolvers import main_jobs_resolvers
-from ..jobs_resolvers_male import main_jobs_resolvers_for_males
 
 logger = logging.getLogger(__name__)
 
@@ -156,8 +154,8 @@ def multi_bot_v4(callback=None) -> MultiDataFormatterYearAndFrom:
     )
 
 
-def wrap_main_jobs_resolvers(category) -> str:
-    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+# def wrap_main_jobs_resolvers(category) -> str:
+#     return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
 
 
 @functools.lru_cache(maxsize=10000)
@@ -169,7 +167,7 @@ def resolve_year_job_from_countries(category: str, callback=None) -> str:
         return ""
 
     if not callback:
-        callback = wrap_main_jobs_resolvers
+        return ""
 
     category = normalize_text(category)
 

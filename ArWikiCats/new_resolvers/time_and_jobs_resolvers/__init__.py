@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def time_and_jobs_resolvers_main(normalized_category) -> str:
+def time_and_jobs_resolvers_main(normalized_category, callback=None) -> str:
     """
     Resolve a combined time-period-and-job category string to its Arabic label.
 
@@ -33,7 +33,7 @@ def time_and_jobs_resolvers_main(normalized_category) -> str:
     logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
 
     resolved_label = (
-        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category)
+        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category, callback=callback)
         or year_job_resolver.resolve_year_job_countries(normalized_category)
         or ""
     )
