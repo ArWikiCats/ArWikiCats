@@ -89,6 +89,10 @@ test_data2 = {
     "Male television actors from Georgia (country)": "ممثلو تلفزيون ذكور من جورجيا",
     "Male voice actors from Sendai": "ممثلو أداء صوتي ذكور من سنداي",
     "Male field hockey goalkeepers": "حراس مرمى هوكي ميدان ذكور",
+    "Kosovan sportsmen": "رياضيون رجال كوسوفيون",
+    "Greek men": "رجال يونانيون",
+    "Emirati men": "رجال إماراتيون",
+    "Finnish men": "رجال فنلنديون",
 }
 
 
