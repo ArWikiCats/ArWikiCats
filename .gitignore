@@ -30,4 +30,4 @@ _work_files/*.json
 tests/legacy_bots/test_new_ideas.py
 /deepwiki.md
 .claude/settings.local.json
-_work_files/move.wiki
+_work_files/*.wiki
