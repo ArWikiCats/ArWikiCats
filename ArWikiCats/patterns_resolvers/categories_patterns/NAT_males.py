@@ -25,20 +25,9 @@ NAT_DATA_to_check = {
     "{en_nat} diaspora in united states": "شتات {males} في الولايات المتحدة",  # 126
 }
 
-NAT_DATA_MALES = {
-    # males with ذكور
-    "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
-    "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
-    "{en_nat} male sprinters": "عداؤون سريعون ذكور {males}",  # 71
-    # males without ذكور
-    "{en_nat} male martial artists": "ممارسو فنون قتالية ذكور {males}",  # 137
-    "{en_nat} male boxers": "ملاكمون ذكور {males}",  # 136
-    "{en_nat} male athletes": "لاعبو قوى ذكور {males}",  # 81
-    "{en_nat} male actors": "ممثلون ذكور {males}",  # 91
-    "{en_nat} male singers": "مغنون ذكور {males}",  # 85
-    "{en_nat} male writers": "كتاب ذكور {males}",  # 86
-    "{en_nat} male film actors": "ممثلو أفلام ذكور {males}",  # 80
+# `male` keys moved to ArWikiCats/new_resolvers/jobs_resolvers_male/mens.py
 
+NAT_DATA_MALES = {
     # Afghan officials of the United Nations
     "{en_nat} officials of the United Nations": "مسؤولون {males} في الأمم المتحدة",
     # 17th-century Hindu philosophers and theologians
@@ -54,13 +43,10 @@ NAT_DATA_MALES = {
     "{en_nat} lgbtq people": "أعلام إل جي بي تي كيو {males}",  # 187
     "{en_nat} people by occupation": "{males} حسب المهنة",  # 182
     "{en_nat} sports-people": "رياضيون {males}",  # 174
-    "{en_nat} men": "رجال {males}",  # 183
-    "{en_nat} sportsmen": "رياضيون رجال {males}",  # 182
     "{en_nat} people in sports": "{males} في ألعاب رياضية",  # 177
     "{en_nat} people by ethnic or national origin": "{males} حسب الأصل العرقي أو الوطني",  # 178
     "{en_nat} expatriates": "{males} مغتربون",  # 116
     "{en_nat} expatriate": "{males} مغتربون",  # 116
-    "{en_nat} men by occupation": "رجال {males} حسب المهنة",  # 174
     "{en_nat} people by descent": "{males} حسب الأصل العرقي أو الوطني",  # 175
     "{en_nat} writers": "كتاب {males}",  # 95
     "{en_nat} politicians": "سياسيون {males}",  # 179
