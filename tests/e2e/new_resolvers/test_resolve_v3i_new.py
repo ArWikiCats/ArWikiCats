@@ -6,6 +6,17 @@ import pytest
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 from utils.dump_runner import make_dump_test_name_data_callback
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=wrap_main_jobs_resolvers)
+
 
 test_data_standard = {
     "10th-century clergy from the Holy Roman Empire": "رجال دين من الإمبراطورية الرومانية المقدسة في القرن 10",
@@ -845,7 +856,7 @@ test_data_1 = {
 @pytest.mark.slow
 def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)
@@ -856,7 +867,7 @@ def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
 @pytest.mark.slow
 def test_year_job_origin_resolver_new_2(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_1."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)
@@ -864,8 +875,8 @@ def test_year_job_origin_resolver_new_2(category: str, expected: str) -> None:
 
 
 to_test = [
-    ("test_year_job_origin_resolver_new_1", test_data_standard, resolve_year_job_from_countries),
-    ("test_year_job_origin_resolver_new_2", test_data_1, resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_1", test_data_standard, wrap_resolve_year_job_from_countries),
+    ("test_year_job_origin_resolver_new_2", test_data_1, wrap_resolve_year_job_from_countries),
 ]
 
 test_dump_all = make_dump_test_name_data_callback(to_test, run_same=True)

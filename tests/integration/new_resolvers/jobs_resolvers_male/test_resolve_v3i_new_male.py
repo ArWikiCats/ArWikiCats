@@ -6,6 +6,13 @@ import pytest
 from ArWikiCats import resolve_label_ar
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=main_jobs_resolvers_for_males)
+
+
 test_data_standard = {
     "20th-century male actors from Georgia (country)": "ممثلون ذكور من جورجيا في القرن 20",
     "21st-century male actors from Georgia (country)": "ممثلون ذكور من جورجيا في القرن 21",
@@ -41,7 +48,7 @@ test_data_standard = {
 @pytest.mark.slow
 def test_year_job_origin_resolver_new_1(category: str, expected: str) -> None:
     """Test resolve year job from countries function for test_data_standard."""
-    result1 = resolve_year_job_from_countries(category)
+    result1 = wrap_resolve_year_job_from_countries(category)
     assert result1 == expected
 
     result2 = resolve_label_ar(category)

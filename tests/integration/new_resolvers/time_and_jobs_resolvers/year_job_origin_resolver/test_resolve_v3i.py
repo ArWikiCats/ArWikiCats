@@ -8,7 +8,19 @@ from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver i
     resolve_year_job_from_countries,
 )
 
-bot = multi_bot_v4()
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=wrap_main_jobs_resolvers)
+
+
+bot = multi_bot_v4(callback=wrap_main_jobs_resolvers)
 
 
 class TestCountriesPart:
@@ -70,7 +82,7 @@ class TestAllParts:
         """
         Test
         """
-        result = resolve_year_job_from_countries(category)
+        result = wrap_resolve_year_job_from_countries(category)
         assert result == expected
 
     data_2 = {
@@ -91,7 +103,7 @@ class TestAllParts:
         """
         Test
         """
-        result = resolve_year_job_from_countries(category)
+        result = wrap_resolve_year_job_from_countries(category)
         assert result == expected
 
     deaths_data = {
@@ -103,5 +115,5 @@ class TestAllParts:
         """
         pytest tests/time_and_jobs_resolvers/test_year_job_origin_resolver.py::TestAllParts::test_deaths_data
         """
-        result = resolve_year_job_from_countries(category)
+        result = wrap_resolve_year_job_from_countries(category)
         assert result == expected

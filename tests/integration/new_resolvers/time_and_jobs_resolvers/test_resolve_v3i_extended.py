@@ -5,6 +5,18 @@ import pytest
 
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+
+
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
+def wrap_resolve_year_job_from_countries(category) -> str:
+    return resolve_year_job_from_countries(category, callback=wrap_main_jobs_resolvers)
+
+
 test_0 = {
     "21st-century people from Northern Ireland by occupation": "أشخاص من أيرلندا الشمالية حسب المهنة في القرن 21",
     "21st-century people from Georgia (country) by occupation": "أشخاص من جورجيا في القرن 21 حسب المهنة",
@@ -28,7 +40,7 @@ test_0 = {
 @pytest.mark.parametrize("category,expected", test_0.items(), ids=test_0.keys())
 @pytest.mark.skip2
 def test_year_job_origin_resolver_extended_1(category: str, expected: str) -> None:
-    result = resolve_year_job_from_countries(category)
+    result = wrap_resolve_year_job_from_countries(category)
     assert result == expected
 
 
@@ -36,4 +48,4 @@ to_test = [
     ("test_year_job_origin_resolver_extended_1", test_0),
 ]
 
-# test_dump_all = make_dump_test_name_data(to_test, resolve_year_job_from_countries, run_same=True)
+# test_dump_all = make_dump_test_name_data(to_test, wrap_resolve_year_job_from_countries, run_same=True)
