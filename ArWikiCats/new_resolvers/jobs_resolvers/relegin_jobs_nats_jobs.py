@@ -127,7 +127,7 @@ def resolve_nats_jobs(category: str) -> str:
     # Check for direct matches in RELIGIOUS_KEYS_PP as a fallback
     for key, labels in RELIGIOUS_KEYS_PP.items():
         if category_lower == key:
-            if any(w in category_lower for w in ["female", "women's"]):
+            if any(w in category_lower for w in ["female", "women's", "women", "womens"]):
                 return labels.get("females", "")
             return labels.get("males", "")
 
