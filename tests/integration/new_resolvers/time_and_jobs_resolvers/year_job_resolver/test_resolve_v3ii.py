@@ -3,6 +3,8 @@
 
 import pytest
 
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_resolver import resolve_year_job_countries
 
 test_data = {
@@ -15,10 +17,14 @@ test_data = {
 }
 
 
+def wrap_main_jobs_resolvers(category) -> str:
+    return main_jobs_resolvers(category) or main_jobs_resolvers_for_males(category)
+
+
 @pytest.mark.parametrize("category,expected", test_data.items(), ids=test_data.keys())
 def test_year_job_resolver(category: str, expected: str) -> None:
     """
     pytest tests/time_and_jobs_resolvers/test_year_job_resolver.py::test_data
     """
-    result = resolve_year_job_countries(category)
+    result = resolve_year_job_countries(category, callback=wrap_main_jobs_resolvers)
     assert result == expected

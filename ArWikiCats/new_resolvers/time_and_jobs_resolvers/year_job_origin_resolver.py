@@ -166,9 +166,6 @@ def resolve_year_job_from_countries(category: str, callback=None) -> str:
         logger.debug(f"<<yellow>> skip : {category=} not FROM_REGEX.match(category)")
         return ""
 
-    if not callback:
-        return ""
-
     category = normalize_text(category)
 
     _bot = multi_bot_v4(callback=callback)

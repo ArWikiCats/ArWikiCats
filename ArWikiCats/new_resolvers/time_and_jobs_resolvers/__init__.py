@@ -34,7 +34,7 @@ def time_and_jobs_resolvers_main(normalized_category, callback=None) -> str:
 
     resolved_label = (
         year_job_origin_resolver.resolve_year_job_from_countries(normalized_category, callback=callback)
-        or year_job_resolver.resolve_year_job_countries(normalized_category)
+        or year_job_resolver.resolve_year_job_countries(normalized_category, callback=callback)
         or ""
     )
 
