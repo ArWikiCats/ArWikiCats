@@ -15,7 +15,7 @@ from ...translations import (
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
 from ..nats_as_country_names import nats_keys_as_country_names
-from ..jobs_resolvers.utils import fix_keys, nat_and_gender_keys
+from ..jobs_resolvers.utils import fix_keys
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -28,6 +28,10 @@ keys_not_jobs = [
 ]
 
 NAT_DATA_MALES = {
+    "{en_nat} men": "رجال {males}",  # 183
+    "{en_nat} sportsmen": "رياضيون رجال {males}",  # 182
+    "{en_nat} men by occupation": "رجال {males} حسب المهنة",  # 174
+
     # males with ذكور
     "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
     "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
@@ -75,11 +79,16 @@ def _load_formatted_data() -> dict:
         "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {males} مغتربون",
 
         "male {en_nat}": "{males} ذكور",
+
+        'male {en_nat} expatriate': '{males} مغتربون ذكور',
+        '{en_nat} expatriate male': '{males} مغتربون ذكور',
+        '{en_nat} male expatriate': '{males} مغتربون ذكور',
+
+        'male {en_nat} emigrants': '{males} مهاجرون ذكور',
+        '{en_nat} emigrants male': '{males} مهاجرون ذكور',
+        '{en_nat} male emigrants': '{males} مهاجرون ذكور',
     }
 
-    # { "{en_nat} male emigrants": "{males} مهاجرون ذكور", "{en_nat} emigrants male": "{males} مهاجرون ذكور", "male {en_nat} emigrants": "{males} مهاجرون ذكور" }
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "emigrants", "male", "{males} مهاجرون ذكور"))
-    formatted_data_jobs_with_nat.update(nat_and_gender_keys("{en_nat}", "expatriate", "male", "{males} مغتربون ذكور"))
     formatted_data_jobs_with_nat.update(NAT_DATA_MALES)
 
     formatted_data_jobs = {
@@ -90,10 +99,15 @@ def _load_formatted_data() -> dict:
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
-    }
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "emigrants", "male", "{ar_job} مهاجرون ذكور"))
-    formatted_data_jobs.update(nat_and_gender_keys("{en_job}", "expatriate", "male", "{ar_job} مغتربون ذكور"))
 
+        'male {en_job} emigrants': '{ar_job} مهاجرون ذكور',
+        '{en_job} emigrants male': '{ar_job} مهاجرون ذكور',
+        '{en_job} male emigrants': '{ar_job} مهاجرون ذكور',
+
+        'male {en_job} expatriate': '{ar_job} مغتربون ذكور',
+        '{en_job} expatriate male': '{ar_job} مغتربون ذكور',
+        '{en_job} male expatriate': '{ar_job} مغتربون ذكور',
+    }
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(
         {
