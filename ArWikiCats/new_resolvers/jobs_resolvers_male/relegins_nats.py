@@ -95,6 +95,9 @@ def resolve_nats_jobs_for_males(category: str) -> str:
     """
     category_lower = category.lower().strip()
 
+    if any(w in category_lower for w in ["female", "women's"]):
+        return ""  # female labels should not resolve in this model
+
     if res := _nat_rel_bot_v2.search(category_lower):
         return res
 
@@ -104,8 +107,6 @@ def resolve_nats_jobs_for_males(category: str) -> str:
     # Check for direct matches in RELIGIOUS_KEYS_PP as a fallback
     for key, labels in RELIGIOUS_KEYS_PP.items():
         if category_lower == key:
-            if any(w in category_lower for w in ["female", "women's"]):
-                return ""  # female labels should not resolve in this model
             return labels.get("males", "")
 
     if res := _simple_m_bot.search(category_lower):

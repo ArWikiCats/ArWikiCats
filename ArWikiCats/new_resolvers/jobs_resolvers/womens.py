@@ -203,9 +203,9 @@ def _load_jobs_data() -> dict[str, str]:
 
 
 @functools.lru_cache(maxsize=1)
-def _load_nat_data() -> dict[str, str]:
-    # nats_data: dict[str, str] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
-    nats_data: dict[str, str] = dict(All_Nat.items())  # 342
+def _load_nat_data() -> dict[str, dict]:
+    # nats_data: dict[str, dict] = {x: v for x, v in all_country_with_nat_ar.items()}  # 342
+    nats_data: dict[str, dict] = dict(All_Nat.items())  # 342
 
     nats_data.update(dict(nats_keys_as_country_names.items()))
 

@@ -12,7 +12,7 @@ def test_nat_and_gender_keys_male():
         "{en_nat} male emigrants": "{ar_nat} مهاجرون ذكور",
         "{en_nat} emigrants male": "{ar_nat} مهاجرون ذكور",
         "male {en_nat} emigrants": "{ar_nat} مهاجرون ذكور",
-    }, print(data)
+    }, f"Unexpected result: {data}"
 
 
 def test_nat_and_gender_keys_female():
@@ -22,7 +22,7 @@ def test_nat_and_gender_keys_female():
         "{en_nat} {women} expatriate": "{ar_nat} مغتربات",
         "{en_nat} expatriate {women}": "{ar_nat} مغتربات",
         "{women} {en_nat} expatriate": "{ar_nat} مغتربات",
-    }, print(data)
+    }, f"Unexpected result: {data}"
 
 
 def test_nat_and_gender_keys_2():
@@ -32,4 +32,4 @@ def test_nat_and_gender_keys_2():
         'male {en_job} emigrants': '{ar_job} مهاجرون ذكور',
         '{en_job} emigrants male': '{ar_job} مهاجرون ذكور',
         '{en_job} male emigrants': '{ar_job} مهاجرون ذكور',
-    }, print(data)
+    }, f"Unexpected result: {data}"
