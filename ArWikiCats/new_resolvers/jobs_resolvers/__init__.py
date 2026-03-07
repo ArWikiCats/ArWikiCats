@@ -8,6 +8,7 @@ import functools
 import logging
 
 from . import mens, relegin_jobs_new, womens
+from ..jobs_resolvers_male.relegins import new_religions_jobs_for_males
 from ..jobs_resolvers_male.mens import males_resolver_labels
 
 logger = logging.getLogger(__name__)
@@ -33,6 +34,7 @@ def main_jobs_resolvers(normalized_category) -> str:
         or males_resolver_labels(normalized_category)
         or womens.womens_resolver_labels(normalized_category)
         or relegin_jobs_new.new_religions_jobs_with_suffix(normalized_category)
+        or new_religions_jobs_for_males(normalized_category)
         or ""
     )
 

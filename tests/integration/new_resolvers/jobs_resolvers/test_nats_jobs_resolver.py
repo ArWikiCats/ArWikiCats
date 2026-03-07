@@ -171,7 +171,7 @@ def test_relegin_nats_jobs(input_text: str, expected: str) -> None:
 
 
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
-def test_religions_jobs_1(category: str, expected: str) -> None:
+def test_nats_jobs_resolver_1(category: str, expected: str) -> None:
     result = resolve_nats_jobs(category)
     assert result == expected
 

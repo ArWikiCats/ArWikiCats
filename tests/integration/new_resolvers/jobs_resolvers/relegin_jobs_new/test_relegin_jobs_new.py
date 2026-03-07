@@ -1,9 +1,13 @@
 """ """
 
 import pytest
+from ArWikiCats.new_resolvers.jobs_resolvers_male.relegins import new_religions_jobs_for_males
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
+
+def wrap_new_religions_jobs_with_suffix(category):
+    return new_religions_jobs_with_suffix(category) or new_religions_jobs_for_males(category)
 
 test_religions_data = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",
@@ -25,7 +29,7 @@ test_religions_female_data = {
 @pytest.mark.parametrize("category,expected", test_religions_data.items(), ids=test_religions_data.keys())
 @pytest.mark.fast
 def test_religions_jobs_1(category: str, expected: str) -> None:
-    result = new_religions_jobs_with_suffix(category)
+    result = wrap_new_religions_jobs_with_suffix(category)
     assert result == expected
 
 
@@ -33,13 +37,13 @@ def test_religions_jobs_1(category: str, expected: str) -> None:
 @pytest.mark.fast
 def test_religions_females(category: str, expected: str) -> None:
     """Test all nat translation patterns."""
-    result = new_religions_jobs_with_suffix(category)
+    result = wrap_new_religions_jobs_with_suffix(category)
     assert result == expected
 
 
 TEMPORAL_CASES = [
-    ("test_religions_jobs_1", test_religions_data, new_religions_jobs_with_suffix),
-    ("test_religions_females", test_religions_female_data, new_religions_jobs_with_suffix),
+    ("test_religions_jobs_1", test_religions_data, wrap_new_religions_jobs_with_suffix),
+    ("test_religions_females", test_religions_female_data, wrap_new_religions_jobs_with_suffix),
 ]
 
 
