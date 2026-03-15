@@ -276,6 +276,7 @@ def cleanse_category_label(category_lab: str) -> str:
         The cleansed category label with specific formatting corrections applied.
     """
     category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
+    category_lab = category_lab.replace("ـ", "")
     return category_lab
 
 
@@ -309,6 +310,8 @@ def fixlabel(label_old: str, en: str = "") -> str:
         return ""
 
     label_old = label_old.strip()
+    label_old = label_old.replace("ـ", "")
+
     label_old = label_old.replace("_", " ")
     label_old = re.sub(r"تصنيف\:\s*", "", label_old)
     label_old = re.sub(r"تصنيف:", "", label_old)
