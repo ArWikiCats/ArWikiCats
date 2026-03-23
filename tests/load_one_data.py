@@ -5,9 +5,7 @@ from typing import Callable
 
 
 diff_data_path = Path(__file__).parent / "diff_data"
-diff_data_path_same = diff_data_path / "same"
-
-diff_data_path_same.mkdir(exist_ok=True, parents=True)
+diff_data_path.mkdir(exist_ok=True, parents=True)
 
 
 def dump_one(data: dict, file_name: str, folder: Path = diff_data_path) -> None:
@@ -104,8 +102,16 @@ def one_dump_test_no_labels(dataset: dict, callback: Callable[[str], str], do_st
     return org, diff, no_labels
 
 
-def dump_same(data, name):
-    dump_one(data, name, diff_data_path_same)
+def dump_one_new(data: dict, folder_name: str, file_name: str) -> None:
+    folder_path = diff_data_path / folder_name
+    folder_path.mkdir(exist_ok=True, parents=True)
+    file_path = folder_path / f"{file_name}.json"
+
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error writing diff data: {e}")
 
 
 def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool = False) -> None:
@@ -119,8 +125,8 @@ def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: 
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
     if len(same_data) != len(data) or just_dump:
-        dump_same(same_data, name)
+        dump_one_new(same_data, name, "same")
 
     add_data = {x: v for x, v in data.items() if x in diff_result}
     if len(add_data) != len(data) or just_dump:
-        dump_diff(add_data, f"{name}_not_same")
+        dump_one_new(add_data, name, "not_same")
