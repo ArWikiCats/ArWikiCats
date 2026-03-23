@@ -128,7 +128,8 @@ def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: 
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
     if len(same_data) != len(data) or just_dump:
-        dump_one_new(same_data, name, "same")
+        # dump_one_new(same_data, name, "same")
+        dump_one_new(same_data, "same", name)  # folder named `same`
 
     add_data = {x: v for x, v in data.items() if x in diff_result}
     if len(add_data) != len(data) or just_dump:

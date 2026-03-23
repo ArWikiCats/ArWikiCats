@@ -20,10 +20,7 @@ def _test_data_helper(load_json_data: tuple[dict[str, str], str]) -> None:
     data, name = load_json_data
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-
-    # dump_one_new(diff_result, name, "new")
-    dump_one_new(diff_result, "same", name)
-
+    dump_one_new(diff_result, name, "new")
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
