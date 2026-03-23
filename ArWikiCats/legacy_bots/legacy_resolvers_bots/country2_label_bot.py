@@ -147,7 +147,7 @@ def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized:
     if maren:
         if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
             resolved_label = f"حرب {part_2_normalized}"
-            logger.info(f'<<lightpurple>> >>>> change cnt_la to "{resolved_label}".')
+            logger.info(f'<<lightpurple>> >>>> change cnt_la to {resolved_label=}.')
 
     return resolved_label
 
@@ -218,7 +218,7 @@ def make_cnt_lab(
 
     resolved_label = resolved_label.replace(" في في ", " في ")
 
-    logger.info(f'<<lightpurple>> >>>> country 2_tit "{country2}": label: {resolved_label}')
+    logger.info(f'<<lightpurple>> >>>> country 2_tit {country2=}: label: {resolved_label}')
 
     resolved_label = " ".join(resolved_label.strip().split())
     resolved_label = _resolve_war(resolved_label, part_2_normalized, part_1_normalized)

@@ -238,7 +238,7 @@ class LabelForStartWithYearOrTypeo:
 
                 logger.info(f"a<<lightred>> arlabel ppoi:{self.arlabel}")
                 logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
-                logger.info("<<lightblue>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+                logger.info("<<lightblue>> event2 end 3 ")
 
                 return self.arlabel
 

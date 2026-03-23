@@ -88,7 +88,7 @@ def Get_country2(country: str) -> str:
     """
 
     country = country.lower().strip()
-    logger.info(f'>> "{country}":')
+    logger.info(f'>> {country=}:')
 
     resolved_label = (
         country_2_title_work(country, with_years=True)
@@ -104,7 +104,7 @@ def Get_country2(country: str) -> str:
 
     resolved_label = " ".join(resolved_label.strip().split())
 
-    logger.info(f'>> "{country}": cnt_la: {resolved_label}')
+    logger.info(f'>> {country=}: cnt_la: {resolved_label}')
 
     return resolved_label
 
@@ -203,7 +203,6 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         """
         country = country.lower()
 
-        logger.debug(">> ----------------- start ----------------- ")
         logger.debug(f"<<yellow>> start {country=}")
 
         result = self._check_basic_lookups(country)

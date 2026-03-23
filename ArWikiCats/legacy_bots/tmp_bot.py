@@ -36,10 +36,10 @@ def create_label_from_prefix(input_label):
             resolved_label = (
                 get_lab_for_country2(remaining_label) or get_pop_All_18(remaining_label) or get_KAKO(remaining_label)
             )
-            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {remaining_label=}')
+            logger.info(f'>>>><<lightblue>>{input_label=}, {remaining_label=}')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>> Work_ Templates.startswith prefix("{prefix}"), {resolved_label=}')
+                logger.info(f'>>>><<lightblue>>.startswith prefix({prefix=}), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
                 logger.info(f">>>> {template_label=}")
                 break
@@ -62,13 +62,13 @@ def create_label_from_suffix(input_label):
     for suffix, format_template in combined_suffix_mappings.items():
         if input_label.endswith(suffix.lower()):
             base_label = input_label[: -len(suffix)]
-            logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {base_label=}')
+            logger.info(f'>>>><<lightblue>>.endswith suffix({suffix=}), {base_label=}')
 
             resolved_label = get_lab_for_country2(base_label) or get_pop_All_18(base_label) or get_KAKO(base_label)
-            logger.info(f'>>>><<lightblue>> Work_ Templates :"{input_label}", {base_label=}')
+            logger.info(f'>>>><<lightblue>>{input_label=}, {base_label=}')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>> Work_ Templates.endswith suffix("{suffix}"), {resolved_label=}')
+                logger.info(f'>>>><<lightblue>>.endswith suffix({suffix=}), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
                 logger.info(f">>>> {template_label=}")
                 break
@@ -90,7 +90,7 @@ def Work_Templates(input_label: str) -> str:
         The corresponding Arabic label if a match is found, otherwise an empty string
     """
     input_label = input_label.lower().strip()
-    logger.info(f">> ----------------- start Work_ Templates ----------------- {input_label=}")
+    logger.info(f">> start  {input_label=}")
     data = {
         "sports leagues": "دوريات رياضية",
     }
@@ -98,5 +98,5 @@ def Work_Templates(input_label: str) -> str:
         data.get(input_label) or create_label_from_suffix(input_label) or create_label_from_prefix(input_label)
     )
 
-    logger.info(">> ----------------- end Work_ Templates ----------------- ")
+    logger.info(">> end ")
     return template_label

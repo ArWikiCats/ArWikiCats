@@ -281,7 +281,7 @@ class FormatDataBase:
 
         template_label = self.get_template(sport_key, category)
         if not template_label:
-            logger.debug(f'No template label matched for sport key: "{sport_key}" and {category=}')
+            logger.debug(f'No template label matched for sport key: {sport_key=} and {category=}')
             return ""
 
         result = self.apply_pattern_replacement(template_label, sport_label)

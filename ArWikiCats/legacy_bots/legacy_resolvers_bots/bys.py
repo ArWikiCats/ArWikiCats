@@ -32,7 +32,7 @@ def find_dual_by_keys(normalized: str) -> str:
 
     if first_label and second_label:
         resolved = f"حسب {first_label} و{second_label}"
-        logger.debug(f"<<lightblue>> ^^^^^^^^^ make_by_label lab:{resolved}.")
+        logger.debug(f"<<lightblue>> make_by_label lab:{resolved}.")
 
     return resolved
 
@@ -62,7 +62,7 @@ def make_new_by_label(category: str) -> str:
     if not resolved:
         resolved = find_dual_by_keys(normalized)
 
-    logger.info("<<lightblue>> ^^^^^^^^^ end ^^^^^^^^^ ")
+    logger.info("<<lightblue>> end  ")
     return resolved
 
 

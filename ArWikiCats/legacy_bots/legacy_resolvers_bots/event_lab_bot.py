@@ -212,7 +212,7 @@ class EventLabResolver:
         for pri_ff, vas in combined_suffix_mappings.items():
             suffix = pri_ff.lower()
             if category3.endswith(suffix):
-                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff("{pri_ff}")')
+                logger.info(f'>>>><<lightblue>> category3.endswith pri_ff({pri_ff=})')
                 list_of_cat = vas
                 category3 = category3[: -len(suffix)].strip()
                 break

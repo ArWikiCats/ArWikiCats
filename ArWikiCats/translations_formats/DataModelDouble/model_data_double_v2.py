@@ -139,7 +139,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         template_label = self.get_template(sport_key, category)
         if not template_label:
-            logger.debug(f'No template label matched for sport key: "{sport_key}" and {category=}')
+            logger.debug(f'No template label matched for sport key: {sport_key=} and {category=}')
             return ""
 
         logger.debug(f"template_label: {template_label=}")
