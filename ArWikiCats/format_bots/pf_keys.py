@@ -189,9 +189,6 @@ CHANGE_KEY_SECONDARY_REGEX = {
     r" executed people$": " executed-people",
 }
 
-# @dump_data(1)
-
-
 @functools.lru_cache(maxsize=10000)
 def change_key_mappings_replacements(category):
     """Apply primary key mappings replacements to the category string.
@@ -218,7 +215,6 @@ def change_key_mappings_replacements(category):
     return category
 
 
-# @dump_data(1)
 @functools.lru_cache(maxsize=10000)
 def change_key_secondary_replacements(category):
     """Apply secondary key mappings replacements to the category string.
