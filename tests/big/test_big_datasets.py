@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
-from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
+from load_one_data import dump_one_new, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 from utils.resolver_runner import make_resolver_test
@@ -18,8 +18,10 @@ def JSON_FILES(dir_path) -> list:
 
 def _test_data_helper(load_json_data: tuple[dict[str, str], str]) -> None:
     data, name = load_json_data
+
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    dump_diff(diff_result, name)
+    dump_one_new(diff_result, name, "new")
+
     dump_same_and_not_same(data, diff_result, name)
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
