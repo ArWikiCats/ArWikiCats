@@ -538,9 +538,7 @@ class LabelPipeline:
         # in_tables_2 = check_key_new_players(self.type_lower)
 
         # if in_tables_1 and in_tables_2:
-        logger.info("")
         logger.info(" > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-        logger.info("")
 
         faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
             self.separator_stripped.replace("-", " ").strip()
