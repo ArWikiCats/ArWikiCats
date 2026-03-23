@@ -300,7 +300,7 @@ def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

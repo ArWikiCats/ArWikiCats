@@ -322,7 +322,7 @@ def _mens_resolver_labels(category: str) -> str:
     _bot = load_bot()
     result = _bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

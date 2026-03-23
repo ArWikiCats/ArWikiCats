@@ -192,7 +192,7 @@ def resolve_countries_names_sport(category: str) -> str:
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

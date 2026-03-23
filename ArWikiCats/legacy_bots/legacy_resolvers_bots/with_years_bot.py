@@ -157,7 +157,7 @@ def _handle_year_at_start(category_text: str) -> str:
 
     label = remainder_label + separator + year
 
-    logger.info(f"<<yellow>> end {category_text=}, {label=}")
+    logger.debug(f"<<yellow>> end {category_text=}, {label=}")
     return label
 
 
@@ -212,7 +212,7 @@ def _handle_year_at_end(
     label = f"{remainder_label} {formatted_year_label}"
     logger.debug(f'>>>>>> Try With Years new lab4 "{label}" ')
 
-    logger.info(f"<<yellow>> end {category_text=}, {label=}")
+    logger.debug(f"<<yellow>> end {category_text=}, {label=}")
     return label
 
 
