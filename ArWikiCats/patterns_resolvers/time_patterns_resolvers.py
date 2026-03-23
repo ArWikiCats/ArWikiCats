@@ -32,7 +32,7 @@ def build_labs_years_object() -> LabsYearsFormat:
     )
     return labs_years_bot
 
-
+@functools.lru_cache(maxsize=10000)
 def resolve_lab_from_years_patterns(category: str) -> str:
     """
     Resolve a category label that encodes a year, decade, or century pattern into its standardized label.

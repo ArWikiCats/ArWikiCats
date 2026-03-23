@@ -4,6 +4,7 @@ This package provides resolvers for sports teams, athletes, and competitions,
 often combined with geographic or nationality elements.
 """
 
+import functools
 import logging
 
 from . import (
@@ -18,6 +19,7 @@ from . import (
 logger = logging.getLogger(__name__)
 
 
+@functools.lru_cache(maxsize=10000)
 def main_sports_resolvers(normalized_category) -> str:
     """
     Resolve a normalized category string into a sports-related label.
