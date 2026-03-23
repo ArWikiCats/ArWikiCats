@@ -263,7 +263,7 @@ class FormatDataBase:
     def _search(self, category: str) -> str:
         """End-to-end resolution."""
         logger.debug("$$$ start (): ")
-        logger.debug(f"++++++++ {self.__class__.__name__} ++++++++ ")
+        logger.debug(f" {self.__class__.__name__} ++++++++ ")
 
         if self.formatted_data_ci.get(category):
             return self.formatted_data_ci[category]
@@ -287,7 +287,7 @@ class FormatDataBase:
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f"[] {result=}")
 
-        logger.debug(f"++++++++ end {self.__class__.__name__} ++++++++ ")
+        logger.debug(f" end {self.__class__.__name__} ++++++++ ")
 
         return result
 

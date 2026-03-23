@@ -292,7 +292,7 @@ class TypeResolver:
         """Resolve the type label and whether to append 'in' label."""
         type_lower = type_value.strip().lower()
 
-        logger.debug(f'>>>>> > Resolving type: {type_lower=}, preposition: {preposition=}')
+        logger.debug(f' > Resolving type: {type_lower=}, preposition: {preposition=}')
 
         type_label = resolve_lab_from_years_patterns(type_lower)
         if type_label:
@@ -419,25 +419,25 @@ class LabelPipeline:
         t_to = f"{self.type_lower} {self.separator_stripped}"
 
         if self.type_lower in Keep_it_last:
-            logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
+            logger.info(f" > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
             keep_type_last = True
 
         elif self.type_lower in Keep_it_frist:
-            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
+            logger.info(f" > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
             keep_type_first = True
 
         elif t_to in Keep_it_frist:
-            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist")
+            logger.info(f" > X:<<lightred>> keep_type_first = True, {t_to=} in Keep_it_frist")
             keep_type_first = True
 
         arlabel = self.type_label + ar_separator + self.country_label
 
         if keep_type_last:
-            logger.info(f">>>>> > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
+            logger.info(f" > X:<<lightred>> keep_type_last = True, {self.type_lower=} in Keep_it_last")
             arlabel = self.country_label + ar_separator + self.type_label
 
         elif keep_type_first:
-            logger.info(f">>>>> > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
+            logger.info(f" > X:<<lightred>> keep_type_first = True, {self.type_lower=} in Keep_it_frist")
             arlabel = self.type_label + ar_separator + self.country_label
 
         if self.separator_stripped == "about" or (self.separator_stripped not in separators_lists_raw):
@@ -496,7 +496,7 @@ class LabelPipeline:
             self.type_label = self.type_label + " في"
 
         if self.add_in_lab:
-            logger.info(f">>>>> > add_in_lab ({self.separator_stripped=})")
+            logger.info(f" > add_in_lab ({self.separator_stripped=})")
             separator2_lab = translation_category_relations.get(self.separator_stripped)
 
             if separator2_lab and separator2_lab not in separators_lists_raw:
@@ -538,9 +538,9 @@ class LabelPipeline:
         # in_tables_2 = check_key_new_players(self.type_lower)
 
         # if in_tables_1 and in_tables_2:
-        logger.info(">>>> ================ ")
-        logger.info(">>>>> > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-        logger.info(">>>> ================ ")
+        logger.info(">>>>  ")
+        logger.info(" > X:<<lightred>> type_lower and country_lower in players_new_keys.")
+        logger.info(">>>>  ")
 
         faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
             self.separator_stripped.replace("-", " ").strip()
