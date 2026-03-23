@@ -113,7 +113,7 @@ class FormatDataFrom:
             str: The label with the placeholder replaced; if a fixing callback is configured, its output is returned.
         """
         # Replace placeholder
-        logger.debug(f"!!!! : {self.value_placeholder=}, {label=}, {value=}")
+        logger.debug(f": {self.value_placeholder=}, {label=}, {value=}")
         result = label.replace(self.value_placeholder, value)
         if self.fixing_callback:
             result = self.fixing_callback(result)

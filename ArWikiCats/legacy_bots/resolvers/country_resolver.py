@@ -275,7 +275,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         if term_label == "" and lab_type != "type_label":
             if term_lower.startswith("the "):
-                logger.info(f'>>>> {term_lower=} startswith("the ")')
+                logger.info(f'{term_lower=} startswith("the ")')
                 term_without_the = term_lower[len("the ") :]
                 term_label = get_pop_All_18(term_without_the, "")
                 if not term_label:

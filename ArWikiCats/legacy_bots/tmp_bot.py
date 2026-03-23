@@ -36,12 +36,12 @@ def create_label_from_prefix(input_label):
             resolved_label = (
                 get_lab_for_country2(remaining_label) or get_pop_All_18(remaining_label) or get_KAKO(remaining_label)
             )
-            logger.info(f'>>>><<lightblue>>{input_label=}, {remaining_label=}')
+            logger.info(f'<<lightblue>>{input_label=}, {remaining_label=}')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>>.startswith prefix({prefix=}), {resolved_label=}')
+                logger.info(f'<<lightblue>>.startswith prefix({prefix=}), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
-                logger.info(f">>>> {template_label=}")
+                logger.info(f"{template_label=}")
                 break
     return template_label
 
@@ -62,15 +62,15 @@ def create_label_from_suffix(input_label):
     for suffix, format_template in combined_suffix_mappings.items():
         if input_label.endswith(suffix.lower()):
             base_label = input_label[: -len(suffix)]
-            logger.info(f'>>>><<lightblue>>.endswith suffix({suffix=}), {base_label=}')
+            logger.info(f'<<lightblue>>.endswith suffix({suffix=}), {base_label=}')
 
             resolved_label = get_lab_for_country2(base_label) or get_pop_All_18(base_label) or get_KAKO(base_label)
-            logger.info(f'>>>><<lightblue>>{input_label=}, {base_label=}')
+            logger.info(f'<<lightblue>>{input_label=}, {base_label=}')
 
             if resolved_label:
-                logger.info(f'>>>><<lightblue>>.endswith suffix({suffix=}), {resolved_label=}')
+                logger.info(f'<<lightblue>>.endswith suffix({suffix=}), {resolved_label=}')
                 template_label = format_template.format(resolved_label)
-                logger.info(f">>>> {template_label=}")
+                logger.info(f"{template_label=}")
                 break
 
     return template_label

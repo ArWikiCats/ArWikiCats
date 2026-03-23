@@ -165,7 +165,7 @@ class FormatDataDouble(FormatDataBase):
 
         match2 = self.pattern.search(f" {normalized_category} ")
         result = match2.group(1).lower() if match2 else ""
-        logger.debug(f"==== {result=}")
+        logger.debug(f"{result=}")
 
         return result
 
@@ -246,5 +246,5 @@ class FormatDataDouble(FormatDataBase):
 
     def replace_value_placeholder(self, label: str, value: str) -> str:
         # Replace placeholder
-        logger.debug(f"!!!! : {self.value_placeholder=}, {label=}, {value=}")
+        logger.debug(f": {self.value_placeholder=}, {label=}, {value=}")
         return label.replace(self.value_placeholder, value)

@@ -80,7 +80,7 @@ def get_table_with_in(cone_1: str, separator: str) -> str:
     }
     con_1_in = f"{cone_1.strip()} {separator.strip()}"
     part_1_label = table_with_in.get(con_1_in, "")
-    logger.debug(f"<<<< {con_1_in=}, {part_1_label=}")
+    logger.debug(f"{con_1_in=}, {part_1_label=}")
 
     return part_1_label
 
@@ -147,7 +147,7 @@ def _resolve_war(resolved_label: str, part_2_normalized: str, part_1_normalized:
     if maren:
         if part_1_normalized == "war of" and resolved_label == f"الحرب في {part_2_normalized}":
             resolved_label = f"حرب {part_2_normalized}"
-            logger.info(f'<<lightpurple>> >>>> change cnt_la to {resolved_label=}.')
+            logger.info(f'<<lightpurple>> change cnt_la to {resolved_label=}.')
 
     return resolved_label
 
@@ -218,7 +218,7 @@ def make_cnt_lab(
 
     resolved_label = resolved_label.replace(" في في ", " في ")
 
-    logger.info(f'<<lightpurple>> >>>> country 2_tit {country2=}: label: {resolved_label}')
+    logger.info(f'<<lightpurple>> country 2_tit {country2=}: label: {resolved_label}')
 
     resolved_label = " ".join(resolved_label.strip().split())
     resolved_label = _resolve_war(resolved_label, part_2_normalized, part_1_normalized)
@@ -281,18 +281,18 @@ def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
         part_1_label = resolve_part_1_label(part_1.replace("-", " "), separator)
 
     if part_2_label == "" or part_1_label == "":
-        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
+        logger.info(f"XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
         return "", ""
 
     part_1_normalized = part_1.strip().lower()
     part_2_normalized = part_2.strip().lower()
 
     if (separator.strip() == "in" or part_1_normalized.endswith(" in")) and (not part_1_normalized.endswith(" في")):
-        logger.debug(f">>>> Add في to {part_1_label=}")
+        logger.debug(f"Add في to {part_1_label=}")
         part_1_label = f"{part_1_label} في"
 
     elif (separator.strip() == "from" or part_2_normalized.endswith(" from")) and (not part_2_label.endswith(" من")):
-        logger.debug(f">>>> Add من to {part_2_label=}")
+        logger.debug(f"Add من to {part_2_label=}")
         part_2_label = f"من {part_2_label}"
 
     return part_1_label, part_2_label
@@ -334,7 +334,7 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
     separator = get_separator(country)
 
     if not separator:
-        logger.info(f">>>> <<red>> {separator=}")
+        logger.info(f"<<red>> {separator=}")
         return ""
 
     part_1, part_2 = split_text_by_separator(separator, country)
@@ -344,7 +344,7 @@ def country_2_title_work(country: str, with_years: bool = True) -> str:
     part_1_label, part_2_label = make_parts_labels(part_1, part_2, separator, with_years)
 
     if part_2_label == "" or part_1_label == "":
-        logger.info(f">>>> XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
+        logger.info(f"XX--== <<lightgreen>> {part_1=}, {part_1_label=}, {part_2=}, {part_2_label=}")
         return ""
 
     part_1_normalized = part_1.strip().lower()

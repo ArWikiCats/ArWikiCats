@@ -119,7 +119,7 @@ def _handle_at_separator(type_label: str, type_lower: str) -> str:
         str: The modified type label.
     """
     if " في" not in type_label:
-        logger.info(f'>>>> Add في to type_label:at{type_label=}')
+        logger.info(f'Add في to type_label:at{type_label=}')
         return f"{type_label} في"
 
     return type_label
@@ -226,7 +226,7 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
     # Handle 'from' separator
     if separator_stripped == "from":
         if _should_add_min_for_from_separator(type_label):
-            logger.info(f">>>> Add من to type_label '{type_label}' (separator: from)")
+            logger.info(f"Add من to type_label '{type_label}' (separator: from)")
             return f"{type_label} من "
         return type_label
 
@@ -245,7 +245,7 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
     in_tables_prefix = check_key_new_players(type_lower_prefix)
 
     if in_tables or in_tables_prefix:
-        logger.info(f">>>> Add من to type_label '{type_label}' (ends with ' of')")
+        logger.info(f"Add من to type_label '{type_label}' (ends with ' of')")
         return f"{type_label} من "
 
     return type_label
@@ -370,11 +370,11 @@ class LabelPipeline:
         # Validation
         cao = True
         if not self.type_label:
-            logger.info(f">>>> no label for {self.type_lower=}")
+            logger.info(f"no label for {self.type_lower=}")
             cao = False
 
         if not self.country_label:
-            logger.info(f'>>>> country_lower not in pop new "{self.country_lower}"')
+            logger.info(f'country_lower not in pop new "{self.country_lower}"')
             cao = False
 
         if self.type_label or self.country_label:
@@ -406,7 +406,7 @@ class LabelPipeline:
         if self.add_in_lab:
             self.type_label = separator_lists_fixing(self.type_label, self.separator_stripped, self.type_lower)
             if self.type_lower in excluded_type_labels_from_min:
-                logger.info(f'>>>> type_lower "{self.type_lower}" in excluded_type_labels_from_min ')
+                logger.info(f'type_lower "{self.type_lower}" in excluded_type_labels_from_min ')
             else:
                 self.type_label = add_in_tab(self.type_label, self.type_lower, self.separator_stripped)
 
@@ -446,14 +446,14 @@ class LabelPipeline:
         if self.type_lower == "years" and self.separator_stripped == "in":
             arlabel = self.type_label + ar_separator + self.country_label
 
-        logger.debug(f">>>> {ar_separator=}")
-        logger.debug(f">>>> {arlabel=}")
+        logger.debug(f"{ar_separator=}")
+        logger.debug(f"{arlabel=}")
 
         arlabel = " ".join(arlabel.strip().split())
         maren = re.match(r"\d\d\d\d", self.country_lower.strip())
         if self.type_lower.lower() == "the war of" and maren and arlabel == f"الحرب في {self.country_lower}":
             arlabel = f"حرب {self.country_lower}"
-            logger.info(f'<<lightpurple>> >>>> change arlabel to {arlabel=}.')
+            logger.info(f'<<lightpurple>> change arlabel to {arlabel=}.')
 
         return arlabel
 
@@ -471,7 +471,7 @@ class LabelPipeline:
         ar_separator = self.determine_separator()
         arlabel = self.join_labels(ar_separator)
 
-        logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
+        logger.info(f'<<lightblue>>cate_test :"{self.cate_test}"')
         logger.info(f'<<lightyellow>>test: cat "{self.category}", {arlabel=}')
 
         arlabel = arlabel.strip()
@@ -538,9 +538,9 @@ class LabelPipeline:
         # in_tables_2 = check_key_new_players(self.type_lower)
 
         # if in_tables_1 and in_tables_2:
-        logger.info(">>>>  ")
+        logger.info("")
         logger.info(" > X:<<lightred>> type_lower and country_lower in players_new_keys.")
-        logger.info(">>>>  ")
+        logger.info("")
 
         faa = translation_category_relations.get(self.separator_stripped) or translation_category_relations.get(
             self.separator_stripped.replace("-", " ").strip()

@@ -220,17 +220,17 @@ def get_type_country(category: str, separator: str) -> Tuple[str, str]:
     type_regex, country_regex, should_use_regex = _apply_regex_extraction(category, separator, category_type, country)
 
     if not should_use_regex:
-        logger.info(">>>> Using simple split results")
+        logger.info("Using simple split results")
         return category_type, country
 
     # Step 5: Use regex results with separator adjustments
-    logger.info(f">>>> Using regex extraction: {type_regex=}, {separator=}, {country_regex=}")
+    logger.info(f"Using regex extraction: {type_regex=}, {separator=}, {country_regex=}")
 
     # Apply typo fixes to regex results as well
 
     type_regex = _adjust_separator_position(type_regex, separator_stripped, is_type=True)
     country_regex = _adjust_separator_position(country_regex, separator_stripped, is_type=False)
 
-    logger.info(f">>>> : {type_regex=}, {country_regex=}")
+    logger.info(f": {type_regex=}, {country_regex=}")
 
     return type_regex, country_regex

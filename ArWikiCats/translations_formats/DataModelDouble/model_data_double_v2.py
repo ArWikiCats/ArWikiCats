@@ -205,7 +205,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         match2 = self.pattern.search(f" {normalized_category} ")
         result = match2.group(1).lower() if match2 else ""
-        logger.debug(f"==== {result=}")
+        logger.debug(f"{result=}")
 
         return result
 

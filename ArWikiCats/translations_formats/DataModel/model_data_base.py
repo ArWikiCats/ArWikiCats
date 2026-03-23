@@ -151,7 +151,7 @@ class FormatDataBase:
 
         match = self.pattern.search(f" {normalized_category} ")
         result = match.group(1).lower() if match else ""
-        logger.debug(f"==== {result=}")
+        logger.debug(f"{result=}")
         return result
 
     def handle_texts_before_after(self, normalized: str) -> str:

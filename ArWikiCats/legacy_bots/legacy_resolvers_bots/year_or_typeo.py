@@ -87,7 +87,7 @@ class LabelForStartWithYearOrTypeo:
         self.country_lower = country_cleaned
         self.country_not_lower = self.country
 
-        logger.debug(f'>>>> {self.year_at_first=}, "{self.in_str=}, {self.country=}, {self.cat_test=}')
+        logger.debug(f'{self.year_at_first=}, "{self.in_str=}, {self.country=}, {self.cat_test=}')
 
     # ----------------------------------------------------
     # 3 — HANDLE COUNTRY
@@ -237,7 +237,7 @@ class LabelForStartWithYearOrTypeo:
                 self.arlabel = fixtitle.fixlabel(self.arlabel, en=self.category_r)
 
                 logger.info(f"a<<lightred>> arlabel ppoi:{self.arlabel}")
-                logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
+                logger.info(f'<<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
                 logger.info("<<lightblue>> event2 end 3 ")
 
                 return self.arlabel
