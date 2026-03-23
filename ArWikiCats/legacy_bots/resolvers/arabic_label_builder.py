@@ -472,7 +472,7 @@ class LabelPipeline:
         arlabel = self.join_labels(ar_separator)
 
         logger.info(f'>>>> <<lightblue>>cate_test :"{self.cate_test}"')
-        logger.info(f'>>>>>> <<lightyellow>>test: cat "{self.category}", {arlabel=}')
+        logger.info(f'<<lightyellow>>test: cat "{self.category}", {arlabel=}')
 
         arlabel = arlabel.strip()
         arlabel = fix_minor(arlabel, ar_separator, self.category)

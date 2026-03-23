@@ -170,7 +170,7 @@ def check_historical_prefixes(country: str) -> str:
                 resolved_label = prefix_template.format(remainder_label)
                 if remainder_label.strip().endswith(" في") and prefix.startswith("defunct "):
                     resolved_label = f"{remainder_label.strip()[: -len(' في')]} سابقة في"
-                logger.info(f'>>>>>> cdcdc new cnt_la "{resolved_label}" ')
+                logger.info(f'{resolved_label=}')
                 return resolved_label
     return ""
 

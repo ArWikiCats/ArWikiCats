@@ -82,13 +82,13 @@ def get_and_label(category: str) -> str:
     first_part = first_part.lower()
     last_part = last_part.lower()
 
-    logger.debug(f"<<lightyellow>> (): {first_part=}, {last_part=}")
+    logger.debug(f"<<lightyellow>> {first_part=}, {last_part=}")
 
     first_label = get_from_new_p17_final(first_part, None)  # or get_pop_All_18(first_part) or ""
 
     last_label = get_from_new_p17_final(last_part, None)  # or get_pop_All_18(last_part) or ""
 
-    logger.debug(f"<<lightyellow>> (): {first_label=}, {last_label=}")
+    logger.debug(f"<<lightyellow>> {first_label=}, {last_label=}")
 
     label = ""
     if first_label and last_label:
