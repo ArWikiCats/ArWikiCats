@@ -103,6 +103,9 @@ def one_dump_test_no_labels(dataset: dict, callback: Callable[[str], str], do_st
 
 
 def dump_one_new(data: dict, folder_name: str, file_name: str) -> None:
+    if not data:
+        return
+
     folder_path = diff_data_path / folder_name
     folder_path.mkdir(exist_ok=True, parents=True)
     file_path = folder_path / f"{file_name}.json"
