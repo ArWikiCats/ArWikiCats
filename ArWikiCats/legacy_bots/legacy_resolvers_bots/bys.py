@@ -50,7 +50,6 @@ def make_new_by_label(category: str) -> str:
 
     normalized = category.strip()
     logger.info(f"Resolving by-label, category: {normalized=}")
-    logger.info(f"<<lightred>>>> vvvvvvvvvvvv start, cate:{category} vvvvvvvvvvvv ")
     resolved = ""
 
     if normalized.lower().startswith("by "):

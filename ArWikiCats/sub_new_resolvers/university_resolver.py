@@ -142,14 +142,14 @@ def resolve_university_category(category: str) -> str:
 
     normalized_category = _normalise_category(category)
 
-    logger.info(f"<<lightblue>>>> vvvvvvvvvvvv start, (category:{normalized_category}) vvvvvvvvvvvv ")
+    logger.info(f"<<lightblue>>>> start, (category:{normalized_category}) ")
 
     university_label = _university_bot.search(normalized_category)
 
     if university_label:
         logger.info(f"<<lightblue>>>>>>: new {university_label=} ")
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
+    logger.info("<<lightblue>>>> end ")
     return university_label
 
 
