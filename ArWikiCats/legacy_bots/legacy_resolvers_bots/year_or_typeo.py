@@ -158,7 +158,7 @@ class LabelForStartWithYearOrTypeo:
 
         self.cat_test = re.sub(r"category:", "", self.cat_test)
 
-        logger.debug(f'<<lightblue>>>>>> cat_test: "{self.cat_test}" ')
+        logger.debug(f'<<lightblue>> cat_test: "{self.cat_test}" ')
 
     # ----------------------------------------------------
     # 6 — APPLY LABEL RULES
@@ -178,14 +178,14 @@ class LabelForStartWithYearOrTypeo:
             return
 
         if not self.country_lower and not self.in_str:
-            logger.info('a<<lightblue>>>>>> country_lower == "" and in_str == "" ')
+            logger.info('a<<lightblue>> country_lower == "" and in_str == "" ')
             if self.suf:
                 self.arlabel = self.arlabel + " " + self.suf
             self.arlabel = re.sub(r"\s+", " ", self.arlabel)
-            logger.debug("a<<lightblue>>>>>> No country_lower.")
+            logger.debug("a<<lightblue>> No country_lower.")
             return
 
-        logger.info("a<<lightblue>>>>>> No label.")
+        logger.info("a<<lightblue>> No label.")
         self.NoLab = True
 
     # ----------------------------------------------------
@@ -214,29 +214,29 @@ class LabelForStartWithYearOrTypeo:
         )
 
         if not self.cat_test.strip():
-            logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
+            logger.debug("<<lightgreen>> arlabel " + self.arlabel)
 
         elif self.cat_test == self.country_lower or self.cat_test == ("in " + self.country_lower):
-            logger.debug("<<lightgreen>>>>>> cat_test False.. ")
-            logger.debug(f"<<lightblue>>>>>> cat_test = {self.country_lower=} ")
+            logger.debug("<<lightgreen>> cat_test False.. ")
+            logger.debug(f"<<lightblue>> cat_test = {self.country_lower=} ")
             self.NoLab = True
 
         elif self.cat_test.lower() == category2.lower():
-            logger.debug("<<lightblue>>>>>> cat_test = category2 ")
+            logger.debug("<<lightblue>> cat_test = category2 ")
 
         else:
             logger.debug("<<lightgreen>>>> >> cat_test False result.. ")
             logger.debug(f" {self.cat_test=} ")
-            logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
+            logger.debug("<<lightgreen>> arlabel " + self.arlabel)
             self.NoLab = True
 
-        logger.debug("<<lightgreen>>>>>> arlabel " + self.arlabel)
+        logger.debug("<<lightgreen>> arlabel " + self.arlabel)
 
         if not self.NoLab:
             if re.sub("[a-z]", "", self.arlabel, flags=re.IGNORECASE) == self.arlabel:
                 self.arlabel = fixtitle.fixlabel(self.arlabel, en=self.category_r)
 
-                logger.info(f"a<<lightred>>>>>> arlabel ppoi:{self.arlabel}")
+                logger.info(f"a<<lightred>> arlabel ppoi:{self.arlabel}")
                 logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
                 logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 

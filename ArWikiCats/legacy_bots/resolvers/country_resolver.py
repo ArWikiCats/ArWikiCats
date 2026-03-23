@@ -367,7 +367,7 @@ def event2_d2(category_r: str) -> str:
     """
     cat3 = category_r.lower().replace("category:", "").strip()
 
-    logger.info(f'<<lightred>>>>>> category33:"{cat3}" ')
+    logger.info(f'<<lightred>> category33:"{cat3}" ')
 
     # Reject strings that contain common English prepositions
     blocked = ("in", "of", "from", "by", "at")

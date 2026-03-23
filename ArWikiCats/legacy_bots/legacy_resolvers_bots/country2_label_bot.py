@@ -201,7 +201,7 @@ def make_cnt_lab(
             # Films_O_TT[country2] = resolved_label
             add_to_Films_O_TT(country2, resolved_label)
         else:
-            logger.info("<<lightblue>>>>>> part_2_normalized in By table main")
+            logger.info("<<lightblue>> part_2_normalized in By table main")
 
     if part_2_label:
         label_format_mappings = {
@@ -210,7 +210,7 @@ def make_cnt_lab(
         }
         if part_1_normalized in label_format_mappings:
             logger.info(
-                f'<<lightblue>>>>>> part_1_normalized in label_format_mappings "{label_format_mappings[part_1_normalized]}":'
+                f'<<lightblue>> part_1_normalized in label_format_mappings "{label_format_mappings[part_1_normalized]}":'
             )
             resolved_label = label_format_mappings[part_1_normalized].format(part_2_label)
 

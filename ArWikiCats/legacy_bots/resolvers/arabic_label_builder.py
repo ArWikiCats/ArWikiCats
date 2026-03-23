@@ -379,10 +379,10 @@ class LabelPipeline:
 
         if self.type_label or self.country_label:
             logger.info(
-                f'<<lightgreen>>>>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"'
+                f'<<lightgreen>> >>>> ------------- country_lower:"{self.country_lower}", country_label:"{self.country_label}"'
             )
             logger.info(
-                f'<<lightgreen>>>>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"'
+                f'<<lightgreen>> >>>> ------------- type_lower:"{self.type_lower}", type_label:"{self.type_label}"'
             )
 
         if not cao:
@@ -459,7 +459,7 @@ class LabelPipeline:
 
     def build(self) -> str:
         """Builds and returns the Arabic label."""
-        logger.info(f'<<lightblue>>>>>> find_ar_label: category="{self.category}", separator="{self.separator}"')
+        logger.info(f'<<lightblue>> find_ar_label: category="{self.category}", separator="{self.separator}"')
 
         self.extract_components()
 

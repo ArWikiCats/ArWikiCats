@@ -174,7 +174,7 @@ def _apply_regex_extraction(category: str, separator: str, category_type: str, c
         test_remainder = test_remainder.strip()
 
     except Exception as e:
-        logger.info(f"<<lightred>>>>>> except test_remainder: {e}")
+        logger.info(f"<<lightred>> except test_remainder: {e}")
         return type_regex, country_regex, False
 
     # Determine if we should use regex results

@@ -49,7 +49,7 @@ def sub_translate_general_category(category_r: str) -> str:
     category = re.sub(r"category:", "", category, flags=re.IGNORECASE)
 
     logger.info(f"<<lightyellow>>>> ^^^^^^^^^ start ^^^^^^^^^ ({category}) ")
-    logger.debug(f"<<lightyellow>>>>>> {category_r=}")
+    logger.debug(f"<<lightyellow>> {category_r=}")
 
     arlabel = (
         ""
