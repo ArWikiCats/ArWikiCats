@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 @functools.lru_cache(maxsize=1)
 def _get_sorted_teams_labels() -> dict[str, str]:
-    teams_label_mappings_ends_old = {
+    _teams_label_mappings_ends_old = {
         "champions": "أبطال",
         "events": "أحداث",
         "films": "أفلام",
@@ -362,12 +362,15 @@ def resolve_nats_sport_multi_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
     teams_label_mappings_ends = _get_sorted_teams_labels()
 
-    result = resolve_sport_category_suffix_with_mapping(
-        category=category,
-        data=teams_label_mappings_ends,
-        callback=_resolve_nats_sport_multi_v2,
-        fix_result_callable=fix_result_callable,
-    )
+    if any(word in category for word in teams_label_mappings_ends.keys()):
+        result = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=teams_label_mappings_ends,
+            callback=_resolve_nats_sport_multi_v2,
+            fix_result_callable=fix_result_callable,
+        )
+    else:
+        result = _resolve_nats_sport_multi_v2(category)
 
     logger.info(f"<<yellow>> end {category=}, {result=}")
     return result

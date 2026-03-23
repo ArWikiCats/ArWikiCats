@@ -345,12 +345,16 @@ def mens_resolver_labels(category: str) -> str:
         logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
-    result = _mens_resolver_labels(category) or resolve_sport_category_suffix_with_mapping(
-        category=category,
-        data=label_mappings_ends,
-        callback=_mens_resolver_labels,
-        format_key="{}",
-    )
+    if any(word in category for word in label_mappings_ends.keys()):
+        result = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=label_mappings_ends,
+            callback=_mens_resolver_labels,
+            format_key="{}",
+        )
+    else:
+        result = _mens_resolver_labels(category)
+
     logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 

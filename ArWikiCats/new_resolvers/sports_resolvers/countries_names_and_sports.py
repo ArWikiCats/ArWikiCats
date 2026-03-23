@@ -206,16 +206,21 @@ def fix_result_callable(result: str, category: str, key: str, value: str) -> str
     return result
 
 
+@functools.lru_cache(maxsize=10000)
 def resolve_countries_names_sport_with_ends(category) -> str:
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start {category=}")
 
-    result = resolve_sport_category_suffix_with_mapping(
-        category=category,
-        data=teams_label_mappings_ends,
-        callback=resolve_countries_names_sport,
-        fix_result_callable=fix_result_callable,
-    )
+    if any(word in category for word in teams_label_mappings_ends.keys()):
+        result = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=teams_label_mappings_ends,
+            callback=resolve_countries_names_sport,
+            fix_result_callable=fix_result_callable,
+        )
+    else:
+        result = resolve_countries_names_sport(category)
+
     logger.info(f"<<yellow>> end {category=}, {result=}")
     return result
 
