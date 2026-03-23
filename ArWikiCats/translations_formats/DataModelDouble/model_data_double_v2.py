@@ -119,7 +119,7 @@ class FormatDataDoubleV2(FormatDataBase):
             str: The formatted label produced by applying the matched template to the resolved key label, or an empty string if no matching key, label, or template is found.
         """
         logger.debug("$$$ start (): ")
-        logger.debug(f" {self.__class__.__name__} ++++++++ ")
+        logger.debug(f" {self.__class__.__name__}  ")
 
         if self.formatted_data_ci.get(category):
             return self.formatted_data_ci[category]
@@ -147,7 +147,7 @@ class FormatDataDoubleV2(FormatDataBase):
         result = self.apply_pattern_replacement(template_label, sport_label)
         logger.debug(f"[] apply_pattern_replacement: {result=}")
 
-        logger.debug(f" end {self.__class__.__name__} ++++++++ ")
+        logger.debug(f" end {self.__class__.__name__}  ")
 
         return result
 
