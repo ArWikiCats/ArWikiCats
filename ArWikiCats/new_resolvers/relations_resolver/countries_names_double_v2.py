@@ -206,11 +206,11 @@ def resolve_v2(category: str) -> str:
     nat_data = _load_all_country_labels_v2()
     if category in nat_data:
         # NOTE: only nationality key should be handled by other resolvers
-        logger.info(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
+        logger.debug(f"<<yellow>> skip : one nationality key only {category=}, [result=]")
         return ""
 
     result = double_bot_v2().search_all_category(category)
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 

@@ -6,6 +6,7 @@ https://quarry.wmcloud.org/query/99983
 
 import json
 from pathlib import Path
+import re
 
 json_paths = Path("D:/categories_bot/make2_new/_work_files/genders_data").glob("*.json")
 json_data = {}
@@ -26,7 +27,7 @@ full_data = {}
 
 rows = []
 for n, cat in enumerate(CATS_DATA_SORTED_BY_VALUE.values(), 1):
-    cat_new = cat.replace(" ذكور ", " ")
+    cat_new = re.sub(r"\s*ذكور\s*", " ", cat)
     cat2 = cat.replace("تصنيف:", "").split("ذكور")[0].strip()
     cat_both = json_data.get(cat2, "")
     if not cat_both:

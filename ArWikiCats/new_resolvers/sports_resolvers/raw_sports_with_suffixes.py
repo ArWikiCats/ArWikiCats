@@ -124,13 +124,14 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
+@functools.lru_cache(maxsize=10000)
 def wrap_team_xo_normal_2025_with_ends(category) -> str:
     category = fix_keys(category)
     logger.debug(f"<<yellow>> start {category=}")
 
     result = pre_defined_results.get(category) or resolve_sport_label_unified(category)
 
-    if not result:
+    if not result and any(word in category for word in mappings_data.keys()):
         result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=mappings_data,
@@ -138,7 +139,7 @@ def wrap_team_xo_normal_2025_with_ends(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    if not result:
+    if not result and any(word in category for word in football_keys_players.keys()):
         result = resolve_suffix_with_mapping_genders(
             category=category,
             data=football_keys_players,

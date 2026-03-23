@@ -300,7 +300,7 @@ def _sport_lab_nat_load_new(category) -> str:
     logger.debug(f"<<yellow>> start {category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(category)
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -333,15 +333,18 @@ def sport_lab_nat_load_new(category: str) -> str:
     category = fix_keys(category)
 
     logger.debug(f"<<yellow>> start {category=}")
-    keys_ending = _load_end_key_mappings()
+    keys_ending: dict[str, str] = _load_end_key_mappings()
 
-    result = resolve_sport_category_suffix_with_mapping(
-        category=category,
-        data=keys_ending,
-        callback=_sport_lab_nat_load_new,
-        fix_result_callable=fix_result_callable,
-        format_key="lab",
-    )
+    if any(word in category for word in keys_ending.keys()):
+        result = resolve_sport_category_suffix_with_mapping(
+            category=category,
+            data=keys_ending,
+            callback=_sport_lab_nat_load_new,
+            fix_result_callable=fix_result_callable,
+            format_key="lab",
+        )
+    else:
+        result = _sport_lab_nat_load_new(category)
 
     logger.info(f"<<yellow>> end {category=}, {result=}")
     return result

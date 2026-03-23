@@ -29,7 +29,6 @@ REGEX_YEAR_FIRST_PATTERN = re.compile(
 )
 
 
-# @dump_data(1, compare_with_output="text_str")
 def move_by_in(text_str: str) -> str:
     """
     A function that takes in a string and searches for a specific pattern within it. The function replaces underscores in the string with spaces and then uses a regular expression to search for a pattern of the form '{first_part} حسب {by_part} في {date}'.
@@ -63,7 +62,6 @@ def move_by_in(text_str: str) -> str:
     return new_text
 
 
-# @dump_data(1, compare_with_output="text_str")
 def move_years_first(text_str: str) -> str:
     """Move leading year fragments to the end of the label when applicable.
 

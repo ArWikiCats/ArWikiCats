@@ -297,7 +297,7 @@ def _womens_jobs_resolver(category: str) -> str:
 
     result = load_bot_only_womens().search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.debug(f"<<yellow>> end {category=}, {result=}")
     return result
 
 
