@@ -61,7 +61,8 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     if base_sep == "by":
         country_t = f"by {country_t}".strip()
 
-    if base_sep in {"of", "-of"}:
+    of_list = {"of", "-of"}
+    if base_sep in of_list:
         type_t = f"{type_t} of".strip()
 
     if has_multiple:
@@ -80,7 +81,7 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
     if base_sep == "by":
         part_2 = f"by {part_2}".strip()
 
-    if base_sep in {"of", "-of"}:
+    if base_sep in of_list:
         part_1 = f"{part_1} of".strip()
 
     logger.info(
