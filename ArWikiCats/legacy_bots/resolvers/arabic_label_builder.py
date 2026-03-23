@@ -97,12 +97,12 @@ def _handle_in_separator(type_label: str, separator_stripped: str, type_lower: s
     """
     # Skip if type is in exception list
     if type_lower in keys_of_without_in:
-        logger.info(f'>>-- Skip add في to {type_label=}, "{type_lower}"')
+        logger.info(f'>>-- Skip add في to {type_label=}, {type_lower=}')
         return type_label
 
     # Add 'في' if conditions are met
     if _should_add_preposition_fe(type_label, type_lower):
-        logger.info(f'>>-- Add في to type_label:in"{type_label}", for "{type_lower}"')
+        logger.info(f'>>-- Add في to type_label:in"{type_label}", for {type_lower=}')
         return f"{type_label} في"
 
     return type_label
@@ -119,7 +119,7 @@ def _handle_at_separator(type_label: str, type_lower: str) -> str:
         str: The modified type label.
     """
     if " في" not in type_label:
-        logger.info(f'>>>> Add في to type_label:at"{type_label}"')
+        logger.info(f'>>>> Add في to type_label:at{type_label=}')
         return f"{type_label} في"
 
     return type_label
@@ -292,7 +292,7 @@ class TypeResolver:
         """Resolve the type label and whether to append 'in' label."""
         type_lower = type_value.strip().lower()
 
-        logger.debug(f'>>>>> > Resolving type: "{type_lower}", preposition: "{preposition}"')
+        logger.debug(f'>>>>> > Resolving type: "{type_lower}", preposition: {preposition=}')
 
         type_label = resolve_lab_from_years_patterns(type_lower)
         if type_label:

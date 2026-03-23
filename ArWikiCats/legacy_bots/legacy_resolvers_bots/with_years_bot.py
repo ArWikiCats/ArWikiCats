@@ -210,7 +210,7 @@ def _handle_year_at_end(
         formatted_year_label = formatted_year_label.replace("–present", "–الآن")
 
     label = f"{remainder_label} {formatted_year_label}"
-    logger.debug(f'Try With Years new lab4 "{label}" ')
+    logger.debug(f'Try With Years new lab4 {label=}')
 
     logger.debug(f"<<yellow>> end {category_text=}, {label=}")
     return label
@@ -271,7 +271,7 @@ def wrap_try_with_years(category_r) -> str:
     """
     cat3 = category_r.lower().replace("category:", "").strip()
 
-    logger.info(f'<<lightred>> category33:"{cat3}" ')
+    logger.info(f'<<lightred>> category33:{cat3=}')
 
     # Reject strings that contain common English prepositions
     blocked = ("in", "of", "from", "by", "at")

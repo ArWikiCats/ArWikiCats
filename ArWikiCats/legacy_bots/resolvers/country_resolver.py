@@ -263,7 +263,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
         Returns:
             str: The resolved Arabic label, or an empty string if no resolution is found.
         """
-        logger.info(f' {lab_type=}, {separator=}, c_ct_lower:"{term_lower}" ')
+        logger.info(f' {lab_type=}, {separator=}, c_ct_lower:{term_lower=}')
 
         # Check for numeric/empty terms
         test_numeric = re.sub(r"\d+", "", term_lower.strip())
@@ -367,7 +367,7 @@ def event2_d2(category_r: str) -> str:
     """
     cat3 = category_r.lower().replace("category:", "").strip()
 
-    logger.info(f'<<lightred>> category33:"{cat3}" ')
+    logger.info(f'<<lightred>> category33:{cat3=}')
 
     # Reject strings that contain common English prepositions
     blocked = ("in", "of", "from", "by", "at")

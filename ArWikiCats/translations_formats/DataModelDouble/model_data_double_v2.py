@@ -132,7 +132,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         sport_label = self.get_key_label(sport_key)
         if not sport_label:
-            logger.debug(f'No sport label matched for sport key: "{sport_key}"')
+            logger.debug(f'No sport label matched for sport key: {sport_key=}')
             return ""
 
         logger.debug(f"sport label: {sport_label=}")
