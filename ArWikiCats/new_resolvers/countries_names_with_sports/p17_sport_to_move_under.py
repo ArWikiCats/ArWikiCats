@@ -147,7 +147,7 @@ def resolve_sport_under_labels(category: str) -> str:
 
     result = _load_under_bot().search(category) or _load_bot_with_sports_keys().search(category) or ""
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

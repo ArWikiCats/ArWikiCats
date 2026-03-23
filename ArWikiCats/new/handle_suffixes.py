@@ -101,7 +101,7 @@ def resolve_suffix_with_mapping_genders(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -131,7 +131,7 @@ def resolve_sport_category_suffix_with_mapping(
     if not result:
         result = callback(category)
 
-    logger.info(f"<<yellow>> end ({key=}), {category=}, {result=})")
+    logger.log(20 if result else 10, f"<<yellow>> end ({key=}), {category=}, {result=})")
     return result
 
 

@@ -35,34 +35,34 @@ def legacy_label_check(normalized_category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def main_films_resolvers(normalized_category) -> str:
+def main_films_resolvers(category) -> str:
     """
     Resolve a film nationalities label from a category string.
 
     Normalizes the input by trimming whitespace, converting to lowercase, and removing a leading "category:" prefix, then queries a sequence of film-label resolvers and returns the first non-empty result.
 
     Parameters:
-        normalized_category (str): Category text to resolve; may include a leading "category:" prefix.
+        category (str): Category text to resolve; may include a leading "category:" prefix.
 
     Returns:
         str: The resolved label if any resolver finds a match, otherwise an empty string.
     """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
+    category = category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = (
-        legacy_label_check(normalized_category)
-        or get_films_key_tyty_new_and_time(normalized_category)
-        or TELEVISION_KEYS.get(normalized_category)
-        or Films_key_CAO.get(normalized_category)
-        or get_films_key_tyty_new(normalized_category)
+    result = (
+        legacy_label_check(category)
+        or get_films_key_tyty_new_and_time(category)
+        or TELEVISION_KEYS.get(category)
+        or Films_key_CAO.get(category)
+        or get_films_key_tyty_new(category)
         or ""
     )
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

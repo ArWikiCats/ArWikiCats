@@ -55,7 +55,7 @@ def resolve_languages_labels_with_time(category: str) -> str:
         result_format="{sub_result} في {arabic_time}",
     )
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

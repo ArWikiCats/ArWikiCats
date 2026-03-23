@@ -185,7 +185,7 @@ def resolve_v1(category: str) -> str:
         return ""
 
     result = double_bot_v1().search_all_category(category)
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -224,7 +224,7 @@ def resolve_countries_names_double(category: str) -> str:
 
     result = resolve_v2(category) or resolve_v1(category)
 
-    # logger.info(f"<<yellow>> end {category=}, {result=}")
+    # logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

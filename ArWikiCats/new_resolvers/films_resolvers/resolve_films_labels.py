@@ -285,22 +285,22 @@ def fix_keys(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def _get_films_key_tyty_new(text: str) -> str:
+def _get_films_key_tyty_new(category: str) -> str:
     """
     Resolve a films category key from free-form category text.
 
     Parameters:
-        text (str): Free-form category or country identifier text to match against known film/television keys.
+        category (str): Free-form category or country identifier text to match against known film/television keys.
 
     Returns:
         resolved_key (str): The matched films key, or an empty string if no match is found.
     """
-    normalized_text = fix_keys(text)
-    logger.debug(f"<<yellow>> start {normalized_text=}")
+    category = fix_keys(category)
+    logger.debug(f"<<yellow>> start {category=}")
     double_bot, bot = _make_bot()
 
-    result = bot.search_all(normalized_text) or double_bot.search_all(normalized_text)
-    logger.info(f"<<yellow>> end {normalized_text=}, {result=}")
+    result = bot.search_all(category) or double_bot.search_all(category)
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

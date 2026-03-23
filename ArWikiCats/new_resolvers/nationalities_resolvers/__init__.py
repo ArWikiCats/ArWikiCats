@@ -17,30 +17,30 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def main_nationalities_resolvers(normalized_category) -> str:
+def main_nationalities_resolvers(category) -> str:
     """
     Resolve a category string into a nationalities category label.
 
     Parameters:
-        normalized_category (str): Category string to resolve.
+        category (str): Category string to resolve.
 
     Returns:
         str: Matched nationalities category label, or empty string if no resolver matches.
     """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
+    category = category.strip().lower().replace("category:", "")
 
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = (
-        nationalities_v2.resolve_by_nats(normalized_category)
-        or nationalities_time_v2.resolve_nats_time_v2(normalized_category)
-        or ministers_resolver.resolve_secretaries_labels(normalized_category)
+    result = (
+        nationalities_v2.resolve_by_nats(category)
+        or nationalities_time_v2.resolve_nats_time_v2(category)
+        or ministers_resolver.resolve_secretaries_labels(category)
         or ""
     )
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

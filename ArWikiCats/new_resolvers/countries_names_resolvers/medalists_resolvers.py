@@ -252,13 +252,13 @@ def fix_keys(category: str) -> str:
 
 @functools.lru_cache(maxsize=10000)
 def resolve_countries_names_medalists(category: str) -> str:
-    normalized_category = fix_keys(category)
-    logger.debug(f"<<yellow>> start {normalized_category=}")
+    category = fix_keys(category)
+    logger.debug(f"<<yellow>> start {category=}")
 
     nat_bot = _load_bot()
-    result = nat_bot.search_all_category(normalized_category)
+    result = nat_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

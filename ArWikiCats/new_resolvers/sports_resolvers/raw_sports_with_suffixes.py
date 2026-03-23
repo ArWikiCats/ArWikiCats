@@ -147,7 +147,7 @@ def wrap_team_xo_normal_2025_with_ends(category) -> str:
             fix_result_callable=fix_result_callable,
         )
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

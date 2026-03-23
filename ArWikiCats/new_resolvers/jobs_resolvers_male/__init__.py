@@ -15,22 +15,22 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def main_jobs_resolvers_for_males(normalized_category) -> str:
+def main_jobs_resolvers_for_males(category) -> str:
     """
     """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
+    category = category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = (
-        males_resolver_labels(normalized_category)
-        or new_religions_jobs_for_males(normalized_category)
-        or resolve_nats_jobs_for_males(normalized_category)
+    result = (
+        males_resolver_labels(category)
+        or new_religions_jobs_for_males(category)
+        or resolve_nats_jobs_for_males(category)
         or ""
     )
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

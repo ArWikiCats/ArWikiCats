@@ -13,31 +13,31 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def main_jobs_resolvers(normalized_category) -> str:
+def main_jobs_resolvers(category) -> str:
     """
     Resolve a job category name to a standardized jobs label.
 
     Parameters:
-        normalized_category (str): Category name to resolve. Leading "category:" prefix, surrounding whitespace, and letter case are ignored.
+        category (str): Category name to resolve. Leading "category:" prefix, surrounding whitespace, and letter case are ignored.
 
     Returns:
         str: The resolved jobs category label, or an empty string if no resolver matched.
     """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
+    category = category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = (
-        mens.mens_resolver_labels(normalized_category)
+    result = (
+        mens.mens_resolver_labels(category)
         # or males_resolver_labels(normalized_category)  # male resolvers
-        or womens.womens_resolver_labels(normalized_category)
-        or relegin_jobs_new.new_religions_jobs_with_suffix(normalized_category)
+        or womens.womens_resolver_labels(category)
+        or relegin_jobs_new.new_religions_jobs_with_suffix(category)
         # or new_religions_jobs_for_males(normalized_category)  # male resolvers
         or ""
     )
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

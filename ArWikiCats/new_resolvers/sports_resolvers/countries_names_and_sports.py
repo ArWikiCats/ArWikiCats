@@ -221,7 +221,7 @@ def resolve_countries_names_sport_with_ends(category) -> str:
     else:
         result = resolve_countries_names_sport(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

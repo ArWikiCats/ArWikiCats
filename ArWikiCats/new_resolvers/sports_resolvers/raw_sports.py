@@ -6,7 +6,7 @@ import logging
 
 from ...translations import SPORT_KEY_RECORDS
 from ...translations_formats import FormatDataV2
-from .pre_defined import pre_defined_results
+# from .pre_defined import pre_defined_results
 
 logger = logging.getLogger(__name__)
 
@@ -417,7 +417,7 @@ def resolve_sport_label_unified(category: str, default: str = "") -> str:
         category2 = category.replace("championships", "championship")
         result = unified_bot.search(category2)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result or default
 
 

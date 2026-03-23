@@ -355,7 +355,7 @@ def mens_resolver_labels(category: str) -> str:
     else:
         result = _mens_resolver_labels(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

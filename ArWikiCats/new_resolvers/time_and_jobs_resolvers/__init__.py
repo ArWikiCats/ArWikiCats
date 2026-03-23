@@ -17,30 +17,30 @@ logger = logging.getLogger(__name__)
 
 
 @functools.lru_cache(maxsize=10000)
-def time_and_jobs_resolvers_main(normalized_category, callback: Callable | None = None) -> str:
+def time_and_jobs_resolvers_main(category, callback: Callable | None = None) -> str:
     """
     Resolve a combined time-period-and-job category string to its Arabic label.
 
     Attempts multiple internal resolvers in sequence and returns the first non-empty match.
 
     Parameters:
-        normalized_category (str): Category string to resolve; may include a leading 'Category:' prefix.
+        category (str): Category string to resolve; may include a leading 'Category:' prefix.
 
     Returns:
         str: The resolved Arabic category label if found, otherwise an empty string.
     """
-    normalized_category = normalized_category.strip().lower().replace("category:", "")
+    category = category.strip().lower().replace("category:", "")
     logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {normalized_category=}")
+    logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = (
-        year_job_origin_resolver.resolve_year_job_from_countries(normalized_category, callback=callback)
-        or year_job_resolver.resolve_year_job_countries(normalized_category, callback=callback)
+    result = (
+        year_job_origin_resolver.resolve_year_job_from_countries(category, callback=callback)
+        or year_job_resolver.resolve_year_job_countries(category, callback=callback)
         or ""
     )
 
-    logger.info(f"<<yellow>> end {normalized_category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

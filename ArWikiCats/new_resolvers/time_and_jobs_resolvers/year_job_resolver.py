@@ -108,7 +108,7 @@ def resolve_year_job_countries(category: str, callback: Callable | None = None) 
     _bot = multi_bot_v4(callback=callback)
     result = _bot.create_label(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

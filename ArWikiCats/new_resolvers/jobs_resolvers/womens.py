@@ -286,7 +286,7 @@ def _womens_resolver(category: str) -> str:
 
     result = load_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 
@@ -316,7 +316,7 @@ def womens_resolver_labels(category: str) -> str:
 
     result = _womens_resolver(category) or _womens_jobs_resolver(category)
 
-    # logger.info(f"<<yellow>> end {category=}, {result=}")
+    # logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

@@ -17,12 +17,12 @@ def main_other_resolvers(category: str) -> str:
         category (str): Category identifier to resolve.
 
     Returns:
-        resolved_label (str): The label resolved for the given category.
+        result (str): The label resolved for the given category.
     """
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    resolved_label = peoples_resolver.work_peoples(category)
+    result = peoples_resolver.work_peoples(category)
 
-    logger.info(f"<<yellow>> end {category=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result

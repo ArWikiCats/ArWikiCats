@@ -104,7 +104,7 @@ def resolve_by_countries_names_v2(category: str) -> str:
     nat_bot = _load_bot()
     result = nat_bot.search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

@@ -52,22 +52,22 @@ def _load_bot() -> FormatData:
 
 
 @functools.lru_cache(maxsize=2048)
-def work_peoples(name: str) -> str:
+def work_peoples(category: str) -> str:
     """
-    Return the label for ``name`` using FormatData.
+    Return the label for ``category`` using FormatData.
     """
-    logger.debug(f"<<yellow>> {name=}")
+    logger.debug(f"<<yellow>> {category=}")
 
-    if label := people_dictionary.get(name):
-        logger.info(f"<<yellow>> end direct hit {name=}, {label=}")
+    if label := people_dictionary.get(category):
+        logger.info(f"<<yellow>> end direct hit {category=}, {label=}")
         return label
 
     _peoples_bot = _load_bot()
 
-    resolved_label = _peoples_bot.search(name)
+    result = _peoples_bot.search(category)
 
-    logger.info(f"<<yellow>> end {name=}, {resolved_label=}")
-    return resolved_label
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 __all__ = [

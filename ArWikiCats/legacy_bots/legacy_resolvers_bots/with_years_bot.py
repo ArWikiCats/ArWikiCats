@@ -232,7 +232,7 @@ def Try_With_Years(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
     # pop_final_Without_Years
 
-    label = ""
+    result = ""
     category = category.strip()
 
     if category.isdigit():
@@ -240,8 +240,8 @@ def Try_With_Years(category: str) -> str:
 
     category = category.replace("−", "-")
 
-    if label := handle_political_terms(category):
-        return label
+    if result := handle_political_terms(category):
+        return result
 
     year_at_start = RE1_compile.match(category)
     year_at_end = RE2_compile.match(category)
@@ -253,9 +253,10 @@ def Try_With_Years(category: str) -> str:
         logger.info(f" end {category=} no match year patterns")
         return ""
 
-    label = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
-    logger.info(f"<<yellow>> end {category=}, {label=}")
-    return label
+    result = _handle_year_at_start(category) or _handle_year_at_end(category, RE2_compile, RE33_compile) or ""
+
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
+    return result
 
 
 def wrap_try_with_years(category_r) -> str:

@@ -132,7 +132,7 @@ def genders_jobs_resolver(category: str) -> str:
     result = job_bot.search_all_other_first(normalized_category)
     result = job_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
 
     return result
 

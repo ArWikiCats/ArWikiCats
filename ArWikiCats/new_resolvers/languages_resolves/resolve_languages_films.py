@@ -75,7 +75,7 @@ def resolve_films_languages_labels(category: str) -> str:
 
     result = _make_bot().search_all_category(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

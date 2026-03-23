@@ -114,7 +114,7 @@ def _load_formatted_data() -> dict[str, str]:
         "by {en} by {en2}": "حسب {ar} حسب {ar2}",
     }
 
-    by_of_keys_2 = {
+    _by_of_keys_2 = {
         "by city of {en}": "حسب مدينة {ar}",
         "by date of {en}": "حسب تاريخ {ar}",
         "by country of {en}": "حسب بلد {ar}",
@@ -602,7 +602,7 @@ def resolve_by_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start {normalized_category=}")
     both_bot = _load_bot()
     result = both_bot.search_all_category(normalized_category)
-    logger.info(f"<<yellow>> end {normalized_category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {normalized_category=}, {result=}")
     return result
 
 

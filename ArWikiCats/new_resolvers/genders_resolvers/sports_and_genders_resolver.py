@@ -121,7 +121,7 @@ def genders_sports_resolver(category: str) -> str:
     result = sport_bot.search_all_other_first(normalized_category)
     result = sport_bot.prepend_arabic_category_prefix(category, result)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
 
     return result
 

@@ -153,7 +153,7 @@ def get_p17_with_sport_new(category: str) -> str:
     else:
         result = _get_p17_with_sport(category)
 
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 

@@ -137,7 +137,7 @@ def resolve_secretaries_labels(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category)
     result = _names(category) or _nats(category)
-    logger.info(f"<<yellow>> end {category=}, {result=}")
+    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
 
 
