@@ -27,12 +27,12 @@ def find_dual_by_keys(normalized: str) -> str:
     first_label = resolve_by_labels(first_key.lower())
     second_label = resolve_by_labels(second_key.lower())
 
-    logger.debug(f"<<lightred>>>> by:{first_key},lab:{first_label}.")
-    logger.debug(f"<<lightred>>>> by:{second_key},lab:{second_label}.")
+    logger.debug(f"<<lightred>> by:{first_key},lab:{first_label}.")
+    logger.debug(f"<<lightred>> by:{second_key},lab:{second_label}.")
 
     if first_label and second_label:
         resolved = f"حسب {first_label} و{second_label}"
-        logger.debug(f"<<lightblue>>>> ^^^^^^^^^ make_by_label lab:{resolved}.")
+        logger.debug(f"<<lightblue>> ^^^^^^^^^ make_by_label lab:{resolved}.")
 
     return resolved
 
@@ -62,7 +62,7 @@ def make_new_by_label(category: str) -> str:
     if not resolved:
         resolved = find_dual_by_keys(normalized)
 
-    logger.info("<<lightblue>>>> ^^^^^^^^^ end ^^^^^^^^^ ")
+    logger.info("<<lightblue>> ^^^^^^^^^ end ^^^^^^^^^ ")
     return resolved
 
 
@@ -86,7 +86,7 @@ def get_by_label(category: str) -> str:
         return ""
 
     label = ""
-    logger.info(f"<<lightyellow>>>> {category=}")
+    logger.info(f"<<lightyellow>> {category=}")
 
     match = BY_MATCH_PATTERN.match(category)
     if not match:
@@ -101,11 +101,11 @@ def get_by_label(category: str) -> str:
     first_label = get_from_new_p17_final(first_part_cleaned) or get_pop_All_18(first_part_cleaned, "") or ""
     by_label = resolve_by_labels(by_section)
 
-    logger.debug(f"<<lightyellow>>>>frist:{first_part=}, {by_section=}")
+    logger.debug(f"<<lightyellow>> frist:{first_part=}, {by_section=}")
 
     if first_label and by_label:
         label = f"{first_label} {by_label}"
-        logger.info(f"<<lightyellow>>>> lab {label=}")
+        logger.info(f"<<lightyellow>> lab {label=}")
 
     return label
 

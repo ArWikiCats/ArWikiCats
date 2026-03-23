@@ -70,30 +70,30 @@ def get_and_label(category: str) -> str:
     if " and " not in category:
         return ""
 
-    logger.info(f"<<lightyellow>>>> {category}")
+    logger.info(f"<<lightyellow>> {category}")
     logger.info(f"Resolving , {category=}")
     match = AND_PATTERN.match(category)
 
     if not match:
-        logger.debug(f"<<lightyellow>>>> No match found for : {category}")
+        logger.debug(f"<<lightyellow>> No match found for : {category}")
         return ""
 
     first_part, last_part = match.groups()
     first_part = first_part.lower()
     last_part = last_part.lower()
 
-    logger.debug(f"<<lightyellow>>>> (): {first_part=}, {last_part=}")
+    logger.debug(f"<<lightyellow>> (): {first_part=}, {last_part=}")
 
     first_label = get_from_new_p17_final(first_part, None)  # or get_pop_All_18(first_part) or ""
 
     last_label = get_from_new_p17_final(last_part, None)  # or get_pop_All_18(last_part) or ""
 
-    logger.debug(f"<<lightyellow>>>> (): {first_label=}, {last_label=}")
+    logger.debug(f"<<lightyellow>> (): {first_label=}, {last_label=}")
 
     label = ""
     if first_label and last_label:
         label = f"{first_label} و{last_label}"
-        logger.info(f"<<lightyellow>>>> lab {label}")
+        logger.info(f"<<lightyellow>> lab {label}")
 
     return label
 

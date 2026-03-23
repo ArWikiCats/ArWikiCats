@@ -225,7 +225,7 @@ class LabelForStartWithYearOrTypeo:
             logger.debug("<<lightblue>> cat_test = category2 ")
 
         else:
-            logger.debug("<<lightgreen>>>> >> cat_test False result.. ")
+            logger.debug("<<lightgreen>> >> cat_test False result.. ")
             logger.debug(f" {self.cat_test=} ")
             logger.debug("<<lightgreen>> arlabel " + self.arlabel)
             self.NoLab = True
@@ -238,7 +238,7 @@ class LabelForStartWithYearOrTypeo:
 
                 logger.info(f"a<<lightred>> arlabel ppoi:{self.arlabel}")
                 logger.info(f'>>>> <<lightyellow>> cat:"{self.category_r}", category_lab "{self.arlabel}"')
-                logger.info("<<lightblue>>>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
+                logger.info("<<lightblue>> ^^^^^^^^^ event2 end 3 ^^^^^^^^^ ")
 
                 return self.arlabel
 
