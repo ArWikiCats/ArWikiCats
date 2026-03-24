@@ -215,11 +215,11 @@ class MedalistsResolver(BaseResolversWorker):
         }
         formatted_data = _build_formatted_data()
 
-        self.bot = format_multi_data_v2(
+        self.bot: MultiDataFormatterBaseV2 = format_multi_data_v2(
             formatted_data=formatted_data,
-            data_list=countries_data,
+            data_list=countries_data,  # type: ignore[arg-type]
             key_placeholder="{en}",
-            data_list2=sports_data,
+            data_list2=sports_data,  # type: ignore[arg-type]
             key2_placeholder="{game_en}",
             text_after="",
             text_before="the ",
@@ -247,7 +247,6 @@ class MedalistsResolver(BaseResolversWorker):
 
     def after_run(self) -> None:
         """Post-process the result if needed."""
-        pass
 
 
 @functools.lru_cache(maxsize=1)
