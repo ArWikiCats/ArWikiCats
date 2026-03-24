@@ -61,7 +61,7 @@ Move bot/tool initialization from module-level into `load_bot()`:
 ```python
 def load_bot(self) -> None:
     data = load_your_data()
-    self.bot = FormatData(
+    self.bot: FormatData = FormatData(
         data,
         YOUR_TRANSLATIONS,
         key_placeholder="{en}",
@@ -171,7 +171,7 @@ class YourResolver(BaseResolversWorker):
     def load_bot(self) -> None:
         """Initialize the translation bot."""
         data = load_your_data()
-        self.bot = FormatData(
+        self.bot: FormatData = FormatData(
             data,
             YOUR_TRANSLATIONS,
             key_placeholder="{en}",
