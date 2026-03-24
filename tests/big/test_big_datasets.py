@@ -44,7 +44,7 @@ def dump_same_and_not_same(data: dict, diff_result: dict, name: str, folder_name
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
     if len(same_data) != len(data):
-        dump_one_new(same_data, folder_path_same / f"{name}")
+        dump_one_new(same_data, folder_path_same / f"{name}.json")
 
     add_data = {x: v for x, v in data.items() if x in diff_result}
     if len(add_data) != len(data):
