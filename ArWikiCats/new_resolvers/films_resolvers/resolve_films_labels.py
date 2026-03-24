@@ -15,6 +15,8 @@ from ...translations import (
     film_keys_for_female,
 )
 from ...translations_formats import (
+    CountryBotConfig,
+    GenreBotConfig,
     MultiDataFormatterBase,
     format_films_country_data,
     format_multi_data,
@@ -228,17 +230,24 @@ def _make_bot() -> MultiDataFormatterBase:
     # data_list2.pop("superhero", None)
     data_list2["superhero"] = "أبطال خارقين"
 
-    double_bot = format_films_country_data(
+    country_config = CountryBotConfig(
         formatted_data=formatted_data,
         data_list=Nat_women,
         key_placeholder="{nat_en}",
         value_placeholder="{nat_ar}",
-        data_list2=data_list2,
-        key2_placeholder="{film_key}",
-        value2_placeholder="{film_ar}",
         text_after="",
         text_before="",
-        other_formatted_data=other_formatted_data,
+    )
+    genre_config = GenreBotConfig(
+        data_list=data_list2,
+        formatted_data=other_formatted_data,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+    )
+
+    double_bot = format_films_country_data(
+        country_config=country_config,
+        genre_config=genre_config,
     )
 
     double_bot.other_bot.update_put_label_last(put_label_last)
