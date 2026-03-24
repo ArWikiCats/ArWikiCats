@@ -5,7 +5,9 @@ This module provides functions to calculate the size and count of data structure
 used by various bots and optionally save this data to JSON files.
 """
 
+import functools
 import json
+import os
 import logging
 import sys
 from pathlib import Path
@@ -13,11 +15,15 @@ from typing import Any, List, Mapping, Union
 
 from humanize import naturalsize
 
-from ..config import app_settings
-
 logger = logging.getLogger(__name__)
 
 all_len = {}
+
+
+@functools.lru_cache(maxsize=1)
+def get_save_path() -> str:
+    save_data_path = os.getenv("SAVE_DATA_PATH", "")
+    return save_data_path
 
 
 def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> str:
@@ -29,10 +35,11 @@ def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> st
 
 def save_data(bot: str, tab: Mapping) -> None:
     """Persist bot data to JSON files when a save path is configured."""
-    if not app_settings.save_data_path:
+    save_data_path = get_save_path()
+    if not save_data_path:
         return
 
-    bot_path = Path(app_settings.save_data_path) / bot
+    bot_path = Path(save_data_path) / bot
     try:
         bot_path.mkdir(parents=True, exist_ok=True)
 
@@ -57,7 +64,8 @@ def data_len(
 ) -> None:
     """Collect and optionally save size statistics for the given bot data."""
 
-    if not app_settings.save_data_path:
+    save_data_path = get_save_path()
+    if not save_data_path:
         return
 
     data = {
