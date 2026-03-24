@@ -277,6 +277,69 @@ __all__ = [
 
 ---
 
+## Lifecycle (what happens when `resolve_your_category("some input")` is called)
+
+```
+resolve_your_category("Texas Democrats")
+  → load_class()                     # returns cached YourResolver singleton
+      first call only:
+        YourResolver('resolve_your_category')
+          → __init__() → load_bot()  # FormatData built here, stored as self.bot
+  → .run("Texas Democrats")
+      → before_run("Texas Democrats")   → "texas democrats"   (lowercased)
+      → process("texas democrats")      → raw Arabic string
+      → after_run()                     → self.result modified in place
+      → return self.result
+```
+
+---
+
+## Rules — follow these exactly
+
+**load_bot()**
+
+-   Move all `FormatData(...)` construction here — never at module level
+-   Set `self.bot` (or another `self.*` attribute); do not return anything
+-   Do not call `load_bot()` yourself — the base `__init__` calls it once
+
+**process()**
+
+-   Return the result of `self.bot.search(category)`
+-   Do not normalize or post-process — that belongs in `after_run()`
+
+**after_run()**
+
+-   Assign to `self.result` in place; return nothing
+-   Omit entirely if there is no post-processing
+
+**before_run()**
+
+-   Omit entirely unless you need preprocessing beyond lowercasing
+-   If overriding: `category = super().before_run(category)` must be the first line
+
+**load_class()**
+
+-   Always `maxsize=1` — only one instance is ever needed
+-   The name string passed to the constructor must match the public function name
+
+**Module level**
+
+-   Only plain dicts and `.update()` calls that reference those dicts
+-   No `FormatData(...)`, no function calls that do real work
+
+---
+
+## What changes when migrating from the old pattern
+
+| Old code location                                     | New location                                                                                                   |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `us_bot = FormatData(...)` at module level            | Inside `load_bot()` as `self.bot = FormatData(...)`                                                            |
+| `result = us_bot.search(category)` in public function | Inside `process()` as `return self.bot.search(category)`                                                       |
+| `result = normalize_state(result)` in public function | Inside `after_run()` as `self.result = normalize_state(self.result)`                                           |
+| `@functools.lru_cache` on public function only        | `@functools.lru_cache(maxsize=1)` on `load_class()` + `@functools.lru_cache(maxsize=10000)` on public function |
+
+---
+
 ## Common Mistakes
 
 | Mistake                                       | Fix                                                  |
