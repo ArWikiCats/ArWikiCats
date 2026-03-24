@@ -32,17 +32,22 @@ Factory Functions:
     format_films_country_data: Creates MultiDataFormatterDataDouble for film categories
 
 Example:
-    >>> from ArWikiCats.translations_formats import format_multi_data
+    >>> from ArWikiCats.translations_formats import format_multi_data, MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
     >>> formatted_data = {"{nat} players": "لاعبو {nat_ar}"}
     >>> data_list = {"british": "بريطانيون"}
     >>> data_list2 = {"football": "كرة القدم"}
-    >>> bot = format_multi_data(
+    >>> first_config = MultiDataFormatterConfig(
     ...     formatted_data=formatted_data,
     ...     data_list=data_list,
-    ...     data_list2=data_list2,
     ...     key_placeholder="{nat}",
     ...     value_placeholder="{nat_ar}",
     ... )
+    >>> second_config = MultiDataFormatterSecondElementConfig(
+    ...     data_list=data_list2,
+    ...     key_placeholder="{football}",
+    ...     value_placeholder="{كرة القدم}",
+    ... )
+    >>> bot = format_multi_data(first_element_config=first_config, second_element_config=second_config)
     >>> bot.search("british football players")
     'لاعبو كرة القدم بريطانيون'
 """
