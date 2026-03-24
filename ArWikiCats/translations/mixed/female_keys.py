@@ -648,7 +648,7 @@ FEMALE_EXPANSIONS: dict[str, str] = {
     "{base} controversies": "خلافات {label}",
     "{base} agencies": "وكالات {label}",
     "{base} units and formations": "وحدات وتشكيلات {label}",
-    "{base} squadrons‎": "أسراب {label}",
+    "{base} squadrons": "أسراب {label}",
     "{base} ideologies": "أيديولوجيات {label}",
     "{base} occupations": "مهن {label}",
     "{base} organisations": "منظمات {label}",

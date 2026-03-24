@@ -32,7 +32,7 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     "{en} board of health": "مجلس الصحة في ولاية {ar}",
     "{en} city councils": "مجالس مدن {ar}",
     "{en} court judges": "قضاة محكمة {ar}",
-    "{en} court of appeals judges‎": "قضاة محكمة استئناف {ar}",
+    "{en} court of appeals judges": "قضاة محكمة استئناف {ar}",
     "{en} court of appeals": "محكمة استئناف {ar}",
     "{en} democrats": "ديمقراطيون من ولاية {ar}",
     "{en} general assembly": "جمعية {ar} العامة",
