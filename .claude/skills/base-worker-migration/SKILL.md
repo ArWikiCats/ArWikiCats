@@ -1,6 +1,6 @@
 ---
 name: base-worker-migration
-description: Migrate resolver code to use BaseResolversWorker pattern. Use when refactoring resolvers in new_resolvers/, creating new resolvers, or converting function-based resolvers to class-based workers with load_bot/process/after_run lifecycle.
+description: Migrate resolver code to use BaseResolversWorker pattern. Use when refactoring resolvers in new_resolvers/, creating new resolvers, or converting function-based resolvers to class-based workers with load_bot/before_run/process/after_run lifecycle.
 ---
 
 # BaseResolversWorker Migration Guide
