@@ -571,7 +571,7 @@ def test_log_multi_cache_affects_put_label_last(base_data_v2):
         log_multi_cache=True,
     )
     bot_cached.update_put_label_last(["action"])
-    result_cached = bot_cached.search("action drama films")
+    bot_cached.search("action drama films")
 
     # With caching disabled, put_label_last works correctly
     bot_no_cache = FormatDataDoubleV2(

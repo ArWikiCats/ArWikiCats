@@ -235,7 +235,7 @@ class TestAddCyclingVariants:
     def test_appends_to_nat_before_occ(self) -> None:
         BASE_CYCLING_EVENTS = {"vuelta a espana": " Vuelta a España "}
         nat_before_occ: list[str] = []
-        result = _add_cycling_variants(nat_before_occ, BASE_CYCLING_EVENTS)
+        _add_cycling_variants(nat_before_occ, BASE_CYCLING_EVENTS)
 
         assert "vuelta a espana winners" in nat_before_occ
         assert "vuelta a espana stage winners" in nat_before_occ

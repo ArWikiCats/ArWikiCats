@@ -75,13 +75,13 @@ def data_len(
 
     data = {}
     for x, v in tab.items():
-        if isinstance(v, (int, float)):
+        if isinstance(v, int | float):
             # Pre-calculated length - use value directly as count
             data[x] = {
                 "count": v,
                 "size": "N/A",
             }
-        elif isinstance(v, (dict, list)):
+        elif isinstance(v, dict | list):
             # Raw object - calculate len() and getsizeof() normally
             data[x] = {
                 "count": len(v),
