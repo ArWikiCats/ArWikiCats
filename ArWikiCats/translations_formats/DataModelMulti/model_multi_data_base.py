@@ -105,6 +105,8 @@ class MultiDataFormatterBaseHelpers:
     def __init__(self) -> None:
         """Initialize the base multi-formatter with default values."""
         self.data_to_find = None
+        self.country_bot = None
+        self.other_bot = None
 
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
