@@ -75,6 +75,23 @@ def load_bot(self) -> None:
 -   Don't return anything - just set instance attributes
 -   This is called once in `__init__`
 
+### Step 2.5: Implement `before_run()` (Optional)
+
+Override `before_run()` if you need custom pre-processing (default lowercases the category):
+
+```python
+def before_run(self, category: str) -> str:
+    category = super().before_run(category)  # lowercases
+    # Add custom pre-processing if needed
+    return category
+```
+
+**Key points:**
+
+-   Called before `process()`
+-   Default implementation lowercases the category
+-   Override only if you need additional pre-processing
+
 ### Step 3: Implement `process()`
 
 Extract the core logic into `process()`:
@@ -86,7 +103,7 @@ def process(self, category: str) -> str:
 
 **Key points:**
 
--   Takes `category` as parameter
+-   Takes `category` as parameter (after `before_run()` processing)
 -   Returns the raw result (string)
 -   Don't do post-processing here - use `after_run()` for that
 
