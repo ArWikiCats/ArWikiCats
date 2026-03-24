@@ -309,11 +309,11 @@ __all__ = [
 len_print.data_len(
     "labels_country2.py",
     {
-        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,  # 1,778
-        "ADDITIONAL_REGION_KEYS": ADDITIONAL_REGION_KEYS,
-        "SWISS_CANTON_LABELS": SWISS_CANTON_LABELS,
-        "PROVINCE_LABEL_OVERRIDES": PROVINCE_LABEL_OVERRIDES,
-        "PROVINCE_LABELS": PROVINCE_LABELS,
-        "region_suffix_matches": region_suffix_matches,
+        "COUNTRY_ADMIN_LABELS": len(COUNTRY_ADMIN_LABELS),  # 1,778
+        "ADDITIONAL_REGION_KEYS": len(ADDITIONAL_REGION_KEYS),
+        "SWISS_CANTON_LABELS": len(SWISS_CANTON_LABELS),
+        "PROVINCE_LABEL_OVERRIDES": len(PROVINCE_LABEL_OVERRIDES),
+        "PROVINCE_LABELS": len(PROVINCE_LABELS),
+        "region_suffix_matches": len(region_suffix_matches),
     },
 )

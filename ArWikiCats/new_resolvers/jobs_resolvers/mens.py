@@ -368,7 +368,7 @@ def mens_resolver_labels(category: str) -> str:
 len_print.data_len(
     "mens.py",
     {
-        "mens_formatted_data": _load_formatted_data(),
-        "mens_jobs_data": _load_jobs_data(),
+        "mens_formatted_data": len(_load_formatted_data()),
+        "mens_jobs_data": len(_load_jobs_data()),
     },
 )

@@ -64,6 +64,6 @@ nats_keys_as_country_names.update(raw_nats_as_en_key)
 len_print.data_len(
     "nats_as_country_names.py",
     {
-        "nats_keys_as_country_names": nats_keys_as_country_names,
+        "nats_keys_as_country_names": len(nats_keys_as_country_names),
     },
 )

@@ -90,8 +90,8 @@ __all__ = [
 len_print.data_len(
     "jobs_womens.py",
     {
-        "FEMALE_JOBS_BASE_EXTENDED": FEMALE_JOBS_BASE_EXTENDED,
-        "short_womens_jobs": short_womens_jobs,
-        "FEMALE_JOBS_SPORTS": FEMALE_JOBS_SPORTS,
+        "FEMALE_JOBS_BASE_EXTENDED": len(FEMALE_JOBS_BASE_EXTENDED),
+        "short_womens_jobs": len(short_womens_jobs),
+        "FEMALE_JOBS_SPORTS": len(FEMALE_JOBS_SPORTS),
     },
 )

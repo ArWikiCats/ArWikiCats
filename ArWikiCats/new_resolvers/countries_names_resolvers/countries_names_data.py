@@ -500,7 +500,7 @@ __all__ = [
 len_print.data_len(
     "countries_names_data.py",
     {
-        "keys_of_without_in_data": keys_of_without_in_data,
-        "from_russia_data": from_russia_data,
+        "keys_of_without_in_data": len(keys_of_without_in_data),
+        "from_russia_data": len(from_russia_data),
     },
 )

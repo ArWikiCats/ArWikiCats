@@ -268,6 +268,6 @@ __all__ = [
 len_print.data_len(
     "all_keys5.py",
     {
-        "pop_final_5": pop_final_5,
+        "pop_final_5": len(pop_final_5),
     },
 )

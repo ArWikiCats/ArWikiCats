@@ -717,9 +717,9 @@ __all__ = [
 len_print.data_len(
     "female_keys.py",
     {
-        "films_data": films_data,
-        "New_female_keys": New_female_keys,
-        "RELIGIOUS_FEMALE_KEYS": RELIGIOUS_FEMALE_KEYS,
-        "religious_entries": religious_entries,
+        "films_data": len(films_data),
+        "New_female_keys": len(New_female_keys),
+        "RELIGIOUS_FEMALE_KEYS": len(RELIGIOUS_FEMALE_KEYS),
+        "religious_entries": len(religious_entries),
     },
 )

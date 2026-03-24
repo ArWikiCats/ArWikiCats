@@ -716,12 +716,12 @@ def generate_key_mappings(
 len_print.data_len(
     "all_keys2.py",
     {
-        # "pf_keys2": pf_keys2,
-        "keys_of_without_in": keys_of_without_in,
-        "clubs_teams_leagues": clubs_teams_leagues,
-        "WORD_AFTER_YEARS": WORD_AFTER_YEARS,
-        "BOOK_CATEGORIES": BOOK_CATEGORIES,
-        "BOOK_TYPES": BOOK_TYPES,
+        # "pf_keys2": len(pf_keys2),
+        "keys_of_without_in": len(keys_of_without_in),
+        "clubs_teams_leagues": len(clubs_teams_leagues),
+        "WORD_AFTER_YEARS": len(WORD_AFTER_YEARS),
+        "BOOK_CATEGORIES": len(BOOK_CATEGORIES),
+        "BOOK_TYPES": len(BOOK_TYPES),
     },
 )
 

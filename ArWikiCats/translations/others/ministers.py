@@ -176,6 +176,6 @@ for key1, key2 in add_keys:
 len_print.data_len(
     "ministers.py",
     {
-        "ministers_keys": ministers_keys,
+        "ministers_keys": len(ministers_keys),
     },
 )

@@ -189,7 +189,7 @@ NEW_2023: dict[str, str] = build_new_2023()
 len_print.data_len(
     "keys_23.py",
     {
-        "NEW_2023": NEW_2023,
+        "NEW_2023": len(NEW_2023),
     },
 )
 __all__ = ["NEW_2023"]

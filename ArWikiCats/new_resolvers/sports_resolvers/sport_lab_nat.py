@@ -353,8 +353,8 @@ def sport_lab_nat_load_new(category: str) -> str:
 len_print.data_len(
     "sports_formats_teams/sport_lab_nat.py",
     {
-        "new_for_nat_female_xo_team_2": new_for_nat_female_xo_team_2,
-        "new_for_nat_female_xo_team_additional": new_for_nat_female_xo_team_additional,
+        "new_for_nat_female_xo_team_2": len(new_for_nat_female_xo_team_2),
+        "new_for_nat_female_xo_team_additional": len(new_for_nat_female_xo_team_additional),
     },
 )
 

@@ -267,8 +267,8 @@ __all__ = [
 len_print.data_len(
     "labels_country.py",
     {
-        "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,
-        "CITY_LABEL_PATCHES": CITY_LABEL_PATCHES,  # 5,191
-        # "NEW_P17_FINAL": NEW_P17_FINAL,
+        "COUNTRY_LABEL_OVERRIDES": len(COUNTRY_LABEL_OVERRIDES),
+        "CITY_LABEL_PATCHES": len(CITY_LABEL_PATCHES),  # 5,191
+        # "NEW_P17_FINAL": len(NEW_P17_FINAL),
     },
 )

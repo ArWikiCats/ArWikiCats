@@ -51,6 +51,6 @@ __all__ = [
 len_print.data_len(
     "cycling.py",
     {
-        "CYCLING_TEMPLATES": CYCLING_TEMPLATES,
+        "CYCLING_TEMPLATES": len(CYCLING_TEMPLATES),
     },
 )

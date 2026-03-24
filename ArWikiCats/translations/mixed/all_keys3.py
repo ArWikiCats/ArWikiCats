@@ -380,10 +380,10 @@ pop_final_3: dict[str, str] = build_pop_final_3()
 len_print.data_len(
     "all_keys3.py",
     {
-        "pop_final_3": pop_final_3,
-        "ALBUMS_TYPE": ALBUMS_TYPE,
-        "FILM_PRODUCTION_COMPANY": FILM_PRODUCTION_COMPANY,
-        "BUSINESSPEOPLE_INDUSTRIES": BUSINESSPEOPLE_INDUSTRIES,
+        "pop_final_3": len(pop_final_3),
+        "ALBUMS_TYPE": len(ALBUMS_TYPE),
+        "FILM_PRODUCTION_COMPANY": len(FILM_PRODUCTION_COMPANY),
+        "BUSINESSPEOPLE_INDUSTRIES": len(BUSINESSPEOPLE_INDUSTRIES),
     },
 )
 

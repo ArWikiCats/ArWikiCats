@@ -204,8 +204,8 @@ __all__ = [
 len_print.data_len(
     "keys2.py",
     {
-        "PARTIES": PARTIES,
-        "keys2_py": keys2_py,
-        "new_2019": new_2019,
+        "PARTIES": len(PARTIES),
+        "keys2_py": len(keys2_py),
+        "new_2019": len(new_2019),
     },
 )

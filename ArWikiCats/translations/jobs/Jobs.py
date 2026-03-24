@@ -192,10 +192,10 @@ _len_result = {
 len_print.data_len(
     "jobs.py",
     {
-        "companies_to_jobs": companies_to_jobs,
-        "jobs_mens_data": jobs_mens_data,
-        "jobs_womens_data": jobs_womens_data,
-        "Jobs_new": Jobs_new,
+        "companies_to_jobs": len(companies_to_jobs),
+        "jobs_mens_data": len(jobs_mens_data),
+        "jobs_womens_data": len(jobs_womens_data),
+        "Jobs_new": len(Jobs_new),
     },
 )
 

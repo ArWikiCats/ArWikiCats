@@ -70,6 +70,6 @@ __all__ = [
 len_print.data_len(
     "regions.py",
     {
-        "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,
+        "MAIN_REGION_TRANSLATIONS": len(MAIN_REGION_TRANSLATIONS),
     },
 )
