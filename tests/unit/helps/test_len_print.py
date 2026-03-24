@@ -42,64 +42,64 @@ class TestSaveData:
 
     def test_does_nothing_when_no_save_path(self) -> None:
         """Should do nothing when save_data_path is not configured."""
-        with patch("ArWikiCats.helps.len_print.app_settings") as mock_settings:
-            mock_settings.save_data_path = ""
+        with patch("ArWikiCats.helps.len_print.get_save_path") as mock_get_path:
+            mock_get_path.return_value = ""
             save_data("test_bot", {"key": "value"})
             # Should complete without errors
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
     def test_creates_directory_when_save_path_exists(
-        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_settings: MagicMock
+        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_get_path: MagicMock
     ) -> None:
         """Should create directory when save_data_path is configured."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         save_data("test_bot", {"data": [1, 2, 3]})
         mock_mkdir.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
     def test_saves_dict_data_as_json(
-        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_settings: MagicMock
+        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_get_path: MagicMock
     ) -> None:
         """Should save dict data as JSON."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         data = {"items": {"key1": "value1", "key2": "value2"}}
         save_data("test_bot", data)
         mock_json_dump.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
     def test_saves_list_data_as_json(
-        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_settings: MagicMock
+        self, mock_json_dump: MagicMock, mock_file: MagicMock, mock_mkdir: MagicMock, mock_get_path: MagicMock
     ) -> None:
         """Should save list data as JSON."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         data = {"items": [1, 2, 3, 4]}
         save_data("test_bot", data)
         mock_json_dump.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
-    def test_skips_empty_data(self, mock_mkdir: MagicMock, mock_settings: MagicMock) -> None:
+    def test_skips_empty_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should skip entries with empty data."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         data = {"empty": None, "also_empty": []}
         with patch("builtins.open", mock_open()):
             save_data("test_bot", data)
             # Should not raise errors
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
-    def test_sorts_dict_data(self, mock_mkdir: MagicMock, mock_settings: MagicMock) -> None:
+    def test_sorts_dict_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should sort dict data by keys."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         data = {"items": {"z": 1, "a": 2, "m": 3}}
         with patch("builtins.open", mock_open()) as mock_file:
             with patch("json.dump") as mock_dump:
@@ -113,22 +113,22 @@ class TestSaveData:
                         keys = list(saved_data.keys())
                         assert keys == sorted(keys, key=lambda x: x.lower())
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
-    def test_sorts_list_data(self, mock_mkdir: MagicMock, mock_settings: MagicMock) -> None:
+    def test_sorts_list_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should sort and deduplicate list data."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         data = {"items": [3, 1, 2, 1, 3]}
         with patch("builtins.open", mock_open()):
             with patch("json.dump") as mock_dump:
                 save_data("test_bot", data)
                 # Should have attempted to save sorted unique list
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
-    def test_handles_errors_gracefully(self, mock_mkdir: MagicMock, mock_settings: MagicMock) -> None:
+    def test_handles_errors_gracefully(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should handle errors gracefully and log them."""
-        mock_settings.save_data_path = "/tmp/test_save"
+        mock_get_path.return_value = "/tmp/test_save"
         mock_mkdir.side_effect = Exception("Test error")
         # Should not raise, just log error
         save_data("test_bot", {"data": [1, 2, 3]})
