@@ -27,6 +27,52 @@ class GenreBotConfig:
 
 @dataclass
 class PlaceHolderConfig:
-    """Configuration for """
+    """Configuration for placeholder settings."""
     key_placeholder: str = "{}"
     value_placeholder: str = "{}"
+
+
+@dataclass
+class MultiDataFormatterConfig:
+    """Configuration for the first element (e.g., country/nationality) in multi-data formatters."""
+
+    formatted_data: dict[str, str]
+    data_list: dict[str, str]
+    key_placeholder: str = "natar"
+    value_placeholder: str = "natar"
+    text_after: str = ""
+    text_before: str = ""
+    regex_filter: str | None = None
+
+
+@dataclass
+class MultiDataFormatterSecondElementConfig:
+    """Configuration for the second element (e.g., sport/year) in multi-data formatters."""
+
+    data_list: dict[str, str] = field(default_factory=dict)
+    formatted_data: dict[str, str] = field(default_factory=dict)
+    key_placeholder: str = "xoxo"
+    value_placeholder: str = "xoxo"
+    text_after: str = ""
+    text_before: str = ""
+    regex_filter: str | None = None
+
+
+@dataclass
+class YearCountryDataConfig:
+    """Configuration for the country/nationality part in year-country formatters."""
+
+    formatted_data: dict[str, str]
+    data_list: dict[str, str]
+    key_placeholder: str = "{country1}"
+    value_placeholder: str = "{country1}"
+    text_after: str = ""
+    text_before: str = ""
+
+
+@dataclass
+class YearDataConfig:
+    """Configuration for the year part in year-country formatters."""
+
+    key_placeholder: str = "{year1}"
+    value_placeholder: str = "{year1}"
