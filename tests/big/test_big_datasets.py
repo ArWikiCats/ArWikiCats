@@ -2,12 +2,69 @@
 
 import json
 from pathlib import Path
+from typing import Callable
 
 import pytest
-from load_one_data import dump_one_new, dump_same_and_not_same, one_dump_test
 
 from ArWikiCats import resolve_arabic_category_label
 from utils.resolver_runner import make_resolver_test
+
+
+diff_data_path = Path(__file__).parent / "diff_data"
+diff_data_path.mkdir(exist_ok=True, parents=True)
+
+
+def dump_one_new(data: dict, folder_name: str, file_name: str) -> None:
+    if not data:
+        return
+
+    folder_path = diff_data_path / folder_name
+    folder_path.mkdir(exist_ok=True, parents=True)
+    file_path = folder_path / f"{file_name}.json"
+
+    try:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
+    except Exception as e:
+        print(f"Error writing diff data: {e}")
+
+
+def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool = False) -> None:
+    """
+    Dump same data as JSON file for easy copy-paste to wiki.
+
+    dump_same_add(data, diff_result, name)
+    """
+    if not data or not diff_result:
+        return
+
+    same_data = {x: v for x, v in data.items() if x not in diff_result}
+    if len(same_data) != len(data) or just_dump:
+        # dump_one_new(same_data, name, "same")
+        dump_one_new(same_data, "same", name)  # folder named `same`
+
+    add_data = {x: v for x, v in data.items() if x in diff_result}
+    if len(add_data) != len(data) or just_dump:
+        dump_one_new(add_data, name, "not_same")
+
+
+def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False) -> tuple[dict, dict]:
+    print(f"len of dataset: {len(dataset)}, callback: {callback.__name__}")
+    org = {}
+    diff = {}
+    data = dict(dataset.items())  # if v
+    for cat, ar in data.items():
+        result = callback(cat)
+        # ---
+        if do_strip:
+            result = result.strip() if isinstance(result, str) else result
+            ar = ar.strip() if isinstance(ar, str) else ar
+        # ---
+        if result != ar:
+            org[cat] = ar
+            diff[cat] = result
+
+    return org, diff
 
 
 def JSON_FILES(dir_path) -> list:
