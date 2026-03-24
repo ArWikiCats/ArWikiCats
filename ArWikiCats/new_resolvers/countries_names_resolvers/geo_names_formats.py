@@ -4,12 +4,15 @@ Resolve geo names categories translations
 NOTE: planned to replace pop_format in format_bots/__init__.py
 """
 
+from __future__ import annotations
+
 import functools
 import logging
 from typing import Dict
 
 from ...translations import COUNTRY_LABEL_OVERRIDES, raw_region_overrides
 from ...translations_formats import FormatData, MultiDataFormatterBase
+from ..base_worker import BaseResolversWorker
 from .countries_names_data import formatted_data_en_ar_only
 
 logger = logging.getLogger(__name__)
@@ -28,7 +31,7 @@ geo_data: Dict[str, str] = COUNTRY_LABEL_OVERRIDES | raw_region_overrides | geo_
 
 
 @functools.lru_cache(maxsize=1)
-def _load_bot() -> MultiDataFormatterBase:
+def _load_bot() -> FormatData:
     return FormatData(
         formatted_data_updated,
         geo_data,
