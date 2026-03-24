@@ -81,11 +81,11 @@ class FormatDataDouble(FormatDataBase):
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
+        *,
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",
         ar_joiner: str = " ",
-        *,
         sort_ar_labels: bool = False,
         log_multi_cache: bool = True,
     ):

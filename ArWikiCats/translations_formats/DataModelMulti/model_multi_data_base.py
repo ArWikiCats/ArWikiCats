@@ -104,9 +104,11 @@ class MultiDataFormatterBaseHelpers:
 
     def __init__(self) -> None:
         """Initialize the base multi-formatter with default values."""
-        self.data_to_find = None
+        self.data_to_find: dict[str, str] | None = None
         self.country_bot = None
         self.other_bot = None
+        self.search_first_part: bool = False
+        self.other_key_first: bool = False
 
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
@@ -215,7 +217,7 @@ class MultiDataFormatterBaseHelpers:
         Returns:
                 str: The final Arabic label with placeholders replaced, or an empty string if no valid translation can be produced.
         """
-        if self.data_to_find and self.data_to_find.get(category):
+        if self.data_to_find and category in self.data_to_find:
             return self.data_to_find[category]
 
         # category = Yemeni football championships
