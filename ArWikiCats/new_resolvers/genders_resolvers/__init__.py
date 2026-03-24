@@ -32,6 +32,7 @@ Target examples:
 import functools
 import logging
 
+from ..worker import run_resolvers
 from .jobs_and_genders_resolver import genders_jobs_resolver
 from .sports_and_genders_resolver import genders_sports_resolver
 
@@ -42,7 +43,10 @@ logger = logging.getLogger(__name__)
 def resolve_nat_genders_pattern_v2(category: str) -> str:
     logger.debug(f"<<yellow>> start {category=}")
 
-    result = genders_sports_resolver(category) or genders_jobs_resolver(category) or ""
+    result = run_resolvers(category, [
+        genders_sports_resolver,
+        genders_jobs_resolver,
+    ])
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
 
     return result

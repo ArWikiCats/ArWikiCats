@@ -7,6 +7,7 @@ nationalities, often combined with occupations or time periods.
 import functools
 import logging
 
+from ..worker import run_resolvers
 from . import (
     ministers_resolver,
     nationalities_time_v2,
@@ -32,12 +33,11 @@ def main_nationalities_resolvers(category) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = (
-        nationalities_v2.resolve_by_nats(category)
-        or nationalities_time_v2.resolve_nats_time_v2(category)
-        or ministers_resolver.resolve_secretaries_labels(category)
-        or ""
-    )
+    result = run_resolvers(category, [
+        nationalities_v2.resolve_by_nats,
+        nationalities_time_v2.resolve_nats_time_v2,
+        ministers_resolver.resolve_secretaries_labels,
+    ])
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

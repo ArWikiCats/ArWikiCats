@@ -7,6 +7,7 @@ country names and related geographic entities (like US states) into Arabic.
 import functools
 import logging
 
+from ..worker import run_resolvers
 from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,
@@ -31,23 +32,18 @@ def main_countries_names_resolvers(category: str) -> str:
     Returns:
         str: Resolved Arabic label, or an empty string if no resolver produces a match.
     """
-    category = category.strip().lower().replace("category:", "")
-    logger.debug("--" * 20)
-    logger.debug(f"<><><><><><> <<green>> {category=}")
-
-    result = (
-        # NOTE: order matters here
-        # resolve_by_countries_names_v2 must be before resolve_by_countries_names, to avoid mis-resolving like:
-        # incorrect:    [Category:Zimbabwe political leader] : "تصنيف:قادة زيمبابوي السياسيون",
-        # correct:      [Category:Zimbabwe political leader] : "تصنيف:قادة سياسيون زيمبابويون",
-        countries_names_v2.resolve_by_countries_names_v2(category)
-        or countries_names.resolve_by_countries_names(category)
-        or medalists_resolvers.resolve_countries_names_medalists(category)
-        or us_states.resolve_us_states(category)
-        or geo_names_formats.resolve_by_geo_names(category)
-        # or countries_names_double_v2.resolve_countries_names_double(category)
-        or ""
-    )
+    # NOTE: order matters here
+    # resolve_by_countries_names_v2 must be before resolve_by_countries_names, to avoid mis-resolving like:
+    # incorrect:    [Category:Zimbabwe political leader] : "تصنيف:قادة زيمبابوي السياسيون",
+    # correct:      [Category:Zimbabwe political leader] : "تصنيف:قادة سياسيون زيمبابويون",
+    result = run_resolvers(category, [
+        countries_names_v2.resolve_by_countries_names_v2,
+        countries_names.resolve_by_countries_names,
+        medalists_resolvers.resolve_countries_names_medalists,
+        us_states.resolve_us_states,
+        geo_names_formats.resolve_by_geo_names,
+        # countries_names_double_v2.resolve_countries_names_double,
+    ])
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
