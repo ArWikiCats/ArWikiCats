@@ -223,9 +223,9 @@ resolve_your_category("some category")
         → return self.result
 ```
 
-## Reference: example_before.py Example
+## Reference: example_before.py, example_after.py Example
 
-See `example_before.py` for a complete working example.
+See `example_before.py`, `example_after.py` for a complete working example.
 
 Key features:
 
