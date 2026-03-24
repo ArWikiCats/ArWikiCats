@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 class CountryBotConfig:
     """Configuration for the country/nationality part of the formatter."""
 
-    formatted_data: dict[str, str]
     data_list: dict[str, str]
+    formatted_data: dict[str, str]
     key_placeholder: str = "{nat_en}"
     value_placeholder: str = "{nat_ar}"
     text_after: str = ""
@@ -26,18 +26,11 @@ class GenreBotConfig:
 
 
 @dataclass
-class PlaceHolderConfig:
-    """Configuration for placeholder settings."""
-    key_placeholder: str = "{}"
-    value_placeholder: str = "{}"
-
-
-@dataclass
 class MultiDataFormatterConfig:
     """Configuration for the first element (e.g., country/nationality) in multi-data formatters."""
 
-    formatted_data: dict[str, str]
     data_list: dict[str, str]
+    formatted_data: dict[str, str]
     key_placeholder: str = "natar"
     value_placeholder: str = "natar"
     text_after: str = ""
@@ -62,8 +55,8 @@ class MultiDataFormatterSecondElementConfig:
 class YearCountryDataConfig:
     """Configuration for the country/nationality part in year-country formatters."""
 
-    formatted_data: dict[str, str]
     data_list: dict[str, str]
+    formatted_data: dict[str, str]
     key_placeholder: str = "{country1}"
     value_placeholder: str = "{country1}"
     text_after: str = ""
