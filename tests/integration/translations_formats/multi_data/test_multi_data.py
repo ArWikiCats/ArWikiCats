@@ -5,6 +5,8 @@ import pytest
 
 from ArWikiCats.translations_formats import (
     MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
     format_multi_data,
 )
 
@@ -32,13 +34,17 @@ def multi_bot() -> MultiDataFormatterBase:
         "yemen": "اليمن",
     }
     return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=under_data,
-        key_placeholder="{under_en}",
-        value_placeholder="{under_ar}",
-        data_list2=countries_from_nat,
-        key2_placeholder="{en}",
-        value2_placeholder="{ar}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=under_data,
+            key_placeholder="{under_en}",
+            value_placeholder="{under_ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=countries_from_nat,
+            key_placeholder="{en}",
+            value_placeholder="{ar}",
+        ),
         use_other_formatted_data=True,
     )
 
