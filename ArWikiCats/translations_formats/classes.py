@@ -1,4 +1,53 @@
 from dataclasses import dataclass, field
+from typing import Any
+
+
+@dataclass
+class TranslationPair:
+    """Represents a single English-Arabic translation pair.
+
+    Attributes:
+        en: The English key/label.
+        ar: The Arabic translation.
+        category: Optional category for classification (e.g., "geo", "sports", "jobs").
+        metadata: Additional metadata (not used in comparisons).
+    """
+
+    en: str
+    ar: str
+    category: str | None = None
+    metadata: dict[str, Any] = field(default_factory=dict, compare=False, repr=False)
+
+
+@dataclass
+class FormatBotConfig:
+    """Unified configuration for format bots.
+
+    Attributes:
+        nat_data_list: Data list for country/nationality formatter.
+        nat_formatted_data: Formatted data for country/nationality formatter.
+        second_data_list: Data list for second element (sport/year/genre) formatter.
+        second_formatted_data: Formatted data for second element formatter.
+        first_placeholder: Placeholder for the first element (default: "{nat}").
+        second_placeholder: Placeholder for the second element (default: "{sport}").
+        value_placeholder: Generic value placeholder (default: "{value}").
+        search_first_part: If True, search using only the first part.
+        other_key_first: If True, process second element before first.
+        add_prefix: If True, add Arabic category prefix.
+        regex_filter: Optional regex filter for filtering keys.
+    """
+
+    nat_data_list: dict[str, str] = field(default_factory=dict)
+    nat_formatted_data: dict[str, str] = field(default_factory=dict)
+    second_data_list: dict[str, str] = field(default_factory=dict)
+    second_formatted_data: dict[str, str] = field(default_factory=dict)
+    first_placeholder: str = "{nat}"
+    second_placeholder: str = "{sport}"
+    value_placeholder: str = "{value}"
+    search_first_part: bool = False
+    other_key_first: bool = False
+    add_prefix: bool = True
+    regex_filter: str | None = None
 
 
 @dataclass
@@ -67,3 +116,15 @@ class YearCountryDataConfig:
     value_placeholder: str = "{country1}"
     text_after: str = ""
     text_before: str = ""
+
+
+__all__ = [
+    "TranslationPair",
+    "FormatBotConfig",
+    "CountryBotConfig",
+    "GenreBotConfig",
+    "YearDataConfig",
+    "MultiDataFormatterSecondElementConfig",
+    "MultiDataFormatterConfig",
+    "YearCountryDataConfig",
+]

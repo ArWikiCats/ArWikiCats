@@ -24,8 +24,11 @@ Example:
 test at tests.translations_formats.test_format_2_data.py
 """
 
+from __future__ import annotations
+
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -67,6 +70,7 @@ class NormalizeResult:
     other_key: str
 
 
+@dataclass
 class MultiDataFormatterBaseHelpers:
     """
     Base class providing shared functionality for multi-formatter translations.
@@ -102,13 +106,11 @@ class MultiDataFormatterBaseHelpers:
         ...         self.data_to_find = None
     """
 
-    def __init__(self) -> None:
-        """Initialize the base multi-formatter with default values."""
-        self.data_to_find: dict[str, str] | None = None
-        self.country_bot = None
-        self.other_bot = None
-        self.search_first_part: bool = False
-        self.other_key_first: bool = False
+    country_bot: Any = None
+    other_bot: Any = None
+    data_to_find: dict[str, str] | None = field(default=None)
+    search_first_part: bool = False
+    other_key_first: bool = False
 
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION

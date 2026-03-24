@@ -30,6 +30,9 @@ from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 logger = logging.getLogger(__name__)
 
+# Export config classes for external usage
+from .config import ResolverChainConfig, ResolverConfig
+
 # Type alias for resolver functions
 ResolverFn = Callable[[str], str]
 
