@@ -11,13 +11,13 @@ from utils.resolver_runner import make_resolver_test
 
 
 diff_data_path = Path(__file__).parent / "diff_data"
-diff_data_path.mkdir(exist_ok=True, parents=True)
 
 
 def dump_one_new(data: dict, file_path: Path) -> None:
     if not data:
         return
 
+    file_path.parent.mkdir(exist_ok=True, parents=True)
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
@@ -33,9 +33,6 @@ def dump_same_and_not_same(data: dict, diff_result: dict, name: str, folder_name
     """
     folder_path = diff_data_path / folder_name / name
     folder_path_same = diff_data_path / folder_name / "same"
-
-    folder_path.mkdir(exist_ok=True, parents=True)
-    folder_path_same.mkdir(exist_ok=True, parents=True)
 
     dump_one_new(diff_result, folder_path / "new.json")
 
