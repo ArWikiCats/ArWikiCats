@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, format_year_country_data
+from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, YearCountryDataConfig, YearDataConfig, format_year_country_data
 
 
 @pytest.fixture
@@ -22,16 +22,19 @@ def yc_bot() -> MultiDataFormatterBaseYear:
         "{year1} disestablishments in {country1}": "انحلالات سنة {year1} في {country1}",
     }
 
-    yc_bot = format_year_country_data(
+    country_config = YearCountryDataConfig(
         formatted_data=COUNTRY_YEAR_DATA,
         data_list=countries_data,
         key_placeholder="{country1}",
         value_placeholder="{country1}",
-        key2_placeholder="{year1}",
-        value2_placeholder="{year1}",
-        text_after="",
         text_before="the ",
     )
+    year_config = YearDataConfig(
+        key_placeholder="{year1}",
+        value_placeholder="{year1}",
+    )
+
+    yc_bot = format_year_country_data(country_config=country_config, year_config=year_config)
 
     yc_bot.country_bot.add_formatted_data("{year1} in {country1}", "{country1} في {year1}")
     return yc_bot
