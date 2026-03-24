@@ -21,23 +21,36 @@ Example:
     'أفلام أكشن دراما بريطانية'
 """
 
-from typing import Dict
+from dataclasses import dataclass, field
+from typing import Dict, Optional
 
 from .DataModel import FormatData
 from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 
-def format_films_country_data(  # Fix too-many-positional-arguments issues
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str = "{nat_en}",
-    value_placeholder: str = "{nat_ar}",
-    data_list2: Dict[str, str] = None,
-    other_formatted_data: Dict[str, str] = None,
-    key2_placeholder: str = "{film_key}",
-    value2_placeholder: str = "{film_ar}",
-    text_after: str = "",
-    text_before: str = "",
+@dataclass
+class CountryBotConfig:
+    """Configuration for the country/nationality part of the formatter."""
+    formatted_data: Dict[str, str]
+    data_list: Dict[str, str]
+    key_placeholder: str = "{nat_en}"
+    value_placeholder: str = "{nat_ar}"
+    text_after: str = ""
+    text_before: str = ""
+
+
+@dataclass
+class GenreBotConfig:
+    """Configuration for the genre/film_key part of the formatter."""
+    data_list: Dict[str, str] = field(default_factory=dict)
+    formatted_data: Dict[str, str] = field(default_factory=dict)
+    key_placeholder: str = "{film_key}"
+    value_placeholder: str = "{film_ar}"
+
+
+def format_films_country_data(
+    country_config: CountryBotConfig,
+    genre_config: Optional[GenreBotConfig] = None,
     data_to_find: Dict[str, str] | None = None,
 ) -> MultiDataFormatterDataDouble:
     """
@@ -48,54 +61,43 @@ def format_films_country_data(  # Fix too-many-positional-arguments issues
     matching (e.g., "action drama" as two adjacent genre keys).
 
     Args:
-        formatted_data: Template patterns mapping English patterns to Arabic templates.
-            Keys should contain placeholders like "{nat_en}" and "{film_key}".
-        data_list: Nationality key-to-Arabic-label mappings (e.g., {"british": "بريطانية"}).
-        key_placeholder: Placeholder for nationality key in templates. Default: "{nat_en}".
-        value_placeholder: Placeholder for nationality value in Arabic templates. Default: "{nat_ar}".
-        data_list2: Genre key-to-Arabic-label mappings (e.g., {"action": "أكشن"}).
-        other_formatted_data: Additional template patterns for genre-only translations.
-        key2_placeholder: Placeholder for genre key in templates. Default: "{film_key}".
-        value2_placeholder: Placeholder for genre value in Arabic templates. Default: "{film_ar}".
-        text_after: Optional text that appears after the nationality key.
-        text_before: Optional text that appears before the nationality key.
+        country_config: Configuration for the country-based formatter.
+        genre_config: Configuration for the genre-based formatter.
         data_to_find: Optional direct lookup dictionary for category labels.
 
     Returns:
         MultiDataFormatterDataDouble: A configured formatter for film category translations.
 
     Example:
-        >>> formatted_data = {"{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}"}
-        >>> data_list = {"british": "بريطانية"}
-        >>> data_list2 = {"action": "أكشن", "drama": "دراما"}
-        >>> bot = format_films_country_data(
-        ...     formatted_data=formatted_data,
-        ...     data_list=data_list,
-        ...     data_list2=data_list2,
+        >>> country_config = CountryBotConfig(
+        ...     formatted_data={"{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}"},
+        ...     data_list={"british": "بريطانية"}
         ... )
+        >>> genre_config = GenreBotConfig(
+        ...     data_list={"action": "أكشن", "drama": "دراما"}
+        ... )
+        >>> bot = format_films_country_data(country_config, genre_config)
         >>> bot.search("british action films")
         'أفلام أكشن بريطانية'
     """
+    if genre_config is None:
+        genre_config = GenreBotConfig()
 
     # Country bot (FormatData)
-    if other_formatted_data is None:
-        other_formatted_data = {}
-    if data_list2 is None:
-        data_list2 = {}
     country_bot = FormatData(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        value_placeholder=value_placeholder,
-        text_after=text_after,
-        text_before=text_before,
+        formatted_data=country_config.formatted_data,
+        data_list=country_config.data_list,
+        key_placeholder=country_config.key_placeholder,
+        value_placeholder=country_config.value_placeholder,
+        text_after=country_config.text_after,
+        text_before=country_config.text_before,
     )
 
     other_bot = FormatDataDouble(
-        formatted_data=other_formatted_data,  # to use from search_all
-        data_list=data_list2,
-        key_placeholder=key2_placeholder,
-        value_placeholder=value2_placeholder,
+        formatted_data=genre_config.formatted_data,  # to use from search_all
+        data_list=genre_config.data_list,
+        key_placeholder=genre_config.key_placeholder,
+        value_placeholder=genre_config.value_placeholder,
     )
 
     return MultiDataFormatterDataDouble(
@@ -107,4 +109,6 @@ def format_films_country_data(  # Fix too-many-positional-arguments issues
 
 __all__ = [
     "format_films_country_data",
+    "CountryBotConfig",
+    "GenreBotConfig",
 ]
