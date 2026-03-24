@@ -7,7 +7,12 @@ import functools
 import logging
 
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data
-from ...translations_formats import MultiDataFormatterBase, format_multi_data
+from ...translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data,
+)
 
 logger = logging.getLogger(__name__)
 

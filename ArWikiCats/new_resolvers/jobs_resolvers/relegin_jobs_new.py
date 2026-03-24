@@ -8,7 +8,12 @@ import logging
 import re
 
 from ...translations import RELIGIOUS_KEYS_PP, jobs_mens_data, jobs_womens_data
-from ...translations_formats import MultiDataFormatterBase, format_multi_data
+from ...translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -57,14 +62,18 @@ def _load_womens_bot() -> MultiDataFormatterBase:
     }
 
     return format_multi_data(
-        formatted_data=female_formatted_data,
-        data_list=religions_data,
-        key_placeholder="{rele_en}",
-        value_placeholder="{rele_ar}",
-        data_list2=jobs_womens_data,
-        key2_placeholder="{job_en}",
-        value2_placeholder="{job_ar}",
-        text_after="",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=female_formatted_data,
+            data_list=religions_data,
+            key_placeholder="{rele_en}",
+            value_placeholder="{rele_ar}",
+            text_after="",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=jobs_womens_data,
+            key_placeholder="{job_en}",
+            value_placeholder="{job_ar}",
+        ),
         search_first_part=True,
     )
 
@@ -114,13 +123,17 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     )
 
     return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=religions_data,
-        key_placeholder="{rele_en}",
-        value_placeholder="{rele_ar}",
-        data_list2=jobs_data,
-        key2_placeholder="{job_en}",
-        value2_placeholder="{job_ar}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=religions_data,
+            key_placeholder="{rele_en}",
+            value_placeholder="{rele_ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=jobs_data,
+            key_placeholder="{job_en}",
+            value_placeholder="{job_ar}",
+        ),
         search_first_part=True,
     )
 

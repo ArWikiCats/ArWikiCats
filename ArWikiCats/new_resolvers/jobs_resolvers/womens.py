@@ -16,7 +16,12 @@ from ...translations import (
     countries_en_as_nationality_keys,
     jobs_womens_data,
 )
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..jobs_resolvers_male import males_resolver_labels
 from ..nats_as_country_names import nats_keys_as_country_names
 from .mens import mens_resolver_labels
@@ -238,15 +243,17 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
     nats_data = _load_nat_data()
     return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data,
-        key_placeholder="{en_nat}",
-        # value_placeholder="{females}",
-        data_list2=jobs_data_enhanced,
-        key2_placeholder="{en_job}",
-        # value2_placeholder="{ar_job}",
-        text_after=" people",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=nats_data,
+            key_placeholder="{en_nat}",
+            text_after=" people",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=jobs_data_enhanced,
+            key_placeholder="{en_job}",
+        ),
         use_other_formatted_data=True,
         search_first_part=True,
     )
@@ -264,15 +271,17 @@ def load_bot_only_womens() -> MultiDataFormatterBaseV2:
 
     nats_data = _load_nat_data()
     return format_multi_data_v2(
-        formatted_data=formatted_data_womens_jobs,
-        data_list=nats_data,
-        key_placeholder="{en_nat}",
-        # value_placeholder="{females}",
-        data_list2=jobs_data,
-        key2_placeholder="{en_job}",
-        # value2_placeholder="{ar_job}",
-        text_after=" people",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data_womens_jobs,
+            data_list=nats_data,
+            key_placeholder="{en_nat}",
+            text_after=" people",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=jobs_data,
+            key_placeholder="{en_job}",
+        ),
         use_other_formatted_data=True,
         search_first_part=True,
     )

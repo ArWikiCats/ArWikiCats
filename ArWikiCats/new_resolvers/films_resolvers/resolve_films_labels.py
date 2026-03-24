@@ -18,6 +18,8 @@ from ...translations_formats import (
     CountryBotConfig,
     GenreBotConfig,
     MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
     format_films_country_data,
     format_multi_data,
 )
@@ -252,15 +254,19 @@ def _make_bot() -> MultiDataFormatterBase:
 
     double_bot.other_bot.update_put_label_last(put_label_last)
     bot = format_multi_data(
-        formatted_data=formatted_data,
-        data_list=Nat_women,
-        key_placeholder="{nat_en}",
-        value_placeholder="{nat_ar}",
-        data_list2=data_list2,
-        key2_placeholder="{film_key}",
-        value2_placeholder="{film_ar}",
-        text_after="",
-        text_before="",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=Nat_women,
+            key_placeholder="{nat_en}",
+            value_placeholder="{nat_ar}",
+            text_after="",
+            text_before="",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=data_list2,
+            key_placeholder="{film_key}",
+            value_placeholder="{film_ar}",
+        ),
         other_formatted_data=other_formatted_data,
     )
     return double_bot, bot

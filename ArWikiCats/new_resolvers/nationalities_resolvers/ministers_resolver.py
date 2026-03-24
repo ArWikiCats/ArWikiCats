@@ -6,7 +6,12 @@ import functools
 import logging
 
 from ...translations import all_country_with_nat_ar, ministers_keys
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..nats_as_country_names import nats_keys_as_country_names
 
 logger = logging.getLogger(__name__)
@@ -76,13 +81,17 @@ def _load_nats_bot() -> MultiDataFormatterBaseV2:
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar") and v.get("en")}
 
     both_bot = format_multi_data_v2(
-        formatted_data=nat_secretaries_mapping,
-        data_list=nats_data,
-        key_placeholder="{en}",
-        data_list2=ministers_keys,
-        key2_placeholder="{ministry}",
-        text_after="",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=nat_secretaries_mapping,
+            data_list=nats_data,
+            key_placeholder="{en}",
+            text_after="",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=ministers_keys,
+            key_placeholder="{ministry}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )
@@ -98,13 +107,17 @@ def _load_countries_names_bot() -> MultiDataFormatterBaseV2:
     countries_data.update({v["en"]: v for x, v in nats_keys_as_country_names.items() if v.get("ar") and v.get("en")})
 
     both_bot = format_multi_data_v2(
-        formatted_data=en_secretaries_mapping,
-        data_list=countries_data,
-        key_placeholder="{en}",
-        data_list2=ministers_keys,
-        key2_placeholder="{ministry}",
-        text_after="",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=en_secretaries_mapping,
+            data_list=countries_data,
+            key_placeholder="{en}",
+            text_after="",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=ministers_keys,
+            key_placeholder="{ministry}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

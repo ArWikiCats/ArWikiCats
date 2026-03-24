@@ -3,7 +3,13 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatData, MultiDataFormatterBase, format_multi_data
+from ArWikiCats.translations_formats import (
+    FormatData,
+    MultiDataFormatterBase,
+    format_multi_data,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+)
 
 # Sample data for nationality translations
 nationality_data = {
@@ -35,17 +41,15 @@ formatted_data = {
 @pytest.fixture
 def multi_bot() -> MultiDataFormatterBase:
     """Create a format_multi_data instance for testing."""
-
-    country_bot = FormatData(
+    first_element_config = MultiDataFormatterConfig(
         formatted_data=formatted_data,
         data_list=nationality_data,
         key_placeholder="{nat_en}",
         value_placeholder="{nat_ar}",
     )
 
-    other_bot = FormatData(
-        {},
-        sport_data,
+    second_element_config = MultiDataFormatterSecondElementConfig(
+        data_list=sport_data,
         key_placeholder="{en_sport}",
         value_placeholder="{sport_ar}",
     )
@@ -53,9 +57,9 @@ def multi_bot() -> MultiDataFormatterBase:
         "test 2025": "2025",
     }
 
-    return MultiDataFormatterBase(
-        country_bot=country_bot,
-        other_bot=other_bot,
+    return format_multi_data(
+        first_element_config=first_element_config,
+        second_element_config=second_element_config,
         data_to_find=data_to_find,
     )
 
@@ -80,10 +84,11 @@ class TestFormatMultiDataInitialization:
 
     def test_initialization_with_defaults(self) -> None:
         """Test that format_multi_data initializes with default placeholders."""
-        bot = format_multi_data(
+        first_element_config = MultiDataFormatterConfig(
             formatted_data={},
             data_list=nationality_data,
         )
+        bot = format_multi_data(first_element_config=first_element_config)
 
         assert bot.country_bot.key_placeholder == "natar"
         assert bot.country_bot.value_placeholder == "natar"
@@ -92,14 +97,20 @@ class TestFormatMultiDataInitialization:
 
     def test_initialization_with_custom_placeholders(self) -> None:
         """Test that format_multi_data initializes with custom placeholders."""
-        bot = format_multi_data(
+        first_element_config = MultiDataFormatterConfig(
             formatted_data={},
             data_list=nationality_data,
             key_placeholder="COUNTRY",
             value_placeholder="{country}",
-            data_list2=sport_data,
-            key2_placeholder="SPORT",
-            value2_placeholder="{sport_name}",
+        )
+        second_element_config = MultiDataFormatterSecondElementConfig(
+            data_list=sport_data,
+            key_placeholder="SPORT",
+            value_placeholder="{sport_name}",
+        )
+        bot = format_multi_data(
+            first_element_config=first_element_config,
+            second_element_config=second_element_config,
         )
 
         assert bot.country_bot.key_placeholder == "COUNTRY"

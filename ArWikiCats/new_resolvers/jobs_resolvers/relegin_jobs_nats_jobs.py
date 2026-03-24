@@ -5,7 +5,7 @@ TODO: use this code in workflow
 """
 
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
-from ...translations_formats import FormatData, format_multi_data_v2
+from ...translations_formats import FormatData, format_multi_data_v2, MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
 
 # Prepare consolidated dictionaries with gendered values
 _rel_data = {k: {"rel_ar": v.get("males"), "rel_ar_f": v.get("females")} for k, v in RELIGIOUS_KEYS_PP.items()}
@@ -73,21 +73,29 @@ _combined_templates = {
 
 # 1. Main Bot for Nationality + Religion (V2)
 _nat_rel_bot_v2 = format_multi_data_v2(
-    formatted_data=_combined_templates,
-    data_list=_nat_data,
-    key_placeholder="{nat}",
-    data_list2=_rel_data,
-    key2_placeholder="{rel}",
+    first_element_config=MultiDataFormatterConfig(
+        formatted_data=_combined_templates,
+        data_list=_nat_data,
+        key_placeholder="{nat}",
+    ),
+    second_element_config=MultiDataFormatterSecondElementConfig(
+        data_list=_rel_data,
+        key_placeholder="{rel}",
+    ),
     use_other_formatted_data=True,
 )
 
 # 2. Main Bot for Job + Religion (V2)
 _job_rel_bot_v2 = format_multi_data_v2(
-    formatted_data=_combined_templates,
-    data_list=_jobs_data,
-    key_placeholder="{job}",
-    data_list2=_rel_data,
-    key2_placeholder="{rel}",
+    first_element_config=MultiDataFormatterConfig(
+        formatted_data=_combined_templates,
+        data_list=_jobs_data,
+        key_placeholder="{job}",
+    ),
+    second_element_config=MultiDataFormatterSecondElementConfig(
+        data_list=_rel_data,
+        key_placeholder="{rel}",
+    ),
 )
 
 # 3. Simple Fallback Bot for (Male/General)

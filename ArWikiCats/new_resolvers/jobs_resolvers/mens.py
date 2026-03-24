@@ -17,7 +17,12 @@ from ...translations import (  # all_country_with_nat_ar,
     countries_en_as_nationality_keys,
     jobs_mens_data,
 )
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..nats_as_country_names import nats_keys_as_country_names
 from .utils import fix_keys, one_Keys_more_2
 
@@ -296,13 +301,17 @@ def load_bot() -> MultiDataFormatterBaseV2:
 
     nats_data = _load_nat_data()
     return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data,
-        key_placeholder="{en_nat}",
-        data_list2=jobs_data_enhanced,
-        key2_placeholder="{en_job}",
-        text_after=" people",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=nats_data,
+            key_placeholder="{en_nat}",
+            text_after=" people",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=jobs_data_enhanced,
+            key_placeholder="{en_job}",
+        ),
         use_other_formatted_data=True,
         search_first_part=True,
     )
