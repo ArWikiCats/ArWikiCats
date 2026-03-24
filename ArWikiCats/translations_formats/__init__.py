@@ -47,10 +47,10 @@ Example:
     'لاعبو كرة القدم بريطانيون'
 """
 
-from .data_new_model import (
+from .data_new_model import format_films_country_data
+from .classes import (
     CountryBotConfig,
     GenreBotConfig,
-    format_films_country_data,
 )
 from .data_with_time import format_year_country_data, format_year_country_data_v2
 from .DataModel import (
