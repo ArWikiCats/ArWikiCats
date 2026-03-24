@@ -178,6 +178,12 @@ class YourResolver(BaseResolversWorker):
             value_placeholder="{ar}",
         )
 
+    def before_run(self, category: str) -> str:
+        """Optional: Custom pre-processing before main logic."""
+        category = super().before_run(category)  # lowercases
+        # Add custom pre-processing if needed
+        return category
+
     def process(self, category: str) -> str:
         """Process the category and return raw translation."""
         return self.bot.search(category)
