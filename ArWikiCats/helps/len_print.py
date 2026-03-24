@@ -80,12 +80,14 @@ def data_len(
             data[x] = {
                 "count": v,
                 "size": "N/A",
+                "raw_size": 0,
             }
         elif isinstance(v, (dict, list)):
             # Raw object - calculate len() and getsizeof() normally
             data[x] = {
                 "count": len(v),
                 "size": format_size(x, sys.getsizeof(v), {}),
+                "raw_size": sys.getsizeof(v),
             }
         else:
             # Other types - try to get len() if possible
@@ -93,11 +95,13 @@ def data_len(
                 data[x] = {
                     "count": len(v),
                     "size": format_size(x, sys.getsizeof(v), {}),
+                    "raw_size": sys.getsizeof(v),
                 }
             except (TypeError, AttributeError):
                 data[x] = {
                     "count": 1,
                     "size": format_size(x, sys.getsizeof(v), {}),
+                    "raw_size": sys.getsizeof(v),
                 }
 
     save_data(bot, tab)
@@ -113,14 +117,18 @@ def dump_all_len() -> dict[str, dict]:
     """Return aggregated counts and sizes for all processed bots."""
     # sort all_len by keys ignore case
     all_len_save = {
+        "by_size": {},
         "by_count": {},
         "all": dict(sorted(all_len.items(), key=lambda item: item[0].lower())),
     }
     for _, v in all_len.items():
         for var, tab in v.items():
             all_len_save["by_count"].setdefault(var, tab["count"])
+            all_len_save["by_size"].setdefault(var, tab["raw_size"])
 
     sorted_items = sorted(all_len_save["by_count"].items(), key=lambda item: item[1], reverse=True)
     all_len_save["by_count"] = {k: f"{v:,}" for k, v in sorted_items}
+
+    all_len_save["by_size"] = dict(sorted(all_len_save["by_size"].items(), key=lambda item: item[1], reverse=True))
 
     return all_len_save
