@@ -31,6 +31,7 @@ from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 @dataclass
 class CountryBotConfig:
     """Configuration for the country/nationality part of the formatter."""
+
     formatted_data: Dict[str, str]
     data_list: Dict[str, str]
     key_placeholder: str = "{nat_en}"
@@ -42,6 +43,7 @@ class CountryBotConfig:
 @dataclass
 class GenreBotConfig:
     """Configuration for the genre/film_key part of the formatter."""
+
     data_list: Dict[str, str] = field(default_factory=dict)
     formatted_data: Dict[str, str] = field(default_factory=dict)
     key_placeholder: str = "{film_key}"
