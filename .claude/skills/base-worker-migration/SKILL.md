@@ -5,46 +5,101 @@ description: Migrate resolver code to use BaseResolversWorker pattern. Use when 
 
 # BaseResolversWorker Migration Guide
 
-This skill helps you refactor existing resolver code to use the `BaseResolversWorker` base class for standardized lifecycle management in the ArWikiCats project.
+Refactor existing resolver code to use the `BaseResolversWorker` base class for standardized lifecycle management in the ArWikiCats project.
 
 ## When to use this pattern
-
-Use `BaseResolversWorker` when:
 
 -   Creating a new resolver in `ArWikiCats/new_resolvers/`
 -   Refactoring existing function-based resolvers to class-based pattern
 -   Need consistent lifecycle (load/process/cleanup) across resolvers
 -   Want automatic logging and singleton instance management
 
-## Quick Example
+---
 
-### Before (Old Pattern)
+## Quick Before/After
+
+**Before (old pattern)** — module-level state, inline logic, no separation:
 
 ```python
+us_bot = FormatData(us_states_new_keys, US_STATES, ...)  # module-level init
+
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
     return normalize_state(result)
 ```
 
-### After (New Pattern)
+**After (new pattern)** — encapsulated in class, lifecycle methods, double caching:
 
 ```python
 class UsStates(BaseResolversWorker):
+    def load_bot(self) -> None:
+        self.bot = FormatData(load_us_states_new_keys(), US_STATES, ...)
+
     def process(self, category: str) -> str:
         return self.bot.search(category)
 
     def after_run(self) -> None:
         self.result = normalize_state(self.result)
 
+@functools.lru_cache(maxsize=1)
+def load_class() -> UsStates:
+    return UsStates('resolve_us_states')
+
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
     return load_class().run(category)
 ```
 
+---
+
+## Lifecycle Flow
+
+```
+resolve_us_states("Texas democrats")
+    → load_class()                          # returns cached UsStates singleton
+        → UsStates('resolve_us_states')
+            → __init__() → load_bot()       # runs ONCE at first call
+    → .run("Texas democrats")
+        → before_run(category)              # lowercases → "texas democrats"
+        → process("texas democrats")        # → raw Arabic string
+        → after_run()                       # modifies self.result in place
+        → return self.result
+```
+
+Two caches work together:
+
+-   `load_class()` (`maxsize=1`) — the class instance is created **once**, so `load_bot()` runs only once
+-   `resolve_us_states()` (`maxsize=10000`) — individual results are cached per category string
+
+---
+
 ## Migration Steps
 
-### Step 1: Create the Worker Class
+### Step 1: Move module-level data to a top-level function
+
+If your old code had dictionaries or bot initialization at module level, extract them into a standalone function. This keeps module import fast and makes the data testable in isolation.
+
+```python
+# OLD — runs at import time, hard to test
+_TEMPLATES = { ... }
+us_bot = FormatData(_TEMPLATES, US_STATES, ...)
+
+# NEW — lazy, testable
+_TEMPLATES = { ... }   # constants stay at module level
+
+def load_your_data() -> dict[str, str]:
+    """Build and return translation pattern dict."""
+    keys = dict(_TEMPLATES)
+    # any dynamic additions ...
+    return keys
+```
+
+> **Key point:** Pure constants (like `_STATE_SUFFIX_TEMPLATES_BASE`) stay at module level. Only _initialization logic_ (building derived dicts, constructing `FormatData`) moves into `load_bot()`.
+
+---
+
+### Step 2: Create the Worker Class
 
 ```python
 from ..base_worker import BaseResolversWorker
@@ -54,9 +109,11 @@ class YourResolver(BaseResolversWorker):
     pass
 ```
 
-### Step 2: Implement `load_bot()`
+---
 
-Move bot/tool initialization from module-level into `load_bot()`:
+### Step 3: Implement `load_bot()`
+
+Move bot construction from module level into `load_bot()`. This is called **once** inside `__init__`.
 
 ```python
 def load_bot(self) -> None:
@@ -69,74 +126,73 @@ def load_bot(self) -> None:
     )
 ```
 
-**Key points:**
+-   Store result on `self` (e.g. `self.bot`)
+-   No return value
+-   Do **not** call this yourself — the base class calls it in `__init__`
 
--   Use `self.bot` (or `self.something`) to store the initialized tool
--   Don't return anything - just set instance attributes
--   This is called once in `__init__`
+---
 
-### Step 2.5: Implement `before_run()` (Optional)
+### Step 4: Implement `process()`
 
-Override `before_run()` if you need custom pre-processing (default lowercases the category):
-
-```python
-def before_run(self, category: str) -> str:
-    category = super().before_run(category)  # lowercases
-    # Add custom pre-processing if needed
-    return category
-```
-
-**Key points:**
-
--   Called before `process()`
--   Default implementation lowercases the category
--   Override only if you need additional pre-processing
-
-### Step 3: Implement `process()`
-
-Extract the core logic into `process()`:
+The core lookup logic. Receives the already-preprocessed category string.
 
 ```python
 def process(self, category: str) -> str:
     return self.bot.search(category)
 ```
 
-**Key points:**
+-   Input is the output of `before_run()` (lowercased by default)
+-   Return the raw result string
+-   Do **not** post-process here — that belongs in `after_run()`
 
--   Takes `category` as parameter (after `before_run()` processing)
--   Returns the raw result (string)
--   Don't do post-processing here - use `after_run()` for that
+---
 
-### Step 4: Implement `after_run()` (if needed)
+### Step 5: Implement `after_run()` (if needed)
 
-Move any post-processing/cleanup logic here:
+Post-process `self.result` in place. Called automatically after `process()`.
 
 ```python
 def after_run(self) -> None:
     self.result = normalize_state(self.result)
 ```
 
-**Key points:**
+-   Modify `self.result` directly — no return value
+-   Use for string normalization, deduplication, edge-case fixes
+-   Skip this method entirely if no post-processing is needed
 
--   No return value - modify `self.result` in place
--   Called after `process()` completes
--   Use for text normalization, fixing edge cases, etc.
+---
 
-### Step 5: Create Singleton Loader
+### Step 6: Override `before_run()` (only if needed)
+
+The default lowercases the category. Override only when you need additional preprocessing.
+
+```python
+def before_run(self, category: str) -> str:
+    category = super().before_run(category)  # always call super() first
+    category = category.strip()              # example: add stripping
+    return category
+```
+
+> ⚠️ Always call `super().before_run(category)` first, or you lose the default lowercasing.
+
+---
+
+### Step 7: Add singleton loader + public function
 
 ```python
 @functools.lru_cache(maxsize=1)
 def load_class() -> YourResolver:
-    return YourResolver('your_resolver_name')
-```
+    return YourResolver('your_resolver_name')   # name used in log messages
 
-### Step 6: Update Public Function
 
-```python
 @functools.lru_cache(maxsize=10000)
 def resolve_your_category(category: str) -> str:
     return load_class().run(category)
 ```
+
+The string passed to `YourResolver(...)` is used in log output to identify which resolver is running. Use the same name as the public function (e.g. `'resolve_us_states'`).
+
+---
 
 ## Complete Template
 
@@ -155,13 +211,23 @@ from ..base_worker import BaseResolversWorker
 logger = logging.getLogger(__name__)
 
 
+# Module-level constants only — no initialization logic here
+_TEMPLATES_BASE: dict[str, str] = {
+    "{en} some pattern": "arabic {ar}",
+    # ...
+}
+
+
 def load_your_data() -> dict[str, str]:
-    """Load or generate your translation patterns."""
-    return {...}
+    """Build and return the full translation pattern dict."""
+    keys = dict(_TEMPLATES_BASE)
+    # add any dynamically generated entries
+    return keys
 
 
 def normalize_your_result(ar_name: str) -> str:
-    """Optional: Post-process the Arabic result."""
+    """Post-process the Arabic result string."""
+    # fix double-prefix bugs, replace known bad strings, etc.
     return ar_name
 
 
@@ -178,11 +244,11 @@ class YourResolver(BaseResolversWorker):
             value_placeholder="{ar}",
         )
 
-    def before_run(self, category: str) -> str:
-        """Optional: Custom pre-processing before main logic."""
-        category = super().before_run(category)  # lowercases
+    # Override before_run() only if you need preprocessing beyond lowercasing
+    # def before_run(self, category: str) -> str:
+    #     category = super().before_run(category)
         # Add custom pre-processing if needed
-        return category
+    #     return category
 
     def process(self, category: str) -> str:
         """Process the category and return raw translation."""
@@ -196,12 +262,11 @@ class YourResolver(BaseResolversWorker):
 @functools.lru_cache(maxsize=1)
 def load_class() -> YourResolver:
     """Get singleton instance of the resolver."""
-    return YourResolver('your_resolver_name')
+    return YourResolver('resolve_your_category')
 
 
 @functools.lru_cache(maxsize=10000)
 def resolve_your_category(category: str) -> str:
-    """Public API for resolving your categories."""
     return load_class().run(category)
 
 
@@ -210,28 +275,28 @@ __all__ = [
 ]
 ```
 
-## Lifecycle Flow
+---
 
-```
-resolve_your_category("some category")
-    → load_class() → YourResolver('your_resolver_name')
-        → __init__() → load_bot()
-    → .run("some category")
-        → before_run("some category") → "some category" (lowercased)
-        → process("some category") → raw_result
-        → after_run() → modifies self.result
-        → return self.result
-```
+## Common Mistakes
 
-## Reference: example_before.py, example_after.py Example
+| Mistake                                       | Fix                                                  |
+| --------------------------------------------- | ---------------------------------------------------- |
+| Calling `load_bot()` manually                 | Don't — the base `__init__` calls it automatically   |
+| Returning a value from `after_run()`          | Modify `self.result` in place; return nothing        |
+| Forgetting `super().before_run()` in override | Always call `super()` first to preserve lowercasing  |
+| Putting `FormatData(...)` at module level     | Move it into `load_bot()` so it runs lazily          |
+| Using `maxsize=None` on `load_class()`        | Use `maxsize=1` — only one instance is ever needed   |
+| Post-processing inside `process()`            | Move any fixup to `after_run()` for clean separation |
 
-See `example_before.py`, `example_after.py` for a complete working example.
+---
 
-Key features:
+## Reference Files
 
--   `_STATE_SUFFIX_TEMPLATES_BASE` defined at module level
--   `load_us_states_new_keys()` builds dynamic patterns
--   `UsStates` class implements all lifecycle methods
--   `before_run()` lowercases categories (default behavior)
--   `normalize_state()` applied in `after_run()`
--   Double caching: singleton instance + result cache
+See `example_before.py` and `example_after.py` for the complete `UsStates` migration.
+
+Notable patterns in that example:
+
+-   `_STATE_SUFFIX_TEMPLATES_BASE` stays at module level (pure constant dict)
+-   `_STATE_SUFFIX_TEMPLATES_BASE.update(...)` also stays at module level (still just building a constant)
+-   `load_us_states_new_keys()` adds the dynamic party-name entries and is called from `load_bot()`
+-   `normalize_state()` fixes double-prefix bugs (`ولاية ولاية`) in `after_run()`
