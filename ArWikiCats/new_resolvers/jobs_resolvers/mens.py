@@ -338,6 +338,12 @@ label_mappings_ends = dict(
 
 @functools.lru_cache(maxsize=10000)
 def mens_resolver_labels(category: str) -> str:
+    """
+
+    NOTE: _mens_resolver_labels gose first because some category like `Sufi saints` will
+        resolved as `"صوفيون قديسون"` with_mapping
+        while the true label is `أولياء صوفيون` and can be handeld without suffix mapping
+    """
     logger.debug(f"<<yellow>> start {category=}")
     category = fix_keys(category).replace("australian rules", "australian-rules")
 
@@ -345,15 +351,15 @@ def mens_resolver_labels(category: str) -> str:
         logger.info(f"<<yellow>> skip : {category=}, [result=]")
         return ""
 
-    if any(word in category for word in label_mappings_ends.keys()):
+    result = _mens_resolver_labels(category)
+
+    if not result and any(word in category for word in label_mappings_ends.keys()):
         result = resolve_sport_category_suffix_with_mapping(
             category=category,
             data=label_mappings_ends,
             callback=_mens_resolver_labels,
             format_key="{}",
         )
-    else:
-        result = _mens_resolver_labels(category)
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
