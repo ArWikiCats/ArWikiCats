@@ -223,9 +223,9 @@ resolve_your_category("some category")
         → return self.result
 ```
 
-## Reference: us_states_base.py Example
+## Reference: example_before.py Example
 
-See `ArWikiCats/new_resolvers/countries_names_resolvers/us_states_base.py` for a complete working example.
+See `example_before.py` for a complete working example.
 
 Key features:
 
