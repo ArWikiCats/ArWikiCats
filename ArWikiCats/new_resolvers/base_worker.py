@@ -1,6 +1,4 @@
-"""
-
-"""
+""" """
 
 from __future__ import annotations
 
@@ -25,21 +23,23 @@ class BaseResolversWorker(ABC):
 
     def __init__(
         self,
-        name: str="",
+        name: str = "",
     ):
         self.name: Final[str] = name
         self.load_bot()
 
     @abstractmethod
     def load_bot(self) -> None:
-        """
-        """
+        """ """
         ...
 
     @abstractmethod
-    def process(self) -> str:
+    def process(self, category: str) -> str:
         """
         Execute the main processing logic.
+
+        Parameters:
+            category: The category string to process
 
         Returns:
             The result
@@ -48,8 +48,7 @@ class BaseResolversWorker(ABC):
 
     # @abstractmethod
     def before_run(self, category) -> str:
-        """
-        """
+        """ """
         category = category.lower()
         return category
 
