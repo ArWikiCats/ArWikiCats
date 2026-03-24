@@ -231,6 +231,7 @@ Key features:
 
 -   `_STATE_SUFFIX_TEMPLATES_BASE` defined at module level
 -   `load_us_states_new_keys()` builds dynamic patterns
--   `UsStates` class implements all three methods
+-   `UsStates` class implements all lifecycle methods
+-   `before_run()` lowercases categories (default behavior)
 -   `normalize_state()` applied in `after_run()`
 -   Double caching: singleton instance + result cache
