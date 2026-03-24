@@ -71,8 +71,8 @@ NEW_P17_FINAL = _build_country_label_index(  # 68,981
 len_print.data_len(
     "build_data",
     {
-        "pf_keys2": len(pf_keys2),
-        "NEW_P17_FINAL": len(NEW_P17_FINAL),
+        "pf_keys2": pf_keys2,
+        "NEW_P17_FINAL": NEW_P17_FINAL,
     },
 )
 

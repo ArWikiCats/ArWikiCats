@@ -217,7 +217,7 @@ __all__ = [
 len_print.data_len(
     "Jobs2.py",
     {
-        "JOBS_2": len(JOBS_2),
-        "JOBS_3333": len(JOBS_3333),
+        "JOBS_2": JOBS_2,
+        "JOBS_3333": JOBS_3333,
     },
 )

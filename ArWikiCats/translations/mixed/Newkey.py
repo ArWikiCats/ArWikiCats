@@ -289,6 +289,6 @@ def build_pop_final6() -> dict[str, str]:
 
 pop_final6: dict[str, str] = build_pop_final6()
 
-len_print.data_len("newkey.py", {"pop_final6": len(pop_final6)})
+len_print.data_len("newkey.py", {"pop_final6": pop_final6})
 
 __all__ = ["pop_final6"]

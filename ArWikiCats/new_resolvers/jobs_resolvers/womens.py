@@ -323,8 +323,8 @@ def womens_resolver_labels(category: str) -> str:
 len_print.data_len(
     "womens.py",
     {
-        "womens_formatted_data": len(_load_formatted_data()[0]),
-        "formatted_data_womens_jobs": len(_load_formatted_data()[1]),
-        "womens_jobs_data_enhanced": len(_load_jobs_data()),
+        "womens_formatted_data": _load_formatted_data()[0],
+        "formatted_data_womens_jobs": _load_formatted_data()[1],
+        "womens_jobs_data_enhanced": _load_jobs_data(),
     },
 )

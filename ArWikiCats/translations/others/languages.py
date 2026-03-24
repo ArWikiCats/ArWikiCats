@@ -371,11 +371,11 @@ for media_key, media_label in MEDIA_CATEGORY_TRANSLATIONS.items():
 len_print.data_len(
     "languages.py",
     {
-        "language_key_translations": len(language_key_translations),
-        "PRIMARY_LANGUAGE_TRANSLATIONS": len(PRIMARY_LANGUAGE_TRANSLATIONS),
-        "COMPLEX_LANGUAGE_TRANSLATIONS": len(COMPLEX_LANGUAGE_TRANSLATIONS),
-        "LANGUAGE_SUFFIX_FORMATS": len(LANGUAGE_SUFFIX_FORMATS),
-        "LANGUAGE_TOPIC_FORMATS": len(LANGUAGE_TOPIC_FORMATS),
+        "language_key_translations": language_key_translations,
+        "PRIMARY_LANGUAGE_TRANSLATIONS": PRIMARY_LANGUAGE_TRANSLATIONS,
+        "COMPLEX_LANGUAGE_TRANSLATIONS": COMPLEX_LANGUAGE_TRANSLATIONS,
+        "LANGUAGE_SUFFIX_FORMATS": LANGUAGE_SUFFIX_FORMATS,
+        "LANGUAGE_TOPIC_FORMATS": LANGUAGE_TOPIC_FORMATS,
     },
 )
 __all__ = [

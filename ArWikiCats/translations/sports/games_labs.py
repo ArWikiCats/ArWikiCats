@@ -128,8 +128,8 @@ __all__ = [
 len_print.data_len(
     "games_labs.py",
     {
-        "SEASONAL_GAME_LABELS": len(SEASONAL_GAME_LABELS),
-        "SUMMER_WINTER_GAMES": len(SUMMER_WINTER_GAMES),
-        "SUMMER_WINTER_TABS": len(SUMMER_WINTER_TABS),
+        "SEASONAL_GAME_LABELS": SEASONAL_GAME_LABELS,
+        "SUMMER_WINTER_GAMES": SUMMER_WINTER_GAMES,
+        "SUMMER_WINTER_TABS": SUMMER_WINTER_TABS,
     },
 )

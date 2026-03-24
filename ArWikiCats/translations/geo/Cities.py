@@ -16,7 +16,7 @@ CITY_TRANSLATIONS_LOWER = open_json_file("cities/cities_full.json") or {}
 len_print.data_len(
     "Cities.py",
     {
-        "CITY_TRANSLATIONS_LOWER": len(CITY_TRANSLATIONS_LOWER),  # 10,788
+        "CITY_TRANSLATIONS_LOWER": CITY_TRANSLATIONS_LOWER,  # 10,788
     },
 )
 

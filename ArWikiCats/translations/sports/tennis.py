@@ -95,6 +95,6 @@ __all__ = [
 len_print.data_len(
     "tennis.py",
     {
-        "TENNIS_KEYS": len(TENNIS_KEYS),
+        "TENNIS_KEYS": TENNIS_KEYS,
     },
 )
