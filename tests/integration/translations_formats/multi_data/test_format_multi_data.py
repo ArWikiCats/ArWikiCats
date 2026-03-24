@@ -3,7 +3,12 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import MultiDataFormatterBase, format_multi_data
+from ArWikiCats.translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data,
+)
 
 # Sample data for nationality translations
 nationality_data = {
@@ -36,13 +41,17 @@ formatted_data = {
 def multi_bot() -> MultiDataFormatterBase:
     """Create a format_multi_data instance for testing."""
     return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=nationality_data,
-        key_placeholder="{nat_en}",
-        value_placeholder="{nat_ar}",
-        data_list2=sport_data,
-        key2_placeholder="{en_sport}",
-        value2_placeholder="{sport_ar}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=nationality_data,
+            key_placeholder="{nat_en}",
+            value_placeholder="{nat_ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=sport_data,
+            key_placeholder="{en_sport}",
+            value_placeholder="{sport_ar}",
+        ),
     )
 
 
@@ -65,8 +74,10 @@ class TestFormatMultiDataInitialization:
     def test_initialization_with_defaults(self) -> None:
         """Test that format_multi_data initializes with default placeholders."""
         bot = format_multi_data(
-            formatted_data={},
-            data_list=nationality_data,
+            first_element_config=MultiDataFormatterConfig(
+                formatted_data={},
+                data_list=nationality_data,
+            ),
         )
 
         assert bot.country_bot.key_placeholder == "natar"
@@ -77,13 +88,17 @@ class TestFormatMultiDataInitialization:
     def test_initialization_with_custom_placeholders(self) -> None:
         """Test that format_multi_data initializes with custom placeholders."""
         bot = format_multi_data(
-            formatted_data={},
-            data_list=nationality_data,
-            key_placeholder="COUNTRY",
-            value_placeholder="{country}",
-            data_list2=sport_data,
-            key2_placeholder="SPORT",
-            value2_placeholder="{sport_name}",
+            first_element_config=MultiDataFormatterConfig(
+                formatted_data={},
+                data_list=nationality_data,
+                key_placeholder="COUNTRY",
+                value_placeholder="{country}",
+            ),
+            second_element_config=MultiDataFormatterSecondElementConfig(
+                data_list=sport_data,
+                key_placeholder="SPORT",
+                value_placeholder="{sport_name}",
+            ),
         )
 
         assert bot.country_bot.key_placeholder == "COUNTRY"
