@@ -12,7 +12,12 @@ from ...translations import (
     Films_key_CAO,
     film_keys_for_female,
 )
-from ...translations_formats import MultiDataFormatterBase, format_films_country_data
+from ...translations_formats import (
+    CountryBotConfig,
+    GenreBotConfig,
+    MultiDataFormatterBase,
+    format_films_country_data,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -42,16 +47,22 @@ def _make_bot() -> MultiDataFormatterBase:
     to_find = TELEVISION_KEYS | Films_key_CAO
 
     data = {x: add_definite_article(v) for x, v in new_data.items()}
-    bot = format_films_country_data(
+    country_config = CountryBotConfig(
         formatted_data=films_formatted_data,
         data_list=data,
         key_placeholder="{lang_en}",
         value_placeholder="{lang_al}",
-        data_list2=film_keys_for_female,
-        key2_placeholder="{film_en}",
-        value2_placeholder="{film_ar}",
         text_after="",
         text_before="",
+    )
+    genre_config = GenreBotConfig(
+        data_list=film_keys_for_female,
+        key_placeholder="{film_en}",
+        value_placeholder="{film_ar}",
+    )
+    bot = format_films_country_data(
+        country_config=country_config,
+        genre_config=genre_config,
         data_to_find=to_find,
         # other_formatted_data=other_formatted_data,
     )
