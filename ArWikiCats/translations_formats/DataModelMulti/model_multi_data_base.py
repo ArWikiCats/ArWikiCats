@@ -119,7 +119,7 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category:"Yemeni national football teams", result: "natar national football teams"
         """
-        key, new_category = self.country_bot.normalize_category_with_key(category)
+        _key, new_category = self.country_bot.normalize_category_with_key(category)
         return new_category
 
     # ------------------------------------------------------
@@ -132,7 +132,7 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
         """
-        key, new_category = self.other_bot.normalize_category_with_key(category)
+        _key, new_category = self.other_bot.normalize_category_with_key(category)
         return new_category
 
     def normalize_both_new(self, category: str) -> NormalizeResult:
@@ -172,8 +172,8 @@ class MultiDataFormatterBaseHelpers:
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
-        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
+        _nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        _other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
         return template_key
 

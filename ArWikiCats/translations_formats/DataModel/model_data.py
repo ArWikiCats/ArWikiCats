@@ -69,6 +69,7 @@ class FormatData(FormatDataBase):
         data_list: Dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
+        *,
         text_after: str = "",
         text_before: str = "",
         regex_filter: str = "",

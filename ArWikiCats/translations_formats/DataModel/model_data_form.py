@@ -56,6 +56,7 @@ class FormatDataFrom:
         value_placeholder: str,
         search_callback: Callable,
         match_key_callback: Callable,
+        *,
         fixing_callback: Callable | None = None,
     ) -> None:
         """

@@ -41,6 +41,7 @@ class LabsYearsFormat(MatchTimes):
     def __init__(
         self,
         category_templates: dict[str, str],
+        *,
         key_param_placeholder: str = "{year1}",
         value_param_placeholder: str = "{year1}",
         year_param_name: str = "year1",

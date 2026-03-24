@@ -77,6 +77,7 @@ class FormatDataBase:
         formatted_data: Dict[str, str],
         data_list: Dict[str, Any],
         key_placeholder: str = "xoxo",
+        *,
         text_after: str = "",
         text_before: str = "",
         regex_filter: str = r"\w",

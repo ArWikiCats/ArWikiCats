@@ -63,6 +63,7 @@ class FormatDataDoubleV2(FormatDataBase):
         text_before: str = "",
         splitter: str = " ",
         ar_joiner: str = " ",
+        *,
         sort_ar_labels: bool = False,
         log_multi_cache: bool = True,
     ):
