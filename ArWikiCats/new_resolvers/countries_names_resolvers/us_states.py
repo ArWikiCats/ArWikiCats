@@ -10,78 +10,78 @@ from ...translations_formats import FormatData
 
 logger = logging.getLogger(__name__)
 
+_STATE_SUFFIX_TEMPLATES_BASE = {
+    # "georgia (u.s. state)": "ولاية جورجيا",
+    "{en} (u.s. state)": "ولاية {ar}",
+    # "new york (state)": "ولاية نيويورك",
+    "{en} (state)": "ولاية {ar}",
+    # Category:Defunct department stores based in Washington State
+    "{en} state": "ولاية {ar}",
+    "secretaries of state of {en}": "وزراء خارجية {ar}",
+    "secretaries of state for {en}": "وزراء خارجية {ar}",
+    # "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
+    # "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
+    "state lieutenant governors of {en}": "نواب حكام ولاية {ar}",
+    "state secretaries of state of {en}": "وزراء خارجية ولاية {ar}",
+    "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
+    "{en} appellate court judges": "قضاة محكمة استئناف {ar}",
+    "{en} attorneys general": "مدعي {ar} العام",
+    "{en} ballot measures": "إجراءات اقتراع {ar}",
+    "{en} ballot propositions": "اقتراحات اقتراع {ar}",
+    "{en} board of education": "مجلس التعليم في ولاية {ar}",
+    "{en} board of health": "مجلس الصحة في ولاية {ar}",
+    "{en} city councils": "مجالس مدن {ar}",
+    "{en} court judges": "قضاة محكمة {ar}",
+    "{en} court of appeals judges‎": "قضاة محكمة استئناف {ar}",
+    "{en} court of appeals": "محكمة استئناف {ar}",
+    "{en} democrats": "ديمقراطيون من ولاية {ar}",
+    "{en} general assembly": "جمعية {ar} العامة",
+    "{en} gubernatorial elections": "انتخابات حاكم {ar}",
+    "{en} house of representatives": "مجلس نواب ولاية {ar}",
+    "{en} house-of-representatives elections": "انتخابات مجلس نواب ولاية {ar}",
+    "{en} house-of-representatives": "مجلس نواب ولاية {ar}",
+    "{en} in the war of 1812": "{ar} في حرب 1812",
+    "{en} independents": "مستقلون من ولاية {ar}",
+    "{en} law": "قانون {ar}",
+    "{en} lawyers": "محامون من ولاية {ar}",
+    "{en} legislative assembly": "هيئة {ar} التشريعية",
+    "{en} legislature": "هيئة {ar} التشريعية",
+    "{en} local politicians": "سياسيون محليون في {ar}",
+    "{en} politicians": "سياسيو {ar}",
+    "{en} politics": "سياسة {ar}",
+    "{en} referendums": "استفتاءات {ar}",
+    "{en} republicans": "جمهوريون من ولاية {ar}",
+    "{en} senate": "مجلس شيوخ ولاية {ar}",
+    "{en} senators": "أعضاء مجلس شيوخ ولاية {ar}",
+    "{en} sheriffs": "مأمورو {ar}",
+    "{en} state assembly": "جمعية ولاية {ar}",
+    "{en} state attorneys general": "مدعي ولاية {ar} العام",
+    "{en} state court judges": "قضاة محكمة ولاية {ar}",
+    "{en} state courts": "محكمة ولاية {ar}",
+    "{en} state legislature": "هيئة ولاية {ar} التشريعية",
+    "{en} state politics": "سياسة ولاية {ar}",
+    "{en} state senators": "أعضاء مجلس شيوخ ولاية {ar}",
+    "{en} state superior court judges": "قضاة محكمة ولاية {ar} العليا",
+    "{en} superior court judges": "قضاة محكمة {ar} العليا",
+    "{en} supreme court justices": "قضاة محكمة {ar} العليا",
+    "{en} supreme court": "محكمة {ar} العليا",
+    "{en} territorial legislature": "هيئة {ar} التشريعية الإقليمية",
+    "{en} territory judges": "قضاة إقليم {ar}",
+    "{en} territory officials": "مسؤولو إقليم {ar}",
+    "{en} territory": "إقليم {ar}",
+    # " ballot measures":"استفتاءات عامة {ar}",
+    # " councils" : "مجالس {ar}",
+}
+
+_STATE_SUFFIX_TEMPLATES_BASE.update(
+    {
+        x.replace("secretaries of", "secretaries-of"): y
+        for x, y in _STATE_SUFFIX_TEMPLATES_BASE.items()
+        if "secretaries of" in x
+    }
+)
 
 def load_us_states_new_keys() -> dict[str, str]:
-    _STATE_SUFFIX_TEMPLATES_BASE = {
-        # "georgia (u.s. state)": "ولاية جورجيا",
-        "{en} (u.s. state)": "ولاية {ar}",
-        # "new york (state)": "ولاية نيويورك",
-        "{en} (state)": "ولاية {ar}",
-        # Category:Defunct department stores based in Washington State
-        "{en} state": "ولاية {ar}",
-        "secretaries of state of {en}": "وزراء خارجية {ar}",
-        "secretaries of state for {en}": "وزراء خارجية {ar}",
-        # "state lieutenant governors of {en}": "نواب حكام الولايات في {ar}",
-        # "state secretaries of state of {en}": "وزراء خارجية الولايات في {ar}",
-        "state lieutenant governors of {en}": "نواب حكام ولاية {ar}",
-        "state secretaries of state of {en}": "وزراء خارجية ولاية {ar}",
-        "state cabinet secretaries of {en}": "أعضاء مجلس وزراء {ar}",
-        "{en} appellate court judges": "قضاة محكمة استئناف {ar}",
-        "{en} attorneys general": "مدعي {ar} العام",
-        "{en} ballot measures": "إجراءات اقتراع {ar}",
-        "{en} ballot propositions": "اقتراحات اقتراع {ar}",
-        "{en} board of education": "مجلس التعليم في ولاية {ar}",
-        "{en} board of health": "مجلس الصحة في ولاية {ar}",
-        "{en} city councils": "مجالس مدن {ar}",
-        "{en} court judges": "قضاة محكمة {ar}",
-        "{en} court of appeals judges‎": "قضاة محكمة استئناف {ar}",
-        "{en} court of appeals": "محكمة استئناف {ar}",
-        "{en} democrats": "ديمقراطيون من ولاية {ar}",
-        "{en} general assembly": "جمعية {ar} العامة",
-        "{en} gubernatorial elections": "انتخابات حاكم {ar}",
-        "{en} house of representatives": "مجلس نواب ولاية {ar}",
-        "{en} house-of-representatives elections": "انتخابات مجلس نواب ولاية {ar}",
-        "{en} house-of-representatives": "مجلس نواب ولاية {ar}",
-        "{en} in the war of 1812": "{ar} في حرب 1812",
-        "{en} independents": "مستقلون من ولاية {ar}",
-        "{en} law": "قانون {ar}",
-        "{en} lawyers": "محامون من ولاية {ar}",
-        "{en} legislative assembly": "هيئة {ar} التشريعية",
-        "{en} legislature": "هيئة {ar} التشريعية",
-        "{en} local politicians": "سياسيون محليون في {ar}",
-        "{en} politicians": "سياسيو {ar}",
-        "{en} politics": "سياسة {ar}",
-        "{en} referendums": "استفتاءات {ar}",
-        "{en} republicans": "جمهوريون من ولاية {ar}",
-        "{en} senate": "مجلس شيوخ ولاية {ar}",
-        "{en} senators": "أعضاء مجلس شيوخ ولاية {ar}",
-        "{en} sheriffs": "مأمورو {ar}",
-        "{en} state assembly": "جمعية ولاية {ar}",
-        "{en} state attorneys general": "مدعي ولاية {ar} العام",
-        "{en} state court judges": "قضاة محكمة ولاية {ar}",
-        "{en} state courts": "محكمة ولاية {ar}",
-        "{en} state legislature": "هيئة ولاية {ar} التشريعية",
-        "{en} state politics": "سياسة ولاية {ar}",
-        "{en} state senators": "أعضاء مجلس شيوخ ولاية {ar}",
-        "{en} state superior court judges": "قضاة محكمة ولاية {ar} العليا",
-        "{en} superior court judges": "قضاة محكمة {ar} العليا",
-        "{en} supreme court justices": "قضاة محكمة {ar} العليا",
-        "{en} supreme court": "محكمة {ar} العليا",
-        "{en} territorial legislature": "هيئة {ar} التشريعية الإقليمية",
-        "{en} territory judges": "قضاة إقليم {ar}",
-        "{en} territory officials": "مسؤولو إقليم {ar}",
-        "{en} territory": "إقليم {ar}",
-        # " ballot measures":"استفتاءات عامة {ar}",
-        # " councils" : "مجالس {ar}",
-    }
-
-    _STATE_SUFFIX_TEMPLATES_BASE.update(
-        {
-            x.replace("secretaries of", "secretaries-of"): y
-            for x, y in _STATE_SUFFIX_TEMPLATES_BASE.items()
-            if "secretaries of" in x
-        }
-    )
 
     _USA_PARTY_LABELS = {
         "democratic republican": "الحزب الديمقراطي الجمهوري",
