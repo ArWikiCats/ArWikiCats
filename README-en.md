@@ -271,7 +271,6 @@ multi_formatter = format_multi_data(
 ```
 ArWikiCats/
 ├── __init__.py              # Public API exports
-├── config.py                # Environment/CLI config
 ├── event_processing.py      # Batch processing engine
 ├── fix/                     # Normalization & text cleaning
 ├── main_processers/         # Core resolution logic

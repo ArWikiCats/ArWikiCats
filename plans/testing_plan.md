@@ -807,7 +807,6 @@ directory = coverage_report
 - [ ] Test CategoryResult and ProcessedCategory data classes
 - [ ] Test event2bot.py
 - [ ] Test event_lab_bot.py
-- [ ] Test config.py
 
 **Deliverables**:
 - tests/unit/test_event_processing.py

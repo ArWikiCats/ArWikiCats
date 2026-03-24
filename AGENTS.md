@@ -129,7 +129,6 @@ except Exception as e:
 ```
 ArWikiCats/          # Main package
 ├── __init__.py      # Public API exports
-├── config.py        # Configuration
 ├── event_processing.py
 ├── logging_config.py
 └── main_processers/
