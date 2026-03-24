@@ -1,56 +1,41 @@
-# Migrating Resolvers to BaseResolversWorker
+---
+name: base-worker-migration
+description: Migrate resolver code to use BaseResolversWorker pattern. Use when refactoring resolvers in new_resolvers/, creating new resolvers, or converting function-based resolvers to class-based workers with load_bot/process/after_run lifecycle.
+---
 
-This skill explains how to refactor existing resolver code to use the `BaseResolversWorker` base class for standardized lifecycle management.
+# BaseResolversWorker Migration Guide
 
-## Overview
+This skill helps you refactor existing resolver code to use the `BaseResolversWorker` base class for standardized lifecycle management in the ArWikiCats project.
 
-The `BaseResolversWorker` abstract class provides a unified pattern for all resolvers in `ArWikiCats/new_resolvers/`. It standardizes the lifecycle into three phases:
+## When to use this pattern
 
-1. **`load_bot()`** - Initialize translation/formatting tools
-2. **`process(category)`** - Execute main logic and return result
-3. **`after_run()`** - Post-process/clean up the result
+Use `BaseResolversWorker` when:
 
-## Before and After Comparison
+-   Creating a new resolver in `ArWikiCats/new_resolvers/`
+-   Refactoring existing function-based resolvers to class-based pattern
+-   Need consistent lifecycle (load/process/cleanup) across resolvers
+-   Want automatic logging and singleton instance management
 
-### Before (Old Pattern - `us_states.py`)
+## Quick Example
+
+### Before (Old Pattern)
 
 ```python
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
-    logger.debug(f"<<yellow>> start {category=}")
-
     result = us_bot.search(category)
-    result = normalize_state(result)
-
-    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
-    return result
+    return normalize_state(result)
 ```
 
-### After (New Pattern - `us_states_base.py`)
+### After (New Pattern)
 
 ```python
 class UsStates(BaseResolversWorker):
-
-    def load_bot(self) -> None:
-        us_states_new_keys = load_us_states_new_keys()
-        self.bot = FormatData(
-            us_states_new_keys,
-            US_STATES,
-            key_placeholder="{en}",
-            value_placeholder="{ar}",
-        )
-
     def process(self, category: str) -> str:
         return self.bot.search(category)
 
     def after_run(self) -> None:
         self.result = normalize_state(self.result)
-
-
-@functools.lru_cache(maxsize=1)
-def load_class() -> UsStates:
-    return UsStates('resolve_us_states')
-
 
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
@@ -61,12 +46,11 @@ def resolve_us_states(category: str) -> str:
 
 ### Step 1: Create the Worker Class
 
-Create a class that inherits from `BaseResolversWorker`:
-
 ```python
 from ..base_worker import BaseResolversWorker
 
 class YourResolver(BaseResolversWorker):
+    """Resolver for your specific category type."""
     pass
 ```
 
@@ -76,10 +60,7 @@ Move bot/tool initialization from module-level into `load_bot()`:
 
 ```python
 def load_bot(self) -> None:
-    # Load your translation data
     data = load_your_data()
-
-    # Initialize your bot/formatter
     self.bot = FormatData(
         data,
         YOUR_TRANSLATIONS,
@@ -115,8 +96,7 @@ Move any post-processing/cleanup logic here:
 
 ```python
 def after_run(self) -> None:
-    # self.result contains the output from process()
-    self.result = normalize_your_result(self.result)
+    self.result = normalize_state(self.result)
 ```
 
 **Key points:**
@@ -127,33 +107,19 @@ def after_run(self) -> None:
 
 ### Step 5: Create Singleton Loader
 
-Add a cached function to create a single instance:
-
 ```python
 @functools.lru_cache(maxsize=1)
 def load_class() -> YourResolver:
     return YourResolver('your_resolver_name')
 ```
 
-**Key points:**
-
--   `maxsize=1` ensures only one instance exists
--   Pass a descriptive name for logging purposes
-
 ### Step 6: Update Public Function
-
-Modify the public resolver function to use the class:
 
 ```python
 @functools.lru_cache(maxsize=10000)
 def resolve_your_category(category: str) -> str:
     return load_class().run(category)
 ```
-
-**Key points:**
-
--   Keep the `@lru_cache` on the public function for result caching
--   Call `.run(category)` - this is provided by `BaseResolversWorker`
 
 ## Complete Template
 
@@ -179,7 +145,6 @@ def load_your_data() -> dict[str, str]:
 
 def normalize_your_result(ar_name: str) -> str:
     """Optional: Post-process the Arabic result."""
-    # Your normalization logic
     return ar_name
 
 
@@ -226,19 +191,23 @@ __all__ = [
 
 ```
 resolve_your_category("some category")
-    └── load_class() → YourResolver('your_resolver_name')
-        └── __init__() → load_bot()
-    └── .run("some category")
-        ├── before_run("some category") → "some category" (lowercased)
-        ├── process("some category") → raw_result
-        ├── after_run() → modifies self.result
-        └── return self.result
+    → load_class() → YourResolver('your_resolver_name')
+        → __init__() → load_bot()
+    → .run("some category")
+        → before_run("some category") → "some category" (lowercased)
+        → process("some category") → raw_result
+        → after_run() → modifies self.result
+        → return self.result
 ```
 
-## Benefits
+## Reference: us_states_base.py Example
 
-1. **Consistent structure** across all resolvers
-2. **Automatic logging** - handled by base class
-3. **Clear separation** of concerns (load/process/cleanup)
-4. **Easier testing** - each phase is isolated
-5. **Singleton pattern** - bot is initialized once per resolver type
+See `ArWikiCats/new_resolvers/countries_names_resolvers/us_states_base.py` for a complete working example.
+
+Key features:
+
+-   `_STATE_SUFFIX_TEMPLATES_BASE` defined at module level
+-   `load_us_states_new_keys()` builds dynamic patterns
+-   `UsStates` class implements all three methods
+-   `normalize_state()` applied in `after_run()`
+-   Double caching: singleton instance + result cache
