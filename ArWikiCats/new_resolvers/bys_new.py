@@ -578,6 +578,7 @@ def _load_bot() -> MultiDataFormatterBase:
             data_list=dict(by_data_new),
             key_placeholder="{en2}",
             value_placeholder="{ar2}",
+            regex_filter=r"[\w-]",
         ),
         search_first_part=False,
         use_other_formatted_data=False,
