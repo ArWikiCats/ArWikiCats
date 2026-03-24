@@ -217,8 +217,10 @@ class MultiDataFormatterBaseHelpers:
         Returns:
                 str: The final Arabic label with placeholders replaced, or an empty string if no valid translation can be produced.
         """
-        if self.data_to_find and category in self.data_to_find:
-            return self.data_to_find[category]
+        if self.data_to_find is not None:
+            cached_value = self.data_to_find.get(category)
+            if cached_value is not None:
+                return cached_value
 
         # category = Yemeni football championships
         template_data = self.normalize_both_new(category)
