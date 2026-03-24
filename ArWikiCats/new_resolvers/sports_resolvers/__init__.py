@@ -7,6 +7,7 @@ often combined with geographic or nationality elements.
 import functools
 import logging
 
+from ..worker import run_resolvers
 from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
@@ -35,15 +36,14 @@ def main_sports_resolvers(category) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = (
-        countries_names_and_sports.resolve_countries_names_sport_with_ends(category)
-        or nationalities_and_sports.resolve_nats_sport_multi_v2(category)
-        or jobs_multi_sports_reslover.jobs_in_multi_sports(category)
-        or sport_lab_nat.sport_lab_nat_load_new(category)
-        or raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends(category)
-        or raw_sports.resolve_sport_label_unified(category)
-        or ""
-    )
+    result = run_resolvers(category, [
+        countries_names_and_sports.resolve_countries_names_sport_with_ends,
+        nationalities_and_sports.resolve_nats_sport_multi_v2,
+        jobs_multi_sports_reslover.jobs_in_multi_sports,
+        sport_lab_nat.sport_lab_nat_load_new,
+        raw_sports_with_suffixes.wrap_team_xo_normal_2025_with_ends,
+        raw_sports.resolve_sport_label_unified,
+    ])
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

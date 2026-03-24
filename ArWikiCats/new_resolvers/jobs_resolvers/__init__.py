@@ -7,6 +7,7 @@ as well as religious occupations.
 import functools
 import logging
 
+from ..worker import run_resolvers
 from . import mens, relegin_jobs_new, womens
 
 logger = logging.getLogger(__name__)
@@ -27,14 +28,13 @@ def main_jobs_resolvers(category) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = (
-        mens.mens_resolver_labels(category)
-        # or males_resolver_labels(normalized_category)  # male resolvers
-        or womens.womens_resolver_labels(category)
-        or relegin_jobs_new.new_religions_jobs_with_suffix(category)
-        # or new_religions_jobs_for_males(normalized_category)  # male resolvers
-        or ""
-    )
+    result = run_resolvers(category, [
+        mens.mens_resolver_labels,
+        # males_resolver_labels,  # male resolvers
+        womens.womens_resolver_labels,
+        relegin_jobs_new.new_religions_jobs_with_suffix,
+        # new_religions_jobs_for_males,  # male resolvers
+    ])
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

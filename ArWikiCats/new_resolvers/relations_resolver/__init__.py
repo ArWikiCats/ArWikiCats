@@ -7,6 +7,7 @@ nationalities or country names in complex relationships.
 import functools
 import logging
 
+from ..worker import run_resolvers
 from .countries_names_double_v2 import resolve_countries_names_double
 from .nationalities_double_v2 import resolve_by_nats_double_v2
 from .nationalities_not_double import two_nationalities_but_not_double_resolver
@@ -30,12 +31,11 @@ def main_relations_resolvers(category: str) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = (
-        ""
-        or resolve_by_nats_double_v2(category)
-        or resolve_countries_names_double(category)
-        or two_nationalities_but_not_double_resolver(category)
-    )
+    result = run_resolvers(category, [
+        resolve_by_nats_double_v2,
+        resolve_countries_names_double,
+        two_nationalities_but_not_double_resolver,
+    ])
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

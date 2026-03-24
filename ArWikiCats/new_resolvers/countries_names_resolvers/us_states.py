@@ -73,7 +73,6 @@ _STATE_SUFFIX_TEMPLATES_BASE = {
     # " councils" : "مجالس {ar}",
 }
 
-
 _STATE_SUFFIX_TEMPLATES_BASE.update(
     {
         x.replace("secretaries of", "secretaries-of"): y
@@ -82,74 +81,80 @@ _STATE_SUFFIX_TEMPLATES_BASE.update(
     }
 )
 
-_USA_PARTY_LABELS = {
-    "democratic republican": "الحزب الديمقراطي الجمهوري",
-    "democratic-republican": "الحزب الديمقراطي الجمهوري",
-    "democratic-republican party": "الحزب الديمقراطي الجمهوري",
-    "anti-Administration party": "حزب معاداة الإدارة",
-    "anti Administration party": "حزب معاداة الإدارة",
-    "Pro Administration Party": "حزب دعم الإدارة",
-    "Pro-Administration Party": "حزب دعم الإدارة",
-    "Anti-Monopoly Party": "حزب مكافحة الاحتكار",
-    "Free Soil Party": "حزب التربة الحرة",
-    "Liberty Party (1840)": "حزب الحرية 1840",
-    "Opposition Party": "أوبوسيشن بارتي",
-    "Readjuster Party": "ريدجوستر بارتي",
-    "Silver Republican Party": "الحزب الجمهوري الفضي",
-    "conditional Union Party": "حزب الاتحاد المشروط",
-    "Unconditional Union Party": "حزب الاتحاد غير المشروط",
-    "Asian-American": "",
-    "Censured or reprimanded": "",
-    # 'Expelled' : 'مطرودون' ,
-    "Independent": "",
-    "Jewish": "",
-    "Nonpartisan League": "",
-    "democratic party": "الحزب الديمقراطي",
-    "republican party": "الحزب الجمهوري",
-    "whig party": "حزب اليمين",
-    "National Republican Party": "الحزب الجمهوري الوطني",
-    "National Republican": "الحزب الجمهوري الوطني",
-    "Unionist Party": "الحزب الوحدوي",
-    "Unionist": "الحزب الوحدوي",
-    "Know-Nothing": "حزب لا أدري",
-    "Know Nothing": "حزب لا أدري",
-    "alaskan independence Party": "حزب استقلال ألاسكا",
-    "anti-masonic Party": "حزب مناهضة الماسونية",
-    "anti masonic Party": "حزب مناهضة الماسونية",
-    "constitutional union Party": "حزب الاتحاد الدستوري",
-    # 'Country Party (Rhode Island)' : 'حزب الدولة (رود آيلاند)',
-    "Greenback Party": "حزب الدولار الأمريكي",
-    "Farmer–Labor Party": "حزب العمال المزارعين",
-    "Farmer Labor Party": "حزب العمال المزارعين",
-    "Federalist Party": "الحزب الفيدرالي الأمريكي",
-    # 'Independent' : 'مستقلون',
-    "Independent Voters Association": "رابطة الناخبين المستقلين",
-    "Law and Order Party of Rhode Island": "حزب القانون والنظام في رود آيلاند",
-    "Liberal Republican Party": "الحزب الجمهوري الليبرالي",
-    "Nonpartisan League state": "الرابطة غير الحزبية",
-    "Nullifier Party": "حزب الرفض",
-    "People's Party": "حزب الشعب",
-    "Peoples Party": "حزب الشعب",
-    "Silver Party": "الحزب الفضي",
-    "Green Party": "حزب الخضر",
-    "Green": "حزب الخضر",
-    "Citizens Party": "حزب المواطنين",
-    "Solidarity": "حزب التضامن",
-    "Socialist Party USA": "الحزب الاشتراكي",
-    "Socialist Party": "الحزب الاشتراكي",
-    "Liberty Union Party": "حزب الحرية المتحد",
-}
+def load_us_states_new_keys() -> dict[str, str]:
 
-USA_PARTY_LABELS = {x.strip(): y.strip() for x, y in _USA_PARTY_LABELS.items() if y.strip()}
+    _USA_PARTY_LABELS = {
+        "democratic republican": "الحزب الديمقراطي الجمهوري",
+        "democratic-republican": "الحزب الديمقراطي الجمهوري",
+        "democratic-republican party": "الحزب الديمقراطي الجمهوري",
+        "anti-Administration party": "حزب معاداة الإدارة",
+        "anti Administration party": "حزب معاداة الإدارة",
+        "Pro Administration Party": "حزب دعم الإدارة",
+        "Pro-Administration Party": "حزب دعم الإدارة",
+        "Anti-Monopoly Party": "حزب مكافحة الاحتكار",
+        "Free Soil Party": "حزب التربة الحرة",
+        "Liberty Party (1840)": "حزب الحرية 1840",
+        "Opposition Party": "أوبوسيشن بارتي",
+        "Readjuster Party": "ريدجوستر بارتي",
+        "Silver Republican Party": "الحزب الجمهوري الفضي",
+        "conditional Union Party": "حزب الاتحاد المشروط",
+        "Unconditional Union Party": "حزب الاتحاد غير المشروط",
+        "Asian-American": "",
+        "Censured or reprimanded": "",
+        # 'Expelled' : 'مطرودون' ,
+        "Independent": "",
+        "Jewish": "",
+        "Nonpartisan League": "",
+        "democratic party": "الحزب الديمقراطي",
+        "republican party": "الحزب الجمهوري",
+        "whig party": "حزب اليمين",
+        "National Republican Party": "الحزب الجمهوري الوطني",
+        "National Republican": "الحزب الجمهوري الوطني",
+        "Unionist Party": "الحزب الوحدوي",
+        "Unionist": "الحزب الوحدوي",
+        "Know-Nothing": "حزب لا أدري",
+        "Know Nothing": "حزب لا أدري",
+        "alaskan independence Party": "حزب استقلال ألاسكا",
+        "anti-masonic Party": "حزب مناهضة الماسونية",
+        "anti masonic Party": "حزب مناهضة الماسونية",
+        "constitutional union Party": "حزب الاتحاد الدستوري",
+        # 'Country Party (Rhode Island)' : 'حزب الدولة (رود آيلاند)',
+        "Greenback Party": "حزب الدولار الأمريكي",
+        "Farmer–Labor Party": "حزب العمال المزارعين",
+        "Farmer Labor Party": "حزب العمال المزارعين",
+        "Federalist Party": "الحزب الفيدرالي الأمريكي",
+        # 'Independent' : 'مستقلون',
+        "Independent Voters Association": "رابطة الناخبين المستقلين",
+        "Law and Order Party of Rhode Island": "حزب القانون والنظام في رود آيلاند",
+        "Liberal Republican Party": "الحزب الجمهوري الليبرالي",
+        "Nonpartisan League state": "الرابطة غير الحزبية",
+        "Nullifier Party": "حزب الرفض",
+        "People's Party": "حزب الشعب",
+        "Peoples Party": "حزب الشعب",
+        "Silver Party": "الحزب الفضي",
+        "Green Party": "حزب الخضر",
+        "Green": "حزب الخضر",
+        "Citizens Party": "حزب المواطنين",
+        "Solidarity": "حزب التضامن",
+        "Socialist Party USA": "الحزب الاشتراكي",
+        "Socialist Party": "الحزب الاشتراكي",
+        "Liberty Union Party": "حزب الحرية المتحد",
+    }
 
-us_states_new_keys = dict(_STATE_SUFFIX_TEMPLATES_BASE)
+    USA_PARTY_LABELS = {x.strip(): y.strip() for x, y in _USA_PARTY_LABELS.items() if y.strip()}
 
-for party_name, party_label in USA_PARTY_LABELS.items():
-    normalized_party_name = party_name.lower()
-    us_states_new_keys[f"{{en}} {normalized_party_name}s"] = f"أعضاء {party_label} في {{ar}}"
+    us_states_new_keys = dict(_STATE_SUFFIX_TEMPLATES_BASE)
 
-    simplified_party_name = normalized_party_name.replace(" party", "")
-    us_states_new_keys[f"{{en}} {simplified_party_name}s"] = f"أعضاء {party_label} في {{ar}}"
+    for party_name, party_label in USA_PARTY_LABELS.items():
+        normalized_party_name = party_name.lower()
+        us_states_new_keys[f"{{en}} {normalized_party_name}s"] = f"أعضاء {party_label} في {{ar}}"
+
+        simplified_party_name = normalized_party_name.replace(" party", "")
+        us_states_new_keys[f"{{en}} {simplified_party_name}s"] = f"أعضاء {party_label} في {{ar}}"
+    return us_states_new_keys
+
+
+us_states_new_keys = load_us_states_new_keys()
 
 
 us_bot = FormatData(
