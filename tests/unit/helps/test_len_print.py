@@ -137,40 +137,48 @@ class TestSaveData:
 class TestDataLen:
     """Tests for the data_len function."""
 
-    def test_adds_data_to_all_len(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_adds_data_to_all_len(self, mock_get_path: MagicMock) -> None:
         """Should add data to all_len dictionary."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data = {"items": [1, 2, 3], "count": 5}
         data_len("test_bot", data)
         assert "test_bot" in all_len
         assert isinstance(all_len["test_bot"], dict)
 
-    def test_calculates_count_for_collections(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_calculates_count_for_collections(self, mock_get_path: MagicMock) -> None:
         """Should calculate count for list/dict collections."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data = {"items": [1, 2, 3, 4, 5]}
         data_len("test_bot", data)
         assert all_len["test_bot"]["items"]["count"] == 5
 
-    def test_uses_integer_value_directly(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_uses_integer_value_directly(self, mock_get_path: MagicMock) -> None:
         """Should use integer values directly as count."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data = {"count": 42}
         data_len("test_bot", data)
         assert all_len["test_bot"]["count"]["count"] == 42
 
-    def test_calculates_size_for_items(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_calculates_size_for_items(self, mock_get_path: MagicMock) -> None:
         """Should calculate size for items."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data = {"items": [1, 2, 3]}
         data_len("test_bot", data)
         assert "size" in all_len["test_bot"]["items"]
         assert isinstance(all_len["test_bot"]["items"]["size"], str)
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
-    def test_saves_data_when_path_configured(self, mock_settings: MagicMock) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_saves_data_when_path_configured(self, mock_get_path: MagicMock) -> None:
         """Should call save_data when save_data_path is configured."""
-        mock_settings.save_data_path = "/tmp/test"
+        mock_get_path.return_value = "/tmp/test"
         with patch("ArWikiCats.helps.len_print.save_data") as mock_save:
             data = {"items": [1, 2, 3]}
             data_len("test_bot", data)
@@ -183,8 +191,10 @@ class TestDataLen:
         # Should not add anything to all_len or should add empty entry
         assert "test_bot" not in all_len or all_len["test_bot"] == {}
 
-    def test_updates_existing_bot_data(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_updates_existing_bot_data(self, mock_get_path: MagicMock) -> None:
         """Should update existing bot data instead of replacing."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data_len("test_bot", {"items1": [1, 2]})
         data_len("test_bot", {"items2": [3, 4]})
