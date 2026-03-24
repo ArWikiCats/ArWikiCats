@@ -47,7 +47,11 @@ Example:
     'لاعبو كرة القدم بريطانيون'
 """
 
-from .data_new_model import format_films_country_data
+from .data_new_model import (
+    CountryBotConfig,
+    GenreBotConfig,
+    format_films_country_data,
+)
 from .data_with_time import format_year_country_data, format_year_country_data_v2
 from .DataModel import (
     FormatData,
@@ -91,6 +95,8 @@ __all__ = [
     "format_year_country_data",
     "format_year_country_data_v2",
     "format_films_country_data",
+    "CountryBotConfig",
+    "GenreBotConfig",
     "format_multi_data",
     "format_multi_data_v2",
 ]
