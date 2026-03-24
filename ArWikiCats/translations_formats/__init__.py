@@ -50,8 +50,12 @@ Example:
 from .data_new_model import format_films_country_data
 from .classes import (
     CountryBotConfig,
-    PlaceHolderConfig,
     GenreBotConfig,
+    PlaceHolderConfig,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    YearCountryDataConfig,
+    YearDataConfig,
 )
 from .data_with_time import format_year_country_data, format_year_country_data_v2
 from .DataModel import (
@@ -101,4 +105,8 @@ __all__ = [
     "GenreBotConfig",
     "format_multi_data",
     "format_multi_data_v2",
+    "MultiDataFormatterConfig",
+    "MultiDataFormatterSecondElementConfig",
+    "YearCountryDataConfig",
+    "YearDataConfig",
 ]
