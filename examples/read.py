@@ -9,8 +9,7 @@ f_path = Dir / "male.json"
 
 f_data = {}
 
-json_files = list((Dir / "big_data").glob("*.json"))
-# json_files.extend(list((Dir / "data").glob("*.json")))
+json_files = list((Dir / "data").glob("*.json"))
 
 
 def match_it(key, value):
