@@ -4,7 +4,12 @@
 import pytest
 
 from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, format_year_country_data
+from ArWikiCats.translations_formats import (
+    MultiDataFormatterBaseYear,
+    YearCountryDataConfig,
+    YearDataConfig,
+    format_year_country_data,
+)
 
 # Template data with both nationality and sport placeholders
 formatted_data = {
@@ -48,16 +53,19 @@ formatted_data = {
 
 @pytest.fixture
 def yc_bot() -> MultiDataFormatterBaseYear:
-    return format_year_country_data(
+    country_config = YearCountryDataConfig(
         formatted_data=formatted_data,
         data_list=all_country_ar,
         key_placeholder="{country1}",
         value_placeholder="{country1}",
-        key2_placeholder="{year1}",
-        value2_placeholder="{year1}",
         text_after=" !",
         text_before="the ",
     )
+    year_config = YearDataConfig(
+        key_placeholder="{year1}",
+        value_placeholder="{year1}",
+    )
+    return format_year_country_data(country_config=country_config, year_config=year_config)
 
 
 test_data = [

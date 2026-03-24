@@ -124,13 +124,17 @@ def multi_bot2() -> MultiDataFormatterBase:
     }
 
     return format_multi_data(
-        formatted_data=formatted_data,
-        data_list=under_data,
-        key_placeholder="{en}",
-        value_placeholder="{ar}",
-        data_list2=under_data,
-        key2_placeholder="{en2}",
-        value2_placeholder="{ar2}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=under_data,
+            key_placeholder="{en}",
+            value_placeholder="{ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=under_data,
+            key_placeholder="{en2}",
+            value_placeholder="{ar2}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )
