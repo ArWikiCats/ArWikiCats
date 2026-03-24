@@ -180,8 +180,8 @@ __all__ = [
 len_print.data_len(
     "all_keys4.py",
     {
-        "Clubs_key_2": Clubs_key_2,
-        "INTER_FEDS_LOWER": INTER_FEDS_LOWER,
-        "new2019": new2019,
+        "Clubs_key_2": len(Clubs_key_2),
+        "INTER_FEDS_LOWER": len(INTER_FEDS_LOWER),
+        "new2019": len(new2019),
     },
 )
