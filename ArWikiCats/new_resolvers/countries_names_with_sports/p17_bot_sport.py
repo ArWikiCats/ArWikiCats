@@ -1,7 +1,4 @@
-"""
-
-
-"""
+""" """
 
 import functools
 import logging

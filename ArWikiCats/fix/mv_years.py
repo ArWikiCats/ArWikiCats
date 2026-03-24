@@ -76,7 +76,7 @@ def move_years_first(text_str: str) -> str:
     match = REGEX_YEAR_FIRST_PATTERN.match(text_str)
 
     if not match:
-        logger.debug(f'no match for {text_str=}')
+        logger.debug(f"no match for {text_str=}")
         return text_str
 
     first_part = match.group("first_part").strip()

@@ -426,7 +426,7 @@ all_test_data = {
     "washington (state) socialist partys": "أعضاء الحزب الاشتراكي في ولاية واشنطن",
     "washington (state) socialists": "أعضاء الحزب الاشتراكي في ولاية واشنطن",
     "washington (state) liberty union partys": "أعضاء حزب الحرية المتحد في ولاية واشنطن",
-    "washington (state) liberty unions": "أعضاء حزب الحرية المتحد في ولاية واشنطن"
+    "washington (state) liberty unions": "أعضاء حزب الحرية المتحد في ولاية واشنطن",
 }
 
 

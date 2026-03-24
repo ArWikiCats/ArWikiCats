@@ -112,7 +112,6 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
-
         "political office-holders": "أصحاب مناصب سياسية",
         "{en_nat} political office-holders": "أصحاب مناصب سياسية {males}",
         # base keys
@@ -132,7 +131,6 @@ def _load_formatted_data() -> dict:
         "{en_nat} eugenicists": "علماء {males} متخصصون في تحسين النسل",
         "{en_nat} politicians who committed suicide": "سياسيون {males} أقدموا على الانتحار",
         "{en_nat} contemporary artists": "فنانون {males} معاصرون",
-
         # [Category:Turkish immigrants sports-people] : "تصنيف:رياضيون أتراك مهاجرون"
         "{en_nat} immigrants {en_job}": "{ar_job} {males} مهاجرون",
         "{en_nat} films people": "أعلام أفلام {males}",
@@ -153,10 +151,8 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs = {
         # base keys
         "{en_job}": "{ar_job}",
-
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
-
         "{en_job} people": "أعلام {ar_job}",
         "men {en_job}": "{ar_job}",  # رجال
         "mens {en_job}": "{ar_job}",  # رجال
@@ -247,11 +243,7 @@ def _load_formatted_data() -> dict:
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {
-        x: {"ar_job": v} for x, v
-        in jobs_mens_data_f.items()
-        if not is_false_key(x, v)
-    }
+    data = {x: {"ar_job": v} for x, v in jobs_mens_data_f.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
@@ -259,9 +251,11 @@ def _load_jobs_data() -> dict[str, str]:
 
     data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
 
-    data.update({
-        "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
-    })
+    data.update(
+        {
+            "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
+        }
+    )
     return data
 
 

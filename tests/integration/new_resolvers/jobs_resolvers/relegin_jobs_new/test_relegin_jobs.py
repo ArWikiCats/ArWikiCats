@@ -9,8 +9,10 @@ from ArWikiCats.translations import RELIGIOUS_KEYS_PP
 # new dict with only 20 items from RELIGIOUS_KEYS_PP
 RELIGIOUS_KEYS_20 = {k: RELIGIOUS_KEYS_PP[k] for k in list(RELIGIOUS_KEYS_PP.keys())[:20]}
 
+
 def wrap_new_religions_jobs_with_suffix(category):
     return new_religions_jobs_with_suffix(category) or new_religions_jobs_for_males(category)
+
 
 @pytest.mark.parametrize("key,data", RELIGIOUS_KEYS_20.items(), ids=RELIGIOUS_KEYS_20.keys())
 def test_with_womens(key: str, data: dict[str, str]) -> None:

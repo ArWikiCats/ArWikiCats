@@ -171,4 +171,8 @@ disable = [
     "C0111",  # missing-docstring
     "C0103",  # invalid-name
     "R0913",  # too-many-arguments
+    "W1203",
+    "C0301",
+    "W0108",
+    "R0801",
 ]

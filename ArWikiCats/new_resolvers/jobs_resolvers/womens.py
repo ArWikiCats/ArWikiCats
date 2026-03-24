@@ -7,8 +7,6 @@ nationalities, and descriptors for women into idiomatic Arabic.
 import functools
 import logging
 
-from ..jobs_resolvers_male import males_resolver_labels
-
 from ...helps import len_print
 from ...translations import (
     FEMALE_JOBS_BASE_EXTENDED,
@@ -19,6 +17,7 @@ from ...translations import (
     jobs_womens_data,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ..jobs_resolvers_male import males_resolver_labels
 from ..nats_as_country_names import nats_keys_as_country_names
 from .mens import mens_resolver_labels
 from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2

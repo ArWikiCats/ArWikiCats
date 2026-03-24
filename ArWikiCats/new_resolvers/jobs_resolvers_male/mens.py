@@ -14,8 +14,8 @@ from ...translations import (
     jobs_mens_data,
 )
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
-from ..nats_as_country_names import nats_keys_as_country_names
 from ..jobs_resolvers.utils import fix_keys
+from ..nats_as_country_names import nats_keys_as_country_names
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -31,7 +31,6 @@ NAT_DATA_MALES = {
     "{en_nat} men": "رجال {males}",  # 183
     "{en_nat} sportsmen": "رياضيون رجال {males}",  # 182
     "{en_nat} men by occupation": "رجال {males} حسب المهنة",  # 174
-
     # males with ذكور
     "{en_nat} male swimmers": "سباحون ذكور {males}",  # 101
     "{en_nat} male freestyle swimmers": "سباحو تزلج حر ذكور {males}",  # 121
@@ -74,16 +73,12 @@ def _load_formatted_data() -> dict:
     formatted_data_jobs_with_nat = {
         # [Category:Turkish expatriate sports-people] : "تصنيف:رياضيون أتراك مغتربون"
         "{en_nat} expatriate {en_job}": "{ar_job} {males} مغتربون",
-
         # "Category:Pakistani expatriate male actors": "تصنيف:ممثلون ذكور باكستانيون مغتربون",
         "{en_nat} expatriate male {en_job}": "{ar_job} ذكور {males} مغتربون",
-
         "male {en_nat}": "{males} ذكور",
-
-        'male {en_nat} expatriate': '{males} مغتربون ذكور',
-        '{en_nat} expatriate male': '{males} مغتربون ذكور',
-
-        'male {en_nat} emigrants': '{males} مهاجرون ذكور',
+        "male {en_nat} expatriate": "{males} مغتربون ذكور",
+        "{en_nat} expatriate male": "{males} مغتربون ذكور",
+        "male {en_nat} emigrants": "{males} مهاجرون ذكور",
     }
 
     formatted_data_jobs_with_nat.update(NAT_DATA_MALES)
@@ -92,15 +87,12 @@ def _load_formatted_data() -> dict:
         # base keys
         "{en_job}": "{ar_job}",
         "male {en_job}": "{ar_job} ذكور",
-
         # expatriate keys
         "expatriate {en_job}": "{ar_job} مغتربون",
         "expatriate male {en_job}": "{ar_job} ذكور مغتربون",
-
-        'male {en_job} emigrants': '{ar_job} مهاجرون ذكور',
-
-        'male {en_job} expatriate': '{ar_job} مغتربون ذكور',
-        '{en_job} expatriate male': '{ar_job} مغتربون ذكور',
+        "male {en_job} emigrants": "{ar_job} مهاجرون ذكور",
+        "male {en_job} expatriate": "{ar_job} مغتربون ذكور",
+        "{en_job} expatriate male": "{ar_job} مغتربون ذكور",
     }
     formatted_data = dict(formatted_data_jobs)
     formatted_data.update(
@@ -121,11 +113,7 @@ def _load_formatted_data() -> dict:
 @functools.lru_cache(maxsize=1)
 def _load_jobs_data() -> dict[str, str]:
     # all keys without any word from not_in_keys
-    data = {
-        x: {"ar_job": v} for x, v
-        in jobs_mens_data_f.items()
-        if not is_false_key(x, v)
-    }
+    data = {x: {"ar_job": v} for x, v in jobs_mens_data_f.items() if not is_false_key(x, v)}
     len_diff = len(set(jobs_mens_data_f.keys()) - set(data.keys()))
 
     if len_diff:
@@ -133,9 +121,11 @@ def _load_jobs_data() -> dict[str, str]:
 
     data = {x.replace("'", "").replace("australian rules", "australian-rules"): v for x, v in data.items()}
 
-    data.update({
-        "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
-    })
+    data.update(
+        {
+            "philosophers and theologians": {"ar_job": "فلاسفة ولاهوتيون"},
+        }
+    )
     return data
 
 

@@ -7,8 +7,8 @@ used by various bots and optionally save this data to JSON files.
 
 import functools
 import json
-import os
 import logging
+import os
 import sys
 from pathlib import Path
 from typing import Any, List, Mapping, Union

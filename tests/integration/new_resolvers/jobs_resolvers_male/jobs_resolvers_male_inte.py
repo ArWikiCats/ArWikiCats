@@ -7,7 +7,6 @@ import pytest
 # from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 from ArWikiCats import resolve_label_ar
 
-
 test_data_0 = {
     "Male film score composers": "مؤلفو موسيقى أفلام",
     "American male film score composers": "مؤلفو موسيقى أفلام أمريكيون ذكور",
@@ -31,7 +30,6 @@ test_sport_data = {
 test_data2 = {
     "Cultural depictions of male monarchs": "تصوير ثقافي عن ملكيين ذكور",
     "Male adult models": "عارضون بالغون ذكور",
-
     "19th century male composers by nationality": "ملحنون ذكور في القرن 19 حسب الجنسية",
     "male actors": "ممثلون ذكور",
     "male artists": "فنانون ذكور",
@@ -42,13 +40,11 @@ test_data2 = {
     "painters male muslims": "رسامون ذكور مسلمون",
     "nepalese male film actors": "ممثلو أفلام ذكور نيباليون",
     "japanese male film actors": "ممثلو أفلام ذكور يابانيون",
-
     "Male chefs from Northern Ireland": "طباخون ذكور من أيرلندا الشمالية",
     "Male fiddlers from Northern Ireland": "عازفو كمان ذكور من أيرلندا الشمالية",
     "Male sailors (sport) from Northern Ireland": "بحارة رياضيون ذكور من أيرلندا الشمالية",
     "Male sport shooters from Northern Ireland": "لاعبو رماية ذكور من أيرلندا الشمالية",
     "21st-century male artists from Northern Ireland": "فنانون ذكور من أيرلندا الشمالية في القرن 21",
-
     "Expatriate male actors in New Zealand": "ممثلون ذكور مغتربون في نيوزيلندا",
     "Expatriate male actors": "ممثلون ذكور مغتربون",
     "Male actors from Charleston, West Virginia": "ممثلون ذكور من تشارلستون (فرجينيا الغربية)",
@@ -101,7 +97,6 @@ test_data2 = {
     "Russian male classical composers": "ملحنون كلاسيكيون ذكور روس",
     "Soviet male classical composers": "ملحنون كلاسيكيون ذكور سوفيت",
     "Spanish male classical composers": "ملحنون كلاسيكيون ذكور إسبان",
-
     "Antigua and Barbuda male actors": "ممثلون ذكور أنتيغويون وبربوديون",
     "Antigua and Barbuda male boxers": "ملاكمون ذكور أنتيغويون وبربوديون",
     "Antigua and Barbuda male canoeists": "متسابقو قوارب الكانوي ذكور أنتيغويون وبربوديون",
@@ -121,7 +116,6 @@ test_data2 = {
     "male sport shooters": "لاعبو رماية ذكور",
     "male actors from west midlands (county)": "ممثلون ذكور من مقاطعة ميدلاند الغربية",
     "canadian male wheelchair basketball players": "لاعبو كرة سلة على كراسي متحركة ذكور كنديون",
-
     "Paintings of male saints": "لوحات عن قديسون ذكور",
     "Jewish male actors by nationality": "ممثلون ذكور يهود حسب الجنسية",
     "19th-century American male singers": "مغنون ذكور أمريكيون في القرن 19",

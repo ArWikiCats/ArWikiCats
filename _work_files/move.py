@@ -5,17 +5,14 @@ https://quarry.wmcloud.org/query/99983
 """
 
 import json
-from pathlib import Path
 import re
+from pathlib import Path
 
 json_paths = Path("D:/categories_bot/make2_new/_work_files/genders_data").glob("*.json")
 json_data = {}
 for file in json_paths:
     data = json.loads(file.read_text(encoding="utf-8"))
-    json_data.update({
-        v["job_males"] : v["both_jobs"]
-        for v in data.values()
-    })
+    json_data.update({v["job_males"]: v["both_jobs"] for v in data.values()})
 
 
 CATS_PATH = Path("D:/categories_bot/make2_new/examples/data/males.json")
@@ -35,11 +32,7 @@ for n, cat in enumerate(CATS_DATA_SORTED_BY_VALUE.values(), 1):
 
     cat_both = cat_new.replace(cat2, cat_both)
 
-    full_data[cat] = {
-        "cat": cat,
-        "cat_new": cat_new,
-        "cat_both": cat_both
-    }
+    full_data[cat] = {"cat": cat, "cat_new": cat_new, "cat_both": cat_both}
 
     cat_both = f"[[:{cat_both}]]"
     line = f"! {n}\n| [[:{cat}]]\n| [[:{cat_new}]]\n| {cat_both} "
@@ -48,7 +41,7 @@ for n, cat in enumerate(CATS_DATA_SORTED_BY_VALUE.values(), 1):
 # for each 1000 item save into file
 LIMIT = 1500
 for i in range(0, len(rows), LIMIT):
-    new_rows = rows[i:i+LIMIT]
+    new_rows = rows[i : i + LIMIT]
     wikitext = """{| class="wikitable sortable" \n|- \n!# \n! 1 \n! 2 \n! 3 \n|-\n"""
 
     wikitext += "\n|-\n".join(new_rows)

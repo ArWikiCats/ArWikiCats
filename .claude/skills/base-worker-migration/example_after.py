@@ -5,9 +5,9 @@ from __future__ import annotations
 import functools
 import logging
 
-from ...translations import US_STATES
-from ...translations_formats import FormatData
-from ..base_worker import BaseResolversWorker
+from ...translations import US_STATES  # type: ignore
+from ...translations_formats import FormatData  # type: ignore
+from ..base_worker import BaseResolversWorker  # type: ignore
 
 logger = logging.getLogger(__name__)
 
@@ -186,7 +186,7 @@ class UsStates(BaseResolversWorker):
 
 @functools.lru_cache(maxsize=1)
 def load_class() -> UsStates:
-    return UsStates('resolve_us_states')
+    return UsStates("resolve_us_states")
 
 
 @functools.lru_cache(maxsize=10000)

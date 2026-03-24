@@ -214,7 +214,6 @@ pp_ends_with = {
     " employees": "موظفو {}",
     "candidates": "مرشحو {}",
     " announcers": "مذيعو {}",
-
     " womens tournament": "{} – مسابقة السيدات",
     " mens tournament": "{} - مسابقة الرجال",
     "-related lists": "قوائم متعلقة ب{}",

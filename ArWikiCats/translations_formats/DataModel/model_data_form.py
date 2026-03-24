@@ -1,5 +1,16 @@
 #!/usr/bin/python3
-""" """
+"""
+Module for dynamic category translation formatting with callbacks.
+
+This module provides the FormatDataFrom class for handling category
+transformations with customizable callbacks for key matching and searching.
+It's designed for flexible category translation where the matching logic
+varies (e.g., time patterns, relation words).
+
+Classes:
+    FormatDataFrom: A dynamic wrapper for handling category transformations
+        with customizable callbacks.
+"""
 
 import logging
 import re

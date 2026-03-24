@@ -17,7 +17,6 @@ male_test_data = {
     # {en_nat} men by occupation
     "federated states-of micronesia men by occupation": "رجال ميكرونيزيون حسب المهنة",
     "equatorial guinean men by occupation": "رجال غينيون استوائيون حسب المهنة",
-
     # males with ذكور - {en_nat} male swimmers
     "east timorese male swimmers": "سباحون ذكور تيموريون شرقيون",
     "federated states-of micronesia male swimmers": "سباحون ذكور ميكرونيزيون",

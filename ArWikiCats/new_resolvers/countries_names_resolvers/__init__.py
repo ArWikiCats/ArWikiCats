@@ -36,14 +36,17 @@ def main_countries_names_resolvers(category: str) -> str:
     # resolve_by_countries_names_v2 must be before resolve_by_countries_names, to avoid mis-resolving like:
     # incorrect:    [Category:Zimbabwe political leader] : "تصنيف:قادة زيمبابوي السياسيون",
     # correct:      [Category:Zimbabwe political leader] : "تصنيف:قادة سياسيون زيمبابويون",
-    result = run_resolvers(category, [
-        countries_names_v2.resolve_by_countries_names_v2,
-        countries_names.resolve_by_countries_names,
-        medalists_resolvers.resolve_countries_names_medalists,
-        us_states.resolve_us_states,
-        geo_names_formats.resolve_by_geo_names,
-        # countries_names_double_v2.resolve_countries_names_double,
-    ])
+    result = run_resolvers(
+        category,
+        [
+            countries_names_v2.resolve_by_countries_names_v2,
+            countries_names.resolve_by_countries_names,
+            medalists_resolvers.resolve_countries_names_medalists,
+            us_states.resolve_us_states,
+            geo_names_formats.resolve_by_geo_names,
+            # countries_names_double_v2.resolve_countries_names_double,
+        ],
+    )
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

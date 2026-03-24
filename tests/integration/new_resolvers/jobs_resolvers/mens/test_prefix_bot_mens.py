@@ -1,11 +1,10 @@
-"""
-"""
+""" """
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.jobs_resolvers_male import males_resolver_labels
 from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from ArWikiCats.new_resolvers.jobs_resolvers_male import males_resolver_labels
 
 
 def wrap_mens_resolver_labels(category):
