@@ -7,6 +7,8 @@ which creates MultiDataFormatterDataDouble instances for film category translati
 """
 
 from ArWikiCats.translations_formats.data_new_model import (
+    CountryBotConfig,
+    GenreBotConfig,
     format_films_country_data,
 )
 from ArWikiCats.translations_formats.DataModel import FormatData
@@ -21,10 +23,11 @@ class TestFormatFilmsCountryData:
         formatted_data = {"{nat_en} films": "أفلام {nat_ar}"}
         data_list = {"british": "بريطانية"}
 
-        bot = format_films_country_data(
+        config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
         )
+        bot = format_films_country_data(country_config=config)
 
         assert isinstance(bot, MultiDataFormatterDataDouble)
 
@@ -33,10 +36,11 @@ class TestFormatFilmsCountryData:
         formatted_data = {"{nat_en} films": "أفلام {nat_ar}"}
         data_list = {"british": "بريطانية"}
 
-        bot = format_films_country_data(
+        config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
         )
+        bot = format_films_country_data(country_config=config)
 
         assert bot.country_bot.key_placeholder == "{nat_en}"
         assert bot.country_bot.value_placeholder == "{nat_ar}"
@@ -48,13 +52,20 @@ class TestFormatFilmsCountryData:
         formatted_data = {"{country} films": "أفلام {country_label}"}
         data_list = {"british": "بريطانية"}
 
-        bot = format_films_country_data(
+        country_config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
             key_placeholder="{country}",
             value_placeholder="{country_label}",
-            key2_placeholder="{genre}",
-            value2_placeholder="{genre_label}",
+        )
+        genre_config = GenreBotConfig(
+            key_placeholder="{genre}",
+            value_placeholder="{genre_label}",
+        )
+
+        bot = format_films_country_data(
+            country_config=country_config,
+            genre_config=genre_config,
         )
 
         assert bot.country_bot.key_placeholder == "{country}"
@@ -68,10 +79,17 @@ class TestFormatFilmsCountryData:
         data_list = {"british": "بريطانية"}
         data_list2 = {"action": "أكشن", "drama": "دراما"}
 
-        bot = format_films_country_data(
+        country_config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
-            data_list2=data_list2,
+        )
+        genre_config = GenreBotConfig(
+            data_list=data_list2,
+        )
+
+        bot = format_films_country_data(
+            country_config=country_config,
+            genre_config=genre_config,
         )
 
         # Check that data_list2 is passed to other_bot
@@ -85,11 +103,18 @@ class TestFormatFilmsCountryData:
         data_list2 = {"action": "أكشن"}
         other_formatted_data = {"{film_key} films": "أفلام {film_ar}"}
 
-        bot = format_films_country_data(
+        country_config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
-            data_list2=data_list2,
-            other_formatted_data=other_formatted_data,
+        )
+        genre_config = GenreBotConfig(
+            data_list=data_list2,
+            formatted_data=other_formatted_data,
+        )
+
+        bot = format_films_country_data(
+            country_config=country_config,
+            genre_config=genre_config,
         )
 
         # Check that other_formatted_data is passed to other_bot
@@ -100,12 +125,13 @@ class TestFormatFilmsCountryData:
         formatted_data = {"{nat_en} films": "أفلام {nat_ar}"}
         data_list = {"british": "بريطانية"}
 
-        bot = format_films_country_data(
+        config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
             text_before="the ",
             text_after=" !",
         )
+        bot = format_films_country_data(country_config=config)
 
         assert bot.country_bot.text_before == "the "
         assert bot.country_bot.text_after == " !"
@@ -116,9 +142,12 @@ class TestFormatFilmsCountryData:
         data_list = {"british": "بريطانية"}
         data_to_find = {"direct lookup": "نتيجة مباشرة"}
 
-        bot = format_films_country_data(
+        config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
+        )
+        bot = format_films_country_data(
+            country_config=config,
             data_to_find=data_to_find,
         )
 
@@ -129,10 +158,11 @@ class TestFormatFilmsCountryData:
         formatted_data = {"{nat_en} films": "أفلام {nat_ar}"}
         data_list = {"british": "بريطانية"}
 
-        bot = format_films_country_data(
+        config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
         )
+        bot = format_films_country_data(country_config=config)
 
         assert isinstance(bot.country_bot, FormatData)
 
@@ -142,10 +172,16 @@ class TestFormatFilmsCountryData:
         data_list = {"british": "بريطانية"}
         data_list2 = {"action": "أكشن"}
 
-        bot = format_films_country_data(
+        country_config = CountryBotConfig(
             formatted_data=formatted_data,
             data_list=data_list,
-            data_list2=data_list2,
+        )
+        genre_config = GenreBotConfig(
+            data_list=data_list2,
+        )
+        bot = format_films_country_data(
+            country_config=country_config,
+            genre_config=genre_config,
         )
 
         assert isinstance(bot.other_bot, FormatDataDouble)
