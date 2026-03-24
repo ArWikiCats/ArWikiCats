@@ -14,13 +14,9 @@ diff_data_path = Path(__file__).parent / "diff_data"
 diff_data_path.mkdir(exist_ok=True, parents=True)
 
 
-def dump_one_new(data: dict, folder_name: str, file_name: str) -> None:
+def dump_one_new(data: dict, file_path: Path) -> None:
     if not data:
         return
-
-    folder_path = diff_data_path / folder_name
-    folder_path.mkdir(exist_ok=True, parents=True)
-    file_path = folder_path / f"{file_name}.json"
 
     try:
         with open(file_path, "w", encoding="utf-8") as f:
@@ -29,23 +25,30 @@ def dump_one_new(data: dict, folder_name: str, file_name: str) -> None:
         print(f"Error writing diff data: {e}")
 
 
-def dump_same_and_not_same(data: dict, diff_result: dict, name: str, just_dump: bool = False) -> None:
+def dump_same_and_not_same(data: dict, diff_result: dict, name: str, folder_name: str) -> None:
     """
     Dump same data as JSON file for easy copy-paste to wiki.
 
     dump_same_add(data, diff_result, name)
     """
+    folder_path = diff_data_path / folder_name / name
+    folder_path_same = diff_data_path / folder_name / "same"
+
+    folder_path.mkdir(exist_ok=True, parents=True)
+    folder_path_same.mkdir(exist_ok=True, parents=True)
+
+    dump_one_new(diff_result, folder_path / "new.json")
+
     if not data or not diff_result:
         return
 
     same_data = {x: v for x, v in data.items() if x not in diff_result}
-    if len(same_data) != len(data) or just_dump:
-        # dump_one_new(same_data, name, "same")
-        dump_one_new(same_data, "same", name)  # folder named `same`
+    if len(same_data) != len(data):
+        dump_one_new(same_data, folder_path_same / f"{name}")
 
     add_data = {x: v for x, v in data.items() if x in diff_result}
-    if len(add_data) != len(data) or just_dump:
-        dump_one_new(add_data, name, "not_same")
+    if len(add_data) != len(data):
+        dump_one_new(add_data, folder_path / "not_same.json")
 
 
 def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False) -> tuple[dict, dict]:
@@ -73,31 +76,32 @@ def JSON_FILES(dir_path) -> list:
     return FILE_PATHS
 
 
-def _test_data_helper(load_json_data: tuple[dict[str, str], str]) -> None:
+def _test_data_helper(load_json_data: tuple[dict[str, str], str], folder_name: str) -> None:
     data, name = load_json_data
 
     expected, diff_result = one_dump_test(data, resolve_arabic_category_label)
-    dump_one_new(diff_result, name, "new")
-    dump_same_and_not_same(data, diff_result, name)
+
+    dump_same_and_not_same(data, diff_result, name, folder_name)
+
     assert diff_result == expected, f"Differences found: {len(diff_result):,}, len all :{len(data):,}"
 
 
 @pytest.mark.dumpbig
 @pytest.mark.parametrize("load_json_data", JSON_FILES("religions_data"), indirect=True, ids=lambda p: p.name)
 def test_religions_data(load_json_data: tuple[dict[str, str], str]) -> None:
-    _test_data_helper(load_json_data)
+    _test_data_helper(load_json_data, "religions_data")
 
 
 @pytest.mark.dumpbig
 @pytest.mark.parametrize("load_json_data", JSON_FILES("big_data"), indirect=True, ids=lambda p: p.name)
 def test_big_data(load_json_data: tuple[dict[str, str], str]) -> None:
-    _test_data_helper(load_json_data)
+    _test_data_helper(load_json_data, "big_data")
 
 
 @pytest.mark.dumpbig
 @pytest.mark.parametrize("load_json_data", JSON_FILES("data"), indirect=True, ids=lambda p: p.name)
 def test_big_data_examples(load_json_data: tuple[dict[str, str], str]) -> None:
-    _test_data_helper(load_json_data)
+    _test_data_helper(load_json_data, "data")
 
 
 def create_resolver_big_tests(dir_paths: list):
