@@ -40,7 +40,7 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
-
+        super().__init__()
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot

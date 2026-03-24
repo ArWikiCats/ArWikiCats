@@ -67,6 +67,7 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
         year_bot: FormatDataFrom,
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
+        *,
         other_key_first: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels.
@@ -78,6 +79,7 @@ class MultiDataFormatterYearAndFrom(MultiDataFormatterBaseHelpers):
             data_to_find: Optional dictionary for direct category-to-label lookups.
             other_key_first: If True, process year/other key before country key.
         """
+        super().__init__()
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = year_bot

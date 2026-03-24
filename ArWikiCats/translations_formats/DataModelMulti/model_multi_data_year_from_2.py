@@ -75,6 +75,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         self,
         country_bot: FormatDataFrom,
         year_bot: FormatDataFrom,
+        *,
         category_relation_mapping: dict[str, str] = None,
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
@@ -90,6 +91,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
             data_to_find: Optional dictionary for direct category-to-label lookups.
             other_key_first: If True, process year/other key before country key.
         """
+        super().__init__()
         if category_relation_mapping is None:
             category_relation_mapping = {}
         self.search_first_part = search_first_part
@@ -162,7 +164,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         if not base_label or not category:
             return base_label
 
-        relation_key, relation_ar = self.get_relation_word(category)
+        _relation_key, relation_ar = self.get_relation_word(category)
 
         if not relation_ar:
             return base_label

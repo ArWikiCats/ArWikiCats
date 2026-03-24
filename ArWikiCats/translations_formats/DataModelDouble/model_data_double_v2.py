@@ -59,6 +59,7 @@ class FormatDataDoubleV2(FormatDataBase):
         formatted_data: Dict[str, str],
         data_list: Dict[str, Union[str, Dict[str, str]]],
         key_placeholder: str = "xoxo",
+        *,
         text_after: str = "",
         text_before: str = "",
         splitter: str = " ",

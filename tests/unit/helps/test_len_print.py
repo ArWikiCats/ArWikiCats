@@ -101,7 +101,7 @@ class TestSaveData:
         """Should sort dict data by keys."""
         mock_get_path.return_value = "/tmp/test_save"
         data = {"items": {"z": 1, "a": 2, "m": 3}}
-        with patch("builtins.open", mock_open()) as mock_file:
+        with patch("builtins.open", mock_open()):
             with patch("json.dump") as mock_dump:
                 save_data("test_bot", data)
                 # Check that json.dump was called (sorting is done before dump)
@@ -120,7 +120,7 @@ class TestSaveData:
         mock_get_path.return_value = "/tmp/test_save"
         data = {"items": [3, 1, 2, 1, 3]}
         with patch("builtins.open", mock_open()):
-            with patch("json.dump") as mock_dump:
+            with patch("json.dump"):
                 save_data("test_bot", data)
                 # Should have attempted to save sorted unique list
 
@@ -281,7 +281,7 @@ class TestAllLenGlobalVariable:
 
     def test_all_len_can_be_modified(self) -> None:
         """all_len should be modifiable."""
-        original_keys = set(all_len.keys())
+        set(all_len.keys())
         all_len["test_modification"] = {"test": {"count": 1, "size": "10 B"}}
         assert "test_modification" in all_len
         # Clean up

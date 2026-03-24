@@ -12,7 +12,12 @@ import re
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, Nat_women
-from ...translations_formats import MultiDataFormatterBase, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..nats_as_country_names import nats_keys_as_country_names
 
 logger = logging.getLogger(__name__)
@@ -205,13 +210,17 @@ def _load_bot() -> MultiDataFormatterBase:
     }
 
     return format_multi_data_v2(
-        formatted_data=new_for_nat_female_xo_team_2,
-        data_list=nats_data,
-        key_placeholder="{en}",
-        data_list2=sports_data,
-        key2_placeholder="{en_sport}",
-        text_after=" people",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=new_for_nat_female_xo_team_2,
+            data_list=nats_data,
+            key_placeholder="{en}",
+            text_after=" people",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=sports_data,
+            key_placeholder="{en_sport}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

@@ -16,6 +16,7 @@ from ArWikiCats.translations_formats.DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
 )
+from ArWikiCats.translations_formats.classes import YearCountryDataConfig, YearDataConfig
 
 
 class TestFormatYearCountryData:
@@ -23,25 +24,23 @@ class TestFormatYearCountryData:
 
     def test_returns_multi_data_formatter_base_year(self):
         """Test that format_year_country_data returns a MultiDataFormatterBaseYear instance."""
-        formatted_data = {"{year1} {country1} events": "{country1} أحداث في {year1}"}
-        data_list = {"british": "بريطانية"}
-
-        bot = format_year_country_data(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} events": "{country1} أحداث في {year1}"},
+            data_list={"british": "بريطانية"},
         )
+
+        bot = format_year_country_data(country_config=country_config)
 
         assert isinstance(bot, MultiDataFormatterBaseYear)
 
     def test_default_placeholders(self):
         """Test default placeholders are used correctly."""
-        formatted_data = {"{year1} {country1} events": "{country1} أحداث في {year1}"}
-        data_list = {"british": "بريطانية"}
-
-        bot = format_year_country_data(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} events": "{country1} أحداث في {year1}"},
+            data_list={"british": "بريطانية"},
         )
+
+        bot = format_year_country_data(country_config=country_config)
 
         assert bot.country_bot.key_placeholder == COUNTRY_PARAM
         assert bot.country_bot.value_placeholder == COUNTRY_PARAM
@@ -50,17 +49,15 @@ class TestFormatYearCountryData:
 
     def test_custom_placeholders(self):
         """Test custom placeholders are used correctly."""
-        formatted_data = {"{time} {nat} writers": "{nat_ar} كتاب في {time_ar}"}
-        data_list = {"yemen": "يمنية"}
-
-        bot = format_year_country_data(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{time} {nat} writers": "{nat_ar} كتاب في {time_ar}"},
+            data_list={"yemen": "يمنية"},
             key_placeholder="{nat}",
             value_placeholder="{nat_ar}",
-            key2_placeholder="{time}",
-            value2_placeholder="{time_ar}",
         )
+        year_config = YearDataConfig(key_placeholder="{time}", value_placeholder="{time_ar}")
+
+        bot = format_year_country_data(country_config=country_config, year_config=year_config)
 
         assert bot.country_bot.key_placeholder == "{nat}"
         assert bot.country_bot.value_placeholder == "{nat_ar}"
@@ -69,30 +66,27 @@ class TestFormatYearCountryData:
 
     def test_text_before_and_after(self):
         """Test text_before and text_after are passed to country_bot."""
-        formatted_data = {"{year1} {country1} events": "{country1} أحداث في {year1}"}
-        data_list = {"british": "بريطانية"}
-
-        bot = format_year_country_data(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} events": "{country1} أحداث في {year1}"},
+            data_list={"british": "بريطانية"},
             text_before="the ",
             text_after=" !",
         )
+
+        bot = format_year_country_data(country_config=country_config)
 
         assert bot.country_bot.text_before == "the "
         assert bot.country_bot.text_after == " !"
 
     def test_data_to_find(self):
         """Test data_to_find is stored correctly."""
-        formatted_data = {"{year1} {country1} events": "{country1} أحداث في {year1}"}
-        data_list = {"british": "بريطانية"}
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} events": "{country1} أحداث في {year1}"},
+            data_list={"british": "بريطانية"},
+        )
         data_to_find = {"direct lookup": "نتيجة مباشرة"}
 
-        bot = format_year_country_data(
-            formatted_data=formatted_data,
-            data_list=data_list,
-            data_to_find=data_to_find,
-        )
+        bot = format_year_country_data(country_config=country_config, data_to_find=data_to_find)
 
         assert bot.data_to_find == data_to_find
 
@@ -102,25 +96,23 @@ class TestFormatYearCountryDataV2:
 
     def test_returns_multi_data_formatter_base_year_v2(self):
         """Test that format_year_country_data_v2 returns a MultiDataFormatterBaseYearV2 instance."""
-        formatted_data = {"{year1} {country1} writers": "{demonym} كتاب في {year1}"}
-        data_list = {"yemen": {"demonym": "يمنيون"}}
-
-        bot = format_year_country_data_v2(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} writers": "{demonym} كتاب في {year1}"},
+            data_list={"yemen": "يمنيون"},
         )
+
+        bot = format_year_country_data_v2(country_config=country_config)
 
         assert isinstance(bot, MultiDataFormatterBaseYearV2)
 
     def test_default_placeholders(self):
         """Test default placeholders are used correctly."""
-        formatted_data = {"{year1} {country1} writers": "{demonym} كتاب في {year1}"}
-        data_list = {"yemen": {"demonym": "يمنيون"}}
-
-        bot = format_year_country_data_v2(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} writers": "{demonym} كتاب في {year1}"},
+            data_list={"yemen": "يمنيون"},
         )
+
+        bot = format_year_country_data_v2(country_config=country_config)
 
         assert bot.country_bot.key_placeholder == COUNTRY_PARAM
         assert bot.other_bot.key_placeholder == YEAR_PARAM
@@ -128,16 +120,17 @@ class TestFormatYearCountryDataV2:
 
     def test_custom_placeholders(self):
         """Test custom placeholders are used correctly."""
-        formatted_data = {"{time} {nat} writers": "{demonym} كتاب في {time_ar}"}
-        data_list = {"yemen": {"demonym": "يمنيون"}}
-
-        bot = format_year_country_data_v2(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{time} {nat} writers": "{demonym} كتاب في {time_ar}"},
+            data_list={"yemen": "يمنيون"},
             key_placeholder="{nat}",
-            key2_placeholder="{time}",
-            value2_placeholder="{time_ar}",
         )
+        year_config = YearDataConfig(
+            key_placeholder="{time}",
+            value_placeholder="{time_ar}",
+        )
+
+        bot = format_year_country_data_v2(country_config=country_config, year_config=year_config)
 
         assert bot.country_bot.key_placeholder == "{nat}"
         assert bot.other_bot.key_placeholder == "{time}"
@@ -145,30 +138,27 @@ class TestFormatYearCountryDataV2:
 
     def test_text_before_and_after(self):
         """Test text_before and text_after are passed to country_bot."""
-        formatted_data = {"{year1} {country1} writers": "{demonym} كتاب في {year1}"}
-        data_list = {"yemen": {"demonym": "يمنيون"}}
-
-        bot = format_year_country_data_v2(
-            formatted_data=formatted_data,
-            data_list=data_list,
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} writers": "{demonym} كتاب في {year1}"},
+            data_list={"yemen": "يمنيون"},
             text_before="the ",
             text_after=" !",
         )
+
+        bot = format_year_country_data_v2(country_config=country_config)
 
         assert bot.country_bot.text_before == "the "
         assert bot.country_bot.text_after == " !"
 
     def test_data_to_find(self):
         """Test data_to_find is stored correctly."""
-        formatted_data = {"{year1} {country1} writers": "{demonym} كتاب في {year1}"}
-        data_list = {"yemen": {"demonym": "يمنيون"}}
+        country_config = YearCountryDataConfig(
+            formatted_data={"{year1} {country1} writers": "{demonym} كتاب في {year1}"},
+            data_list={"yemen": "يمنيون"},
+        )
         data_to_find = {"direct lookup": "نتيجة مباشرة"}
 
-        bot = format_year_country_data_v2(
-            formatted_data=formatted_data,
-            data_list=data_list,
-            data_to_find=data_to_find,
-        )
+        bot = format_year_country_data_v2(country_config=country_config, data_to_find=data_to_find)
 
         assert bot.data_to_find == data_to_find
 

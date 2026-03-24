@@ -17,19 +17,22 @@ Constants:
     COUNTRY_PARAM: Default placeholder for the first element ("natar").
 
 Example:
-    >>> from ArWikiCats.translations_formats import format_multi_data
+    >>> from ArWikiCats.translations_formats import format_multi_data, MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
     >>> formatted_data = {"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"}
     >>> data_list = {"british": "بريطانيون", "american": "أمريكيون"}
     >>> data_list2 = {"football": "كرة القدم", "basketball": "كرة السلة"}
-    >>> bot = format_multi_data(
+    >>> first_config = MultiDataFormatterConfig(
     ...     formatted_data=formatted_data,
     ...     data_list=data_list,
-    ...     data_list2=data_list2,
     ...     key_placeholder="{nat}",
     ...     value_placeholder="{nat_ar}",
-    ...     key2_placeholder="{sport}",
-    ...     value2_placeholder="{sport_ar}",
     ... )
+    >>> second_config = MultiDataFormatterSecondElementConfig(
+    ...     data_list=data_list2,
+    ...     key_placeholder="{sport}",
+    ...     value_placeholder="{sport_ar}",
+    ... )
+    >>> bot = format_multi_data(first_element_config=first_config, second_element_config=second_config)
     >>> bot.search("british football players")
     'لاعبو كرة القدم بريطانيون'
 
@@ -37,10 +40,11 @@ test at tests.translations_formats.test_format_2_data.py
 """
 
 import logging
-from typing import Dict
+from typing import Dict, Optional
 
 from .DataModel import FormatData, FormatDataV2
 from .DataModelMulti import MultiDataFormatterBase, MultiDataFormatterBaseV2
+from .classes import MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
 
 logger = logging.getLogger(__name__)
 
@@ -94,20 +98,13 @@ def get_other_data(
 
 
 def format_multi_data(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str = COUNTRY_PARAM,
-    value_placeholder: str = COUNTRY_PARAM,
-    data_list2: Dict[str, str] = None,
-    key2_placeholder: str = YEAR_PARAM,
-    value2_placeholder: str = YEAR_PARAM,
-    text_after: str = "",
-    text_before: str = "",
+    first_element_config: MultiDataFormatterConfig,
+    second_element_config: Optional[MultiDataFormatterSecondElementConfig] = None,
+    *,
     other_formatted_data: Dict[str, str] = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
     data_to_find: Dict[str, str] | None = None,
-    regex_filter: str | None = None,
 ) -> MultiDataFormatterBase:
     """
     Create a MultiDataFormatterBase for dual-element category translations.
@@ -118,64 +115,55 @@ def format_multi_data(
     them using MultiDataFormatterBase.
 
     Args:
-        formatted_data: Template patterns mapping English patterns to Arabic templates.
-            Keys should contain both placeholders (e.g., "{nat} {sport} players").
-        data_list: First element key-to-Arabic-label mappings
-            (e.g., {"british": "بريطانيون"}).
-        key_placeholder: Placeholder for first element key. Default: "natar".
-        value_placeholder: Placeholder for first element value. Default: "natar".
-        data_list2: Second element key-to-Arabic-label mappings
-            (e.g., {"football": "كرة القدم"}).
-        key2_placeholder: Placeholder for second element key. Default: "xoxo".
-        value2_placeholder: Placeholder for second element value. Default: "xoxo".
-        text_after: Optional text that appears after the first element key.
-        text_before: Optional text that appears before the first element key.
+        first_element_config: Configuration for the first element (e.g., country/nationality).
+        second_element_config: Configuration for the second element (e.g., sport/year).
         use_other_formatted_data: If True, extract single-element templates for other_bot.
         search_first_part: If True, search using only the first part after normalization.
         data_to_find: Optional direct lookup dictionary for category labels.
-        regex_filter: Custom regex pattern for word boundary detection.
 
     Returns:
         MultiDataFormatterBase: A configured formatter for dual-element translations.
 
     Example:
-        >>> formatted_data = {"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"}
-        >>> data_list = {"british": "بريطانيون"}
-        >>> data_list2 = {"football": "كرة القدم"}
-        >>> bot = format_multi_data(
-        ...     formatted_data=formatted_data,
-        ...     data_list=data_list,
-        ...     data_list2=data_list2,
+        >>> first_element_config = MultiDataFormatterConfig(
+        ...     formatted_data={"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"},
+        ...     data_list={"british": "بريطانيون"},
         ...     key_placeholder="{nat}",
         ...     value_placeholder="{nat_ar}",
-        ...     key2_placeholder="{sport}",
-        ...     value2_placeholder="{sport_ar}",
         ... )
+        >>> second_element_config = MultiDataFormatterSecondElementConfig(
+        ...     data_list={"football": "كرة القدم"},
+        ...     key_placeholder="{sport}",
+        ...     value_placeholder="{sport_ar}",
+        ... )
+        >>> bot = format_multi_data(first_element_config, second_element_config)
         >>> bot.search("british football players")
         'لاعبو كرة القدم بريطانيون'
     """
+    if second_element_config is None:
+        second_element_config = MultiDataFormatterSecondElementConfig()
+
     # Country bot (FormatData)
     if other_formatted_data is None:
         other_formatted_data = {}
-    if data_list2 is None:
-        data_list2 = {}
+
     country_bot = FormatData(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        value_placeholder=value_placeholder,
-        text_after=text_after,
-        text_before=text_before,
-        regex_filter=regex_filter,
+        formatted_data=first_element_config.formatted_data,
+        data_list=first_element_config.data_list,
+        key_placeholder=first_element_config.key_placeholder,
+        value_placeholder=first_element_config.value_placeholder,
+        text_after=first_element_config.text_after,
+        text_before=first_element_config.text_before,
+        regex_filter=first_element_config.regex_filter,
     )
 
     _other_formatted_data = other_formatted_data or (
         get_other_data(
-            formatted_data=formatted_data,
-            key_placeholder=key_placeholder,
-            value_placeholder=value_placeholder,
-            key2_placeholder=key2_placeholder,
-            value2_placeholder=value2_placeholder,
+            formatted_data=first_element_config.formatted_data,
+            key_placeholder=first_element_config.key_placeholder,
+            value_placeholder=first_element_config.value_placeholder,
+            key2_placeholder=second_element_config.key_placeholder,
+            value2_placeholder=second_element_config.value_placeholder,
         )
         if use_other_formatted_data
         else {}
@@ -183,10 +171,10 @@ def format_multi_data(
 
     other_bot = FormatData(
         formatted_data=_other_formatted_data,  # to use from search_all
-        data_list=data_list2,
-        key_placeholder=key2_placeholder,
-        value_placeholder=value2_placeholder,
-        regex_filter=regex_filter,
+        data_list=second_element_config.data_list,
+        key_placeholder=second_element_config.key_placeholder,
+        value_placeholder=second_element_config.value_placeholder,
+        regex_filter=second_element_config.regex_filter,
     )
 
     return MultiDataFormatterBase(
@@ -198,17 +186,11 @@ def format_multi_data(
 
 
 def format_multi_data_v2(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str,
-    data_list2: Dict[str, str] = None,
-    key2_placeholder: str = YEAR_PARAM,
-    text_after: str = "",
-    text_before: str = "",
+    first_element_config: MultiDataFormatterConfig,
+    second_element_config: Optional[MultiDataFormatterSecondElementConfig] = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
     data_to_find: Dict[str, str] | None = None,
-    regex_filter: str | None = None,
 ) -> MultiDataFormatterBaseV2:
     """
     Create a MultiDataFormatterBaseV2 for dual-element translations with dictionary support.
@@ -218,61 +200,55 @@ def format_multi_data_v2(
     placeholder replacements with multiple values per key.
 
     Args:
-        formatted_data: Template patterns mapping English patterns to Arabic templates.
-            Keys should contain both placeholders.
-        data_list: First element key-to-value mappings. Values can be strings or
-            dictionaries with multiple placeholders.
-        key_placeholder: Placeholder for first element key (required).
-        data_list2: Second element key-to-value mappings.
-        key2_placeholder: Placeholder for second element key. Default: "xoxo".
-        text_after: Optional text that appears after the first element key.
-        text_before: Optional text that appears before the first element key.
+        first_element_config: Configuration for the first element (e.g., country/nationality).
+            Uses FormatDataV2 which supports dictionary values in data_list.
+        second_element_config: Configuration for the second element (e.g., sport/year).
         use_other_formatted_data: If True, extract single-element templates for other_bot.
         search_first_part: If True, search using only the first part after normalization.
         data_to_find: Optional direct lookup dictionary for category labels.
-        regex_filter: Custom regex pattern for word boundary detection.
 
     Returns:
         MultiDataFormatterBaseV2: A configured formatter for dual-element translations.
 
     Example:
-        >>> formatted_data = {"{country} {sport} players": "{demonym} لاعبو {sport_ar}"}
-        >>> data_list = {"yemen": {"demonym": "يمنيون"}}
-        >>> data_list2 = {"football": {"sport_ar": "كرة القدم"}}
-        >>> bot = format_multi_data_v2(
-        ...     formatted_data=formatted_data,
-        ...     data_list=data_list,
+        >>> first_element_config = MultiDataFormatterConfig(
+        ...     formatted_data={"{country} {sport} players": "{demonym} لاعبو {sport_ar}"},
+        ...     data_list={"yemen": {"demonym": "يمنيون"}},
         ...     key_placeholder="{country}",
-        ...     data_list2=data_list2,
-        ...     key2_placeholder="{sport}",
         ... )
+        >>> second_element_config = MultiDataFormatterSecondElementConfig(
+        ...     data_list={"football": {"sport_ar": "كرة القدم"}},
+        ...     key_placeholder="{sport}",
+        ... )
+        >>> bot = format_multi_data_v2(first_element_config, second_element_config)
         >>> bot.search("yemen football players")
         'يمنيون لاعبو كرة القدم'
     """
-    if data_list2 is None:
-        data_list2 = {}
+    if second_element_config is None:
+        second_element_config = MultiDataFormatterSecondElementConfig()
+
     country_bot = FormatDataV2(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        text_after=text_after,
-        text_before=text_before,
-        regex_filter=regex_filter,
+        formatted_data=first_element_config.formatted_data,
+        data_list=first_element_config.data_list,
+        key_placeholder=first_element_config.key_placeholder,
+        text_after=first_element_config.text_after,
+        text_before=first_element_config.text_before,
+        regex_filter=first_element_config.regex_filter,
     )
 
     other_formatted_data = (
-        {x: v for x, v in formatted_data.items() if key2_placeholder in x and key_placeholder not in x}
+        {x: v for x, v in first_element_config.formatted_data.items() if second_element_config.key_placeholder in x and first_element_config.key_placeholder not in x}
         if use_other_formatted_data
         else {}
     )
 
     other_bot = FormatDataV2(
         formatted_data=other_formatted_data,
-        data_list=data_list2,
-        key_placeholder=key2_placeholder,
-        text_after=text_after,
-        text_before=text_before,
-        regex_filter=regex_filter,
+        data_list=second_element_config.data_list,
+        key_placeholder=second_element_config.key_placeholder,
+        text_after=second_element_config.text_after,
+        text_before=second_element_config.text_before,
+        regex_filter=second_element_config.regex_filter,
     )
 
     return MultiDataFormatterBaseV2(
@@ -286,4 +262,6 @@ def format_multi_data_v2(
 __all__ = [
     "format_multi_data",
     "format_multi_data_v2",
+    "MultiDataFormatterConfig",
+    "MultiDataFormatterSecondElementConfig",
 ]

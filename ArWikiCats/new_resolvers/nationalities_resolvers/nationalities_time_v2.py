@@ -12,6 +12,8 @@ import logging
 from ...translations import all_country_with_nat_ar
 from ...translations_formats import (
     MultiDataFormatterBaseYearV2,
+    YearCountryDataConfig,
+    YearDataConfig,
     format_year_country_data_v2,
 )
 
@@ -83,13 +85,17 @@ def _bot_new() -> MultiDataFormatterBaseYearV2:
     nats_data = {x: v for x, v in all_country_with_nat_ar.items() if v.get("ar")}
 
     return format_year_country_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data,
-        key_placeholder="{en_nat}",
-        key2_placeholder="{year1}",
-        value2_placeholder="{year1}",
-        text_after="",
-        text_before="the ",
+        country_config=YearCountryDataConfig(
+            formatted_data=formatted_data,
+            data_list=nats_data,
+            key_placeholder="{en_nat}",
+            text_after="",
+            text_before="the ",
+        ),
+        year_config=YearDataConfig(
+            key_placeholder="{year1}",
+            value_placeholder="{year1}",
+        ),
     )
 
 

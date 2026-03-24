@@ -4,7 +4,12 @@
 import pytest
 
 from ArWikiCats.translations import Nat_women, film_keys_for_female
-from ArWikiCats.translations_formats import MultiDataFormatterDataDouble, format_films_country_data
+from ArWikiCats.translations_formats import (
+    CountryBotConfig,
+    GenreBotConfig,
+    MultiDataFormatterDataDouble,
+    format_films_country_data,
+)
 
 
 @pytest.fixture
@@ -39,17 +44,24 @@ def yc_bot() -> MultiDataFormatterDataDouble:
         "upcoming",
     }
 
-    bot = format_films_country_data(
+    country_config = CountryBotConfig(
         formatted_data=formatted_data,
         data_list=Nat_women,
         key_placeholder="{nat_en}",
         value_placeholder="{nat_ar}",
-        data_list2=film_keys_for_female,
-        key2_placeholder="{film_key}",
-        value2_placeholder="{film_ar}",
         text_after="",
         text_before="",
-        other_formatted_data=other_formatted_data,
+    )
+    genre_config = GenreBotConfig(
+        data_list=film_keys_for_female,
+        formatted_data=other_formatted_data,
+        key_placeholder="{film_key}",
+        value_placeholder="{film_ar}",
+    )
+
+    bot = format_films_country_data(
+        country_config=country_config,
+        genre_config=genre_config,
     )
     bot.other_bot.update_put_label_last(put_label_last)
 

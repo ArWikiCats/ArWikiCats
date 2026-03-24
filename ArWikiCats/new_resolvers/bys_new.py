@@ -6,7 +6,12 @@ import logging
 import re
 
 from ..helps import len_print
-from ..translations_formats import MultiDataFormatterBase, format_multi_data
+from ..translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -560,19 +565,24 @@ def _load_bot() -> MultiDataFormatterBase:
     by_data_new = _load_by_data_new()
 
     both_bot = format_multi_data(
-        formatted_data=formatted_data,
-        data_list=by_data_new,
-        key_placeholder="{en}",
-        value_placeholder="{ar}",
-        data_list2=dict(by_data_new),
-        key2_placeholder="{en2}",
-        value2_placeholder="{ar2}",
-        text_after="",
-        text_before="",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=by_data_new,
+            key_placeholder="{en}",
+            value_placeholder="{ar}",
+            text_after="",
+            text_before="",
+            regex_filter=r"[\w-]",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=dict(by_data_new),
+            key_placeholder="{en2}",
+            value_placeholder="{ar2}",
+            regex_filter=r"[\w-]",
+        ),
         search_first_part=False,
         use_other_formatted_data=False,
         data_to_find=data_to_find,
-        regex_filter=r"[\w-]",
     )
     return both_bot
 

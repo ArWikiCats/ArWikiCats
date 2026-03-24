@@ -8,7 +8,12 @@ import functools
 import logging
 
 from ...translations import SPORTS_KEYS_FOR_JOBS, countries_from_nat
-from ...translations_formats import MultiDataFormatterBase, format_multi_data
+from ...translations_formats import (
+    MultiDataFormatterBase,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -105,26 +110,34 @@ main_data_under = {
 @functools.lru_cache(maxsize=1)
 def _load_bot_with_sports_keys() -> MultiDataFormatterBase:
     return format_multi_data(
-        formatted_data=sports_data_under,
-        data_list=under_data,
-        key_placeholder="{under_en}",
-        value_placeholder="{under_ar}",
-        data_list2=SPORTS_KEYS_FOR_JOBS,
-        key2_placeholder="{en_sport}",
-        value2_placeholder="{sport_jobs}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=sports_data_under,
+            data_list=under_data,
+            key_placeholder="{under_en}",
+            value_placeholder="{under_ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=SPORTS_KEYS_FOR_JOBS,
+            key_placeholder="{en_sport}",
+            value_placeholder="{sport_jobs}",
+        ),
     )
 
 
 @functools.lru_cache(maxsize=1)
 def _load_under_bot() -> MultiDataFormatterBase:
     return format_multi_data(
-        formatted_data=main_data_under,
-        data_list=under_data,
-        key_placeholder="{under_en}",
-        value_placeholder="{under_ar}",
-        data_list2=countries_from_nat,
-        key2_placeholder="{en}",
-        value2_placeholder="{ar}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=main_data_under,
+            data_list=under_data,
+            key_placeholder="{under_en}",
+            value_placeholder="{under_ar}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=countries_from_nat,
+            key_placeholder="{en}",
+            value_placeholder="{ar}",
+        ),
     )
 
 

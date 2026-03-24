@@ -16,7 +16,12 @@ import functools
 import logging
 
 from ...translations import All_Nat
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -59,11 +64,15 @@ nats_data_2 = {x: {"female_2": v["female"]} for x, v in All_Nat.items()}
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBaseV2:
     _bot = format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data_1,
-        data_list2=nats_data_2,
-        key_placeholder="{en_1}",
-        key2_placeholder="{en_2}",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=nats_data_1,
+            key_placeholder="{en_1}",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=nats_data_2,
+            key_placeholder="{en_2}",
+        ),
     )
 
     return _bot

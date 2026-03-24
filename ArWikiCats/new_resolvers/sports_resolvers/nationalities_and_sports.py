@@ -14,7 +14,12 @@ import logging
 
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
 from ...translations import SPORT_KEY_RECORDS, all_country_with_nat_ar
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..nationalities_resolvers.data import sports_formatted_data_for_jobs
 from .utils import fix_keys
 from .utils.formated_data import SPORTS_FORMATTED_DATA_NATS_AND_NAMES
@@ -320,13 +325,17 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     }
     sports_formatted_data = _load_sports_formatted_data()
     both_bot = format_multi_data_v2(
-        formatted_data=sports_formatted_data,
-        data_list=nats_data,
-        key_placeholder="{en}",
-        data_list2=sports_data,
-        key2_placeholder="{en_sport}",
-        text_after="",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=sports_formatted_data,
+            data_list=nats_data,
+            key_placeholder="{en}",
+            text_after="",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=sports_data,
+            key_placeholder="{en_sport}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

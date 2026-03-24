@@ -61,10 +61,10 @@ class FormatDataV2(FormatDataBase):
         formatted_data: Dict[str, str],
         data_list: Dict[str, Union[str, Dict[str, str]]],
         key_placeholder: str = "xoxo",
+        *,
         text_after: str = "",
         text_before: str = "",
         regex_filter: str = r"\w",
-        **kwargs,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__(

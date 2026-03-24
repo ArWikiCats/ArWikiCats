@@ -26,7 +26,7 @@ Example:
     'بريطانية أحداث في القرن 14'
 """
 
-from typing import Dict
+from typing import Dict, Optional
 
 from .DataModel import (
     FormatData,
@@ -37,19 +37,15 @@ from .DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
 )
+from .classes import YearCountryDataConfig, YearDataConfig
 
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"
 
 
 def format_year_country_data_v2(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str = COUNTRY_PARAM,
-    text_after: str = "",
-    text_before: str = "",
-    key2_placeholder: str = YEAR_PARAM,
-    value2_placeholder: str = YEAR_PARAM,
+    country_config: YearCountryDataConfig,
+    year_config: Optional[YearDataConfig] = None,
     data_to_find: Dict[str, str] | None = None,
 ) -> MultiDataFormatterBaseYearV2:
     """
@@ -61,42 +57,40 @@ def format_year_country_data_v2(
     placeholder replacements.
 
     Args:
-        formatted_data: Template patterns mapping English patterns to Arabic templates.
-            Keys should contain placeholders like "{country1}" and "{year1}".
-        data_list: Country/nationality key-to-value mappings. Values can be strings
-            or dictionaries with multiple placeholders.
-        key_placeholder: Placeholder for country key in templates. Default: "{country1}".
-        text_after: Optional text that appears after the country key.
-        text_before: Optional text that appears before the country key.
-        key2_placeholder: Placeholder for year key in templates. Default: "{year1}".
-        value2_placeholder: Placeholder for year value in Arabic templates. Default: "{year1}".
+        country_config: Configuration for the country/nationality part.
+            Uses FormatDataV2 which supports dictionary values in data_list.
+        year_config: Configuration for the year part.
         data_to_find: Optional direct lookup dictionary for category labels.
 
     Returns:
         MultiDataFormatterBaseYearV2: A configured formatter for year+country translations.
 
     Example:
-        >>> formatted_data = {"{year1} {country1} writers": "{demonym} كتاب في {year1}"}
-        >>> data_list = {"yemen": {"demonym": "يمنيون"}}
-        >>> bot = format_year_country_data_v2(
-        ...     formatted_data=formatted_data,
-        ...     data_list=data_list,
+        >>> country_config = YearCountryDataConfig(
+        ...     formatted_data={"{year1} {country1} writers": "{demonym} كتاب في {year1}"},
+        ...     data_list={"yemen": {"demonym": "يمنيون"}},
+        ...     key_placeholder="{country1}",
         ... )
+        >>> year_config = YearDataConfig(key_placeholder="{year1}", value_placeholder="{year1}")
+        >>> bot = format_year_country_data_v2(country_config, year_config)
         >>> bot.search("14th-century yemen writers")
         'يمنيون كتاب في القرن 14'
     """
+    if year_config is None:
+        year_config = YearDataConfig()
+
     # Country bot (FormatDataV2)
     country_bot = FormatDataV2(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        text_after=text_after,
-        text_before=text_before,
+        formatted_data=country_config.formatted_data,
+        data_list=country_config.data_list,
+        key_placeholder=country_config.key_placeholder,
+        text_after=country_config.text_after,
+        text_before=country_config.text_before,
     )
 
     other_bot = YearFormatData(
-        key_placeholder=key2_placeholder,
-        value_placeholder=value2_placeholder,
+        key_placeholder=year_config.key_placeholder,
+        value_placeholder=year_config.value_placeholder,
     )
 
     return MultiDataFormatterBaseYearV2(
@@ -107,14 +101,8 @@ def format_year_country_data_v2(
 
 
 def format_year_country_data(
-    formatted_data: Dict[str, str],
-    data_list: Dict[str, str],
-    key_placeholder: str = COUNTRY_PARAM,
-    value_placeholder: str = COUNTRY_PARAM,
-    key2_placeholder: str = YEAR_PARAM,
-    value2_placeholder: str = YEAR_PARAM,
-    text_after: str = "",
-    text_before: str = "",
+    country_config: YearCountryDataConfig,
+    year_config: Optional[YearDataConfig] = None,
     data_to_find: Dict[str, str] | None = None,
 ) -> MultiDataFormatterBaseYear:
     """
@@ -125,44 +113,41 @@ def format_year_country_data(
     It uses FormatData for simple string-based placeholder replacements.
 
     Args:
-        formatted_data: Template patterns mapping English patterns to Arabic templates.
-            Keys should contain placeholders like "{country1}" and "{year1}".
-        data_list: Country/nationality key-to-Arabic-label mappings
-            (e.g., {"british": "بريطانية"}).
-        key_placeholder: Placeholder for country key in templates. Default: "{country1}".
-        value_placeholder: Placeholder for country value in Arabic templates. Default: "{country1}".
-        key2_placeholder: Placeholder for year key in templates. Default: "{year1}".
-        value2_placeholder: Placeholder for year value in Arabic templates. Default: "{year1}".
-        text_after: Optional text that appears after the country key.
-        text_before: Optional text that appears before the country key.
+        country_config: Configuration for the country/nationality part.
+        year_config: Configuration for the year part.
         data_to_find: Optional direct lookup dictionary for category labels.
 
     Returns:
         MultiDataFormatterBaseYear: A configured formatter for year+country translations.
 
     Example:
-        >>> formatted_data = {"{year1} {country1} events": "{country1} أحداث في {year1}"}
-        >>> data_list = {"british": "بريطانية"}
-        >>> bot = format_year_country_data(
-        ...     formatted_data=formatted_data,
-        ...     data_list=data_list,
+        >>> country_config = YearCountryDataConfig(
+        ...     formatted_data={"{year1} {country1} events": "{country1} أحداث في {year1}"},
+        ...     data_list={"british": "بريطانية"},
+        ...     key_placeholder="{country1}",
+        ...     value_placeholder="{country1}",
         ... )
+        >>> year_config = YearDataConfig(key_placeholder="{year1}", value_placeholder="{year1}")
+        >>> bot = format_year_country_data(country_config, year_config)
         >>> bot.search("1990s british events")
         'بريطانية أحداث في عقد 1990'
     """
+    if year_config is None:
+        year_config = YearDataConfig()
+
     # Country bot (FormatData)
     country_bot = FormatData(
-        formatted_data=formatted_data,
-        data_list=data_list,
-        key_placeholder=key_placeholder,
-        value_placeholder=value_placeholder,
-        text_after=text_after,
-        text_before=text_before,
+        formatted_data=country_config.formatted_data,
+        data_list=country_config.data_list,
+        key_placeholder=country_config.key_placeholder,
+        value_placeholder=country_config.value_placeholder,
+        text_after=country_config.text_after,
+        text_before=country_config.text_before,
     )
 
     other_bot = YearFormatData(
-        key_placeholder=key2_placeholder,
-        value_placeholder=value2_placeholder,
+        key_placeholder=year_config.key_placeholder,
+        value_placeholder=year_config.value_placeholder,
     )
 
     return MultiDataFormatterBaseYear(
@@ -175,4 +160,6 @@ def format_year_country_data(
 __all__ = [
     "format_year_country_data",
     "format_year_country_data_v2",
+    "YearCountryDataConfig",
+    "YearDataConfig",
 ]

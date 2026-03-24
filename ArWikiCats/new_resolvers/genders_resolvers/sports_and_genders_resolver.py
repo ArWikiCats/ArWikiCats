@@ -8,7 +8,12 @@ import functools
 import logging
 
 from ...translations import SPORT_KEY_RECORDS_BASE, All_Nat
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from .utils import fix_keys
 
 logger = logging.getLogger(__name__)
@@ -100,13 +105,17 @@ def _sport_bot() -> MultiDataFormatterBaseV2:
     formatted_data = _make_sport_formatted_data()
 
     return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=nats_data,
-        key_placeholder="{en_nat}",
-        data_list2=sports_data_new,
-        key2_placeholder="{en_sport}",
-        text_after="",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=nats_data,
+            key_placeholder="{en_nat}",
+            text_after="",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=sports_data_new,
+            key_placeholder="{en_sport}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

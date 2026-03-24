@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from ArWikiCats.translations.jobs.jobs_players_list import (
-    FOOTBALL_KEYS_PLAYERS,
     PLAYERS_TO_MEN_WOMENS_JOBS,
 )
 

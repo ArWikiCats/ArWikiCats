@@ -10,7 +10,12 @@ import logging
 from typing import Dict
 
 from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
-from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ...translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 from ..base_worker import BaseResolversWorker
 
 logger = logging.getLogger(__name__)
@@ -216,14 +221,18 @@ class MedalistsResolver(BaseResolversWorker):
         formatted_data = _build_formatted_data()
 
         self.bot: MultiDataFormatterBaseV2 = format_multi_data_v2(
-            formatted_data=formatted_data,
-            data_list=countries_data,  # type: ignore[arg-type]
-            key_placeholder="{en}",
-            data_list2=sports_data,  # type: ignore[arg-type]
-            key2_placeholder="{game_en}",
-            text_after="",
-            text_before="the ",
-            regex_filter=r"[\w-]",
+            first_element_config=MultiDataFormatterConfig(
+                formatted_data=formatted_data,
+                data_list=countries_data,  # type: ignore[arg-type]
+                key_placeholder="{en}",
+                text_after="",
+                text_before="the ",
+                regex_filter=r"[\w-]",
+            ),
+            second_element_config=MultiDataFormatterSecondElementConfig(
+                data_list=sports_data,  # type: ignore[arg-type]
+                key_placeholder="{game_en}",
+            ),
             search_first_part=True,
             use_other_formatted_data=True,
         )

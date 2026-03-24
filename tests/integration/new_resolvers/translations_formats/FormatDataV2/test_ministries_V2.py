@@ -3,7 +3,12 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ArWikiCats.translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 
 
 @pytest.fixture
@@ -26,13 +31,17 @@ def multi_bot() -> MultiDataFormatterBaseV2:
     }
 
     return format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=countries_data,
-        key_placeholder="{en}",
-        data_list2=_keys,
-        key2_placeholder="{ministry}",
-        text_after="",
-        text_before="the ",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=formatted_data,
+            data_list=countries_data,
+            key_placeholder="{en}",
+            text_after="",
+            text_before="the ",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=_keys,
+            key_placeholder="{ministry}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

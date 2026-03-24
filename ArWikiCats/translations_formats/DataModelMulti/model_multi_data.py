@@ -58,7 +58,7 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
         data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
-
+        super().__init__()
         # Country bot (FormatData)
         self.search_first_part = search_first_part
         self.country_bot = country_bot
@@ -95,7 +95,7 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
         data_to_find: Dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
-
+        super().__init__()
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot
@@ -130,10 +130,11 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         other_bot: YearFormatData,
         search_first_part: bool = False,
         data_to_find: Dict[str, str] | None = None,
+        *,
         other_key_first: bool = False,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
-
+        super().__init__()
         self.search_first_part = search_first_part
         self.country_bot = country_bot
         self.other_bot = other_bot

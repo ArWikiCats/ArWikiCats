@@ -11,7 +11,12 @@ from ..translations import (
     countries_en_as_nationality_keys,
     countries_from_nat,
 )
-from ..translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ..translations_formats import (
+    MultiDataFormatterBaseV2,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -51,14 +56,18 @@ def _load_bot() -> MultiDataFormatterBaseV2:
     countries_data = {x: {"country_ar": v} for x, v in countries_from_nat_data.items()}
     nat_data = dict(All_Nat.items())
     both_bot = format_multi_data_v2(
-        formatted_data=COUNTRY_NAT_DATA,
-        data_list=nat_data,
-        key_placeholder="{en_nat}",
-        data_list2=countries_data,
-        key2_placeholder="{country}",
-        text_after="",
-        text_before="the ",
-        regex_filter=r"[\w-]",
+        first_element_config=MultiDataFormatterConfig(
+            formatted_data=COUNTRY_NAT_DATA,
+            data_list=nat_data,
+            key_placeholder="{en_nat}",
+            text_after="",
+            text_before="the ",
+            regex_filter=r"[\w-]",
+        ),
+        second_element_config=MultiDataFormatterSecondElementConfig(
+            data_list=countries_data,
+            key_placeholder="{country}",
+        ),
         search_first_part=True,
         use_other_formatted_data=True,
     )

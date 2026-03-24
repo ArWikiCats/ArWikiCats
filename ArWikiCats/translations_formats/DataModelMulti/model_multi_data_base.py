@@ -104,9 +104,11 @@ class MultiDataFormatterBaseHelpers:
 
     def __init__(self) -> None:
         """Initialize the base multi-formatter with default values."""
-        self.data_to_find = None
+        self.data_to_find: dict[str, str] | None = None
         self.country_bot = None
         self.other_bot = None
+        self.search_first_part: bool = False
+        self.other_key_first: bool = False
 
     # ------------------------------------------------------
     # COUNTRY/NAT NORMALIZATION
@@ -119,7 +121,7 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category:"Yemeni national football teams", result: "natar national football teams"
         """
-        key, new_category = self.country_bot.normalize_category_with_key(category)
+        _key, new_category = self.country_bot.normalize_category_with_key(category)
         return new_category
 
     # ------------------------------------------------------
@@ -132,7 +134,7 @@ class MultiDataFormatterBaseHelpers:
         Example:
             category:"Yemeni national football teams", result: "Yemeni national xoxo teams"
         """
-        key, new_category = self.other_bot.normalize_category_with_key(category)
+        _key, new_category = self.other_bot.normalize_category_with_key(category)
         return new_category
 
     def normalize_both_new(self, category: str) -> NormalizeResult:
@@ -172,8 +174,8 @@ class MultiDataFormatterBaseHelpers:
         # Normalize the category by removing extra spaces
         normalized_category = " ".join(category.split())
 
-        nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
-        other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
+        _nat_key, template_key = self.country_bot.normalize_category_with_key(normalized_category)
+        _other_key, template_key = self.other_bot.normalize_category_with_key(template_key)
 
         return template_key
 
@@ -215,8 +217,10 @@ class MultiDataFormatterBaseHelpers:
         Returns:
                 str: The final Arabic label with placeholders replaced, or an empty string if no valid translation can be produced.
         """
-        if self.data_to_find and self.data_to_find.get(category):
-            return self.data_to_find[category]
+        if self.data_to_find is not None:
+            cached_value = self.data_to_find.get(category)
+            if cached_value is not None:
+                return cached_value
 
         # category = Yemeni football championships
         template_data = self.normalize_both_new(category)
