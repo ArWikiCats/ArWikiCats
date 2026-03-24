@@ -292,8 +292,10 @@ class TestAllLenGlobalVariable:
 class TestIntegrationScenarios:
     """Integration tests for len_print module."""
 
-    def test_full_workflow(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_full_workflow(self, mock_get_path: MagicMock) -> None:
         """Should support full workflow from data_len to dump_all_len."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         # Add data for multiple bots
         data_len("bot1", {"items": [1, 2, 3], "count": 100})
@@ -304,11 +306,11 @@ class TestIntegrationScenarios:
         assert "bot2" in result["all"]
         assert len(result["by_count"]) > 0
 
-    @patch("ArWikiCats.helps.len_print.app_settings")
+    @patch("ArWikiCats.helps.len_print.get_save_path")
     @patch("ArWikiCats.helps.len_print.save_data")
-    def test_saves_when_configured(self, mock_save: MagicMock, mock_settings: MagicMock) -> None:
+    def test_saves_when_configured(self, mock_save: MagicMock, mock_get_path: MagicMock) -> None:
         """Should save data when save_data_path is configured."""
-        mock_settings.save_data_path = "/tmp/test"
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data = {"items": [1, 2, 3]}
         data_len("test_bot", data)
@@ -318,27 +320,35 @@ class TestIntegrationScenarios:
 class TestEdgeCases:
     """Edge case tests."""
 
-    def test_handles_unicode_in_bot_names(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_handles_unicode_in_bot_names(self, mock_get_path: MagicMock) -> None:
         """Should handle Unicode characters in bot names."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data_len("بوت_عربي", {"items": [1, 2, 3]})
         assert "بوت_عربي" in all_len
 
-    def test_handles_special_characters_in_keys(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_handles_special_characters_in_keys(self, mock_get_path: MagicMock) -> None:
         """Should handle special characters in data keys."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         data_len("test_bot", {"items-with-dashes": [1, 2, 3]})
         assert "items-with-dashes" in all_len["test_bot"]
 
-    def test_handles_very_large_collections(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_handles_very_large_collections(self, mock_get_path: MagicMock) -> None:
         """Should handle very large collections."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         large_list = list(range(1000000))
         data_len("test_bot", {"large": large_list})
         assert "test_bot" in all_len
 
-    def test_handles_nested_data_structures(self) -> None:
+    @patch("ArWikiCats.helps.len_print.get_save_path")
+    def test_handles_nested_data_structures(self, mock_get_path: MagicMock) -> None:
         """Should handle nested data structures."""
+        mock_get_path.return_value = "/tmp/test"
         all_len.clear()
         nested = {"outer": {"inner": [1, 2, 3]}}
         data_len("test_bot", nested)
