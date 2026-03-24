@@ -68,7 +68,7 @@ def one_dump_test(dataset: dict, callback: Callable[[str], str], do_strip=False)
 
 
 def JSON_FILES(dir_path) -> list:
-    DATA_DIR = Path(__file__).parent.parent.parent / dir_path
+    DATA_DIR = Path(__file__).parent / dir_path
     FILE_PATHS = sorted(DATA_DIR.glob("*.json"))
     return FILE_PATHS
 
@@ -83,19 +83,19 @@ def _test_data_helper(load_json_data: tuple[dict[str, str], str]) -> None:
 
 
 @pytest.mark.dumpbig
-@pytest.mark.parametrize("load_json_data", JSON_FILES("examples/religions_data"), indirect=True, ids=lambda p: p.name)
+@pytest.mark.parametrize("load_json_data", JSON_FILES("religions_data"), indirect=True, ids=lambda p: p.name)
 def test_religions_data(load_json_data: tuple[dict[str, str], str]) -> None:
     _test_data_helper(load_json_data)
 
 
 @pytest.mark.dumpbig
-@pytest.mark.parametrize("load_json_data", JSON_FILES("examples/big_data"), indirect=True, ids=lambda p: p.name)
+@pytest.mark.parametrize("load_json_data", JSON_FILES("big_data"), indirect=True, ids=lambda p: p.name)
 def test_big_data(load_json_data: tuple[dict[str, str], str]) -> None:
     _test_data_helper(load_json_data)
 
 
 @pytest.mark.dumpbig
-@pytest.mark.parametrize("load_json_data", JSON_FILES("examples/data"), indirect=True, ids=lambda p: p.name)
+@pytest.mark.parametrize("load_json_data", JSON_FILES("data"), indirect=True, ids=lambda p: p.name)
 def test_big_data_examples(load_json_data: tuple[dict[str, str], str]) -> None:
     _test_data_helper(load_json_data)
 
@@ -118,8 +118,8 @@ def create_resolver_big_tests(dir_paths: list):
 
 create_resolver_big_tests(
     [
-        "examples/religions_data",
-        "examples/big_data",
-        "examples/data",
+        "religions_data",
+        "big_data",
+        "data",
     ]
 )
