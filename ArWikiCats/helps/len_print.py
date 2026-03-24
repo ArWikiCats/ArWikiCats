@@ -56,6 +56,10 @@ def data_len(
     tab: Mapping[str, int | float],
 ) -> None:
     """Collect and optionally save size statistics for the given bot data."""
+
+    if not app_settings.save_data_path:
+        return
+
     data = {
         x: {
             "count": len(v) if not isinstance(v, int) else v,
@@ -63,8 +67,7 @@ def data_len(
         }
         for x, v in tab.items()
     }
-    if app_settings.save_data_path:
-        save_data(bot, tab)
+    save_data(bot, tab)
 
     if not data:
         return
