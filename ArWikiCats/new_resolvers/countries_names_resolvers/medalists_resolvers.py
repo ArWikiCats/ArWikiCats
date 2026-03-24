@@ -3,12 +3,15 @@
 Resolve medalists categories translations
 """
 
+from __future__ import annotations
+
 import functools
 import logging
 from typing import Dict
 
 from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
 from ...translations_formats import MultiDataFormatterBaseV2, format_multi_data_v2
+from ..base_worker import BaseResolversWorker
 
 logger = logging.getLogger(__name__)
 
@@ -197,69 +200,66 @@ def _build_formatted_data() -> Dict[str, str]:
     return formatted_data
 
 
-@functools.lru_cache(maxsize=1)
-def _load_bot() -> MultiDataFormatterBaseV2:
-    countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
-    countries_data = {x: {"ar": v} for x, v in countries_from_nat_data.items()}
-    sports_data = {
-        x: {
-            "game_ar": v,
+class MedalistsResolver(BaseResolversWorker):
+    """Resolver for medalists categories translations."""
+
+    def load_bot(self) -> None:
+        """Initialize the translation bot."""
+        countries_from_nat_data = countries_from_nat | COUNTRY_LABEL_OVERRIDES
+        countries_data = {x: {"ar": v} for x, v in countries_from_nat_data.items()}
+        sports_data = {
+            x: {
+                "game_ar": v,
+            }
+            for x, v in medalists_data.items()
         }
-        for x, v in medalists_data.items()
-    }
-    formatted_data = _build_formatted_data()
+        formatted_data = _build_formatted_data()
 
-    r"""both_bot_ = format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=sports_data,
-        key_placeholder="{game_en}",
-        data_list2=countries_data,
-        key2_placeholder="{en}",
-        text_after="",
-        text_before="the ",
-        regex_filter=r"[\w-]",
-        search_first_part=True,
-        use_other_formatted_data=True,
-    )"""
+        self.bot = format_multi_data_v2(
+            formatted_data=formatted_data,
+            data_list=countries_data,
+            key_placeholder="{en}",
+            data_list2=sports_data,
+            key2_placeholder="{game_en}",
+            text_after="",
+            text_before="the ",
+            regex_filter=r"[\w-]",
+            search_first_part=True,
+            use_other_formatted_data=True,
+        )
 
-    both_bot = format_multi_data_v2(
-        formatted_data=formatted_data,
-        data_list=countries_data,
-        key_placeholder="{en}",
-        data_list2=sports_data,
-        key2_placeholder="{game_en}",
-        text_after="",
-        text_before="the ",
-        regex_filter=r"[\w-]",
-        search_first_part=True,
-        use_other_formatted_data=True,
-    )
-    return both_bot
+    def before_run(self, category: str) -> str:
+        """Pre-process the category."""
+        category = super().before_run(category)
+        replacements = {
+            "medallists": "medalists",
+            "olympics": "olympic",
+        }
+
+        for old, new in replacements.items():
+            category = category.replace(old, new)
+
+        return category
+
+    def process(self, category: str) -> str:
+        """Process the category and return raw translation."""
+        return self.bot.search_all_category(category)
+
+    def after_run(self) -> None:
+        """Post-process the result if needed."""
+        pass
 
 
-def fix_keys(category: str) -> str:
-    normalized_category = category.lower()
-    replacements = {
-        "medallists": "medalists",
-        "olympics": "olympic",
-    }
-
-    for old, new in replacements.items():
-        normalized_category = normalized_category.replace(old, new)
-
-    return normalized_category
+@functools.lru_cache(maxsize=1)
+def load_class() -> MedalistsResolver:
+    """Get singleton instance of the resolver."""
+    return MedalistsResolver("resolve_countries_names_medalists")
 
 
 @functools.lru_cache(maxsize=10000)
 def resolve_countries_names_medalists(category: str) -> str:
-    category = fix_keys(category)
-    logger.debug(f"<<yellow>> start {category=}")
-
-    nat_bot = _load_bot()
-    result = nat_bot.search_all_category(category)
-
-    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
-    return result
+    """Public API for resolving medalists categories."""
+    return load_class().run(category)
 
 
 __all__ = [
