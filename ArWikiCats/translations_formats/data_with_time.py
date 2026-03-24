@@ -28,6 +28,7 @@ Example:
 
 from typing import Dict, Optional
 
+from .classes import YearCountryDataConfig, YearDataConfig
 from .DataModel import (
     FormatData,
     FormatDataV2,
@@ -37,7 +38,6 @@ from .DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
 )
-from .classes import YearCountryDataConfig, YearDataConfig
 
 YEAR_PARAM = "{year1}"
 COUNTRY_PARAM = "{country1}"

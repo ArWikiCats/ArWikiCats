@@ -42,9 +42,9 @@ test at tests.translations_formats.test_format_2_data.py
 import logging
 from typing import Dict, Optional
 
+from .classes import MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
 from .DataModel import FormatData, FormatDataV2
 from .DataModelMulti import MultiDataFormatterBase, MultiDataFormatterBaseV2
-from .classes import MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
 
 logger = logging.getLogger(__name__)
 
@@ -237,7 +237,11 @@ def format_multi_data_v2(
     )
 
     other_formatted_data = (
-        {x: v for x, v in first_element_config.formatted_data.items() if second_element_config.key_placeholder in x and first_element_config.key_placeholder not in x}
+        {
+            x: v
+            for x, v in first_element_config.formatted_data.items()
+            if second_element_config.key_placeholder in x and first_element_config.key_placeholder not in x
+        }
         if use_other_formatted_data
         else {}
     )

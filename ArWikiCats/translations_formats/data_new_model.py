@@ -22,10 +22,9 @@ Example:
 """
 from typing import Dict, Optional
 
+from .classes import CountryBotConfig, GenreBotConfig
 from .DataModel import FormatData
 from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
-from .classes import CountryBotConfig, GenreBotConfig
-
 
 
 def format_films_country_data(

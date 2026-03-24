@@ -4,7 +4,12 @@ copied from ArWikiCats/new_resolvers/jobs_resolvers/relegin_jobs_nats_jobs.py
 """
 
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
-from ...translations_formats import FormatData, format_multi_data_v2, MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
+from ...translations_formats import (
+    FormatData,
+    MultiDataFormatterConfig,
+    MultiDataFormatterSecondElementConfig,
+    format_multi_data_v2,
+)
 
 # Prepare consolidated dictionaries with gendered values
 _rel_data = {k: {"rel_ar": v.get("males"), "rel_ar_f": v.get("females")} for k, v in RELIGIOUS_KEYS_PP.items()}

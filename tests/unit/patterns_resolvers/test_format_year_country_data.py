@@ -4,7 +4,12 @@ Tests
 
 import pytest
 
-from ArWikiCats.translations_formats import MultiDataFormatterBaseYear, YearCountryDataConfig, YearDataConfig, format_year_country_data
+from ArWikiCats.translations_formats import (
+    MultiDataFormatterBaseYear,
+    YearCountryDataConfig,
+    YearDataConfig,
+    format_year_country_data,
+)
 
 
 @pytest.fixture
