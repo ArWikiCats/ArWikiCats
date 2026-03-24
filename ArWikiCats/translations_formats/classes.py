@@ -23,3 +23,10 @@ class GenreBotConfig:
     formatted_data: dict[str, str] = field(default_factory=dict)
     key_placeholder: str = "{film_key}"
     value_placeholder: str = "{film_ar}"
+
+
+@dataclass
+class PlaceHolderConfig:
+    """Configuration for """
+    key_placeholder: str = "{}"
+    value_placeholder: str = "{}"
