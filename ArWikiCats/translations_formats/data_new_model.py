@@ -27,7 +27,7 @@ from .DataModel import FormatData
 from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 
-def format_films_country_data(
+def format_films_country_data(  # Fix too-many-positional-arguments issues
     formatted_data: Dict[str, str],
     data_list: Dict[str, str],
     key_placeholder: str = "{nat_en}",
