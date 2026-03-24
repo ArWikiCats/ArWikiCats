@@ -26,16 +26,11 @@ class GenreBotConfig:
 
 
 @dataclass
-class MultiDataFormatterConfig:
-    """Configuration for the first element (e.g., country/nationality) in multi-data formatters."""
+class YearDataConfig:
+    """Configuration for the year part in year-country formatters."""
 
-    data_list: dict[str, str]
-    formatted_data: dict[str, str]
-    key_placeholder: str = "natar"
-    value_placeholder: str = "natar"
-    text_after: str = ""
-    text_before: str = ""
-    regex_filter: str | None = None
+    key_placeholder: str = "{year1}"
+    value_placeholder: str = "{year1}"
 
 
 @dataclass
@@ -52,6 +47,19 @@ class MultiDataFormatterSecondElementConfig:
 
 
 @dataclass
+class MultiDataFormatterConfig:
+    """Configuration for the first element (e.g., country/nationality) in multi-data formatters."""
+
+    data_list: dict[str, str]
+    formatted_data: dict[str, str]
+    key_placeholder: str = "natar"
+    value_placeholder: str = "natar"
+    text_after: str = ""
+    text_before: str = ""
+    regex_filter: str | None = None
+
+
+@dataclass
 class YearCountryDataConfig:
     """Configuration for the country/nationality part in year-country formatters."""
 
@@ -61,11 +69,3 @@ class YearCountryDataConfig:
     value_placeholder: str = "{country1}"
     text_after: str = ""
     text_before: str = ""
-
-
-@dataclass
-class YearDataConfig:
-    """Configuration for the year part in year-country formatters."""
-
-    key_placeholder: str = "{year1}"
-    value_placeholder: str = "{year1}"
