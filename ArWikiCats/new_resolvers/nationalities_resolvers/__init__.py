@@ -33,11 +33,14 @@ def main_nationalities_resolvers(category) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = run_resolvers(category, [
-        nationalities_v2.resolve_by_nats,
-        nationalities_time_v2.resolve_nats_time_v2,
-        ministers_resolver.resolve_secretaries_labels,
-    ])
+    result = run_resolvers(
+        category,
+        [
+            nationalities_v2.resolve_by_nats,
+            nationalities_time_v2.resolve_nats_time_v2,
+            ministers_resolver.resolve_secretaries_labels,
+        ],
+    )
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

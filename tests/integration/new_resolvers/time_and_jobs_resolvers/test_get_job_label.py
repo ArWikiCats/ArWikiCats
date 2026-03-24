@@ -3,8 +3,8 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
 from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_job_label
 from utils.dump_runner import make_dump_test_name_data
 

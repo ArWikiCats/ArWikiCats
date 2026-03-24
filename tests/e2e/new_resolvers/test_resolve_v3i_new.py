@@ -4,10 +4,10 @@
 import pytest
 
 from ArWikiCats import resolve_label_ar
+from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
 from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 from utils.dump_runner import make_dump_test_name_data_callback
-from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 
 
 def wrap_main_jobs_resolvers(category) -> str:

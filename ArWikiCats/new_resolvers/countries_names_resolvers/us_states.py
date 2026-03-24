@@ -186,7 +186,7 @@ class UsStates(BaseResolversWorker):
 
 @functools.lru_cache(maxsize=1)
 def load_class() -> UsStates:
-    return UsStates('resolve_us_states')
+    return UsStates("resolve_us_states")
 
 
 @functools.lru_cache(maxsize=10000)

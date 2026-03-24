@@ -55,7 +55,7 @@ def _get_KAKO(text: str) -> tuple[str, str]:
                 f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
             )
 
-        logger.debug(f'>> get_KAKO_({table_name}) for [{text=}] = {resolved_label=}')
+        logger.debug(f">> get_KAKO_({table_name}) for [{text=}] = {resolved_label=}")
 
         return table_name, resolved_label
 

@@ -27,13 +27,10 @@ def _load_mens_bot() -> MultiDataFormatterBase:
     formatted_data = {
         "{job_en}": "{job_ar}",
         "male {job_en}": "{job_ar} ذكور",
-
         "{rele_en}": "{rele_ar}",
         "male {rele_en}": "{rele_ar} ذكور",
-
         "{rele_en} {job_en}": "{job_ar} {rele_ar}",
         "{rele_en} male {job_en}": "{job_ar} ذكور {rele_ar}",
-
         "{job_en} {rele_en}": "{job_ar} {rele_ar}",
         "{job_en} male {rele_en}": "{job_ar} ذكور {rele_ar}",
     }

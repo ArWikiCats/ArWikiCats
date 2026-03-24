@@ -7,7 +7,6 @@ from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import _STATE_
 from ArWikiCats.translations import US_STATES
 from utils.dump_runner import make_dump_test_name_data
 
-
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",
     "{en} counties": "مقاطعات {ar}",

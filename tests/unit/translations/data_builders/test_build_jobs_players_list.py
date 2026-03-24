@@ -138,6 +138,7 @@ class TestBuildGeneralScopeLabels:
 
         assert "olympic coach" in result
 
+
 class TestBuildSportsJobVariants:
     """Tests for _build_sports_job_variants function."""
 

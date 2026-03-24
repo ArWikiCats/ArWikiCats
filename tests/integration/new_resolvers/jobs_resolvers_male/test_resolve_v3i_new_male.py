@@ -4,9 +4,8 @@
 import pytest
 
 from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
-
 from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import resolve_year_job_from_countries
 
 
 def wrap_resolve_year_job_from_countries(category) -> str:
@@ -40,7 +39,6 @@ test_data_standard = {
     "18th-century male musicians from the Holy Roman Empire": "موسيقيون ذكور من الإمبراطورية الرومانية المقدسة في القرن 18",
     "18th-century male musicians from the Russian Empire": "موسيقيون ذكور من الإمبراطورية الروسية في القرن 18",
     "18th-century male writers from the Russian Empire": "كتاب ذكور من الإمبراطورية الروسية في القرن 18",
-
 }
 
 

@@ -31,11 +31,14 @@ def main_relations_resolvers(category: str) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = run_resolvers(category, [
-        resolve_by_nats_double_v2,
-        resolve_countries_names_double,
-        two_nationalities_but_not_double_resolver,
-    ])
+    result = run_resolvers(
+        category,
+        [
+            resolve_by_nats_double_v2,
+            resolve_countries_names_double,
+            two_nationalities_but_not_double_resolver,
+        ],
+    )
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result

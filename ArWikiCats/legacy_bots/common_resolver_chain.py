@@ -128,7 +128,7 @@ def get_lab_for_country2(country: str) -> str:
         or work_peoples(country2)
         or ""
     )
-    logger.info(f'>> {country2=}: label: {resolved_label}')
+    logger.info(f">> {country2=}: label: {resolved_label}")
 
     return resolved_label
 

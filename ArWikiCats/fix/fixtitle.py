@@ -328,7 +328,7 @@ def fixlabel(label_old: str, en: str = "") -> str:
         ar_label = ar_label.replace("لاعبون", "لاعبات").replace("لاعبو", "لاعبات")
 
     if original_label != ar_label:
-        logger.info(f'fixtitle: {original_label=}, after:{ar_label=}')
+        logger.info(f"fixtitle: {original_label=}, after:{ar_label=}")
 
     return ar_label
 

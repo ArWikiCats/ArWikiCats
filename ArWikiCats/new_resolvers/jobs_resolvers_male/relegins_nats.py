@@ -40,13 +40,10 @@ _combined_templates = {
     # Nationality + Religion (Male/General)
     "{nat} {rel}": "{nat_ar} {rel_ar}",
     "{rel} {nat}": "{nat_ar} {rel_ar}",
-
     "{nat} people {rel}": "{nat_ar} {rel_ar}",
-
     "{nat} {rel} male": "{nat_ar} {rel_ar} ذكور",
     "{rel} {nat} male": "{nat_ar} {rel_ar} ذكور",
     "{nat} male {rel}": "{rel_ar} ذكور {nat_ar}",
-
     # Job + Religion (Male/General)
     "{job} {rel}": "{job_ar} {rel_ar}",
     "{rel} {job}": "{job_ar} {rel_ar}",

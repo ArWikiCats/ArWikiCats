@@ -1,13 +1,15 @@
 """ """
 
 import pytest
-from ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
 from load_one_data import dump_diff, one_dump_test
 
 from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
+from ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
+
 
 def wrap_new_religions_jobs_with_suffix(category):
     return new_religions_jobs_with_suffix(category) or new_religions_jobs_for_males(category)
+
 
 test_religions_data = {
     "painters shi'a muslims": "رسامون مسلمون شيعة",

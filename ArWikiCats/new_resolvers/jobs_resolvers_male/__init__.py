@@ -24,11 +24,14 @@ def main_jobs_resolvers_for_males(category) -> str:
     logger.debug("--" * 20)
     logger.debug(f"<><><><><><> <<green>> {category=}")
 
-    result = run_resolvers(category, [
-        males_resolver_labels,
-        new_religions_jobs_for_males,
-        resolve_nats_jobs_for_males,
-    ])
+    result = run_resolvers(
+        category,
+        [
+            males_resolver_labels,
+            new_religions_jobs_for_males,
+            resolve_nats_jobs_for_males,
+        ],
+    )
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
