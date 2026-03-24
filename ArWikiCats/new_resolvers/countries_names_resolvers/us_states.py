@@ -81,8 +81,8 @@ _STATE_SUFFIX_TEMPLATES_BASE.update(
     }
 )
 
-def load_us_states_new_keys() -> dict[str, str]:
 
+def load_us_states_new_keys() -> dict[str, str]:
     _USA_PARTY_LABELS = {
         "democratic republican": "الحزب الديمقراطي الجمهوري",
         "democratic-republican": "الحزب الديمقراطي الجمهوري",
