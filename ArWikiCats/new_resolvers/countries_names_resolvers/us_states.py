@@ -166,14 +166,11 @@ def normalize_state(ar_name: str) -> str:
 
 
 class UsStates(BaseResolversWorker):
-    def __init__(self) -> None:
-        super().__init__()
-        self.bot = self.load_bot()
 
-    def load_bot(self) -> FormatData:
+    def load_bot(self) -> None:
         us_states_new_keys = load_us_states_new_keys()
 
-        return FormatData(
+        self.bot = FormatData(
             us_states_new_keys,
             US_STATES,
             key_placeholder="{en}",
@@ -189,17 +186,12 @@ class UsStates(BaseResolversWorker):
 
 @functools.lru_cache(maxsize=1)
 def load_class() -> UsStates:
-    return UsStates()
+    return UsStates('resolve_us_states')
 
 
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
-    logger.debug(f"<<yellow>> start {category=}")
-
-    result = load_class().run(category)
-
-    logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
-    return result
+    return load_class().run(category)
 
 
 __all__ = [

@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import logging
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Final
+from typing import Final
 
 logger = logging.getLogger(__name__)
 
@@ -28,9 +28,10 @@ class BaseResolversWorker(ABC):
         name: str="",
     ):
         self.name: Final[str] = name
+        self.load_bot()
 
     @abstractmethod
-    def load_bot(self) -> Dict[str, Any]:
+    def load_bot(self) -> None:
         """
         """
         ...
@@ -69,6 +70,7 @@ class BaseResolversWorker(ABC):
             The final result
         """
 
+        logger.debug(f"<<yellow>> start def {self.name}({category=}):")
         # Pre-processing setup
         category = self.before_run(category)
 
@@ -77,6 +79,8 @@ class BaseResolversWorker(ABC):
 
         # Post-processing cleanup
         self.after_run()
+
+        logger.log(20 if self.result else 10, f"<<yellow>> end def {self.name}() {category=}, {self.result=}")
 
         return self.result
 
