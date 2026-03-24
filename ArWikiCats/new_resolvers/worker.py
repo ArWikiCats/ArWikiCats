@@ -21,7 +21,7 @@ class ResolverWorker:
     """
 
     def __init__(self):
-        self._resolver_chains: List[Tuple[str, Callable[[str], str]]] = []
+        self._resolver_chains: List[Tuple[int, str, Callable[[str], str]]] = []
 
     def register_resolver(self, name: str, resolver: Callable[[str], str], priority: int = 0) -> None:
         """
@@ -32,8 +32,8 @@ class ResolverWorker:
             resolver: Callable that takes a category string and returns a resolved label
             priority: Lower numbers run first (default: 0)
         """
-        self._resolver_chains.append((name, resolver))
-        self._resolver_chains.sort(key=lambda x: priority)
+        self._resolver_chains.append((priority, name, resolver))
+        self._resolver_chains.sort(key=lambda item: item[0])
 
     def resolve(self, category: str, chain_name: Optional[str] = None) -> str:
         """
@@ -51,16 +51,12 @@ class ResolverWorker:
         logger.debug(f"<><><><><><> <<green>> {category=}")
 
         result = ""
-        for name, resolver in self._resolver_chains:
+        for _, name, resolver in self._resolver_chains:
             if chain_name and not name.startswith(chain_name):
                 continue
-            try:
-                result = resolver(category)
-                if result:
-                    break
-            except Exception as e:
-                logger.error(f"Resolver {name} failed: {e}")
-                continue
+            result = resolver(category)
+            if result:
+                break
 
         logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
         return result
@@ -83,13 +79,9 @@ class ResolverWorker:
         category = category.strip().lower().replace("category:", "")
 
         for resolver in resolvers:
-            try:
-                result = resolver(category)
-                if result:
-                    return result
-            except Exception as e:
-                logger.error(f"Resolver failed: {e}")
-                continue
+            result = resolver(category)
+            if result:
+                return result
 
         return ""
 
