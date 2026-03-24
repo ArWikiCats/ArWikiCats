@@ -7,7 +7,6 @@ import logging
 
 from ...translations import US_STATES  # type: ignore
 from ...translations_formats import FormatData  # type: ignore
-from ..base_worker import BaseResolversWorker  # type: ignore
 
 logger = logging.getLogger(__name__)
 

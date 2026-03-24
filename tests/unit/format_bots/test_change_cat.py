@@ -2,7 +2,6 @@
 Unit tests for the format_bots.change_cat module (format_bots/__init__.py).
 """
 
-import pytest
 
 from ArWikiCats.format_bots import change_cat
 
