@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import functools
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from ..fix import cleanse_category_label, filter_en, fixlabel
 from ..format_bots import change_cat
@@ -33,6 +33,44 @@ class CategoryResult:
     en: str
     ar: str
     from_match: bool
+
+
+@dataclass
+class ResolverMatch:
+    """Data structure containing the resolved label and its source.
+
+    Attributes:
+        label: The resolved Arabic label.
+        source: The resolver that produced this label (e.g., "pattern", "time_resolver").
+        confidence: Confidence score for future use (default 1.0 for exact matches).
+    """
+
+    label: str
+    source: str
+    confidence: float = 1.0
+
+
+@dataclass
+class ResolutionContext:
+    """Context passed through the resolver chain.
+
+    Attributes:
+        original_category: The original category string before any normalization.
+        normalized_category: The normalized category string after preprocessing.
+        cache_hit: Whether the result was found in cache.
+        matched_resolver: Name of the resolver that matched (if any).
+        debug_info: List of debug messages for troubleshooting.
+    """
+
+    original_category: str
+    normalized_category: str
+    cache_hit: bool = False
+    matched_resolver: str | None = None
+    debug_info: list[str] = field(default_factory=list)
+
+    def log(self, message: str) -> None:
+        """Add a debug message to the context."""
+        self.debug_info.append(message)
 
 
 @functools.lru_cache(maxsize=50000)
@@ -112,4 +150,7 @@ def resolve_label_ar(category: str, fix_label: bool = True) -> str:
 __all__ = [
     "resolve_label",
     "resolve_label_ar",
+    "CategoryResult",
+    "ResolverMatch",
+    "ResolutionContext",
 ]

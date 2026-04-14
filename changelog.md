@@ -1,3 +1,41 @@
+
+## [Add new @dataclasses for better code structure] - 2026-03-24
+
+### Added
+* **New dataclasses in `main_processers/main_resolve.py`:**
+  - `ResolverMatch`: Track resolution source (label, source, confidence)
+  - `ResolutionContext`: Context passed through resolver chain with `log()` method
+
+* **New dataclasses in `event_processing.py`:**
+  - `ProcessingStats`: Batch processing statistics with `record_success()`, `record_failure()`, `compute_avg_time()` methods
+  - `EventProcessingResult.stats`: New field for processing statistics
+
+* **New dataclasses in `translations_formats/classes.py`:**
+  - `TranslationPair`: English-Arabic translation pair representation
+  - `FormatBotConfig`: Unified configuration for format bots
+
+* **New file `new_resolvers/config.py`:**
+  - `ResolverConfig`: Per-resolver configuration (name, priority, cache settings)
+  - `ResolverChainConfig`: Chain-wide configuration with `add_resolver()`, `get_enabled_resolvers()` helpers
+
+### Changed
+* **`translations_formats/DataModelMulti/model_multi_data_base.py`:**
+  - Converted `MultiDataFormatterBaseHelpers` from regular class to `@dataclass`
+  - Added explicit type hints: `country_bot: Any = None`, `other_bot: Any = None`
+
+* **Updated `__all__` exports in:**
+  - `main_processers/main_resolve.py`
+  - `event_processing.py`
+  - `new_resolvers/__init__.py`
+  - `translations_formats/classes.py`
+
+### Benefits
+* Cleaner code with reduced boilerplate
+* Better type safety with explicit type hints
+* Improved IDE support (autocomplete, type checking)
+* Easier testing and instantiation
+* Ready for serialization (JSON/YAML)
+
 ## [Add unit tests for legacy_bots module] - 2026-01-27
 
 ### Added

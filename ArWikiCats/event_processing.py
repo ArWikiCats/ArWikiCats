@@ -19,6 +19,44 @@ LABEL_PREFIX = "تصنيف:"
 
 
 @dataclass
+class ProcessingStats:
+    """Statistics about batch processing performance.
+
+    Attributes:
+        total: Total number of categories processed.
+        successful: Number of categories with resolved labels.
+        failed: Number of categories without resolved labels.
+        pattern_matches: Number of categories matched by pattern resolvers.
+        cache_hits: Number of cache hits (for future cache implementation).
+        avg_time_ms: Average processing time per category in milliseconds.
+    """
+
+    total: int = 0
+    successful: int = 0
+    failed: int = 0
+    pattern_matches: int = 0
+    cache_hits: int = 0
+    avg_time_ms: float = 0.0
+
+    def record_success(self, is_pattern_match: bool = False) -> None:
+        """Record a successful resolution."""
+        self.total += 1
+        self.successful += 1
+        if is_pattern_match:
+            self.pattern_matches += 1
+
+    def record_failure(self) -> None:
+        """Record a failed resolution."""
+        self.total += 1
+        self.failed += 1
+
+    def compute_avg_time(self, total_time_ms: float) -> None:
+        """Compute average time per category."""
+        if self.total > 0:
+            self.avg_time_ms = total_time_ms / self.total
+
+
+@dataclass
 class ProcessedCategory:
     """Data structure representing each processed category.
 
@@ -46,12 +84,14 @@ class EventProcessingResult:
         labels: Dictionary mapping normalized categories to final labels.
         no_labels: List of categories that could not be resolved.
         category_patterns: Count of categories matched by pattern resolvers.
+        stats: Processing statistics.
     """
 
     processed: List[ProcessedCategory] = field(default_factory=list)
     labels: Dict[str, str] = field(default_factory=dict)
     no_labels: List[str] = field(default_factory=list)
     category_patterns: int = 0
+    stats: ProcessingStats = field(default_factory=ProcessingStats)
 
 
 class EventProcessor:
@@ -101,8 +141,10 @@ class EventProcessor:
                 result.labels[normalized] = final_label
                 if raw_label.from_match:
                     result.category_patterns += 1
+                result.stats.record_success(is_pattern_match=raw_label.from_match)
             else:
                 result.no_labels.append(normalized)
+                result.stats.record_failure()
 
             result.processed.append(
                 ProcessedCategory(
@@ -143,3 +185,13 @@ def batch_resolve_labels(
     result = processor.process(new_list)
 
     return result
+
+
+__all__ = [
+    "ProcessingStats",
+    "ProcessedCategory",
+    "EventProcessingResult",
+    "EventProcessor",
+    "resolve_arabic_category_label",
+    "batch_resolve_labels",
+]
