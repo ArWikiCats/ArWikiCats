@@ -6,6 +6,7 @@ phrases and entities in category titles, making them easier to match.
 
 import functools
 import re
+from typing import Any
 
 from ..translations.utils.json_dir import open_json_file
 
@@ -16,7 +17,7 @@ COMPANY_TYPE_TRANSLATIONS = open_json_file("keys/COMPANY_TYPE_TRANSLATIONS.json"
 # "entertainment":"ترفيهية",
 
 # Cache for compiled regex patterns
-_change_key_compiled = {
+_change_key_compiled: dict[Any, Any] = {
     "basedon non-": re.compile(r"\bbasedon non-(?!\S)", flags=re.IGNORECASE),
     "comedy-": re.compile(r"\bcomedy-(?!\S)", flags=re.IGNORECASE),
 }

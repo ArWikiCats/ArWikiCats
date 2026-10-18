@@ -8,6 +8,7 @@ countries_names_v2.py use countries names with nationalities
 
 import functools
 import logging
+from typing import Any
 
 from ...translations import countries_nat_en_key
 from ...translations_formats import FormatDataV2
@@ -73,7 +74,7 @@ def _load_bot() -> FormatDataV2:
     Returns:
         FormatDataV2: Configured bot instance for country name with nationality translation.
     """
-    nats_data = {x: v for x, v in countries_nat_en_key.items() if v.get("ar")}
+    nats_data: dict[str, Any] = {x: v for x, v in countries_nat_en_key.items() if v.get("ar")}
     formatted_data = all_data | new_data | formatted_data_en_ar_only
 
     return FormatDataV2(

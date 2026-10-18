@@ -5,10 +5,12 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 """
 
 # Import typeTable_7 from centralized data module
+from typing import Any
+
 from ..data.mappings import typeTable_7
 
 
-def _make_players_keys() -> dict:
+def _make_players_keys() -> dict[str, Any]:
     """
     Build a mapping of player-related English terms (lowercased) to their Arabic labels for category mapping.
 

@@ -106,8 +106,8 @@ class MultiDataFormatterBaseHelpers:
         ...         self.data_to_find = None
     """
 
-    country_bot: Any = None
-    other_bot: Any = None
+    country_bot: Any | None = None
+    other_bot: Any | None = None
     data_to_find: dict[str, str] | None = field(default=None)
     search_first_part: bool = False
     other_key_first: bool = False

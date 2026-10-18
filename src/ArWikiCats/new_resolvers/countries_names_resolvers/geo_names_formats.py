@@ -16,7 +16,7 @@ from .countries_names_data import formatted_data_en_ar_only
 logger = logging.getLogger(__name__)
 
 
-def load_geo_data() -> dict[str, str]:
+def load_geo_data() -> tuple[dict[str, str], dict[str, str]]:
     """Build and return the full translation pattern dict."""
     formatted_data_updated = dict(formatted_data_en_ar_only)
 

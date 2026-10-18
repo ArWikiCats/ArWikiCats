@@ -8,6 +8,7 @@ NOTE: this file has alot of formatted_data
 import functools
 import logging
 import re
+from typing import Any
 
 from ...helps import len_print
 from ...new.handle_suffixes import resolve_sport_category_suffix_with_mapping
@@ -190,14 +191,17 @@ new_for_nat_female_xo_team_2.update(new_for_nat_female_xo_team_additional)
 
 @functools.lru_cache(maxsize=1)
 def _load_bot() -> MultiDataFormatterBase:
-    nats_data = {x: {"female": v} for x, v in Nat_women.items()}
+    nats_data: dict[str, Any] = {x: {"female": v} for x, v in Nat_women.items()}
     sport_key_records = dict(SPORT_KEY_RECORDS)
     sport_key_records.get("sports", {}).update(
         {
             "jobs": "رياضية",
         }
     )
-    nats_data.update({x: {"female": v.get("female")} for x, v in nats_keys_as_country_names.items() if v.get("female")})
+    female_country_names = {
+        x: {"female": v.get("female")} for x, v in nats_keys_as_country_names.items() if v.get("female")
+    }
+    nats_data.update(female_country_names)
 
     sports_data = {
         x: {

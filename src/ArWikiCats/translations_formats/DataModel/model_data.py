@@ -71,7 +71,7 @@ class FormatData(FormatDataBase):
         *,
         text_after: str = "",
         text_before: str = "",
-        regex_filter: str = "",
+        regex_filter: str | None = "",
     ) -> None:
         """
         Initialize a FormatData instance for single-placeholder, template-driven translations.

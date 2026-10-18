@@ -27,7 +27,7 @@ def get_save_path() -> str:
     return save_data_path
 
 
-def format_size(key: str, value: int | float, lens: list[str | Any]) -> str:
+def format_size(key: str, value: int | float, lens: list[str | Any] = []) -> str | Any:
     """Format byte sizes unless the key should remain numeric."""
     if key in lens:
         return value
@@ -86,19 +86,19 @@ def data_len(
             # Raw object - calculate len() and getsizeof() normally
             data[x] = {
                 "count": len(v),
-                "size": format_size(x, sys.getsizeof(v), {}),
+                "size": format_size(x, sys.getsizeof(v)),
             }
         else:
             # Other types - try to get len() if possible
             try:
                 data[x] = {
                     "count": len(v),
-                    "size": format_size(x, sys.getsizeof(v), {}),
+                    "size": format_size(x, sys.getsizeof(v)),
                 }
             except (TypeError, AttributeError):
                 data[x] = {
                     "count": 1,
-                    "size": format_size(x, sys.getsizeof(v), {}),
+                    "size": format_size(x, sys.getsizeof(v)),
                 }
 
     save_data(bot, tab)

@@ -9,6 +9,7 @@ check_key_new_players(key)
 """
 
 import logging
+from typing import Any
 
 from ...translations import Jobs_new, jobs_mens_data
 from .bot import players_new_keys
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 set_tables = [players_new_keys, Jobs_new, jobs_mens_data]
 
 
-def check_key_in_tables(key: str, tables: list[dict[str, str] | list[str] | set[str]]) -> bool:
+def check_key_in_tables(key: str, tables: list[Any]) -> bool:
     """Return True if ``key`` exists in any container within ``tables``."""
     for table in tables:
         if key in table or key.lower() in table:

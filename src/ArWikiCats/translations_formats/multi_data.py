@@ -104,7 +104,7 @@ def format_multi_data(
     first_element_config: MultiDataFormatterConfig,
     second_element_config: MultiDataFormatterSecondElementConfig | None = None,
     *,
-    other_formatted_data: dict[str, str] = None,
+    other_formatted_data: dict[str, str] | None = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
     data_to_find: dict[str, str] | None = None,

@@ -68,7 +68,7 @@ def initialize_resolvers() -> None:
     from .country_resolver import fetch_country_term_label, set_fallback_resolver
 
     # Set up the fallback resolver for country_resolver
-    set_fallback_resolver(translate_general_category_wrap)
+    set_fallback_resolver(translate_general_category_wrap)  # pyright: ignore[reportArgumentType]
 
     # Set up the term label resolver for country2_label_bot
     def term_label_wrapper(term: str, separator: str, lab_type: str = "") -> str:
