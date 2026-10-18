@@ -9,7 +9,7 @@ import functools
 import json
 import logging
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ def _build_json_path(relative_path: str) -> Path:
 
 
 @functools.lru_cache(maxsize=128)
-def open_json_file(file_path: str = "") -> Dict[str, Any] | List[Any]:
+def open_json_file(file_path: str = "") -> dict[str, Any] | list[Any]:
     """Open a JSON resource from the bundled ``jsons`` directory by name.
 
     Results are cached to avoid repeated file I/O for the same file.

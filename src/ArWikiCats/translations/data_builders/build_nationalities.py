@@ -6,7 +6,7 @@ All comments are in English only.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, TypedDict
+from typing import Any, TypedDict
 
 
 class NationalityEntry(TypedDict):
@@ -22,8 +22,8 @@ class NationalityEntry(TypedDict):
     ar: str
 
 
-AllNatDict = Dict[str, NationalityEntry]
-LookupTable = Dict[str, str]
+AllNatDict = dict[str, NationalityEntry]
+LookupTable = dict[str, str]
 
 
 def build_nationality_structure(val):
@@ -59,10 +59,10 @@ def load_sources(
     raw_uu_nats: AllNatDict,
     raw_sub_nat: AllNatDict,
     continents: AllNatDict,
-    raw_sub_nat_additional: Dict[str, Dict[str, str]],
-    countries_en_as_nationality_keys: List[str],
-    raw_nats_as_en_key: Dict[str, Dict[str, str]] | None = None,
-) -> Dict[str, NationalityEntry]:
+    raw_sub_nat_additional: dict[str, dict[str, str]],
+    countries_en_as_nationality_keys: list[str],
+    raw_nats_as_en_key: dict[str, dict[str, str]] | None = None,
+) -> dict[str, NationalityEntry]:
     """
     Merge and normalize multiple nationality data sources into a consistent mapping of nationality keys to NationalityEntry objects.
 
@@ -111,7 +111,7 @@ def load_sources(
     data.update(raw_all_nat_o)
 
     # Convert everything to NationalityEntry ensuring all fields exist
-    normalized: Dict[str, NationalityEntry] = {}
+    normalized: dict[str, NationalityEntry] = {}
 
     for key, val in data.items():
         # Build guaranteed structure
@@ -152,7 +152,7 @@ def build_en_nat_entries(raw_data: AllNatDict) -> AllNatDict:
 # =====================================================================
 
 
-def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> Dict[str, NationalityEntry]:
+def normalize_aliases(all_nat_o: dict[str, NationalityEntry], _print=False) -> dict[str, NationalityEntry]:
     """
     Add alias keys and apply one-off nationality corrections to the provided nationality mapping.
 
@@ -164,7 +164,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
         Dict[str, NationalityEntry]: The input mapping augmented with alias keys and special-case entries.
     """
 
-    alias_map: Dict[str, str] = {
+    alias_map: dict[str, str] = {
         "turkish cypriot": "northern cypriot",
         "luxembourg": "luxembourgish",
         "ancient romans": "ancient-romans",
@@ -250,7 +250,7 @@ def normalize_aliases(all_nat_o: Dict[str, NationalityEntry], _print=False) -> D
 # =====================================================================
 
 
-def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
+def build_american_forms(all_nat_o: dict[str, NationalityEntry]) -> AllNatDict:
     """
     Create American-form nationality variants for entries that define gendered forms.
 
@@ -304,7 +304,7 @@ def build_american_forms(all_nat_o: Dict[str, NationalityEntry]) -> AllNatDict:
 # =====================================================================
 
 
-def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
+def build_lookup_tables(all_nat: AllNatDict) -> dict[str, Any]:
     """
     Constructs lookup tables that map nationality keys and name variants to Arabic labels and full NationalityEntry records.
 
@@ -344,7 +344,7 @@ def build_lookup_tables(all_nat: AllNatDict) -> Dict[str, Any]:
     all_country_ar: LookupTable = {}
     all_country_with_nat: AllNatDict = {}
     all_country_with_nat_ar: AllNatDict = {}
-    countries_nat_en_key: Dict[str, NationalityEntry] = {}
+    countries_nat_en_key: dict[str, NationalityEntry] = {}
     en_nats_to_ar_label: LookupTable = {}
 
     for nat_key, entry in all_nat.items():

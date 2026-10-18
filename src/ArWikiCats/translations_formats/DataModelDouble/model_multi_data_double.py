@@ -4,7 +4,6 @@ This module provides MultiDataFormatterDataDouble, which combines a standard
 FormatData instance with a FormatDataDouble instance for complex categories.
 """
 
-from typing import Dict
 
 from ..DataModel import FormatData
 from ..DataModelMulti import MultiDataFormatterBaseHelpers
@@ -37,7 +36,7 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatDataDouble,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__()

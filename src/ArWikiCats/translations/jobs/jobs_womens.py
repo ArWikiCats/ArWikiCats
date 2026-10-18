@@ -4,21 +4,21 @@ Build comprehensive gendered job label dictionaries.
 
 from __future__ import annotations
 
-from typing import Dict, Mapping
+from collections.abc import Mapping
 
 from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 from ..helps import len_print
 from ..sports import SPORTS_KEYS_FOR_JOBS
 from .jobs_data_basic import RELIGIOUS_KEYS_PP
 
-FEMALE_JOBS_SPORTS: Dict[str, str] = {}
+FEMALE_JOBS_SPORTS: dict[str, str] = {}
 
 for job_key, arabic_label in SPORTS_KEYS_FOR_JOBS.items():
     # Provide a category entry for women's players to preserve the legacy API.
     FEMALE_JOBS_SPORTS[f"women's {job_key.lower()} players"] = f"لاعبات {arabic_label} نسائية"
 
 
-FEMALE_JOBS_BASE: Dict[str, str] = {
+FEMALE_JOBS_BASE: dict[str, str] = {
     "nuns": "راهبات",
     "deafblind actresses": "ممثلات صم ومكفوفات",
     "deaf actresses": "ممثلات صم",

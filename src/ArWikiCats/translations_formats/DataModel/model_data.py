@@ -27,7 +27,6 @@ assert result == "لاعبو كرة القدم"
 """
 
 import logging
-from typing import Dict
 
 from .model_data_base import FormatDataBase
 
@@ -65,8 +64,8 @@ class FormatData(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
         *,

@@ -7,7 +7,7 @@ files can import and use to run their resolver functions.
 
 import functools
 import logging
-from typing import Callable, List, Optional, Tuple
+from collections.abc import Callable
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ class ResolverWorker:
     """
 
     def __init__(self):
-        self._resolver_chains: List[Tuple[int, str, Callable[[str], str]]] = []
+        self._resolver_chains: list[tuple[int, str, Callable[[str], str]]] = []
 
     def register_resolver(self, name: str, resolver: Callable[[str], str], priority: int = 0) -> None:
         """
@@ -35,7 +35,7 @@ class ResolverWorker:
         self._resolver_chains.append((priority, name, resolver))
         self._resolver_chains.sort(key=lambda item: item[0])
 
-    def resolve(self, category: str, chain_name: Optional[str] = None) -> str:
+    def resolve(self, category: str, chain_name: str | None = None) -> str:
         """
         Execute registered resolvers in order and return the first non-empty result.
 
@@ -64,7 +64,7 @@ class ResolverWorker:
     def resolve_with_fallback(
         self,
         category: str,
-        resolvers: List[Callable[[str], str]],
+        resolvers: list[Callable[[str], str]],
     ) -> str:
         """
         Execute a list of resolvers in order and return the first non-empty result.
@@ -89,11 +89,11 @@ class ResolverWorker:
 @functools.lru_cache(maxsize=1)
 def get_worker() -> ResolverWorker:
     """Get or create the global ResolverWorker instance."""
-    _worker: Optional[ResolverWorker] = ResolverWorker()
+    _worker: ResolverWorker | None = ResolverWorker()
     return _worker
 
 
-def run_resolvers(category: str, resolvers: List[Callable[[str], str]]) -> str:
+def run_resolvers(category: str, resolvers: list[Callable[[str], str]]) -> str:
     """
     Run a list of resolver functions in order and return the first non-empty result.
 

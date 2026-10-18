@@ -5,7 +5,7 @@ Build comprehensive gendered job label dictionaries.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Dict, List, Mapping, MutableMapping
+from collections.abc import Mapping, MutableMapping
 
 from .jobs_defs import (
     GenderedLabel,
@@ -19,11 +19,11 @@ from .jobs_defs import (
 class JobsDataset:
     """Aggregate all exported job dictionaries."""
 
-    males_jobs: Dict[str, str]
-    females_jobs: Dict[str, str]
+    males_jobs: dict[str, str]
+    females_jobs: dict[str, str]
 
 
-def _append_list_unique(sequence: List[str], value: str) -> None:
+def _append_list_unique(sequence: list[str], value: str) -> None:
     """Append ``value`` to ``sequence`` if it is not already present."""
 
     if value not in sequence:
@@ -191,7 +191,7 @@ def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap, JOBS_2, JOBS_3333) -> Gender
 
 def _load_activist_jobs(
     m_w_jobs: MutableMapping[str, GenderedLabel],
-    nat_before_occ: List[str],
+    nat_before_occ: list[str],
     activists,
 ) -> None:
     """
@@ -243,7 +243,7 @@ def _add_sport_variants(
     return data
 
 
-def _add_cycling_variants(nat_before_occ: List[str], BASE_CYCLING_EVENTS) -> dict[str, GenderedLabel]:
+def _add_cycling_variants(nat_before_occ: list[str], BASE_CYCLING_EVENTS) -> dict[str, GenderedLabel]:
     """
     Generate gendered job labels for cycling event variants and append related keys to nat_before_occ.
 
@@ -418,8 +418,8 @@ def _finalise_jobs_dataset(
     """
 
     m_w_jobs: GenderedLabelMap = {}
-    males_jobs: Dict[str, str] = {}
-    females_jobs: Dict[str, str] = {}
+    males_jobs: dict[str, str] = {}
+    females_jobs: dict[str, str] = {}
 
     jobs_sources = _merge_jobs_sources(
         jobs_pp,
@@ -474,7 +474,7 @@ def _finalise_jobs_dataset(
 def _build_jobs_new(
     female_jobs: Mapping[str, str],
     Nat_mens: Mapping[str, str],
-) -> Dict[str, str]:
+) -> dict[str, str]:
     """
     Create a flattened mapping of job and nationality keys to Arabic labels for legacy consumers.
 
@@ -489,7 +489,7 @@ def _build_jobs_new(
           - includes the fixed entry "people of the ottoman empire" -> "عثمانيون".
     """
 
-    data: Dict[str, str] = {}
+    data: dict[str, str] = {}
 
     for female_key, female_label in female_jobs.items():
         if female_label:

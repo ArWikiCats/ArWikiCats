@@ -8,7 +8,6 @@ TODO:
 
 import functools
 import logging
-from typing import Dict
 
 from ...translations import (
     Nat_women,
@@ -27,7 +26,7 @@ from ...translations_formats import (
 logger = logging.getLogger(__name__)
 
 
-def _build_television_cao() -> tuple[Dict[str, str], Dict[str, str]]:
+def _build_television_cao() -> tuple[dict[str, str], dict[str, str]]:
     """
     Construct two translation mapping dictionaries for television and film category keys: one that includes nationality placeholders and one without.
 

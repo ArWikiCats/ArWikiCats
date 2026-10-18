@@ -4,7 +4,7 @@ Build comprehensive gendered job label dictionaries.
 
 from __future__ import annotations
 
-from typing import Mapping
+from collections.abc import Mapping
 
 from ..data_builders.build_jobs import (
     _build_jobs_new,

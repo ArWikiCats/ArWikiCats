@@ -4,7 +4,7 @@ jobs data
 
 from __future__ import annotations
 
-from typing import Iterable, Mapping
+from collections.abc import Iterable, Mapping
 
 from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 

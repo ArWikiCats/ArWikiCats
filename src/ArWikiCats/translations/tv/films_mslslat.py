@@ -6,7 +6,6 @@ Builds translation mappings for film and television categories from English to A
 handling gender-specific translations and nationality-based categories.
 """
 
-from typing import Dict
 
 from ..data_builders.build_films_mslslat import (
     _build_gender_key_maps,
@@ -130,7 +129,7 @@ Films_key_O_multi = {
 # Build gender-aware mappings
 Films_key_both, Films_key_man = _build_gender_key_maps(Films_key_O_multi)
 
-film_keys_for_male: Dict[str, str] = {
+film_keys_for_male: dict[str, str] = {
     x: v.get("male", "").strip() for x, v in Films_key_both.items() if v.get("male", "").strip()
 }
 

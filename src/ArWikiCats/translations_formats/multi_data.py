@@ -44,7 +44,6 @@ test at tests.translations_formats.test_format_2_data.py
 """
 
 import logging
-from typing import Dict, Optional
 
 from .classes import MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
 from .DataModel import FormatData, FormatDataV2
@@ -103,12 +102,12 @@ def get_other_data(
 
 def format_multi_data(
     first_element_config: MultiDataFormatterConfig,
-    second_element_config: Optional[MultiDataFormatterSecondElementConfig] = None,
+    second_element_config: MultiDataFormatterSecondElementConfig | None = None,
     *,
-    other_formatted_data: Dict[str, str] = None,
+    other_formatted_data: dict[str, str] = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
-    data_to_find: Dict[str, str] | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterBase:
     """
     Create a MultiDataFormatterBase for dual-element category translations.
@@ -191,10 +190,10 @@ def format_multi_data(
 
 def format_multi_data_v2(
     first_element_config: MultiDataFormatterConfig,
-    second_element_config: Optional[MultiDataFormatterSecondElementConfig] = None,
+    second_element_config: MultiDataFormatterSecondElementConfig | None = None,
     use_other_formatted_data: bool = False,
     search_first_part: bool = False,
-    data_to_find: Dict[str, str] | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterBaseV2:
     """
     Create a MultiDataFormatterBaseV2 for dual-element translations with dictionary support.

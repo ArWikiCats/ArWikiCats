@@ -76,7 +76,7 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataFrom,
         year_bot: FormatDataFrom,
         *,
-        category_relation_mapping: dict[str, str] = None,
+        category_relation_mapping: dict[str, str] | None = None,
         search_first_part: bool = False,
         data_to_find: dict[str, str] | None = None,
         other_key_first: bool = False,

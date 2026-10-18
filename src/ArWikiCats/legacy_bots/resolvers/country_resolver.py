@@ -14,7 +14,7 @@ from __future__ import annotations
 import functools
 import logging
 import re
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from ...fix import fixtitle
 from ...new_resolvers import all_new_resolvers
@@ -39,7 +39,7 @@ logger = logging.getLogger(__name__)
 FallbackResolver = Callable[[str, bool], str]
 
 # Module-level callback holder - set via set_fallback_resolver()
-_fallback_resolver: Optional[FallbackResolver] = None
+_fallback_resolver: FallbackResolver | None = None
 
 
 def set_fallback_resolver(resolver: FallbackResolver) -> None:

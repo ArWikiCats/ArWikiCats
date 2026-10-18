@@ -26,7 +26,6 @@ Example:
     'بريطانية أحداث في القرن 14'
 """
 
-from typing import Dict, Optional
 
 from .classes import YearCountryDataConfig, YearDataConfig
 from .DataModel import (
@@ -45,8 +44,8 @@ COUNTRY_PARAM = "{country1}"
 
 def format_year_country_data_v2(
     country_config: YearCountryDataConfig,
-    year_config: Optional[YearDataConfig] = None,
-    data_to_find: Dict[str, str] | None = None,
+    year_config: YearDataConfig | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterBaseYearV2:
     """
     Create a MultiDataFormatterBaseYearV2 for year+country translations with dictionary support.
@@ -102,8 +101,8 @@ def format_year_country_data_v2(
 
 def format_year_country_data(
     country_config: YearCountryDataConfig,
-    year_config: Optional[YearDataConfig] = None,
-    data_to_find: Dict[str, str] | None = None,
+    year_config: YearDataConfig | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterBaseYear:
     """
     Create a MultiDataFormatterBaseYear for year+country translations.

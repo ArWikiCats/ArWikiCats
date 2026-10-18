@@ -14,7 +14,7 @@ More examples:
 import functools
 import logging
 import re
-from typing import Callable
+from collections.abc import Callable
 
 from ...time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
 from ...translations import medical_keys

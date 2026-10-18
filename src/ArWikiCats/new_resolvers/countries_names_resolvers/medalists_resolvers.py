@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import functools
 import logging
-from typing import Dict
 
 from ...translations import COUNTRY_LABEL_OVERRIDES, countries_from_nat
 from ...translations_formats import (
@@ -134,9 +133,9 @@ medalists_data = {
 }
 
 
-def _build_formatted_data() -> Dict[str, str]:
+def _build_formatted_data() -> dict[str, str]:
     # NOTE: formatted_data used in other resolver
-    formatted_data: Dict[str, str] = {}
+    formatted_data: dict[str, str] = {}
 
     base_formatted_data = {
         "{en} at {game_en}": "{ar} في {game_ar}",

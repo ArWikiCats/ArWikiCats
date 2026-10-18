@@ -6,7 +6,7 @@ All comments are in English only.
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any
 
 from ..data_builders.build_nationalities import (
     NationalityEntry,
@@ -18,8 +18,8 @@ from ..data_builders.build_nationalities import (
 from ..helps import len_print
 from ..utils import open_json_file
 
-AllNatDict = Dict[str, NationalityEntry]
-LookupTable = Dict[str, str]
+AllNatDict = dict[str, NationalityEntry]
+LookupTable = dict[str, str]
 
 
 # =====================================================================
@@ -120,7 +120,7 @@ raw_sub_nat_additional = {
 # Main Execution (same logic as before)
 # =====================================================================
 
-raw_nats_as_en_key: Dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
+raw_nats_as_en_key: dict[str, Any] = open_json_file("nationalities/all_nat_as_en.json") or {}
 
 raw_all_nat_o: AllNatDict = open_json_file("nationalities/nationalities_data.json") or {}
 nat_directions_mapping: AllNatDict = open_json_file("nationalities/nationalities_data_with_directions.json") or {}
@@ -129,7 +129,7 @@ raw_uu_nats: AllNatDict = open_json_file("nationalities/sub_nats_with_ar_or_en.j
 raw_sub_nat: AllNatDict = open_json_file("nationalities/sub_nats.json") or {}
 continents: AllNatDict = open_json_file("nationalities/continents.json") or {}
 
-nationalities_data: Dict[str, NationalityEntry] = load_sources(
+nationalities_data: dict[str, NationalityEntry] = load_sources(
     raw_all_nat_o,
     nat_directions_mapping,
     raw_uu_nats,
@@ -164,7 +164,7 @@ all_country_ar: LookupTable = result_tables["all_country_ar"]
 
 all_country_with_nat: AllNatDict = result_tables["all_country_with_nat"]
 all_country_with_nat_ar: AllNatDict = result_tables["all_country_with_nat_ar"]
-countries_nat_en_key: Dict[str, NationalityEntry] = result_tables["countries_nat_en_key"]
+countries_nat_en_key: dict[str, NationalityEntry] = result_tables["countries_nat_en_key"]
 
 en_nats_to_ar_label: LookupTable = result_tables["en_nats_to_ar_label"]
 

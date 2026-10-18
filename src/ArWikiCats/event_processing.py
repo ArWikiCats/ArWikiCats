@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass, field
-from typing import Dict, Iterable, List
+from collections.abc import Iterable
 
 from .main_processers.main_resolve import CategoryResult, resolve_label
 
@@ -87,9 +87,9 @@ class EventProcessingResult:
         stats: Processing statistics.
     """
 
-    processed: List[ProcessedCategory] = field(default_factory=list)
-    labels: Dict[str, str] = field(default_factory=dict)
-    no_labels: List[str] = field(default_factory=list)
+    processed: list[ProcessedCategory] = field(default_factory=list)
+    labels: dict[str, str] = field(default_factory=dict)
+    no_labels: list[str] = field(default_factory=list)
     category_patterns: int = 0
     stats: ProcessingStats = field(default_factory=ProcessingStats)
 
@@ -178,7 +178,7 @@ def resolve_arabic_category_label(category_r: str) -> str:
 
 
 def batch_resolve_labels(
-    new_list: Iterable[str] | List[str],
+    new_list: Iterable[str] | list[str],
 ) -> EventProcessingResult:
     """Run the event processor on the given list of categories."""
     processor = EventProcessor()

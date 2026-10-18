@@ -24,7 +24,6 @@ result = bot.search("yemeni writers")
 assert result == "كتاب يمنيون"
 """
 
-from typing import Dict, Union
 
 from .model_data_base import FormatDataBase
 
@@ -58,8 +57,8 @@ class FormatDataV2(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, Union[str, Dict[str, str]]],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str | dict[str, str]],
         key_placeholder: str = "xoxo",
         *,
         text_after: str = "",
@@ -78,7 +77,7 @@ class FormatDataV2(FormatDataBase):
         self.alternation: str = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
-    def apply_pattern_replacement(self, template_label: str, sport_label: Union[str, Dict[str, str]]) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: str | dict[str, str]) -> str:
         """Replace value placeholder once template is chosen."""
         if not isinstance(sport_label, dict):
             return template_label
@@ -99,7 +98,7 @@ class FormatDataV2(FormatDataBase):
 
         return final_label.strip()
 
-    def replace_value_placeholder(self, label: str, value: Union[str, Dict[str, str]]) -> str:
+    def replace_value_placeholder(self, label: str, value: str | dict[str, str]) -> str:
         """
         Used in MultiDataFormatterBaseV2 / MultiDataFormatterBaseHelpers
         """

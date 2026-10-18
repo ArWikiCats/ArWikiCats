@@ -3,7 +3,6 @@ from . import fax2
 """
 
 import logging
-from typing import Tuple
 
 from .end_start_match import (
     footballers_get_endswith,
@@ -15,7 +14,7 @@ from .utils import get_from_endswith_dict, get_from_starts_dict
 logger = logging.getLogger(__name__)
 
 
-def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> Tuple[str, bool, str]:
+def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> tuple[str, bool, str]:
     """Return list templates and metadata extracted from category suffix/prefix."""
     foot_ballers = False
     list_of_cat = ""

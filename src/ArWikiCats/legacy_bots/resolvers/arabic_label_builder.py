@@ -7,7 +7,6 @@ import functools
 import logging
 import re
 from dataclasses import dataclass
-from typing import Tuple
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...patterns_resolvers.time_patterns_resolvers import resolve_lab_from_years_patterns
@@ -288,7 +287,7 @@ class TypeResolver:
 
     @staticmethod
     @functools.lru_cache(maxsize=10000)
-    def resolve(preposition: str, type_value: str, country_lower: str, use_event2: bool = True) -> Tuple[str, bool]:
+    def resolve(preposition: str, type_value: str, country_lower: str, use_event2: bool = True) -> tuple[str, bool]:
         """Resolve the type label and whether to append 'in' label."""
         type_lower = type_value.strip().lower()
 

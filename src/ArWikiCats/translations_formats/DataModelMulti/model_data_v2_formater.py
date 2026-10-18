@@ -24,7 +24,6 @@ result = bot.search("yemeni writers")
 assert result == "كتاب يمنيون"
 """
 
-from typing import Dict
 
 from ..DataModel import FormatDataV2
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
@@ -56,7 +55,7 @@ class MultiDataFormatterBaseV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: FormatDataV2,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__()

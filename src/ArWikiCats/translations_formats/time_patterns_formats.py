@@ -3,7 +3,7 @@ LabsYearsFormat processing module.
 """
 
 import logging
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from ..time_formats.time_to_arabic import (
     convert_time_to_arabic,
@@ -45,7 +45,7 @@ class LabsYearsFormat(MatchTimes):
         key_param_placeholder: str = "{year1}",
         value_param_placeholder: str = "{year1}",
         year_param_name: str = "year1",
-        fixing_callback: Optional[Callable] = None,
+        fixing_callback: Callable | None = None,
     ) -> None:
         """Prepare reusable lookup tables for year-based category labels."""
         self.lookup_count = 0

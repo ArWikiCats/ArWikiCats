@@ -8,7 +8,7 @@ being easier to reason about and test.
 
 from __future__ import annotations
 
-from typing import Dict, Mapping
+from collections.abc import Mapping
 
 from .jobs_defs import GenderedLabel, GenderedLabelMap, combine_gender_labels
 
@@ -167,7 +167,7 @@ def _build_general_scope_labels(
 def _build_sports_job_variants(
     sport_jobs: Mapping[str, str],
     football_roles: Mapping[str, GenderedLabel],
-) -> tuple[GenderedLabelMap, Dict[str, str]]:
+) -> tuple[GenderedLabelMap, dict[str, str]]:
     """
     Generate gendered Arabic label variants for sports jobs and combine them with football-role labels.
 

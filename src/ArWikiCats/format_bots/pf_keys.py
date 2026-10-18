@@ -6,7 +6,6 @@ phrases and entities in category titles, making them easier to match.
 
 import functools
 import re
-from typing import Dict
 
 from ..translations.utils.json_dir import open_json_file
 
@@ -26,7 +25,7 @@ _change_key_compiled = {
 _change_key2_compiled = {}
 _change_key3_compiled = {}
 
-CHANGE_KEY_MAPPINGS: Dict[str, str] = {
+CHANGE_KEY_MAPPINGS: dict[str, str] = {
     "diplomatic missions of": "diplomatic-missions-of",
     "fiba world championship for women": "fiba women's world championship",
     "central american and caribbean games": "central-american-and-caribbean-games",
@@ -156,7 +155,7 @@ CHANGE_KEY_MAPPINGS: Dict[str, str] = {
 for x in COMPANY_TYPE_TRANSLATIONS:
     CHANGE_KEY_MAPPINGS[f"defunct {x} companies"] = f"defunct-{x}-companies"
 
-CHANGE_KEY_SECONDARY: Dict[str, str] = {
+CHANGE_KEY_SECONDARY: dict[str, str] = {
     " at ": " in ",
     " at 1": " in 1",
     " at 2": " in 2",

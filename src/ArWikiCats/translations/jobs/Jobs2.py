@@ -5,7 +5,7 @@ Assemble gendered Arabic labels for general job categories.
 from __future__ import annotations
 
 import logging
-from typing import Mapping, Tuple
+from collections.abc import Mapping
 
 from ..data_builders.jobs_defs import GenderedLabelMap
 from ..helps import len_print
@@ -180,7 +180,7 @@ def _build_scholar_roles(disciplines: Mapping[str, str]) -> GenderedLabelMap:
     return scholar_roles
 
 
-def _build_jobs_datasets() -> Tuple[GenderedLabelMap, GenderedLabelMap]:
+def _build_jobs_datasets() -> tuple[GenderedLabelMap, GenderedLabelMap]:
     """Construct the ``JOBS_2`` and ``JOBS_3333`` datasets.
 
     Returns:

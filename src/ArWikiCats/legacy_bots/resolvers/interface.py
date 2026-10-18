@@ -7,7 +7,7 @@ These protocols enable dependency injection and break circular dependencies.
 
 from __future__ import annotations
 
-from typing import Protocol, Tuple
+from typing import Protocol
 
 
 class CountryLabelResolver(Protocol):
@@ -56,7 +56,7 @@ class TypeResolver(Protocol):
         type_value: str,
         country_lower: str,
         use_event2: bool = True,
-    ) -> Tuple[str, bool]:
+    ) -> tuple[str, bool]:
         """Resolve the type label and whether to append 'in' label."""
         ...
 

@@ -23,7 +23,6 @@ Example:
 test at tests.translations_formats.test_format_2_data.py
 """
 
-from typing import Dict
 
 from ..DataModel import FormatData, FormatDataV2, YearFormatData
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
@@ -55,7 +54,7 @@ class MultiDataFormatterBase(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: FormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__()
@@ -92,7 +91,7 @@ class MultiDataFormatterBaseYear(MultiDataFormatterBaseHelpers):
         country_bot: FormatData,
         other_bot: YearFormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
     ) -> None:
         """Prepare helpers for matching and formatting template-driven labels."""
         super().__init__()
@@ -129,7 +128,7 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         country_bot: FormatDataV2,
         other_bot: YearFormatData,
         search_first_part: bool = False,
-        data_to_find: Dict[str, str] | None = None,
+        data_to_find: dict[str, str] | None = None,
         *,
         other_key_first: bool = False,
     ) -> None:

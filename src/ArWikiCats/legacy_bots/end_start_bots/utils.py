@@ -1,14 +1,15 @@
 """ """
 
-from typing import Any, Callable, Dict, Tuple
+from typing import Any
+from collections.abc import Callable
 
 
 def _get_from_dict(
     category3: str,
-    data: Dict[str, Dict[str, Any]],
+    data: dict[str, dict[str, Any]],
     match_fn: Callable[[str, str], bool],
     slice_fn: Callable[[str, str, int], str],
-) -> Tuple[str, str]:
+) -> tuple[str, str]:
     """
     Strip the first matching pattern from a category string and return the remainder with the matched entry's lab.
 
@@ -45,7 +46,7 @@ def _get_from_dict(
     return category3, list_of_cat
 
 
-def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str]:
+def get_from_starts_dict(category3: str, data: dict[str, dict[str, Any]]) -> tuple[str, str]:
     """
     Strip a matching prefix from category3 and return the remainder with its associated label.
 
@@ -87,7 +88,7 @@ def get_from_starts_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tup
     return _get_from_dict(category3, data, starts_with, slice_prefix)
 
 
-def get_from_endswith_dict(category3: str, data: Dict[str, Dict[str, Any]]) -> Tuple[str, str]:
+def get_from_endswith_dict(category3: str, data: dict[str, dict[str, Any]]) -> tuple[str, str]:
     """
     Strip a matching suffix from `category3` using pattern entries in `data`.
 

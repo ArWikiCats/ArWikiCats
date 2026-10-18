@@ -4,9 +4,8 @@ Mappings used to normalize Arabic category labels.
 
 from __future__ import annotations
 
-from typing import Dict, Set
 
-REPLACEMENTS: Dict[str, str] = {
+REPLACEMENTS: dict[str, str] = {
     "مرشحون يهود في رئيس": "مرشحون يهود لمنصب رئيس",
     "مرشحات في رئيس": "مرشحات لمنصب رئيس",
     "مرشحون في رئيس": "مرشحون لمنصب رئيس",
@@ -31,7 +30,7 @@ REPLACEMENTS: Dict[str, str] = {
 }
 """Regex-based replacements applied globally to Arabic labels."""
 
-STARTING_REPLACEMENTS: Dict[str, str] = {
+STARTING_REPLACEMENTS: dict[str, str] = {
     # "اكتشافات بواسطة" : "اكتشافات",
     "هجمات ضد": "هجمات على",
     "أشخاص أتهموا بتهمة": "متهمون بتهمة",
@@ -76,7 +75,7 @@ STARTING_REPLACEMENTS: Dict[str, str] = {
 }
 """Prefix replacements that run on the start of the label."""
 
-ENDING_REPLACEMENTS: Dict[str, str] = {
+ENDING_REPLACEMENTS: dict[str, str] = {
     "صناعة إعلامية": "صناعة الإعلام",
     "إلى يونسكو": "لدى يونسكو",
     "إلى الأمم المتحدة": "لدى الأمم المتحدة",
@@ -108,7 +107,7 @@ ENDING_REPLACEMENTS: Dict[str, str] = {
 }
 """Suffix replacements applied after trimming whitespace."""
 
-YEAR_CATEGORY_LABELS: Set[str] = {
+YEAR_CATEGORY_LABELS: set[str] = {
     "كوارث صحية",
     "كوارث طبيعية",
     "كوارث طبية",

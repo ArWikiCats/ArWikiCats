@@ -6,12 +6,11 @@ This module provides functions for processing and generating labels for country 
 import functools
 import logging
 import re
-from typing import Tuple
 
 logger = logging.getLogger(__name__)
 
 
-def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
+def split_text_by_separator(separator: str, country: str) -> tuple[str, str]:
     """
     Split a title-like string into two logical parts around a separator.
 
@@ -95,7 +94,7 @@ def split_text_by_separator(separator: str, country: str) -> Tuple[str, str]:
 
 
 @functools.lru_cache(maxsize=10000)
-def _split_category_by_separator(category: str, separator: str) -> Tuple[str, str]:
+def _split_category_by_separator(category: str, separator: str) -> tuple[str, str]:
     """Split category into type and country parts using the separator.
 
     Args:
@@ -147,7 +146,7 @@ def _adjust_separator_position(text: str, separator_stripped: str, is_type: bool
     return text
 
 
-def _apply_regex_extraction(category: str, separator: str, category_type: str, country: str) -> Tuple[str, str, bool]:
+def _apply_regex_extraction(category: str, separator: str, category_type: str, country: str) -> tuple[str, str, bool]:
     """Apply regex-based extraction when simple split is insufficient.
 
     Args:
@@ -186,7 +185,7 @@ def _apply_regex_extraction(category: str, separator: str, category_type: str, c
 
 
 @functools.lru_cache(maxsize=10000)
-def get_type_country(category: str, separator: str) -> Tuple[str, str]:
+def get_type_country(category: str, separator: str) -> tuple[str, str]:
     """Extract the type and country from a given category string.
 
     This function takes a category string and a delimiter (separator) to split

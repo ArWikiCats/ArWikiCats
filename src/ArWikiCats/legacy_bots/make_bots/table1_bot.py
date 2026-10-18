@@ -7,7 +7,6 @@ using multiple mapping tables.
 
 import functools
 import logging
-from typing import Dict
 
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations import Jobs_new  # to be removed from players_new_keys
@@ -17,7 +16,7 @@ from .bot import Films_O_TT, players_new_keys
 
 logger = logging.getLogger(__name__)
 
-KAKO: Dict[str, Dict[str, str]] = {
+KAKO: dict[str, dict[str, str]] = {
     "Films_key_man": Films_key_man,  # 74
     "Films_O_TT": Films_O_TT,  # 0
     "players_new_keys": players_new_keys,  # 1,719

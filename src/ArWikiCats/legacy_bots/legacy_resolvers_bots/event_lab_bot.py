@@ -6,7 +6,8 @@ from __future__ import annotations
 
 import functools
 import logging
-from typing import Callable, Literal, Tuple
+from typing import Literal
+from collections.abc import Callable
 
 from ...fix import fixtitle
 from ...format_bots import change_cat
@@ -118,7 +119,7 @@ class EventLabResolver:
         """Initialize the EventLabResolver with default values."""
         self.foot_ballers: bool = False
 
-    def _handle_special_suffixes(self, category3: str) -> Tuple[str, str, bool]:
+    def _handle_special_suffixes(self, category3: str) -> tuple[str, str, bool]:
         """
         Detects and handle special category suffixes and returns a list template marker plus the adjusted category string.
 
@@ -148,7 +149,7 @@ class EventLabResolver:
 
         return list_of_cat, category3
 
-    def _get_country_based_label(self, original_cat3: str, list_of_cat: str) -> Tuple[str, str]:
+    def _get_country_based_label(self, original_cat3: str, list_of_cat: str) -> tuple[str, str]:
         """
         Resolve a country-specific Arabic label when the category represents players from a country and adjust the list marker accordingly.
 
@@ -195,7 +196,7 @@ class EventLabResolver:
         ]
         return _resolve_via_chain(category3, general_resolvers)
 
-    def _handle_suffix_patterns(self, category3: str) -> Tuple[str, str]:
+    def _handle_suffix_patterns(self, category3: str) -> tuple[str, str]:
         """
         Match and strip known suffix patterns from a category title.
 

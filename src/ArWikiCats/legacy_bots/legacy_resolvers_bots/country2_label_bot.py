@@ -9,7 +9,7 @@ The callback is set at runtime via `set_term_label_resolver()`.
 import functools
 import logging
 import re
-from typing import Callable, Optional, Tuple
+from collections.abc import Callable
 
 from ...format_bots.relation_mapping import translation_category_relations
 from ...new_resolvers import all_new_resolvers
@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 TermLabelResolver = Callable[[str, str, str], str]
 
 # Module-level callback holder - set via set_term_label_resolver()
-_term_label_resolver: Optional[TermLabelResolver] = None
+_term_label_resolver: TermLabelResolver | None = None
 
 
 def set_term_label_resolver(resolver: TermLabelResolver) -> None:
@@ -255,7 +255,7 @@ def separator_arabic_resolve(separator: str) -> str:
     return ar_separator
 
 
-def make_parts_labels(part_1, part_2, separator, with_years) -> Tuple[str, str]:
+def make_parts_labels(part_1, part_2, separator, with_years) -> tuple[str, str]:
     """
     Resolve Arabic labels for two text parts and return them as a pair.
 

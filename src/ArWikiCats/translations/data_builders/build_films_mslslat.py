@@ -6,7 +6,6 @@ Builds translation mappings for film and television categories from English to A
 handling gender-specific translations and nationality-based categories.
 """
 
-from typing import Dict, List, Tuple
 
 # =============================================================================
 # Helper Functions
@@ -14,10 +13,10 @@ from typing import Dict, List, Tuple
 
 
 def _build_gender_key_maps(
-    films_key_o_multi: Dict[str, Dict[str, str]],
-) -> Tuple[
-    Dict[str, Dict[str, str]],
-    Dict[str, str],
+    films_key_o_multi: dict[str, dict[str, str]],
+) -> tuple[
+    dict[str, dict[str, str]],
+    dict[str, str],
 ]:  # films_key_both  # films_key_man
     """
     Build gender-aware film key mappings from a source mapping of keys to gendered labels.
@@ -59,8 +58,8 @@ def _build_gender_key_maps(
 
 
 def _extend_females_labels(
-    films_keys_male_female: Dict[str, Dict[str, str]],
-) -> Dict[str, str]:
+    films_keys_male_female: dict[str, dict[str, str]],
+) -> dict[str, str]:
     """
     Build a mapping from English keys to their female Arabic labels, treating "animated" as an alias for "animation".
 
@@ -86,11 +85,11 @@ def _extend_females_labels(
 
 
 def _build_series_and_nat_keys(
-    female_keys: Dict[str, str],
-    SERIES_DEBUTS_ENDINGS: Dict[str, str],
-    TELEVISION_BASE_KEYS_FEMALE: Dict[str, str],
-    DEBUTS_ENDINGS_KEYS: List[str],
-) -> Tuple[Dict[str, str], Dict[str, str]]:
+    female_keys: dict[str, str],
+    SERIES_DEBUTS_ENDINGS: dict[str, str],
+    TELEVISION_BASE_KEYS_FEMALE: dict[str, str],
+    DEBUTS_ENDINGS_KEYS: list[str],
+) -> tuple[dict[str, str], dict[str, str]]:
     """
     Construct nationality-aware and series-based Arabic translation mappings for film and television keys.
 
@@ -171,9 +170,9 @@ def _build_series_and_nat_keys(
 
 
 def _build_television_cao(
-    female_keys: Dict[str, str],
-    TELEVISION_KEYS: Dict[str, str],
-) -> Tuple[Dict[str, str], Dict[str, str]]:
+    female_keys: dict[str, str],
+    TELEVISION_KEYS: dict[str, str],
+) -> tuple[dict[str, str], dict[str, str]]:
     """
     Build CAO (characters, albums, organizations, etc.) translation mappings by combining female-key labels with television and genre categories.
 

@@ -5,7 +5,6 @@ list-style templates (e.g., "لاعبو {}") with special handling for sports.
 """
 
 import logging
-from typing import Tuple
 
 logger = logging.getLogger(__name__)
 # Constants
@@ -85,7 +84,7 @@ def list_of_cat_func_foot_ballers(category_r: str, category_lab: str, list_of_ca
     return _format_category_with_list_template(category_r, category_lab, list_of_cat, foot_ballers=True)
 
 
-def list_of_cat_func(category_r: str, category_lab: str, list_of_cat: str, foot_ballers: bool) -> Tuple[str, str]:
+def list_of_cat_func(category_r: str, category_lab: str, list_of_cat: str, foot_ballers: bool) -> tuple[str, str]:
     """
     Format an Arabic category label using a list-style template, optionally applying football-specific adjustments.
 

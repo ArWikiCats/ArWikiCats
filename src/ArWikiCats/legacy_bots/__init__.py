@@ -12,7 +12,8 @@ Architecture Note:
 from __future__ import annotations
 
 import functools
-from typing import Callable, Protocol
+from typing import Protocol
+from collections.abc import Callable
 
 # Import other legacy resolvers that are not part of the circular dependency
 from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo

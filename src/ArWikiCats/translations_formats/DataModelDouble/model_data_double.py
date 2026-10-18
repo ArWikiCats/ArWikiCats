@@ -27,7 +27,6 @@ Example:
 
 import logging
 import re
-from typing import Dict, Optional
 
 from ..DataModel.model_data_base import FormatDataBase
 
@@ -77,8 +76,8 @@ class FormatDataDouble(FormatDataBase):
 
     def __init__(
         self,
-        formatted_data: Dict[str, str],
-        data_list: Dict[str, str],
+        formatted_data: dict[str, str],
+        data_list: dict[str, str],
         key_placeholder: str = "xoxo",
         value_placeholder: str = "xoxo",
         *,
@@ -114,7 +113,7 @@ class FormatDataDouble(FormatDataBase):
     def update_put_label_last(self, data: list[str] | set[str]) -> None:
         self.put_label_last = data
 
-    def keys_to_pattern_double(self) -> Optional[re.Pattern[str]]:
+    def keys_to_pattern_double(self) -> re.Pattern[str] | None:
         """
         Create a case-insensitive regex that matches two adjacent keys separated by the configured splitter.
 

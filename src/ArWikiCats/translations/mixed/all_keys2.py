@@ -23,7 +23,6 @@ WORD_AFTER_YEARS,
 
 from __future__ import annotations
 
-from typing import Dict
 
 from ..data_builders.build_all_keys2 import (
     _build_book_entries,
@@ -46,7 +45,7 @@ from ..utils import open_json_file
 # from .keys_23 import NEW_2023
 # from .Newkey import pop_final6
 
-BASE_LABELS: Dict[str, str] = {
+BASE_LABELS: dict[str, str] = {
     "international reactions": "ردود فعل دولية",
     "domestic reactions": "ردود فعل محلية",
     "foreign involvement": "التدخل الأجنبي",
@@ -71,7 +70,7 @@ BASE_LABELS: Dict[str, str] = {
     "acts of": "أفعال",
 }
 
-DIRECTIONS: Dict[str, str] = {
+DIRECTIONS: dict[str, str] = {
     "southeast": "جنوب شرق",
     "southwest": "جنوب غرب",
     "northwest": "شمال غرب",
@@ -82,7 +81,7 @@ DIRECTIONS: Dict[str, str] = {
     "east": "شرق",
 }
 
-REGIONS: Dict[str, str] = {
+REGIONS: dict[str, str] = {
     "asia": "آسيا",
     "europe": "أوروبا",
     "africa": "إفريقيا",
@@ -90,14 +89,14 @@ REGIONS: Dict[str, str] = {
     "oceania": "أوقيانوسيا",
 }
 
-SCHOOL_LABELS: Dict[str, str] = {
+SCHOOL_LABELS: dict[str, str] = {
     "bilingual schools": "مدارس {} ثنائية اللغة",
     "high schools": "مدارس ثانوية {}",
     "middle schools": "مدارس إعدادية {}",
     "elementary schools": "مدارس إبتدائية {}",
 }
 
-WORD_AFTER_YEARS: Dict[str, str] = {
+WORD_AFTER_YEARS: dict[str, str] = {
     "YouTube channels": "قنوات يوتيوب",
     "births": "مواليد",
     "space probes": "مسبارات فضائية",
@@ -121,7 +120,7 @@ WORD_AFTER_YEARS: Dict[str, str] = {
     "beginnings": "بدايات",
 }
 
-TOWNS_COMMUNITIES: Dict[str, str] = {
+TOWNS_COMMUNITIES: dict[str, str] = {
     "muslim": "إسلامية",
     "fishing": "صيد",
     "mining": "تعدين",
@@ -129,7 +128,7 @@ TOWNS_COMMUNITIES: Dict[str, str] = {
     "ghost": "أشباح",
 }
 
-ART_MOVEMENTS: Dict[str, str] = {
+ART_MOVEMENTS: dict[str, str] = {
     "renaissance": "عصر النهضة",
     "bronze age": "عصر برونزي",
     "stone age": "عصر حجري",
@@ -192,7 +191,7 @@ ART_MOVEMENTS: Dict[str, str] = {
     "modernismo": "الحداثة (الأدب باللغة الإسبانية)",
 }
 
-WEAPON_CLASSIFICATIONS: Dict[str, str] = {
+WEAPON_CLASSIFICATIONS: dict[str, str] = {
     "biological": "بيولوجية",
     "chemical": "كيميائية",
     "military nuclear": "نووية عسكرية",
@@ -200,7 +199,7 @@ WEAPON_CLASSIFICATIONS: Dict[str, str] = {
     "military": "عسكرية",
 }
 
-WEAPON_EVENTS: Dict[str, str] = {
+WEAPON_EVENTS: dict[str, str] = {
     "accidents or incidents": "حوادث",
     "accidents-and-incidents": "حوادث",
     "accidents and incidents": "حوادث",
@@ -213,7 +212,7 @@ WEAPON_EVENTS: Dict[str, str] = {
     "technology": "تقانة",
 }
 
-BOOK_CATEGORIES: Dict[str, str] = {
+BOOK_CATEGORIES: dict[str, str] = {
     # "live albums":"ألبومات مباشرة",
     "newspaper": "صحف",
     "conferences": "مؤتمرات",
@@ -274,7 +273,7 @@ BOOK_CATEGORIES: Dict[str, str] = {
     "wikis": "ويكيات",
 }
 
-BOOK_TYPES: Dict[str, str] = {
+BOOK_TYPES: dict[str, str] = {
     # "pirate":"قراصنة",
     "anti-war": "مناهضة للحرب",
     "anti-revisionist": "مناهضة للتحريفية",
@@ -335,14 +334,14 @@ BOOK_TYPES: Dict[str, str] = {
     # "logistics":"لوجستية",
 }
 
-LITERATURE_AREAS: Dict[str, str] = {
+LITERATURE_AREAS: dict[str, str] = {
     "literature": "أدب",
     "folklore": "فلكور",
     "poetry": "شعر",
     "film": "فيلم",
 }
 
-CINEMA_CATEGORIES: Dict[str, str] = {
+CINEMA_CATEGORIES: dict[str, str] = {
     "films": "أفلام",
     "film series": "سلاسل أفلام",
     "television characters": "شخصيات تلفزيونية",
@@ -638,19 +637,19 @@ clubs_teams_leagues = {key.lower(): value for key, value in ctl_data.items()}
 
 
 def generate_key_mappings(
-    keys2_py: Dict[str, str],
-    pop_final_3: Dict[str, str],
-    singers_tab: Dict[str, str],
-    film_keys_for_female: Dict[str, str],
-    albums_type: Dict[str, str],
-    film_keys_for_male: Dict[str, str],
-    tennis_keys: Dict[str, str],
-    pop_final6: Dict[str, str],
-    media_category_translations: Dict[str, str],
-    language_key_translations: Dict[str, str],
-    new2019: Dict[str, str],
-    new_2023: Dict[str, str],
-) -> Dict[str, str]:
+    keys2_py: dict[str, str],
+    pop_final_3: dict[str, str],
+    singers_tab: dict[str, str],
+    film_keys_for_female: dict[str, str],
+    albums_type: dict[str, str],
+    film_keys_for_male: dict[str, str],
+    tennis_keys: dict[str, str],
+    pop_final6: dict[str, str],
+    media_category_translations: dict[str, str],
+    language_key_translations: dict[str, str],
+    new2019: dict[str, str],
+    new_2023: dict[str, str],
+) -> dict[str, str]:
     """
     Assemble a consolidated mapping of English keys to Arabic labels by merging multiple category and external translation sources.
 
@@ -673,7 +672,7 @@ def generate_key_mappings(
     """
     keys_of_with_in = open_json_file("population/keys_of_with_in.json") or {}
 
-    data: Dict[str, str] = build_pf_keys2(
+    data: dict[str, str] = build_pf_keys2(
         ART_MOVEMENTS,
         BASE_LABELS,
         ctl_data,

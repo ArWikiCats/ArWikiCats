@@ -4,7 +4,6 @@ jobs data
 
 from __future__ import annotations
 
-from typing import Dict, List
 
 from ..data_builders.build_jobs_data_basic import (
     _build_military_job_labels,
@@ -53,7 +52,7 @@ RELIGIOUS_KEYS_PP: GenderedLabelMap = {
     "saints": {"males": "قديسون", "females": "قديسات"},
 }
 
-NAT_BEFORE_OCC_BASE: List[str] = [
+NAT_BEFORE_OCC_BASE: list[str] = [
     "murdered abroad",
     "contemporary",
     "tour de france stage winners",
@@ -112,7 +111,7 @@ PAINTER_ROLE_LABELS: GenderedLabelMap = {
     "artists": {"males": "فنانون", "females": "فنانات"},
 }
 
-PAINTER_CATEGORY_LABELS: Dict[str, str] = {
+PAINTER_CATEGORY_LABELS: dict[str, str] = {
     "make-up": "مكياج",
     "comics": "قصص مصورة",
     "marvel comics": "مارفال كومكس",

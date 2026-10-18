@@ -5,7 +5,7 @@ Utilities for assembling singer-related gendered job labels.
 
 from __future__ import annotations
 
-from typing import Dict, Mapping
+from collections.abc import Mapping
 
 from ..data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 from ..helps import len_print
@@ -109,12 +109,12 @@ NON_FICTION_ADDITIONAL_TOPICS: Mapping[str, str] = {
 # ---------------------------------------------------------------------------
 # Aggregate data assembly
 
-SINGERS_TAB: Dict[str, str] = open_json_file("jobs/singers_tab.json") or {}
+SINGERS_TAB: dict[str, str] = open_json_file("jobs/singers_tab.json") or {}
 
-SINGER_CATEGORY_LABELS: Dict[str, str] = SINGERS_TAB
+SINGER_CATEGORY_LABELS: dict[str, str] = SINGERS_TAB
 """Complete mapping of singer categories combining static and JSON sources."""
 
-NON_FICTION_TOPICS: Dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
+NON_FICTION_TOPICS: dict[str, GenderedLabel] = dict(NON_FICTION_BASE_TOPICS)
 
 for topic_key, topic_label in NON_FICTION_ADDITIONAL_TOPICS.items():
     NON_FICTION_TOPICS[topic_key] = {"males": topic_label, "females": topic_label}

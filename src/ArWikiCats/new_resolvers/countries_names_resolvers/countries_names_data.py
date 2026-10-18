@@ -5,11 +5,10 @@ Arabic translations for categories involving country names and their
 geographic or political attributes.
 """
 
-from typing import Dict
 
 from ...helps import len_print
 
-formatted_data_of_no_in: Dict[str, str] = {
+formatted_data_of_no_in: dict[str, str] = {
     "governments": "حكومات",
     "history": "تاريخ",
     "secretaries": "وزراء",
@@ -18,7 +17,7 @@ formatted_data_of_no_in: Dict[str, str] = {
 }
 
 # NOTE: formatted_data_en_ar_only used in other resolver
-formatted_data_en_ar_only: Dict[str, str] = {
+formatted_data_en_ar_only: dict[str, str] = {
     "spies for {en}": "جواسيس لصالح {ar}",
     "world-war-i spies for {en}": "جواسيس الحرب العالمية الأولى لصالح {ar}",
     "world war i spies for {en}": "جواسيس الحرب العالمية الأولى لصالح {ar}",

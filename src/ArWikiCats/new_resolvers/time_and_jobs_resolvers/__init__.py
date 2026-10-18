@@ -6,7 +6,7 @@ This package provides specialized resolvers for categories like
 
 import functools
 import logging
-from typing import Callable
+from collections.abc import Callable
 
 from . import (
     year_job_origin_resolver,

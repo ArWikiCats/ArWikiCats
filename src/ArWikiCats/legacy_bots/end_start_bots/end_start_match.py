@@ -1,6 +1,6 @@
-from typing import Any, Dict
+from typing import Any
 
-footballers_get_endswith: Dict[str, Dict[str, Any]] = {
+footballers_get_endswith: dict[str, dict[str, Any]] = {
     " women's footballers": {
         "lab": "لاعبات {}",
         "remove": " women's footballers",
@@ -23,7 +23,7 @@ footballers_get_endswith: Dict[str, Dict[str, Any]] = {
     },
 }
 
-to_get_endswith: Dict[str, Dict[str, Any]] = {
+to_get_endswith: dict[str, dict[str, Any]] = {
     "squad navigational boxes": {
         "lab": "صناديق تصفح تشكيلات {}",
         "example": "Category:1996 Basketball Olympic squad navigational boxes",
@@ -87,7 +87,7 @@ to_get_endswith: Dict[str, Dict[str, Any]] = {
     },
 }
 
-to_get_startswith: Dict[str, Dict[str, Any]] = {
+to_get_startswith: dict[str, dict[str, Any]] = {
     "academic staff of": {
         "lab": "أعضاء هيئة تدريس {}",
         "example": "",

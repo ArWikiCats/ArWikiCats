@@ -13,7 +13,8 @@ via set_translate_callback() which is called by the resolvers factory.
 import functools
 import logging
 import re
-from typing import Callable, Optional, Pattern
+from re import Pattern
+from collections.abc import Callable
 
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS
@@ -49,7 +50,7 @@ _political_terms_pattern = re.compile(pattern_str, re.IGNORECASE)
 TranslateCallback = Callable[[str], str]
 
 # Module-level callback holder - set via set_translate_callback()
-_translate_callback: Optional[TranslateCallback] = None
+_translate_callback: TranslateCallback | None = None
 
 
 def set_translate_callback(callback: TranslateCallback) -> None:

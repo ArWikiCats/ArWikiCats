@@ -21,7 +21,6 @@ Example:
     'أفلام أكشن دراما بريطانية'
 """
 
-from typing import Dict, Optional
 
 from .classes import CountryBotConfig, GenreBotConfig
 from .DataModel import FormatData
@@ -30,8 +29,8 @@ from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 def format_films_country_data(
     country_config: CountryBotConfig,
-    genre_config: Optional[GenreBotConfig] = None,
-    data_to_find: Dict[str, str] | None = None,
+    genre_config: GenreBotConfig | None = None,
+    data_to_find: dict[str, str] | None = None,
 ) -> MultiDataFormatterDataDouble:
     """
     Create a MultiDataFormatterDataDouble for film category translations.

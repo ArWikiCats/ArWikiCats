@@ -5,7 +5,8 @@ This module provides functions to resolve categories by identifying suffixes
 """
 
 import logging
-from typing import Any, Callable, Dict, TypedDict
+from typing import Any, TypedDict
+from collections.abc import Callable
 
 logger = logging.getLogger(__name__)
 
@@ -58,7 +59,7 @@ def combine_value_and_label(
 
 def resolve_suffix_with_mapping_genders(
     category: str,
-    data: Dict[str, GenderedLabel],
+    data: dict[str, GenderedLabel],
     callback: Callable[..., Any],
     fix_result_callable: Callable[..., Any] | None = None,
     format_key: str = "",

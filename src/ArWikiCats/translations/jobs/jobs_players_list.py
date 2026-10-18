@@ -8,7 +8,7 @@ being easier to reason about and test.
 
 from __future__ import annotations
 
-from typing import Mapping
+from collections.abc import Mapping
 
 from ..data_builders.build_jobs_players_list import (
     _build_boxing_labels,

@@ -7,7 +7,8 @@ documenting the logic used to combine masculine and feminine labels.
 
 from __future__ import annotations
 
-from typing import Dict, Mapping, MutableMapping, TypedDict
+from typing import TypedDict
+from collections.abc import Mapping, MutableMapping
 
 
 class GenderedLabel(TypedDict):
@@ -17,7 +18,7 @@ class GenderedLabel(TypedDict):
     females: str
 
 
-GenderedLabelMap = Dict[str, GenderedLabel]
+GenderedLabelMap = dict[str, GenderedLabel]
 
 
 def combine_gender_labels(first_label: str, second_label: str) -> str:

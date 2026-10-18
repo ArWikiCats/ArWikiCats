@@ -7,7 +7,6 @@ from __future__ import annotations
 
 import functools
 import logging
-from typing import Dict
 
 from ...translations import COUNTRY_LABEL_OVERRIDES, raw_region_overrides
 from ...translations_formats import FormatData
@@ -17,11 +16,11 @@ from .countries_names_data import formatted_data_en_ar_only
 logger = logging.getLogger(__name__)
 
 
-def load_geo_data() -> Dict[str, str]:
+def load_geo_data() -> dict[str, str]:
     """Build and return the full translation pattern dict."""
     formatted_data_updated = dict(formatted_data_en_ar_only)
 
-    geo_keys: Dict[str, str] = {
+    geo_keys: dict[str, str] = {
         "sanaa": "صنعاء",
         "manitoba": "مانيتوبا",
         "bologna": "بولونيا",
@@ -29,7 +28,7 @@ def load_geo_data() -> Dict[str, str]:
         "west virginia": "فرجينيا الغربية",
     }
 
-    geo_data: Dict[str, str] = COUNTRY_LABEL_OVERRIDES | raw_region_overrides | geo_keys
+    geo_data: dict[str, str] = COUNTRY_LABEL_OVERRIDES | raw_region_overrides | geo_keys
 
     return formatted_data_updated, geo_data
 

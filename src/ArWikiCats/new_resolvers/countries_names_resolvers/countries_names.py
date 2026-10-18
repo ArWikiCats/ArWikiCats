@@ -9,7 +9,6 @@ countries_names_v2.py use countries names with nationalities
 
 import functools
 import logging
-from typing import Dict
 
 from ...translations import countries_from_nat
 from ...translations_formats import FormatData, MultiDataFormatterBase
@@ -28,7 +27,7 @@ ONLY_COUNTRY_NAMES = {
 }
 formatted_data_updated = dict(formatted_data_en_ar_only)
 formatted_data_updated.update(ONLY_COUNTRY_NAMES)
-countries_from_nat_data: Dict[str, str] = dict(countries_from_nat)
+countries_from_nat_data: dict[str, str] = dict(countries_from_nat)
 
 # TODO: COUNTRY_LABEL_OVERRIDES already used in geo_names_formats.py
 

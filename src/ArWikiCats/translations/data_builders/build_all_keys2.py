@@ -6,12 +6,11 @@ from __future__ import annotations
 
 import logging
 from collections.abc import Mapping
-from typing import Dict
 
 logger = logging.getLogger(__name__)
 
 
-def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
+def handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
     """
     Create entries by removing a leading "the " from keys when the trimmed key is not already present.
 
@@ -37,7 +36,7 @@ def handle_the_prefix(label_index: Dict[str, str]) -> Dict[str, str]:
     return new_keys
 
 
-def _build_of_variants(data, data_list, data_list2) -> Dict[str, str]:
+def _build_of_variants(data, data_list, data_list2) -> dict[str, str]:
     """
     Add English "of" variants for keys from the provided mappings and map them to corresponding Arabic labels.
 
@@ -68,7 +67,7 @@ def _build_of_variants(data, data_list, data_list2) -> Dict[str, str]:
     return data
 
 
-def _update_lowercase(data: Dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
+def _update_lowercase(data: dict[str, str], mapping: list[Mapping[str, str]], skip_existing: bool = False) -> None:
     """Populate ``data`` with lowercase keys from the provided mappings."""
 
     def check_skip_existing(key) -> bool:
@@ -88,12 +87,12 @@ def _update_lowercase(data: Dict[str, str], mapping: list[Mapping[str, str]], sk
 
 
 def _build_book_entries(
-    data: Dict[str, str],
-    singers_tab: Dict[str, str],
-    film_keys_for_female: Dict[str, str],
-    albums_type: Dict[str, str],
-    book_categories: Dict[str, str],
-    book_types: Dict[str, str],
+    data: dict[str, str],
+    singers_tab: dict[str, str],
+    film_keys_for_female: dict[str, str],
+    albums_type: dict[str, str],
+    book_categories: dict[str, str],
+    book_types: dict[str, str],
 ) -> None:
     """Add literature related entries, including film/tv variants."""
 
@@ -126,7 +125,7 @@ def _build_book_entries(
     return data
 
 
-def _build_weapon_entries(weapon_classifications, weapon_events) -> Dict[str, str]:
+def _build_weapon_entries(weapon_classifications, weapon_events) -> dict[str, str]:
     """Expand weapon classifications with related events."""
     data = {}
     for w_class, w_class_label in weapon_classifications.items():
@@ -136,7 +135,7 @@ def _build_weapon_entries(weapon_classifications, weapon_events) -> Dict[str, st
     return data
 
 
-def _build_direction_region_entries(directions, regions) -> Dict[str, str]:
+def _build_direction_region_entries(directions, regions) -> dict[str, str]:
     """Add entries that combine geographic directions with regions."""
     data = {}
     for direction_key, direction_label in directions.items():
@@ -225,7 +224,7 @@ def build_pf_keys2(
     weapon_classifications: dict[str, str],
     weapon_events: dict[str, str],
     word_after_years: dict[str, str],
-) -> Dict[str, str]:
+) -> dict[str, str]:
     """
     Constructs a consolidated mapping of English label keys to their translated labels.
 

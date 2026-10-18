@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import functools
 import logging
-from typing import Dict
 
 from ..translations import CITY_TRANSLATIONS_LOWER
 from ..translations_formats import FormatData
@@ -61,7 +60,7 @@ CITY_LOWER = {
 
 CITY_LOWER.update(CITY_TRANSLATIONS_LOWER)
 
-MAJORS: Dict[str, str] = {
+MAJORS: dict[str, str] = {
     "medical sciences": "للعلوم الطبية",
     "international university": "الدولية",
     "art": "للفنون",
@@ -90,7 +89,7 @@ MAJORS: Dict[str, str] = {
     "applied sciences": "للعلوم التطبيقية",
 }
 
-UNIVERSITIES_TABLES: Dict[str, str] = {
+UNIVERSITIES_TABLES: dict[str, str] = {
     "national maritime university": "جامعة {} الوطنية البحرية",
     "national university": "جامعة {} الوطنية",
 }

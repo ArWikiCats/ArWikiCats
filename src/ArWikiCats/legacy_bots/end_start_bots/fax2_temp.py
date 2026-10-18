@@ -1,8 +1,7 @@
 """ """
 
-from typing import Dict, Tuple
 
-dict_temps: Dict[str, str] = {
+dict_temps: dict[str, str] = {
     "templates": "قوالب {}",
     "squad templates": "قوالب تشكيلات {}",
 }
@@ -15,7 +14,7 @@ sorted_data = dict(
 )
 
 
-def get_templates_fo(category3: str) -> Tuple[str, str]:
+def get_templates_fo(category3: str) -> tuple[str, str]:
     """
     Examples:
         category3="Category:2016 American television infobox templates"

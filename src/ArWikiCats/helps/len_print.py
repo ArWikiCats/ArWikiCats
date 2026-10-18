@@ -11,7 +11,8 @@ import logging
 import os
 import sys
 from pathlib import Path
-from typing import Any, List, Mapping, Union
+from typing import Any
+from collections.abc import Mapping
 
 from humanize import naturalsize
 
@@ -26,7 +27,7 @@ def get_save_path() -> str:
     return save_data_path
 
 
-def format_size(key: str, value: int | float, lens: List[Union[str, Any]]) -> str:
+def format_size(key: str, value: int | float, lens: list[str | Any]) -> str:
     """Format byte sizes unless the key should remain numeric."""
     if key in lens:
         return value
