@@ -352,7 +352,7 @@ test_data = {
 @pytest.mark.fast
 def test_bys_new_or_and_by(category: str, expected: str, monkeypatch: pytest.MonkeyPatch) -> None:
     """Test all nat translation patterns."""
-    to_find_new = {
+    _to_find_new = {
         "by country of origin": "حسب البلد الأصل",
         "by year of entry into force": "حسب سنة دخولها حيز التنفيذ",
         "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",

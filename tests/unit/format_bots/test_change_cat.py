@@ -51,7 +51,7 @@ class TestChangeCatCenturyMillennium:
         """Should handle en-dash, em-dash, and regular hyphen."""
         result1 = change_cat("20th-century")
         result2 = change_cat("20th–century")
-        result3 = change_cat("20th—century")
+        _result3 = change_cat("20th—century")
         # All should normalize to space
         for result in [result1, result2]:
             assert " century" in result

@@ -26,7 +26,7 @@ def yc_bot() -> MultiDataFormatterDataDouble:
     }
 
     # film_keys_for_female
-    data_list2 = {
+    _data_list2 = {
         "action comedy": "حركة كوميدية",
         "action thriller": "إثارة حركة",
         "action": "حركة",

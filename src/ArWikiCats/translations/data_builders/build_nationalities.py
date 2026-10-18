@@ -79,7 +79,7 @@ def load_sources(
     Returns:
         Dict[str, NationalityEntry]: A normalized mapping where each key maps to a NationalityEntry with all fields present as strings. Entries whose `en` value matches an item in countries_en_as_nationality_keys will also be available under that English name (lowercased) as an alias.
     """
-    data_to_review = {
+    _data_to_review = {
         "people from jerusalem": {
             "male": "مقدسي",
             "males": "مقدسيون",

@@ -64,7 +64,7 @@ def _load_base_records(data) -> dict[str, SportKeyRecord]:
         logger.warning("Unexpected sports key payload type: %s", type(data))
         return records
 
-    multi_sport_key = {
+    _multi_sport_key = {
         "multi-sport": {
             "label": "رياضية متعددة",
             "team": "",
@@ -80,7 +80,7 @@ def _load_base_records(data) -> dict[str, SportKeyRecord]:
         },
     }
     # data.update(multi_sport_key)
-    sports_key = {
+    _sports_key = {
         "sports": {
             "label": "رياضات",
             "team": "للرياضات",
