@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_utils import (
+from src.ArWikiCats.legacy_bots.legacy_utils import (
     split_text_by_separator,
 )
 

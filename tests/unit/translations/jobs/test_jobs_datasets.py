@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ArWikiCats.translations.jobs import (
+from src.ArWikiCats.translations.jobs import (
     JOBS_2,
     JOBS_3333,
     NAT_BEFORE_OCC,

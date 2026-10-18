@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_v2 import resolve_by_countries_names_v2
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_v2 import resolve_by_countries_names_v2
 
 test_army_data_1 = {
     "Unmanned military aircraft of Belgium": "طائرات عسكرية بدون طيار بلجيكية",

@@ -4,7 +4,7 @@ Unit tests for common_resolver_chain module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.common_resolver_chain import (
+from src.ArWikiCats.legacy_bots.common_resolver_chain import (
     _lookup_country_with_in_prefix,
     con_lookup_both,
     get_con_label,

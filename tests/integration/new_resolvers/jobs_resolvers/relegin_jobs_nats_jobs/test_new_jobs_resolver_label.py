@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from src.ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 
 main_data = {
     "new zealand emigrants": "نيوزيلنديون مهاجرون",

@@ -5,7 +5,7 @@ Integration tests
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatDataDouble
+from src.ArWikiCats.translations_formats import FormatDataDouble
 
 
 @pytest.fixture

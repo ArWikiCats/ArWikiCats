@@ -4,7 +4,7 @@ Unit tests for country_resolver module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.country_resolver import (
+from src.ArWikiCats.legacy_bots.resolvers.country_resolver import (
     CountryLabelRetriever,
     Get_country2,
     _get_fallback_label,
@@ -24,7 +24,7 @@ from ArWikiCats.legacy_bots.resolvers.country_resolver import (
 @pytest.fixture
 def fallback_resolver_fixture():
     """Fixture to save and restore fallback resolver state."""
-    from ArWikiCats.legacy_bots.resolvers import country_resolver
+    from src.ArWikiCats.legacy_bots.resolvers import country_resolver
 
     original = country_resolver._fallback_resolver
     yield country_resolver

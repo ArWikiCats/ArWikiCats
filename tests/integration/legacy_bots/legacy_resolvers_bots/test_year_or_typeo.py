@@ -4,7 +4,7 @@ TODO: Add test data for year or typeo resolver.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 
 data_1 = {}
 

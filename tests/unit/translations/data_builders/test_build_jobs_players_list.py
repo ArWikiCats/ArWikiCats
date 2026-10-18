@@ -1,6 +1,6 @@
 """Tests for build_jobs_players_list.py gendered player label utilities."""
 
-from ArWikiCats.translations.data_builders.build_jobs_players_list import (
+from src.ArWikiCats.translations.data_builders.build_jobs_players_list import (
     GenderedLabelMap,
     _build_boxing_labels,
     _build_general_scope_labels,
@@ -10,7 +10,7 @@ from ArWikiCats.translations.data_builders.build_jobs_players_list import (
     _build_team_sport_labels,
     _merge_maps,
 )
-from ArWikiCats.translations.data_builders.jobs_defs import combine_gender_labels
+from src.ArWikiCats.translations.data_builders.jobs_defs import combine_gender_labels
 
 
 class TestBuildBoxingLabels:

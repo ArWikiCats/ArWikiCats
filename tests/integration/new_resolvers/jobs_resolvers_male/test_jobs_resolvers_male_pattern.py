@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers_male.mens import males_resolver_labels
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male.mens import males_resolver_labels
 from utils.dump_runner import make_dump_test_name_data_callback
 
 male_test_data = {

@@ -6,7 +6,7 @@ from typing import Callable
 
 import pytest
 
-from ArWikiCats import resolve_arabic_category_label
+from src.ArWikiCats import resolve_arabic_category_label
 from utils.resolver_runner import make_resolver_test
 
 diff_data_path = Path(__file__).parent / "diff_data"

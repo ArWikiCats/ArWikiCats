@@ -7,8 +7,8 @@ and edge cases.
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers import arabic_label_builder
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import (
+from src.ArWikiCats.legacy_bots.resolvers import arabic_label_builder
+from src.ArWikiCats.legacy_bots.resolvers.arabic_label_builder import (
     _handle_at_separator,
     _handle_in_separator,
     _should_add_min_for_from_separator,

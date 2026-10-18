@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.legacy_bots.make_bots.check_bot import check_key_new_players
+from src.ArWikiCats.legacy_bots.make_bots.check_bot import check_key_new_players
 
 
 @pytest.mark.fast

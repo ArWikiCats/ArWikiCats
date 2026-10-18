@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from ArWikiCats.translations.sports import _helpers, cycling
+from src.ArWikiCats.translations.sports import cycling
+from src.ArWikiCats.translations.sports import _helpers
 
 
 def test_extend_with_templates_preserves_positional_placeholders() -> None:

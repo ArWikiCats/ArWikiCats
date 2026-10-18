@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
+from src.ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
 from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data_ar = {

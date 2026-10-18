@@ -1,6 +1,6 @@
 """Tests for build_nationalities.py nationality translation utilities."""
 
-from ArWikiCats.translations.data_builders.build_nationalities import (
+from src.ArWikiCats.translations.data_builders.build_nationalities import (
     AllNatDict,
     build_american_forms,
     build_en_nat_entries,

@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
+from src.ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 
 examples_labels = {
     "jujutsu racing non-playing staff": "طاقم سباق جوجوتسو غير اللاعبين",

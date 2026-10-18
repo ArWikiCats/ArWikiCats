@@ -4,7 +4,7 @@ Unit tests for year_or_typeo module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.year_or_typeo import (
     LabelForStartWithYearOrTypeo,
     label_for_startwith_year_or_typeo,
 )

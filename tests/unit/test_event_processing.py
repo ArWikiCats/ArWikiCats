@@ -2,7 +2,7 @@
 Unit tests for the event_processing module.
 """
 
-from ArWikiCats.event_processing import (
+from src.ArWikiCats.event_processing import (
     LABEL_PREFIX,
     EventProcessingResult,
     EventProcessor,

@@ -4,7 +4,7 @@ Unit tests for jobs_and_genders_resolver module.
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import (
+from src.ArWikiCats.new_resolvers.genders_resolvers.jobs_and_genders_resolver import (
     genders_jobs_resolver,
     generate_formatted_data,
     generate_jobs_data_dict,

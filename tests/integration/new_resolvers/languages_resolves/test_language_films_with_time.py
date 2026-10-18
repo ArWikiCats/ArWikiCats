@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels_with_time
+from src.ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels_with_time
 
 test_data_0 = {
     "2010s French language manga": "مانغا باللغة الفرنسية في عقد 2010",

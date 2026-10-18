@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 list_data_0 = {
     "Bahrain AFC Asian Cup squad navigational boxes": "صناديق تصفح تشكيلات البحرين في كأس آسيا",

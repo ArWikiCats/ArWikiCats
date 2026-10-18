@@ -4,7 +4,7 @@ Unit tests for the filter_en module.
 
 import pytest
 
-from ArWikiCats.fix.filter_en import CATEGORY_BLACKLIST, CATEGORY_PREFIX_BLACKLIST, MONTH_NAMES, is_category_allowed
+from src.ArWikiCats.fix.filter_en import CATEGORY_BLACKLIST, CATEGORY_PREFIX_BLACKLIST, MONTH_NAMES, is_category_allowed
 
 
 class TestFilterCatBlacklist:

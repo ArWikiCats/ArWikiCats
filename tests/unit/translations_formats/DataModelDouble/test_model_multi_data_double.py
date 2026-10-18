@@ -6,12 +6,12 @@ This module provides tests for MultiDataFormatterDataDouble class
 which combines FormatData with FormatDataDouble for double-key category translations.
 """
 
-from ArWikiCats.translations_formats.DataModel import FormatData
-from ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble
-from ArWikiCats.translations_formats.DataModelDouble.model_multi_data_double import (
+from src.ArWikiCats.translations_formats.DataModel import FormatData
+from src.ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble
+from src.ArWikiCats.translations_formats.DataModelDouble.model_multi_data_double import (
     MultiDataFormatterDataDouble,
 )
-from ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
+from src.ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
 
 
 class TestMultiDataFormatterDataDouble:

@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
+from src.ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
 
 jobs_data_only = {
     "defunct national football teams": "منتخبات كرة قدم وطنية سابقة",

@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats.translations.geo.us_counties import (
+from src.ArWikiCats.translations.geo.us_counties import (
     USA_PARTY_LABELS,
     _build_party_derived_keys,
 )

@@ -7,7 +7,7 @@ from typing import Callable
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import resolve_by_countries_names
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.countries_names import resolve_by_countries_names
 
 political_data_v1 = {
     "Spies for China": "جواسيس لصالح الصين",

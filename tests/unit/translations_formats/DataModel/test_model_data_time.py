@@ -6,7 +6,7 @@ This module provides tests for:
 2. YearFormatData factory function - preferred way to create year formatters
 """
 
-from ArWikiCats.translations_formats.DataModel.model_data_time import (
+from src.ArWikiCats.translations_formats.DataModel.model_data_time import (
     YearFormatData,
 )
 
@@ -190,7 +190,7 @@ class TestYearFormatDataLegacyReplaceValuePlaceholder:
 
     def test_replace_value_placeholder_standardize_time(self):
         """Test replace_value_placeholder standardizes time phrases."""
-        from ArWikiCats.time_formats.utils_time import standardize_time_phrases
+        from src.ArWikiCats.time_formats.utils_time import standardize_time_phrases
 
         bot = YearFormatData(
             key_placeholder="{year1}",
@@ -346,7 +346,7 @@ class TestYearFormatDataFactory:
 
     def test_year_format_data_returns_format_data_from(self):
         """Test YearFormatData returns a FormatDataFrom instance."""
-        from ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from import (
+        from src.ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from import (
             FormatDataFrom,
         )
 

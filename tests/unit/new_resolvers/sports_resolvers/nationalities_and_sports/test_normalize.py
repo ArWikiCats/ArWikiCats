@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import _load_bot
+from src.ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import _load_bot
 
 data = {
     "100 metres in the african championships in athletics": "100 metres in {en} championships in {en_sport}",

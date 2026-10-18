@@ -4,7 +4,7 @@ Unit tests for event_lab_bot module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import (
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import (
     ARABIC_CATEGORY_PREFIX,
     CATEGORY_PEOPLE,
     CATEGORY_SPORTS_EVENTS,

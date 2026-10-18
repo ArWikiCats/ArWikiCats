@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.country_nat_pattern import resolve_country_nat_pattern
+from src.ArWikiCats.patterns_resolvers.country_nat_pattern import resolve_country_nat_pattern
 from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data_1 = {

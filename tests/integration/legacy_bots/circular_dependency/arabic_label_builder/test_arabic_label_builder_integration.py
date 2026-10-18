@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
+from src.ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 
 data_list2 = [
     ("paralympic competitors for cyprus", " for ", "منافسون بارالمبيون من قبرص"),

@@ -4,7 +4,7 @@ Tests for COUNTRY_YEAR_DATA
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 test_data = {
     "14th-century lords of Monaco": "لوردات موناكو في القرن 14",

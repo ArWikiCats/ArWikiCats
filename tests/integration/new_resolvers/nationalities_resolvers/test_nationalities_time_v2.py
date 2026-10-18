@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_time_v2 import resolve_nats_time_v2
+from src.ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_time_v2 import resolve_nats_time_v2
 
 test_data = {
     "10th-century Christian texts": "نصوص مسيحية في القرن 10",

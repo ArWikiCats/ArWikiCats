@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.sub_new_resolvers.peoples_resolver import work_peoples
+from src.ArWikiCats.sub_new_resolvers.peoples_resolver import work_peoples
 
 fast_data = {
     "adele video albums": "ألبومات فيديو أديل",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
+from src.ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 from utils.dump_runner import make_dump_test_name_data_callback
 
 fast_data_with_nat0 = {

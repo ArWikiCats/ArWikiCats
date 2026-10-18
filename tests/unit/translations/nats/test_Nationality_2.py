@@ -1,6 +1,6 @@
 from typing import Dict
 
-from ArWikiCats.translations.nats.Nationality import (
+from src.ArWikiCats.translations.nats.Nationality import (
     All_Nat,
     NationalityEntry,
     build_american_forms,

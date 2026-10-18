@@ -4,7 +4,7 @@ tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
+from src.ArWikiCats.new_resolvers.relations_resolver.nationalities_double_v2 import resolve_by_nats_double_v2
 from utils.dump_runner import make_dump_test_name_data_callback
 
 males_tests = {

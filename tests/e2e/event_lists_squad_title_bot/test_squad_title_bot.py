@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 get_squad_title_data = {
     "1970 fiba women's basketball world cup": "كأس العالم لكرة السلة للسيدات 1970",

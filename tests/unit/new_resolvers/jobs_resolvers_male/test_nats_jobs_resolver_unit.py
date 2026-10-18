@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers_male import resolve_nats_jobs_for_males
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male import resolve_nats_jobs_for_males
 
 data_without_nats = {
     "painters male muslims": "رسامون ذكور مسلمون",

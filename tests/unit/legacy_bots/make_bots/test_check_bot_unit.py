@@ -4,7 +4,7 @@ Unit tests for check_bot module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.make_bots.check_bot import (
+from src.ArWikiCats.legacy_bots.make_bots.check_bot import (
     add_key_new_players,
     check_key_in_tables,
     check_key_new_players,
@@ -124,7 +124,7 @@ class TestCheckKeyNewPlayersN:
 @pytest.fixture
 def players_new_keys_fixture():
     """Fixture to provide access to players_new_keys and clean up test keys."""
-    from ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
+    from src.ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
 
     test_keys_added = []
     yield players_new_keys, test_keys_added
@@ -187,8 +187,8 @@ class TestSetTables:
 
     def test_set_tables_contains_expected_tables(self) -> None:
         """set_tables should contain expected tables."""
-        from ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
-        from ArWikiCats.translations import Jobs_new, jobs_mens_data
+        from src.ArWikiCats.legacy_bots.make_bots.bot import players_new_keys
+        from src.ArWikiCats.translations import Jobs_new, jobs_mens_data
 
         assert players_new_keys in set_tables
         assert Jobs_new in set_tables

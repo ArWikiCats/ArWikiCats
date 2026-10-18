@@ -2,12 +2,12 @@
 
 from collections.abc import Iterable
 
-from ArWikiCats.translations.data_builders.build_jobs_data_basic import (
+from src.ArWikiCats.translations.data_builders.build_jobs_data_basic import (
     _build_military_job_labels,
     _build_painter_job_labels,
     _build_religious_job_labels,
 )
-from ArWikiCats.translations.data_builders.jobs_defs import GenderedLabelMap
+from src.ArWikiCats.translations.data_builders.jobs_defs import GenderedLabelMap
 
 
 class TestBuildReligiousJobLabels:

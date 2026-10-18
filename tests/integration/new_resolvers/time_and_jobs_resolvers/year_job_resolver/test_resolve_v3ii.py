@@ -3,9 +3,9 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
-from ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
-from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_resolver import resolve_year_job_countries
+from src.ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male import main_jobs_resolvers_for_males
+from src.ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_resolver import resolve_year_job_countries
 
 test_data = {
     "18th-century princes": "أمراء في القرن 18",

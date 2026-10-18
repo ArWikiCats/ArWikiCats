@@ -4,7 +4,7 @@ Unit tests for joint_class module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_utils.joint_class import CountryLabelAndTermParent
+from src.ArWikiCats.legacy_bots.legacy_utils.joint_class import CountryLabelAndTermParent
 
 # ---------------------------------------------------------------------------
 # Tests for CountryLabelAndTermParent class

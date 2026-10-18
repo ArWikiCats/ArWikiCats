@@ -3,8 +3,8 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
-from ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
+from src.ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
 
 
 def wrap_new_religions_jobs_with_suffix(category):

@@ -1,4 +1,4 @@
-from ArWikiCats.translations.nats.Nationality import (
+from src.ArWikiCats.translations.nats.Nationality import (
     build_american_forms,
     build_lookup_tables,
     normalize_aliases,

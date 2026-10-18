@@ -1,6 +1,6 @@
 """Pytest to validate all title lists using fixlabel()."""
 
-from ArWikiCats.fix.fixtitle import fixlabel
+from src.ArWikiCats.fix.fixtitle import fixlabel
 
 
 def load_test_fixlab_data(data: dict) -> None:

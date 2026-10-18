@@ -7,7 +7,7 @@ double-key template-driven category translations where data_list values
 can be dictionaries.
 """
 
-from ArWikiCats.translations_formats.DataModelDouble.model_data_double_v2 import (
+from src.ArWikiCats.translations_formats.DataModelDouble.model_data_double_v2 import (
     FormatDataDoubleV2,
 )
 

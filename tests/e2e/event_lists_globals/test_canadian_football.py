@@ -5,7 +5,7 @@
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
 
 data4 = {

@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.fix.mv_years import move_by_in, move_years_first
+from src.ArWikiCats.fix.mv_years import move_by_in, move_years_first
 from utils.dump_runner import make_dump_test_name_data_callback
 
 move_years_first_data = {

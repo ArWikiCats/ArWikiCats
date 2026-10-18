@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import get_by_label
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.bys import get_by_label
 from utils.dump_runner import make_dump_test_name_data_callback
 
 by_label_data = {

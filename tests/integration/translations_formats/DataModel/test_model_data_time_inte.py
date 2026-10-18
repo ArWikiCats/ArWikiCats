@@ -7,7 +7,7 @@ which creates formatters for year, decade, and century patterns.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel.model_data_time import (
+from src.ArWikiCats.translations_formats.DataModel.model_data_time import (
     YearFormatData,
 )
 

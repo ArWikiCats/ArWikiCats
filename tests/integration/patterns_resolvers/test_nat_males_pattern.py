@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.nat_males_pattern import resolve_nat_males_pattern
+from src.ArWikiCats.patterns_resolvers.nat_males_pattern import resolve_nat_males_pattern
 from utils.dump_runner import make_dump_test_name_data_callback
 
 _mens_data_old = {

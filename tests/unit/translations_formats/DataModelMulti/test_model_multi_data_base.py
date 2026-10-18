@@ -6,7 +6,7 @@ This module provides tests for NormalizeResult dataclass which stores
 the results of category normalization.
 """
 
-from ArWikiCats.translations_formats.DataModelMulti.model_multi_data_base import (
+from src.ArWikiCats.translations_formats.DataModelMulti.model_multi_data_base import (
     MultiDataFormatterBaseHelpers,
     NormalizeResult,
 )

@@ -6,7 +6,7 @@ from typing import Iterable
 
 import pytest
 
-from ArWikiCats.translations.mixed.key_registry import KeyRegistry
+from src.ArWikiCats.translations.mixed.key_registry import KeyRegistry
 
 
 class DummyIterable(Iterable[tuple[str, str]]):

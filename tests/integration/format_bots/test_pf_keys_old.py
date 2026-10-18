@@ -2,7 +2,7 @@
 
 import pytest
 
-from ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements
+from src.ArWikiCats.format_bots.pf_keys import change_key_mappings_replacements
 
 data0_skip = {
     "category:canadian football players in edmonton": "category:canadian-football players in edmonton",

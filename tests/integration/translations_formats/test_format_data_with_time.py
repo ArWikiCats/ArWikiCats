@@ -3,8 +3,8 @@
 
 import pytest
 
-from ArWikiCats.translations import all_country_ar
-from ArWikiCats.translations_formats import (
+from src.ArWikiCats.translations import all_country_ar
+from src.ArWikiCats.translations_formats import (
     MultiDataFormatterBaseYear,
     YearCountryDataConfig,
     YearDataConfig,

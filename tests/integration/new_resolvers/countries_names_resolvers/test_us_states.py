@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
     resolve_us_states,
 )
 from utils.dump_runner import make_dump_test_name_data_callback

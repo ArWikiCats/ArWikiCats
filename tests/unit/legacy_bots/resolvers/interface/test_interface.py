@@ -4,7 +4,7 @@ Unit tests for interface module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.interface import (
+from src.ArWikiCats.legacy_bots.resolvers.interface import (
     ArabicLabelBuilder,
     CategoryResolver,
     CountryLabelResolver,

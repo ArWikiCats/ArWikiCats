@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
-from ArWikiCats.new_resolvers.nationalities_resolvers import main_nationalities_resolvers
-from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
+from src.ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from src.ArWikiCats.new_resolvers.nationalities_resolvers import main_nationalities_resolvers
+from src.ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 
 countries_en_as_nationality_keys = [
     "antigua and barbuda",

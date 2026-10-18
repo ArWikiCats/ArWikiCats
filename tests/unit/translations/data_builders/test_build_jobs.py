@@ -2,7 +2,7 @@
 
 from collections.abc import Mapping
 
-from ArWikiCats.translations.data_builders.build_jobs import (
+from src.ArWikiCats.translations.data_builders.build_jobs import (
     JobsDataset,
     _add_cycling_variants,
     _add_film_variants,
@@ -18,7 +18,7 @@ from ArWikiCats.translations.data_builders.build_jobs import (
     _load_activist_jobs,
     _merge_jobs_sources,
 )
-from ArWikiCats.translations.data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
+from src.ArWikiCats.translations.data_builders.jobs_defs import GenderedLabel, GenderedLabelMap
 
 
 class TestBuildJobs2020:

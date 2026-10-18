@@ -4,7 +4,7 @@ Unit tests for sports_and_genders_resolver module.
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import (
+from src.ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import (
     genders_sports_resolver,
     generate_sports_data_dict,
 )

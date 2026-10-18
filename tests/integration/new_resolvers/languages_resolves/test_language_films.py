@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
+from src.ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
 from utils.dump_runner import make_dump_test_name_data
 
 test_data_skip = {

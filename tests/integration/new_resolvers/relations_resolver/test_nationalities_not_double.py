@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.relations_resolver.nationalities_not_double import (
+from src.ArWikiCats.new_resolvers.relations_resolver.nationalities_not_double import (
     two_nationalities_but_not_double_resolver,
 )
 

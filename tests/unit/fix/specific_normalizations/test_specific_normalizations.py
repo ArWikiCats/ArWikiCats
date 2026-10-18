@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.fix.specific_normalizations import (
+from src.ArWikiCats.fix.specific_normalizations import (
     apply_category_specific_normalizations,
     fix_formula,
 )

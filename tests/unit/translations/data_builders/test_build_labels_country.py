@@ -2,7 +2,7 @@
 
 from collections.abc import MutableMapping
 
-from ArWikiCats.translations.data_builders.build_labels_country import (
+from src.ArWikiCats.translations.data_builders.build_labels_country import (
     _build_country_label_index,
     _handle_the_prefix,
     _make_japan_labels,

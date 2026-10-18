@@ -6,8 +6,8 @@ This module provides tests for:
 2. MultiDataFormatterBaseV2 class - combines two FormatDataV2 instances
 """
 
-from ArWikiCats.translations_formats.DataModel import FormatDataV2
-from ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseV2
+from src.ArWikiCats.translations_formats.DataModel import FormatDataV2
+from src.ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseV2
 
 
 class TestMultiDataFormatterBaseV2Init:

@@ -3,8 +3,8 @@ from typing import Dict
 
 import pytest
 
-from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
-from ArWikiCats.translations_formats import FormatData
+from src.ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
+from src.ArWikiCats.translations_formats import FormatData
 
 # --- Fixtures ---------------------------------------------------------
 

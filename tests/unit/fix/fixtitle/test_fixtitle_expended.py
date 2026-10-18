@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.fix.fixtitle import (
+from src.ArWikiCats.fix.fixtitle import (
     _apply_basic_normalizations,
     _apply_prefix_replacements,
     _apply_regex_replacements,

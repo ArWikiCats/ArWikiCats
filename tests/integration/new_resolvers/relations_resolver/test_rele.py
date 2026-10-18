@@ -1,4 +1,4 @@
-from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
+from src.ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 # ======================
 # Basic tests

@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
-from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
+from src.ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
 data_0 = {
     "animated television films": "أفلام تلفزيونية رسوم متحركة",

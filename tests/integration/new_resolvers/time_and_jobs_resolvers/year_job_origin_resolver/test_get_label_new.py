@@ -2,8 +2,8 @@
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
-from ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_label_new
+from src.ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from src.ArWikiCats.new_resolvers.time_and_jobs_resolvers.year_job_origin_resolver import get_label_new
 
 r"""
 Integration tests for the get_label_new function.

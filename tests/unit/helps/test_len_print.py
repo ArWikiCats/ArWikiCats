@@ -4,7 +4,7 @@ Unit tests for the helps.len_print module.
 
 from unittest.mock import MagicMock, mock_open, patch
 
-from ArWikiCats.helps.len_print import all_len, data_len, dump_all_len, format_size, save_data
+from src.ArWikiCats.helps.len_print import all_len, data_len, dump_all_len, format_size, save_data
 
 
 class TestFormatSize:

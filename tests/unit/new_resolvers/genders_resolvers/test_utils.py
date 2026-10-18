@@ -4,7 +4,7 @@ Unit tests for genders_resolvers utils module.
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.utils import (
+from src.ArWikiCats.new_resolvers.genders_resolvers.utils import (
     REGEX_MENS,
     REGEX_WOMENS,
     fix_keys,

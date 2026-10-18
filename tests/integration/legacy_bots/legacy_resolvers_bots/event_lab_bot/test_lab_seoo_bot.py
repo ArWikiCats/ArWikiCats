@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_label_work
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_label_work
 from utils.dump_runner import make_dump_test_name_data
 
 event_Lab_seoo_data = {

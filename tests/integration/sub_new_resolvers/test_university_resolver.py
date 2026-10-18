@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.sub_new_resolvers.university_resolver import resolve_university_category
+from src.ArWikiCats.sub_new_resolvers.university_resolver import resolve_university_category
 
 resolve_university_category_data = {
     "seoul national university": "جامعة سول الوطنية",

@@ -4,7 +4,7 @@ Tests for bys_new bot
 
 from __future__ import annotations
 
-from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
+from src.ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 from utils.dump_runner import make_dump_test_name_data
 
 _by_and_fields = {

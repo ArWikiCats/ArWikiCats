@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.translations.funcs import get_and_label
+from src.ArWikiCats.translations.funcs import get_and_label
 
 integration_data = {
     "Hong Kong and Macao": "هونغ كونغ وماكاو",

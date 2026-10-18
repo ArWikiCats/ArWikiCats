@@ -5,7 +5,7 @@ from pathlib import Path
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from src.ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 logger = logging.getLogger("ArWikiCats")
 logger.setLevel("DEBUG")

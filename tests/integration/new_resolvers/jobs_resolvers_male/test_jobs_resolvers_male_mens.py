@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers_male import males_resolver_labels
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male import males_resolver_labels
 
 test_data2 = {
     "Category:Turkish expatriate sports-people": "تصنيف:رياضيون أتراك مغتربون",

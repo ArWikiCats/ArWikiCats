@@ -1,7 +1,7 @@
 # test_convert_time_to_arabic.py
 import pytest
 
-from ArWikiCats.time_formats.time_to_arabic import match_en_return_ar
+from src.ArWikiCats.time_formats.time_to_arabic import match_en_return_ar
 
 en_return_ar = {
     "Category:2020s in Yemen": {"2020s": "عقد 2020"},

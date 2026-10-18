@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
-from ArWikiCats.new_resolvers.languages_resolves.resolve_languages import add_definite_article
-from ArWikiCats.translations import language_key_translations
+from src.ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
+from src.ArWikiCats.new_resolvers.languages_resolves.resolve_languages import add_definite_article
+from src.ArWikiCats.translations import language_key_translations
 
 languages_key_subset = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:15]}
 

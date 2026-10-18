@@ -3,7 +3,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data = {
     "2020 in wheelchair basketball": "كرة السلة على الكراسي المتحركة في 2020",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
+from src.ArWikiCats.new_resolvers.jobs_resolvers import main_jobs_resolvers
 
 te4_2018_jobs_data = {
     "egyptian sport shooters": "لاعبو رماية مصريون",
