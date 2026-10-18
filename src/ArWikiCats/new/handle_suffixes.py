@@ -5,7 +5,7 @@ This module provides functions to resolve categories by identifying suffixes
 """
 
 import logging
-from typing import Dict, TypedDict
+from typing import Any, Callable, Dict, TypedDict
 
 logger = logging.getLogger(__name__)
 
@@ -59,8 +59,8 @@ def combine_value_and_label(
 def resolve_suffix_with_mapping_genders(
     category: str,
     data: Dict[str, GenderedLabel],
-    callback: callable,
-    fix_result_callable: callable = None,
+    callback: Callable[..., Any],
+    fix_result_callable: Callable[..., Any] | None = None,
     format_key: str = "",
 ) -> str:
     """Resolves a category label by finding a matching suffix with gender-specific translations.
@@ -108,8 +108,8 @@ def resolve_suffix_with_mapping_genders(
 def resolve_sport_category_suffix_with_mapping(
     category: str,
     data: dict[str, str],
-    callback: callable,
-    fix_result_callable: callable = None,
+    callback: Callable,
+    fix_result_callable: Callable | None = None,
     format_key: str = "",
 ) -> str:
     """."""

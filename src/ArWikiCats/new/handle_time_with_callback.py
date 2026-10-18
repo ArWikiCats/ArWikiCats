@@ -33,7 +33,7 @@ def fix_keys(category: str) -> str:
 @functools.lru_cache(maxsize=10000)
 def handle_year_at_first(
     category: str,
-    callback: Optional[Callable] = None,
+    callback: None | Callable = None,
     result_format: str = "{sub_result} في {arabic_time}",
 ) -> str:
     logger.debug(f"<<yellow>> start {category=}")

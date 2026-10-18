@@ -1,4 +1,6 @@
 #
+from typing import Callable
+
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test
 
@@ -78,7 +80,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data,callback", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_all_dump(name: str, data: dict[str, str], callback: callable) -> None:
+def test_all_dump(name: str, data: dict[str, str], callback: Callable) -> None:
     expected, diff_result = one_dump_test(data, callback)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)

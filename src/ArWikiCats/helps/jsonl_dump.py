@@ -9,6 +9,7 @@ import functools
 import inspect
 import json
 from pathlib import Path
+from typing import Any, Callable
 
 import jsonlines
 
@@ -32,7 +33,11 @@ def save(path: Path | str, data: dict | list) -> str:
 already_saved = {}
 
 
-def dump_data(enable: bool = False, input_keys: list = None, compare_with_output: str = ""):
+def dump_data(
+    enable: bool = False,
+    input_keys: list | None = None,
+    compare_with_output: str = "",
+) -> Callable[..., Any]:
     """
     Decorator to save function inputs and output into a JSONL file.
 
@@ -40,7 +45,7 @@ def dump_data(enable: bool = False, input_keys: list = None, compare_with_output
     Only saves unique data entries (no duplicates).
     """
 
-    def decorator(func: callable) -> callable:
+    def decorator(func: Callable[..., Any]) -> Callable[..., Any]:
         """Wrap a function so its inputs and outputs are written to JSONL."""
 
         @functools.wraps(func)

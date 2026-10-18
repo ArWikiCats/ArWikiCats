@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class CountryLabelAndTermParent:
     """ """
 
-    def __init__(self, _resolve_callable: Callable = None) -> None:
+    def __init__(self, _resolve_callable: Callable | None = None) -> None:
         """
         Initialize the CountryLabelAndTermParent.
 

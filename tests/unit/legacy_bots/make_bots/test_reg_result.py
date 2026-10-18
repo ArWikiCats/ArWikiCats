@@ -114,7 +114,7 @@ class TestMonthSuppression:
 # -----------------------------------------------------------
 
 
-class TestBCE_BC:
+class TestBceBc:
     @pytest.mark.parametrize(
         "category,expected",
         [

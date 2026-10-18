@@ -2,14 +2,21 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from typing import Callable
 
 import pytest
 
 ToTest = Iterable[tuple[str, dict[str, str]]]
-ToTestCallback = Iterable[tuple[str, dict[str, str], callable]]
+ToTestCallback = Iterable[tuple[str, dict[str, str], Callable]]
 
 
-def _run_dump_case(name: str, data: dict[str, str], callback: callable, run_same=False, just_dump=False) -> None:
+def _run_dump_case(
+    name: str,
+    data: dict[str, str],
+    callback: Callable,
+    run_same=False,
+    just_dump=False,
+) -> None:
     """
     Common dump test logic shared across many test files.
     """
