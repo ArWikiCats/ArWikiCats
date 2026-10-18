@@ -8,7 +8,7 @@ import functools
 import logging
 
 from ..worker import run_resolvers
-from .....ArWikiCats.new_resolvers.jobs_resolvers import mens, relegin_jobs_new, womens
+from . import mens, relegin_jobs_new, womens
 
 logger = logging.getLogger(__name__)
 

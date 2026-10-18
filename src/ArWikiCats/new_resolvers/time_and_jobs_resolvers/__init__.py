@@ -8,7 +8,7 @@ import functools
 import logging
 from typing import Callable
 
-from .....ArWikiCats.new_resolvers.time_and_jobs_resolvers import (
+from . import (
     year_job_origin_resolver,
     year_job_resolver,
 )

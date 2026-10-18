@@ -2,7 +2,7 @@ import functools
 import logging
 
 from ..worker import run_resolvers
-from .....ArWikiCats.new_resolvers.countries_names_with_sports import (
+from . import (
     p17_bot_sport,
     p17_sport_to_move_under,
 )

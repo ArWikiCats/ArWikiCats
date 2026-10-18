@@ -8,7 +8,7 @@ import functools
 import logging
 
 from ..worker import run_resolvers
-from .....ArWikiCats.new_resolvers.sports_resolvers import (
+from . import (
     countries_names_and_sports,
     jobs_multi_sports_reslover,
     nationalities_and_sports,

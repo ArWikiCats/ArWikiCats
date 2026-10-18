@@ -8,7 +8,7 @@ import functools
 import logging
 
 from ..worker import run_resolvers
-from .....ArWikiCats.new_resolvers.countries_names_resolvers import (  # countries_names_double_v2,
+from . import (  # countries_names_double_v2,
     countries_names,
     countries_names_v2,
     geo_names_formats,

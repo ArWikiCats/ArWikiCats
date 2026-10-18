@@ -8,7 +8,7 @@ import functools
 import logging
 
 from ..worker import run_resolvers
-from .....ArWikiCats.new_resolvers.nationalities_resolvers import (
+from . import (
     ministers_resolver,
     nationalities_time_v2,
     nationalities_v2,

@@ -1,4 +1,4 @@
-from .....ArWikiCats.translations.data_builders import (
+from . import (
     build_all_keys2,
     build_films_mslslat,
     build_jobs,

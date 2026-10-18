@@ -7,7 +7,7 @@ and translate categories with structured temporal or nationality components.
 import functools
 import logging
 
-from ....ArWikiCats.patterns_resolvers import (
+from . import (
     country_nat_pattern,
     country_time_pattern,
     nat_males_pattern,

@@ -10,7 +10,7 @@ import functools
 import logging
 from dataclasses import dataclass, field
 
-from src.ArWikiCats.fix import cleanse_category_label, fixlabel
+from ..fix import cleanse_category_label, fixlabel
 
 from ..fix import filter_en
 from ..format_bots import change_cat

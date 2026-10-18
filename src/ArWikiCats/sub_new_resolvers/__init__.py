@@ -3,7 +3,7 @@
 import functools
 import logging
 
-from ....ArWikiCats.sub_new_resolvers import peoples_resolver
+from . import peoples_resolver
 
 logger = logging.getLogger(__name__)
 
