@@ -20,6 +20,7 @@ Example:
     >>> bot.search("british action drama films")
     'أفلام أكشن دراما بريطانية'
 """
+
 from typing import Dict, Optional
 
 from .classes import CountryBotConfig, GenreBotConfig

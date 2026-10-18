@@ -4,7 +4,6 @@
 import pytest
 
 from src.ArWikiCats.translations_formats import (
-    FormatData,
     MultiDataFormatterBase,
     MultiDataFormatterConfig,
     MultiDataFormatterSecondElementConfig,
