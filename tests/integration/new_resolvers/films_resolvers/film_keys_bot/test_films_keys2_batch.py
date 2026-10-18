@@ -1,5 +1,5 @@
 #
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, dump_same_and_not_same, one_dump_test

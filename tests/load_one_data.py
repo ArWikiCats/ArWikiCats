@@ -1,7 +1,7 @@
 #
 import json
 from pathlib import Path
-from typing import Callable
+from collections.abc import Callable
 
 diff_data_path = Path(__file__).parent / "diff_data"
 diff_data_path.mkdir(exist_ok=True, parents=True)

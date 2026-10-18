@@ -1,4 +1,3 @@
-from typing import Dict
 
 from src.ArWikiCats.translations.nats.Nationality import (
     All_Nat,
@@ -40,7 +39,7 @@ def make_entry(
 def test_normalize_aliases_alias_copy() -> None:
     """Alias keys (e.g. russians) should reuse target entry (russian)."""
 
-    all_nat_o: Dict[str, NationalityEntry] = {
+    all_nat_o: dict[str, NationalityEntry] = {
         "russian": make_entry(male="روسي", en="russia", ar="روسيا"),
         "russians": make_entry(),  # will be overwritten
     }

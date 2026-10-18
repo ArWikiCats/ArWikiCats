@@ -16,7 +16,6 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Tuple
 
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"
@@ -340,7 +339,7 @@ def detect_person_like(label: str) -> bool:
 # -------------------------------------------------------------
 
 
-def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
+def classify_entries(entries: dict[str, str]) -> tuple[dict[str, str], dict[str, str]]:
     """Split entries into geographic and non-geographic."""
     geo = {}
     non_geo = {}

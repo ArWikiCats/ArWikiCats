@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from utils.resolver_runner import make_resolver_test
