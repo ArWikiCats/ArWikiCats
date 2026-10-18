@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 data0_skip = {
     "Military units and formations of Islamic Emirate of Afghanistan": "وحدات وتشكيلات عسكرية في إمارة أفغانستان الإسلامية",

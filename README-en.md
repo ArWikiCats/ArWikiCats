@@ -6,6 +6,7 @@
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
 [![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/MrIbrahem/ArWikiCats/releases)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
+
 ---
 
 **ArWikiCats** is a Python library that automatically translates English Wikipedia category names into standardized Arabic category names. It is designed for bot operations, mass translation, and automated editing tasks on Arabic Wikipedia.
@@ -67,19 +68,33 @@ ArWikiCats addresses these challenges with a specialized translation engine that
 
 - Python 3.10 or later
 
-### Install via pip
+### Production Installation
+
+Install the package directly from the Git repository:
 
 ```bash
 pip install ArWikiCats
 ```
 
-### Install from source
+or
 
 ```bash
-git clone https://github.com/MrIbrahem/ArWikiCats.git
-cd ArWikiCats
-pip install -r requirements.in
+pip install git+https://github.com/ArWikiCats/ArWikiCats.git
 ```
+
+### Local Development Installation
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/ArWikiCats/ArWikiCats.git
+    cd ArWikiCats
+    ```
+
+2. **Install in editable mode with development dependencies:**
+    ```bash
+    pip install -e ".[dev]"
+    ```
 
 ---
 
@@ -185,13 +200,13 @@ Input Category → Normalization → Pattern Detection → Specialized Resolvers
 
 Customize system behavior using environment variables or CLI arguments:
 
-| Setting | Description |
-|---------|-------------|
-| `TGC_RESOLVER_FIRST` | Enable general resolver first |
-| `-STUBS` | Search for stub categories |
-| `MAKEERR` | Enable error tracking mode |
-| `NOPRINT` | Disable message printing |
-| `SAVE_DATA_PATH` | Path for saving temporary data |
+| Setting              | Description                    |
+| -------------------- | ------------------------------ |
+| `TGC_RESOLVER_FIRST` | Enable general resolver first  |
+| `-STUBS`             | Search for stub categories     |
+| `MAKEERR`            | Enable error tracking mode     |
+| `NOPRINT`            | Disable message printing       |
+| `SAVE_DATA_PATH`     | Path for saving temporary data |
 
 ### Example Usage
 
@@ -331,6 +346,7 @@ The project has **60,000+ tests** across all test types:
 - **E2E tests** (15,000+ categories): `pytest tests/e2e --rune2e`
 
 Coverage includes:
+
 - Core functionality
 - Temporal patterns (years, decades, centuries, millennia, BC)
 - Countries, nationalities, and various category cases
@@ -346,11 +362,11 @@ Coverage includes:
 
 ## Performance
 
-| Metric | Value |
-|--------|-------|
-| Memory Usage | <100MB (optimized from 2GB) |
-| Test Suite Runtime | ~23 seconds |
-| Batch Processing | >5,000 categories in seconds |
+| Metric             | Value                        |
+| ------------------ | ---------------------------- |
+| Memory Usage       | <100MB (optimized from 2GB)  |
+| Test Suite Runtime | ~23 seconds                  |
+| Batch Processing   | >5,000 categories in seconds |
 
 ---
 

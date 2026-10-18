@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 male_players_before_fixtitle = {
     "2023 FIFA Women's World Cup players": "لاعبات كأس العالم لكرة القدم للسيدات 2023",

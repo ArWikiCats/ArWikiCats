@@ -2,9 +2,9 @@
 """ """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
-from utils.dump_runner import make_dump_test_name_data_callback
 
 en_is_nat_ar_is_P17_data = {
     "yemeni acrobatic gymnastics cup": "كأس اليمن للجمباز الاكروباتيكي",

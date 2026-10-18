@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data_0 = {
     "waba champions cup": "كأس دوري غرب آسيا لكرة السلة",

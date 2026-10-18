@@ -1,9 +1,9 @@
 """Comprehensive pytest suite for move_years module."""
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.fix.mv_years import move_by_in, move_years_first
-from utils.dump_runner import make_dump_test_name_data_callback
 
 move_years_first_data = {
     "عقد 1910 في بابوا غينيا الجديدة": "بابوا غينيا الجديدة في عقد 1910",

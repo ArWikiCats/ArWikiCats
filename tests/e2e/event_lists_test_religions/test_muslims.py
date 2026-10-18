@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 religions_data = {
     "Albanian Sunni Muslim scholars of Islam": "باحثون عن الإسلام مسلمون سنة ألبان",

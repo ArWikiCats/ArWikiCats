@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 test_to_fix_0 = {
     "Film score composers by nationality": "مؤلفو موسيقى أفلام حسب الجنسية",

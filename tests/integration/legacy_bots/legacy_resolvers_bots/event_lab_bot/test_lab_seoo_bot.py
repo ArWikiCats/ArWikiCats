@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_label_work
-from utils.dump_runner import make_dump_test_name_data
 
 event_Lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",

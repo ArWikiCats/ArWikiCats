@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers.sports_resolvers.raw_sports import resolve_sport_label_unified
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data_1 = {
     "australian rules football owners and executives": "رؤساء تنفيذيون وملاك كرة قدم أسترالية",

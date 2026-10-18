@@ -3,11 +3,11 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
     resolve_us_states,
 )
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data = {
     "{en} in the War of 1812": "{ar} في حرب 1812",

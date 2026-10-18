@@ -6,9 +6,9 @@ Tests the full resolve pipeline with real category inputs.
 from __future__ import annotations
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 e2e_data = {
     "Anglican bishops of Hong Kong and Macao": "أساقفة أنجليكيون من هونغ كونغ وماكاو",

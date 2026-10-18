@@ -278,7 +278,7 @@ TAXON_SUFFIXES = (
 # -------------------------------------------------------------
 
 
-def detect_english_keywords(label: str, value: str) -> bool:
+def detect_english_keywords(label: str, value: str) -> tuple[bool, str]:
     """Return True if English keyword matches exactly or by token."""
     lowered = label.lower()
     for name, keywords in NON_GEO_KEYWORDS_EN.items():
@@ -398,8 +398,7 @@ def main() -> None:
         # jsons_dir / "cities/cities_full.json",
         # jsons_dir / "cities/yy2.json",
         # jsons_dir / "geography/popopo.json",
-        jsons_dir
-        / "geography/P17_PP.json",
+        jsons_dir / "geography/P17_PP.json",
     ]
     status = {}
     for file in files:

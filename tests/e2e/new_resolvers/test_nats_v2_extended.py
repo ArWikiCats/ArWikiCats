@@ -3,9 +3,9 @@ tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 all_test_data_integrated = {
     "Non-American television series based on American television series": "مسلسلات تلفزيونية غير أمريكية مبنية على مسلسلات تلفزيونية أمريكية",

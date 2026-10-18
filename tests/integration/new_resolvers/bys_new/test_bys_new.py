@@ -3,9 +3,9 @@ Tests for bys_new bot
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats.new_resolvers.bys_new import resolve_by_labels
-from utils.dump_runner import make_dump_test_name_data
 
 _by_of_fields = {
     "by century of completion": "حسب قرن الانتهاء",

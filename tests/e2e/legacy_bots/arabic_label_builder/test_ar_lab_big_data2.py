@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "nordic skiing competitions in slovakia": "منافسات التزلج النوردية في سلوفاكيا",

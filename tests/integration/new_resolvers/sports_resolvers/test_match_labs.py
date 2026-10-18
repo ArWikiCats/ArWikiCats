@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
-from utils.dump_runner import make_dump_test_name_data_callback
 
 data_1 = {
     "american football teams": "فرق كرة القدم الأمريكية",

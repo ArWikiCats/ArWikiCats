@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 data_1 = {
     "Defunct national sports teams by country": "منتخبات رياضية وطنية سابقة حسب البلد",

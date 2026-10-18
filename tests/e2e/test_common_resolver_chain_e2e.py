@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 data_2 = {
     "military operations of war in afghanistan (1789–1789)": "عمليات عسكرية في الحرب في أفغانستان (1789–1789)",

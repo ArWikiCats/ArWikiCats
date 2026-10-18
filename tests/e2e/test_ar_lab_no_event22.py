@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 data_list_2 = {
     "1450s disasters in kazakhstan": "كوارث في كازاخستان في عقد 1450",

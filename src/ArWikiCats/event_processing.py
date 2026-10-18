@@ -178,7 +178,7 @@ def resolve_arabic_category_label(category_r: str) -> str:
 
 
 def batch_resolve_labels(
-    new_list: List[str],
+    new_list: Iterable[str] | List[str],
 ) -> EventProcessingResult:
     """Run the event processor on the given list of categories."""
     processor = EventProcessor()

@@ -14,10 +14,8 @@ from __future__ import annotations
 import functools
 from typing import Callable, Protocol
 
-from .legacy_resolvers_bots import event_lab_bot, with_years_bot
-
 # Import other legacy resolvers that are not part of the circular dependency
-from .legacy_resolvers_bots import year_or_typeo
+from .legacy_resolvers_bots import event_lab_bot, with_years_bot, year_or_typeo
 
 # Import from the new resolvers package (no circular dependencies)
 from .resolvers import event2_d2, initialize_resolvers, translate_general_category_wrap

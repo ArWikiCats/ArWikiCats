@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
-from utils.dump_runner import make_dump_test_name_data_callback
 
 test_data = {
     "3d comics": "قصص مصورة ثلاثية الأبعاد",

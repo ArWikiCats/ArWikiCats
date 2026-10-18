@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats.new_resolvers import all_new_resolvers
-from utils.dump_runner import make_dump_test_name_data_callback
 
 te4_2018_jobs_data = {
     "egyptian male sport shooters": "لاعبو رماية ذكور مصريون",

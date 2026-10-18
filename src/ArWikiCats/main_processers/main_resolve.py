@@ -10,9 +10,7 @@ import functools
 import logging
 from dataclasses import dataclass, field
 
-from ..fix import cleanse_category_label, fixlabel
-
-from ..fix import filter_en
+from ..fix import cleanse_category_label, filter_en, fixlabel
 from ..format_bots import change_cat
 from ..legacy_bots import legacy_resolvers
 from ..new_resolvers import all_new_resolvers

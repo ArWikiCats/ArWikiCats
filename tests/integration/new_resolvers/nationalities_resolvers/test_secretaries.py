@@ -1,7 +1,7 @@
 import pytest
+from utils.dump_runner import make_dump_test_name_data_callback
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data_callback
 
 new = {
     "British Secretaries of State for the Environment": "وزراء خارجية بريطانيون في البيئة",

@@ -1,8 +1,8 @@
 #
 import pytest
+from utils.dump_runner import make_dump_test_name_data
 
 from src.ArWikiCats import resolve_label_ar
-from utils.dump_runner import make_dump_test_name_data
 
 covid_pandemic_data = {
     "Deaths from the COVID-19 pandemic by country subdivision": "وفيات من جائحة فيروس كورونا حسب تقسيم البلد",
