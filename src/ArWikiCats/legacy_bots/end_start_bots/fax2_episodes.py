@@ -3,7 +3,6 @@
 """
 
 
-
 def get_episodes(category3: str, category3_nolower: str = "") -> tuple[str, str]:
     """
     examples:

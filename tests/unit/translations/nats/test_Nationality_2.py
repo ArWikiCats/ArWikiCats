@@ -1,4 +1,3 @@
-
 from src.ArWikiCats.translations.nats.Nationality import (
     All_Nat,
     NationalityEntry,

@@ -26,7 +26,6 @@ Example:
     'بريطانية أحداث في القرن 14'
 """
 
-
 from .classes import YearCountryDataConfig, YearDataConfig
 from .DataModel import (
     FormatData,

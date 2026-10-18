@@ -24,7 +24,6 @@ result = bot.search("yemeni writers")
 assert result == "كتاب يمنيون"
 """
 
-
 from .model_data_base import FormatDataBase
 
 

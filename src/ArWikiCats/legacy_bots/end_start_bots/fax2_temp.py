@@ -1,6 +1,5 @@
 """ """
 
-
 dict_temps: dict[str, str] = {
     "templates": "قوالب {}",
     "squad templates": "قوالب تشكيلات {}",

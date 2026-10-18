@@ -4,7 +4,6 @@ This module provides MultiDataFormatterDataDouble, which combines a standard
 FormatData instance with a FormatDataDouble instance for complex categories.
 """
 
-
 from ..DataModel import FormatData
 from ..DataModelMulti import MultiDataFormatterBaseHelpers
 from .model_data_double import FormatDataDouble

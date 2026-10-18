@@ -6,7 +6,6 @@ Builds translation mappings for film and television categories from English to A
 handling gender-specific translations and nationality-based categories.
 """
 
-
 from ..data_builders.build_films_mslslat import (
     _build_gender_key_maps,
     _build_television_cao,

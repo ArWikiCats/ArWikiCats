@@ -5,7 +5,6 @@ Arabic translations for categories involving country names and their
 geographic or political attributes.
 """
 
-
 from ...helps import len_print
 
 formatted_data_of_no_in: dict[str, str] = {

@@ -5,7 +5,6 @@ lookup tables and retrieve its associated value.
 """
 
 
-
 def check_key_in_tables(key: str, tables: list[dict[str, str] | list[str] | set[str]]) -> bool:
     """Return True if ``key`` exists in any container within ``tables``."""
     for table in tables:

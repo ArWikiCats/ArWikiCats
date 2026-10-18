@@ -21,7 +21,6 @@ Example:
     'أفلام أكشن دراما بريطانية'
 """
 
-
 from .classes import CountryBotConfig, GenreBotConfig
 from .DataModel import FormatData
 from .DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble

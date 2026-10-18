@@ -23,7 +23,6 @@ Example:
 test at tests.translations_formats.test_format_2_data.py
 """
 
-
 from ..DataModel import FormatData, FormatDataV2, YearFormatData
 from .model_multi_data_base import MultiDataFormatterBaseHelpers
 
