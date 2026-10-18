@@ -27,8 +27,10 @@ def get_save_path() -> str:
     return save_data_path
 
 
-def format_size(key: str, value: int | float, lens: list[str | Any] = []) -> str | Any:
+def format_size(key: str, value: int | float, lens: list[str | Any] = None) -> str | Any:
     """Format byte sizes unless the key should remain numeric."""
+    if lens is None:
+        lens = []
     if key in lens:
         return value
     return naturalsize(value, binary=True)
