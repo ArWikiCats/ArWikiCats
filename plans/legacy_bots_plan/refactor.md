@@ -189,10 +189,10 @@ resolved_label = (
 ```python
 def _check_basic_lookups(self, country: str) -> str:
     label = (
-        New_female_keys.get(country, "")         # External
-        or religious_entries.get(country, "")    # External
-        or People_key.get(country)               # External
-        or all_new_resolvers(country)            # External
+        New_female_keys.get(country, "")  # External
+        or religious_entries.get(country, "")  # External
+        or People_key.get(country)  # External
+        or all_new_resolvers(country)  # External
         or team_work.resolve_clubs_teams_leagues(country)  # External
     )
 ```
@@ -207,6 +207,7 @@ def _check_basic_lookups(self, country: str) -> str:
 
 ```python
 from ...translations.funcs import _get_from_alias, open_json_file
+
 pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266 entries
 ```
 
@@ -268,10 +269,12 @@ country = result.country.lower().strip()
 ```python
 Films_O_TT = {}  # Mutable dict
 
+
 @functools.lru_cache(maxsize=10000)
 def get_KAKO(text: str) -> str:
     _, label = _get_KAKO(text)  # Caches access to Films_O_TT
     return label
+
 
 def add_to_Films_O_TT(en: str, ar: str) -> None:
     Films_O_TT[en] = ar  # Invalidates cache assumptions!
@@ -414,6 +417,7 @@ constants/
 # constants/separators.py
 class Separator(str):
     """Type-safe separator representation."""
+
     def __new__(cls, value: str):
         if value not in VALID_SEPARATORS:
             raise ValueError(f"Invalid separator: {value}")
@@ -422,6 +426,7 @@ class Separator(str):
     @property
     def arabic(self) -> str:
         return SEPARATOR_ARABIC_MAP[self]
+
 
 VALID_SEPARATORS = {"in", "of", "from", "by", "at", "to", "on", "about"}
 SEPARATOR_ARABIC_MAP = {
@@ -452,6 +457,7 @@ class CountryResolver:
             if result := lookup(country):
                 return result
         return ""
+
 
 class ArabicLabelBuilder:
     def __init__(
@@ -545,6 +551,7 @@ def determine_separator(self) -> str:
         self.type_label = self.type_label + " في"
     # ... 60 more lines
 
+
 # After
 def determine_separator(self) -> str:
     return self._separator_strategy.get_arabic(
@@ -552,6 +559,7 @@ def determine_separator(self) -> str:
         self.type_label,
         self.country_lower,
     )
+
 
 class SeparatorStrategy:
     def get_arabic(self, sep: str, type_label: str, country: str) -> str:
@@ -583,9 +591,11 @@ class ResolutionResult:
     def success(self) -> bool:
         return self.label is not None
 
+
 # core/exceptions.py
 class ResolutionError(Exception):
     """Base exception for resolution failures."""
+
 
 class CountryNotFoundError(ResolutionError):
     """Country could not be resolved."""
@@ -608,6 +618,7 @@ class CountryNotFoundError(ResolutionError):
 def get_KAKO(text: str) -> str:
     _, label = _get_KAKO(text)  # Accesses global Films_O_TT
     return label
+
 
 # After - testable
 class LabelLookup:
@@ -639,8 +650,10 @@ class LabelLookup:
 # Add proper type hints
 from typing import Protocol
 
+
 class Resolver(Protocol):
     def __call__(self, category: str) -> str: ...
+
 
 RESOLVER_PIPELINE: list[Resolver] = [
     country_bot.event2_d2,
@@ -649,6 +662,7 @@ RESOLVER_PIPELINE: list[Resolver] = [
     event_lab_bot.event_lab,
     translate_general_category_wrap,
 ]
+
 
 # Reduce cache size, add explicit cache key
 @functools.lru_cache(maxsize=10000)
@@ -682,6 +696,7 @@ def legacy_resolvers(changed_cat: str) -> str:
 ```python
 # New structure: resolvers/country_resolver.py
 
+
 class CountryResolver:
     """Resolves country labels using composition."""
 
@@ -703,12 +718,9 @@ class CountryResolver:
             return result
 
         if use_fallback:
-            return (
-                self._prefix.handle(country)
-                or self._year.handle(country)
-                or self._member.handle(country)
-            )
+            return self._prefix.handle(country) or self._year.handle(country) or self._member.handle(country)
         return ""
+
 
 # Move event2_d2 to separate file
 # resolvers/event_based_resolver.py
@@ -732,6 +744,7 @@ def event_based_resolver(category: str) -> str:
 **Refactoring**:
 ```python
 # New structure: resolvers/arabic_label_builder.py
+
 
 class ArabicLabelBuilder:
     """Builds Arabic labels from category components."""
@@ -785,6 +798,7 @@ class ArabicLabelBuilder:
 
         return BuildResult.success(label)
 
+
 # Extract separator handling
 # resolvers/preposition_handler.py
 class PrepositionHandler:
@@ -814,6 +828,7 @@ class PrepositionHandler:
 **Refactoring**:
 ```python
 # New structure: resolvers/separator_based_resolver.py
+
 
 class SeparatorBasedResolver:
     """Resolves categories containing relational separators."""
@@ -867,6 +882,7 @@ class SeparatorBasedResolver:
 ```python
 # New structure: resolvers/event_resolver.py
 
+
 class EventResolver:
     """Handles event-based category resolution."""
 
@@ -896,11 +912,13 @@ class EventResolver:
 
         return self._chain.resolve_general(suffix_result.remainder)
 
+
 # Extract constants
 # constants/event_constants.py
 class EventSuffix(Literal):
     EPISODES = " episodes"
     TEMPLATES = " templates"
+
 
 class EventLabel(str):
     PEOPLE = "أشخاص"
@@ -921,6 +939,7 @@ class EventLabel(str):
 **Refactoring**:
 ```python
 # New structure: resolvers/year_based_resolver.py
+
 
 class YearBasedResolver:
     """Resolves categories containing year patterns."""
@@ -956,12 +975,15 @@ class YearBasedResolver:
 
         return self._format.year_first(remainder_label, year)
 
+
 # Extract data
 # data/year_data.py
-ARABIC_LABELS_PRECEDING_YEAR = frozenset([
-    "كتاب بأسماء مستعارة",
-    "بطولات اتحاد رجبي للمنتخبات الوطنية",
-])
+ARABIC_LABELS_PRECEDING_YEAR = frozenset(
+    [
+        "كتاب بأسماء مستعارة",
+        "بطولات اتحاد رجبي للمنتخبات الوطنية",
+    ]
+)
 
 KNOWN_POLITICAL_BODIES = {
     "iranian majlis": "المجلس الإيراني",
@@ -981,6 +1003,7 @@ KNOWN_POLITICAL_BODIES = {
 **Refactoring**:
 ```python
 # New structure: resolvers/year_prefix_resolver.py
+
 
 class YearPrefixResolver:
     """Resolves categories starting with year patterns."""
@@ -1013,10 +1036,12 @@ class YearPrefixResolver:
             year_label=year_label,
         )
 
+
 # Simplify state management
 @dataclass(frozen=True)
 class ParsedCategory:
     """Immutable parsed category representation."""
+
     original: str
     year: str
     country: str
@@ -1036,6 +1061,7 @@ class ParsedCategory:
 **Refactoring**:
 ```python
 # New structure: resolvers/by_pattern_resolver.py
+
 
 class ByPatternResolver:
     """Handles 'by X' category patterns."""
@@ -1090,15 +1116,18 @@ class ByPatternResolver:
 ```python
 # New structure: resolvers/preposition_builder.py
 
+
 @dataclass
 class PrepositionContext:
     """Context for preposition insertion."""
+
     country: str
     in_table: bool
     type_value: str
     separator: str
     year_label: str
     country_label: str
+
 
 class PrepositionBuilder:
     """Builds labels with appropriate prepositions."""
@@ -1125,10 +1154,12 @@ class PrepositionBuilder:
 
         return ar_label
 
+
 # Use dataclass to reduce parameters
 @dataclass
 class NewFuncContext:
     """Context for new_func_mk2 logic."""
+
     category: str
     cat_test: str
     year: str
@@ -1156,6 +1187,7 @@ class NewFuncContext:
 ```python
 # New structure: data_access/population_loader.py
 
+
 class PopulationDataLoader:
     """Loads population data with lazy initialization."""
 
@@ -1174,6 +1206,7 @@ class PopulationDataLoader:
     def _load(self) -> dict[str, str]:
         """Load from JSON file."""
         from ...translations.funcs import open_json_file
+
         return open_json_file(self._path)
 
     def _get_overrides(self) -> dict[str, str]:
@@ -1182,6 +1215,7 @@ class PopulationDataLoader:
             "establishments": "تأسيسات",
             "disestablishments": "انحلالات",
         }
+
 
 # Use common resolver pattern
 # resolvers/population_resolver.py
@@ -1206,7 +1240,7 @@ class PopulationResolver:
     def _normalize(key: str) -> str:
         """Normalize lookup key."""
         if key.startswith("the "):
-            return key[len("the "):]
+            return key[len("the ") :]
         return key.lower()
 ```
 
@@ -1222,6 +1256,7 @@ class PopulationResolver:
 **Refactoring**:
 ```python
 # New structure: resolvers/two_part_resolver.py
+
 
 class TwoPartResolver:
     """Resolves categories with two parts separated by a delimiter."""
@@ -1261,6 +1296,7 @@ class TwoPartResolver:
             part1,
             part2,
         )
+
 
 # Simplify make_cnt_lab
 class LabelCombiner:
@@ -1303,6 +1339,7 @@ class LabelCombiner:
 ```python
 # New structure: data_access/label_registry.py
 
+
 class LabelRegistry:
     """Thread-safe registry for dynamic label mappings."""
 
@@ -1330,6 +1367,7 @@ class LabelRegistry:
         with self._lock:
             self._data.update(mappings)
 
+
 # Create singleton instances
 players_registry = LabelRegistry(_build_initial_players_keys())
 films_registry = LabelRegistry()
@@ -1348,6 +1386,7 @@ films_registry = LabelRegistry()
 ```python
 # New structure: data_access/table_checker.py
 
+
 class TableChecker:
     """Checks for key existence across multiple tables."""
 
@@ -1357,10 +1396,7 @@ class TableChecker:
     def check(self, key: str) -> bool:
         """Check if key exists in any table."""
         key_lower = key.lower()
-        return any(
-            key in table or key_lower in table
-            for table in self._tables
-        )
+        return any(key in table or key_lower in table for table in self._tables)
 
     def check_with_callback(
         self,
@@ -1380,6 +1416,7 @@ class TableChecker:
 
         return False
 
+
 # Remove caching at this level
 # Let callers handle caching strategy
 ```
@@ -1396,6 +1433,7 @@ class TableChecker:
 **Refactoring**:
 ```python
 # New structure: core/category_parser.py
+
 
 @dataclass(frozen=True)
 class ParsedCategory:
@@ -1440,6 +1478,7 @@ class ParsedCategory:
 ```python
 # New structure: data_access/composite_resolver.py
 
+
 class CompositeResolver:
     """Resolves labels from multiple sources."""
 
@@ -1456,10 +1495,7 @@ class CompositeResolver:
         for source_name, source_func in self._sources.items():
             if result := source_func(text):
                 if not isinstance(result, str):
-                    raise TypeError(
-                        f"Source '{source_name}' returned "
-                        f"non-string type {type(result)}"
-                    )
+                    raise TypeError(f"Source '{source_name}' returned non-string type {type(result)}")
                 return source_name, result
 
         return "", ""
@@ -1468,6 +1504,7 @@ class CompositeResolver:
         """Resolve and return only the label."""
         _, label = self.resolve(text)
         return label
+
 
 # Build sources from dependencies
 def build_composite_resolver(
@@ -1504,28 +1541,36 @@ def build_composite_resolver(
 @dataclass(frozen=True)
 class LabelRule:
     """Rule for label formatting."""
+
     name: str
     values: frozenset[str]
+
 
 class PredefinedSets:
     """Predefined sets for label rules."""
 
-    KEEP_IT_LAST = frozenset([
-        "remakes of",
-    ])
+    KEEP_IT_LAST = frozenset(
+        [
+            "remakes of",
+        ]
+    )
 
-    KEEP_IT_FIRST = frozenset([
-        "spaceflight",
-        "lists of",
-        "actors in",
-        # ...
-    ])
+    KEEP_IT_FIRST = frozenset(
+        [
+            "spaceflight",
+            "lists of",
+            "actors in",
+            # ...
+        ]
+    )
 
-    ADD_IN_TABLE = frozenset([
-        "historical documents",
-        "road incidents",
-        # ...
-    ])
+    ADD_IN_TABLE = frozenset(
+        [
+            "historical documents",
+            "road incidents",
+            # ...
+        ]
+    )
 ```
 
 ---
@@ -1539,6 +1584,7 @@ class PredefinedSets:
 **Refactoring**:
 ```python
 # New structure: core/label_formatter.py
+
 
 class LabelCleaner:
     """Cleans and normalizes Arabic labels."""
@@ -1592,6 +1638,7 @@ class LabelCleaner:
 ```python
 # New structure: resolvers/prefix_handlers.py
 
+
 class GenderPrefixHandler:
     """Handles gender-based prefixes (men's/women's)."""
 
@@ -1608,13 +1655,14 @@ class GenderPrefixHandler:
         """Handle gender prefixes."""
         for prefix, label in self.PREFIX_LABELS.items():
             if text.startswith(prefix):
-                remainder = text[len(prefix):]
+                remainder = text[len(prefix) :]
                 remainder_label = resolver(remainder)
 
                 if remainder_label:
                     return f"{remainder_label} {label}"
 
         return ""
+
 
 class MemberSuffixHandler:
     """Handles 'members of' suffix patterns."""
@@ -1654,6 +1702,7 @@ class MemberSuffixHandler:
 ```python
 # New structure: core/separator_parser.py
 
+
 class SeparatorParser:
     """Parses category strings using separators."""
 
@@ -1690,7 +1739,7 @@ class SeparatorParser:
     ) -> tuple[str, str]:
         """Split on first occurrence."""
         idx = category.lower().find(separator.lower())
-        return category[:idx], category[idx + len(separator):]
+        return category[:idx], category[idx + len(separator) :]
 ```
 
 ---
@@ -1706,6 +1755,7 @@ class SeparatorParser:
 **Refactoring**:
 ```python
 # New structure: matchers/pattern_matcher.py
+
 
 class SuffixMatcher:
     """Matches category suffixes and extracts templates."""
@@ -1758,6 +1808,7 @@ class SuffixMatcher:
 ```python
 # New structure: matchers/dictionary_matcher.py
 
+
 class DictionaryMatcher:
     """Matches categories against dictionary patterns."""
 
@@ -1773,7 +1824,7 @@ class DictionaryMatcher:
 
         for pattern in self._patterns:
             if category_original.startswith(pattern.remove_key):
-                remainder = category_original[len(pattern.remove_key):]
+                remainder = category_original[len(pattern.remove_key) :]
                 return MatchResult(
                     template=pattern.template,
                     remainder=remainder,
@@ -1800,9 +1851,11 @@ class DictionaryMatcher:
 
         return MatchResult.none()
 
+
 @dataclass(frozen=True)
 class PatternEntry:
     """Single pattern entry."""
+
     key: str
     template: str
     remove_key: str
@@ -1854,6 +1907,7 @@ data/
 ```python
 # Enhanced version
 from enum import Enum
+
 
 class RegexPattern(Enum):
     """Pre-compiled regex patterns for category matching."""

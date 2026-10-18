@@ -100,20 +100,25 @@ EventProcessor()
 ```python
 # 1. User calls public API
 from ArWikiCats import resolve_arabic_category_label
+
 result = resolve_arabic_category_label("Category:2015 in Yemen")
+
 
 # 2. Internal flow
 def resolve_arabic_category_label(category_r: str) -> str:
     return _get_processed_category(category_r).final_label
 
+
 def _get_processed_category(category_r: str) -> ProcessedCategory:
     processor = EventProcessor()
     return processor.process_single(category_r)
+
 
 # 3. EventProcessor.process_single()
 def process_single(self, category: str) -> ProcessedCategory:
     processed = self.process([category]).processed
     return processed[0] if processed else ProcessedCategory(...)
+
 
 # 4. EventProcessor.process() - Main processing loop
 def process(self, categories: Iterable[str]) -> EventProcessingResult:
@@ -570,6 +575,7 @@ Output: EventProcessingResult
 from abc import ABC, abstractmethod
 from typing import Dict, Optional, List
 
+
 class TranslationRepository(ABC):
     """Abstract base class for translation data access."""
 
@@ -653,14 +659,11 @@ class ResolverProtocol(Protocol):
 class CacheProtocol(Protocol):
     """Protocol for caching implementations."""
 
-    def get(self, key: str) -> Optional[str]:
-        ...
+    def get(self, key: str) -> Optional[str]: ...
 
-    def set(self, key: str, value: str) -> None:
-        ...
+    def set(self, key: str, value: str) -> None: ...
 
-    def clear(self) -> None:
-        ...
+    def clear(self) -> None: ...
 
 
 @dataclass
@@ -683,7 +686,7 @@ class Container:
     config: Config
 
     @classmethod
-    def create_default(cls) -> 'Container':
+    def create_default(cls) -> "Container":
         """Create container with default implementations."""
         return cls(
             nationality_repo=NationalityRepository(),
@@ -696,11 +699,11 @@ class Container:
         )
 
     @classmethod
-    def create_for_testing(cls, **overrides) -> 'Container':
+    def create_for_testing(cls, **overrides) -> "Container":
         """Create container with test implementations."""
         defaults = {
-            'nationality_repo': MockNationalityRepository(),
-            'geography_repo': MockGeographyRepository(),
+            "nationality_repo": MockNationalityRepository(),
+            "geography_repo": MockGeographyRepository(),
             # ...
         }
         defaults.update(overrides)
@@ -724,8 +727,10 @@ class CategoryResolver:
 ```python
 # ArWikiCats/exceptions.py
 
+
 class ArWikiCatsError(Exception):
     """Base exception for ArWikiCats errors."""
+
     pass
 
 
@@ -765,6 +770,7 @@ class ConfigurationError(ArWikiCatsError):
 
 class CacheError(ArWikiCatsError):
     """Error in caching operations."""
+
     pass
 ```
 
@@ -779,9 +785,10 @@ from typing import TypeVar, Callable, Any
 
 from .exceptions import ArWikiCatsError, TranslationError
 import logging
+
 logger = logging.getLogger(__name__)
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 class ErrorHandler:
@@ -790,12 +797,7 @@ class ErrorHandler:
     def __init__(self, logger_instance=None):
         self.logger = logger_instance or logger
 
-    def handle_translation_error(
-        self,
-        error: Exception,
-        category: str,
-        default: str = ""
-    ) -> str:
+    def handle_translation_error(self, error: Exception, category: str, default: str = "") -> str:
         """Handle translation errors with logging and fallback."""
         if isinstance(error, TranslationError):
             self.logger.warning(f"Translation failed for '{category}': {error}")
@@ -803,13 +805,7 @@ class ErrorHandler:
             self.logger.error(f"Unexpected error translating '{category}': {error}")
         return default
 
-    def safe_resolve(
-        self,
-        func: Callable[..., T],
-        *args,
-        default: T = None,
-        **kwargs
-    ) -> T:
+    def safe_resolve(self, func: Callable[..., T], *args, default: T = None, **kwargs) -> T:
         """Safely execute a resolver function with error handling."""
         try:
             return func(*args, **kwargs)
@@ -823,6 +819,7 @@ class ErrorHandler:
 
 def handle_errors(default_return=None, log_level=logging.WARNING):
     """Decorator for error handling."""
+
     def decorator(func: Callable[..., T]) -> Callable[..., T]:
         @functools.wraps(func)
         def wrapper(*args, **kwargs) -> T:
@@ -834,7 +831,9 @@ def handle_errors(default_return=None, log_level=logging.WARNING):
             except Exception as e:
                 logger.error(f"Unexpected error in {func.__name__}: {e}")
                 return default_return
+
         return wrapper
+
     return decorator
 
 
@@ -870,12 +869,13 @@ import functools
 import threading
 import time
 
-T = TypeVar('T')
+T = TypeVar("T")
 
 
 @dataclass
 class CacheStats:
     """Cache statistics."""
+
     hits: int = 0
     misses: int = 0
     size: int = 0
@@ -939,11 +939,7 @@ class LRUCacheBackend(CacheBackend[T]):
 
     def stats(self) -> CacheStats:
         with self._lock:
-            return CacheStats(
-                hits=self._stats.hits,
-                misses=self._stats.misses,
-                size=len(self._cache)
-            )
+            return CacheStats(hits=self._stats.hits, misses=self._stats.misses, size=len(self._cache))
 
 
 class NoOpCacheBackend(CacheBackend[T]):
@@ -968,6 +964,7 @@ _translation_cache: CacheBackend = LRUCacheBackend(maxsize=50000)
 
 def cached_translation(func):
     """Decorator for caching translation results."""
+
     @functools.wraps(func)
     def wrapper(category: str, *args, **kwargs):
         cache_key = f"{category}:{args}:{kwargs}"
@@ -1007,9 +1004,11 @@ from dataclasses import dataclass, field
 from typing import Optional, List
 from pathlib import Path
 
+
 @dataclass(frozen=True)
 class CacheConfig:
     """Configuration for caching."""
+
     enabled: bool = True
     max_size: int = 50000
     ttl_seconds: Optional[int] = None  # None = no expiry
@@ -1018,6 +1017,7 @@ class CacheConfig:
 @dataclass(frozen=True)
 class ResolverConfig:
     """Configuration for resolvers."""
+
     enable_pattern_matching: bool = True
     enable_dictionary_lookup: bool = True
     enable_bot_resolution: bool = True
@@ -1026,6 +1026,7 @@ class ResolverConfig:
 @dataclass(frozen=True)
 class AppConfig:
     """Application configuration."""
+
     save_data_path: str = ""
     data_directory: Path = field(default_factory=lambda: Path(__file__).parent / "jsons")
 
@@ -1033,12 +1034,13 @@ class AppConfig:
 @dataclass(frozen=True)
 class Config:
     """Main configuration container."""
+
     cache: CacheConfig = field(default_factory=CacheConfig)
     resolver: ResolverConfig = field(default_factory=ResolverConfig)
     app: AppConfig = field(default_factory=AppConfig)
 
     @classmethod
-    def from_environment(cls) -> 'Config':
+    def from_environment(cls) -> "Config":
         """Create configuration from environment variables."""
         return cls(
             cache=CacheConfig(
@@ -1051,7 +1053,7 @@ class Config:
         )
 
     @classmethod
-    def for_testing(cls) -> 'Config':
+    def for_testing(cls) -> "Config":
         """Create configuration for testing."""
         return cls(
             cache=CacheConfig(enabled=False),
@@ -1173,11 +1175,7 @@ class BatchProcessor:
         self.chunk_size = chunk_size
         self.max_workers = max_workers
 
-    def process_batch(
-        self,
-        categories: List[str],
-        processor_func
-    ) -> Iterator[Tuple[str, str]]:
+    def process_batch(self, categories: List[str], processor_func) -> Iterator[Tuple[str, str]]:
         """
         Process categories in optimized batches.
 
@@ -1192,20 +1190,13 @@ class BatchProcessor:
         chunks = list(self._chunk_list(categories, self.chunk_size))
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            futures = {
-                executor.submit(self._process_chunk, chunk, processor_func): i
-                for i, chunk in enumerate(chunks)
-            }
+            futures = {executor.submit(self._process_chunk, chunk, processor_func): i for i, chunk in enumerate(chunks)}
 
             for future in as_completed(futures):
                 chunk_results = future.result()
                 yield from chunk_results
 
-    def _process_chunk(
-        self,
-        chunk: List[str],
-        processor_func
-    ) -> List[Tuple[str, str]]:
+    def _process_chunk(self, chunk: List[str], processor_func) -> List[Tuple[str, str]]:
         """Process a single chunk of categories."""
         results = []
         for category in chunk:
@@ -1220,7 +1211,7 @@ class BatchProcessor:
     def _chunk_list(lst: List, chunk_size: int) -> Iterator[List]:
         """Split list into chunks."""
         for i in range(0, len(lst), chunk_size):
-            yield lst[i:i + chunk_size]
+            yield lst[i : i + chunk_size]
 ```
 
 ### 7.2 Async/Await Support
@@ -1244,25 +1235,15 @@ class AsyncCategoryProcessor:
         async with self.semaphore:
             # Run CPU-bound translation in thread pool
             loop = asyncio.get_event_loop()
-            result = await loop.run_in_executor(
-                None,
-                resolve_label,
-                category
-            )
+            result = await loop.run_in_executor(None, resolve_label, category)
             return result.ar
 
     async def process_batch(self, categories: List[str]) -> Dict[str, str]:
         """Process multiple categories concurrently."""
-        tasks = [
-            self.process_category(cat)
-            for cat in categories
-        ]
+        tasks = [self.process_category(cat) for cat in categories]
         results = await asyncio.gather(*tasks, return_exceptions=True)
 
-        return {
-            cat: (res if isinstance(res, str) else "")
-            for cat, res in zip(categories, results)
-        }
+        return {cat: (res if isinstance(res, str) else "") for cat, res in zip(categories, results)}
 
 
 # Usage example:
@@ -1315,10 +1296,7 @@ class MemoryManager:
         """Get approximate memory size of an object."""
         size = sys.getsizeof(obj)
         if isinstance(obj, dict):
-            size += sum(
-                sys.getsizeof(k) + sys.getsizeof(v)
-                for k, v in obj.items()
-            )
+            size += sum(sys.getsizeof(k) + sys.getsizeof(v) for k, v in obj.items())
         elif isinstance(obj, (list, tuple)):
             size += sum(sys.getsizeof(item) for item in obj)
         return size
@@ -1326,10 +1304,7 @@ class MemoryManager:
     @staticmethod
     def optimize_dict(d: Dict[str, str]) -> Dict[str, str]:
         """Optimize dictionary memory usage using string interning."""
-        return {
-            sys.intern(k): sys.intern(v)
-            for k, v in d.items()
-        }
+        return {sys.intern(k): sys.intern(v) for k, v in d.items()}
 ```
 
 ---
@@ -1353,6 +1328,7 @@ TranslationDict = Dict[str, str]
 
 class NationalityData(TypedDict):
     """Type definition for nationality data."""
+
     masculine_singular: str
     masculine_plural: str
     feminine_singular: str
@@ -1362,6 +1338,7 @@ class NationalityData(TypedDict):
 
 class CategoryResultDict(TypedDict):
     """Type definition for category result."""
+
     en: str
     ar: str
     from_match: bool
@@ -1379,16 +1356,14 @@ class ResolverProtocol(Protocol):
 class CacheProtocol(Protocol):
     """Protocol for cache implementations."""
 
-    def get(self, key: str) -> Optional[str]:
-        ...
+    def get(self, key: str) -> Optional[str]: ...
 
-    def set(self, key: str, value: str) -> None:
-        ...
+    def set(self, key: str, value: str) -> None: ...
 
 
 # Generic type variable for processors
-T = TypeVar('T')
-ResultT = TypeVar('ResultT', bound='CategoryResult')
+T = TypeVar("T")
+ResultT = TypeVar("ResultT", bound="CategoryResult")
 ```
 
 ### 8.2 Linting Configuration

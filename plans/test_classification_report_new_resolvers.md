@@ -205,12 +205,12 @@
 #### Create `tests/unit/new_resolvers/relations_resolver/test_work_relations_female_unit.py`
 ```python
 # Contains (marked with @pytest.mark.unit):
-- test_burma_cambodia_relations_from_country_table
-- test_burundi_canada_military_relations
-- test_nat_women_fallback_for_singapore_luxembourg
-- test_dash_variants_en_dash
-- test_dash_variants_minus_sign
-- test_female_suffix_not_matched_returns_empty
+-test_burma_cambodia_relations_from_country_table
+-test_burundi_canada_military_relations
+-test_nat_women_fallback_for_singapore_luxembourg
+-test_dash_variants_en_dash
+-test_dash_variants_minus_sign
+-test_female_suffix_not_matched_returns_empty
 ```
 
 #### Create `tests/integration/new_resolvers/relations_resolver/test_work_relations_female_integration.py`

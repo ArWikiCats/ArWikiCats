@@ -302,12 +302,13 @@ jobs_womens_data = {
 # في ArWikiCats/new_resolvers/reslove_all.py
 from .your_resolver import resolve_your_category
 
+
 def all_new_resolvers(category: str) -> str:
     category_lab = (
-        main_jobs_resolvers(category) or
-        resolve_your_category(category) or  # المحلل الجديد
-        main_sports_resolvers(category) or
-        ""
+        main_jobs_resolvers(category)
+        or resolve_your_category(category)  # المحلل الجديد
+        or main_sports_resolvers(category)
+        or ""
     )
     return category_lab
 ```
@@ -614,11 +615,11 @@ ruff check ArWikiCats/
 ```python
 from ArWikiCats import (
     resolve_arabic_category_label,  # ترجمة تصنيف واحد مع البادئة
-    resolve_label_ar,               # ترجمة تصنيف واحد بدون البادئة
-    batch_resolve_labels,           # ترجمة قائمة تصنيفات
-    EventProcessor,                 # معالج الأحداث المفصل
-    getLogger,                     # نظام التسجيل
-    print_memory,                   # طباعة استهلاك الذاكرة
-    dump_all_len,                   # طباعة أطوال البيانات
+    resolve_label_ar,  # ترجمة تصنيف واحد بدون البادئة
+    batch_resolve_labels,  # ترجمة قائمة تصنيفات
+    EventProcessor,  # معالج الأحداث المفصل
+    getLogger,  # نظام التسجيل
+    print_memory,  # طباعة استهلاك الذاكرة
+    dump_all_len,  # طباعة أطوال البيانات
 )
 ```

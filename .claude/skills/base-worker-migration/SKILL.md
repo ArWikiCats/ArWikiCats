@@ -23,6 +23,7 @@ Refactor existing resolver code to use the `BaseResolversWorker` base class for 
 ```python
 us_bot = FormatData(us_states_new_keys, US_STATES, ...)  # module-level init
 
+
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
     result = us_bot.search(category)
@@ -42,9 +43,11 @@ class UsStates(BaseResolversWorker):
     def after_run(self) -> None:
         self.result = normalize_state(self.result)
 
+
 @functools.lru_cache(maxsize=1)
 def load_class() -> UsStates:
-    return UsStates('resolve_us_states')
+    return UsStates("resolve_us_states")
+
 
 @functools.lru_cache(maxsize=10000)
 def resolve_us_states(category: str) -> str:
@@ -82,11 +85,12 @@ If your old code had dictionaries or bot initialization at module level, extract
 
 ```python
 # OLD — runs at import time, hard to test
-_TEMPLATES = { ... }
+_TEMPLATES = {...}
 us_bot = FormatData(_TEMPLATES, US_STATES, ...)
 
 # NEW — lazy, testable
-_TEMPLATES = { ... }   # constants stay at module level
+_TEMPLATES = {...}  # constants stay at module level
+
 
 def load_your_data() -> dict[str, str]:
     """Build and return translation pattern dict."""
@@ -104,8 +108,10 @@ def load_your_data() -> dict[str, str]:
 ```python
 from ..base_worker import BaseResolversWorker
 
+
 class YourResolver(BaseResolversWorker):
     """Resolver for your specific category type."""
+
     pass
 ```
 
@@ -169,7 +175,7 @@ The default lowercases the category. Override only when you need additional prep
 ```python
 def before_run(self, category: str) -> str:
     category = super().before_run(category)  # always call super() first
-    category = category.strip()              # example: add stripping
+    category = category.strip()  # example: add stripping
     return category
 ```
 
@@ -182,7 +188,7 @@ def before_run(self, category: str) -> str:
 ```python
 @functools.lru_cache(maxsize=1)
 def load_class() -> YourResolver:
-    return YourResolver('your_resolver_name')   # name used in log messages
+    return YourResolver("your_resolver_name")  # name used in log messages
 
 
 @functools.lru_cache(maxsize=10000)
@@ -247,7 +253,7 @@ class YourResolver(BaseResolversWorker):
     # Override before_run() only if you need preprocessing beyond lowercasing
     # def before_run(self, category: str) -> str:
     #     category = super().before_run(category)
-        # Add custom pre-processing if needed
+    # Add custom pre-processing if needed
     #     return category
 
     def process(self, category: str) -> str:
@@ -262,7 +268,7 @@ class YourResolver(BaseResolversWorker):
 @functools.lru_cache(maxsize=1)
 def load_class() -> YourResolver:
     """Get singleton instance of the resolver."""
-    return YourResolver('resolve_your_category')
+    return YourResolver("resolve_your_category")
 
 
 @functools.lru_cache(maxsize=10000)

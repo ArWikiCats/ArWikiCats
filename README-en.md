@@ -247,12 +247,13 @@ Create resolver in `ArWikiCats/new_resolvers/` and register in `reslove_all.py`:
 # In ArWikiCats/new_resolvers/reslove_all.py
 from .your_resolver import resolve_your_category
 
+
 def new_resolvers_all(category: str) -> str:
     category_lab = (
-        resolve_jobs_main(category) or
-        resolve_your_category(category) or  # Your new resolver
-        resolve_sports_main(category) or
-        ""
+        resolve_jobs_main(category)
+        or resolve_your_category(category)  # Your new resolver
+        or resolve_sports_main(category)
+        or ""
     )
     return category_lab
 ```
@@ -402,13 +403,13 @@ ruff check ArWikiCats/
 ```python
 from ArWikiCats import (
     resolve_arabic_category_label,  # Translate single category with prefix
-    resolve_label_ar,               # Translate single category without prefix
-    batch_resolve_labels,           # Batch translation
-    EventProcessor,                 # Detailed processing class
-    logger,                         # Logging system
-    print_memory,                   # Print memory usage
-    dump_all_len,                   # Print data lengths
-    config_all_params,              # List available parameters
+    resolve_label_ar,  # Translate single category without prefix
+    batch_resolve_labels,  # Batch translation
+    EventProcessor,  # Detailed processing class
+    logger,  # Logging system
+    print_memory,  # Print memory usage
+    dump_all_len,  # Print data lengths
+    config_all_params,  # List available parameters
 )
 ```
 

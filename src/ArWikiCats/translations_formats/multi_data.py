@@ -17,7 +17,11 @@ Constants:
     COUNTRY_PARAM: Default placeholder for the first element ("natar").
 
 Example:
-    >>> from ArWikiCats.translations_formats import format_multi_data, MultiDataFormatterConfig, MultiDataFormatterSecondElementConfig
+    >>> from ArWikiCats.translations_formats import (
+    ...     format_multi_data,
+    ...     MultiDataFormatterConfig,
+    ...     MultiDataFormatterSecondElementConfig,
+    ... )
     >>> formatted_data = {"{nat} {sport} players": "لاعبو {sport_ar} {nat_ar}"}
     >>> data_list = {"british": "بريطانيون", "american": "أمريكيون"}
     >>> data_list2 = {"football": "كرة القدم", "basketball": "كرة السلة"}

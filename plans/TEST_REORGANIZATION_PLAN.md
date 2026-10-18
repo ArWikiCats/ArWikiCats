@@ -286,6 +286,7 @@ def test_format_data_search():
     result = bot.search("men's football")
     assert result == "كرة قدم رجال"
 
+
 # ✗ خطأ - هذا e2e test
 def test_category_translation():
     result = resolve_label_ar("Category:British footballers")
@@ -323,10 +324,13 @@ def test_jobs_resolver_with_nationalities():
 **أمثلة:**
 ```python
 # ✓ صحيح - e2e test
-@pytest.mark.parametrize("category,expected", [
-    ("Category:British footballers", "تصنيف:لاعبو كرة قدم بريطانيون"),
-    ("Category:2015 in Yemen", "تصنيف:2015 في اليمن"),
-])
+@pytest.mark.parametrize(
+    "category,expected",
+    [
+        ("Category:British footballers", "تصنيف:لاعبو كرة قدم بريطانيون"),
+        ("Category:2015 in Yemen", "تصنيف:2015 في اليمن"),
+    ],
+)
 def test_full_translation(category, expected):
     result = resolve_label_ar(category)
     assert result == expected

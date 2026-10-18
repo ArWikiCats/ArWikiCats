@@ -166,7 +166,6 @@ def normalize_state(ar_name: str) -> str:
 
 
 class UsStates(BaseResolversWorker):
-
     def load_bot(self) -> None:
         us_states_new_keys = load_us_states_new_keys()
 

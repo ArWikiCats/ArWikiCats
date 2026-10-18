@@ -50,12 +50,9 @@ def format_films_country_data(
 
     Example:
         >>> country_config = CountryBotConfig(
-        ...     formatted_data={"{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}"},
-        ...     data_list={"british": "بريطانية"}
+        ...     formatted_data={"{nat_en} {film_key} films": "أفلام {film_ar} {nat_ar}"}, data_list={"british": "بريطانية"}
         ... )
-        >>> genre_config = GenreBotConfig(
-        ...     data_list={"action": "أكشن", "drama": "دراما"}
-        ... )
+        >>> genre_config = GenreBotConfig(data_list={"action": "أكشن", "drama": "دراما"})
         >>> bot = format_films_country_data(country_config, genre_config)
         >>> bot.search("british action films")
         'أفلام أكشن بريطانية'
