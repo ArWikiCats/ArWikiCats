@@ -41,7 +41,7 @@ class TestSeparatorListsFixingIntegration:
         assert result == "أحداث رياضية في"
 
     @pytest.mark.fast
-    def test_preserves_existing_في(self) -> None:
+    def test_preserves_existing_in(self) -> None:
         """Test that existing 'في' is preserved."""
         result = separator_lists_fixing(
             type_label="أحداث رياضية في", separator_stripped="in", type_lower="sports events in"
@@ -70,7 +70,7 @@ class TestAddInTabIntegration:
         assert result.endswith("من ")
 
     @pytest.mark.fast
-    def test_preserves_existing_من(self) -> None:
+    def test_preserves_existing_from(self) -> None:
         """Test that existing 'من' is preserved."""
         result = add_in_tab(type_label="رياضيون من", type_lower="athletes", separator_stripped="from")
         # Should not add duplicate من

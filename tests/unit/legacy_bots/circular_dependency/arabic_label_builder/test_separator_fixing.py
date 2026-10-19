@@ -78,17 +78,17 @@ class TestSeparatorListsFixing:
 class TestAddInTab:
     """Tests for add_in_tab function."""
 
-    def test_add_من_with_from_separator(self) -> None:
+    def test_add_from_with_from_separator(self) -> None:
         """Test adding 'من' when separator is 'from'."""
         result = add_in_tab("رياضيون", "athletes", "from")
         assert result == "رياضيون من "
 
-    def test_skip_من_when_already_present(self) -> None:
+    def test_skip_from_when_already_present(self) -> None:
         """Test that 'من' is not added if already present."""
         result = add_in_tab("رياضيون من", "athletes", "from")
         assert result == "رياضيون من"
 
-    def test_add_من_for_of_suffix(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_add_from_for_of_suffix(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type ends with ' of' and is in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -106,7 +106,7 @@ class TestAddInTab:
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون من "
 
-    def test_skip_من_when_no_ty_in18(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_skip_from_when_no_ty_in18(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when get_pop_All_18 returns None."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -118,7 +118,7 @@ class TestAddInTab:
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون"
 
-    def test_skip_من_when_not_ending_with_of(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_skip_from_when_not_ending_with_of(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type doesn't end with ' of'."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -130,7 +130,7 @@ class TestAddInTab:
         result = add_in_tab("رياضيون", "athletes", "in")
         assert result == "رياضيون"
 
-    def test_skip_من_when_in_in_label(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_skip_from_when_in_in_label(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when 'في' is already in label."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -142,7 +142,7 @@ class TestAddInTab:
         result = add_in_tab("رياضيون في", "athletes of", "in")
         assert result == "رياضيون في"
 
-    def test_skip_من_when_not_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_skip_from_when_not_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test that 'من' is not added when type is not in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -160,7 +160,7 @@ class TestAddInTab:
         result = add_in_tab("رياضيون", "athletes of", "in")
         assert result == "رياضيون"
 
-    def test_add_من_when_prefix_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_add_from_when_prefix_in_tables(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test adding 'من' when type prefix (without ' of') is in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -210,7 +210,7 @@ class TestHelperFunctions:
         # " in" (with space) is not in "military installations", so should be False
         assert result is True
 
-    def test_handle_in_separator_adds_في(self, monkeypatch: pytest.MonkeyPatch) -> None:
+    def test_handle_in_separator_adds_in(self, monkeypatch: pytest.MonkeyPatch) -> None:
         """Test _handle_in_separator adds 'في' when conditions are met."""
         monkeypatch.setattr(
             arabic_label_builder,
@@ -234,7 +234,7 @@ class TestHelperFunctions:
         result = _handle_in_separator("منشآت عسكرية", "in", "military installations in")
         assert result == "منشآت عسكرية"
 
-    def test_handle_at_separator_adds_في(self) -> None:
+    def test_handle_at_separator_adds_in(self) -> None:
         """Test _handle_at_separator adds 'في' when conditions are met."""
         result = _handle_at_separator("رياضة", "sport at")
         assert result == "رياضة في"
