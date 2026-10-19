@@ -6,6 +6,7 @@ into a class-based architecture with lazy-loaded bots.
 from functools import cached_property
 
 from ArWikiCats.translations_formats.DataModelMulti.model_data_v2_formater import MultiDataFormatterBaseV2
+
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
 from ...translations_formats import (
     FormatData,
