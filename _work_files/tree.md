@@ -393,7 +393,6 @@ ArWikiCats/
 │   └── match_relation_word.py
 │
 ├── __init__.py
-├── event_processing.py
-└── logging_config.py
+└── event_processing.py
 
 ```

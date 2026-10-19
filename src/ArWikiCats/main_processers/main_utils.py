@@ -98,3 +98,10 @@ def list_of_cat_func(category_r: str, category_lab: str, list_of_cat: str, foot_
     """
     category_lab = _format_category_with_list_template(category_r, category_lab, list_of_cat, foot_ballers)
     return category_lab, list_of_cat
+
+
+__all__ = [
+    "list_of_cat_func_new",
+    "list_of_cat_func_foot_ballers",
+    "list_of_cat_func",
+]

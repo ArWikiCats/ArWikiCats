@@ -42,3 +42,8 @@ def main_relations_resolvers(category: str) -> str:
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
+
+
+__all__ = [
+    "main_relations_resolvers",
+]

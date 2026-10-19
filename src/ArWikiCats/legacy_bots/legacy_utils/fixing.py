@@ -36,3 +36,8 @@ def fix_minor(ar: str, ar_separator: str = "", en: str = "") -> str:
     logger.debug(f": {en=}| {ar=} ==> {arlabel=}")
 
     return arlabel
+
+
+__all__ = [
+    "fix_minor",
+]

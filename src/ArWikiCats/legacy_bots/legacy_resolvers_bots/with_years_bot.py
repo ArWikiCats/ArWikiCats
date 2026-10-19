@@ -284,3 +284,12 @@ def wrap_try_with_years(category_r) -> str:
         category_lab = Try_With_Years(cat3)
 
     return category_lab
+
+
+__all__ = [
+    "set_translate_callback",
+    "translate_general_category_wrap",
+    "handle_political_terms",
+    "Try_With_Years",
+    "wrap_try_with_years",
+]

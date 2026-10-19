@@ -352,3 +352,9 @@ class MultiDataFormatterBaseHelpers:
         result = self.check_placeholders(category, result)
         logger.debug(">> end")
         return result
+
+
+__all__ = [
+    "NormalizeResult",
+    "MultiDataFormatterBaseHelpers",
+]

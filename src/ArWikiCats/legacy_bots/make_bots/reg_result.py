@@ -86,3 +86,10 @@ def get_reg_result(category_r: str) -> TypiesResult:
         country=country,
         cat_test=cat_test,
     )
+
+
+__all__ = [
+    "TypiesResult",
+    "get_cats",
+    "get_reg_result",
+]

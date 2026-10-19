@@ -43,3 +43,8 @@ class MultiDataFormatterDataDouble(MultiDataFormatterBaseHelpers):
         self.country_bot = country_bot
         self.other_bot = other_bot
         self.data_to_find = data_to_find
+
+
+__all__ = [
+    "MultiDataFormatterDataDouble",
+]

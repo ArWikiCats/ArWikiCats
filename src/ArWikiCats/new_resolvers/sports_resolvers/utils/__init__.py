@@ -21,3 +21,8 @@ def fix_keys(category: str) -> str:
     category = REGEX_THE.sub("", category)
     category = REGEX_MENS.sub("mens", category)
     return category.strip()
+
+
+__all__ = [
+    "fix_keys",
+]

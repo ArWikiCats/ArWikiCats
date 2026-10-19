@@ -66,3 +66,11 @@ def add_key_new_players(key: str, value: str, file: str) -> None:
     """
     players_new_keys[key.lower()] = value
     logger.info(f"add to New_players[{key}] = {value} in {file}")
+
+
+__all__ = [
+    "check_key_in_tables",
+    "check_key_new_players_n",
+    "check_key_new_players",
+    "add_key_new_players",
+]

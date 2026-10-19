@@ -138,3 +138,10 @@ class MultiDataFormatterBaseYearV2(MultiDataFormatterBaseHelpers):
         self.other_bot = other_bot
         self.data_to_find = data_to_find
         self.other_key_first = other_key_first
+
+
+__all__ = [
+    "MultiDataFormatterBase",
+    "MultiDataFormatterBaseYear",
+    "MultiDataFormatterBaseYearV2",
+]

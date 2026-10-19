@@ -13,3 +13,8 @@ def standardize_time_phrases(text: str) -> str:
     text = text.replace("بعقد عقد", "بعقد")
     text = text.replace("بعقد القرن", "بالقرن")
     return text
+
+
+__all__ = [
+    "standardize_time_phrases",
+]

@@ -234,3 +234,9 @@ def get_type_country(category: str, separator: str) -> tuple[str, str]:
     logger.info(f": {type_regex=}, {country_regex=}")
 
     return type_regex, country_regex
+
+
+__all__ = [
+    "split_text_by_separator",
+    "get_type_country",
+]

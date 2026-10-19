@@ -384,3 +384,11 @@ def event_lab(cate_r: str) -> str:
 
     result = _finalize_category_label(result, cate_r)
     return result
+
+
+__all__ = [
+    "EventLabResolver",
+    "translate_general_category_wrap",
+    "event_label_work",
+    "event_lab",
+]

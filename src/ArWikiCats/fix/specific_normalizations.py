@@ -173,3 +173,16 @@ def apply_category_specific_normalizations(ar_label: str, en_label: str) -> str:
         ar_label = re.sub(r"هجمات في ", "هجمات على ", ar_label)
 
     return ar_label
+
+
+__all__ = [
+    "fix_formula",
+    "by_removal",
+    "simple_replace",
+    "invention_to_exhibition",
+    "media_expressions",
+    "time_expressions",
+    "duplicate_cleanup",
+    "preposition_fixes",
+    "apply_category_specific_normalizations",
+]

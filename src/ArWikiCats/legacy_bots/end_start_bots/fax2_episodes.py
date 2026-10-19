@@ -40,3 +40,8 @@ def get_episodes(category3: str, category3_nolower: str = "") -> tuple[str, str]
         category3 = category3_nolower[: -len("episodes")].strip()
 
     return list_of_cat, category3
+
+
+__all__ = [
+    "get_episodes",
+]

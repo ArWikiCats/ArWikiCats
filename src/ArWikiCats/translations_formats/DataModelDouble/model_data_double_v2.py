@@ -330,3 +330,8 @@ class FormatDataDoubleV2(FormatDataBase):
                 final_label = final_label.replace(f"{{{key}}}", val)
 
         return final_label
+
+
+__all__ = [
+    "FormatDataDoubleV2",
+]

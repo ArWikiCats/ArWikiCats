@@ -82,3 +82,8 @@ def is_category_allowed(category_name: str) -> bool:
             return False
 
     return True
+
+
+__all__ = [
+    "is_category_allowed",
+]

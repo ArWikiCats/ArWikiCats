@@ -245,3 +245,9 @@ def change_key_secondary_replacements(category):
         category = _change_key3_compiled[chk2_regex].sub(chk2_lab, category)
 
     return category
+
+
+__all__ = [
+    "change_key_mappings_replacements",
+    "change_key_secondary_replacements",
+]

@@ -109,3 +109,9 @@ def dump_data(
         return wrapper
 
     return decorator
+
+
+__all__ = [
+    "save",
+    "dump_data",
+]

@@ -53,3 +53,8 @@ def open_json_file(file_path: str = "") -> dict[str, Any] | list[Any]:
     except (json.JSONDecodeError, OSError) as e:
         logger.error(f"Failed to load JSON from {file_path_path}: {e}")
         return {}
+
+
+__all__ = [
+    "open_json_file",
+]

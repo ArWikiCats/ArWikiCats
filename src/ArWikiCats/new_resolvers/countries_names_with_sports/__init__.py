@@ -36,3 +36,8 @@ def main_countries_names_with_sports_resolvers(category) -> str:
     )
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
+
+
+__all__ = [
+    "main_countries_names_with_sports_resolvers",
+]

@@ -38,3 +38,8 @@ def all_patterns_resolvers(category: str) -> str:
     )
     logger.debug(f"<< : {category} => {category_lab}")
     return category_lab
+
+
+__all__ = [
+    "all_patterns_resolvers",
+]

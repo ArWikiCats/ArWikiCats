@@ -100,3 +100,10 @@ def Work_Templates(input_label: str) -> str:
 
     logger.info(">> end ")
     return template_label
+
+
+__all__ = [
+    "create_label_from_prefix",
+    "create_label_from_suffix",
+    "Work_Templates",
+]

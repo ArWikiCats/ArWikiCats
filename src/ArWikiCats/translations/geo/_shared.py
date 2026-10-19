@@ -101,3 +101,13 @@ def log_mapping_stats(name: str, **mappings: Mapping[Any, Any]) -> None:
 
     for mapping_name, mapping in mappings.items():
         logger.debug("%s.%s contains %d entries", name, mapping_name, len(mapping))
+
+
+__all__ = [
+    "load_json_mapping",
+    "merge_mappings",
+    "update_with_lowercased",
+    "apply_suffix_templates",
+    "normalize_to_lower",
+    "log_mapping_stats",
+]

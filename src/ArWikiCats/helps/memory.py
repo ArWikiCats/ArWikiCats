@@ -27,3 +27,8 @@ def print_memory() -> None:
     usage_mb = _resident_memory_bytes() / (1024 * 1024)
 
     print(yellow % "Memory usage:", purple % f"{usage_mb:.0f} MB")
+
+
+__all__ = [
+    "print_memory",
+]

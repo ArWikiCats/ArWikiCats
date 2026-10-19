@@ -26,3 +26,8 @@ def main_other_resolvers(category: str) -> str:
 
     logger.log(20 if result else 10, f"<<yellow>> end {category=}, {result=}")
     return result
+
+
+__all__ = [
+    "main_other_resolvers",
+]

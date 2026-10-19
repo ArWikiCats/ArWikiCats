@@ -136,3 +136,9 @@ def all_new_resolvers(category: str) -> str:
 
     logger.debug(f"<<purple>> : {category} => no match")
     return ""
+
+
+__all__ = [
+    "wrap_main_jobs_resolvers",
+    "all_new_resolvers",
+]

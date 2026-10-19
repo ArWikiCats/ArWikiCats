@@ -284,3 +284,10 @@ def label_for_startwith_year_or_typeo(category_r: str) -> str:
 
     logger.debug(f":: : {category_r=} => {result=}")
     return result
+
+
+__all__ = [
+    "LabelForStartWithYearOrTypeo",
+    "resolve_country_label",
+    "label_for_startwith_year_or_typeo",
+]

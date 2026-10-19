@@ -57,3 +57,8 @@ def get_list_of_and_cat3(category3: str, category3_nolower: str = "") -> tuple[s
         logger.info(f"<<lightblue>> {list_of_cat=}, {category3=}")
 
     return list_of_cat, foot_ballers, category3
+
+
+__all__ = [
+    "get_list_of_and_cat3",
+]

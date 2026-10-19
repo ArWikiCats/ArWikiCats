@@ -197,3 +197,8 @@ class MultiDataFormatterYearAndFrom2(MultiDataFormatterBaseHelpers):
             'نشرتها'
         """
         return self.category_relation_mapping
+
+
+__all__ = [
+    "MultiDataFormatterYearAndFrom2",
+]

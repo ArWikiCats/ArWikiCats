@@ -210,3 +210,8 @@ class FormatDataFrom:
         if add_arabic_category_prefix:
             result = self.prepend_arabic_category_prefix(key, result)
         return result
+
+
+__all__ = [
+    "FormatDataFrom",
+]

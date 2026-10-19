@@ -29,3 +29,8 @@ def get_templates_fo(category3: str) -> tuple[str, str]:
             return list_of_cat, category3
 
     return "", category3
+
+
+__all__ = [
+    "get_templates_fo",
+]

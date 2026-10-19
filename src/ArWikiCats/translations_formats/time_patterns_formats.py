@@ -146,3 +146,9 @@ class LabsYearsFormat(MatchTimes):
         self.category_templates[cat_key.lower()] = lab_key
         logger.debug(f"end : updated templates with {cat_key.lower()}")
         return True
+
+
+__all__ = [
+    "MatchTimes",
+    "LabsYearsFormat",
+]
