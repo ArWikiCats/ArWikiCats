@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)]()
 [![Status](https://img.shields.io/badge/status-Stable-orange)]()
 [![Tests](https://img.shields.io/badge/tests-60000+-success)]()
-[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/MrIbrahem/ArWikiCats/releases)
+[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/ArWikiCats/ArWikiCats/releases)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/ArWikiCats/ArWikiCats)
 
 ---
@@ -440,8 +440,8 @@ result = processor.process_single("Category:British footballers")
 
 ## Links
 
-- **GitHub**: https://github.com/MrIbrahem/ArWikiCats
-- **Issues**: https://github.com/MrIbrahem/ArWikiCats/issues
+- **GitHub**: https://github.com/ArWikiCats/ArWikiCats
+- **Issues**: https://github.com/ArWikiCats/ArWikiCats/issues
 - **PyPI**: `pip install ArWikiCats`
 
 ---
