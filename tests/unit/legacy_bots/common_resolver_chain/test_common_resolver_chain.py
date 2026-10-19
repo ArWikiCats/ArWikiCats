@@ -4,7 +4,7 @@ Unit tests for common_resolver_chain module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.common_resolver_chain import (
+from src.ArWikiCats.legacy_bots.common_resolver_chain import (
     _lookup_country_with_in_prefix,
     con_lookup_both,
     get_con_label,
@@ -156,8 +156,8 @@ class TestConLookupBoth:
             "all_new_resolvers",
             "get_from_pf_keys2",
             "_lookup_country_with_in_prefix",
-            "get_pop_All_18",
-            "get_KAKO",
+            "get_pop_all_18",
+            "get_kako",
         ]
         for key in expected_keys:
             assert key in con_lookup_both

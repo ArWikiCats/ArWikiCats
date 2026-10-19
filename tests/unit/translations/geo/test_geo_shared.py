@@ -1,6 +1,6 @@
 import pytest
 
-from ArWikiCats.translations.geo import _shared
+from src.ArWikiCats.translations.geo import _shared
 
 
 def test_load_json_mapping_filters_empty_entries(monkeypatch: pytest.MonkeyPatch) -> None:

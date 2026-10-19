@@ -4,7 +4,7 @@ Extended tests for split_text_by_separator function covering additional edge cas
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_utils import (
+from src.ArWikiCats.legacy_bots.legacy_utils import (
     split_text_by_separator,
 )
 

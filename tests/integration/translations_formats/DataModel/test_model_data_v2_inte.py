@@ -8,7 +8,7 @@ can be dictionaries with multiple placeholder replacements.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel.model_data_v2 import FormatDataV2
+from src.ArWikiCats.translations_formats.DataModel.model_data_v2 import FormatDataV2
 
 
 class TestFormatDataV2Integration:

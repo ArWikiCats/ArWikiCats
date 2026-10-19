@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats.legacy_bots.common_resolver_chain import get_type_lab
 from utils.dump_runner import make_dump_test_name_data_callback
+
+from src.ArWikiCats.legacy_bots.common_resolver_chain import get_type_lab
 
 data_1 = {
     "medical and health organizations": "منظمات طبية وصحية",

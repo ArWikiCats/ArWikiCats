@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations.sports import games_labs
+from src.ArWikiCats.translations.sports import games_labs
 
 
 @pytest.mark.unit

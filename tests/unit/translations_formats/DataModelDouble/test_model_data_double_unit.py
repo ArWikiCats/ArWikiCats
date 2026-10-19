@@ -9,7 +9,7 @@ This module provides exhaustive tests for:
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatDataDouble
+from src.ArWikiCats.translations_formats import FormatDataDouble
 
 
 @pytest.fixture

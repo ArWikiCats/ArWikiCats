@@ -1,8 +1,8 @@
 #
 import pytest
-
-from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats import resolve_label_ar
 
 fast_data_1 = {
     "Shooting sports events": "أحداث الرماية",

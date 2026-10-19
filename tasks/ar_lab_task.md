@@ -48,7 +48,7 @@ Resolves geographic entities via:
 * team_work
 * nats
 * time_to_arabic
-* get_pop_All_18
+* get_pop_all_18
 
 ### D. Label Composition Layer
 

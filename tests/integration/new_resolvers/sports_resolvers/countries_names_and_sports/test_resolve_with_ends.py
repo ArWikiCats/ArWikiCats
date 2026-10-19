@@ -2,12 +2,12 @@
 Tests
 """
 
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import (
+from src.ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import (
     resolve_countries_names_sport_with_ends,
 )
 

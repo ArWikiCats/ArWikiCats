@@ -2,12 +2,12 @@
 Tests
 """
 
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers import resolve_countries_names_medalists
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.medalists_resolvers import resolve_countries_names_medalists
 
 main_data = {
     "universiade competitors": "منافسون في الألعاب الجامعية",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_lab
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_lab
 
 data = {
     "category:air force navigational boxes": "تصنيف:صناديق تصفح قوات جوية",
@@ -91,7 +91,7 @@ def test_event_lab_templates_branch_with_seo_fallback() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 4) get_list_of_and_cat3 footballers + Get_country2 special branch
+# 4) get_list_of_and_cat3 footballers + get_country2 special branch
 # ---------------------------------------------------------------------------
 
 

@@ -1,11 +1,14 @@
 #
 import pytest
 from load_one_data import dump_diff, one_dump_test
-
-from ArWikiCats import resolve_label_ar
-from ArWikiCats.new_resolvers.countries_names_resolvers.us_states import _STATE_SUFFIX_TEMPLATES_BASE, normalize_state
-from ArWikiCats.translations import US_STATES
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats import resolve_label_ar
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.us_states import (
+    _STATE_SUFFIX_TEMPLATES_BASE,
+    normalize_state,
+)
+from src.ArWikiCats.translations import US_STATES
 
 test_data_keys = {
     # "{en} republicans": "أعضاء الحزب الجمهوري في {ar}",

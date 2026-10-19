@@ -8,14 +8,14 @@ import json
 import re
 from pathlib import Path
 
-json_paths = Path("D:/categories_bot/make2_new/_work_files/genders_data").glob("*.json")
+json_paths = Path("D:/categories_bot/make2_new/arwikicats_repo/_work_files/genders_data").glob("*.json")
 json_data = {}
 for file in json_paths:
     data = json.loads(file.read_text(encoding="utf-8"))
     json_data.update({v["job_males"]: v["both_jobs"] for v in data.values()})
 
 
-CATS_PATH = Path("D:/categories_bot/make2_new/examples/data/males.json")
+CATS_PATH = Path("D:/categories_bot/make2_new/arwikicats_repo/examples/data/males.json")
 CATS_DATA = json.loads(CATS_PATH.read_text(encoding="utf-8"))
 
 CATS_DATA_SORTED_BY_VALUE = dict(sorted(CATS_DATA.items(), key=lambda x: x[1]))
@@ -48,10 +48,10 @@ for i in range(0, len(rows), LIMIT):
 
     wikitext += """\n|}"""
     file_number = i // LIMIT + 1
-    SAVE_PATH = Path(f"D:/categories_bot/make2_new/_work_files/move_{file_number}.wiki")
+    SAVE_PATH = Path(f"D:/categories_bot/make2_new/arwikicats_repo/_work_files/move_{file_number}.wiki")
     with open(SAVE_PATH, "w", encoding="utf-8") as f:
         f.write(wikitext)
 
-full_data_path = Path("D:/categories_bot/make2_new/examples/data/full_data.json")
+full_data_path = Path("D:/categories_bot/make2_new/arwikicats_repo/examples/data/full_data.json")
 with open(full_data_path, "w", encoding="utf-8") as f:
     json.dump(full_data, f, ensure_ascii=False, indent=4)

@@ -3,8 +3,8 @@
 
 import pytest
 
-from ArWikiCats.time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
-from ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
+from src.ArWikiCats.time_formats.time_to_arabic import convert_time_to_arabic, match_time_en_first
+from src.ArWikiCats.translations_formats import FormatDataFrom, MultiDataFormatterYearAndFrom
 
 
 def get_label(text: str) -> str:
@@ -38,7 +38,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         match_key_callback=match_time_en_first,
     )
 
-    # year_bot = YearFormatData(key_placeholder="{year1}", value_placeholder="{year1}")
+    # year_bot = YearFormatData.load(key_placeholder="{year1}", value_placeholder="{year1}")
 
     return MultiDataFormatterYearAndFrom(
         country_bot=country_bot,

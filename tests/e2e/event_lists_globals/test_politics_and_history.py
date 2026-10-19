@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data = {
     # "History of the Royal Air Force": "تاريخ القوات الجوية الملكية",

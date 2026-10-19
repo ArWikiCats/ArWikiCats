@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from typing import Iterable
+from collections.abc import Iterable
 
 import pytest
 
-from ArWikiCats.translations.mixed.key_registry import KeyRegistry
+from src.ArWikiCats.translations.mixed.key_registry import KeyRegistry
 
 
 class DummyIterable(Iterable[tuple[str, str]]):

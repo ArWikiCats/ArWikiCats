@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data_2 = {
     # NEED FIXING

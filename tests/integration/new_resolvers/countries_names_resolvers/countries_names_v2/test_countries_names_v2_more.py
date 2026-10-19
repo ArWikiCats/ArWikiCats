@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_v2 import resolve_by_countries_names_v2
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.countries_names_v2 import resolve_by_countries_names_v2
 
 test_data = {
     "bahamas royal defence force": "قوات الدفاع الملكية البهامية",

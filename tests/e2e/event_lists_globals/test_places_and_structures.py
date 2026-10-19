@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data = {
     "Bridges in Wales by type": "جسور في ويلز حسب الفئة",

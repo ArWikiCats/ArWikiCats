@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ArWikiCats.fix.fixtitle import add_fee, fix_it, fixlabel
+from src.ArWikiCats.fix.fixtitle import add_fee, fix_it, fixlabel
 
 
 def test_fix_it_applies_expected_normalizations() -> None:

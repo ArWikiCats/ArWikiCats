@@ -3,11 +3,11 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_label_work
 from utils.dump_runner import make_dump_test_name_data
 
-event_Lab_seoo_data = {
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.event_lab_bot import event_label_work
+
+event_lab_seoo_data = {
     "100th united states congress": "الكونغرس الأمريكي المئة",
     "101st united states congress": "الكونغرس الأمريكي الأول بعد المئة",
     "102nd united states congress": "الكونغرس الأمريكي الثاني بعد المئة",
@@ -71,15 +71,15 @@ event_Lab_seoo_data = {
 }
 
 
-@pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=event_Lab_seoo_data.keys())
+@pytest.mark.parametrize("category, expected_key", event_lab_seoo_data.items(), ids=event_lab_seoo_data.keys())
 @pytest.mark.fast
-def test_event_Lab_seoo_data(category: str, expected_key: str) -> None:
+def test_event_lab_seoo_data(category: str, expected_key: str) -> None:
     label = event_label_work(category)
     assert label == expected_key
 
 
 to_test = [
-    ("test_lab_seoo_bot_1", event_Lab_seoo_data),
+    ("test_lab_seoo_bot_1", event_lab_seoo_data),
 ]
 
 test_dump_all = make_dump_test_name_data(to_test, event_label_work, run_same=True)

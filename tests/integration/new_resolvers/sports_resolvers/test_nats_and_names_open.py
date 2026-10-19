@@ -2,10 +2,10 @@
 """ """
 
 import pytest
-
-from ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
-from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 from utils.dump_runner import make_dump_test_name_data_callback
+
+from src.ArWikiCats.new_resolvers.sports_resolvers.countries_names_and_sports import resolve_countries_names_sport
+from src.ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 data_nats_0 = {}
 data_nats_1 = {

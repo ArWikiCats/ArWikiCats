@@ -2,7 +2,7 @@
 Unit tests for the format_bots.change_cat module (format_bots/__init__.py).
 """
 
-from ArWikiCats.format_bots import change_cat
+from src.ArWikiCats.format_bots import change_cat
 
 
 class TestChangeCatBasicNormalization:
@@ -51,7 +51,7 @@ class TestChangeCatCenturyMillennium:
         """Should handle en-dash, em-dash, and regular hyphen."""
         result1 = change_cat("20th-century")
         result2 = change_cat("20th–century")
-        result3 = change_cat("20th—century")
+        _result3 = change_cat("20th—century")
         # All should normalize to space
         for result in [result1, result2]:
             assert " century" in result

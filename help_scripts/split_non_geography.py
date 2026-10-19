@@ -16,7 +16,6 @@ import json
 import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Tuple
 
 base_dir = Path(__file__).parent.parent
 jsons_dir = base_dir / "ArWikiCats" / "translations" / "jsons"
@@ -278,7 +277,7 @@ TAXON_SUFFIXES = (
 # -------------------------------------------------------------
 
 
-def detect_english_keywords(label: str, value: str) -> bool:
+def detect_english_keywords(label: str, value: str) -> tuple[bool, str]:
     """Return True if English keyword matches exactly or by token."""
     lowered = label.lower()
     for name, keywords in NON_GEO_KEYWORDS_EN.items():
@@ -340,7 +339,7 @@ def detect_person_like(label: str) -> bool:
 # -------------------------------------------------------------
 
 
-def classify_entries(entries: Dict[str, str]) -> Tuple[Dict[str, str], Dict[str, str]]:
+def classify_entries(entries: dict[str, str]) -> tuple[dict[str, str], dict[str, str]]:
     """Split entries into geographic and non-geographic."""
     geo = {}
     non_geo = {}
@@ -398,8 +397,7 @@ def main() -> None:
         # jsons_dir / "cities/cities_full.json",
         # jsons_dir / "cities/yy2.json",
         # jsons_dir / "geography/popopo.json",
-        jsons_dir
-        / "geography/P17_PP.json",
+        jsons_dir / "geography/P17_PP.json",
     ]
     status = {}
     for file in files:

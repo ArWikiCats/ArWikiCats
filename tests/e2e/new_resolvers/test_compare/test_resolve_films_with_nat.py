@@ -2,8 +2,9 @@
 Tests
 """
 
-from ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import get_films_key_tyty_new
 from utils.dump_runner import make_dump_test_name_data_callback
+
+from src.ArWikiCats.new_resolvers.films_resolvers.resolve_films_labels import get_films_key_tyty_new
 
 test_data = {
     "canadian non-fiction television series": "مسلسلات تلفزيونية غير خيالية كندية",

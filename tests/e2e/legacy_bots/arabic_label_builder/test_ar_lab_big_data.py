@@ -3,10 +3,10 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats import resolve_label_ar
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 from utils.dump_runner import make_dump_test_name_data_callback
+
+from src.ArWikiCats import resolve_label_ar
+from src.ArWikiCats.legacy_bots.resolvers.arabic_label_builder import find_ar_label
 
 data_list = [
     ("sports venues by type", " by ", "ملاعب رياضية حسب الفئة"),

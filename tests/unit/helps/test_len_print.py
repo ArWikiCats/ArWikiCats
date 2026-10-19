@@ -4,7 +4,7 @@ Unit tests for the helps.len_print module.
 
 from unittest.mock import MagicMock, mock_open, patch
 
-from ArWikiCats.helps.len_print import all_len, data_len, dump_all_len, format_size, save_data
+from src.ArWikiCats.helps.len_print import all_len, data_len, dump_all_len, format_size, save_data
 
 
 class TestFormatSize:
@@ -42,12 +42,12 @@ class TestSaveData:
 
     def test_does_nothing_when_no_save_path(self) -> None:
         """Should do nothing when save_data_path is not configured."""
-        with patch("ArWikiCats.helps.len_print.get_save_path") as mock_get_path:
+        with patch("src.ArWikiCats.helps.len_print.get_save_path") as mock_get_path:
             mock_get_path.return_value = ""
             save_data("test_bot", {"key": "value"})
             # Should complete without errors
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
@@ -59,7 +59,7 @@ class TestSaveData:
         save_data("test_bot", {"data": [1, 2, 3]})
         mock_mkdir.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
@@ -72,7 +72,7 @@ class TestSaveData:
         save_data("test_bot", data)
         mock_json_dump.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     @patch("builtins.open", new_callable=mock_open)
     @patch("json.dump")
@@ -85,7 +85,7 @@ class TestSaveData:
         save_data("test_bot", data)
         mock_json_dump.assert_called_once()
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     def test_skips_empty_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should skip entries with empty data."""
@@ -95,7 +95,7 @@ class TestSaveData:
             save_data("test_bot", data)
             # Should not raise errors
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     def test_sorts_dict_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should sort dict data by keys."""
@@ -113,7 +113,7 @@ class TestSaveData:
                         keys = list(saved_data.keys())
                         assert keys == sorted(keys, key=lambda x: x.lower())
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     def test_sorts_list_data(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should sort and deduplicate list data."""
@@ -124,7 +124,7 @@ class TestSaveData:
                 save_data("test_bot", data)
                 # Should have attempted to save sorted unique list
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     @patch("pathlib.Path.mkdir")
     def test_handles_errors_gracefully(self, mock_mkdir: MagicMock, mock_get_path: MagicMock) -> None:
         """Should handle errors gracefully and log them."""
@@ -137,7 +137,7 @@ class TestSaveData:
 class TestDataLen:
     """Tests for the data_len function."""
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_adds_data_to_all_len(self, mock_get_path: MagicMock) -> None:
         """Should add data to all_len dictionary."""
         mock_get_path.return_value = "/tmp/test"
@@ -147,7 +147,7 @@ class TestDataLen:
         assert "test_bot" in all_len
         assert isinstance(all_len["test_bot"], dict)
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_calculates_count_for_collections(self, mock_get_path: MagicMock) -> None:
         """Should calculate count for list/dict collections."""
         mock_get_path.return_value = "/tmp/test"
@@ -156,7 +156,7 @@ class TestDataLen:
         data_len("test_bot", data)
         assert all_len["test_bot"]["items"]["count"] == 5
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_uses_integer_value_directly(self, mock_get_path: MagicMock) -> None:
         """Should use integer values directly as count."""
         mock_get_path.return_value = "/tmp/test"
@@ -165,7 +165,7 @@ class TestDataLen:
         data_len("test_bot", data)
         assert all_len["test_bot"]["count"]["count"] == 42
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_calculates_size_for_items(self, mock_get_path: MagicMock) -> None:
         """Should calculate size for items."""
         mock_get_path.return_value = "/tmp/test"
@@ -175,11 +175,11 @@ class TestDataLen:
         assert "size" in all_len["test_bot"]["items"]
         assert isinstance(all_len["test_bot"]["items"]["size"], str)
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_saves_data_when_path_configured(self, mock_get_path: MagicMock) -> None:
         """Should call save_data when save_data_path is configured."""
         mock_get_path.return_value = "/tmp/test"
-        with patch("ArWikiCats.helps.len_print.save_data") as mock_save:
+        with patch("src.ArWikiCats.helps.len_print.save_data") as mock_save:
             data = {"items": [1, 2, 3]}
             data_len("test_bot", data)
             mock_save.assert_called_once_with("test_bot", data)
@@ -191,7 +191,7 @@ class TestDataLen:
         # Should not add anything to all_len or should add empty entry
         assert "test_bot" not in all_len or all_len["test_bot"] == {}
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_updates_existing_bot_data(self, mock_get_path: MagicMock) -> None:
         """Should update existing bot data instead of replacing."""
         mock_get_path.return_value = "/tmp/test"
@@ -292,7 +292,7 @@ class TestAllLenGlobalVariable:
 class TestIntegrationScenarios:
     """Integration tests for len_print module."""
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_full_workflow(self, mock_get_path: MagicMock) -> None:
         """Should support full workflow from data_len to dump_all_len."""
         mock_get_path.return_value = "/tmp/test"
@@ -306,8 +306,8 @@ class TestIntegrationScenarios:
         assert "bot2" in result["all"]
         assert len(result["by_count"]) > 0
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
-    @patch("ArWikiCats.helps.len_print.save_data")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.save_data")
     def test_saves_when_configured(self, mock_save: MagicMock, mock_get_path: MagicMock) -> None:
         """Should save data when save_data_path is configured."""
         mock_get_path.return_value = "/tmp/test"
@@ -320,7 +320,7 @@ class TestIntegrationScenarios:
 class TestEdgeCases:
     """Edge case tests."""
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_handles_unicode_in_bot_names(self, mock_get_path: MagicMock) -> None:
         """Should handle Unicode characters in bot names."""
         mock_get_path.return_value = "/tmp/test"
@@ -328,7 +328,7 @@ class TestEdgeCases:
         data_len("بوت_عربي", {"items": [1, 2, 3]})
         assert "بوت_عربي" in all_len
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_handles_special_characters_in_keys(self, mock_get_path: MagicMock) -> None:
         """Should handle special characters in data keys."""
         mock_get_path.return_value = "/tmp/test"
@@ -336,7 +336,7 @@ class TestEdgeCases:
         data_len("test_bot", {"items-with-dashes": [1, 2, 3]})
         assert "items-with-dashes" in all_len["test_bot"]
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_handles_very_large_collections(self, mock_get_path: MagicMock) -> None:
         """Should handle very large collections."""
         mock_get_path.return_value = "/tmp/test"
@@ -345,7 +345,7 @@ class TestEdgeCases:
         data_len("test_bot", {"large": large_list})
         assert "test_bot" in all_len
 
-    @patch("ArWikiCats.helps.len_print.get_save_path")
+    @patch("src.ArWikiCats.helps.len_print.get_save_path")
     def test_handles_nested_data_structures(self, mock_get_path: MagicMock) -> None:
         """Should handle nested data structures."""
         mock_get_path.return_value = "/tmp/test"

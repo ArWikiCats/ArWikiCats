@@ -4,7 +4,7 @@ E2E tests for countries names resolvers
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data_main = {
     "Spies for Federal Republic of Germany": "جواسيس لصالح جمهورية ألمانيا الاتحادية",

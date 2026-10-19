@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
+from src.ArWikiCats.new_resolvers.relations_resolver import main_relations_resolvers
 
 males_data = {}
 

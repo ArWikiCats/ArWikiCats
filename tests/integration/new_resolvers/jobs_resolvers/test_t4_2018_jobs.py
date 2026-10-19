@@ -5,7 +5,7 @@ Tests
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers import all_new_resolvers
+from src.ArWikiCats.new_resolvers import all_new_resolvers
 
 test_data_not_for_2018_bot = {
     "weightlifters": "رباعون",
@@ -407,7 +407,7 @@ data_fast = {
 
 @pytest.mark.parametrize("category, expected_key", te4_2018_jobs_data.items(), ids=te4_2018_jobs_data.keys())
 @pytest.mark.slow
-def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
+def test_te4_2018_jobs_data(category: str, expected_key: str) -> None:
     label1 = all_new_resolvers(category)
     assert label1 == expected_key
 

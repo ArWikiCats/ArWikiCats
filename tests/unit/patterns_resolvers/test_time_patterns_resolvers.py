@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.time_patterns_resolvers import build_labs_years_object
+from src.ArWikiCats.patterns_resolvers.time_patterns_resolvers import build_labs_years_object
 
 
 @pytest.mark.unit

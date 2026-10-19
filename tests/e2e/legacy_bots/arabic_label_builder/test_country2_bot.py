@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats import resolve_label_ar
 
 test_historic = {
     "railway stations on national-register-of-historic-places": "محطات السكك الحديدية في السجل الوطني للأماكن التاريخية",
@@ -637,14 +637,14 @@ test_dump_all = make_dump_test_name_data(to_test, resolve_label_ar, run_same=Tru
 
 @pytest.mark.parametrize("category, expected", data_fast.items(), ids=data_fast.keys())
 @pytest.mark.fast
-def test_Get_country2_fast(category: str, expected: str) -> None:
+def test_get_country2_fast(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
 
 @pytest.mark.parametrize("category, expected", data_slow.items(), ids=data_slow.keys())
 @pytest.mark.slow
-def test_Get_country2_slow(category: str, expected: str) -> None:
+def test_get_country2_slow(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 

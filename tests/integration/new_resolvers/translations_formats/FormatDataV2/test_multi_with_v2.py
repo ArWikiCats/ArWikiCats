@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBaseV2
+from src.ArWikiCats.translations_formats import FormatDataV2, MultiDataFormatterBaseV2
 
 
 @pytest.fixture

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from src.ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 test_data2 = {
     # "yemeni philosophers and theologians": "فلاسفة ولاهوتيون يمنيون",

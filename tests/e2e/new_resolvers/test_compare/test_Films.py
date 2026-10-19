@@ -3,9 +3,9 @@ Tests
 """
 
 import pytest
-
-from ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 from utils.dump_runner import make_dump_test_name_data_callback
+
+from src.ArWikiCats.new_resolvers.films_resolvers import main_films_resolvers
 
 test_data = {
     "3d comics": "قصص مصورة ثلاثية الأبعاد",
@@ -2333,7 +2333,7 @@ test_data2 = {
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_Films(category: str, expected: str) -> None:
+def test_films(category: str, expected: str) -> None:
     label = main_films_resolvers(category)
     assert label == expected
 

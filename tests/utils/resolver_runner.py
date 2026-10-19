@@ -11,7 +11,7 @@ def make_resolver_test(
     resolver: Callable[[str], str],
     data: Mapping[str, str],
     test_name: str = "test_resolver_data",
-    marks: list[pytest.MarkDecorator] = None,
+    marks: list[pytest.MarkDecorator] | None = None,
 ):
     """
     Factory to generate a parametrized pytest test for a resolver.

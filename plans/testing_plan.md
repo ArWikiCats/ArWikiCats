@@ -66,9 +66,11 @@ This document outlines a comprehensive testing strategy for the ArWikiCats Arabi
 def simple_category():
     return "Category:2015 in Yemen"
 
+
 @pytest.fixture
 def complex_category():
     return "Category:1550s establishments in Namibia"
+
 
 @pytest.fixture
 def category_batch():
@@ -78,10 +80,12 @@ def category_batch():
         "Category:Belgian cyclists",
     ]
 
+
 # 2. Expected result fixtures
 @pytest.fixture
 def expected_yemen_label():
     return "تصنيف:2015 في اليمن"
+
 
 # 3. Translation data fixtures
 @pytest.fixture
@@ -90,6 +94,7 @@ def nationality_translations():
         "Belgian": "بلجيكي",
         "American": "أمريكي",
     }
+
 
 # 4. Configuration fixtures
 @pytest.fixture
@@ -139,13 +144,14 @@ def test_config():
 # 1. Mock caching for isolated tests
 @pytest.fixture
 def no_cache(mocker):
-    mocker.patch.object(resolve_label, 'cache_clear')
-    mocker.patch.object(resolve_label, 'cache_info', return_value=None)
+    mocker.patch.object(resolve_label, "cache_clear")
+    mocker.patch.object(resolve_label, "cache_info", return_value=None)
+
 
 # 3. Mock resolver chain for unit tests
 @pytest.fixture
 def mock_resolver_chain(mocker):
-    mocker.patch('ArWikiCats.main_processers.event_lab_bot.event_lab', return_value="")
+    mocker.patch("ArWikiCats.main_processers.event_lab_bot.event_lab", return_value="")
 ```
 
 ### 2.3 Test Isolation
@@ -399,10 +405,12 @@ def test_resolve_label_with_year_and_country():
 def test_fast_unit_test():
     pass
 
+
 @pytest.mark.integration
 @pytest.mark.slow
 def test_slow_integration_test():
     pass
+
 
 @pytest.mark.dict
 def test_dictionary_lookup():
@@ -636,11 +644,14 @@ class TestCountryTimePattern:
         ]
 
     @pytest.mark.unit
-    @pytest.mark.parametrize("input_cat,expected", [
-        ("2015 in Yemen", True),
-        ("1999 in France", True),
-        ("invalid pattern", False),
-    ])
+    @pytest.mark.parametrize(
+        "input_cat,expected",
+        [
+            ("2015 in Yemen", True),
+            ("1999 in France", True),
+            ("invalid pattern", False),
+        ],
+    )
     def test_pattern_detection(self, input_cat, expected):
         """Test that country+time patterns are correctly detected."""
         result = resolve_country_time_pattern(input_cat)
@@ -669,7 +680,7 @@ class TestCountryTimePattern:
         result = resolve_country_time_pattern("2015 in Yemen")
         if result:
             # Verify Arabic characters present
-            assert any('\u0600' <= c <= '\u06FF' for c in result)
+            assert any("\u0600" <= c <= "\u06ff" for c in result)
 ```
 
 ---
@@ -920,7 +931,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.in
+          pip install -r requirements.txt
           pip install pytest pytest-cov pytest-xdist
 
       - name: Run tests

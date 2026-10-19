@@ -7,7 +7,7 @@ which creates formatters for year, decade, and century patterns.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel.model_data_time import (
+from src.ArWikiCats.translations_formats.DataModel.model_data_time import (
     YearFormatData,
 )
 
@@ -18,7 +18,7 @@ class TestYearFormatDataIntegration:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -106,7 +106,7 @@ class TestYearFormatDataVariousCenturies:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -134,7 +134,7 @@ class TestYearFormatDataVariousDecades:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )

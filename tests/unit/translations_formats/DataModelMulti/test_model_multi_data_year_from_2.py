@@ -9,9 +9,9 @@ with category_relation_mapping support.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel import FormatDataFrom
-from ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
-from ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from_2 import (
+from src.ArWikiCats.translations_formats.DataModel import FormatDataFrom
+from src.ArWikiCats.translations_formats.DataModelMulti import MultiDataFormatterBaseHelpers
+from src.ArWikiCats.translations_formats.DataModelMulti.model_multi_data_year_from_2 import (
     MultiDataFormatterYearAndFrom2,
 )
 

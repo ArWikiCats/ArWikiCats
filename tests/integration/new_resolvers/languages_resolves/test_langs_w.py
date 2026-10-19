@@ -4,9 +4,9 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
-from ArWikiCats.new_resolvers.languages_resolves.resolve_languages import add_definite_article
-from ArWikiCats.translations import language_key_translations
+from src.ArWikiCats.new_resolvers.languages_resolves import resolve_languages_labels
+from src.ArWikiCats.new_resolvers.languages_resolves.resolve_languages import add_definite_article
+from src.ArWikiCats.translations import language_key_translations
 
 languages_key_subset = {k: language_key_translations[k] for k in list(language_key_translations.keys())[:15]}
 
@@ -104,13 +104,13 @@ data_2 = {
 
 
 @pytest.mark.parametrize("category, expected", data_2.items(), ids=data_2.keys())
-def test_Lang_work_main_data_2(category: str, expected: str) -> None:
+def test_lang_work_main_data_2(category: str, expected: str) -> None:
     result = resolve_languages_labels(category)
     assert result == expected
 
 
 @pytest.mark.parametrize("category, expected", data.items(), ids=data.keys())
-def test_Lang_work_main(category: str, expected: str) -> None:
+def test_lang_work_main(category: str, expected: str) -> None:
     result = resolve_languages_labels(category)
     assert result == expected
 

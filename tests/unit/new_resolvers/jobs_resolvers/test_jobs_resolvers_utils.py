@@ -2,7 +2,7 @@
 Tests
 """
 
-from ArWikiCats.new_resolvers.jobs_resolvers.utils import nat_and_gender_keys
+from src.ArWikiCats.new_resolvers.jobs_resolvers.utils import nat_and_gender_keys
 
 
 def test_nat_and_gender_keys_male():

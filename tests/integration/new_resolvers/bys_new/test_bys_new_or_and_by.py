@@ -5,9 +5,9 @@ Tests for bys_new bot
 from __future__ import annotations
 
 import pytest
-
-from ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats.new_resolvers.bys_new import resolve_by_labels
 
 BY_TABLE_BASED = {
     # all keys with " and "
@@ -352,14 +352,14 @@ test_data = {
 @pytest.mark.fast
 def test_bys_new_or_and_by(category: str, expected: str, monkeypatch: pytest.MonkeyPatch) -> None:
     """Test all nat translation patterns."""
-    to_find_new = {
+    _to_find_new = {
         "by country of origin": "حسب البلد الأصل",
         "by year of entry into force": "حسب سنة دخولها حيز التنفيذ",
         "by nationality, genre and instrument": "حسب الجنسية والنوع والآلة",
         "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
         "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
     }
-    # monkeypatch.setattr("ArWikiCats.new_resolvers.bys_new.data_to_find", to_find_new)
+    # monkeypatch.setattr("src.ArWikiCats.new_resolvers.bys_new.data_to_find", to_find_new)
     result = resolve_by_labels(category)
     assert result == expected
 

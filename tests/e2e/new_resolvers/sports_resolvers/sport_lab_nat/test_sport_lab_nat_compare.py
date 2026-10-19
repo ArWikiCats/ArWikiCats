@@ -1,7 +1,7 @@
 import pytest
-
-from ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats.new_resolvers.sports_resolvers.sport_lab_nat import sport_lab_nat_load_new
 
 data_0 = {
     "central american reserve football teams": "فرق كرة قدم أمريكية أوسطية احتياطية",

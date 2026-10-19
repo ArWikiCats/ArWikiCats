@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
+from src.ArWikiCats.sub_new_resolvers.team_work import resolve_clubs_teams_leagues
 
 fast_data = {
     "major league baseball owners and executives": "رؤساء تنفيذيون وملاك دوري كرة القاعدة الرئيسي",

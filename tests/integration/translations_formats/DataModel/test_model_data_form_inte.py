@@ -7,8 +7,8 @@ dynamic wrapper for handling category transformations with customizable callback
 
 import pytest
 
-from ArWikiCats.time_formats import convert_time_to_arabic, match_time_en_first
-from ArWikiCats.translations_formats.DataModel.model_data_form import FormatDataFrom
+from src.ArWikiCats.time_formats import convert_time_to_arabic, match_time_en_first
+from src.ArWikiCats.translations_formats.DataModel.model_data_form import FormatDataFrom
 
 
 class TestFormatDataFromIntegration:

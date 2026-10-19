@@ -1,16 +1,15 @@
 import re
-from typing import Dict
 
 import pytest
 
-from ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
-from ArWikiCats.translations_formats import FormatData
+from src.ArWikiCats.translations import SPORTS_KEYS_FOR_JOBS
+from src.ArWikiCats.translations_formats import FormatData
 
 # --- Fixtures ---------------------------------------------------------
 
 
 @pytest.fixture(scope="session")
-def formatted_data() -> Dict[str, str]:
+def formatted_data() -> dict[str, str]:
     return {
         "{sport}": "{sport_label}",
         "amateur {sport}": "{sport_label} للهواة",
@@ -23,12 +22,12 @@ def formatted_data() -> Dict[str, str]:
 
 
 @pytest.fixture(scope="session")
-def data_list() -> Dict[str, str]:
+def data_list() -> dict[str, str]:
     return SPORTS_KEYS_FOR_JOBS
 
 
 @pytest.fixture
-def bot(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> FormatData:
+def bot(formatted_data: dict[str, str], data_list: dict[str, str]) -> FormatData:
     return FormatData(formatted_data, data_list, key_placeholder="{sport}", value_placeholder="{sport_label}")
 
 
@@ -114,7 +113,7 @@ def test_search_invalid(bot: FormatData, category: str) -> None:
 
 
 # --- search edge cases -----------------------------------------------
-def test_search_missing_sport_label(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> None:
+def test_search_missing_sport_label(formatted_data: dict[str, str], data_list: dict[str, str]) -> None:
     # remove a key intentionally
     temp = dict(data_list)
     del temp["football"]
@@ -122,6 +121,6 @@ def test_search_missing_sport_label(formatted_data: Dict[str, str], data_list: D
     assert bot.search("men's football players") == ""
 
 
-def test_search_missing_template_label(formatted_data: Dict[str, str], data_list: Dict[str, str]) -> None:
+def test_search_missing_template_label(formatted_data: dict[str, str], data_list: dict[str, str]) -> None:
     bot = FormatData({}, data_list)
     assert bot.search("men's football players") == ""

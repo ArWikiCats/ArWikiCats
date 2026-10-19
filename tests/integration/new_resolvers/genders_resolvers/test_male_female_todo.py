@@ -10,7 +10,7 @@ The categories should be like:
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import genders_sports_resolver
+from src.ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import genders_sports_resolver
 
 sports_data = {
     "yemeni softball players": "لاعبو ولاعبات كرة لينة يمنيون",  # x

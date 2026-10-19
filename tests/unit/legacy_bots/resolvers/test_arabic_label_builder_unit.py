@@ -2,7 +2,7 @@
 Tests
 """
 
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import add_in_tab
+from src.ArWikiCats.legacy_bots.resolvers.arabic_label_builder import add_in_tab
 
 
 def test_add_in_tab() -> None:

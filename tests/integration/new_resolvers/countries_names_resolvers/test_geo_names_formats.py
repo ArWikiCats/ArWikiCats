@@ -2,12 +2,12 @@
 Tests
 """
 
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
+from src.ArWikiCats.new_resolvers.countries_names_resolvers.geo_names_formats import resolve_by_geo_names
 
 data_0 = {
     "foreign relations of fatimid caliphate": "علاقات الدولة الفاطمية الخارجية",

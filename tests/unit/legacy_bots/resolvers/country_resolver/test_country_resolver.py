@@ -4,14 +4,14 @@ Unit tests for country_resolver module.
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.country_resolver import (
+from src.ArWikiCats.legacy_bots.resolvers.country_resolver import (
     CountryLabelRetriever,
-    Get_country2,
     _get_fallback_label,
     _validate_separators,
     check_historical_prefixes,
     event2_d2,
     fetch_country_term_label,
+    get_country2,
     get_country_label,
     set_fallback_resolver,
 )
@@ -24,7 +24,7 @@ from ArWikiCats.legacy_bots.resolvers.country_resolver import (
 @pytest.fixture
 def fallback_resolver_fixture():
     """Fixture to save and restore fallback resolver state."""
-    from ArWikiCats.legacy_bots.resolvers import country_resolver
+    from src.ArWikiCats.legacy_bots.resolvers import country_resolver
 
     original = country_resolver._fallback_resolver
     yield country_resolver
@@ -122,28 +122,28 @@ class TestCheckHistoricalPrefixes:
 
 
 # ---------------------------------------------------------------------------
-# Tests for Get_country2
+# Tests for get_country2
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.fast
 class TestGetCountry2:
-    """Tests for the Get_country2 function."""
+    """Tests for the get_country2 function."""
 
     def test_returns_string(self) -> None:
         """Should return a string."""
-        result = Get_country2("test")
+        result = get_country2("test")
         assert isinstance(result, str)
 
     def test_normalizes_input(self) -> None:
         """Should normalize input to lowercase and strip whitespace."""
-        result1 = Get_country2("TEST")
-        result2 = Get_country2("test")
+        result1 = get_country2("TEST")
+        result2 = get_country2("test")
         assert result1 == result2
 
     def test_handles_empty_input(self) -> None:
         """Should handle empty input."""
-        result = Get_country2("")
+        result = get_country2("")
         assert isinstance(result, str)
 
 

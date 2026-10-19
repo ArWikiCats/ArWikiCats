@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
+from src.ArWikiCats.fix.mv_years import move_by_in, move_years, move_years_first
 
 
 def test_move_years_first_reorders_when_possible() -> None:

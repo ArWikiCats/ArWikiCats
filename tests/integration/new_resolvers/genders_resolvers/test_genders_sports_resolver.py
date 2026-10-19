@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import genders_sports_resolver
+from src.ArWikiCats.new_resolvers.genders_resolvers.sports_and_genders_resolver import genders_sports_resolver
 
 test_sport_bot_data = {
     "footballers": "لاعبو ولاعبات كرة قدم",

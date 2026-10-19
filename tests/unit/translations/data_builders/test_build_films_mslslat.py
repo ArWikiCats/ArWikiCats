@@ -1,6 +1,6 @@
 """Tests for build_films_mslslat.py film and TV translation utilities."""
 
-from ArWikiCats.translations.data_builders.build_films_mslslat import (
+from src.ArWikiCats.translations.data_builders.build_films_mslslat import (
     _build_gender_key_maps,
     _build_series_and_nat_keys,
     _build_television_cao,

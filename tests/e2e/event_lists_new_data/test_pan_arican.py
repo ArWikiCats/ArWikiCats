@@ -2,7 +2,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 pan_arican = {
     "Members of the Pan-African Parliament": "أعضاء البرلمان الإفريقي",

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 data_1 = {
     "Adaptations of works by Albanian writers": "أعمال مقتبسة عن أعمال كتاب ألبان",

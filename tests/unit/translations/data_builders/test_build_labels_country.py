@@ -2,7 +2,7 @@
 
 from collections.abc import MutableMapping
 
-from ArWikiCats.translations.data_builders.build_labels_country import (
+from src.ArWikiCats.translations.data_builders.build_labels_country import (
     _build_country_label_index,
     _handle_the_prefix,
     _make_japan_labels,
@@ -167,30 +167,30 @@ class TestBuildCountryLabelIndex:
     """Tests for _build_country_label_index function."""
 
     def test_merges_all_sources(self) -> None:
-        CITY_TRANSLATIONS_LOWER = {"cairo": "القاهرة"}
+        city_translations_lower = {"cairo": "القاهرة"}
         all_country_ar = {"egypt": "مصر"}
-        US_STATES = {}
-        COUNTRY_LABEL_OVERRIDES = {}
-        COUNTRY_ADMIN_LABELS = {}
-        MAIN_REGION_TRANSLATIONS = {}
+        us_states = {}
+        country_label_overrides = {}
+        country_admin_labels = {}
+        main_region_translations = {}
         raw_region_overrides = {}
-        SECONDARY_REGION_TRANSLATIONS = {}
-        INDIA_REGION_TRANSLATIONS = {}
-        TAXON_TABLE = {}
-        BASE_POP_FINAL_5 = {}
+        secondary_region_translations = {}
+        india_region_translations = {}
+        taxon_table = {}
+        base_pop_final_5 = {}
 
         result = _build_country_label_index(
-            CITY_TRANSLATIONS_LOWER,
+            city_translations_lower,
             all_country_ar,
-            US_STATES,
-            COUNTRY_LABEL_OVERRIDES,
-            COUNTRY_ADMIN_LABELS,
-            MAIN_REGION_TRANSLATIONS,
+            us_states,
+            country_label_overrides,
+            country_admin_labels,
+            main_region_translations,
             raw_region_overrides,
-            SECONDARY_REGION_TRANSLATIONS,
-            INDIA_REGION_TRANSLATIONS,
-            TAXON_TABLE,
-            BASE_POP_FINAL_5,
+            secondary_region_translations,
+            india_region_translations,
+            taxon_table,
+            base_pop_final_5,
         )
 
         assert "cairo" in result
@@ -199,17 +199,17 @@ class TestBuildCountryLabelIndex:
     def test_adds_specific_overrides(self) -> None:
         # Minimal setup for testing specific overrides
         result = _build_country_label_index(
-            CITY_TRANSLATIONS_LOWER={},
+            city_translations_lower={},
             all_country_ar={},
-            US_STATES={},
-            COUNTRY_LABEL_OVERRIDES={},
-            COUNTRY_ADMIN_LABELS={},
-            MAIN_REGION_TRANSLATIONS={},
+            us_states={},
+            country_label_overrides={},
+            country_admin_labels={},
+            main_region_translations={},
             raw_region_overrides={},
-            SECONDARY_REGION_TRANSLATIONS={},
-            INDIA_REGION_TRANSLATIONS={},
-            TAXON_TABLE={},
-            BASE_POP_FINAL_5={},
+            secondary_region_translations={},
+            india_region_translations={},
+            taxon_table={},
+            base_pop_final_5={},
         )
 
         assert "indycar" in result
@@ -218,30 +218,30 @@ class TestBuildCountryLabelIndex:
 
     def test_adds_setdefault_entries(self) -> None:
         # Test that setdefault_with_lowercased is called for fallback tables
-        CITY_TRANSLATIONS_LOWER = {}
+        city_translations_lower = {}
         all_country_ar = {}
-        US_STATES = {}
-        COUNTRY_LABEL_OVERRIDES = {}
-        COUNTRY_ADMIN_LABELS = {}
-        MAIN_REGION_TRANSLATIONS = {}
+        us_states = {}
+        country_label_overrides = {}
+        country_admin_labels = {}
+        main_region_translations = {}
         raw_region_overrides = {}
-        SECONDARY_REGION_TRANSLATIONS = {}
-        INDIA_REGION_TRANSLATIONS = {}
-        TAXON_TABLE = {"taxon_key": "قيمة"}
-        BASE_POP_FINAL_5 = {"pop_key": "سكان"}
+        secondary_region_translations = {}
+        india_region_translations = {}
+        taxon_table = {"taxon_key": "قيمة"}
+        base_pop_final_5 = {"pop_key": "سكان"}
 
         result = _build_country_label_index(
-            CITY_TRANSLATIONS_LOWER,
+            city_translations_lower,
             all_country_ar,
-            US_STATES,
-            COUNTRY_LABEL_OVERRIDES,
-            COUNTRY_ADMIN_LABELS,
-            MAIN_REGION_TRANSLATIONS,
+            us_states,
+            country_label_overrides,
+            country_admin_labels,
+            main_region_translations,
             raw_region_overrides,
-            SECONDARY_REGION_TRANSLATIONS,
-            INDIA_REGION_TRANSLATIONS,
-            TAXON_TABLE,
-            BASE_POP_FINAL_5,
+            secondary_region_translations,
+            india_region_translations,
+            taxon_table,
+            base_pop_final_5,
         )
 
         # These should be added via setdefault (not overwriting existing)

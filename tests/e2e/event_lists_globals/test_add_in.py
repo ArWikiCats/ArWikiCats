@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 examples = {
     "20th-century Albanian sports coaches": "مدربو رياضة ألبان في القرن 20",

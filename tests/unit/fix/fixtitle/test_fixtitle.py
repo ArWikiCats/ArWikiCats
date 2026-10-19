@@ -1,6 +1,6 @@
 """Pytest to validate all title lists using fixlabel()."""
 
-from ArWikiCats.fix.fixtitle import fixlabel
+from src.ArWikiCats.fix.fixtitle import fixlabel
 
 
 def load_test_fixlab_data(data: dict) -> None:
@@ -99,7 +99,8 @@ def test_fixlab_group_5() -> None:
 
 
 def test_cleanse_category_label_removes_shadda() -> None:
-    from ArWikiCats.fix.fixtitle import cleanse_category_label
+    from src.ArWikiCats.fix.fixtitle import cleanse_category_label
+
     assert cleanse_category_label("مروّجون") == "مروجون"
     assert cleanse_category_label("مروّجات") == "مروجات"
     assert cleanse_category_label("محبّرون") == "محبرون"

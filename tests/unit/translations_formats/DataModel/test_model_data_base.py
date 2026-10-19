@@ -8,7 +8,7 @@ for all single-element category translation formatters.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel.model_data_base import FormatDataBase
+from src.ArWikiCats.translations_formats.DataModel.model_data_base import FormatDataBase
 
 
 class TestFormatDataBaseAbstractMethods:

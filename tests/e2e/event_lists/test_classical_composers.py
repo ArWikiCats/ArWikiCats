@@ -1,8 +1,8 @@
 #
 import pytest
-
-from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats import resolve_label_ar
 
 test_c_composers_0 = {
     "LGBTQ classical composers": "ملحنون كلاسيكيون مثليون",

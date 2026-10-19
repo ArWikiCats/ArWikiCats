@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.tmp_bot import Work_Templates
+from src.ArWikiCats.legacy_bots.tmp_bot import work_templates
 
 suffix_pase_data = [
     # ---------------------------------------------------------
@@ -40,7 +40,7 @@ suffix_pase_data = [
 def test_suffix_pase(input_label: str, suffix: str, resolved: str, expected: str) -> None:
     """Test suffix mapping inside pp_ends_with_pase."""
 
-    result = Work_Templates(input_label)
+    result = work_templates(input_label)
     assert result == expected
 
 
@@ -74,7 +74,7 @@ pp_ends_data = [
 def test_suffix_pp_ends(input_label: str, resolved: str, expected: str) -> None:
     """Test full pp_ends_with suffix dictionary."""
 
-    assert Work_Templates(input_label) == expected
+    assert work_templates(input_label) == expected
 
 
 # -------------------------------------------------------------
@@ -105,14 +105,14 @@ pp_start_data = [
     ids=lambda x: x[0],
 )
 def test_prefix_pp_start(input_label: str, resolved: str, expected: str) -> None:
-    assert Work_Templates(input_label) == expected
+    assert work_templates(input_label) == expected
 
 
 # -------------------------------------------------------------
 # Test translation_general_category fallback
 # -------------------------------------------------------------
 def test_fallback_general_category() -> None:
-    result = Work_Templates("basketball finals")
+    result = work_templates("basketball finals")
     assert result == "نهائيات كرة السلة"
 
 
@@ -133,14 +133,14 @@ edge_cases_data = [
     ids=[x[0] for x in edge_cases_data],
 )
 def test_edge_cases(input_label: str, resolved: str, expected: str) -> None:
-    assert Work_Templates(input_label) == expected
+    assert work_templates(input_label) == expected
 
 
 # -------------------------------------------------------------
 # Case: No match — must return empty string
 # -------------------------------------------------------------
 def test_no_match() -> None:
-    assert Work_Templates("unknown category label!!") == ""
+    assert work_templates("unknown category label!!") == ""
 
 
 # -------------------------------------------------------------
@@ -149,5 +149,5 @@ def test_no_match() -> None:
 def test_combined_complex() -> None:
     """Example: Ending with '- related lists' with multi-word base."""
 
-    result = Work_Templates("association football-related lists")
+    result = work_templates("association football-related lists")
     assert result == "قوائم متعلقة بكرة القدم"

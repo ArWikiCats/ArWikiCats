@@ -6,25 +6,19 @@ build-backend = "hatchling.build"
 name = "ArWikiCats"
 version = "0.2.3"
 description = "Arabic Wikipedia Categories Translation Engine"
+authors = [{ name = "Ibrahim Qasim", email = "ibrahem.al-radaei@outlook.com" }]
+license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.10"
-authors = [
-  { name = "Ibrahim Qasim" }
-]
-license = { text = "MIT" }
-dependencies = [
-  "psutil",
-  "humanize",
-  "jsonlines"
-]
+dependencies = ["psutil", "humanize", "jsonlines"]
 
 [project.urls]
-Homepage = "https://github.com/MrIbrahem/ArWikiCats"
-Repository = "https://github.com/MrIbrahem/ArWikiCats"
-Issues = "https://github.com/MrIbrahem/ArWikiCats/issues"
+Homepage = "https://github.com/ArWikiCats/ArWikiCats"
+Repository = "https://github.com/ArWikiCats/ArWikiCats"
+Issues = "https://github.com/ArWikiCats/ArWikiCats/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["ArWikiCats"]
+packages = ["src/ArWikiCats"]
 
 # ============================================
 #                 BLACK
@@ -32,7 +26,7 @@ packages = ["ArWikiCats"]
 [tool.black]
 line-length = 120
 target-version = ["py313"]
-include = '\.pyi?$'
+# include = '\.pyi?$'
 exclude = '''
     /(
         \.git
@@ -44,6 +38,8 @@ exclude = '''
       | buck-out
       | build
       | dist
+      | typings
+      | site-packages
     )/
 '''
 
@@ -64,19 +60,20 @@ include_trailing_comma = true
 ensure_newline_before_comments = true
 
 # Project paths
-src_paths = "ArWikiCats"
-known_first_party = "ArWikiCats"
+src_paths = "src"
+known_first_party = "src/ArWikiCats"
+
 skip = [
-    ".env",
-    "env",
-    ".venv",
-    "venv",
-    "build",
-    "dist",
-    "__pycache__",
-    ".mypy_cache",
-    ".pytest_cache",
-    ".git",
+  ".env",
+  "env",
+  ".venv",
+  "venv",
+  "build",
+  "dist",
+  "__pycache__",
+  ".mypy_cache",
+  ".pytest_cache",
+  ".git",
 ]
 
 # ============================================
@@ -84,29 +81,54 @@ skip = [
 # ============================================
 [tool.ruff]
 exclude = [
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".ipynb_checkpoints",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pyenv",
-    ".pytest_cache",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    ".vscode",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "old",
-    "build",
-    "dist",
-    "site-packages",
-    "venv",
+  # System & Version Control
+  "**/$RECYCLE.BIN/**",
+  "**/.git/**",
+  "**/.git-rewrite/**",
+  "**/.hg/**",
+  "**/.svn/**",
+
+  # Editors & IDEs
+  "**/.vscode/**",
+  "**/.ipynb_checkpoints/**",
+
+  # Python Caches & Environments
+  "**/__pycache__/**",
+  "**/.venv/**",
+  "**/venv/**",
+  "**/.pyenv/**",
+  "**/site-packages/**",
+  "**/__pypackages__/**",
+
+  # Tools, Linters & Builders
+  "**/.mypy_cache/**",
+  "**/.pytest_cache/**",
+  "**/.ruff_cache/**",
+  "**/.nox/**",
+  "**/.pants.d/**",
+  "**/.pytype/**",
+  "**/.tox/**",
+  "**/_build/**",
+  "**/buck-out/**",
+  "**/build/**",
+  "**/dist/**",
+
+  # Project Specific Modules & Vendors
+  "**/node_modules/**",
+  "**/setuptools/**",
+  "**/typings/**",
+  "**/vendor/**",
+
+  # Archive & Old Codes
+  "**/old/**",
+  "**/OLD_REPOS/**",
+  "**/OldCodes/**",
+  "**/core8/**",
+  "**/i18n/**",
+  "**/MagicMock/**",
+
+  # Global System Paths
+  "C:/**",
 ]
 line-length = 120
 target-version = "py313"
@@ -126,8 +148,20 @@ docstring-code-format = true
 docstring-code-line-length = 120
 
 [tool.ruff.lint]
-# "E402", "E225", "E226", "E227", "E228", "E252", "F841", "E224", "E203", "F401",
-ignore = ["E501", "UP035", "UP006", "N806", "N999", "UP015", "I001", "N802", "UP007", "UP045"]
+ignore = [
+  "E501", # Line too long
+  "F841", # Local variable is assigned to but never used
+  # "N802",  # Function name should be lowercase
+  "N806", # Variable in function should be lowercase
+  # "UP007", # Use `X | Y` for type annotations instead of `Optional[X]`
+  "UP031", # Use format specifiers instead of percent format
+  # "UP045", # Use `X | None` instead of `Optional[X]`
+  # "UP006",  # Use `list` instead of `List` for type annotations
+  # "UP035",  # Use `X | Y` for type unions instead of `Union[X, Y]`
+  "I001",  # Import block is un-sorted or un-formatted
+  "N999",  # Invalid module name
+  "UP015", # Unnecessary open mode parameters
+]
 select = [
   "E",       # pycodestyle (error)
   "F",       # pyflakes
@@ -142,13 +176,17 @@ select = [
   "UP",      # pyupgrade
   "C4",      # flake8-comprehensions
   "SIM101",  # merge duplicate isinstance calls
-  "SIM201", "SIM202", "SIM222", "SIM223",  # flake8-simplify
+  "SIM201",
+  "SIM202",
+  "SIM222",
+  "SIM223",  # flake8-simplify
   "FURB168", # Prefer is operator over isinstance for None checks
   "FURB169", # Do not use is comparison with type(None). Use None
   "FURB187", # avoid list reverse copy
   "FURB188", # use str.remove(pre|suf)fix
   "ISC001",  # implicitly concatenated string
-  "RET501", "RET502",  # better return None handling
+  "RET501",
+  "RET502",  # better return None handling
 ]
 # ============================================
 #                 Flynt
@@ -163,16 +201,110 @@ warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
 ignore_missing_imports = true
-line-length = 120
 
 [tool.pylint.messages_control]
 max-line-length = 120
 disable = [
-    "C0111",  # missing-docstring
-    "C0103",  # invalid-name
-    "R0913",  # too-many-arguments
-    "W1203",
-    "C0301",
-    "W0108",
-    "R0801",
+  "C0111", # missing-docstring
+  "C0103", # invalid-name
+  "R0913", # too-many-arguments
 ]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pyright]
+reportIncompatibleMethodOverride = "none"
+# Target Python version for type analysis
+pythonVersion = "3.13"
+stubPath = "typings"
+# Paths to include and exclude from checking
+include = ["src"]
+exclude = [
+  # System & Version Control
+  "**/$RECYCLE.BIN/**",
+  "**/.git/**",
+  "**/.git-rewrite/**",
+  "**/.hg/**",
+  "**/.svn/**",
+
+  # Editors & IDEs
+  "**/.vscode/**",
+  "**/.ipynb_checkpoints/**",
+
+  # Python Caches & Environments
+  "**/__pycache__/**",
+  "**/.venv/**",
+  "**/venv/**",
+  "**/.pyenv/**",
+  "**/site-packages/**",
+  "**/__pypackages__/**",
+
+  # Tools, Linters & Builders
+  "**/.mypy_cache/**",
+  "**/.pytest_cache/**",
+  "**/.ruff_cache/**",
+  "**/.nox/**",
+  "**/.pants.d/**",
+  "**/.pytype/**",
+  "**/.tox/**",
+  "**/_build/**",
+  "**/buck-out/**",
+  "**/build/**",
+  "**/dist/**",
+
+  # Project Specific Modules & Vendors
+  "**/node_modules/**",
+  "**/setuptools/**",
+  "**/typings/**",
+  "**/vendor/**",
+
+  # Archive & Old Codes
+  "**/old/**",
+  "**/OLD_REPOS/**",
+  "**/OldCodes/**",
+  "**/core8/**",
+  "**/i18n/**",
+  "**/MagicMock/**",
+
+  # Global System Paths
+  "C:/**",
+  "**/.*",
+]
+
+# Diagnostic modes: "basic" or "standard" or "strict"
+typeCheckingMode = "strict"
+
+# Automatically find virtual environments
+venvPath = "."
+venv = ".venv"
+
+reportUnusedImport = false
+reportPrivateUsage = false
+reportMissingTypeArgument = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+
+reportUnusedVariable = false
+reportMissingParameterType = false
+reportUnknownParameterType = false
+reportMissingTypeStubs = false
+reportUnknownLambdaType = false
+reportUnknownArgumentType = false
+
+# Fine-tune specific warning rules
+reportPossiblyUnboundVariable = true
+analyzeUnannotatedFunctions = true
+disableBytesTypePromotions = true
+strictParameterNoneValue = true
+enableTypeIgnoreComments = true
+reportMissingModuleSource = "warning"
+reportInvalidTypeForm = "warning"
+reportMissingImports = "error"
+reportUndefinedVariable = "warning"
+
+reportAttributeAccessIssue = "warning"
+reportAssignmentType = "warning"
+reportOptionalMemberAccess = "warning"
+reportCallIssue = "warning"
+reportOptionalSubscript = "warning"

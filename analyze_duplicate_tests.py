@@ -13,7 +13,6 @@ import ast
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List, Set, Tuple
 
 
 class DuplicateTestAnalyzer:
@@ -28,9 +27,9 @@ class DuplicateTestAnalyzer:
         """
         self.base_path = Path(base_path)
         # تخزين الأزواج: {(key, value): [(file_path, dict_name, line_number), ...]}
-        self.test_pairs: Dict[Tuple[str, str], List[Tuple[str, str, int]]] = defaultdict(list)
+        self.test_pairs: dict[tuple[str, str], list[tuple[str, str, int]]] = defaultdict(list)
         # تخزين محتوى الملفات
-        self.file_contents: Dict[str, List[str]] = {}
+        self.file_contents: dict[str, list[str]] = {}
 
     def extract_dict_from_node(self, node: ast.Dict, file_path: str, dict_name: str = "unknown") -> None:
         """
@@ -107,7 +106,7 @@ class DuplicateTestAnalyzer:
         for file_path in python_files:
             self.analyze_file(file_path)
 
-    def get_duplicates(self) -> Dict[Tuple[str, str], List[Tuple[str, str, int]]]:
+    def get_duplicates(self) -> dict[tuple[str, str], list[tuple[str, str, int]]]:
         """
         الحصول على الأزواج المكررة فقط
 
@@ -232,7 +231,7 @@ class DuplicateTestAnalyzer:
             return
 
         # تجميع الأسطر المراد حذفها حسب الملف
-        lines_to_remove: Dict[str, Set[int]] = defaultdict(set)
+        lines_to_remove: dict[str, set[int]] = defaultdict(set)
 
         for (_key, _value), locations in duplicates.items():
             # الاحتفاظ بأول ظهور، حذف الباقي

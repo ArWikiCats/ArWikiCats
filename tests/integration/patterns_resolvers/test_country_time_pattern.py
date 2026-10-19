@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern
+from src.ArWikiCats.patterns_resolvers.country_time_pattern import resolve_country_time_pattern
 
 test_data = {
     # "Category:19th-century West Virginia politicians": "تصنيف:سياسيو فرجينيا الغربية في القرن 19",

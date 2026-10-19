@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
+from src.ArWikiCats.new_resolvers.sports_resolvers import main_sports_resolvers
 
 data_0 = {}
 

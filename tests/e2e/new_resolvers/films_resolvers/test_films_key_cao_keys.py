@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats import resolve_label_ar
+from src.ArWikiCats import resolve_label_ar
 
 fast_data_drama = {
     "2010 in animation": "رسوم متحركة في 2010",

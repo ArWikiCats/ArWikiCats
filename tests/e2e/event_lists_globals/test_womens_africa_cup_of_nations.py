@@ -1,8 +1,8 @@
 #
 import pytest
-
-from ArWikiCats import resolve_label_ar
 from utils.dump_runner import make_dump_test_name_data
+
+from src.ArWikiCats import resolve_label_ar
 
 data1 = {
     "2016 Women's Africa Cup of Nations squad navigational boxes": "صناديق تصفح تشكيلات كأس الأمم الإفريقية للسيدات 2016",

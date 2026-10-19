@@ -1,6 +1,6 @@
 """Tests for build_sport_keys.py sport key translation utilities."""
 
-from ArWikiCats.translations.data_builders.build_sport_keys import (
+from src.ArWikiCats.translations.data_builders.build_sport_keys import (
     SportKeyRecord,
     SportKeyTables,
     _apply_aliases,

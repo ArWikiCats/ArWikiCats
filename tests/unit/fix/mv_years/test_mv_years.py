@@ -1,6 +1,6 @@
 """Pytest move_years"""
 
-from ArWikiCats.fix.mv_years import move_years
+from src.ArWikiCats.fix.mv_years import move_years
 
 
 def load_test_move_years(data: dict) -> None:

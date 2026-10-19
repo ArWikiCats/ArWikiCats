@@ -1,7 +1,7 @@
 # test_convert_time_to_arabic.py
 import pytest
 
-from ArWikiCats.time_formats.time_to_arabic import (
+from src.ArWikiCats.time_formats.time_to_arabic import (
     convert_time_to_arabic,
     match_time_ar,
     match_time_en,

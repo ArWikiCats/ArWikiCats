@@ -6,13 +6,13 @@ This module provides tests for format_films_country_data factory function
 which creates MultiDataFormatterDataDouble instances for film category translations.
 """
 
-from ArWikiCats.translations_formats.data_new_model import (
+from src.ArWikiCats.translations_formats.data_new_model import (
     CountryBotConfig,
     GenreBotConfig,
     format_films_country_data,
 )
-from ArWikiCats.translations_formats.DataModel import FormatData
-from ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
+from src.ArWikiCats.translations_formats.DataModel import FormatData
+from src.ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble, MultiDataFormatterDataDouble
 
 
 class TestFormatFilmsCountryData:

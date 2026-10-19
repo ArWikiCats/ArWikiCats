@@ -2,12 +2,12 @@
 Tests
 """
 
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
+from src.ArWikiCats.new_resolvers.sports_resolvers.nationalities_and_sports import resolve_nats_sport_multi_v2
 
 the_female_data = {
     "new zealand rugby league chairmen and investors": "رؤساء ومسيرو الدوري النيوزيلندي للرجبي",

@@ -74,7 +74,7 @@ for i, title in enumerate(titles):
     replace_str = rf"[{title.replace('-', ' ')}]({i}.{title}.md)"
 
     # [Architecture](/ArWikiCats/ArWikiCats/3-architecture)
-    find_str = rf"\[{title.replace("-", " ")}\]\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"
+    find_str = rf"\[{title.replace('-', ' ')}\]\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"
     replaces[find_str] = replace_str
 
     find_str2 = rf"\(/ArWikiCats/ArWikiCats/[\d\.]+-{title.lower()}\)"

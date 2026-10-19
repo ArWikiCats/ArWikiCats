@@ -4,7 +4,7 @@ Unit tests for relegin_jobs_nats_jobs module.
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import (
+from src.ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_nats_jobs import (
     PAINTER_ROLE_LABELS,
     resolve_nats_jobs,
 )

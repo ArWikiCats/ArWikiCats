@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.resolvers.arabic_label_builder import CountryResolver
+from src.ArWikiCats.legacy_bots.resolvers.arabic_label_builder import CountryResolver
 
 
 @pytest.mark.fast

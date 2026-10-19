@@ -1,7 +1,7 @@
 import pytest
 
-from ArWikiCats.format_bots.relation_mapping import translation_category_relations
-from ArWikiCats.utils.match_relation_word import get_relation_word, get_relation_word_new
+from src.ArWikiCats.format_bots.relation_mapping import translation_category_relations
+from src.ArWikiCats.utils.match_relation_word import get_relation_word, get_relation_word_new
 
 # ===============================================
 # Test: Single relation word detection

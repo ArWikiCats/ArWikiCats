@@ -4,7 +4,7 @@ Tests for army2 resolver - comprehensive coverage of all patterns and countries
 
 import pytest
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
+from src.ArWikiCats.new_resolvers.nationalities_resolvers.ministers_resolver import resolve_secretaries_labels
 
 fast_data = {
     # US specific pattern

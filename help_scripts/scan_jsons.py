@@ -2,7 +2,11 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-import ahocorasick
+try:
+    import ahocorasick  # type: ignore
+except ImportError:
+    raise ImportError("Please install ahocorasick module") from None
+
 from tqdm import tqdm
 
 base_dir = Path(__file__).parent.parent

@@ -3,6 +3,8 @@
 *.tmp.py
 /.vscode
 *.txt
+!requirements.txt
+!requirements-dev.txt
 make_tests
 /.codex
 categories.json
@@ -31,3 +33,5 @@ tests/legacy_bots/test_new_ideas.py
 .claude/settings.local.json
 _work_files/*.wiki
 examples/data/full_data.json
+CODE_REVIEW_REPORT.md
+_work_files/tree.py

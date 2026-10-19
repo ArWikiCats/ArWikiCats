@@ -4,8 +4,8 @@ Tests
 
 import pytest
 
-from ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
-from ArWikiCats.translations import jobs_mens_data, jobs_womens_data
+from src.ArWikiCats.new_resolvers.jobs_resolvers.womens import womens_resolver_labels
+from src.ArWikiCats.translations import jobs_mens_data, jobs_womens_data
 
 test_data2 = {
     "Category:Canadian women film directors": "تصنيف:مخرجات أفلام كنديات",

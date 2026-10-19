@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.end_start_bots.fax2_temp import get_templates_fo
+from src.ArWikiCats.legacy_bots.end_start_bots.fax2_temp import get_templates_fo
 
 
 @pytest.mark.fast

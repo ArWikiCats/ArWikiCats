@@ -11,7 +11,7 @@ if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(Path(__file__).parent))
     sys.path.append(str(_Dir))
 
-from ArWikiCats import batch_resolve_labels, print_memory
+from src.ArWikiCats import batch_resolve_labels, print_memory
 
 
 def compare_and_export_labels(data, name, remove_ar_prefix=False):

@@ -3,8 +3,8 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
-from ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
+from src.ArWikiCats.new_resolvers.jobs_resolvers.relegin_jobs_new import new_religions_jobs_with_suffix
+from src.ArWikiCats.new_resolvers.jobs_resolvers_male import new_religions_jobs_for_males
 
 
 def wrap_new_religions_jobs_with_suffix(category):
@@ -393,7 +393,7 @@ def test_get_suffix_prefix(input_text: str, expected: tuple[str, str]) -> None:
 
 @pytest.mark.parametrize("input_text,expected", MEN_WOMENS_WITH_NATO_data.items(), ids=MEN_WOMENS_WITH_NATO_data.keys())
 @pytest.mark.fast
-def test_MEN_WOMENS_WITH_NATO(input_text: str, expected: tuple[str, str]) -> None:
+def test_men_womens_with_nato(input_text: str, expected: tuple[str, str]) -> None:
     result2 = wrap_new_religions_jobs_with_suffix(input_text)
 
     assert result2 == expected, f"{expected=}, {result2=}, {input_text=}"

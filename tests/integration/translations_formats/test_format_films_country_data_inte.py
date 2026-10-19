@@ -3,8 +3,8 @@
 
 import pytest
 
-from ArWikiCats.translations import Nat_women, film_keys_for_female
-from ArWikiCats.translations_formats import (
+from src.ArWikiCats.translations import Nat_women, film_keys_for_female
+from src.ArWikiCats.translations_formats import (
     CountryBotConfig,
     GenreBotConfig,
     MultiDataFormatterDataDouble,
@@ -26,7 +26,7 @@ def yc_bot() -> MultiDataFormatterDataDouble:
     }
 
     # film_keys_for_female
-    data_list2 = {
+    _data_list2 = {
         "action comedy": "حركة كوميدية",
         "action thriller": "إثارة حركة",
         "action": "حركة",

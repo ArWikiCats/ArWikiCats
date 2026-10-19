@@ -2,7 +2,7 @@
 Tests
 """
 
-from ArWikiCats.main_processers.main_utils import list_of_cat_func_new
+from src.ArWikiCats.main_processers.main_utils import list_of_cat_func_new
 
 
 def test_list_of_cat_func() -> None:

@@ -5,7 +5,7 @@ from pathlib import Path
 if _Dir := Path(__file__).parent.parent:
     sys.path.append(str(_Dir))
 
-from ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
+from src.ArWikiCats.new_resolvers.jobs_resolvers.mens import mens_resolver_labels
 
 logger = logging.getLogger("ArWikiCats")
 logger.setLevel("DEBUG")
@@ -31,10 +31,10 @@ for handler in logger.handlers:
 # print(resolve_by_nats_double_v2("jewish german surnames"))
 # print(get_con_label("by danish artists"))
 # print(make_by_label("by danish artists"))
-# print(Try_With_Years("2020s Dutch-language films"))
+# print(try_with_years("2020s Dutch-language films"))
 # print(resolve_sport_label_unified("national football"))
 # print(resolve_by_nats_double_v2("jewish history"))
 
 print(mens_resolver_labels("yemeni philosophers and theologians"))
-# python3 D:/categories_bot/make2_new/examples/run.py
+# python3 D:/categories_bot/make2_new/arwikicats_repo/examples/run.py
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"

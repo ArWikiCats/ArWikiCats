@@ -3,7 +3,7 @@
 
 import pytest
 
-from ArWikiCats.translations_formats import FormatData
+from src.ArWikiCats.translations_formats import FormatData
 
 sample_data_type = tuple[dict[str, str], dict[str, str]]
 

@@ -1,7 +1,7 @@
 #
 import pytest
 
-from ArWikiCats import resolve_arabic_category_label
+from src.ArWikiCats import resolve_arabic_category_label
 
 data = {
     "AFC Bournemouth-related lists": "z",

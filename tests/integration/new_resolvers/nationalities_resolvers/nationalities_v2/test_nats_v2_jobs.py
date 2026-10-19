@@ -2,12 +2,12 @@
 Tests
 """
 
-from typing import Callable
+from collections.abc import Callable
 
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
+from src.ArWikiCats.new_resolvers.nationalities_resolvers.nationalities_v2 import resolve_by_nats
 
 test_data_males = {
     "christian religious orders": "أخويات دينية مسيحية",

@@ -4,7 +4,7 @@ Tests
 
 import pytest
 
-from ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_1_label
+from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.country2_label_bot import resolve_part_1_label
 
 fast_data_resolve_part_1_label = [
     {"separator": " by ", "key": "american rock musicians", "output": "موسيقيو روك أمريكيون"},

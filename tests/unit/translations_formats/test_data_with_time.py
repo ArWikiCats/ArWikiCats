@@ -6,14 +6,14 @@ This module provides tests for format_year_country_data and format_year_country_
 factory functions which create MultiDataFormatterBaseYear and MultiDataFormatterBaseYearV2 instances.
 """
 
-from ArWikiCats.translations_formats.classes import YearCountryDataConfig, YearDataConfig
-from ArWikiCats.translations_formats.data_with_time import (
+from src.ArWikiCats.translations_formats.classes import YearCountryDataConfig, YearDataConfig
+from src.ArWikiCats.translations_formats.data_with_time import (
     COUNTRY_PARAM,
     YEAR_PARAM,
     format_year_country_data,
     format_year_country_data_v2,
 )
-from ArWikiCats.translations_formats.DataModelMulti import (
+from src.ArWikiCats.translations_formats.DataModelMulti import (
     MultiDataFormatterBaseYear,
     MultiDataFormatterBaseYearV2,
 )

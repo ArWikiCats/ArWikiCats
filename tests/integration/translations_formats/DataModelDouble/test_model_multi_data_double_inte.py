@@ -8,9 +8,9 @@ which combines FormatData with FormatDataDouble for double-key category translat
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel import FormatData
-from ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble
-from ArWikiCats.translations_formats.DataModelDouble.model_multi_data_double import (
+from src.ArWikiCats.translations_formats.DataModel import FormatData
+from src.ArWikiCats.translations_formats.DataModelDouble import FormatDataDouble
+from src.ArWikiCats.translations_formats.DataModelDouble.model_multi_data_double import (
     MultiDataFormatterDataDouble,
 )
 

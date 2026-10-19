@@ -4,7 +4,7 @@ Unit tests for genders_resolvers __init__ module.
 
 import pytest
 
-from ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
+from src.ArWikiCats.new_resolvers.genders_resolvers import resolve_nat_genders_pattern_v2
 
 # ---------------------------------------------------------------------------
 # Tests for resolve_nat_genders_pattern_v2 function

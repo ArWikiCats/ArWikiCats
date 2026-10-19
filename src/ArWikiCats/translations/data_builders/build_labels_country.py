@@ -1,0 +1,200 @@
+"""Aggregate translation tables for country and region labels."""
+
+from __future__ import annotations
+
+import logging
+from collections.abc import Mapping, MutableMapping
+
+logger = logging.getLogger(__name__)
+
+
+def update_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str]) -> None:
+    """
+    Update the target mapping by inserting entries from mapping using lower-cased keys.
+
+    Only entries from mapping with truthy values are inserted; existing entries in
+    target with the same lower-cased key are overwritten. This function mutates
+    the provided target mapping in place.
+
+    Parameters:
+        target (MutableMapping[str, str]): Mapping to update (mutated in place).
+        mapping (Mapping[str, str]): Source mapping whose keys will be lower-cased
+            before insertion.
+    """
+
+    for key, value in mapping.items():
+        if not value:
+            continue
+        target[key.lower()] = value
+
+
+def setdefault_with_lowercased(target: MutableMapping[str, str], mapping: Mapping[str, str], name: str = "") -> None:
+    """
+    Insert missing entries from `mapping` into `target` using lowercased keys.
+
+    Only keys whose associated value is truthy and whose lowercase form is not already
+    present in `target` are inserted. A debug log records how many entries were added.
+
+    Parameters:
+        target (MutableMapping[str, str]): Mapping to be updated in-place.
+        mapping (Mapping[str, str]): Source mapping whose entries will be considered.
+        name (str): Optional name for the source mapping used in the debug log.
+    """
+    added = 0
+    for key, value in mapping.items():
+        if not value or key.lower() in target:
+            continue
+        target.setdefault(key.lower(), value)
+        added += 1
+
+    # logger.debug(f"Added {added} entries to the target mapping, source mapping({name}) {len(mapping)}.")
+
+
+def _make_japan_labels(data: dict[str, str]) -> dict[str, str]:
+    """
+    Build a label index for Japanese provinces and their region variants.
+
+    For each (province_name, province_label) pair in `data`, if `province_label` is truthy this creates:
+    - a lowercased key for the province name mapped to `province_label`,
+    - a lowercased key "<name> prefecture" mapped to "محافظة <province_label>",
+    - a lowercased key "<name> region" mapped to "منطقة <province_label>".
+
+    Parameters:
+        data (dict[str, str]): Mapping of province names to their labels.
+
+    Returns:
+        dict[str, str]: Generated mapping of lowercased keys and region/prefecture variants to labels.
+    """
+    labels_index = {}
+    for province_name, province_label in data.items():
+        if province_label:
+            normalized = province_name.lower()
+            labels_index[normalized] = province_label
+            labels_index[f"{normalized} prefecture"] = f"محافظة {province_label}"
+            labels_index[f"{normalized} region"] = f"منطقة {province_label}"
+
+    return labels_index
+
+
+def _make_turkey_labels(data: dict[str, str]) -> dict[str, str]:
+    """
+    Builds a label index for Turkish provinces with normalized keys and Arabic variants.
+
+    Parameters:
+        data (dict[str, str]): Mapping of province name to its label (display name). Keys are original province names; values may be empty or falsy and will be skipped.
+
+    Returns:
+        dict[str, str]: Mapping where keys are the province name lowercased and two derived forms ("<province> province", "districts of <province> province") mapped to their corresponding Arabic labels (plain label for the base key, "محافظة <label>" for the province form, and "أقضية محافظة <label>" for the districts form).
+    """
+    labels_index = {}
+    for province_name, province_label in data.items():
+        if province_label:
+            normalized = province_name.lower()
+            labels_index[normalized] = province_label
+            labels_index[f"{normalized} province"] = f"محافظة {province_label}"
+            labels_index[f"districts of {normalized} province"] = f"أقضية محافظة {province_label}"
+
+    return labels_index
+
+
+def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
+    """
+    Create label entries without a leading "the " for keys that start with "the ".
+
+    Scans label_index for keys beginning with "the " (case-insensitive) that have a truthy value and whose trimmed form is not already present in label_index, and returns a mapping of those trimmed keys to the original values.
+
+    Returns:
+        dict[str, str]: New entries where each key is the original key with a leading "the " removed and each value is the corresponding label.
+    """
+    new_keys = {}
+    for key, value in list(label_index.items()):
+        if not key.lower().startswith("the ") or not value:
+            continue
+
+        trimmed_key = key[len("the ") :].strip()
+        if trimmed_key in label_index:
+            continue
+        new_keys.setdefault(trimmed_key, value)
+
+    # logger.debug(f">> () Added {len(new_keys)} entries without 'the ' prefix.")
+    return new_keys
+
+
+def _build_country_label_index(
+    city_translations_lower,
+    all_country_ar,
+    us_states,
+    country_label_overrides,
+    country_admin_labels,
+    main_region_translations,
+    raw_region_overrides,
+    secondary_region_translations,
+    india_region_translations,
+    taxon_table,
+    base_pop_final_5,
+) -> dict[str, str]:
+    """
+    Builds an aggregated translation table mapping lowercase country and region keys to their Arabic labels.
+
+    Merges several input translation mappings (cities, countries, states, region translations, admin labels and overrides), applies explicit string overrides, derives entries for keys that start with "the ", and supplies missing entries from taxon_table and base_pop_final_5 without overwriting existing keys.
+
+    Parameters:
+        city_translations_lower (Mapping[str, str]): Base city translations already lowercased.
+        all_country_ar (Mapping[str, str]): Country name translations.
+        us_states (Mapping[str, str]): US state name translations.
+        country_label_overrides (Mapping[str, str]): High-priority country label overrides.
+        country_admin_labels (Mapping[str, str]): Country administrative division labels.
+        main_region_translations (Mapping[str, str]): Primary region translations.
+        raw_region_overrides (Mapping[str, str]): Region override mappings.
+        secondary_region_translations (Mapping[str, str]): Secondary region translations.
+        india_region_translations (Mapping[str, str]): India-specific region translations.
+        taxon_table (Mapping[str, str]): Fallback taxon translations added only when missing.
+        base_pop_final_5 (Mapping[str, str]): Additional fallback population-based labels added only when missing.
+
+    Returns:
+        dict[str, str]: The consolidated mapping from lowercase keys to labels.
+    """
+
+    label_index: dict[str, str] = {}
+
+    label_index.update(city_translations_lower)  # 10,788
+
+    to_update = {
+        "ALL_COUNTRY_AR": all_country_ar,  # 54
+        "US_STATES": us_states,  # 54
+        "COUNTRY_LABEL_OVERRIDES": country_label_overrides,  # 1778
+        "COUNTRY_ADMIN_LABELS": country_admin_labels,  # 1782
+        "MAIN_REGION_TRANSLATIONS": main_region_translations,  # 823
+        "raw_region_overrides": raw_region_overrides,  # 1782
+        "SECONDARY_REGION_TRANSLATIONS": secondary_region_translations,  # 176
+        "INDIA_REGION_TRANSLATIONS": india_region_translations,  # 1424
+    }
+    for _, mapping in to_update.items():
+        # logger.debug(f">> () Updating labels for {na}, entries: {len(mapping)}")
+        update_with_lowercased(label_index, mapping)
+
+    label_index.update(  # Specific overrides used by downstream consumers.
+        {
+            "indycar": "أندي كار",
+            "indiana": "إنديانا",
+            "motorsport": "رياضة محركات",
+            "indianapolis": "إنديانابوليس",
+            "sports in indiana": "الرياضة في إنديانا",
+            "igbo": "إغبو",
+        }
+    )
+    no_prefix = _handle_the_prefix(label_index)  # 276
+    label_index.update(no_prefix)
+
+    setdefault_with_lowercased(label_index, taxon_table, "TAXON_TABLE")  # 5324
+
+    setdefault_with_lowercased(label_index, base_pop_final_5, "BASE_POP_FINAL_5")  # 124
+
+    return label_index
+
+
+__all__ = [
+    "_make_japan_labels",
+    "_build_country_label_index",
+    "_make_turkey_labels",
+]

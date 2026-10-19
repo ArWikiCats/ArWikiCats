@@ -4,7 +4,7 @@
 import pytest
 from load_one_data import dump_diff, one_dump_test
 
-from ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
+from src.ArWikiCats.new_resolvers.sports_resolvers.raw_sports_with_suffixes import wrap_team_xo_normal_2025_with_ends
 
 test_data_0 = {
     "Winter Olympics sports templates": "قوالب رياضات الألعاب الأولمبية الشتوية",
@@ -308,7 +308,7 @@ test_data_1 = {
 
 @pytest.mark.parametrize("category, expected", test_data_1.items(), ids=test_data_1.keys())
 @pytest.mark.fast
-def test_Get_New_team_xo_data(category: str, expected: str) -> None:
+def test_get_new_team_xo_data(category: str, expected: str) -> None:
     label1 = wrap_team_xo_normal_2025_with_ends(category)
     assert isinstance(label1, str)
     assert label1 == expected

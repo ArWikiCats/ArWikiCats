@@ -7,7 +7,7 @@ single-placeholder template-driven category translations.
 
 import pytest
 
-from ArWikiCats.translations_formats.DataModel.model_data import FormatData
+from src.ArWikiCats.translations_formats.DataModel.model_data import FormatData
 
 
 class TestFormatDataIntegration:
