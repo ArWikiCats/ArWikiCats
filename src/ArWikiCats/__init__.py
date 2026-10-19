@@ -49,10 +49,7 @@ from .event_processing import (
 )
 from .helps.len_print import dump_all_len
 from .helps.memory import print_memory
-from .logging_config import setup_logging
 from .main_processers.main_resolve import resolve_label_ar
-
-setup_logging()
 
 __version__ = "0.2.2"
 
