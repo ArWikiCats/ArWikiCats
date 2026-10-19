@@ -92,7 +92,7 @@ def _build_seasonal_labels() -> dict[str, str]:
     return seasonal_labels
 
 
-def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
+def _build_tab_labels(seasonal_game_labels) -> dict[str, str]:
     """Return tabs that combine games with category labels."""
 
     GAME_CATEGORY_LABELS = {
@@ -105,7 +105,7 @@ def _build_tab_labels(SEASONAL_GAME_LABELS) -> dict[str, str]:
 
     tab_labels: dict[str, str] = {}
 
-    for game_key, game_label in SEASONAL_GAME_LABELS.items():
+    for game_key, game_label in seasonal_game_labels.items():
         tab_labels[game_key] = game_label
 
         for category_key, category_label in GAME_CATEGORY_LABELS.items():

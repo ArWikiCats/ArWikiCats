@@ -35,57 +35,57 @@ def _append_list_unique(sequence: list[str], value: str) -> None:
 # ---------------------------------------------------------------------------
 
 
-def _build_jobs_2020(JOBS_2020_BASE) -> GenderedLabelMap:
+def _build_jobs_2020(jobs_2020_base) -> GenderedLabelMap:
     """
     Return a copy of the base 2020 jobs mapping.
 
     Parameters:
-        JOBS_2020_BASE (GenderedLabelMap): Base gendered job mapping for 2020.
+        jobs_2020_base (GenderedLabelMap): Base gendered job mapping for 2020.
 
     Returns:
-        GenderedLabelMap: A copy of `JOBS_2020_BASE` representing the 2020 job labels.
+        GenderedLabelMap: A copy of `jobs_2020_base` representing the 2020 job labels.
     """
 
-    jobs_2020 = copy_gendered_map(JOBS_2020_BASE)
+    jobs_2020 = copy_gendered_map(jobs_2020_base)
     return jobs_2020
 
 
-def _extend_with_religious_jobs(base_jobs: GenderedLabelMap, RELIGIOUS_KEYS_PP) -> GenderedLabelMap:
+def _extend_with_religious_jobs(base_jobs: GenderedLabelMap, religious_keys_pp) -> GenderedLabelMap:
     """
     Expand a gendered job map with religious role entries and their activist variants.
 
     Parameters:
         base_jobs (GenderedLabelMap): Original mapping of job keys to gendered labels.
-        RELIGIOUS_KEYS_PP (Mapping[str, Mapping[str, str]]): Mapping where each key is a religion role string and each value is a mapping with keys "males" and "females" containing the respective labels.
+        religious_keys_pp (Mapping[str, Mapping[str, str]]): Mapping where each key is a religion role string and each value is a mapping with keys "males" and "females" containing the respective labels.
 
     Returns:
         GenderedLabelMap: A new mapping containing the original entries plus added religious role keys and corresponding "{role} activists" entries with gendered labels.
     """
 
     jobs = copy_gendered_map(base_jobs)
-    for religion_key, labels in RELIGIOUS_KEYS_PP.items():
+    for religion_key, labels in religious_keys_pp.items():
         jobs[religion_key] = {"males": labels["males"], "females": labels["females"]}
         activist_key = f"{religion_key} activists"
         jobs[activist_key] = {"males": f"ناشطون {labels['males']}", "females": f"ناشطات {labels['females']}"}
     return jobs
 
 
-def _extend_with_disability_jobs(base_jobs: GenderedLabelMap, DISABILITY_LABELS, EXECUTIVE_DOMAINS) -> GenderedLabelMap:
+def _extend_with_disability_jobs(base_jobs: GenderedLabelMap, disability_labels, executive_domains) -> GenderedLabelMap:
     """
     Extend a gendered job map with disability-specific labels and add executive-role variants for executive domains.
 
     Parameters:
         base_jobs (GenderedLabelMap): Original gendered job mapping; not modified.
-        DISABILITY_LABELS (Mapping[str, GenderedLabel]): Gendered labels for disability-focused jobs to merge into the result.
-        EXECUTIVE_DOMAINS (Mapping[str, str]): Mapping from domain key to domain label; for each non-empty label an "{domain_key} executives" entry is added with Arabic male/female executive labels.
+        disability_labels (Mapping[str, GenderedLabel]): Gendered labels for disability-focused jobs to merge into the result.
+        executive_domains (Mapping[str, str]): Mapping from domain key to domain label; for each non-empty label an "{domain_key} executives" entry is added with Arabic male/female executive labels.
 
     Returns:
         GenderedLabelMap: A new gendered job map containing the merged disability labels and generated executive variants.
     """
 
     jobs = copy_gendered_map(base_jobs)
-    merge_gendered_maps(jobs, DISABILITY_LABELS)
-    for domain_key, domain_label in EXECUTIVE_DOMAINS.items():
+    merge_gendered_maps(jobs, disability_labels)
+    for domain_key, domain_label in executive_domains.items():
         if not domain_label:
             continue
         jobs[f"{domain_key} executives"] = {"males": f"مدراء {domain_label}", "females": f"مديرات {domain_label}"}
@@ -94,26 +94,26 @@ def _extend_with_disability_jobs(base_jobs: GenderedLabelMap, DISABILITY_LABELS,
 
 def _merge_jobs_sources(
     jobs_pp,
-    EXECUTIVE_DOMAINS,
-    DISABILITY_LABELS,
-    RELIGIOUS_KEYS_PP,
-    FOOTBALL_KEYS_PLAYERS,
-    JOBS_2020_BASE,
+    executive_domains,
+    disability_labels,
+    religious_keys_pp,
+    football_keys_players,
+    jobs_2020_base,
     companies_to_jobs,
-    RELIGIOUS_FEMALE_KEYS,
+    religious_female_keys,
 ) -> GenderedLabelMap:
     """
     Combine multiple job sources and static configurations into a single gendered job map.
 
     Parameters:
         jobs_pp (GenderedLabelMap): Initial mapping to augment; will be updated and returned.
-        EXECUTIVE_DOMAINS (Mapping[str, str]): Domain labels used to create executive-role variants.
-        DISABILITY_LABELS (GenderedLabelMap): Disability-related gendered labels to merge into the map.
-        RELIGIOUS_KEYS_PP (Mapping[str, GenderedLabel]): Religious-role keys and their gendered labels to include.
-        FOOTBALL_KEYS_PLAYERS (GenderedLabelMap): Football-related player categories to add when missing.
-        JOBS_2020_BASE (Mapping[str, GenderedLabel]): Base 2020 job entries used to derive additional lowercase keys.
+        executive_domains (Mapping[str, str]): Domain labels used to create executive-role variants.
+        disability_labels (GenderedLabelMap): Disability-related gendered labels to merge into the map.
+        religious_keys_pp (Mapping[str, GenderedLabel]): Religious-role keys and their gendered labels to include.
+        football_keys_players (GenderedLabelMap): Football-related player categories to add when missing.
+        jobs_2020_base (Mapping[str, GenderedLabel]): Base 2020 job entries used to derive additional lowercase keys.
         companies_to_jobs (Mapping[str, GenderedLabel]): Company-to-job mappings to merge into the result.
-        RELIGIOUS_FEMALE_KEYS (Mapping[str, str]): Mapping from religion key to its feminine label used to create founder variants.
+        religious_female_keys (Mapping[str, str]): Mapping from religion key to its feminine label used to create founder variants.
 
     Returns:
         GenderedLabelMap: The augmented mapping of job-category keys to gendered Arabic labels (each value contains 'males' and 'females').
@@ -131,17 +131,17 @@ def _merge_jobs_sources(
     # jobs_pp["sports coaches"] = {"males": "مدربون رياضيون", "females": "مدربات رياضيات"}
     jobs_pp.setdefault("men", {"males": "رجال", "females": ""})
 
-    jobs_pp = _extend_with_religious_jobs(jobs_pp, RELIGIOUS_KEYS_PP)
-    jobs_pp = _extend_with_disability_jobs(jobs_pp, DISABILITY_LABELS, EXECUTIVE_DOMAINS)
+    jobs_pp = _extend_with_religious_jobs(jobs_pp, religious_keys_pp)
+    jobs_pp = _extend_with_disability_jobs(jobs_pp, disability_labels, executive_domains)
 
-    jobs_2020 = _build_jobs_2020(JOBS_2020_BASE)
+    jobs_2020 = _build_jobs_2020(jobs_2020_base)
     for job_name, labels in jobs_2020.items():
         if labels["males"] and labels["females"]:
             lowered = job_name.lower()
             if lowered not in jobs_pp:
                 jobs_pp[lowered] = {"males": labels["males"], "females": labels["females"]}
 
-    for category, labels in FOOTBALL_KEYS_PLAYERS.items():
+    for category, labels in football_keys_players.items():
         lowered = category.lower()
         if lowered not in jobs_pp:
             jobs_pp[lowered] = {"males": labels["males"], "females": labels["females"]}
@@ -151,7 +151,7 @@ def _merge_jobs_sources(
 
     merge_gendered_maps(jobs_pp, companies_to_jobs)
 
-    for religion_key, feminine_label in RELIGIOUS_FEMALE_KEYS.items():
+    for religion_key, feminine_label in religious_female_keys.items():
         founder_key = f"{religion_key} founders"
         jobs_pp[founder_key] = {"males": f"مؤسسو {feminine_label}", "females": f"مؤسسات {feminine_label}"}
 
@@ -165,21 +165,21 @@ def _merge_jobs_sources(
     return jobs_pp
 
 
-def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap, JOBS_2, JOBS_3333) -> GenderedLabelMap:
+def _add_jobs_from_jobs2(jobs_pp: GenderedLabelMap, jobs_2, jobs_3333) -> GenderedLabelMap:
     """
-    Add missing job entries from JOBS_2 and JOBS_3333 into a copy of an existing gendered job map.
+    Add missing job entries from jobs_2 and jobs_3333 into a copy of an existing gendered job map.
 
     Parameters:
         jobs_pp (GenderedLabelMap): Source gendered job map to copy and augment.
-        JOBS_2 (Mapping[str, dict]): Additional job source mapping original job keys to `{"males": str, "females": str}` labels.
-        JOBS_3333 (Mapping[str, dict]): Additional job source mapping original job keys to `{"males": str, "females": str}` labels.
+        jobs_2 (Mapping[str, dict]): Additional job source mapping original job keys to `{"males": str, "females": str}` labels.
+        jobs_3333 (Mapping[str, dict]): Additional job source mapping original job keys to `{"males": str, "females": str}` labels.
 
     Returns:
-        GenderedLabelMap: A new gendered job map containing all entries from the copy of `jobs_pp` plus any entries from `JOBS_2` and `JOBS_3333` whose lowercase key was absent and that have at least one male or female label.
+        GenderedLabelMap: A new gendered job map containing all entries from the copy of `jobs_pp` plus any entries from `jobs_2` and `jobs_3333` whose lowercase key was absent and that have at least one male or female label.
     """
 
     merged = copy_gendered_map(jobs_pp)
-    sources = [JOBS_2, JOBS_3333]
+    sources = [jobs_2, jobs_3333]
     for source in sources:
         for job_key, labels in source.items():
             lowered = job_key.lower()
@@ -243,7 +243,7 @@ def _add_sport_variants(
     return data
 
 
-def _add_cycling_variants(nat_before_occ: list[str], BASE_CYCLING_EVENTS) -> dict[str, GenderedLabel]:
+def _add_cycling_variants(nat_before_occ: list[str], base_cycling_events) -> dict[str, GenderedLabel]:
     """
     Generate gendered job labels for cycling event variants and append related keys to nat_before_occ.
 
@@ -251,17 +251,17 @@ def _add_cycling_variants(nat_before_occ: list[str], BASE_CYCLING_EVENTS) -> dic
         nat_before_occ (List[str]): List of keys representing nationality-before-occupation phrases; this list is mutated:
             for each event the function appends the corresponding "<event> winners" and "<event> stage winners"
             keys if they are not already present.
-        BASE_CYCLING_EVENTS (Mapping[str, str]): Mapping from cycling event name to its display label used in generated Arabic labels.
+        base_cycling_events (Mapping[str, str]): Mapping from cycling event name to its display label used in generated Arabic labels.
 
     Returns:
         dict[str, GenderedLabel]: Mapping of generated variant keys to their gendered labels. For each event key in
-        BASE_CYCLING_EVENTS the returned mapping includes:
+        base_cycling_events the returned mapping includes:
           - "<event> cyclists" -> male/female cyclist labels
           - "<event> winners" -> male/female winner labels
           - "<event> stage winners" -> male/female stage-winner labels
     """
     data: dict[str, GenderedLabel] = {}
-    for event_key, event_label in BASE_CYCLING_EVENTS.items():
+    for event_key, event_label in base_cycling_events.items():
         lowered = event_key.lower()
         data[f"{lowered} cyclists"] = {"males": f"دراجو {event_label}", "females": f"دراجات {event_label}"}
 
@@ -279,28 +279,28 @@ def _add_cycling_variants(nat_before_occ: list[str], BASE_CYCLING_EVENTS) -> dic
     return data
 
 
-def _add_jobs_people_variants(JOBS_PEOPLE_ROLES, BOOK_CATEGORIES, JOBS_TYPE_TRANSLATIONS) -> dict[str, GenderedLabel]:
+def _add_jobs_people_variants(jobs_people_roles, book_categories, jobs_type_translations) -> dict[str, GenderedLabel]:
     """
     Generate gendered job labels by combining people-centric roles with book categories and job-type translations.
 
     Parameters:
-        JOBS_PEOPLE_ROLES (Mapping[str, GenderedLabel]): Mapping from role key to gendered labels with keys "males" and "females". Only roles that have both male and female labels are used.
-        BOOK_CATEGORIES (Mapping[str, str]): Mapping from book-category key to its label suffix (e.g., "children's", "history").
-        JOBS_TYPE_TRANSLATIONS (Mapping[str, str]): Mapping from type/genre key to its label suffix (e.g., "fiction", "biography").
+        jobs_people_roles (Mapping[str, GenderedLabel]): Mapping from role key to gendered labels with keys "males" and "females". Only roles that have both male and female labels are used.
+        book_categories (Mapping[str, str]): Mapping from book-category key to its label suffix (e.g., "children's", "history").
+        jobs_type_translations (Mapping[str, str]): Mapping from type/genre key to its label suffix (e.g., "fiction", "biography").
 
     Returns:
         dict[str, GenderedLabel]: A mapping where each key is "{category_key} {role_key}" or "{genre_key} {role_key}" and each value is a GenderedLabel with the role's male/female label suffixed by the category or genre label.
     """
     data: dict[str, GenderedLabel] = {}
-    for role_key, role_labels in JOBS_PEOPLE_ROLES.items():
+    for role_key, role_labels in jobs_people_roles.items():
         if not (role_labels["males"] and role_labels["females"]):
             continue
-        for book_key, book_label in BOOK_CATEGORIES.items():
+        for book_key, book_label in book_categories.items():
             data[f"{book_key} {role_key}"] = {
                 "males": f"{role_labels['males']} {book_label}",
                 "females": f"{role_labels['females']} {book_label}",
             }
-        for genre_key, genre_label in JOBS_TYPE_TRANSLATIONS.items():
+        for genre_key, genre_label in jobs_type_translations.items():
             data[f"{genre_key} {role_key}"] = {
                 "males": f"{role_labels['males']} {genre_label}",
                 "females": f"{role_labels['females']} {genre_label}",
@@ -390,21 +390,21 @@ def _finalise_jobs_dataset(
     jobs_pp,
     sport_variants,
     people_variants,
-    MEN_WOMENS_JOBS_2,
-    NAT_BEFORE_OCC,
-    MEN_WOMENS_SINGERS_BASED,
-    MEN_WOMENS_SINGERS,
-    PLAYERS_TO_MEN_WOMENS_JOBS,
-    SPORT_JOB_VARIANTS,
-    RELIGIOUS_FEMALE_KEYS,
-    BASE_CYCLING_EVENTS,
-    JOBS_2,
-    JOBS_3333,
-    RELIGIOUS_KEYS_PP,
-    FOOTBALL_KEYS_PLAYERS,
-    EXECUTIVE_DOMAINS,
-    DISABILITY_LABELS,
-    JOBS_2020_BASE,
+    men_womens_jobs_2,
+    nat_before_occ,
+    men_womens_singers_based,
+    men_womens_singers,
+    players_to_men_womens_jobs,
+    sport_job_variants,
+    religious_female_keys,
+    base_cycling_events,
+    jobs_2,
+    jobs_3333,
+    religious_keys_pp,
+    football_keys_players,
+    executive_domains,
+    disability_labels,
+    jobs_2020_base,
     companies_to_jobs,
     activists,
 ) -> JobsDataset:
@@ -423,24 +423,24 @@ def _finalise_jobs_dataset(
 
     jobs_sources = _merge_jobs_sources(
         jobs_pp,
-        EXECUTIVE_DOMAINS,
-        DISABILITY_LABELS,
-        RELIGIOUS_KEYS_PP,
-        FOOTBALL_KEYS_PLAYERS,
-        JOBS_2020_BASE,
+        executive_domains,
+        disability_labels,
+        religious_keys_pp,
+        football_keys_players,
+        jobs_2020_base,
         companies_to_jobs,
-        RELIGIOUS_FEMALE_KEYS,
+        religious_female_keys,
     )
-    jobs_pp = _add_jobs_from_jobs2(jobs_sources, JOBS_2, JOBS_3333)  # 1,369
+    jobs_pp = _add_jobs_from_jobs2(jobs_sources, jobs_2, jobs_3333)  # 1,369
 
-    merge_gendered_maps(m_w_jobs, MEN_WOMENS_JOBS_2)  # 534
-    _load_activist_jobs(m_w_jobs, NAT_BEFORE_OCC, activists)  # 95
-    cycling_variants = _add_cycling_variants(NAT_BEFORE_OCC, BASE_CYCLING_EVENTS)  # 27
+    merge_gendered_maps(m_w_jobs, men_womens_jobs_2)  # 534
+    _load_activist_jobs(m_w_jobs, nat_before_occ, activists)  # 95
+    cycling_variants = _add_cycling_variants(nat_before_occ, base_cycling_events)  # 27
     film_variants = _add_film_variants()  # 1,881
     singer_variants = _add_singer_variants()  # 16
 
-    m_w_jobs.update(MEN_WOMENS_SINGERS_BASED)  # 65
-    m_w_jobs.update(MEN_WOMENS_SINGERS)  # 7,181 > to > 433
+    m_w_jobs.update(men_womens_singers_based)  # 65
+    m_w_jobs.update(men_womens_singers)  # 7,181 > to > 433
     m_w_jobs.update(jobs_pp)
     m_w_jobs.update(sport_variants)
     m_w_jobs.update(cycling_variants)
@@ -448,8 +448,8 @@ def _finalise_jobs_dataset(
     m_w_jobs.update(film_variants)
     m_w_jobs.update(singer_variants)
 
-    merge_gendered_maps(m_w_jobs, PLAYERS_TO_MEN_WOMENS_JOBS)  # 1,345
-    merge_gendered_maps(m_w_jobs, SPORT_JOB_VARIANTS)  # 61,486
+    merge_gendered_maps(m_w_jobs, players_to_men_womens_jobs)  # 1,345
+    merge_gendered_maps(m_w_jobs, sport_job_variants)  # 61,486
 
     m_w_jobs["sports coaches"] = {"males": "مدربو رياضة", "females": "مدربات رياضة"}
 
@@ -473,14 +473,14 @@ def _finalise_jobs_dataset(
 
 def _build_jobs_new(
     female_jobs: Mapping[str, str],
-    Nat_mens: Mapping[str, str],
+    nat_mens: Mapping[str, str],
 ) -> dict[str, str]:
     """
     Create a flattened mapping of job and nationality keys to Arabic labels for legacy consumers.
 
     Parameters:
         female_jobs: Mapping from job key to female Arabic label; entries with empty labels are skipped.
-        Nat_mens: Mapping from nationality key to Arabic label used for people of that nationality; entries with empty labels are skipped.
+        nat_mens: Mapping from nationality key to Arabic label used for people of that nationality; entries with empty labels are skipped.
 
     Returns:
         A dict where:
@@ -496,7 +496,7 @@ def _build_jobs_new(
             lowered = female_key.lower()
             data[lowered] = female_label
 
-    for nationality_key, nationality_label in Nat_mens.items():
+    for nationality_key, nationality_label in nat_mens.items():
         if nationality_label:
             data[f"{nationality_key.lower()} people"] = nationality_label
 

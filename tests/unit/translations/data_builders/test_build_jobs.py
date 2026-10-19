@@ -25,11 +25,11 @@ class TestBuildJobs2020:
     """Tests for _build_jobs_2020 function."""
 
     def test_returns_copy(self) -> None:
-        JOBS_2020_BASE: GenderedLabelMap = {"architects": {"males": "مهندسون", "females": "مهندسات"}}
-        result = _build_jobs_2020(JOBS_2020_BASE)
+        jobs_2020_base: GenderedLabelMap = {"architects": {"males": "مهندسون", "females": "مهندسات"}}
+        result = _build_jobs_2020(jobs_2020_base)
 
-        assert result == JOBS_2020_BASE
-        assert result is not JOBS_2020_BASE  # Should be a copy
+        assert result == jobs_2020_base
+        assert result is not jobs_2020_base  # Should be a copy
 
 
 class TestExtendWithReligiousJobs:
@@ -37,20 +37,20 @@ class TestExtendWithReligiousJobs:
 
     def test_adds_religious_roles(self) -> None:
         base_jobs: GenderedLabelMap = {}
-        RELIGIOUS_KEYS_PP = {
+        religious_keys_pp = {
             "priests": {"males": "قساوسة", "females": "قساوسة"},
         }
-        result = _extend_with_religious_jobs(base_jobs, RELIGIOUS_KEYS_PP)
+        result = _extend_with_religious_jobs(base_jobs, religious_keys_pp)
 
         assert "priests" in result
         assert result["priests"]["males"] == "قساوسة"
 
     def test_adds_activist_variants(self) -> None:
         base_jobs: GenderedLabelMap = {}
-        RELIGIOUS_KEYS_PP = {
+        religious_keys_pp = {
             "monks": {"males": "رهبان", "females": "راهبات"},
         }
-        result = _extend_with_religious_jobs(base_jobs, RELIGIOUS_KEYS_PP)
+        result = _extend_with_religious_jobs(base_jobs, religious_keys_pp)
 
         assert "monks activists" in result
         assert result["monks activists"]["males"] == "ناشطون رهبان"
@@ -61,32 +61,32 @@ class TestExtendWithDisabilityJobs:
 
     def test_adds_disability_labels(self) -> None:
         base_jobs: GenderedLabelMap = {}
-        DISABILITY_LABELS: GenderedLabelMap = {
+        disability_labels: GenderedLabelMap = {
             "deaf": {"males": "صم", "females": "صم"},
         }
-        EXECUTIVE_DOMAINS: Mapping[str, str] = {}
+        executive_domains: Mapping[str, str] = {}
 
-        result = _extend_with_disability_jobs(base_jobs, DISABILITY_LABELS, EXECUTIVE_DOMAINS)
+        result = _extend_with_disability_jobs(base_jobs, disability_labels, executive_domains)
 
         assert "deaf" in result
         assert result["deaf"]["males"] == "صم"
 
     def test_adds_executive_variants(self) -> None:
         base_jobs: GenderedLabelMap = {}
-        DISABILITY_LABELS: GenderedLabelMap = {}
-        EXECUTIVE_DOMAINS = {"banking": "البنوك"}
+        disability_labels: GenderedLabelMap = {}
+        executive_domains = {"banking": "البنوك"}
 
-        result = _extend_with_disability_jobs(base_jobs, DISABILITY_LABELS, EXECUTIVE_DOMAINS)
+        result = _extend_with_disability_jobs(base_jobs, disability_labels, executive_domains)
 
         assert "banking executives" in result
         assert result["banking executives"]["males"] == "مدراء البنوك"
 
     def test_skips_empty_executive_domains(self) -> None:
         base_jobs: GenderedLabelMap = {}
-        DISABILITY_LABELS: GenderedLabelMap = {}
-        EXECUTIVE_DOMAINS = {"empty": ""}
+        disability_labels: GenderedLabelMap = {}
+        executive_domains = {"empty": ""}
 
-        result = _extend_with_disability_jobs(base_jobs, DISABILITY_LABELS, EXECUTIVE_DOMAINS)
+        result = _extend_with_disability_jobs(base_jobs, disability_labels, executive_domains)
 
         assert "empty executives" not in result
 
@@ -98,13 +98,13 @@ class TestMergeJobsSources:
         jobs_pp: GenderedLabelMap = {}
         result = _merge_jobs_sources(
             jobs_pp=jobs_pp,
-            EXECUTIVE_DOMAINS={},
-            DISABILITY_LABELS={},
-            RELIGIOUS_KEYS_PP={},
-            FOOTBALL_KEYS_PLAYERS={},
-            JOBS_2020_BASE={},
+            executive_domains={},
+            disability_labels={},
+            religious_keys_pp={},
+            football_keys_players={},
+            jobs_2020_base={},
             companies_to_jobs={},
-            RELIGIOUS_FEMALE_KEYS={},
+            religious_female_keys={},
         )
 
         assert "candidates" in result
@@ -114,13 +114,13 @@ class TestMergeJobsSources:
         jobs_pp: GenderedLabelMap = {}
         result = _merge_jobs_sources(
             jobs_pp=jobs_pp,
-            EXECUTIVE_DOMAINS={},
-            DISABILITY_LABELS={},
-            RELIGIOUS_KEYS_PP={},
-            FOOTBALL_KEYS_PLAYERS={},
-            JOBS_2020_BASE={},
+            executive_domains={},
+            disability_labels={},
+            religious_keys_pp={},
+            football_keys_players={},
+            jobs_2020_base={},
             companies_to_jobs={},
-            RELIGIOUS_FEMALE_KEYS={},
+            religious_female_keys={},
         )
 
         assert "coaches" in result
@@ -132,29 +132,29 @@ class TestAddJobsFromJobs2:
 
     def test_adds_missing_jobs_from_jobs2(self) -> None:
         jobs_pp: GenderedLabelMap = {}
-        JOBS_2 = {"new_job": {"males": "وظيفة جديدة", "females": ""}}
-        JOBS_3333 = {}
+        jobs_2 = {"new_job": {"males": "وظيفة جديدة", "females": ""}}
+        jobs_3333 = {}
 
-        result = _add_jobs_from_jobs2(jobs_pp, JOBS_2, JOBS_3333)
+        result = _add_jobs_from_jobs2(jobs_pp, jobs_2, jobs_3333)
 
         assert "new_job" in result
         assert result["new_job"]["males"] == "وظيفة جديدة"
 
     def test_skips_existing_keys(self) -> None:
         jobs_pp: GenderedLabelMap = {"existing": {"males": "موجود", "females": ""}}
-        JOBS_2 = {"existing": {"males": "جديد", "females": ""}}
-        JOBS_3333 = {}
+        jobs_2 = {"existing": {"males": "جديد", "females": ""}}
+        jobs_3333 = {}
 
-        result = _add_jobs_from_jobs2(jobs_pp, JOBS_2, JOBS_3333)
+        result = _add_jobs_from_jobs2(jobs_pp, jobs_2, jobs_3333)
 
         assert result["existing"]["males"] == "موجود"  # Not overwritten
 
     def test_skips_empty_labels(self) -> None:
         jobs_pp: GenderedLabelMap = {}
-        JOBS_2 = {"empty": {"males": "", "females": ""}}
-        JOBS_3333 = {}
+        jobs_2 = {"empty": {"males": "", "females": ""}}
+        jobs_3333 = {}
 
-        result = _add_jobs_from_jobs2(jobs_pp, JOBS_2, JOBS_3333)
+        result = _add_jobs_from_jobs2(jobs_pp, jobs_2, jobs_3333)
 
         assert "empty" not in result
 
@@ -215,27 +215,27 @@ class TestAddCyclingVariants:
     """Tests for _add_cycling_variants function."""
 
     def test_adds_cyclist_variants(self) -> None:
-        BASE_CYCLING_EVENTS = {"tour de france": " Tour de France "}
+        base_cycling_events = {"tour de france": " Tour de France "}
         nat_before_occ: list[str] = []
-        result = _add_cycling_variants(nat_before_occ, BASE_CYCLING_EVENTS)
+        result = _add_cycling_variants(nat_before_occ, base_cycling_events)
 
         assert "tour de france cyclists" in result
         # Note: double space due to how join_terms works with trailing space in input
         assert result["tour de france cyclists"]["males"] == "دراجو  Tour de France "
 
     def test_adds_winners_variants(self) -> None:
-        BASE_CYCLING_EVENTS = {"giro d'italia": " Giro d'Italia "}
+        base_cycling_events = {"giro d'italia": " Giro d'Italia "}
         nat_before_occ: list[str] = []
-        result = _add_cycling_variants(nat_before_occ, BASE_CYCLING_EVENTS)
+        result = _add_cycling_variants(nat_before_occ, base_cycling_events)
 
         assert "giro d'italia winners" in result
         # Note: double space due to how join_terms works with trailing space in input
         assert result["giro d'italia winners"]["males"] == "فائزون في  Giro d'Italia "
 
     def test_appends_to_nat_before_occ(self) -> None:
-        BASE_CYCLING_EVENTS = {"vuelta a espana": " Vuelta a España "}
+        base_cycling_events = {"vuelta a espana": " Vuelta a España "}
         nat_before_occ: list[str] = []
-        _add_cycling_variants(nat_before_occ, BASE_CYCLING_EVENTS)
+        _add_cycling_variants(nat_before_occ, base_cycling_events)
 
         assert "vuelta a espana winners" in nat_before_occ
         assert "vuelta a espana stage winners" in nat_before_occ
@@ -245,34 +245,34 @@ class TestAddJobsPeopleVariants:
     """Tests for _add_jobs_people_variants function."""
 
     def test_combines_with_book_categories(self) -> None:
-        JOBS_PEOPLE_ROLES: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
-        BOOK_CATEGORIES = {"children's": "الأطفال"}
-        JOBS_TYPE_TRANSLATIONS = {}
+        jobs_people_roles: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
+        book_categories = {"children's": "الأطفال"}
+        jobs_type_translations = {}
 
-        result = _add_jobs_people_variants(JOBS_PEOPLE_ROLES, BOOK_CATEGORIES, JOBS_TYPE_TRANSLATIONS)
+        result = _add_jobs_people_variants(jobs_people_roles, book_categories, jobs_type_translations)
 
         assert "children's writers" in result
         assert result["children's writers"]["males"] == "كتاب الأطفال"
 
     def test_combines_with_job_types(self) -> None:
-        JOBS_PEOPLE_ROLES: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
-        BOOK_CATEGORIES = {}
-        JOBS_TYPE_TRANSLATIONS = {"science fiction": "خيال علمي"}
+        jobs_people_roles: GenderedLabelMap = {"writers": {"males": "كتاب", "females": "كاتبات"}}
+        book_categories = {}
+        jobs_type_translations = {"science fiction": "خيال علمي"}
 
-        result = _add_jobs_people_variants(JOBS_PEOPLE_ROLES, BOOK_CATEGORIES, JOBS_TYPE_TRANSLATIONS)
+        result = _add_jobs_people_variants(jobs_people_roles, book_categories, jobs_type_translations)
 
         assert "science fiction writers" in result
         assert result["science fiction writers"]["males"] == "كتاب خيال علمي"
 
     def test_skips_roles_without_both_genders(self) -> None:
-        JOBS_PEOPLE_ROLES: GenderedLabelMap = {
+        jobs_people_roles: GenderedLabelMap = {
             "complete": {"males": "كامل", "females": "كاملة"},
             "incomplete": {"males": "غير كامل", "females": ""},
         }
-        BOOK_CATEGORIES = {"test": "اختبار"}
-        JOBS_TYPE_TRANSLATIONS = {}
+        book_categories = {"test": "اختبار"}
+        jobs_type_translations = {}
 
-        result = _add_jobs_people_variants(JOBS_PEOPLE_ROLES, BOOK_CATEGORIES, JOBS_TYPE_TRANSLATIONS)
+        result = _add_jobs_people_variants(jobs_people_roles, book_categories, jobs_type_translations)
 
         assert "test complete" in result
         assert "test incomplete" not in result
@@ -319,21 +319,21 @@ class TestFinaliseJobsDataset:
             jobs_pp={},
             sport_variants={},
             people_variants={},
-            MEN_WOMENS_JOBS_2={},
-            NAT_BEFORE_OCC=[],
-            MEN_WOMENS_SINGERS_BASED={},
-            MEN_WOMENS_SINGERS={},
-            PLAYERS_TO_MEN_WOMENS_JOBS={},
-            SPORT_JOB_VARIANTS={},
-            RELIGIOUS_FEMALE_KEYS={},
-            BASE_CYCLING_EVENTS={},
-            JOBS_2={},
-            JOBS_3333={},
-            RELIGIOUS_KEYS_PP={},
-            FOOTBALL_KEYS_PLAYERS={},
-            EXECUTIVE_DOMAINS={},
-            DISABILITY_LABELS={},
-            JOBS_2020_BASE={},
+            men_womens_jobs_2={},
+            nat_before_occ=[],
+            men_womens_singers_based={},
+            men_womens_singers={},
+            players_to_men_womens_jobs={},
+            sport_job_variants={},
+            religious_female_keys={},
+            base_cycling_events={},
+            jobs_2={},
+            jobs_3333={},
+            religious_keys_pp={},
+            football_keys_players={},
+            executive_domains={},
+            disability_labels={},
+            jobs_2020_base={},
             companies_to_jobs={},
             activists={},
         )
@@ -348,21 +348,21 @@ class TestFinaliseJobsDataset:
             jobs_pp={"test": {"males": "اختبار", "females": ""}},
             sport_variants={},
             people_variants={},
-            MEN_WOMENS_JOBS_2={},
-            NAT_BEFORE_OCC=[],
-            MEN_WOMENS_SINGERS_BASED={},
-            MEN_WOMENS_SINGERS={},
-            PLAYERS_TO_MEN_WOMENS_JOBS={},
-            SPORT_JOB_VARIANTS={},
-            RELIGIOUS_FEMALE_KEYS={},
-            BASE_CYCLING_EVENTS={},
-            JOBS_2={},
-            JOBS_3333={},
-            RELIGIOUS_KEYS_PP={},
-            FOOTBALL_KEYS_PLAYERS={},
-            EXECUTIVE_DOMAINS={},
-            DISABILITY_LABELS={},
-            JOBS_2020_BASE={},
+            men_womens_jobs_2={},
+            nat_before_occ=[],
+            men_womens_singers_based={},
+            men_womens_singers={},
+            players_to_men_womens_jobs={},
+            sport_job_variants={},
+            religious_female_keys={},
+            base_cycling_events={},
+            jobs_2={},
+            jobs_3333={},
+            religious_keys_pp={},
+            football_keys_players={},
+            executive_domains={},
+            disability_labels={},
+            jobs_2020_base={},
             companies_to_jobs={},
             activists={},
         )
@@ -375,36 +375,36 @@ class TestBuildJobsNew:
 
     def test_lowercases_female_job_keys(self) -> None:
         female_jobs = {"Writers": "كاتبات"}
-        Nat_mens = {}
+        nat_mens = {}
 
-        result = _build_jobs_new(female_jobs, Nat_mens)
+        result = _build_jobs_new(female_jobs, nat_mens)
 
         assert "writers" in result
         assert result["writers"] == "كاتبات"
 
     def test_adds_nationality_people_variants(self) -> None:
         female_jobs = {}
-        Nat_mens = {"egyptian": "مصريون"}
+        nat_mens = {"egyptian": "مصريون"}
 
-        result = _build_jobs_new(female_jobs, Nat_mens)
+        result = _build_jobs_new(female_jobs, nat_mens)
 
         assert "egyptian people" in result
         assert result["egyptian people"] == "مصريون"
 
     def test_adds_ottoman_empire_entry(self) -> None:
         female_jobs = {}
-        Nat_mens = {}
+        nat_mens = {}
 
-        result = _build_jobs_new(female_jobs, Nat_mens)
+        result = _build_jobs_new(female_jobs, nat_mens)
 
         assert "people of the ottoman empire" in result
         assert result["people of the ottoman empire"] == "عثمانيون"
 
     def test_skips_empty_jobs(self) -> None:
         female_jobs = {"valid": "صحيح", "empty": ""}
-        Nat_mens = {}
+        nat_mens = {}
 
-        result = _build_jobs_new(female_jobs, Nat_mens)
+        result = _build_jobs_new(female_jobs, nat_mens)
 
         assert "valid" in result
         assert "empty" not in result
