@@ -14,11 +14,11 @@ from typing import Any
 
 import jsonlines
 
-SAVE_ENABLE = True
+# SAVE_ENABLE = True
 SAVE_ENABLE = False
 
 
-def save(path: Path | str, data: dict | list) -> str:
+def save(path: Path | str, data: dict | list) -> None:
     """Append data to the specified JSONL file, creating it if needed."""
     path = Path(path)
     if isinstance(data, dict):
