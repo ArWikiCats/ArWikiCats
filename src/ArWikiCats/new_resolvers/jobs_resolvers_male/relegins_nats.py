@@ -4,6 +4,8 @@ into a class-based architecture with lazy-loaded bots.
 """
 
 from functools import cached_property
+
+from ArWikiCats.translations_formats.DataModelMulti.model_data_v2_formater import MultiDataFormatterBaseV2
 from ...translations import RELIGIOUS_KEYS_PP, Nat_mens, Nat_Womens
 from ...translations_formats import (
     FormatData,
@@ -70,7 +72,7 @@ class CategoryResolver:
         }
 
     @cached_property
-    def nat_rel_bot_v2(self):
+    def nat_rel_bot_v2(self) -> MultiDataFormatterBaseV2:
         """Lazy-loaded main bot for Nationality + Religion (V2)."""
         return format_multi_data_v2(
             first_element_config=MultiDataFormatterConfig(
@@ -86,7 +88,7 @@ class CategoryResolver:
         )
 
     @cached_property
-    def job_rel_bot_v2(self):
+    def job_rel_bot_v2(self) -> MultiDataFormatterBaseV2:
         """Lazy-loaded main bot for Job + Religion (V2)."""
         return format_multi_data_v2(
             first_element_config=MultiDataFormatterConfig(
@@ -101,7 +103,7 @@ class CategoryResolver:
         )
 
     @cached_property
-    def simple_m_bot(self):
+    def simple_m_bot(self) -> FormatData:
         """Lazy-loaded simple fallback bot for (Male/General)."""
         return FormatData(
             formatted_data={"{rel}": "{rel_ar}"},
@@ -110,7 +112,7 @@ class CategoryResolver:
             value_placeholder="{rel_ar}",
         )
 
-    def resolve_nats_jobs_for_males(self, category: str) -> str:
+    def resolver(self, category: str) -> str:
         """
         Resolves the Arabic label for a category string that combines a religious group and a nationality.
         Args:
@@ -146,7 +148,7 @@ _resolver = CategoryResolver()
 
 def resolve_nats_jobs_for_males(category: str) -> str:
     """Backward compatible wrapper function for the default resolver instance."""
-    return _resolver.resolve_nats_jobs_for_males(category)
+    return _resolver.resolver(category)
 
 
 __all__ = [
