@@ -3,6 +3,8 @@
 *.tmp.py
 /.vscode
 *.txt
+!requirements.txt
+!requirements-dev.txt
 make_tests
 /.codex
 categories.json
