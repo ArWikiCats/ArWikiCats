@@ -55,7 +55,7 @@ def test_add_to_new_players_invalid_types() -> None:
 
 
 @pytest.mark.fast
-def test_add_to_Films_O_TT() -> None:
+def test_add_to_films_o_tt() -> None:
     """Test add_to_Films_O_TT function with various inputs."""
     # Test with valid inputs
     test_key = "test_film_key"
@@ -118,7 +118,7 @@ def test_add_to_new_players_overwrite() -> None:
 
 
 @pytest.mark.fast
-def test_add_to_Films_O_TT_overwrite() -> None:
+def test_add_to_films_o_tt_overwrite() -> None:
     """Test that add_to_Films_O_TT can overwrite existing keys."""
     test_key = "overwrite_film_key"
     first_value = "قيمة فيلم أولى"
@@ -141,6 +141,6 @@ def test_players_new_keys_is_dict() -> None:
 
 
 @pytest.mark.fast
-def test_Films_O_TT_is_dict() -> None:
+def test_films_o_tt_is_dict() -> None:
     """Test that Films_O_TT is a dictionary."""
     assert isinstance(Films_O_TT, dict)
