@@ -1,5 +1,5 @@
 """
-D:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json
+D:/categories_bot/make2_new/arwikicats_repo/src/ArWikiCats/jsons/nationalities/nationalities_data.json
 
 قراءة الملف
 إضافة لكل مدخلة مفتاح جديد باسم
@@ -19,8 +19,8 @@ the_female
 import json
 from pathlib import Path
 
-# JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/nationalities_data.json")
-JSON_PATH = Path(r"d:/categories_bot/make2_new/ArWikiCats/jsons/nationalities/sub_nats.json")
+# JSON_PATH = Path(r"d:/categories_bot/make2_new/arwikicats_repo/src/ArWikiCats/jsons/nationalities/nationalities_data.json")
+JSON_PATH = Path(r"d:/categories_bot/make2_new/arwikicats_repo/src/ArWikiCats/jsons/nationalities/sub_nats.json")
 
 
 def add_definite_article(word: str) -> str:

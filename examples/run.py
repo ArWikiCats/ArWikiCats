@@ -36,5 +36,5 @@ for handler in logger.handlers:
 # print(resolve_by_nats_double_v2("jewish history"))
 
 print(mens_resolver_labels("yemeni philosophers and theologians"))
-# python3 D:/categories_bot/make2_new/examples/run.py
+# python3 D:/categories_bot/make2_new/arwikicats_repo/examples/run.py
 # python3 -c "from ArWikiCats import resolve_arabic_category_label; print(resolve_arabic_category_label('Category:2015 American television'))"
