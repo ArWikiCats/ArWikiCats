@@ -92,7 +92,7 @@ class TestAddInTab:
         """Test adding 'من' when type ends with ' of' and is in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )
@@ -107,10 +107,10 @@ class TestAddInTab:
         assert result == "رياضيون من "
 
     def test_skip_from_when_no_ty_in18(self, monkeypatch: pytest.MonkeyPatch) -> None:
-        """Test that 'من' is not added when get_pop_All_18 returns None."""
+        """Test that 'من' is not added when get_pop_all_18 returns None."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: None,
             raising=False,
         )
@@ -122,7 +122,7 @@ class TestAddInTab:
         """Test that 'من' is not added when type doesn't end with ' of'."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )
@@ -134,7 +134,7 @@ class TestAddInTab:
         """Test that 'من' is not added when 'في' is already in label."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )
@@ -146,7 +146,7 @@ class TestAddInTab:
         """Test that 'من' is not added when type is not in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )
@@ -164,7 +164,7 @@ class TestAddInTab:
         """Test adding 'من' when type prefix (without ' of') is in tables."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )
@@ -306,7 +306,7 @@ class TestEdgeCases:
         """Test that removesuffix method works correctly (Python 3.9+)."""
         monkeypatch.setattr(
             arabic_label_builder,
-            "get_pop_All_18",
+            "get_pop_all_18",
             lambda *_: "some_value",
             raising=False,
         )

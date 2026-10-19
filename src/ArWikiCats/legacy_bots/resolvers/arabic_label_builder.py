@@ -15,7 +15,7 @@ from ...translations import keys_of_without_in
 from .. import tmp_bot
 from ..common_resolver_chain import get_con_label, get_type_lab, work_peoples
 from ..legacy_resolvers_bots import bys, with_years_bot
-from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..legacy_resolvers_bots.bot_2018 import get_pop_all_18
 from ..legacy_resolvers_bots.year_or_typeo import label_for_startwith_year_or_typeo
 from ..legacy_utils import Keep_it_frist, Keep_it_last, fix_minor, get_type_country  # , split_text_by_separator
 from ..make_bots import check_key_new_players
@@ -61,7 +61,7 @@ class CountryResolver:
 
         if not result:
             result = (
-                get_pop_All_18(country)
+                get_pop_all_18(country)
                 or country_resolver.fetch_country_term_label(country, preposition, "")
                 or get_con_label(country)
                 or tmp_bot.Work_Templates(country)
@@ -174,7 +174,7 @@ def _should_add_min_for_of_suffix(type_lower: str, ty_in18: str, type_label: str
 
     Args:
         type_lower: The lowercase type string.
-        ty_in18: The result from get_pop_All_18.
+        ty_in18: The result from get_pop_all_18.
         type_label: The current Arabic label.
 
     Returns:
@@ -230,7 +230,7 @@ def add_in_tab(type_label: str, type_lower: str, separator_stripped: str) -> str
         return type_label
 
     # Get population data for type
-    ty_in18 = get_pop_All_18(type_lower)
+    ty_in18 = get_pop_all_18(type_lower)
 
     # Extract type without ' of' suffix
     type_lower_prefix = type_lower.removesuffix(" of")
@@ -517,7 +517,7 @@ class LabelPipeline:
                     tatl = ""
 
                 if self.separator_stripped == "for" and self.country_lower.startswith("for "):
-                    p18lab = get_pop_All_18(self.country_lower)
+                    p18lab = get_pop_all_18(self.country_lower)
                     if p18lab and p18lab == self.country_label:
                         tatl = ""
 

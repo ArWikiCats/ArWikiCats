@@ -4,10 +4,10 @@ python3 core8/pwb.py -m cProfile -s ncalls make/make_bots.matables_bots/bot.py
 
 """
 
-# Import typeTable_7 from centralized data module
+# Import type_table_7 from centralized data module
 from typing import Any
 
-from ..data.mappings import typeTable_7
+from ..data.mappings import type_table_7
 
 
 def _make_players_keys() -> dict[str, Any]:
@@ -22,7 +22,7 @@ def _make_players_keys() -> dict[str, Any]:
 
     # players_keys.update({x.lower(): v for x, v in Jobs_new.items() if v})
 
-    players_keys.update({x.lower(): v for x, v in typeTable_7.items()})
+    players_keys.update({x.lower(): v for x, v in type_table_7.items()})
 
     players_keys["national sports teams"] = "منتخبات رياضية وطنية"
     players_keys["people"] = "أشخاص"

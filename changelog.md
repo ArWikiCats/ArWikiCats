@@ -266,7 +266,7 @@ This pull request introduces a comprehensive refactoring of the `legacy_bots` di
     - Number translations (`change_numb`, `change_numb_to_word`)
     - Suffix mappings (`pp_ends_with_pase`, `pp_ends_with`, `combined_suffix_mappings`)
     - Prefix mappings (`pp_start_with`)
-    - Type table (`typeTable_7`)
+    - Type table (`type_table_7`)
 - Added `utils/regex_hub.py` - Centralized pre-compiled regex patterns:
     - Year patterns (RE1_compile, RE2_compile, RE3_compile, RE33_compile, REGEX_SUB_YEAR)
     - General patterns (REGEX_SUB_MILLENNIUM_CENTURY, REGEX_SUB_CATEGORY_LOWERCASE)
@@ -284,7 +284,7 @@ This pull request introduces a comprehensive refactoring of the `legacy_bots` di
     - `legacy_utils/numbers1.py` - Re-exports from `data.mappings`
     - `legacy_utils/ends_keys.py` - Re-exports from `data.mappings`
     - `legacy_utils/reg_lines.py` - Re-exports from `utils.regex_hub`
-    - `make_bots/bot.py` - Imports typeTable_7 from `data.mappings`
+    - `make_bots/bot.py` - Imports type_table_7 from `data.mappings`
 - Standardized imports across multiple files to use centralized modules:
     - `tmp_bot.py` - Updated to import from `data.mappings`
     - `make_bots/reg_result.py` - Updated to import from `utils.regex_hub`
@@ -2621,7 +2621,7 @@ These changes collectively improve the robustness, maintainability, and correctn
 
 ## [#41](https://github.com/MrIbrahem/ArWikiCats/pull/41) - 2025-11-09
 
-- **Refactor [pop_All_2018_bot.py](ArWikiCats/translations/mix_data/pop_All_2018_bot.py)**
+- **Refactor [pop_all_2018_bot.py](ArWikiCats/translations/mix_data/pop_all_2018_bot.py)**
     - Reorganized internal data-loading and resolution flows for consistency.
     - Removed deprecated backward-compatibility aliases and an obsolete resolver.
     - Consolidated imports and simplified name-resolution logic to improve maintainability.

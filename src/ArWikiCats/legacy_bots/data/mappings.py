@@ -291,7 +291,7 @@ pp_start_with = {
 # TYPE TABLE (from make_bots/bot.py)
 # ============================================================================
 
-typeTable_7: dict[str, str] = {  # noqa: N816
+type_table_7: dict[str, str] = {
     "air force": "قوات جوية",
     "airlines accidents": "حوادث طيران",
     "aviation accident": "حوادث طيران",
@@ -324,5 +324,5 @@ __all__ = [
     "pp_ends_with",
     "combined_suffix_mappings",
     "pp_start_with",
-    "typeTable_7",
+    "type_table_7",
 ]

@@ -11,7 +11,7 @@ import logging
 
 from .common_resolver_chain import get_lab_for_country2
 from .data.mappings import combined_suffix_mappings, pp_start_with
-from .legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from .legacy_resolvers_bots.bot_2018 import get_pop_all_18
 from .make_bots import get_KAKO
 
 logger = logging.getLogger(__name__)
@@ -34,7 +34,7 @@ def create_label_from_prefix(input_label):
             remaining_label = input_label[len(prefix) :]
 
             resolved_label = (
-                get_lab_for_country2(remaining_label) or get_pop_All_18(remaining_label) or get_KAKO(remaining_label)
+                get_lab_for_country2(remaining_label) or get_pop_all_18(remaining_label) or get_KAKO(remaining_label)
             )
             logger.info(f"<<lightblue>>{input_label=}, {remaining_label=}")
 
@@ -64,7 +64,7 @@ def create_label_from_suffix(input_label):
             base_label = input_label[: -len(suffix)]
             logger.info(f"<<lightblue>>.endswith suffix({suffix=}), {base_label=}")
 
-            resolved_label = get_lab_for_country2(base_label) or get_pop_All_18(base_label) or get_KAKO(base_label)
+            resolved_label = get_lab_for_country2(base_label) or get_pop_all_18(base_label) or get_KAKO(base_label)
             logger.info(f"<<lightblue>>{input_label=}, {base_label=}")
 
             if resolved_label:

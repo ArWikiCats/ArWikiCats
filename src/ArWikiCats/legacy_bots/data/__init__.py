@@ -12,7 +12,7 @@ from .mappings import (
     pp_ends_with,
     pp_ends_with_pase,
     pp_start_with,
-    typeTable_7,
+    type_table_7,
 )
 
 __all__ = [
@@ -22,5 +22,5 @@ __all__ = [
     "pp_ends_with",
     "combined_suffix_mappings",
     "pp_start_with",
-    "typeTable_7",
+    "type_table_7",
 ]

@@ -11,7 +11,7 @@ from ...new_resolvers import all_new_resolvers
 from ...new_resolvers.bys_new import resolve_by_labels
 from ...translations.funcs import get_from_new_p17_final
 from ..utils.regex_hub import BY_MATCH_PATTERN, DUAL_BY_PATTERN
-from .bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_all_18
 
 logger = logging.getLogger(__name__)
 
@@ -98,7 +98,7 @@ def get_by_label(category: str) -> str:
     first_part_cleaned = first_part.strip().lower()
     first_part_cleaned = first_part_cleaned.removeprefix("the ")
 
-    first_label = get_from_new_p17_final(first_part_cleaned) or get_pop_All_18(first_part_cleaned, "") or ""
+    first_label = get_from_new_p17_final(first_part_cleaned) or get_pop_all_18(first_part_cleaned, "") or ""
     by_label = resolve_by_labels(by_section)
 
     logger.debug(f"<<lightyellow>> frist:{first_part=}, {by_section=}")

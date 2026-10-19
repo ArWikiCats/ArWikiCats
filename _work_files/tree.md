@@ -80,7 +80,7 @@ ArWikiCats/
 │   │
 │   ├── population/
 │   │   ├── keys_of_with_in.json
-│   │   ├── pop_All_2018.json
+│   │   ├── pops_all_2018.json
 │   │   └── pop_final_3.json
 │   │
 │   ├── sports/

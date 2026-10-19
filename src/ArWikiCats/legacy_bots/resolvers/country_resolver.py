@@ -28,7 +28,7 @@ from ...translations import (
     religious_entries,
 )
 from ..common_resolver_chain import get_lab_for_country2
-from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..legacy_resolvers_bots.bot_2018 import get_pop_all_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
 from ..make_bots import get_KAKO
@@ -93,7 +93,7 @@ def Get_country2(country: str) -> str:
     resolved_label = (
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
-        or get_pop_All_18(country)
+        or get_pop_all_18(country)
         or get_KAKO(country)
         or _get_fallback_label(country)
         or ""
@@ -277,7 +277,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
             if term_lower.startswith("the "):
                 logger.info(f'{term_lower=} startswith("the ")')
                 term_without_the = term_lower[len("the ") :]
-                term_label = get_pop_All_18(term_without_the, "")
+                term_label = get_pop_all_18(term_without_the, "")
                 if not term_label:
                     term_label = self.get_country_label(term_without_the)
 
@@ -328,7 +328,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
                 logger.info(f"jobs_mens_data:: add من to {term_label=}, line:1583.")
 
             if not translated_base:
-                translated_base = get_pop_All_18(base_term, "")
+                translated_base = get_pop_all_18(base_term, "")
 
             if not translated_base:
                 translated_base = self.get_country_label(base_term)
@@ -343,7 +343,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
                 return term_label  # Return immediately if found
 
         if term_label == "" and separator.strip() == "in":
-            term_label = get_pop_All_18(f"{term_lower} in", "")
+            term_label = get_pop_all_18(f"{term_lower} in", "")
 
         if not term_label:
             term_label = self.get_country_label(term_lower)

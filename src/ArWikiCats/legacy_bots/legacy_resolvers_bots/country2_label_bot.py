@@ -20,7 +20,7 @@ from ...translations.funcs import get_and_label, get_from_pf_keys2
 from ..legacy_utils import fix_minor, split_text_by_separator
 from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
 from . import bys, with_years_bot
-from .bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_all_18
 
 logger = logging.getLogger(__name__)
 
@@ -111,7 +111,7 @@ def resolve_part_1_label(country2, separator="", lab_type="type_label", with_yea
     country2_label = (
         ""
         or all_new_resolvers(country2)
-        or get_pop_All_18(country2)
+        or get_pop_all_18(country2)
         or work_peoples(country2)
         or parties_resolver.get_parties_lab(country2)
         or team_work.resolve_clubs_teams_leagues(country2)

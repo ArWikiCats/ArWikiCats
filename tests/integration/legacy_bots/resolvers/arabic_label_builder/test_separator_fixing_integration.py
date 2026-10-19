@@ -82,7 +82,7 @@ class TestAddInTabIntegration:
         """Test real-world example: footballers of team."""
         # This test requires actual data dependencies
         result = add_in_tab(type_label="لاعبو كرة قدم", type_lower="footballers of", separator_stripped="in")
-        # Result depends on get_pop_All_18 and check_key_new_players
+        # Result depends on get_pop_all_18 and check_key_new_players
         assert isinstance(result, str)
         # Should either add 'من' or return unchanged
         assert result.startswith("لاعبو كرة قدم")

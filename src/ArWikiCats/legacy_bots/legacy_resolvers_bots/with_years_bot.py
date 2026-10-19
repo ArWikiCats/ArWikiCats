@@ -24,7 +24,7 @@ from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
 from ..make_bots import get_KAKO
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
-from .bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_all_18
 
 logger = logging.getLogger(__name__)
 
@@ -138,7 +138,7 @@ def _handle_year_at_start(category_text: str) -> str:
             or get_from_pf_keys2(remainder)
             or translate_general_category_wrap(remainder)
             or get_lab_for_country2(remainder)
-            or get_pop_All_18(remainder)
+            or get_pop_all_18(remainder)
             or get_KAKO(remainder)
             or ""
         )
@@ -201,7 +201,7 @@ def _handle_year_at_end(
         or all_new_resolvers(remainder)
         or translate_general_category_wrap(remainder)
         or get_lab_for_country2(remainder)
-        or get_pop_All_18(remainder)
+        or get_pop_all_18(remainder)
         or get_KAKO(remainder)
         or ""
     )

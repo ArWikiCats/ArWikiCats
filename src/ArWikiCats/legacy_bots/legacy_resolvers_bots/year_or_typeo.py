@@ -11,7 +11,7 @@ from ...time_formats import convert_time_to_arabic, match_time_en_first
 from ...translations import Nat_mens
 from ..make_bots import get_cats, get_reg_result
 from ..resolvers.country_resolver import get_country_label
-from .bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_all_18
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ def resolve_country_label(country_lower: str, country_not_lower: str, cate3: str
     country_label = ""
 
     if country_lower:
-        country_label = get_pop_All_18(country_lower, "")
+        country_label = get_pop_all_18(country_lower, "")
 
         if not country_label:
             country_label = get_country_label(country_not_lower)

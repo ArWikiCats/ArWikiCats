@@ -208,7 +208,7 @@ def _check_basic_lookups(self, country: str) -> str:
 ```python
 from ...translations.funcs import _get_from_alias, open_json_file
 
-pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266 entries
+pop_all_2018 = open_json_file("population/pops_all_2018.json")  # 524266 entries
 ```
 
 **Issue**: Direct access to private function `_get_from_alias` (leading underscore indicates private API).

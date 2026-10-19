@@ -22,7 +22,7 @@ from ..resolvers.country_resolver import event2_d2
 from ..resolvers.separator_based_resolver import work_separator_names
 from ..resolvers.sub_resolver import sub_translate_general_category
 from . import country2_label_bot, with_years_bot, year_or_typeo
-from .bot_2018 import get_pop_All_18
+from .bot_2018 import get_pop_all_18
 
 logger = logging.getLogger(__name__)
 
@@ -75,7 +75,7 @@ def translate_general_category_wrap(category: str) -> str:
 # Standard resolver chain for country-based labels
 _STANDARD_COUNTRY_RESOLVERS: list[ResolverFn] = [
     get_lab_for_country2,
-    get_pop_All_18,
+    get_pop_all_18,
     get_KAKO,
 ]
 

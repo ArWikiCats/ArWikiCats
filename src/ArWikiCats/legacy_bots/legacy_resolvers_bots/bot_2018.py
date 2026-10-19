@@ -14,9 +14,11 @@ from ...translations.funcs import _get_from_alias, open_json_file
 
 logger = logging.getLogger(__name__)
 
-pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
+_pop_all_2018 = open_json_file("population/pops_all_2018.json")  # 524266
 
-pop_All_2018.update(
+pop_all_2018 = _pop_all_2018 if isinstance(_pop_all_2018, dict) else {}
+
+pop_all_2018.update(
     {
         "establishments": "تأسيسات",
         "disestablishments": "انحلالات",
@@ -41,7 +43,7 @@ first_data = {
 
 
 @functools.lru_cache(maxsize=10000)
-def _get_pop_All_18(key: str, default: str = "") -> str:
+def _get_pop_all_18(key: str, default: str = "") -> str:
     """
     Retrieve the Arabic label for a key from the in-memory 2018 population mapping.
 
@@ -52,7 +54,7 @@ def _get_pop_All_18(key: str, default: str = "") -> str:
     Returns:
         str: The label mapped to `key`, or `default` if no mapping exists.
     """
-    result = pop_All_2018.get(key, default)
+    result = pop_all_2018.get(key, default)
     return result
 
 
@@ -77,7 +79,7 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
 
     call_ables = {
         "all_new_resolvers": all_new_resolvers,
-        "_get_pop_All_18": _get_pop_All_18,
+        "_get_pop_all_18": _get_pop_all_18,
         "resolve_by_labels": resolve_by_labels,
         "_get_from_alias": _get_from_alias,
     }
@@ -85,14 +87,14 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
     for name, func in call_ables.items():
         result = func(key)
         if result:
-            logger.debug(f"get_pop_All_18: Found key in {name}: {key} -> {result}")
+            logger.debug(f"get_pop_all_18: Found key in {name}: {key} -> {result}")
             return result
 
     return default
 
 
 @functools.lru_cache(maxsize=10000)
-def get_pop_All_18(key: str, default: str = "") -> str:
+def get_pop_all_18(key: str, default: str = "") -> str:
     """
     Lookup an Arabic label for `key` using layered 2018 population and alias sources.
 
@@ -115,5 +117,5 @@ def get_pop_All_18(key: str, default: str = "") -> str:
 
 __all__ = [
     "get_pop_all_18_wrap",
-    "get_pop_All_18",
+    "get_pop_all_18",
 ]

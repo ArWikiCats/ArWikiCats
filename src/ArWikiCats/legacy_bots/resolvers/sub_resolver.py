@@ -16,7 +16,7 @@ import re
 from ...time_formats import time_to_arabic
 from ...translations import Jobs_new, jobs_mens_data
 from ...utils import get_value_from_any_table
-from ..legacy_resolvers_bots.bot_2018 import get_pop_All_18
+from ..legacy_resolvers_bots.bot_2018 import get_pop_all_18
 from ..make_bots import Films_O_TT, players_new_keys
 
 logger = logging.getLogger(__name__)
@@ -30,7 +30,7 @@ def sub_translate_general_category(category_r: str) -> str:
     Translate a general category using multiple lookup sources.
 
     This function attempts to resolve a category label by checking:
-    1. Population data (get_pop_All_18)
+    1. Population data (get_pop_all_18)
     2. Films lookup table (Films_O_TT)
     3. Players/jobs tables
     4. Time conversion
@@ -53,7 +53,7 @@ def sub_translate_general_category(category_r: str) -> str:
 
     arlabel = (
         ""
-        or get_pop_All_18(category, "")
+        or get_pop_all_18(category, "")
         or Films_O_TT.get(category, "")
         or get_value_from_any_table(category, [players_new_keys, jobs_mens_data, Jobs_new])
         or time_to_arabic.convert_time_to_arabic(category)
