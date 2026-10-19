@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 KeyValueTransform = Callable[[str, str], tuple[str, str]]
 
 
-def _DEFAULT_SANITISER(key, value):
+def _DEFAULT_SANITISER(key, value):  # noqa: N802
     """
     Return the input key and value unchanged.
 

@@ -167,7 +167,7 @@ class FormatDataDoubleV2(FormatDataBase):
         data_pattern = rf"(?<!\w)({self.alternation})({self.splitter})({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
-    @functools.lru_cache(maxsize=10000)
+    @functools.lru_cache(maxsize=10000)  # noqa: B019
     def match_key(self, category: str) -> str:
         """
         Determine the canonical lowercased key that corresponds to the given category string.
@@ -236,7 +236,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return final_label.strip()
 
-    @functools.lru_cache(maxsize=5000)
+    @functools.lru_cache(maxsize=5000)  # noqa: B019
     def create_label_from_keys(self, part1: str, part2: str):
         """
         Builds a mapping of Arabic labels for the two-part key combination.

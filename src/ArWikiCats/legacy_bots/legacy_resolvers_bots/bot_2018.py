@@ -14,7 +14,7 @@ from ...translations.funcs import _get_from_alias, open_json_file
 
 logger = logging.getLogger(__name__)
 
-pop_All_2018 = open_json_file("population/pop_All_2018.json")  # 524266
+pop_All_2018 = open_json_file("population/pop_All_2018.json")  # noqa: N816
 
 pop_All_2018.update(
     {
@@ -41,7 +41,7 @@ first_data = {
 
 
 @functools.lru_cache(maxsize=10000)
-def _get_pop_All_18(key: str, default: str = "") -> str:
+def _get_pop_All_18(key: str, default: str = "") -> str:  # noqa: N802
     """
     Retrieve the Arabic label for a key from the in-memory 2018 population mapping.
 
@@ -92,7 +92,7 @@ def get_pop_all_18_wrap(key: str, default: str = "") -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_pop_All_18(key: str, default: str = "") -> str:
+def get_pop_All_18(key: str, default: str = "") -> str:  # noqa: N802
     """
     Lookup an Arabic label for `key` using layered 2018 population and alias sources.
 

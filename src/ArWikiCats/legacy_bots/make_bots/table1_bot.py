@@ -26,7 +26,7 @@ KAKO: dict[str, dict[str, str]] = {
 
 
 @functools.lru_cache(maxsize=5000)
-def _get_KAKO(text: str) -> tuple[str, str]:
+def _get_KAKO(text: str) -> tuple[str, str]:  # noqa: N802
     """
     Look up the Arabic label for a term using resolve_by_labels and then the configured mapping tables.
 
@@ -62,7 +62,7 @@ def _get_KAKO(text: str) -> tuple[str, str]:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_KAKO(text: str) -> str:
+def get_KAKO(text: str) -> str:  # noqa: N802
     """
     Return the Arabic label for a given term by consulting multiple mapping tables.
 

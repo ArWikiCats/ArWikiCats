@@ -77,7 +77,7 @@ def create_label_from_suffix(input_label):
 
 
 @functools.lru_cache(maxsize=10000)
-def Work_Templates(input_label: str) -> str:
+def Work_Templates(input_label: str) -> str:  # noqa: N802
     """Generate Arabic category labels using template-based matching.
 
     This function attempts to match input labels against predefined templates

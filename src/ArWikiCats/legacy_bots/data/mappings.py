@@ -291,7 +291,7 @@ pp_start_with = {
 # TYPE TABLE (from make_bots/bot.py)
 # ============================================================================
 
-typeTable_7: dict[str, str] = {
+typeTable_7: dict[str, str] = {  # noqa: N816
     "air force": "قوات جوية",
     "airlines accidents": "حوادث طيران",
     "aviation accident": "حوادث طيران",

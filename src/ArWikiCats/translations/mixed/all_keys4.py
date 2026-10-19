@@ -98,7 +98,7 @@ UNITED_STATES_POLITICAL: dict[str, str] = {
 }
 
 
-def build_new2019(INTER_FEDS_LOWER, NEW_2019) -> dict[str, str]:
+def build_new2019(inter_feds_lower, new_2019_param) -> dict[str, str]:
     """
     Builds a consolidated mapping of 2019 keys to Arabic labels for colleges, sports, religious traditions, and US political terms.
 
@@ -111,21 +111,21 @@ def build_new2019(INTER_FEDS_LOWER, NEW_2019) -> dict[str, str]:
     - United States political term variants (electors, election(s), candidates).
 
     Parameters:
-        INTER_FEDS_LOWER (dict[str, str]): Lowercased inter-federation name -> Arabic label mapping to merge into the result.
-        NEW_2019 (dict[str, str]): Base 2019 key -> Arabic label mapping to start from.
+        inter_feds_lower (dict[str, str]): Lowercased inter-federation name -> Arabic label mapping to merge into the result.
+        new_2019_param (dict[str, str]): Base 2019 key -> Arabic label mapping to start from.
 
     Returns:
         dict[str, str]: A mapping from normalized English keys to their Arabic labels.
     """
 
-    data = dict(NEW_2019)
+    data = dict(new_2019_param)
 
     for college_key, college_label in CAMBRIDGE_COLLEGES.items():
         data[f"{college_key}, Cambridge"] = f"{college_label} (جامعة كامبريدج)"
         data[f"{college_key} College, Cambridge"] = f"كلية {college_label} (جامعة كامبريدج)"
         data[f"{college_key} College, Oxford"] = f"كلية {college_label} جامعة أكسفورد"
 
-    data.update(INTER_FEDS_LOWER)
+    data.update(inter_feds_lower)
 
     data.update({key.lower(): label for key, label in BATTLESHIP_CATEGORIES.items()})
     data.update({f"active {key.lower()}": f"{label} نشطة" for key, label in BATTLESHIP_CATEGORIES.items()})

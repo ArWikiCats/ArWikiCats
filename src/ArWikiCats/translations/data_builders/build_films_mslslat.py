@@ -85,18 +85,18 @@ def _extend_females_labels(
 
 def _build_series_and_nat_keys(
     female_keys: dict[str, str],
-    SERIES_DEBUTS_ENDINGS: dict[str, str],
-    TELEVISION_BASE_KEYS_FEMALE: dict[str, str],
-    DEBUTS_ENDINGS_KEYS: list[str],
+    series_debuts_endings: dict[str, str],
+    television_base_keys_female: dict[str, str],
+    debuts_endings_keys: list[str],
 ) -> tuple[dict[str, str], dict[str, str]]:
     """
     Construct nationality-aware and series-based Arabic translation mappings for film and television keys.
 
     Parameters:
         female_keys (Dict[str, str]): Mapping of English film/series keys to their Arabic female labels.
-        SERIES_DEBUTS_ENDINGS (Dict[str, str]): Predefined templates that include a `{}` placeholder for nationality-aware phrases.
-        TELEVISION_BASE_KEYS_FEMALE (Dict[str, str]): Base television-related keys mapped to their Arabic female labels.
-        DEBUTS_ENDINGS_KEYS (List[str]): List of television base keys (lowercased) that should also have dashed `-debuts`/`-endings` variants.
+        series_debuts_endings (Dict[str, str]): Predefined templates that include a `{}` placeholder for nationality-aware phrases.
+        television_base_keys_female (Dict[str, str]): Base television-related keys mapped to their Arabic female labels.
+        debuts_endings_keys (List[str]): List of television base keys (lowercased) that should also have dashed `-debuts`/`-endings` variants.
 
     Returns:
         Tuple[Dict[str, str], Dict[str, str]]:
@@ -107,13 +107,13 @@ def _build_series_and_nat_keys(
     _key_for_nat = {}
 
     # Add fixed templates
-    _key_for_nat.update(SERIES_DEBUTS_ENDINGS)
+    _key_for_nat.update(series_debuts_endings)
 
     # Add remakes mapping
     _key_for_nat["remakes of {} films"] = "أفلام {{}} معاد إنتاجها"
 
     # Build base series keys
-    for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
+    for tt, tt_lab in television_base_keys_female.items():
         _key_for_nat[tt] = f"{tt_lab} {{}}"
         _mslslat_tab[tt] = tt_lab
 
@@ -128,7 +128,7 @@ def _build_series_and_nat_keys(
             _mslslat_tab[key_with_suffix] = f"{tt_lab} {arabic_suffix}"
 
         # Dashed variants for specific keys
-        if tt.lower() in DEBUTS_ENDINGS_KEYS:
+        if tt.lower() in debuts_endings_keys:
             for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
                 dashed_key = f"{tt}-{suffix}"
                 _key_for_nat[dashed_key] = f"{tt_lab} {{}} {arabic_suffix}"
@@ -136,7 +136,7 @@ def _build_series_and_nat_keys(
 
     # Build combinations of female film keys with series keys
     for ke, ke_lab in female_keys.items():
-        for tt, tt_lab in TELEVISION_BASE_KEYS_FEMALE.items():
+        for tt, tt_lab in television_base_keys_female.items():
             key_base = f"{ke} {tt}"
 
             # Base combination
@@ -159,7 +159,7 @@ def _build_series_and_nat_keys(
                     _mslslat_tab[combo_key] = f"{tt_lab} {ke_lab} {arabic_suffix}"
 
             # Dashed variants
-            if tt.lower() in DEBUTS_ENDINGS_KEYS:
+            if tt.lower() in debuts_endings_keys:
                 for suffix, arabic_suffix in [("debuts", "بدأ عرضها في"), ("endings", "انتهت في")]:
                     dashed_key = f"{key_base}-{suffix}"
                     _key_for_nat[dashed_key] = f"{tt_lab} {ke_lab} {{}} {arabic_suffix}"
@@ -170,25 +170,25 @@ def _build_series_and_nat_keys(
 
 def _build_television_cao(
     female_keys: dict[str, str],
-    TELEVISION_KEYS: dict[str, str],
+    television_keys: dict[str, str],
 ) -> tuple[dict[str, str], dict[str, str]]:
     """
     Build CAO (characters, albums, organizations, etc.) translation mappings by combining female-key labels with television and genre categories.
 
     Parameters:
         female_keys (Dict[str, str]): Mapping from English keys to their Arabic female labels (e.g., "comedy" -> "كوميدية").
-        TELEVISION_KEYS (Dict[str, str]): Mapping of base television-related English keys to Arabic labels (e.g., "title" -> "عنوان").
+        television_keys (Dict[str, str]): Mapping of base television-related English keys to Arabic labels (e.g., "title" -> "عنوان").
 
     Returns:
         Tuple[Dict[str, str], Dict[str, str]]:
             - films_key_cao: Mapping of combined keys to Arabic CAO phrases (e.g., "comedy characters" -> "شخصيات كوميدية").
-            - films_key_cao2: Extended mappings combining female keys with TELEVISION_KEYS (e.g., "comedy title" -> "عنوان كوميدية").
+            - films_key_cao2: Extended mappings combining female keys with television_keys (e.g., "comedy title" -> "عنوان كوميدية").
     """
     films_key_cao2 = {}
     films_key_cao = {}
 
     # Base TV keys with common suffixes
-    for ff, label in TELEVISION_KEYS.items():
+    for ff, label in television_keys.items():
         for suffix, arabic_suffix in [
             ("characters", "شخصيات"),
             ("title cards", "بطاقات عنوان"),
@@ -232,7 +232,7 @@ def _build_television_cao(
             films_key_cao[f"{ke} {suffix}"] = f"{arabic_base} {ke_lab}"
 
         # Combinations with all TV keys
-        for fao, base_label in TELEVISION_KEYS.items():
+        for fao, base_label in television_keys.items():
             if not fao or not base_label:
                 continue
             films_key_cao2[f"{ke} {fao}"] = f"{base_label} {ke_lab}"

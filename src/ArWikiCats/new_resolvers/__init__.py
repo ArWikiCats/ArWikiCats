@@ -17,6 +17,7 @@ from collections.abc import Callable
 from ..patterns_resolvers import all_patterns_resolvers
 from ..sub_new_resolvers import main_other_resolvers
 from ..time_formats import convert_time_to_arabic
+from .config import ResolverChainConfig, ResolverConfig
 from .countries_names_resolvers import main_countries_names_resolvers
 from .countries_names_with_sports import main_countries_names_with_sports_resolvers
 from .films_resolvers import main_films_resolvers
@@ -29,9 +30,6 @@ from .sports_resolvers import main_sports_resolvers
 from .time_and_jobs_resolvers import time_and_jobs_resolvers_main
 
 logger = logging.getLogger(__name__)
-
-# Export config classes for external usage
-from .config import ResolverChainConfig, ResolverConfig
 
 # Type alias for resolver functions
 ResolverFn = Callable[[str], str]
@@ -139,6 +137,8 @@ def all_new_resolvers(category: str) -> str:
 
 
 __all__ = [
+    "ResolverChainConfig",
+    "ResolverConfig",
     "wrap_main_jobs_resolvers",
     "all_new_resolvers",
 ]

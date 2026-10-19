@@ -158,7 +158,7 @@ Nat_Womens: LookupTable = result_tables["Nat_Womens"]
 Nat_the_male: LookupTable = result_tables["Nat_the_male"]
 Nat_the_female: LookupTable = result_tables["Nat_the_female"]
 
-ar_Nat_men: LookupTable = result_tables["ar_Nat_men"]
+ar_Nat_men: LookupTable = result_tables["ar_Nat_men"]  # noqa: N816
 countries_from_nat: LookupTable = result_tables["countries_from_nat"]
 all_country_ar: LookupTable = result_tables["all_country_ar"]
 

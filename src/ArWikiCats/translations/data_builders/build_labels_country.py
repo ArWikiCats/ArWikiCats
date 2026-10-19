@@ -121,35 +121,35 @@ def _handle_the_prefix(label_index: dict[str, str]) -> dict[str, str]:
 
 
 def _build_country_label_index(
-    CITY_TRANSLATIONS_LOWER,
+    city_translations_lower,
     all_country_ar,
-    US_STATES,
-    COUNTRY_LABEL_OVERRIDES,
-    COUNTRY_ADMIN_LABELS,
-    MAIN_REGION_TRANSLATIONS,
+    us_states,
+    country_label_overrides,
+    country_admin_labels,
+    main_region_translations,
     raw_region_overrides,
-    SECONDARY_REGION_TRANSLATIONS,
-    INDIA_REGION_TRANSLATIONS,
-    TAXON_TABLE,
-    BASE_POP_FINAL_5,
+    secondary_region_translations,
+    india_region_translations,
+    taxon_table,
+    base_pop_final_5,
 ) -> dict[str, str]:
     """
     Builds an aggregated translation table mapping lowercase country and region keys to their Arabic labels.
 
-    Merges several input translation mappings (cities, countries, states, region translations, admin labels and overrides), applies explicit string overrides, derives entries for keys that start with "the ", and supplies missing entries from TAXON_TABLE and BASE_POP_FINAL_5 without overwriting existing keys.
+    Merges several input translation mappings (cities, countries, states, region translations, admin labels and overrides), applies explicit string overrides, derives entries for keys that start with "the ", and supplies missing entries from taxon_table and base_pop_final_5 without overwriting existing keys.
 
     Parameters:
-        CITY_TRANSLATIONS_LOWER (Mapping[str, str]): Base city translations already lowercased.
+        city_translations_lower (Mapping[str, str]): Base city translations already lowercased.
         all_country_ar (Mapping[str, str]): Country name translations.
-        US_STATES (Mapping[str, str]): US state name translations.
-        COUNTRY_LABEL_OVERRIDES (Mapping[str, str]): High-priority country label overrides.
-        COUNTRY_ADMIN_LABELS (Mapping[str, str]): Country administrative division labels.
-        MAIN_REGION_TRANSLATIONS (Mapping[str, str]): Primary region translations.
+        us_states (Mapping[str, str]): US state name translations.
+        country_label_overrides (Mapping[str, str]): High-priority country label overrides.
+        country_admin_labels (Mapping[str, str]): Country administrative division labels.
+        main_region_translations (Mapping[str, str]): Primary region translations.
         raw_region_overrides (Mapping[str, str]): Region override mappings.
-        SECONDARY_REGION_TRANSLATIONS (Mapping[str, str]): Secondary region translations.
-        INDIA_REGION_TRANSLATIONS (Mapping[str, str]): India-specific region translations.
-        TAXON_TABLE (Mapping[str, str]): Fallback taxon translations added only when missing.
-        BASE_POP_FINAL_5 (Mapping[str, str]): Additional fallback population-based labels added only when missing.
+        secondary_region_translations (Mapping[str, str]): Secondary region translations.
+        india_region_translations (Mapping[str, str]): India-specific region translations.
+        taxon_table (Mapping[str, str]): Fallback taxon translations added only when missing.
+        base_pop_final_5 (Mapping[str, str]): Additional fallback population-based labels added only when missing.
 
     Returns:
         dict[str, str]: The consolidated mapping from lowercase keys to labels.
@@ -157,17 +157,17 @@ def _build_country_label_index(
 
     label_index: dict[str, str] = {}
 
-    label_index.update(CITY_TRANSLATIONS_LOWER)  # 10,788
+    label_index.update(city_translations_lower)  # 10,788
 
     to_update = {
         "ALL_COUNTRY_AR": all_country_ar,  # 54
-        "US_STATES": US_STATES,  # 54
-        "COUNTRY_LABEL_OVERRIDES": COUNTRY_LABEL_OVERRIDES,  # 1778
-        "COUNTRY_ADMIN_LABELS": COUNTRY_ADMIN_LABELS,  # 1782
-        "MAIN_REGION_TRANSLATIONS": MAIN_REGION_TRANSLATIONS,  # 823
+        "US_STATES": us_states,  # 54
+        "COUNTRY_LABEL_OVERRIDES": country_label_overrides,  # 1778
+        "COUNTRY_ADMIN_LABELS": country_admin_labels,  # 1782
+        "MAIN_REGION_TRANSLATIONS": main_region_translations,  # 823
         "raw_region_overrides": raw_region_overrides,  # 1782
-        "SECONDARY_REGION_TRANSLATIONS": SECONDARY_REGION_TRANSLATIONS,  # 176
-        "INDIA_REGION_TRANSLATIONS": INDIA_REGION_TRANSLATIONS,  # 1424
+        "SECONDARY_REGION_TRANSLATIONS": secondary_region_translations,  # 176
+        "INDIA_REGION_TRANSLATIONS": india_region_translations,  # 1424
     }
     for _, mapping in to_update.items():
         # logger.debug(f">> () Updating labels for {na}, entries: {len(mapping)}")
@@ -186,9 +186,9 @@ def _build_country_label_index(
     no_prefix = _handle_the_prefix(label_index)  # 276
     label_index.update(no_prefix)
 
-    setdefault_with_lowercased(label_index, TAXON_TABLE, "TAXON_TABLE")  # 5324
+    setdefault_with_lowercased(label_index, taxon_table, "TAXON_TABLE")  # 5324
 
-    setdefault_with_lowercased(label_index, BASE_POP_FINAL_5, "BASE_POP_FINAL_5")  # 124
+    setdefault_with_lowercased(label_index, base_pop_final_5, "BASE_POP_FINAL_5")  # 124
 
     return label_index
 

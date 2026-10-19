@@ -26,7 +26,7 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-def one_Keys_more_2(
+def one_Keys_more_2(  # noqa: N802
     x,
     v,
     ar_nat_key="{ar_nat}",

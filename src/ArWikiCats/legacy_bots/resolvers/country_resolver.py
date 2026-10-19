@@ -74,7 +74,7 @@ def _get_fallback_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def Get_country2(country: str) -> str:
+def Get_country2(country: str) -> str:  # noqa: N802
     """
     Resolve a country name to its Arabic label.
 

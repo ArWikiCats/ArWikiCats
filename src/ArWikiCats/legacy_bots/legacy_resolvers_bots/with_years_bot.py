@@ -218,7 +218,7 @@ def _handle_year_at_end(
 
 
 @functools.lru_cache(maxsize=10000)
-def Try_With_Years(category: str) -> str:
+def Try_With_Years(category: str) -> str:  # noqa: N802
     """
     Produce an Arabic label combining detected year information with the resolved category remainder.
 

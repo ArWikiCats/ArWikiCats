@@ -31,25 +31,25 @@ REGION_PREFIXES_AR = [
 ]
 
 
-def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_KEYS):
+def map_region_labels(region_suffixes_en, region_prefixes_ar, additional_region_keys):
     """
     Build a mapping from region base keys to Arabic region labels by matching configured English suffixes with Arabic prefixes.
 
     Parameters:
-        REGION_SUFFIXES_EN (list[str]): English suffix strings to detect at the end of region keys (e.g., " province", " district").
-        REGION_PREFIXES_AR (list[str]): Arabic prefix strings to detect at the start of labels (e.g., "ولاية ", "محافظة ").
-        ADDITIONAL_REGION_KEYS (dict[str, str]): Mapping of region keys to Arabic labels to scan for suffix/prefix pairs.
+        region_suffixes_en (list[str]): English suffix strings to detect at the end of region keys (e.g., " province", " district").
+        region_prefixes_ar (list[str]): Arabic prefix strings to detect at the start of labels (e.g., "ولاية ", "محافظة ").
+        additional_region_keys (dict[str, str]): Mapping of region keys to Arabic labels to scan for suffix/prefix pairs.
 
     Returns:
         dict[str, str]: A dictionary where each key is the lowercased region base (original key with a matched English suffix removed) and each value is the Arabic label with the matched Arabic prefix removed. If multiple suffix/prefix combinations match a source entry, only the first match is used.
     """
     region_suffix_matches = {}
 
-    for cc, lab in ADDITIONAL_REGION_KEYS.items():
+    for cc, lab in additional_region_keys.items():
         should_update = True
         cc2 = cc.lower()
-        for en_k in REGION_SUFFIXES_EN:
-            for ar_k in REGION_PREFIXES_AR:
+        for en_k in region_suffixes_en:
+            for ar_k in region_prefixes_ar:
                 if should_update and cc2.endswith(en_k) and lab.startswith(ar_k):
                     should_update = False
                     cc3 = cc2[: -len(en_k)]
@@ -58,30 +58,30 @@ def map_region_labels(REGION_SUFFIXES_EN, REGION_PREFIXES_AR, ADDITIONAL_REGION_
     return region_suffix_matches
 
 
-def map_canton_labels_to_arabic(SWISS_CANTON_LABELS) -> dict[str, str]:
+def map_canton_labels_to_arabic(swiss_canton_labels) -> dict[str, str]:
     """
     Build a mapping of Swiss canton identifiers to Arabic labels, including "canton-of" prefixed keys.
 
     Parameters:
-        SWISS_CANTON_LABELS (dict[str, str]): Mapping of canton identifiers to their Arabic names.
+        swiss_canton_labels (dict[str, str]): Mapping of canton identifiers to their Arabic names.
 
     Returns:
         dict[str, str]: A new mapping where each original key is lowercased and each canton also has an entry
         of the form "canton-of {lowercased_key}" mapped to "كانتون {ArabicName}".
     """
-    data = {k.lower(): v for k, v in SWISS_CANTON_LABELS.items()}
+    data = {k.lower(): v for k, v in swiss_canton_labels.items()}
 
-    for canton, value in SWISS_CANTON_LABELS.items():
+    for canton, value in swiss_canton_labels.items():
         data[f"canton-of {canton.lower()}"] = f"كانتون {value}"
     return data
 
 
-def generate_province_labels(PROVINCE_LABELS) -> dict[str, str]:
+def generate_province_labels(province_labels) -> dict[str, str]:
     """
     Create province-level Arabic label mappings derived from city labels.
 
     Parameters:
-        PROVINCE_LABELS (dict[str, str]): Mapping of city identifiers to their Arabic labels. Keys may be any case; empty or falsey values are ignored.
+        province_labels (dict[str, str]): Mapping of city identifiers to their Arabic labels. Keys may be any case; empty or falsey values are ignored.
 
     Returns:
         dict[str, str]: A dictionary whose keys are lowercase forms of the city identifier and two province variants
@@ -89,7 +89,7 @@ def generate_province_labels(PROVINCE_LABELS) -> dict[str, str]:
         "مقاطعة {city_label}").
     """
     data = {}
-    for city, city_lab in PROVINCE_LABELS.items():
+    for city, city_lab in province_labels.items():
         city2 = city.lower()
         if city_lab:
             data[city2] = city_lab
@@ -259,35 +259,35 @@ PROVINCE_LABELS = {
 
 
 def generate_complete_label_mapping(
-    ADDITIONAL_REGION_KEYS, SWISS_CANTON_LABELS, PROVINCE_LABEL_OVERRIDES, PROVINCE_LABELS, region_suffix_matches
+    additional_region_keys, swiss_canton_labels, province_label_overrides, province_labels, region_suffix_matches
 ) -> dict[str, str]:
     """
     Builds a consolidated mapping of administrative region keys to Arabic labels.
 
     Combines a base mapping loaded from "geography/P17_PP.json" with:
-    - Arabic canton labels derived from SWISS_CANTON_LABELS,
-    - lowercased entries from ADDITIONAL_REGION_KEYS,
-    - lowercased entries from PROVINCE_LABEL_OVERRIDES,
+    - Arabic canton labels derived from swiss_canton_labels,
+    - lowercased entries from additional_region_keys,
+    - lowercased entries from province_label_overrides,
     - region entries produced from region_suffix_matches,
-    - generated province-level labels from PROVINCE_LABELS.
+    - generated province-level labels from province_labels.
 
     Parameters:
-        ADDITIONAL_REGION_KEYS (dict): Additional region keys and labels (will be added using lowercased keys).
-        SWISS_CANTON_LABELS (dict): Swiss canton identifiers to Arabic names.
-        PROVINCE_LABEL_OVERRIDES (dict): Explicit province label overrides (will be added using lowercased keys).
-        PROVINCE_LABELS (dict): Province/city labels used to generate province-level entries.
+        additional_region_keys (dict): Additional region keys and labels (will be added using lowercased keys).
+        swiss_canton_labels (dict): Swiss canton identifiers to Arabic names.
+        province_label_overrides (dict): Explicit province label overrides (will be added using lowercased keys).
+        province_labels (dict): Province/city labels used to generate province-level entries.
         region_suffix_matches (dict): Mappings derived from suffix/prefix heuristics to add region variants.
 
     Returns:
         dict[str, str]: Merged mapping of region keys to Arabic labels. Later sources override earlier ones when keys collide.
     """
     COUNTRY_ADMIN_LABELS = open_json_file("geography/P17_PP.json") or {}
-    canton_labels_mapping = map_canton_labels_to_arabic(SWISS_CANTON_LABELS)
-    province_labels_dictionary = generate_province_labels(PROVINCE_LABELS)
+    canton_labels_mapping = map_canton_labels_to_arabic(swiss_canton_labels)
+    province_labels_dictionary = generate_province_labels(province_labels)
 
     COUNTRY_ADMIN_LABELS.update(canton_labels_mapping)
-    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in ADDITIONAL_REGION_KEYS.items()})
-    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in PROVINCE_LABEL_OVERRIDES.items()})
+    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in additional_region_keys.items()})
+    COUNTRY_ADMIN_LABELS.update({k.lower(): v for k, v in province_label_overrides.items()})
     COUNTRY_ADMIN_LABELS.update(region_suffix_matches)
     COUNTRY_ADMIN_LABELS.update(province_labels_dictionary)
 

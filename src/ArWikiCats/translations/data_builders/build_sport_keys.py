@@ -130,16 +130,16 @@ def _copy_record(record: SportKeyRecord, **overrides: str) -> SportKeyRecord:
     return updated
 
 
-def _apply_aliases(records: MutableMapping[str, SportKeyRecord], ALIASES) -> None:
+def _apply_aliases(records: MutableMapping[str, SportKeyRecord], aliases) -> None:
     """
     Populate `records` with alias entries by copying the canonical record for each alias.
 
     Parameters:
         records (MutableMapping[str, SportKeyRecord]): Mapping of sport keys to records; aliases will be added or overwritten in-place.
-        ALIASES (Mapping[str, str]): Mapping from alias key to canonical source key. If a source key is missing, the alias is skipped and a debug message is logged.
+        aliases (Mapping[str, str]): Mapping from alias key to canonical source key. If a source key is missing, the alias is skipped and a debug message is logged.
     """
 
-    for alias, source in ALIASES.items():
+    for alias, source in aliases.items():
         record = records.get(source)
         if record is None:
             logger.debug("Missing source record for alias: %s -> %s", alias, source)
@@ -232,20 +232,20 @@ def _build_tables(records: Mapping[str, SportKeyRecord]) -> SportKeyTables:
     )
 
 
-def _initialise_tables(data, ALIASES) -> dict[str, SportKeyRecord]:
+def _initialise_tables(data, aliases) -> dict[str, SportKeyRecord]:
     """
     Load base sport records from the provided data and apply alias mappings.
 
     Parameters:
         data (Mapping | Any): JSON-like structure containing sport key definitions; malformed or non-mapping inputs result in an empty record set.
-        ALIASES (Mapping[str, str]): Mapping of alias key -> canonical key; each alias will be added to the resulting records by copying the canonical record.
+        aliases (Mapping[str, str]): Mapping of alias key -> canonical key; each alias will be added to the resulting records by copying the canonical record.
 
     Returns:
         dict[str, SportKeyRecord]: Mapping of sport keys (including applied aliases) to their corresponding SportKeyRecord entries.
     """
 
     records = _load_base_records(data)
-    _apply_aliases(records, ALIASES)
+    _apply_aliases(records, aliases)
 
     return records
 
