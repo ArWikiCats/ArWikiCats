@@ -84,7 +84,7 @@ class YearDataConfig:
 class MultiDataFormatterSecondElementConfig:
     """Configuration for the second element (e.g., sport/year) in multi-data formatters."""
 
-    data_list: dict[str, str] = field(default_factory=dict)
+    data_list: dict[str, Any] = field(default_factory=dict)
     formatted_data: dict[str, str] = field(default_factory=dict)
     key_placeholder: str = "xoxo"
     value_placeholder: str = "xoxo"
@@ -97,7 +97,7 @@ class MultiDataFormatterSecondElementConfig:
 class MultiDataFormatterConfig:
     """Configuration for the first element (e.g., country/nationality) in multi-data formatters."""
 
-    data_list: dict[str, str]
+    data_list: dict[str, Any]
     formatted_data: dict[str, str]
     key_placeholder: str = "natar"
     value_placeholder: str = "natar"

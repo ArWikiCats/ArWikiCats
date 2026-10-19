@@ -191,7 +191,7 @@ CHANGE_KEY_SECONDARY_REGEX = {
 
 
 @functools.lru_cache(maxsize=10000)
-def change_key_mappings_replacements(category):
+def change_key_mappings_replacements(category: str):
     """Apply primary key mappings replacements to the category string.
 
     Args:
@@ -217,7 +217,7 @@ def change_key_mappings_replacements(category):
 
 
 @functools.lru_cache(maxsize=10000)
-def change_key_secondary_replacements(category):
+def change_key_secondary_replacements(category: str):
     """Apply secondary key mappings replacements to the category string.
 
     Args:

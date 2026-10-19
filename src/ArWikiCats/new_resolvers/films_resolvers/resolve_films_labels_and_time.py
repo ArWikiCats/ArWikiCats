@@ -85,7 +85,7 @@ def get_films_key_tyty_new_and_time(category: str) -> str:
     return result or ""
 
 
-def fetch_films_by_category(category):
+def fetch_films_by_category(category: str):
     result = get_films_key_tyty_new_and_time(category) or get_films_key_tyty_new(category)
     return result
 
