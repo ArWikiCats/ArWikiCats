@@ -2333,7 +2333,7 @@ test_data2 = {
 
 @pytest.mark.parametrize("category, expected", test_data.items(), ids=test_data.keys())
 @pytest.mark.fast
-def test_Films(category: str, expected: str) -> None:
+def test_films(category: str, expected: str) -> None:
     label = main_films_resolvers(category)
     assert label == expected
 

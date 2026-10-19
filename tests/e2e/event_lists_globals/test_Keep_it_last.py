@@ -48,7 +48,7 @@ fast_data = {
 
 
 @pytest.mark.parametrize("category, expected", fast_data.items(), ids=fast_data.keys())
-def test_Keep_it_last_extended(category: str, expected: str) -> None:
+def test_keep_it_last_extended(category: str, expected: str) -> None:
     label = resolve_label_ar(category)
     assert label == expected
 
@@ -60,7 +60,7 @@ TEMPORAL_CASES = [
 
 @pytest.mark.parametrize("name,data", TEMPORAL_CASES)
 @pytest.mark.dump
-def test_Keep_it_last_dump(name: str, data: dict[str, str]) -> None:
+def test_keep_it_last_dump(name: str, data: dict[str, str]) -> None:
     expected, diff_result = one_dump_test(data, resolve_label_ar)
     dump_diff(diff_result, name)
     dump_same_and_not_same(data, diff_result, name)

@@ -407,7 +407,7 @@ data_fast = {
 
 @pytest.mark.parametrize("category, expected_key", te4_2018_jobs_data.items(), ids=te4_2018_jobs_data.keys())
 @pytest.mark.slow
-def test_te4_2018_Jobs_data(category: str, expected_key: str) -> None:
+def test_te4_2018_jobs_data(category: str, expected_key: str) -> None:
     label1 = all_new_resolvers(category)
     assert label1 == expected_key
 

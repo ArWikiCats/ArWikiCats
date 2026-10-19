@@ -82,7 +82,7 @@ def test_add_to_films_o_tt() -> None:
 
 
 @pytest.mark.fast
-def test_add_to_Films_O_TT_invalid_types() -> None:
+def test_add_to_films_o_tt_invalid_types() -> None:
     """Test add_to_Films_O_TT with invalid types."""
     initial_count = len(Films_O_TT)
 

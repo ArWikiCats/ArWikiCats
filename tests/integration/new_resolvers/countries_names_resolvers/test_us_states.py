@@ -532,7 +532,7 @@ Work_US_State_data = {
 
 @pytest.mark.parametrize("category, expected_key", Work_US_State_data.items(), ids=Work_US_State_data.keys())
 @pytest.mark.slow
-def test_Work_US_State_data(category: str, expected_key: str) -> None:
+def test_work_us_state_data(category: str, expected_key: str) -> None:
     label = resolve_us_states(category)
     assert label == expected_key
 

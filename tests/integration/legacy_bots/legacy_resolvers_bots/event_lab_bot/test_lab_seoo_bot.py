@@ -73,7 +73,7 @@ event_Lab_seoo_data = {
 
 @pytest.mark.parametrize("category, expected_key", event_Lab_seoo_data.items(), ids=event_Lab_seoo_data.keys())
 @pytest.mark.fast
-def test_event_Lab_seoo_data(category: str, expected_key: str) -> None:
+def test_event_lab_seoo_data(category: str, expected_key: str) -> None:
     label = event_label_work(category)
     assert label == expected_key
 
