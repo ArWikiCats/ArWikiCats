@@ -359,7 +359,7 @@ def test_bys_new_or_and_by(category: str, expected: str, monkeypatch: pytest.Mon
         "by instrument, genre and nationality": "حسب الآلة والنوع الفني والجنسية",
         "by genre, nationality and instrument": "حسب النوع الفني والجنسية والآلة",
     }
-    # monkeypatch.setattr("ArWikiCats.new_resolvers.bys_new.data_to_find", to_find_new)
+    # monkeypatch.setattr("src.ArWikiCats.new_resolvers.bys_new.data_to_find", to_find_new)
     result = resolve_by_labels(category)
     assert result == expected
 

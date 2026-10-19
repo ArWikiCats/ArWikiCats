@@ -6,7 +6,7 @@ import pytest
 
 from src.ArWikiCats.legacy_bots.legacy_resolvers_bots.with_years_bot import Try_With_Years
 
-# from ArWikiCats.make_bots.date_bots import with_years_bot
+# from src.ArWikiCats.make_bots.date_bots import with_years_bot
 
 
 @pytest.mark.fast
