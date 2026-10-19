@@ -13,8 +13,8 @@ via set_translate_callback() which is called by the resolvers factory.
 import functools
 import logging
 import re
-from re import Pattern
 from collections.abc import Callable
+from re import Pattern
 
 from ...new_resolvers import all_new_resolvers
 from ...translations import WORD_AFTER_YEARS

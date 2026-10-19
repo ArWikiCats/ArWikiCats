@@ -4,7 +4,6 @@ jobs data
 
 from __future__ import annotations
 
-
 from ..data_builders.build_jobs_data_basic import (
     _build_military_job_labels,
     _build_painter_job_labels,

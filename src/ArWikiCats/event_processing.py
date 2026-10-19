@@ -8,8 +8,8 @@ resolve their corresponding Arabic labels using internal processors.
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
 from collections.abc import Iterable
+from dataclasses import dataclass, field
 
 from .main_processers.main_resolve import CategoryResult, resolve_label
 

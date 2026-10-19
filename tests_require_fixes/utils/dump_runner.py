@@ -1,8 +1,7 @@
 # tests/utils/dump_runner.py
 from __future__ import annotations
 
-from collections.abc import Iterable
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 
 import pytest
 

@@ -5,8 +5,8 @@ This module provides functions to resolve categories by identifying suffixes
 """
 
 import logging
-from typing import Any, TypedDict
 from collections.abc import Callable
+from typing import Any, TypedDict
 
 logger = logging.getLogger(__name__)
 

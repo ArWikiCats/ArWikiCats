@@ -23,7 +23,6 @@ WORD_AFTER_YEARS,
 
 from __future__ import annotations
 
-
 from ..data_builders.build_all_keys2 import (
     _build_book_entries,
     _build_cinema_entries,

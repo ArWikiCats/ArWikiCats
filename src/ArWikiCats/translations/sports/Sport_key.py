@@ -3,8 +3,8 @@
 Build lookup tables for translating sport related keys.
 """
 
-from typing import Final
 from collections.abc import Mapping
+from typing import Final
 
 from ..data_builders.build_sport_keys import (
     SportKeyRecord,

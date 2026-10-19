@@ -4,8 +4,8 @@ Build comprehensive gendered job label dictionaries.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from collections.abc import Mapping, MutableMapping
+from dataclasses import dataclass
 
 from .jobs_defs import (
     GenderedLabel,

@@ -1,7 +1,7 @@
 #
 import json
-from pathlib import Path
 from collections.abc import Callable
+from pathlib import Path
 
 
 def dump_one(data: dict, file_name: str) -> None:

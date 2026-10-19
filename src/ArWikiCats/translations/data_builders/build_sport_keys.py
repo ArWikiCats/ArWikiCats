@@ -4,9 +4,9 @@ Build lookup tables for translating sport related keys.
 """
 
 import logging
+from collections.abc import Mapping, MutableMapping
 from dataclasses import dataclass
 from typing import TypedDict
-from collections.abc import Mapping, MutableMapping
 
 logger = logging.getLogger(__name__)
 

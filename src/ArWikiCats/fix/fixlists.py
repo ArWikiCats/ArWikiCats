@@ -4,7 +4,6 @@ Mappings used to normalize Arabic category labels.
 
 from __future__ import annotations
 
-
 REPLACEMENTS: dict[str, str] = {
     "مرشحون يهود في رئيس": "مرشحون يهود لمنصب رئيس",
     "مرشحات في رئيس": "مرشحات لمنصب رئيس",

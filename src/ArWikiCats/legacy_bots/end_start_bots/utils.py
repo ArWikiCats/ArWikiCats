@@ -1,7 +1,7 @@
 """ """
 
-from typing import Any
 from collections.abc import Callable
+from typing import Any
 
 
 def _get_from_dict(

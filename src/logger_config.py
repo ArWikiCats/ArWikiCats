@@ -6,12 +6,12 @@ from __future__ import annotations
 
 import functools
 import logging
-import re
 import os
+import re
 import sys
+from collections.abc import Callable
 from logging.handlers import WatchedFileHandler
 from pathlib import Path
-from collections.abc import Callable
 from typing import Any
 
 try:

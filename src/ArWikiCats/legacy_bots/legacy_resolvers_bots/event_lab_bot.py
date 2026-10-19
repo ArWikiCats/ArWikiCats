@@ -6,8 +6,8 @@ from __future__ import annotations
 
 import functools
 import logging
-from typing import Literal
 from collections.abc import Callable
+from typing import Literal
 
 from ...fix import fixtitle
 from ...format_bots import change_cat

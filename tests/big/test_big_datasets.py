@@ -1,8 +1,8 @@
 """ """
 
 import json
-from pathlib import Path
 from collections.abc import Callable
+from pathlib import Path
 
 import pytest
 from utils.resolver_runner import make_resolver_test

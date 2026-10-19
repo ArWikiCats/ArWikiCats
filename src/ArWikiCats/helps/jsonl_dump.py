@@ -8,9 +8,9 @@ and return values to a JSONL file for debugging or data collection.
 import functools
 import inspect
 import json
+from collections.abc import Callable
 from pathlib import Path
 from typing import Any
-from collections.abc import Callable
 
 import jsonlines
 

@@ -6,7 +6,6 @@ Builds translation mappings for film and television categories from English to A
 handling gender-specific translations and nationality-based categories.
 """
 
-
 # =============================================================================
 # Helper Functions
 # =============================================================================
