@@ -300,7 +300,7 @@ test_data_2 = {
     "Nazi assassins": "منفذو اغتيالات نازيون",
     "Nazi hunters": "صيادون نازيون",
     "Nazi politicians": "سياسيون نازيون",
-    "Nazi propagandists": "مروّجون دعائيون نازيون",
+    "Nazi propagandists": "مروجون دعائيون نازيون",
     "Protestant bishops": "أساقفة بروتستانتيون",
     "Protestant clergy": "رجال دين بروتستانتيون",
     "Protestant missionaries": "مبشرون بروتستانتيون",

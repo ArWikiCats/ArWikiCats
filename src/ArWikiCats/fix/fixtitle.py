@@ -276,6 +276,7 @@ def cleanse_category_label(category_lab: str) -> str:
         The cleansed category label with specific formatting corrections applied.
     """
     category_lab = re.sub(r"سانتا-في", "سانتا في", category_lab)
+    category_lab = category_lab.replace("\u0651", "")
     # category_lab = category_lab.replace("ـ", "")
     return category_lab
 

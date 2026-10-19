@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ArWikiCats"
-version = "0.2.2"
+version = "0.2.3"
 description = "Arabic Wikipedia Categories Translation Engine"
 authors = [{ name = "Ibrahim Qasim", email = "ibrahem.al-radaei@outlook.com" }]
 license = { text = "MIT" }

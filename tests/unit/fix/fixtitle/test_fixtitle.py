@@ -96,3 +96,10 @@ def test_fixlab_group_5() -> None:
         "قوائم أفلام حسب البلد أو اللغة 1950": "قوائم أفلام في 1950 حسب البلد أو اللغة",
     }
     load_test_fixlab_data(data)
+
+
+def test_cleanse_category_label_removes_shadda() -> None:
+    from ArWikiCats.fix.fixtitle import cleanse_category_label
+    assert cleanse_category_label("مروّجون") == "مروجون"
+    assert cleanse_category_label("مروّجات") == "مروجات"
+    assert cleanse_category_label("محبّرون") == "محبرون"
