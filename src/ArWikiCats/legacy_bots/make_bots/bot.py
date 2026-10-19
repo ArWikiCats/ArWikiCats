@@ -46,7 +46,7 @@ def add_to_new_players(en: str, ar: str) -> None:
     players_new_keys[en] = ar
 
 
-def add_to_Films_O_TT(en: str, ar: str) -> None:
+def add_to_films_o_tt(en: str, ar: str) -> None:
     """Add a new English/Arabic player label pair to the cache."""
     if not en or not ar:
         return
@@ -61,5 +61,5 @@ __all__ = [
     "Films_O_TT",
     "players_new_keys",
     "add_to_new_players",
-    "add_to_Films_O_TT",
+    "add_to_films_o_tt",
 ]

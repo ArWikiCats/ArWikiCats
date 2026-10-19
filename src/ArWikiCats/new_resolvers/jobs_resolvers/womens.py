@@ -25,7 +25,7 @@ from ...translations_formats import (
 from ..jobs_resolvers_male import males_resolver_labels
 from ..nats_as_country_names import nats_keys_as_country_names
 from .mens import mens_resolver_labels
-from .utils import fix_keys, nat_and_gender_keys, one_Keys_more_2
+from .utils import fix_keys, nat_and_gender_keys, one_keys_more_2
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -152,7 +152,7 @@ def _load_formatted_data() -> tuple[dict[str, str], dict[str, str]]:
     formatted_data_womens_jobs = {}
 
     for x, v in genders_keys.items():
-        keys_more = one_Keys_more_2(
+        keys_more = one_keys_more_2(
             x,
             v,
             en_nat_key="{en_nat}",
@@ -164,7 +164,7 @@ def _load_formatted_data() -> tuple[dict[str, str], dict[str, str]]:
         )
         formatted_data.update(keys_more)
         formatted_data_womens_jobs.update(
-            one_Keys_more_2(
+            one_keys_more_2(
                 x,
                 v,
                 en_nat_key="{en_nat}",

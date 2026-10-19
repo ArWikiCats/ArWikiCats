@@ -157,7 +157,7 @@ class TestConLookupBoth:
             "get_from_pf_keys2",
             "_lookup_country_with_in_prefix",
             "get_pop_all_18",
-            "get_KAKO",
+            "get_kako",
         ]
         for key in expected_keys:
             assert key in con_lookup_both

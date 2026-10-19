@@ -26,15 +26,15 @@ def fix_keys(category: str) -> str:
     return category.strip()
 
 
-def one_Keys_more_2(
-    x,
-    v,
-    ar_nat_key="{ar_nat}",
-    en_nat_key="{en_nat}",
-    ar_job_key="{ar_job}",
-    en_job_key="{en_job}",
-    women_key="{women}",
-    add_women=False,
+def one_keys_more_2(
+    x: str,
+    v: str,
+    ar_nat_key: str = "{ar_nat}",
+    en_nat_key: str = "{en_nat}",
+    ar_job_key: str = "{ar_job}",
+    en_job_key: str = "{en_job}",
+    women_key: str = "{women}",
+    add_women: bool = False,
 ) -> dict[str, str]:
     data = {}
 

@@ -23,9 +23,9 @@ the callback dependencies. This is typically done in `legacy_bots/__init__.py`.
 
 from .arabic_label_builder import find_ar_label
 from .country_resolver import (
-    Get_country2,
     event2_d2,
     fetch_country_term_label,
+    get_country2,
     get_country_label,
 )
 from .factory import initialize_resolvers, translate_general_category_wrap
@@ -34,7 +34,7 @@ from .sub_resolver import sub_translate_general_category
 
 __all__ = [
     "find_ar_label",
-    "Get_country2",
+    "get_country2",
     "event2_d2",
     "fetch_country_term_label",
     "get_country_label",

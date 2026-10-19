@@ -17,7 +17,7 @@ from .. import tmp_bot
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import combined_suffix_mappings
 from ..end_start_bots import get_episodes, get_list_of_and_cat3, get_templates_fo
-from ..make_bots import get_KAKO
+from ..make_bots import get_kako
 from ..resolvers.country_resolver import event2_d2
 from ..resolvers.separator_based_resolver import work_separator_names
 from ..resolvers.sub_resolver import sub_translate_general_category
@@ -76,7 +76,7 @@ def translate_general_category_wrap(category: str) -> str:
 _STANDARD_COUNTRY_RESOLVERS: list[ResolverFn] = [
     get_lab_for_country2,
     get_pop_all_18,
-    get_KAKO,
+    get_kako,
 ]
 
 
@@ -303,7 +303,7 @@ class EventLabResolver:
 
         # Try template processing if no label yet
         if not category_lab:
-            category_lab = tmp_bot.Work_Templates(original_cat3)
+            category_lab = tmp_bot.work_templates(original_cat3)
 
         # Try general translation again if still no label
         if not category_lab:

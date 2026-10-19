@@ -31,7 +31,7 @@ for handler in logger.handlers:
 # print(resolve_by_nats_double_v2("jewish german surnames"))
 # print(get_con_label("by danish artists"))
 # print(make_by_label("by danish artists"))
-# print(Try_With_Years("2020s Dutch-language films"))
+# print(try_with_years("2020s Dutch-language films"))
 # print(resolve_sport_label_unified("national football"))
 # print(resolve_by_nats_double_v2("jewish history"))
 

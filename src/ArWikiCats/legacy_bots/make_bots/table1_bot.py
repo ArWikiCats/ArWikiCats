@@ -26,7 +26,7 @@ KAKO: dict[str, dict[str, str]] = {
 
 
 @functools.lru_cache(maxsize=5000)
-def _get_KAKO(text: str) -> tuple[str, str]:
+def _get_kako(text: str) -> tuple[str, str]:
     """
     Look up the Arabic label for a term using resolve_by_labels and then the configured mapping tables.
 
@@ -54,7 +54,7 @@ def _get_KAKO(text: str) -> tuple[str, str]:
                 f"Resolver '{table_name}' returned non-string type {type(resolved_label)}: {resolved_label}"
             )
 
-        logger.debug(f">> get_KAKO_({table_name}) for [{text=}] = {resolved_label=}")
+        logger.debug(f">> _get_kako({table_name}) for [{text=}] = {resolved_label=}")
 
         return table_name, resolved_label
 
@@ -62,7 +62,7 @@ def _get_KAKO(text: str) -> tuple[str, str]:
 
 
 @functools.lru_cache(maxsize=10000)
-def get_KAKO(text: str) -> str:
+def get_kako(text: str) -> str:
     """
     Return the Arabic label for a given term by consulting multiple mapping tables.
 
@@ -72,10 +72,10 @@ def get_KAKO(text: str) -> str:
     Returns:
         str: The Arabic label if found, otherwise an empty string.
     """
-    _, label = _get_KAKO(text)
+    _, label = _get_kako(text)
     return label
 
 
 __all__ = [
-    "get_KAKO",
+    "get_kako",
 ]

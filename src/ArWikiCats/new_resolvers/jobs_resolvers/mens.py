@@ -24,7 +24,7 @@ from ...translations_formats import (
     format_multi_data_v2,
 )
 from ..nats_as_country_names import nats_keys_as_country_names
-from .utils import fix_keys, one_Keys_more_2
+from .utils import fix_keys, one_keys_more_2
 
 logger = logging.getLogger(__name__)
 countries_en_keys = [x.get("en") for x in all_country_with_nat.values() if x.get("en")]
@@ -178,7 +178,7 @@ def _load_formatted_data() -> dict:
     # })
 
     for x, v in genders_keys.items():
-        keys_more = one_Keys_more_2(
+        keys_more = one_keys_more_2(
             x,
             v,
             en_nat_key="{en_nat}",

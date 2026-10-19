@@ -31,7 +31,7 @@ from ..common_resolver_chain import get_lab_for_country2
 from ..legacy_resolvers_bots.bot_2018 import get_pop_all_18
 from ..legacy_resolvers_bots.country2_label_bot import country_2_title_work
 from ..legacy_utils.joint_class import CountryLabelAndTermParent
-from ..make_bots import get_KAKO
+from ..make_bots import get_kako
 
 logger = logging.getLogger(__name__)
 
@@ -74,7 +74,7 @@ def _get_fallback_label(category: str) -> str:
 
 
 @functools.lru_cache(maxsize=10000)
-def Get_country2(country: str) -> str:
+def get_country2(country: str) -> str:
     """
     Resolve a country name to its Arabic label.
 
@@ -94,7 +94,7 @@ def Get_country2(country: str) -> str:
         country_2_title_work(country, with_years=True)
         or get_lab_for_country2(country)
         or get_pop_all_18(country)
-        or get_KAKO(country)
+        or get_kako(country)
         or _get_fallback_label(country)
         or ""
     )
@@ -164,7 +164,7 @@ def check_historical_prefixes(country: str) -> str:
         if country.startswith(f"{prefix} "):
             logger.debug(f">>> country.startswith({prefix})")
             remainder = country[len(prefix) :].strip()
-            remainder_label = Get_country2(remainder)
+            remainder_label = get_country2(remainder)
 
             if remainder_label:
                 resolved_label = prefix_template.format(remainder_label)
@@ -189,7 +189,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         No runtime initialization is performed; the constructor exists to allow instantiation.
         """
-        super().__init__(_resolve_callable=Get_country2)
+        super().__init__(_resolve_callable=get_country2)
 
     def get_country_label(self, country: str) -> str:
         """
@@ -209,7 +209,7 @@ class CountryLabelRetriever(CountryLabelAndTermParent):
 
         if not result:
             result = (
-                Get_country2(country)
+                get_country2(country)
                 or self._check_prefixes(country)
                 or check_historical_prefixes(country)
                 or all_new_resolvers(country)
@@ -410,7 +410,7 @@ def fetch_country_term_label(term_lower: str, separator: str, lab_type: str = ""
 __all__ = [
     "fetch_country_term_label",
     "get_country_label",
-    "Get_country2",
+    "get_country2",
     "event2_d2",
     "set_fallback_resolver",
 ]

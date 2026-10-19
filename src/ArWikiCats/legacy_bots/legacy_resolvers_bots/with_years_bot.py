@@ -22,7 +22,7 @@ from ...translations.funcs import get_from_pf_keys2
 from ..common_resolver_chain import get_lab_for_country2
 from ..data.mappings import change_numb_to_word
 from ..legacy_utils import Add_in_table
-from ..make_bots import get_KAKO
+from ..make_bots import get_kako
 from ..utils.regex_hub import REGEX_SUB_YEAR, RE1_compile, RE2_compile, RE33_compile
 from .bot_2018 import get_pop_all_18
 
@@ -139,7 +139,7 @@ def _handle_year_at_start(category_text: str) -> str:
             or translate_general_category_wrap(remainder)
             or get_lab_for_country2(remainder)
             or get_pop_all_18(remainder)
-            or get_KAKO(remainder)
+            or get_kako(remainder)
             or ""
         )
 
@@ -202,7 +202,7 @@ def _handle_year_at_end(
         or translate_general_category_wrap(remainder)
         or get_lab_for_country2(remainder)
         or get_pop_all_18(remainder)
-        or get_KAKO(remainder)
+        or get_kako(remainder)
         or ""
     )
     if not remainder_label:
@@ -218,7 +218,7 @@ def _handle_year_at_end(
 
 
 @functools.lru_cache(maxsize=10000)
-def Try_With_Years(category: str) -> str:
+def try_with_years(category: str) -> str:
     """
     Produce an Arabic label combining detected year information with the resolved category remainder.
 
@@ -281,7 +281,7 @@ def wrap_try_with_years(category_r) -> str:
 
     category_lab = ""
     if re.sub(r"^\d", "", cat3) != cat3:
-        category_lab = Try_With_Years(cat3)
+        category_lab = try_with_years(cat3)
 
     return category_lab
 
@@ -290,6 +290,6 @@ __all__ = [
     "set_translate_callback",
     "translate_general_category_wrap",
     "handle_political_terms",
-    "Try_With_Years",
+    "try_with_years",
     "wrap_try_with_years",
 ]

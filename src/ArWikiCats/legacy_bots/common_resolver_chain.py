@@ -18,7 +18,7 @@ from ..translations import (
 )
 from ..translations.funcs import get_from_new_p17_final, get_from_pf_keys2
 from .legacy_resolvers_bots.bot_2018 import get_pop_all_18
-from .make_bots import get_KAKO
+from .make_bots import get_kako
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +38,7 @@ def _lookup_country_with_in_prefix(country: str) -> str:
 
     inner_country = country.strip()[len("in ") :].strip()
     country_label = (
-        "" or get_lab_for_country2(inner_country) or get_pop_all_18(inner_country) or get_KAKO(inner_country)
+        "" or get_lab_for_country2(inner_country) or get_pop_all_18(inner_country) or get_kako(inner_country)
     )
     if country_label:
         return f"في {country_label}"
@@ -60,7 +60,7 @@ con_lookup_both = {
     "resolve_university_category": university_resolver.resolve_university_category,
     "work_peoples": work_peoples,
     "get_pop_all_18": get_pop_all_18,
-    "get_KAKO": get_KAKO,
+    "get_kako": get_kako,
 }
 
 

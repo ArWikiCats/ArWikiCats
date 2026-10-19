@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 KeyValueTransform = Callable[[str, str], tuple[str, str]]
 
 
-def _DEFAULT_SANITISER(key, value):
+def _default_sanitiser(key, value):
     """
     Return the input key and value unchanged.
 
@@ -41,7 +41,7 @@ class KeyRegistry:
         self,
         mapping: Mapping[str, str],
         *,
-        transform: KeyValueTransform = _DEFAULT_SANITISER,
+        transform: KeyValueTransform = _default_sanitiser,
         skip_existing: bool = False,
     ) -> None:
         """Update the registry with items from *mapping*.

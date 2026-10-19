@@ -64,7 +64,7 @@ class CountryResolver:
                 get_pop_all_18(country)
                 or country_resolver.fetch_country_term_label(country, preposition, "")
                 or get_con_label(country)
-                or tmp_bot.Work_Templates(country)
+                or tmp_bot.work_templates(country)
                 or _lookup_country_with_by(country)
             )
         return result
@@ -300,7 +300,7 @@ class TypeResolver:
         if type_lower == "people":
             return "أشخاص", False
 
-        type_label = get_type_lab(type_value) or tmp_bot.Work_Templates(type_lower)
+        type_label = get_type_lab(type_value) or tmp_bot.work_templates(type_lower)
 
         # Special handling for sport and by
         if type_lower == "sport" and country_lower.startswith("by "):

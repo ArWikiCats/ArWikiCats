@@ -60,14 +60,14 @@ class CountryLabelAndTermParent:
         Detect year-related patterns in the input string and return a corresponding year-based label.
 
         Returns:
-            The label produced by with_years_bot.Try_With_Years when a year pattern is present, or an empty string if no pattern matches.
+            The label produced by with_years_bot.try_with_years when a year pattern is present, or an empty string if no pattern matches.
         """
         RE1 = RE1_compile.match(country)
         RE2 = RE2_compile.match(country)
         RE3 = RE3_compile.match(country)
 
         if RE1 or RE2 or RE3:
-            return with_years_bot.Try_With_Years(country)
+            return with_years_bot.try_with_years(country)
         return ""
 
     def _check_members(self, country: str) -> str:

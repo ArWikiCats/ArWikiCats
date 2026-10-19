@@ -4,9 +4,9 @@ This module provides the FormatDataDoubleV2 class, which handles categories
 where two adjacent keys from a data list appear together.
 """
 
-import functools
 import logging
 import re
+from typing import Any
 
 from ..DataModel.model_data_base import FormatDataBase
 
@@ -99,7 +99,7 @@ class FormatDataDoubleV2(FormatDataBase):
         self.splitter = splitter or " "
         self.ar_joiner = ar_joiner or " "
 
-        self.alternation: str = self.create_alternation()
+        self.alternation: str | None = self.create_alternation()
         self.pattern = self.keys_to_pattern()
 
         self.pattern_double = self.keys_to_pattern_double()
@@ -167,7 +167,7 @@ class FormatDataDoubleV2(FormatDataBase):
         data_pattern = rf"(?<!\w)({self.alternation})({self.splitter})({self.alternation})(?!\w)"
         return re.compile(data_pattern, re.I)
 
-    @functools.lru_cache(maxsize=10000)
+    # @functools.lru_cache(maxsize=10000)
     def match_key(self, category: str) -> str:
         """
         Determine the canonical lowercased key that corresponds to the given category string.
@@ -209,7 +209,7 @@ class FormatDataDoubleV2(FormatDataBase):
 
         return result
 
-    def apply_pattern_replacement(self, template_label: str, sport_label: str | dict[str, str]) -> str:
+    def apply_pattern_replacement(self, template_label: str, sport_label: str | dict[str, Any]) -> str:
         """
         Substitute placeholder tokens in a template with values from a mapping.
 
@@ -229,14 +229,13 @@ class FormatDataDoubleV2(FormatDataBase):
 
         final_label = template_label
 
-        if isinstance(sport_label, dict):
-            for key, val in sport_label.items():
-                if isinstance(val, str) and val:
-                    final_label = final_label.replace(f"{{{key}}}", val)
+        for key, val in sport_label.items():
+            if isinstance(val, str) and val:
+                final_label = final_label.replace(f"{{{key}}}", val)
 
         return final_label.strip()
 
-    @functools.lru_cache(maxsize=5000)
+    # @functools.lru_cache(maxsize=5000)
     def create_label_from_keys(self, part1: str, part2: str):
         """
         Builds a mapping of Arabic labels for the two-part key combination.

@@ -18,7 +18,7 @@ from ...sub_new_resolvers import parties_resolver, team_work
 from ...sub_new_resolvers.peoples_resolver import work_peoples
 from ...translations.funcs import get_and_label, get_from_pf_keys2
 from ..legacy_utils import fix_minor, split_text_by_separator
-from ..make_bots import add_to_Films_O_TT, check_key_new_players, get_KAKO
+from ..make_bots import add_to_films_o_tt, check_key_new_players, get_kako
 from . import bys, with_years_bot
 from .bot_2018 import get_pop_all_18
 
@@ -117,11 +117,11 @@ def resolve_part_1_label(country2, separator="", lab_type="type_label", with_yea
         or team_work.resolve_clubs_teams_leagues(country2)
         or get_table_with_in(country2, separator)
         or get_from_pf_keys2(country2)
-        or get_KAKO(country2)
+        or get_kako(country2)
         or _get_term_label(country2, "", lab_type=lab_type)
         or bys.get_by_label(country2)
         or get_and_label(country2)
-        or (with_years_bot.Try_With_Years(country2) if with_years else "")
+        or (with_years_bot.try_with_years(country2) if with_years else "")
         or ""
     )
 
@@ -199,7 +199,7 @@ def make_cnt_lab(
 
         if not resolve_by_labels(part_2_normalized):
             # Films_O_TT[country2] = resolved_label
-            add_to_Films_O_TT(country2, resolved_label)
+            add_to_films_o_tt(country2, resolved_label)
         else:
             logger.info("<<lightblue>> part_2_normalized in By table main")
 

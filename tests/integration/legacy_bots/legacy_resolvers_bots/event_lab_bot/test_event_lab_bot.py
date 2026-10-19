@@ -91,7 +91,7 @@ def test_event_lab_templates_branch_with_seo_fallback() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 4) get_list_of_and_cat3 footballers + Get_country2 special branch
+# 4) get_list_of_and_cat3 footballers + get_country2 special branch
 # ---------------------------------------------------------------------------
 
 
