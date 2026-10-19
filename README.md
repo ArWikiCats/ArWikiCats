@@ -161,7 +161,7 @@ Category:1550s establishments in Namibia → تصنيف:تأسيسات عقد 15
 ## 3.1 المتطلبات
 
 - بايثون (Python) بحجم 3.10 أو أحدث
-- المكتبات المعتمدة من ملف `requirements.in`
+- المكتبات المعتمدة من ملف `requirements.txt`
 
 ## 3.2 التثبيت
 

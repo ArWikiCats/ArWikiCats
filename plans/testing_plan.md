@@ -931,7 +931,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.in
+          pip install -r requirements.txt
           pip install pytest pytest-cov pytest-xdist
 
       - name: Run tests

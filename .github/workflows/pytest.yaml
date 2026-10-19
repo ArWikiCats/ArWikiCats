@@ -20,15 +20,15 @@ jobs:
               uses: actions/cache@v5
               with:
                   path: ~/.cache/pip
-                  key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.in') }}
+                  key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
                   restore-keys: |
                       ${{ runner.os }}-pip-
 
             - name: Install pytest
-              run: pip install -r requirements-test.in
+              run: pip install -r requirements-dev.txt
 
             - name: Install test dependencies
-              run: pip install -r requirements.in
+              run: pip install -r requirements.txt
 
             - name: Run tests
               run: pytest -n 16 -m fast
