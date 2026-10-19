@@ -111,7 +111,7 @@ class TestMultiDataFormatterBaseYear:
             key_placeholder="{nat}",
             value_placeholder="{nat_ar}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -131,7 +131,7 @@ class TestMultiDataFormatterBaseYear:
             key_placeholder="{nat}",
             value_placeholder="{nat_ar}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -148,7 +148,7 @@ class TestMultiDataFormatterBaseYear:
             key_placeholder="{nat}",
             value_placeholder="{nat_ar}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -166,7 +166,7 @@ class TestMultiDataFormatterBaseYear:
             key_placeholder="{nat}",
             value_placeholder="{nat_ar}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -186,12 +186,15 @@ class TestMultiDataFormatterBaseYearV2:
             data_list={"yemen": {"demonym": "يمنيون"}},
             key_placeholder="{nat}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
 
-        bot = MultiDataFormatterBaseYearV2(country_bot, year_bot)
+        bot = MultiDataFormatterBaseYearV2(
+            country_bot,
+            year_bot,
+        )
 
         assert bot.country_bot is country_bot
         assert bot.other_bot is year_bot
@@ -206,7 +209,7 @@ class TestMultiDataFormatterBaseYearV2:
             data_list={"yemen": {"demonym": "يمنيون"}},
             key_placeholder="{nat}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -222,7 +225,7 @@ class TestMultiDataFormatterBaseYearV2:
             data_list={"yemen": {"demonym": "يمنيون"}},
             key_placeholder="{nat}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -238,7 +241,7 @@ class TestMultiDataFormatterBaseYearV2:
             data_list={"yemen": {"demonym": "يمنيون"}},
             key_placeholder="{nat}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -255,7 +258,7 @@ class TestMultiDataFormatterBaseYearV2:
             data_list={},
             key_placeholder="{nat}",
         )
-        year_bot = YearFormatData(
+        year_bot = YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )

@@ -18,7 +18,7 @@ class TestYearFormatDataIntegration:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -106,7 +106,7 @@ class TestYearFormatDataVariousCenturies:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )
@@ -134,7 +134,7 @@ class TestYearFormatDataVariousDecades:
     @pytest.fixture
     def year_bot(self):
         """Create a YearFormatData instance."""
-        return YearFormatData(
+        return YearFormatData.load(
             key_placeholder="{year1}",
             value_placeholder="{year1}",
         )

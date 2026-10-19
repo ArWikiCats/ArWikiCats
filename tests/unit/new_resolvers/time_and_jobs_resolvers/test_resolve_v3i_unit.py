@@ -38,7 +38,7 @@ def multi_bot_v4() -> MultiDataFormatterYearAndFrom:
         match_key_callback=match_time_en_first,
     )
 
-    # year_bot = YearFormatData(key_placeholder="{year1}", value_placeholder="{year1}")
+    # year_bot = YearFormatData.load(key_placeholder="{year1}", value_placeholder="{year1}")
 
     return MultiDataFormatterYearAndFrom(
         country_bot=country_bot,

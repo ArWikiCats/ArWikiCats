@@ -86,7 +86,7 @@ def format_year_country_data_v2(
         text_before=country_config.text_before,
     )
 
-    other_bot = YearFormatData(
+    other_bot = YearFormatData.load(
         key_placeholder=year_config.key_placeholder,
         value_placeholder=year_config.value_placeholder,
     )
@@ -143,7 +143,7 @@ def format_year_country_data(
         text_before=country_config.text_before,
     )
 
-    other_bot = YearFormatData(
+    other_bot = YearFormatData.load(
         key_placeholder=year_config.key_placeholder,
         value_placeholder=year_config.value_placeholder,
     )
